@@ -19,8 +19,10 @@ npm install -D postcss
 Grab the [ntpdoc repository](https://github.com/nwtime/ntpdoc/):
 
 ```
-git clone https://github.com/nwtime/ntpdoc
-cd ntpdoc/themes
+git clone https://github.com/nwtime/ntpdoc ntpdoc
+cd ntpdoc
+mkdir themes
+cd themes
 ```
 
 Finally, add the [Docsy theme](https://github.com/google/docsy) while in the `ntpdoc/themes` directory:
