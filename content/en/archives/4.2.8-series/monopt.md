@@ -1,0 +1,280 @@
+---
+title: "Monitoring Options"
+type: archives
+---
+
+![gif](/archives/pic/pogo8.gif)[](http://www.eecis.udel.edu/~mills/pictures.html) from _Pogo_, Walt Kelly
+
+Pig was hired to watch the logs.
+
+Last update: 7-Dec-2017 10:17 UTC
+
+* * *
+
+#### Table of Contents
+
+*   [Naming Conventions](/archives/4.2.8-series/monopt/#naming-conventions)
+*   [Monitoring Commands and Options](/archives/4.2.8-series/monopt/#monitoring-commands-and-options)
+*   [File Set Types](/archives/4.2.8-series/monopt/#file-set-types)
+
+* * *
+
+#### Naming Conventions
+
+The <tt>ntpd</tt> includes a comprehensive monitoring facility which collects statistical data of various types and writes the data to files associated with each type at defined events or intervals. The files associated with a particular type are collectively called the generation file set for that type. The files in the file set are the members of that set.
+
+File sets have names specific to the type and generation epoch. The names are constructed from three concatenated elements _<tt>prefix</tt>_, _<tt>filename</tt>_ and _<tt>suffix</tt>_:
+
+<dl>
+
+<dt>_<tt>prefix</tt>_</dt>
+
+<dd>The directory path specified in the <tt>statsdir</tt> command.</dd>
+
+<dt>_<tt>name</tt>_</dt>
+
+<dd>The name specified by the <tt>file</tt> option of the <tt>filegen</tt> command.</dd>
+
+<dt>_<tt>suffix</tt>_</dt>
+
+<dd>A string of elements bdginning with . (dot) followed by a number of elements depending on the file set type.</dd>
+
+</dl>
+
+Statistics files can be managed using scripts, examples of which are in the <tt>./scripts</tt> directory. Using these or similar scripts and Unix <tt>cron</tt> jobs, the files can be automatically summarized and archived for retrospective analysis.
+
+* * *
+
+#### Monitoring Commands and Options
+
+Unless noted otherwise, further information about these commands is on the [Event Messages and Status Codes](/archives/4.2.8-series/decode) page.
+
+<dt id="filegen"><tt>filegen _name_ [file _filename_] [type _type_] [link | nolink] [enable | disable]</tt></dt>
+
+<dd>
+
+<dl>
+
+<dt>_<tt>name</tt>_</dt>
+
+<dd>Specifies the file set type from the list in the next section.</dd>
+
+<dt><tt>file _filename_</tt></dt>
+
+<dd>Specifies the filename prefix. The default is the file set type, such as "loopstats".</dd>
+
+<dt><tt>type _typename_</tt></dt>
+
+<dd>Specifies the file set interval. The following intervals are supported with default <tt>day</tt>:</dd>
+
+<dd>
+
+<dl>
+
+<dt><tt>none</tt></dt>
+
+<dd>The file set is actually a single plain file.</dd>
+
+<dt><tt>pid</tt></dt>
+
+<dd>One file set member is created for every incarnation of <tt>ntpd</tt>. The file name suffix is the string .<tt>n</tt>, where <tt>n</tt> is the process ID of the <tt>ntpd</tt> server process.</dd>
+
+<dt><tt>day</tt></dt>
+
+<dd>One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<tt>yyyymmdd</tt>, where <tt>yyyy</tt> is the year, <tt>mm</tt> the month of the year and <tt>dd</tt> the day of the month. Thus, member created on 10 December 1992 would have suffix <tt>.19921210</tt>.</dd>
+
+<dt><tt>week</tt></dt>
+
+<dd>One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<tt>yyyyWww</tt>, where <tt>yyyy</tt> is the year, <tt>W</tt> stands for itself and <tt>ww</tt> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <tt>.1992W1</tt>.</dd>
+
+<dt><tt>month</tt></dt>
+
+<dd>One file set member is created per month. The file name suffix is the string .<tt>yyyymm</tt>, where <tt>yyyy</tt> is the year and <tt>mm</tt> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <tt>.199201</tt>.</dd>
+
+<dt><tt>year</tt></dt>
+
+<dd>One file set member is generated per year. The file name suffix is the string .<tt>yyyy</tt>, where <tt>yyyy</tt> is the year. For example, The member created on 1 January 1992 would have suffix <tt>.1992</tt>.</dd>
+
+<dt><tt>age</tt></dt>
+
+<dd>One file set member is generated every 24 hours of <tt>ntpd</tt> operation. The filename suffix is the string <tt>.adddddddd</tt>, where <tt>a</tt> stands for itself and <tt>dddddddd</tt> is the <tt>ntpd</tt> running time in seconds at the start of the corresponding 24-hour period.</dd>
+
+</dl>
+
+</dd>
+
+<dt><tt>link | nolink</tt></dt>
+
+<dd>It is convenient to be able to access the current file set members by file name, but without the suffix. This feature is enabled by <tt>link</tt> and disabled by <tt>nolink</tt>. If enabled, which is the default, a hard link from the current file set member to a file without suffix is created. When there is already a file with this name and the number of links to this file is one, it is renamed by appending a dot, the letter <tt>C</tt>, and the pid of the <tt>ntpd</tt> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</dd>
+
+<dt><tt>enable | disable</tt></dt>
+
+<dd>Enable or disable the recording function, with default <tt>enable</tt>. These options are intended for remote configuration commands.</dd>
+
+</dl>
+
+</dd>
+
+<dt id="statistics"><tt>statistics _name_...</tt></dt>
+
+<dd>Enables writing of statistics records. Currently, eight kinds of statistics are supported: _name_s specify the file set type(s) from the list in the next section.</dd>
+
+<dt id="statsdir"><tt>statsdir _directory_path_</tt></dt>
+
+<dd>Specify the directory path prefix for statistics file names.</dd>
+
+</dl>
+
+* * *
+
+#### File Set Types
+
+<dt><tt>clockstats</tt></dt>
+
+Record reference clock statistics. Each update received from a reference clock driver appends one line to the <tt>clockstats</tt> file set:
+
+<dd><tt>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `49213` | MJD | date |
+| `525.624` | s | time past midnight |
+| `127.127.4.1` | IP | reference clock address |
+| message | text | log message |
+
+The <tt>_message_</tt> field includes the last timecode received in decoded ASCII format, where meaningful. In some cases a good deal of additional information is displayed. See information specific to each reference clock for further details.
+
+<dt><tt>cryptostats</tt></dt>
+
+<dd>Record significant events in the Autokey protocol. This option requires the OpenSSL cryptographic software library. Each event appends one line to the <tt>cryptostats</tt> file set:</dd>
+
+<dd><tt>49213 525.624 128.4.1.1 _message_</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `49213` | MJD | date |
+| `525.624` | s | time past midnight |
+| `128.4.1.1` | IP | source address (`0.0.0.0` for system) |
+| message | text | log message |
+
+The <tt>_message_</tt> field includes the message type and certain ancillary information. See the [Authentication Options](/archives/4.2.8-series/authopt) page for further information.
+
+<dt><tt>loopstats</tt></dt>
+
+<dd>Record clock discipline loop statistics. Each system clock update appends one line to the <tt>loopstats</tt> file set:</dd>
+
+<dd><tt>50935 75440.031 0.000006019 13.778 0.000351733 0.013380 6</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `50935` | MJD | date |
+| `75440.031` | s | time past midnight |
+| `0.000006019` | s | clock offset |
+| `13.778` | PPM | frequency offset |
+| `0.000351733` | s | RMS jitter |
+| `0.013380` | PPM | RMS frequency jitter (aka wander) |
+| `6` | log<sub>2</sub> s | clock discipline loop time constant |
+
+<dt><tt>peerstats</tt></dt>
+
+<dd>Record peer statistics. Each NTP packet or reference clock update received appends one line to the <tt>peerstats</tt> file set:</dd>
+
+<dd><tt>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `48773` | MJD | date |
+| `10847.650` | s | time past midnight |
+| `127.127.4.1` | IP | source address |
+| `9714` | hex | status word |
+| `-0.001605376` | s | clock offset |
+| `0.000000000` | s | roundtrip delay |
+| `0.001424877` | s | dispersion |
+| `0.000958674` | s | RMS jitter |
+
+The status field is encoded in hex format as described in Appendix B of the NTP specification RFC 1305.
+
+<dt><tt>protostats</tt></dt>
+
+<dd>Record significant peer, system and protocol events. Each significant event appends one line to the <tt>protostats</tt> file set:</dd>
+
+<dd><tt>49213 525.624 128.4.1.1 963a 8a _message_</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `49213` | MJD | date |
+| `525.624` | s | time past midnight |
+| `128.4.1.1` | IP | source address (`0.0.0.0` for system) |
+| `963a` | code | status word |
+| `8a` | code | event message code |
+| message | text | event message |
+
+The event message code and <tt>_message_</tt> field are described on the [Event Messages and Status Words](/archives/4.2.8-series/decode) page.
+
+<dt><tt>rawstats</tt></dt>
+
+<dd>Record timestamp statistics. Each NTP packet received appends one line to the <tt>rawstats</tt> file set. As of ntp-4.2.8p11, each NTP packet written appends one line to the <tt>rawstats</tt> file set, as well. The format of this line is:</dd>
+
+<dd><tt>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS.</tt></dd>
+
+<dd><tt>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS. 4: 0000</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `56285` | MJD | date |
+| `54575.160` | s | time past midnight |
+| `128.4.1.1` | IP | source address |
+| `192.168.1.5` | IP | destination address |
+| `3565350574.400229473` | NTP s | origin timestamp |
+| `3565350574.442385200` | NTP s | receive timestamp |
+| `3565350574.442436000` | NTP s | transmit timestamp |
+| `3565350575.154505763` | NTP s | destination timestamp |
+| `0` | 0: OK <br> 1: insert pending<br> 2: delete pending<br> 3: not synced | leap warning indicator |
+| `4`| 4 was current in 2020 | NTP version |
+| `4` | 3: client<br> 4: server<br> 5: broadcast | mode |
+| `1` | 1-15<br> 16: not synced | stratum |
+| `8` | log<sub>2</sub> seconds | poll |
+| `-21` | log<sub>2</sub> seconds | precision |
+| `0.000000` | seconds | total roundtrip delay to the primary reference clock |
+| `0.000320` | seconds | total dispersion to the primary reference clock |
+| `.PPS.` | REFID | system peer, association ID |
+| | If there is data beyond the base packet: |
+| `4:` | Integer | Length, in bytes |
+| `0000` | Hex data | |
+
+<dt><tt>sysstats</tt></dt>
+
+<dd>Record system statistics. Each hour one line is appended to the <tt>sysstats</tt> file set in the following format:</dd>
+
+<dd><tt>50928 2132.543 3600 81965 0 9546 56 512 540 10 4 147 1</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `50928` | MJD | date |
+| `2132.543` | s | time past midnight |
+| `3600` | s | time since reset |
+| `81965` | # | packets received |
+| `0` | # | packets for this host |
+| `9546` | # | current versions |
+| `56` | # | old version |
+| `512` | # | access denied |
+| `540` | # | bad length or format 
+| `10` | # | bad authentication |
+| `4` | # | declined |
+| `147` | # | rate exceeded |
+| `1` | # | kiss-o'-death packets sent |
+
+<dt><tt>timingstats</tt></dt>
+
+<dd>(Only available when the daemon is compiled with process time debugging support (--enable-debug-timing - costs performance). Record processing time statistics for various selected code paths.</dd>
+
+<dd><tt>53876 36.920 10.0.3.5 1 0.000014592 input processing delay</tt></dd>
+
+| Item | Units | Description |
+| ----- | ----- | ----- |
+| `53876` | MJD | date |
+| `36.920` | s | time past midnight |
+| `10.0.3.5` | IP | server address |
+| `1` | # | event count |
+| `0.000014592` | s | total time |
+| message | text | code path description (see source) |

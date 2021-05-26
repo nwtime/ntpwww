@@ -1,0 +1,99 @@
+baseURL = "/"
+title = "NTP: Network Time Protocol"
+
+enableRobotsTXT = true
+theme = ["docsy"]
+
+contentDir = "content/en"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsUseClassic = false
+pygmentsStyle = "tango"
+
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+angledQuotes = false
+latexDashes = true
+
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
+[languages]
+[languages.en]
+title = "NTP: Network Time Protocol"
+description = "NTP Documentation Archive"
+languageName ="English"
+weight = 1
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+      style = "tango"
+
+# Everything below this are Site Params
+
+[params]
+copyright = "Network Time Foundation"
+
+version_menu = "Docs"
+archived_version = false
+version = "4.2.8p15"
+url_latest_version = "/archives/4.2.8-series/index"
+
+[[params.versions]]
+  version = "4.2.8-series"
+  url = "/archives/4.2.8-series/toc"
+
+github_repo = "https://github.com/ntp-project/ntp"
+
+gcs_engine_id = "d72aa9b2712488cc3"
+algolia_docsearch = false
+offlineSearch = false
+
+prism_syntax_highlighting = false
+
+[params.ui]
+sidebar_menu_compact = true
+breadcrumb_disable = false
+sidebar_search_disable = false
+navbar_logo = false
+footer_about_disable = true
+
+[params.ui.feedback]
+enable = true
+yes = 'Glad to hear it!</a>.'
+no = 'Sorry to hear that.</a>.'
+
+[params.ui.readingtime]
+enable = false
+
+[params.links]
+[[params.links.user]]
+	name = "Mailing lists"
+	url = "https://lists.ntp.org/listinfo"
+	icon = "fa fa-envelope"
+        desc = "Discussion and help from your fellow users"
+[[params.links.user]]
+	name ="Twitter"
+	url = "https://twitter.com/ntp"
+	icon = "fab fa-twitter"
+        desc = "Follow us on Twitter to get the latest news!"
+[[params.links.user]]
+	name ="LinkedIn"
+	url = "https://www.linkedin.com/groups/4651343"
+	icon = "fab fa-linkedin-in"
+        desc = "Follow us on LinkedIn"
+[[params.links.user]]
+	name = "Facebook"
+	url = "https://www.facebook.com/networktimeprotocol"
+	icon = "fab fa-facebook-f"
+        desc = "Follow us on Facebook"
+
