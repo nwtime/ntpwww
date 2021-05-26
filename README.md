@@ -58,4 +58,4 @@ you have not installed the extended version of Hugo, which is required by the Do
 
 If Hugo is running as you save edits to an ntpdoc file, it should automatically display the changes--occasionally you will need to refresh your browser to see the changes.
 
-To issue a git pull request for your edits, use the instructions at https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests.
+To issue a git pull request for your edits, use [these instructions](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
