@@ -1,5 +1,4 @@
 ---
-title: "4.2.8-series"
 type: archives
 ---
 

@@ -1,5 +1,4 @@
 ---
-title: "4.1.2"
 type: archives
 ---
 

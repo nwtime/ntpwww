@@ -1,6 +1,5 @@
 
 ---
-title: "4.2.4-series"
 type: archives
 ---
 
