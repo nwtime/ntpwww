@@ -38,7 +38,7 @@ This driver also supports the Model 320, 330,331,332 decoders in both polled or 
 
 #### Model 325 timecode format
 
-<tt><cr><lf>RQ_1C00LYYYY+DDDUTCS_HH:MM:SSL+5</tt>
+<tt>&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;RQ_1C00LYYYY+DDDUTCS_HH:MM:SSL+5</tt>
 
 | Value | Description |
 | ----- | ----- |
@@ -67,7 +67,7 @@ Note that Model 325 reports a very similar output like Model 33X series. The dri
 
 #### Model 320 timecode format
 
-<tt><cr><lf>SQRYYYYDDD+HH:MM:SS.mmLT<cr></tt>
+<tt>&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;SQRYYYYDDD+HH:MM:SS.mmLT&lsaquo;cr&rsaquo;</tt>
 
 | Value | Description |
 | ----- | ----- |
