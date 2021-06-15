@@ -35,7 +35,7 @@ Autokey authenticates individual packets using cookies bound to the IP source an
 
 Autokey is designed to authenticate servers to clients, not the other way around as in SSH. An Autokey server can support an authentication scheme such as the Trusted Certificate (TC) scheme described in RFC 5906, while a client is free to choose between the various options. It is important to understand that these provisions are optional and that selection of which option is at the discretion of the client. If the client does not require authentication, it is free to ignore it, even if some other client of the same server elects to participate in either symmetric key or public key cryptography.
 
-Autokey uses industry standard X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library, and the [<tt>ntp-keygen</tt>](/archives/4.2.8-series/keygen) utility program in the NTP software distribution. A certificate includes the subject name of the client, the issuer name of the server, the public key of the client and the time period over which the the public and private keys are valid. All Autokey hosts have a self-signed certificate with the Autokey name as both the subject and issuer. During the protocol, additional certificates are produced with the Autokey host name as subject and the host that signs the certificate as issuer.
+Autokey uses industry standard X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library, and the [<tt>ntp-keygen</tt>](/archives/4.2.8-series/keygen) utility program in the NTP software distribution. A certificate includes the subject name of the client, the issuer name of the server, the public key of the client and the time period over which the public and private keys are valid. All Autokey hosts have a self-signed certificate with the Autokey name as both the subject and issuer. During the protocol, additional certificates are produced with the Autokey host name as subject and the host that signs the certificate as issuer.
 
 There are two timeouts associated with the Autokey scheme. The _key list timeout_ is set by the <tt>automax</tt> command, which specifies the interval between generating new key lists by the client or server. The default timeout of about 1.1 hr is appropriate for the majority of configurations and ordinarily should not be changed. The _revoke timeout_ is set by the <tt>revoke</tt> command, which specifies the interval between generating new server private values. It is intended to reduce the vulnerability to cryptanalysis; however, new values require the server to encrypt each client cookie separately. The default timeout of about 36 hr is appropriate for most servers, but might be too short for national time servers.
 
@@ -136,7 +136,7 @@ where _<tt>passwd2</tt>_ is the read password for another TA. We won't need this
 
 While the file names used for the exported files are arbitrary, it is common practice to use the name given as the first line in the file with the filestamp suppressed. Thus, the nonencryted parameters file from each TA is copied to X with this name.
 
-To complete the configuration, the TH includes the client parameters file name in the <tt>ident</tt> option of the the <tt>server</tt> command for the TA association
+To complete the configuration, the TH includes the client parameters file name in the <tt>ident</tt> option of the <tt>server</tt> command for the TA association:
 
 `server 1.2.3.4 ident group`
 
@@ -144,7 +144,7 @@ where _<tt>group</tt>_ is the file name given above.
 
 #### Identity Schemes and Cryptotypes
 
-A specific combination of authentication and identity schemes is called a _cryptotype_, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the the following codes.
+A specific combination of authentication and identity schemes is called a _cryptotype_, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the following codes.
 
 <dl>
 

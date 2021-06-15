@@ -92,7 +92,7 @@ The **Event Field** displays the most recent event message coded as follows:
 
 The peer status word consists of four fields: Status (0-4), Select (5-7), Count (8-11) and Code (12-15). It is reported in the first line of the <tt>rv _associd_</tt> display produced by the <tt>ntpq</tt> program.
 
-The **Status Field** displays the peer status code bits in hexadecimal; each bit is an independent flag. **Note this field is 5 bits wide, and combines with the the 3-bit-wide Select Field to create the first full byte of the peer status word.** The meaning of each bit in the Status Field is listed in the following table:
+The **Status Field** displays the peer status code bits in hexadecimal; each bit is an independent flag. **Note this field is 5 bits wide, and combines with the 3-bit-wide Select Field to create the first full byte of the peer status word.** The meaning of each bit in the Status Field is listed in the following table:
 
 | Code | Message | Description |
 | ---- | ------ | ----- |

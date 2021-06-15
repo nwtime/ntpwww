@@ -23,7 +23,7 @@ Unless noted otherwise, further information about these commands is on the [Auth
 
 <dt id="controlkey"><tt>controlkey _keyid_</tt></dt>
 
-<dd>Specifies the key ID for the [<tt>ntpq</tt>](ntpq.html) utility, which uses the standard protocol defined in RFC-1305\. The <tt>_keyid_</tt> argument is the key ID for a [trusted key](authopt.html#trustedkey), where the value can be in the range 1 to 65535, inclusive.</dd>
+<dd>Specifies the key ID for the [<tt>ntpq</tt>](ntpq.html) utility, which uses the standard protocol defined in RFC-1305. The <tt>_keyid_</tt> argument is the key ID for a [trusted key](authopt.html#trustedkey), where the value can be in the range 1 to 65535, inclusive.</dd>
 
 <dt id="crypto"><tt>crypto [digest _digest_] [host _name_] [ident _name_] [pw _password_] [randfile _file_]</tt></dt>
 
@@ -35,7 +35,7 @@ Unless noted otherwise, further information about these commands is on the [Auth
 
 <dt><tt>digest</tt> _digest_</dt>
 
-<dd>Specify the message digest algorithm, with default MD5\. If the OpenSSL library is installed, <tt>_digest_</tt> can be be any message digest algorithm supported by the library. The current selections are: <tt>MD2</tt>, <tt>MD4</tt>, <tt>MD5,</tt> <tt>MDC2</tt>, <tt>RIPEMD160</tt>, <tt>SHA</tt> and <tt>SHA1</tt>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>.</dd>
+<dd>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <tt>_digest_</tt> can be any message digest algorithm supported by the library. The current selections are: <tt>MD2</tt>, <tt>MD4</tt>, <tt>MD5,</tt> <tt>MDC2</tt>, <tt>RIPEMD160</tt>, <tt>SHA</tt> and <tt>SHA1</tt>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>.</dd>
 
 <dt><tt>host _name_</tt></dt>
 
@@ -83,4 +83,4 @@ Unless noted otherwise, further information about these commands is on the [Auth
 
 <dt id="trustedkey"><tt>trustedkey [_keyid_ | (_lowid_ ... _highid_)] [...]</tt></dt>
 
-<dd>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <tt>ntpq</tt> and <tt>ntpdc</tt> operations must be listed here and additionally be enabled with [controlkey](authopt.html#controlkey) and/or [requestkey](authopt.html#requestkey). The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <tt>trustedkey (1 ... 19) 1000 (100 ... 199)</tt> enables the lowest 120 key IDs which start with the digit 1\. The spaces surrounding the ellipsis are required when specifying a range.</dd>
+<dd>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <tt>ntpq</tt> and <tt>ntpdc</tt> operations must be listed here and additionally be enabled with [controlkey](authopt.html#controlkey) and/or [requestkey](authopt.html#requestkey). The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <tt>trustedkey (1 ... 19) 1000 (100 ... 199)</tt> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</dd>

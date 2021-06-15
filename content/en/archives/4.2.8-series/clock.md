@@ -46,7 +46,7 @@ In some applications the clock can never be set backward, even it accidentally s
 
 #### Hold Timer
 
-When the daemon is started after a considerable downtime, it could be the TOY chip clock has drifted significantly from NTP time. This can cause a transient at system startup. In the past, this has produced a phase transient and resulted in a frequency surge that could take some time, even hours, to subside. When the highest accuracy is required, some means is necessary to manage the startup process so that the the clock is quickly set correctly and the frequency is undisturbed. The hold timer is used to suppress frequency adjustments during the training and startup intervals described below. At the beginning of the interval the hold timer is set to the stepout threshold and decrements at one second intervals until reaching zero. However, the hold timer is forced to zero if the residual clock offset is less than 0.5 ms. When nonzero, the discipline algorithm uses a small time constant (equivalent to a poll exponent of 2), but does not adjust the frequency. Assuming that the frequency has been set to within 1 PPM, either from the frequency file or by the training interval described later, the clock is set to within 0.5 ms in less than 300 s.
+When the daemon is started after a considerable downtime, it could be the TOY chip clock has drifted significantly from NTP time. This can cause a transient at system startup. In the past, this has produced a phase transient and resulted in a frequency surge that could take some time, even hours, to subside. When the highest accuracy is required, some means is necessary to manage the startup process so that the clock is quickly set correctly and the frequency is undisturbed. The hold timer is used to suppress frequency adjustments during the training and startup intervals described below. At the beginning of the interval the hold timer is set to the stepout threshold and decrements at one second intervals until reaching zero. However, the hold timer is forced to zero if the residual clock offset is less than 0.5 ms. When nonzero, the discipline algorithm uses a small time constant (equivalent to a poll exponent of 2), but does not adjust the frequency. Assuming that the frequency has been set to within 1 PPM, either from the frequency file or by the training interval described later, the clock is set to within 0.5 ms in less than 300 s.
 
 * * *
 
@@ -78,7 +78,7 @@ The state machine operates in one of four nonoverlapping intervals.
 
 #### State Transition Function
 
-The state machine consists of five states. An event is created when an update is received by the discipline algorithm. Depending on the state and the the offset magnitude, the machine performs some actions and transitions to the same or another state. Following is a short description of the states.
+The state machine consists of five states. An event is created when an update is received by the discipline algorithm. Depending on the state and the offset magnitude, the machine performs some actions and transitions to the same or another state. Following is a short description of the states.
 
 <dl>
 
