@@ -38,11 +38,13 @@ In MANUAL mode the clock responds to a rising edge of the request to send (RTS) 
 
 The clock message consists of 23 ASCII printing characters in the following format:
 
-<pre>hh:mm:ss.f     dd/mm/yr<cr>
+<pre>hh:mm:ss.f     dd/mm/yr&lsaquo;cr&rsaquo;</pre>
 
-hh:mm:ss.f = hours, minutes, seconds
-f = deciseconds ('?' when out of spec)
-dd/mm/yr = day, month, year</pre>
+`hh:mm:ss.f` = hours, minutes, seconds
+
+`f` = deciseconds (`?` when out of spec)
+
+`dd/mm/yr` = day, month, year
 
 The alarm condition is indicated by `'?'`, rather than a digit, at A. Note that `0?:??:??.?` is displayed before synchronization is first established and `hh:mm:ss.?` once synchronization is established and then lost again for about a day.
 
