@@ -106,9 +106,9 @@ There are a few things to notice about the above:
       server.
 
     o 'tickadj' is also called. This does two things: changes the
-      default value of 'tick' (which the the amount of time, in ms, that
+      default value of 'tick' (which is the amount of time, in ms, that
       is added to the clock every 1/60 seconds) and changes the value
-      of 'tickadj' which the the amount that is added or subtracted
+      of 'tickadj' which is the amount that is added or subtracted
       from 'tickadj' when adjtime() is called.
 
       Now Mac clocks are pretty bad and tend to be slow. Sooo, instead of
@@ -187,7 +187,7 @@ TECHNICAL NOTES:
       time. I prefer having 'xntpd' slew the clock back into line by
       making gradual adjustments to the clock over a coupla minutes
       or so. It's for this reason that SLEWALWAYS is defined in
-      include/ntp_machine.h for SYS_AUX3\. It's also for this reason than
+      include/ntp_machine.h for SYS_AUX3. It's also for this reason than
       I like larger values of 'tickadj'.
 
 Good luck!  If you have problems under A/UX feel free to contact me (e-mail

@@ -57,7 +57,7 @@ Unfortunately I have had to make use of the <tt>./include/ntp_machine.h</tt> fil
 *   POSIX timers have been added.
 *   Structures normally found in <tt>netdb.h</tt> have been added with, the corresponding code is in <tt>./libntp/machines.c</tt>. Where possible the defines for these have been kept non-vxWorks specific.
 
-Unfortunately there are still quite a few <tt>SYS_VXWORKS</tt> type defines in the source, but I have eliminated as many as possible. You have the choice of using the <tt>usrtime.a</tt> library avaliable from the vxworks archives or forgoing <tt>adjtime()</tt> and using the <tt>clock_[get|set]time()</tt>. The <tt>./include/ntp_machine.h</tt> file clearly marks how to do this.
+Unfortunately there are still quite a few <tt>SYS_VXWORKS</tt> type defines in the source, but I have eliminated as many as possible. You have the choice of using the <tt>usrtime.a</tt> library available from the vxworks archives or forgoing <tt>adjtime()</tt> and using the <tt>clock_[get|set]time()</tt>. The <tt>./include/ntp_machine.h</tt> file clearly marks how to do this.
 
 * * *
 
