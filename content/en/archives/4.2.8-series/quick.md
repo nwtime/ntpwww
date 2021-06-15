@@ -3,8 +3,6 @@ title: "Quick Start"
 type: archives
 ---
 
-Last update: 1-Dec-2012 04:44 UTC
-
 ![gif](/archives/pic/panda.gif)FAX test image for SATNET (1979).
 
 The baby panda was scanned at University College London and used as a FAX test image for a demonstration of the DARPA Atlantic SATNET Program and the first transatlantic Internet connection in 1978. The computing system used for that demonstration was called the [Fuzzball](http://www.eecis.udel.edu/%7emills/database/papers/fuzz.ps). As it happened, this was also the first Internet multimedia presentation and the first to use a predecessor of NTP in regular operation. The image was widely copied and used for testing purpose throughout much of the 1980s.
