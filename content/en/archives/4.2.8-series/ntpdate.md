@@ -98,7 +98,7 @@ If NetInfo support is compiled into <tt>ntpdate</tt>, then the <tt>server</tt> a
 
 <dt><tt>-t _timeout_</tt></dt>
 
-<dd>Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is is rounded to a multiple of 0.2 seconds. The default is 2 seconds, a value suitable for polling across a LAN.</dd>
+<dd>Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 2 seconds, a value suitable for polling across a LAN.</dd>
 
 <dt><tt>-u</tt></dt>
 

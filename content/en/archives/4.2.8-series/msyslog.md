@@ -187,14 +187,14 @@ Program error. Bugs can be reported [here](/archives/4.2.8-series/bugs).
 </tt><tt>cert_parse: invalid signature ?  
 </tt><tt>cert_parse: invalid subject ?</tt></dt>
 
-<dd>There is a problem with a certificate. Operation cannot proceed untill the problem is fixed. If the certificate is local, it can be regenerated using the <tt>ntp-keygen</tt> program. If it is held somewhere else, it must be fixed by the holder.</dd>
+<dd>There is a problem with a certificate. Operation cannot proceed until the problem is fixed. If the certificate is local, it can be regenerated using the <tt>ntp-keygen</tt> program. If it is held somewhere else, it must be fixed by the holder.</dd>
 
 <dt><tt>crypto_?: defective key  
 </tt><tt>crypto_?: invalid filestamp  
 </tt><tt>crypto_?: missing challenge  
 </tt><tt>crypto_?: scheme unavailable</tt></dt>
 
-<dd>There is a problem with the identity scheme. Operation cannot proceed untill the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <tt>ntpd</tt> will usually time out and recover by itself.</dd>
+<dd>There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <tt>ntpd</tt> will usually time out and recover by itself.</dd>
 
 <dt><tt>crypto_cert: wrong PEM type ?</tt></dt>
 

@@ -9,7 +9,7 @@ Last update: 10-Mar-2014 05:07 UTC
 
 #### Historical Notes on NTP Upgrades
 
-This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008\. It is very important to recognize that this historic document describes the upgrade status as of 2008\. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release) page.
+This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008. It is very important to recognize that this historic document describes the upgrade status as of 2008. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release) page.
 
 The motivation for this project was the overhaul and refinement of the code, some of which dates back twenty years. Some four dozen sets of fingers have introduced sometimes incompatible "improvements" that to some degree enhance or burden the product. There has been a continuing effort over the years to maintain the briar patch and pluck the more flagrant weeds, but it now requires a more systematic and thorough examination of purpose, design and implementation. The project is not complete, but far enough along to present a status report and review of significant changes.
 
@@ -39,7 +39,7 @@ In a continuing mission the code flow has been carefully adjusted to decrease vu
 
 #### 4\. Rate Management
 
-Strict rate controls have been refined in both outbound and inbound traffic for both minimum headway (guard time) and minimum average headway. This is a major improvement over the original limitreject design of 1992 and upgrade circa 2003\. Headway violations result in an optional _kiss-o'-death_ (KoD) packet. To avoid a clogging vulnerability, the KoD packets are themselves rate controlled for each source address separately.
+Strict rate controls have been refined in both outbound and inbound traffic for both minimum headway (guard time) and minimum average headway. This is a major improvement over the original limitreject design of 1992 and upgrade circa 2003. Headway violations result in an optional _kiss-o'-death_ (KoD) packet. To avoid a clogging vulnerability, the KoD packets are themselves rate controlled for each source address separately.
 
 The main feature of the revised design is that it is responsive to the server minimum headway and avoids guessing. This is done by setting the ppoll field in the server packet to the maximum of (a) the ppoll field in the client packet and (b) the server headway. The client sets the ppoll field in the association to the maximum of (a) the ppoll field in the server packet and (b) the minpoll field in the association. If this is a KoD and this value is greater than minpoll, minpoll is set to this value. The result is that the client continues sending, but only at headway at least as large as the server.
 
@@ -81,7 +81,7 @@ The local clock driver can be very dangerous when used as a fallback when connec
 
 One of the most persistent problems is when after long operation and then a failure and then subsequently recovery, a client can take a long time to refresh the clock filter and resynchronize. Once the client has backed off the poll interval after a lengthy outage, it sends polls at that interval until receiving a response. At that time it temporarily retries at the minimum poll interval to fill up the clock filter. If iburst is configured, this will happen after 10 seconds or so and the client then resumes its poll interval required by the discipline time constant. This avoids needless network traffic while the poll interval increases gradually to the maximum. Further information is in the current web documentation.
 
-The same thing happens on initial startup or when an association is restarted. The intent is to avoid a blast of <tt>iburst</tt> packets unless the server actually responds to the first one and to retry only while responding to the the rate controls.
+The same thing happens on initial startup or when an association is restarted. The intent is to avoid a blast of <tt>iburst</tt> packets unless the server actually responds to the first one and to retry only while responding to the rate controls.
 
 In order to speed response to initial startup when a reference clock is available, the clock is set on the first message received from the driver. This exposed an interesting bug, now fixed, with the ACTS modem driver, which began prematurely to ramp up the poll interval.
 

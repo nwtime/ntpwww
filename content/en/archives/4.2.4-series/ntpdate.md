@@ -100,7 +100,7 @@ Divert logging output from the standard output (default) to the system <tt>syslo
 
 <dt><tt>-t _timeout_</tt></dt>
 
-Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.
+Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.
 
 <dt><tt>-u</tt></dt>
 
