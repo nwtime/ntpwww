@@ -452,7 +452,7 @@ Either the root delay or dispersion is greater than one second, which is highly 
 
 <dt><tt>0x100 TEST9</tt></dt>
 
-Either the peer delay or dispersion is greater than one second, which is higly unlikely unless the peer is on Mars.
+Either the peer delay or dispersion is greater than one second, which is highly unlikely unless the peer is on Mars.
 
 <dt><tt>0x200 TEST10</tt></dt>
 

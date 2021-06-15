@@ -60,15 +60,15 @@ After starting the daemon, run the <tt>ntpq</tt> program using the <tt>-n</tt> s
 <pre>ntpq> pe
      remote      refid       st t when poll reach delay offset jitter
 =====================================================================
--isipc6.cairn.ne .GPS1\.        1 u  18  64  377  65.592 -5.891  0.044
-+saicpc-isiepc2\. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
+-isipc6.cairn.ne .GPS1.        1 u  18  64  377  65.592 -5.891  0.044
++saicpc-isiepc2. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
 +uclpc.cairn.net pogo.udel.edu 2 u  37  64  177 212.111 -0.551  0.187
-*pogo.udel.edu   .GPS1\.        1 u  95 128  377   0.607  0.123  0.027
+*pogo.udel.edu   .GPS1.        1 u  95 128  377   0.607  0.123  0.027
 </pre>
 
 The host names or addresses shown in the <tt>remote</tt> column correspond to the server and peer entries listed in the configuration file; however, the DNS names might not agree if the names listed are not the canonical DNS names. IPv4 addresses are shown in dotted quad notation, while IPv6 addresses are shown alarmingly. The <tt>refid</tt> column shows the current source of synchronization, while the <tt>st</tt> column reveals the stratum, <tt>t</tt> the type (<tt>u</tt> = unicast, <tt>m</tt> = multicast, <tt>l</tt> = local, <tt>-</tt> = don't know), and <tt>poll</tt> the poll interval in seconds. The <tt>when</tt> column shows the time since the peer was last heard in seconds, while the <tt>reach</tt> column shows the status of the reachability register (see RFC-1305) in octal. The remaining entries show the latest delay, offset and jitter in milliseconds. Note that in NTP Version 4 what used to be the <tt>dispersion</tt> column has been replaced by the <tt>jitter</tt> column.
 
-As per the NTP specification RFC-1305, when the <tt>stratum</tt> is between 0 and 15 for a NTP server, the <tt>refid</tt> field shows the server DNS name or, if not found, the IP address in dotted-quad. When the <tt>stratum</tt> is any value for a reference clock, this field shows the identification string assigned to the clock. However, until the client has synchronized to a server, or when the <tt>stratum</tt> for a NTP server is 0 (appears as 16 in the billboards), the status cannot be determined. As a help in debugging, the <tt>refid</tt> field is set to a four-character string called the kiss code. The current kiss codes are as as follows.
+As per the NTP specification RFC-1305, when the <tt>stratum</tt> is between 0 and 15 for a NTP server, the <tt>refid</tt> field shows the server DNS name or, if not found, the IP address in dotted-quad. When the <tt>stratum</tt> is any value for a reference clock, this field shows the identification string assigned to the clock. However, until the client has synchronized to a server, or when the <tt>stratum</tt> for a NTP server is 0 (appears as 16 in the billboards), the status cannot be determined. As a help in debugging, the <tt>refid</tt> field is set to a four-character string called the kiss code. The current kiss codes are as follows.
 
 **Peer Kiss Codes**
 
@@ -177,7 +177,7 @@ timestamp=3172053041
 
 A detailed explanation of the fields in this billboard are beyond the scope of this discussion; however, most variables defined in the NTP Version 3 specification RFC-1305 are available along with others defined for NTPv4 on the <tt>ntpq</tt> page. This particular example was chosen to illustrate probably the most complex configuration involving symmetric modes and public-key cryptography. As the result of debugging experience, the names and values of these variables may change from time to time.
 
-A useful indicator of miscellaneous problems is the <tt>flash</tt> value, which reveals the state of the various sanity tests on incoming packets. There are currently 12 bits, one for each test, numbered from the right, which is for test 1\. If the test fails, the corresponding bit is set to one and zero otherwise. If any bit is set following each processing step, the packet is discarded. The meaning of each test is described on the <tt>ntpq</tt> page.
+A useful indicator of miscellaneous problems is the <tt>flash</tt> value, which reveals the state of the various sanity tests on incoming packets. There are currently 12 bits, one for each test, numbered from the right, which is for test 1. If the test fails, the corresponding bit is set to one and zero otherwise. If any bit is set following each processing step, the packet is discarded. The meaning of each test is described on the <tt>ntpq</tt> page.
 
 The three lines identified as <tt>filtdelay</tt>, <tt>filtoffset</tt> and <tt>filtdisp</tt> reveal the roundtrip delay, clock offset and dispersion for each of the last eight measurement rounds, all in milliseconds. Note that the dispersion, which is an estimate of the error, increases as the age of the sample increases. From these data, it is usually possible to determine the incidence of severe packet loss, network congestion, and unstable local clock oscillators. There are no hard and fast rules here, since every case is unique; however, if one or more of the rounds show large values or change radically from one round to another, the network is probably congested or lossy.
 
@@ -248,7 +248,7 @@ To assist debugging every NTP extension field is displayed in the trace along wi
 
 If the <tt>ntpq</tt> or <tt>ntpdc</tt> programs do not show that messages are being received by the daemon or that received messages do not result in correct synchronization, verify the following:
 
-1.  Verify the <tt>/etc/services</tt> file host machine is configured to accept UDP packets on the NTP port 123\. NTP is specifically designed to use UDP and does not respond to TCP.
+1.  Verify the <tt>/etc/services</tt> file host machine is configured to accept UDP packets on the NTP port 123. NTP is specifically designed to use UDP and does not respond to TCP.
 2.  Check the system log for <tt>ntpd</tt> messages about configuration errors, name-lookup failures or initialization problems. Common system log messages are summarized on the [<tt>ntpd</tt> System Log Messages](/archives/4.2.2-series/msyslog) page. Check to be sure that only one copy of <tt>ntpd</tt> is running.
 3.  Verify using <tt>ping</tt> or other utility that packets actually do make the round trip between the client and server. Verify using <tt>nslookup</tt> or other utility that the DNS server names do exist and resolve to valid Internet addresses.
 4.  Check that the remote NTP server is up and running. The usual evidence that it is not is a <tt>Connection refused</tt> message.

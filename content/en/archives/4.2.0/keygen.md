@@ -85,7 +85,7 @@ If a rogue client has the parameter file, it could masquerade as a legitimate se
 
 For the GQ scheme proceed as in the TC scheme to generate keys and certificates for all group hosts, then for every trusted host in the group, generate the IFF parameter file. On trusted host _alice_ run <tt>ntp-keygen -T</tt> <tt>-G -p _password_</tt> to produce her parameter file <tt>ntpkey_GQpar__alice.filestamp_</tt>, which includes both server and client keys. Copy this file to all group hosts and install a soft link from the generic <tt>ntpkey_gq__alice_</tt> to this file. In addition, on each host _bob_ install a soft link from generic <tt>ntpkey_gq__bob_</tt> to this file. As the GQ scheme updates the GQ parameters file and certificate at the same time, keys and certificates can be regenerated as needed.
 
-For the MV scheme, proceed as in the TC scheme to generate keys and certificates for all group hosts. For illustration assume _trish_ is the TA, _alice_ one of several trusted hosts and _bob_ one of her clients. On TA _trish_ run <tt>ntp-keygen</tt> <tt>-V _n_ -p _password_</tt>, where _n_ is the number of revokable keys (typically 5) to produce the parameter file <tt>ntpkeys_MVpar__trish.filestamp_ </tt>and client key files <tt>ntpkeys_MVkey_d___trish.filestamp_</tt> where _<tt>d</tt>_ is the key number (0 < _<tt>d</tt>_ < _n_). Copy the parameter file to _alice_ and install a soft link from the generic <tt>ntpkey_mv__alice_</tt> to this file. Copy one of the client key files to _alice_ for later distribution to her clients. It doesn't matter which client key file goes to _alice_, since they all work the same way. _Alice_ copies the client key file to all of her cliens. On client _bob_ install a soft link from generic <tt>ntpkey_mvkey__bob_ </tt>to the client key file. As the MV scheme is independent of keys and certificates, these files can be refreshed as needed.
+For the MV scheme, proceed as in the TC scheme to generate keys and certificates for all group hosts. For illustration assume _trish_ is the TA, _alice_ one of several trusted hosts and _bob_ one of her clients. On TA _trish_ run <tt>ntp-keygen</tt> <tt>-V _n_ -p _password_</tt>, where _n_ is the number of revokable keys (typically 5) to produce the parameter file <tt>ntpkeys_MVpar__trish.filestamp_ </tt>and client key files <tt>ntpkeys_MVkey_d___trish.filestamp_</tt> where _<tt>d</tt>_ is the key number (0 < _<tt>d</tt>_ < _n_). Copy the parameter file to _alice_ and install a soft link from the generic <tt>ntpkey_mv__alice_</tt> to this file. Copy one of the client key files to _alice_ for later distribution to her clients. It doesn't matter which client key file goes to _alice_, since they all work the same way. _Alice_ copies the client key file to all of her clients. On client _bob_ install a soft link from generic <tt>ntpkey_mvkey__bob_ </tt>to the client key file. As the MV scheme is independent of keys and certificates, these files can be refreshed as needed.
 
 #### Command Line Options
 
@@ -119,7 +119,7 @@ Generate parameters for the IFF identification scheme, obsoleting any that may e
 
 <dt><tt>-i _name_</tt></dt>
 
-Set the suject name to _name_. This is used as the subject field in certificates and in the file name for host and sign keys.
+Set the subject name to _name_. This is used as the subject field in certificates and in the file name for host and sign keys.
 
 <dt><tt>-M</tt></dt>
 

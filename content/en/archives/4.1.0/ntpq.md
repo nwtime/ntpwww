@@ -246,7 +246,7 @@ The <tt>flash</tt> bits for each test read in increasing order from the least si
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>TEST9</tt>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Either the peer delay or dispersion is greater than one second, which is higly unlikely unless the peer is on Mars.
+&nbsp;&nbsp;&nbsp;&nbsp;Either the peer delay or dispersion is greater than one second, which is highly unlikely unless the peer is on Mars.
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>TEST10</tt>
 
