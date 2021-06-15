@@ -17,7 +17,7 @@ Information on the NTP architecture, protocol and algorithms can be found in the
 
 The NTP architecture, protocol and algorithm models are described in
 
-*   Mills, D.L. Internet time synchronization: the Network Time Protocol. _IEEE Trans. Communications COM-39, 10_ (October 1991), 1482-1493\. [PostScript](http://www.eecis.udel.edu/~mills/database/papers/trans.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/trans.pdf). Also in: Yang, Z., and T.A. Marsland (Eds.). _Global States and Time in Distributed Systems_. IEEE Computer Society Press, Los Alamitos, CA, 1994, 91-102.
+*   Mills, D.L. Internet time synchronization: the Network Time Protocol. _IEEE Trans. Communications COM-39, 10_ (October 1991), 1482-1493. [PostScript](http://www.eecis.udel.edu/~mills/database/papers/trans.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/trans.pdf). Also in: Yang, Z., and T.A. Marsland (Eds.). _Global States and Time in Distributed Systems_. IEEE Computer Society Press, Los Alamitos, CA, 1994, 91-102.
 
 The NTP specification and implementation has evolved over the last two decades to the current Version 4 of the protocol. This version includes significant enhancements in accuracy and reliability, as determined by experience in an estimated total of well over 100,000 clients and servers in the Internet, while retaining backward compatibility with previous versions. This software distribution contains an implementation of the NTP Version 4 architecture, protocol and algorithms. While a formal specification of this version is not yet available, this version is fully compliant with the previous NTP Version 3 specification and implementation defined in
 
@@ -29,7 +29,7 @@ The NTP Version 4 implementation adds a number of extensions and refinements to 
 
     Mills, D.L., and P.-H. Kamp. The nanokernel. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Reston VA, November 2000). Paper: [PostScript](http://www.eecis.udel.edu/~mills/database/papers/nano/nano2.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/nano/nano2.pdf), Slides: [PostScript](http://www.eecis.udel.edu/~mills/database/brief/nano/nano.ps) | [PowerPoint](http://www.eecis.udel.edu/~mills/database/brief/nano/nano.ppt)
 
-    Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/kern/kerna.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/kern/kerna.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/kern/kernb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/kern/kernb.pdf). Major revision and update of: Network Working Group Report RFC-1589, University of Delaware, March 1994\. 31 pp. [ASCII](http://www.eecis.udel.edu/~mills/database/rfc/rfc1589.txt)
+    Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/kern/kerna.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/kern/kerna.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/kern/kernb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/kern/kernb.pdf). Major revision and update of: Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. [ASCII](http://www.eecis.udel.edu/~mills/database/rfc/rfc1589.txt)
 
 2.  Support for IP Multicasting, as described the [Association Management](/archives/4.1.2/assoc) page and in
 
@@ -37,15 +37,15 @@ The NTP Version 4 implementation adds a number of extensions and refinements to 
 
 3.  A new hybrid phase/frequency-lock clock discipline, which replaces the RFC-1305 local clock algorithm, as described in
 
-    Mills, D.L. Improved algorithms for synchronizing computer network clocks. _IEEE/ACM Trans. Networks 3, 3_ (June 1995), 245-254\. [PostScript](http://www.eecis.udel.edu/~mills/database/papers/tune2.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/tune2.pdf)
+    Mills, D.L. Improved algorithms for synchronizing computer network clocks. _IEEE/ACM Trans. Networks 3, 3_ (June 1995), 245-254. [PostScript](http://www.eecis.udel.edu/~mills/database/papers/tune2.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/tune2.pdf)
 
-    Mills, D.L. Clock discipline algorithms for the Network Time Protocol Version 4\. Electrical Engineering Report 97-3-3, University of Delaware, March 1997, 35 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/allan/securea.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/allan/securea.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/allan/secureb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/allan/secureb.pdf)
+    Mills, D.L. Clock discipline algorithms for the Network Time Protocol Version 4. Electrical Engineering Report 97-3-3, University of Delaware, March 1997, 35 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/allan/securea.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/allan/securea.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/allan/secureb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/allan/secureb.pdf)
 
 4.  Simple Network Monitoring Protocol (SNMP) monitoring tools, as described in
 
     Sethi, A.S., H. Gao, and D.L. Mills. Management of the Network Time Protocol (NTP) with SNMP. Computer and Information Sciences Report 98-09, University of Delaware, November 1998, 32 pp. [PostScript](http://www.eecis.udel.edu/~mills/database/reports/ntp-mib-tr.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/ntp-mib-tr.pdf)
 
-5.  Engineered refinements to radio clock drivers and interface code, as described in in the [Pulse-per-second (PPS) Signal Interfacing](/archives/4.1.2/pps) page and
+5.  Engineered refinements to radio clock drivers and interface code, as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/4.1.2/pps) page and
 
     Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](http://www.eecis.udel.edu/~mills/database/rfc/rfc2783.txt)
 
@@ -57,11 +57,11 @@ The NTP Version 4 implementation adds a number of extensions and refinements to 
 
     Mills, D.L. Public-Key cryptography for the Network Time Protocol. Internet Draft draft-ietf-stime-ntpauth-00.txt, University of Delaware, June 2000, 36 pp. [ASCII](http://www.eecis.udel.edu/~mills/database/memos/draft-ietf-stime-ntpauth-00.txt)
 
-    Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000\. 23 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeya.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeya.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeyb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeyb.pdf)
+    Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000. 23 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeya.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeya.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeyb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/pkey/pkeyb.pdf)
 
     Mills, D.L. Authentication scheme for distributed, ubiquitous, real-time protocols. _Proc. Advanced Telecommunications/Information Distribution Research Program (ATIRP) Conference_ (College Park MD, January 1997), 293-298. [PostScript](http://www.eecis.udel.edu/~mills/database/papers/atirp.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/atirp.pdf)
 
-    Mills, D.L. Proposed authentication enhancements for the Network Time Protocol version 4\. Electrical Engineering Report 96-10-3, University of Delaware, October 1996, 36 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/secure/securea.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/secure/securea.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/secure/secureb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/secure/secureb.pdf)
+    Mills, D.L. Proposed authentication enhancements for the Network Time Protocol version 4. Electrical Engineering Report 96-10-3, University of Delaware, October 1996, 36 pp. Abstract: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/secure/securea.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/secure/securea.pdf), Body: [PostScript](http://www.eecis.udel.edu/~mills/database/reports/secure/secureb.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/reports/secure/secureb.pdf)
 
 8.  Support for the MD5 cryptographic hash algorithm, in addition to the DES-CBC algorithm described in RFC-1305, as described in the [<tt>ntpd</tt> - Network Time Protocol (NTP) daemon](/archives/4.1.2/ntpd) page.
 
@@ -77,6 +77,6 @@ Levine, J., and D. Mills. Using the Network Time Protocol to transmit Internatio
 
 12.  Performance surveys for NTP Version 4 can be found in
 
-Mills, D.L., A. Thyagarajan and B.C. Huffman. Internet timekeeping around the globe. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Long Beach CA, December 1997), 365-371\. Paper: [PostScript](http://www.eecis.udel.edu/~mills/database/papers/survey5.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/survey5.pdf), Slides: [PostScript](http://www.eecis.udel.edu/~mills/database/brief/survey/survey.ps) | [PowerPoint](http://www.eecis.udel.edu/~mills/database/brief/survey/survey.ppt) | [PDF](http://www.eecis.udel.edu/~mills/database/brief/survey/survey.pdf)
+Mills, D.L., A. Thyagarajan and B.C. Huffman. Internet timekeeping around the globe. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Long Beach CA, December 1997), 365-371. Paper: [PostScript](http://www.eecis.udel.edu/~mills/database/papers/survey5.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/survey5.pdf), Slides: [PostScript](http://www.eecis.udel.edu/~mills/database/brief/survey/survey.ps) | [PowerPoint](http://www.eecis.udel.edu/~mills/database/brief/survey/survey.ppt) | [PDF](http://www.eecis.udel.edu/~mills/database/brief/survey/survey.pdf)
 
 Mills, D.L. The network computer as precision timekeeper. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Reston VA, December 1996), 96-108. Paper: [PostScript](http://www.eecis.udel.edu/~mills/database/papers/ptti.ps) | [PDF](http://www.eecis.udel.edu/~mills/database/papers/ptti.pdf), Slides: [PostScript](http://www.eecis.udel.edu/~mills/database/brief/ptti/ptti.ps) | [PowerPoint](http://www.eecis.udel.edu/~mills/database/brief/ptti/ptti.ppt) | [PDF](http://www.eecis.udel.edu/~mills/database/brief/ptti/ptti.pdf)
