@@ -5,7 +5,7 @@ type: archives
 
 The following changes are in the version 3-5.85 distribution relative to the previous 3.5f version.
 
-1.  The automatic build procedure has been replaced with GNU <tt>autoconfigure</tt>. This should make porting to nonstandard machines and operating systems much easier and should simplify the maintenance for multi-architecture sites. See the <tt>./WHERE-TO- START/</tt>, <tt>./INSTALL</tt> and <tt>./README</tt> files for a brief overview of the new building and installing procedures. See the the building and installing pages in the HTML documentation for further information.
+1.  The automatic build procedure has been replaced with GNU <tt>autoconfigure</tt>. This should make porting to nonstandard machines and operating systems much easier and should simplify the maintenance for multi-architecture sites. See the <tt>./WHERE-TO- START/</tt>, <tt>./INSTALL</tt> and <tt>./README</tt> files for a brief overview of the new building and installing procedures. See the building and installing pages in the HTML documentation for further information.
 2.  A clock driver (type 11) is included for the Arbiter 1088A/B GPS Receiver.
 3.  The Windows NT build procedure is changed. See the <tt>./util/wininstall</tt> directory for further information.
 4.  A clock driver (type 11) is included for the Arbiter 1088A/B GPS Receiver.
