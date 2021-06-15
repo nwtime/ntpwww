@@ -27,7 +27,7 @@ Parallel Port: <tt>/dev/fgclock_u_</tt>
 
 This driver supports the Forum Graphic GPS Dating station sold by EMR company.
 
-Unfortunately sometime FG GPS start continues reporting of the same date. The only way to fix this problem is GPS power cycling and ntpd restart after GPS power-up.
+Unfortunately, sometimes FG GPS start continues reporting of the same date. The only way to fix this problem is GPS power cycling and ntpd restart after GPS power-up.
 
 After Jan,10 2000 my FG GPS unit start send a wrong answer after 10:00am till 11:00am. It repeat hour value in result string twice. I wrote a small code to avoid such problem. Unfortunately I have no second FG GPS unit to evaluate this problem. Please let me know if your GPS has no problems after Y2K.
 

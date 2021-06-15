@@ -68,13 +68,13 @@ The burst assembler processes characters either from the maximum-likelihood UART
 
 A valid burst consists of ten characters in two replicated five-character blocks, each block representing ten 4-bit BCD digits. The format B blocks sent in second 31 contain the year and other information in ten digits. The eight format A blocks sent in seconds 32-39 contain the timecode in ten digits, the first of which is a framing code (6). The burst assembler must deal with cases where the first character of a format A burst is lost or is noise. This is done using the framing codes to correct the discrepancy, either one character early or one character late.
 
-The burst distance is incremented by one for each bit in the first block that matches the corresponding bit in the second block and decremented by one otherwise. In a format B burst the second block is bit-inverted relative to the first, so a perfect burst of five 8-bit characters has distance -40\. In a format A burst the two blocks are identical, so a perfect burst has distance +40\. Format B bursts must be perfect to be acceptable; however, format A bursts, which are further processed by the majority decoder, are acceptable if the distance is at least 28.
+The burst distance is incremented by one for each bit in the first block that matches the corresponding bit in the second block and decremented by one otherwise. In a format B burst the second block is bit-inverted relative to the first, so a perfect burst of five 8-bit characters has distance -40. In a format A burst the two blocks are identical, so a perfect burst has distance +40. Format B bursts must be perfect to be acceptable; however, format A bursts, which are further processed by the majority decoder, are acceptable if the distance is at least 28.
 
 * * *
 
 #### Majority Decoder
 
-Each minute of transmission includes eight format A bursts containing two timecodes for each second from 32 through 39\. The majority decoder uses a decoding matrix of ten rows, one for each digit position in the timecode, and 16 columns, one for each 4-bit code combination that might be decoded at that position. In order to use the character timestamps, it is necessary to reliably determine the second number of each burst. In a valid burst, the last digit of the two timecodes in the burst must match and the value must be in the range 2-9 and greater than in the previous burst.
+Each minute of transmission includes eight format A bursts containing two timecodes for each second from 32 through 39. The majority decoder uses a decoding matrix of ten rows, one for each digit position in the timecode, and 16 columns, one for each 4-bit code combination that might be decoded at that position. In order to use the character timestamps, it is necessary to reliably determine the second number of each burst. In a valid burst, the last digit of the two timecodes in the burst must match and the value must be in the range 2-9 and greater than in the previous burst.
 
 As each digit of a valid burst is processed, the value at the row corresponding to the digit position in the timecode and column corresponding to the code found at that position is incremented. At the end of the minute, each row of the decoding matrix encodes the number of occurrences of each code found at the corresponding position.
 
@@ -82,13 +82,13 @@ The maximum over all occurrences at each digit position is the distance for that
 
 The result of the majority decoder is a nine-digit timecode representing the maximum-likelihood candidate for the transmitted timecode in that minute. Note that the second and fraction within the minute are always zero and that the actual reference point to calculate timestamp offsets is backdated to the first second of the minute. At this point the timecode block is reformatted and the year, days, hours and minutes extracted along with other information from the format B burst, including DST state, DUT1 correction and leap warning. The reformatting operation checks the timecode for invalid code combinations that might have been left by the majority decoder and rejects the entire timecode if found.
 
-If the timecode is valid, it is passed to the reference clock interface along with the backdated timestamps accumulated over the minute. A perfect set of eight bursts could generate as many as 80 timestamps, but the maximum the interface can handle is 60\. These are processed using a median filter and trimmed-mean average, so the resulting system clock correction is usually much better than would otherwise be the case with radio noise, UART jitter and occasional burst errors.
+If the timecode is valid, it is passed to the reference clock interface along with the backdated timestamps accumulated over the minute. A perfect set of eight bursts could generate as many as 80 timestamps, but the maximum the interface can handle is 60. These are processed using a median filter and trimmed-mean average, so the resulting system clock correction is usually much better than would otherwise be the case with radio noise, UART jitter and occasional burst errors.
 
 * * *
 
 #### Autotune
 
-The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17\. Further details are on the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio) page.
+The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio) page.
 
 If specified, the driver will attempt to open the device <tt>/dev/icom</tt> and, if successful will tune the radio to 3.331 MHz. The 1-kHz offset is useful with a narrowband SSB filter where the passband includes the carrier and modem signals. However, the driver is liberal in what it assumes of the configuration. If the <tt>/dev/icom</tt> link is not present or the open fails or the CI-V bus is inoperative, the driver continues in single-frequency mode.
 
@@ -181,7 +181,7 @@ The DST code for Canada encodes the state for all provinces. It is encoded as tw
 
 <dt><tt>dut</tt></dt>
 
-The DUT sign and magnitude shows the current UT1 offset relative to the displayed UTC time, in deciseconds. It is encoded as one digit preceeded by sign.
+The DUT sign and magnitude shows the current UT1 offset relative to the displayed UTC time, in deciseconds. It is encoded as one digit preceded by sign.
 
 <dt><tt>lset</tt></dt>
 
@@ -189,7 +189,7 @@ Before the clock is set, this is the number of minutes since the program was sta
 
 <dt><tt>agc</tt></dt>
 
-The audio gain shows the current codec gain setting in the range 0 to 255\. Ordinarily, the receiver audio gain control should be set for a value midway in this range.
+The audio gain shows the current codec gain setting in the range 0 to 255. Ordinarily, the receiver audio gain control should be set for a value midway in this range.
 
 <dt><tt>ident</tt></dt>
 

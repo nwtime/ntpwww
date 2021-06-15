@@ -90,7 +90,7 @@ There are two special cases.
 
 2. The @@Ea message contains the calculated location of the antenna, and is received once per second. However, when in timekeeping mode, the receiver is normally put in 0D mode, with the position fixed, to get better accuracy. In 0D mode no position is calculated.
 
-When the SHMEM option is active, and if one of **Posn2D** or **Posn3D** is specified, one @@Ea record is hijacked each 15s, and the receiver is put back in 2D/3D mode so the the current location can be determined (for position determination, or for tracking SA). The timekeeping code is careful NOT to use the time associated with this (less accurate) 2D/3D tick in its timekeeping functions.
+When the SHMEM option is active, and if one of **Posn2D** or **Posn3D** is specified, one @@Ea record is hijacked each 15s, and the receiver is put back in 2D/3D mode so the current location can be determined (for position determination, or for tracking SA). The timekeeping code is careful NOT to use the time associated with this (less accurate) 2D/3D tick in its timekeeping functions.
 
 Following the initial @@Ea message are 3 additional slots for a total of four. As with the almanac, the first gets filled each time a new record becomes available, later in the code, the message is distributed to the appropriate slot. The additional slots are for messages containing 0D, 2D and 3D positions. These messages can be distinguished by different bit patterns in the last data byte of the record.
 

@@ -23,11 +23,11 @@ Requires: <tt>/usr/include/sys/termios.h</tt> header file with modem control
 
 #### Description
 
-This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more informations..
+This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more information.
 
 It periodically dials a prespecified telephone number, receives the PTB timecode data and calculates the local clock correction. It designed primarily for use when neither a radio clock nor connectivity to Internet time servers is available. For the best accuracy, the individual telephone line/modem delay needs to be calibrated using outside sources.
 
-The only change between this driver and the NIST one is the data format. Infact PTB data format is the following:
+The only change between this driver and the NIST one is the data format. In fact PTB data format is the following:
 
 <pre>Data format  
 0000000000111111111122222222223333333333444444444455555555556666666666777777777 7  

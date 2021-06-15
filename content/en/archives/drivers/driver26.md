@@ -40,7 +40,7 @@ The T is the on-time character, at 980 msec. before the next 1PPS edge. The # is
 
 This driver will probably work with the 58503B and 59551A if they are setup appropriately.
 
-To use an HP Z3801A, specify <tt>mode 1</tt> on the server config line to setup the right line paramters.
+To use an HP Z3801A, specify <tt>mode 1</tt> on the server config line to setup the right line parameters.
 
 The timekeeping portion of HP's business was sold to Symmetricom which was later acquired by [Microchip](https://www.microsemi.com/product-directory/3425-timing-synchronization).
 

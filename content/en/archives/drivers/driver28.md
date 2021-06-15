@@ -34,7 +34,7 @@ Driver ID: <tt>SHM</tt>
 
 #### Description
 
-This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access by default, unless otherwise requested by the mode word for units ≥2\. Units 0 and 1 are always created with owner-only access for backward compatibility.
+This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access by default, unless otherwise requested by the mode word for units ≥2. Units 0 and 1 are always created with owner-only access for backward compatibility.
 
 * * *
 
@@ -110,7 +110,7 @@ The _GPSD_ client driver (type 46) uses the _GPSD_ client protocol to connect an
 
 If flag4 is set when the driver is polled, a clockstats record is written. The first 3 fields are the normal date, time, and IP address common to all clockstats records.
 
-The 4th field is the number of second ticks since the last poll. The 5th field is the number of good data samples found. The last 64 will be used by _NTPD_. The 6th field is the number of sample that didn't have valid data ready. The 7th field is the number of bad samples. The 8th field is the number of times the the mode 1 info was update while _NTPD_ was trying to grab a sample.
+The 4th field is the number of second ticks since the last poll. The 5th field is the number of good data samples found. The last 64 will be used by _NTPD_. The 6th field is the number of sample that didn't have valid data ready. The 7th field is the number of bad samples. The 8th field is the number of times the mode 1 info was update while _NTPD_ was trying to grab a sample.
 
 Here is a sample showing the GPS reception fading out:
 

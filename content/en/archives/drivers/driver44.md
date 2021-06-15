@@ -40,7 +40,7 @@ The refclock_neoclock4x driver supports the NeoClock4X receiver available from L
 
 [**<tt>time1 time</tt>**](/archives/4.2.8-series/clockopt/#commands-and-options)
 
-Specifies the time offset calibration factor with the default value off 0.16958333 seconds. This offset is used  to correct serial line and operating system delays incurred in capturing time stamps. If you want to fudge the time1 offset **ALWAYS** add a value off 0.16958333\. This is neccessary to compensate to delay that is caused by transmit the timestamp at 2400 Baud. If you want to compensate the delay that the DCF77 or TDF radio signal takes to travel to your site simply add the needed millisecond delay to the given value. Note that the time here is given in seconds.
+Specifies the time offset calibration factor with the default value off 0.16958333 seconds. This offset is used  to correct serial line and operating system delays incurred in capturing time stamps. If you want to fudge the time1 offset **ALWAYS** add a value off 0.16958333. This is necessary to compensate to delay that is caused by transmit the timestamp at 2400 Baud. If you want to compensate the delay that the DCF77 or TDF radio signal takes to travel to your site simply add the needed millisecond delay to the given value. Note that the time here is given in seconds.
 
 Default setting is 0.16958333 seconds.  
 
@@ -56,7 +56,7 @@ Default setting is 0 = don't synchronize to CMOS clock.
 
 [**<tt>flag2 0 | 1</tt>**](/archives/4.2.8-series/clockopt#commands-and-options)
 
-You can allow the NeoClock4X driver to use the quartz clock even if it is never synchronized to a radio clock. This is usally not a good idea if you want preceise timestamps since the CMOS clock is maybe not adjusted to a dst status change. So **PLEASE** switch this only on if you now what you're doing.
+You can allow the NeoClock4X driver to use the quartz clock even if it is never synchronized to a radio clock. This is usually not a good idea if you want preceise timestamps since the CMOS clock is maybe not adjusted to a dst status change. So **PLEASE** switch this only on if you now what you're doing.
 
 Default setting is 0 = don't synchronize to unsynchronized CMOS clock.
 

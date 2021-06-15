@@ -30,7 +30,7 @@ Driver ID: <tt>RIPENCC</tt>
 
 #### Description
 
-This is a special driver developed to be used in conjuction with the RIPE NCC clock card in the RIPE NCC Test Traffic Measurements project.
+This is a special driver developed to be used in conjunction with the RIPE NCC clock card in the RIPE NCC Test Traffic Measurements project.
 
 * * *
 
