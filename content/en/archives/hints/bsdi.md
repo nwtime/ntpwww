@@ -50,7 +50,7 @@ To install the software:
 	There is information on how to do this elsewhere in the documentation,
 	the only thing I'll mention is that I put the drift file in 
 	/var/log/ntp.drift, and the authdelay on my 486DX/50 system is 
-	0.000064\.  Your mileage will vary, learn to use the authspeed tools
+	0.000064.  Your mileage will vary, learn to use the authspeed tools
 	if you're going to authenticate.
 
 	In the file /etc/rc.local, make sure that the invocation of ntpd is

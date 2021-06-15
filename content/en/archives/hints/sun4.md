@@ -7,7 +7,7 @@ type: archives
 
 A bug in SunOS 4.1.1 results in the kernel time losing 1 microsecond
 per tick of the system clock. The bug was fixed (bugid 1094383) for
-SunOS 4.1.1 and corrected in SunOS 4.1.3\. The easiest way to fix this
+SunOS 4.1.1 and corrected in SunOS 4.1.3. The easiest way to fix this
 is to replace the 4.1.1 binary clock.o with the corresponding 4.1.3
 binary. Without this change it is necessary to use the tickadj program
 included in this distribution with the -t 9999 option.

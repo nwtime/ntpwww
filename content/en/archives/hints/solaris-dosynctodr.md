@@ -34,12 +34,12 @@ kernel variable <font color="red">dosynctodr</font> to 0 in the /etc/system
 file thus: set <font color="red">dosynctodr</font>=0
 
 When using NTP on Solaris 2.6 or later, the kernel 
-variable MUST be left at the default value of 1\. Prior 
+variable MUST be left at the default value of 1. Prior 
 to 2.6 this variable controlled whether or not to rein  
 in the softclock using the hardware clock, with the result 
 that NTP and the hardware clock would fight for control of 
 the soft clock; thus before 2.6 you had to set <font color="red">dosynctodr</font> 
-to 0\. At 2.6, every system call that adjusts the softclock 
+to 0. At 2.6, every system call that adjusts the softclock 
 also sets the hard clock, thus while NTP controls the soft 
 clock, the hard clock is also controlled. Setting 
 <font color="red">dosynctodr</font> to 0 reverts the behavior back to the pre 2.6 

@@ -27,15 +27,15 @@ We have a report that says starting with Solaris 2.6 we should leave _dosynctodr
 
 Proper operation of ntp under Solaris may require setting the kernel variable _dosynctodr_ to zero (meaning "do not synchronize the clock to the hardware time-of-day clock"). This can be done with the tickadj utility:
 
-`> tickadj -s`
+`tickadj -s`
 
 If you prefer, it can also be done with the native Solaris kernel debugger:
 
-`> echo dosynctodr/W0 | adb -k -w /dev/ksyms /dev/mem`
+`echo dosynctodr/W0 | adb -k -w /dev/ksyms /dev/mem`
 
 Or, it can also be set by adding a line to /etc/system:
 
-`> <tt>set dosynctodr = 0`
+`set dosynctodr = 0`
 
 Instead of the _tick_ kernel variable, which many operating systems use to control microseconds added to the system time every clock tick (c.f. [Dealing with Frequency Tolerance Violations](/archives/hints/solaris/#dealing-with-frequency-tolerance-violations), Solaris has the variables _nsec_per_tick_ and _usec_per_tick_.
 
@@ -65,7 +65,7 @@ We have a report that says starting with Solaris 2.6 we should leave _dosynctodr
 
 In order to maintain reasonable correctness bounds, as well as reasonably good accuracy with acceptable polling intervals, <tt>ntpd</tt> will complain if the frequency error is greater than 500 PPM. For machines with a value of <tt>tick</tt> in the 10-ms range, a change of one in the value of <tt>tick</tt> will change the frequency by about 100 PPM. In order to determine the value of <tt>tick</tt> for a particular CPU, disconnect the machine from all source s of time (<tt>dosynctodr</tt> = 0) and record its actual time compared to an outside source (eyeball-and-wristwatch will do) over a day or more. Multiply the time change over the day by 0.116 and add or subtract the result to tick, depending on whether the CPU is fast or slow. An example call to <tt>tickadj</tt> useful on SunOS 4.1.1 is:
 
-`tickadj</tt> -t 9999 -a 5 -s`
+`tickadj -t 9999 -a 5 -s`
 
 which sets tick 100 PPM fast, <tt>tickadj</tt> to 5 microseconds and turns off the clock/calendar chip fiddle. This line can be added to the <tt>rc.local</tt> configuration file to automatically set the kernel variables at boot time.
 
@@ -107,13 +107,13 @@ Solaris 2.1 contains fairly traditional clock code, with _tick_ and _tickadj_.
 
 Since settimeofday under Solaris 2.1 only sets the seconds part of timeval care must be used in starting xntpd. I suggest the following start up script:
 
-\> <tt>tickadj -s -a 1000  
-\> ntpdate -v server1 server2  
-\> sleep 20  
-\> ntpdate -v server1 server2  
-\> sleep 20  
-\> tickadj -a 200  
-\> xntpd</tt>
+<pre>tickadj -s -a 1000  
+ntpdate -v server1 server2  
+sleep 20  
+ntpdate -v server1 server2  
+sleep 20  
+tickadj -a 200  
+xntpd</pre>
 
 The first tickadj turns of the time of day clock and sets the tick adjust value to 1 millisecond. This will insure that an adjtime value of at most 2 seconds will complete in 20 seconds.
 

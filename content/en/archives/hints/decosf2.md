@@ -3,8 +3,6 @@ title: "DEC OSF/1 V2.0 Hints"
 type: archives
 ---
 
-<div id="body">
-
 <pre>Problems with DEC OSF/1 V2.0
 
 Compilation using gcc fails with ntp_config.c. The problem is an apparent
@@ -60,5 +58,3 @@ in the directory /usr/local/lib/gcc-lib/alpha-dec-osf1/2.3.3/include
 or replace with a link to /usr/include/sys/syscall.h.
 
 </pre>
-
-</div>

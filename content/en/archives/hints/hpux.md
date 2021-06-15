@@ -3,8 +3,6 @@ title: "HPUX Hints"
 type: archives
 ---
 
-<div id="body">
-
 <pre>Last update: Sun Mar 13 15:05:31 PST 1994
 
 This file hopefully describes the whatever and however of how to get xntp
@@ -20,7 +18,7 @@ any fixes sent to me.
 
 Now lets talk OS.  If you don't have 7.0 or later, pretty much hang it up now.
 This stuff has run here on pretty much everything from 8.0 upward on s300, 
-s700, and s800\.  It is known to run on 7.0 s300/s400 but all reports are 
+s700, and s800.  It is known to run on 7.0 s300/s400 but all reports are 
 from the field and not my personal experience.
 
 If you are lucky enough to have a s300 or s400 with 9.03, then you no longer
@@ -66,9 +64,9 @@ What to do to get this stuff running ?
       files in that directory are searched until a match is found.  The 
       rules for a match are:
 
-	1\. Our hostname
-	2\. default.<machine id> (as in default.375 or default.850)
-	3\. default
+	1. Our hostname
+	2. default.<machine id> (as in default.375 or default.850)
+	3. default
 
     * Ok, make sure adjtimed is running (just start it up for now with
       "/usr/local/etc/adjtimed").  Using -z as an option will get you 
@@ -164,5 +162,3 @@ On Thu, 15 Jun 1995 Mills@huey.udel.edu wrote:
 > 
 
 </pre>
-
-</div>

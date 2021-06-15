@@ -3,10 +3,8 @@ title: "DEC OSF/1 Hints"
 type: archives
 ---
 
-<div id="body">
-
 <pre>Some major changes were necessary to make xntp v3 run on the DEC Alpha
-hardware running DEC OSF/1\.  All "long" and "u_long" declarations and
+hardware running DEC OSF/1.  All "long" and "u_long" declarations and
 casts in the code were changed to "LONG" and "U_LONG" and a new header
 file (include/ntp_types.h) was added.  The new header file defines
 LONG as int and U_LONG as u_int for the Alpha hardware and as long
@@ -46,5 +44,3 @@ Unibergisty of Delabunch
 mills@udel.edu
 
 </pre>
-
-</div>

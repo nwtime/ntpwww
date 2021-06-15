@@ -10,8 +10,8 @@ NTP was first ported to MPE several years ago, but those diffs were never
 submitted back to the official NTP distribution.  For more information about
 that deprecated port, please see http://www.bixby.org/mark/xntpix.html.
 
-NTP was re-ported to MPE in May 2001\.  What follows are hints learned from
-working with NTP 4.0.99k23\.  For additional information about NTP on MPE,
+NTP was re-ported to MPE in May 2001.  What follows are hints learned from
+working with NTP 4.0.99k23.  For additional information about NTP on MPE,
 please see http://jazz.external.hp.com/src/hp_freeware/ntp/.
 
 MPE lacks the clock-related APIs expected by NTP, so adjtime(), gettimeofday(),
