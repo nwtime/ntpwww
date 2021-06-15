@@ -182,7 +182,7 @@ Specify the key ID to use for write requests.
 
 <dt><tt>lassociations</tt></dt>
 
-Perform the same function as the associations command, execept display mobilized and unmobilized associations.
+Perform the same function as the associations command, except display mobilized and unmobilized associations.
 
 <dt><tt>mreadvar _assocID_ _assocID_ [ _variable_name_ [ = _value_[ ... ]</tt>  
 <tt>mrv _assocID_ _assocID_ [ _variable_name_ [ = _value_[ ... ]</tt></dt>

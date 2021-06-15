@@ -35,7 +35,7 @@ Last update: 14-oct-09 22:23
 
 #### Description
 
-The <tt>ntpd</tt> program is an operating system daemon that synchronizes the system clock to remote NTP time servers or local reference clocks. It is a complete implementation of of the Network Time Protocol (NTP) version 4, but also retains compatibility with version 3, as defined by RFC-1305, and version 1 and 2, as defined by RFC-1059 and RFC-1119, respectively. The program can operate in any of several modes, as described on the [Association Management](/archives/4.2.6-series/assoc) page, and with both symmetric key and public key cryptography, as described on the [Authentication Options](/archives/4.2.6-series/manyopt) page.
+The <tt>ntpd</tt> program is an operating system daemon that synchronizes the system clock to remote NTP time servers or local reference clocks. It is a complete implementation of the Network Time Protocol (NTP) version 4, but also retains compatibility with version 3, as defined by RFC-1305, and version 1 and 2, as defined by RFC-1059 and RFC-1119, respectively. The program can operate in any of several modes, as described on the [Association Management](/archives/4.2.6-series/assoc) page, and with both symmetric key and public key cryptography, as described on the [Authentication Options](/archives/4.2.6-series/manyopt) page.
 
 The <tt>ntpd</tt> program ordinarily requires a configuration file. However a client can discover remote servers and configure them automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment. Further details are on the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page.
 
@@ -85,7 +85,7 @@ If a host does not have the leapsecond values, they can be obtained over the net
 
 If the latest leap is in the past, nothing further is done other than to install the TAI offset. If the leap is in the future less than 28 days, the leap warning bits are set. If in the future less than 23 hours, the kernel is armed to insert one second at the end of the current day. If the kernel is enabled, the leap is done automatically at that time; otherwise, the clock is effectively stopped for one second at the leap. Additional details are in the [The NTP Timescale and Leap Seconds](http://www.eecis.udel.edu/~mills/leap.html) white paper.
 
-If none of the above provisions are available, dsependent servers and clients tally the leap warning bits of surviving servers and reference clocks. When a majority of the survivors show warning, a leap is programmed at the end of the current month. During the month and day of insertion, they operate as above. In this way the leap is is propagated at all dependent servers and clients.
+If none of the above provisions are available, dsependent servers and clients tally the leap warning bits of surviving servers and reference clocks. When a majority of the survivors show warning, a leap is programmed at the end of the current month. During the month and day of insertion, they operate as above. In this way the leap is propagated at all dependent servers and clients.
 
 * * *
 

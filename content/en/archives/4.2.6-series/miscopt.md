@@ -136,7 +136,7 @@ This command alters certain system variables used by the clock discipline algori
 
 <dt id="tos"><tt>tos [ beacon _beacon_ | ceiling _ceiling_ | cohort {0 | 1} | floor _floor_ | maxclock _maxclock_ | maxdist _maxdist_ | minclock _minclock_ | mindist _mindist_ | minsane _minsane_ | orphan _stratum_ ]</tt></dt>
 
-This command alters certain system variables used by the the clock selection and clustering algorithms. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can't resist twisting the knobs. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in dynamic server discovery schemes. The options are as follows:
+This command alters certain system variables used by the clock selection and clustering algorithms. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can't resist twisting the knobs. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in dynamic server discovery schemes. The options are as follows:
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>beacon _beacon_</tt>
 
@@ -144,15 +144,15 @@ This command alters certain system variables used by the the clock selection and
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>ceiling _ceiling_</tt>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16\. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+&nbsp;&nbsp;&nbsp;&nbsp;Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>cohort { 0 | 1 }</tt>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0\. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+&nbsp;&nbsp;&nbsp;&nbsp;Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>floor _floor_</tt>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the minimum stratum (inclusive) for acceptable server packest. The default is 1\. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+&nbsp;&nbsp;&nbsp;&nbsp;Specify the minimum stratum (inclusive) for acceptable server packest. The default is 1. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>maxclock _maxclock_</tt>
 
@@ -176,7 +176,7 @@ This command alters certain system variables used by the the clock selection and
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>orphan _stratum_</tt>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the orphan stratum with default 16\. If less than 16 this is the stratum assumed by the root servers. See the [Association Management](/archives/4.2.6-series/assoc) page for further details.
+&nbsp;&nbsp;&nbsp;&nbsp;Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the [Association Management](/archives/4.2.6-series/assoc) page for further details.
 
 </dl>
 

@@ -35,7 +35,7 @@ In both broadcast and multicast client operations the client association is demo
 
 #### Manycasting
 
-Manycasting is a automatic discovery and configuration paradigm new to NTPv4\. It is intended as a means for a client to troll the nearby network neighborhood to find cooperating servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each client mobilizes associations with a given number of the "best" nearby servers, yet automatically reconfigures to sustain this number of servers should one or another fail.
+Manycasting is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a client to troll the nearby network neighborhood to find cooperating servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each client mobilizes associations with a given number of the "best" nearby servers, yet automatically reconfigures to sustain this number of servers should one or another fail.
 
 Note that the manycast paradigm does not coincide with the anycast paradigm described in RFC-1546, which is designed to find a single server from a clique of servers providing the same service. The manycast paradigm is designed to find a plurality of redundant servers satisfying defined optimality criteria.
 
@@ -51,7 +51,7 @@ If for some reason the number of available servers falls below the threshold, th
 
 It is possible and frequently useful to configure a host as both manycast client and manycast server. A number of hosts configured this way and sharing a common group address will automatically organize themselves in an optimum configuration based on stratum and synchronization distance.
 
-For example, consider an NTP subnet of two primary servers and several secondary servers and a number of dependent clients. With twoAll servers and clients have identical configuration files including both <tt>multicastclient</tt> and <tt>multicastserver</tt> commands using, for instance, multicast group address 239.1.1.1\. Each primary server configuration file must include commands for the primary reference source such as a GPS receiver.
+For example, consider an NTP subnet of two primary servers and several secondary servers and a number of dependent clients. With twoAll servers and clients have identical configuration files including both <tt>multicastclient</tt> and <tt>multicastserver</tt> commands using, for instance, multicast group address 239.1.1.1. Each primary server configuration file must include commands for the primary reference source such as a GPS receiver.
 
 The remaining configuration files for all secondary servers and clients have the same contents, except for the <tt>tos</tt> command, which is specific for each stratum level. For stratum 1 and stratum 2 servers, that command is not necessary. For stratum 3 and above servers the <tt>tos floor</tt> value is set to the intended stratum number. Thus, all stratum 3 configuration files use <tt>tos floor 3</tt>, all stratum 4 files use <tt>tos floor 4</tt> and so forth.
 

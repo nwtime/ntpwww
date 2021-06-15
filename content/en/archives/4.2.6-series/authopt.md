@@ -82,7 +82,7 @@ Secure groups can be configured as hierarchies where a TH of one group can be a 
 
 All configurations include a public/private host key pair and matching certificate. Absent an identity scheme, this is a Trusted Certificate (TC) scheme. There are three identity schemes, IFF, GQ and MV described on the [Identity Schemes](http://www.eecis.udel.edu/%7emills/ident.html) page. With these schemes all servers in the group have encrypted server identity keys, while clients have nonencrypted client identity parameters. The client parameters can be obtained from a trusted agent (TA), usually one of the THs of the lower stratum group. Further information on identity schemes is on the [Autokey Identity Schemes](http://www.eecis.udel.edu/~mills/ident.html) page.
 
-A specific combination of authentication and identity schemes is called a cryptotype, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the the following codes.
+A specific combination of authentication and identity schemes is called a cryptotype, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the following codes.
 
 <dt>NONE</dt>
 
