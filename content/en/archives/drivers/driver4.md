@@ -37,28 +37,34 @@ The DIPswitches on these clocks should be set to 24-hour display, AUTO DST off, 
 
 There are two timecode formats used by these clocks. Format 0, which is available with all clocks, and format 2, which is available with all clocks except the original (unmodified) Model 8170.
 
-Format 0 (22 ASCII printing characters):  
-<cr><lf>i ddd hh:mm:ss TZ=zz<cr><lf>
+Format 0 (22 ASCII printing characters): 
 
-on-time = first <cr>  
-i = synchronization flag (' ' = in synch, '?' = out synch)  
-hh:mm:ss = hours, minutes, seconds
+<pre> 
+&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;i ddd hh:mm:ss TZ=zz&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;
+</pre>
 
-The alarm condition is indicated by other than ' ' at <tt>i</tt>, which occurs during initial synchronization and when received signal is lost for about ten hours.
+`on-time` = first &lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;  
+`i` = synchronization flag (`' '` = in synch, `?` = out synch)  
+`hh:mm:ss` = hours, minutes, seconds
+
+The alarm condition is indicated by other than `' '` at `i`, which occurs during initial synchronization and when received signal is lost for about ten hours.
 
 Format 2 (24 ASCII printing characters):  
-lt;cr>lf>iqyy ddd hh:mm:ss.fff ld
 
-on-time = <cr>  
-i = synchronization flag (' ' = in synch, '?' = out synch)  
-q = quality indicator (' ' = locked, 'A'...'D' = unlocked)  
-yy = year (as broadcast)  
-ddd = day of year  
-hh:mm:ss.fff = hours, minutes, seconds, milliseconds
+<pre>
+&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;iqyy ddd hh:mm:ss.fff ld
+</pre>
 
-The alarm condition is indicated by other than ' ' at <tt>i</tt>, which occurs during initial synchronization and when received signal is lost for about ten hours. The unlock condition is indicated by other than ' ' at <tt>q</tt>.
+`on-time` = &lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;  
+`i` = synchronization flag (`' '` = in synch, `?` = out synch)  
+`q` = quality indicator (`' '` = locked, `A`...`D` = unlocked)  
+`yy` = year (as broadcast)  
+`ddd` = day of year  
+`hh:mm:ss.fff` = hours, minutes, seconds, milliseconds
 
-The <tt>q</tt> is normally ' ' when the time error is less than 1 ms and a character in the set <tt>A...D</tt> when the time error is less than 10, 100, 500 and greater than 500 ms respectively. The <tt>l</tt> is normally ' ', but is set to <tt>L</tt> early in the month of an upcoming UTC leap second and reset to ' ' on the first day of the following month. The <tt>d</tt> is set to <tt>S</tt> for standard time <tt>S</tt>, <tt>I</tt> on the day preceding a switch to daylight time, <tt>D</tt> for daylight time and <tt>O</tt> on the day preceding a switch to standard time. The start bit of the first <cr> is synchronized to the indicated time as returned.
+The alarm condition is indicated by other than `' '` at `i`, which occurs during initial synchronization and when received signal is lost for about ten hours. The unlock condition is indicated by other than `' '` at `q`.
+
+The `q` is normally `' '` when the time error is less than 1 ms and a character in the set `A...D` when the time error is less than 10, 100, 500 and greater than 500 ms respectively. The `l` is normally `' '`, but is set to `L` early in the month of an upcoming UTC leap second and reset to `' '` on the first day of the following month. The `d` is set to `S` for standard time `S`, `I` on the day preceding a switch to daylight time, `D` for daylight time and `O` on the day preceding a switch to standard time. The start bit of the first &lsaquo;cr&rsaquo; is synchronized to the indicated time as returned.
 
 This driver does not need to be told which format is in use - it figures out which one from the length of the message. A three-stage median filter is used to reduce jitter and provide a dispersion measure. The driver makes no attempt to correct for the intrinsic jitter of the radio itself, which is a known problem with the older radios.
 
