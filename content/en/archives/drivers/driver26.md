@@ -28,15 +28,15 @@ Serial Port: <tt>/dev/hpgps_u_</tt>; 9600 baud, 8-bits, no parity, 19200 baud 7-
 
 This driver supports the HP 58503A Time and Frequency Reference Receiver and HP Z3801A GPS Receiver. They use HP SmartClock (TM) to implement an Enhanced GPS receiver. The receiver accuracy when locked to GPS in normal operation is better than 1 usec. The accuracy when operating in holdover is typically better than 10 us per day. It receiver should be operated with factory default settings. Initial driver operation: expects the receiver to be already locked to GPS, configured and able to output timecode format 2 messages.
 
-The driver uses the poll sequence <tt>:PTIME:TCODE?</tt> to get a response from the receiver. The receiver responds with a timecode string of ASCII printing characters, followed by a <cr><lf>, followed by a prompt string issued by the receiver, in the following format:
+The driver uses the poll sequence <tt>:PTIME:TCODE?</tt> to get a response from the receiver. The receiver responds with a timecode string of ASCII printing characters, followed by a &lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;, followed by a prompt string issued by the receiver, in the following format:
 
-<pre>T#yyyymmddhhmmssMFLRVcc<cr><lf>scpi ></pre>
+<pre>T#yyyymmddhhmmssMFLRVcc&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;scpi ></pre>
 
-The driver processes the response at the <cr> and <lf>, so what the driver sees is the prompt from the previous poll, followed by this timecode. The prompt from the current poll is (usually) left unread until the next poll. So (except on the very first poll) the driver sees this:
+The driver processes the response at the &lsaquo;cr&rsaquo; and &lsaquo;lf&rsaquo;, so what the driver sees is the prompt from the previous poll, followed by this timecode. The prompt from the current poll is (usually) left unread until the next poll. So (except on the very first poll) the driver sees this:
 
-<pre>scpi >T#yyyymmddhhmmssMFLRVcc<cr><lf></pre>
+<pre>scpi >T#yyyymmddhhmmssMFLRVcc&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;</pre>
 
-The T is the on-time character, at 980 msec. before the next 1PPS edge. The # is the timecode format type. We look for format 2\. Without any of the CLK or PPS stuff, then, the receiver buffer timestamp at the <cr> is 24 characters later, which is about 25 msec. at 9600 bps, so the first approximation for fudge time1 is nominally -0.955 seconds. This number probably needs adjusting for each machine / OS type, so far: -0.955000 on an HP 9000 Model 712/80 HP-UX 9.05 -0.953175 on an HP 9000 Model 370 HP-UX 9.10
+The T is the on-time character, at 980 msec. before the next 1PPS edge. The # is the timecode format type. We look for format 2. Without any of the CLK or PPS stuff, then, the receiver buffer timestamp at the &lsaquo;cr&rsaquo; is 24 characters later, which is about 25 msec. at 9600 bps, so the first approximation for fudge time1 is nominally -0.955 seconds. This number probably needs adjusting for each machine / OS type, so far: -0.955000 on an HP 9000 Model 712/80 HP-UX 9.05 -0.953175 on an HP 9000 Model 370 HP-UX 9.10
 
 This driver will probably work with the 58503B and 59551A if they are setup appropriately.
 
