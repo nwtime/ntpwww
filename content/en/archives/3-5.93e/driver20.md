@@ -32,7 +32,7 @@ The accuracy depends on the GPS used. Inexpensive GPS models are available with 
 
 The $GPRMC message that the GPS transmits look like this:
 
-<pre>$GPRMC,POS_UTC,POS_STAT,LAT,LAT_REF,LON,LON_REF,SPD,HDG,DATE,MAG_VAR,MAG_REF*CC<cr><lf>
+<pre>$GPRMC,POS_UTC,POS_STAT,LAT,LAT_REF,LON,LON_REF,SPD,HDG,DATE,MAG_VAR,MAG_REF*CC&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;
 
   POS_UTC  - UTC of position. Hours, minutes and seconds. (hhmmss)
   POS_STAT - Position status. (A = Data valid, V = Data invalid)
@@ -46,10 +46,10 @@ The $GPRMC message that the GPS transmits look like this:
   MAG_VAR  - Magnetic variation (degrees) (x.x)
   MAG_REF  - Magnetic variation (E = East, W = West)
   CC       - Checksum (optional)
-  <cr><lf> - Sentence terminator.
+  &lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo; - Sentence terminator.
 </pre>
 
-The driver will send a `$PMOTG,RMC,0000*1D<cr><lf>` message each time a $GPRMC string is needed. This is not needed on most GPS receivers because they automatically send the $GPRMC string every second and will only work on GPS receivers that understand the $PMOTG string. Others will just ignore it.
+The driver will send a <tt>$PMOTG,RMC,0000*1D&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;</tt> message each time a $GPRMC string is needed. This is not needed on most GPS receivers because they automatically send the $GPRMC string every second and will only work on GPS receivers that understand the $PMOTG string. Others will just ignore it.
 
 * * *
 
@@ -57,15 +57,15 @@ The driver will send a `$PMOTG,RMC,0000*1D<cr><lf>` message each time a $GPRMC s
 
 Switch off all output by sending it the following string.
 
-<pre>"$PGRMO,,2<cr><lf>"</pre>
+<pre>"$PGRMO,,2&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;"</pre>
 
 Now switch only $GPRMC on by sending it the following string.
 
-<pre>"$PGRMO,GPRMC,1<cr><lf>"</pre>
+<pre>"$PGRMO,GPRMC,1&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;"</pre>
 
 On some systems the PPS signal isn't switched on by default. It can be switched on by sending the following string.
 
-<pre>"$PGRMC,,,,,,,,,,,,2<cr><lf>"</pre>
+<pre>"$PGRMC,,,,,,,,,,,,2&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;"</pre>
 
 * * *
 

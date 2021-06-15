@@ -198,15 +198,15 @@ To make a specific setting, select the corresponding decimal values from the mod
 
 Switch off all output with by sending it the following string.
 
-<pre>"$PGRMO,,2<cr><lf>"</pre>
+<pre>"$PGRMO,,2&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;"</pre>
 
 Now switch only $GPRMC on by sending it the following string.
 
-<pre>"$PGRMO,GPRMC,1<cr><lf>"</pre>
+<pre>"$PGRMO,GPRMC,1&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;"</pre>
 
 On some systems the PPS signal isn't switched on by default. It can be switched on by sending the following string.
 
-<pre>"$PGRMC,,,,,,,,,,,,2<cr><lf>"</pre>
+<pre>"$PGRMC,,,,,,,,,,,,2&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;"</pre>
 
 * * *
 
