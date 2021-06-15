@@ -37,15 +37,23 @@ The timecode format supported by this driver is selected by the poll sequence <t
 
 Format <tt>B5</tt> (24 ASCII printing characters):
 
-<pre><cr><lf>i yy ddd hh:mm:ss.000bbb
+<pre>
+&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;i yy ddd hh:mm:ss.000bbb
+</pre>
 
-on-time = <cr>
-i = synchronization flag (' ' = locked, '?' = unlocked)
-yy = year of century
-ddd = day of year
-hh:mm:ss = hours, minutes, seconds
-.000 = fraction of second (not used)
-bbb = tailing spaces for fill</pre>
+`on-time` = &lsaquo;cr&rsaquo;
+
+`i` = synchronization flag (`' '` = locked, `?` = unlocked)
+
+`yy` = year of century
+
+`ddd` = day of year
+
+`hh:mm:ss` = hours, minutes, seconds
+
+`.000` = fraction of second (not used)
+
+`bbb` = tailing spaces for fill
 
 The alarm condition is indicated by a `?` at `i`, which indicates the receiver is not synchronized. In normal operation, a line consisting of the timecode followed by the time quality character `TQ` followed by the receiver status string `SR` is written to the clockstats file.
 
@@ -68,13 +76,17 @@ The status string is encoded as follows:
 
 Format <tt>SR</tt> (25 ASCII printing characters)
 
-<pre>V=vv S=ss T=t P=pdop E=ee
+<pre>V=vv S=ss T=t P=pdop E=ee</pre>
 
-vv = satellites visible
-ss = relative signal strength
-t = satellites tracked
-pdop = position dilution of precision (meters)
-ee = hardware errors</pre>
+`vv` = satellites visible
+
+`ss` = relative signal strength
+
+`t` = satellites tracked
+
+`pdop` = position dilution of precision (meters)
+
+`ee` = hardware errors
 
 A three-stage median filter is used to reduce jitter and provide a dispersion measure. The driver makes no attempt to correct for the intrinsic jitter of the radio itself.
 
