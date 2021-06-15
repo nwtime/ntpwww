@@ -117,7 +117,7 @@ Potential users should be aware that these services involve a TCP connection to 
 
 <dt><tt>serverresponse fuzz</tt></dt>
 
-<dd>When reponding to server requests, fuzz the low order bits of the <tt>reftime</tt>.</dd>
+<dd>When responding to server requests, fuzz the low order bits of the <tt>reftime</tt>.</dd>
 
 <dt><tt>version</tt></dt>
 

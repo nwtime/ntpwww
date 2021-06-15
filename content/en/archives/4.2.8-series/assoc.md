@@ -25,7 +25,7 @@ Last update: 31-Jan-2014 06:54 UTC
 
 #### Association Modes
 
-This page describes the various modes of operation provided in NTPv4\. There are three types of associations in NTP: _persistent_, _preemptable_ and _ephemeral_. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the <tt>preempt</tt> option or upon arrival of an automatic server discovery packet. They are are demobilized by timeout or when preempted by a "better" server, as described on the [Automatic Server Discovery Schemes](/archives/4.2.8-series/discover) page. Ephemeral associations are mobilized upon arrival of broadcast or multicast server packets and demobilized by timeout.
+This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: _persistent_, _preemptable_ and _ephemeral_. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the <tt>preempt</tt> option or upon arrival of an automatic server discovery packet. They are demobilized by timeout or when preempted by a "better" server, as described on the [Automatic Server Discovery Schemes](/archives/4.2.8-series/discover) page. Ephemeral associations are mobilized upon arrival of broadcast or multicast server packets and demobilized by timeout.
 
 Ordinarily, successful mobilization of ephemeral associations requires the server to be cryptographically authenticated to the client. This can be done using either symmetric key or Autokey public key cryptography, as described on the [Authentication Support](/archives/4.2.8-series/authentic) page.
 
@@ -67,7 +67,7 @@ A server is configured to send broadcast or multicast messages using the <tt>bro
 
 #### Manycast and Pool Modes
 
-Manycast and pool modes are automatic discovery and configuration paradigms new to NTPv4\. They are intended as a means for a client to troll the nearby network neighborhood to find cooperating willing servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each client mobilizes ephemeral client associations with some number of the "best" of the nearby servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the [Automatic Server Discovery Schemes](/archives/4.2.8-series/discover) page.
+Manycast and pool modes are automatic discovery and configuration paradigms new to NTPv4. They are intended as a means for a client to troll the nearby network neighborhood to find cooperating willing servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each client mobilizes ephemeral client associations with some number of the "best" of the nearby servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the [Automatic Server Discovery Schemes](/archives/4.2.8-series/discover) page.
 
 * * *
 
