@@ -36,10 +36,10 @@ The dipswitches should be set for 9600 bps line speed, 24-hour day-of-year forma
 
 Using the poll sequence <tt>QTQDQM</tt>, the response timecode is in three sections totalling 50 ASCII printing characters, as concatenated by the driver, in the following format:
 
-<pre>ahh:mm:ss.fffs<cr> yy/dd/mm/ddd<cr>
-frdzycchhSSFTttttuuxx<cr>
+<pre>ahh:mm:ss.fffs&lsaquo;cr&rsaquo; yy/dd/mm/ddd&lsaquo;cr&rsaquo;
+frdzycchhSSFTttttuuxx&lsaquo;cr&rsaquo;
 
-on-time = first <cr>
+on-time = first &lsaquo;cr&rsaquo;
 hh:mm:ss.fff = hours, minutes, seconds, milliseconds
 a = AM/PM indicator (' ' for 24-hour mode)
 yy = year (from DIPswitches)
