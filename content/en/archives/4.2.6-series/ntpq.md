@@ -174,7 +174,7 @@ Send the remainder of the command line, including whitespace, to the server as a
 
 <dt><tt>config-from-file _filename_</tt></dt>
 
-Send the each line of _filename_ to the server as run-time configuration commands in the same format as the configuration file. This command is experimental until further notice and clarification. Authentication is of course required.
+Send each line of _filename_ to the server as run-time configuration commands in the same format as the configuration file. This command is experimental until further notice and clarification. Authentication is of course required.
 
 <dt><tt>keyid</tt></dt>
 

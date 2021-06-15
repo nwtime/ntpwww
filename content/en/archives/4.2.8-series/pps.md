@@ -36,7 +36,7 @@ A Gadget Box built by Chuck Hanavin
 
 #### Gadget Box
 
-The gadget box shown above is assembled in a 5"x3"x2" aluminum minibox containing the the circuitry, serial connector and optional 12-V power connector. A complete set of schematics, PCB artwork, drill templates can be obtained via the web from as [gadget.tar.Z](https://www.eecis.udel.edu/~ntp/ntp_spool/hardware/gadget.tar.Z).
+The gadget box shown above is assembled in a 5"x3"x2" aluminum minibox containing the circuitry, serial connector and optional 12-V power connector. A complete set of schematics, PCB artwork, drill templates can be obtained via the web from as [gadget.tar.Z](https://www.eecis.udel.edu/~ntp/ntp_spool/hardware/gadget.tar.Z).
 
 The gadget box includes two subcircuits. One of these converts a TTL positive edge into a fixed-width pulse at EIA levels and is for use with a timecode receiver or precision oscillator with a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) driver.
 
@@ -44,7 +44,7 @@ The gadget box includes two subcircuits. One of these converts a TTL positive ed
 
 #### Operating System Support
 
-Both the serial and parallel port connection require operating system support, which is available in a few operating systems, including FreeBSD, Linux (with PPSkit patch) and Solaris. Support on an experimental basis is available for several other systems, including SunOS and HP/Compaq/Digital Tru64\. The kernel interface described on the [PPSAPI Interface for Precision Time Signals](/archives/4.2.8-series/kernpps) page is the only interface currently supported. Older PPS interfaces based on the <tt>ppsclock</tt> and <tt>tty_clk</tt> streams modules are no longer supported. The interface consists of the <tt>timepps.h</tt> header file which is specific to each system. It is included automatically when the distribution is built.
+Both the serial and parallel port connection require operating system support, which is available in a few operating systems, including FreeBSD, Linux (with PPSkit patch) and Solaris. Support on an experimental basis is available for several other systems, including SunOS and HP/Compaq/Digital Tru64. The kernel interface described on the [PPSAPI Interface for Precision Time Signals](/archives/4.2.8-series/kernpps) page is the only interface currently supported. Older PPS interfaces based on the <tt>ppsclock</tt> and <tt>tty_clk</tt> streams modules are no longer supported. The interface consists of the <tt>timepps.h</tt> header file which is specific to each system. It is included automatically when the distribution is built.
 
 * * *
 
@@ -58,4 +58,4 @@ PPS support requires is built into some drivers, in particular the WWVB and NMEA
 
 The PPS signal can be used in either of two ways, one using the NTP grooming and mitigation algorithms and the other using the kernel PPS signal support described in the [Kernel Model for Precision Timekeeping](/archives/4.2.8-series/kern) page. The presence of  kernel support is automatically detected during the NTP build process and supporting code automatically compiled. In either case, the PPS signal must be present and within nominal jitter and wander tolerances. In addition, the prefer peer must be a truechimer; that is, survive the sanity checks and intersection algorithm. Finally, the offset of the system clock relative to the prefer peer must be within ±0.5 s. The kernel maintains a watchdog timer for the PPS signal; if the signal has not been heard or is out of tolerance for more than some interval, currently two minutes, the kernel discipline is disabled and operation continues as if it were not present.
 
-An option flag in the driver determines whether the NTP algorithms or kernel support is enabled (if available). For historical reasons, the NTP algorithms are selected by by default, since performance is generally better using older, slower systems. However, performance is generally better with kernel support using newer, faster systems.
+An option flag in the driver determines whether the NTP algorithms or kernel support is enabled (if available). For historical reasons, the NTP algorithms are selected by default, since performance is generally better using older, slower systems. However, performance is generally better with kernel support using newer, faster systems.

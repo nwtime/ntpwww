@@ -140,7 +140,7 @@ For the Meinberg parse look into `clk_meinberg.c`.
 
 #### Raw DCF77 Data via serial line
 
-RAWDCF: end=TIMEOUT>1.5s, sync each char (any char),generate psuedo time codes, fixed format
+RAWDCF: end=TIMEOUT>1.5s, sync each char (any char),generate pseudo time codes, fixed format
 
 direct DCF77 code input
 
@@ -172,7 +172,7 @@ Timecode transmission:
 	time marks of a 200ms duration constitute a logical 1
 </pre>
 
-see the spec. (basically a (non-)inverted psuedo random phase shift) encoding:
+see the spec. (basically a (non-)inverted pseudo random phase shift) encoding:
 
 <pre>	FM:
 

@@ -32,7 +32,7 @@ Last update: 24-Jan-2018 08:35 UTC
 
 #### Description
 
-The <tt>ntpq</tt> utility program is used to monitor NTP daemon <tt>ntpd</tt> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305\. The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.
+The <tt>ntpq</tt> utility program is used to monitor NTP daemon <tt>ntpd</tt> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305. The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.
 
 The program can be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. The <tt>ntpq</tt> can also obtain and print a list of peers in a common format by sending multiple queries to the server.
 
@@ -123,7 +123,7 @@ This command specifies the key number to be used to authenticate configuration r
 
 <dt id="keytype"><tt>keytype</tt></dt>
 
-Specify the digest algorithm to use for authenticated requests, with default <tt>MD5</tt>. If the OpenSSL library is installed, digest can be be any message digest algorithm supported by the library. The current selections are: <tt>MD2</tt>, <tt>MD4</tt>, <tt>MD5</tt>, <tt>MDC2</tt>, <tt>RIPEMD160</tt>, <tt>SHA</tt>, <tt>SHA1</tt>, and <tt>AES128CMAC</tt>.
+Specify the digest algorithm to use for authenticated requests, with default <tt>MD5</tt>. If the OpenSSL library is installed, digest can be any message digest algorithm supported by the library. The current selections are: <tt>MD2</tt>, <tt>MD4</tt>, <tt>MD5</tt>, <tt>MDC2</tt>, <tt>RIPEMD160</tt>, <tt>SHA</tt>, <tt>SHA1</tt>, and <tt>AES128CMAC</tt>.
 
 <dt id="ntpversion"><tt>ntpversion 1 | 2 | 3 | 4</tt></dt>
 
@@ -182,7 +182,7 @@ Send the remainder of the command line, including whitespace, to the server as a
 
 <dt id="config-from-file"><tt>config-from-file _filename_</tt></dt>
 
-Send the each line of _filename_ to the server as run-time configuration commands in the same format as the configuration file. This command is experimental until further notice and clarification. Authentication is required.
+Send each line of _filename_ to the server as run-time configuration commands in the same format as the configuration file. This command is experimental until further notice and clarification. Authentication is required.
 
 <dt id="ifstats"><tt>ifstats</tt></dt>
 
