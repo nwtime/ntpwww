@@ -47,10 +47,10 @@ After starting the daemon, run the <tt>ntpq</tt> program using the <tt>-n</tt> s
 <pre>ntpq> pe
      remote      refid       st t when poll reach delay offset jitter
 =====================================================================
--isipc6.cairn.ne .GPS1\.        1 u  18  64  377  65.592 -5.891  0.044
-+saicpc-isiepc2\. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
+-isipc6.cairn.ne .GPS1.        1 u  18  64  377  65.592 -5.891  0.044
++saicpc-isiepc2. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
 +uclpc.cairn.net pogo.udel.edu 2 u  37  64  177 212.111 -0.551  0.187
-*pogo.udel.edu   .GPS1\.        1 u  95 128  377   0.607  0.123  0.027
+*pogo.udel.edu   .GPS1.        1 u  95 128  377   0.607  0.123  0.027
 </pre>
 
 The host names or addresses shown in the <tt>remote</tt> column correspond to the server and peer entries listed in the configuration file; however, the DNS names might not agree if the names listed are not the canonical DNS names. IPv4 addresses are shown in dotted quad notation, while IPv6 addresses are shown alarmingly. The <tt>refid</tt> column shows the current source of synchronization, while the <tt>st</tt> column reveals the stratum, <tt>t</tt> the type (<tt>u</tt> = unicast, <tt>m</tt> = multicast, <tt>l</tt> = local, <tt>-</tt> = don't know), and <tt>poll</tt> the poll interval in seconds. The <tt>when</tt> column shows the time since the peer was last heard in seconds, while the <tt>reach</tt> column shows the status of the reachability register (see RFC-1305) in octal. The remaining entries show the latest delay, offset and jitter in milliseconds. Note that in NTP Version 4 what used to be the <tt>dispersion</tt> column has been replaced by the <tt>jitter</tt> column.
