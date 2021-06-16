@@ -80,8 +80,8 @@ The system clock is running on internal batteries. The server(s) and/or network 
 
 Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.
 
-<dt><tt>sigaction() fails to save SIGSYS trap: ? </tt> 
-</tt><tt>sigaction() fails to restore SIGSYS trap: ?</tt></dt>
+<dt><tt>sigaction() fails to save SIGSYS trap: ? </tt></dt> 
+<dt><tt>sigaction() fails to restore SIGSYS trap: ?</tt></dt>
 
 Program error. Please report to bugs@ntp.org.
 
