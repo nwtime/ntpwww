@@ -101,7 +101,7 @@ To assist debugging every NTP extension field is displayed in the trace along wi
 
 If the <tt>ntpq</tt> or <tt>ntpdc</tt> programs do not show that messages are being received by the daemon or that received messages do not result in correct synchronization, verify the following:
 
-1.  Verify the <tt>/etc/services</tt> file host machine is configured to accept UDP packets on the NTP port 123\. NTP is specifically designed to use UDP and does not respond to TCP.
+1.  Verify the <tt>/etc/services</tt> file host machine is configured to accept UDP packets on the NTP port 123. NTP is specifically designed to use UDP and does not respond to TCP.
 2.  Check the system log for <tt>ntpd</tt> messages about configuration errors, name-lookup failures or initialization problems. Common system log messages are summarized on the [<tt>ntpd</tt> System Log Messages](/archives/4.2.8-series/msyslog) page. Check to be sure that only one copy of <tt>ntpd</tt> is running.
 3.  Verify using <tt>ping</tt> or other utility that packets actually do make the round trip between the client and server. Verify using <tt>nslookup</tt> or other utility that the DNS server names do exist and resolve to valid Internet addresses.
 4.  Check that the remote NTP server is up and running. The usual evidence that it is not is a <tt>Connection refused</tt> message.

@@ -44,17 +44,13 @@ On each line, the fields are (left to right): the host name, the host stratum, t
 
 #### Options
 
-<dl>
-
 <dt><tt>-m _max_hosts_</tt></dt>
 
-<dd>Sets the upper limit of the number of hosts to check (default: unlimited).</dd>
+Sets the upper limit of the number of hosts to check (default: unlimited).
 
 <dt><tt>-n</tt></dt>
 
-<dd>Turns off the printing of host names; instead, host IP addresses are given. This may be useful if a nameserver is down.</dd>
-
-</dl>
+Turns off the printing of host names; instead, host IP addresses are given. This may be useful if a nameserver is down.
 
 * * *
 

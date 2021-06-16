@@ -54,25 +54,21 @@ When the daemon is started after a considerable downtime, it could be the TOY ch
 
 The state machine operates in one of four nonoverlapping intervals.
 
-<dl>
-
 <dt>Training interval</dt>
 
-<dd>This interval is used at startup when the frequency file is nor present at startup. It begins when the first update is received by the discipline algorithm and ends when an update is received following the stepout threshold. The clock phase is steered to the offset presented at the beginning of the interval, but without affecting the frequency. During the interval further updates are ignored. At the end of the interval the frequency is calculated as the phase change during the interval divided by the length of the interval. This generally results in a frequency error less than 0.5 PPM. Note that, if the intrinsic oscillator frequency error is large, the offset will in general have significant error. This is corrected during the subsequent startup interval.</dd>
+This interval is used at startup when the frequency file is nor present at startup. It begins when the first update is received by the discipline algorithm and ends when an update is received following the stepout threshold. The clock phase is steered to the offset presented at the beginning of the interval, but without affecting the frequency. During the interval further updates are ignored. At the end of the interval the frequency is calculated as the phase change during the interval divided by the length of the interval. This generally results in a frequency error less than 0.5 PPM. Note that, if the intrinsic oscillator frequency error is large, the offset will in general have significant error. This is corrected during the subsequent startup interval.
 
 <dt>Startup interval</dt>
 
-<dd>This interval is used at startup to amortize the residual offset while not affecting the frequency. If the frequency file is present, it begins when the first update is received by the discipline. If not, it begins after the training interval. It ends when the hold timer decrements to zero or when the residual offset falls below 0.5 ms.</dd>
+This interval is used at startup to amortize the residual offset while not affecting the frequency. If the frequency file is present, it begins when the first update is received by the discipline. If not, it begins after the training interval. It ends when the hold timer decrements to zero or when the residual offset falls below 0.5 ms.
 
 <dt>Step interval</dt>
 
-<dd>This interval is used as a spike blanker during periods when the offsets exceed the step threshold. The interval continues as long as offsets are received that are greater than the step threshold, but ends when either an offset is received less than the step threshold or until the time since the last valid update exceeds the stepout threshold.</dd>
+This interval is used as a spike blanker during periods when the offsets exceed the step threshold. The interval continues as long as offsets are received that are greater than the step threshold, but ends when either an offset is received less than the step threshold or until the time since the last valid update exceeds the stepout threshold.
 
 <dt>Sync Interval</dt>
 
-<dd>This interval is implicit; that is, it is used when none of the above intervals are used.</dd>
-
-</dl>
+This interval is implicit; that is, it is used when none of the above intervals are used.
 
 * * *
 
@@ -80,26 +76,22 @@ The state machine operates in one of four nonoverlapping intervals.
 
 The state machine consists of five states. An event is created when an update is received by the discipline algorithm. Depending on the state and the offset magnitude, the machine performs some actions and transitions to the same or another state. Following is a short description of the states.
 
-<dl>
-
 <dt>FSET - The frequency file is present</dt>
 
-<dd>Load the frequency file, initialize the hold timer and continue in SYNC state.</dd>
+Load the frequency file, initialize the hold timer and continue in SYNC state.
 
 <dt>NSET - The frequency file is not present</dt>
 
-<dd>Initialize the hold timer and continue in FREQ state.</dd>
+Initialize the hold timer and continue in FREQ state.
 
 <dt>FREQ - Frequency training state</dt>
 
-<dd>Disable the clock discipline until the time since the last update exceeds the stepout threshold. When this happens, calculate the frequency, initialize the hold counter and transition to SYNC state.</dd>
+Disable the clock discipline until the time since the last update exceeds the stepout threshold. When this happens, calculate the frequency, initialize the hold counter and transition to SYNC state.
 
 <dt>SPIK - Spike state</dt>
 
-<dd>A update greater than the step threshold has occurred. Ignore the update and continue in this state as long as updates greater than the step threshold occur. If a valid update is received, continue in SYNC state. When the time since the last valid update was received exceeds the stepout threshold, step the system clock and continue in SYNC state.</dd>
+A update greater than the step threshold has occurred. Ignore the update and continue in this state as long as updates greater than the step threshold occur. If a valid update is received, continue in SYNC state. When the time since the last valid update was received exceeds the stepout threshold, step the system clock and continue in SYNC state.
 
 <dt>SYNC - Ordinary clock discipline state</dt>
 
-<dd>Discipline the system clock time and frequency using the hybrid phase/frequency feedback loop. However, do not discipline the frequency if the hold timer is nonzero.</dd>
-
-</dl>
+Discipline the system clock time and frequency using the hybrid phase/frequency feedback loop. However, do not discipline the frequency if the hold timer is nonzero.

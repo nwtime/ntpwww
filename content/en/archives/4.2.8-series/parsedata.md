@@ -33,7 +33,7 @@ Meinberg is a German manufacturer of time code receivers. Those clocks have a pr
 
 **General characteristics:**
   
-Meinberg clocks primarily output pulse per second and a describing ASCII string. This string can be produced in two modes: either upon the reception of a question mark or every second. NTP uses the latter mechanism. DCF77 AM clocks have a limited accuracy of a few milliseconds. The DCF77 PZF5xx variants provide higher accuracy and have a pretty good relationship between RS232 time code and the PPS signal. Except for early versions of the old GPS166 receiver type, Meinberg GPS receivers have a very good timing relationship between the datagram and the pulse. The beginning of the start bit of the first character has basically the same accuracy as the PPS signal, plus a jitter of up to 1 bit time depending on the selected baud rate, i.e. 52 μs @ 19200\. PPS support should always be used, if possible, in order to yield the highest possible accuracy.
+Meinberg clocks primarily output pulse per second and a describing ASCII string. This string can be produced in two modes: either upon the reception of a question mark or every second. NTP uses the latter mechanism. DCF77 AM clocks have a limited accuracy of a few milliseconds. The DCF77 PZF5xx variants provide higher accuracy and have a pretty good relationship between RS232 time code and the PPS signal. Except for early versions of the old GPS166 receiver type, Meinberg GPS receivers have a very good timing relationship between the datagram and the pulse. The beginning of the start bit of the first character has basically the same accuracy as the PPS signal, plus a jitter of up to 1 bit time depending on the selected baud rate, i.e. 52 μs @ 19200. PPS support should always be used, if possible, in order to yield the highest possible accuracy.
 
 The preferred tty setting for Meinberg DCF77 receivers is 9600/7E2:
 
@@ -144,7 +144,7 @@ RAWDCF: end=TIMEOUT>1.5s, sync each char (any char),generate pseudo time codes, 
 
 direct DCF77 code input
 
-In Europe it is relatively easy/cheap the receive the german time code transmitter DCF77\. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. parse/clk_rawdcf.c holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.
+In Europe it is relatively easy/cheap the receive the german time code transmitter DCF77. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. parse/clk_rawdcf.c holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.
 
 <pre>	The preferred tty setting is:
 		CFLAG           (B50|CS8|CREAD|CLOCAL)

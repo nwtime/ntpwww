@@ -89,11 +89,7 @@ Figure 2 shows how keys and parameters are distributed to servers and clients. A
 
 When more than one TH Is involved in the secure group, it is convenient for the TAs and THs to use the same encrypted key files. To do this, one of the parent TAs includes the <tt>-i _group_</tt> option on the <tt>ntp-keygen</tt> command line, where _<tt>group</tt>_ is the name of the child secure group. The <tt>ntp-keygen</tt> program can export server keys files using the <tt>-q</tt> option and a chosen remote password. The files are installed on the TAs and then renamed using the name given as the first line in the file, but without the filestamp. The secure group name must match the <tt>ident</tt> option for all TAs.
 
-<dl>
-
-<dd><span class="style1">In the latest Autokey version, the host name and group name are independent of each other and the <tt>host</tt> option of the <tt>crypto</tt> command is deprecated. When compatibility with older versions is required, specify the same name for both the <tt>-s</tt> and <tt>-i</tt> options.</span></dd>
-
-</dl>
+In the latest Autokey version, the host name and group name are independent of each other and the <tt>host</tt> option of the <tt>crypto</tt> command is deprecated. When compatibility with older versions is required, specify the same name for both the <tt>-s</tt> and <tt>-i</tt> options.
 
 In special circumstances the Autokey message digest algorithm can be changed using the <tt>digest</tt> option of the <tt>crypto</tt> command. The digest algorithm is separate and distinct from the symmetric key message digest algorithm. If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>. The Autokey message digest algorithm must be the same for all participants in the NTP subnet.
 
@@ -146,29 +142,25 @@ where _<tt>group</tt>_ is the file name given above.
 
 A specific combination of authentication and identity schemes is called a _cryptotype_, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the following codes.
 
-<dl>
-
 <dt>NONE</dt>
 
-<dd>A client or server is type NONE if authentication is not available or not configured. Packets exchanged between client and server have no MAC.</dd>
+A client or server is type NONE if authentication is not available or not configured. Packets exchanged between client and server have no MAC.
 
 <dt>AUTH</dt>
 
-<dd>A client or server is type AUTH if the <tt>key</tt> option is specified with the <tt>server</tt> configuration command and the client and server keys are compatible. Packets exchanged between clients and servers have a MAC.</dd>
+A client or server is type AUTH if the <tt>key</tt> option is specified with the <tt>server</tt> configuration command and the client and server keys are compatible. Packets exchanged between clients and servers have a MAC.
 
 <dt>PC</dt>
 
-<dd>A client or server is type PC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and private certificate files are present. Packets exchanged between clients and servers have a MAC.</dd>
+A client or server is type PC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and private certificate files are present. Packets exchanged between clients and servers have a MAC.
 
 <dt>TC</dt>
 
-<dd>A client or server is type TC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and public certificate files are present. Packets exchanged between clients and servers have a MAC.</dd>
+A client or server is type TC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and public certificate files are present. Packets exchanged between clients and servers have a MAC.
 
 <dt>IDENT</dt>
 
-<dd>A client or server is type IDENT if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key, public certificate and identity scheme files are present. Packets exchanged between clients and servers have a MAC.</dd>
-
-</dl>
+A client or server is type IDENT if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key, public certificate and identity scheme files are present. Packets exchanged between clients and servers have a MAC.
 
 The compatible cryptotypes for clients and servers are listed in the following table.
 
