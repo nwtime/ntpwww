@@ -59,7 +59,7 @@ Enables recording of peer statistics information. This includes statistics recor
 
 `48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674`
 
-The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix B of the NTP specification RFC 1305\. The final four fields show the offset, delay, dispersion and RMS jitter, all in seconds.
+The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix B of the NTP specification RFC 1305. The final four fields show the offset, delay, dispersion and RMS jitter, all in seconds.
 
 <dt><tt>rawstats</tt></dt>
 
@@ -165,7 +165,7 @@ A file generation set is characterized by its type. The following types are supp
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>week</tt>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Any file set member contains data related to a certain week of a year. The term week is defined by computing day-of-year modulo 7\. Elements of such a file generation set are distinguished by appending the following suffix to the file set filename base: A dot, a 4-digit year number, the letter <tt>W</tt>, and a 2-digit week number. For example, information from January, 10th 1992 would end up in a file with suffix <tt>.1992W1</tt>.
+&nbsp;&nbsp;&nbsp;&nbsp;Any file set member contains data related to a certain week of a year. The term week is defined by computing day-of-year modulo 7. Elements of such a file generation set are distinguished by appending the following suffix to the file set filename base: A dot, a 4-digit year number, the letter <tt>W</tt>, and a 2-digit week number. For example, information from January, 10th 1992 would end up in a file with suffix <tt>.1992W1</tt>.
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>month</tt>
 

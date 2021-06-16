@@ -74,69 +74,69 @@ As per the NTP specification RFC-1305, when the <tt>stratum</tt> is between 0 an
 
 <dt><tt>ACST</tt></dt>
 
-<dd>The association belongs to a anycast server.</dd>
+The association belongs to a anycast server.
 
 <dt><tt>AUTH</tt></dt>
 
-<dd>Server authentication failed. Please wait while the association is restarted.</dd>
+Server authentication failed. Please wait while the association is restarted.
 
 <dt><tt>AUTO</tt></dt>
 
-<dd>Autokey sequence failed. Please wait while the association is restarted.</dd>
+Autokey sequence failed. Please wait while the association is restarted.
 
 <dt><tt>BCST</tt></dt>
 
-<dd>The association belongs to a broadcast server.</dd>
+The association belongs to a broadcast server.
 
 <dt><tt>CRYP</tt></dt>
 
-<dd>Cryptographic authentication or identification failed. The details should be in the system log file or the <tt>cryptostats</tt> statistics file, if configured. No further messages will be sent to the server.</dd>
+Cryptographic authentication or identification failed. The details should be in the system log file or the <tt>cryptostats</tt> statistics file, if configured. No further messages will be sent to the server.
 
 <dt><tt>DENY</tt></dt>
 
-<dd>Access denied by remote server. No further messages will be sent to the server.</dd>
+Access denied by remote server. No further messages will be sent to the server.
 
 <dt><tt>DROP</tt></dt>
 
-<dd>Lost peer in symmetric mode. Please wait while the association is restarted.</dd>
+Lost peer in symmetric mode. Please wait while the association is restarted.
 
 <dt><tt>RSTR</tt></dt>
 
-<dd>Access denied due to local policy. No further messages will be sent to the server.</dd>
+Access denied due to local policy. No further messages will be sent to the server.
 
 <dt><tt>INIT</tt></dt>
 
-<dd>The association has not yet synchronized for the first time.</dd>
+The association has not yet synchronized for the first time.
 
 <dt><tt>MCST</tt></dt>
 
-<dd>The association belongs to a manycast server.</dd>
+The association belongs to a manycast server.
 
 <dt><tt>NKEY</tt></dt>
 
-<dd>No key found. Either the key was never installed or is not trusted.</dd>
+No key found. Either the key was never installed or is not trusted.
 
 <dt><tt>RATE</tt></dt>
 
-<dd>Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold.</dd>
+Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold.
 
 <dt><tt>RMOT</tt></dt>
 
-<dd>Somebody is tinkering with the association from a remote host running <tt>ntpdc</tt>. Not to worry unless some rascal has stolen your keys.</dd>
+Somebody is tinkering with the association from a remote host running <tt>ntpdc</tt>. Not to worry unless some rascal has stolen your keys.
 
 <dt><tt>STEP</tt></dt>
 
-<dd>A step change in system time has occurred, but the association has not yet resynchronized.</dd>
+A step change in system time has occurred, but the association has not yet resynchronized.
 
 **System Kiss Codes**
 
 <dt><tt>INIT</tt></dt>
 
-<dd>The system clock has not yet synchronized for the first time.</dd>
+The system clock has not yet synchronized for the first time.
 
 <dt><tt>STEP</tt></dt>
 
-<dd>A step change in system time has occurred, but the system clock has not yet resynchronized.</dd>
+A step change in system time has occurred, but the system clock has not yet resynchronized.
 
 The tattletale symbol at the left margin displays the synchronization status of each peer. The currently selected peer is marked `*`, while additional peers designated acceptable for synchronization are marked `+`. Peers marked `*` and `+` are included in the weighted average computation to set the local clock; the data produced by peers marked with other symbols are discarded. See the <tt>ntpq</tt> page for the meaning of these symbols.
 
