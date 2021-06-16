@@ -97,7 +97,7 @@ All clock disciplines function as a feedback loop, with measured offsets used to
 
 2.  Digital Time Service Functional Specification Version T.1.0.5. DigitalEquipment Corporation, 1989.
 
-3.  Gusella, R., and S. Zatti. TEMPO - A network time controller for a distributed Berkeley UNIX system. IEEE Distributed Processing Technical Committee Newsletter 6, NoSI-2 (June 1984), 7-15\. Also in: Proc. Summer 1984 USENIX (Salt Lake City, June 1984).
+3.  Gusella, R., and S. Zatti. TEMPO - A network time controller for a distributed Berkeley UNIX system. IEEE Distributed Processing Technical Committee Newsletter 6, NoSI-2 (June 1984), 7-15. Also in: Proc. Summer 1984 USENIX (Salt Lake City, June 1984).
 
 4.  Kopetz, H., and W. Ochsenreiter. Clock synchronization in distributed real-time systems. IEEE Trans. Computers C-36, 8 (August 1987), 933-939.
 
@@ -109,7 +109,7 @@ All clock disciplines function as a feedback loop, with measured offsets used to
 
 8.  Mills, D.L. Improved algorithms for synchronizing computer network clocks. _IEEE/ACM Trans. Networks 3, 3_ (June 1995), 245-254.
 
-9.  Mills, D.L. Internet time synchronization: the Network Time Protocol. IEEE Trans. Communications COM-39, 10 (October 1991), 1482-1493\. Also in: Yang, Z., and T.A. Marsland (Eds.). Global States and Time in Distributed Systems, IEEE Press, Los Alamitos, CA, 91-102.
+9.  Mills, D.L. Internet time synchronization: the Network Time Protocol. IEEE Trans. Communications COM-39, 10 (October 1991), 1482-1493. Also in: Yang, Z., and T.A. Marsland (Eds.). Global States and Time in Distributed Systems, IEEE Press, Los Alamitos, CA, 91-102.
 
 10.  Mills, D.L. Modelling and analysis of computer network clocks. Electrical Engineering Department Report 92-5-2, University of Delaware, May 1992, 29 pp.
 
@@ -119,5 +119,5 @@ All clock disciplines function as a feedback loop, with measured offsets used to
 
 13.  Srikanth, T.K., and S. Toueg. Optimal clock synchronization. JACM 34, 3 (July 1987), 626-645.
 
-14.  Stein, S.R. Frequency and time - their measurement and characterization (Chapter 12). In: E.A. Gerber and A. Ballato (Eds.). Precision Frequency Control, Vol. 2, Academic Press, New York 1985, 191-232, 399-416\. Also in: Sullivan, D.B., D.W. Allan, D.A. Howe and F.L. Walls (Eds.). Characterization of Clocks and Oscillators. National Institute of Standards and Technology Technical Note 1337, U.S. Government Printing Office (January, 1990), TN61-TN119.
+14.  Stein, S.R. Frequency and time - their measurement and characterization (Chapter 12). In: E.A. Gerber and A. Ballato (Eds.). Precision Frequency Control, Vol. 2, Academic Press, New York 1985, 191-232, 399-416. Also in: Sullivan, D.B., D.W. Allan, D.A. Howe and F.L. Walls (Eds.). Characterization of Clocks and Oscillators. National Institute of Standards and Technology Technical Note 1337, U.S. Government Printing Office (January, 1990), TN61-TN119.
 

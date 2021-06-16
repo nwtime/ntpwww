@@ -58,7 +58,7 @@ The <tt>./libntp/clktype</tt> array is used by certain display functions. A uniq
 
 <dt><tt>./ntpd/ntp_control.c</tt></dt>
 
-The <tt>clocktypes</tt> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification RFC-1305\. See the <tt>./include/ntp_control.h</tt> header file for the assigned classes.
+The <tt>clocktypes</tt> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification RFC-1305. See the <tt>./include/ntp_control.h</tt> header file for the assigned classes.
 
 <dt><tt>./ntpd/refclock_conf.c</tt></dt>
 

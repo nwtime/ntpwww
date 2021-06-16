@@ -63,7 +63,7 @@ There are a few things different about this release that have changed since the 
 
 #### Caveats
 
-This release has been compiled and tested on several systems, including SunOS 4.1.3, Solaris 2.5.1-2.8, Alpha 4.0, Ultrix 4.4, Linux, FreeBSD and HP-UX 10.02\. It has been compiled and tested on Windows NT, but not yet on any other Windows version or for VMS. We are relying on the NTP volunteer corps to do that. Known problems are summarized below:
+This release has been compiled and tested on several systems, including SunOS 4.1.3, Solaris 2.5.1-2.8, Alpha 4.0, Ultrix 4.4, Linux, FreeBSD and HP-UX 10.02. It has been compiled and tested on Windows NT, but not yet on any other Windows version or for VMS. We are relying on the NTP volunteer corps to do that. Known problems are summarized below:
 
 1.  The latest NTPv4 <tt>ntpdc</tt> does not work with previous versions of <tt>ntpd</tt> and previous versions of <tt>ntpdc</tt> do not work with latest <tt>ntpd</tt>. This situation is regrettable and may be fixed in future; however, it is necessary in order for the autokey function to retrieve canonical names and certificates from directory services such as Secure DNS.
 

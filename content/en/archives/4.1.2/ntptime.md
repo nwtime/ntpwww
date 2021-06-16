@@ -33,36 +33,36 @@ This program is useful only with special kernels described in the [A Kernel Mode
 
 <dt><tt>-c</tt></dt>
 
-<dd>Display the execution time of <tt>ntptime</tt> itself.</dd>
+Display the execution time of <tt>ntptime</tt> itself.
 
 <dt><tt>-e _est_error_</tt></dt>
 
-<dd>Specify estimated error, in microseconds.</dd>
+Specify estimated error, in microseconds.
 
 <dt><tt>-f _frequency_</tt></dt>
 
-<dd>Specify frequency offset, in parts per million.</dd>
+Specify frequency offset, in parts per million.
 
 <dt><tt>-h</tt></dt>
 
-<dd>Display help information.</dd>
+Display help information.
 
 <dt><tt>-m _max_error_</tt></dt>
 
-<dd>Specify max possible errors, in microseconds.</dd>
+Specify max possible errors, in microseconds.
 
 <dt><tt>-o _offset_</tt></dt>
 
-<dd>Specify clock offset, in microseconds.</dd>
+Specify clock offset, in microseconds.
 
 <dt><tt>-r</tt></dt>
 
-<dd>Display Unix and NTP times in raw format.</dd>
+Display Unix and NTP times in raw format.
 
 <dt><tt>-s _status_</tt></dt>
 
-<dd>Specify clock status. Better know what you are doing.</dd>
+Specify clock status. Better know what you are doing.
 
 <dt><tt>-t _time_constant_</tt></dt>
 
-<dd>Specify time constant, an integer in the range 0-10.</dd>
+Specify time constant, an integer in the range 0-10.

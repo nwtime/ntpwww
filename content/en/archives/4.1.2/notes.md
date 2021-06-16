@@ -149,10 +149,8 @@ The trouble occurs when an previous version is to be included in an <tt>ntpd</tt
 
 <pre>     # specify NTP version 1
 
-     server mimsy.mil version
-1     # server running ntpd version 1
-     server apple.com version
-2     # server running ntpd version 2
+     server mimsy.mil version 1     # server running ntpd version 1
+     server apple.com version 2     # server running ntpd version 2
 </pre>
 
 will cause version 1 packets to be sent to the host mimsy.mil and version 2 packets to be sent to apple.com. If you are testing <tt>ntpd</tt> against previous version servers you will need to be careful about this. Note that, as indicated in the RFC-1305 specification, there is no longer support for the original NTP specification, once called NTP Version 0.
@@ -186,8 +184,7 @@ modifications
 
      restrict default notrust nomodify
 
-     # these guys are trusted for time, but no
-modifications allowed
+     # these guys are trusted for time, but no modifications allowed
 
      restrict 128.100.0.0 mask 255.255.0.0 nomodify
      restrict 128.8.10.1 nomodify
@@ -215,27 +212,16 @@ This facility requires some minor modifications to the basic packet processing p
      # (expected to operate at stratum 2)
      # fully authenticated this time
 
-     peer 128.100.49.105 key 22 #
-suzuki.ccie.utoronto.ca
-     peer 128.8.10.1 key 4    #
-umd1.umd.edu
-     peer 192.35.82.50 key 6  #
-lilben.tn.cornell.edu
+     peer 128.100.49.105 key 22 # suzuki.ccie.utoronto.ca
+     peer 128.8.10.1 key 4    # umd1.umd.edu
+     peer 192.35.82.50 key 6  # lilben.tn.cornell.edu
 
-     keys /usr/local/etc/ntp.keys  # path for
-key file
-     trustedkey 1 2 14 15     #
-define trusted keys
-     requestkey
-15            #
-key (7) for accessing server variables
-     controlkey
-15            #
-key (6) for accessing server variables
+     keys /usr/local/etc/ntp.keys  # path for key file
+     trustedkey 1 2 14 15     # define trusted keys
+     requestkey 15            # key (7) for accessing server variables
+     controlkey 15            # key (6) for accessing server variables
 
-     authdelay
-0.000094       # authentication delay
-(Sun4c/50 IPX)
+     authdelay 0.000094       # authentication delay (Sun4c/50 IPX)
 </pre>
 
 There are a couple of previously unmentioned things in here. The <tt>keys</tt> line specifies the path to the keys file (see below and the <tt>ntpd</tt> document page for details of the file format). The <tt>trustedkey</tt> declaration identifies those keys that are known to be uncompromised; the remainder presumably represent the expired or possibly compromised keys. Both sets of keys must be declared by key identifier in the <tt>ntp.keys</tt> file described below. This provides a way to retire old keys while minimizing the frequency of delicate key-distribution procedures. The <tt>requestkey</tt> line establishes the key to be used for mode-6 control messages as specified in RFC-1305 and used by the <tt>ntpq</tt> utility program, while the <tt>controlkey</tt> line establishes the key to be used for mode-7 private control messages used by the <tt>ntpdc</tt> utility program. These keys are used to prevent unauthorized modification of daemon variables.
@@ -254,24 +240,16 @@ Additional utility programs included in the <tt>./authstuff</tt> directory can b
 The <tt>ntp.keys</tt> file contains the list of keys and associated key IDs the server knows about (for obvious reasons this file is better left unreadable by anyone except root). The contents of this file might look like:
 
 <pre>     # ntp keys file (ntp.keys)
-     1    N   
-29233E0461ECD6AE    # DES key in NTP format
-     2    M   
-RIrop8KPPvQvYotM    # md5 key as an ASCII random string
-     14   M   
-sundial           
-;  # md5 key as an ASCII string
-     15   A   
-sundial           
-;  # DES key as an ASCII string
+     1    N   29233E0461ECD6AE    # DES key in NTP format
+     2    M   RIrop8KPPvQvYotM    # md5 key as an ASCII random string
+     14   M   sundial             # md5 key as an ASCII string
+     15   A   sundial             # DES key as an ASCII string
 
      # the following 3 keys are identical
 
      10   A    SeCReT
-     10   N   
-d3e54352e5548080
-     10   S   
-a7cb86a4cba80101
+     10   N   d3e54352e5548080
+     10   S   a7cb86a4cba80101
 </pre>
 
 In the keys file the first token on each line indicates the key ID, the second token the format of the key and the third the key itself. There are four key formats. An <tt>A</tt> indicates a DES key written as a 1- to-8 character string in 7-bit ASCII representation, with each character standing for a key octet (like a Unix password). An <tt>S</tt> indicates a DES key written as a hex number in the DES standard format, with the low order bit (LSB) of each octet being the (odd) parity bit. An <tt>N</tt> indicates a DES key again written as a hex number, but in NTP standard format with the high order bit of each octet being the (odd) parity bit (confusing enough?). An <tt>M</tt> indicates an MD5 key written as a 1-to-31 character ASCII string in the <tt>A</tt> format. Note that, because of the simple tokenizing routine, the characters <tt>' ', '#', '\t', '\n'</tt> and <tt>'\0'</tt> can't be used in either a DES or MD5 ASCII key. Everything else is fair game, though. Key 0 (zero) is used for special purposes and should not appear in this file.
@@ -306,10 +284,8 @@ Mode-6 and mode-7 messages which would modify the configuration of the server ar
 
 <pre>     # specify mode-6 and mode-7 trusted keys
 
-     requestkey 65535    # for mode-7
-requests
-     controlkey 65534    # for mode-6
-requests
+     requestkey 65535    # for mode-7 requests
+     controlkey 65534    # for mode-6 requests
 </pre>
 
 If the <tt>requestkey</tt> and/or the <tt>controlkey</tt> configuration declarations are omitted from the configuration file, the corresponding run-time reconfiguration facility is disabled.

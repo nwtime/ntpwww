@@ -11,4 +11,4 @@ The API is normally used in conjunction with the precision time kernel modificat
 
 * * *
 
-<a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1\. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](http://www.eecis.udel.edu/~mills/database/rfc/rfc2783.txt)
+<a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](http://www.eecis.udel.edu/~mills/database/rfc/rfc2783.txt)
