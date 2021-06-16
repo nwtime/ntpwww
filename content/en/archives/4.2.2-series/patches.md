@@ -24,7 +24,7 @@ A distribution so widely used as this one eventually develops numerous barnacles
 6.  Don't forget the documentation that may be affected by the patch. Send us patches for the <tt>./htm</tt> files as well.
 7.  We would be glad to include your name, electric address and descriptive phrase in the [Copyright](/archives/4.2.2-series/copyright) page, if you wish.
 
-Prior to ntp3-5.83 (releases up to and including ntp3.5f) a complete patch history back to the dark ages was kept in the <tt>./patches</tt> directory, which might have been helpful to see if the same problem occurred in another port, etc. Patches were saved in that directory with file name in the form <tt>patch._nnn_</tt>, where _nnn_ was approaching 200\. All patches in that directory have been made; so, if yours was there, it was in the distribution.
+Prior to ntp3-5.83 (releases up to and including ntp3.5f) a complete patch history back to the dark ages was kept in the <tt>./patches</tt> directory, which might have been helpful to see if the same problem occurred in another port, etc. Patches were saved in that directory with file name in the form <tt>patch._nnn_</tt>, where _nnn_ was approaching 200. All patches in that directory have been made; so, if yours was there, it was in the distribution.
 
 Since we have been getting multiple patches for some bugs, plus many changes are implemented locally, no two maintainers here use the same tools, and since we're not using any bug-tracking software or even source code control, there is currently no tracking of specific changes.
 

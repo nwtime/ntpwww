@@ -33,7 +33,7 @@ Last update: 18:45 UTC Thursday, July 28, 2005
 
 #### Description
 
-The <tt>ntpq</tt> utility program is used to monitor NTP daemon <tt>ntpd</tt> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305\. The same formats are used in NTPv4, although some of the variables have changed and new ones added. The description on this page is for the NTPv4 variables.
+The <tt>ntpq</tt> utility program is used to monitor NTP daemon <tt>ntpd</tt> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305. The same formats are used in NTPv4, although some of the variables have changed and new ones added. The description on this page is for the NTPv4 variables.
 
 The program can be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. The <tt>ntpq</tt> can also obtain and print a list of peers in a common format by sending multiple queries to the server.
 
@@ -400,7 +400,7 @@ The NTP timestamp when the last Autokey key list was generated and signed.
 
 #### Flash Codes
 
-The <tt>flash</tt> code is a valuable debugging aid displayed in the peer variables list. It shows the results of the original sanity checks defined in the NTP specification RFC-1305 and additional ones added in NTPv4\. There are 12 tests designated <tt>TEST1</tt> through <tt>TEST12</tt>. The tests are performed in a certain order designed to gain maximum diagnostic information while protecting against accidental or malicious errors. The <tt>flash</tt> variable is initialized to zero as each packet is received. If after each set of tests one or more bits are set, the packet is discarded.
+The <tt>flash</tt> code is a valuable debugging aid displayed in the peer variables list. It shows the results of the original sanity checks defined in the NTP specification RFC-1305 and additional ones added in NTPv4. There are 12 tests designated <tt>TEST1</tt> through <tt>TEST12</tt>. The tests are performed in a certain order designed to gain maximum diagnostic information while protecting against accidental or malicious errors. The <tt>flash</tt> variable is initialized to zero as each packet is received. If after each set of tests one or more bits are set, the packet is discarded.
 
 Tests <tt>TEST1</tt> through <tt>TEST3</tt> check the packet timestamps from which the offset and delay are calculated. If any bits are set, the packet is discarded; otherwise, the packet header variables are saved. <tt>TEST4</tt> and <tt>TEST5</tt> are associated with access control and cryptographic authentication. If any bits are set, the packet is discarded immediately with nothing changed.
 
@@ -436,7 +436,7 @@ The server is unsynchronized. Wind up its clock first.
 
 <dt><tt>0x040 TEST7</tt></dt>
 
-The server stratum is at the maximum than 15\. It is probably unsynchronized and its clock needs to be wound up.
+The server stratum is at the maximum than 15. It is probably unsynchronized and its clock needs to be wound up.
 
 <dt><tt>0x080 TEST8</tt></dt>
 

@@ -57,35 +57,35 @@ The NTP development team is moving to the use of a syntax-directed configuration
 
 <dt><tt>-B _bdly_</tt></dt>
 
-<dd>Specify beep delay (3600) s.</dd>
+Specify beep delay (3600) s.
 
 <dt><tt>-C _snse_</tt></dt>
 
-<dd>Specify network jitter parameter (0) s.</dd>
+Specify network jitter parameter (0) s.
 
 <dt><tt>-O _clk_time_</tt></dt>
 
-<dd>Specify initial time offset (0) s.</dd>
+Specify initial time offset (0) s.
 
 <dt><tt>-S _sim_time_</tt></dt>
 
-<dd>Specify simulation duration (86400) s.</dd>
+Specify simulation duration (86400) s.
 
 <dt><tt>-T _ferr_</tt></dt>
 
-<dd>Specify initial frequency offset (0) PPM.</dd>
+Specify initial frequency offset (0) PPM.
 
 <dt><tt>-W _fnse_</tt></dt>
 
-<dd>Specify oscillator wander parameter (0) PPM/s.</dd>
+Specify oscillator wander parameter (0) PPM/s.
 
 <dt><tt>-Y _ndly_</tt></dt>
 
-<dd>Specify network propagation delay (.001) s.</dd>
+Specify network propagation delay (.001) s.
 
 <dt><tt>-Z _pdly_</tt></dt>
 
-<dd>Specify server processing delay (.001) s.</dd>
+Specify server processing delay (.001) s.
 
 * * *
 
