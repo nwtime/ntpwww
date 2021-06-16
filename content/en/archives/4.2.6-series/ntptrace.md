@@ -46,7 +46,7 @@ On each line, the fields are (left to right): the host name, the host stratum, t
 
 <dt><tt>-n</tt></dt>
 
-<dd>Turns off the printing of host names; instead, host IP addresses are given. This may be useful if a nameserver is down.</dd>
+Turns off the printing of host names; instead, host IP addresses are given. This may be useful if a nameserver is down.
 
 * * *
 

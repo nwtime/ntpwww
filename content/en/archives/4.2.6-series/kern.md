@@ -21,4 +21,4 @@ The kernel model also provides support for an external precision timing source, 
 
 <a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: [PostScript](http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.ps) | [PDF](http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.pdf), Body: [PostScript](http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.ps) | [PDF](http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.pdf)
 
-<a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994\. 31 pp. [ASCII](http://www.eecis.udel.edu/%7emills/database/rfc/rfc1589.txt)
+<a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. [ASCII](http://www.eecis.udel.edu/%7emills/database/rfc/rfc1589.txt)

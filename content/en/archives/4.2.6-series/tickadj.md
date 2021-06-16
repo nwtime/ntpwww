@@ -43,23 +43,23 @@ Note that <tt>tickadj</tt> should be run with some caution when being used for t
 
 <dt><tt>-a _tickadj_</tt></dt>
 
-<dd>Set the kernel variable <tt>tickadj</tt> to the value _<tt>tickadj</tt>_specified.</dd>
+Set the kernel variable <tt>tickadj</tt> to the value _<tt>tickadj</tt>_specified.
 
 <dt><tt>-A</tt></dt>
 
-<dd>Set the kernel variable <tt>tickadj</tt> to an internally computed "optimal" value.</dd>
+Set the kernel variable <tt>tickadj</tt> to an internally computed "optimal" value.
 
 <dt><tt>-t _tick_</tt></dt>
 
-<dd>Set the kernel variable <tt>tick</tt> to the value _<tt>tick</tt>_ specified.</dd>
+Set the kernel variable <tt>tick</tt> to the value _<tt>tick</tt>_ specified.
 
 <dt><tt>-s</tt></dt>
 
-<dd>Set the kernel variable <tt>dosynctodr</tt> to zero, which disables the hardware time-of-year clock, a prerequisite for running the <tt>ntpd</tt> daemon under SunOS 4.x.</dd>
+Set the kernel variable <tt>dosynctodr</tt> to zero, which disables the hardware time-of-year clock, a prerequisite for running the <tt>ntpd</tt> daemon under SunOS 4.x.
 
 <dt><tt>-q</tt></dt>
 
-<dd>Normally, <tt>tickadj</tt> is quite verbose about what it is doing. The <tt>-q</tt> flag tells it to shut up about everything except errors.</dd>
+Normally, <tt>tickadj</tt> is quite verbose about what it is doing. The <tt>-q</tt> flag tells it to shut up about everything except errors.
 
 * * *
 

@@ -89,67 +89,67 @@ where the <tt>-e</tt> option redirects the unencrypted parameters to the standar
 
 <dt><tt>-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]</tt></dt>
 
-<dd>Select certificate and message digest/signature encryption scheme. Note that RSA schemes must be used with a RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <tt>RSA-MD5</tt>. If compatibility with FIPS 140-2 is required, either the <tt>DSA-SHA</tt> or <tt>DSA-SHA1</tt> scheme must be used.</dd>
+Select certificate and message digest/signature encryption scheme. Note that RSA schemes must be used with a RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <tt>RSA-MD5</tt>. If compatibility with FIPS 140-2 is required, either the <tt>DSA-SHA</tt> or <tt>DSA-SHA1</tt> scheme must be used.
 
 <dt><tt>-d</tt></dt>
 
-<dd>Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.</dd>
+Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.
 
 <dt><tt>-e</tt></dt>
 
-<dd>Extract the IFF or GQ public parameters from the <tt>IFFkey</tt> or <tt>GQkey</tt> keys file previously specified. Send the unencrypted data to the standard output stream <tt>stdout</tt>. While the IFF parameters do not reveal the private group key,  the GQ parameters should be used with caution, as they include the group key. Use the <tt>-q</tt> option with password instead. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.</dd>
+Extract the IFF or GQ public parameters from the <tt>IFFkey</tt> or <tt>GQkey</tt> keys file previously specified. Send the unencrypted data to the standard output stream <tt>stdout</tt>. While the IFF parameters do not reveal the private group key,  the GQ parameters should be used with caution, as they include the group key. Use the <tt>-q</tt> option with password instead. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.
 
 <dt><tt>-G</tt></dt>
 
-<dd>Generate a new encrypted GQ key file and link for the Guillou-Quisquater (GQ) identity scheme.</dd>
+Generate a new encrypted GQ key file and link for the Guillou-Quisquater (GQ) identity scheme.
 
 <dt><tt>-H</tt></dt>
 
-<dd>Generate a new encrypted RSA public/private host key file and link. Note that if the sign key is the same as the host key, generating a new host key invalidates all certificates signed with the old host key.</dd>
+Generate a new encrypted RSA public/private host key file and link. Note that if the sign key is the same as the host key, generating a new host key invalidates all certificates signed with the old host key.
 
 <dt><tt>-i _group_</tt></dt>
 
-<dd>Set the group name to <tt>_group_</tt>. This is used in the identity file names. It must match the group name specified in the <tt>ident</tt> option of the <tt>crypto</tt> configuration command.</dd>
+Set the group name to <tt>_group_</tt>. This is used in the identity file names. It must match the group name specified in the <tt>ident</tt> option of the <tt>crypto</tt> configuration command.
 
 <dt><tt>-I</tt></dt>
 
-<dd>Generate a new encrypted IFF key fileand linkfor the Schnorr (IFF) identity scheme.</dd>
+Generate a new encrypted IFF key fileand linkfor the Schnorr (IFF) identity scheme.
 
 <dt><tt>-m _modulus_</tt></dt>
 
-<dd>Set the modulus for generating files to _modulus_ bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets).</dd>
+Set the modulus for generating files to _modulus_ bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets).
 
 <dt><tt>-M</tt></dt>
 
-<dd>Generate a new MD5 key file containing 16, 128-bit pseudo-random keys for symmetric cryptography..</dd>
+Generate a new MD5 key file containing 16, 128-bit pseudo-random keys for symmetric cryptography..
 
 <dt><tt>-P</tt></dt>
 
-<dd>Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates. Note: the PC identity scheme is not recommended for new installations.</dd>
+Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates. Note: the PC identity scheme is not recommended for new installations.
 
 <dt><tt>-p _passwd_</tt></dt>
 
-<dd>Set the password for reading and writing encrypted files to <tt>_passwd_</tt>. By default, the password is the host name.</dd>
+Set the password for reading and writing encrypted files to <tt>_passwd_</tt>. By default, the password is the host name.
 
 <dt><tt>-q _passwd_</tt></dt>
 
-<dd>Extract the encrypted IFF or GQ server keys from the <tt>IFFkey</tt> or <tt>GQkey</tt> key file previously generated. The data are sent to the standard output stream <tt>stdout</tt>. Set the password for writing the data, which is also the password to read the data file in another host. By default, the password is the host name. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.</dd>
+Extract the encrypted IFF or GQ server keys from the <tt>IFFkey</tt> or <tt>GQkey</tt> key file previously generated. The data are sent to the standard output stream <tt>stdout</tt>. Set the password for writing the data, which is also the password to read the data file in another host. By default, the password is the host name. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.
 
 <dt><tt>-S [ RSA | DSA ]</tt></dt>
 
-<dd>Generate a new sign key of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <tt>DSA</tt>. Note that generating a new sign key invalidates all certificates signed with the old sign key.</dd>
+Generate a new sign key of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <tt>DSA</tt>. Note that generating a new sign key invalidates all certificates signed with the old sign key.
 
 <dt><tt>-s _host_</tt></dt>
 
-<dd>Set the host name to <tt>_host_</tt>. This is used in the host and sign key file names. It must match the host name specified in the <tt>host</tt> option of the <tt>crypto</tt> configuration command.</dd>
+Set the host name to <tt>_host_</tt>. This is used in the host and sign key file names. It must match the host name specified in the <tt>host</tt> option of the <tt>crypto</tt> configuration command.
 
 <dt><tt>-T</tt></dt>
 
-<dd>Generate a trusted certificate. By default, the program generates nontrusted certificates.</dd>
+Generate a trusted certificate. By default, the program generates nontrusted certificates.
 
 <dt><tt>-V _nkeys_</tt></dt>
 
-<dd>Generate server parameters <tt>MV</tt> and <tt>_nkeys_</tt> client keys for the Mu-Varadharajan (MV) identity scheme. Note: support for this option should be considered a work in progress.</dd>
+Generate server parameters <tt>MV</tt> and <tt>_nkeys_</tt> client keys for the Mu-Varadharajan (MV) identity scheme. Note: support for this option should be considered a work in progress.
 
 * * *
 

@@ -32,36 +32,32 @@ The [PPS Clock Discipline](/archives/drivers/driver22) driver (type 22) uses the
 
 The PPSAPI interface provides the following functions:
 
-<dl>
-
 <dt><tt>time_pps_create</tt></dt>
 
-<dd>Creates a PPS interface instance and returns a handle to it.</dd>
+Creates a PPS interface instance and returns a handle to it.
 
 <dt><tt>time_pps_destroy</tt></dt>
 
-<dd>Destroys a PPS interface and returns the resources used.</dd>
+Destroys a PPS interface and returns the resources used.
 
 <dt><tt>time_pps_setparams</tt></dt>
 
-<dd>Sets the parameters associated with a PPS interface instance, including offsets to be automatically added to captured timestamps.</dd>
+Sets the parameters associated with a PPS interface instance, including offsets to be automatically added to captured timestamps.
 
 <dt><tt>time_pps_getparams</tt></dt>
 
-<dd>Returns the parameters associated with a PPS interface instance.</dd>
+Returns the parameters associated with a PPS interface instance.
 
 <dt><tt>time_pps_getcap</tt></dt>
 
-<dd>Returns the capabilities of the current interface and kernel implementation.</dd>
+Returns the capabilities of the current interface and kernel implementation.
 
 <dt><tt>time_pps_fetch</tt></dt>
 
-<dd>Returns the current timestamps associated with a PPS interface instance in either nanoseconds and nanoseconds (Unix <tt>timespec</tt>) or seconds and fraction (NTP) format.</dd>
+Returns the current timestamps associated with a PPS interface instance in either nanoseconds and nanoseconds (Unix <tt>timespec</tt>) or seconds and fraction (NTP) format.
 
 <dt><tt>time_pps_kcbind</tt></dt>
 
-<dd>If kernel PPS processing is supported, this binds the support to the associated PPS interface instance.</dd>
-
-</dl>
+If kernel PPS processing is supported, this binds the support to the associated PPS interface instance.
 
 The entire PPS interface functionality is currently provided by inline code in the <tt>timepps.h</tt> header file. While not all implementations support the full PPSAPI specification, they do support all the functions required for the PPS driver described next. The FreeBSD, Linux and Solaris implementations can be used with the stock kernels provided with those systems; however, the Tru64 and SunOS kernels require additional functions not provided in the stock kernels. Solaris users are cautioned that these functions operate improperly in Solaris versions prior to 2.8 with patch Generic_108528-02. Header files for other systems can be found via the web at [nanokernel.tar.gz](https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz).

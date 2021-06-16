@@ -33,23 +33,23 @@ The interface routines in the <tt>ntp_refclock.c</tt> source file call the follo
 
 <dt><tt>startup</tt></dt>
 
-<dd>The association has just been mobilized. The driver may allocate a private structure and open the device(s) required.</dd>
+The association has just been mobilized. The driver may allocate a private structure and open the device(s) required.
 
 <dt><tt>shutdown</tt></dt>
 
-<dd>The association is about to be demobilized. The driver should close all device(s) and free private structures.</dd>
+The association is about to be demobilized. The driver should close all device(s) and free private structures.
 
 <dt><tt>receive</tt></dt>
 
-<dd>A timecode string is ready for retrieval using the <tt>refclock_gtlin()</tt> or <tt>refclock_gtraw()</tt> routines and provide clock updates.</dd>
+A timecode string is ready for retrieval using the <tt>refclock_gtlin()</tt> or <tt>refclock_gtraw()</tt> routines and provide clock updates.
 
 <dt><tt>poll</tt></dt>
 
-<dd>Called at poll timeout, by default 64 s. Ordinarily, the driver will send a poll sequence to the radio as required.</dd>
+Called at poll timeout, by default 64 s. Ordinarily, the driver will send a poll sequence to the radio as required.
 
 <dt><tt>timer</tt></dt>
 
-<dd>Called once per second. This can be used for housekeeping functions. In the case with pulse-per-second (PPS) signals, this can be used to process the signals and provide clock updates.</dd>
+Called once per second. This can be used for housekeeping functions. In the case with pulse-per-second (PPS) signals, this can be used to process the signals and provide clock updates.
 
 The receive routine retrieves a timecode string via serial or parallel port, PPS signal or other means. It decodes the timecode in days, hours, minutes, seconds and nanoseconds and checks for errors. It provides these data along with the on-time timestamp to the <tt>refclock_process</tt> routine, which saves the computed offset in a 60-sample circular buffer. On occasion, either by timeout, sample count or call to the poll routine, the driver calls <tt>refclock_receive</tt> to process the circular buffer samples and update the system clock.
 
@@ -73,23 +73,21 @@ If the calibration feature has been enabled, the <tt>flag1</tt> switch is set an
 
 When a new reference clock driver is installed, the following files need to be edited. Note that changes are also necessary to properly integrate the driver in the configuration and makefile scripts, but these are decidedly beyond the scope of this page.
 
-<dl>
-
 <dt><tt>./include/ntp.h</tt></dt>
 
-<dd>The reference clock type defines are used in many places. Each driver is assigned a unique type number. Unused numbers are clearly marked in the list. A unique <tt>REFCLK__xxxx_</tt> identification code should be recorded in the list opposite its assigned type number.</dd>
+The reference clock type defines are used in many places. Each driver is assigned a unique type number. Unused numbers are clearly marked in the list. A unique <tt>REFCLK__xxxx_</tt> identification code should be recorded in the list opposite its assigned type number.
 
 <dt><tt>./libntp/clocktypes.c</tt></dt>
 
-<dd>The <tt>./libntp/clktype</tt> array is used by certain display functions. A unique short-form name of the driver should be entered together with its assigned identification code.</dd>
+The <tt>./libntp/clktype</tt> array is used by certain display functions. A unique short-form name of the driver should be entered together with its assigned identification code.
 
 <dt><tt>./ntpd/ntp_control.c</tt></dt>
 
-<dd>The <tt>clocktypes</tt> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification RFC-1305. See the <tt>./include/ntp_control.h</tt> header file for the assigned classes.</dd>
+The <tt>clocktypes</tt> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification RFC-1305. See the <tt>./include/ntp_control.h</tt> header file for the assigned classes.
 
 <dt><tt>./ntpd/refclock_conf.c</tt></dt>
 
-<dd>This file contains a list of external structure definitions which are conditionally defined. A new set of entries should be installed similar to those already in the table. The <tt>refclock_conf</tt> array is a set of pointers to transfer vectors in the individual drivers. The external name of the transfer vector should be initialized in correspondence with the type number.</dd>
+This file contains a list of external structure definitions which are conditionally defined. A new set of entries should be installed similar to those already in the table. The <tt>refclock_conf</tt> array is a set of pointers to transfer vectors in the individual drivers. The external name of the transfer vector should be initialized in correspondence with the type number.
 
 * * *
 
@@ -97,43 +95,43 @@ When a new reference clock driver is installed, the following files need to be e
 
 <dt><tt>refclock_newpeer</tt> - initialize and start a reference clock.</dt>
 
-<dd>This routine allocates and initializes the interface structure which supports a reference clock in the form of an ordinary NTP peer. A driver-specific support routine completes the initialization, if used. Default peer variables which identify the clock and establish its reference ID and stratum are set here. It returns one if success and zero if the clock address is invalid or already running, insufficient resources are available or the driver declares a bum rap.</dd>
+This routine allocates and initializes the interface structure which supports a reference clock in the form of an ordinary NTP peer. A driver-specific support routine completes the initialization, if used. Default peer variables which identify the clock and establish its reference ID and stratum are set here. It returns one if success and zero if the clock address is invalid or already running, insufficient resources are available or the driver declares a bum rap.
 
 <dt><tt>refclock_unpeer</tt> - shut down a clock</dt>
 
-<dd>This routine is used to shut down a clock and return its resources to the system.</dd>
+This routine is used to shut down a clock and return its resources to the system.
 
 <dt><tt>refclock_transmit</tt> - simulate the transmit procedure</dt>
 
-<dd>This routine implements the NTP transmit procedure for a reference clock. This provides a mechanism to call the driver at the NTP poll interval, as well as provides a reachability mechanism to detect a broken radio or other madness.</dd>
+This routine implements the NTP transmit procedure for a reference clock. This provides a mechanism to call the driver at the NTP poll interval, as well as provides a reachability mechanism to detect a broken radio or other madness.
 
 <dt><tt>refclock_process</tt> - insert a sample in the circular buffer</dt>
 
-<dd>This routine saves the offset computed from the on-time timestamp and the days, hours, minutes, seconds and nanoseconds in the circular buffer. Note that no provision is included for the year, as provided by some (but not all) radio clocks. Ordinarily, the year is implicit in the Unix file system and hardware/software clock support, so this is ordinarily not a problem.</dd>
+This routine saves the offset computed from the on-time timestamp and the days, hours, minutes, seconds and nanoseconds in the circular buffer. Note that no provision is included for the year, as provided by some (but not all) radio clocks. Ordinarily, the year is implicit in the Unix file system and hardware/software clock support, so this is ordinarily not a problem.
 
 <dt><tt>refclock_receive</tt> - simulate the receive and packet procedures</dt>
 
-<dd>This routine simulates the NTP receive and packet procedures for a reference clock. This provides a mechanism in which the ordinary NTP filter, selection and combining algorithms can be used to suppress misbehaving radios and to mitigate between them when more than one is available for backup.</dd>
+This routine simulates the NTP receive and packet procedures for a reference clock. This provides a mechanism in which the ordinary NTP filter, selection and combining algorithms can be used to suppress misbehaving radios and to mitigate between them when more than one is available for backup.
 
 <dt><tt>refclock_gtraw</tt>, <tt>refclock_gtlin</tt> - read the buffer and on-time timestamp</dt>
 
-<dd>These routines return the data received from the clock and the on-time timestamp. The <tt>refclock_gtraw</tt> routine returns a batch of one or more characters returned by the Unix terminal routines in raw mode. The <tt>refclock_gtlin</tt> routine removes the parity bit and control characters and returns all the characters up to and including the line terminator. Either routine returns the number of characters delivered.</dd>
+These routines return the data received from the clock and the on-time timestamp. The <tt>refclock_gtraw</tt> routine returns a batch of one or more characters returned by the Unix terminal routines in raw mode. The <tt>refclock_gtlin</tt> routine removes the parity bit and control characters and returns all the characters up to and including the line terminator. Either routine returns the number of characters delivered.
 
 <dt><tt>refclock_open</tt> - open a serial port for reference clock</dt>
 
-<dd>This routine opens a serial port for I/O and sets default options. It returns the file descriptor if success and zero if failure.</dd>
+This routine opens a serial port for I/O and sets default options. It returns the file descriptor if success and zero if failure.
 
 <dt><tt>refclock_ioctl</tt> - set serial port control functions</dt>
 
-<dd>This routine attempts to hide the internal, system-specific details of serial ports. It can handle POSIX (<tt>termios</tt>), SYSV (<tt>termio</tt>) and BSD (<tt>sgtty</tt>) interfaces with varying degrees of success. The routine returns one if success and zero if failure.</dd>
+This routine attempts to hide the internal, system-specific details of serial ports. It can handle POSIX (<tt>termios</tt>), SYSV (<tt>termio</tt>) and BSD (<tt>sgtty</tt>) interfaces with varying degrees of success. The routine returns one if success and zero if failure.
 
 <dt><tt>refclock_ppsapi</tt></dt>
 
-<dd>This routine initializes the Pulse-per-Second interface (see below).</dd>
+This routine initializes the Pulse-per-Second interface (see below).
 
 <dt><tt>refclock_pps</tt></dt>
 
-<dd>This routine is called once per second to read the latest PPS offset and save it in the circular buffer (see below).</dd>
+This routine is called once per second to read the latest PPS offset and save it in the circular buffer (see below).
 
 * * *
 

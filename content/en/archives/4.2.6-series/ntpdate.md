@@ -52,65 +52,63 @@ If NetInfo support is compiled into <tt>ntpdate</tt>, then the <tt>server</tt> a
 
 <dt><tt>-4</tt></dt>
 
-<dd>Force DNS resolution of following host names on the command line to the IPv4 namespace.</dd>
+Force DNS resolution of following host names on the command line to the IPv4 namespace.
 
 <dt><tt>-6</tt></dt>
 
-<dd>Force DNS resolution of following host names on the command line to the IPv6 namespace.</dd>
+Force DNS resolution of following host names on the command line to the IPv6 namespace.
 
 <dt><tt>-a _key_</tt></dt>
 
-<dd>Enable the authentication function and specify the key identifier to be used for authentication as the argument _key_. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.</dd>
+Enable the authentication function and specify the key identifier to be used for authentication as the argument _key_. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.
 
 <dt><tt>-B</tt></dt>
 
-<dd>Force the time to always be slewed using the adjtime() system call, even if the measured offset is greater than +-500 ms. The default is to step the time using settimeofday() if the offset is greater than +-500 ms. Note that, if the offset is much greater than +-500 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time, the host should not be used to synchronize clients.</dd>
+Force the time to always be slewed using the adjtime() system call, even if the measured offset is greater than +-500 ms. The default is to step the time using settimeofday() if the offset is greater than +-500 ms. Note that, if the offset is much greater than +-500 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time, the host should not be used to synchronize clients.
 
 <dt><tt>-b</tt></dt>
 
-<dd>Force the time to be stepped using the settimeofday() system call, rather than slewed (default) using the adjtime() system call. This option should be used when called from a startup file at boot time.</dd>
+Force the time to be stepped using the settimeofday() system call, rather than slewed (default) using the adjtime() system call. This option should be used when called from a startup file at boot time.
 
 <dt><tt>-d</tt></dt>
 
-<dd>Enable the debugging mode, in which <tt>ntpdate</tt> will go through all the steps, but not adjust the local clock and using an unprivileged port. Information useful for general debugging will also be printed.</dd>
+Enable the debugging mode, in which <tt>ntpdate</tt> will go through all the steps, but not adjust the local clock and using an unprivileged port. Information useful for general debugging will also be printed.
 
 <dt><tt>-e _authdelay_</tt></dt>
 
-<dd>Specify the processing delay to perform an authentication function as the value _authdelay_, in seconds and fraction (see <tt>ntpd</tt> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPUs.</dd>
+Specify the processing delay to perform an authentication function as the value _authdelay_, in seconds and fraction (see <tt>ntpd</tt> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPUs.
 
 <dt><tt>-k _keyfile_</tt></dt>
 
-<dd>Specify the path for the authentication key file as the string _keyfile_. The default is <tt>/etc/ntp.keys</tt>. This file should be in the format described in <tt>ntpd</tt>.</dd>
+Specify the path for the authentication key file as the string _keyfile_. The default is <tt>/etc/ntp.keys</tt>. This file should be in the format described in <tt>ntpd</tt>.
 
 <dt><tt>-o _version_</tt></dt>
 
-<dd>Specify the NTP version for outgoing packets as the integer _version_, which can be 1 or 2. The default is 4. This allows <tt>ntpdate</tt> to be used with older NTP versions.</dd>
+Specify the NTP version for outgoing packets as the integer _version_, which can be 1 or 2. The default is 4. This allows <tt>ntpdate</tt> to be used with older NTP versions.
 
 <dt><tt>-p _samples_</tt></dt>
 
-<dd>Specify the number of samples to be acquired from each server as the integer _samples_, with values from 1 to 8 inclusive. The default is 4.</dd>
+Specify the number of samples to be acquired from each server as the integer _samples_, with values from 1 to 8 inclusive. The default is 4.
 
 <dt>_<tt>-q</tt>_</dt>
 
-<dd>Query only - don't set the clock.</dd>
+Query only - don't set the clock.
 
 <dt><tt>-s</tt></dt>
 
-<dd>Divert logging output from the standard output (default) to the system <tt>syslog</tt> facility. This is designed primarily for convenience of <tt>cron</tt> scripts.</dd>
+Divert logging output from the standard output (default) to the system <tt>syslog</tt> facility. This is designed primarily for convenience of <tt>cron</tt> scripts.
 
 <dt><tt>-t _timeout_</tt></dt>
 
-<dd>Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.</dd>
+Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.
 
 <dt><tt>-u</tt></dt>
 
-<dd>Direct <tt>ntpdate</tt> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <tt>-d</tt> option always uses unprivileged ports.</dd>
+Direct <tt>ntpdate</tt> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <tt>-d</tt> option always uses unprivileged ports.
 
 <dt><tt>-_v_</tt></dt>
 
-<dd>Be verbose. This option will cause <tt>ntpdate</tt>'s version identification string to be logged.</dd>
-
-</dl>
+Be verbose. This option will cause <tt>ntpdate</tt>'s version identification string to be logged.
 
 * * *
 

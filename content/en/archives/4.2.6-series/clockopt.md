@@ -22,7 +22,7 @@ The NTP Version 4 daemon supports some three dozen different radio, satellite an
 
 A reference clock will generally (though not always) be a radio timecode receiver which is synchronized to a source of standard time such as the services offered by the NRC in Canada and NIST and USNO in the US. The interface between the computer and the timecode receiver is device dependent, but is usually a serial port. A device driver specific to each reference clock must be selected and compiled in the distribution; however, most common radio, satellite and modem clocks are included by default. Note that an attempt to configure a reference clock when the driver has not been compiled or the hardware port has not been appropriately configured results in a scalding remark to the system log file, but is otherwise non hazardous.
 
-For the purposes of configuration, <tt>ntpd</tt> treats reference clocks in a manner analogous to normal NTP peers as much as possible. Reference clocks are identified by a syntactically correct but invalid IP address, in order to distinguish them from normal NTP peers. Reference clock addresses are of the form <tt>127.127._t.u_</tt>, where _<tt>t</tt>_ is an integer denoting the clock type and _<tt>u</tt>_ indicates the unit number in the range 0-3\. While it may seem overkill, it is in fact sometimes useful to configure multiple reference clocks of the same type, in which case the unit numbers must be unique.
+For the purposes of configuration, <tt>ntpd</tt> treats reference clocks in a manner analogous to normal NTP peers as much as possible. Reference clocks are identified by a syntactically correct but invalid IP address, in order to distinguish them from normal NTP peers. Reference clock addresses are of the form <tt>127.127._t.u_</tt>, where _<tt>t</tt>_ is an integer denoting the clock type and _<tt>u</tt>_ indicates the unit number in the range 0-3. While it may seem overkill, it is in fact sometimes useful to configure multiple reference clocks of the same type, in which case the unit numbers must be unique.
 
 The <tt>server</tt> command is used to configure a reference clock, where the _<tt>address</tt>_ argument in that command is the clock address. The <tt>key</tt>, <tt>version</tt> and <tt>ttl</tt> options are not used for reference clock support. The <tt>mode</tt> option is added for reference clock support, as described below. The <tt>prefer</tt> option can be useful to persuade the server to cherish a reference clock with somewhat more enthusiasm than other reference clocks or peers. Further information on this option can be found in the [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/4.2.6-series/prefer) page. The <tt>minpoll</tt> and <tt>maxpoll</tt> options have meaning only for selected clock drivers. See the individual clock driver document pages for additional information.
 
@@ -66,7 +66,7 @@ This command can be used to configure reference clocks in special ways. It must 
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>stratum _int_</tt>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stratum number assigned to the driver, an integer between 0 and 15\. This number overrides the default stratum number ordinarily assigned by the driver itself, usually zero.
+&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stratum number assigned to the driver, an integer between 0 and 15. This number overrides the default stratum number ordinarily assigned by the driver itself, usually zero.
 
 &nbsp;&nbsp;&nbsp;&nbsp;<tt>refid _string_</tt>
 
