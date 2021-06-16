@@ -94,21 +94,17 @@ Please include the version of the source distribution (e.g., ntp-4.0.70a) in you
 
 #### Additional <tt>make</tt> commands
 
-<dl>
-
 <dt><tt>make clean</tt></dt>
 
-<dd>Cleans out object files, programs and temporary files.</dd>
+Cleans out object files, programs and temporary files.
 
 <dt><tt>make distclean</tt></dt>
 
-<dd>Does the work of <tt>clean</tt>, but cleans out all directories in preparation for a new distribution release.</dd>
+Does the work of <tt>clean</tt>, but cleans out all directories in preparation for a new distribution release.
 
 <dt><tt>make dist</tt></dt>
 
-<dd>Does the work of <tt>make distclean</tt>, but constructs compressed tar files for distribution. You must have GNU automake to perform this function.</dd>
-
-</dl>
+Does the work of <tt>make distclean</tt>, but constructs compressed tar files for distribution. You must have GNU automake to perform this function.
 
 * * *
 
