@@ -44,7 +44,7 @@ This command deactivates the IRIG receiver. The argument is ignored. The buffers
 
 <dt><tt>audio_IRIG_SETFORMAT</tt></dt>
 
-The argument is a pointer to an integer designating the output format for the IRIG data. There are currently two formats defined, 0 (default) and 1\. If an invalid format is selected, the default format is used.
+The argument is a pointer to an integer designating the output format for the IRIG data. There are currently two formats defined, 0 (default) and 1. If an invalid format is selected, the default format is used.
 
 The data returned by a <tt>read()</tt> system call in format 0 is a character string in the format `ddd hh:mm:ss*\n`, which consists of 13 ASCII characters followed by a `\n` terminator for a total of 14 characters. The `*` status character is an ASCII space if the status byte determined by the driver is zero and `?` if not. This format is intended to be used with simple user programs that care only about the time to the nearest second.
 
@@ -61,7 +61,7 @@ The data returned by a <tt>read()</tt> system call in format 1 is a structure de
 
 The <tt>irig_time.stamp</tt> is a pair of 32-bit longwords in Unix <tt>timeval</tt> format, as defined in the <tt>/usr/include/sys/time.h</tt> header file. The first word is the number of seconds since 1 January 1970, while the second is the number of microseconds in the current second. The timestamp is captured at the most recent on-time epoch of the IRIG timecode and applies to all other values returned in the <tt>irig_time</tt> structure.
 
-The <tt>irig_time.bits[13]</tt> is a vector of 13 bytes to hold the 100-bit, zero-padded raw binary timecode, packed 8 symbols per byte. The symbol encoding maps IRIG one to 1 and both IRIG zero and IRIG position identifier to 0\. The order of encoding is illustrated by the following diagram (the padding bits are represented by `xxxx`, which are set to zero):
+The <tt>irig_time.bits[13]</tt> is a vector of 13 bytes to hold the 100-bit, zero-padded raw binary timecode, packed 8 symbols per byte. The symbol encoding maps IRIG one to 1 and both IRIG zero and IRIG position identifier to 0. The order of encoding is illustrated by the following diagram (the padding bits are represented by `xxxx`, which are set to zero):
 
 <pre>IRIG symbol number      00000000001111111111 . . . 8888889999999999xxxx
                                 01234567890123456789 . . .

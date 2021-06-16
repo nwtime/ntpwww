@@ -100,35 +100,35 @@ Clock state statistics are written hourly to the syslog service. Online informat
 
 <dt>time1 _time_</dt>
 
-<dd>Specifies the time offset calibration factor, in seconds and fraction, with default depending on clock type.</dd>
+Specifies the time offset calibration factor, in seconds and fraction, with default depending on clock type.
 
 <dt>time2 _time_</dt>
 
-<dd>Specifies the offset if the PPS signal to the actual time. (PPS fine tuning).</dd>
+Specifies the offset if the PPS signal to the actual time. (PPS fine tuning).
 
 <dt>stratum _number_</dt>
 
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
 <dt>refid _string_</dt>
 
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default according to current clock type. </dd>
+Specifies the driver reference identifier, an ASCII string from one to four characters, with default according to current clock type. 
 
 <dt>flag1 0 | 1</dt>
 
-<dd>Not used by this driver. </dd>
+Not used by this driver. 
 
 <dt>flag2 0 | 1</dt>
 
-<dd>Not used by this driver. </dd>
+Not used by this driver. 
 
 <dt>flag3 0 | 1</dt>
 
-<dd>Delete next leap second instead of adding it.</dd>
+Delete next leap second instead of adding it.
 
 <dt>flag4 0 | 1</dt>
 
-<dd>Delete next leap second instead of adding it - flag will be re-defined soon - so don't use it. Statistics are provided by more common means (syslog, clock variable via ntpq)</dd>
+Delete next leap second instead of adding it - flag will be re-defined soon - so don't use it. Statistics are provided by more common means (syslog, clock variable via ntpq)
 
 * * *
 

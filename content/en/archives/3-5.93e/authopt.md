@@ -61,7 +61,7 @@ The key is a 64-bit hexadecimal number in the format specified in the NTP standa
 
 <dt><tt>A</tt></dt>
 
-<dd>The key is a 1-to-8 character ASCII string. A key is formed from this by using the low order 7 bits of each ASCII character in the string, with zeroes added on the right when necessary to form a full width 56-bit key, in the same way that encryption keys are formed from Unix passwords.</dd>
+The key is a 1-to-8 character ASCII string. A key is formed from this by using the low order 7 bits of each ASCII character in the string, with zeroes added on the right when necessary to form a full width 56-bit key, in the same way that encryption keys are formed from Unix passwords.
 
 <dt><tt>M</tt></dt>
 

@@ -84,35 +84,35 @@ When enabled by the <tt>flag4</tt> fudge flag, every received timecode is writte
 
 <dt><tt>time1 _time_</tt></dt>
 
-<dd>Specifies the time offset calibration factor, in seconds and fraction, to be used for the West satellite, with default 0.0.</dd>
+Specifies the time offset calibration factor, in seconds and fraction, to be used for the West satellite, with default 0.0.
 
 <dt><tt>time2 _time_</tt></dt>
 
-<dd> Specifies the time offset calibration factor, in seconds and fraction, to be used for the East satellite, with default 0.0.</dd>
+ Specifies the time offset calibration factor, in seconds and fraction, to be used for the East satellite, with default 0.0.
 
 <dt><tt>stratum _number_</tt></dt>
 
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
 <dt><tt>refid _string_</tt></dt>
 
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>TRUE</tt>.</dd>
+Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>TRUE</tt>.
 
 <dt><tt>flag1 0 | 1</tt></dt>
 
-<dd>Silence the clock side of ntpd, just reading the clock without trying to write to it.</dd>
+Silence the clock side of ntpd, just reading the clock without trying to write to it.
 
 <dt><tt>flag2 0 | 1</tt></dt>
 
-<dd>Generate a debug file /tmp/true%d.</dd>
+Generate a debug file /tmp/true%d.
 
 <dt><tt>flag3 0 | 1</tt></dt>
 
-<dd>Enable <tt>ppsclock</tt> line discipline/streams module if set. </dd>
+Enable <tt>ppsclock</tt> line discipline/streams module if set. 
 
 <dt><tt>flag4 0 | 1</tt></dt>
 
-<dd>Enable <tt>clockstats</tt> recording if set.</dd>
+Enable <tt>clockstats</tt> recording if set.
 
 * * *
 

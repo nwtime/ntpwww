@@ -37,9 +37,8 @@ Select algorithm from the following list
 <tt>-6</tt> MD2  
 <tt>-7</tt> SHA  
 <tt>-8</tt> HAVAL  
-<tt>-9</tt> null</dd>
+<tt>-9</tt> null
 
 <dt><tt>-h</tt></dt>
 
 Display the result in hex; the default is base-64.
-

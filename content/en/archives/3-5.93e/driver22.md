@@ -40,35 +40,35 @@ The third way involves an auxiliary radio clock driver which calls the PPS drive
 
 <dt><tt>time1 _time_</tt></dt>
 
-<dd>Specifies the time offset calibration factor, in seconds and fraction, with default 0.0. This parameter can be used to compensate for the UART and OS delays. Allow about 247 us for UART delays at 38400 bps and about 1 ms for SunOS streams nonsense.</dd>
+Specifies the time offset calibration factor, in seconds and fraction, with default 0.0. This parameter can be used to compensate for the UART and OS delays. Allow about 247 us for UART delays at 38400 bps and about 1 ms for SunOS streams nonsense.
 
 <dt><tt>time2 _time_</tt></dt>
 
-<dd>Not used by this driver.</dd>
+Not used by this driver.
 
 <dt><tt>stratum _number_</tt></dt>
 
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
 <dt><tt>refid _string_</tt></dt>
 
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>ATOM</tt>.</dd>
+Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>ATOM</tt>.
 
 <dt><tt>flag1 0 | 1</tt></dt>
 
-<dd>Not used by this driver.</dd>
+Not used by this driver.
 
 <dt><tt>flag2 0 | 1</tt></dt>
 
-<dd>Not used by this driver.</dd>
+Not used by this driver.
 
 <dt><tt>flag3 0 | 1</tt></dt>
 
-<dd>Enables <tt>ppsclock</tt> line discipline/streams module if set.</dd>
+Enables <tt>ppsclock</tt> line discipline/streams module if set.
 
 <dt><tt>flag4 0 | 1</tt></dt>
 
-<dd>Not used by this driver.</dd>
+Not used by this driver.
 
 * * *
 
