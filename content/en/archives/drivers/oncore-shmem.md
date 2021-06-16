@@ -62,7 +62,7 @@ would be required.
 
 With the shared memory interface, the oncore driver (refclock_oncore) allocates space for all of the messages that it is configured to receive, and then puts each message in the appropriate slot in shared memory as it arrives from the receiver. Since there is no easy way for a client program to know when the shared memory has been updated, a sequence number is associated with each message, and is incremented when a new message arrives. With the sequence number it is easy to check through the shared memory segment for messages that have changed.
 
-The Oncore binary messages are kept in their full length, as described in the Reference manual, that is everything from the @@ prefix thru the <checksum><CR><LF>.
+The Oncore binary messages are kept in their full length, as described in the Reference manual, that is everything from the @@ prefix thru the <checksum>&lsaquo;CR&rsaquo;&lsaquo;LF&rsaquo;.
 
 The data starts at location ONE of SHMEM (NOT location ZERO).
 

@@ -45,7 +45,7 @@ A radio clock is usually connected via a serial port and the PPS source connecte
 
 The driver normally operates like any other driver and uses the same mitigation algorithms and PLL/FLL clock discipline incorporated in the daemon. If kernel PLL/FLL support is available, the kernel PLL/FLL clock discipline can be used instead. The default behavior is not to use the kernel PPS clock discipline, even if present. This driver incorporates a good deal of signal processing to reduce jitter using the median filter algorithm in the driver. As the result, performance with <tt>minpoll</tt> configured at 4 (16s) is generally better than the kernel PPS discipline. However, fudge flag 3 can be used to enable the kernel PPS discipline if necessary.
 
-This driver is enabled only under one of two conditions (a) a prefer peer other than this driver is among the survivors of the mitigation algorithms or (b) there are no survivors and the <tt>minsane</tt> option of the <tt>tos</tt> command is 0\. The prefer peer designates another source that can reliably number the seconds when available . However, if no sources are available, the system clock continues to be disciplined by the PPS driver on an indefinite basis.
+This driver is enabled only under one of two conditions (a) a prefer peer other than this driver is among the survivors of the mitigation algorithms or (b) there are no survivors and the <tt>minsane</tt> option of the <tt>tos</tt> command is 0. The prefer peer designates another source that can reliably number the seconds when available . However, if no sources are available, the system clock continues to be disciplined by the PPS driver on an indefinite basis.
 
 A scenario where the latter behavior can be most useful is a planetary orbiter fleet, for instance in the vicinity of Mars, where contact between orbiters and Earth only one or two times per Sol (Mars day). These orbiters have a precise timing reference based on an Ultra Stable Oscillator (USO) with accuracy in the order of a Cesium oscillator. A PPS signal is derived from the USO and can be disciplined from Earth on rare occasion or from another orbiter via NTP. In the above scenario the PPS signal disciplines the spacecraft clock between NTP updates.
 
@@ -55,41 +55,37 @@ In a similar scenario a PPS signal can be used to discipline the clock between u
 
 #### Fudge Factors
 
-<dl>
-
 <dt><tt>time1 _time_</tt></dt>
 
-<dd>Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.</dd>
+Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
 <dt><tt>time2 _time_</tt></dt>
 
-<dd>Not used by this driver.</dd>
+Not used by this driver.
 
 <dt><tt>stratum _number_</tt></dt>
 
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
 <dt><tt>refid _string_</tt></dt>
 
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>PPS</tt>.</dd>
+Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>PPS</tt>.
 
 <dt><tt>flag1 0 | 1</tt></dt>
 
-<dd>Not used by this driver.</dd>
+Not used by this driver.
 
 <dt><tt>flag2 0 | 1</tt></dt>
 
-<dd>Specifies PPS capture on the rising (assert) pulse edge if 0 (default) or falling (clear) pulse edge if 1\. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is installed then the leading edge will _always_ be used.</dd>
+Specifies PPS capture on the rising (assert) pulse edge if 0 (default) or falling (clear) pulse edge if 1. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is installed then the leading edge will _always_ be used.
 
 <dt><tt>flag3 0 | 1</tt></dt>
 
-<dd>Controls the kernel PPS discipline: 0 for disable (default), 1 for enable. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is used then kernel PPS will be available and used.</dd>
+Controls the kernel PPS discipline: 0 for disable (default), 1 for enable. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is used then kernel PPS will be available and used.
 
 <dt><tt>flag4 0 | 1</tt></dt>
 
-<dd>Record a timestamp once for each second if 1. Useful for constructing Allan deviation plots.</dd>
-
-.</dl>
+Record a timestamp once for each second if 1. Useful for constructing Allan deviation plots.
 
 * * *
 
@@ -97,4 +93,4 @@ In a similar scenario a PPS signal can be used to discipline the clock between u
 
 [Reference Clock Drivers](/archives/4.2.8-series/refclock)
 
-<a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1\. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp.
+<a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp.

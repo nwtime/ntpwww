@@ -87,7 +87,7 @@ hhmmss second of day
 
 [Spectracom GPS and WWVB Receivers](http://www.spectracomcorp.com)
 
-If a modem is connected to a Spectracom receiver, this driver will call it and retrieve the time in one of two formats, 0 and 2\. Ordinarily, the receiver requires a <tt>T</tt> in order to return the timecode. As this driver does not send data via the modem, it must either be configured in continuous mode or be polled by another local driver.
+If a modem is connected to a Spectracom receiver, this driver will call it and retrieve the time in one of two formats, 0 and 2. Ordinarily, the receiver requires a <tt>T</tt> in order to return the timecode. As this driver does not send data via the modem, it must either be configured in continuous mode or be polled by another local driver.
 
 * * *
 

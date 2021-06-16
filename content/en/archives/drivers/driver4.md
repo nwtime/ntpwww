@@ -33,7 +33,7 @@ Requires: Optional PPS signal processing requires the PPSAPI signal interface.
 
 This driver supports all known Spectracom radio and satellite clocks, including the Model 8170 and Netclock/2 WWVB Synchronized Clocks and the Netclock/GPS GPS Master Clock. The claimed accuracy of the WWVB clocks is 100 <span class="style1">m</span>s relative to the broadcast signal. These clocks have proven a reliable source of time, except in some parts of the country with high levels of conducted RF interference. WIth the GPS clock the claimed accuracy is 130 ns. However, in most cases the actual accuracy is limited by the precision of the timecode and the latencies of the serial interface and operating system.
 
-The DIPswitches on these clocks should be set to 24-hour display, AUTO DST off, data format 0 or 2 (see below) and baud rate 9600\. If this clock is used as the source for the IRIG Audio Decoder (<tt>refclock_irig.c</tt> in this distribution), set the DIPswitches for AM IRIG output and IRIG format 1 (IRIG B with signature control).
+The DIPswitches on these clocks should be set to 24-hour display, AUTO DST off, data format 0 or 2 (see below) and baud rate 9600. If this clock is used as the source for the IRIG Audio Decoder (<tt>refclock_irig.c</tt> in this distribution), set the DIPswitches for AM IRIG output and IRIG format 1 (IRIG B with signature control).
 
 There are two timecode formats used by these clocks. Format 0, which is available with all clocks, and format 2, which is available with all clocks except the original (unmodified) Model 8170.
 

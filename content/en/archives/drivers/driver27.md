@@ -31,7 +31,7 @@ Features: <tt>tty_clk</tt>
 
 This driver supports the Arcron MSF, DCF and WWVB receivers. The clock reports its ID as "<tt>MSFa</tt>'', "<tt>MSF</tt>'', "<tt>DCF</tt>'' or "<tt>WWVB</tt>'' to indicate the time source.
 
-This documentation describes v1.3 (2003/2/21) of the source and has been tested against ntpd 4.1.0 on linux x86\. Changes from v1.1 and v1.2 include patches to work with the new ntp-4 code, clock support for DCF and WWVB configurable via mode flag, an option to ignore resync request (for those of us at the fringes of the WWVB signal, for instance), averaging of the signal quality poll and several bug fixes, code cleanup and standardizations. In all other respects, the driver works as per v1.1 if a mode is not specified.
+This documentation describes v1.3 (2003/2/21) of the source and has been tested against ntpd 4.1.0 on linux x86. Changes from v1.1 and v1.2 include patches to work with the new ntp-4 code, clock support for DCF and WWVB configurable via mode flag, an option to ignore resync request (for those of us at the fringes of the WWVB signal, for instance), averaging of the signal quality poll and several bug fixes, code cleanup and standardizations. In all other respects, the driver works as per v1.1 if a mode is not specified.
 
 To use the alternate modes, the mode flag must be specified. If the mode flag is 0, or unspecified, the original MSF version is assumed. This should assure backwards compatibility and should not break existing setups.
 
@@ -64,7 +64,7 @@ If we force resyncs to MSF too often we will needlessly exhaust the batteries th
 
 The driver does not force an immediate resync of the clock to MSF when it starts up to avoid excessive battery drain in case <tt>ntpd</tt> is going to be repeatedly restarted for any reason, and also to allow enough samples of the clock to be taken for <tt>ntpd</tt> to sync immediately to this clock (and not remain unsynchronised or to sync briefly to another configured peer, only to hop back in a few poll times, causing unnecessary disturbance). This behaviour should not cause problems because the driver will not accept the timestamps from the clock if the status flag delivered with the time code indicates that the last resync attempt was unsuccessful, so the initial timestamps will be close to reality, even if with up to a day's clock drift in the worst case (the clock by default resyncs to MSF once per day).
 
-When alternate modes 1-3 are selected, the driver can be configured to ignore the resync requests by setting <tt>flag2</tt> to 1\. This allows clocks at the fringe of the signal to resync at night when signals are stronger.
+When alternate modes 1-3 are selected, the driver can be configured to ignore the resync requests by setting <tt>flag2</tt> to 1. This allows clocks at the fringe of the signal to resync at night when signals are stronger.
 
 The clock has a peculiar RS232 arrangement where the transmit lines are powered from the receive lines, presumably to minimise battery drain. This arrangement has two consequences:
 

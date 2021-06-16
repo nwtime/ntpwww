@@ -27,7 +27,7 @@ Parallel Port: <tt>/dev/pcfclocks/_u_</tt> or <tt>/dev/pcfclock_u_</tt>
 
 #### Description
 
-This driver supports the parallel port radio clock sold by [Conrad Electronic](http://www.conrad.com/) under order numbers 967602 and 642002\. This clock is put between a parallel port and your printer. It receives the legal German time, which is either CET or CEST, from the DCF77 transmitter and uses it to set its internal quartz clock. The DCF77 transmitter is located near to Frankfurt/Main and covers a radius of more than 1500 kilometers.
+This driver supports the parallel port radio clock sold by [Conrad Electronic](http://www.conrad.com/) under order numbers 967602 and 642002. This clock is put between a parallel port and your printer. It receives the legal German time, which is either CET or CEST, from the DCF77 transmitter and uses it to set its internal quartz clock. The DCF77 transmitter is located near to Frankfurt/Main and covers a radius of more than 1500 kilometers.
 
 The pcfclock device driver is required in order to use this reference clock driver. Currently device drivers for Linux and FreeBSD are available.
 

@@ -33,7 +33,7 @@ The only change between this driver and the NIST one is the data format. In fact
 0000000000111111111122222222223333333333444444444455555555556666666666777777777 7  
 0123456789012345678901234567890123456789012345678901234567890123456789012345678 9  
 1995-01-23 20:58:51 MEZ 10402303260219950123195849740+40000500 *  
-A B C D EF G H IJ K L M N O P Q R S T U V W XY Z<CR><LF>  
+A B C D EF G H IJ K L M N O P Q R S T U V W XY Z&lsaquo;CR&rsaquo;&lsaquo;LF&rsaquo;  
 A year  
 B month  
 C day  
@@ -62,7 +62,7 @@ W signal delay (assumed/measured)
 X sequence number for additional text line in Y  
 Y additional text  
 Z on time marker (* - assumed delay / # measured delay)  
-<CR>!<LF> ! is second change !  
+&lsaquo;CR&rsaquo;!&lsaquo;LF&rsaquo; ! is second change !  
 </pre>
 
 This format is an ITU-R Recommendation (ITU-R TF583.4) and is now available from the primary timing centres of the following countries: Austria, Belgium, Germany, Italy, The Netherlands, Poland, Portugal, Romania, Spain, Sweden, Switzerland, Turkey, United Kingdom. Some examples are:
