@@ -91,7 +91,7 @@ Specifies the filename _kodfile_ to be used for the persistent history of KoD (K
 
 <dt><tt>-k _keyfile_, --keyfile _keyfile_</tt></dt>
 
-Specifies the filename _keyfile_ used with the <tt>-a</tt>/<tt>--authentication</tt> option. The format of the file is described on the [<tt>ntp-keygen</tt> page](keygen.html).
+Specifies the filename _keyfile_ used with the <tt>-a</tt>/<tt>--authentication</tt> option. The format of the file is described on the [<tt>ntp-keygen</tt> page](/archives/4.2.8-series/keygen).
 
 <dt><tt>-l _logfile_, --filelog _logfile_</tt></dt>
 

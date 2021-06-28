@@ -85,7 +85,7 @@ Chroot the server to the directory _<tt>jaildir</tt>_. This option also implies 
 
 <dt id="--interface"><tt>-I [_address_ | _interface name_]</tt></dt>
 
-Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file [interface](miscopt.html#interface) command, which is more versatile.
+Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.8-series/miscopt/#interface) command, which is more versatile.
 
 <dt><tt>-k _keyfile_</tt></dt>
 
@@ -101,7 +101,7 @@ Once the system clock is synchronized, register with mDNS as an available server
 
 <dt id="--novirtualips"><tt>-L</tt></dt>
 
-Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file [interface](miscopt.html#interface) command, which is more versatile.
+Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.8-series/miscopt/#interface) command, which is more versatile.
 
 <dt><tt>-M</tt></dt>
 

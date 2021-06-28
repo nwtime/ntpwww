@@ -13,7 +13,7 @@ Last update: 02:20 UTC Monday, March 03, 2008
 
 #### Table of Contents
 
-*   [Synopsis](#synopsis)  
+*   [Synopsis](/archives/4.2.6-series/ntp_conf/#synopsis)  
 *   [Files](/archives/4.2.6-series/ntp_conf/#files)
 *   [High-Level Description](/archives/4.2.6-series/ntp_conf/#high-level-description)
 *   [Detailed Description](/archives/4.2.6-series/ntp_conf/#detailed-description)

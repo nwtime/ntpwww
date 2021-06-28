@@ -17,7 +17,7 @@ Unless noted otherwise, further information about these commands is on the [Acce
 
 <dt id="discard"><tt>discard [ average _avg_ ][ minimum _min_ ] [ monitor _prob_ ]</tt></dt>
 
-Set the parameters of the rate control facility which protects the server from client abuse. If the <tt>limited</tt> flag is present in the ACL, packets that violate these limits are discarded. If, in addition, the <tt>kod</tt> flag is present, a kiss-o'-death packet is returned. See the [Rate Management](rate.html) page for further information. The options are:
+Set the parameters of the rate control facility which protects the server from client abuse. If the <tt>limited</tt> flag is present in the ACL, packets that violate these limits are discarded. If, in addition, the <tt>kod</tt> flag is present, a kiss-o'-death packet is returned. See the [Rate Management](/archives/4.2.8-series/rate) page for further information. The options are:
 
 <dt><tt>average _avg_</tt></dt>
 
