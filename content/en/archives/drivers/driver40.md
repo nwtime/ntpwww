@@ -42,7 +42,7 @@ This driver supports the following JJY receivers and the GPS clock sold in Japan
 | [Tristate Ltd.   TS-JJY01, TS-JJY02](http://www.tristate.ne.jp/) | [1](/archives/drivers/driver40/#mode-1) | Japanese only |
 | [C-DEX Co.,Ltd.   JST2000](http://www.c-dex.co.jp/) | [2](/archives/drivers/driver40/#mode-2) | Japanese only |
 | Echo Keisokuki Co.,Ltd.   LT-2000 | [3](/archives/drivers/driver40/#mode-3) | |  
-| [CITIZEN T.I.C. CO.,LTD.   JJY-200](http://www.tic-citizen.co.jp/) | [4](/archives/drivers/driver40/#mode-4) | Japanese only |
+| [CITIZEN T.I.C. CO.,LTD.   JJY-200](https://tic.citizen.co.jp/english/index.html) | [4](/archives/drivers/driver40/#mode-4) | Japanese only |
 | [Tristate Ltd.   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40/#mode-5) | Japanese only |
 | [SEIKO TIME SYSTEMS INC.   TDC-300](http://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40/#mode-6) | English and Japanese |
 | [Telephone JJY](http://jjy.nict.go.jp/) | [100](/archives/drivers/driver40/#mode-100) | English and Japanese |
