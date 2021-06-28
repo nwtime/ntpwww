@@ -40,7 +40,7 @@ The reason we created a separate driver for an antenna for which a (vendor suppl
 
 This is where we wanted more flexibility. We wanted to be able to use existing wiring in buildings. That lead us to CAT-5(UTP) which only gives us 8 wires. Therefore we decided to redesign the use of the Trimble antenna. The Trimble supports two modes: EVENT driver and PPS mode. The default is to use the EVENT mode which needs all 12 wires. We only use the PPS timestamps for which we have enough with 8 wires. For our purposes this is more than fine.
 
-More information about the project can be found on the [Test Traffic Measurements](http://www.ripe.net/test-traffic) website. 
+More information about the project can be found on the [Test Traffic Measurements](https://www.ripe.net/analyse/archived-projects/ttm) website. 
 
 ![RIPE NCC clock card](/archives/pic/driver43_1.gif)
 
