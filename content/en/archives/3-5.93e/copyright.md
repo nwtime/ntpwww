@@ -37,7 +37,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 
 5.  Steve Clift <clift@ml.csiro.au>: OMEGA clock driver  
 
-6.  [Casey Crellin](http://www.ee.uct.ac.za/~casey) [(casey@csc.co.za)](mailto:casey@csc.co.za) vxWorks (Tornado) port and help with target configuration  
+6.  Casey Crellin [(casey@csc.co.za)](mailto:casey@csc.co.za) vxWorks (Tornado) port and help with target configuration  
 
 7.  Torsten Duwe <duwe@immd4.informatik.uni-erlangen.de> Linux Port  
 
@@ -81,7 +81,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 
 27.  Nick Sayer <mrapple@quack.kfu.com> SunOS streams modules  
 
-28.  [Frank Kardel](http://www4.informatik.uni-erlangen.de/~kardel) [<Frank.Kardel@informatik.uni-erlangen.de>](mailto: Frank.Kardel@informatik.uni-erlangen.de) PARSE <GENERIC> driver (14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup  
+28.  [Frank Kardel](http://www4.informatik.uni-erlangen.de/~kardel) Frank.Kardel@informatik.uni-erlangen.de PARSE <GENERIC> driver (14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup  
 
 29.  Ray Schnitzler <schnitz@unipress.com> Unixware1 port  
 
@@ -93,7 +93,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 
 33.  Kenneth Stone <ken@sdd.hp.com> HP-UX port  
 
-34.  [Ajit Thyagarajan <ajit@ee.udel.edu>](http://www.eecis.udel.edu/~ajit) IP multicast support  
+34.  Ajit Thyagarajan <ajit@ee.udel.edu> IP multicast support  
 
 35.  Tomoaki TSURUOKA <tsuruoka@nc.fukuoka-u.ac.jp> TRAK clock driver  
 
