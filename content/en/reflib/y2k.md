@@ -78,7 +78,7 @@ The following notes are intended to clarify what may seem to be odd features abo
 
 *   While the Unix timescale is not shown directly in the table, the correspondence between the NTP and Unix timescales is determined only by the constant 2,208,988,800. This is the number of Gregorian seconds from the NTP prime epoch 0h, 1 January 1900 to the Unix prime epoch 0h, 1 January 1970.
 
-*   A careful reader might question the numbering system on and near the origin of the Common Era (CE) 0h, 1 January 1 CE. Since there is no year zero or day zero in the Roman calendar, day zero in in this calendar coincides with 0h, 1 January 1 BCE.
+*   A careful reader might question the numbering system on and near the origin of the Common Era (CE) 0h, 1 January 1 CE. Since there is no year zero or day zero in the Roman calendar, day zero in this calendar coincides with 0h, 1 January 1 BCE.
 
 Note the correspondence between the NTP date on one hand and the NTP era and timestamp on the other. The signed era number provides the base epoch in multiples of 2<sup>32</sup> s and the unsigned timestamp the offset in that era. Conversion between date and era-timestamp formats can be done by simple cut and paste requiring no arithmetic operations.
 

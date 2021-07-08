@@ -29,7 +29,7 @@ This is also the location of the [Backroom Test Facility (BTF)](/reflib/backroom
 
 ![jpg](/archives/pic/car_license.jpg)
 
-Above are are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and Amateur Extra Class License. There is no mistaking me on the road, either. The telegraph ticket requires a proficiency in Morse code sending and receiving of 25 words-per-minute, which may be useful as a MIME type in secret mail. The upper picture is a verification (QSL) card for my current amateur radio station W3HCF. I have been licensed since 1954 and held former callsigns K2GUP (New Jersey), W8EJQ (Michigan), GM5AWF (Scotland) and F0BCX (France).
+Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and Amateur Extra Class License. There is no mistaking me on the road, either. The telegraph ticket requires a proficiency in Morse code sending and receiving of 25 words-per-minute, which may be useful as a MIME type in secret mail. The upper picture is a verification (QSL) card for my current amateur radio station W3HCF. I have been licensed since 1954 and held former callsigns K2GUP (New Jersey), W8EJQ (Michigan), GM5AWF (Scotland) and F0BCX (France).
 
 ![gif](/archives/pic/arrl_rgb.gif)[American Radio Relay League (Life Member since 1953)](http://www.arrl.org/)
 

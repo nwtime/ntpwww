@@ -54,5 +54,5 @@ We have used the simulator to test NTP performance over a wide range of operatin
 
 #### Future Work
 
-It would be interesting to explore the use of multiple NTP clients and servers in separate virutal environments on the same or different machines. This way the operation of an entire NTP subnet could be explored under conditions of stress, instability and threat. This also makes it practical to develop and test new discovery and synchronization paradigms without harnessing dedicated test network resources.
+It would be interesting to explore the use of multiple NTP clients and servers in separate virtual environments on the same or different machines. This way the operation of an entire NTP subnet could be explored under conditions of stress, instability and threat. This also makes it practical to develop and test new discovery and synchronization paradigms without harnessing dedicated test network resources.
 					

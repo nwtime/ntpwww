@@ -4,7 +4,7 @@ title: "Reference Library"
 menu:
   main:
     weight: 30
-type: docs
+type: reflib
 
 ---
 

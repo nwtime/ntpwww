@@ -96,7 +96,7 @@ In most identity schemes there are two kinds of group keys, server and client. T
 
 Perhaps under contract, trusted host X belonging to the Carol group rents client keys for both Alice and Helen and has server keys for Carol. Hosts Y and Z have only client keys for Carol. The Autokey protocol operates as previously described for each group separately while preserving security separation. Host X can prove identity in Carol to clients Y and Z, but cannot prove to anybody that she can sign certificates for either Alice or Helen.
 
-Ordinarily, it would not be desirable to reveal the group key in server keys and forbidden to reveal it in client keys. This can be avoided using the MV identity scheme described later. It allows the same broadcast transmission to be authenticated by more than one key, one used internally by the laboratories (Alice and/or Helen) and the the other handed out to clients like Carol. In the MV scheme these keys can be separately activated upon subscription and deactivated if the subscriber fails to pay the bill.
+Ordinarily, it would not be desirable to reveal the group key in server keys and forbidden to reveal it in client keys. This can be avoided using the MV identity scheme described later. It allows the same broadcast transmission to be authenticated by more than one key, one used internally by the laboratories (Alice and/or Helen) and the other handed out to clients like Carol. In the MV scheme these keys can be separately activated upon subscription and deactivated if the subscriber fails to pay the bill.
 
 ![gif](/archives/pic/identb.gif)
 
