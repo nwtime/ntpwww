@@ -16,7 +16,7 @@ This is the front panel and operator console of one of the CPUs. As you can see,
 
 ![jpg](/archives/pic/ibm67d.jpg)
 
-This is the configuration console for the dual CPU system. Either of four coreboxes and four channels could be switched to either CPU in any combination. We could and often did partition the hardware as two independent systems and ran MTS on one and IBM OS/360 on the other. Sometimes we even ran something called TSS/360, which was built by IBM but never finished. The huge book perched on the top is the Systems Reference Library, which held every little detail for maintenance and repair. At that time IBM was the second most prolific paper publisher after only the US Government. Even so, IBM print documentation was far superior in depth and quality compared with todays online tutorials.
+This is the configuration console for the dual CPU system. Either of four coreboxes and four channels could be switched to either CPU in any combination. We could and often did partition the hardware as two independent systems and ran MTS on one and IBM OS/360 on the other. Sometimes we even ran something called TSS/360, which was built by IBM but never finished. The huge book perched on the top is the Systems Reference Library, which held every little detail for maintenance and repair. At that time IBM was the second most prolific paper publisher after only the US Government. Even so, IBM print documentation was far superior in depth and quality compared with today's online tutorials.
 
 ![jpg](/archives/pic/ibm67a.jpg)
 
