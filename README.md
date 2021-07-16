@@ -35,7 +35,15 @@ git submodule update --init --recursive
 
 ## Building the Documentation
 
-Once you've installed the requirements, `cd` back to `ntpdoc` and start Hugo:
+Once you've installed the requirements, `cd` back to `ntpdoc` and do what you need to do.
+
+To render the site into `public/` simply run:
+
+```
+hugo
+```
+
+To start Hugo, offering a web server on the localhost:
 
 ```
 hugo server
