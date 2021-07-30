@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>ntpd - Network Time Protocol (NTP) daemon | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="ntpd - Network Time Protocol (NTP) daemon" />
+<meta property="og:description" content="from The Wizard of Oz, L. Frank Baum
+You need help from the monkeys.
+Last update: 18:44 UTC Thursday, July 28, 2005
+ Table of Contents  Synopsis Description How NTP Operates Frequency Discipline Operating Modes Poll Interval Control The huff-n&#39;-puff Filter Notes Command Line Options The Configuration File Configuration Options Files   Synopsis ntpd [ -46aAbdDgLmnNqx ] [ -c conffile ] [ -f driftfile ] [ -i jaildir ] [ -k keyfile ] [ -l logfile ] [ -p pidfile ] [ -P priority ] [ -r broadcastdelay ] [ -s statsdir ] [ -t key ] [ -u user[:group] ] [ -v variable ] [ -V variable ]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.2-series/ntpd/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="ntpd - Network Time Protocol (NTP) daemon">
+<meta itemprop="description" content="from The Wizard of Oz, L. Frank Baum
+You need help from the monkeys.
+Last update: 18:44 UTC Thursday, July 28, 2005
+ Table of Contents  Synopsis Description How NTP Operates Frequency Discipline Operating Modes Poll Interval Control The huff-n&#39;-puff Filter Notes Command Line Options The Configuration File Configuration Options Files   Synopsis ntpd [ -46aAbdDgLmnNqx ] [ -c conffile ] [ -f driftfile ] [ -i jaildir ] [ -k keyfile ] [ -l logfile ] [ -p pidfile ] [ -P priority ] [ -r broadcastdelay ] [ -s statsdir ] [ -t key ] [ -u user[:group] ] [ -v variable ] [ -V variable ]">
+
+<meta itemprop="wordCount" content="3133">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ntpd - Network Time Protocol (NTP) daemon"/>
+<meta name="twitter:description" content="from The Wizard of Oz, L. Frank Baum
+You need help from the monkeys.
+Last update: 18:44 UTC Thursday, July 28, 2005
+ Table of Contents  Synopsis Description How NTP Operates Frequency Discipline Operating Modes Poll Interval Control The huff-n&#39;-puff Filter Notes Command Line Options The Configuration File Configuration Options Files   Synopsis ntpd [ -46aAbdDgLmnNqx ] [ -c conffile ] [ -f driftfile ] [ -i jaildir ] [ -k keyfile ] [ -l logfile ] [ -p pidfile ] [ -P priority ] [ -r broadcastdelay ] [ -s statsdir ] [ -t key ] [ -u user[:group] ] [ -v variable ] [ -V variable ]"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.2-series/">4.2.2-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.2-series/ntpd/">ntpd - Network Time Protocol (NTP) daemon</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>ntpd - Network Time Protocol (NTP) daemon</h1>
+    
+	       
+	<p><img src="/archives/pic/wingdorothy.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
+<p>You need help from the monkeys.</p>
+<p>Last update: 18:44 UTC Thursday, July 28, 2005</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.2-series/ntpd/#synopsis">Synopsis</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#description">Description</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#how-ntp-operates">How NTP Operates</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#frequency-discipline">Frequency Discipline</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#operating-modes">Operating Modes</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#poll-interval-control">Poll Interval Control</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#the-huff-n-puff-filter">The huff-n'-puff Filter</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#notes">Notes</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#command-line-options">Command Line Options</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#the-configuration-file">The Configuration File</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#configuration-options">Configuration Options</a></li>
+<li><a href="/archives/4.2.2-series/ntpd/#files">Files</a></li>
+</ul>
+<hr>
+<h4 id="synopsis">Synopsis</h4>
+<p><tt>ntpd [ -46aAbdDgLmnNqx ] [ -c <em>conffile</em> ] [ -f <em>driftfile</em> ] [ -i <em>jaildir</em> ] [ -k <em>keyfile</em> ] [ -l <em>logfile</em> ] [ -p <em>pidfile</em> ] [ -P <em>priority</em> ] [ -r <em>broadcastdelay</em> ] [ -s <em>statsdir</em> ] [ -t <em>key</em> ] [ -u <em>user</em>[:<em>group</em>] ] [ -v <em>variable</em> ] [ -V <em>variable</em> ]</tt></p>
+<hr>
+<h4 id="description">Description</h4>
+<p>The <tt>ntpd</tt> program is an operating system daemon which sets and maintains the system time of day in synchronism with Internet standard time servers. It is a complete implementation of the Network Time Protocol (NTP) version 4, but also retains compatibility with version 3, as defined by RFC-1305, and version 1 and 2, as defined by RFC-1059 and RFC-1119, respectively. <tt>ntpd</tt> does most computations in 64-bit floating point arithmetic and does relatively clumsy 64-bit fixed point operations only when necessary to preserve the ultimate precision, about 232 picoseconds. While the ultimate precision is not achievable with ordinary workstations and networks of today, it may be required with future gigahertz CPU clocks and gigabit LANs.</p>
+<hr>
+<h4 id="how-ntp-operates">How NTP Operates</h4>
+<p>The <tt>ntpd</tt> program operates by exchanging messages with one or more configured servers at designated poll intervals. When started, whether for the first or subsequent times, the program requires several exchanges from the majority of these servers so the signal processing and mitigation algorithms can accumulate and groom the data and set the clock. In order to protect the network from bursts, the initial poll interval for each server is delayed an interval randomized over a few seconds. At the default initial poll interval of 64s, several minutes can elapse before the clock is set. The initial delay to set the clock can be reduced using the <tt>iburst</tt> keyword with the <tt>server</tt> configuration command, as described on the <a href="/archives/4.2.2-series/confopt">Configuration Options</a> page.</p>
+<p>Most operating systems and hardware of today incorporate a time-of-year (TOY) chip to maintain the time during periods when the power is off. When the machine is booted, the chip is used to initialize the operating system time. After the machine has synchronized to a NTP server, the operating system corrects the chip from time to time. In case there is no TOY chip or for some reason its time is more than 1000s from the server time, <tt>ntpd</tt> assumes something must be terribly wrong and the only reliable action is for the operator to intervene and set the clock by hand. This causes <tt>ntpd</tt> to exit with a panic message to the system log. The <tt>-g</tt> option overrides this check and the clock will be set to the server time regardless of the chip time. However, and to protect against broken hardware, such as when the CMOS battery fails or the clock counter becomes defective, once the clock has been set, an error greater than 1000s will cause <tt>ntpd</tt> to exit anyway.</p>
+<p>Under ordinary conditions, <tt>ntpd</tt> adjusts the clock in small steps so that the timescale is effectively continuous and without discontinuities. Under conditions of extreme network congestion, the roundtrip delay jitter can exceed three seconds and the synchronization distance, which is equal to one-half the roundtrip delay plus error budget terms, can become very large. The <tt>ntpd</tt> algorithms discard sample offsets exceeding 128 ms, unless the interval during which no sample offset is less than 128 ms exceeds 900s. The first sample after that, no matter what the offset, steps the clock to the indicated time. In practice this reduces the false alarm rate where the clock is stepped in error to a vanishingly low incidence.</p>
+<p>As the result of this behavior, once the clock has been set, it very rarely strays more than 128 ms, even under extreme cases of network path congestion and jitter. Sometimes, in particular when <tt>ntpd</tt> is first started, the error might exceed 128 ms. This may on occasion cause the clock to be set backwards if the local clock time is more than 128 s in the future relative to the server. In some applications, this behavior may be unacceptable. If the <tt>-x</tt> option is included on the command line, the clock will never be stepped and only slew corrections will be used.</p>
+<p>The issues should be carefully explored before deciding to use the <tt>-x</tt> option. The maximum slew rate possible is limited to 500 parts-per-million (PPM) as a consequence of the correctness principles on which the NTP protocol and algorithm design are based. As a result, the local clock can take a long time to converge to an acceptable offset, about 2,000 s for each second the clock is outside the acceptable range. During this interval the local clock will not be consistent with any other network clock and the system cannot be used for distributed applications that require correctly synchronized network time.</p>
+<p>In spite of the above precautions, sometimes when large frequency errors are present the resulting time offsets stray outside the 128-ms range and an eventual step or slew time correction is required. If following such a correction the frequency error is so large that the first sample is outside the acceptable range, <tt>ntpd</tt> enters the same state as when the <tt>ntp.drift</tt> file is not present. The intent of this behavior is to quickly correct the frequency and restore operation to the normal tracking mode. In the most extreme cases (<tt>time.ien.it</tt> comes to mind), there may be occasional step/slew corrections and subsequent frequency corrections. It helps in these cases to use the <tt>burst</tt> keyword when configuring the server.</p>
+<hr>
+<h4 id="frequency-discipline">Frequency Discipline</h4>
+<p>The <tt>ntpd</tt> behavior at startup depends on whether the frequency file, usually <tt>ntp.drift</tt>, exists. This file contains the latest estimate of clock frequency error. When the <tt>ntpd</tt> is started and the file does not exist, the <tt>ntpd</tt> enters a special mode designed to quickly adapt to the particular system clock oscillator time and frequency error. This takes approximately 15 minutes, after which the time and frequency are set to nominal values and the <tt>ntpd</tt> enters normal mode, where the time and frequency are continuously tracked relative to the server. After one hour the frequency file is created and the current frequency offset written to it. When the <tt>ntpd</tt> is started and the file does exist, the <tt>ntpd</tt> frequency is initialized from the file and enters normal mode immediately. After that the current frequency offset is written to the file at hourly intervals.</p>
+<hr>
+<h4 id="operating-modes">Operating Modes</h4>
+<p><tt>ntpd</tt> can operate in any of several modes, including symmetric active/passive, client/server broadcast/multicast and manycast, as described in the <a href="/archives/4.2.2-series/assoc">Association Management</a> page. It normally operates continuously while monitoring for small changes in frequency and trimming the clock for the ultimate precision. However, it can operate in a one-time mode where the time is set from an external server and frequency is set from a previously recorded frequency file. A broadcast/multicast or manycast client can discover remote servers, compute server-client propagation delay correction factors and configure itself automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment.</p>
+<p>By default, <tt>ntpd</tt> runs in continuous mode where each of possibly several external servers is polled at intervals determined by an intricate state machine. The state machine measures the incidental roundtrip delay jitter and oscillator frequency wander and determines the best poll interval using a heuristic algorithm. Ordinarily, and in most operating environments, the state machine will start with 64s intervals and eventually increase in steps to 1024s. A small amount of random variation is introduced in order to avoid bunching at the servers. In addition, should a server become unreachable for some time, the poll interval is increased in steps to 1024s in order to reduce network overhead.</p>
+<p>In some cases it may not be practical for <tt>ntpd</tt> to run continuously. A common workaround has been to run the <tt>ntpdate</tt> program from a <tt>cron</tt> job at designated times. However, this program does not have the crafted signal processing, error checking and mitigation algorithms of <tt>ntpd</tt>. The <tt>-q</tt> option is intended for this purpose. Setting this option will cause <tt>ntpd</tt> to exit just after setting the clock for the first time. The procedure for initially setting the clock is the same as in continuous mode; most applications will probably want to specify the <tt>iburst</tt> keyword with the <tt>server</tt> configuration command. With this keyword a volley of messages are exchanged to groom the data and the clock is set in about 10 s. If nothing is heard after a couple of minutes, the daemon times out and exits. After a suitable period of mourning, the <tt>ntpdate</tt> program may be retired.</p>
+<p>When kernel support is available to discipline the clock frequency, which is the case for stock Solaris, Tru64, Linux and FreeBSD, a useful feature is available to discipline the clock frequency. First, <tt>ntpd</tt> is run in continuous mode with selected servers in order to measure and record the intrinsic clock frequency offset in the frequency file. It may take some hours for the frequency and offset to settle down. Then the <tt>ntpd</tt> is stopped and run in one-time mode as required. At each startup, the frequency is read from the file and initializes the kernel frequency.</p>
+<hr>
+<h4 id="poll-interval-control">Poll Interval Control</h4>
+<p>This version of NTP includes an intricate state machine to reduce the network load while maintaining a quality of synchronization consistent with the observed jitter and wander. There are a number of ways to tailor the operation in order enhance accuracy by reducing the interval or to reduce network overhead by increasing it. However, the user is advised to carefully consider the consequences of changing the poll adjustment range from the default minimum of 64 s to the default maximum of 1,024 s. The default minimum can be changed with the <tt>tinker minpoll</tt> command to a value not less than 16 s. This value is used for all configured associations, unless overridden by the <tt>minpoll</tt> option on the configuration command. Note that most device drivers will not operate properly if the poll interval is less than 64 s and that the broadcast server and manycast client associations will also use the default, unless overridden.</p>
+<p>In some cases involving dial up or toll services, it may be useful to increase the minimum interval to a few tens of minutes and maximum interval to a day or so. Under normal operation conditions, once the clock discipline loop has stabilized the interval will be increased in steps from the minimum to the maximum. However, this assumes the intrinsic clock frequency error is small enough for the discipline loop correct it. The capture range of the loop is 500 PPM at an interval of 64s decreasing by a factor of two for each doubling of interval. At a minimum of 1,024 s, for example, the capture range is only 31 PPM. If the intrinsic error is greater than this, the drift file <tt>ntp.drift</tt> will have to be specially tailored to reduce the residual error below this limit. Once this is done, the drift file is automatically updated once per hour and is available to initialize the frequency on subsequent daemon restarts.</p>
+<hr>
+<h4 id="the-huff-n-puff-filter">The huff-n'-puff Filter</h4>
+<p>In scenarios where a considerable amount of data are to be downloaded or uploaded over telephone modems, timekeeping quality can be seriously degraded. This occurs because the differential delays on the two directions of transmission can be quite large. In many cases the apparent time errors are so large as to exceed the step threshold and a step correction can occur during and after the data transfer is in progress.</p>
+<p>The huff-n'-puff filter is designed to correct the apparent time offset in these cases. It depends on knowledge of the propagation delay when no other traffic is present. In common scenarios this occurs during other than work hours. The filter maintains a shift register that remembers the minimum delay over the most recent interval measured usually in hours. Under conditions of severe delay, the filter corrects the apparent offset using the sign of the offset and the difference between the apparent delay and minimum delay. The name of the filter reflects the negative (huff) and positive (puff) correction, which depends on the sign of the offset.</p>
+<p>The filter is activated by the <tt>tinker</tt> command and <tt>huffpuff</tt> keyword, as described in the <a href="/archives/4.2.2-series/miscopt">Miscellaneous Options</a> page.</p>
+<hr>
+<h4 id="notes">Notes</h4>
+<p>If NetInfo support is built into <tt>ntpd</tt>, then <tt>ntpd</tt> will attempt to read its configuration from the NetInfo if the default ntp.conf file cannot be read and no file is specified by the <tt>-c</tt> option.</p>
+<p>In contexts where a host name is expected, a <tt>-4</tt> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <tt>-6</tt> qualifier forces DNS resolution to the IPv6 namespace.</p>
+<p>Various internal <tt>ntpd</tt> variables can be displayed and configuration options altered while the <tt>ntpd</tt> is running using the <tt><a href="/archives/4.2.2-series/ntpq">ntpq</a></tt> and <tt><a href="/archives/4.2.2-series/ntpdc">ntpdc</a></tt> utility programs.</p>
+<p>When <tt>ntpd</tt> starts it looks at the value of <tt>umask</tt>, and if zero <tt>ntpd</tt> will set the <tt>umask</tt> to <tt>022</tt>.</p>
+<hr>
+<h4 id="command-line-options">Command Line Options</h4>
+<dt><tt>-a</tt></dt>
+<p>Require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is the default.</p>
+<dt><tt>-A</tt></dt>
+<p>Do not require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is almost never a good idea.</p>
+<dt><tt>-b</tt></dt>
+<p>Enable the client to synchronize to broadcast servers.</p>
+<dt><tt>-c _conffile_</tt></dt>
+<p>Specify the name and path of the configuration file, default <tt>/etc/ntp.conf</tt>.</p>
+<dt><tt>-d</tt></dt>
+<p>Specify debugging mode. This option may occur more than once, with each occurrence indicating greater detail of display.</p>
+<dt><tt>-D _level_</tt></dt>
+<p>Specify debugging level directly.</p>
+<dt><tt>-f _driftfile_</tt></dt>
+<p>Specify the name and path of the frequency file, default <tt>/etc/ntp.drift</tt>. This is the same operation as the <tt>driftfile <em>driftfile</em></tt> configuration command.</p>
+<dt><tt>-g</tt></dt>
+<p>Normally, <tt>ntpd</tt> exits with a message to the system log if the offset exceeds the panic threshold, which is 1000 s by default. This option allows the time to be set to any value without restriction; however, this can happen only once. If the threshold is exceeded after that, <tt>ntpd</tt> will exit with a message to the system log. This option can be used with the <tt>-q</tt> and <tt>-x</tt> options. See the <tt>tinker</tt> command for other options.</p>
+<dt><tt>-i _jaildir_</tt></dt>
+<p>Chroot the server to the directory <em>jaildir</em>. This option also implies that the server attempts to drop root privileges at startup (otherwise, chroot gives very little additional security), and it is only available if the OS supports to run the server without full root privileges. You may need to also specify a <tt>-u</tt> option.</p>
+<dt><tt>-k _keyfile_</tt></dt>
+<p>Specify the name and path of the symmetric key file, default <tt>/etc/ntp.keys</tt>. This is the same operation as the <tt>keys <em>keyfile</em></tt> configuration command.</p>
+<dt><tt>-l _logfile_</tt></dt>
+<p>Specify the name and path of the log file. The default is the system log file. This is the same operation as the <tt>logfile <em>logfile</em></tt> configuration command.</p>
+<dt><tt>-L</tt></dt>
+<p>Do not listen to virtual IPs. The default is to listen.</p>
+<dt><tt>-n</tt></dt>
+<p>Don&rsquo;t fork.</p>
+<dt><tt>-N</tt></dt>
+<p>To the extent permitted by the operating system, run the <tt>ntpd</tt> at the highest priority.</p>
+<dt><tt>-p _pidfile_</tt></dt>
+<p>Specify the name and path of the file used to record the <tt>ntpd</tt> process ID. This is the same operation as the <tt>pidfile <em>pidfile</em></tt> configuration command.</p>
+<dt><tt>-P _priority_</tt></dt>
+<p>To the extent permitted by the operating system, run the <tt>ntpd</tt> at the specified priority.</p>
+<dt><tt>-q</tt></dt>
+<p>Exit the <tt>ntpd</tt> just after the first time the clock is set. This behavior mimics that of the <tt>ntpdate</tt> program, which is to be retired. The <tt>-g</tt> and <tt>-x</tt> options can be used with this option. Note: The kernel time discipline is disabled with this option.</p>
+<dt><tt>-r _broadcastdelay_</tt></dt>
+<p>Specify the default propagation delay from the broadcast/multicast server to this client. This is necessary only if the delay cannot be computed automatically by the protocol.</p>
+<dt><tt>-s _statsdir_</tt></dt>
+<p>Specify the directory path for files created by the statistics facility. This is the same operation as the <tt>statsdir <em>statsdir</em></tt> configuration command.</p>
+<dt><tt>-t _key_</tt></dt>
+<p>Add a key number to the trusted key list. This option can occur more than once.</p>
+<dt><tt>-u _user[:group]_</tt></dt>
+<p>Specify a user, and optionally a group, to switch to. This option is only available if the OS supports to run the server without full root privileges. Currently, this option is supported under NetBSD (configure with &ndash;enable-clockctl) and Linux (configure with &ndash;enable-linuxcaps).</p>
+<dt><tt>-v _variable_</tt></dt>
+<dt><tt>-V _variable_</tt></dt>
+<p>Add a system variable listed by default.</p>
+<dt><tt>-x</tt></dt>
+<p>Normally, the time is slewed if the offset is less than the step threshold, which is 128 ms by default, and stepped if above the threshold. This option sets the threshold to 600 s, which is well within the accuracy window to set the clock manually. Note: Since the slew rate of typical Unix kernels is limited to 0.5 ms/s, each second of adjustment requires an amortization interval of 2000 s. Thus, an adjustment as much as 600 s will take almost 14 days to complete. This option can be used with the <tt>-g</tt> and <tt>-q</tt> options. See the <tt>tinker</tt> command for other options. Note: The kernel time discipline is disabled with this option.</p>
+<hr>
+<h4 id="the-configuration-file">The Configuration File</h4>
+<p>Ordinarily, <tt>ntpd</tt> reads the <tt>ntp.conf</tt> configuration file at startup time in order to determine the synchronization sources and operating modes. It is also possible to specify a working, although limited, configuration entirely on the command line, obviating the need for a configuration file. This may be particularly useful when the local host is to be configured as a broadcast/multicast client, with all peers being determined by listening to broadcasts at run time.</p>
+<p>Usually, the configuration file is installed in the <tt>/etc</tt> directory, but could be installed elsewhere (see the <tt>-c <em>conffile</em></tt> command line option). The file format is similar to other Unix configuration files - comments begin with a <tt>#</tt> character and extend to the end of the line; blank lines are ignored.</p>
+<p>Configuration commands consist of an initial keyword followed by a list of arguments, some of which may be optional, separated by whitespace. Commands may not be continued over multiple lines. Arguments may be host names, host addresses written in numeric, dotted-quad form, integers, floating point numbers (when specifying times in seconds) and text strings. Optional arguments are delimited by <tt>[ ]</tt> in the following descriptions, while alternatives are separated by <tt>|</tt>. The notation <tt>[ &hellip; ]</tt> means an optional, indefinite repetition of the last item before the <tt>[ &hellip; ]</tt>.</p>
+<hr>
+<h4 id="configuration-options">Configuration Options</h4>
+<p><a href="/archives/4.2.2-series/confopt">Server Options</a><br>
+<a href="/archives/4.2.2-series/authopt">Authentication Options</a><br>
+<a href="/archives/4.2.2-series/monopt">Monitoring Options</a><br>
+<a href="/archives/4.2.2-series/accopt">Access Control Options</a><br>
+<a href="/archives/4.2.2-series/manyopt">Automatic NTP Configuration Options</a><br>
+<a href="/archives/4.2.2-series/clockopt">Reference Clock Options</a><br>
+<a href="/archives/4.2.2-series/miscopt">Miscellaneous Options</a></p>
+<hr>
+<h4 id="files">Files</h4>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Default</th>
+<th>Option</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>configuration file</td>
+<td><code>/etc/ntp.conf</code></td>
+<td><code>-c</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td>frequency file</td>
+<td><code>/etc/ntp.drift</code></td>
+<td><code>-f</code></td>
+<td><code>driftfile</code></td>
+</tr>
+<tr>
+<td>process ID file</td>
+<td>none</td>
+<td><code>-p</code></td>
+<td><code>pidfile</code></td>
+</tr>
+<tr>
+<td>log file</td>
+<td>system log</td>
+<td><code>-l</code></td>
+<td><code>logfile</code></td>
+</tr>
+<tr>
+<td>include file</td>
+<td>none</td>
+<td>none</td>
+<td><code>includefile</code></td>
+</tr>
+<tr>
+<td>statistics path</td>
+<td><code>/var/NTP</code></td>
+<td><code>-s</code></td>
+<td><code>statsdir</code></td>
+</tr>
+<tr>
+<td>keys path</td>
+<td><code>/usr/local/etc</code></td>
+<td><code>-k</code></td>
+<td><code>keysdir</code></td>
+</tr>
+</tbody>
+</table>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
