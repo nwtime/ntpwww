@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Kernel Model for Precision Timekeeping | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Kernel Model for Precision Timekeeping" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+Exploding kernel
+ The technical report 2, which is a major revision and update of an earlier report 3, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model uses a hybrid PLL/FLL discipline algorithm implemented in the kernel." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.1.1/kern/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Kernel Model for Precision Timekeeping">
+<meta itemprop="description" content="from Pogo, Walt Kelly
+Exploding kernel
+ The technical report 2, which is a major revision and update of an earlier report 3, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model uses a hybrid PLL/FLL discipline algorithm implemented in the kernel.">
+
+<meta itemprop="wordCount" content="508">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kernel Model for Precision Timekeeping"/>
+<meta name="twitter:description" content="from Pogo, Walt Kelly
+Exploding kernel
+ The technical report 2, which is a major revision and update of an earlier report 3, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model uses a hybrid PLL/FLL discipline algorithm implemented in the kernel."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.1.1/">4.1.1</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.1.1/kern/">Kernel Model for Precision Timekeeping</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Kernel Model for Precision Timekeeping</h1>
+    
+	       
+	<p><img src="/archives/pic/alice61.gif" alt="gif"> <a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>Exploding kernel</p>
+<hr>
+<p>The technical report <sup><a href="#myfootnote2">2</a></sup>, which is a major revision and update of an earlier report <sup><a href="#myfootnote3">3</a></sup>, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model uses a hybrid PLL/FLL discipline algorithm implemented in the kernel. The hybrid loop provides automatic time and frequency steering with update intervals from a few seconds to over one day.</p>
+<p>The hybrid PLL/FLL has been implemented in the Unix kernels for several operating systems, including FreeBSD and Linux and those made by Sun Microsystems, Digital/Compaq and Hewlett Packard. The modifications are currently included in the licensed kernels for Digital Unix 4.0 (aka Tru64) and Sun Solaris 2.8. Since the modifications involve proprietary kernel interface code, they cannot be provided for other licensed kernels directly. Inquiries should be directed to the manufacturer&rsquo;s representatives. The software and documentation, including a simulator with code segments almost identical to the implementations, but not involving licensed code, is available at <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz">nanokernel.tar.gz</a>.</p>
+<p>Recently <sup><a href="#myfootnote1">1</a></sup>, the model has been re-implemented to support a nanosecond system clock. The <tt>/usr/include/sys/timex.h</tt> header file defines the applications programming interface (API) routines and data structures. Implementations are available for Linux, FreeBSD, SunOS and Tru64; however, only the Linux and FreeBSD implementations, which are included in recent system versions, are directly available. The software and documentation, including a simulator with code segments almost identical to the implementations, but not involving licensed code, is available at <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz">nanokernel.tar.gz</a>.</p>
+<p>The model changes the way the system clock is adjusted in time and frequency, as well as provides mechanisms to discipline its time and frequency to an external precision timing source, such as described in the <a href="/archives/4.1.1/pps">Pulse-per-second (PPS) Signal Interfacing</a> page. The model incorporates a generic system call interface for use with the NTP or similar time synchronization protocol. The NTP software daemons for Version 3 <tt>xntpd</tt> and Version 4 <tt>ntpd</tt> use this API to provide synchronization limited in principle only by the accuracy and stability of the external timing source. There are two new system calls defined in <tt>timex.h</tt>, <tt>ntp_gettime()</tt>, which returns a structure including the current time, estimated error and maximum error, and <tt>ntp_adjtime()</tt>, which provides a means to adjust kernel variables, including the current time and frequency offsets.</p>
+<p>These kernel modifications are normally used in conjunction with a kernel hardware interface such as described in the <a href="/archives/4.1.1/kernpps">Kernel Programming Interface for Precision Time Signals</a> page.</p>
+<h4 id="footnotes">Footnotes</h4>
+<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.pdf">PDF</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ppt">PowerPoint</a></p>
+<p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.pdf">PDF</a>, Body: <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.pdf">PDF</a></p>
+<p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="http://www.eecis.udel.edu/%7emills/database/rfc/rfc1589.txt">ASCII</a></p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

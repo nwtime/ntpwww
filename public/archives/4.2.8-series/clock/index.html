@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Clock State Machine | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Clock State Machine" />
+<meta property="og:description" content="Last update: 4-Aug-2011 23:40 UTC
+ Table of Contents  General Overview Panic Threshold Step and Stepout Thresholds Hold Timer Operating Intervals State Transition Function   General Overview In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.8-series/clock/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Clock State Machine">
+<meta itemprop="description" content="Last update: 4-Aug-2011 23:40 UTC
+ Table of Contents  General Overview Panic Threshold Step and Stepout Thresholds Hold Timer Operating Intervals State Transition Function   General Overview In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail.">
+
+<meta itemprop="wordCount" content="1299">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Clock State Machine"/>
+<meta name="twitter:description" content="Last update: 4-Aug-2011 23:40 UTC
+ Table of Contents  General Overview Panic Threshold Step and Stepout Thresholds Hold Timer Operating Intervals State Transition Function   General Overview In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.8-series/clock/">Clock State Machine</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Clock State Machine</h1>
+    
+	       
+	<p>Last update: 4-Aug-2011 23:40 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.8-series/clock/#general-overview">General Overview</a></li>
+<li><a href="/archives/4.2.8-series/clock/#panic-threshold">Panic Threshold</a></li>
+<li><a href="/archives/4.2.8-series/clock/#step-and-stepout-thresholds">Step and Stepout Thresholds</a></li>
+<li><a href="/archives/4.2.8-series/clock/#hold-timer">Hold Timer</a></li>
+<li><a href="/archives/4.2.8-series/clock/#operating-intervals">Operating Intervals</a></li>
+<li><a href="/archives/4.2.8-series/clock/#state-transition-function">State Transition Function</a></li>
+</ul>
+<hr>
+<h4 id="general-overview">General Overview</h4>
+<p>In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail.</p>
+<p>The state machine is activated upon receipt of an update by the clock discipline algorithm. its primary purpose is to determines whether the clock is slewed or stepped and how the initial time and frequency are determined using three thresholds: <em>panic</em>, <em>step</em> and <em>stepout</em>, and one timer: <em>hold</em>.</p>
+<hr>
+<h4 id="panic-threshold">Panic Threshold</h4>
+<p>Most computers today incorporate a time-of-year (TOY) chip to maintain the time when the power is off. When the computer is restarted, the chip is used to initialize the operating system time. In case there is no TOY chip or the TOY time is different from NTP time by more than the panic threshold, the daemon assumes something must be terribly wrong, so exits with a message to the system operator to set the time manually. With the <tt>-g</tt> option on the command line, the daemon sets the clock to NTP time at the first update, but exits if the offset exceeds the panic threshold at subsequent updates. The panic threshold default is 1000 s, but it can be changed with the <tt>panic</tt> option of the <a href="/archives/4.2.8-series/miscopt"><tt>tinker</tt></a> command.</p>
+<hr>
+<h4 id="step-and-stepout-thresholds">Step and Stepout Thresholds</h4>
+<p>Under ordinary conditions, the clock discipline gradually slews the clock to the correct time, so that the time is effectively continuous and never stepped forward or backward. If, due to extreme network congestion, an offset spike exceeds the step threshold, by default 128 ms, the spike is discarded. However, if offset spikes greater than the step threshold persist for an interval more than the stepout threshold, by default 300 s, the system clock is stepped to the correct time.</p>
+<p>In practice, the need for a step has been extremely rare and almost always the result of a hardware failure or operator error. The step threshold and stepout threshold can be changed using the <tt>step</tt> and <tt>stepout</tt> options of the <a href="/archives/4.2.8-series/miscopt"><tt>tinker</tt></a> command, respectively. If the step threshold is set to zero, the step function is entirely disabled and the clock is always slewed. The daemon sets the step threshold to 600 s using the <tt>-x</tt> option on the command line. If the <tt>-g</tt> option is used or the step threshold is set greater than 0.5 s, the precision time kernel support is disabled.</p>
+<p>Historically, the most important application of the step function was when a leap second was inserted in the Coordinated Universal Time (UTC) timescale and the kernel precision time support was not available. This also happened with older reference clocks that indicated an impending leap second, but the radio itself did not respond until it resynchronized some minutes later. Further details are on the <a href="/archives/4.2.8-series/leap">Leap Second Processing</a> page.</p>
+<p>In some applications the clock can never be set backward, even it accidentally set forward a week by some evil means. The issues should be carefully considered before using these options. The slew rate is fixed at 500 parts-per-million (PPM) by the Unix kernel. As a result, the clock can take 33 minutes to amortize each second the clock is outside the acceptable range. During this interval the clock will not be consistent with any other network clock and the system cannot be used for distributed applications that require correctly synchronized network time.</p>
+<hr>
+<h4 id="hold-timer">Hold Timer</h4>
+<p>When the daemon is started after a considerable downtime, it could be the TOY chip clock has drifted significantly from NTP time. This can cause a transient at system startup. In the past, this has produced a phase transient and resulted in a frequency surge that could take some time, even hours, to subside. When the highest accuracy is required, some means is necessary to manage the startup process so that the the clock is quickly set correctly and the frequency is undisturbed. The hold timer is used to suppress frequency adjustments during the training and startup intervals described below. At the beginning of the interval the hold timer is set to the stepout threshold and decrements at one second intervals until reaching zero. However, the hold timer is forced to zero if the residual clock offset is less than 0.5 ms. When nonzero, the discipline algorithm uses a small time constant (equivalent to a poll exponent of 2), but does not adjust the frequency. Assuming that the frequency has been set to within 1 PPM, either from the frequency file or by the training interval described later, the clock is set to within 0.5 ms in less than 300 s.</p>
+<hr>
+<h4 id="operating-intervals">Operating Intervals</h4>
+<p>The state machine operates in one of four nonoverlapping intervals.</p>
+<dl>
+<dt>Training interval</dt>
+<dd>This interval is used at startup when the frequency file is nor present at startup. It begins when the first update is received by the discipline algorithm and ends when an update is received following the stepout threshold. The clock phase is steered to the offset presented at the beginning of the interval, but without affecting the frequency. During the interval further updates are ignored. At the end of the interval the frequency is calculated as the phase change during the interval divided by the length of the interval. This generally results in a frequency error less than 0.5 PPM. Note that, if the intrinsic oscillator frequency error is large, the offset will in general have significant error. This is corrected during the subsequent startup interval.</dd>
+<dt>Startup interval</dt>
+<dd>This interval is used at startup to amortize the residual offset while not affecting the frequency. If the frequency file is present, it begins when the first update is received by the discipline. If not, it begins after the training interval. It ends when the hold timer decrements to zero or when the residual offset falls below 0.5 ms.</dd>
+<dt>Step interval</dt>
+<dd>This interval is used as a spike blanker during periods when the offsets exceed the step threshold. The interval continues as long as offsets are received that are greater than the step threshold, but ends when either an offset is received less than the step threshold or until the time since the last valid update exceeds the stepout threshold.</dd>
+<dt>Sync Interval</dt>
+<dd>This interval is implicit; that is, it is used when none of the above intervals are used.</dd>
+</dl>
+<hr>
+<h4 id="state-transition-function">State Transition Function</h4>
+<p>The state machine consists of five states. An event is created when an update is received by the discipline algorithm. Depending on the state and the the offset magnitude, the machine performs some actions and transitions to the same or another state. Following is a short description of the states.</p>
+<dl>
+<dt>FSET - The frequency file is present</dt>
+<dd>Load the frequency file, initialize the hold timer and continue in SYNC state.</dd>
+<dt>NSET - The frequency file is not present</dt>
+<dd>Initialize the hold timer and continue in FREQ state.</dd>
+<dt>FREQ - Frequency training state</dt>
+<dd>Disable the clock discipline until the time since the last update exceeds the stepout threshold. When this happens, calculate the frequency, initialize the hold counter and transition to SYNC state.</dd>
+<dt>SPIK - Spike state</dt>
+<dd>A update greater than the step threshold has occurred. Ignore the update and continue in this state as long as updates greater than the step threshold occur. If a valid update is received, continue in SYNC state. When the time since the last valid update was received exceeds the stepout threshold, step the system clock and continue in SYNC state.</dd>
+<dt>SYNC - Ordinary clock discipline state</dt>
+<dd>Discipline the system clock time and frequency using the hybrid phase/frequency feedback loop. However, do not discipline the frequency if the hold timer is nonzero.</dd>
+</dl>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

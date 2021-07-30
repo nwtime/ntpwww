@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>ntpdate - set the date and time via NTP | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="ntpdate - set the date and time via NTP" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+I told you it was eyeball and wristwatch.
+ Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+ Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &hellip; ]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.1.2/ntpdate/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="ntpdate - set the date and time via NTP">
+<meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+I told you it was eyeball and wristwatch.
+ Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+ Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &hellip; ]">
+
+<meta itemprop="wordCount" content="1020">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ntpdate - set the date and time via NTP"/>
+<meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+I told you it was eyeball and wristwatch.
+ Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+ Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &hellip; ]"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.1.2/">4.1.2</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.1.2/ntpdate/">ntpdate - set the date and time via NTP</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>ntpdate - set the date and time via NTP</h1>
+    
+	       
+	<p><img src="/archives/pic/rabbit.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>I told you it was eyeball and wristwatch.</p>
+<hr>
+<p><strong>Disclaimer:</strong> The functionality of this program is now available in the <tt>ntpd</tt> program. See the <code>-q</code> command line option in the <a href="/archives/4.1.2/ntpd"><tt>ntpd</tt> - Network Time Protocol (NTP) daemon</a> page. After a suitable period of mourning, the <tt>ntpdate</tt> program will be retired from this distribution.</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.1.2/ntpdate/#synopsis">Synopsis</a></li>
+<li><a href="/archives/4.1.2/ntpdate/#description">Description</a></li>
+<li><a href="/archives/4.1.2/ntpdate/#command-line-options">Command Line Options</a></li>
+<li><a href="/archives/4.1.2/ntpdate/#files">Files</a></li>
+<li><a href="/archives/4.1.2/ntpdate/#bugs">Bugs</a></li>
+</ul>
+<hr>
+<h4 id="synopsis">Synopsis</h4>
+<p><tt>ntpdate [ -bBdoqsuv ] [ -a <em>key</em> ] [ -e <em>authdelay</em> ] [ -k <em>keyfile</em> ] [ -o <em>version</em> ] [ -p <em>samples</em> ] [ -t <em>timeout</em> ] <em>server</em> [ &hellip; ]</tt></p>
+<hr>
+<h4 id="description">Description</h4>
+<p><tt>ntpdate</tt> sets the local date and time by polling the Network Time Protocol (NTP) server(s) given as the <em>server</em> arguments to determine the correct time. It must be run as root on the local host. A number of samples are obtained from each of the servers specified and a subset of the NTP clock filter and selection algorithms are applied to select the best of these. Note that the accuracy and reliability of <tt>ntpdate</tt> depends on the number of servers, the number of polls each time it is run and the interval between runs.</p>
+<p><tt>ntpdate</tt> can be run manually as necessary to set the host clock, or it can be run from the host startup script to set the clock at boot time. This is useful in some cases to set the clock initially before starting the NTP daemon <tt>ntpd</tt>. It is also possible to run <tt>ntpdate</tt> from a <tt>cron</tt> script. However, it is important to note that <tt>ntpdate</tt> with contrived <tt>cron</tt> scripts is no substitute for the NTP daemon, which uses sophisticated algorithms to maximize accuracy and reliability while minimizing resource use. Finally, since <tt>ntpdate</tt> does not discipline the host clock frequency as does <tt>ntpd</tt>, the accuracy using <tt>ntpdate</tt> is limited.</p>
+<p>Time adjustments are made by <tt>ntpdate</tt> in one of two ways. If <tt>ntpdate</tt> determines the clock is in error more than 0.5 second it will simply step the time by calling the system <tt>settimeofday()</tt> routine. If the error is less than 0.5 seconds, it will slew the time by calling the system <tt>adjtime()</tt> routine. The latter technique is less disruptive and more accurate when the error is small, and works quite well when <tt>ntpdate</tt> is run by <tt>cron</tt> every hour or two.</p>
+<p><tt>ntpdate</tt> will decline to set the date if an NTP server daemon (e.g., <tt>ntpd</tt>) is running on the same host. When running <tt>ntpdate</tt> on a regular basis from <tt>cron</tt> as an alternative to running a daemon, doing so once every hour or two will result in precise enough timekeeping to avoid stepping the clock.</p>
+<p>Note that in contexts where a host name is expected, a <tt>-4</tt> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <tt>-6</tt> qualifier forces DNS resolution to the IPv6 namespace.</p>
+<p>If NetInfo support is compiled into <tt>ntpdate</tt>, then the <tt>server</tt> argument is optional if <tt>ntpdate</tt> can find a time server in the NetInfo configuration for <tt>ntpd</tt>.</p>
+<hr>
+<h4 id="command-line-options">Command Line Options</h4>
+<dt><tt>-a _key_</tt></dt>
+<p>Enable the authentication function and specify the key identifier to be used for authentication as the argument <em>key</em> <tt>ntpdate</tt>. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.</p>
+<dt><tt>-B</tt></dt>
+<p>Force the time to always be slewed using the adjtime() system call, even if the measured offset is greater than +-128 ms. The default is to step the time using settimeofday() if the offset is greater than +-128 ms. Note that, if the offset is much greater than +-128 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time, the host should not be used to synchronize clients.</p>
+<dt><tt>-b</tt></dt>
+<p>Force the time to be stepped using the settimeofday() system call, rather than slewed (default) using the adjtime() system call. This option should be used when called from a startup file at boot time.</p>
+<dt><tt>-d</tt></dt>
+<p>Enable the debugging mode, in which <tt>ntpdate</tt> will go through all the steps, but not adjust the local clock. Information useful for general debugging will also be printed.</p>
+<dt><tt>-e _authdelay_</tt></dt>
+<p>Specify the processing delay to perform an authentication function as the value <em>authdelay</em>, in seconds and fraction (see <tt>ntpd</tt> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPUs.</p>
+<dt><tt>-k _keyfile_</tt></dt>
+<p>Specify the path for the authentication key file as the string <em>keyfile</em>. The default is <tt>/etc/ntp.keys</tt>. This file should be in the format described in <tt>ntpd</tt>.</p>
+<dt><tt>-o _version_</tt></dt>
+<p>Specify the NTP version for outgoing packets as the integer <em>version</em>, which can be 1 or 2. The default is 3. This allows <tt>ntpdate</tt> to be used with older NTP versions.</p>
+<dt><tt>-p _samples_</tt></dt>
+<p>Specify the number of samples to be acquired from each server as the integer <em>samples</em>, with values from 1 to 8 inclusive. The default is 4.</p>
+<dt><tt>-q</tt></dt>
+<p>Query only - don&rsquo;t set the clock.</p>
+<dt><tt>-s</tt></dt>
+<p>Divert logging output from the standard output (default) to the system <tt>syslog</tt> facility. This is designed primarily for convenience of <tt>cron</tt> scripts.</p>
+<dt><tt>-t _timeout_</tt></dt>
+<p>Specify the maximum time waiting for a server response as the value <em>timeout</em>, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.</p>
+<dt><tt>-u</tt></dt>
+<p>Direct <tt>ntpdate</tt> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <tt>-d</tt> option always uses unprivileged ports.</p>
+<dt><tt>-v</tt></dt>
+<p>Be verbose. This option will cause <tt>ntpdate</tt>&rsquo;s version identification string to be logged.</p>
+<hr>
+<h4 id="files">Files</h4>
+<p><tt>/etc/ntp.keys</tt> - encryption keys used by <tt>ntpdate</tt>.</p>
+<hr>
+<h4 id="bugs">Bugs</h4>
+<p>The slew adjustment is actually 50% larger than the measured offset, since this (it is argued) will tend to keep a badly drifting clock more accurate. This is probably not a good idea and may cause a troubling hunt for some values of the kernel variables <tt>tick</tt> and <tt>tickadj</tt>.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

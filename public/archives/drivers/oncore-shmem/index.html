@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Motorola ONCORE - The Shared Memory Interface | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Motorola ONCORE - The Shared Memory Interface" />
+<meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
+ Table of Contents  Introduction Activating the Interface Storage of Messages in Shared Memory Opening the Shared Memory File Accessing the data Examples   Introduction In NMEA mode, the Oncore GPS receiver provides the user with the same information as other GPS receivers. In BINARY mode, it can provide a lot of additional information.
+In particular, you can ask for satellite positions, satellite health, signal levels, the ephemeris and the almanac, and you can set many operational parameters." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/drivers/oncore-shmem/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Motorola ONCORE - The Shared Memory Interface">
+<meta itemprop="description" content="Last update: 21-Oct-2010 23:44 UTC
+ Table of Contents  Introduction Activating the Interface Storage of Messages in Shared Memory Opening the Shared Memory File Accessing the data Examples   Introduction In NMEA mode, the Oncore GPS receiver provides the user with the same information as other GPS receivers. In BINARY mode, it can provide a lot of additional information.
+In particular, you can ask for satellite positions, satellite health, signal levels, the ephemeris and the almanac, and you can set many operational parameters.">
+
+<meta itemprop="wordCount" content="1182">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Motorola ONCORE - The Shared Memory Interface"/>
+<meta name="twitter:description" content="Last update: 21-Oct-2010 23:44 UTC
+ Table of Contents  Introduction Activating the Interface Storage of Messages in Shared Memory Opening the Shared Memory File Accessing the data Examples   Introduction In NMEA mode, the Oncore GPS receiver provides the user with the same information as other GPS receivers. In BINARY mode, it can provide a lot of additional information.
+In particular, you can ask for satellite positions, satellite health, signal levels, the ephemeris and the almanac, and you can set many operational parameters."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/drivers/">Drivers</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/drivers/oncore-shmem/">Motorola ONCORE - The Shared Memory Interface</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Motorola ONCORE - The Shared Memory Interface</h1>
+    
+	       
+	<p>Last update: 21-Oct-2010 23:44 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/drivers/oncore-shmem/#introduction">Introduction</a></li>
+<li><a href="/archives/drivers/oncore-shmem/#activating-the-interface">Activating the Interface</a></li>
+<li><a href="/archives/drivers/oncore-shmem/#storage-of-messages-in-shared-memory">Storage of Messages in Shared Memory</a></li>
+<li><a href="/archives/drivers/oncore-shmem/#opening-the-shared-memory-file">Opening the Shared Memory File</a></li>
+<li><a href="/archives/drivers/oncore-shmem/#accessing-the-data">Accessing the data</a></li>
+<li><a href="/archives/drivers/oncore-shmem/#examples">Examples</a></li>
+</ul>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>In NMEA mode, the Oncore GPS receiver provides the user with the same information as other GPS receivers. In BINARY mode, it can provide a lot of additional information.</p>
+<p>In particular, you can ask for satellite positions, satellite health, signal levels, the ephemeris and the almanac, and you can set many operational parameters. In the case of the VP, you can get the pseudorange corrections necessary to act as a DGPS base station, and you can see the raw satellite data messages themselves.</p>
+<p>When using the Oncore GPS receiver with NTP, this additional information is usually not available since the receiver is only talking to the oncore driver in NTPD. To make this information available for use in other programs, (say graphic displays of satellites positions, plots of SA, etc.), a shared memory interface (SHMEM) has been added to the refclock_oncore driver on those operating systems that support shared memory.</p>
+<p>To make use of this information you will need an Oncore Reference Manual for the Oncore GPS receiver that you have. The Manual for the VP only exists as a paper document, the UT+/GT+/M12 manuals are available at <a href="https://synergy-gps.com/motorola/">Synergy</a>.</p>
+<p>This interface was written by Poul-Henning Kamp (<a href="mailto:phk@FreeBSD.org">phk@FreeBSD.org</a>), and modified by Reg Clemens (<a href="mailto:reg@dwf.com">reg@dwf.com</a>). The interface is known to work in FreeBSD, Linux, and Solaris.</p>
+<hr>
+<h4 id="activating-the-interface">Activating the Interface</h4>
+<p>Although the Shared Memory Interface will be compiled into the Oncore driver on those systems where Shared Memory is supported, to activate this interface you must include a <code>STATUS</code> or <code>SHMEM</code> line in the <tt>/etc/ntp.oncore</tt> data file that looks like</p>
+<p><code>STATUS &lt; file_name &gt;</code></p>
+<p>or</p>
+<p><code>SHMEM &lt; file_name &gt;</code></p>
+<p>Thus a line like</p>
+<p><code>SHMEM /var/adm/ntpstats/ONCORE</code></p>
+<p>would be acceptable. This file name will be used to access the Shared Memory.</p>
+<p>In addition, one the two keywords <strong>Posn2D</strong> and <strong>Posn3D</strong> can be added to see @@Ea records containing the 2D or 3D position of the station (see below). Thus to activate the interface, and see 3D positions, something like</p>
+<p><code>SHMEM /var/adm/ntpstats/ONCORE</code></p>
+<p><code>Posn3D</code></p>
+<p>would be required.</p>
+<hr>
+<h4 id="storage-of-messages-in-shared-memory">Storage of Messages in Shared Memory</h4>
+<p>With the shared memory interface, the oncore driver (refclock_oncore) allocates space for all of the messages that it is configured to receive, and then puts each message in the appropriate slot in shared memory as it arrives from the receiver. Since there is no easy way for a client program to know when the shared memory has been updated, a sequence number is associated with each message, and is incremented when a new message arrives. With the sequence number it is easy to check through the shared memory segment for messages that have changed.</p>
+<p>The Oncore binary messages are kept in their full length, as described in the Reference manual, that is everything from the @@ prefix thru the <checksum><CR><LF>.</p>
+<p>The data starts at location ONE of SHMEM (NOT location ZERO).</p>
+<p>The messages are stacked in a series of variable length structures, that look like</p>
+<pre>        struct message {
+                u_int   length;
+                u_char  sequence;
+                u_char  message[length];
+        }
+</pre>
+<p>if something like that were legal. That is, there are two bytes (caution, these may NOT be aligned with word boundaries, so the field needs to be treated as a pair of u_char), that contains the length of the next message. This is followed by a u_char sequence number, that is incremented whenever a new message of this type is received. This is followed by &lsquo;length&rsquo; characters of the actual message.</p>
+<p>The next structure starts immediately following the last char of the previous message (no alignment). Thus, each structure starts a distance of <code>length+3</code> from the previous structure.</p>
+<p>Following the last structure, is a u_int containing a zero length to indicate the end of the data.</p>
+<p>The messages are recognized by reading the headers in the data itself, viz @@Ea or whatever.</p>
+<p>There are two special cases.</p>
+<ol>
+<li>
+<p>The almanac takes a total of 34 submessages all starting with @@Cb.<br>
+35 slots are allocated in shared memory. Each @@Cb message is initially placed in the first of these locations, and then later it is moved to the appropriate location for that submessage. The submessages can be distinguished by the first two characters following the @@Cb header, and new data is received only when the almanac changes.</p>
+</li>
+<li>
+<p>The @@Ea message contains the calculated location of the antenna, and is received once per second. However, when in timekeeping mode, the receiver is normally put in 0D mode, with the position fixed, to get better accuracy. In 0D mode no position is calculated.</p>
+</li>
+</ol>
+<p>When the SHMEM option is active, and if one of <strong>Posn2D</strong> or <strong>Posn3D</strong> is specified, one @@Ea record is hijacked each 15s, and the receiver is put back in 2D/3D mode so the the current location can be determined (for position determination, or for tracking SA). The timekeeping code is careful NOT to use the time associated with this (less accurate) 2D/3D tick in its timekeeping functions.</p>
+<p>Following the initial @@Ea message are 3 additional slots for a total of four. As with the almanac, the first gets filled each time a new record becomes available, later in the code, the message is distributed to the appropriate slot. The additional slots are for messages containing 0D, 2D and 3D positions. These messages can be distinguished by different bit patterns in the last data byte of the record.</p>
+<hr>
+<h4 id="opening-the-shared-memory-file">Opening the Shared Memory File</h4>
+<p>The shared memory segment is accessed through a file name given on a <strong>SHMEM</strong> card in the <tt>/etc/ntp.oncore</tt> input file. The following code could be used to open the Shared Memory Segment:</p>
+<pre>        char *Buf, *file;
+        int size, fd;
+        struct stat statbuf;
+
+        file = "/var/adm/ntpstats/ONCORE";  /* the file name on my ACCESS card */
+        if ((fd=open(file, O_RDONLY)) < 0) {
+                fprintf(stderr, "Cant open %s\n", file);
+                exit(1);
+        }
+
+        if (stat(file, &statbuf) < 0) {
+                fprintf(stderr, "Cant stat %s\n", file);
+                exit(1);
+        }
+
+        size = statbuf.st_size;
+        if ((Buf=mmap(0, size, PROT_READ, MAP_SHARED, fd, (off_t) 0)) < 0) {
+                fprintf(stderr, "MMAP failed\n");
+                exit(1);
+        }
+</pre>
+<hr>
+<h4 id="accessing-the-data">Accessing the data</h4>
+<p>The following code shows how to get to the individual records.</p>
+<pre>        void    oncore_msg_Ea(), oncore_msg_As(), oncore_msg_Bb();
+
+        struct Msg {
+            char         c[5];
+            unsigned int seq;
+            void         (*go_to)(uchar *);
+        };
+
+        struct Msg Hdr[] = { {"@@Bb", 0, &oncore_msg_Bb},
+                             {"@@Ea", 0, &oncore_msg_Ea},
+                             {"@@As", 0, &oncore_msg_As}};
+
+        void
+        read_data()
+        {
+            int     i, j, k, n, iseq, jseq;
+            uchar   *cp, *cp1;
+
+            for(cp=Buf+1; (n = 256*(*cp) + *(cp+1)) != 0;  cp+=(n+3)) {
+                for (k=0; k < sizeof(Hdr)/sizeof(Hdr[0]);  k++) {
+                    if (!strncmp(cp+3, Hdr[k].c, 4)) {      /* am I interested? */
+                        iseq = *(cp+2);
+                        jseq = Hdr[k].seq;
+                        Hdr[k].seq = iseq;
+                        if (iseq > jseq) {              /* has it changed? */
+                            /* verify checksum */
+                            j = 0;
+                            cp1 = cp+3;             /* points to start of oncore response */
+                            for (i=2; i < n-3; i++)
+                                j ^= cp1[i];
+                            if (j == cp1[n-3]) {    /* good checksum */
+                                    Hdr[k].go_to(cp1);
+                            } else {
+                                fprintf(stderr, "Bad Checksum for %s\n", Hdr[k].c);
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (!strncmp(cp+3, "@@Ea", 4))
+                    cp += 3*(n+3);
+                if (!strncmp(cp+3, "@@Cb", 4))
+                    cp += 34*(n+3);
+            }
+        }
+
+        oncore_msg_Bb(uchar *buf)
+        {
+                /* process Bb messages */
+        }
+
+        oncore_msg_Ea(uchar *buf)
+        {
+                /* process Ea messages */
+        }
+
+        oncore_msg_As(uchar *buf)
+        {
+                /* process As messages */
+        }
+</pre>
+<p>The structure Hdr contains the Identifying string for each of the messages that we want to examine, and the name of a program to call when a new message of that type is arrives. The loop can be run every few seconds to check for new data.</p>
+<hr>
+<h4 id="examples">Examples</h4>
+<p>There are two complete examples available. The first plots satellite positions and the station position as affected by SA, and keeps track of the mean station position, so you can run it for periods of days to get a better station position. The second shows the effective horizon by watching satellite tracks. The examples will be found in the <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/software/OncorePlot.tar.gz">GNU-zipped tar file</a>.</p>
+<p>Try the new interface, enjoy.</p>
+<hr>
+<p><a href="mailto:reg@dwf.com">Reg.Clemens</a></p>
+<p><a href="mailto:phk@FreeBSD.org">Poul-Henning Kamp</a></p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
