@@ -1,0 +1,1265 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>MX4200 Receiver Data Format | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="MX4200 Receiver Data Format" />
+<meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
+ Table of Contents  Control Port Sentences Control Port Input Sentences Control Port Output Sentences   Control Port Sentences The Control (CDU) Port is used to initialize, monitor, and control the receiver. The structure of the control port sentences is based on the NMEA-0183 Standard for Interfacing Marine Electronics Navigation Devices (version 1.5). For more details, please refer to the NMEA-0183 Specification available from the National Marine Electronics Association." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/drivers/mx4200data/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="MX4200 Receiver Data Format">
+<meta itemprop="description" content="Last update: 21-Oct-2010 23:44 UTC
+ Table of Contents  Control Port Sentences Control Port Input Sentences Control Port Output Sentences   Control Port Sentences The Control (CDU) Port is used to initialize, monitor, and control the receiver. The structure of the control port sentences is based on the NMEA-0183 Standard for Interfacing Marine Electronics Navigation Devices (version 1.5). For more details, please refer to the NMEA-0183 Specification available from the National Marine Electronics Association.">
+
+<meta itemprop="wordCount" content="1810">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MX4200 Receiver Data Format"/>
+<meta name="twitter:description" content="Last update: 21-Oct-2010 23:44 UTC
+ Table of Contents  Control Port Sentences Control Port Input Sentences Control Port Output Sentences   Control Port Sentences The Control (CDU) Port is used to initialize, monitor, and control the receiver. The structure of the control port sentences is based on the NMEA-0183 Standard for Interfacing Marine Electronics Navigation Devices (version 1.5). For more details, please refer to the NMEA-0183 Specification available from the National Marine Electronics Association."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/drivers/">Drivers</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/drivers/mx4200data/">MX4200 Receiver Data Format</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>MX4200 Receiver Data Format</h1>
+    
+	       
+	<p>Last update: 21-Oct-2010 23:44 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/drivers/mx4200data#control-port-sentences">Control Port Sentences</a></li>
+<li><a href="/archives/drivers/mx4200data#control-port-input-sentences">Control Port Input Sentences</a></li>
+<li><a href="/archives/drivers/mx4200data#control-port-output-sentences">Control Port Output Sentences</a></li>
+</ul>
+<hr>
+<h4 id="control-port-sentences">Control Port Sentences</h4>
+<p>The Control (CDU) Port is used to initialize, monitor, and control the receiver. The structure of the control port sentences is based on the <cite>NMEA-0183</cite> Standard for Interfacing Marine Electronics Navigation Devices (version 1.5). For more details, please refer to the <cite>NMEA-0183</cite> Specification available from the <a href="http://www.nmea.org/">National Marine Electronics Association</a>.</p>
+<p>Reserved characters are used to indicate the beginning and the end of records in the data stream, and to delimit data fields within a sentence. Only printable ASCII characters (Hex 20 through 7F) may be used in a sentence. Table 2 lists the reserved characters and defines their usage. Table 1 illustrates the general Magnavox proprietary NMEA sentence format.</p>
+<p><strong>Table 1. Magnavox Proprietary NMEA Sentence Format</strong></p>
+<p><code>$PMVXG,XXX,...................*CK</code></p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`</td>
+<td>Sentence Start Character</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>Special ID (P = Proprietary)</td>
+</tr>
+<tr>
+<td><code>MVX</code></td>
+<td>Originator ID (MVX = Magnavox)</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>Interface ID (G = GPS)</td>
+</tr>
+<tr>
+<td><code>XXX</code></td>
+<td>Sentence Type</td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td>Data</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Optional Checksum Field Delimiter</td>
+</tr>
+<tr>
+<td><code>CK</code></td>
+<td>Optional Checksum</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 2. NMEA Sentence Reserved Characters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Hex Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`</td>
+<td><code>24</code></td>
+<td>Start of Sentence Identifier</td>
+</tr>
+<tr>
+<td><code>{cr}{lf}</code></td>
+<td><code>0D 0A</code></td>
+<td>End of Sentence Identifier</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td><code>2C</code></td>
+<td>Sentence Delimiter</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td><code>2A</code></td>
+<td>Optional Checksum Field Delimiter</td>
+</tr>
+</tbody>
+</table>
+<p>Following the start character <code>$</code>, are five characters which constitute the block label of the sentence. For Magnavox proprietary sentences, this label is always <code>PMVXG</code>. The next field after the block label is the sentence type, consisting of three decimal digits.</p>
+<p>The data, delimited by commas, follows the sentence type. Note that the receiver uses a free-format parsing algorithm, so you need not send the exact number of characters shown in the examples. You will need to use the commas to determine how many bytes of data need to be retrieved.</p>
+<p>The notation <code>CK</code> shown in Table 1 symbolically indicates the optional checksum in the examples. The checksum is computed by exclusive-ORing all of the bytes between the <code>$</code> and the <code>*</code> characters. The <code>$</code>, <code>*</code> and the checksum are not included in the checksum computation.</p>
+<p>Checksums are optional for Control Port input sentences, but are highly recommended to limit the effects of communication errors. Magnavox receivers always generate checksums for Control Port output sentences.</p>
+<p>ASCII data characters are transmitted in the following format:</p>
+<table>
+<thead>
+<tr>
+<th>Bit Type</th>
+<th>Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data</td>
+<td>8 (msb always 0)</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>NULL fields are fields which do not contain any data. They would appear as two commas together in the sentence format, except for the final field. Some Magnavox proprietary sentences require that the format contain NULL fields. mandatory NULL fields are identified by an <code>*</code> next to the respective field.</p>
+<hr>
+<h4 id="control-port-input-sentences">Control Port Input Sentences</h4>
+<p>These are the subset of the MX4200 control port input sentences sent by the NTP driver to the GPS receiver.</p>
+<p><strong>$PMVXG,000</strong></p>
+<p><strong>Initialization/Mode Control - Part A</strong></p>
+<p>Initializes the time, position and antenna height of the MX4200.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Day</td>
+<td></td>
+<td>Int</td>
+<td></td>
+<td>1-31</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Month</td>
+<td></td>
+<td>Int</td>
+<td></td>
+<td>1-12</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Year</td>
+<td></td>
+<td>Int</td>
+<td></td>
+<td>1991-9999</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>GMT Time</td>
+<td>HHMMSS</td>
+<td>Int</td>
+<td></td>
+<td>000000-235959</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>WGS-84 Latitude</td>
+<td>DDMM.MMMM</td>
+<td>Float</td>
+<td>0.0</td>
+<td>0-8959.9999</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>North/South Indicator</td>
+<td></td>
+<td>Char</td>
+<td>N</td>
+<td>N, S</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>WGS-84 Longitude</td>
+<td>DDDMM.MMMM</td>
+<td>Float</td>
+<td>0.0</td>
+<td>0-17959.9999</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>East/West Indicator</td>
+<td></td>
+<td>Char</td>
+<td>E</td>
+<td>E, W</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>Altitude (height above Mean Sea Level) in meters (WGS-84)</td>
+<td>Meters</td>
+<td>Float</td>
+<td>0.0</td>
+<td>+/-99999.0</td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td>Not Used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,000,,,,,,,,,,*48</code><br>
+<code>$PMVXG,000,,,,,5128.4651,N,00020.0715,W,58.04,*4F</code></p>
+<hr>
+<p><strong>$PMVXG,001</strong></p>
+<p><strong>Initialization/Mode Control - Part B</strong></p>
+<p>Specifies various navigation parameters: Altitude aiding, acceleration DOP limits, and satellite elevation limits.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*1</code></td>
+<td>Constrain Altitude</td>
+<td></td>
+<td>Int</td>
+<td>1</td>
+<td><code>0</code> 3D Only<br> <code>1</code> Auto<br> <code>2</code>2D Only</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Not Used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>*3</code></td>
+<td>Horizontal Acceleration Factor</td>
+<td>m/sec^2</td>
+<td>Float</td>
+<td>1.0</td>
+<td>0.5-10.0</td>
+</tr>
+<tr>
+<td><code>*4</code></td>
+<td>Not Used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>*5</code></td>
+<td>VDOP Limit</td>
+<td></td>
+<td>Int</td>
+<td>10</td>
+<td>1-9999</td>
+</tr>
+<tr>
+<td><code>*6</code></td>
+<td>HDOP Limit</td>
+<td></td>
+<td>Int</td>
+<td>10</td>
+<td>1-9999</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Elevation Limit</td>
+<td>Deg</td>
+<td>Int</td>
+<td>5</td>
+<td>0-90</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>Time Output Mode</td>
+<td></td>
+<td>Char</td>
+<td>U</td>
+<td><code>U</code> UTC<br> <code>L</code> Local Time</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>Local Time Offset</td>
+<td>HHMM</td>
+<td>Int</td>
+<td>0</td>
+<td>+/- 0-2359</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,001,3,,0.1,0.1,10,10,5,U,0*06</code></p>
+<hr>
+<p><strong>$PMVXG,007</strong></p>
+<p><strong>Control Port Output Configuration</strong></p>
+<p>This message enables or disables output of the specified sentence and defines the output rate. The user sends this message for each sentence that the receiver is to output.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Control Port Output Block Label</td>
+<td></td>
+<td>Char</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Clear Current Output List</td>
+<td></td>
+<td>Int</td>
+<td></td>
+<td><code>0</code> No<br> <code>1</code> Yes</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Add/Delete Sentence from List</td>
+<td></td>
+<td>Int</td>
+<td></td>
+<td><code>1</code> Append<br> <code>2</code> Delete</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Not Used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>Sentence Output Rate</td>
+<td>Sec</td>
+<td>Int</td>
+<td></td>
+<td>1-9999</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td># digits of Precision for CGA and GLL sentences</td>
+<td></td>
+<td>Int</td>
+<td>2</td>
+<td>2-4</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Not Used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>Not Used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,007,022,0,1,,1,,,*4F</code></p>
+<hr>
+<p><strong>$PMVXG,023</strong></p>
+<p><strong>Time Recovery Configuration</strong></p>
+<p>This message is used to enable/disable the time recovery feature of the receiver. The time synchronization for the 1PPS output is specified in addition to a user time bias and an error tolerance for a valid pulse. This record is accepted in units configured for time recovery. If the back panel contains a 1PPS outlet, the receiver is a time recovery unit.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*1</code></td>
+<td>Time Recovery Mode</td>
+<td></td>
+<td>Char</td>
+<td>D</td>
+<td><code>D</code> Dynamic<br> <code>S</code> Static<br> <code>K</code> Known Position<br> <code>N</code> No Time Recovery</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Time Synchronization</td>
+<td></td>
+<td>Char</td>
+<td>G</td>
+<td><code>U</code> UTC<br> <code>G</code> GPS</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Time Mark Mode</td>
+<td></td>
+<td>Char</td>
+<td>A</td>
+<td><code>A</code> Always<br> <code>V</code> Valid Pulses Only</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Maximum Time Error</td>
+<td>Nsec</td>
+<td>Int</td>
+<td>100</td>
+<td>50-1000</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>User Time Bias</td>
+<td>Nsec</td>
+<td>Int</td>
+<td>0</td>
+<td>+/- 99999</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>ASCII Time Message Control</td>
+<td></td>
+<td>Int</td>
+<td>0</td>
+<td><code>0</code> No Output<br> <code>1</code> 830 to Control Port<br> <code>2</code> 830 to Equipment Port</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Known Pos PRN</td>
+<td></td>
+<td>Int</td>
+<td>0</td>
+<td>1-32<br>  <code>0</code> Track All Sats</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,023,S,U,A,500,0,1,*16</code></p>
+<hr>
+<p><strong>$CDGPQ,YYY</strong></p>
+<p><strong>Query From a Remote Device / Request to Output a Sentence</strong></p>
+<p>Enables the controller to request a one-time transmission of a specific block label. To output messages at a periodic rate, refer to input sentence $PMVXG,007.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1:CD</code></td>
+<td>ID of Remote Device</td>
+<td>Char</td>
+<td>(See NMEA-0183)</td>
+</tr>
+<tr>
+<td><code>2:GP</code></td>
+<td>GPS</td>
+<td>Char</td>
+<td>(See NMEA-0183)</td>
+</tr>
+<tr>
+<td><code>3:Q</code></td>
+<td>Query</td>
+<td>Char</td>
+<td>(See NMEA-0183)</td>
+</tr>
+<tr>
+<td><code>4:YYY</code></td>
+<td>Label of Desired Sentence</td>
+<td>Char</td>
+<td>Any Valid NMEA or Magnavox Sentence Type</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$CDGPQ,030*5E</code></p>
+<hr>
+<h4 id="control-port-output-sentences">Control Port Output Sentences</h4>
+<p>These are the subset of the MX4200 control port output sentences recognized by the NTP driver.</p>
+<p><strong>$PMVXG,000</strong></p>
+<p><strong>Receiver Status</strong></p>
+<p>Returns the current status of the receiver including the operating mode, number of satellites visible, and the number of satellites being tracked.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Current Receiver Status</td>
+<td></td>
+<td>Char</td>
+<td><code>ACQ</code> Reacquisition<br> <code>ALT</code> Constellation Selection<br> <code>IAC</code> Initial Acquisition<br> <code>IDL</code> Idle, No Satellites<br>  <code>NAV</code> Navigating<br> <code>STS</code> Search The Sky<br> <code>TRK</code> Tracking</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Number of Satellites that should be Visible</td>
+<td></td>
+<td>Int</td>
+<td>0-12</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Number of Satellites being Tracked</td>
+<td></td>
+<td>Int</td>
+<td>0-12</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Time since Last Navigation</td>
+<td>HHMM</td>
+<td>Int</td>
+<td>0-2359</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>Initialization Status</td>
+<td></td>
+<td>Int</td>
+<td><code>0</code> Waiting for Initialization<br> <code>1</code> Initialization Complete</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,000,TRK,3,3,0122,1*19</code></p>
+<hr>
+<p><strong>$PMVXG,021</strong></p>
+<p><strong>Position, Height, Velocity</strong></p>
+<p>This sentence gives the receiver position, height, navigation mode and velocity north/east. <em>This sentence is intended for post-analysis applications.</em></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>UTC Measurement Time</td>
+<td>Seconds into the week</td>
+<td>Float</td>
+<td>0-604800.00</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>WGS-84 Latitude</td>
+<td>DDMM.MMMM</td>
+<td>Float</td>
+<td>0-89.9999</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>North/South Indicator</td>
+<td></td>
+<td>Char</td>
+<td>N, S</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>WGS-84 Longitude</td>
+<td>DDDMM.MMMM</td>
+<td>Float</td>
+<td>0-179.9999</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>East/West Indicator</td>
+<td></td>
+<td>Char</td>
+<td>E, W</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>Altitude (MSL)</td>
+<td>Meters</td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Geoidal Height</td>
+<td>Meters</td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>Velocity East</td>
+<td>M/Sec</td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>Velocity North</td>
+<td>M/Sec</td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td>Navigation Mode</td>
+<td></td>
+<td>Int</td>
+<td><em>Navigating</em> <br> <code>1</code> Position From a Remote Device<br> <code>2</code> 2D<br> <code>3</code> 3D<br> <code>4</code> 2D differential<br> <code>5</code> 3D differential<br>  <em>Not Navigating</em>  <br> <code>51</code> Too Few Satellites<br> <code>52</code> DOPs too large<br> <code>53</code> Position STD too large<br> <code>54</code> Velocity STD too large<br> <code>55</code> Too many iterations for velocity<br> <code>56</code> Too many iterations for position<br> <code>57</code> 3 Sat Startup failed</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,021,142244.00,5128.4744,N,00020.0593,W,00054.4,0047.4,0000.1,-000.2,03*66</code></p>
+<hr>
+<p><strong>$PMVXG,022</strong></p>
+<p><strong>DOPs</strong></p>
+<p>This sentence reports the DOP (Dilution Of Precision) values actually used in the measurement processing corresponding to the satellites listed. The satellites are listed in receiver channel order. Fields 11-16 are output only on 12-channel receivers.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>UTC Measurement Time</td>
+<td>Seconds into the week</td>
+<td>Float</td>
+<td>0-604800.00</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>East DOP (EDOP)</td>
+<td></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>North DOP (NDOP)</td>
+<td></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Vertical DOP (VDOP)</td>
+<td></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>PRN on Channel #1</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>PRN on Channel #2</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>PRN on Channel #3</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>PRN on Channel #4</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>PRN on Channel #5</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td>PRN on Channel #6</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>11</code></td>
+<td>PRN on Channel #7</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>12</code></td>
+<td>PRN on Channel #8</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>13</code></td>
+<td>PRN on Channel #9</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>14</code></td>
+<td>PRN on Channel #10</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>15</code></td>
+<td>PRN on Channel #11</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+<tr>
+<td><code>16</code></td>
+<td>PRN on Channel #12</td>
+<td></td>
+<td>Int</td>
+<td>1-32</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,022,142243.00,00.7,00.8,01.9,27,26,10,09,13,23*77</code></p>
+<hr>
+<p><strong>$PMVXG,030</strong></p>
+<p><strong>Software Configuration</strong></p>
+<p>This sentence contains the navigation processor and baseband firmware version numbers.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Nav Processor Version Number</td>
+<td>Char</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Baseband Firmware Version Number</td>
+<td>Char</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,030,DA35,015</code></p>
+<hr>
+<p><strong>$PMVXG,101</strong></p>
+<p><strong>Control Sentence Accept/Reject</strong></p>
+<p>This sentence is returned (on the Control Port) for every <strong>$PMVXG</strong> and <strong>$XXGPQ</strong> sentence that is received.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Sentence ID</td>
+<td></td>
+<td>Char</td>
+<td></td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Accept/Reject Status</td>
+<td></td>
+<td>Int</td>
+<td><code>0</code> Sentence Accepted<br> <code>1</code> Bad Checksum<br> <code>2</code> Illegal Value<br> <code>3</code> Unrecognized ID<br> <code>4</code> Wrong # of fields<br> <code>5</code> Required Data Field Missing<br> <code>6</code> Requested Sentence Unavailable</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Bad Field Index</td>
+<td></td>
+<td>Int</td>
+<td></td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Requested Sentence ID (If field #1 = GPQ)</td>
+<td></td>
+<td>Char</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,101,GPQ,0,,030*0D</code></p>
+<hr>
+<p><strong>$PMVXG,523</strong></p>
+<p><strong>Time Recovery Configuration</strong></p>
+<p>This sentence contains the configuration of the time recovery function of the receiver.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Time Recovery Mode</td>
+<td></td>
+<td>Char</td>
+<td><code>D</code> Dynamic<br> <code>S</code> Static<br> <code>K</code> Known Position<br> <code>N</code> No Time Recovery</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Time Synchronization</td>
+<td></td>
+<td>Char</td>
+<td><code>U</code> UTC Time<br> <code>G</code> GPS Time</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Time Mark Mode</td>
+<td></td>
+<td>Char</td>
+<td><code>A</code> Always Output Time Pulse<br> <code>V</code> Only when Valid</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Maximum Time Error for which a time mark will be considered valid</td>
+<td>Nsec</td>
+<td>Int</td>
+<td></td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>User Time Bias</td>
+<td>Nsec</td>
+<td>Int</td>
+<td></td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>Time Message Control</td>
+<td></td>
+<td>Int</td>
+<td><code>0</code> No Message<br> <code>1</code> 830 to Control Port<br> <code>2</code> 830 to Equipment Port</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Not Used</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,523,S,U,A,0500,000000,1,0*23</code></p>
+<hr>
+<p><strong>$PMVXG,830</strong></p>
+<p><strong>Time Recovery Results</strong></p>
+<p>This sentence is output approximately 1 second preceding the 1PPS output. It indicates the exact time of the next pulse, whether or not the time mark will be valid (based on operator-specified error tolerance), the time to which the pulse is synchronized, the receiver operating mode, and the time error of the <strong>last</strong> 1PPS output. The leap second flag (Field #11) is not output by older receivers.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Units</th>
+<th>Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Time Mark Valid</td>
+<td></td>
+<td>Char</td>
+<td><code>T</code> Valid<br> <code>F</code> Not Valid</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Year</td>
+<td></td>
+<td>Int</td>
+<td>1993-</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Month</td>
+<td></td>
+<td>Int</td>
+<td>1-12</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Day</td>
+<td>Nsec</td>
+<td>Int</td>
+<td>1-31</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>Time</td>
+<td>HH:MM:SS</td>
+<td>Int</td>
+<td>00:00:00-23:59:59</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>Time Synchronization</td>
+<td></td>
+<td>Char</td>
+<td><code>U</code> UTC<br> <code>G</code> GPS</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Operating Mode</td>
+<td></td>
+<td>Char</td>
+<td><code>D</code> Dynamic<br> <code>S</code> Static<br> <code>K</code> Known Position</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>Oscillator Offset - estimate of oscillator frequency error</td>
+<td>PPB</td>
+<td>Int</td>
+<td></td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>Time Mark Error of last pulse</td>
+<td>Nsec</td>
+<td>Int</td>
+<td></td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td>User Time Bias</td>
+<td>Nsec</td>
+<td>Int</td>
+<td></td>
+</tr>
+<tr>
+<td><code>11</code></td>
+<td>Leap Second Flag - indicates that a leap second will occur. This value is usually zero except during the week prior to a leap second occurrence, when this value will be set to +/-1. A value of <code>+1</code> indicates that GPS time will be 1 second further ahead of UTC time.</td>
+<td></td>
+<td>Int</td>
+<td>-1,0,1</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><code>$PMVXG,830,T,1998,10,12,15:30:46,U,S,000298,00003,000000,01*02</code></p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

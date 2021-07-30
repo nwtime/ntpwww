@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Mitigation Rules and the prefer Keyword | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Mitigation Rules and the prefer Keyword" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Listen carefully to what I say; it is very complicated.
+Last update: 22-Apr-2009 14:04 UTC
+ Table of Contents  Introduction Peer Classification The prefer Peer Mitigation Rules The minsane Option   Introduction This page summarizes the criteria for choosing from among a number of potential sources suitable contributors to the clock discipline algorithm. The criteria are very meticulous, since they have to handle many different scenarios that may be optimized for peculiar circumstances, including some scenarios designed to support planetary and deep space missions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.6-series/prefer/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Mitigation Rules and the prefer Keyword">
+<meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Listen carefully to what I say; it is very complicated.
+Last update: 22-Apr-2009 14:04 UTC
+ Table of Contents  Introduction Peer Classification The prefer Peer Mitigation Rules The minsane Option   Introduction This page summarizes the criteria for choosing from among a number of potential sources suitable contributors to the clock discipline algorithm. The criteria are very meticulous, since they have to handle many different scenarios that may be optimized for peculiar circumstances, including some scenarios designed to support planetary and deep space missions.">
+
+<meta itemprop="wordCount" content="1907">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mitigation Rules and the prefer Keyword"/>
+<meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Listen carefully to what I say; it is very complicated.
+Last update: 22-Apr-2009 14:04 UTC
+ Table of Contents  Introduction Peer Classification The prefer Peer Mitigation Rules The minsane Option   Introduction This page summarizes the criteria for choosing from among a number of potential sources suitable contributors to the clock discipline algorithm. The criteria are very meticulous, since they have to handle many different scenarios that may be optimized for peculiar circumstances, including some scenarios designed to support planetary and deep space missions."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.6-series/">4.2.6-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.6-series/prefer/">Mitigation Rules and the prefer Keyword</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Mitigation Rules and the prefer Keyword</h1>
+    
+	       
+	<p><img src="/archives/pic/alice11.gif" alt="gif"> <a href="http://www.eecis.udel.edu/%7emills/pictures.html">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>Listen carefully to what I say; it is very complicated.</p>
+<p>Last update: 22-Apr-2009 14:04 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.6-series/prefer/#introduction">Introduction</a></li>
+<li><a href="/archives/4.2.6-series/prefer/#peer-classification">Peer Classification</a></li>
+<li><a href="/archives/4.2.6-series/prefer/#the-ttprefertt-peer">The <tt>prefer</tt> Peer</a></li>
+<li><a href="/archives/4.2.6-series/prefer/#mitigation-rules">Mitigation Rules</a></li>
+<li><a href="/archives/4.2.6-series/prefer/#the-ttminsanett-option">The <tt>minsane</tt> Option</a></li>
+</ul>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>This page summarizes the criteria for choosing from among a number of potential sources suitable contributors to the clock discipline algorithm. The criteria are very meticulous, since they have to handle many different scenarios that may be optimized for peculiar circumstances, including some scenarios designed to support planetary and deep space missions.</p>
+<p>Recall the suite of NTP data acquisition and grooming algorithms as these algorithms proceed in five phases. Phase one discovers the available sources and mobilizes an association for each candidate found. These candidates can result from explicit configuration, broadcast discovery or the pool and manycast autonomous configuration schemes. Phase two grooms the selectable candidates excluding those sources showing one or more of the following errors:</p>
+<ol>
+<li>A stratum error occurs if (1) the source had never been synchronized or (2) the stratum of the source is below the <tt>floor</tt> option or not below the <tt>ceiling</tt> option specified by the <tt>tos</tt> command. The default value for these options are 0 and 16, respectively.</li>
+<li>A distance error occurs for a remote source if the root distance is not below the distance threshold <tt>maxdist</tt> option of the <tt>tos</tt> command. The default value for this option is 1.5 s for networks including only the Earth, but this should be increased to 2.5 s for networks including the Moon.</li>
+<li>A loop error occurs if the source is synchronized to the client of if the source is synchronized to the same source as the client.</li>
+<li>An unreachable error occurs if the source is unreachable or if the <tt>server</tt> or <tt>peer</tt> command for the source includes the <tt>noselect</tt> option.</li>
+</ol>
+<p>Phase three uses an intersection algorithm to select the truechimers from among the candidates, leaving behind the falsetickers. A server or peer configured with the <tt>true</tt> option is ipso facto a truechimer independent of this algorithm. Phase four uses a clustering algorithm to cast off statistical outliers from the truechimers until a set of survivors not less than the number specified as the <tt>minclock</tt> option of the <tt>tos</tt> command, with default 3. Phase five uses a set of mitigation rules to select from among the survivors a system peer from which a set of system statistics can be inherited and passed along to a dependent client population. The clock offset developed from these algorithms can discipline the system clock either using the <tt>ntpd</tt> clock discipline algorithm or enable the kernel to discipline the system clock directly, as described on the <a href="/archives/4.2.6-series/kern">A Kernel Model for Precision Timekeeping</a> page. Phase five is the topic of this page.</p>
+<hr>
+<h4 id="peer-classification">Peer Classification</h4>
+<p>The behavior of the various algorithms and mitigation rules involved depends on how the various synchronization sources are classified. This depends on whether the source is local or remote and if local the type of source. The following classes are defined:</p>
+<ol>
+<li>An association configured for a remote server or peer is classified simply as a <em>server</em>. All other associations are classified as a <em>device driver</em> of one kind or another. In general, one or more sources of either or both types will be configured in each installation.</li>
+<li>If all sources have been lost and the orphan stratum has been specified by the <tt>orphan</tt> option of the <tt>tos</tt> command, a pseudo-source called the <em>orphan parent</em> is created with offset and jitter both zero. Dependent orphan children will see the orphan parent as if synchronized to a server at the orphan stratum.If the only survivor is the orphan parent, it becomes the system peer and its clock offset and jitter are inherited by the corresponding system variables. Note that by design all the orphan children having the same set of orphan parents will select the same parent.</li>
+<li>When a device driver has been configured for pulse-per-second (PPS) signals and PPS signals are being received, it is designated the <em>PPS driver.</em> Note that the Pulse-per-Second driver (type 22) is often used as a PPS driver, but any driver can be operated as a PPS driver as well. The PPS driver provides precision clock discipline only within +-0.5 s, so is always associated with another source or sources that provide the seconds numbering function.</li>
+<li>When the Undisciplined Local Clock driver (type 1) is configured, it is designated the <em>local driver</em>. This driver is used either as a backup source (stratum greater than zero) should all sources fail, or as the primary source (stratum zero) in cases where the kernel time is disciplined by some other means of synchronization, such as the NIST <tt>lockclock</tt> scheme, or another synchronization protocol such as the Digital Time Synchronization Service (DTSS).</li>
+<li>When the Automated Computer Time Service driver (type 18) is configured, it is designated the <em>modem driver</em>. This is used either as a backup source, should all other sources fail, or as the (only) primary source.</li>
+</ol>
+<hr>
+<h4 id="the-ttprefertt-peer">The <tt>prefer</tt> Peer</h4>
+<p>The mitigation rules are designed to provide an intelligent selection of the system peer from among the survivors of different types. When used with the <tt>server</tt> or <tt>peer</tt> commands, the <tt>prefer</tt> option designates one or more survivors as preferred over all others. While the rules do not forbid it, it is usually not useful to designate more than one source as preferred; however, if more than one source is so designated, they are used in the order specified in the configuration file; that is, if the first one becomes unselectable, the second one is considered and so forth. This order of priority is also applicable to multiple PPS drivers, multiple modem drivers and even multiple local drivers, although that would not normally be useful.</p>
+<p>The clustering algorithm works on the set of truechimers produced by the intersection algorithms. Ordinarily, any one of them can in principle provide correct time; however, due to various latency variations, not all can provide the most accurate and stable time. The clustering algorithm, processes the truechimers in one or more rounds to cast off a statistical outlier until no more than the <tt>minclock</tt> option of the <tt>tos</tt> command are left. The default for this option is 3.</p>
+<p>In the prefer scheme the clustering algorithm is modified so that the prefer peer is never discarded; on the contrary, its potential removal becomes a rounds-termination condition. However, the prefer peer can still be discarded by the intersection algorithm as a falseticker. To avoid this, it is usually wise to increase the <tt>mindist</tt> option of the <tt>tos</tt> command from the default .005 s to something like .05 s.</p>
+<p>Ordinarily, the combining algorithm computes a weighted average of the survivor offsets to produce the final synchronization source. However, if a prefer peer is among the survivors, the combining algorithm is not used. Instead, the offset of the prefer peer is used exclusively as the final synchronization source. In the common case involving a radio clock and a flock of remote backup servers, and with the radio clock designated a prefer peer, the result is that the radio clock normally disciplines the system clock as long as the radio itself remains operational. However, if the radio fails or becomes a falseticker, the averaged backup sources continue to discipline the system clock.</p>
+<hr>
+<h4 id="mitigation-rules">Mitigation Rules</h4>
+<p>As the selection algorithm scans the associations for selectable candidates, the modem driver and local driver are segregated for later, but only if not designated a prefer peer. If so designated, a driver is included among the candidate population. In addition, if orphan parents are found the parent with the lowest metric is segregated for later; the others are discarded. For this purpose the metric is defined as the four-octet IPv4 address or the first four octets of the hashed IPv6 address. The resulting candidates, including any prefer peers found, are processed by the intersection to produce a possibly empty set of truechimers. The clustering algorithm ranks the truechimers first by stratum then by synchronization distance and designates the survivor with the lowest distance as the potential system peer.</p>
+<p>If one or more truechimers support a pulse-per-second (PPS) signal and the PPS signal is operating correctly, it is designated a PPS driver. If more than one PPS diver are found, only the first one is used. The PPS driver is not included in the combining algorithm and is mitigated separately.</p>
+<p>At this point we have the following contributors to the system clock discipline:</p>
+<ul>
+<li>(potential) system peer, if there are survivors;</li>
+<li>orphan parent, if present;</li>
+<li>local driver and zero offset, if present;</li>
+<li>modem driver and modem offset, if present;</li>
+<li>prefer peer and offset, if present;</li>
+<li>PPS driver and offset, if present.</li>
+</ul>
+<p>The mitigation algorithm proceeds in three steps in turn.</p>
+<ol>
+<li>If there are no survivors, the modem driver becomes the only survivor if there is one. If not, the local driver becomes the only survivor if there is one. If not, the orphan parent becomes the only survivor if there is one. If the number of survivors at this point is less than the <tt>minsane</tt> option of the <tt>tos</tt> command, the algorithm is terminated and the system variables remain unchanged. Note that <tt>minsane</tt> is by default 1, but can be set at any value including 0.</li>
+<li>If the prefer peer is among the survivors, it becomes the system peer and its clock offset and jitter are inherited by the corresponding system variables. Otherwise, the combining algorithm computes these variables from the survivor population.</li>
+<li>If there is a PPS driver and the system clock offset at this point is less than 0.4 s, and if there is a prefer peer among the survivors or if the PPS peer is designated as a prefer peer, the PPS driver becomes the system peer and its offset and jitter are inherited by the system variables, thus overriding any variables already computed. Note that a PPS driver is present only if PPS signals are actually being received and enabled by the associated driver.</li>
+</ol>
+<p>If none of the above is the case, the data are disregarded and the system variables remain as they are.</p>
+<hr>
+<h4 id="the-ttminsanett-option">The <tt>minsane</tt> Option</h4>
+<p>The <tt>minsane</tt> option of the <tt>tos</tt> command, the <tt>prefer</tt> option of the <tt>server</tt> and <tt>peer</tt> commands and the <tt>flag</tt> options of the <tt>fudge</tt> command for the PPS driver can be used with the mitigation rules to provide many useful configurations. The <tt>minsane</tt> option specifies the minimum number of survivors required to synchronized the system clock. The <tt>prefer</tt> option designates the prefer peer. The driver-dependent <tt>flag</tt> options enable the PPS driver for various conditions.</p>
+<p>A common scenario is a GPS driver with a serial timecode and PPS signal. The PPS signal is disabled until the system clock has been set by some means, not necessarily the GPS driver. If the serial timecode is within 0.4 s of the PPS signal, the GPS driver is designated the PPS driver and the PPS signal disciplines the system clock. If no GPS satellites are in view, or if the PPS signal is disconnected, the GPS driver stops updating the system clock and so eventually becomes unreachable and replaced by other sources..</p>
+<p>Whether or not the GPS driver disables the PPS signal when unreachable is at the discretion of the driver. Ordinarily, the PPS signal would be disabled in this case; however, When the GPS receiver has a precision holdover oscillator, the driver may elect to continue PPS operation. In this case the PPS signal continues to discipline the system clock.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

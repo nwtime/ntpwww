@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>HPUX Hints | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="HPUX Hints" />
+<meta property="og:description" content="Last update: Sun Mar 13 15:05:31 PST 1994 This file hopefully describes the whatever and however of how to get xntp running on hpux 7.0 and later: s300, s400, s700, and s800. First off, all the standard disclaimers hold here ... HP doesn&#39;t have anthing to do with this stuff. I fool with it in my spare time because we use it and because I like to. We just happen to have a lot of HP machines around here :-) Xntpd has been in use here for several years and has a fair amount of mileage on various HP platforms within the company." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/hints/hpux/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="HPUX Hints">
+<meta itemprop="description" content="Last update: Sun Mar 13 15:05:31 PST 1994 This file hopefully describes the whatever and however of how to get xntp running on hpux 7.0 and later: s300, s400, s700, and s800. First off, all the standard disclaimers hold here ... HP doesn&#39;t have anthing to do with this stuff. I fool with it in my spare time because we use it and because I like to. We just happen to have a lot of HP machines around here :-) Xntpd has been in use here for several years and has a fair amount of mileage on various HP platforms within the company.">
+
+<meta itemprop="wordCount" content="932">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HPUX Hints"/>
+<meta name="twitter:description" content="Last update: Sun Mar 13 15:05:31 PST 1994 This file hopefully describes the whatever and however of how to get xntp running on hpux 7.0 and later: s300, s400, s700, and s800. First off, all the standard disclaimers hold here ... HP doesn&#39;t have anthing to do with this stuff. I fool with it in my spare time because we use it and because I like to. We just happen to have a lot of HP machines around here :-) Xntpd has been in use here for several years and has a fair amount of mileage on various HP platforms within the company."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/hints/hpux/">HPUX Hints</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>HPUX Hints</h1>
+    
+	       
+	<div id="body">
+<pre>Last update: Sun Mar 13 15:05:31 PST 1994
+
+This file hopefully describes the whatever and however of how to get xntp
+running on hpux 7.0 and later: s300, s400, s700, and s800.  
+
+First off,  all the standard disclaimers hold here ... HP doesn't have anthing
+to do with this stuff.  I fool with it in my spare time because we use it and
+because I like to.  We just happen to have a lot of HP machines around here :-)
+Xntpd has been in use here for several years and has a fair amount of mileage
+on various HP platforms within the company.  I can't really guarantee bug fixes
+but I'd certainly like to hear about bugs and I won't hestitate to look at
+any fixes sent to me.  
+
+Now lets talk OS.  If you don't have 7.0 or later, pretty much hang it up now.
+This stuff has run here on pretty much everything from 8.0 upward on s300, 
+s700, and s800\.  It is known to run on 7.0 s300/s400 but all reports are 
+from the field and not my personal experience.
+
+If you are lucky enough to have a s300 or s400 with 9.03, then you no longer
+have to worry about adjtimed as HP-UX now has adjtime(2).  The rest of you
+will have to wait on 10.0 which will have adjtime(2) and a supported though
+a bit older version of xntpd.
+
+Next, let me explain a bit about how this stuff works on HP-UX's that do not
+have adjtime(2).  The directory adjtime contains libadjtime.a and the adjtimed
+daemon.  Instead of the adjtime(2) system call, we use a library routine to
+talk to adjtimed thru message queues.  Adjtimed munges into /dev/kmem and
+causes the clock to skew properly as needed.  PLEASE NOTE that the adjtime
+code provided here is NOT a general replacement for adjtime(2) ... use of
+this adjtime(3)/adjtimed(8) other than with xntpd may yield very odd results.
+
+What to do to get this stuff running ?
+
+    * If you are running an OS less than 10.0 or do not have a s300/s400 
+      with 9.03 or better
+	-> cd machines
+	-> vi hpux
+	-> (change -DSYS_HPUX=? to match whatever you are running [7,8,9])
+	-> cd ..
+
+    * Say "make makeconfig"
+
+    * Say "make", sit back for a few minutes.
+
+    * cd authstuff
+	* Say "./authcert < certdata" and check the output.  Every line should
+	  end with "OK" ... if not, we got trouble.
+	* Now try "./authspeed auth.samplekeys".  What we want to 
+	  remember here is the "authentication delay in CPU time" 
+	* cd ..
+
+    * Say "make install"
+
+    * I'd suggest reading the xntp docs about now :-) ... seriously !!
+
+    * One thing I have added to this version of xntpd is a way to select 
+      config files if you are sharing /usr/local thru NFS or whatever.  
+      If the file /usr/local/etc/xntp.conf happens to be a directory, the 
+      files in that directory are searched until a match is found.  The 
+      rules for a match are:
+
+	1\. Our hostname
+	2\. default.<machine id> (as in default.375 or default.850)
+	3\. default
+
+    * Ok, make sure adjtimed is running (just start it up for now with
+      "/usr/local/etc/adjtimed").  Using -z as an option will get you 
+      a usage message.
+
+    * Now start up xntpd and watch it work.
+
+    * Make sure that adjtimed gets started at boot right before xntpd.
+      We do this in /etc/netbsdsrc.  They must both run as root !!
+
+Possible problems ?
+
+    * On some 320's and 835's we have had to run adjtimed with "-p 45" or
+      so to get rid of syslog messages about "last adjust did not finish".
+
+    * At 9.0, there is a problem with DIAGMON (patch available from the
+      response center) which causes it to delete the message queue that
+      adjtimed/xntpd use to communicate. (see next note for result)
+
+    * Xntpd has been known to get really ticked off when adjtime() fails
+      which is usually only while running the emulation code on HP-UX.
+      When it gets mad, it usually jumps the clock into never never land.
+      Possible reasons for this are adjtimed being killed or just never
+      started or adjtimed being completely swapped out on a really busy
+      machine (newer adjtimed try to lock themselves in memory to prevent
+      this one).
+
+Anything else ... just drop me a line at ken@sdd.hp.com
+
+Received: from louie.udel.edu by huey.udel.edu id aa14418; 15 Jun 95 9:19 EDT
+Received: from host5.colby.edu (host-05.colby.edu) by host-04.colby.edu with ESMTP  (1.37.109.15/Colby 1.1)
+	id AA165442355; Thu, 15 Jun 1995 09:19:16 -0400
+Received: by host5.colby.edu  (1.37.109.15/Colby 1.1)
+	id AA056252339; Thu, 15 Jun 1995 09:18:59 -0400
+Date: Thu, 15 Jun 1995 09:18:59 -0400 (EDT)
+From: "Jeff A. Earickson" <jaearick@colby.edu>
+To: Mills@huey.udel.edu
+Subject: More minor bugs in xntp3.4s
+In-Reply-To: <9506150022.aa12727@huey.udel.edu>
+Message-Id: <Pine.HPP.3.91.950615083549.4557A-100000@host5.colby.edu>
+Mime-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+
+Dave,
+   After reading the hpux hints file, I realized I didn't install or 
+start adjtimed.  In the course of doing this, I discovered that:
+
+--> $(TOP) is not defined in adjtime/Makefile, so "make install" can't
+    find the install.sh script.
+
+--> "make install" from the main Makefile never goes into the adjtime
+    directory, so I added the following two lines into the install
+    target of the main Makefile:
+
+    @echo installing from adjtime
+    @cd adjtime && $(MAKE) $(MFLAGS) MFLAGS="$(MFLAGS)" MAKE="$(MAKE)" install
+
+This twiddle may not be right for all systems, but it got adjtimed
+installed for me.
+
+   You might also want to add to the hpux hints file that one way to
+fire things up at boot time is to add the following lines to the localrc
+function of /etc/rc:
+
+    #---daemons for Network Time Protocol (version 3.4s)
+    #---note that adjtimed is only needed for HP-UX 9.X, not 10.0
+    #---adjtimed must be running or xntpd won't work right...
+    if [ -x /usr/local/bin/adjtimed ]; then
+        /usr/local/bin/adjtimed -r & echo -n ' adjtimed'
+        if [ -x /usr/local/bin/xntpd ]; then
+            /usr/local/bin/xntpd &    echo -n ' xntpd'
+        fi
+    fi
+
+I discovered that the "-r" option of adjtimed is needed to clear out any
+trash from a previous execution of it.  Otherwise adjtimed quietly dies
+and leaves xntpd in the lurch...
+
+Thanks for the help.
+
+** Jeff A. Earickson, Ph.D                         PHONE: 207-872-3659
+** Senior UNIX Sysadmin, Information Technology    EMAIL: jaearick@colby.edu
+** Colby College, 4214 Mayflower Hill,               FAX: 207-872-3555
+** Waterville ME, 04901-8842
+
+On Thu, 15 Jun 1995 Mills@huey.udel.edu wrote:
+
+> Jeff,
+> 
+> Read the hpux file in the hints directory.
+> 
+> Dave
+> 
+
+</pre>
+</div>
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>How to build new PARSE clocks | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="How to build new PARSE clocks" />
+<meta property="og:description" content="Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.
+ Prerequisites:
+ Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)  What to do:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.1.0/parsenew/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="How to build new PARSE clocks">
+<meta itemprop="description" content="Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.
+ Prerequisites:
+ Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)  What to do:">
+
+<meta itemprop="wordCount" content="1228">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to build new PARSE clocks"/>
+<meta name="twitter:description" content="Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.
+ Prerequisites:
+ Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)  What to do:"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.1.0/">4.1.0</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.1.0/parsenew/">How to build new PARSE clocks</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>How to build new PARSE clocks</h1>
+    
+	       
+	<p>Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.</p>
+<hr>
+<p>Prerequisites:</p>
+<ul>
+<li>Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)</li>
+</ul>
+<p>What to do:</p>
+<p>Make a conversion module (<code>libparse/clk_\*.c</code>)</p>
+<ol>
+<li>What is the time code format ?</li>
+</ol>
+<p>Find year, month, day, hour, minute, second, status (synchronised or not), possibly time zone information (you need to give the offset to UTC). You will have to convert the data from a string into a struct clocktime:</p>
+<pre><code>    &lt;pre&gt;      struct clocktime                /* clock time broken up from time code */
+          {
+        long day;
+        long month;
+        long year;
+        long hour;
+        long minute;
+        long second;
+        long usecond;
+        long utcoffset;       /* in seconds */
+        time_t utcoffset;     /* true utc time instead of date/time */
+        long flags;           /* current clock status */
+          };
+    &lt;/pre&gt;
+</code></pre>
+<p>Conversion is usually simple and straight forward. For the flags following values can be OR&rsquo;ed together:</p>
+<pre><code>    &lt;pre&gt;     PARSEB_ANNOUNCE           switch time zone warning (informational only)
+         PARSEB_POWERUP            no synchronisation - clock confused (must set then)
+         PARSEB_NOSYNC             timecode currently not confirmed (must set then)
+                                   usually on reception error when there is still a
+                                   chance the the generated time is still ok.
+
+         PARSEB_DST                DST in effect (informational only)
+         PARSEB_UTC                timecode contains UTC time (informational only)
+         PARSEB_LEAPADD            LEAP addition warning (prior to leap happening - must set when imminent)
+                       also used for time code that do not encode the
+                       direction (as this is currently the default).
+         PARSEB_LEAPDEL            LEAP deletion warning (prior to leap happening - must set when imminent)
+         PARSEB_ALTERNATE          backup transmitter (informational only)
+         PARSEB_POSITION           geographic position available (informational only)
+         PARSEB_LEAPSECOND         actual leap second (this time code is the leap
+                                   second - informational only)
+    &lt;/pre&gt;
+</code></pre>
+<p>These are feature flags denoting items that are supported by the clock:</p>
+<pre><code>    &lt;pre&gt;     PARSEB_S_LEAP             supports LEAP - might set PARSEB_LEAP
+         PARSEB_S_ANTENNA          supports ANTENNA - might set PARSEB_ALTERNATE
+         PARSEB_S_PPS              supports PPS time stamping
+         PARSEB_S_POSITION         supports position information (GPS)
+       &lt;/pre&gt;
+</code></pre>
+<p>If the utctime field is non zero this value will be take as time code value. This allows for conversion routines that already have the utc time value. The utctime field gives the seconds since Jan 1st 1970, 0:00:00. The useconds field gives the respective usec value. The fields for date and time (down to second resolution) will be ignored.</p>
+<p>Conversion is done in the <code>cvt_\*</code> routine in <code>parse/clk_\*.c</code> files, look in them for examples. The basic structure is:</p>
+<pre><code>    &lt;pre&gt;     struct clockformat &lt;yourclock&gt;_format = {
+           lots of fields for you to fill out (see below)
+         };
+
+         static cvt_&lt;yourclock&gt;()
+           ...
+         {
+           if (&lt;I do not recognize my time code&gt;) {
+             return CVT_NONE;
+           } else {
+             if (&lt;conversion into clockformat is ok&gt;) {
+               &lt;set all necessary flags&gt;;
+               return CVT_OK;
+             } else {
+               return CVT_FAIL|CVT_BADFMT;
+             }
+           }
+    &lt;/pre&gt;
+</code></pre>
+<p>The struct clockformat is the interface to the rest of the parse driver - it holds all information necessary for finding the clock message and doing the appropriate time stamping.</p>
+<pre><code>    &lt;pre&gt;struct clockformat
+    {
+      u_long (*input)();
+      /* input routine - your routine - cvt_&lt;yourclock&gt; */
+      u_long (*convert)();
+      /* conversion routine - your routine - cvt_&lt;yourclock&gt; */
+      /* routine for handling RS232 sync events (time stamps) - usually sync_simple */
+      u_long (*syncpps)(); 
+      /* PPS input routine - usually pps_one */
+      void           *data;
+      /* local parameters - any parameters/data/configuration info your conversion
+         routine might need */
+      char           *name;
+      /* clock format name - Name of the time code */
+      unsigned short  length;
+      /* maximum length of data packet for your clock format */
+      u_long   flags;
+     /* information for the parser what to look for */
+    };
+    &lt;/pre&gt;
+</code></pre>
+<p>The above should have given you some hints on how to build a <code>clk_\*.c</code> file with the time code conversion. See the examples and pick a clock closest to yours and tweak the code to match your clock.</p>
+<p>In order to make your <code>clk_\*.c</code> file usable a reference to the clockformat structure must be put into <code>parse_conf.c</code>.</p>
+<ol start="2">
+<li>TTY setup and initialisation/configuration will be done in <code>ntpd/refclock_parse.c</code>.</li>
+</ol>
+<p>Find out the exact tty settings for your clock (baud rate, parity, stop bits, character size, &hellip;) and note them in terms of <code>termio\*.h</code> c_cflag macros.</p>
+<p>In <code>ntpd/refclock_parse.c</code> fill out a new the struct clockinfo element (that allocates a new &ldquo;IP&rdquo; address - see comments) (see all the other clocks for example).</p>
+<pre><code>    &lt;pre&gt;   struct clockinfo
+         {
+          u_long  cl_flags;             /* operation flags (io modes) */
+         PARSE_F_PPSPPS       use loopfilter PPS code (CIOGETEV)
+         PARSE_F_PPSONSECOND  PPS pulses are on second
+         usually flags stay 0 as they are used only for special setups
+
+        void  (*cl_poll)();           /* active poll routine */
+             The routine to call when the clock needs data sent to it in order to
+             get a time code from the clock (e.g. Trimble clock)
+
+        int   (*cl_init)();           /* active poll init routine */
+             The routine to call for very special initializations.
+
+        void  (*cl_event)();          /* special event handling (e.g. reset clock) */
+             What to do, when an event happens - used to re-initialize clocks on timeout.
+
+        void  (*cl_end)();            /* active poll end routine */
+             The routine to call to undo any special initialisation (free memory/timers)
+
+        void   *cl_data;              /* local data area for &quot;poll&quot; mechanism */
+             local data for polling routines
+
+        u_fp    cl_rootdelay;         /* rootdelay */
+             NTP rootdelay estimate (usually 0)
+
+             u_long  cl_basedelay;         /* current offset - unsigned l_fp
+                                                  fractional part (fraction) by
+                                                  which the RS232 time code is
+                                                  delayed from the actual time. */
+
+        u_long  cl_ppsdelay;          /* current PPS offset - unsigned l_fp fractional
+             time (fraction) by which the PPS time stamp is delayed (usually 0)
+       part */
+
+        char   *cl_id;                /* ID code (usually &quot;DCF&quot;) */
+             Refclock id - (max 4 chars)
+
+        char   *cl_description;       /* device name */
+             Name of this device.
+
+        char   *cl_format;            /* fixed format */
+             If the data format cann not ne detected automatically this is the name
+         as in clk_*.c clockformat.
+
+        u_char  cl_type;              /* clock type (ntp control) */
+             Type if clock as in clock status word (ntp control messages) - usually 0
+
+        u_long  cl_maxunsync;         /* time to trust oscillator after losing synch
+      */
+             seconds a clock can be trusted after losing synchronisation.
+
+        u_long  cl_speed;             /* terminal input &amp; output baudrate */
+        u_long  cl_cflag;             /* terminal io flags */
+        u_long  cl_iflag;             /* terminal io flags */
+        u_long  cl_oflag;             /* terminal io flags */
+        u_long  cl_lflag;             /* terminal io flags */
+             termio*.h tty modes.
+
+        u_long  cl_samples;           /* samples for median filter */
+        u_long  cl_keep;              /* samples for median filter to keep */
+             median filter parameters - smoothing and rejection of bad samples
+      } clockinfo[] = {
+      ...,&lt;other clocks&gt;,...
+      { &lt; your parameters&gt; },
+      };
+
+    &lt;/pre&gt;
+</code></pre>
+<p>Well, this is very sketchy, I know. But I hope it helps a little bit. The best way is to look which clock comes closest to your and tweak that code.</p>
+<p>Two sorts of clocks are used with parse. Clocks that automatically send their time code (once a second) do not need entries in the poll routines because they send the data all the time. The second sort are the clocks that need a command sent to them in order to reply with a time code (like the Trimble clock).</p>
+<p>For questions: <a href="mailto:%20kardel@acm.org">kardel@acm.org</a>.</p>
+<p>Please include an exact description on how your clock works. (initialisation, TTY modes, strings to be sent to it, responses received from the clock).</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

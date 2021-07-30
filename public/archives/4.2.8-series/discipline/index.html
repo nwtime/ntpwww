@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Clock Discipline Algorithm | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Clock Discipline Algorithm" />
+<meta property="og:description" content="Last update: 3-Jan-2020 02:12 UTC
+ Table of Contents  General Overview Clock Discipline Operations Loop Dynamics Clock Initialization and Management   General Overview At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.8-series/discipline/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Clock Discipline Algorithm">
+<meta itemprop="description" content="Last update: 3-Jan-2020 02:12 UTC
+ Table of Contents  General Overview Clock Discipline Operations Loop Dynamics Clock Initialization and Management   General Overview At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that.">
+
+<meta itemprop="wordCount" content="1644">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Clock Discipline Algorithm"/>
+<meta name="twitter:description" content="Last update: 3-Jan-2020 02:12 UTC
+ Table of Contents  General Overview Clock Discipline Operations Loop Dynamics Clock Initialization and Management   General Overview At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.8-series/discipline/">Clock Discipline Algorithm</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Clock Discipline Algorithm</h1>
+    
+	       
+	<p>Last update: 3-Jan-2020 02:12 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.8-series/discipline/#general-overview">General Overview</a></li>
+<li><a href="/archives/4.2.8-series/discipline/#clock-discipline-operations">Clock Discipline Operations</a></li>
+<li><a href="/archives/4.2.8-series/discipline/#loop-dynamics">Loop Dynamics</a></li>
+<li><a href="/archives/4.2.8-series/discipline/#clock-initialization-and-management">Clock Initialization and Management</a></li>
+</ul>
+<hr>
+<h4 id="general-overview">General Overview</h4>
+<p>At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that.</p>
+<hr>
+<h4 id="clock-discipline-operations">Clock Discipline Operations</h4>
+<p>A block diagram of the clock discipline is shown in Figure 1. The timestamp of a reference clock or remote server is compared with the timestamp of the system clock, represented as a variable frequency oscillator (VFO), to produce a raw offset sample <em>V<sub>d</sub></em>. Offset samples are processed by the clock filter to produce a filtered update <em>V<sub>s</sub></em>. The loop filter implements a type-2 proportional-integrator controller (PIC). The PIC can minimize errors in both time and frequency using predictors <em>x</em> and <em>y</em>, respectively. The clock adjust process samples these predictors once each second for the daemon discipline or once each tick interrupt for the kernel discipline to produce the system clock update <em>V<sub>c</sub></em>.</p>
+<p><img src="/archives/pic/discipline.gif" alt="gif"></p>
+<p><strong>Figure 1: Clock Discipline Algorithm</strong></p>
+<p>In PLL mode the frequency predictor is an integral of the offset over past updates, while the phase predictor is the offset amortized over time in order to avoid setting the clock backward. In FLL mode the phase predictor is not used, while the frequency predictor is similar to the NIST <em>lockclock</em> algorithm. In this algorithm, the frequency predictor is computed as a fraction of the current offset divided by the time since the last update in order to minimize the offset at the next update.</p>
+<p>The discipline response in PLL mode is determined by the <em>time constant</em>, which results in a &ldquo;stiffness&rdquo; depending on the jitter of the available sources and the wander of the system clock oscillator. The scaled time constant is also used as the poll interval described on the <a href="/archives/4.2.8-series/poll">Poll Program</a> page. However, in NTP symmetric mode, each peer manages its own poll interval and the two might not be the same. In such cases either peer uses the minimum of its own poll interval and that of the other peer, which is included in the NTP packet header.</p>
+<hr>
+<h4 id="loop-dynamics">Loop Dynamics</h4>
+<p>It is necessary to verify that the clock discipline algorithm is stable and satisfies the Nyquist criterion, which requires that the sampling rate be at least twice the bandwidth. In this case the bandwidth can be approximated by the reciprocal of the time constant. In the NTP specification and reference implementation, time constants and poll intervals are expressed as exponents of 2. By construction, the time constant exponent is five times the poll interval exponent. Thus, the default poll exponent of 6 corresponds to a poll interval of 64 s and a time constant of 2048 s. A change in the poll interval changes the time constant by a corresponding amount.. The Nyquist criterion requires the sample interval to be not more than half the time constant or 1024 s. The clock filter guarantees at least one sample in eight poll intervals, so the sample interval is not more than 512 s. This would be described as oversampling by a factor of two. Finally, the PLL parameters have been chosen for a damping factor of 2, which results in a much faster risetime than with critical damping, but results in modest overshoot of 6 percent.</p>
+<p>It is important to understand how the dynamics of the PLL are affected by the time constant and poll interval. At the default poll interval of 64 s and a step offset change of 100 ms, the time response crosses zero in about 50 min and overshoots about 6 ms, as per design. Ordinarily, a step correction would causes a temporary frequency surge of about 5 PPM, which along with the overshoot slowly dissipates over a few hours.</p>
+<p>However, the clock state machine used with the discipline algorithm avoids this transient at startup. It does this using a previously saved frequency file, if present, or by measuring the oscillator frequency, if not. It then quickly amortizes the residual offset at startup without affecting the oscillator frequency. In this way the offset error is less than 0.5 ms within 5 min, if the file is present, and within 10 min if not. See the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page for further details.</p>
+<p>Since the PLL is linear, the response with different offset step amplitudes and poll intervals has the same characteristic shape, but scaled differently in amplitude and time. The response scales exactly with step amplitude, so that the response to a 10-ms step has the same shape as at 64 s, but with amplitude compressed by one-tenth. The response scales exactly with poll interval, so that response at a poll interval of 8 s has the same shape as at 64 s, but with time compressed by one-eighth.</p>
+<p>The optimum time constant, and thus the poll interval, depends on the network time jitter and the oscillator frequency wander. Errors due to jitter decrease as the time constant increases, while errors due to wander decrease as the time constant decreases. For typical Internet paths, the two error characteristics intersect at a point called the <em>Allan intercept</em>, which represents the optimum time constant. With a compromise Allan intercept of 2048 s, the optimum poll interval is about 64 s, which corresponds to a compromise poll exponent of 6. For fast LANs with modern computers, the Allan intercept is somewhat lower at around 512 s, so a compromise poll exponent of 4 (16 s) is appropriate. An intricate, heuristic algorithm is used to manage the actual poll interval within a specified range. Details are on the <a href="/archives/4.2.8-series/poll">Poll Program</a> page.</p>
+<p>In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. In extreme cases not likely to be encountered in normal operation, the system time can be stepped forward or backward more than 128 ms. Further details are on the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page.</p>
+<hr>
+<h4 id="clock-initialization-and-management">Clock Initialization and Management</h4>
+<p>If left running continuously, an NTP client on a fast LAN in a home or office environment can maintain synchronization nominally within one millisecond. When the ambient temperature variations are less than a degree Celsius, the clock oscillator frequency is disciplined to within one part per million (PPM), even when the clock oscillator native frequency offset is 100 PPM or more.</p>
+<p>For laptops and portable devices when the power is turned off, the battery backup clock offset error can increase as much as one second per day. When power is restored after several hours or days, the clock offset and oscillator frequency errors must be resolved by the clock discipline algorithm, but this can take several hours without specific provisions.</p>
+<p>The provisions described in this section insure that, in all but pathological situations, the startup transient is suppressed to within nominal levels in no more than five minutes after a warm start or ten minutes after a cold start. Following is a summary of these provisions. A detailed discussion of these provisions is on the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page.</p>
+<p>The reference implementation measures the clock oscillator frequency and updates a frequency file at intervals of one hour or more, depending on the measured frequency wander. This design is intended to minimize write cycles in NVRAM that might be used in a laptop or portable device. In a warm start, the frequency is initialized from this file, which avoids a possibly lengthy convergence time. In a cold start when no frequency file is available, the reference implementation first measures the oscillator frequency over a five-min interval. This generally results in a residual frequency error less than 1 PPM. The measurement interval can be changed using the <tt>stepout</tt> option of the <a href="/archives/4.2.8-series/miscopt"><tt>tinker</tt></a> command.</p>
+<p>In order to reduce the clock offset error at restart, the reference implementation next disables oscillator frequency discipline and enables clock offset discipline with a small time constant. This is designed to quickly reduce the clock offset error without causing a frequency surge. This configuration is continued for an interval of five-min, after which the clock offset error is usually no more than a millisecond. The measurement interval can be changed using the <tt>stepout</tt> option of the <a href="/archives/4.2.8-series/miscopt"><tt>tinker</tt></a> command.</p>
+<p>Another concern at restart is the time necessary for the select and cluster algorithms to refine and validate the initial clock offset estimate. Normally, this takes several updates before setting the system clock. As the default minimum poll interval in most configurations is about one minute, it can take several minutes before setting the system clock. The <tt>iburst</tt> option of the <a href="/archives/4.2.8-series/confopt/#server-command-options"><tt>server</tt></a> command changes the behavior at restart and is recommended for client/server configurations. When this option is enabled, the client sends a volley of six requests at intervals of two seconds. This usually insures a reliable estimate is available in about ten seconds before setting the clock. Once this initial volley is complete, the procedures described above are executed.</p>
+<p>As a result of the above considerations, when a backup source, such as the local clock driver, ACTS modem driver or orphan mode is included in the system configuration, it may happen that one or more of them are selectable before one or more of the regular sources are selectable. When backup sources are included in the configuration, the reference implementation waits an interval of several minutes without regular sources before switching to backup sources. This is generally enough to avoid startup transients due to premature switching to backup sources. The interval can be changed using the <tt>orphanwait</tt> option of the <a href="/archives/4.2.8-series/miscopt"><tt>tos</tt></a> command.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

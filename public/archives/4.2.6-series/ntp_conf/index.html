@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Configuration File Definition (Advanced) | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Configuration File Definition (Advanced)" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+Racoon is shooting configuration bugs.
+Last update: 02:20 UTC Monday, March 03, 2008
+ Table of Contents  Synopsis Files High-Level Description Detailed Description Guidelines for Adding Configuration Commands   Synopsis The NTP configuration process is driven by a phrase-structure grammar which is used to specify the format of the configuration commands and the actions needed to build an abstract syntax tree (AST). The grammar is fed to a parser generator (Bison) which produces a parser for the configuration file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.6-series/ntp_conf/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Configuration File Definition (Advanced)">
+<meta itemprop="description" content="from Pogo, Walt Kelly
+Racoon is shooting configuration bugs.
+Last update: 02:20 UTC Monday, March 03, 2008
+ Table of Contents  Synopsis Files High-Level Description Detailed Description Guidelines for Adding Configuration Commands   Synopsis The NTP configuration process is driven by a phrase-structure grammar which is used to specify the format of the configuration commands and the actions needed to build an abstract syntax tree (AST). The grammar is fed to a parser generator (Bison) which produces a parser for the configuration file.">
+
+<meta itemprop="wordCount" content="2162">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configuration File Definition (Advanced)"/>
+<meta name="twitter:description" content="from Pogo, Walt Kelly
+Racoon is shooting configuration bugs.
+Last update: 02:20 UTC Monday, March 03, 2008
+ Table of Contents  Synopsis Files High-Level Description Detailed Description Guidelines for Adding Configuration Commands   Synopsis The NTP configuration process is driven by a phrase-structure grammar which is used to specify the format of the configuration commands and the actions needed to build an abstract syntax tree (AST). The grammar is fed to a parser generator (Bison) which produces a parser for the configuration file."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.6-series/">4.2.6-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.6-series/ntp_conf/">Configuration File Definition (Advanced)</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Configuration File Definition (Advanced)</h1>
+    
+	       
+	<p><img src="/archives/pic/pogo7.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>Racoon is shooting configuration bugs.</p>
+<p>Last update: 02:20 UTC Monday, March 03, 2008</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="#synopsis">Synopsis</a></li>
+<li><a href="/archives/4.2.6-series/ntp_conf/#files">Files</a></li>
+<li><a href="/archives/4.2.6-series/ntp_conf/#high-level-description">High-Level Description</a></li>
+<li><a href="/archives/4.2.6-series/ntp_conf/#detailed-description">Detailed Description</a></li>
+<li><a href="/archives/4.2.6-series/ntp_conf/#guidelines-for-adding-configuration-commands">Guidelines for Adding Configuration Commands</a></li>
+</ul>
+<hr>
+<h4 id="synopsis">Synopsis</h4>
+<p>The NTP configuration process is driven by a phrase-structure grammar which is used to specify the format of the configuration commands and the actions needed to build an abstract syntax tree (AST). The grammar is fed to a parser generator (Bison) which produces a parser for the configuration file.</p>
+<p>The generated parser is used to parse an NTP configuration file and check it for syntax and semantic errors. The result of the parse is an AST, which contains a representation of the various commands and options. This AST is then traversed to set up the NTP daemon to the correct configuration.</p>
+<p>This document is intended for developers who wish to modify the configuration code and/or add configuration commands and options. It contains a description of the files used in the configuration process as well as guidelines on how to construct them.</p>
+<hr>
+<h4 id="files">Files</h4>
+<p>A brief description of the files used by the configuration code is given below:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ntp_config.y</code></td>
+<td>This file is a Bison source file that contains the phrase-structure grammar and the actions that need to be performed to generate an AST.</td>
+</tr>
+<tr>
+<td><code>ntp_config.c</code></td>
+<td>This file contains the major chunk of the configuration code. It contains all the functions that are called for building the AST as well as the functions that are needed for traversing the AST.</td>
+</tr>
+<tr>
+<td><code>ntp_config.h</code></td>
+<td>This file is the header file for  <code>ntp_config.c</code>. It mainly contains the structure definitions needed to build the AST.</td>
+</tr>
+<tr>
+<td><code>ntp_scanner.c</code></td>
+<td>This file contains the code for a simple lexical analyzer. This file is directly included into the  <code>ntp_config.c </code> file since this code is only used by the configuration code. The most important function in this file is <tt>yylex</tt>, which is called by the generated parser to get the next token on the input line.</td>
+</tr>
+<tr>
+<td><code>ntp_data_structures.c</code></td>
+<td>This file contains a generic implementation of a priority queue and a simple queue. This code can be used to create a queue for any structure.</td>
+</tr>
+<tr>
+<td><code>ntp_data_structures.h</code></td>
+<td>This header file contains the structure declarations and function prototypes needed to use the data structures defined in  <code>ntp_data_structures.c</code>. This file forms the public interface of the data structures.</td>
+</tr>
+<tr>
+<td><code>ntp_config.tab.c</code></td>
+<td>This file is generated by Bison from the <code>ntp_config.y</code> file. This file is also included directly into the configuration code.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="high-level-description">High-Level Description</h4>
+<p>A high-level description of the configuration process showing where all the files fit in is given below:</p>
+<p><img src="/archives/pic/description.jpg" alt="JPEG"></p>
+<p>The scanner reads in an NTP configuration file and converts it into tokens. The Bison generated parser reads these tokens and converts them into an AST. The AST traverser consists of a set of functions that configure parts of NTP on the basis of what is on the tree. A more detailed description of these parts and the files used is given below.</p>
+<hr>
+<h4 id="detailed-description">Detailed Description</h4>
+<dt>ntp_scanner.c</dt>
+<p>This file contains the scanner. The scanner is a small program that converts an input NTP configuration file into a set of <code>tokens</code> that correspond to <code>lexemes</code> in the input. Lexemes are strings in the input, delimited by whitespace and/or special characters. Tokens are basically unique integers that represent these lexemes. A different token is generated for each reserved word and special character in the input. There are two main functions in the public interface of this file:</p>
+<dt><tt>int yylex</tt>()</dt>
+<p>This function is called <tt>yylex</tt> for historical reasons; <tt>lex</tt> is a program that takes a set of regular expressions and generates a scanner that returns tokens corresponding to those regular expressions. The name of the generated function is called <tt>yylex</tt>. We aren&rsquo;t using<tt>lex</tt>because it requires linking against an external library and we didn&rsquo;t want to increase the compile-time requirements of NTP.</p>
+<p>History lessons aside, this function basically checks to see if the next input character is a special character as defined in the array <tt>char special_char[]</tt>. (The function <tt>int is_special(char ch)</tt>, can be used for this.) If yes, the special character is returned as the token. If not, a set of characters is read until the next whitespace or special character is encountered. This set of characters forms the lexeme; <tt>yylex</tt> then checks whether this lexeme is an integer, a double, an IP address or a reserved word. If yes, the corresponding token is returned. If not, a token for a string is returned as the default token.</p>
+<dt><tt>struct state *create_keyword_scanner(struct key_tok *_keyword_list_)</tt></dt>
+<p>This function takes a list of (<em>keyword, token</em>) pairs and converts them into a trie that can recognize the keywords (reserved words). Every time the scanner reads a lexeme, it compares it against the list of reserved words. If it finds a match, it returns the corresponding token for that keyword.</p>
+<dt>ntp_data_structures.c</dt>
+<p>This file contains an implementation of a generic priority queue and FIFO queue. By generic, we mean that these queues can hold element of any type (integers, user-defined structs, etc.), provided that these elements are allocated on the heap using the function <tt>void</tt> *<tt>get_node(size_t size)</tt>. Note that the prototype for this function is exactly the same as that of <tt>malloc</tt> and that it can be used in the exact same way. Behind the scenes, <tt>get_node</tt> calls <tt>malloc</tt> to allocate <em>size</em> plus some extra memory needed for bookkeeping. The allocated memory can be freed using the function <tt>void free_node (void *<em>my_node</em>)</tt>. In addition to these two functions, the public interface of this file contains the following functions:</p>
+<dt><tt>queue *create_priority_queue(int (*get_order)(void *, void*))</tt></dt>
+<p>This function creates a priority queue in which the order of the elements is determined by the <tt>get_order</tt>function that is passed as input to the priority queue. The <tt>get_order</tt>function should return positive if the priority of the first element is less than the priority of the second element.</p>
+<dt><tt>queue *create_queue(void)</tt></dt>
+<p>This function creates a FIFO queue. It basically calls the <tt>create_priority_queue</tt> function with the <tt>get_fifo_order</tt>function as its argument.</p>
+<dt><tt>void destroy_queue(queue *_my_queue_)</tt></dt>
+<p>This function deletes <tt><em>my_queue</em></tt>and frees up all the memory allocated to it an its elements.</p>
+<dt><tt>int empty(queue *</tt>_<tt>my_queue</tt>_<tt>)</tt></dt>
+<p>This function checks to see if <em><tt>my_queue</tt></em> is empty. Returns <tt>true</tt> if <tt><em>my_queue</em></tt> does not have any elements, else it returns false.</p>
+<dt><tt>queue *enqueue(queue *_my_queue_, void *_my_node_)</tt></dt>
+<p>This function adds an element, <em><tt>my_node</tt></em>, to a queue, <em><tt>my_queue</tt></em>. <em><tt>my_node</tt></em> must be allocated on the heap using the <tt>get_node</tt> function instead of <tt>malloc</tt>.</p>
+<dt><tt>void *dequeue(queue *_my_queue_)</tt></dt>
+<p>This function returns the element at the front of the queue. This element will be element with the highest priority.</p>
+<dt><tt>int get_no_of_elements(queue *_my_queue_)</tt></dt>
+<p>This function returns the number of elements in <tt><em>my_queue</em></tt>.</p>
+<dt><tt>void append_queue(queue *_q_1, queue *_q_2)</tt></dt>
+<p>This function adds all the elements of <tt>_q_2</tt> to <tt>_q_1</tt>. The queue <tt>_q_2</tt> is destroyed in the process.</p>
+<dt>ntp_config.y</dt>
+<p>This file is structured as a standard Bison file and consists of three main parts, separated by <tt>%%</tt>:</p>
+<ol>
+<li>The prologue and bison declarations: This section contains a list of the terminal symbols, the non-terminal symbols and the types of these symbols.</li>
+<li>The rules section: This section contains a description of the actual phrase-structure rules that are used to parse the configuration commands. Each rule consists of a left-hand side (LHS), a right-hand side (RHS) and an optional action. As is standard with phrase-structure grammars, the LHS consists of a single non-terminal symbol. The RHS can contain both terminal and non-terminal symbols, while the optional action can consist of any arbitrary C code.</li>
+<li>The epilogue: This section is left empty on purpose. It is traditionally used to code the support functions needed to build the ASTs Since, we have moved all the support functions to <code>ntp_config.c</code>, this section is left empty.</li>
+</ol>
+<p><strong>Prologue and Bison Declarations</strong></p>
+<p>All the terminal symbols (also known as tokens) have to be declared in the prologue section. Note that terminals and non-terminals may have values associated with them and these values have types. (More on this later). An unnamed union has to be declared with all the possible types at the start of the prologue section. For example, we declare the following union at the start of the <strong>ntp_config.y</strong> file:</p>
+<p><tt>%union {<br>
+char *String;<br>
+double Double;<br>
+int Integer;<br>
+void *VoidPtr;<br>
+queue *Queue;<br>
+struct attr_val *Attr_val;<br>
+struct address_node *Address_node;<br>
+struct setvar_node <em>Set_var;<br>
+/</em> Simulation types */<br>
+server_info *Sim_server;<br>
+script_info *Sim_script;<br>
+}</tt></p>
+<p>Some tokens may not have any types. For example, tokens that correspond to reserved words do not usually have types as they simply indicate that a reserved word has been read in the input file. Such tokens have to be declared as follows:</p>
+<p><tt>%token T_Discard<br>
+%token T_Dispersion</tt></p>
+<p>Other tokens do have types. For example, a <tt>T_Double</tt> token is returned by the scanner whenever it sees a floating-point double in the configuration file. The value associated with the token is the actual number that was read in the configuration file and its type (after conversion) is double. Hence, the token <tt>T_Double</tt> will have to be declared as follows in the prologue of <strong>ntp_config.y</strong> file:</p>
+<p><tt>%token <Double> T_Double</tt></p>
+<p>Note that the declaration given in the angled brackets is not <tt>double</tt> but <tt>Double</tt>, which is the name of the variable given in the <tt>%union {}</tt> declaration above.</p>
+<p>Finally, non-terminal symbols may also have values associated with them, which have types. This is because Bison allows non-terminal symbols to have actions associated with them. Actions may be thought of as small functions which get executed whenever the RHS of a non-terminal is detected. The return values of these functions are the values associated with the non-terminals. The types of the non-terminals are specified with a <tt>%type</tt> declaration as shown below:</p>
+<p><tt>%type <Queue> address_list<br>
+%type <Integer> boolean</tt></p>
+<p>The <tt>%type</tt> declaration may be omitted for non-terminals that do not return any value and do not have type information associated with them.</p>
+<p><strong>The Rules Section</strong></p>
+<p>The rule section only consists of phrase-structure grammar rules. Each rule typically has the following format:</p>
+<p><tt>LHS : RHS [{ Actions }]<br>
+;</tt></p>
+<p>where LHS consists of a single non-terminal symbol and the RHS consists of one or more terminal and non-terminal symbols. The <tt>Actions</tt> are optional and may consist of any number of arbitrary C statements. Note that Bison can only process LALR(1) grammars, which imposes additional restrictions on the kind of rules that can be specified. Examples of rules are shown below:</p>
+<p><tt>orphan_mode_command<br>
+: T_Tos tos_option_list<br>
+{ append_queue(my_config.orphan_cmds, $2); }<br>
+;</tt></p>
+<p><tt>tos_option_list<br>
+: tos_option_list tos_option { $ = enqueue($1, $2); }<br>
+| tos_option { $ = enqueue_in_new_queue($1); }<br>
+;</tt></p>
+<p>The <tt>$n</tt> notation, where <tt>n</tt> is an integer, is used to refer to the value of a terminal or non-terminal symbol. All terminals and non-terminal symbols within a particular rule are numbered (starting from 1) according to the order in which they appear within the RHS of a rule. <tt>$</tt> is used to refer to the value of the LHS terminal symbol - it is used to return a value for the non-terminal symbol specified in the LHS of the rule.</p>
+<p><strong>Invoking Bison</strong></p>
+<p>Bison needs to be invoked in order to convert the <strong>ntp_config.y</strong> file into a C source file. To invoke Bison, simply enter the command:</p>
+<p><tt>bison ntp_config.y</tt></p>
+<p>at the command prompt. If no errors are detected, an <strong>ntp_config.tab.c</strong> file will be generated by default. This generated file can be directly included into the <strong>ntp_config.c</strong> file.</p>
+<p>If Bison report shift-reduce errors or reduce-reduce errors, it means that the grammar specified using the rules in not LALR(1). To debug such a grammar, invoke Bison with a <tt>-v</tt> switch, as shown below. This will generate a <strong>ntp_config.output</strong> file, which will contain a description of the generated state machine, together with a list of states that have shift-reduce/reduce-reduce conflicts. You can then change the rules to remove such conflicts.</p>
+<p><tt>bison -v ntp_config.y</tt></p>
+<p>For more information, refer to the <a href="http://www.gnu.org/software/bison/manual/bison.html">Bison manual</a>.</p>
+<p><strong>ntp_config.c</strong></p>
+<p>This file contains the major chunk of the configuration code including all the support functions needed for building and traversing the ASTs. As such, most of the functions in this file can be divided into two groups:</p>
+<ol>
+<li>Functions that have a <tt>create_</tt> prefix. These functions are used to build a node of the AST.</li>
+<li>Functions that have a <tt>config_</tt> prefix. These functions are used to traverse the AST and configure NTP according to the nodes present on the tree.</li>
+</ol>
+<hr>
+<h4 id="guidelines-for-adding-configuration-commands">Guidelines for Adding Configuration Commands</h4>
+<p>The following steps may be used to add a new configuration command to the NTP reference implementation:</p>
+<ol>
+<li>Write phrase-structure grammar rules for the syntax of the new command. Add these rules to the rules section of the <strong>ntp_config.y</strong> file.</li>
+<li>Write the action to be performed on recognizing the rules. These actions will be used to build the AST.</li>
+<li>If new reserved words are needed, add these to the <tt>struct key_tok keyword_list[]</tt>structure in the <strong>ntp_config.c</strong> file. This will allow the scanner to recognize these reserved words and generate the desired tokens on recognizing them.</li>
+<li>Specify the types of all the terminals and non-terminal symbols in the prologue section of the <strong>ntp_config.c</strong> file.</li>
+<li>Write a function with a <tt>config_</tt> prefix that will be executed for this new command. Make sure this function is called in the <tt>config_ntpd()</tt>function.</li>
+</ol>
+<hr>
+<p><a href="mailto:skamboj@udel.edu">Sachin Kamboj</a></p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
