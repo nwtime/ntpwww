@@ -36,7 +36,7 @@ Reference ID: SHM
 Driver ID: SHM
  Description This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access by default, unless otherwise requested by the mode word for units ≥2.">
 
-<meta itemprop="wordCount" content="1382">
+<meta itemprop="wordCount" content="1381">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Shared Memory Driver"/>
 <meta name="twitter:description" content="Last update: 8-Aug-2014 19:17 UTC
@@ -73,6 +73,28 @@ Driver ID: SHM
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,6 +117,8 @@ Driver ID: SHM
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -236,7 +260,7 @@ Driver ID: <tt>SHM</tt></p>
 <hr>
 <h4 id="clockstats">Clockstats</h4>
 <p>If flag4 is set when the driver is polled, a clockstats record is written. The first 3 fields are the normal date, time, and IP address common to all clockstats records.</p>
-<p>The 4th field is the number of second ticks since the last poll. The 5th field is the number of good data samples found. The last 64 will be used by <em>NTPD</em>. The 6th field is the number of sample that didn&rsquo;t have valid data ready. The 7th field is the number of bad samples. The 8th field is the number of times the the mode 1 info was update while <em>NTPD</em> was trying to grab a sample.</p>
+<p>The 4th field is the number of second ticks since the last poll. The 5th field is the number of good data samples found. The last 64 will be used by <em>NTPD</em>. The 6th field is the number of sample that didn&rsquo;t have valid data ready. The 7th field is the number of bad samples. The 8th field is the number of times the mode 1 info was update while <em>NTPD</em> was trying to grab a sample.</p>
 <p>Here is a sample showing the GPS reception fading out:</p>
 <pre>54364 84927.157 127.127.28.0  66  65   1   0   0
 54364 84990.161 127.127.28.0  63  63   0   0   0
@@ -329,35 +353,34 @@ Driver ID: <tt>SHM</tt></p>
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -367,19 +390,11 @@ Driver ID: <tt>SHM</tt></p>
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

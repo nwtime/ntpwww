@@ -97,7 +97,7 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;access-control-support&#34;&gt;Access Control Support&lt;/h4&gt;
-&lt;p&gt;The &lt;tt&gt;ntpd&lt;/tt&gt; daemon implements a general purpose address/mask based restriction list. The list contains address/match entries sorted first by increasing address values and and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list. The list is searched in order with the last match found defining the restriction flags associated with the entry. Additional information and examples can be found in the &lt;a href=&#34;/archives/4.2.2-series/notes&#34;&gt;Notes on Configuring NTP and Setting up a NTP Subnet&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;The &lt;tt&gt;ntpd&lt;/tt&gt; daemon implements a general purpose address/mask based restriction list. The list contains address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list. The list is searched in order with the last match found defining the restriction flags associated with the entry. Additional information and examples can be found in the &lt;a href=&#34;/archives/4.2.2-series/notes&#34;&gt;Notes on Configuring NTP and Setting up a NTP Subnet&lt;/a&gt; page.&lt;/p&gt;
 &lt;p&gt;The restriction facility was implemented in conformance with the access policies for the original NSFnet backbone time servers. Later the facility was expanded to deflect cryptographic and clogging attacks. While this facility may be useful for keeping unwanted or broken or malicious clients from congesting innocent servers, it should not be considered an alternative to the NTP authentication facilities. Source address based restrictions are easily circumvented by a determined cracker.&lt;/p&gt;
 &lt;p&gt;Clients can be denied service because they are explicitly included in the restrict list created by the &lt;tt&gt;restrict&lt;/tt&gt; command or implicitly as the result of cryptographic or rate limit violations. Cryptographic violations include certificate or identity verification failure; rate limit violations generally result from defective NTP implementations that send packets at abusive rates. Some violations cause denied service only for the offending packet, others cause denied service for a timed period and others cause the denied service for an indefinate period. When a client or network is denied access for an indefinate period, the only way at present to remove the restrictions is by restarting the server.&lt;/p&gt;
 &lt;hr&gt;
@@ -248,7 +248,7 @@
 &lt;h4 id=&#34;naming-and-addressing&#34;&gt;Naming and Addressing&lt;/h4&gt;
 &lt;p&gt;It is important to note that Autokey does not use DNS to resolve addresses, since DNS can&amp;rsquo;t be completely trusted until the name servers have synchronized clocks. The cryptographic name used by Autokey to bind the host identity credentials and cryptographic values must be independent of interface, network and any other naming convention. The name appears in the host certificate in either or both the subject and issuer fields, so protection against DNS compromise is essential.&lt;/p&gt;
 &lt;p&gt;By convention, the name of an Autokey host is the name returned by the Unix &lt;tt&gt;gethostname()&lt;/tt&gt; system call or equivalent in other systems. By the system design model, there are no provisions to allow alternate names or aliases. However, this is not to say that DNS aliases, different names for each interface, etc., are constrained in any way.&lt;/p&gt;
-&lt;p&gt;It is also important to note that Autokey verifies authenticity using the host name, network address and public keys, all of which are bound together by the protocol specifically to deflect masquerade attacks. For this reason Autokey includes the source and destinatino IP addresses in message digest computations and so the same addresses must be available at both the server and client. For this reason operation with network address translation schemes is not possible. This reflects the intended robust security model where government and corporate NTP servers are operated outside firewall perimeters.&lt;/p&gt;
+&lt;p&gt;It is also important to note that Autokey verifies authenticity using the host name, network address and public keys, all of which are bound together by the protocol specifically to deflect masquerade attacks. For this reason Autokey includes the source and destination IP addresses in message digest computations and so the same addresses must be available at both the server and client. For this reason operation with network address translation schemes is not possible. This reflects the intended robust security model where government and corporate NTP servers are operated outside firewall perimeters.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;configuration&#34;&gt;Configuration&lt;/h4&gt;
 &lt;p&gt;Autokey has an intimidating number of options, most of which are not necessary in typical scenarios. The simplest configuration consists of a subnet with one or more servers at the same low stratum acting as trusted hosts and with dependent clients at higher strata and sharing a single secure group and identity scheme. Each trusted host generates a host key, trusted certificate and group key. Each client generates a host key, normal certificate and installs the group key of each trusted host using secure means and renames it as the name of the trusted host.&lt;/p&gt;
@@ -267,7 +267,7 @@
 &lt;hr&gt;
 &lt;h4 id=&#34;key-management&#34;&gt;Key Management&lt;/h4&gt;
 &lt;p&gt;The cryptographic values used by the Autokey protocol are incorporated as a set of files generated by the &lt;a href=&#34;/archives/4.2.2-series/keygen&#34;&gt;ntp-keygen&lt;/a&gt; utility program, including symmetric key, host key and public certificate files, as well as sign key, identity parameters and leapseconds files. Alternatively, host and sign keys and certificate files can be generated by the OpenSSL utilities and certificates can be imported from public certificate authorities. Note that symmetric keys are necessary for the &lt;tt&gt;ntpq&lt;/tt&gt; and &lt;tt&gt;ntpdc&lt;/tt&gt; utility programs. The remaining files are necessary only for the Autokey protocol.&lt;/p&gt;
-&lt;p&gt;Certificates imported from OpenSSL or public certificate authorities have certian limitations. The certificate should be in ASN.1 syntax, X.509 Version 3 format and encoded in PEM, which is the same format used by OpenSSL. The overall length of the certificate encoded in ASN.1 must not exceed 1024 bytes. The subject distinguished name field (&lt;tt&gt;CN&lt;/tt&gt;) is the fully qualified name of the host on which it is used; the remaining subject fields are ignored. The certificate extension fields must not contain either a subject key identifier or a issuer key identifier field; however, an extended key usage field for a trusted host must contain the value &lt;tt&gt;trustRoot;&lt;/tt&gt;. Other extension fields are ignored.&lt;/p&gt;
+&lt;p&gt;Certificates imported from OpenSSL or public certificate authorities have certain limitations. The certificate should be in ASN.1 syntax, X.509 Version 3 format and encoded in PEM, which is the same format used by OpenSSL. The overall length of the certificate encoded in ASN.1 must not exceed 1024 bytes. The subject distinguished name field (&lt;tt&gt;CN&lt;/tt&gt;) is the fully qualified name of the host on which it is used; the remaining subject fields are ignored. The certificate extension fields must not contain either a subject key identifier or a issuer key identifier field; however, an extended key usage field for a trusted host must contain the value &lt;tt&gt;trustRoot;&lt;/tt&gt;. Other extension fields are ignored.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;authentication-commands&#34;&gt;Authentication Commands&lt;/h4&gt;
 &lt;dt&gt;&lt;tt&gt;autokey [_logsec_]&lt;/tt&gt;&lt;/dt&gt;
@@ -500,11 +500,11 @@
 &lt;hr&gt;
 &lt;h4 id=&#34;additional-ttmakett-commands&#34;&gt;Additional &lt;tt&gt;make&lt;/tt&gt; commands&lt;/h4&gt;
 &lt;dt&gt;&lt;tt&gt;make clean&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Cleans out object files, programs and temporary files.&lt;/dd&gt;
+&lt;p&gt;Cleans out object files, programs and temporary files.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;make distclean&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Does the work of &lt;tt&gt;clean&lt;/tt&gt;, but cleans out all directories in preparation for a new distribution release.&lt;/dd&gt;
+&lt;p&gt;Does the work of &lt;tt&gt;clean&lt;/tt&gt;, but cleans out all directories in preparation for a new distribution release.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;make dist&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Does the work of &lt;tt&gt;make distclean&lt;/tt&gt;, but constructs compressed tar files for distribution. You must have GNU automake to perform this function.&lt;/dd&gt;
+&lt;p&gt;Does the work of &lt;tt&gt;make distclean&lt;/tt&gt;, but constructs compressed tar files for distribution. You must have GNU automake to perform this function.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;building-and-installing-under-windows-nt&#34;&gt;Building and Installing under Windows NT&lt;/h4&gt;
 &lt;p&gt;See &lt;a href=&#34;/archives/hints/winnt&#34;&gt;Windows NT Hints&lt;/a&gt; for directions to compile the sources and install the executables.&lt;/p&gt;
@@ -1129,7 +1129,7 @@
 &lt;p&gt;The hybrid PLL/FLL code described in &lt;sup&gt;&lt;a href=&#34;#myfootnote2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; is included in Solaris and Digital/Compaq/HP Tru64. It includes two system calls &lt;tt&gt;ntp_gettime()&lt;/tt&gt; and &lt;tt&gt;ntp_adjtime()&lt;/tt&gt; and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in &lt;sup&gt;&lt;a href=&#34;#myfootnote1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; is available for Linux, FreeBSD, SunOS and Tru64; however, only the Linux and FreeBSD implementations, which do not include licensed code, are readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available at &lt;a href=&#34;https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz&#34;&gt;nanokernel.tar.gz&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The model also changes the way the system clock is adjusted in time and frequency relative to an external precision timing source, such as described in the &lt;a href=&#34;/archives/4.2.2-series/pps&#34;&gt;Pulse-per-second (PPS) Signal Interfacing&lt;/a&gt; page. The NTP software daemon uses the PPS to provide synchronization limited in principle only by the accuracy and stability of the external timing source.&lt;/p&gt;
 &lt;h4 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h4&gt;
-&lt;p&gt;&lt;a name=&#34;myfootnote1&#34;&gt;1&lt;/a&gt; Mills, D.L., and P.-H. Kamp. The nanokernel. &lt;em&gt;Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting&lt;/em&gt; (Reston VA, November 2000). Paper: &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.pdf&#34;&gt;PDF&lt;/a&gt;, Slides: &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.html&#34;&gt;HTML&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.pdf&#34;&gt;PDF&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ppt&#34;&gt;PowerPoint&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&#34;myfootnote1&#34;&gt;1&lt;/a&gt; Mills, D.L., and P.-H. Kamp. The nanokernel. &lt;em&gt;Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting&lt;/em&gt; (Reston VA, November 2000). Paper: &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.pdf&#34;&gt;PDF&lt;/a&gt;, Slides: &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.pdf&#34;&gt;PDF&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ppt&#34;&gt;PowerPoint&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a name=&#34;myfootnote2&#34;&gt;2&lt;/a&gt;  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.pdf&#34;&gt;PDF&lt;/a&gt;, Body: &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a name=&#34;myfootnote3&#34;&gt;3&lt;/a&gt;  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. &lt;a href=&#34;http://www.eecis.udel.edu/%7emills/database/rfc/rfc1589.txt&#34;&gt;ASCII&lt;/a&gt;&lt;/p&gt;
 
@@ -1158,12 +1158,12 @@
 &lt;/ul&gt;
 &lt;h4 id=&#34;description&#34;&gt;Description&lt;/h4&gt;
 &lt;p&gt;Most radio and modem clocks used for a primary (stratum-1) NTP server utilize serial ports operating at speeds of 9600 baud or greater. The intrinsic delay and jitter contributed by the serial port hardware and software driver can accumulate up to a millisecond in newer Unix systems and tens of milliseconds in older ones. In order to reduce the effects of delay and jitter, a set of special line disciplines, stream modules and operating system calls (&lt;tt&gt;ioctls&lt;/tt&gt;) can be configured in some Unix kernels. These routines intercept special characters or signals provided by the radio or modem clock and save a timestamp for later processing.&lt;/p&gt;
-&lt;p&gt;The routines provide two important functions. Some insert a timestamp in the receive data stream upon occurance of a designated character or characters at the serial interface. This can be used to timestamp an on-time character produced by a radio clock, for example. Other routines support an application program interface for pulse-per-second (PPS) signals generated by some radio clocks and laboratory instruments. These routines are normally accessed through the PPSAPI application program interface described below.&lt;/p&gt;
+&lt;p&gt;The routines provide two important functions. Some insert a timestamp in the receive data stream upon occurrence of a designated character or characters at the serial interface. This can be used to timestamp an on-time character produced by a radio clock, for example. Other routines support an application program interface for pulse-per-second (PPS) signals generated by some radio clocks and laboratory instruments. These routines are normally accessed through the PPSAPI application program interface described below.&lt;/p&gt;
 &lt;p&gt;The routines can be compiled in the kernel in older BSD-derived systems, or installed as System V streams modules and either compiled in the kernel or dynamically loaded when required. In either case, they require minor changes in some kernel files and in the NTP daemon &lt;tt&gt;ntpd&lt;/tt&gt;. The streams modules can be pushed and popped from the streams stack using conventional System V streams program primitives. Note that some Unix kernels do not support line disciplines and some do not support System V streams. The routines described here are known to work correctly with the Unix kernels called out in the descriptions, but have not been tested for other kernels.&lt;/p&gt;
 &lt;h4 id=&#34;tttty_clktt-line-disciplinestreams-module&#34;&gt;&lt;tt&gt;tty_clk&lt;/tt&gt; Line Discipline/Streams Module&lt;/h4&gt;
 &lt;p&gt;This routine intercepts characters received from the serial port and passes unchanged all except a set of designated characters to the generic serial port discipline. For each of the exception characters, the character is inserted in the receiver buffer followed by a local timestamp in Unix &lt;tt&gt;timeval&lt;/tt&gt; format. Both &lt;tt&gt;select()&lt;/tt&gt; and &lt;tt&gt;SIGIO&lt;/tt&gt; are supported by the routine. Support for this routine is automatically detected during the NTP build process and interface code compiled as necessary.&lt;/p&gt;
 &lt;p&gt;There are two versions of the &lt;tt&gt;tty_clk&lt;/tt&gt; routine. The &lt;tt&gt;tty_clk.c&lt;/tt&gt; line discipline is designed for older BSD systems and is compiled in the kernel. The &lt;tt&gt;tty_clk_STREAMS.c&lt;/tt&gt; is designed for System V streams, in which case it can be either compiled in the kernel or dynamically loaded. Since these programs are small, unobtrusive, and do nothing unless specifically enabled by an application program, it probably doesn&amp;rsquo;t matter which version is chosen. Instructions on how to configure and build a kernel supporting either of these routines is in the &lt;tt&gt;README&lt;/tt&gt; file in the &lt;tt&gt;./kernel&lt;/tt&gt; directory.&lt;/p&gt;
-&lt;p&gt;The &lt;tt&gt;tty_clk&lt;/tt&gt; routine defines a new ioctl &lt;tt&gt;CLK_SETSTR&lt;/tt&gt;, which takes a pointer to a string of no more than 32 characters. Until the first &lt;tt&gt;CLK_SETSTR&lt;/tt&gt; is performed, the routine will simply pass through characters. Once it is passed a string by &lt;tt&gt;CLK_SETSTR&lt;/tt&gt;, any character in that string will be immediately followed by a timestamp in Unix &lt;tt&gt;timeval&lt;/tt&gt; format. You can change the string whenever you want by doing another &lt;tt&gt;CLK_SETSTR&lt;/tt&gt;. The character must be an exact, 8 bit match. The character &amp;lsquo;\000&amp;rsquo; cannot, be used, as it is the string terminator. Passing an empty string to &lt;tt&gt;CLK_SETSTR&lt;/tt&gt; turns off timestamping. Passing &lt;tt&gt;NULL&lt;/tt&gt; may produce surprising results.&lt;/p&gt;
+&lt;p&gt;The &lt;tt&gt;tty_clk&lt;/tt&gt; routine defines a new ioctl &lt;tt&gt;CLK_SETSTR&lt;/tt&gt;, which takes a pointer to a string of no more than 32 characters. Until the first &lt;tt&gt;CLK_SETSTR&lt;/tt&gt; is performed, the routine will simply pass through characters. Once it is passed a string by &lt;tt&gt;CLK_SETSTR&lt;/tt&gt;, any character in that string will be immediately followed by a timestamp in Unix &lt;tt&gt;timeval&lt;/tt&gt; format. You can change the string whenever you want by doing another &lt;tt&gt;CLK_SETSTR&lt;/tt&gt;. The character must be an exact, 8 bit match. The character &lt;code&gt;\000&lt;/code&gt; cannot, be used, as it is the string terminator. Passing an empty string to &lt;tt&gt;CLK_SETSTR&lt;/tt&gt; turns off timestamping. Passing &lt;tt&gt;NULL&lt;/tt&gt; may produce surprising results.&lt;/p&gt;
 &lt;h4 id=&#34;tttiocdcdtimestamptt-ioctl-in-freebsd&#34;&gt;&lt;tt&gt;TIOCDCDTIMESTAMP&lt;/tt&gt; ioctl in FreeBSD&lt;/h4&gt;
 &lt;p&gt;This ioctl is included in FreeBSD 2.2 and later. It causes a timestamp to be inserted in the serial port receive data stream when the data carrier detect (DCD) signal is asserted. This is useful for those radio clocks that indicate the on-time epoch by means of a modem control signal. It is not recommended that this be used for PPS timestamps, as this function is available using the PPS application program interface included in FreeBSD 3.4 and later.&lt;/p&gt;
 &lt;p&gt;The &lt;tt&gt;TIOCDCDTIMESTAMP&lt;/tt&gt; ioctl() is detected and compiled automatically on FreeBSD systems if available. With FreeBSD 2.2 the measured delay between activation of the DCD signal and the time the timestamp is captured on a 66MHz 486DX2 is 19 &lt;font face=&#34;Symbol&#34;&gt;m&lt;/font&gt;s and on a 100MHz Pentium is 6 &lt;font face=&#34;Symbol&#34;&gt;m&lt;/font&gt;s.&lt;/p&gt;
@@ -1328,7 +1328,7 @@
 &lt;li&gt;If the above is not the case, then choose the first candidate in the list of survivors ranked in order of synchronization distance and average its offset along with the other survivors to determine the system clock offset. This is the default case and the only case considered in the current NTP specification.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;using-the-pulse-per-second-pps-signal&#34;&gt;Using the Pulse-per-Second (PPS) Signal&lt;/h4&gt;
-&lt;p&gt;Most radio clocks are connected using a serial port operating at speeds of 9600 bps or higher. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character, like carriage-return &lt;tt&gt;&lt;cr&gt;&lt;/tt&gt;, is limited to a millisecond or two. However, some radios produce a PPS signal which can be used to improve the accuracy with typical workstation servers to the order of microseconds. The details of how this can be accomplished are discussed in the &lt;a href=&#34;/archives/4.2.2-series/pps&#34;&gt;Pulse-per-second (PPS) Signal Interfacing&lt;/a&gt; page. The following paragraphs discuss how the PPS signal is affected by the mitigation rules.&lt;/p&gt;
+&lt;p&gt;Most radio clocks are connected using a serial port operating at speeds of 9600 bps or higher. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character, like carriage-return &lt;tt&gt;‹cr›&lt;/tt&gt;, is limited to a millisecond or two. However, some radios produce a PPS signal which can be used to improve the accuracy with typical workstation servers to the order of microseconds. The details of how this can be accomplished are discussed in the &lt;a href=&#34;/archives/4.2.2-series/pps&#34;&gt;Pulse-per-second (PPS) Signal Interfacing&lt;/a&gt; page. The following paragraphs discuss how the PPS signal is affected by the mitigation rules.&lt;/p&gt;
 &lt;p&gt;First, it should be pointed out that the PPS signal is inherently ambiguous, in that it provides a precise seconds epoch, but does not provide a way to number the seconds. In principle and most commonly, another source of synchronization, either the timecode from an associated radio clock, or even one or more remote NTP servers, is available to perform that function. In all cases, a specific, configured peer or server must be designated as associated with the PPS signal. This is done using the &lt;tt&gt;prefer&lt;/tt&gt; keyword as described previously. The PPS signal can be associated in this way with any peer, but is most commonly used with the radio clock generating the PPS signal.&lt;/p&gt;
 &lt;p&gt;The PPS signal can be used in two ways to discipline the local clock, one using a special PPS driver described in the &lt;a href=&#34;/archives/drivers/driver22&#34;&gt;PPS Clock Discipline&lt;/a&gt; page, the other using PPS signal support in the kernel, as described in the &lt;a href=&#34;/archives/4.2.2-series/kern&#34;&gt;A Kernel Model for Precision Timekeeping&lt;/a&gt; page. In either case, the signal must be present and within nominal jitter and wander error tolerances. In addition, the associated prefer peer must have survived the sanity checks and intersection algorithms and the dispersion settled below 1 s. This insures that the radio clock hardware is operating correctly and that, presumably, the PPS signal is operating correctly as well. Second, the absolute offset of the local clock from that peer must be less than 128 ms, or well within the 0.5-s unambiguous range of the PPS signal itself. In the case of the PPS driver, the time offsets generated from the PPS signal are propagated via the clock filter to the clock selection procedures just like any other peer. Should these pass the sanity checks and intersection algorithms, they will show up along with the offsets of the prefer peer itself. Note that, unlike the prefer peer, the PPS peer samples are not protected from discard by the clustering algorithm. These complicated procedures insure that the PPS offsets developed in this way are the most accurate, reliable available for synchronization.&lt;/p&gt;
 &lt;p&gt;The PPS peer remains active as long as it survives the intersection algorithm and the prefer peer is reachable; however, like any other clock driver, it runs a reachability algorithm on the PPS signal itself. If for some reason the signal fails or displays gross errors, the PPS peer will either become unreachable or stray out of the survivor population. In this case the clock selection remitigates as described above.&lt;/p&gt;
@@ -1748,49 +1748,47 @@ requests
 &lt;pre&gt;ntpq&gt; pe
      remote      refid       st t when poll reach delay offset jitter
 =====================================================================
--isipc6.cairn.ne .GPS1\.        1 u  18  64  377  65.592 -5.891  0.044
-+saicpc-isiepc2\. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
+-isipc6.cairn.ne .GPS1.        1 u  18  64  377  65.592 -5.891  0.044
++saicpc-isiepc2. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
 +uclpc.cairn.net pogo.udel.edu 2 u  37  64  177 212.111 -0.551  0.187
-*pogo.udel.edu   .GPS1\.        1 u  95 128  377   0.607  0.123  0.027
+*pogo.udel.edu   .GPS1.        1 u  95 128  377   0.607  0.123  0.027
 &lt;/pre&gt;
 &lt;p&gt;The host names or addresses shown in the &lt;tt&gt;remote&lt;/tt&gt; column correspond to the server and peer entries listed in the configuration file; however, the DNS names might not agree if the names listed are not the canonical DNS names. IPv4 addresses are shown in dotted quad notation, while IPv6 addresses are shown alarmingly. The &lt;tt&gt;refid&lt;/tt&gt; column shows the current source of synchronization, while the &lt;tt&gt;st&lt;/tt&gt; column reveals the stratum, &lt;tt&gt;t&lt;/tt&gt; the type (&lt;tt&gt;u&lt;/tt&gt; = unicast, &lt;tt&gt;m&lt;/tt&gt; = multicast, &lt;tt&gt;l&lt;/tt&gt; = local, &lt;tt&gt;-&lt;/tt&gt; = don&amp;rsquo;t know), and &lt;tt&gt;poll&lt;/tt&gt; the poll interval in seconds. The &lt;tt&gt;when&lt;/tt&gt; column shows the time since the peer was last heard in seconds, while the &lt;tt&gt;reach&lt;/tt&gt; column shows the status of the reachability register (see RFC-1305) in octal. The remaining entries show the latest delay, offset and jitter in milliseconds. Note that in NTP Version 4 what used to be the &lt;tt&gt;dispersion&lt;/tt&gt; column has been replaced by the &lt;tt&gt;jitter&lt;/tt&gt; column.&lt;/p&gt;
-&lt;p&gt;As per the NTP specification RFC-1305, when the &lt;tt&gt;stratum&lt;/tt&gt; is between 0 and 15 for a NTP server, the &lt;tt&gt;refid&lt;/tt&gt; field shows the server DNS name or, if not found, the IP address in dotted-quad. When the &lt;tt&gt;stratum&lt;/tt&gt; is any value for a reference clock, this field shows the identification string assigned to the clock. However, until the client has synchronized to a server, or when the &lt;tt&gt;stratum&lt;/tt&gt; for a NTP server is 0 (appears as 16 in the billboards), the status cannot be determined. As a help in debugging, the &lt;tt&gt;refid&lt;/tt&gt; field is set to a four-character string called the kiss code. The current kiss codes are as as follows.&lt;/p&gt;
+&lt;p&gt;As per the NTP specification RFC-1305, when the &lt;tt&gt;stratum&lt;/tt&gt; is between 0 and 15 for a NTP server, the &lt;tt&gt;refid&lt;/tt&gt; field shows the server DNS name or, if not found, the IP address in dotted-quad. When the &lt;tt&gt;stratum&lt;/tt&gt; is any value for a reference clock, this field shows the identification string assigned to the clock. However, until the client has synchronized to a server, or when the &lt;tt&gt;stratum&lt;/tt&gt; for a NTP server is 0 (appears as 16 in the billboards), the status cannot be determined. As a help in debugging, the &lt;tt&gt;refid&lt;/tt&gt; field is set to a four-character string called the kiss code. The current kiss codes are as follows.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Peer Kiss Codes&lt;/strong&gt;&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;ACST&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The association belongs to a anycast server.&lt;/dd&gt;
+&lt;p&gt;The association belongs to a anycast server.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;AUTH&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Server authentication failed. Please wait while the association is restarted.&lt;/dd&gt;
+&lt;p&gt;Server authentication failed. Please wait while the association is restarted.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;AUTO&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Autokey sequence failed. Please wait while the association is restarted.&lt;/dd&gt;
+&lt;p&gt;Autokey sequence failed. Please wait while the association is restarted.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;BCST&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The association belongs to a broadcast server.&lt;/dd&gt;
+&lt;p&gt;The association belongs to a broadcast server.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;CRYP&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Cryptographic authentication or identification failed. The details should be in the system log file or the &lt;tt&gt;cryptostats&lt;/tt&gt; statistics file, if configured. No further messages will be sent to the server.&lt;/dd&gt;
+&lt;p&gt;Cryptographic authentication or identification failed. The details should be in the system log file or the &lt;tt&gt;cryptostats&lt;/tt&gt; statistics file, if configured. No further messages will be sent to the server.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;DENY&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Access denied by remote server. No further messages will be sent to the server.&lt;/dd&gt;
+&lt;p&gt;Access denied by remote server. No further messages will be sent to the server.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;DROP&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Lost peer in symmetric mode. Please wait while the association is restarted.&lt;/dd&gt;
+&lt;p&gt;Lost peer in symmetric mode. Please wait while the association is restarted.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;RSTR&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Access denied due to local policy. No further messages will be sent to the server.&lt;/dd&gt;
+&lt;p&gt;Access denied due to local policy. No further messages will be sent to the server.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;INIT&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The association has not yet synchronized for the first time.&lt;/dd&gt;
+&lt;p&gt;The association has not yet synchronized for the first time.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;MCST&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The association belongs to a manycast server.&lt;/dd&gt;
+&lt;p&gt;The association belongs to a manycast server.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;NKEY&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;No key found. Either the key was never installed or is not trusted.&lt;/dd&gt;
+&lt;p&gt;No key found. Either the key was never installed or is not trusted.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;RATE&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold.&lt;/dd&gt;
+&lt;p&gt;Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;RMOT&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Somebody is tinkering with the association from a remote host running &lt;tt&gt;ntpdc&lt;/tt&gt;. Not to worry unless some rascal has stolen your keys.&lt;/dd&gt;
+&lt;p&gt;Somebody is tinkering with the association from a remote host running &lt;tt&gt;ntpdc&lt;/tt&gt;. Not to worry unless some rascal has stolen your keys.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;STEP&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;A step change in system time has occurred, but the association has not yet resynchronized.&lt;/dd&gt;
-&lt;/dl&gt;
+&lt;p&gt;A step change in system time has occurred, but the association has not yet resynchronized.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;System Kiss Codes&lt;/strong&gt;&lt;/p&gt;
-&lt;dl&gt;
 &lt;dt&gt;&lt;tt&gt;INIT&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The system clock has not yet synchronized for the first time.&lt;/dd&gt;
+&lt;p&gt;The system clock has not yet synchronized for the first time.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;STEP&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;A step change in system time has occurred, but the system clock has not yet resynchronized.&lt;/dd&gt;
+&lt;p&gt;A step change in system time has occurred, but the system clock has not yet resynchronized.&lt;/p&gt;
 &lt;p&gt;The tattletale symbol at the left margin displays the synchronization status of each peer. The currently selected peer is marked &lt;code&gt;*&lt;/code&gt;, while additional peers designated acceptable for synchronization are marked &lt;code&gt;+&lt;/code&gt;. Peers marked &lt;code&gt;*&lt;/code&gt; and &lt;code&gt;+&lt;/code&gt; are included in the weighted average computation to set the local clock; the data produced by peers marked with other symbols are discarded. See the &lt;tt&gt;ntpq&lt;/tt&gt; page for the meaning of these symbols.&lt;/p&gt;
 &lt;p&gt;Additional details for each peer separately can be determined by the following procedure. First, use the &lt;tt&gt;as&lt;/tt&gt; command to display an index of association identifiers, such as&lt;/p&gt;
 &lt;pre&gt;ntpq&gt; as
@@ -1996,7 +1994,7 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 &lt;p&gt;For the Meinberg parse look into &lt;code&gt;clk_meinberg.c&lt;/code&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;raw-dcf77-data-via-serial-line&#34;&gt;Raw DCF77 Data via serial line&lt;/h4&gt;
-&lt;p&gt;RAWDCF: end=TIMEOUT&amp;gt;1.5s, sync each char (any char),generate psuedo time codes, fixed format&lt;/p&gt;
+&lt;p&gt;RAWDCF: end=TIMEOUT&amp;gt;1.5s, sync each char (any char),generate pseudo time codes, fixed format&lt;/p&gt;
 &lt;p&gt;direct DCF77 code input&lt;/p&gt;
 &lt;p&gt;In Europe it is relatively easy/cheap the receive the german time code transmitter DCF77. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. parse/clk_rawdcf.c holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.&lt;/p&gt;
 &lt;pre&gt;	The preferred tty setting is:
@@ -2019,7 +2017,7 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 	time marks of a 100ms duration constitute a logical 0
 	time marks of a 200ms duration constitute a logical 1
 &lt;/pre&gt;
-&lt;p&gt;see the spec. (basically a (non-)inverted psuedo random phase shift) encoding:&lt;/p&gt;
+&lt;p&gt;see the spec. (basically a (non-)inverted pseudo random phase shift) encoding:&lt;/p&gt;
 &lt;pre&gt;	FM:
 
 	Second	Contents
@@ -2254,14 +2252,14 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 &lt;p&gt;This release includes support for the &lt;a href=&#34;https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz&#34;&gt;&lt;em&gt;nanokernel&lt;/em&gt;&lt;/a&gt; precision time kernel support, which is now in stock FreeBSD and optional Linux kernels. If a precision time source such as a GPS timing receiver or cesium clock is available, kernel timekeeping can be improved to the order of one microsecond. The older &lt;em&gt;microtime&lt;/em&gt; kernel for Digital/Compaq/HP Tru64, Digital Ultrix, as well as Sun Microsystems SunOS and Solaris, continues to be supported.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;This release includes support for Autokey public-key cryptography, which is the preferred scheme for authenticating servers to clients. Autokey Version 2 uses NTP header extension fields and protocols as described on the NTP project page linked from &lt;a href=&#34;http://www.ntp.org&#34;&gt;www.ntp.org&lt;/a&gt;. This release includes support for additional message digest and digital signature schemes supported by the OpenSSL software library, as well as new identity schemes based on cryptographic challenge/responce algorithms. The new design greatly simplifies key generation and distribution and provides orderly key refreshment. Security procedures and media formats are consistent with industry standard X.509 Version 3 certificates and authority procedures. Specific improvements to the protocol include a reduction in the number of messages required and a method to protect the cookie used in client/server mode against disclosure. Additional information about Autokey cryptography is contained in the &lt;a href=&#34;/archives/4.2.2-series/authopt&#34;&gt;Authentication Options&lt;/a&gt; page and links from there. See also the new &lt;tt&gt;cryptostats&lt;/tt&gt; monitoring statistics file in the &lt;a href=&#34;/archives/4.2.2-series/monopt&#34;&gt;Monitoring Options&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;This release includes support for Autokey public-key cryptography, which is the preferred scheme for authenticating servers to clients. Autokey Version 2 uses NTP header extension fields and protocols as described on the NTP project page linked from &lt;a href=&#34;http://www.ntp.org&#34;&gt;www.ntp.org&lt;/a&gt;. This release includes support for additional message digest and digital signature schemes supported by the OpenSSL software library, as well as new identity schemes based on cryptographic challenge/response algorithms. The new design greatly simplifies key generation and distribution and provides orderly key refreshment. Security procedures and media formats are consistent with industry standard X.509 Version 3 certificates and authority procedures. Specific improvements to the protocol include a reduction in the number of messages required and a method to protect the cookie used in client/server mode against disclosure. Additional information about Autokey cryptography is contained in the &lt;a href=&#34;/archives/4.2.2-series/authopt&#34;&gt;Authentication Options&lt;/a&gt; page and links from there. See also the new &lt;tt&gt;cryptostats&lt;/tt&gt; monitoring statistics file in the &lt;a href=&#34;/archives/4.2.2-series/monopt&#34;&gt;Monitoring Options&lt;/a&gt; page.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;This release includes support for a discrete event simulator (DES), which allows the NTP algorithms to be tested in an embedded environment with systematic and pseudorandom network delay and oscillator wander distributions. This has been used to verify correct operation under conditions of extreme error and misconfiguration. See the &lt;a href=&#34;/archives/4.2.2-series/ntpdsim&#34;&gt;&lt;tt&gt;ntpdsim&lt;/tt&gt; - Network Time Protocol (NTP) simulator&lt;/a&gt; page.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;NTPv4 includes two new association modes which in most applications can avoid per-host configuration altogether. Both of these are based on IP multicast technology and Autokey cryptography. They provide automatic discovery, configuration and authentication of servers and clients without identifying servers or clients in advance. In multicast mode a server sends a message at fixed intervals using specified multicast group addresses, while clients listen on these addresses.&lt;/p&gt;
-&lt;p&gt;Upon receiving the the first message, a client exchanges several messages with the server in order to calibrate the multicast propagation delay between the client and server and run the authentication protocol. In manycast mode a client sends a message to a specified multicast group address and expects one or more servers to reply. Using engineered algorithms, the client selects an appropriate subset of servers from the messages received and continues an ordinary client/server campaign. The manycast scheme can provide somewhat better accuracy than the multicast scheme at the price of additional network overhead. See the &lt;a href=&#34;/archives/4.2.2-series/manyopt&#34;&gt;Automatic NTP Configuration Options&lt;/a&gt; page for further information.&lt;/p&gt;
+&lt;p&gt;Upon receiving the first message, a client exchanges several messages with the server in order to calibrate the multicast propagation delay between the client and server and run the authentication protocol. In manycast mode a client sends a message to a specified multicast group address and expects one or more servers to reply. Using engineered algorithms, the client selects an appropriate subset of servers from the messages received and continues an ordinary client/server campaign. The manycast scheme can provide somewhat better accuracy than the multicast scheme at the price of additional network overhead. See the &lt;a href=&#34;/archives/4.2.2-series/manyopt&#34;&gt;Automatic NTP Configuration Options&lt;/a&gt; page for further information.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;This release includes support for the orphan mode, which replaces the local clock driver for most configurations. The local clock driver provides a synchronization source for networks not connected to the public Internet or reference clock driver. However, it does not opperate with multiple sources nor multiple failures. The orphan mode provides an automatic, subnet-wide synchronization feature with multiple sources. It can be used in isolated networks or in Internet subnets where the servers or Internet connection have failed. See the &lt;a href=&#34;/archives/4.2.2-series/manyopt&#34;&gt;Automatic NTP Configuration Options&lt;/a&gt; page for further information.&lt;/p&gt;
@@ -2295,7 +2293,7 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 &lt;h4 id=&#34;nasty-surprises&#34;&gt;Nasty Surprises&lt;/h4&gt;
 &lt;p&gt;There are a few things different about this release that have changed since the latest NTP Version 3 release. Following are a few things to worry about:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;When both IPv4 and IPv6 address families are in use, the host&amp;rsquo;s resolver library may not choose the intended address family if a server has an IPv4 and IPv6 address associated with the same DNS name. The solution is to use the IPv4 or IPv6 address directly in such cases or use another DNS name that resolves to the intended address family. Older versions of &lt;tt&gt;ntpdc&lt;/tt&gt; will only show the IPv4 associations with the &lt;tt&gt;peers&lt;/tt&gt; and other simular commands. Older versions of &lt;tt&gt;ntpq&lt;/tt&gt; will show 0.0.0.0 for IPv6 associations with the &lt;tt&gt;peers&lt;/tt&gt; and other simular commands.&lt;/li&gt;
+&lt;li&gt;When both IPv4 and IPv6 address families are in use, the host&amp;rsquo;s resolver library may not choose the intended address family if a server has an IPv4 and IPv6 address associated with the same DNS name. The solution is to use the IPv4 or IPv6 address directly in such cases or use another DNS name that resolves to the intended address family. Older versions of &lt;tt&gt;ntpdc&lt;/tt&gt; will only show the IPv4 associations with the &lt;tt&gt;peers&lt;/tt&gt; and other similar commands. Older versions of &lt;tt&gt;ntpq&lt;/tt&gt; will show 0.0.0.0 for IPv6 associations with the &lt;tt&gt;peers&lt;/tt&gt; and other similar commands.&lt;/li&gt;
 &lt;li&gt;There is a minor change to the reference ID field of the NTP packet header when operating with IPv6 associations. In IPv4 associations this field contains the 32-bit IPv4 address of the server, in order to detect and avoid loops. In IPv6 associations this field contains the first 32-bits of a MD5 hash formed from the address (IPv4 or IPv6) each of the configured associations. Normally, this detail would not be of concern; however, the &lt;tt&gt;ntptrace&lt;/tt&gt; program originally depended on that field in order to display a server traceback to the primary reference source. This program has now been replaced by a script that does the same function, but does not depend on the reference ID field. The &lt;tt&gt;ntpdc&lt;/tt&gt; utility now uses a special version number to communicate with the &lt;tt&gt;ntpd&lt;/tt&gt; server. The server uses this version number to select which address family to used in reply packets. The &lt;tt&gt;ntpdc&lt;/tt&gt; program falls back to the older version behavior when communicating with older NTP versions.&lt;/li&gt;
 &lt;li&gt;As required by Defense Trade Regulations (DTR), the cryptographic routines supporting the Data Encryption Standard (DES) have been removed from the base distribution of NTPv3. For NTPv4 a new interface has been implemented for the OpenSSL cryptographic library, which is widely available on the web at &lt;a href=&#34;http://www.openssl.org&#34;&gt;www.openssl.org&lt;/a&gt;. This library replaces the library formerly available from RSA Laboratories. Besides being somewhat faster and more widely available, the OpenSSL library supports many additional cryptographic algorithms, which are now selectable at run time. Directions for using OpenSSL are in the &lt;a href=&#34;/archives/4.2.2-series/build&#34;&gt;Building and Installing the Distribution&lt;/a&gt; page.&lt;/li&gt;
 &lt;li&gt;As the result of the above, the &lt;tt&gt;./authstuff&lt;/tt&gt; directory, intended as a development and testing aid for porting cryptographic routines to exotic architectures, has been removed. Testing and conformance validation tools are in the OpenSSL software distrbution.&lt;/li&gt;
@@ -2366,7 +2364,7 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 &lt;p&gt;For the IFF scheme proceed as in the TC scheme to generate keys and certificates for all group hosts, then for every trusted host in the group, generate the IFF parameter file. On trusted host &lt;em&gt;alice&lt;/em&gt; run &lt;tt&gt;ntp-keygen -T&lt;/tt&gt; &lt;tt&gt;-I -p &lt;em&gt;password&lt;/em&gt;&lt;/tt&gt; to produce her parameter file &lt;tt&gt;ntpkey_IFFpar__alice.filestamp_&lt;/tt&gt;, which includes both server and client keys. Copy this file to all group hosts that operate as both servers and clients and install a soft link from the generic &lt;tt&gt;ntpkey_iff__alice_&lt;/tt&gt; to this file. If there are no hosts restricted to operate only as clients, there is nothing further to do. As the IFF scheme is independent of keys and certificates, these files can be refreshed as needed.&lt;/p&gt;
 &lt;p&gt;If a rogue client has the parameter file, it could masquerade as a legitimate server and present a middleman threat. To eliminate this threat, the client keys can be extracted from the parameter file and distributed to all restricted clients. After generating the parameter file, on &lt;em&gt;alice&lt;/em&gt; run &lt;tt&gt;ntp-keygen&lt;/tt&gt; &lt;tt&gt;-e&lt;/tt&gt; and pipe the output to a file or mail program. Copy or mail this file to all restricted clients. On these clients install a soft link from the generic &lt;tt&gt;ntpkey_iff__alice_&lt;/tt&gt; to this file. To further protect the integrity of the keys, each file can be encrypted with a secret password.&lt;/p&gt;
 &lt;p&gt;For the GQ scheme proceed as in the TC scheme to generate keys and certificates for all group hosts, then for every trusted host in the group, generate the IFF parameter file. On trusted host &lt;em&gt;alice&lt;/em&gt; run &lt;tt&gt;ntp-keygen -T&lt;/tt&gt; &lt;tt&gt;-G -p &lt;em&gt;password&lt;/em&gt;&lt;/tt&gt; to produce her parameter file &lt;tt&gt;ntpkey_GQpar__alice.filestamp_&lt;/tt&gt;, which includes both server and client keys. Copy this file to all group hosts and install a soft link from the generic &lt;tt&gt;ntpkey_gq__alice_&lt;/tt&gt; to this file. In addition, on each host _bob_ install a soft link from generic &lt;tt&gt;ntpkey_gq__bob_&lt;/tt&gt; to this file. As the GQ scheme updates the GQ parameters file and certificate at the same time, keys and certificates can be regenerated as needed.&lt;/p&gt;
-&lt;p&gt;For the MV scheme, proceed as in the TC scheme to generate keys and certificates for all group hosts. For illustration assume &lt;em&gt;trish&lt;/em&gt; is the TA, &lt;em&gt;alice&lt;/em&gt; one of several trusted hosts and &lt;em&gt;bob&lt;/em&gt; one of her clients. On TA &lt;em&gt;trish&lt;/em&gt; run &lt;tt&gt;ntp-keygen&lt;/tt&gt; &lt;tt&gt;-V &lt;em&gt;n&lt;/em&gt; -p &lt;em&gt;password&lt;/em&gt;&lt;/tt&gt;, where &lt;em&gt;n&lt;/em&gt; is the number of revokable keys (typically 5) to produce the parameter file &lt;tt&gt;ntpkeys_MVpar__trish.filestamp_ &lt;/tt&gt;and client key files &lt;tt&gt;ntpkeys_MVkey_d___trish.filestamp_&lt;/tt&gt; where _&lt;tt&gt;d&lt;/tt&gt;_ is the key number (0 &amp;lt; _&lt;tt&gt;d&lt;/tt&gt;_ &amp;lt; _n_). Copy the parameter file to _alice_ and install a soft link from the generic &lt;tt&gt;ntpkey_mv__alice_&lt;/tt&gt; to this file. Copy one of the client key files to _alice_ for later distribution to her clients. It doesn&amp;rsquo;t matter which client key file goes to _alice_, since they all work the same way. _Alice_ copies the client key file to all of her cliens. On client _bob_ install a soft link from generic &lt;tt&gt;ntpkey_mvkey__bob_ &lt;/tt&gt;to the client key file. As the MV scheme is independent of keys and certificates, these files can be refreshed as needed.&lt;/p&gt;
+&lt;p&gt;For the MV scheme, proceed as in the TC scheme to generate keys and certificates for all group hosts. For illustration assume &lt;em&gt;trish&lt;/em&gt; is the TA, &lt;em&gt;alice&lt;/em&gt; one of several trusted hosts and &lt;em&gt;bob&lt;/em&gt; one of her clients. On TA &lt;em&gt;trish&lt;/em&gt; run &lt;tt&gt;ntp-keygen&lt;/tt&gt; &lt;tt&gt;-V &lt;em&gt;n&lt;/em&gt; -p &lt;em&gt;password&lt;/em&gt;&lt;/tt&gt;, where &lt;em&gt;n&lt;/em&gt; is the number of revokable keys (typically 5) to produce the parameter file &lt;tt&gt;ntpkeys_MVpar__trish.filestamp_ &lt;/tt&gt;and client key files &lt;tt&gt;ntpkeys_MVkey_d___trish.filestamp_&lt;/tt&gt; where _&lt;tt&gt;d&lt;/tt&gt;_ is the key number (0 &amp;lt; _&lt;tt&gt;d&lt;/tt&gt;_ &amp;lt; _n_). Copy the parameter file to _alice_ and install a soft link from the generic &lt;tt&gt;ntpkey_mv__alice_&lt;/tt&gt; to this file. Copy one of the client key files to _alice_ for later distribution to her clients. It doesn&amp;rsquo;t matter which client key file goes to _alice_, since they all work the same way. _Alice_ copies the client key file to all of her clients. On client _bob_ install a soft link from generic &lt;tt&gt;ntpkey_mvkey__bob_ &lt;/tt&gt;to the client key file. As the MV scheme is independent of keys and certificates, these files can be refreshed as needed.&lt;/p&gt;
 &lt;h4 id=&#34;command-line-options&#34;&gt;Command Line Options&lt;/h4&gt;
 &lt;dt&gt;&lt;tt&gt;-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Select certificate message digest/signature encryption scheme. Note that RSA schemes must be used with a RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is &lt;tt&gt;RSA-MD5&lt;/tt&gt;.&lt;/p&gt;
@@ -2383,7 +2381,7 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 &lt;dt&gt;&lt;tt&gt;-I&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Generate parameters for the IFF identification scheme, obsoleting any that may exist.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-i _name_&lt;/tt&gt;&lt;/dt&gt;
-&lt;p&gt;Set the suject name to &lt;em&gt;name&lt;/em&gt;. This is used as the subject field in certificates and in the file name for host and sign keys.&lt;/p&gt;
+&lt;p&gt;Set the subject name to &lt;em&gt;name&lt;/em&gt;. This is used as the subject field in certificates and in the file name for host and sign keys.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-M&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Generate MD5 keys, obsoleting any that may exist.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-P&lt;/tt&gt;&lt;/dt&gt;
@@ -2636,86 +2634,87 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 &lt;h4 id=&#34;protocol-module&#34;&gt;Protocol Module&lt;/h4&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_ERR&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;buffer overflow ?&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Fatal error. An input packet is too long for processing.&lt;/dd&gt;
+&lt;p&gt;Fatal error. An input packet is too long for processing.&lt;/p&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_NOTICE&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;no reply; clock not set&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;In &lt;tt&gt;ntpdate&lt;/tt&gt; mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.&lt;/dd&gt;
+&lt;p&gt;In &lt;tt&gt;ntpdate&lt;/tt&gt; mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.&lt;/p&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_INFO&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;proto_config: illegal item ?, value ?&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Program error. Please report to &lt;a href=&#34;mailto:bugs@ntp.org&#34;&gt;bugs@ntp.org&lt;/a&gt;.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;pps sync enabled&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The PPS signal has been detected and enabled.&lt;/dd&gt;
+&lt;p&gt;The PPS signal has been detected and enabled.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;transmit: encryption key ? not found&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The encryption key is not defined or not trusted.&lt;/dd&gt;
+&lt;p&gt;The encryption key is not defined or not trusted.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;precision = ? usec&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;This reports the precision measured for this machine.&lt;/dd&gt;
+&lt;p&gt;This reports the precision measured for this machine.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;using 10ms tick adjustments&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Gotcha for some machines with dirty rotten clock hardware.&lt;/dd&gt;
+&lt;p&gt;Gotcha for some machines with dirty rotten clock hardware.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;no servers reachable&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The system clock is running on internal batteries. The server(s) and/or network may be down.&lt;/dd&gt;
+&lt;p&gt;The system clock is running on internal batteries. The server(s) and/or network may be down.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;clock-discipline-module&#34;&gt;Clock Discipline Module&lt;/h4&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_ERR&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time&lt;/tt&gt;.&lt;/dt&gt;
-&lt;dd&gt;Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.&lt;/dd&gt;
-&lt;dt&gt;&lt;tt&gt;sigaction() fails to save SIGSYS trap: ? &lt;/tt&gt; 
-&lt;/tt&gt;&lt;tt&gt;sigaction() fails to restore SIGSYS trap: ?&lt;/tt&gt;&lt;/dt&gt;
+&lt;p&gt;Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.&lt;/p&gt;
+&lt;dt&gt;&lt;tt&gt;sigaction() fails to save SIGSYS trap: ? &lt;/tt&gt;&lt;/dt&gt; 
+&lt;dt&gt;&lt;tt&gt;sigaction() fails to restore SIGSYS trap: ?&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Program error. Please report to &lt;a href=&#34;mailto:bugs@ntp.org&#34;&gt;bugs@ntp.org&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_NOTICE&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;frequency error ? exceeds tolerance 500 PPM&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.&lt;/dd&gt;
+&lt;p&gt;The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;time slew ? s&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The time error exceeds the step threshold and is being slewed to the correct time. You may have to wait a very long time.&lt;/dd&gt;
+&lt;p&gt;The time error exceeds the step threshold and is being slewed to the correct time. You may have to wait a very long time.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;time reset ? s&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don&#39;t like this, but they can set the &lt;tt&gt;ntpd -x&lt;/tt&gt; option and wait forever.&lt;/dd&gt;
+&lt;p&gt;The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don&amp;rsquo;t like this, but they can set the &lt;tt&gt;ntpd -x&lt;/tt&gt; option and wait forever.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;kernel time sync disabled ?&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The kernel reports an error. See the codes in the &lt;tt&gt;timex.h&lt;/tt&gt; file.&lt;/dd&gt;
+&lt;p&gt;The kernel reports an error. See the codes in the &lt;tt&gt;timex.h&lt;/tt&gt; file.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;pps sync disabled&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The PPS signal has died, probably due to a dead radio, broken wire or loose connector.&lt;/dd&gt;
+&lt;p&gt;The PPS signal has died, probably due to a dead radio, broken wire or loose connector.&lt;/p&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_INFO&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;kernel time sync status ?&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;For information only. See the codes in the &lt;tt&gt;timex.h&lt;/tt&gt; file.&lt;/dd&gt;
+&lt;p&gt;For information only. See the codes in the &lt;tt&gt;timex.h&lt;/tt&gt; file.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;cryptographic-module&#34;&gt;Cryptographic Module&lt;/h4&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_ERR&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
-&lt;dt&gt;&lt;tt&gt;cert_parse ?  
-&lt;/tt&gt;&lt;tt&gt;cert_sign ?  
-&lt;/tt&gt;&lt;tt&gt;crypto_cert ?  
-&lt;/tt&gt;&lt;tt&gt;crypto_encrypt ?  
-&lt;/tt&gt;&lt;tt&gt;crypto_gq ?  
-&lt;/tt&gt;&lt;tt&gt;crypto_iff ?  
-&lt;/tt&gt;&lt;tt&gt;crypto_key ?  
-&lt;/tt&gt;&lt;tt&gt;crypto_mv ?  
-&lt;/tt&gt;&lt;tt&gt;crypto_setup ?  
-&lt;/tt&gt;&lt;tt&gt;make_keys ?&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.&lt;/dd&gt;
-&lt;dt&gt;&lt;tt&gt;crypto_setup: certificate ? is trusted, but not self signed.  
-&lt;/tt&gt;&lt;tt&gt;crypto_setup: certificate ? not for this host  
-&lt;/tt&gt;&lt;tt&gt;crypto_setup: certificate file ? not found or corrupt  
-&lt;/tt&gt;&lt;tt&gt;crypto_setup: host key file ? not found or corrupt  
-&lt;/tt&gt;&lt;tt&gt;crypto_setup: host key is not RSA key type  
-&lt;/tt&gt;&lt;tt&gt;crypto_setup: random seed file ? not found  
-&lt;/tt&gt;&lt;tt&gt;rypto_setup: random seed file not specified&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Fatal errors. These messages show problems during the initialization procedure.&lt;/dd&gt;
+&lt;p&gt;&lt;tt&gt;cert_parse ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;cert_sign ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_cert ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_encrypt ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_gq ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_iff ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_key ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_mv ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;make_keys ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup: certificate ? is trusted, but not self signed.&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup: certificate ? not for this host&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup: certificate file ? not found or corrupt&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup: host key file ? not found or corrupt&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup: host key is not RSA key type&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup: random seed file ? not found&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_setup: random seed file not specified&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Fatal errors. These messages show problems during the initialization procedure.&lt;/p&gt;
 &lt;p&gt;&lt;tt&gt;&lt;strong&gt;LOG_INFO&lt;/strong&gt;&lt;/tt&gt;&lt;/p&gt;
-&lt;dt&gt;&lt;tt&gt;cert_parse: expired ?  
-&lt;/tt&gt;&lt;tt&gt;cert_parse: invalid issuer ?  
-&lt;/tt&gt;&lt;tt&gt;cert_parse: invalid signature ?  
-&lt;/tt&gt;&lt;tt&gt;cert_parse: invalid subject ?&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;There is a problem with a certificate. Operation cannot proceed untill the problem is fixed. If the certificate is local, it can be regenerated using the &lt;tt&gt;ntp-keygen&lt;/tt&gt; program. If it is held somewhere else, it must be fixed by the holder.&lt;/dd&gt;
-&lt;dt&gt;&lt;tt&gt;crypto_?: defective key  
-&lt;/tt&gt;&lt;tt&gt;crypto_?: invalid filestamp  
-&lt;/tt&gt;&lt;tt&gt;crypto_?: missing challenge  
-&lt;/tt&gt;&lt;tt&gt;crypto_?: scheme unavailable&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;There is a problem with the identity scheme. Operation cannot proceed untill the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, &lt;tt&gt;ntpd&lt;/tt&gt; will usually time out and recover by itself.&lt;/dd&gt;
+&lt;p&gt;&lt;tt&gt;cert_parse: expired ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;cert_parse: invalid issuer ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;cert_parse: invalid signature ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;cert_parse: invalid subject ?&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;There is a problem with a certificate. Operation cannot proceed until the problem is fixed. If the certificate is local, it can be regenerated using the &lt;tt&gt;ntp-keygen&lt;/tt&gt; program. If it is held somewhere else, it must be fixed by the holder.&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_?: defective key&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_?: invalid filestamp&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_?: missing challenge&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;crypto_?: scheme unavailable&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, &lt;tt&gt;ntpd&lt;/tt&gt; will usually time out and recover by itself.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;crypto_cert: wrong PEM type ?&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The certificate does not have MIME type &lt;tt&gt;CERTIFICATE&lt;/tt&gt;. You are probably using the wrong type from OpenSSL or an external certificate authority.&lt;/dd&gt;
+&lt;p&gt;The certificate does not have MIME type &lt;tt&gt;CERTIFICATE&lt;/tt&gt;. You are probably using the wrong type from OpenSSL or an external certificate authority.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;crypto_ident: no compatible identity scheme found&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Configuration error. The server and client identity schemes are incompatible.&lt;/dd&gt;
+&lt;p&gt;Configuration error. The server and client identity schemes are incompatible.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;crypto_tai: kernel TAI update failed&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The kernel does not support this function. You may need a new kernel or patch.&lt;/dd&gt;
+&lt;p&gt;The kernel does not support this function. You may need a new kernel or patch.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;crypto_tai: leapseconds file ? error ?&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;The leapseconds file is corrupt. Obtain the latest file from &lt;tt&gt;time.nist.gov&lt;/tt&gt;.&lt;/dd&gt;
+&lt;p&gt;The leapseconds file is corrupt. Obtain the latest file from &lt;tt&gt;time.nist.gov&lt;/tt&gt;.&lt;/p&gt;
+
       </description>
     </item>
     
@@ -2780,7 +2779,7 @@ cert=&#34;whimsy.udel.edu whimsy.udel.edu 0x5 3233682156&#34;
 &lt;dt&gt;&lt;tt&gt;-s&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Divert logging output from the standard output (default) to the system &lt;tt&gt;syslog&lt;/tt&gt; facility. This is designed primarily for convenience of &lt;tt&gt;cron&lt;/tt&gt; scripts.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-t _timeout_&lt;/tt&gt;&lt;/dt&gt;
-&lt;p&gt;Specify the maximum time waiting for a server response as the value &lt;em&gt;timeout&lt;/em&gt;, in seconds and fraction. The value is is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.&lt;/p&gt;
+&lt;p&gt;Specify the maximum time waiting for a server response as the value &lt;em&gt;timeout&lt;/em&gt;, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-u&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Direct &lt;tt&gt;ntpdate&lt;/tt&gt; to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the &lt;tt&gt;-d&lt;/tt&gt; option always uses unprivileged ports.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-v&lt;/tt&gt;&lt;/dt&gt;
@@ -3106,21 +3105,21 @@ filegen peerstats type day enable
 &lt;/div&gt;
 
 &lt;dt&gt;&lt;tt&gt;-B _bdly_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify beep delay (3600) s.&lt;/dd&gt;
+&lt;p&gt;Specify beep delay (3600) s.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-C _snse_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify network jitter parameter (0) s.&lt;/dd&gt;
+&lt;p&gt;Specify network jitter parameter (0) s.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-O _clk_time_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify initial time offset (0) s.&lt;/dd&gt;
+&lt;p&gt;Specify initial time offset (0) s.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-S _sim_time_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify simulation duration (86400) s.&lt;/dd&gt;
+&lt;p&gt;Specify simulation duration (86400) s.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-T _ferr_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify initial frequency offset (0) PPM.&lt;/dd&gt;
+&lt;p&gt;Specify initial frequency offset (0) PPM.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-W _fnse_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify oscillator wander parameter (0) PPM/s.&lt;/dd&gt;
+&lt;p&gt;Specify oscillator wander parameter (0) PPM/s.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-Y _ndly_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify network propagation delay (.001) s.&lt;/dd&gt;
+&lt;p&gt;Specify network propagation delay (.001) s.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-Z _pdly_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify server processing delay (.001) s.&lt;/dd&gt;
+&lt;p&gt;Specify server processing delay (.001) s.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;files&#34;&gt;Files&lt;/h4&gt;
 &lt;p&gt;&lt;tt&gt;/etc/ntp.conf&lt;/tt&gt; - the default name of the configuration file&lt;br&gt;
@@ -3369,7 +3368,7 @@ filegen peerstats type day enable
 &lt;dt&gt;&lt;tt&gt;0x080 TEST8&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;Either the root delay or dispersion is greater than one second, which is highly unlikely unless the peer is unsynchronized to Mars.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;0x100 TEST9&lt;/tt&gt;&lt;/dt&gt;
-&lt;p&gt;Either the peer delay or dispersion is greater than one second, which is higly unlikely unless the peer is on Mars.&lt;/p&gt;
+&lt;p&gt;Either the peer delay or dispersion is greater than one second, which is highly unlikely unless the peer is on Mars.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;0x200 TEST10&lt;/tt&gt;&lt;/dt&gt;
 &lt;p&gt;The autokey protocol has detected an authentication failure. See the &lt;a href=&#34;/archives/4.2.2-series/authopt&#34;&gt;Authentication Options&lt;/a&gt; page.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;0x400 TEST11&lt;/tt&gt;&lt;/dt&gt;
@@ -3411,23 +3410,24 @@ filegen peerstats type day enable
 &lt;hr&gt;
 &lt;h4 id=&#34;options&#34;&gt;Options&lt;/h4&gt;
 &lt;dt&gt;&lt;tt&gt;-c&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Display the execution time of &lt;tt&gt;ntptime&lt;/tt&gt; itself.&lt;/dd&gt;
+&lt;p&gt;Display the execution time of &lt;tt&gt;ntptime&lt;/tt&gt; itself.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-e _est_error_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify estimated error, in microseconds.&lt;/dd&gt;
+&lt;p&gt;Specify estimated error, in microseconds.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-f _frequency_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify frequency offset, in parts per million.&lt;/dd&gt;
+&lt;p&gt;Specify frequency offset, in parts per million.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-h&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Display help information.&lt;/dd&gt;
+&lt;p&gt;Display help information.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-m _max_error_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify max possible errors, in microseconds.&lt;/dd&gt;
+&lt;p&gt;Specify max possible errors, in microseconds.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-o _offset_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify clock offset, in microseconds.&lt;/dd&gt;
+&lt;p&gt;Specify clock offset, in microseconds.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-r&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Display Unix and NTP times in raw format.&lt;/dd&gt;
+&lt;p&gt;Display Unix and NTP times in raw format.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-s _status_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify clock status. Better know what you are doing.&lt;/dd&gt;
+&lt;p&gt;Specify clock status. Better know what you are doing.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-t _time_constant_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify time constant, an integer in the range 0-10.&lt;/dd&gt;
+&lt;p&gt;Specify time constant, an integer in the range 0-10.&lt;/p&gt;
+
       </description>
     </item>
     
@@ -3663,7 +3663,7 @@ usndh.edu: stratum 1, offset 0.0019298, synch distance 0.011993, refid &#39;WWVB
 &lt;h4 id=&#34;sound-card-drivers&#34;&gt;Sound Card Drivers&lt;/h4&gt;
 &lt;p&gt;There are some applications in which the computer time can be disciplined to an audio signal, rather than a serial timecode and communications port or special purpose bus peripheral. This is useful in such cases where the audio signal is sent over a telephone circuit, for example, or received directly from a shortwave receiver. In such cases the audio signal can be connected via an ordinary sound card or baseboard audio codec. The suite of NTP reference clock drivers currently includes three drivers suitable for these applications. They include a driver for the Inter Range Instrumentation Group (IRIG) signals produced by many radio clocks and timing devices, another for the Canadian time/frequency radio station CHU and a third for the NIST time/frequency radio stations WWV and WWVH. The radio drivers are designed to work with ordinary inexpensive shortwave radios and may be one of the least expensive ways to build a good primary time server.&lt;/p&gt;
 &lt;p&gt;All three drivers make ample use of sophisticated digital signal processing algorithms designed to efficiently extract timing signals from noise and interference. The radio station drivers in particular implement optimum linear demodulation and decoding techniques, including maximum likelihood and soft-decision methods. The documentation page for each driver contains an in-depth discussion on the algorithms and performance expectations. In some cases the algorithms are further analyzed, modelled and evaluated in a technical report.&lt;/p&gt;
-&lt;p&gt;Currently, the audio drivers work with with Sun operating systems and audio codecs, including SunOS 4.1.3 and Solaris from 2.6 and probably all others in between. They also work with FreeBSD from 4.1 with compatible sound card. In fact, the interface is quite generic and support for other systems, in particular the various Unix generics, should not be difficult. Volunteers are solicited.&lt;/p&gt;
+&lt;p&gt;Currently, the audio drivers work with Sun operating systems and audio codecs, including SunOS 4.1.3 and Solaris from 2.6 and probably all others in between. They also work with FreeBSD from 4.1 with compatible sound card. In fact, the interface is quite generic and support for other systems, in particular the various Unix generics, should not be difficult. Volunteers are solicited.&lt;/p&gt;
 &lt;p&gt;The audio drivers include a number of common features designed to groom input signals, suppress spikes and normalize signal levels. An automatic gain control (AGC) feature provides protection against overdriven or underdriven input signals. It is designed to maintain adequate demodulator signal amplitude while avoiding occasional noise spikes. In order to assure reliable operation, the signal level must be in the range where the audio gain control is effective. In general, this means the input signal level must be such as to cause the AGC to set the gain somewhere in the middle of the range from 0 to 255, as indicated in the timecode displayed by the ntpq program.&lt;/p&gt;
 &lt;p&gt;The drivers operate by disciplining a logical clock based on the codec sample clock to the audio signal as received. This is done by stuffing or slipping samples as required to maintain exact frequency to the order of 0.1 PPM. In order for the driver to reliably lock on the audio signal, the sample clock frequency tolerance must be less than 250 PPM (.025 percent) for the IRIG driver and half that for the radio drivers. The largest error observed so far is about 60 PPM, but it is possible some sound cards or codecs may exceed that value.&lt;/p&gt;
 &lt;p&gt;The drivers include provisions to select the input port and to monitor the input signal. The &lt;tt&gt;fudge flag 2&lt;/tt&gt; selects the microphone port if set to zero or the line-in port if set to one. It does not seem useful to specify the compact disc player port. The &lt;tt&gt;fudge flag 3&lt;/tt&gt; enables the input signal monitor using the previously selected output port and output gain. Both of these flags can be set in the configuration file or remotely using the &lt;tt&gt;ntpdc&lt;/tt&gt; utility program.&lt;/p&gt;

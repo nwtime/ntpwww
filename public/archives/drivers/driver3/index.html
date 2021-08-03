@@ -42,7 +42,7 @@ Serial Port: /dev/wwv_u_; 9600 baud, 8-bits, no parity
 Features: tty_clk
  Description This driver supports the PSTI 1010 and Traconex 1020 WWV/WWVH Receivers. No specific claim of accuracy is made for these receiver, but actual experience suggests that 10 ms would be a conservative assumption.">
 
-<meta itemprop="wordCount" content="536">
+<meta itemprop="wordCount" content="537">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PSTI/Traconex 1020 WWV/WWVH Receiver"/>
 <meta name="twitter:description" content="Author: David L. Mills (mills@udel.edu)
@@ -82,6 +82,28 @@ Features: tty_clk
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,6 +126,8 @@ Features: tty_clk
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -186,10 +210,10 @@ Features: <tt>tty_clk</tt></p>
 <p>This driver supports the PSTI 1010 and Traconex 1020 WWV/WWVH Receivers. No specific claim of accuracy is made for these receiver, but actual experience suggests that 10 ms would be a conservative assumption.</p>
 <p>The dipswitches should be set for 9600 bps line speed, 24-hour day-of-year format and UTC time zone. Automatic correction for DST should be disabled. It is very important that the year be set correctly in the DIP-switches; otherwise, the day of year will be incorrect after 28 April of a normal or leap year. As the there are only four dipswitches to set the year and the base value of zero correspondes to 1986, years beyond 2001 recycle with the value of zero corresponding to 2002. The propagation delay DIP-switches should be set according to the distance from the transmitter for both WWV and WWVH, as described in the instructions. While the delay can be set only to within 11 ms, the fudge time1 parameter can be used for vernier corrections.</p>
 <p>Using the poll sequence <tt>QTQDQM</tt>, the response timecode is in three sections totalling 50 ASCII printing characters, as concatenated by the driver, in the following format:</p>
-<pre>ahh:mm:ss.fffs<cr> yy/dd/mm/ddd<cr>
-frdzycchhSSFTttttuuxx<cr>
+<pre>ahh:mm:ss.fffs&lsaquo;cr&rsaquo; yy/dd/mm/ddd&lsaquo;cr&rsaquo;
+frdzycchhSSFTttttuuxx&lsaquo;cr&rsaquo;
 
-on-time = first <cr>
+on-time = first &lsaquo;cr&rsaquo;
 hh:mm:ss.fff = hours, minutes, seconds, milliseconds
 a = AM/PM indicator (' ' for 24-hour mode)
 yy = year (from DIPswitches)
@@ -244,35 +268,34 @@ xx = 94 (unknown)</pre>
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -282,19 +305,11 @@ xx = 94 (unknown)</pre>
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

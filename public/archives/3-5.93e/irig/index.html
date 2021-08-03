@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>IRIG Support Using Sun SPARC Audio | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="IRIG Support Using Sun SPARC Audio" />
+<meta property="og:description" content="Table of Contents  Introduction Programming Interface Programming Example Implementation and Configuration Notes   Introduction A companion software distribution bsd_audio.tar.Z includes modifications to the BSD audio driver for the Sun SPARCstation written by Van Jacobson and collaborators at Lawrence Berkeley National Laboratory. The modifications provide for the connection of a standard Inter-Range Instrumentation Group (IRIG) timecode signal generator and the decoding of the signal to produce data sufficient to synchronize a host clock to the IRIG signal." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/3-5.93e/irig/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="IRIG Support Using Sun SPARC Audio">
+<meta itemprop="description" content="Table of Contents  Introduction Programming Interface Programming Example Implementation and Configuration Notes   Introduction A companion software distribution bsd_audio.tar.Z includes modifications to the BSD audio driver for the Sun SPARCstation written by Van Jacobson and collaborators at Lawrence Berkeley National Laboratory. The modifications provide for the connection of a standard Inter-Range Instrumentation Group (IRIG) timecode signal generator and the decoding of the signal to produce data sufficient to synchronize a host clock to the IRIG signal.">
+
+<meta itemprop="wordCount" content="2396">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IRIG Support Using Sun SPARC Audio"/>
+<meta name="twitter:description" content="Table of Contents  Introduction Programming Interface Programming Example Implementation and Configuration Notes   Introduction A companion software distribution bsd_audio.tar.Z includes modifications to the BSD audio driver for the Sun SPARCstation written by Van Jacobson and collaborators at Lawrence Berkeley National Laboratory. The modifications provide for the connection of a standard Inter-Range Instrumentation Group (IRIG) timecode signal generator and the decoding of the signal to produce data sufficient to synchronize a host clock to the IRIG signal."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/3-5.93e/">3-5.93e</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/3-5.93e/irig/">IRIG Support Using Sun SPARC Audio</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>IRIG Support Using Sun SPARC Audio</h1>
+    
+	       
+	<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/3-5.93e/#introduction">Introduction</a></li>
+<li><a href="/archives/3-5.93e/#programming-interface">Programming Interface</a></li>
+<li><a href="/archives/3-5.93e/#programming-example">Programming Example</a></li>
+<li><a href="/archives/3-5.93e/#implementation-and-configuration-notes">Implementation and Configuration Notes</a></li>
+</ul>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>A companion software distribution <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/depredated/ntp3/bsd_audio.tar.Z">bsd_audio.tar.Z</a> includes modifications to the BSD audio driver for the Sun SPARCstation written by Van Jacobson and collaborators at Lawrence Berkeley National Laboratory. The modifications provide for the connection of a standard Inter-Range Instrumentation Group (IRIG) timecode signal generator and the decoding of the signal to produce data sufficient to synchronize a host clock to the IRIG signal. There are several timing receivers now on the market that can produce IRIG signals, including those made by Austron, TrueTime, Odetics and Spectracom, among others. These data can be used to precisely synchronize the host computer clock to within a few microseconds without requiring level converters or pulse generators necessary with the pulse-per-second signals also produced by these receivers. The current implementation of the Network Time Protocol Version 3 supports the modified BSD driver when installed in the SunOS 4.1.x kernel.</p>
+<p>The specific IRIG signal format supported by the driver is designated IRIG-B. It consists of an amplitude-modulated 1000-Hz sinewave, where each symbol is encoded as ten full carrier cycles, or 10 ms in duration. The symbols are distinguished using a pulse-width code, where 2 ms corresponds to logic zero, 5 ms to logic one and 8 ms to a position identifier used for symbol synchronization. The complete IRIG-B message consists of a frame of ten fields, each field consisting of a nine information symbols followed by a position identifier for a total frame duration of one second. The first symbol in the frame is also a position identifier to facilitate frame synchronization.</p>
+<p>The IRIG-B signal encodes the day of year and time of day in binary- coded decimal (BCD) format, together with a set of control functions, which are not used by the driver, but included in the raw binary timecode. Either the BCD timecode or the combined raw timecode and BCD timecode can be returned in response to a <tt>read()</tt> system call. The BCD timecode is in handy ASCII format: <tt>ddd hh:mm:ss*</tt> for convenience in client programs. In this format the <code>*</code> status character is <code>&quot; &quot;</code> when the driver is operating normally and <code>?</code> when errors may be present (see below). In order to reduce residual errors to the greatest extent possible, the driver computes a timestamp based on the value of the kernel clock at the on-time epoch of the IRIG-B signal. In addition, the driver automatically adjusts for slowly varying amplitude levels of the IRIG-B signal and suppresses noise transients.</p>
+<p>In operation the IRIG driver interprets the IRIG-B signal in real time, synchronizes to the signal, demodulates the data bits and prepares the data to be read later. At the on-time epoch a timestamp is captured from the kernel clock and adjusted for the phase of the IRIG carrier signal relative to the 8-kHz codec sample clock. When a client program issues a <tt>read()</tt> request, the most recent timecode data, including a status byte and the corrected timestamp, are stored in a structure and returned to the caller. Depending on the frequency with which the driver is called, this may result in old data or duplicate data or even invalid data, should the driver be called before it has computed its first timestamp.</p>
+<p>In practice, the resulting ambiguity causes few problems. The caller converts the ASCII timecode returned by a <tt>read()</tt> system call to Unix timeval format and subtracts it from the kernel timestamp provided by the driver. The result is an adjustment that can be subtracted from the kernel time, as returned in a <tt>gettimeofday()</tt> call, for example, to correct for the deviation between IRIG time and kernel time. The result can always be relied on to within plus/minus 128 microseconds, the audio codec sampling interval, and ordinarily to within a few microseconds, as determined by the interpolation algorithm.</p>
+<hr>
+<h4 id="programming-interface">Programming Interface</h4>
+<p>The IRIG driver modifications are integrated in the BSD audio driver <tt>bsd_audio.c</tt> without affecting its usual functions in transmitting and receiving ordinary speech, except when enabled by specific <tt>ioctl()</tt> system calls. However, the driver cannot be used for both speech and IRIG signals at the same time. Once activated by a designated <tt>ioctl()</tt> call, the driver remains active until it is explicitly deactivated by another <tt>ioctl()</tt> call. This allows applications to configure the audio device and pass the pre-configured driver to other applications. Since the driver is currently only a receiver, it does not affect the operation of the BSD audio output driver.</p>
+<p>Data are read using the standard <tt>read()</tt> system call. Since the output formats have constant lengths, the application receives the data into a fixed-length buffer or structure. The <tt>read()</tt> call never blocks; it simply returns the most recent IRIG data received during the last second. It may happen that, due to unavoidable race conditions in the kernel, data for other than the most recent second are returned. The driver&rsquo;s internal data structure is updated as an atomic unit; thus, the entire structure is valid, even if it contains old data. This should cause no problems, since in the intended application the driver is called at regular intervals by a time-synchronization daemon such as NTP. The daemon can determine the validity of the time indication by checking the timecode or status byte returned with the data.</p>
+<p>The header file <tt>bsd_audioirig.h</tt> defines the irig_time structure and <tt>ioctl()</tt> codes used by the driver. Following are those codes specific to the IRIG function of the driver. Unless indicated otherwise, the (third) argument of the <tt>ioctl()</tt> system call points to an integer or string.</p>
+<dt><tt>audio_IRIG_OPEN</tt></dt>
+<p>This command activates the IRIG receiver. The audio driver must be opened with this command before other commands can be issued. The argument is ignored. When the IRIG receiver is initialized, all internal data are purged and any buffered data are lost.</p>
+<dt><tt>audio_IRIG_CLOSE</tt></dt>
+<p>This command deactivates the IRIG receiver. The argument is ignored. The buffers are purged and any buffered time data are lost. The original BSD audio driver functions are enabled and it resumes operating normally.</p>
+<dt><tt>audio_IRIG_SETFORMAT</tt></dt>
+<p>The argument is a pointer to an integer designating the output format for the IRIG data. There are currently two formats defined, 0 (default) and 1. If an invalid format is selected, the default format is used.</p>
+<p>The data returned by a <tt>read()</tt> system call in format 0 is a character string in the format <code>ddd hh:mm:ss*\n</code>, which consists of 13 ASCII characters followed by a <code>\n</code> terminator for a total of 14 characters. The <code>*</code> status character is an ASCII space if the status byte determined by the driver is zero and <code>?</code> if not. This format is intended to be used with simple user programs that care only about the time to the nearest second.</p>
+<p>The data returned by a <tt>read()</tt> system call in format 1 is a structure defined in the <tt>bsd_audioirig.h</tt> header file:</p>
+<pre>        struct irig_time {
+                struct timeval stamp;   /* timestamp */
+                u_char bits[13];                /* 100 irig data bits */
+                u_char status;                  /* status byte */
+                char    time[14];                       /* time string
+*/
+        };
+</pre>
+<p>The <tt>irig_time.stamp</tt> is a pair of 32-bit longwords in Unix <tt>timeval</tt> format, as defined in the <tt>/usr/include/sys/time.h</tt> header file. The first word is the number of seconds since 1 January 1970, while the second is the number of microseconds in the current second. The timestamp is captured at the most recent on-time epoch of the IRIG timecode and applies to all other values returned in the <tt>irig_time</tt> structure.</p>
+<p>The <tt>irig_time.bits[13]</tt> is a vector of 13 bytes to hold the 100-bit, zero-padded raw binary timecode, packed 8 symbols per byte. The symbol encoding maps IRIG one to 1 and both IRIG zero and IRIG position identifier to 0. The order of encoding is illustrated by the following diagram (the padding bits are represented by <code>xxxx</code>, which are set to zero):</p>
+<pre>IRIG symbol number      00000000001111111111 . . . 8888889999999999xxxx
+                                01234567890123456789 . . .
+4567890123456789xxxx
+                                ----------------------------------------
+-------
+bits byte       number  <--00--><--01--><----     ----
+><--11--><--12-->
+bits bit in byte        01234567012345670123 . . . 45670123456701234567
+</pre>
+<p>The <tt>irig_time.status</tt> is a single byte with bits defined in the <tt>bsd_audioirig.h</tt> header file. In ordinary operation all bits of the status byte are zero and the ASCII space status character is set in the ASCII timecode. If any of these bits are nonzero, the <code>?</code> status character is set in the ASCII timecode.</p>
+<dt><tt>audio_IRIG_BADSIGNAL</tt></dt>
+<p>The signal amplitude is outside tolerance limits, either in amplitude or modulation depth. The indicated time may or may not be in error. If the signal is too high, it may be clipped by the codec, so that the pulse width cannot be reliably determined. If too low, it may be obscured by noise. The nominal expectation is that the peak amplitude of the signal be maintained by the codec AGC at about 10 dB below the clipping level and that the modulation index be at least 0.5 (6 dB).</p>
+<dt><tt>audio_IRIG_BADDATA</tt></dt>
+<p>An invalid hex code (A through F) has been found where BCD data is expected. The ASCII representation of the invalid code is set to <code>?</code>. Errors of this type are most likely due to noise on the IRIG signal due to ground loops, coupling to other noise sources, etc.</p>
+<dt><tt>audio_IRIG_BADSYNC</tt></dt>
+<p>A code element has been found where a position identifier should be or a position identifier has been found where a code element should be. The time is meaningless and should be disregarded. Errors of this type can be due to severe noise on the IRIG signal due to ground loops, coupling to other noise sources, etc., or during initial acquisition of the signal.</p>
+<dt><tt>audio_IRIG_BADCLOCK</tt></dt>
+<p>Some IRIG timecode generators can indicate whether or not the generator is operating correctly or synchronized to its source of standard time using a designated field in the raw binary timecode. Where such information is available and the IRIG decoder can detect it, this bit is set when the generator reports anything except normal operating conditions.</p>
+<dt><tt>audio_IRIG_OLDDATA</tt></dt>
+<p>The IRIG time has not changed since the last time it was returned in a <tt>read()</tt> call. This is not normally considered an error, unless it persists for longer than a few seconds, in which case it probably indicates a hardware problem.</p>
+<p>The <tt>irig_time.time[14]</tt> vector is a character string in the format <code>ddd hh:mm:ss*\0</code>, which consists of 13 ASCII characters followed by a zero terminator. The * status character is an ASCII space if the status byte is zero and <code>?</code> if not. This format is identical to format 0, except that in format 1 the time string is null-terminated.</p>
+<hr>
+<h4 id="programming-example">Programming Example</h4>
+<p>The following pseudo-code demonstrates how the IRIG receiver may be used by a simple user program. Of course, real code should include error checking after each call to ensure the driver is communicating properly. It should also verify that the correct fields in the structure are being filled by the <tt>read()</tt> call.</p>
+<pre>        include "bsd_audioirig.h"
+
+        int format = 1;
+        struct irig_time it;
+
+        Audio_fd = open("/dev/audio", O_RDONLY);
+        ioctl(Audio_fd, AUDIO_IRIG_OPEN, NULL);
+        ioctl(Audio_fd, AUDIO_IRIG_SETFORMAT,&format);
+        while (condition)
+                read(Audio_fd, &it, sizeof(it);
+                printf("%s\n", it.time);
+        ioctl(Audio_fd, AUDIO_IRIG_CLOSE, NULL);
+        close(Audio_fd);
+</pre>
+<hr>
+<h4 id="implementation-and-configuration-notes">Implementation and Configuration Notes</h4>
+<p>The signal level produced by most IRIG-equipped radios is on the order of a few volts peak-peak, which is far larger than the audio codec can accept; therefore, an attenuator in the form of a voltage divider is needed. The codec can handle IRIG signals at the microphone input from 4.2 mV to 230 mV peak-peak. A suitable attenuator conists of a series- connected 100K-Ohm resistor at the input and a parallel-connected 1K-Ohm resistor at the output, both contained along with suitable connectors in a small aluminum box. The exact values of these resistors are not critical, since the IRIG driver includes an automatic level-adjustment capability.</p>
+<p>For the most accurate time using the IRIG signal and a particular radio, it may be necessary to adjust the <tt>time1</tt> parameter of the <tt>fudge</tt> command to compensate for the codec delay and any additional delay due to IRIG processing in the radio itself. Since the codec samples at an 8-kHz rate, the average delay is about 62 us; however, the delays due to the radios and IRIG signals themselves can vary. For instance, in the Austron recievers the IRIG delay is essentially zero, while in the Spectracom receivers the delay is about 240 usec relative to the PPS signal. In addition, the poll interval can be reduced from the usual 64 seconds to 16 seconds to reduce wander of the local hardware clock. Finally, the <tt>prefer</tt> keyword can be used to bias the clock-selection algorithm to favor the IRIG time, which is ordinarily the best time available. The <a href="/archives/3-5.93e/prefer">Mitigation Rules and the <tt>prefer</tt> Keyword</a> page describes the operation of this keyword. For example, the following two lines in the NTP configuration file <tt>ntp.conf</tt> are appropriate for the Spectracom Netclock/1 WWVB Synchronized Clock with IRIG Option:</p>
+<pre>server 127.127.6.0 prefer minpoll 4 maxpoll 4 # irig audio decoder
+fudge 127.127.6.0 time1 0.0005
+</pre>
+<p>The <tt>time1</tt> value of .0005 s (500 us) was determined by actual measurement. Since the IRIG delay in Austron receivers is essentially zero, the <tt>fudge</tt> command is not necessary with these receivers. The correct value in case of other radios may have to be determined by actual measurement. A convenient way of doing this is to configure the <tt>ppsclock</tt> streams module. This module can be built from the <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/software/ppsclock.tar.Z">ppsclock.tar.Z distribution.</a> It can be used to adjust <tt>time1</tt> until the PPS signal and IRIG signal both show the same offset. The <tt>ppsclock</tt> streams module is described in the <a href="/archives/3-5.93e/ldisc">Line Disciplines and Streams Drivers</a> page.</p>
+<p>The modified BSD driver includes both the modified driver itself bsd_audio.c and the IRIG header file <tt>bsd_audioirig.h</tt>, as well as modified header files <tt>bsd_audiovar.h</tt> and <tt>bsd_audioio.h</tt>. The driver is installed in the same way as described in the BSD driver documentation, with the addition of the following define in the kernel configuration file:</p>
+<pre>options AUDIO_IRIG              # IRIG driver
+</pre>
+<p>This causes the IRIG code to be included in the BSD driver, as well as a C-coded codec interrupt routine which replaces the assembly-coded routine and provides the IRIG functionality. While the C-coded routine is somewhat slower than the assembly-coded routine, the extra overhead is not expected to be significant. Note that the IRIG driver calls the kernel routine <tt>microtime()</tt> as included in the <tt>ppsclock.tar.Z</tt> distribution. It is highly recommended that this routine be installed in the kernel configuration as well. The instructions for doing this are contained in the <tt>ppsclock</tt> directory of the <tt>xntp3</tt> distribution.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

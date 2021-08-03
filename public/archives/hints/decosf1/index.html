@@ -19,19 +19,19 @@
 
 <title>DEC OSF/1 Hints | NTP: Network Time Protocol</title>
 <meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="DEC OSF/1 Hints" />
-<meta property="og:description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1\. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly." />
+<meta property="og:description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/hints/decosf1/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 <meta itemprop="name" content="DEC OSF/1 Hints">
-<meta itemprop="description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1\. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly.">
+<meta itemprop="description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly.">
 
 <meta itemprop="wordCount" content="305">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DEC OSF/1 Hints"/>
-<meta name="twitter:description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1\. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly."/>
+<meta name="twitter:description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly."/>
 
 
 
@@ -61,6 +61,28 @@
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,6 +105,8 @@
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -142,9 +166,8 @@
 	<h1>DEC OSF/1 Hints</h1>
     
 	       
-	<div id="body">
-<pre>Some major changes were necessary to make xntp v3 run on the DEC Alpha
-hardware running DEC OSF/1\.  All "long" and "u_long" declarations and
+	<pre>Some major changes were necessary to make xntp v3 run on the DEC Alpha
+hardware running DEC OSF/1.  All "long" and "u_long" declarations and
 casts in the code were changed to "LONG" and "U_LONG" and a new header
 file (include/ntp_types.h) was added.  The new header file defines
 LONG as int and U_LONG as u_int for the Alpha hardware and as long
@@ -184,7 +207,6 @@ Unibergisty of Delabunch
 mills@udel.edu
 
 </pre>
-</div>
 
 	
 	
@@ -194,35 +216,34 @@ mills@udel.edu
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -232,19 +253,11 @@ mills@udel.edu
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

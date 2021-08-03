@@ -70,6 +70,28 @@ Last update: 25-Nov-2009 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 25-Nov-2009 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -174,7 +198,7 @@ Last update: 25-Nov-2009 UTC
 <p>Following is a summary of each scheme. Note that reference to option applies to the commands described on the <a href="/archives/4.2.6-series/confopt">Configuration Options</a> page. See that page for applicability and defaults.</p>
 <hr>
 <h4 id="broadcastmulticast-scheme">Broadcast/Multicast Scheme</h4>
-<p>A broadcast server generates messages continuously at intervals by default 64 s and time-to-live by default 127. These defaults can be overriden by the <tt>minpoll</tt> and <tt>ttl</tt> options, respectively. Not all kernels support the <tt>ttl</tt> option. A broadcast client responds to the first message received by waiting a randomized interval to avoid implosion at the server. It then polls the server in client/server mode using the <tt>iburst</tt> option in order to quickly authenticate the server, calibrate the propagation delay and set the host clock. This normally results in a volley of six client/server exchanges at 2-s intervals during which both the synchronization and cryptographic protocols run concurrently.</p>
+<p>A broadcast server generates messages continuously at intervals by default 64 s and time-to-live by default 127. These defaults can be overridden by the <tt>minpoll</tt> and <tt>ttl</tt> options, respectively. Not all kernels support the <tt>ttl</tt> option. A broadcast client responds to the first message received by waiting a randomized interval to avoid implosion at the server. It then polls the server in client/server mode using the <tt>iburst</tt> option in order to quickly authenticate the server, calibrate the propagation delay and set the host clock. This normally results in a volley of six client/server exchanges at 2-s intervals during which both the synchronization and cryptographic protocols run concurrently.</p>
 <p>Following the volley, the server continues in listen-only mode and sends no further messages. If for some reason the broadcast server does not respond to these messages, the client will cease transmission and continue in listen-only mode with a default propagation delay. The volley can be avoided by using the <tt>authdelay</tt> command with nonzero argument.</p>
 <p>A server is configured in broadcast mode using the <tt>broadcast</tt> command and specifying the broadcast address of a local interface. If two or more local interfaces are installed with different broadcast addresses, a <tt>broadcast</tt> command is needed for each address. This provides a way to limit exposure in a firewall, for example. A broadcast client is configured using the <tt>broadcastclient</tt> command.</p>
 <p>NTP multicast mode can be used to extend the scope using IPv4 multicast or IPv6 broadcast with defined span. The IANA has assigned IPv4 multicast address 224.0.1.1 and IPv6 address FF05::101 (site local) to NTP, but these addresses should be used only where the multicast span can be reliably constrained to protect neighbor networks. In general, administratively scoped IPv4 group addresses should be used, as described in RFC-2365, or GLOP group addresses, as described in RFC-2770.</p>
@@ -205,35 +229,34 @@ Last update: 25-Nov-2009 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -243,19 +266,11 @@ Last update: 25-Nov-2009 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>The NTP Era and Era Numbering | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="The NTP Era and Era Numbering" />
+<meta property="og:description" content="from The Wizard of Oz, L. Frank Baum
+Era dynamically aloft
+Last update 12-May-2012
+ Table of Contents  Abstract 1. Introduction 2. The UTC Timescale 3. The NTP Timescale 4. The NTP Era   Abstract The Network Time Protocol (NTP) specification defines the timescale in terms of timestamps and datestamps. Timestamps define an era spanning 136 years, while datestamps extend over multiple eras spanning the age of the Universe to when the stars grow dim." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reflib/y2k/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="The NTP Era and Era Numbering">
+<meta itemprop="description" content="from The Wizard of Oz, L. Frank Baum
+Era dynamically aloft
+Last update 12-May-2012
+ Table of Contents  Abstract 1. Introduction 2. The UTC Timescale 3. The NTP Timescale 4. The NTP Era   Abstract The Network Time Protocol (NTP) specification defines the timescale in terms of timestamps and datestamps. Timestamps define an era spanning 136 years, while datestamps extend over multiple eras spanning the age of the Universe to when the stars grow dim.">
+
+<meta itemprop="wordCount" content="1776">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The NTP Era and Era Numbering"/>
+<meta name="twitter:description" content="from The Wizard of Oz, L. Frank Baum
+Era dynamically aloft
+Last update 12-May-2012
+ Table of Contents  Abstract 1. Introduction 2. The UTC Timescale 3. The NTP Timescale 4. The NTP Era   Abstract The Network Time Protocol (NTP) specification defines the timescale in terms of timestamps and datestamps. Timestamps define an era spanning 136 years, while datestamps extend over multiple eras spanning the age of the Universe to when the stars grow dim."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/reflib/" ><span class="active">Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/reflib/y2k/">The NTP Era and Era Numbering</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>The NTP Era and Era Numbering</h1>
+    
+	       
+	<p><img src="/archives/pic/wingman.gif" alt="gif"></p>
+<p>from <a href="/reflib/pictures"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
+<p>Era dynamically aloft</p>
+<p>Last update 12-May-2012</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/reflib/y2k/#abstract">Abstract</a></li>
+<li><a href="/reflib/y2k/#1-introduction">1. Introduction</a></li>
+<li><a href="/reflib/y2k/#2-the-utc-timescale">2. The UTC Timescale</a></li>
+<li><a href="/reflib/y2k/#3-the-ntp-timescale">3. The NTP Timescale</a></li>
+<li><a href="/reflib/y2k/#4-the-ntp-era">4. The NTP Era</a></li>
+</ul>
+<hr>
+<h4 id="abstract">Abstract</h4>
+<p>The Network Time Protocol (NTP) specification defines the timescale in terms of timestamps and datestamps. Timestamps define an era spanning 136 years, while datestamps extend over multiple eras spanning the age of the Universe to when the stars grow dim. This document clarifies the interpretation of timestamps and datestamps and their relationship with the Coordinated Universal Time (UTC) timescale used in ordinary life.</p>
+<hr>
+<h4 id="1-introduction">1. Introduction</h4>
+<p>As of early 2012 the Network Time Protocol (NTP) has been ticking over 30 years and remains the longest running, continuously operating application protocol in the Internet. There was some fear, especially in government and financial institutions, that NTP might cause an Internet meltdown upon the Millennium epoch, but those fears turned out to be groundless. However, the concern now is a possible meltdown when the unsigned 64-bit NTP timestamp rolls over in 2036. This document explores this issue together with the interpretation of the NTP timescale with respect to the Gregorian calendar.</p>
+<p>It is important to make a careful distinction between the terms <em>timescale,</em> <em>date, epoch, era</em> and <em>timestamp</em>. A timescale is a continuum of values used to denote time in some frame of reference. While those useful for computers and networks are continuous, civil timescales may not be. For instance, in order to align the civil year with the solar year, Pope Gregory punched a 10-day hole in the Common Era (CE) in 1582. In modern times we occasionally insert a leap second to align the civil time to the solar time.</p>
+<p>Generally, timescales are cyclic and span an era with designated beginning and span. The timescale corresponding to the Julian Era began in 4713 BCE and spans 7980 years. A date is a unique value captured as the timescale progresses and an epoch is a static date of some interest, such as the origin of the CE. In general, both dates and epochs are internal system variables with generous proportions, like 128 bits. On the other hand, timestamps are derived from dates but packed in more compact format, like 64 bits, for efficiency in transport. NTP timestamps are associated with era numbers that provide an unambiguous mapping to dates.</p>
+<hr>
+<h4 id="2-the-utc-timescale">2. The UTC Timescale</h4>
+<p>It will be helpful in understanding the issues raised here to consider the concept of a universal timescale. The conventional civil timescale used in most parts of the world is Coordinated Universal Time (UTC), which replaced Greenwich Mean Time (GMT) many years ago. UTC is based on International Atomic Time (TAI), which is derived from hundreds of cesium oscillators in the national standards laboratories of many countries. Deviations of UTC from TAI are implemented in the form of leap seconds, which occur at intervals from a few months to several years.</p>
+<p>For almost every computer application today, UTC represents the universal timescale extending into the indefinite past and indefinite future. We know of course that the UTC timescale did not exist prior to 1972 CE, nor the Gregorian calendar prior to 1582 CE, nor the Roman calendar prior to 54 BCE, nor the Julian Era prior to 4713 BCE, and we cannot predict exactly when the next leap second will occur. Nevertheless, most folks would prefer that, even if we can&rsquo;t get future seconds numbering right beyond the next leap second, at least we can get the days numbering right until the end of reason.</p>
+<hr>
+<h4 id="3-the-ntp-timescale">3. The NTP Timescale</h4>
+<p>The NTP timescale can be implemented using a binary counter of indefinite width and with the unit seconds bit placed somewhere in the middle. The counter is synchronized to UTC such that it runs at the same rate and the units increment coincides with the UTC seconds tick. The NTP timescale is defined by 128 bits of this counter, of which the first 64 bits count the seconds and the last 64 bits interpolates the fraction of the second. The timescale covers well beyond the age of the universe with a precision well below the smallest times that can be directly measured. An implementation may choose to limit the size of the fraction field, but not less than 32 bits.</p>
+<p>An NTP date is a sample of the counter interpreted as a twos-complement integer. An NTP epoch is a special date distinguished by some event. The origin of the timescale, called the prime epoch (epoch 0) corresponds to 0h, 1 January 1900. Positive values represent times after the prime epoch; negative values represent times before then. Conversion between any calendar date format and NTP format is done by computing the seconds and fraction difference between the given date and the NTP prime epoch; the 128-bit signed value is the NTP date.</p>
+<p>An NTP timestamp is a truncated NTP date expressed as an unsigned 64-bit integer including the low order 32 bits of the seconds field concatenated with the high-order 32 bits of the fraction field. This format can represent the 136 years from 1900 to 2036 with a precision of 232 ps. As will be shown later, ranges beyond these years require an era number which is the high order 32 bits of the seconds field of the associated date.</p>
+<p>The most important thing to observe about the NTP timescale is that it knows nothing about days, years or centuries, only the seconds and fraction relative to the prime epoch. Table 1 illustrates the correspondence between calendar date, Julian day number (JDN), NTP date, NTP era and NTP timestamp. Prior to 15 October 1582 CE, JDN years are reckoned in 365.25 days; after that, JDN years are reckoned in the Gregorian calendar. Most historians and Julian calculators do this to avoid Pope Gregory&rsquo;s ten-day hole.</p>
+<table>
+<thead>
+<tr>
+<th>Calendar Date</th>
+<th>JDN</th>
+<th>NTP Date</th>
+<th>NTP Era</th>
+<th>NTP Timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Jan 4713 BC</td>
+<td>0.5</td>
+<td>-208,657,814,400</td>
+<td>-49</td>
+<td>1,795,583,104</td>
+</tr>
+<tr>
+<td>1 Jan 1 CE</td>
+<td>1,721,426.5</td>
+<td>-59,926,608,000</td>
+<td>-14</td>
+<td>202,934,144</td>
+</tr>
+<tr>
+<td>15 Oct 1582</td>
+<td>2,299,161.5</td>
+<td>-10,010,304,000</td>
+<td>-3</td>
+<td>2,874,597,888</td>
+</tr>
+<tr>
+<td>1 Jan 1900</td>
+<td>2,415,021.5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1 Jan 1970</td>
+<td>2,440,588.5</td>
+<td>2,208,988,800</td>
+<td>0</td>
+<td>2,208,988,800</td>
+</tr>
+<tr>
+<td>1 Jan 1972</td>
+<td>2,441,318.5</td>
+<td>2,272,060,800</td>
+<td>0</td>
+<td>2,272,060,800</td>
+</tr>
+<tr>
+<td>7 Feb 2036</td>
+<td>2,464,731.5</td>
+<td>4,294,944,000</td>
+<td>0</td>
+<td>4,294,944,000</td>
+</tr>
+<tr>
+<td>8 Feb 2036</td>
+<td>2,464,732.5</td>
+<td>4,295,030,400</td>
+<td>1</td>
+<td>63,104</td>
+</tr>
+<tr>
+<td>1 Jan 3000</td>
+<td>2,816,788.5</td>
+<td>34,712,668,800</td>
+<td>8</td>
+<td>352,930,432</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 1. NTP Dates</strong></p>
+<p>The following notes are intended to clarify what may seem to be odd features about Table 1.</p>
+<ul>
+<li>
+<p>The JDN day numbers include the fraction 0.5 day or 12 h. This is because the JDN day starts at noon, while all other days in the table start at midnight.</p>
+</li>
+<li>
+<p>While the Unix timescale is not shown directly in the table, the correspondence between the NTP and Unix timescales is determined only by the constant 2,208,988,800. This is the number of Gregorian seconds from the NTP prime epoch 0h, 1 January 1900 to the Unix prime epoch 0h, 1 January 1970.</p>
+</li>
+<li>
+<p>A careful reader might question the numbering system on and near the origin of the Common Era (CE) 0h, 1 January 1 CE. Since there is no year zero or day zero in the Roman calendar, day zero in this calendar coincides with 0h, 1 January 1 BCE.</p>
+</li>
+</ul>
+<p>Note the correspondence between the NTP date on one hand and the NTP era and timestamp on the other. The signed era number provides the base epoch in multiples of 2<sup>32</sup> s and the unsigned timestamp the offset in that era. Conversion between date and era-timestamp formats can be done by simple cut and paste requiring no arithmetic operations.</p>
+<p>The NTP timescale is almost never used directly by system or application programs. The generic Unix kernel keeps time in seconds and microseconds (<tt>timeval</tt>) or seconds and nanoseconds (<tt>timespec</tt>). These provide both time of day and interval timer functions.</p>
+<p>Most Unix kernels implement the <tt>timeval</tt> and <tt>timespec</tt> functions using two signed 32-bit integers, one representing the seconds since Unix life began at 0h, 1 January 1970, and the other the microseconds or nanoseconds of the second. In practice, the seconds integer will changes sign in 68-year intervals,, the next of which will happen in 2038. How the particular Unix system copes with this epoch is of concern, but is beyond the scope of discussion here.</p>
+<p>The most probable solution when 2038 comes near is to replace the 32-bit seconds field of the system clock with a 64-bit field, and some kernels, including Digital Alpha, have already done that. Certainly a 64-bit integer can be used in the NTP software, but this cannot be used in packet headers exchanged over the network, as the timestamp fields contain only 64-bits and cannot be changed without causing awkward compatibility issues, especially as some provision would have to be made to operate with both 32-bit and 64-bit fields.</p>
+<hr>
+<h4 id="4-the-ntp-era">4. The NTP Era</h4>
+<p>As required by the NTP specification, the NTP reference implementation operate with four 64-bit raw timestamps to calculate both the clock offset and roundtrip delay. The only arithmetic operation permitted on raw timestamps is subtraction, which produces signed 63-bit timestamp differences from 68 years in the past to 68 years in the future. When computing timestamp differences and the timestamps are in the same era, the differences can be calculated directly. If not, in all credible cases the two eras will be adjacent; that is, if one timestamp is in era <em>n</em>, the other will be in either era <em>n</em> or <em>n</em> + 1.</p>
+<p>Consider the case in Figure 1, where timestamps are represented as years mod 136. Server clock <em>S</em> is set to 2056 (timestamp 20 in era 1), while the client clock <em>C</em> is set to 2006 (timestamp 106 in era 0).</p>
+<p><img src="/archives/pic/era.gif" alt="gif"></p>
+<p><strong>Figure 1</strong></p>
+<p>If <em>S</em> is within 68 years of <em>C</em> = 2006, <em>S</em> can be anywhere between 1938 (timestamp 38 in era 0) and 2074 (timestamp 38 in era 1). If, as in the figure, <em>S</em> and <em>C</em> are expressed as datestamps, the offset <em>S</em> - <em>C</em> = 2056 - 2006 = 50 years. However, if <em>S</em> and <em>C</em> are expressed as timestamps, as in the white paper <a href="/reflib/time">NTP Timestamp Calculatins</a>, the offset is <em>S</em> +(-<em>C</em>) = 20 + (136 - 106= 50. mod 136 years. Thus, even if the timestamps span adjacent eras, the offset compuation is correct.</p>
+<p>To convert system time in any format to NTP format requires only that the number of seconds <em>s</em> from the prime epoch to system time be determined. The era number is <em>s</em> / 2<sup>32</sup> and the timestamp is <em>s</em> mod 2<sup>32</sup>. To convert from NTP era number and timestamp to system time requires only the calculation <em>s</em> = 2<sup>32</sup> * <em>era</em> + <em>timestamp</em> to determine the number of seconds since the prime epoch.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -36,7 +36,7 @@ Last update: 18:44 UTC Thursday, July 28, 2005
  Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
  Table of Contents  Synopsis Description Command Line Options Diagnostics Files Bugs   Synopsis ntpdate [ -46bBdqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &hellip; ]">
 
-<meta itemprop="wordCount" content="1084">
+<meta itemprop="wordCount" content="1083">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ntpdate - set the date and time via NTP"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
@@ -73,6 +73,28 @@ Last update: 18:44 UTC Thursday, July 28, 2005
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,6 +117,8 @@ Last update: 18:44 UTC Thursday, July 28, 2005
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -183,36 +207,35 @@ Last update: 18:44 UTC Thursday, July 28, 2005
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
 <dt><tt>-4</tt></dt>
-<dd>Force DNS resolution of following host names on the command line to the IPv4 namespace.</dd>
+<p>Force DNS resolution of following host names on the command line to the IPv4 namespace.</p>
 <dt><tt>-6</tt></dt>
-<dd>Force DNS resolution of following host names on the command line to the IPv6 namespace.</dd>
+<p>Force DNS resolution of following host names on the command line to the IPv6 namespace.</p>
 <dt><tt>-a _key_</tt></dt>
-<dd>Enable the authentication function and specify the key identifier to be used for authentication as the argument _key_. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.</dd>
+<p>Enable the authentication function and specify the key identifier to be used for authentication as the argument <em>key</em>. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.</p>
 <dt><tt>-B</tt></dt>
-<dd>Force the time to always be slewed using the adjtime() system call, even if the measured offset is greater than +-500 ms. The default is to step the time using settimeofday() if the offset is greater than +-500 ms. Note that, if the offset is much greater than +-500 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time, the host should not be used to synchronize clients.</dd>
+<p>Force the time to always be slewed using the adjtime() system call, even if the measured offset is greater than +-500 ms. The default is to step the time using settimeofday() if the offset is greater than +-500 ms. Note that, if the offset is much greater than +-500 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time, the host should not be used to synchronize clients.</p>
 <dt><tt>-b</tt></dt>
-<dd>Force the time to be stepped using the settimeofday() system call, rather than slewed (default) using the adjtime() system call. This option should be used when called from a startup file at boot time.</dd>
+<p>Force the time to be stepped using the settimeofday() system call, rather than slewed (default) using the adjtime() system call. This option should be used when called from a startup file at boot time.</p>
 <dt><tt>-d</tt></dt>
-<dd>Enable the debugging mode, in which <tt>ntpdate</tt> will go through all the steps, but not adjust the local clock and using an unprivileged port. Information useful for general debugging will also be printed.</dd>
+<p>Enable the debugging mode, in which <tt>ntpdate</tt> will go through all the steps, but not adjust the local clock and using an unprivileged port. Information useful for general debugging will also be printed.</p>
 <dt><tt>-e _authdelay_</tt></dt>
-<dd>Specify the processing delay to perform an authentication function as the value _authdelay_, in seconds and fraction (see <tt>ntpd</tt> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPUs.</dd>
+<p>Specify the processing delay to perform an authentication function as the value <em>authdelay</em>, in seconds and fraction (see <tt>ntpd</tt> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPUs.</p>
 <dt><tt>-k _keyfile_</tt></dt>
-<dd>Specify the path for the authentication key file as the string _keyfile_. The default is <tt>/etc/ntp.keys</tt>. This file should be in the format described in <tt>ntpd</tt>.</dd>
+<p>Specify the path for the authentication key file as the string <em>keyfile</em>. The default is <tt>/etc/ntp.keys</tt>. This file should be in the format described in <tt>ntpd</tt>.</p>
 <dt><tt>-o _version_</tt></dt>
-<dd>Specify the NTP version for outgoing packets as the integer _version_, which can be 1 or 2. The default is 4. This allows <tt>ntpdate</tt> to be used with older NTP versions.</dd>
+<p>Specify the NTP version for outgoing packets as the integer <em>version</em>, which can be 1 or 2. The default is 4. This allows <tt>ntpdate</tt> to be used with older NTP versions.</p>
 <dt><tt>-p _samples_</tt></dt>
-<dd>Specify the number of samples to be acquired from each server as the integer _samples_, with values from 1 to 8 inclusive. The default is 4.</dd>
+<p>Specify the number of samples to be acquired from each server as the integer <em>samples</em>, with values from 1 to 8 inclusive. The default is 4.</p>
 <dt>_<tt>-q</tt>_</dt>
-<dd>Query only - don't set the clock.</dd>
+<p>Query only - don&rsquo;t set the clock.</p>
 <dt><tt>-s</tt></dt>
-<dd>Divert logging output from the standard output (default) to the system <tt>syslog</tt> facility. This is designed primarily for convenience of <tt>cron</tt> scripts.</dd>
+<p>Divert logging output from the standard output (default) to the system <tt>syslog</tt> facility. This is designed primarily for convenience of <tt>cron</tt> scripts.</p>
 <dt><tt>-t _timeout_</tt></dt>
-<dd>Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.</dd>
+<p>Specify the maximum time waiting for a server response as the value <em>timeout</em>, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.</p>
 <dt><tt>-u</tt></dt>
-<dd>Direct <tt>ntpdate</tt> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <tt>-d</tt> option always uses unprivileged ports.</dd>
+<p>Direct <tt>ntpdate</tt> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <tt>-d</tt> option always uses unprivileged ports.</p>
 <dt><tt>-_v_</tt></dt>
-<dd>Be verbose. This option will cause <tt>ntpdate</tt>'s version identification string to be logged.</dd>
-</dl>
+<p>Be verbose. This option will cause <tt>ntpdate</tt>&rsquo;s version identification string to be logged.</p>
 <hr>
 <h4 id="diagnostics">Diagnostics</h4>
 <p><tt>ntpdate</tt>&rsquo;s exit status is zero if it finds a server and updates the clock, and nonzero otherwise.</p>
@@ -231,35 +254,34 @@ Last update: 18:44 UTC Thursday, July 28, 2005
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -269,19 +291,11 @@ Last update: 18:44 UTC Thursday, July 28, 2005
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

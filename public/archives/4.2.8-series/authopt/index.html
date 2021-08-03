@@ -23,7 +23,7 @@
 Our resident cryptographer; now you see him, now you don&rsquo;t.
 Last update: 24-Jul-2018 07:27 UTC
  Commands and Options Unless noted otherwise, further information about these commands is on the Authentication Support page.
- automax [_logsec_] Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval." />
+automax [_logsec_] Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/4.2.8-series/authopt/" /><meta property="article:section" content="archives" />
 
@@ -34,16 +34,16 @@ Last update: 24-Jul-2018 07:27 UTC
 Our resident cryptographer; now you see him, now you don&rsquo;t.
 Last update: 24-Jul-2018 07:27 UTC
  Commands and Options Unless noted otherwise, further information about these commands is on the Authentication Support page.
- automax [_logsec_] Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval.">
+automax [_logsec_] Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval.">
 
-<meta itemprop="wordCount" content="815">
+<meta itemprop="wordCount" content="814">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Authentication Commands and Options"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Our resident cryptographer; now you see him, now you don&rsquo;t.
 Last update: 24-Jul-2018 07:27 UTC
  Commands and Options Unless noted otherwise, further information about these commands is on the Authentication Support page.
- automax [_logsec_] Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval."/>
+automax [_logsec_] Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval."/>
 
 
 
@@ -73,6 +73,28 @@ Last update: 24-Jul-2018 07:27 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,6 +117,8 @@ Last update: 24-Jul-2018 07:27 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -160,41 +184,36 @@ Last update: 24-Jul-2018 07:27 UTC
 <hr>
 <h4 id="commands-and-options">Commands and Options</h4>
 <p>Unless noted otherwise, further information about these commands is on the <a href="/archives/4.2.8-series/authentic">Authentication Support</a> page.</p>
-<dl>
 <dt id="automax"><tt>automax [_logsec_]</tt></dt>
-<dd>Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (about 1.1 hr). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent. See the [Autokey Public Key Authentication](autokey.html) page for further information.</dd>
+<p>Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (about 1.1 hr). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent. See the <a href="/archives/4.2.8-series/autokey">Autokey Public Key Authentication</a> page for further information.</p>
 <dt id="controlkey"><tt>controlkey _keyid_</tt></dt>
-<dd>Specifies the key ID for the [<tt>ntpq</tt>](ntpq.html) utility, which uses the standard protocol defined in RFC-1305\. The <tt>_keyid_</tt> argument is the key ID for a [trusted key](authopt.html#trustedkey), where the value can be in the range 1 to 65535, inclusive.</dd>
+<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpq"><tt>ntpq</tt></a> utility, which uses the standard protocol defined in RFC-1305. The <tt><em>keyid</em></tt> argument is the key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, where the value can be in the range 1 to 65535, inclusive.</p>
 <dt id="crypto"><tt>crypto [digest _digest_] [host _name_] [ident _name_] [pw _password_] [randfile _file_]</tt></dt>
-<dd>This command activates the Autokey public key cryptography and loads the required host keys and certificate. If one or more files are unspecified, the default names are used. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <tt>keysdir</tt> configuration command with default <tt>/usr/local/etc</tt>. See the [Autokey Public Key Authentication](autokey.html) page for further information. Following are the options.</dd>
-<dd>
-<dl>
+<p>This command activates the Autokey public key cryptography and loads the required host keys and certificate. If one or more files are unspecified, the default names are used. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <tt>keysdir</tt> configuration command with default <tt>/usr/local/etc</tt>. See the <a href="/archives/4.2.8-series/autokey">Autokey Public Key Authentication</a> page for further information. Following are the options.</p>
 <dt><tt>digest</tt> _digest_</dt>
-<dd>Specify the message digest algorithm, with default MD5\. If the OpenSSL library is installed, <tt>_digest_</tt> can be be any message digest algorithm supported by the library. The current selections are: <tt>MD2</tt>, <tt>MD4</tt>, <tt>MD5,</tt> <tt>MDC2</tt>, <tt>RIPEMD160</tt>, <tt>SHA</tt> and <tt>SHA1</tt>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>.</dd>
+<p>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <tt><em>digest</em></tt> can be any message digest algorithm supported by the library. The current selections are: <tt>MD2</tt>, <tt>MD4</tt>, <tt>MD5,</tt> <tt>MDC2</tt>, <tt>RIPEMD160</tt>, <tt>SHA</tt> and <tt>SHA1</tt>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>.</p>
 <dt><tt>host _name_</tt></dt>
-<dd>Specify the cryptographic media names for the host, sign and certificate files. If this option is not specified, the default name is the string returned by the Unix <tt>gethostname()</tt> routine.</dd>
-<dd><span class="style1">Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</span></dd>
+<p>Specify the cryptographic media names for the host, sign and certificate files. If this option is not specified, the default name is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
+<p><span class="style1">Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</span></p>
 <dt><tt>ident _group_</tt></dt>
-<dd>Specify the cryptographic media names for the identity scheme files. If this option is not specified, the default name is the string returned by the Unix <tt>gethostname()</tt> routine.</dd>
-<dd><span class="style1">Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</span></dd>
+<p>Specify the cryptographic media names for the identity scheme files. If this option is not specified, the default name is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
+<p><span class="style1">Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</span></p>
 <dt><tt>pw _password_</tt></dt>
-<dd>Specifies the password to decrypt files previously encrypted by the <tt>ntp-keygen</tt> program with the <tt>-p</tt> option. If this option is not specified, the default password is the string returned by the Unix <tt>gethostname()</tt> routine.</dd>
+<p>Specifies the password to decrypt files previously encrypted by the <tt>ntp-keygen</tt> program with the <tt>-p</tt> option. If this option is not specified, the default password is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
 <dt><tt>randfile _file_</tt></dt>
-<dd>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the [<tt>ntp-keygen</tt> page](keygen.html).</dd>
-</dl>
-</dd>
+<p>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt> page</a>.</p>
 <dt id="ident"><tt>ident _group_</tt></dt>
-<dd>Specifies the group name for ephemeral associations mobilized by broadcast and symmetric passive modes. See the [Autokey Public-Key Authentication](autokey.html) page for further information.</dd>
+<p>Specifies the group name for ephemeral associations mobilized by broadcast and symmetric passive modes. See the <a href="/archives/4.2.8-series/autokey">Autokey Public-Key Authentication</a> page for further information.</p>
 <dt id="keys"><tt>keys _path_</tt></dt>
-<dd>Specifies the complete directory path for the key file containing the key IDs, key types and keys used by <tt>ntpd</tt>, <tt>ntpq</tt> and <tt>ntpdc</tt> when operating with symmetric key cryptography. The format of the keyfile is described on the [<tt>ntp-keygen</tt> page](keygen.html). This is the same operation as the <tt>-k</tt> command line option. Note that the directory path for Autokey cryptographic media is specified by the <tt>keysdir</tt> command.</dd>
+<p>Specifies the complete directory path for the key file containing the key IDs, key types and keys used by <tt>ntpd</tt>, <tt>ntpq</tt> and <tt>ntpdc</tt> when operating with symmetric key cryptography. The format of the keyfile is described on the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt> page</a>. This is the same operation as the <tt>-k</tt> command line option. Note that the directory path for Autokey cryptographic media is specified by the <tt>keysdir</tt> command.</p>
 <dt id="keysdir"><tt>keysdir _path_</tt></dt>
-<dd>Specifies the complete directory path for the Autokey cryptographic keys, parameters and certificates. The default is <tt>/usr/local/etc/</tt>. Note that the path for the symmetric keys file is specified by the <tt>keys</tt> command.</dd>
+<p>Specifies the complete directory path for the Autokey cryptographic keys, parameters and certificates. The default is <tt>/usr/local/etc/</tt>. Note that the path for the symmetric keys file is specified by the <tt>keys</tt> command.</p>
 <dt id="requestkey"><tt>requestkey _keyid_</tt></dt>
-<dd>Specifies the key ID for the [<tt>ntpdc</tt>](ntpdc.html) utility program, which uses a proprietary protocol specific to this implementation of <tt>ntpd</tt>. The <tt>_keyid_</tt> argument is a key ID for a [trusted key](authopt.html#trustedkey), in the range 1 to 65535, inclusive.</dd>
+<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpdc"><tt>ntpdc</tt></a> utility program, which uses a proprietary protocol specific to this implementation of <tt>ntpd</tt>. The <tt><em>keyid</em></tt> argument is a key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, in the range 1 to 65535, inclusive.</p>
 <dt id="revoke"><tt>revoke [_logsec_]</tt></dt>
-<dd>Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds, with default 17 (36 hr). See the [Autokey Public-Key Authentication](autokey.html) page for further information.</dd>
+<p>Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds, with default 17 (36 hr). See the <a href="/archives/4.2.8-series/autokey">Autokey Public-Key Authentication</a> page for further information.</p>
 <dt id="trustedkey"><tt>trustedkey [_keyid_ | (_lowid_ ... _highid_)] [...]</tt></dt>
-<dd>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <tt>ntpq</tt> and <tt>ntpdc</tt> operations must be listed here and additionally be enabled with [controlkey](authopt.html#controlkey) and/or [requestkey](authopt.html#requestkey). The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <tt>trustedkey (1 ... 19) 1000 (100 ... 199)</tt> enables the lowest 120 key IDs which start with the digit 1\. The spaces surrounding the ellipsis are required when specifying a range.</dd>
+<p>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <tt>ntpq</tt> and <tt>ntpdc</tt> operations must be listed here and additionally be enabled with <a href="/archives/4.2.8-series/authopt/#controlkey">controlkey</a> and/or <a href="/archives/4.2.8-series/authopt/#requestkey">requestkey</a>. The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <tt>trustedkey (1 &hellip; 19) 1000 (100 &hellip; 199)</tt> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</p>
 
 	
 	
@@ -204,35 +223,34 @@ Last update: 24-Jul-2018 07:27 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -242,19 +260,11 @@ Last update: 24-Jul-2018 07:27 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

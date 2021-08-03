@@ -22,7 +22,7 @@
 <meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 10-Mar-2014 05:17 UTC
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return , is normally limited to 100 μs." />
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return ‹cr›, is normally limited to 100 μs." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/4.2.8-series/pps/" /><meta property="article:section" content="archives" />
 
@@ -32,15 +32,15 @@ Last update: 10-Mar-2014 05:17 UTC
 <meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 10-Mar-2014 05:17 UTC
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return , is normally limited to 100 μs.">
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return ‹cr›, is normally limited to 100 μs.">
 
-<meta itemprop="wordCount" content="766">
+<meta itemprop="wordCount" content="764">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pulse-Per-Second (PPS) Signal Interfacing"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 10-Mar-2014 05:17 UTC
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return , is normally limited to 100 μs."/>
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return ‹cr›, is normally limited to 100 μs."/>
 
 
 
@@ -70,6 +70,28 @@ Last update: 10-Mar-2014 05:17 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 10-Mar-2014 05:17 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -165,13 +189,13 @@ Last update: 10-Mar-2014 05:17 UTC
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return <tt><cr></tt>, is normally limited to 100 μs. Using carefully crafted averaging techniques, the NTP algorithms can whittle this down to a few tens of microseconds. However, some radios produce a pulse-per-second (PPS) signal which can be used to improve the accuracy to a few microseconds. This page describes the hardware and software necessary for NTP to use the PPS signal.</p>
+<p>Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return <tt>‹cr›</tt>, is normally limited to 100 μs. Using carefully crafted averaging techniques, the NTP algorithms can whittle this down to a few tens of microseconds. However, some radios produce a pulse-per-second (PPS) signal which can be used to improve the accuracy to a few microseconds. This page describes the hardware and software necessary for NTP to use the PPS signal.</p>
 <p>The PPS signal can be connected in either of two ways. On FreeBSD systems (with the PPS_SYNC and pps kernel options) it can be connected directly to the ACK pin of a parallel port. This is the preferred way, as it requires no additional hardware. Alternatively, it can be connected via the DCD pin of a serial port. However, the PPS signal levels are usually incompatible with the serial port interface signals. Note that NTP no longer supports connection via the RD pin of a serial port.</p>
 <p><img src="/archives/pic/gadget.jpg" alt="gif"></p>
 <p>A Gadget Box built by Chuck Hanavin</p>
 <hr>
 <h4 id="gadget-box">Gadget Box</h4>
-<p>The gadget box shown above is assembled in a 5&quot;x3&quot;x2&quot; aluminum minibox containing the the circuitry, serial connector and optional 12-V power connector. A complete set of schematics, PCB artwork, drill templates can be obtained via the web from as <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/hardware/gadget.tar.Z">gadget.tar.Z</a>.</p>
+<p>The gadget box shown above is assembled in a 5&quot;x3&quot;x2&quot; aluminum minibox containing the circuitry, serial connector and optional 12-V power connector. A complete set of schematics, PCB artwork, drill templates can be obtained via the web from as <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/hardware/gadget.tar.Z">gadget.tar.Z</a>.</p>
 <p>The gadget box includes two subcircuits. One of these converts a TTL positive edge into a fixed-width pulse at EIA levels and is for use with a timecode receiver or precision oscillator with a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the <a href="/archives/drivers/driver7">Radio CHU Audio Demodulator/Decoder</a> driver.</p>
 <hr>
 <h4 id="operating-system-support">Operating System Support</h4>
@@ -182,7 +206,7 @@ Last update: 10-Mar-2014 05:17 UTC
 <hr>
 <h4 id="using-the-pulse-per-second-pps-signal">Using the Pulse-per-Second (PPS) Signal</h4>
 <p>The PPS signal can be used in either of two ways, one using the NTP grooming and mitigation algorithms and the other using the kernel PPS signal support described in the <a href="/archives/4.2.8-series/kern">Kernel Model for Precision Timekeeping</a> page. The presence of  kernel support is automatically detected during the NTP build process and supporting code automatically compiled. In either case, the PPS signal must be present and within nominal jitter and wander tolerances. In addition, the prefer peer must be a truechimer; that is, survive the sanity checks and intersection algorithm. Finally, the offset of the system clock relative to the prefer peer must be within ±0.5 s. The kernel maintains a watchdog timer for the PPS signal; if the signal has not been heard or is out of tolerance for more than some interval, currently two minutes, the kernel discipline is disabled and operation continues as if it were not present.</p>
-<p>An option flag in the driver determines whether the NTP algorithms or kernel support is enabled (if available). For historical reasons, the NTP algorithms are selected by by default, since performance is generally better using older, slower systems. However, performance is generally better with kernel support using newer, faster systems.</p>
+<p>An option flag in the driver determines whether the NTP algorithms or kernel support is enabled (if available). For historical reasons, the NTP algorithms are selected by default, since performance is generally better using older, slower systems. However, performance is generally better with kernel support using newer, faster systems.</p>
 
 	
 	
@@ -192,35 +216,34 @@ Last update: 10-Mar-2014 05:17 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -230,19 +253,11 @@ Last update: 10-Mar-2014 05:17 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

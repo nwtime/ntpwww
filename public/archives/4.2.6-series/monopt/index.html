@@ -70,6 +70,28 @@ Last update: 10-May-2009 16:19 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 10-May-2009 16:19 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -166,54 +190,46 @@ Last update: 10-May-2009 16:19 UTC
 <p>The <tt>ntpd</tt> includes a comprehensive monitoring facility which collects statistical data of various types and writes the data to files associated with each type at defined events or intervals. The files associated with a particular type are collectively called the generation file set for that type. The files in the file set are the members of that set.</p>
 <p>File sets have names specific to the type and generation epoch. The names are constructed from three concatenated elements <em><tt>prefix</tt></em>, <em><tt>filename</tt></em> and <em><tt>suffix</tt></em>:</p>
 <dt>_<tt>prefix</tt>_</dt>
-<dd>The directory path specified in the <tt>statsdir</tt> command.</dd>
+<p>The directory path specified in the <tt>statsdir</tt> command.</p>
 <dt>_<tt>name</tt>_</dt>
-<dd>The name specified by the <tt>file</tt> option of the <tt>filegen</tt> command.</dd>
+<p>The name specified by the <tt>file</tt> option of the <tt>filegen</tt> command.</p>
 <dt>_<tt>suffix</tt>_</dt>
-<dd>A string of elements bdginning with . (dot) followed by a number of elements depending on the file set type.</dd>
+<p>A string of elements bdginning with . (dot) followed by a number of elements depending on the file set type.</p>
 <p>Statistics files can be managed using scripts, examples of which are in the <tt>./scripts</tt> directory. Using these or similar scripts and Unix <tt>cron</tt> jobs, the files can be automatically summarized and archived for retrospective analysis.</p>
 <hr>
 <h4 id="monitoring-commands">Monitoring Commands</h4>
 <dt id="filegen"><tt>filegen _name_ file _filename_ [type _type_] [link | nolink] [enable | disable]</tt></dt>
-<dd>
-<dl>
 <dt>_<tt>name</tt>_</dt>
-<dd>Specifies the file set type from the list in the next section.</dd>
+<p>Specifies the file set type from the list in the next section.</p>
 <dt><tt>file _filename_</tt></dt>
-<dd>Specfies the file set name.</dd>
+<p>Specfies the file set name.</p>
 <dt><tt>type _typename_</tt></dt>
-<dd>Specifies the file set interval. The following intervals are supported with default <tt>day</tt>:</dd>
-<dd>
-<dl>
+<p>Specifies the file set interval. The following intervals are supported with default <tt>day</tt>:</p>
 <dt><tt>none</tt></dt>
-<dd>The file set is actually a single plain file.</dd>
+<p>The file set is actually a single plain file.</p>
 <dt><tt>pid</tt></dt>
-<dd>One file set member is created for every incarnation of <tt>ntpd</tt>. The file name suffix is the string .<tt>n</tt>, where <tt>n</tt> is the process ID of the <tt>ntpd</tt> server process.</dd>
+<p>One file set member is created for every incarnation of <tt>ntpd</tt>. The file name suffix is the string .<tt>n</tt>, where <tt>n</tt> is the process ID of the <tt>ntpd</tt> server process.</p>
 <dt><tt>day</tt></dt>
-<dd>One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<tt>yyyymmdd</tt>, where <tt>yyyy</tt> is the year, <tt>mm</tt> the month of the year and <tt>dd</tt> the day of the month. Thus, member created on 10 December 1992 would have suffix <tt>.19921210</tt>.</dd>
+<p>One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<tt>yyyymmdd</tt>, where <tt>yyyy</tt> is the year, <tt>mm</tt> the month of the year and <tt>dd</tt> the day of the month. Thus, member created on 10 December 1992 would have suffix <tt>.19921210</tt>.</p>
 <dt><tt>week</tt></dt>
-<dd>One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<tt>yyyyWww</tt>, where <tt>yyyy</tt> is the year, <tt>W</tt> stands for itself and <tt>ww</tt> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <tt>.1992W1</tt>.</dd>
+<p>One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<tt>yyyyWww</tt>, where <tt>yyyy</tt> is the year, <tt>W</tt> stands for itself and <tt>ww</tt> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <tt>.1992W1</tt>.</p>
 <dt><tt>month</tt></dt>
-<dd>One file set member is created per month. The file name suffix is the string .<tt>yyyymm</tt>, where <tt>yyyy</tt> is the year and <tt>mm</tt> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <tt>.199201</tt>.</dd>
+<p>One file set member is created per month. The file name suffix is the string .<tt>yyyymm</tt>, where <tt>yyyy</tt> is the year and <tt>mm</tt> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <tt>.199201</tt>.</p>
 <dt><tt>year</tt></dt>
-<dd>One file set member is generated per year. The file name suffix is the string .<tt>yyyy</tt>, where <tt>yyyy</tt> is the year. For example, The member created on 1 January 1992 would have suffix <tt>.1992</tt>.</dd>
+<p>One file set member is generated per year. The file name suffix is the string .<tt>yyyy</tt>, where <tt>yyyy</tt> is the year. For example, The member created on 1 January 1992 would have suffix <tt>.1992</tt>.</p>
 <dt><tt>age</tt></dt>
-<dd>One file set member is generated every 24 hours of <tt>ntpd</tt> operation. The filename suffix is the string <tt>.adddddddd</tt>, where <tt>a</tt> stands for itself and <tt>dddddddd</tt> is the <tt>ntpd</tt> running time in seconds at the start of the corresponding 24-hour period.</dd>
-</dl>
-</dd>
+<p>One file set member is generated every 24 hours of <tt>ntpd</tt> operation. The filename suffix is the string <tt>.adddddddd</tt>, where <tt>a</tt> stands for itself and <tt>dddddddd</tt> is the <tt>ntpd</tt> running time in seconds at the start of the corresponding 24-hour period.</p>
 <dt><tt>link | nolink</tt></dt>
-<dd>It is convenient to be able to access the current file set members by file name, but without the suffix. This feature is enabled by <tt>link</tt> and disabled by <tt>nolink</tt>. If enabled, which is the default, a hard link from the current file set member to a file without suffix is created. When there is already a file with this name and the number of links to this file is one, it is renamed by appending a dot, the letter <tt>C</tt>, and the pid of the <tt>ntpd</tt> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</dd>
+<p>It is convenient to be able to access the current file set members by file name, but without the suffix. This feature is enabled by <tt>link</tt> and disabled by <tt>nolink</tt>. If enabled, which is the default, a hard link from the current file set member to a file without suffix is created. When there is already a file with this name and the number of links to this file is one, it is renamed by appending a dot, the letter <tt>C</tt>, and the pid of the <tt>ntpd</tt> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</p>
 <dt><tt>enable | disable</tt></dt>
-<dd>Enable or disable the recording function, with default <tt>enable</tt>. These options are intended for remote configutation commands.</dd>
-</dl>
-</dd>
+<p>Enable or disable the recording function, with default <tt>enable</tt>. These options are intended for remote configutation commands.</p>
 <dt><tt>statsdir _directory_path_</tt></dt>
-<dd>Specify the directory path prefix for statistics file names.</dd>
+<p>Specify the directory path prefix for statistics file names.</p>
 <hr>
 <h4 id="file-set-types">File Set Types</h4>
 <dt><tt>clockstats</tt></dt>
 <p>Record reference clock statistics. Each update received from a reference clock driver appends one line to the <tt>clockstats</tt> file set:</p>
-<dd><tt>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</tt></dd>
+<p><tt>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</tt></p>
 <table>
 <thead>
 <tr>
@@ -247,8 +263,8 @@ Last update: 10-May-2009 16:19 UTC
 </table>
 <p>The <tt><em>message</em></tt> field includes the last timecode received in decoded ASCII format, where meaningful. In some cases a good deal of additional information is displayed. See information specific to each reference clock for further details.</p>
 <dt><tt>cryptostats</tt></dt>
-<dd>Record significant events in the Autokey protocol. This option requires the OpenSSL cryptographic software library. Each event appends one line to the <tt>cryptostats</tt> file set:</dd>
-<dd><tt>49213 525.624 128.4.1.1 _message_</tt></dd>
+<p>Record significant events in the Autokey protocol. This option requires the OpenSSL cryptographic software library. Each event appends one line to the <tt>cryptostats</tt> file set:</p>
+<p><tt>49213 525.624 128.4.1.1 <em>message</em></tt></p>
 <table>
 <thead>
 <tr>
@@ -282,8 +298,8 @@ Last update: 10-May-2009 16:19 UTC
 </table>
 <p>The <tt><em>message</em></tt> field includes the message type and certain ancillary information. See the <a href="/archives/4.2.6-series/authopt">Authentication Options</a> page for further information.</p>
 <dt><tt>loopstats</tt></dt>
-<dd>Record clock discipline loop statistics. Each system clock update appends one line to the <tt>loopstats</tt> file set:</dd>
-<dd><tt>50935 75440.031 0.000006019 13.778 0.000351733 0.013380 6</tt></dd>
+<p>Record clock discipline loop statistics. Each system clock update appends one line to the <tt>loopstats</tt> file set:</p>
+<p><tt>50935 75440.031 0.000006019 13.778 0.000351733 0.013380 6</tt></p>
 <table>
 <thead>
 <tr>
@@ -331,8 +347,8 @@ Last update: 10-May-2009 16:19 UTC
 </tbody>
 </table>
 <dt><tt>peerstats</tt></dt>
-<dd>Record peer statistics. Each NTP packet or reference clock update received appends one line to the <tt>peerstats</tt> file set:</dd>
-<dd><tt>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</tt></dd>
+<p>Record peer statistics. Each NTP packet or reference clock update received appends one line to the <tt>peerstats</tt> file set:</p>
+<p><tt>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</tt></p>
 <table>
 <thead>
 <tr>
@@ -386,8 +402,8 @@ Last update: 10-May-2009 16:19 UTC
 </table>
 <p>The status field is encoded in hex format as described in Appendix B of the NTP specification RFC 1305.</p>
 <dt><tt>protostats</tt></dt>
-<dd>Record significant peer, system and rptpcp events. Each significant event appends one line to the <tt>protostats</tt> file set:</dd>
-<dd><tt>49213 525.624 128.4.1.1 963a 8a _message_</tt></dd>
+<p>Record significant peer, system and rptpcp events. Each significant event appends one line to the <tt>protostats</tt> file set:</p>
+<p><tt>49213 525.624 128.4.1.1 963a 8a <em>message</em></tt></p>
 <table>
 <thead>
 <tr>
@@ -431,8 +447,8 @@ Last update: 10-May-2009 16:19 UTC
 </table>
 <p>The event message code and <tt><em>message</em></tt> field are described on the <a href="/archives/4.2.6-series/decode">Event Messages and Status Words</a> page.</p>
 <dt><tt>rawstats</tt></dt>
-<dd>Record timestamp statistics. Each NTP packet received appends one line to the <tt>rawstats</tt> file set:</dd>
-<dd><tt>50928 2132.543 128.4.1.1 128.4.1.20 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000</tt></dd>
+<p>Record timestamp statistics. Each NTP packet received appends one line to the <tt>rawstats</tt> file set:</p>
+<p><tt>50928 2132.543 128.4.1.1 128.4.1.20 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000</tt></p>
 <table>
 <thead>
 <tr>
@@ -485,8 +501,8 @@ Last update: 10-May-2009 16:19 UTC
 </tbody>
 </table>
 <dt><tt>sysstats</tt></dt>
-<dd>Record system statistics. Each hour one line is appended to the <tt>sysstats</tt> file set in the following format:</dd>
-<dd><tt>50928 2132.543 3600 81965 0 9546 56 512 540 10 4 147 1</tt></dd>
+<p>Record system statistics. Each hour one line is appended to the <tt>sysstats</tt> file set in the following format:</p>
+<p><tt>50928 2132.543 3600 81965 0 9546 56 512 540 10 4 147 1</tt></p>
 <table>
 <thead>
 <tr>
@@ -564,8 +580,8 @@ Last update: 10-May-2009 16:19 UTC
 </tbody>
 </table>
 <dt><tt>timingstats</tt></dt>
-<dd>(Only available when the daemon is compiled with process time debugging support (--enable-debug-timing - costs performance). Record processing time statistics for various selected code paths.</dd>
-<dd><tt>53876 36.920 10.0.3.5 1 0.000014592 input processing delay</tt></dd>
+<p>(Only available when the daemon is compiled with process time debugging support (&ndash;enable-debug-timing - costs performance). Record processing time statistics for various selected code paths.</p>
+<p><tt>53876 36.920 10.0.3.5 1 0.000014592 input processing delay</tt></p>
 <table>
 <thead>
 <tr>
@@ -616,35 +632,34 @@ Last update: 10-May-2009 16:19 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -654,19 +669,11 @@ Last update: 10-May-2009 16:19 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

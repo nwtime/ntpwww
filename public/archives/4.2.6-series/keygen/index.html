@@ -70,6 +70,28 @@ Last update: 13-Nov-2009 0:44
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 13-Nov-2009 0:44
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -200,37 +224,37 @@ Last update: 13-Nov-2009 0:44
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
 <dt><tt>-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]</tt></dt>
-<dd>Select certificate and message digest/signature encryption scheme. Note that RSA schemes must be used with a RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <tt>RSA-MD5</tt>. If compatibility with FIPS 140-2 is required, either the <tt>DSA-SHA</tt> or <tt>DSA-SHA1</tt> scheme must be used.</dd>
+<p>Select certificate and message digest/signature encryption scheme. Note that RSA schemes must be used with a RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <tt>RSA-MD5</tt>. If compatibility with FIPS 140-2 is required, either the <tt>DSA-SHA</tt> or <tt>DSA-SHA1</tt> scheme must be used.</p>
 <dt><tt>-d</tt></dt>
-<dd>Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.</dd>
+<p>Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.</p>
 <dt><tt>-e</tt></dt>
-<dd>Extract the IFF or GQ public parameters from the <tt>IFFkey</tt> or <tt>GQkey</tt> keys file previously specified. Send the unencrypted data to the standard output stream <tt>stdout</tt>. While the IFF parameters do not reveal the private group key,  the GQ parameters should be used with caution, as they include the group key. Use the <tt>-q</tt> option with password instead. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.</dd>
+<p>Extract the IFF or GQ public parameters from the <tt>IFFkey</tt> or <tt>GQkey</tt> keys file previously specified. Send the unencrypted data to the standard output stream <tt>stdout</tt>. While the IFF parameters do not reveal the private group key,  the GQ parameters should be used with caution, as they include the group key. Use the <tt>-q</tt> option with password instead. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.</p>
 <dt><tt>-G</tt></dt>
-<dd>Generate a new encrypted GQ key file and link for the Guillou-Quisquater (GQ) identity scheme.</dd>
+<p>Generate a new encrypted GQ key file and link for the Guillou-Quisquater (GQ) identity scheme.</p>
 <dt><tt>-H</tt></dt>
-<dd>Generate a new encrypted RSA public/private host key file and link. Note that if the sign key is the same as the host key, generating a new host key invalidates all certificates signed with the old host key.</dd>
+<p>Generate a new encrypted RSA public/private host key file and link. Note that if the sign key is the same as the host key, generating a new host key invalidates all certificates signed with the old host key.</p>
 <dt><tt>-i _group_</tt></dt>
-<dd>Set the group name to <tt>_group_</tt>. This is used in the identity file names. It must match the group name specified in the <tt>ident</tt> option of the <tt>crypto</tt> configuration command.</dd>
+<p>Set the group name to <tt><em>group</em></tt>. This is used in the identity file names. It must match the group name specified in the <tt>ident</tt> option of the <tt>crypto</tt> configuration command.</p>
 <dt><tt>-I</tt></dt>
-<dd>Generate a new encrypted IFF key fileand linkfor the Schnorr (IFF) identity scheme.</dd>
+<p>Generate a new encrypted IFF key fileand linkfor the Schnorr (IFF) identity scheme.</p>
 <dt><tt>-m _modulus_</tt></dt>
-<dd>Set the modulus for generating files to _modulus_ bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets).</dd>
+<p>Set the modulus for generating files to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets).</p>
 <dt><tt>-M</tt></dt>
-<dd>Generate a new MD5 key file containing 16, 128-bit pseudo-random keys for symmetric cryptography..</dd>
+<p>Generate a new MD5 key file containing 16, 128-bit pseudo-random keys for symmetric cryptography..</p>
 <dt><tt>-P</tt></dt>
-<dd>Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates. Note: the PC identity scheme is not recommended for new installations.</dd>
+<p>Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates. Note: the PC identity scheme is not recommended for new installations.</p>
 <dt><tt>-p _passwd_</tt></dt>
-<dd>Set the password for reading and writing encrypted files to <tt>_passwd_</tt>. By default, the password is the host name.</dd>
+<p>Set the password for reading and writing encrypted files to <tt><em>passwd</em></tt>. By default, the password is the host name.</p>
 <dt><tt>-q _passwd_</tt></dt>
-<dd>Extract the encrypted IFF or GQ server keys from the <tt>IFFkey</tt> or <tt>GQkey</tt> key file previously generated. The data are sent to the standard output stream <tt>stdout</tt>. Set the password for writing the data, which is also the password to read the data file in another host. By default, the password is the host name. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.</dd>
+<p>Extract the encrypted IFF or GQ server keys from the <tt>IFFkey</tt> or <tt>GQkey</tt> key file previously generated. The data are sent to the standard output stream <tt>stdout</tt>. Set the password for writing the data, which is also the password to read the data file in another host. By default, the password is the host name. Note: a new certificate is not generated when this option is present. This allows multiple commands with this option but without disturbing existing media.</p>
 <dt><tt>-S [ RSA | DSA ]</tt></dt>
-<dd>Generate a new sign key of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <tt>DSA</tt>. Note that generating a new sign key invalidates all certificates signed with the old sign key.</dd>
+<p>Generate a new sign key of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <tt>DSA</tt>. Note that generating a new sign key invalidates all certificates signed with the old sign key.</p>
 <dt><tt>-s _host_</tt></dt>
-<dd>Set the host name to <tt>_host_</tt>. This is used in the host and sign key file names. It must match the host name specified in the <tt>host</tt> option of the <tt>crypto</tt> configuration command.</dd>
+<p>Set the host name to <tt><em>host</em></tt>. This is used in the host and sign key file names. It must match the host name specified in the <tt>host</tt> option of the <tt>crypto</tt> configuration command.</p>
 <dt><tt>-T</tt></dt>
-<dd>Generate a trusted certificate. By default, the program generates nontrusted certificates.</dd>
+<p>Generate a trusted certificate. By default, the program generates nontrusted certificates.</p>
 <dt><tt>-V _nkeys_</tt></dt>
-<dd>Generate server parameters <tt>MV</tt> and <tt>_nkeys_</tt> client keys for the Mu-Varadharajan (MV) identity scheme. Note: support for this option should be considered a work in progress.</dd>
+<p>Generate server parameters <tt>MV</tt> and <tt><em>nkeys</em></tt> client keys for the Mu-Varadharajan (MV) identity scheme. Note: support for this option should be considered a work in progress.</p>
 <hr>
 <h4 id="random-seed-file">Random Seed File</h4>
 <p>All cryptographically sound key generation schemes must have means to randomize the entropy seed used to initialize the internal pseudo-random number generator used by the OpenSSL library routines. If a site supports <tt>ssh</tt>, it is very likely that means to do this are already available. The entropy seed used by the OpenSSL library is contained in a file, usually called <tt>.rnd</tt>, which must be available when starting the <tt>ntp-keygen</tt> program or <tt>ntpd</tt> daemon.</p>
@@ -259,35 +283,34 @@ Last update: 13-Nov-2009 0:44
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -297,19 +320,11 @@ Last update: 13-Nov-2009 0:44
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

@@ -30,7 +30,7 @@
 <meta itemprop="description" content="From NBS Special Publication 432 (out of print)
  Table of Contents  Introduction How NTP Works Configuring Your Subnet Configuring Your Server or Client Configuring NTP with NetInfo Ntp4 Versus Previous Versions Traffic Monitoring Address-and-Mask Restrictions Authentication Query Programs Run-Time Reconfiguration Name Resolution Dealing with Frequency Tolerance Violations Tuning Your Subnet Provisions for Leap Seconds and Accuracy Metrics Clock Support Overview Towards the Ultimate Tick Parting Shots  Introduction This document is a collection of notes concerning the use of ntpd and related programs, and on coping with the Network Time Protocol (NTP) in general.">
 
-<meta itemprop="wordCount" content="10279">
+<meta itemprop="wordCount" content="10277">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Notes on Configuring NTP and Setting up a NTP Subnet"/>
 <meta name="twitter:description" content="From NBS Special Publication 432 (out of print)
@@ -64,6 +64,28 @@
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,6 +108,8 @@
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -243,10 +267,8 @@
 <p>The trouble occurs when an previous version is to be included in an <tt>ntpd</tt> configuration file. With no further indication, <tt>ntpd</tt> will send packets claiming to be version 4 when it polls. To get around this, <tt>ntpd</tt> allows a qualifier to be added to configuration entries to indicate which version to use when polling. Hence the entries</p>
 <pre>     # specify NTP version 1
 
-     server mimsy.mil version
-1     # server running ntpd version 1
-     server apple.com version
-2     # server running ntpd version 2
+     server mimsy.mil version 1     # server running ntpd version 1
+     server apple.com version 2     # server running ntpd version 2
 </pre>
 <p>will cause version 1 packets to be sent to the host mimsy.mil and version 2 packets to be sent to apple.com. If you are testing <tt>ntpd</tt> against previous version servers you will need to be careful about this. Note that, as indicated in the RFC-1305 specification, there is no longer support for the original NTP specification, once called NTP Version 0.</p>
 <h4 id="traffic-monitoring">Traffic Monitoring</h4>
@@ -289,27 +311,16 @@ modifications allowed
      # (expected to operate at stratum 2)
      # fully authenticated this time
 
-     peer 128.100.49.105 key 22 #
-suzuki.ccie.utoronto.ca
-     peer 128.8.10.1 key 4    #
-umd1.umd.edu
-     peer 192.35.82.50 key 6  #
-lilben.tn.cornell.edu
+     peer 128.100.49.105 key 22 # suzuki.ccie.utoronto.ca
+     peer 128.8.10.1 key 4    # umd1.umd.edu
+     peer 192.35.82.50 key 6  # lilben.tn.cornell.edu
 
-     keys /usr/local/etc/ntp.keys  # path for
-key file
-     trustedkey 1 2 14 15     #
-define trusted keys
-     requestkey
-15            #
-key (7) for accessing server variables
-     controlkey
-15            #
-key (6) for accessing server variables
+     keys /usr/local/etc/ntp.keys  # path for key file
+     trustedkey 1 2 14 15     # define trusted keys
+     requestkey 15            # key (7) for accessing server variables
+     controlkey 15            # key (6) for accessing server variables
 
-     authdelay
-0.000094       # authentication delay
-(Sun4c/50 IPX)
+     authdelay 0.000094       # authentication delay (Sun4c/50 IPX)
 </pre>
 <p>There are a couple of previously unmentioned things in here. The <tt>keys</tt> line specifies the path to the keys file (see below and the <tt>ntpd</tt> document page for details of the file format). The <tt>trustedkey</tt> declaration identifies those keys that are known to be uncompromised; the remainder presumably represent the expired or possibly compromised keys. Both sets of keys must be declared by key identifier in the <tt>ntp.keys</tt> file described below. This provides a way to retire old keys while minimizing the frequency of delicate key-distribution procedures. The <tt>requestkey</tt> line establishes the key to be used for mode-6 control messages as specified in RFC-1305 and used by the <tt>ntpq</tt> utility program, while the <tt>controlkey</tt> line establishes the key to be used for mode-7 private control messages used by the <tt>ntpdc</tt> utility program. These keys are used to prevent unauthorized modification of daemon variables.</p>
 <p>Ordinarily, the authentication delay; that is, the processing time taken between the freezing of a transmit timestamp and the actual transmission of the packet when authentication is enabled (i.e. more or less the time it takes for the DES or MD5 routine to encrypt a single block) is computed automatically by the daemon. If necessary, the delay can be overridden by the <tt>authdelay</tt> line, which is used as a correction for the transmit timestamp. This can be computed for your CPU by the <tt>authspeed</tt> program included in the distribution. The usage is illustrated by the following:</p>
@@ -322,24 +333,16 @@ key (6) for accessing server variables
 <p>Additional utility programs included in the <tt>./authstuff</tt> directory can be used to generate random keys, certify implementation correctness and display sample keys. As a general rule, keys should be chosen randomly, except possibly the request and control keys, which must be entered by the user as a password.</p>
 <p>The <tt>ntp.keys</tt> file contains the list of keys and associated key IDs the server knows about (for obvious reasons this file is better left unreadable by anyone except root). The contents of this file might look like:</p>
 <pre>     # ntp keys file (ntp.keys)
-     1    N   
-29233E0461ECD6AE    # DES key in NTP format
-     2    M   
-RIrop8KPPvQvYotM    # md5 key as an ASCII random string
-     14   M   
-sundial           
-;  # md5 key as an ASCII string
-     15   A   
-sundial           
-;  # DES key as an ASCII string
+     1    N   29233E0461ECD6AE    # DES key in NTP format
+     2    M   RIrop8KPPvQvYotM    # md5 key as an ASCII random string
+     14   M   sundial             # md5 key as an ASCII string
+     15   A   sundial             # DES key as an ASCII string
 
      # the following 3 keys are identical
 
      10   A    SeCReT
-     10   N   
-d3e54352e5548080
-     10   S   
-a7cb86a4cba80101
+     10   N   d3e54352e5548080
+     10   S   a7cb86a4cba80101
 </pre>
 <p>In the keys file the first token on each line indicates the key ID, the second token the format of the key and the third the key itself. There are four key formats. An <tt>A</tt> indicates a DES key written as a 1- to-8 character string in 7-bit ASCII representation, with each character standing for a key octet (like a Unix password). An <tt>S</tt> indicates a DES key written as a hex number in the DES standard format, with the low order bit (LSB) of each octet being the (odd) parity bit. An <tt>N</tt> indicates a DES key again written as a hex number, but in NTP standard format with the high order bit of each octet being the (odd) parity bit (confusing enough?). An <tt>M</tt> indicates an MD5 key written as a 1-to-31 character ASCII string in the <tt>A</tt> format. Note that, because of the simple tokenizing routine, the characters <tt>' &lsquo;, &lsquo;#&rsquo;, &lsquo;\t&rsquo;, &lsquo;\n&rsquo;</tt> and <tt>'\0&rsquo;</tt> can&rsquo;t be used in either a DES or MD5 ASCII key. Everything else is fair game, though. Key 0 (zero) is used for special purposes and should not appear in this file.</p>
 <p>The big trouble with the authentication facility is the keys file. It is a maintenance headache and a security problem. This should be fixed some day. Presumably, this whole bag of worms goes away if/when a generic security regime for the Internet is established. An alternative with NTP Version 4 is the autokey feature, which uses random session keys and public-key cryptography and avoids the key file entirely. While this feature is not completely finished yet, details can be found in the <a href="/archives/4.1.0/release">Release Notes</a> page.</p>
@@ -441,35 +444,34 @@ a7cb86a4cba80101
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -479,19 +481,11 @@ a7cb86a4cba80101
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

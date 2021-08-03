@@ -150,7 +150,7 @@
 &lt;h4 id=&#34;manycasting&#34;&gt;Manycasting&lt;/h4&gt;
 &lt;p&gt;Manycasting is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes client associations with the &amp;ldquo;best&amp;rdquo; three of the available manycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail.&lt;/p&gt;
 &lt;p&gt;Note that the manycasting paradigm does not coincide with the anycasting paradigm described in RFC-1546, which is designed to find a single server from a clique of servers providing the same service. The manycasting paradigm is designed to find a plurality of redundant servers, in this case willing NTP servers.&lt;/p&gt;
-&lt;p&gt;A persistent manycast client association is configured using the &lt;tt&gt;server&lt;/tt&gt; command, but with a multicast (class D) group address instead of an ordinary IP (class A, B, C) address. It sends client mode messages to this address at the maximum feasible poll interval and minimum feasible time-to-live hops, depending on how many servers have already been found. There can be as many manycast client associations as different group addresss, each one serving as a template for a future ephemeral client/server mode association.&lt;/p&gt;
+&lt;p&gt;A persistent manycast client association is configured using the &lt;tt&gt;server&lt;/tt&gt; command, but with a multicast (class D) group address instead of an ordinary IP (class A, B, C) address. It sends client mode messages to this address at the maximum feasible poll interval and minimum feasible time-to-live hops, depending on how many servers have already been found. There can be as many manycast client associations as different group addresses, each one serving as a template for a future ephemeral client/server mode association.&lt;/p&gt;
 &lt;p&gt;Manycast servers configured with the &lt;tt&gt;manycastserver&lt;/tt&gt; command listen on the specified group address for manycast client messages. Note the distinction between manycast client, which is configured with a &lt;tt&gt;server&lt;/tt&gt; command, and manycast server, which is configured with a &lt;tt&gt;manycastserver&lt;/tt&gt; command. If a manycast server is in range of the current time-to-live and is itself synchronized to a valid source and operating at a stratum level equal to or lower than the manycast client, it replies to the manycast client message with an ordinary server mode message.&lt;/p&gt;
 &lt;p&gt;The manycast client receiving this message mobilizes an ephemeral client association as in ordinary client/server mode according to the matching manycast client template. Then, the client polls the server at its unicast address in burst mode in order to reliably set the host clock and validate the source. This normally results in a volley of eight client/server cycles over a 30-s interval during which both the synchronization and cryptographic protocols run concurrently. Following the volley, the client runs the NTP intersection and clustering algorithms, which act to discard all but the best three associations. The surviving associations then continue in ordinary client/server mode.&lt;/p&gt;
 &lt;p&gt;The manycast client polling program is designed to reduce as much as possible the volume of messages and the effects of implosion due to near-simultaneous arrival of manycast server messages. The program uses a poll interval eight times the system poll interval, which starts out at the &lt;tt&gt;minpoll&lt;/tt&gt; value and under normal circumstances increases gradually to the &lt;tt&gt;maxpolll&lt;/tt&gt; value. Initially, the time-to-live is set at one hop. At each retransmission the time-to-live is incremented by one until at least three manycast servers are found. Further retransmissions use the same time-to-live value.&lt;/p&gt;
@@ -210,7 +210,7 @@ name resolution and disabled it once the name resolution process is complete.&lt
 &lt;p&gt;The original NTPv3 authentication scheme described in RFC-1305 continues to be supported; however, in NTPv4 an additional authentication scheme called Autokey is available. It uses MD5 message digest, RSA public-key signature and Diffie-Hellman key agreement algorithms available from several sources, but not included in the NTPv4 software distribution. In order to be effective, the &lt;tt&gt;rsaref20&lt;/tt&gt; package must be installed as described in the &lt;tt&gt;README.rsa&lt;/tt&gt; file. Once installed, the configure and build process automatically detects it and compiles the routines required. The Autokey scheme has several modes of operation corresponding to the various NTP modes supported. RSA signatures with timestamps are used in all modes to verify the source of cryptographic values. All modes use a special cookie which can be computed independently by the client and server. In symmetric modes the cookie is constructed using the Diffie-Hellman key agreement algorithm. In other modes the cookie is constructed from the IP addresses and a private value known only to the server. All modes use in addition a variant of the S-KEY scheme, in which a pseudo-random key list is generated and used in reverse order. These schemes are described along with an executive summary, current status, briefing slides and reading list, on the &lt;a href=&#34;http://www.eecis.udel.edu/~mills/autokey.html&#34;&gt;Autonomous Authentication&lt;/a&gt; page.&lt;/p&gt;
 &lt;p&gt;The cryptographic values used by the Autokey scheme are incorporated as a set of files generated by the &lt;a href=&#34;/archives/4.1.2/genkeys&#34;&gt;&lt;tt&gt;ntp-genkeys&lt;/tt&gt;&lt;/a&gt; program, including the symmetric private keys, public/private key pair, and the agreement parameters. See the &lt;tt&gt;ntp-genkeys&lt;/tt&gt; page for a description of the formats of these files. They contain cryptographic values generated by the algorithms of the &lt;tt&gt;rsaref20&lt;/tt&gt; package and are in printable ASCII format. All file names include the timestamp, in NTP seconds, following the default names given below. Since the file data are derived from random values seeded by the system clock and the file name includes the timestamp, every generation produces a different file and different file name.&lt;/p&gt;
 &lt;p&gt;The &lt;tt&gt;ntp.keys&lt;/tt&gt; file contains the DES/MD5 private keys. It must be distributed by secure means to other servers and clients sharing the same security compartment and made visible only to root. While this file is not used with the Autokey scheme, it is needed to authenticate some remote configuration commands used by the &lt;a href=&#34;/archives/4.1.2/ntpq&#34;&gt;&lt;tt&gt;ntpq&lt;/tt&gt;&lt;/a&gt; and &lt;a href=&#34;/archives/4.1.2/ntpdc&#34;&gt;&lt;tt&gt;ntpdc&lt;/tt&gt;&lt;/a&gt; utilities. The &lt;tt&gt;ntpkey&lt;/tt&gt; file contains the RSA private key. It is useful only to the machine that generated it and never shared with any other daemon or application program, so must be made visible only to root.&lt;/p&gt;
-&lt;p&gt;The &lt;tt&gt;ntp_dh&lt;/tt&gt; file contains the agreement parameters, which are used only in symmetric (active and passive) modes. It is necessary that both peers beginning a symmetric-mode association share the same parameters, but it does not matter which &lt;tt&gt;ntp_dh&lt;/tt&gt; file generates them. If one of the peers contains the parameters, the other peer obtains them using the Autokey protocol. If both peers contain the parameters, the most recent copy is used by both peers. If a peer does not have the parameters, they will be requested by all associations, either configured or not; but, none of the associations can proceed until one of them has received the parameters. Once loaded, the parameters can be provided on request to other clients and servers. The &lt;tt&gt;ntp_dh&lt;/tt&gt; file can be also be distributed using insecure means, since the data are public values.&lt;/p&gt;
+&lt;p&gt;The &lt;tt&gt;ntp_dh&lt;/tt&gt; file contains the agreement parameters, which are used only in symmetric (active and passive) modes. It is necessary that both peers beginning a symmetric-mode association share the same parameters, but it does not matter which &lt;tt&gt;ntp_dh&lt;/tt&gt; file generates them. If one of the peers contains the parameters, the other peer obtains them using the Autokey protocol. If both peers contain the parameters, the most recent copy is used by both peers. If a peer does not have the parameters, they will be requested by all associations, either configured or not; but, none of the associations can proceed until one of them has received the parameters. Once loaded, the parameters can be provided on request to other clients and servers. The &lt;tt&gt;ntp_dh&lt;/tt&gt; file can also be distributed using insecure means, since the data are public values.&lt;/p&gt;
 &lt;p&gt;The &lt;tt&gt;ntpkey__host_&lt;/tt&gt; file contains the RSA public key, where &lt;tt&gt;_host_&lt;/tt&gt; is the name of the host. Each host must have its own &lt;tt&gt;ntpkey__host_&lt;/tt&gt; file, which is normally provided to other hosts using the Autokey protocol Each &lt;tt&gt;server&lt;/tt&gt; or &lt;tt&gt;peer&lt;/tt&gt; association requires the public key associated with the particular server or peer to be loaded either directly from a local file or indirectly from the server using the Autokey protocol. These files can be widely distributed and stored using insecure means, since the data are public values.&lt;/p&gt;
 &lt;p&gt;The optional &lt;tt&gt;ntpkey_certif__host_&lt;/tt&gt; file contains the PKI certificate for the host. This provides a binding between the host hame and RSA public key. In the current implementation the certificate is obtained by a client, if present, but the contents are ignored.&lt;/p&gt;
 &lt;p&gt;Due to the widespread use of interface-specific naming, the host names used in configured and mobilized associations are determined by the Unix &lt;tt&gt;gethostname()&lt;/tt&gt; library routine. Both the &lt;tt&gt;ntp-genkeys&lt;/tt&gt; program and the Autokey protocol derive the name of the public key file using the name returned by this routine. While every server and client is required to load their own public and private keys, the public keys for each client or peer association can be obtained from the server or peer using the Autokey protocol. Note however, that at the current stage of development the authenticity of the server or peer and the cryptographic binding of the server name, address and public key is not yet established by a certificate authority or web of trust.&lt;/p&gt;
@@ -290,7 +290,7 @@ services when they become universally available.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;building-and-installing-the-distribution&#34;&gt;Building and Installing the Distribution&lt;/h4&gt;
 &lt;p&gt;As a practical matter, every computer architecture and operating system version seems to be different than any other. The device drivers may be different, the input/output system may be idiosyncratic and the libraries may have different semantics. It is not possible in a software distribution such as this one to support every individual sysdtem with a common set of binaries, even with the same system but different versions. Therefore, it is necessary to configure each system individually for each system and version, both at compile time and at run time. In almost all cases, these procedures are completely automatic and all the newbie user need do is type &lt;code&gt;make&lt;/code&gt; and the autoconfigure system does the rest. There are some exceptions, as noted below.&lt;/p&gt;
-&lt;p&gt;Some programs included in this distribution use cryptographic algorithms to verify server authenticity and credentials. As required by the International Trade in Arms Regulations (ITAR), now called the Defense Trade Regulations (DTR), certain cryptographic products and media, including the Data Encryption Standard (DES), cannot be exported without per-instance license. For this reason, the DES encryption routine has been removed from the the current
+&lt;p&gt;Some programs included in this distribution use cryptographic algorithms to verify server authenticity and credentials. As required by the International Trade in Arms Regulations (ITAR), now called the Defense Trade Regulations (DTR), certain cryptographic products and media, including the Data Encryption Standard (DES), cannot be exported without per-instance license. For this reason, the DES encryption routine has been removed from the current
 version, even though it is used only to compute a message digest. Current DTR regulations allow export of the the MD5 message digest routine, which is in fact the preferred algorithm, and this is included in the current version.&lt;/p&gt;
 &lt;p&gt;The NTP authentication routines conform to the interface used by RSA Laboratories in the &lt;tt&gt;rsaref20.zip&lt;/tt&gt; package, which was formerly downloadable from &lt;tt&gt;ftp.rsa.com&lt;/tt&gt; or via the web at &lt;tt&gt;&lt;a href=&#34;http://www.rsa.com&#34;&gt;www.rsa.com&lt;/a&gt;&lt;/tt&gt;, but this may no longer be the case. Outside the US and Canada, the functionally identical &lt;tt&gt;rsaeuro.zip&lt;/tt&gt; package is available from J.S.A. Kapp and other sources. The recommended way to integrate the routines in either package with the NTP build procedures is to uncompress and extract the &lt;tt&gt;rsaref20&lt;/tt&gt; files in a top level directory with that name. Then install a link to that directory from &lt;tt&gt;rsaref2&lt;/tt&gt; in the top level directory of the distribution. Use &lt;tt&gt;rsaeuro1&lt;/tt&gt; instead for that distribution. These steps must be completed
 before the configuration process described below.&lt;/p&gt;&lt;/p&gt;
@@ -337,11 +337,11 @@ before the configuration process described below.&lt;/p&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;additional-ttmakett-commands&#34;&gt;Additional &lt;tt&gt;make&lt;/tt&gt; commands&lt;/h4&gt;
 &lt;dt&gt;&lt;tt&gt;make clean&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Cleans out object files, programs and temporary files.&lt;/dd&gt;
+&lt;p&gt;Cleans out object files, programs and temporary files.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;make distclean&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Does the work of &lt;tt&gt;clean&lt;/tt&gt;, but cleans out all directories in preparation for a new distribution release.&lt;/dd&gt;
+&lt;p&gt;Does the work of &lt;tt&gt;clean&lt;/tt&gt;, but cleans out all directories in preparation for a new distribution release.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;make dist&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Does the work of &lt;tt&gt;make distclean&lt;/tt&gt;, but constructs compressed tar files for distribution. You must have GNU automake to perform this function.&lt;/dd&gt;
+&lt;p&gt;Does the work of &lt;tt&gt;make distclean&lt;/tt&gt;, but constructs compressed tar files for distribution. You must have GNU automake to perform this function.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;building-and-installing-under-windows-nt&#34;&gt;Building and Installing under Windows NT&lt;/h4&gt;
 &lt;p&gt;See &lt;a href=&#34;/archives/hints/winnt&#34;&gt;Windows NT Hints&lt;/a&gt; for directions to compile the sources and install the executables.&lt;/p&gt;
@@ -1234,7 +1234,7 @@ _&lt;/tt&gt;&lt;tt&gt;maxpoll _maxpoll_&lt;/tt&gt;&lt;/dt&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;description&#34;&gt;Description&lt;/h4&gt;
 &lt;p&gt;Most radio and modem clocks used for a primary (stratum-1) NTP server utilize serial ports operating at speeds of 9600 baud or greater. The intrinsic delay and jitter contributed by the serial port hardware and software driver can accumulate up to a millisecond in newer Unix systems and tens of milliseconds in older ones. In order to reduce the effects of delay and jitter, a set of special line disciplines, stream modules and operating system calls (ioctls) can be configured in some Unix kernels. These routines intercept special characters or signals provided by the radio or modem clock and save a timestamp for later processing.&lt;/p&gt;
-&lt;p&gt;The routines provide two important functions. Some insert a timestamp in the receive data stream upon occurance of a designated character or characters at the serial interface. This can be used to timestamp an on-time character produced by a radio clock, for example. Other routines support an application program interface for pulse-per-second (PPS) signals generated by some radio clocks and laboratory instruments. These routines are normally accessed through the PPSAPI application program interface described below.&lt;/p&gt;
+&lt;p&gt;The routines provide two important functions. Some insert a timestamp in the receive data stream upon occurrence of a designated character or characters at the serial interface. This can be used to timestamp an on-time character produced by a radio clock, for example. Other routines support an application program interface for pulse-per-second (PPS) signals generated by some radio clocks and laboratory instruments. These routines are normally accessed through the PPSAPI application program interface described below.&lt;/p&gt;
 &lt;p&gt;The routines can be compiled in the kernel in older BSD-derived systems, or installed as System V streams modules and either compiled in the kernel or dynamically loaded when required. In either case, they require minor changes in some kernel files and in the NTP daemon &lt;tt&gt;ntpd&lt;/tt&gt;. The streams modules can be pushed and popped from the streams stack using conventional System V streams program primitives. Note that some Unix kernels do not support line disciplines and some do not support System V streams. The routines described here are known to work correctly with the Unix kernels called out in the descriptions, but have not been tested for other kernels.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;ppsapi-application-program-interface&#34;&gt;PPSAPI Application Program Interface&lt;/h4&gt;
@@ -1414,7 +1414,7 @@ Informational messages (&lt;tt&gt;info&lt;/tt&gt;) control configuration informa
 &lt;li&gt;If the above is not the case, then choose the first candidate in the list of survivors ranked in order of synchronization distance and average its offset along with the other survivors to determine the system clock offset. This is the default case and the only case considered in the current NTP specification.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;using-the-pulse-per-second-pps-signal&#34;&gt;Using the Pulse-per-Second (PPS) Signal&lt;/h4&gt;
-&lt;p&gt;Most radio clocks are connected using a serial port operating at speeds of 9600 bps or higher. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character, like carriage-return &lt;tt&gt;&lt;cr&gt;&lt;/tt&gt;, is limited to a millisecond or two. However, some radios produce a PPS signal which can be used to improve the accuracy with typical workstation servers to the order of microseconds. The details of how this can be accomplished are discussed in the &lt;a href=&#34;/archives/4.1.2/pps&#34;&gt;Pulse-per-second (PPS) Signal Interfacing&lt;/a&gt; page. The following paragraphs discuss how the PPS signal is affected by the mitigation rules.&lt;/p&gt;
+&lt;p&gt;Most radio clocks are connected using a serial port operating at speeds of 9600 bps or higher. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character, like carriage-return &lt;tt&gt;‹cr›&lt;/tt&gt;, is limited to a millisecond or two. However, some radios produce a PPS signal which can be used to improve the accuracy with typical workstation servers to the order of microseconds. The details of how this can be accomplished are discussed in the &lt;a href=&#34;/archives/4.1.2/pps&#34;&gt;Pulse-per-second (PPS) Signal Interfacing&lt;/a&gt; page. The following paragraphs discuss how the PPS signal is affected by the mitigation rules.&lt;/p&gt;
 &lt;p&gt;First, it should be pointed out that the PPS signal is inherently ambiguous, in that it provides a precise seconds epoch, but does not provide a way to number the seconds. In principle and most commonly, another source of synchronization, either the timecode from an associated radio clock, or even one or more remote NTP servers, is available to perform that function. In all cases, a specific, configured peer or server must be designated as associated with the PPS signal. This is done using the &lt;tt&gt;prefer&lt;/tt&gt; keyword as described previously. The PPS signal can be associated in this way with any peer, but is most commonly used with the radio clock generating the PPS signal.&lt;/p&gt;
 &lt;p&gt;The PPS signal can be used in two ways to discipline the local clock, one using a special PPS driver described in the &lt;a href=&#34;/archives/drivers/driver22&#34;&gt;PPS Clock Discipline&lt;/a&gt; page, the other using PPS signal support in the kernel, as described in the &lt;a href=&#34;/archives/4.1.2/kern&#34;&gt;A Kernel Model for Precision Timekeeping&lt;/a&gt; page. In either case, the signal must be present and within nominal jitter and wander error tolerances. In addition, the associated prefer peer must have survived the sanity checks and intersection algorithms and the dispersion settled below 1 s. This insures that the radio clock hardware is operating correctly and that, presumably, the PPS signal is operating correctly as well. Second, the absolute offset of the local clock from that peer must be less than 128 ms, or well within the 0.5-s unambiguous range of the PPS signal itself. In the case of the PPS driver, the time offsets generated from the PPS signal are propagated via the clock filter to the clock selection procedures just like any other peer. Should these pass the sanity checks and intersection algorithms, they will show up along with the offsets of the prefer peer itself. Note that, unlike the prefer peer, the PPS peer samples are not protected from discard by the clustering algorithm. These complicated procedures insure that the PPS offsets developed in this way are the most accurate, reliable available for synchronization.&lt;/p&gt;
 &lt;p&gt;The PPS peer remains active as long as it survives the intersection algorithm and the prefer peer is reachable; however, like any other clock driver, it runs a reachability algorithm on the PPS signal itself. If for some reason the signal fails or displays gross errors, the PPS peer will either become unreachable or stray out of the survivor population. In this case the clock selection remitigates as described above.&lt;/p&gt;
@@ -1611,10 +1611,8 @@ Informational messages (&lt;tt&gt;info&lt;/tt&gt;) control configuration informa
 &lt;p&gt;The trouble occurs when an previous version is to be included in an &lt;tt&gt;ntpd&lt;/tt&gt; configuration file. With no further indication, &lt;tt&gt;ntpd&lt;/tt&gt; will send packets claiming to be version 4 when it polls. To get around this, &lt;tt&gt;ntpd&lt;/tt&gt; allows a qualifier to be added to configuration entries to indicate which version to use when polling. Hence the entries&lt;/p&gt;
 &lt;pre&gt;     # specify NTP version 1
 
-     server mimsy.mil version
-1     # server running ntpd version 1
-     server apple.com version
-2     # server running ntpd version 2
+     server mimsy.mil version 1     # server running ntpd version 1
+     server apple.com version 2     # server running ntpd version 2
 &lt;/pre&gt;
 &lt;p&gt;will cause version 1 packets to be sent to the host mimsy.mil and version 2 packets to be sent to apple.com. If you are testing &lt;tt&gt;ntpd&lt;/tt&gt; against previous version servers you will need to be careful about this. Note that, as indicated in the RFC-1305 specification, there is no longer support for the original NTP specification, once called NTP Version 0.&lt;/p&gt;
 &lt;h4 id=&#34;traffic-monitoring&#34;&gt;Traffic Monitoring&lt;/h4&gt;
@@ -1635,8 +1633,7 @@ modifications
 
      restrict default notrust nomodify
 
-     # these guys are trusted for time, but no
-modifications allowed
+     # these guys are trusted for time, but no modifications allowed
 
      restrict 128.100.0.0 mask 255.255.0.0 nomodify
      restrict 128.8.10.1 nomodify
@@ -1657,27 +1654,16 @@ modifications allowed
      # (expected to operate at stratum 2)
      # fully authenticated this time
 
-     peer 128.100.49.105 key 22 #
-suzuki.ccie.utoronto.ca
-     peer 128.8.10.1 key 4    #
-umd1.umd.edu
-     peer 192.35.82.50 key 6  #
-lilben.tn.cornell.edu
+     peer 128.100.49.105 key 22 # suzuki.ccie.utoronto.ca
+     peer 128.8.10.1 key 4    # umd1.umd.edu
+     peer 192.35.82.50 key 6  # lilben.tn.cornell.edu
 
-     keys /usr/local/etc/ntp.keys  # path for
-key file
-     trustedkey 1 2 14 15     #
-define trusted keys
-     requestkey
-15            #
-key (7) for accessing server variables
-     controlkey
-15            #
-key (6) for accessing server variables
+     keys /usr/local/etc/ntp.keys  # path for key file
+     trustedkey 1 2 14 15     # define trusted keys
+     requestkey 15            # key (7) for accessing server variables
+     controlkey 15            # key (6) for accessing server variables
 
-     authdelay
-0.000094       # authentication delay
-(Sun4c/50 IPX)
+     authdelay 0.000094       # authentication delay (Sun4c/50 IPX)
 &lt;/pre&gt;
 &lt;p&gt;There are a couple of previously unmentioned things in here. The &lt;tt&gt;keys&lt;/tt&gt; line specifies the path to the keys file (see below and the &lt;tt&gt;ntpd&lt;/tt&gt; document page for details of the file format). The &lt;tt&gt;trustedkey&lt;/tt&gt; declaration identifies those keys that are known to be uncompromised; the remainder presumably represent the expired or possibly compromised keys. Both sets of keys must be declared by key identifier in the &lt;tt&gt;ntp.keys&lt;/tt&gt; file described below. This provides a way to retire old keys while minimizing the frequency of delicate key-distribution procedures. The &lt;tt&gt;requestkey&lt;/tt&gt; line establishes the key to be used for mode-6 control messages as specified in RFC-1305 and used by the &lt;tt&gt;ntpq&lt;/tt&gt; utility program, while the &lt;tt&gt;controlkey&lt;/tt&gt; line establishes the key to be used for mode-7 private control messages used by the &lt;tt&gt;ntpdc&lt;/tt&gt; utility program. These keys are used to prevent unauthorized modification of daemon variables.&lt;/p&gt;
 &lt;p&gt;Ordinarily, the authentication delay; that is, the processing time taken between the freezing of a transmit timestamp and the actual transmission of the packet when authentication is enabled (i.e. more or less the time it takes for the DES or MD5 routine to encrypt a single block) is computed automatically by the daemon. If necessary, the delay can be overridden by the &lt;tt&gt;authdelay&lt;/tt&gt; line, which is used as a correction for the transmit timestamp. This can be computed for your CPU by the &lt;tt&gt;authspeed&lt;/tt&gt; program included in the distribution. The usage is illustrated by the following:&lt;/p&gt;
@@ -1690,24 +1676,16 @@ key (6) for accessing server variables
 &lt;p&gt;Additional utility programs included in the &lt;tt&gt;./authstuff&lt;/tt&gt; directory can be used to generate random keys, certify implementation correctness and display sample keys. As a general rule, keys should be chosen randomly, except possibly the request and control keys, which must be entered by the user as a password.&lt;/p&gt;
 &lt;p&gt;The &lt;tt&gt;ntp.keys&lt;/tt&gt; file contains the list of keys and associated key IDs the server knows about (for obvious reasons this file is better left unreadable by anyone except root). The contents of this file might look like:&lt;/p&gt;
 &lt;pre&gt;     # ntp keys file (ntp.keys)
-     1    N   
-29233E0461ECD6AE    # DES key in NTP format
-     2    M   
-RIrop8KPPvQvYotM    # md5 key as an ASCII random string
-     14   M   
-sundial           
-;  # md5 key as an ASCII string
-     15   A   
-sundial           
-;  # DES key as an ASCII string
+     1    N   29233E0461ECD6AE    # DES key in NTP format
+     2    M   RIrop8KPPvQvYotM    # md5 key as an ASCII random string
+     14   M   sundial             # md5 key as an ASCII string
+     15   A   sundial             # DES key as an ASCII string
 
      # the following 3 keys are identical
 
      10   A    SeCReT
-     10   N   
-d3e54352e5548080
-     10   S   
-a7cb86a4cba80101
+     10   N   d3e54352e5548080
+     10   S   a7cb86a4cba80101
 &lt;/pre&gt;
 &lt;p&gt;In the keys file the first token on each line indicates the key ID, the second token the format of the key and the third the key itself. There are four key formats. An &lt;tt&gt;A&lt;/tt&gt; indicates a DES key written as a 1- to-8 character string in 7-bit ASCII representation, with each character standing for a key octet (like a Unix password). An &lt;tt&gt;S&lt;/tt&gt; indicates a DES key written as a hex number in the DES standard format, with the low order bit (LSB) of each octet being the (odd) parity bit. An &lt;tt&gt;N&lt;/tt&gt; indicates a DES key again written as a hex number, but in NTP standard format with the high order bit of each octet being the (odd) parity bit (confusing enough?). An &lt;tt&gt;M&lt;/tt&gt; indicates an MD5 key written as a 1-to-31 character ASCII string in the &lt;tt&gt;A&lt;/tt&gt; format. Note that, because of the simple tokenizing routine, the characters &lt;tt&gt;&#39; &amp;lsquo;, &amp;lsquo;#&amp;rsquo;, &amp;lsquo;\t&amp;rsquo;, &amp;lsquo;\n&amp;rsquo;&lt;/tt&gt; and &lt;tt&gt;&#39;\0&amp;rsquo;&lt;/tt&gt; can&amp;rsquo;t be used in either a DES or MD5 ASCII key. Everything else is fair game, though. Key 0 (zero) is used for special purposes and should not appear in this file.&lt;/p&gt;
 &lt;p&gt;The big trouble with the authentication facility is the keys file. It is a maintenance headache and a security problem. This should be fixed some day. Presumably, this whole bag of worms goes away if/when a generic security regime for the Internet is established. An alternative with NTP Version 4 is the autokey feature, which uses random session keys and public-key cryptography and avoids the key file entirely. While this feature is not completely finished yet, details can be found in the &lt;a href=&#34;/archives/4.1.2/release&#34;&gt;Release Notes&lt;/a&gt; page.&lt;/p&gt;
@@ -1745,10 +1723,8 @@ a7cb86a4cba80101
 &lt;p&gt;Mode-6 and mode-7 messages which would modify the configuration of the server are required to be authenticated using standard NTP authentication. To enable the facilities one must, in addition to specifying the location of a keys file, indicate in the configuration file the key IDs to be used for authenticating reconfiguration commands. Hence the following fragment might be added to a configuration file to enable the mode-6 (ntpq) and mode-7 (ntpdc) facilities in the daemon:&lt;/p&gt;
 &lt;pre&gt;     # specify mode-6 and mode-7 trusted keys
 
-     requestkey 65535    # for mode-7
-requests
-     controlkey 65534    # for mode-6
-requests
+     requestkey 65535    # for mode-7 requests
+     controlkey 65534    # for mode-6 requests
 &lt;/pre&gt;
 &lt;p&gt;If the &lt;tt&gt;requestkey&lt;/tt&gt; and/or the &lt;tt&gt;controlkey&lt;/tt&gt; configuration declarations are omitted from the configuration file, the corresponding run-time reconfiguration facility is disabled.&lt;/p&gt;
 &lt;p&gt;The query programs require the user to specify a key ID and a key to use for authenticating requests to be sent. The key ID provided should be the same as the one mentioned in the configuration file, while the key should match that corresponding to the key ID in the keys file. As the query programs prompt for the key as a password, it is useful to make the request and control authentication keys typeable (in ASCII format) from the keyboard.&lt;/p&gt;
@@ -1843,10 +1819,10 @@ requests
 &lt;pre&gt;ntpq&gt; pe
      remote      refid       st t when poll reach delay offset jitter
 =====================================================================
--isipc6.cairn.ne .GPS1\.        1 u  18  64  377  65.592 -5.891  0.044
-+saicpc-isiepc2\. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
+-isipc6.cairn.ne .GPS1.        1 u  18  64  377  65.592 -5.891  0.044
++saicpc-isiepc2. pogo.udel.edu 2 u 241 128  370  10.477 -0.117  0.067
 +uclpc.cairn.net pogo.udel.edu 2 u  37  64  177 212.111 -0.551  0.187
-*pogo.udel.edu   .GPS1\.        1 u  95 128  377   0.607  0.123  0.027
+*pogo.udel.edu   .GPS1.        1 u  95 128  377   0.607  0.123  0.027
 &lt;/pre&gt;
 &lt;p&gt;The host names or addresses shown in the &lt;tt&gt;remote&lt;/tt&gt; column correspond to the server and peer entries listed in the configuration file; however, the DNS names might not agree if the names listed are not the canonical DNS names. IPv4 addresses are shown in dotted quad notation, while IPv6 addresses are shown alarmingly. The &lt;tt&gt;refid&lt;/tt&gt; column shows the current source of synchronization, while the &lt;tt&gt;st&lt;/tt&gt; column reveals the stratum, &lt;tt&gt;t&lt;/tt&gt; the type (&lt;tt&gt;u&lt;/tt&gt; = unicast, &lt;tt&gt;m&lt;/tt&gt; = multicast, &lt;tt&gt;l&lt;/tt&gt; = local, &lt;tt&gt;-&lt;/tt&gt; = don&amp;rsquo;t know), and &lt;tt&gt;poll&lt;/tt&gt; the poll interval in seconds. The &lt;tt&gt;when&lt;/tt&gt; column shows the time since the peer was last heard in seconds, while the &lt;tt&gt;reach&lt;/tt&gt; column shows the status of the reachability register (see RFC-1305) in octal. The remaining entries show the latest delay, offset and jitter in milliseconds. Note that in NTP Version 4 what used to be the &lt;tt&gt;dispersion&lt;/tt&gt; column has been replaced by the &lt;tt&gt;jitter&lt;/tt&gt; column.&lt;/p&gt;
 &lt;p&gt;The tattletale symbol at the left margin displays the synchronization status of each peer. The currently selected peer is marked &lt;code&gt;*&lt;/code&gt;, while additional peers designated acceptable for synchronization are marked &lt;code&gt;+&lt;/code&gt;. Peers marked &lt;code&gt;*&lt;/code&gt; and &lt;code&gt;+&lt;/code&gt; are included in the weighted average computation to set the local clock; the data produced by peers marked with other symbols are discarded. See the &lt;tt&gt;ntpq&lt;/tt&gt; page for the meaning of these symbols.&lt;/p&gt;
@@ -2042,7 +2018,7 @@ refresh=3172016539
 &lt;p&gt;For the Meinberg parse look into &lt;code&gt;clk_meinberg.c&lt;/code&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;raw-dcf77-data-via-serial-line&#34;&gt;Raw DCF77 Data via serial line&lt;/h4&gt;
-&lt;p&gt;RAWDCF: end=TIMEOUT&amp;gt;1.5s, sync each char (any char),generate psuedo time codes, fixed format&lt;/p&gt;
+&lt;p&gt;RAWDCF: end=TIMEOUT&amp;gt;1.5s, sync each char (any char),generate pseudo time codes, fixed format&lt;/p&gt;
 &lt;p&gt;direct DCF77 code input&lt;/p&gt;
 &lt;p&gt;In Europe it is relatively easy/cheap the receive the german time code transmitter DCF77. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. parse/clk_rawdcf.c holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.&lt;/p&gt;
 &lt;pre&gt;	The preferred tty setting is:
@@ -2065,7 +2041,7 @@ refresh=3172016539
 	time marks of a 100ms duration constitute a logical 0
 	time marks of a 200ms duration constitute a logical 1
 &lt;/pre&gt;
-&lt;p&gt;see the spec. (basically a (non-)inverted psuedo random phase shift) encoding:&lt;/p&gt;
+&lt;p&gt;see the spec. (basically a (non-)inverted pseudo random phase shift) encoding:&lt;/p&gt;
 &lt;pre&gt;	FM:
 
 	Second	Contents
@@ -2964,7 +2940,7 @@ refresh=3172016539
 &lt;p&gt;    &lt;tt&gt;TEST8&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;    Either the root delay or dispersion is greater than one second, which is highly unlikely unless the peer is synchronized to Mars.&lt;/p&gt;
 &lt;p&gt;    &lt;tt&gt;TEST9&lt;/tt&gt;&lt;/p&gt;
-&lt;p&gt;    Either the peer delay or dispersion is greater than one second, which is higly unlikely unless the peer is on Mars.&lt;/p&gt;
+&lt;p&gt;    Either the peer delay or dispersion is greater than one second, which is highly unlikely unless the peer is on Mars.&lt;/p&gt;
 &lt;p&gt;    &lt;tt&gt;TEST10&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;    The autokey protocol has detected an authentication failure. See the &lt;a href=&#34;/archives/4.1.2/authopt&#34;&gt;Authentication Options&lt;/a&gt; page.&lt;/p&gt;
 &lt;p&gt;    &lt;tt&gt;TEST11&lt;/tt&gt;&lt;/p&gt;
@@ -3057,23 +3033,24 @@ refresh=3172016539
 &lt;hr&gt;
 &lt;h4 id=&#34;options&#34;&gt;Options&lt;/h4&gt;
 &lt;dt&gt;&lt;tt&gt;-c&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Display the execution time of &lt;tt&gt;ntptime&lt;/tt&gt; itself.&lt;/dd&gt;
+&lt;p&gt;Display the execution time of &lt;tt&gt;ntptime&lt;/tt&gt; itself.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-e _est_error_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify estimated error, in microseconds.&lt;/dd&gt;
+&lt;p&gt;Specify estimated error, in microseconds.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-f _frequency_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify frequency offset, in parts per million.&lt;/dd&gt;
+&lt;p&gt;Specify frequency offset, in parts per million.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-h&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Display help information.&lt;/dd&gt;
+&lt;p&gt;Display help information.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-m _max_error_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify max possible errors, in microseconds.&lt;/dd&gt;
+&lt;p&gt;Specify max possible errors, in microseconds.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-o _offset_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify clock offset, in microseconds.&lt;/dd&gt;
+&lt;p&gt;Specify clock offset, in microseconds.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-r&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Display Unix and NTP times in raw format.&lt;/dd&gt;
+&lt;p&gt;Display Unix and NTP times in raw format.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-s _status_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify clock status. Better know what you are doing.&lt;/dd&gt;
+&lt;p&gt;Specify clock status. Better know what you are doing.&lt;/p&gt;
 &lt;dt&gt;&lt;tt&gt;-t _time_constant_&lt;/tt&gt;&lt;/dt&gt;
-&lt;dd&gt;Specify time constant, an integer in the range 0-10.&lt;/dd&gt;
+&lt;p&gt;Specify time constant, an integer in the range 0-10.&lt;/p&gt;
+
       </description>
     </item>
     
@@ -3260,7 +3237,7 @@ usndh.edu: stratum 1, offset 0.0019298, synch distance 0.011993, refid &#39;WWVB
 &lt;p&gt;Sethi, A.S., H. Gao, and D.L. Mills. Management of the Network Time Protocol (NTP) with SNMP. Computer and Information Sciences Report 98-09, University of Delaware, November 1998, 32 pp. &lt;a href=&#34;http://www.eecis.udel.edu/~mills/database/reports/ntp-mib-tr.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/~mills/database/reports/ntp-mib-tr.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Engineered refinements to radio clock drivers and interface code, as described in in the &lt;a href=&#34;/archives/4.1.2/pps&#34;&gt;Pulse-per-second (PPS) Signal Interfacing&lt;/a&gt; page and&lt;/p&gt;
+&lt;p&gt;Engineered refinements to radio clock drivers and interface code, as described in the &lt;a href=&#34;/archives/4.1.2/pps&#34;&gt;Pulse-per-second (PPS) Signal Interfacing&lt;/a&gt; page and&lt;/p&gt;
 &lt;p&gt;Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. &lt;a href=&#34;http://www.eecis.udel.edu/~mills/database/rfc/rfc2783.txt&#34;&gt;ASCII&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Mills, D.L. Precision synchronization of computer network clocks. &lt;em&gt;ACM Computer Communication Review 24, 2&lt;/em&gt; (April 1994). 28-43. &lt;a href=&#34;http://www.eecis.udel.edu/~mills/database/papers/fine.ps&#34;&gt;PostScript&lt;/a&gt; | &lt;a href=&#34;http://www.eecis.udel.edu/~mills/database/papers/fine.pdf&#34;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
