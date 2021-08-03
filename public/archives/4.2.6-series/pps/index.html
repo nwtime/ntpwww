@@ -22,7 +22,7 @@
 <meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 22:01 UTC Wednesday, January 02, 2008
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return , is normally limited to 100 microseconds." />
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return ‹cr›, is normally limited to 100 microseconds." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/4.2.6-series/pps/" /><meta property="article:section" content="archives" />
 
@@ -32,7 +32,7 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
 <meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 22:01 UTC Wednesday, January 02, 2008
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return , is normally limited to 100 microseconds.">
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return ‹cr›, is normally limited to 100 microseconds.">
 
 <meta itemprop="wordCount" content="718">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
@@ -40,7 +40,7 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 22:01 UTC Wednesday, January 02, 2008
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return , is normally limited to 100 microseconds."/>
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return ‹cr›, is normally limited to 100 microseconds."/>
 
 
 
@@ -70,6 +70,28 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -165,7 +189,7 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return <tt><cr></tt>, is normally limited to 100 microseconds. Using carefuly crafted averaging techniques, the NTP algorithms can whittle this down to a few tens of microseconds. However, some radios produce a PPS signal which can be used to improve the accuracy to few microseconds. This page describes the hardware and software necessar for NTP to use the PPS signal.</p>
+<p>Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return <tt>‹cr›</tt>, is normally limited to 100 microseconds. Using carefuly crafted averaging techniques, the NTP algorithms can whittle this down to a few tens of microseconds. However, some radios produce a PPS signal which can be used to improve the accuracy to few microseconds. This page describes the hardware and software necessar for NTP to use the PPS signal.</p>
 <p><img src="/archives/pic/gadget.jpg" alt="gif"></p>
 <p>A Gadget Box built by Chuck Hanavin</p>
 <hr>
@@ -192,35 +216,34 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -230,19 +253,11 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

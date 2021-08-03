@@ -30,7 +30,7 @@
 <meta itemprop="description" content="Last update: 10-Mar-2014 05:17 UTC
  The poll process sends NTP packets at intervals determined by the clock discipline algorithm. The process is designed to provide a sufficient update rate to maximize accuracy while minimizing network overhead. The process is designed to operate over a poll exponent range between 3 (8 s) and 17 (36 hr). The minimum and maximum poll exponent within this range can be set using the minpoll and maxpoll options of the server command, with default 6 (64 s) and 10 (1024 s), respectively.">
 
-<meta itemprop="wordCount" content="598">
+<meta itemprop="wordCount" content="597">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Poll Process"/>
 <meta name="twitter:description" content="Last update: 10-Mar-2014 05:17 UTC
@@ -64,6 +64,28 @@
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,6 +108,8 @@
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -148,7 +172,7 @@
 	<p>Last update: 10-Mar-2014 05:17 UTC</p>
 <hr>
 <p>The poll process sends NTP packets at intervals determined by the clock discipline algorithm. The process is designed to provide a sufficient update rate to maximize accuracy while minimizing network overhead. The process is designed to operate over a poll exponent range between 3 (8 s) and 17 (36 hr). The minimum and maximum poll exponent within this range can be set using the <tt>minpoll</tt> and <tt>maxpoll</tt> options of the <a href="/archives/4.2.8-series/confopt/#server-command-options"><tt>server</tt></a> command, with default 6 (64 s) and 10 (1024 s), respectively.</p>
-<p>The poll interval is managed by a heuristic algorithm developed over several years of experimentation. It depends on an exponentially weighted average of clock offset differences, called <em>clock jitter</em>, and a jiggle counter, which is initially set to zero. When a clock update is received and the offset exceeds the clock jitter by a factor of 4, the jiggle counter is increased by the poll exponent; otherwise, it is decreased by twice the poll exponent. If the jiggle counter is greater than an arbitrary threshold of 30, it is reset to 0 and the the poll exponent is increased by 1. If the jiggle counter is less than -30, it is set to 0 and the poll exponent decreased by 1. In effect, the algorithm has a relatively slow reaction to good news, but a relatively fast reaction to bad news.</p>
+<p>The poll interval is managed by a heuristic algorithm developed over several years of experimentation. It depends on an exponentially weighted average of clock offset differences, called <em>clock jitter</em>, and a jiggle counter, which is initially set to zero. When a clock update is received and the offset exceeds the clock jitter by a factor of 4, the jiggle counter is increased by the poll exponent; otherwise, it is decreased by twice the poll exponent. If the jiggle counter is greater than an arbitrary threshold of 30, it is reset to 0 and the poll exponent is increased by 1. If the jiggle counter is less than -30, it is set to 0 and the poll exponent decreased by 1. In effect, the algorithm has a relatively slow reaction to good news, but a relatively fast reaction to bad news.</p>
 <p>As an option of the <a href="/archives/4.2.8-series/confopt/#option"><tt>server</tt></a> command, instead of a single packet, the poll process can send a burst of several packets at 2-s intervals. This is designed to reduce the time to synchronize the clock at initial startup (<tt>iburst</tt>) and/or to reduce the phase noise at the longer poll intervals (<tt>burst</tt>). The <tt>iburst</tt> option is effective only when the server is unreachable, while the <tt>burst</tt> option is effective only when the server is reachable. The two options are independent of each other and both can be enabled at the same time.</p>
 <p>For the <tt>iburst</tt> option the number of packets in the burst is six, which is the number normally needed to synchronize the clock; for the <tt>burst</tt> option, the number of packets in the burst is determined by the difference between the current poll exponent and the minimum poll exponent as a power of 2. For instance, with the default minimum poll exponent of 6 (64 s), only one packet is sent for every poll, while the full number of eight packets is sent at poll exponents of 9 (512 s) or more. This insures that the average headway will never exceed the minimum headway.</p>
 <p>The burst options can result in increased load on the network if not carefully designed. Both options are affected by the provisions described on the <a href="/archives/4.2.8-series/rate">Rate Management and the Kiss-o'-Death Packet</a> page. In addition, when <tt>iburst</tt> or <tt>burst</tt> are enabled, the first packet of the burst is sent, but the remaining packets sent only when the reply to the fist packet is received. If no reply has been received after a timeout set by the <tt>minpoll</tt> option, the first packet is sent again. This means that, even if a server is unreachable, the network load is no more than at the minimum poll interval.</p>
@@ -162,35 +186,34 @@
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -200,19 +223,11 @@
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

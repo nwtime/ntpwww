@@ -30,7 +30,7 @@
 <meta itemprop="description" content="Last update: 3-Oct-2011 21:51 UTC
  Table of Contents  Introduction Autokey Subnets Subnet Group Names Secure Groups Configuration - Authentication Schemes Configuration - Identity Schemes Identity Schemes and Cryptotypes Files   Introduction This distribution includes support for the Autokey public key algorithms and protocol specified in RFC-5906 &ldquo;Network Time Protocol Version 4: Autokey Specification&rdquo;. This support is available only if the OpenSSL library has been installed and the &ndash;enable-autokey option is specified when the distribution is built.">
 
-<meta itemprop="wordCount" content="3638">
+<meta itemprop="wordCount" content="3635">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Autokey Public-Key Authentication"/>
 <meta name="twitter:description" content="Last update: 3-Oct-2011 21:51 UTC
@@ -64,6 +64,28 @@
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,6 +108,8 @@
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -166,7 +190,7 @@
 <p>Optional identity schemes described on the <a href="http://www.eecis.udel.edu/~mills/ident.html">Autokey Identity Schemes</a> page are based on cryptographic challenge/response exchanges. Optional identity schemes provide strong security against masquerade and most forms of clogging attacks. These schemes are exceptionally difficult to cryptanalyze, as the challenge/response exchange data are used only once. They are described along with an executive summary, current status, briefing slides and reading list on the <a href="http://www.eecis.udel.edu/~mills/autokey.html">Autonomous Authentication</a> page.</p>
 <p>Autokey authenticates individual packets using cookies bound to the IP source and destination addresses. The cookies must have the same IP addresses at both the server and client. For this reason operation with network address translation schemes is not possible. This reflects the intended robust security model where government and corporate NTP servers and clients are operated outside firewall perimeters.</p>
 <p>Autokey is designed to authenticate servers to clients, not the other way around as in SSH. An Autokey server can support an authentication scheme such as the Trusted Certificate (TC) scheme described in RFC 5906, while a client is free to choose between the various options. It is important to understand that these provisions are optional and that selection of which option is at the discretion of the client. If the client does not require authentication, it is free to ignore it, even if some other client of the same server elects to participate in either symmetric key or public key cryptography.</p>
-<p>Autokey uses industry standard X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library, and the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt></a> utility program in the NTP software distribution. A certificate includes the subject name of the client, the issuer name of the server, the public key of the client and the time period over which the the public and private keys are valid. All Autokey hosts have a self-signed certificate with the Autokey name as both the subject and issuer. During the protocol, additional certificates are produced with the Autokey host name as subject and the host that signs the certificate as issuer.</p>
+<p>Autokey uses industry standard X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library, and the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt></a> utility program in the NTP software distribution. A certificate includes the subject name of the client, the issuer name of the server, the public key of the client and the time period over which the public and private keys are valid. All Autokey hosts have a self-signed certificate with the Autokey name as both the subject and issuer. During the protocol, additional certificates are produced with the Autokey host name as subject and the host that signs the certificate as issuer.</p>
 <p>There are two timeouts associated with the Autokey scheme. The <em>key list timeout</em> is set by the <tt>automax</tt> command, which specifies the interval between generating new key lists by the client or server. The default timeout of about 1.1 hr is appropriate for the majority of configurations and ordinarily should not be changed. The <em>revoke timeout</em> is set by the <tt>revoke</tt> command, which specifies the interval between generating new server private values. It is intended to reduce the vulnerability to cryptanalysis; however, new values require the server to encrypt each client cookie separately. The default timeout of about 36 hr is appropriate for most servers, but might be too short for national time servers.</p>
 <h4 id="autokey-subnets">Autokey Subnets</h4>
 <p>An Autokey subnet consists of a collection of hosts configured as an acyclic, directed tree with roots one or more trusted hosts (THs) operating at the lowest stratum of the subnet. Note that the requirement that the NTP subnet be acyclic means that, if two hosts are configured with each other in symmetric modes, each must be a TH. The THs are synchronized directly or indirectly to national time services via trusted means, such as radio, satellite or telephone modem, or one or more trusted agents (TAs) of a parent subnet. NTP subnets can be nested, with the THs of a child subnet configured for one or more TAs of a parent subnet. The TAs can serve one or more child subnets, each with its own security policy and set of THs.</p>
@@ -193,9 +217,7 @@
 <p>As described on the <a href="http://www.eecis.udel.edu/~mills/ident.html">Autokey Identity Schemes</a> page, there are five identity schemes, three of which - IFF, GQ and MV - require identity files specific to each scheme. There are two types of files for each scheme, an encrypted server keys file and a nonencrypted client keys file, also called the parameters file, which usually contains a subset of the keys file.</p>
 <p>Figure 2 shows how keys and parameters are distributed to servers and clients. A TA constructs the encrypted keys file and the nonencrypted parameters file. Hosts with no dependent clients can retrieve client parameter files from an archive or web page. The <tt>ntp-keygen</tt> program can export parameter files using the <tt>-e</tt> option. By convention, the file name is the name of the secure group and must match the <tt>ident</tt> option of the <tt>crypto</tt> command or the <tt>ident</tt> option of the <tt>server</tt> command.</p>
 <p>When more than one TH Is involved in the secure group, it is convenient for the TAs and THs to use the same encrypted key files. To do this, one of the parent TAs includes the <tt>-i <em>group</em></tt> option on the <tt>ntp-keygen</tt> command line, where <em><tt>group</tt></em> is the name of the child secure group. The <tt>ntp-keygen</tt> program can export server keys files using the <tt>-q</tt> option and a chosen remote password. The files are installed on the TAs and then renamed using the name given as the first line in the file, but without the filestamp. The secure group name must match the <tt>ident</tt> option for all TAs.</p>
-<dl>
-<dd><span class="style1">In the latest Autokey version, the host name and group name are independent of each other and the <tt>host</tt> option of the <tt>crypto</tt> command is deprecated. When compatibility with older versions is required, specify the same name for both the <tt>-s</tt> and <tt>-i</tt> options.</span></dd>
-</dl>
+<p>In the latest Autokey version, the host name and group name are independent of each other and the <tt>host</tt> option of the <tt>crypto</tt> command is deprecated. When compatibility with older versions is required, specify the same name for both the <tt>-s</tt> and <tt>-i</tt> options.</p>
 <p>In special circumstances the Autokey message digest algorithm can be changed using the <tt>digest</tt> option of the <tt>crypto</tt> command. The digest algorithm is separate and distinct from the symmetric key message digest algorithm. If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>. The Autokey message digest algorithm must be the same for all participants in the NTP subnet.</p>
 <p>Returning to the example of Figure 1, Alice, Helen and Carol run run the Trusted Certificate (TC) scheme, internally, as the environment is secure and without threat from external attack, in particular a middleman masquerade. However, TH X of Carol is vulnerable to masquerade on the links between X and C and between X and S. Therefore, both parent subnet TAs C and S run an identity exchange with child subnet TH X. Both have the same encrypted keys file and X the common parameters file.</p>
 <h4 id="configuration---authentication-schemes">Configuration - Authentication Schemes</h4>
@@ -218,23 +240,21 @@
 <p><code>ntp-keygen -q passw2 &gt; file</code></p>
 <p>where <em><tt>passwd2</tt></em> is the read password for another TA. We won&rsquo;t need this file here.</p>
 <p>While the file names used for the exported files are arbitrary, it is common practice to use the name given as the first line in the file with the filestamp suppressed. Thus, the nonencryted parameters file from each TA is copied to X with this name.</p>
-<p>To complete the configuration, the TH includes the client parameters file name in the <tt>ident</tt> option of the the <tt>server</tt> command for the TA association</p>
+<p>To complete the configuration, the TH includes the client parameters file name in the <tt>ident</tt> option of the <tt>server</tt> command for the TA association:</p>
 <p><code>server 1.2.3.4 ident group</code></p>
 <p>where <em><tt>group</tt></em> is the file name given above.</p>
 <h4 id="identity-schemes-and-cryptotypes">Identity Schemes and Cryptotypes</h4>
-<p>A specific combination of authentication and identity schemes is called a <em>cryptotype</em>, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the the following codes.</p>
-<dl>
+<p>A specific combination of authentication and identity schemes is called a <em>cryptotype</em>, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the following codes.</p>
 <dt>NONE</dt>
-<dd>A client or server is type NONE if authentication is not available or not configured. Packets exchanged between client and server have no MAC.</dd>
+<p>A client or server is type NONE if authentication is not available or not configured. Packets exchanged between client and server have no MAC.</p>
 <dt>AUTH</dt>
-<dd>A client or server is type AUTH if the <tt>key</tt> option is specified with the <tt>server</tt> configuration command and the client and server keys are compatible. Packets exchanged between clients and servers have a MAC.</dd>
+<p>A client or server is type AUTH if the <tt>key</tt> option is specified with the <tt>server</tt> configuration command and the client and server keys are compatible. Packets exchanged between clients and servers have a MAC.</p>
 <dt>PC</dt>
-<dd>A client or server is type PC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and private certificate files are present. Packets exchanged between clients and servers have a MAC.</dd>
+<p>A client or server is type PC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and private certificate files are present. Packets exchanged between clients and servers have a MAC.</p>
 <dt>TC</dt>
-<dd>A client or server is type TC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and public certificate files are present. Packets exchanged between clients and servers have a MAC.</dd>
+<p>A client or server is type TC if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key and public certificate files are present. Packets exchanged between clients and servers have a MAC.</p>
 <dt>IDENT</dt>
-<dd>A client or server is type IDENT if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key, public certificate and identity scheme files are present. Packets exchanged between clients and servers have a MAC.</dd>
-</dl>
+<p>A client or server is type IDENT if the <tt>autokey</tt> option is specified with the <tt>server</tt> configuration command and compatible host key, public certificate and identity scheme files are present. Packets exchanged between clients and servers have a MAC.</p>
 <p>The compatible cryptotypes for clients and servers are listed in the following table.</p>
 <table>
 <thead>
@@ -343,35 +363,34 @@
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -381,19 +400,11 @@
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

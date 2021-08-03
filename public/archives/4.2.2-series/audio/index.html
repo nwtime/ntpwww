@@ -32,7 +32,7 @@ Last update: 18:36 UTC Thursday, July 28, 2005
 Last update: 18:36 UTC Thursday, July 28, 2005
  Table of Contents  Sound Card Drivers Shortwave Radio Drivers Autotune Modes Setup and Debugging Aids   Sound Card Drivers There are some applications in which the computer time can be disciplined to an audio signal, rather than a serial timecode and communications port or special purpose bus peripheral. This is useful in such cases where the audio signal is sent over a telephone circuit, for example, or received directly from a shortwave receiver.">
 
-<meta itemprop="wordCount" content="1706">
+<meta itemprop="wordCount" content="1705">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Reference Clock Audio Drivers"/>
 <meta name="twitter:description" content="ICOM R-72 shortwave receiver and Sure audio mixer
@@ -67,6 +67,28 @@ Last update: 18:36 UTC Thursday, July 28, 2005
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,6 +111,8 @@ Last update: 18:36 UTC Thursday, July 28, 2005
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -162,7 +186,7 @@ Last update: 18:36 UTC Thursday, July 28, 2005
 <h4 id="sound-card-drivers">Sound Card Drivers</h4>
 <p>There are some applications in which the computer time can be disciplined to an audio signal, rather than a serial timecode and communications port or special purpose bus peripheral. This is useful in such cases where the audio signal is sent over a telephone circuit, for example, or received directly from a shortwave receiver. In such cases the audio signal can be connected via an ordinary sound card or baseboard audio codec. The suite of NTP reference clock drivers currently includes three drivers suitable for these applications. They include a driver for the Inter Range Instrumentation Group (IRIG) signals produced by many radio clocks and timing devices, another for the Canadian time/frequency radio station CHU and a third for the NIST time/frequency radio stations WWV and WWVH. The radio drivers are designed to work with ordinary inexpensive shortwave radios and may be one of the least expensive ways to build a good primary time server.</p>
 <p>All three drivers make ample use of sophisticated digital signal processing algorithms designed to efficiently extract timing signals from noise and interference. The radio station drivers in particular implement optimum linear demodulation and decoding techniques, including maximum likelihood and soft-decision methods. The documentation page for each driver contains an in-depth discussion on the algorithms and performance expectations. In some cases the algorithms are further analyzed, modelled and evaluated in a technical report.</p>
-<p>Currently, the audio drivers work with with Sun operating systems and audio codecs, including SunOS 4.1.3 and Solaris from 2.6 and probably all others in between. They also work with FreeBSD from 4.1 with compatible sound card. In fact, the interface is quite generic and support for other systems, in particular the various Unix generics, should not be difficult. Volunteers are solicited.</p>
+<p>Currently, the audio drivers work with Sun operating systems and audio codecs, including SunOS 4.1.3 and Solaris from 2.6 and probably all others in between. They also work with FreeBSD from 4.1 with compatible sound card. In fact, the interface is quite generic and support for other systems, in particular the various Unix generics, should not be difficult. Volunteers are solicited.</p>
 <p>The audio drivers include a number of common features designed to groom input signals, suppress spikes and normalize signal levels. An automatic gain control (AGC) feature provides protection against overdriven or underdriven input signals. It is designed to maintain adequate demodulator signal amplitude while avoiding occasional noise spikes. In order to assure reliable operation, the signal level must be in the range where the audio gain control is effective. In general, this means the input signal level must be such as to cause the AGC to set the gain somewhere in the middle of the range from 0 to 255, as indicated in the timecode displayed by the ntpq program.</p>
 <p>The drivers operate by disciplining a logical clock based on the codec sample clock to the audio signal as received. This is done by stuffing or slipping samples as required to maintain exact frequency to the order of 0.1 PPM. In order for the driver to reliably lock on the audio signal, the sample clock frequency tolerance must be less than 250 PPM (.025 percent) for the IRIG driver and half that for the radio drivers. The largest error observed so far is about 60 PPM, but it is possible some sound cards or codecs may exceed that value.</p>
 <p>The drivers include provisions to select the input port and to monitor the input signal. The <tt>fudge flag 2</tt> selects the microphone port if set to zero or the line-in port if set to one. It does not seem useful to specify the compact disc player port. The <tt>fudge flag 3</tt> enables the input signal monitor using the previously selected output port and output gain. Both of these flags can be set in the configuration file or remotely using the <tt>ntpdc</tt> utility program.</p>
@@ -309,35 +333,34 @@ Last update: 18:36 UTC Thursday, July 28, 2005
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -347,19 +370,11 @@ Last update: 18:36 UTC Thursday, July 28, 2005
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

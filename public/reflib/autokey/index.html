@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Autonomous Authentication | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Autonomous Authentication" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+ Table of Contents  Briefing Slides Related Pages Importance of the Problem Brief Description of Work and Results Leapseconds Table Present Status Future Plans Selected Publications   Briefing Slides  NTP Security Model PDF NTP Security Algorithms PDF NTP Security Protocol PDF   Related Pages  Autonomous Configuration Autokey Protocol Autokey Identity Schemes   Importance of the Problem The missions considered in this project include autonomous networks that might be deployed from a reconnaissance vehicle over a battlefield or from a space probe over a planetary surface." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reflib/autokey/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Autonomous Authentication">
+<meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+ Table of Contents  Briefing Slides Related Pages Importance of the Problem Brief Description of Work and Results Leapseconds Table Present Status Future Plans Selected Publications   Briefing Slides  NTP Security Model PDF NTP Security Algorithms PDF NTP Security Protocol PDF   Related Pages  Autonomous Configuration Autokey Protocol Autokey Identity Schemes   Importance of the Problem The missions considered in this project include autonomous networks that might be deployed from a reconnaissance vehicle over a battlefield or from a space probe over a planetary surface.">
+
+<meta itemprop="wordCount" content="1658">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Autonomous Authentication"/>
+<meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+ Table of Contents  Briefing Slides Related Pages Importance of the Problem Brief Description of Work and Results Leapseconds Table Present Status Future Plans Selected Publications   Briefing Slides  NTP Security Model PDF NTP Security Algorithms PDF NTP Security Protocol PDF   Related Pages  Autonomous Configuration Autokey Protocol Autokey Identity Schemes   Importance of the Problem The missions considered in this project include autonomous networks that might be deployed from a reconnaissance vehicle over a battlefield or from a space probe over a planetary surface."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/reflib/" ><span class="active">Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/reflib/autokey/">Autonomous Authentication</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Autonomous Authentication</h1>
+    
+	       
+	<p><img src="/archives/pic/rabbit.gif" alt="gif"></p>
+<p>from <a href="/reflib/pictures"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/reflib/autokey/#briefing-slides">Briefing Slides</a></li>
+<li><a href="/reflib/autokey/#related-pages">Related Pages</a></li>
+<li><a href="/reflib/autokey/#importance-of-the-problem">Importance of the Problem</a></li>
+<li><a href="/reflib/autokey/#brief-description-of-work-and-results">Brief Description of Work and Results</a></li>
+<li><a href="/reflib/autokey/#leapseconds-table">Leapseconds Table</a></li>
+<li><a href="/reflib/autokey/#present-status">Present Status</a></li>
+<li><a href="/reflib/autokey/#future-plans">Future Plans</a></li>
+<li><a href="/reflib/autokey/#selected-publications">Selected Publications</a></li>
+</ul>
+<hr>
+<h4 id="briefing-slides">Briefing Slides</h4>
+<ul>
+<li>NTP Security Model <a href="/reflib/brief/autokey/autokey.pdf">PDF</a></li>
+<li>NTP Security Algorithms <a href="/reflib/brief/secalgor/secalgor.pdf">PDF</a></li>
+<li>NTP Security Protocol <a href="/reflib/brief/secproto/secproto.pdf">PDF</a></li>
+</ul>
+<hr>
+<h4 id="related-pages">Related Pages</h4>
+<ul>
+<li><a href="/reflib/autocfg">Autonomous Configuration</a></li>
+<li><a href="/reflib/proto">Autokey Protocol</a></li>
+<li><a href="/reflib/ident">Autokey Identity Schemes</a></li>
+</ul>
+<hr>
+<h4 id="importance-of-the-problem">Importance of the Problem</h4>
+<p>The missions considered in this project include autonomous networks that might be deployed from a reconnaissance vehicle over a battlefield or from a space probe over a planetary surface. Once deployed, the network must operate autonomously using an ad-hoc wireless infrastructure as servers are deployed or destroyed or the network is damaged or compromised and then repaired. In the traditional fog of war scenario, servers may be able to communicate directly only with nearby neighbors and in particular may be able to assess trust only intermittently and not always directly from a trusted source.</p>
+<p>The goal of this project is to develop and test security protocols which resist accidental or malicious attacks on the hosts deployed in the network. They must determine that received messages are authentic; that is, were actually sent by the intended source and not manufactured or modified by an intruder. In addition, they must verify the authenticity of any message using only public information and without requiring external management intervention.</p>
+<p>The network is protected by a set of cryptographic values, some of which are instantiated before deployment and some of which are generated when needed after deployment. Probably the most important value is the group key which must be instantiated in each server before deployment. A host proves to another host that it is a legitimate group member if it can prove it knows this value. In addition to the group key, every sensor has a host key used to sign messages and certificates and one or more certificates signed by the host key. While the group key must persist for the lifetime of the group, or at least for the lifetime of the mission, the host key and certificates can be refreshed from time to time.</p>
+<p>In our model a subset of hosts is endowed by some means as trusted, either directly by command or indirectly by election in case the network becomes fragmented. The remaining hosts must authenticate from the trusted hosts, directly or indirectly, using only cryptographic values already instantiated. In other words, hosts can rely on no help other than already available from other hosts via the security protocol.</p>
+<hr>
+<h4 id="brief-description-of-work-and-results">Brief Description of Work and Results</h4>
+<p>Our approach involves a cryptographically sound and efficient methodology for use in sensor networks, as well as other ubiquitous, distributed services deployed in the Internet. As demonstrated in the reports and briefings linked from this page, there is a place for Public-Key Infrastructure (PKI) schemes, but none of these schemes alone satisfies the requirements of a real-time network security model. The Photuris and ISAKMP schemes proposed by the IETF require per-association state variables, which contradicts the principles of the remote procedure call (RPC) paradigm in which hosts keep no state for a possibly large population of clients. An evaluation of the PKI model and algorithms as implemented in the OpenSSL cryptographic library leads to the conclusion that any scheme requiring every real-time message to carry a PKI digital signature could be vulnerable to a clogging attack.</p>
+<p>We have used the Network Time Protocol (NTP) software and the widely distributed NTP synchronization subnet in the Internet as a testbed for distributed protocol development and testing. Not only does the deployment, configuration and management of the NTP subnet have features in common with other distributed applications, but a synchronization service itself must be an intrinsic feature of the network infrastructure.</p>
+<p>While NTP Version 3 contains provisions to authenticate individual hosts using symmetric key cryptography, it contains no means for secure keys distribution. Public key cryptography provides for public key certificates that bind the host identification credentials to the associated keys. Using PKI key agreements and digital signatures with large client populations can cause significant performance degradations, especially in time critical applications such as NTP. In addition, there are problems unique to NTP in the interaction between the authentication and synchronization functions, since reliable key management requires reliable lifetime control and good timekeeping, while secure timekeeping requires reliable key management.</p>
+<p>A revised security model and authentication scheme called Autokey was proposed in earlier reports and papers cited at the end of this page. It has been evolved and refined over time now in its third generation after the original described in the technical report and Version 1 described in previous Internet Drafts. The protocol has been simplified and made more rugged and stable in the event of network or host disruptions. An outline of the security model is given below; additional details of the model and how the protocol operates is on the <a href="/reflib/proto">Autokey Protocol</a> page.</p>
+<p>The Autokey security model is based on multiple overlapping security compartments or groups. Each group is assigned a group key by a trusted authority and is then deployed to all group members by secure means. Autokey uses conventional IPSEC certificate trails to provide secure host authentication, but this does not provide protection against masquerade, unless the host identity is verified by other means. Autokey includes a suite of identity verification schemes based in part on zero-knowledge proofs. There are five schemes now implemented to prove identity: (1) private certificates (PC), (2) trusted certificates (TC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). These are described on the <a href="/reflib/ident">Identity Schemes</a> page.</p>
+<p>The cryptographic data used by Autokey are generated by a utility program designed for this purpose. This program, called <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt></a> in the NTP software distribution, generates several files. The lifetimes of all cryptographic values are carefully managed and frequently refreshed. Ordinarily, key lists are refreshed about once per hour and other public and private values are refreshed about once per day. The protocol design is specially tailored to make a smooth transition when these values are refreshed and to avoid vulnerabilities due to clogging and replay attacks.</p>
+<hr>
+<h4 id="leapseconds-table">Leapseconds Table</h4>
+<p>The National Institute of Science and Technology (NIST) archives an ASCII file containing the epoch for all historic and pending occasions of leap second insertion since 1972. While not strictly a security function, the Autokey scheme provides means to securely retrieve the leapseconds table from a host or peer. At present, the only function provided is to fetch the leapseconds table via the network; the daemon itself makes no use of the values. The latest version of the nanokernel software for SunOS, Alpha, FreeBSD and Linux cited below retrieves the latest TAI offset via NTP and provides this on request to client applications.</p>
+<hr>
+<h4 id="present-status">Present Status</h4>
+<p>Autokey version 2 has been implemented in a wide range of machine architectures and operating systems. It has been tested under actual and simulated attack and recovery scenarios. The current public software distribution for NTPv4 includes Autokey and also a prototype version of the Manycast autonomous configuration scheme described on the companion <a href="/reflib/autocfg">Autonomous Configuration</a> page. The distribution is available for download at <a href="http://www.ntp.org">www.ntp.org</a>.</p>
+<p>All five identity schemes described above have been implemented and tested. At present, the means to activate which one is used in practice lies in the parameters and keys selected during the key generation process. There remains some testing to explore modes of interoperation when different schemes are used by different clients and hosts in the same NTP subnet.</p>
+<hr>
+<h4 id="future-plans">Future Plans</h4>
+<p>The Autokey technology research and development process is basically mature, although refinements may be expected as the proof of concept phase continues with prototype testing in the Internet. We believe the technology is ready to exploit in other critical environments such as real sensor networks and critical mission command and control systems. However, what needs to be done first is to advance the standards track process.</p>
+<p>The Internet draft on the Autokey protocol specification has been under major revision. The latest draft has been submitted to the IETF as a RFC for review. Upon approval, it will be circulated for comment and proposed as draft standard.</p>
+<hr>
+<h4 id="selected-publications">Selected Publications</h4>
+<ol>
+<li>
+<p>Mills, D.L. The Autokey security architecture, protocol and algorithms. Electrical and Computer Engineering Technical Report 06-1-1, University of Delaware, January 2006, 59 pp. <a href="/reflib/reports/stime1/stime.pdf">PDF</a></p>
+</li>
+<li>
+<p>Adams, C., S. Farrell. Internet X.509 public key infrastructure certificate management protocols. Network Working Group Request for Comments RFC-2510, Entrust Technologies, March 1999, 30 pp.</p>
+</li>
+<li>
+<p>Housley, R., et al. Internet X.509 public key infrastructure certificate and certificate revocation list (CRL) profile. Network Working Group Request for Comments RFC-3280, RSA Laboratories, April 2002, 129 pp.</p>
+</li>
+<li>
+<p>Levine, J., and D. Mills. Using the Network Time Protocol to transmit International Atomic Time (TAI). <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="/reflib/papers/leapsecond.pdf">PDF</a></p>
+</li>
+<li>
+<p>Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="/reflib/papers/nano/nano2.ps">PostScript</a> | <a href="/reflib/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="/reflib/brief/nano/nano.ps">PostScript</a> | <a href="/reflib/brief/nano/nano.ppt">PowerPoint</a></p>
+</li>
+<li>
+<p>Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000. 23 pp. Abstract: <a href="/reflib/reports/pkey/pkeya.ps">PostScript</a> | <a href="/reflib/reports/pkey/pkeya.pdf">PDF</a>, Body: <a href="/reflib/reports/pkey/pkeyb.ps">PostScript</a> | <a href="/reflib/reports/pkey/pkeyb.pdf">PDF</a></p>
+</li>
+<li>
+<p>Mills, D.L. Cryptographic authentication for real-time network protocols. In: <em>AMS DIMACS Series in Discrete Mathematics and Theoretical Computer Science, Vol. 45</em> (1999), 135-144. Paper: <a href="/reflib/papers/dimacs.ps">PostScript</a> | <a href="/reflib/papers/dimacs.pdf">PDF</a>, Slides:
+<a href="/reflib/brief/dimacs/dimacs.pdf">PDF</a></p>
+</li>
+<li>
+<p>Mills, D.L. Authentication scheme for distributed, ubiquitous, real-time protocols. <em>Proc. Advanced Telecommunications/Information Distribution Research Program (ATIRP) Conference</em> (College Park MD, January 1997), 293-298. Paper: <a href="/reflib/papers/atirp.ps">PostScript</a> | <a href="/reflib/papers/atirp.pdf">PDF</a>, Slides: <a href="/reflib/brief/atirp/atirp.pdf">PDF</a></p>
+</li>
+<li>
+<p>Mills, D.L. Proposed authentication enhancements for the Network Time Protocol version 4. Electrical Engineering Report 96-10-3, University of Delaware, October 1996, 36 pp. Abstract: <a href="/reflib/reports/secure/securea.ps">PostScript</a> | <a href="/reflib/reports/secure/securea.pdf">PDF</a>, Body: <a href="/reflib/reports/secure/secureb.ps">PostScript</a> | <a href="/reflib/reports/secure/secureb.pdf">PDF</a></p>
+</li>
+<li>
+<p>Mills, D.L, and A. Thyagarajan. Network time protocol version 4 proposed changes. Electrical Engineering Department Report 94-10-2, University of Delaware, October 1994, 32 pp. Abstract: <a href="/reflib/reports/acts/actsa.ps">PostScript</a> | <a href="/reflib/reports/acts/actsa.pdf">PDF</a>, Body: <a href="/reflib/reports/acts/actsb.ps">PostScript</a> | <a href="/reflib/reports/acts/actsb.pdf">PDF</a></p>
+</li>
+</ol>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

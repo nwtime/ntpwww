@@ -34,7 +34,7 @@ The rabbit toots to make sure you read this.
 Last update: 10:24 PM UTC Tuesday, August 05, 2003
  Table of Contents  New Features Nasty Surprises   This release of the NTP Version 4 (NTPv4) daemon for Unix, VMS and Windows incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms. However, it continues the tradition of retaining backwards compatibility with older versions, including NTPv3 and NTPv2, but not NTPv1.">
 
-<meta itemprop="wordCount" content="2284">
+<meta itemprop="wordCount" content="2283">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="NTP Version 4 Release Notes"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
@@ -70,6 +70,28 @@ Last update: 10:24 PM UTC Tuesday, August 05, 2003
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 10:24 PM UTC Tuesday, August 05, 2003
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -181,14 +205,14 @@ Last update: 10:24 PM UTC Tuesday, August 05, 2003
 <p>This release includes support for the <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz"><em>nanokernel</em></a> precision time kernel support, which is now in stock Linux and FreeBSD kernels. If a precision time source such as a GPS timing receiver or cesium clock is available, kernel timekeeping can be improved to the order of one microsecond. The older <em>microtime</em> kernel for Digital/Compaq/HP Tru64, Digital Ultrix, as well as Sun Microsystems SunOS and Solaris, continues to be supported.</p>
 </li>
 <li>
-<p>This release includes support for Autokey public-key cryptography, which is the preferred scheme for authenticating servers to clients. Autokey Version 2 uses NTP header extension fields and protocols as described on the NTP project page linked from <a href="http://www.ntp.org">www.ntp.org</a>. This release includes support for additional message digest and digital signature schemes supported by the OpenSSL software library, as well as new identity schemes based on cryptographic challenge/responce algorithms. The new design greatly simplifies key generation and distribution and provides orderly key refreshment. Security procedures and media formats are consistent with industry standard X.509 Version 3 certificates and authority procedures. Specific improvements to the protocol include a reduction in the number of messages required and a method to protect the cookie used in client/server mode against disclosure. Additional information about Autokey cryptography is contained in the <a href="/archives/4.2.0/authopt">Authentication Options</a> page and links from there. See also the new <tt>cryptostats</tt> monitoring statistics file in the <a href="/archives/4.2.0/monopt">Monitoring Options</a> page.</p>
+<p>This release includes support for Autokey public-key cryptography, which is the preferred scheme for authenticating servers to clients. Autokey Version 2 uses NTP header extension fields and protocols as described on the NTP project page linked from <a href="http://www.ntp.org">www.ntp.org</a>. This release includes support for additional message digest and digital signature schemes supported by the OpenSSL software library, as well as new identity schemes based on cryptographic challenge/response algorithms. The new design greatly simplifies key generation and distribution and provides orderly key refreshment. Security procedures and media formats are consistent with industry standard X.509 Version 3 certificates and authority procedures. Specific improvements to the protocol include a reduction in the number of messages required and a method to protect the cookie used in client/server mode against disclosure. Additional information about Autokey cryptography is contained in the <a href="/archives/4.2.0/authopt">Authentication Options</a> page and links from there. See also the new <tt>cryptostats</tt> monitoring statistics file in the <a href="/archives/4.2.0/monopt">Monitoring Options</a> page.</p>
 </li>
 <li>
 <p>This release includes support for a discrete event simulator (DES), which allows the NTP algorithms to be tested in an embedded environment with systematic and pseudorandom network delay and oscillator wander distributions. This has been used to verify correct operation under conditions of extreme error and misconfiguration. See the <a href="/archives/4.2.0/ntpdsim"><tt>ntpdsim</tt> - Network Time Protocol (NTP) simulator</a> page.</p>
 </li>
 <li>
 <p>NTPv4 includes two new association modes which in most applications can avoid per-host configuration altogether. Both of these are based on IP multicast technology and Autokey cryptography. They provide automatic discovery, configuration and authentication of servers and clients without identifying servers or clients in advance. In multicast mode a server sends a message at fixed intervals using specified multicast group addresses, while clients listen on these addresses.</p>
-<p>Upon receiving the the first message, a client exchanges several messages with the server in order to calibrate the multicast propagation delay between the client and server and run the authentication protocol. In manycast mode a client sends a message to a specified multicast group address and expects one or more servers to reply. Using engineered algorithms, the client selects an appropriate subset of servers from the messages received and continues an ordinary client/server campaign. The manycast scheme can provide somewhat better accuracy than the multicast scheme at the price of additional network overhead. See the <a href="/archives/4.2.0/manyopt">Automatic NTP Configuration Options</a> page for further information.</p>
+<p>Upon receiving the first message, a client exchanges several messages with the server in order to calibrate the multicast propagation delay between the client and server and run the authentication protocol. In manycast mode a client sends a message to a specified multicast group address and expects one or more servers to reply. Using engineered algorithms, the client selects an appropriate subset of servers from the messages received and continues an ordinary client/server campaign. The manycast scheme can provide somewhat better accuracy than the multicast scheme at the price of additional network overhead. See the <a href="/archives/4.2.0/manyopt">Automatic NTP Configuration Options</a> page for further information.</p>
 </li>
 <li>
 <p>There are two burst mode features available where special conditions apply. One of these is enabled by the <tt>iburst</tt> keyword in the <tt>server</tt> configuration command. It is intended for cases where it is important to set the clock quickly when an association is first mobilized. The other is enabled by the <tt>burst</tt> keyword in the <tt>server</tt> configuration command. It is intended for cases where the network attachment requires an initial calling or training procedure. See the <a href="/archives/4.2.0/assoc">Association Management</a> page for further information.</p>
@@ -213,7 +237,7 @@ Last update: 10:24 PM UTC Tuesday, August 05, 2003
 <h4 id="nasty-surprises">Nasty Surprises</h4>
 <p>There are a few things different about this release that have changed since the latest NTP Version 3 release. Following are a few things to worry about:</p>
 <ol>
-<li>When both IPv4 and IPv6 address families are in use, the host&rsquo;s resolver library may not choose the intended address family if a server has an IPv4 and IPv6 address associated with the same DNS name. The solution is to use the IPv4 or IPv6 address directly in such cases or use another DNS name that only resolves to the intended address. Older versions of <tt>ntpdc</tt> will only show the IPv4 associations with the <tt>peers</tt> and other simular commands. Older versions of <tt>ntpq</tt> will show 0.0.0.0 for IPv6 associations with the <tt>peers</tt> and other simular commands.</li>
+<li>When both IPv4 and IPv6 address families are in use, the host&rsquo;s resolver library may not choose the intended address family if a server has an IPv4 and IPv6 address associated with the same DNS name. The solution is to use the IPv4 or IPv6 address directly in such cases or use another DNS name that only resolves to the intended address. Older versions of <tt>ntpdc</tt> will only show the IPv4 associations with the <tt>peers</tt> and other similar commands. Older versions of <tt>ntpq</tt> will show 0.0.0.0 for IPv6 associations with the <tt>peers</tt> and other similar commands.</li>
 <li>There is a minor change to the reference ID field of the NTP packet header when operating with IPv6 associations. In IPv4 associations this field contains the 32-bit IPv4 address of the server, in order to detect and avoid loops. In IPv6 associations this field contains the first 32-bits of a MD5 hash formed from the address (IPv4 or IPv6) each of the configured associations. Normally, this detail would not be of concern; however, the <tt>ntptrace</tt> program originally depended on that field in order to display a server traceback to the primary reference source. This program has now been replaced by a script that does the same function, but does not depend on the reference ID field. The <tt>ntpdc</tt> utility now uses a special version number to communicate with the <tt>ntpd</tt> server. The server uses this version number to select which address family to used in reply packets. The <tt>ntpdc</tt> program falls back to the older version behavior when communicating with older NTP versions.</li>
 <li>As required by Defense Trade Regulations (DTR), the cryptographic routines supporting the Data Encryption Standard (DES) have been removed from the base distribution of NTPv3. For NTPv4 a new interface has been implemented for the OpenSSL cryptographic library, which is widely available on the web at <a href="http://www.openssl.org">www.openssl.org</a>. This library replaces the library formerly available from RSA Laboratories. Besides being somewhat faster and more widely available, the OpenSSL library supports many additional cryptographic algorithms, which are now selectable at run time. Directions for using OpenSSL are in the <a href="/archives/4.2.0/build">Building and Installing the Distribution</a> page.</li>
 <li>As the result of the above, the <tt>./authstuff</tt> directory, intended as a development and testing aid for porting cryptographic routines to exotic architectures, has been removed. Testing and conformance validation tools are in the OpenSSL software distrbution.</li>
@@ -232,35 +256,34 @@ Last update: 10:24 PM UTC Tuesday, August 05, 2003
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -270,19 +293,11 @@ Last update: 10:24 PM UTC Tuesday, August 05, 2003
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

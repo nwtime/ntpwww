@@ -32,7 +32,7 @@ In particular, you can ask for satellite positions, satellite health, signal lev
  Table of Contents  Introduction Activating the Interface Storage of Messages in Shared Memory Opening the Shared Memory File Accessing the data Examples   Introduction In NMEA mode, the Oncore GPS receiver provides the user with the same information as other GPS receivers. In BINARY mode, it can provide a lot of additional information.
 In particular, you can ask for satellite positions, satellite health, signal levels, the ephemeris and the almanac, and you can set many operational parameters.">
 
-<meta itemprop="wordCount" content="1182">
+<meta itemprop="wordCount" content="1181">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Motorola ONCORE - The Shared Memory Interface"/>
 <meta name="twitter:description" content="Last update: 21-Oct-2010 23:44 UTC
@@ -67,6 +67,28 @@ In particular, you can ask for satellite positions, satellite health, signal lev
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,6 +111,8 @@ In particular, you can ask for satellite positions, satellite health, signal lev
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -182,7 +206,7 @@ In particular, you can ask for satellite positions, satellite health, signal lev
 <hr>
 <h4 id="storage-of-messages-in-shared-memory">Storage of Messages in Shared Memory</h4>
 <p>With the shared memory interface, the oncore driver (refclock_oncore) allocates space for all of the messages that it is configured to receive, and then puts each message in the appropriate slot in shared memory as it arrives from the receiver. Since there is no easy way for a client program to know when the shared memory has been updated, a sequence number is associated with each message, and is incremented when a new message arrives. With the sequence number it is easy to check through the shared memory segment for messages that have changed.</p>
-<p>The Oncore binary messages are kept in their full length, as described in the Reference manual, that is everything from the @@ prefix thru the <checksum><CR><LF>.</p>
+<p>The Oncore binary messages are kept in their full length, as described in the Reference manual, that is everything from the @@ prefix thru the <checksum>‹CR›‹LF›.</p>
 <p>The data starts at location ONE of SHMEM (NOT location ZERO).</p>
 <p>The messages are stacked in a series of variable length structures, that look like</p>
 <pre>        struct message {
@@ -205,7 +229,7 @@ In particular, you can ask for satellite positions, satellite health, signal lev
 <p>The @@Ea message contains the calculated location of the antenna, and is received once per second. However, when in timekeeping mode, the receiver is normally put in 0D mode, with the position fixed, to get better accuracy. In 0D mode no position is calculated.</p>
 </li>
 </ol>
-<p>When the SHMEM option is active, and if one of <strong>Posn2D</strong> or <strong>Posn3D</strong> is specified, one @@Ea record is hijacked each 15s, and the receiver is put back in 2D/3D mode so the the current location can be determined (for position determination, or for tracking SA). The timekeeping code is careful NOT to use the time associated with this (less accurate) 2D/3D tick in its timekeeping functions.</p>
+<p>When the SHMEM option is active, and if one of <strong>Posn2D</strong> or <strong>Posn3D</strong> is specified, one @@Ea record is hijacked each 15s, and the receiver is put back in 2D/3D mode so the current location can be determined (for position determination, or for tracking SA). The timekeeping code is careful NOT to use the time associated with this (less accurate) 2D/3D tick in its timekeeping functions.</p>
 <p>Following the initial @@Ea message are 3 additional slots for a total of four. As with the almanac, the first gets filled each time a new record becomes available, later in the code, the message is distributed to the appropriate slot. The additional slots are for messages containing 0D, 2D and 3D positions. These messages can be distinguished by different bit patterns in the last data byte of the record.</p>
 <hr>
 <h4 id="opening-the-shared-memory-file">Opening the Shared Memory File</h4>
@@ -312,35 +336,34 @@ In particular, you can ask for satellite positions, satellite health, signal lev
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -350,19 +373,11 @@ In particular, you can ask for satellite positions, satellite health, signal lev
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

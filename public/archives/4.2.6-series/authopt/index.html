@@ -34,7 +34,7 @@ Our resident cryptographer; now you see him, now you don&rsquo;t.
 Last update: 14-Apr-2010 20:49 UTC
  Table of Contents  Introduction Symmetric Key Cryptography Public Key Cryptography NTP Secure Groups Identity Schemes and Cryptotypes Configuration Examples Authentication Commands Error Codes Files   Introduction This page describes the various cryptographic authentication provisions in NTPv4. Details about the configuration commands and options are given on the Configuration Options page.">
 
-<meta itemprop="wordCount" content="3935">
+<meta itemprop="wordCount" content="3933">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Authentication Options"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
@@ -70,6 +70,28 @@ Last update: 14-Apr-2010 20:49 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 14-Apr-2010 20:49 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -197,7 +221,7 @@ Last update: 14-Apr-2010 20:49 UTC
 <hr>
 <h4 id="identity-schemes-and-cryptotypes">Identity Schemes and Cryptotypes</h4>
 <p>All configurations include a public/private host key pair and matching certificate. Absent an identity scheme, this is a Trusted Certificate (TC) scheme. There are three identity schemes, IFF, GQ and MV described on the <a href="http://www.eecis.udel.edu/%7emills/ident.html">Identity Schemes</a> page. With these schemes all servers in the group have encrypted server identity keys, while clients have nonencrypted client identity parameters. The client parameters can be obtained from a trusted agent (TA), usually one of the THs of the lower stratum group. Further information on identity schemes is on the <a href="http://www.eecis.udel.edu/~mills/ident.html">Autokey Identity Schemes</a> page.</p>
-<p>A specific combination of authentication and identity schemes is called a cryptotype, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the the following codes.</p>
+<p>A specific combination of authentication and identity schemes is called a cryptotype, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the following codes.</p>
 <dt>NONE</dt>
 <p>A client or server is type NONE if authentication is not available or not configured. Packets exchanged between client and server have no MAC.</p>
 <dt>AUTH</dt>
@@ -312,7 +336,7 @@ Last update: 14-Apr-2010 20:49 UTC
 <dt id="crypto"><tt>crypto [randfile _file_] [host _name_] [ident _name_] [pw _password_]</tt></dt>
 <p>This command requires the OpenSSL library. It activates public key cryptography and loads the required host key and public certificate. If one or more files are left unspecified, the default names are used as described below. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <tt>keysdir</tt> configuration command or default <tt>/usr/local/etc</tt>. Following are the options.</p>
 <p>    <tt>digest</tt> <tt>MD2</tt> | <tt>MD4</tt> | <tt>MD5</tt> | <tt>MDC2</tt> | <tt>RIPEMD160</tt> | <tt>SHA</tt> | <tt>SHA1</tt></p>
-<p>    Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <tt><em>name</em></tt> can be be any message digest algorithm supported by the library not exceeding 160 bits in length. However, all Autokey participants in an Autokey subnet must use the same algorithm. Note that the Autokey message digest algorithm is separate and distinct form the symmetric key message digest algorithms. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>.</p>
+<p>    Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <tt><em>name</em></tt> can be any message digest algorithm supported by the library not exceeding 160 bits in length. However, all Autokey participants in an Autokey subnet must use the same algorithm. Note that the Autokey message digest algorithm is separate and distinct form the symmetric key message digest algorithms. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>.</p>
 <p>    <tt>host <em>name</em></tt>    </p>
 <p>    Specifies the string used when constructing the names for the host, sign and certificate files generated by the <tt>ntp-keygen</tt> program with the <tt>-s <em>name</em></tt> option.</p>
 <p>    <tt>ident <em>name</em></tt></p>
@@ -378,35 +402,34 @@ Last update: 14-Apr-2010 20:49 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -416,19 +439,11 @@ Last update: 14-Apr-2010 20:49 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

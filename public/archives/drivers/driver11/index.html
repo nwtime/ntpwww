@@ -42,7 +42,7 @@ Serial Port: /dev/gps_u_; 9600 baud, 8-bits, no parity
 Features: tty_clk
  Description This driver supports the Arbiter 1088A/B Satellite Controlled Clock. The claimed accuracy of this clock is 100 ns relative to the PPS output when receiving four or more satellites.">
 
-<meta itemprop="wordCount" content="550">
+<meta itemprop="wordCount" content="551">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arbiter 1088A/B GPS Receiver"/>
 <meta name="twitter:description" content="Author: David L. Mills (mills@udel.edu)
@@ -82,6 +82,28 @@ Features: tty_clk
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,6 +126,8 @@ Features: tty_clk
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -186,15 +210,16 @@ Features: <tt>tty_clk</tt></p>
 <p>The receiver should be configured before starting the NTP daemon, in order to establish reliable position and operating conditions. It does not initiate surveying or hold mode. For use with NTP, the daylight savings time feature should be disables (<tt>D0</tt> command) and the broadcast mode set to operate in UTC (<tt>BU</tt> command).</p>
 <p>The timecode format supported by this driver is selected by the poll sequence <tt>B5</tt>, which initiates a line in the following format to be repeated once per second until turned off by the <tt>B0</tt> command.</p>
 <p>Format <tt>B5</tt> (24 ASCII printing characters):</p>
-<pre><cr><lf>i yy ddd hh:mm:ss.000bbb
-
-on-time = <cr>
-i = synchronization flag (' ' = locked, '?' = unlocked)
-yy = year of century
-ddd = day of year
-hh:mm:ss = hours, minutes, seconds
-.000 = fraction of second (not used)
-bbb = tailing spaces for fill</pre>
+<pre>
+&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;i yy ddd hh:mm:ss.000bbb
+</pre>
+<p><code>on-time</code> = ‹cr›</p>
+<p><code>i</code> = synchronization flag (<code>' '</code> = locked, <code>?</code> = unlocked)</p>
+<p><code>yy</code> = year of century</p>
+<p><code>ddd</code> = day of year</p>
+<p><code>hh:mm:ss</code> = hours, minutes, seconds</p>
+<p><code>.000</code> = fraction of second (not used)</p>
+<p><code>bbb</code> = tailing spaces for fill</p>
 <p>The alarm condition is indicated by a <code>?</code> at <code>i</code>, which indicates the receiver is not synchronized. In normal operation, a line consisting of the timecode followed by the time quality character <code>TQ</code> followed by the receiver status string <code>SR</code> is written to the clockstats file.</p>
 <p>The time quality character is encoded in IEEE P1344 standard:</p>
 <p>Format <tt>TQ</tt> (IEEE P1344 estimated worst-case time quality)</p>
@@ -210,13 +235,12 @@ A       clock unlocked, accuracy < 1 s
 B       clock unlocked, accuracy < 10 s</pre>
 <p>The status string is encoded as follows:</p>
 <p>Format <tt>SR</tt> (25 ASCII printing characters)</p>
-<pre>V=vv S=ss T=t P=pdop E=ee
-
-vv = satellites visible
-ss = relative signal strength
-t = satellites tracked
-pdop = position dilution of precision (meters)
-ee = hardware errors</pre>
+<pre>V=vv S=ss T=t P=pdop E=ee</pre>
+<p><code>vv</code> = satellites visible</p>
+<p><code>ss</code> = relative signal strength</p>
+<p><code>t</code> = satellites tracked</p>
+<p><code>pdop</code> = position dilution of precision (meters)</p>
+<p><code>ee</code> = hardware errors</p>
 <p>A three-stage median filter is used to reduce jitter and provide a dispersion measure. The driver makes no attempt to correct for the intrinsic jitter of the radio itself.</p>
 <h4 id="monitor-data">Monitor Data</h4>
 <p>When enabled by the <tt>flag4</tt> fudge flag, an additional line containing the latitude, longitude, elevation and optional deviation data is written to the <tt>clockstats</tt> file. The deviation data operates with an external pulse-per-second (PPS) input, such as a cesium oscillator or another radio clock. The PPS input should be connected to the B event channel and the radio initialized for deviation data on that channel. The deviation data consists of the mean offset and standard deviation of the external PPS signal relative the GPS signal, both in microseconds over the last 16 seconds.</p>
@@ -252,35 +276,34 @@ ee = hardware errors</pre>
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -290,19 +313,11 @@ ee = hardware errors</pre>
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

@@ -34,7 +34,7 @@ Our junior managers and the administrators.
 Last update: 03-May-2009 3:34 UTC
  Table of Contents  Introduction Poll Rate Control Burst Control Average Headway Time Guard Time The Kiss of Death Packet   Introduction This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the Configuration Options page. Details about the cryptographic authentication schemes are given on the Authentication Options page.">
 
-<meta itemprop="wordCount" content="1960">
+<meta itemprop="wordCount" content="1959">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rate Management and the Kiss-o&#39;-Death Packet"/>
 <meta name="twitter:description" content="from Pogo, Walt Kelly
@@ -70,6 +70,28 @@ Last update: 03-May-2009 3:34 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 03-May-2009 3:34 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -167,7 +191,7 @@ Last update: 03-May-2009 3:34 UTC
 <hr>
 <h4 id="introduction">Introduction</h4>
 <p>This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the <a href="/archives/4.2.6-series/confopt">Configuration Options</a> page. Details about the cryptographic authentication schemes are given on the <a href="/archives/4.2.6-series/authopt">Authentication Options</a> page. Details about the automatic server discovery schemes are described on the <a href="/archives/4.2.6-series/manyopt">Automatic Server Discovery Schemes</a> page. Additional information is available in the papers, reports, memoranda and briefings on the <a href="http://www.eecis.udel.edu/~mills/ntp.html">NTP Project</a> page.</p>
-<p>Some national time metrology laboratories, including NIST and USNO, use the <tt>ntpd</tt> reference implementation in their very busy public time servers. They operate multiple servers behind load-balancing devices to support aggregate rates up to several thousand packets per second. The servers need to defend themselves against all manner of broken implementations that can clog the server and and network infrastructure. On the other hand, friendly <tt>ntpd</tt> clients need to avoid configurations that can result in unfriendly rates.</p>
+<p>Some national time metrology laboratories, including NIST and USNO, use the <tt>ntpd</tt> reference implementation in their very busy public time servers. They operate multiple servers behind load-balancing devices to support aggregate rates up to several thousand packets per second. The servers need to defend themselves against all manner of broken implementations that can clog the server and network infrastructure. On the other hand, friendly <tt>ntpd</tt> clients need to avoid configurations that can result in unfriendly rates.</p>
 <p>There are several features in <tt>ntpd</tt> designed to defend the servers, clients and network against accidental or intentional flood attack. On the other hand these features are also used to insure <tt>ntpd</tt> is a good citizen, even if configured in unfriendly ways. The ground rules are:</p>
 <ul>
 <li>Send at the lowest rate consistent with the expected accuracy expectations.</li>
@@ -194,7 +218,7 @@ Last update: 03-May-2009 3:34 UTC
 <hr>
 <h4 id="average-headway-time">Average Headway Time</h4>
 <p>There are two features in <tt>ntpd</tt> to manage the interval between one packet and the next. These features make use of a set of counters: a client output counter for each association and a server input counter for each distinct client address. Each counter increments by a value called the headway when a packet is processed and decrements by one each second. The default minimum average headway in <tt>ntpd</tt> is 8 s, but this can be changed using the <tt>average</tt> option of the <tt>discard</tt> command, but not less than 3 (8 s).</p>
-<p>If the <tt>iburst</tt> or <tt>burst</tt> options are present, the poll algorithm sends a burst of packets instead of a single packet at each poll opportunity. The NTPv4 specification requires that bursts contain no more than eight packets; so, starting from an output counter value of zero, the maximum counter value or ouput ceiling can be no more than eight times the minimum poll interval set by the <tt>minpoll</tt> option of the <a href="/archives/4.2.6-series/confopt#server"><tt>server</tt></a> command. However, if the burst starts with a counter value other than zero, there is a potential to exceed the ceiling. The poll algorithm avoids this by computing an additional headway time so that the next packet sent will not exceed the ceiling. Additional headway time can result from Autokey protocol operations. Designs such as this are often called leaky buckets. The current headway is displayed as the headway peer variable by the <tt>ntpq</tt> <a href="/archives/4.2.6-series/ntpq#pe"><tt>rv</tt></a> command.</p>
+<p>If the <tt>iburst</tt> or <tt>burst</tt> options are present, the poll algorithm sends a burst of packets instead of a single packet at each poll opportunity. The NTPv4 specification requires that bursts contain no more than eight packets; so, starting from an output counter value of zero, the maximum counter value or output ceiling can be no more than eight times the minimum poll interval set by the <tt>minpoll</tt> option of the <a href="/archives/4.2.6-series/confopt#server"><tt>server</tt></a> command. However, if the burst starts with a counter value other than zero, there is a potential to exceed the ceiling. The poll algorithm avoids this by computing an additional headway time so that the next packet sent will not exceed the ceiling. Additional headway time can result from Autokey protocol operations. Designs such as this are often called leaky buckets. The current headway is displayed as the headway peer variable by the <tt>ntpq</tt> <a href="/archives/4.2.6-series/ntpq#pe"><tt>rv</tt></a> command.</p>
 <p>The <tt>ntpd</tt> input packet routine uses a special list of entries, one for each distinct client address found. Each entry includes an IP address, input counter and interval since the last packet arrival. The entries are ordered by interval from the smallest to the largest. As each packet arrives, the IP source address is compared to the IP address in each entry in turn. If a match is found the entry is removed and inserted first on the list. If the IP source address does not match any entry, a new entry is created and inserted first, possibly discarding the last entry on the list if it is full. Observers will note this is the same algorithm used for page replacement in virtual memory systems.</p>
 <p>In the virtual memory algorithm the entry of interest is the last, whereas here the entry of interest is the first. The input counter is decreased by the interval since it was last referenced, but not below zero. If the value of the counter plus the headway is greater than the input ceiling set by the <tt>average</tt> option, the packet is discarded. Otherwise, the counter is increased by the headway and the packet is processed. The result is, if the client maintains a maximum average headway not less than the input ceiling and transmits no more than eight packets in a burst, the input counter will not exceed the ceiling.</p>
 <hr>
@@ -215,35 +239,34 @@ Last update: 03-May-2009 3:34 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -253,19 +276,11 @@ Last update: 03-May-2009 3:34 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

@@ -34,7 +34,7 @@ Alice finds the kernel a house of cards.
 Last update: 18:40 UTC Thursday, July 28, 2005
  The technical report 2, which is a major revision and update of RFC-1589 3, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature.">
 
-<meta itemprop="wordCount" content="358">
+<meta itemprop="wordCount" content="356">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kernel Model for Precision Timekeeping"/>
 <meta name="twitter:description" content="from Pogo, Walt Kelly
@@ -70,6 +70,28 @@ Last update: 18:40 UTC Thursday, July 28, 2005
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 18:40 UTC Thursday, July 28, 2005
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -159,7 +183,7 @@ Last update: 18:40 UTC Thursday, July 28, 2005
 <p>The hybrid PLL/FLL code described in <sup><a href="#myfootnote2">2</a></sup> is included in Solaris and Digital/Compaq/HP Tru64. It includes two system calls <tt>ntp_gettime()</tt> and <tt>ntp_adjtime()</tt> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup><a href="#myfootnote1">1</a></sup> is available for Linux, FreeBSD, SunOS and Tru64; however, only the Linux and FreeBSD implementations, which do not include licensed code, are readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available at <a href="https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz">nanokernel.tar.gz</a>.</p>
 <p>The model also changes the way the system clock is adjusted in time and frequency relative to an external precision timing source, such as described in the <a href="/archives/4.2.4-series/pps">Pulse-per-second (PPS) Signal Interfacing</a> page. The NTP software daemon uses the PPS to provide synchronization limited in principle only by the accuracy and stability of the external timing source.</p>
 <h4 id="footnotes">Footnotes</h4>
-<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.html">HTML</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.pdf">PDF</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ppt">PowerPoint</a></p>
+<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.pdf">PDF</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ppt">PowerPoint</a></p>
 <p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.pdf">PDF</a>, Body: <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.pdf">PDF</a></p>
 <p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="http://www.eecis.udel.edu/%7emills/database/rfc/rfc1589.txt">ASCII</a></p>
 
@@ -171,35 +195,34 @@ Last update: 18:40 UTC Thursday, July 28, 2005
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -209,19 +232,11 @@ Last update: 18:40 UTC Thursday, July 28, 2005
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

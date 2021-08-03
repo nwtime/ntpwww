@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Analysis and Simulation of the NTP On-Wire Protocols | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Analysis and Simulation of the NTP On-Wire Protocols" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+If it walks like a duck&hellip;
+Last update: 12-May-2012
+ Table of Contents  Abstract Introduction Preliminaries Basic Symmetric Mode Interleaved Symmetric Mode Interleaved Broadcast Mode Error Detection and Recovery Measured Performance Appendix A. NTP Protocol State Machines Appendix B. The NTP Simulator Program xlev.c Command Line Options   Abstract This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reflib/onwire/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Analysis and Simulation of the NTP On-Wire Protocols">
+<meta itemprop="description" content="from Pogo, Walt Kelly
+If it walks like a duck&hellip;
+Last update: 12-May-2012
+ Table of Contents  Abstract Introduction Preliminaries Basic Symmetric Mode Interleaved Symmetric Mode Interleaved Broadcast Mode Error Detection and Recovery Measured Performance Appendix A. NTP Protocol State Machines Appendix B. The NTP Simulator Program xlev.c Command Line Options   Abstract This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes.">
+
+<meta itemprop="wordCount" content="6803">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Analysis and Simulation of the NTP On-Wire Protocols"/>
+<meta name="twitter:description" content="from Pogo, Walt Kelly
+If it walks like a duck&hellip;
+Last update: 12-May-2012
+ Table of Contents  Abstract Introduction Preliminaries Basic Symmetric Mode Interleaved Symmetric Mode Interleaved Broadcast Mode Error Detection and Recovery Measured Performance Appendix A. NTP Protocol State Machines Appendix B. The NTP Simulator Program xlev.c Command Line Options   Abstract This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/reflib/" ><span class="active">Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Analysis and Simulation of the NTP On-Wire Protocols</h1>
+    
+	       
+	<p><img src="/archives/pic/pogo3a.gif" alt="gif"></p>
+<p>from <a href="/reflib/pictures"><em>Pogo</em></a>, Walt Kelly</p>
+<p>If it walks like a duck&hellip;</p>
+<p>Last update: 12-May-2012</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/reflib/onwire/#abstract">Abstract</a></li>
+<li><a href="/reflib/onwire/#introduction">Introduction</a></li>
+<li><a href="/reflib/onwire/#preliminaries">Preliminaries</a></li>
+<li><a href="/reflib/onwire/#basic-symmetric-mode">Basic Symmetric Mode</a></li>
+<li><a href="/reflib/onwire/#interleaved-symmetric-mode">Interleaved Symmetric Mode</a></li>
+<li><a href="/reflib/onwire/#interleaved-broadcast-mode">Interleaved Broadcast Mode</a></li>
+<li><a href="/reflib/onwire/#error-detection-and-recovery">Error Detection and Recovery</a></li>
+<li><a href="/reflib/onwire/#measured-performance">Measured Performance</a></li>
+<li><a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A. NTP Protocol State Machines</a></li>
+<li><a href="/reflib/onwire/#appendix-b-the-ntp-simulator-program-ttxlevctt">Appendix B. The NTP Simulator Program <tt>xlev.c</tt></a></li>
+<li><a href="/reflib/onwire/#command-line-options">Command Line Options</a></li>
+</ul>
+<hr>
+<h4 id="abstract">Abstract</h4>
+<p>This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes. The interleaved modes provide enhanced accuracy over the basic modes by timestamping in the driver, rather than in the application layer code. A comprehensive simulation is presented which quantifies the overall error rate subject to random message errors, duplications and omissions.</p>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>The NTP protocol operations in client/server, symmetric and broadcast modes are described in the protocol specification RFC 5905. As pointed out in that document, the highest accuracy obtainable requires the use of timestamps captured as close to the media as possible; however, this requires intervention in the kernel driver or hardware device.</p>
+<p>This document describes two new modes, <em>interleaved symmetric</em> and <em>interleaved broadcast</em>, which can improve accuracy by avoiding output queuing and transmission delays. In the reference implementation the receive timestamp or <em>drivestamp</em> is captured shortly after the input device interrupt and before adding the buffer to the input queue. This avoids delays due to queuing and buffering operations. The transmit timestamp or <em>softstamp</em> is captured before the message digest is computed and before adding the buffer to the output queue. If nothing further were done, there would be additional delays due to the message digest, queuing, buffering and transmission operations.</p>
+<p>The output delays can be avoided by capturing a transmit drivestamp after the output device interrupt and sending it as the transmit timestamp in the following packet. This is especially important in the case of slow network links such as DSL cable and satellite data links. With the state machine and protocol described in this document, operation is automatic and transparent to other clients with and without interleaved capabilities.</p>
+<p>Interleaved symmetric mode is an extension of basic symmetric mode, while interleaved broadcast mode is an extension of basic broadcast mode. The interleaved modes require servers and peers to retain state, so these modes do not support client/server mode. Mode selection can be determined by a configuration option or automatically by the protocol. In all modes the protocol can detect duplicate, unsynchronized and bogus packets and, in addition, can detect packets that violate the interleaving rules.</p>
+<p>The interleaved modes described in this document have been implemented and tested in the NTP reference implementation. In the present implementation, drivestamps are captured upon return from the I/O routines. They are more accurate than the softstamps used by the original basic modes, but not as accurate as those captured by the hardware (hardstamps), as in the IEEE 1588 Precision Time Protocol (PTP).</p>
+<p>The plan for this document is first to consider general principles of correctness, error scenarios and protocol vulnerabilities. Then for each mode it describes the protocol state machine, its state variables, state transition rules and means for error detection and recovery. This is followed by a detailed description of each mode and an example. Finally, an example is presented that shows how the protocol automatically reverts to basic mode when confronted with an NTPv4 implementation that does not support interleaved modes. <a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A</a> contains a set of flow charts accompanied by a short description of each.</p>
+<p><a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A</a> contains a detailed description of the state machines in the NTPv4 reference implementation. <a href="/reflib/onwire/#appendix-b-the-ntp-simulator-program-ttxlevctt">Appendix B</a> describes a simulation program used to verify correct operation and to confirm reliable recovery from packet loss, duplicate packet, protocol restart and packets crossing in flight.</p>
+<hr>
+<h4 id="preliminaries">Preliminaries</h4>
+<p>The symmetric modes operate using a sequence of rounds, each consisting of a transmit packet followed by a receive packet, but either of both of these packets could be lost. A round is correct if both packets are correctly received. In order to verify correctness of the protocol, it is necessary to prove a liveness assertion; that is, the protocol always yields a correct round even if after an indefinite number of incorrect rounds.</p>
+<p>Let <em>P</em> be the probability of a correct round and <em>Q</em> = 1 - <em>P</em>. Then, the probability of a correct round at the _k_th round is</p>
+<p><code>correct(_k_) = _PQ&lt;sup&gt;k&lt;/sup&gt;_, (_k_ = 0, 1, ...), (1)</code></p>
+<p>so the overall success probability is the sum of (1) as <em>k</em> approaches infinity. Representing the sum as a McLaurin series yields</p>
+<p><code>P[correct] = _P_ / (1 - _Q_). (2)</code></p>
+<p>Let <em>p</em> be the probability that a packet is correctly received, then <em>P</em> = <em>p</em><sup>2</sup> and <em>Q</em> = 1 - <em>p</em><sup>2</sup>. Substituting in (2) we see that the limit approaches 1, which confirms the liveness assertion.</p>
+<p>In the on-wire protocol there are no retransmission&rsquo;s; every packet carries at least one state variable which changes for every packet sent. Timestamps derived from the system clock are guaranteed to be monotone-definite increasing, as long as packets are sent at intervals much longer than the system clock tick. In this protocol the transmit timestamp is used as a nonce, which cannot be predicted. This is insured by inserting a random fuzz in the non-significant bits of the system clock as read. In principle, a violation of monotonicity could occur if the clock was intentionally set backwards. In addition, a packet can be dropped by the network due to congestion or a transmission error.</p>
+<p>By the nature of the protocol, packets are highly unlikely to arrive out of order. They can be duplicated by the network due to collisions or link-level timeouts, or replayed by an intruder. Even if not authenticated, using the transmit timestamp as a nonce makes it highly unlikely that an intruder can manufacture a packet that results in a correct round.</p>
+<p>The use of authentication is optional; but, if it is used, it is highly unlikely an intruder can replay a modified packet or manufacture a new packet acceptable to the receiver. Whether or not authenticated, an intruder can archive old packets and replay them in an attempt to disrupt the state machine. We assume that a replay can never arrive before the original packet and that it is highly unlikely that the original packet is lost to the intended receiver but not to the intruder.</p>
+<hr>
+<h4 id="basic-symmetric-mode">Basic Symmetric Mode</h4>
+<p>Basic symmetric mode represents the current NTPv4 specification RFC 5905 supported by the reference implementation. Following is an example that illustrates typical operation in this mode starting from an unsynchronized condition.</p>
+<p><img src="/archives/pic/xlev5.gif" alt="gif"></p>
+<p><strong>Figure 1. Basic Symmetric Mode</strong></p>
+<p>Figure 1 illustrates the most general case where symmetric peers A and B independently measure the offset and delay relative to the other. Each packet transmitted is shown as an arrow with the receive timestamp at the head and the transmit timestamp at the tail. The timestamps shown are after arrival or departure of a packet and may overwrite earlier values. The shaded boxes hold timestamps captured from the system clock. The other boxes hold values copied from them, other state variables or packet headers. Those timestamps with asterisks (*) are softstamps; those without are drivestamps.</p>
+<p>The figure shows three packet header variables, <em>t<sub>org</sub></em>, <em>t<sub>rec</sub></em> and <em>t<sub>xmt</sub></em>, and three state variables <em>org</em>, <em>rec</em> and <em>aorg</em>. By convention, timestamps are shown in upper case, while state variables are shown in lower case. The state machine operates as follows. When a packet arrives, the transmit softstamp <em>t<sub>xmt</sub></em> is copied to <em>rec</em> and the receive drivestamp to <em>dst</em>. When a packet departs, <em>rec</em> is copied to <em>t<sub>org</sub></em>, <em>dst</em> to <em>t<sub>rec</sub></em> and the transmit softstamp to <em>org</em> and <em>t<sub>xmt</sub>.</em> After the state variables have been updated, the timestamps are <em>T</em><sub>1</sub> = <em>t<sub>org</sub></em> <em>T</em><sub>2</sub> = <em>t<sub>rec</sub></em>, <em>T</em><sub>3</sub> = <em>t<sub>xmt</sub></em> and <em>T</em><sub>4</sub> = <em>dst</em>. Thus,</p>
+<p><code>offset = [(_T_&lt;sub&gt;2&lt;/sub&gt; - _T_&lt;sub&gt;1&lt;/sub&gt;) + (_T_&lt;sub&gt;3&lt;/sub&gt; - _T_&lt;sub&gt;4&lt;/sub&gt;)] / 2</code></p>
+<p><code>delay = (_T_&lt;sub&gt;4&lt;/sub&gt; - _T_&lt;sub&gt;1&lt;/sub&gt;) - (_T_&lt;sub&gt;3&lt;/sub&gt; - _T_&lt;sub&gt;2&lt;/sub&gt;)</code></p>
+<p>(Note that in these equations <em>T</em><sub>1</sub> through <em>T</em><sub>4</sub> represent bound variables and not the timestamps in Figure 1 and others below.)</p>
+<p>Figure 1 applies also to client/server mode in which the server immediately returns a packet according to the above rules, but retains no state. Thus, if A is the client and B the server, the <em>T</em><sub>3</sub> timestamp follows shortly after <em>T</em><sub>2</sub> and the <em>T</em><sub>7</sub> timestamp follows shortly after <em>T</em><sub>6</sub>.</p>
+<p>In the following descriptions, the packet contents are given in the form (<em>t<sub>org</sub></em>, <em>t<sub>rec</sub></em>, <em>t<sub>xmt</sub></em>). To begin the round at <em>T</em><sub>1</sub>, peer A sends (0, 0, <em>T</em><sub>1</sub>) to B. Later, B sends (<em>T</em><sub>1</sub>, <em>T</em><sub>2</sub>, <em>T</em><sub>3</sub>) to A. At <em>T</em><sub>4</sub> the timestamps <em>T</em><sub>1</sub>, <em>T</em><sub>2</sub>, <em>T</em><sub>3</sub> and the <em>dst</em> variable <em>T</em><sub>4</sub> are available to compute the offset and delay of B relative to A. In a similar fashion at <em>T</em><sub>6</sub>, <em>T</em><sub>3</sub>, <em>T</em><sub>4</sub>, <em>t</em><sub>5</sub> and <em>T</em><sub>6</sub> are available to compute the offset and delay of A relative to B. The protocol is synchronized when both A and B have computed the offset and delay, in this case at <em>T</em><sub>6</sub>.</p>
+<p>In symmetric modes each peer independently polls the other peer, but not necessarily at identical intervals. Thus, one or the other peer might receive none, one or more than one packets between polls. This can result in lost packets and even cases where packets cross each other in flight. A peer is synchronized only when all four timestamps are available. The protocol is synchronized only when both peers are synchronized.</p>
+<p>There are three exception conditions designed to deflect invalid, duplicate, unsynchronized or bogus packets.</p>
+<ul>
+<li>A packet is invalid if (a) the packet is authenticated and the message authentication code (MAC) is invalid, (b) the packet header values violate the protocol specification, (c) the packet is a replay of the packet most recently received. In these cases the packet is discarded without updating the state variables.</li>
+<li>A packet is unsynchronized if some header timestamps have not been initialized. In this case the state variables are updated, but the timestamps are not used to calculate offset and delay.</li>
+<li>A packet is bogus ifthe packet origin timestamp <em>t<sub>org</sub></em> does not equal the origin state variable <em>org</em>; i.e., the packet does not belong to the current round. In this case the state variables are updated, but the values are not used to compute offset and delay.</li>
+</ul>
+<p>After the state variables have been updated, <em>org</em> is set to zero. Thus, all further packets, whether replays or not, will be considered bogus until the next poll is sent. As described in <a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A</a>, the bogus test detects both dropped packet and old duplicates; that is, replays of packets other than the one most recent received.</p>
+<p>An intruder can attempt to manufacture spurious packets with unrelated timestamps; however, a successful attack is not possible if the packets are authenticated. Even if not authenticated, the intruder cannot predict a valid <em>t<sub>org</sub></em>, so the best it can do is disrupt the state machine without producing valid offset and delay values. If this is repeated sufficiently often, it amounts to a successful denial-of-service attack. If authentication is used, no attack of this type can succeed. So, the best the intruder can do is to replay old packets.</p>
+<p>In basic symmetric mode, a replay of packet <em>T</em><sub>1</sub>→_T_<sub>2</sub> will be discarded by peer B as a duplicate, but in client/server mode it will cause B to send a spurious packet _T_<sub>3</sub>→_T_<sub>4</sub> to A with invalid _T_<sub>3</sub>. However, as the original _T_<sub>3</sub>→_T_<sub>4</sub> has already arrived at A and set _org_ to zero, the replay will be discarded as bogus. In basic symmetric mode, a replay of some prior _T_<sub>1</sub>→_T_<sub>2</sub> would be detected as bogus by B, while in client/server mode the resulting _T_<sub>3</sub>→_T_<sub>4</sub> will be discarded as bogus by A.</p>
+<p>Furthermore, consider what happens if packet <em>T</em><sub>3</sub>→_T_<sub>4</sub> is lost. Peer A loses a round, but later transmits _T_<sub>5</sub>→_T_<sub>6</sub> and completes the round at _T_<sub>8</sub>. On the other hand, peer B detects a bogus packet _T_<sub>5</sub>→_T_<sub>6</sub> and loses a round, but completes the next round. As a general rule, the loss of a single packet causes both peers to miss a round, but otherwise results in correct offset and delay values.</p>
+<p>Finally, assume that packets <em>T</em><sub>3</sub>→_T_<sub>4</sub> and _T_<sub>5</sub>→_T_<sub>6</sub> overlap in flight. In such a case both peers detect these as bogus and continue in the next round. If it happens that both peers use the same poll interval and continue in this phase, this would violate the liveness assertion. For this reason, the reference implementation continually adjusts the phase of each peer so that each transmission is approximately midway between transmissions of the other peer. Additional details are in <a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A</a>.</p>
+<hr>
+<h4 id="interleaved-symmetric-mode">Interleaved Symmetric Mode</h4>
+<p>In interleaved modes the transmit timestamp, here called a drivestamp, is captured after the packet has been sent, so it cannot be sent in the same packet. A solution for this is the two-step or interleaved protocol described in this section. In this variant the transmit drivestamp for one packet is actually transmitted in the immediately following packet. The trick, however, is to implement the interleaved protocol without changing the NTP packet header format, without compromising backwards compatibility and without compromising the error recovery properties. Following is a typical example of operation starting from an unsynchronized condition.</p>
+<p><img src="/archives/pic/xlev6.gif" alt="gif"></p>
+<p><strong>Figure 2. Interleaved Symmetric Mode</strong></p>
+<p>Figure 2 illustrates a typical scenario involving peers A and B. Note that the receive (even-numbered) drivestamps are available immediately after the packet has been received, but the transmit (odd-numbered) drivestamps are available only after the packet has been sent.</p>
+<p>In contrast to the basic protocol, which requires one round to calculate offset and delay, the interleaved protocol requires two rounds. The round that begins at <em>T</em><sub>1</sub> is not complete until <em>T</em><sub>8</sub> and the round that begins at <em>T</em><sub>5</sub> is not complete until <em>T</em><sub>12</sub>. However, the rate of offset/delay calculations is the same as the basic protocol. The NTP packet header fields are the same in the interleaved protocol as in the basic protocol, but carry different values.</p>
+<p>The figure shows three packet header variables, <em>t<sub>org</sub></em>, <em>t<sub>rec</sub></em> and <em>t<sub>xmt</sub></em>, and four state variables, <em>rec</em>, <em>dst</em>, <em>aorg</em> and <em>borg</em>. An additional state variable not shown is <em>xmt</em>, which is used only for duplicate detection and as a sanity check. There are two integer state variables not shown: <em>x</em>, which alternates between +1 and -1 for each packet sent, and <em>f</em>, which is used as a synchronization indicator. It is convenient to interpret the value <em>x</em> = 0 as an instance of the basic mode protocol when both basic and interleaved modes are available.</p>
+<p>When a packet is transmitted, <em>rec</em> is copied to <em>t<sub>org</sub></em> and <em>dst</em> to <em>t<sub>rec</sub></em>. If <em>x</em> = +1, the transmit drivestamp is copied to <em>aorg</em> and <em>borg</em> is copied to <em>t<sub>xmt</sub></em>. If <em>x</em> = -1, the transmit drivestamp is copied to <em>borg</em> and <em>aorg</em> is copied to <em>t<sub>xmt</sub></em>. When a packet is received, the timestamps in (1) are <em>T</em><sub>2</sub> = <em>rec</em>, <em>T</em><sub>3</sub> = <em>t<sub>xmt</sub></em>, and <em>T</em><sub>4</sub> = <em>dst</em>. If <em>x</em> = +1, <em>T</em><sub>1</sub> = <em>aorg</em>; if <em>x</em> = -1, <em>T</em><sub>1</sub> = <em>borg</em>. After this, <em>t<sub>rec</sub></em> is copied to <em>rec</em> and the receive drivestamp to <em>dst</em>.</p>
+<p>The protocol must be synchronized before carrying valid timestamps. This is done when each peer transmits a synchronization packet to the other peer which sets its <em>f</em> variable to 1. A detected error initiates a protocol restart which sets all state variables to 0, including the <em>f</em> variable, but without affecting the <em>x</em> variable.</p>
+<p>There are four exception conditions designed to deflect invalid, duplicate, unsynchronized, or bogus packets, but they are slightly different than in the basic symmetric mode.</p>
+<ul>
+<li>A packet is invalid if (a) the packet is authenticated and the message authentication code (MAC) is invalid, (b) the packet header values violate the protocol specification, (c) the packet is a replay of the packet most recently received. In these cases the packet is discarded without updating the state variables.</li>
+<li>If any packet other than a synchronization packet is received while the <em>f</em> variable is 0, the peer restarts the protocol and sends a synchronization packet.</li>
+<li>A packet is unsynchronized if some header timestamps have not been initialized. In this case the state variables are updated, but the timestamps are not used to calculate offset and delay.</li>
+<li>A packet is bogus if <em>t<sub>org</sub></em> does not match <em>T</em><sub>4</sub>; i.e., the packet does not belong to the current round. In this case the peer restarts the protocol and sends a synchronization packet.</li>
+</ul>
+<p>In Figure 2, <em>T<sub>8</sub></em> is the end of the interleaved round that begins at <em>T<sub>1</sub></em>. After the state variables have been updated, the four timestamps <em>T<sub>1</sub></em>, <em>T<sub>2</sub></em>, <em>T<sub>3</sub></em> and <em>T<sub>4</sub></em> are available to determine the offset and delay of B relative to A. The reader can verify the four timestamps <em>T<sub>3</sub></em>, <em>T<sub>4</sub></em>, <em>T<sub>5</sub></em> and <em>T<sub>6</sub></em> are available at <em>T<sub>10</sub></em> to determine the offset and delay of A relative to B.</p>
+<p>While replayed and bogus packets are detected and discarded as in basic symmetric mode, recovery generally requires two rounds, instead of one, in order to resynchronize the state variables. Additional details are in <a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A</a>.</p>
+<hr>
+<h4 id="interleaved-broadcast-mode">Interleaved Broadcast Mode</h4>
+<p>In broadcast mode the client responds to the first broadcast received by executing one round of the client/server protocol in order to calibrate the roundtrip delay. This round may be repeated at intervals as necessary. In addition, this round can be used to calibrate the difference between the time delivered via the broadcast spanning tree and the time delivered by the unicast spanning tree. This is most useful in large multicast systems using distance-vector multicasst protocol (DVMRP) or protocol-independent multicast (PIM) technology.</p>
+<p>The IEEE 1588 Precision Time Protocol (PTP) master broadcasts a <tt>Sync</tt> message to the slaves, which capture the receive timestamp <em>T</em><sub>2</sub>. Immediately thereafter the master broadcasts a <tt>Follow_up</tt> message including the transmit timestamp of the <tt>Sync</tt> message <em>T</em><sub>1</sub>. Some time later each client separately sends a <tt>Delay_req</tt> message to the master and captures the transmit timestamp <em>T</em><sub>3</sub>. The master returns a <tt>Delay_resp</tt> message containing the receive timestamp <em>T</em><sub>4</sub> for the <tt>Delay_req</tt> message. The clients collect these fourtimestamps to calculate the offset and delay as in the NTP client/server protocol (1) with the offset sign inverted.</p>
+<p>The principal difference between the interleaved broadcast protocol and PTP is that the broadcast transmit drivestamp <em>T</em><sub>1</sub> is actually sent in the following broadcast message and the remaining timestamps are obtained by the same stateless protocol used in NTP client/server modes, although slightly modified.</p>
+<p>The interleaved protocol uses the same packet header format as the basic protocol, but includes the transmit drivestamp captured in the previous packet. While softstamps are not used in the interleaved protocol, they are included to support both basic and interleaved modes with the same packet stream, as well as to detect errors in the interleaved mode. When interleaved broadcast mode is not supported, the <em>t<sub>org</sub></em> and <em>t<sub>rec</sub></em> header fields are unused and ordinarily set to zero. When interleaved broadcast mode is supported, the clients will note that <em>t<sub>org</sub></em> is nonzero and switch to interleaved mode.</p>
+<p><img src="/archives/pic/xlev7.gif" alt="gif"></p>
+<p><strong>Figure 3. Interleaved Broadcast Mode</strong></p>
+<p>Figure 3 shows a typical scenario where the clock is updated as each broadcast packet arrives at <em>T</em><sub>2</sub>, <em>T</em><sub>4</sub>, <em>T</em><sub>12</sub> and <em>T</em><sub>14</sub>. . Note that the server B alternates between_aorg_ and _borg_ only in order to simplify the implementation when supporting the multiple modes described in this document, but otherwise this distinction is unimportant.</p>
+<p>The figure shows three packet header variables, <em>t<sub>org</sub></em>, <em>t<sub>rec</sub></em> and <em>t<sub>xmt</sub></em>, and four state variables, <em>rec</em>, <em>dst</em>, <em>aorg</em> and <em>borg</em>. Although not shown, an additional state variable <em>b</em> is used as a switch and an additional state variable <em>d</em> is used as the computed roundtrip delay. As in previous descriptions, state variable <em>xmt</em> is used to detect duplicates, but not shown.</p>
+<p>The calibration round is similar to the basic client/server round. It begins when the client sends a packet to the server at <em>T</em><sub>5</sub> in the figure. When the stateless server replies at <em>T</em><sub>8</sub>, <em>t<sub>rec</sub></em> is copied to <em>rec</em> and state variable <em>b</em> is set to one. It could be that either or both packets are lost, in which case the round is tried again at the next opportunity. If Autokey is in use, it may take several rounds during which the Autokey dance verifies the server; however, <em>b</em> should be set only when the dance is complete.</p>
+<p>Upon arrival of the next broadcast packet at <em>T</em><sub>12</sub> and <em>b</em> is set, the timestamps <em>T</em><sub>1</sub> = <em>t<sub>org</sub></em>, <em>T</em><sub>2</sub> = <em>borg</em>, <em>T</em><sub>3</sub> = <em>aorg</em>, and <em>T</em><sub>4</sub> = <em>rec,</em> are used as in (1) to calculated the offset and delay <em>d</em>. When <em>d</em> has been initialized, <em>b</em> is set to zero. However, note that the sign of the offset is reversed as in PTP. The client keeps the delay to use as later broadcast packets arrive.</p>
+<p>For subsequent broadcast packets, the offset is</p>
+<p><code>offset = (_t&lt;sub&gt;org&lt;/sub&gt;_+ _d_ / 2) - _dst_</code>.</p>
+<p>An exceptional case occurs when a broadcast packet is received after the client packet at <em>T</em><sub>5</sub> and before the server packet when <em>b</em> is set. In this case the calculated delay has a negative sign, but is otherwise valid. In this case the actual delay is the calculated delay with positive sign.</p>
+<p>There are three exception conditions designed to deflect invalid, duplicate, unsynchronized, or bogus packets.</p>
+<ul>
+<li>A packet is invalid if (a) the packet is authenticated and the message authentication code (MAC) is invalid, (b) the packet header values violate the protocol specification, (c) the packet is a replay of the packet most recently received. In these cases the packet is discarded without updating the state variables.</li>
+<li>A packet is unsynchronized if some header timestamps have not been initialized. In this case the state variables are updated, but the timestamps are not used to calculate offset.</li>
+<li>Note that the difference between the transmit drivestamp <em>T</em><sub>4</sub> and corresponding softstamp <em>rec</em> (before <em>rec</em> is updated) represents the output message digest and queuing delay. If this quantity is less than zero or greater than a maximum possible digest and queuing delay, the packet is bogus and not used to calculate offset.</li>
+</ul>
+<p>In contrast to the basic and interleaved symmetric modes, interleaved broadcast mode is vulnerable to old duplicates, which can produce erroneous offset calculations. However, the result would ordinarily be considered spurious and discarded by the popcorn spike suppressor or clock state machine used in the reference implementation. This is the same means for defense used in the basic modes Additional details are in <a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A</a>.</p>
+<hr>
+<h4 id="error-detection-and-recovery">Error Detection and Recovery</h4>
+<p>In the scheme of things, error packets are rare, especially in fast LANs where propagation delays are very small and poll intervals are in the order of many seconds. However, there is one instance where this can be useful. It occurs when a peer is initially configured to operate in interleaved mode and is presented with a client capable only of basic mode.</p>
+<p><img src="/archives/pic/xlev8.gif" alt="gif"></p>
+<p><strong>Figure 4. Error Recovery in Basic Symmetric Mode</strong></p>
+<p>In Figure 4, peer A can operate only in basic interleaved mode, but peer B is initially configured in interleaved symmetric mode. When A begins operations, B stumbles along until failing the bogus test at <em>T</em><sub>10</sub>. It then checks for a bogus packet in basic interleaved mode by comparing <em>aorg</em> to <em>t<sub>org</sub></em>. If they match, the packet is legitimate in basic symmetric mode, so B continues in this mode. If they do not match, the packet is bogus in interleaved symmetric mode, so B continues in this mode. After synchronizing again, both peers clank happily along in the same mode. In principle, the reverse case is possible, but not considered here.</p>
+<hr>
+<h4 id="measured-performance">Measured Performance</h4>
+<p>The interleaved modes have been implemented and tested in the reference implementation. However, a code surveyor might find it difficult to follow the code flow, as it is intertwined with the authentication and rate management systems. There is, however, a comprehensive test and simulation program described in the in the appendices called <a href="/reflib/software/xlev.c">xlev.c</a> with header file <a href="/reflib/software/xlev.h">xlev.h</a>. It can be used to simulate all modes described in this document, as well as common error scenarios, including lost or duplicate packets, and protocol restarts. These can be controlled using a set of probability thresholds that can be specified as program options.</p>
+<p>In a convincing test the simulator was run for about a million packets in interleaved symmetric mode. with the error probabilities set to about .05 for each of duplicates, old duplicates, dropped, protocol restarts and packet crosses in flight. The results for 1,035,714 packets sent found 793,704 successful packets, 45,643 duplicate packets, 181,161 bogus packets, 54,938 protocol restarts and 56,423 dropped packets for an overall throughput of 0.77. Even in this extreme case there were no undetected errors.</p>
+<p>In interleaved modes the reference implementation uses timestamps captured at or near the device interrupt time (drivestamps). The receive drivestamp is captured upon return from the receive-packet interrupt routine and routine before the receive buffer is queued for later processing. The transmit drivestamp is captured upon return from the send-packet interrupt routine. Both timestamps are probably as accurate as possible without driver or hardware intervention.</p>
+<p>The reference implementation also captures a softstamp before the message digest routine, as well as the drivestamp captured after the send-packet routine. The difference, called the interleaved or output delay, varies from 16 μs for a dual-core, 2.8 GHz Pentium 4 running FreeBSD 6.1 to 1100 μs for a Sun Blade 1500 running Solaris 10. In the following scenarios the network is a switched Ethernet operating at 100 Mb and the NTP packet is about 1000 bits or 10 μs.</p>
+<p>On two identical Pentium 4 machines in symmetric mode, the measured output delay is 16 μs and remaining one-way delay components 45-150 μs. Two LAN segments account for 20 μs, which leaves 25-130 μs for input delay. The RMS jitter is 30-50 μs measured by the clock filter.</p>
+<p>On two identical UltraSPARC machines running Solaris 10 in symmetric mode, the measured output delay is 160 μs and remaining one-way delay components 195 μs. Two LAN segments account for 20 μs, which leaves 175 μs for input delay. The RMS jitter is 40-60 μs measured by the clock filter. A natural conclusion is that the output delay is in general quite stable and most of the jitter is contributed by the network and input delays.</p>
+<hr>
+<h4 id="appendix-a-ntp-protocol-state-machines">Appendix A. NTP Protocol State Machines</h4>
+<p>This appendix presents an overview of the protocol state machines used in the reference implementation to support the protocol modes described in this document. Simplified representations of these machines have been implemented in the NTP simulator described in <a href="/reflib/onwire/#appendix-b-the-ntp-simulator-program-ttxlevctt">Appendix B</a>. The figures in this appendix are derived almost intact from this program.</p>
+<p>A single pair of state machines is used to support both basic and interleaved protocol modes. One of the machines is for the transmit process, which runs for each transmit packet; the other is for the receive process, which runs for each receive packet. The processes can run in one of five modes: client/server, basic symmetric, interleaved symmetric, basic broadcast and interleaved broadcast. In the description here, the transmit and receive state machines run in the same mode. There is no provision to automatically switch modes. In the broadcast modes there is no provision for the initial client/server volley to calibrate the delay.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>mode</em></td>
+<td>Association Mode</td>
+</tr>
+<tr>
+<td><em>t<sub>org</sub></em></td>
+<td>Origin Timestamp</td>
+</tr>
+<tr>
+<td><em>t<sub>rec</sub></em></td>
+<td>Receive Timestamp</td>
+</tr>
+<tr>
+<td><em>t<sub>xmt</sub></em></td>
+<td>Transmit Timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table A.1 Packet Header Variables</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>rec</em></td>
+<td>Receive Timestamp</td>
+</tr>
+<tr>
+<td><em>xmt</em></td>
+<td>Transmit Timestamp</td>
+</tr>
+<tr>
+<td><em>dst</em></td>
+<td>Destination Timestamp</td>
+</tr>
+<tr>
+<td><em>aorg</em></td>
+<td>A Origin Timestamp</td>
+</tr>
+<tr>
+<td><em>borg</em></td>
+<td>B Origin Timestamp</td>
+</tr>
+<tr>
+<td><em>x</em></td>
+<td>Interleaved Switch</td>
+</tr>
+<tr>
+<td><em>f</em></td>
+<td>Synchronization Switch</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table A.2 State Variables</strong></p>
+<p>Tables A.1 and A.2 show the variables of interest in the following. They include three timestamp variables: <em>t<sub>org</sub>__, t<sub>rec</sub></em> and <em>t<sub>xmt</sub></em>, which are included in the NTP packet header, five timestamp state variables <em>xmt</em>, <em>rec</em>, <em>dst</em>, <em>aorg</em>, <em>borg</em>, and two integer state variables _x_and <em>f</em>. Some state variables are not used in some modes. By convention in the following, the pseudo-state variable <em>clock</em> designates the system clock at the time of reading.</p>
+<p>There are in general four exceptions that can occur in the following diagrams:</p>
+<ul>
+<li>Dropped - a transmitted packet is lost in the network due to congestion or data error.</li>
+<li>Duplicate - a packet is received as a duplicate of the last packet sent.</li>
+<li>Old duplicate - a packet is received as a duplicate of an earlier packet sent.</li>
+<li>Restart - the protocol state machine has restarted with fresh state variables.</li>
+</ul>
+<p>Depending on the mode, detection of these conditions can cause the loss of a packet, loss of a round or loss of two rounds.</p>
+<p><img src="/archives/pic/fig_1.gif" alt="gif"></p>
+<p><strong>Figure A.1. Transmit Process</strong></p>
+<p>Figure A.1 shows the operations of the transmit process in all five modes. Note that <em>x</em> serves both as a switch to indicate basic mode (<em>x</em> = 0) or interleaved mode (<em>x</em> = ±1) to alternate the transmit timestamp between <em>aorg</em> and <em>borg</em>. It is set at configuration time to 0 for basic mode or +1 for interleaved mode.</p>
+<p>While presented for simplicity in the figure, the clock is actually read twice. Before calling the output packet routine, the clock is read and saved as the <em>t<sub>xmt</sub></em> softstamp sent in the packet. Upon return from the output interrupt routine, the clock is read again and saved as the <em>borg</em> drivestamp to be sent in the next packet.</p>
+<p>Note that in interleaved broadcast mode <em>t<sub>org</sub></em>, ordinarily zero in previous NTP versions, is hijacked to hold the previous transmit drivestamp. This is how a broadcast client recognizes whether basic or interleaved mode is in use. Clients conforming to the NTPv4 specification ignore <em>t<sub>org</sub></em> and <em>T</em>_<sub>rec</sub>_.</p>
+<p><img src="/archives/pic/fig_2.gif" alt="gif"></p>
+<p><strong>Figure A.2. Receive Process - Broadcast Mode</strong></p>
+<p>The function of the receive process is to determine the timestamps used to calculate offset and delay. Figures A.2, A.3, A.4 and A.5 show the receive process in all modes and how the various modes are determined. Note that these figures represent segments of one routine consisting of three if/else clauses. The clause is selected by the <em>mode</em> variable in the NTP packet header and the <em>x</em> state variable. If <em>x</em> is zero, the mode is either client/server, basic symmetric or basic broadcast. If not, the mode is interleaved symmetric, since the broadcast modes, whether basic or interleaved, are determine from a packet header timestamp. In addition, an internal variable <em>err</em> is used to convey status information for later use in the sanity checks. A variable called <em>f</em> is set to 1 upon completion of an initial synchronization sequence. A routine called reset(), not shown, clears all state variables to zero with the exception of <em>x</em>.</p>
+<p>In interleaved broadcast and interleaved symmetric modes, some errors are detected by a bounds check on a delay or offset statistic. The parameter MAX is assumed somewhat less than half the poll interval, but somewhat greater than the maximum roundtrip delay.</p>
+<p>In broadcast modes only two timestamps, <em>T</em><sub>3</sub> and <em>T</em><sub>4</sub>, are required to compute offset, since the delay is computed during the client/server calibration volley. In other modes four timestamps, <em>T</em><sub>1</sub>, <em>T</em><sub>2</sub>, <em>T</em><sub>3</sub> and <em>T</em><sub>4</sub>, are required to compute offset and delay.</p>
+<p>In basic broadcast mode, <em>t<sub>org</sub></em> is zero, so the <em>t<sub>xmt</sub></em> softstamp and <em>dst</em> receive drivestamps are used to calculate offset. In interleaved broadcast mode, <em>t<sub>org</sub></em> is hijacked to hold the previous transmit drivestamp. This is how a broadcast client recognizes whether basic or interleaved mode. Clients conforming to the NTPv4 specification ignore <em>t<sub>org</sub></em> and <em>t<sub>rec</sub></em>.</p>
+<p>There are three exception conditions. At the beginning of the receive routine duplicate packets are discarded immediately without affecting the state machine. SYNC occurs when the broadcast client restarts, while DELY occurs when the first packet following a dropped packet is received. In this case the time computed from the previous transmit softstamp to the previous transmit hardstamp exceeds a credible queuing delay. In either case the timestamps are not used and only one packet is skipped. However, an old duplicate must be detected by means other than the state machine.</p>
+<p><img src="/archives/pic/fig_3.gif" alt="gif"></p>
+<p><strong>Figure A.3. Receive Process - Basic Symmetric Mode</strong></p>
+<p>Figure A.3 shows the receive process operations in client and basic symmetric modes where <em>x</em> is 0. There are three exception conditions. SYNC occurs at protocol restart, ERRR occurs as the result of a protocol error, while BOGS occurs when the packet violates the loopback test. ERRR occurs only in case of a program error or a massive barrage of multiple unrelated errors, while BOGS occurs when the origin softstamp in the packet does not match the origin softstamp for the round. This usually occurs when a packet is dropped or when packets cross in flight.</p>
+<p>If any of these conditions occur, the timestamps are not used and one or more packets are skipped. A dropped packet results in a bogus exception at the next received packet and a delay of one packet, while a protocol restart by either peer results in a delay of one packet. The other exceptions result in a delay of one round (two packets). There are no ambiguous conditions that are not detected by the state machine.</p>
+<p><img src="/archives/pic/fig_4.gif" alt="gif"></p>
+<p><strong>Figure A.4. Receive process - Interleaved Symmetric Mode</strong></p>
+<p>Figure A.4 shows the operations of the receive process in interleaved symmetric mode. The <em>x</em> variable determines which of the two origin drivestamps <em>aorg</em> or <em>borg</em>, is used. Ordinarily, it follows the same variable used a the transmit process, but if a packet is lost or the protocol is restarted, the peers will be out of phase, resulting in a bogus packet and protocol restart.</p>
+<p>There are five intricately designed exceptions. SYNC occurs in two cases when the protocol is restarted in either or both peers. HOLD occurs when one peer is waiting for the other to complete the synchronization process. As in basic symmetric mode, ERRR occurs as the result of a protocol error, while BOGS occurs when a bogus packet is received as a result of a dropped packet or crossed packets in flight. The reset() routine is called when an exception is found by peer A, for example. It sets all state variables, including <em>f</em>, to 0 without changing the <em>x</em> variable. This causes peer A to send a reset packet consisting of three zero timestamps to peer B, causing it to send a reset packet to A. When each peer receives the reset packet, it sets the <em>f</em> variable to 1. If for some reason peer B does not respond to the reset sequence, peer A continues to send the reset sequence until B does respond. When both peers have set the <em>f</em> variable to 1, operation continues normally.</p>
+<p>If any of these conditions occur, the timestamps are not used and one or more packets are skipped. A protocol restart results in a delay of three packets, or when each peer has completed one round. Packets crossed in flight result in a delay of one round, where each peer detects a bogus packet from the other. Other exceptions result in a delay of two rounds (four packets). There are no ambiguous conditions that are not detected by the state machine.</p>
+<p><img src="/archives/pic/fig_5.gif" alt="gif"></p>
+<p><strong>Figure A.5. Timestamp Order Detection</strong></p>
+<p>When the three receive process segments have complete operations, variable <em>err</em> contains the completion code. Figure A.5 shows the subsequent operations. If this code is not OK, an error has occurred and operation continues in the next round. However, even if OK there may still be errors due to invalid timestamp ordering. Especially if the frequency of lost packets and packet crosses in flight are uncomfortably high, like ten percent. This can result in some rather messy conditions where restarts occur during restarts or packet crosses in flight. These cases are detected by two rules:</p>
+<p>As long as the clocks are never set backwards, <em>T</em><sub>4</sub> must be later than <em>T</em><sub>1</sub> and <em>T</em><sub>4</sub> must be later than <em>T</em><sub>4</sub>. This is called the valid test. In the delay computation all packets must be from the same round. If packets are from different rounds, the computed delay will be less than zero or greater than one poll interval. This is called the delay test.</p>
+<p>Both tests are down for all modes, although T1 and T2 are not significant in broadcast mode.</p>
+<p>if not OK If OK, a final sanity check is performed to detect what may seem a bizarre condition when two packets in a row have been lost. If so, either <em>T</em><sub>4</sub> is less than <em>T</em><sub>1</sub> or <em>T</em><sub>3</sub> is less than <em>T</em><sub>2</sub>. This cannot happen with a monotone-definite increasing clock, so in this case operation continues in the next round. If this and all other sanity checks are passed, the offset and delay are computed and operation continues in the next round.</p>
+<hr>
+<h4 id="appendix-b-the-ntp-simulator-program-ttxlevctt">Appendix B. The NTP Simulator Program <tt>xlev.c</tt></h4>
+<p>The NTP simulation program file <a href="/reflib/software/xlev.c"><tt>xlev.c</tt></a> and header file <a href="/reflib/software/xlev.h"><tt>xlev.h</tt></a> are designed to exhaustively test the protocol state machine under conditions of random packet drops, random packet duplicates, random protocol restarts and occasions where packets cross in flight. To build, install both files and compile with <tt>gcc</tt>. A list of command line options is given below.</p>
+<p>The program supports all NTP modes, including client/server mode, basic and interleaved symmetric modes, and basic and interleaved broadcast modes, although not all random functions are supported in client/server mode. It supports two peers A and B using the state machines described in <a href="/reflib/onwire/#appendix-a-ntp-protocol-state-machines">Appendix A</a>. In symmetric modes, peer A sends a packet to peer B, then B sends a packet to A. In broadcast modes, server A sends a packet to client B, but B sends no packets. Operation continues in this way for a specified number of rounds. When complete the program displays the number of packets sent, number of correct rounds and number of error rounds. An error round indicates that a the protocol state machine detected a condition where the offset/delay could not be reliably determined..</p>
+<p>The program can produce a trace with one line after each received packet event. The format of this line is:</p>
+<p><code>nnnnn c pkt dd dd dd st dd dd dd dd dd f ts dd dd dd dd code</code>.</p>
+<p>where <em><tt>nnnnn</tt></em> shows the simulated time for the event, in seconds, while <em><tt>c</tt></em> designates which peer receiving the event, A or B. In all but broadcast client mode, the trace lines alternate between A and B. The three decimal fields following <tt>pkt</tt> are the packet header fields in the order origin (<em>t<sub>org</sub></em>), receive (<em>t<sub>rec</sub></em>) and transmit (<em>t<sub>xmt</sub></em>). The five decimal fields following <tt>st</tt> are the state variables in the order receive (<em>rec</em>) , transmit (<em>xmt</em>), destination (<em>dst</em>), a-origin (<em>aorg</em>) and b-origin (<em>borg</em>). The single letter <em><tt>f</tt></em> shows the flags variable in hex. See the <tt>xlev.h</tt> file for decoding. The four decimal fields following <tt>ts</tt> are the timestamps in the order origin (<em>t</em><sub>1</sub>), receiver (<em>t</em><sub>2</sub>), transmit (<em>t</em><sub>3</sub>) and destination (<em>t</em><sub>4</sub>). The <em><tt>code</tt></em> string specifies the disposition of the packet with values:</p>
+<dt><tt>ok</tt></dt>
+<p>The timestamps are valid and in the correct order.</p>
+<dt><tt>duplicate</tt></dt>
+<p>The packet is a duplicate of the immediately preceding packet sent to the same peer.</p>
+<dt><tt>bogus</tt></dt>
+<p>The packet failed the loopback test.</p>
+<dt><tt>sync</tt></dt>
+<p>The protocol has not yet synchronized.</p>
+<dt><tt>holdoff</tt></dt>
+<p>The protocol is in a temporary hold-off state.</p>
+<dt><tt>dropped</tt></dt>
+<p>The packet has been dropped.</p>
+<dt><tt>not ready</tt></dt>
+<p>A packet is received by this peer before the first packet has been sent.</p>
+<dt><tt>invalid</tt></dt>
+<p>The timestamp sequence order is incorrect; i.e., the destination timestamp is received later than the origin timestamp. This can happen in some modes when two successive packets are dropped.</p>
+<dt><tt>delay</tt></dt>
+<p>The calculated delay is less than zero or greater than the maximum anticipated roundtrip time.</p>
+<dt><tt>offset</tt></dt>
+<p>The magnitude of the calculated offset is greater than the poll interval.</p>
+<dt><tt>error</tt></dt>
+<p>All sanity checks have been passed, but the timestamp sequence order is incorrect. This should never happen, as it indicated a failure of the design.</p>
+<p>In all except the <tt>ok</tt> case, the packet is dropped before the timestamps are used for offset/delay calculation.</p>
+<hr>
+<h4 id="command-line-options">Command Line Options</h4>
+<p>The following options can be used on the command line. Probabilities are specified as a fraction in the range 0 to 1, with default 0. The poll intervals default to 8 s. An occasional instance of a packet crossing in flight can be created by specifying poll intervals that are relatively prime. The <tt>-d</tt>, <tt>-p</tt> and <tt>-r</tt> options are not mutually exclusive and can be present on the same line.</p>
+<dt><tt>-a</tt></dt>
+<p>Specify the poll interval for the A peer.</p>
+<dt><tt>-b</tt></dt>
+<p>Specify the poll interval for the B peer.</p>
+<dt><tt>-d</tt> <_prob_></dt>
+<p>Specify he probability that the last packet sent will by duplicated.</p>
+<dt><tt>-m</tt> <_mode_></dt>
+<p>Specify the modes of A and B. Mode c is client/server, where A is the client and B the server; mode s is symmetric, where A and B are peers; mode b is broadcast, where A is the client and B the server. The default is s.</p>
+<dt><tt>-o</tt> <_prob_></dt>
+<p>Specify the probability that the packet before the last one sent will be duplicated.</p>
+<dt><tt>-p</tt> <_prob_></dt>
+<p>Specify the probability that a packet will be dropped.</p>
+<dt><tt>-r</tt> <_prob_></dt>
+<p>Specify the probability that the protocol will be restarted.</p>
+<dt><tt>-s</tt> <_maxsim_></dt>
+<p>Specify the maximum number of rounds in the simulation. The default is 40.</p>
+<dt><tt>-t</tt></dt>
+<p>Enable packet trace. The default is disable.</p>
+<dt><tt>-x</tt></dt>
+<p>Enable interleaved mode. The default is basic mode.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

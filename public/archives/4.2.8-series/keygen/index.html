@@ -70,6 +70,28 @@ Last update: 24-Jul-2018 07:27 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 24-Jul-2018 07:27 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -186,46 +210,44 @@ Last update: 24-Jul-2018 07:27 UTC
 <p>Additional information on trusted groups and identity schemes is on the <a href="/archives/4.2.8-series/autokey">Autokey Public-Key Authentication</a> page.</p>
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
-<dl>
 <dt><tt>-b _modulus_</tt></dt>
-<dd>Set the modulus for generating identity keys to _modulus_ bits. The modulus defaults to 256, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</dd>
+<p>Set the modulus for generating identity keys to <em>modulus</em> bits. The modulus defaults to 256, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
 <dt><tt>-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]</tt></dt>
-<dd>Select certificate digital signature and message digest scheme. Note that RSA schemes must be used with an RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <tt>RSA-MD5</tt>. If compatibility with FIPS 140-2 is required, either the <tt>DSA-SHA</tt> or <tt>DSA-SHA1</tt> scheme must be used.</dd>
+<p>Select certificate digital signature and message digest scheme. Note that RSA schemes must be used with an RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <tt>RSA-MD5</tt>. If compatibility with FIPS 140-2 is required, either the <tt>DSA-SHA</tt> or <tt>DSA-SHA1</tt> scheme must be used.</p>
 <dt><tt>-C _cipher_</tt></dt>
-<dd>Select the OpenSSL cipher to use for password-protected keys. The <tt>openssl -h</tt> command provided with OpenSSL displays available ciphers. The default without this option is <tt>des-ede3-cbc</tt>.</dd>
+<p>Select the OpenSSL cipher to use for password-protected keys. The <tt>openssl -h</tt> command provided with OpenSSL displays available ciphers. The default without this option is <tt>des-ede3-cbc</tt>.</p>
 <dt><tt>-d</tt></dt>
-<dd>Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.</dd>
+<p>Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.</p>
 <dt><tt>-e</tt></dt>
-<dd>Extract the IFF or GQ public parameters from the <tt>IFFkey</tt> or <tt>GQkey</tt> keys file previously specified. Send the unencrypted data to the standard output stream <tt>stdout</tt>.</dd>
+<p>Extract the IFF or GQ public parameters from the <tt>IFFkey</tt> or <tt>GQkey</tt> keys file previously specified. Send the unencrypted data to the standard output stream <tt>stdout</tt>.</p>
 <dt><tt>-G</tt></dt>
-<dd>Generate a new encrypted GQ key file for the Guillou-Quisquater (GQ) identity scheme. This option is mutually exclusive with the <tt>-I</tt> and <tt>-V</tt> options.</dd>
+<p>Generate a new encrypted GQ key file for the Guillou-Quisquater (GQ) identity scheme. This option is mutually exclusive with the <tt>-I</tt> and <tt>-V</tt> options.</p>
 <dt><tt>-H</tt></dt>
-<dd>Generate a new encrypted RSA public/private host key file.</dd>
+<p>Generate a new encrypted RSA public/private host key file.</p>
 <dt><tt>-i _group_</tt></dt>
-<dd>Set the optional Autokey group name to <tt>_group_</tt>. This is used in the identity scheme parameter file names. In that role, the default is the host name if no group is provided. The group name, if specified using <tt>-i</tt> or using <tt>-s</tt> following an <tt>@</tt> character, is also used in certificate subject and issuer names in the form <tt>_host_@_group_</tt> and should match the group specified via <tt>crypto ident</tt> or <tt>server ident</tt> in ntpd's configuration file.</dd>
+<p>Set the optional Autokey group name to <tt><em>group</em></tt>. This is used in the identity scheme parameter file names. In that role, the default is the host name if no group is provided. The group name, if specified using <tt>-i</tt> or using <tt>-s</tt> following an <tt>@</tt> character, is also used in certificate subject and issuer names in the form <tt><em>host</em>@<em>group</em></tt> and should match the group specified via <tt>crypto ident</tt> or <tt>server ident</tt> in ntpd&rsquo;s configuration file.</p>
 <dt><tt>-I</tt></dt>
-<dd>Generate a new encrypted IFF key file for the Schnorr (IFF) identity scheme. This option is mutually exclusive with the <tt>-G</tt> and <tt>-V</tt> options.</dd>
+<p>Generate a new encrypted IFF key file for the Schnorr (IFF) identity scheme. This option is mutually exclusive with the <tt>-G</tt> and <tt>-V</tt> options.</p>
 <dt><tt>-l _days_</tt></dt>
-<dd>Set the lifetime for certificates to <tt>_days_</tt>. The default lifetime is one year (365 d).</dd>
+<p>Set the lifetime for certificates to <tt><em>days</em></tt>. The default lifetime is one year (365 d).</p>
 <dt><tt>-m _modulus_</tt></dt>
-<dd>Set the modulus for generating files to _modulus_ bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</dd>
+<p>Set the modulus for generating files to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
 <dt><tt>-M</tt></dt>
-<dd>Generate a new keys file containing 10 MD5 keys and 10 SHA keys. An MD5 key is a string of 20 random printable ASCII characters, while a SHA key is a string of 40 random hex digits. The file can be edited using a text editor to change the key type or key content. This option is mutually exclusive with all other options.</dd>
+<p>Generate a new keys file containing 10 MD5 keys and 10 SHA keys. An MD5 key is a string of 20 random printable ASCII characters, while a SHA key is a string of 40 random hex digits. The file can be edited using a text editor to change the key type or key content. This option is mutually exclusive with all other options.</p>
 <dt><tt>-P</tt></dt>
-<dd>Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates. Note: the PC identity scheme is not recommended for new installations.</dd>
+<p>Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates. Note: the PC identity scheme is not recommended for new installations.</p>
 <dt><tt>-p _passwd_</tt></dt>
-<dd>Set the password for reading and writing encrypted files to <tt>_passwd_</tt>. These include the host, sign and identify key files. By default, the password is the string returned by the Unix <tt>gethostname()</tt> routine.</dd>
+<p>Set the password for reading and writing encrypted files to <tt><em>passwd</em></tt>. These include the host, sign and identify key files. By default, the password is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
 <dt><tt>-q _passwd_</tt></dt>
-<dd>Set the password for writing encrypted IFF, GQ and MV identity files redirected to <tt>stdout</tt> to <tt>_passwd_</tt>=. In effect, these files are decrypted with the <tt>-p</tt> password, then encrypted with the <tt>-q</tt> password. By default, the password is the string returned by the Unix <tt>gethostname()</tt> routine.</dd>
+<p>Set the password for writing encrypted IFF, GQ and MV identity files redirected to <tt>stdout</tt> to <tt><em>passwd</em></tt>=. In effect, these files are decrypted with the <tt>-p</tt> password, then encrypted with the <tt>-q</tt> password. By default, the password is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
 <dt><tt>-S [ RSA | DSA ]</tt></dt>
-<dd>Generate a new encrypted public/private sign key file of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <tt>DSA</tt>.</dd>
+<p>Generate a new encrypted public/private sign key file of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <tt>DSA</tt>.</p>
 <dt><tt>-s _host_[@_group_]</tt></dt>
-<dd>Specify the Autokey host name, where <tt>_host_</tt> is the host name and <tt>_group_</tt> is the optional group name. The host name, and if provided, group name are used in <tt>_host_@_group_</tt> form as certificate subject and issuer. Specifying <tt>-s @_group_</tt> is allowed, and results in leaving the host name unchanged, as with <tt>-i _group_</tt>. The group name, or if no group is provided, the host name are also used in the file names of IFF, GQ, and MV identity scheme parameter files. If <tt>_host_</tt> is not specified, the default host name is the string returned by the <tt>gethostname()</tt> routine.</dd>
+<p>Specify the Autokey host name, where <tt><em>host</em></tt> is the host name and <tt><em>group</em></tt> is the optional group name. The host name, and if provided, group name are used in <tt><em>host</em>@<em>group</em></tt> form as certificate subject and issuer. Specifying <tt>-s @<em>group</em></tt> is allowed, and results in leaving the host name unchanged, as with <tt>-i <em>group</em></tt>. The group name, or if no group is provided, the host name are also used in the file names of IFF, GQ, and MV identity scheme parameter files. If <tt><em>host</em></tt> is not specified, the default host name is the string returned by the <tt>gethostname()</tt> routine.</p>
 <dt><tt>-T</tt></dt>
-<dd>Generate a trusted certificate. By default, the program generates nontrusted certificates.</dd>
+<p>Generate a trusted certificate. By default, the program generates nontrusted certificates.</p>
 <dt><tt>-V _nkeys_</tt></dt>
-<dd>Generate <tt>nkeys</tt> encrypted server keys for the Mu-Varadharajan (MV) identity scheme. This option is mutually exclusive with the <tt>-I</tt> and <tt>-G</tt> options. Note: support for this option should be considered a work in progress.</dd>
-</dl>
+<p>Generate <tt>nkeys</tt> encrypted server keys for the Mu-Varadharajan (MV) identity scheme. This option is mutually exclusive with the <tt>-I</tt> and <tt>-G</tt> options. Note: support for this option should be considered a work in progress.</p>
 <hr>
 <h4 id="random-seed-file">Random Seed File</h4>
 <p>All cryptographically sound key generation schemes must have means to randomize the entropy seed used to initialize the internal pseudo-random number generator used by the OpenSSL library routines. If a site supports <tt>ssh</tt>, it is very likely that means to do this are already available. The entropy seed used by the OpenSSL library is contained in a file, usually called <tt>.rnd</tt>, which must be available when starting the <tt>ntp-keygen</tt> program or <tt>ntpd</tt> daemon.</p>
@@ -257,35 +279,34 @@ Last update: 24-Jul-2018 07:27 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -295,19 +316,11 @@ Last update: 24-Jul-2018 07:27 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

@@ -34,7 +34,7 @@ Make sure who your friends are.
 Last update: 31-Jan-2014 06:54 UTC
  Table of Contents  Association Modes Client/Server Mode Symmetric Active/Passive Mode Broadcast/Multicast Modes Manycast and Pool Modes Poll Interval Management Burst Options   Association Modes This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: persistent, preemptable and ephemeral. Persistent associations are mobilized by a configuration command and never demobilized.">
 
-<meta itemprop="wordCount" content="1829">
+<meta itemprop="wordCount" content="1828">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Association Management"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
@@ -70,6 +70,28 @@ Last update: 31-Jan-2014 06:54 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 31-Jan-2014 06:54 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -167,7 +191,7 @@ Last update: 31-Jan-2014 06:54 UTC
 </ul>
 <hr>
 <h4 id="association-modes">Association Modes</h4>
-<p>This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: <em>persistent</em>, <em>preemptable</em> and <em>ephemeral</em>. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the <tt>preempt</tt> option or upon arrival of an automatic server discovery packet. They are are demobilized by timeout or when preempted by a &ldquo;better&rdquo; server, as described on the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery Schemes</a> page. Ephemeral associations are mobilized upon arrival of broadcast or multicast server packets and demobilized by timeout.</p>
+<p>This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: <em>persistent</em>, <em>preemptable</em> and <em>ephemeral</em>. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the <tt>preempt</tt> option or upon arrival of an automatic server discovery packet. They are demobilized by timeout or when preempted by a &ldquo;better&rdquo; server, as described on the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery Schemes</a> page. Ephemeral associations are mobilized upon arrival of broadcast or multicast server packets and demobilized by timeout.</p>
 <p>Ordinarily, successful mobilization of ephemeral associations requires the server to be cryptographically authenticated to the client. This can be done using either symmetric key or Autokey public key cryptography, as described on the <a href="/archives/4.2.8-series/authentic">Authentication Support</a> page.</p>
 <p>There are three principal modes of operation in NTP: client/server, symmetric active/passive and broadcast/multicast. There are three automatic server discovery schemes in NTP: broadcast/multicast, manycast and pool described on the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery Schemes</a> page. In addition, the <a href="/archives/4.2.8-series/assoc/#burst-options">burst options</a> and <a href="/archives/4.2.8-series/orphan">orphan mode</a> can be used in appropriate cases.</p>
 <p>Following is a summary of the operations in each mode. Note that reference to option applies to the commands described on the <a href="/archives/4.2.8-series/confopt">Server Commands and Options</a> page. See that page for applicability and defaults.</p>
@@ -216,35 +240,34 @@ Last update: 31-Jan-2014 06:54 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -254,19 +277,11 @@ Last update: 31-Jan-2014 06:54 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 
