@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Internet Research Laboratory | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Internet Research Laboratory" />
+<meta property="og:description" content="The Okefenokee Swamp, Walt Kelly
+Pogo Possum, our mascot, was created by Walt Kelly, who invented a delicious menagerie of swamp creatures. All of the machines on our DCnet research network 128.4 are named after these creatures. The initials DC stand for District of Columbia, Distributed Computing, Drastically Corrupted or Direct Current, depending on the mood of the audience and voltage of the speaker.
+Table of Contents  Briefing Slides General Description   Briefing Slides  CAIRN/DARTnet Collaboration PDF DCnet Research Network PDF   General Description The Internetworking Research Laboratory (IRL) is in 121 Evans Hall, geographic coordinates 39:40:48." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reflib/lab/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Internet Research Laboratory">
+<meta itemprop="description" content="The Okefenokee Swamp, Walt Kelly
+Pogo Possum, our mascot, was created by Walt Kelly, who invented a delicious menagerie of swamp creatures. All of the machines on our DCnet research network 128.4 are named after these creatures. The initials DC stand for District of Columbia, Distributed Computing, Drastically Corrupted or Direct Current, depending on the mood of the audience and voltage of the speaker.
+Table of Contents  Briefing Slides General Description   Briefing Slides  CAIRN/DARTnet Collaboration PDF DCnet Research Network PDF   General Description The Internetworking Research Laboratory (IRL) is in 121 Evans Hall, geographic coordinates 39:40:48.">
+
+<meta itemprop="wordCount" content="821">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Internet Research Laboratory"/>
+<meta name="twitter:description" content="The Okefenokee Swamp, Walt Kelly
+Pogo Possum, our mascot, was created by Walt Kelly, who invented a delicious menagerie of swamp creatures. All of the machines on our DCnet research network 128.4 are named after these creatures. The initials DC stand for District of Columbia, Distributed Computing, Drastically Corrupted or Direct Current, depending on the mood of the audience and voltage of the speaker.
+Table of Contents  Briefing Slides General Description   Briefing Slides  CAIRN/DARTnet Collaboration PDF DCnet Research Network PDF   General Description The Internetworking Research Laboratory (IRL) is in 121 Evans Hall, geographic coordinates 39:40:48."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/reflib/" ><span class="active">Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/reflib/lab/">Internet Research Laboratory</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Internet Research Laboratory</h1>
+    
+	       
+	<p><img src="/archives/pic/pogo1a.gif" alt="gif"><a href="/reflib/pictures"><em>The Okefenokee Swamp</em>, Walt Kelly</a></p>
+<p><img src="/archives/pic/pogo.gif" alt="gif"><a href="/reflib/pictures"><em>Pogo Possum</em></a>,
+our mascot, was created by Walt Kelly, who invented a delicious menagerie of swamp creatures. All of the machines on our DCnet research network 128.4 are named after these creatures. The initials DC stand for District of Columbia, Distributed Computing, Drastically Corrupted or Direct Current, depending on the mood of the audience and voltage of the speaker.</p>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/reflib/lab/#briefing-slides">Briefing Slides</a></li>
+<li><a href="/reflib/lab/#general-description">General Description</a></li>
+</ul>
+<hr>
+<h4 id="briefing-slides">Briefing Slides</h4>
+<ul>
+<li>CAIRN/DARTnet Collaboration <a href="/reflib/brief/dartnet/dartnet.pdf">PDF</a></li>
+<li>DCnet Research Network <a href="/reflib/brief/dcnet/dcnet.pdf">PDF</a></li>
+</ul>
+<hr>
+<h4 id="general-description">General Description</h4>
+<p><img src="/archives/pic/evans2a.jpg" alt="jpg"></p>
+<p>The Internetworking Research Laboratory (IRL) is in 121 <a href="/reflib/gallery/gallery3">Evans Hall</a>, geographic coordinates 39:40:48.425N, 75:45:02.392W. It includes workstations and laboratory equipment in a configuration specially designed for precision time and frequency measurements with a total of 9.6 GB of RAM and 1900 GB of disk resources. Three Unix file/time/web servers with UPS backup support over a dozen Unix workstations and PCs in 102 and 121 Evans. These machines and four routers are interconnected by a 10/100-Mb Ethernet. The laboratory is generously populated with laser printers, big monitors and high resolution scanners.</p>
+<p><img src="/archives/pic/vic3.jpg" alt="jpg"></p>
+<p>The Unix workstations are used for general purpose program development and experiments. Technical staff members and students usually use one workstation for personal mail/web browsing and another for experimental operating system and network software development. The personal workstations are equipped with cameras and microphones to support videoconferencing and related multimedia applications. The view at left is out an office window with a computer-controlled camera.</p>
+<p><img src="/archives/pic/radio2.jpg" alt="jpg"></p>
+<p>A computer-controlled shortwave radio provides entertainment, as well as a reliable source of audio for remote testing. The mixer is not computer-controlled yet. There are several other computer controlled devices to pique students interests.</p>
+<p>An integral component of the laboratory is the <a href="/reflib/dcnet">DCnet research network</a>, including the <a href="/reflib/backroom">Backroom test facility</a>. DCnet has a rich history in the development of Internet technology and has been the witches brew from which many present day protocols have boiled over. It is probably best known as the home base for the Network Time Protocol (NTP) and a flock of time servers that wind their springs on this network. The various subnets are dedicated to network research functions that can be isolated when necessary for testing. DCnet is directly connected to the EECIS department network and the CAIRN research network.</p>
+<p><img src="/archives/pic/stack1a.jpg" alt="jpg"></p>
+<p>The <a href="/archives/pic/stack1b.jpg">stack on the left</a> shows our Master Time Facility (MTF). It includes dual-redundant primary and secondary GPS receivers, dual-redundant primary and secondary WWVB receivers, a primary cesium beam frequency standard and a secondary quartz frequency standard. Another stack including GPS and WWVB receivers and a cesium beam frequency standard is used at the Backroom. The WWVB receivers are twenty years old, but still function as well as new. The frequency standards are even older, but survive with loving care.</p>
+<p>GPS receivers are the primary source of UTC time; WWVB receivers function as primary backup and WWV and CHU receivers as secondary backup. Cesium beam frequency standards provide precision pulse-per-second (PPS) signals, while LORAN receivers function as backup. This equipment as an ensemble can realize absolute accuracies relative to the antenna farm less than 50 nanoseconds, which is equivalent to a positional accuracy of about 15 meters. Using differential techniques, the accuracy can be improved to the picosecond range.</p>
+<p><img src="/archives/pic/stack2a.jpg" alt="jpg"></p>
+<p>A distribution panel and multiplexor (right) provide RS232, IRIG and PPS signals from the primary and secondary receivers to several NTP primary (stratum 1) servers for the laboratory, the ECE/CIS departments and the public at large. The multiplexor is used by public primary time server <em>rackety</em> to receive these signals and to control auxiliary devices. We also have a pair of TrueTime GPS primary servers for the public at large.</p>
+<p><img src="/archives/pic/ant_farm2.jpg" alt="jpg"></p>
+<p>There are several other NTP primary and secondary servers used for experiments and program development. By administrative decree all DCnet machines run only on UTC just like the aviation and maritime communities. The primary servers are synchronized by GPS, WWVB, WWV and CHU radio services and the ACTS telephone modem service. The <a href="/archives/pic/ant_farm1.jpg">antenna farm</a> for these receivers (left) atop an adjacent utility building is a local campus landmark.</p>
+<p><img src="/archives/pic/loran1a.jpg" alt="jpg"></p>
+<p><img src="/archives/pic/lorana.gif" alt="gif"></p>
+<p>Following is an inventory of precision laboratory equipment used for time synchronization. We are indebted to the NIST, Naval Observatory, Coast Guard and several companies who generously provided most of this gear on indefinite loan or outright gift. The UDel LORAN-C Timing Receiver was built in our laboratory as a demonstration that a good timing source can be built with a handful of components (right) and a junkbox PC.</p>
+<ul>
+<li>Arbiter 1088A GPS Receiver</li>
+<li>Austron 2200A GPS Timing Receiver</li>
+<li>Austron 2201A GPS Timing Receiver with LORAN-C Assist and IRIG Generator</li>
+<li>(2) Spectracom 8183 GPS Receiver</li>
+<li>(2) PSI/Traconex 1020 WWV Receiver</li>
+<li>(3) Spectracom 8170 WWVB Receiver</li>
+<li>Spectracom Netclock/2 WWVB Receiver with IRIG Generator</li>
+<li>TrueTime NTS-100 GPS Receiver/NTP Server</li>
+<li>TrueTime NTS-200 GPS Receiver/NTP Server</li>
+<li>EndRun Technologies Cntp CDMA Receiver/NTP Server</li>
+<li>Austron 2000 LORAN-C Timing Receiver</li>
+<li>UDel LORAN-C Timing Receiver</li>
+<li>(3) Hewlett Packard 5061A Cesium Beam Frequency Standard</li>
+<li>Datum 8048 Rubidium Frequency Standard</li>
+<li>KSI/Odetics TPRO IRIG Interface</li>
+</ul>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

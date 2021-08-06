@@ -24,7 +24,7 @@ Reference ID: PTB
 Driver ID: ACTS_PTB
 Serial Port: /dev/ptb_u_; 1200 baud, 8-bits, no parity
 Requires: /usr/include/sys/termios.h header file with modem control
- Description This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more informations..
+ Description This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more information.
 It periodically dials a prespecified telephone number, receives the PTB timecode data and calculates the local clock correction." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/archives/drivers/driver23/" /><meta property="article:section" content="archives" />
@@ -37,10 +37,10 @@ Reference ID: PTB
 Driver ID: ACTS_PTB
 Serial Port: /dev/ptb_u_; 1200 baud, 8-bits, no parity
 Requires: /usr/include/sys/termios.h header file with modem control
- Description This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more informations..
+ Description This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more information.
 It periodically dials a prespecified telephone number, receives the PTB timecode data and calculates the local clock correction.">
 
-<meta itemprop="wordCount" content="553">
+<meta itemprop="wordCount" content="554">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PTB Modem Time Service and other European Laboratories Time Services"/>
 <meta name="twitter:description" content="Table of Contents  Synopsis Description Fudge Factors Additional Information   Synopsis Address: 127.127.23.u
@@ -48,7 +48,7 @@ Reference ID: PTB
 Driver ID: ACTS_PTB
 Serial Port: /dev/ptb_u_; 1200 baud, 8-bits, no parity
 Requires: /usr/include/sys/termios.h header file with modem control
- Description This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more informations..
+ Description This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more information.
 It periodically dials a prespecified telephone number, receives the PTB timecode data and calculates the local clock correction."/>
 
 
@@ -79,6 +79,28 @@ It periodically dials a prespecified telephone number, receives the PTB timecode
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -101,6 +123,8 @@ It periodically dials a prespecified telephone number, receives the PTB timecode
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -176,14 +200,14 @@ Serial Port: <tt>/dev/ptb_u_</tt>; 1200 baud, 8-bits, no parity<br>
 Requires: <tt>/usr/include/sys/termios.h</tt> header file with modem control</p>
 <hr>
 <h4 id="description">Description</h4>
-<p>This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more informations..</p>
+<p>This driver supports the PTB Automated Computer Time Service (ACTS) and it is a modified version of the NIST ACTS driver so see it for more information.</p>
 <p>It periodically dials a prespecified telephone number, receives the PTB timecode data and calculates the local clock correction. It designed primarily for use when neither a radio clock nor connectivity to Internet time servers is available. For the best accuracy, the individual telephone line/modem delay needs to be calibrated using outside sources.</p>
-<p>The only change between this driver and the NIST one is the data format. Infact PTB data format is the following:</p>
+<p>The only change between this driver and the NIST one is the data format. In fact PTB data format is the following:</p>
 <pre>Data format  
 0000000000111111111122222222223333333333444444444455555555556666666666777777777 7  
 0123456789012345678901234567890123456789012345678901234567890123456789012345678 9  
 1995-01-23 20:58:51 MEZ 10402303260219950123195849740+40000500 *  
-A B C D EF G H IJ K L M N O P Q R S T U V W XY Z<CR><LF>  
+A B C D EF G H IJ K L M N O P Q R S T U V W XY Z&lsaquo;CR&rsaquo;&lsaquo;LF&rsaquo;  
 A year  
 B month  
 C day  
@@ -212,7 +236,7 @@ W signal delay (assumed/measured)
 X sequence number for additional text line in Y  
 Y additional text  
 Z on time marker (* - assumed delay / # measured delay)  
-<CR>!<LF> ! is second change !  
+&lsaquo;CR&rsaquo;!&lsaquo;LF&rsaquo; ! is second change !  
 </pre>
 <p>This format is an ITU-R Recommendation (ITU-R TF583.4) and is now available from the primary timing centres of the following countries: Austria, Belgium, Germany, Italy, The Netherlands, Poland, Portugal, Romania, Spain, Sweden, Switzerland, Turkey, United Kingdom. Some examples are:</p>
 <ul>
@@ -267,35 +291,34 @@ Z on time marker (* - assumed delay / # measured delay)
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -305,19 +328,11 @@ Z on time marker (* - assumed delay / # measured delay)
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

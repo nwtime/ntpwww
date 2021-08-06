@@ -38,7 +38,7 @@ Driver ID: GPS_HP
 Serial Port: /dev/hpgps_u_; 9600 baud, 8-bits, no parity, 19200 baud 7-bits, odd parity for the HP Z3801A
  Description This driver supports the HP 58503A Time and Frequency Reference Receiver and HP Z3801A GPS Receiver. They use HP SmartClock (TM) to implement an Enhanced GPS receiver.">
 
-<meta itemprop="wordCount" content="458">
+<meta itemprop="wordCount" content="460">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hewlett Packard 58503A GPS Receiver and HP Z3801A"/>
 <meta name="twitter:description" content="Last update: 5-Oct-2005 04:37 UTC
@@ -76,6 +76,28 @@ Serial Port: /dev/hpgps_u_; 9600 baud, 8-bits, no parity, 19200 baud 7-bits, odd
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -98,6 +120,8 @@ Serial Port: /dev/hpgps_u_; 9600 baud, 8-bits, no parity, 19200 baud 7-bits, odd
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -174,13 +198,13 @@ Serial Port: <tt>/dev/hpgps_u_</tt>; 9600 baud, 8-bits, no parity, 19200 baud 7-
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver supports the HP 58503A Time and Frequency Reference Receiver and HP Z3801A GPS Receiver. They use HP SmartClock (TM) to implement an Enhanced GPS receiver. The receiver accuracy when locked to GPS in normal operation is better than 1 usec. The accuracy when operating in holdover is typically better than 10 us per day. It receiver should be operated with factory default settings. Initial driver operation: expects the receiver to be already locked to GPS, configured and able to output timecode format 2 messages.</p>
-<p>The driver uses the poll sequence <tt>:PTIME:TCODE?</tt> to get a response from the receiver. The receiver responds with a timecode string of ASCII printing characters, followed by a <cr><lf>, followed by a prompt string issued by the receiver, in the following format:</p>
-<pre>T#yyyymmddhhmmssMFLRVcc<cr><lf>scpi ></pre>
-<p>The driver processes the response at the <cr> and <lf>, so what the driver sees is the prompt from the previous poll, followed by this timecode. The prompt from the current poll is (usually) left unread until the next poll. So (except on the very first poll) the driver sees this:</p>
-<pre>scpi >T#yyyymmddhhmmssMFLRVcc<cr><lf></pre>
-<p>The T is the on-time character, at 980 msec. before the next 1PPS edge. The # is the timecode format type. We look for format 2. Without any of the CLK or PPS stuff, then, the receiver buffer timestamp at the <cr> is 24 characters later, which is about 25 msec. at 9600 bps, so the first approximation for fudge time1 is nominally -0.955 seconds. This number probably needs adjusting for each machine / OS type, so far: -0.955000 on an HP 9000 Model 712/80 HP-UX 9.05 -0.953175 on an HP 9000 Model 370 HP-UX 9.10</p>
+<p>The driver uses the poll sequence <tt>:PTIME:TCODE?</tt> to get a response from the receiver. The receiver responds with a timecode string of ASCII printing characters, followed by a ‹cr›‹lf›, followed by a prompt string issued by the receiver, in the following format:</p>
+<pre>T#yyyymmddhhmmssMFLRVcc&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;scpi ></pre>
+<p>The driver processes the response at the ‹cr› and ‹lf›, so what the driver sees is the prompt from the previous poll, followed by this timecode. The prompt from the current poll is (usually) left unread until the next poll. So (except on the very first poll) the driver sees this:</p>
+<pre>scpi >T#yyyymmddhhmmssMFLRVcc&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;</pre>
+<p>The T is the on-time character, at 980 msec. before the next 1PPS edge. The # is the timecode format type. We look for format 2. Without any of the CLK or PPS stuff, then, the receiver buffer timestamp at the ‹cr› is 24 characters later, which is about 25 msec. at 9600 bps, so the first approximation for fudge time1 is nominally -0.955 seconds. This number probably needs adjusting for each machine / OS type, so far: -0.955000 on an HP 9000 Model 712/80 HP-UX 9.05 -0.953175 on an HP 9000 Model 370 HP-UX 9.10</p>
 <p>This driver will probably work with the 58503B and 59551A if they are setup appropriately.</p>
-<p>To use an HP Z3801A, specify <tt>mode 1</tt> on the server config line to setup the right line paramters.</p>
+<p>To use an HP Z3801A, specify <tt>mode 1</tt> on the server config line to setup the right line parameters.</p>
 <p>The timekeeping portion of HP&rsquo;s business was sold to Symmetricom which was later acquired by <a href="https://www.microsemi.com/product-directory/3425-timing-synchronization">Microchip</a>.</p>
 <hr>
 <h4 id="fudge-factors">Fudge Factors</h4>
@@ -211,35 +235,34 @@ Serial Port: <tt>/dev/hpgps_u_</tt>; 9600 baud, 8-bits, no parity, 19200 baud 7-
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -249,19 +272,11 @@ Serial Port: <tt>/dev/hpgps_u_</tt>; 9600 baud, 8-bits, no parity, 19200 baud 7-
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

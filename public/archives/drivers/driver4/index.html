@@ -44,7 +44,7 @@ Features: Optional PPS signal processing, tty_clk
 Requires: Optional PPS signal processing requires the PPSAPI signal interface.
  Description This driver supports all known Spectracom radio and satellite clocks, including the Model 8170 and Netclock/2 WWVB Synchronized Clocks and the Netclock/GPS GPS Master Clock.">
 
-<meta itemprop="wordCount" content="857">
+<meta itemprop="wordCount" content="860">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spectracom WWVB/GPS Receivers"/>
 <meta name="twitter:description" content="Author: David L. Mills (mills@udel.edu)
@@ -85,6 +85,28 @@ Requires: Optional PPS signal processing requires the PPSAPI signal interface.
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,6 +129,8 @@ Requires: Optional PPS signal processing requires the PPSAPI signal interface.
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -190,22 +214,26 @@ Requires: Optional PPS signal processing requires the PPSAPI signal interface.</
 <p>This driver supports all known Spectracom radio and satellite clocks, including the Model 8170 and Netclock/2 WWVB Synchronized Clocks and the Netclock/GPS GPS Master Clock. The claimed accuracy of the WWVB clocks is 100 <span class="style1">m</span>s relative to the broadcast signal. These clocks have proven a reliable source of time, except in some parts of the country with high levels of conducted RF interference. WIth the GPS clock the claimed accuracy is 130 ns. However, in most cases the actual accuracy is limited by the precision of the timecode and the latencies of the serial interface and operating system.</p>
 <p>The DIPswitches on these clocks should be set to 24-hour display, AUTO DST off, data format 0 or 2 (see below) and baud rate 9600. If this clock is used as the source for the IRIG Audio Decoder (<tt>refclock_irig.c</tt> in this distribution), set the DIPswitches for AM IRIG output and IRIG format 1 (IRIG B with signature control).</p>
 <p>There are two timecode formats used by these clocks. Format 0, which is available with all clocks, and format 2, which is available with all clocks except the original (unmodified) Model 8170.</p>
-<p>Format 0 (22 ASCII printing characters):<br>
-<cr><lf>i ddd hh:mm:ss TZ=zz<cr><lf></p>
-<p>on-time = first <cr><br>
-i = synchronization flag (' ' = in synch, &lsquo;?&rsquo; = out synch)<br>
-hh:mm:ss = hours, minutes, seconds</p>
-<p>The alarm condition is indicated by other than ' ' at <tt>i</tt>, which occurs during initial synchronization and when received signal is lost for about ten hours.</p>
-<p>Format 2 (24 ASCII printing characters):<br>
-lt;cr&gt;lf&gt;iqyy ddd hh:mm:ss.fff ld</p>
-<p>on-time = <cr><br>
-i = synchronization flag (' ' = in synch, &lsquo;?&rsquo; = out synch)<br>
-q = quality indicator (' ' = locked, &lsquo;A&rsquo;&hellip;&lsquo;D&rsquo; = unlocked)<br>
-yy = year (as broadcast)<br>
-ddd = day of year<br>
-hh:mm:ss.fff = hours, minutes, seconds, milliseconds</p>
-<p>The alarm condition is indicated by other than ' ' at <tt>i</tt>, which occurs during initial synchronization and when received signal is lost for about ten hours. The unlock condition is indicated by other than ' ' at <tt>q</tt>.</p>
-<p>The <tt>q</tt> is normally ' ' when the time error is less than 1 ms and a character in the set <tt>A&hellip;D</tt> when the time error is less than 10, 100, 500 and greater than 500 ms respectively. The <tt>l</tt> is normally ' &lsquo;, but is set to <tt>L</tt> early in the month of an upcoming UTC leap second and reset to ' ' on the first day of the following month. The <tt>d</tt> is set to <tt>S</tt> for standard time <tt>S</tt>, <tt>I</tt> on the day preceding a switch to daylight time, <tt>D</tt> for daylight time and <tt>O</tt> on the day preceding a switch to standard time. The start bit of the first <cr> is synchronized to the indicated time as returned.</p>
+<p>Format 0 (22 ASCII printing characters):</p>
+<pre> 
+&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;i ddd hh:mm:ss TZ=zz&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;
+</pre>
+<p><code>on-time</code> = first ‹cr›‹lf›<br>
+<code>i</code> = synchronization flag (<code>' '</code> = in synch, <code>?</code> = out synch)<br>
+<code>hh:mm:ss</code> = hours, minutes, seconds</p>
+<p>The alarm condition is indicated by other than <code>' '</code> at <code>i</code>, which occurs during initial synchronization and when received signal is lost for about ten hours.</p>
+<p>Format 2 (24 ASCII printing characters):</p>
+<pre>
+&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;iqyy ddd hh:mm:ss.fff ld
+</pre>
+<p><code>on-time</code> = ‹cr›‹lf›<br>
+<code>i</code> = synchronization flag (<code>' '</code> = in synch, <code>?</code> = out synch)<br>
+<code>q</code> = quality indicator (<code>' '</code> = locked, <code>A</code>&hellip;<code>D</code> = unlocked)<br>
+<code>yy</code> = year (as broadcast)<br>
+<code>ddd</code> = day of year<br>
+<code>hh:mm:ss.fff</code> = hours, minutes, seconds, milliseconds</p>
+<p>The alarm condition is indicated by other than <code>' '</code> at <code>i</code>, which occurs during initial synchronization and when received signal is lost for about ten hours. The unlock condition is indicated by other than <code>' '</code> at <code>q</code>.</p>
+<p>The <code>q</code> is normally <code>' '</code> when the time error is less than 1 ms and a character in the set <code>A...D</code> when the time error is less than 10, 100, 500 and greater than 500 ms respectively. The <code>l</code> is normally <code>' '</code>, but is set to <code>L</code> early in the month of an upcoming UTC leap second and reset to <code>' '</code> on the first day of the following month. The <code>d</code> is set to <code>S</code> for standard time <code>S</code>, <code>I</code> on the day preceding a switch to daylight time, <code>D</code> for daylight time and <code>O</code> on the day preceding a switch to standard time. The start bit of the first ‹cr› is synchronized to the indicated time as returned.</p>
 <p>This driver does not need to be told which format is in use - it figures out which one from the length of the message. A three-stage median filter is used to reduce jitter and provide a dispersion measure. The driver makes no attempt to correct for the intrinsic jitter of the radio itself, which is a known problem with the older radios.</p>
 <hr>
 <h4 id="pps-signal-processing">PPS Signal Processing</h4>
@@ -242,35 +270,34 @@ hh:mm:ss.fff = hours, minutes, seconds, milliseconds</p>
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -280,19 +307,11 @@ hh:mm:ss.fff = hours, minutes, seconds, milliseconds</p>
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

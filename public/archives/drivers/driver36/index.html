@@ -42,7 +42,7 @@ Autotune Port: /dev/icom; 1200/9600 baud, 8-bits, no parity
 Audio Device: /dev/audio and /dev/audioctl
  Description This driver synchronizes the computer time using shortwave radio transmissions from NIST time/frequency stations WWV in Ft.">
 
-<meta itemprop="wordCount" content="4389">
+<meta itemprop="wordCount" content="4388">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Radio WWV/H Audio Demodulator/Decoder"/>
 <meta name="twitter:description" content="Author: David L. Mills (mills@udel.edu)
@@ -82,6 +82,28 @@ Audio Device: /dev/audio and /dev/audioctl
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,6 +126,8 @@ Audio Device: /dev/audio and /dev/audioctl
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -234,7 +258,7 @@ Audio Device: <tt>/dev/audio</tt> and <tt>/dev/audioctl</tt></p>
 <hr>
 <h4 id="program-operation">Program Operation</h4>
 <p>The driver begins operation immediately upon startup. It first searches for one or both of the stations WWV and WWVH and attempts to acquire minute synch. This may take some fits and starts, as the driver expects to see several consecutive minutes with good signals and low jitter. If the autotune function is active, the driver will rotate over all five frequencies and both WWV and WWVH stations until finding a station and frequency with acceptable metric.</p>
-<p>While this is going on the the driver acquires second synch, which can take up to several minutes, depending on signal quality. When minute synch has been acquired, the driver accumulates likelihood values for the unit (seconds) digit of the nine timecode digits, plus the seven miscellaneous bits included in the WWV/H transmission format. When a good unit digit has been found, the driver accumulated likelihood values for the remaining eight digits of the timecode. When three repetitions of all nine digits have decoded correctly, which normally takes 15 minutes with good signals, and up to 40 minutes when buried in noise, and the second synch has been acquired, the clock is set (or verified) and is selectable to discipline the system clock.</p>
+<p>While this is going on the driver acquires second synch, which can take up to several minutes, depending on signal quality. When minute synch has been acquired, the driver accumulates likelihood values for the unit (seconds) digit of the nine timecode digits, plus the seven miscellaneous bits included in the WWV/H transmission format. When a good unit digit has been found, the driver accumulated likelihood values for the remaining eight digits of the timecode. When three repetitions of all nine digits have decoded correctly, which normally takes 15 minutes with good signals, and up to 40 minutes when buried in noise, and the second synch has been acquired, the clock is set (or verified) and is selectable to discipline the system clock.</p>
 <p>Once the clock is set, it continues to provide correct timecodes as long as the signal metric is above threshold, as described in the previous section. As long as the clock is correctly set or verified, the system clock offsets are provided once each minute to the reference clock interface, where they are processed using the same algorithms as with other reference clocks and remote servers.</p>
 <p>It may happen as the hours progress around the clock that WWV and WWVH signals may appear alone, together or not at all. When the driver has mitigated which station and frequency is best, it sets the reference identifier to the string WV_f_ for WWV and WH_f_ for WWVH, where _f_ is the frequency in megahertz. If the propagation delays have been properly set with the <tt>fudge time1</tt> (WWV) and <tt>fudge time2</tt> (WWVH) commands in the configuration file, handover from one station to the other is seamless.</p>
 <p>Operation continues as long as the signal metric from at least one station on at least one frequency is acceptable. A consequence of this design is that, once the clock is set, the time and frequency are disciplined only by the second synch pulse and the clock digits themselves are driven by the clock state machine. If for some reason the state machine drifts to the wrong second, it would never resynchronize. To protect against this most unlikely situation, if after two days with no signals, the clock is considered unset and resumes the synchronization procedure from the beginning.</p>
@@ -341,7 +365,7 @@ Audio Device: <tt>/dev/audio</tt> and <tt>/dev/audioctl</tt></p>
 </table>
 <p>An example timecode is:</p>
 <p><tt>0 2000 006 22:36:00 S +3 1 115 WV20 86 5 66.4 1024</tt></p>
-<p>Here the clock has been set and no alarms are raised. The year, day and time are displayed along with no leap warning, standard time and DUT +0.3 s. The clock was set on the last minute, the AGC is safely in the middle ot the range 0-255, and the receiver is tracking WWV on 20 MHz. Good receiving conditions prevail, as indicated by the metric 86 and 5 bit errors during the last minute. The current frequency is 66.4 PPM and the averaging interval is 1024 s, indicating the maximum precision available.</p>
+<p>Here the clock has been set and no alarms are raised. The year, day and time are displayed along with no leap warning, standard time and DUT +0.3 s. The clock was set on the last minute, the AGC is safely in the middle of the range 0-255, and the receiver is tracking WWV on 20 MHz. Good receiving conditions prevail, as indicated by the metric 86 and 5 bit errors during the last minute. The current frequency is 66.4 PPM and the averaging interval is 1024 s, indicating the maximum precision available.</p>
 <hr>
 <h4 id="fudge-factors">Fudge Factors</h4>
 <dl>
@@ -371,35 +395,34 @@ Audio Device: <tt>/dev/audio</tt> and <tt>/dev/audioctl</tt></p>
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -409,19 +432,11 @@ Audio Device: <tt>/dev/audio</tt> and <tt>/dev/audioctl</tt></p>
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

@@ -73,6 +73,28 @@ Last update: 1-Apr-2015 11:05 UTC
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,6 +117,8 @@ Last update: 1-Apr-2015 11:05 UTC
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -179,50 +203,48 @@ Last update: 1-Apr-2015 11:05 UTC
 <hr>
 <h4 id="options">Options</h4>
 <p><tt>sntp</tt> recognizes the following options:</p>
-<dl>
 <dt><tt>-?, --help</tt></dt>
-<dd>displays usage information. The short form typically requires shell quoting, such as <tt>-\?</tt>, otherwise <tt>?</tt> is consumed by the shell.</dd>
+<p>displays usage information. The short form typically requires shell quoting, such as <tt>-?</tt>, otherwise <tt>?</tt> is consumed by the shell.</p>
 <dt><tt>-4, --ipv4</tt></dt>
-<dd>When resolving hostnames to IP addresses, use IPv4 addresses only.</dd>
+<p>When resolving hostnames to IP addresses, use IPv4 addresses only.</p>
 <dt><tt>-6, --ipv6</tt></dt>
-<dd>When resolving hostnames to IP addresses, use IPv6 addresses only.</dd>
+<p>When resolving hostnames to IP addresses, use IPv6 addresses only.</p>
 <dt><tt>-a _keynum_, --authentication _keynum_</tt></dt>
-<dd>Enable authentication with the key ID _keynum_. _keynum_ is a number specified in the keyfile along with an authentication secret (password or digest). See the <tt>-k, --keyfile</tt> option for more details.</dd>
+<p>Enable authentication with the key ID <em>keynum</em>. <em>keynum</em> is a number specified in the keyfile along with an authentication secret (password or digest). See the <tt>-k, &ndash;keyfile</tt> option for more details.</p>
 <dt><tt>-b _bcaddress_, --broadcast _bcaddress_</tt></dt>
-<dd>Listen for NTP packets sent to the broadcast or multicast address _bcaddress_, which can be a DNS name or IP address. The default maximum time to listen for broadcasts/multicasts, 68 seconds, can be modified with the <tt>-B, --bctimeout</tt> option.</dd>
+<p>Listen for NTP packets sent to the broadcast or multicast address <em>bcaddress</em>, which can be a DNS name or IP address. The default maximum time to listen for broadcasts/multicasts, 68 seconds, can be modified with the <tt>-B, &ndash;bctimeout</tt> option.</p>
 <dt><tt>-B _bctimeout_, --bctimeout _bctimeout_</tt></dt>
-<dd>Wait _bctimeout_ seconds for broadcast or multicast NTP message before terminating. The default is 68 seconds, chosen because ntpd typically transmits broadcasts/multicasts every 64 seconds. Note that the short option is <tt>-B</tt>, an uppercase letter B.</dd>
+<p>Wait <em>bctimeout</em> seconds for broadcast or multicast NTP message before terminating. The default is 68 seconds, chosen because ntpd typically transmits broadcasts/multicasts every 64 seconds. Note that the short option is <tt>-B</tt>, an uppercase letter B.</p>
 <dt><tt>-c, --concurrent</tt></dt>
-<dd>Concurrently query all addresses returned for hostname. Requests from an NTP client to a single server should never be sent more often than once every two seconds. By default, all addresses resolved from a single hostname are assumed to be for a single instance of ntpd, and therefore sntp will send queries to these addresses one after another, waiting two seconds between queries. This option indicates multiple addresses returned for a hostname are on different machines, so sntp can send concurrent queries. This is appropriate when using *.pool.ntp.org, for example.</dd>
+<p>Concurrently query all addresses returned for hostname. Requests from an NTP client to a single server should never be sent more often than once every two seconds. By default, all addresses resolved from a single hostname are assumed to be for a single instance of ntpd, and therefore sntp will send queries to these addresses one after another, waiting two seconds between queries. This option indicates multiple addresses returned for a hostname are on different machines, so sntp can send concurrent queries. This is appropriate when using *.pool.ntp.org, for example.</p>
 <dt><tt>-d, --debug-level</tt></dt>
-<dd>Increase debug verbosity level by one. May be specified multiple times. See also the <tt>-D, --set-debug-level</tt> option.</dd>
+<p>Increase debug verbosity level by one. May be specified multiple times. See also the <tt>-D, &ndash;set-debug-level</tt> option.</p>
 <dt><tt>-D _debug-level_, --set-debug-level _debug-level_</tt></dt>
-<dd>Set the debug verbosity level to _debug-level_. The default level is zero. Note that the short option is <tt>-D</tt>, an uppercase letter D. See also the <tt>-d, --debug-level</tt> option.</dd>
+<p>Set the debug verbosity level to <em>debug-level</em>. The default level is zero. Note that the short option is <tt>-D</tt>, an uppercase letter D. See also the <tt>-d, &ndash;debug-level</tt> option.</p>
 <dt><tt>-g _delay_, --gap _delay_</tt></dt>
-<dd>Specify the _delay_ in milliseconds between outgoing queries, defaulting to 50\. <tt>sntp</tt> sends queries to all provided hostnames/addresses in short succession, and by default terminates once the first valid response is received. With multiple time sources provided, all but one will not be used. To limit the number of queries whose responses will not be used, each query is separated from the preceding one by _delay_ milliseconds, to allow time for responses to earlier queries to be received. A larger _delay_ reduces the query load on the time sources, increasing the time to receive a valid response if the first source attempted is slow or unreachable.</dd>
+<p>Specify the <em>delay</em> in milliseconds between outgoing queries, defaulting to 50. <tt>sntp</tt> sends queries to all provided hostnames/addresses in short succession, and by default terminates once the first valid response is received. With multiple time sources provided, all but one will not be used. To limit the number of queries whose responses will not be used, each query is separated from the preceding one by <em>delay</em> milliseconds, to allow time for responses to earlier queries to be received. A larger <em>delay</em> reduces the query load on the time sources, increasing the time to receive a valid response if the first source attempted is slow or unreachable.</p>
 <dt><tt>-K _kodfile_, --kod _kodfile_</tt></dt>
-<dd>Specifies the filename _kodfile_ to be used for the persistent history of KoD (Kiss Of Death, or rate-limiting) responses received from servers. The default is <tt>/var/db/ntp-kod</tt>. If the file does not exist, a warning message will be displayed. The file will not be created. Note that the short option is <tt>-K</tt>, an uppercase letter K.</dd>
+<p>Specifies the filename <em>kodfile</em> to be used for the persistent history of KoD (Kiss Of Death, or rate-limiting) responses received from servers. The default is <tt>/var/db/ntp-kod</tt>. If the file does not exist, a warning message will be displayed. The file will not be created. Note that the short option is <tt>-K</tt>, an uppercase letter K.</p>
 <dt><tt>-k _keyfile_, --keyfile _keyfile_</tt></dt>
-<dd>Specifies the filename _keyfile_ used with the <tt>-a</tt>/<tt>--authentication</tt> option. The format of the file is described on the [<tt>ntp-keygen</tt> page](keygen.html).</dd>
+<p>Specifies the filename <em>keyfile</em> used with the <tt>-a</tt>/<tt>&ndash;authentication</tt> option. The format of the file is described on the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt> page</a>.</p>
 <dt><tt>-l _logfile_, --filelog _logfile_</tt></dt>
-<dd>Specifies the filename in which to append a copy of status messages, which also appear on the terminal.</dd>
+<p>Specifies the filename in which to append a copy of status messages, which also appear on the terminal.</p>
 <dt><tt>-M _steplimit_, --steplimit _steplimit_</tt></dt>
-<dd>If both <tt>-S</tt>/<tt>--step</tt> and <tt>-s</tt>/<tt>--slew</tt> options are provided, an offset of less than _steplimit_ milliseconds will be corrected by slewing the clock using adjtime(), while an offset of _steplimit_ or more will be corrected by setting the clock to the corrected time. Note that the short option is <tt>-M</tt>, an uppercase letter M.</dd>
+<p>If both <tt>-S</tt>/<tt>&ndash;step</tt> and <tt>-s</tt>/<tt>&ndash;slew</tt> options are provided, an offset of less than <em>steplimit</em> milliseconds will be corrected by slewing the clock using adjtime(), while an offset of <em>steplimit</em> or more will be corrected by setting the clock to the corrected time. Note that the short option is <tt>-M</tt>, an uppercase letter M.</p>
 <dt><tt>-o _ntpver_, --ntpversion _ntpver_</tt></dt>
-<dd>Specifies the NTP protocol version number _ntpver_ to include in requests, default 4\. This option is rarely useful.</dd>
+<p>Specifies the NTP protocol version number <em>ntpver</em> to include in requests, default 4. This option is rarely useful.</p>
 <dt><tt>-r, --usereservedport</tt></dt>
-<dd>By default, <tt>sntp</tt> uses a UDP source port number selected by the operating system. When this option is used, the reserved NTP port 123 is used, which most often requires <tt>sntp</tt> be invoked as the superuser (commonly "root"). This can help identify connectivity failures due to port-based firewalling which affect <tt>ntpd</tt>, which always uses source port 123.</dd>
+<p>By default, <tt>sntp</tt> uses a UDP source port number selected by the operating system. When this option is used, the reserved NTP port 123 is used, which most often requires <tt>sntp</tt> be invoked as the superuser (commonly &ldquo;root&rdquo;). This can help identify connectivity failures due to port-based firewalling which affect <tt>ntpd</tt>, which always uses source port 123.</p>
 <dt><tt>-S, --step</tt></dt>
-<dd>By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by stepping, that is, directly setting the clock to the corrected time. This typically requires <tt>sntp</tt> be invoked as the superuser ("root"). Note that the short option is <tt>-S</tt>, an uppercase letter S.</dd>
+<p>By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by stepping, that is, directly setting the clock to the corrected time. This typically requires <tt>sntp</tt> be invoked as the superuser (&ldquo;root&rdquo;). Note that the short option is <tt>-S</tt>, an uppercase letter S.</p>
 <dt><tt>-s, --slew</tt></dt>
-<dd>By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by slewing using adjtime(), which changes the rate of the clock for a period long enough to accomplish the required offset (phase) correction. This typically requires <tt>sntp</tt> be invoked as the superuser ("root").</dd>
+<p>By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by slewing using adjtime(), which changes the rate of the clock for a period long enough to accomplish the required offset (phase) correction. This typically requires <tt>sntp</tt> be invoked as the superuser (&ldquo;root&rdquo;).</p>
 <dt><tt>-u _uctimeout_, --uctimeout _uctimeout_</tt></dt>
-<dd>Specifies the maximum time _uctimeout_ in seconds to wait for a unicast response before terminating.</dd>
+<p>Specifies the maximum time <em>uctimeout</em> in seconds to wait for a unicast response before terminating.</p>
 <dt><tt>--wait</tt></dt>
-<dd>When neither <tt>-S</tt>/<tt>--step</tt> nor <tt>-s</tt>/<tt>--slew</tt> options are provided, <tt>sntp</tt> will by default terminate after the first valid response is received. This option causes <tt>sntp</tt> to instead wait for all pending queries' responses.</dd>
+<p>When neither <tt>-S</tt>/<tt>&ndash;step</tt> nor <tt>-s</tt>/<tt>&ndash;slew</tt> options are provided, <tt>sntp</tt> will by default terminate after the first valid response is received. This option causes <tt>sntp</tt> to instead wait for all pending queries' responses.</p>
 <dt><tt>--version</tt></dt>
-<dd>Display the <tt>sntp</tt> program's version number and the date and time it was compiled.</dd>
-</dl>
+<p>Display the <tt>sntp</tt> program&rsquo;s version number and the date and time it was compiled.</p>
 <hr>
 <h4 id="return-value">Return Value</h4>
 <p>The program returns an exit status of zero for if a valid response is received and non-zero otherwise.</p>
@@ -238,35 +260,34 @@ Last update: 1-Apr-2015 11:05 UTC
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -276,19 +297,11 @@ Last update: 1-Apr-2015 11:05 UTC
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

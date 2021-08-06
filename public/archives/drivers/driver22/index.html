@@ -42,7 +42,7 @@ Serial or Parallel Port: /dev/pps_u_
 Requires: PPSAPI signal interface for PPS signal processing.
 Note This driver supersedes an older one of the same name. The older driver operated with several somewhat archaic signal interface devices, required intricate configuration and was poorly documented.">
 
-<meta itemprop="wordCount" content="1032">
+<meta itemprop="wordCount" content="1031">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PPS Clock Discipline"/>
 <meta name="twitter:description" content="Author: David L. Mills (mills@udel.edu)
@@ -82,6 +82,28 @@ Note This driver supersedes an older one of the same name. The older driver oper
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,6 +126,8 @@ Note This driver supersedes an older one of the same name. The older driver oper
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -202,24 +226,22 @@ Requires: PPSAPI signal interface for PPS signal processing.</p>
 <p>In a similar scenario a PPS signal can be used to discipline the clock between updates produced by the modem driver. This would provide precise synchronization without needing the Internet at all.</p>
 <hr>
 <h4 id="fudge-factors">Fudge Factors</h4>
-<dl>
 <dt><tt>time1 _time_</tt></dt>
-<dd>Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.</dd>
+<p>Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.</p>
 <dt><tt>time2 _time_</tt></dt>
-<dd>Not used by this driver.</dd>
+<p>Not used by this driver.</p>
 <dt><tt>stratum _number_</tt></dt>
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+<p>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</p>
 <dt><tt>refid _string_</tt></dt>
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>PPS</tt>.</dd>
+<p>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>PPS</tt>.</p>
 <dt><tt>flag1 0 | 1</tt></dt>
-<dd>Not used by this driver.</dd>
+<p>Not used by this driver.</p>
 <dt><tt>flag2 0 | 1</tt></dt>
-<dd>Specifies PPS capture on the rising (assert) pulse edge if 0 (default) or falling (clear) pulse edge if 1\. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is installed then the leading edge will _always_ be used.</dd>
+<p>Specifies PPS capture on the rising (assert) pulse edge if 0 (default) or falling (clear) pulse edge if 1. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is installed then the leading edge will <em>always</em> be used.</p>
 <dt><tt>flag3 0 | 1</tt></dt>
-<dd>Controls the kernel PPS discipline: 0 for disable (default), 1 for enable. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is used then kernel PPS will be available and used.</dd>
+<p>Controls the kernel PPS discipline: 0 for disable (default), 1 for enable. Not used under Windows - if the special <tt>serialpps.sys</tt> serial port driver is used then kernel PPS will be available and used.</p>
 <dt><tt>flag4 0 | 1</tt></dt>
-<dd>Record a timestamp once for each second if 1. Useful for constructing Allan deviation plots.</dd>
-<p>.</dl></p>
+<p>Record a timestamp once for each second if 1. Useful for constructing Allan deviation plots.</p>
 <hr>
 <h4 id="additional-information">Additional Information</h4>
 <p><a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
@@ -233,35 +255,34 @@ Requires: PPSAPI signal interface for PPS signal processing.</p>
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -271,19 +292,11 @@ Requires: PPSAPI signal interface for PPS signal processing.</p>
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

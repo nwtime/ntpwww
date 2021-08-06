@@ -70,6 +70,28 @@ Last update: 19:24 UTC Saturday, October 01, 2005
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Last update: 19:24 UTC Saturday, October 01, 2005
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -171,86 +195,87 @@ Last update: 19:24 UTC Saturday, October 01, 2005
 <h4 id="protocol-module">Protocol Module</h4>
 <p><tt><strong>LOG_ERR</strong></tt></p>
 <dt><tt>buffer overflow ?</tt></dt>
-<dd>Fatal error. An input packet is too long for processing.</dd>
+<p>Fatal error. An input packet is too long for processing.</p>
 <p><tt><strong>LOG_NOTICE</strong></tt></p>
 <dt><tt>no reply; clock not set</tt></dt>
-<dd>In <tt>ntpdate</tt> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.</dd>
+<p>In <tt>ntpdate</tt> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.</p>
 <p><tt><strong>LOG_INFO</strong></tt></p>
 <dt><tt>proto_config: illegal item ?, value ?</tt></dt>
 <p>Program error. Please report to <a href="mailto:bugs@ntp.org">bugs@ntp.org</a>.</p>
 <dt><tt>pps sync enabled</tt></dt>
-<dd>The PPS signal has been detected and enabled.</dd>
+<p>The PPS signal has been detected and enabled.</p>
 <dt><tt>transmit: encryption key ? not found</tt></dt>
-<dd>The encryption key is not defined or not trusted.</dd>
+<p>The encryption key is not defined or not trusted.</p>
 <dt><tt>precision = ? usec</tt></dt>
-<dd>This reports the precision measured for this machine.</dd>
+<p>This reports the precision measured for this machine.</p>
 <dt><tt>using 10ms tick adjustments</tt></dt>
-<dd>Gotcha for some machines with dirty rotten clock hardware.</dd>
+<p>Gotcha for some machines with dirty rotten clock hardware.</p>
 <dt><tt>no servers reachable</tt></dt>
-<dd>The system clock is running on internal batteries. The server(s) and/or network may be down.</dd>
+<p>The system clock is running on internal batteries. The server(s) and/or network may be down.</p>
 <hr>
 <h4 id="clock-discipline-module">Clock Discipline Module</h4>
 <p><tt><strong>LOG_ERR</strong></tt></p>
 <dt><tt>time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time</tt>.</dt>
-<dd>Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.</dd>
-<dt><tt>sigaction() fails to save SIGSYS trap: ? </tt> 
-</tt><tt>sigaction() fails to restore SIGSYS trap: ?</tt></dt>
+<p>Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.</p>
+<dt><tt>sigaction() fails to save SIGSYS trap: ? </tt></dt> 
+<dt><tt>sigaction() fails to restore SIGSYS trap: ?</tt></dt>
 <p>Program error. Please report to <a href="mailto:bugs@ntp.org">bugs@ntp.org</a>.</p>
 <p><tt><strong>LOG_NOTICE</strong></tt></p>
 <dt><tt>frequency error ? exceeds tolerance 500 PPM</tt></dt>
-<dd>The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.</dd>
+<p>The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.</p>
 <dt><tt>time slew ? s</tt></dt>
-<dd>The time error exceeds the step threshold and is being slewed to the correct time. You may have to wait a very long time.</dd>
+<p>The time error exceeds the step threshold and is being slewed to the correct time. You may have to wait a very long time.</p>
 <dt><tt>time reset ? s</tt></dt>
-<dd>The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don't like this, but they can set the <tt>ntpd -x</tt> option and wait forever.</dd>
+<p>The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don&rsquo;t like this, but they can set the <tt>ntpd -x</tt> option and wait forever.</p>
 <dt><tt>kernel time sync disabled ?</tt></dt>
-<dd>The kernel reports an error. See the codes in the <tt>timex.h</tt> file.</dd>
+<p>The kernel reports an error. See the codes in the <tt>timex.h</tt> file.</p>
 <dt><tt>pps sync disabled</tt></dt>
-<dd>The PPS signal has died, probably due to a dead radio, broken wire or loose connector.</dd>
+<p>The PPS signal has died, probably due to a dead radio, broken wire or loose connector.</p>
 <p><tt><strong>LOG_INFO</strong></tt></p>
 <dt><tt>kernel time sync status ?</tt></dt>
-<dd>For information only. See the codes in the <tt>timex.h</tt> file.</dd>
+<p>For information only. See the codes in the <tt>timex.h</tt> file.</p>
 <hr>
 <h4 id="cryptographic-module">Cryptographic Module</h4>
 <p><tt><strong>LOG_ERR</strong></tt></p>
-<dt><tt>cert_parse ?  
-</tt><tt>cert_sign ?  
-</tt><tt>crypto_cert ?  
-</tt><tt>crypto_encrypt ?  
-</tt><tt>crypto_gq ?  
-</tt><tt>crypto_iff ?  
-</tt><tt>crypto_key ?  
-</tt><tt>crypto_mv ?  
-</tt><tt>crypto_setup ?  
-</tt><tt>make_keys ?</tt></dt>
-<dd>Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.</dd>
-<dt><tt>crypto_setup: certificate ? is trusted, but not self signed.  
-</tt><tt>crypto_setup: certificate ? not for this host  
-</tt><tt>crypto_setup: certificate file ? not found or corrupt  
-</tt><tt>crypto_setup: host key file ? not found or corrupt  
-</tt><tt>crypto_setup: host key is not RSA key type  
-</tt><tt>crypto_setup: random seed file ? not found  
-</tt><tt>rypto_setup: random seed file not specified</tt></dt>
-<dd>Fatal errors. These messages show problems during the initialization procedure.</dd>
+<p><tt>cert_parse ?</tt></p>
+<p><tt>cert_sign ?</tt></p>
+<p><tt>crypto_cert ?</tt></p>
+<p><tt>crypto_encrypt ?</tt></p>
+<p><tt>crypto_gq ?</tt></p>
+<p><tt>crypto_iff ?</tt></p>
+<p><tt>crypto_key ?</tt></p>
+<p><tt>crypto_mv ?</tt></p>
+<p><tt>crypto_setup ?</tt></p>
+<p><tt>make_keys ?</tt></p>
+<p>Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.</p>
+<p><tt>crypto_setup: certificate ? is trusted, but not self signed.</tt></p>
+<p><tt>crypto_setup: certificate ? not for this host</tt></p>
+<p><tt>crypto_setup: certificate file ? not found or corrupt</tt></p>
+<p><tt>crypto_setup: host key file ? not found or corrupt</tt></p>
+<p><tt>crypto_setup: host key is not RSA key type</tt></p>
+<p><tt>crypto_setup: random seed file ? not found</tt></p>
+<p><tt>crypto_setup: random seed file not specified</tt></p>
+<p>Fatal errors. These messages show problems during the initialization procedure.</p>
 <p><tt><strong>LOG_INFO</strong></tt></p>
-<dt><tt>cert_parse: expired ?  
-</tt><tt>cert_parse: invalid issuer ?  
-</tt><tt>cert_parse: invalid signature ?  
-</tt><tt>cert_parse: invalid subject ?</tt></dt>
-<dd>There is a problem with a certificate. Operation cannot proceed untill the problem is fixed. If the certificate is local, it can be regenerated using the <tt>ntp-keygen</tt> program. If it is held somewhere else, it must be fixed by the holder.</dd>
-<dt><tt>crypto_?: defective key  
-</tt><tt>crypto_?: invalid filestamp  
-</tt><tt>crypto_?: missing challenge  
-</tt><tt>crypto_?: scheme unavailable</tt></dt>
-<dd>There is a problem with the identity scheme. Operation cannot proceed untill the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <tt>ntpd</tt> will usually time out and recover by itself.</dd>
+<p><tt>cert_parse: expired ?</tt></p>
+<p><tt>cert_parse: invalid issuer ?</tt></p>
+<p><tt>cert_parse: invalid signature ?</tt></p>
+<p><tt>cert_parse: invalid subject ?</tt></p>
+<p>There is a problem with a certificate. Operation cannot proceed until the problem is fixed. If the certificate is local, it can be regenerated using the <tt>ntp-keygen</tt> program. If it is held somewhere else, it must be fixed by the holder.</p>
+<p><tt>crypto_?: defective key</tt></p>
+<p><tt>crypto_?: invalid filestamp</tt></p>
+<p><tt>crypto_?: missing challenge</tt></p>
+<p><tt>crypto_?: scheme unavailable</tt></p>
+<p>There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <tt>ntpd</tt> will usually time out and recover by itself.</p>
 <dt><tt>crypto_cert: wrong PEM type ?</tt></dt>
-<dd>The certificate does not have MIME type <tt>CERTIFICATE</tt>. You are probably using the wrong type from OpenSSL or an external certificate authority.</dd>
+<p>The certificate does not have MIME type <tt>CERTIFICATE</tt>. You are probably using the wrong type from OpenSSL or an external certificate authority.</p>
 <dt><tt>crypto_ident: no compatible identity scheme found</tt></dt>
-<dd>Configuration error. The server and client identity schemes are incompatible.</dd>
+<p>Configuration error. The server and client identity schemes are incompatible.</p>
 <dt><tt>crypto_tai: kernel TAI update failed</tt></dt>
-<dd>The kernel does not support this function. You may need a new kernel or patch.</dd>
+<p>The kernel does not support this function. You may need a new kernel or patch.</p>
 <dt><tt>crypto_tai: leapseconds file ? error ?</tt></dt>
-<dd>The leapseconds file is corrupt. Obtain the latest file from <tt>time.nist.gov</tt>.</dd>
+<p>The leapseconds file is corrupt. Obtain the latest file from <tt>time.nist.gov</tt>.</p>
+
 	
 	
 </div>
@@ -259,35 +284,34 @@ Last update: 19:24 UTC Saturday, October 01, 2005
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -297,19 +321,11 @@ Last update: 19:24 UTC Saturday, October 01, 2005
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 

@@ -124,9 +124,9 @@ There are a few things to notice about the above:
       server.
 
     o &#39;tickadj&#39; is also called. This does two things: changes the
-      default value of &#39;tick&#39; (which the the amount of time, in ms, that
+      default value of &#39;tick&#39; (which is the amount of time, in ms, that
       is added to the clock every 1/60 seconds) and changes the value
-      of &#39;tickadj&#39; which the the amount that is added or subtracted
+      of &#39;tickadj&#39; which is the amount that is added or subtracted
       from &#39;tickadj&#39; when adjtime() is called.
 
       Now Mac clocks are pretty bad and tend to be slow. Sooo, instead of
@@ -205,7 +205,7 @@ TECHNICAL NOTES:
       time. I prefer having &#39;xntpd&#39; slew the clock back into line by
       making gradual adjustments to the clock over a coupla minutes
       or so. It&#39;s for this reason that SLEWALWAYS is defined in
-      include/ntp_machine.h for SYS_AUX3\. It&#39;s also for this reason than
+      include/ntp_machine.h for SYS_AUX3. It&#39;s also for this reason than
       I like larger values of &#39;tickadj&#39;.
 
 Good luck!  If you have problems under A/UX feel free to contact me (e-mail
@@ -410,7 +410,7 @@ To install the software:
 	There is information on how to do this elsewhere in the documentation,
 	the only thing I&#39;ll mention is that I put the drift file in 
 	/var/log/ntp.drift, and the authdelay on my 486DX/50 system is 
-	0.000064\.  Your mileage will vary, learn to use the authspeed tools
+	0.000064.  Your mileage will vary, learn to use the authspeed tools
 	if you&#39;re going to authenticate.
 
 	In the file /etc/rc.local, make sure that the invocation of ntpd is
@@ -474,9 +474,8 @@ Ulrich Windl &lt;Ulrich.Windl@rz.uni-regensburg.de&gt; (parse/util/testdcf.c):
       <description>
         
         
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;Some major changes were necessary to make xntp v3 run on the DEC Alpha
-hardware running DEC OSF/1\.  All &#34;long&#34; and &#34;u_long&#34; declarations and
+        &lt;pre&gt;Some major changes were necessary to make xntp v3 run on the DEC Alpha
+hardware running DEC OSF/1.  All &#34;long&#34; and &#34;u_long&#34; declarations and
 casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header
 file (include/ntp_types.h) was added.  The new header file defines
 LONG as int and U_LONG as u_int for the Alpha hardware and as long
@@ -516,7 +515,6 @@ Unibergisty of Delabunch
 mills@udel.edu
 
 &lt;/pre&gt;
-&lt;/div&gt;
 
       </description>
     </item>
@@ -530,8 +528,7 @@ mills@udel.edu
       <description>
         
         
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;Problems with DEC OSF/1 V2.0
+        &lt;pre&gt;Problems with DEC OSF/1 V2.0
 
 Compilation using gcc fails with ntp_config.c. The problem is an apparent
 error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h
@@ -585,8 +582,9 @@ Also, if using gcc from the freeware disk, either replace syscall.h
 in the directory /usr/local/lib/gcc-lib/alpha-dec-osf1/2.3.3/include
 or replace with a link to /usr/include/sys/syscall.h.
 
-&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/pre&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
+
       </description>
     </item>
     
@@ -621,8 +619,7 @@ Philip.Gladstone@mail.citicorp.com
       <description>
         
         
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;If you are compiling under FreeBSD and see messages in the syslogs that
+        &lt;pre&gt;If you are compiling under FreeBSD and see messages in the syslogs that
 indicate that the ntpd process is trying to use unavailable sched_
 calls, it means you are running a kernel that does not have the POSIX
 scheduling calls enabled.
@@ -652,8 +649,7 @@ You have two choices:
       <description>
         
         
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;Last update: Sun Mar 13 15:05:31 PST 1994
+        &lt;pre&gt;Last update: Sun Mar 13 15:05:31 PST 1994
 
 This file hopefully describes the whatever and however of how to get xntp
 running on hpux 7.0 and later: s300, s400, s700, and s800.  
@@ -668,7 +664,7 @@ any fixes sent to me.
 
 Now lets talk OS.  If you don&#39;t have 7.0 or later, pretty much hang it up now.
 This stuff has run here on pretty much everything from 8.0 upward on s300, 
-s700, and s800\.  It is known to run on 7.0 s300/s400 but all reports are 
+s700, and s800.  It is known to run on 7.0 s300/s400 but all reports are 
 from the field and not my personal experience.
 
 If you are lucky enough to have a s300 or s400 with 9.03, then you no longer
@@ -714,9 +710,9 @@ What to do to get this stuff running ?
       files in that directory are searched until a match is found.  The 
       rules for a match are:
 
-	1\. Our hostname
-	2\. default.&lt;machine id&gt; (as in default.375 or default.850)
-	3\. default
+	1. Our hostname
+	2. default.&lt;machine id&gt; (as in default.375 or default.850)
+	3. default
 
     * Ok, make sure adjtimed is running (just start it up for now with
       &#34;/usr/local/etc/adjtimed&#34;).  Using -z as an option will get you 
@@ -811,8 +807,9 @@ On Thu, 15 Jun 1995 Mills@huey.udel.edu wrote:
 &gt; Dave
 &gt; 
 
-&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/pre&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
+
       </description>
     </item>
     
@@ -849,8 +846,8 @@ NTP was first ported to MPE several years ago, but those diffs were never
 submitted back to the official NTP distribution.  For more information about
 that deprecated port, please see http://www.bixby.org/mark/xntpix.html.
 
-NTP was re-ported to MPE in May 2001\.  What follows are hints learned from
-working with NTP 4.0.99k23\.  For additional information about NTP on MPE,
+NTP was re-ported to MPE in May 2001.  What follows are hints learned from
+working with NTP 4.0.99k23.  For additional information about NTP on MPE,
 please see http://jazz.external.hp.com/src/hp_freeware/ntp/.
 
 MPE lacks the clock-related APIs expected by NTP, so adjtime(), gettimeofday(),
@@ -1092,9 +1089,7 @@ Refclock address	Type
       <description>
         
         
-        &lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Transitional//EN&#34;
-&#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#34;&gt;
-&lt;pre&gt;Compilation:
+        &lt;pre&gt;Compilation:
 	Usual thing: rm -f Config.local ; make for vanilla
 			make refconf for reference clock (e. g. DCF77)
 
@@ -1223,7 +1218,7 @@ Matthias Ernst  maer@nmr.lpc.ethz.ch
 Xntp version 3 now support the cc compiler for AIX.
 The Config.aix will now use cc by default.  You can still compile xntp
 with the bsd compiler by changing &#34;COMP= cc&#34; to &#34;COMP= bsdcc&#34; and
-and removing the &#34;-DSTUPID_SIGNAL&#34; option from the &#34;DEFS&#34; option.
+removing the &#34;-DSTUPID_SIGNAL&#34; option from the &#34;DEFS&#34; option.
 
 xntp and tickadj was also modified  so that the value of tickadj is read
 form the kernel and can be set by tickadj.  For now I would not set 
@@ -1233,7 +1228,7 @@ Bill Jones
 jones@chpc.utexas.edu
 -------------------------------------------------------------------------------
 
-This is a modified version of xntp version 3 for the RS6000\. It works for
+This is a modified version of xntp version 3 for the RS6000. It works for
 AIX 3.2 and these are the same changes as have been applied tothe version 2
 implementation of xntp. It works fine for us but I have not tested all of
 the features, especially the local clock support for the RS6000 is not tested
@@ -1653,11 +1648,11 @@ exit 0
 &lt;h3 id=&#34;all-solaris-versions&#34;&gt;All Solaris versions&lt;/h3&gt;
 &lt;p&gt;We have a report that says starting with Solaris 2.6 we should leave &lt;em&gt;dosynctodr&lt;/em&gt; alone. &lt;a href=&#34;/archives/hints/solaris-dosynctodr&#34;&gt;Here is the report&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Proper operation of ntp under Solaris may require setting the kernel variable &lt;em&gt;dosynctodr&lt;/em&gt; to zero (meaning &amp;ldquo;do not synchronize the clock to the hardware time-of-day clock&amp;rdquo;). This can be done with the tickadj utility:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&amp;gt; tickadj -s&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tickadj -s&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;If you prefer, it can also be done with the native Solaris kernel debugger:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&amp;gt; echo dosynctodr/W0 | adb -k -w /dev/ksyms /dev/mem&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo dosynctodr/W0 | adb -k -w /dev/ksyms /dev/mem&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Or, it can also be set by adding a line to /etc/system:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&amp;gt; &amp;lt;tt&amp;gt;set dosynctodr = 0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;set dosynctodr = 0&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Instead of the &lt;em&gt;tick&lt;/em&gt; kernel variable, which many operating systems use to control microseconds added to the system time every clock tick (c.f. &lt;a href=&#34;/archives/hints/solaris/#dealing-with-frequency-tolerance-violations&#34;&gt;Dealing with Frequency Tolerance Violations&lt;/a&gt;, Solaris has the variables &lt;em&gt;nsec_per_tick&lt;/em&gt; and &lt;em&gt;usec_per_tick&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;nsec_per_tick&lt;/em&gt; and &lt;em&gt;usec_per_tick&lt;/em&gt; control the number of nanoseconds and microseconds, respectively, added to the system clock each clock interrupt. Enterprising souls may set these based on information collected by ntpd in the &lt;code&gt;/etc/ntp.drift&lt;/code&gt; file to correct for individual hardware variations.&lt;/p&gt;
 &lt;p&gt;On UltraSPARC systems, &lt;em&gt;nsec_per_tick&lt;/em&gt; and &lt;em&gt;usec_per_tick&lt;/em&gt; are ignored in favor of the &lt;em&gt;cpu_tick_freq&lt;/em&gt; variable, which should be automatically be determined by the PROM in an accurate fashion.&lt;/p&gt;
@@ -1672,7 +1667,7 @@ exit 0
 &lt;p&gt;The &lt;tt&gt;tickadj&lt;/tt&gt; program can reset several other kernel variables if asked. It can change the value of &lt;tt&gt;tick&lt;/tt&gt; if asked. This is handy to compensate for kernel bugs which cause the clock to run with a very large frequency error, as with SunOS 4.1.1 systems. It can also be used to set the value of the kernel &lt;tt&gt;dosynctodr&lt;/tt&gt; variable to zero. This variable controls whether to synchronize the system clock to the time-of-day clock, something you really don&amp;rsquo;t want to be happen when &lt;tt&gt;ntpd&lt;/tt&gt; is trying to keep it under control. In some systems, such as recent Sun Solaris kernels, the &lt;tt&gt;dosynctodr&lt;/tt&gt; variable is the only one that can be changed by the &lt;tt&gt;tickadj&lt;/tt&gt; program. In this and other modern kernels, it is not necessary to change the other variables in any case.&lt;/p&gt;
 &lt;p&gt;We have a report that says starting with Solaris 2.6 we should leave &lt;em&gt;dosynctodr&lt;/em&gt; alone.&lt;/p&gt;
 &lt;p&gt;In order to maintain reasonable correctness bounds, as well as reasonably good accuracy with acceptable polling intervals, &lt;tt&gt;ntpd&lt;/tt&gt; will complain if the frequency error is greater than 500 PPM. For machines with a value of &lt;tt&gt;tick&lt;/tt&gt; in the 10-ms range, a change of one in the value of &lt;tt&gt;tick&lt;/tt&gt; will change the frequency by about 100 PPM. In order to determine the value of &lt;tt&gt;tick&lt;/tt&gt; for a particular CPU, disconnect the machine from all source s of time (&lt;tt&gt;dosynctodr&lt;/tt&gt; = 0) and record its actual time compared to an outside source (eyeball-and-wristwatch will do) over a day or more. Multiply the time change over the day by 0.116 and add or subtract the result to tick, depending on whether the CPU is fast or slow. An example call to &lt;tt&gt;tickadj&lt;/tt&gt; useful on SunOS 4.1.1 is:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;tickadj&amp;lt;/tt&amp;gt; -t 9999 -a 5 -s&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tickadj -t 9999 -a 5 -s&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;which sets tick 100 PPM fast, &lt;tt&gt;tickadj&lt;/tt&gt; to 5 microseconds and turns off the clock/calendar chip fiddle. This line can be added to the &lt;tt&gt;rc.local&lt;/tt&gt; configuration file to automatically set the kernel variables at boot time.&lt;/p&gt;
 &lt;p&gt;All this stuff about diddling kernel variables so the NTP daemon will work is really silly. If vendors would ship machines with clocks that kept reasonable time and would make their &lt;tt&gt;adjtime()&lt;/tt&gt; system call apply the slew it is given exactly, independent of the value of &lt;tt&gt;tickadj&lt;/tt&gt;, all this could go away. This is in fact the case on many current Unix systems.&lt;/p&gt;
 &lt;hr&gt;
@@ -1693,13 +1688,13 @@ exit 0
 &lt;p&gt;(This originally written by William L. Jones &lt;a href=&#34;mailto:jones@chpc.utexas.edu&#34;&gt;jones@chpc.utexas.edu&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;Solaris 2.1 contains fairly traditional clock code, with &lt;em&gt;tick&lt;/em&gt; and &lt;em&gt;tickadj&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Since settimeofday under Solaris 2.1 only sets the seconds part of timeval care must be used in starting xntpd. I suggest the following start up script:&lt;/p&gt;
-&lt;p&gt;&amp;gt; &lt;tt&gt;tickadj -s -a 1000&lt;br&gt;
-&amp;gt; ntpdate -v server1 server2&lt;br&gt;
-&amp;gt; sleep 20&lt;br&gt;
-&amp;gt; ntpdate -v server1 server2&lt;br&gt;
-&amp;gt; sleep 20&lt;br&gt;
-&amp;gt; tickadj -a 200&lt;br&gt;
-&amp;gt; xntpd&lt;/tt&gt;&lt;/p&gt;
+&lt;pre&gt;tickadj -s -a 1000  
+ntpdate -v server1 server2  
+sleep 20  
+ntpdate -v server1 server2  
+sleep 20  
+tickadj -a 200  
+xntpd&lt;/pre&gt;
 &lt;p&gt;The first tickadj turns of the time of day clock and sets the tick adjust value to 1 millisecond. This will insure that an adjtime value of at most 2 seconds will complete in 20 seconds.&lt;/p&gt;
 &lt;p&gt;The first ntpdate will set the time to within two seconds using settimeofday or it will adjust time using adjtime.&lt;/p&gt;
 &lt;p&gt;The first sleep insures the adjtime has completed for the first ntpdate.&lt;/p&gt;
@@ -1885,7 +1880,7 @@ as that intended.&lt;/p&gt;
 
 A bug in SunOS 4.1.1 results in the kernel time losing 1 microsecond
 per tick of the system clock. The bug was fixed (bugid 1094383) for
-SunOS 4.1.1 and corrected in SunOS 4.1.3\. The easiest way to fix this
+SunOS 4.1.1 and corrected in SunOS 4.1.3. The easiest way to fix this
 is to replace the 4.1.1 binary clock.o with the corresponding 4.1.3
 binary. Without this change it is necessary to use the tickadj program
 included in this distribution with the -t 9999 option.
@@ -1972,7 +1967,7 @@ Dave Mills (mills@udel.edu)
 &lt;li&gt;POSIX timers have been added.&lt;/li&gt;
 &lt;li&gt;Structures normally found in &lt;tt&gt;netdb.h&lt;/tt&gt; have been added with, the corresponding code is in &lt;tt&gt;./libntp/machines.c&lt;/tt&gt;. Where possible the defines for these have been kept non-vxWorks specific.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Unfortunately there are still quite a few &lt;tt&gt;SYS_VXWORKS&lt;/tt&gt; type defines in the source, but I have eliminated as many as possible. You have the choice of using the &lt;tt&gt;usrtime.a&lt;/tt&gt; library avaliable from the vxworks archives or forgoing &lt;tt&gt;adjtime()&lt;/tt&gt; and using the &lt;tt&gt;clock_[get|set]time()&lt;/tt&gt;. The &lt;tt&gt;./include/ntp_machine.h&lt;/tt&gt; file clearly marks how to do this.&lt;/p&gt;
+&lt;p&gt;Unfortunately there are still quite a few &lt;tt&gt;SYS_VXWORKS&lt;/tt&gt; type defines in the source, but I have eliminated as many as possible. You have the choice of using the &lt;tt&gt;usrtime.a&lt;/tt&gt; library available from the vxworks archives or forgoing &lt;tt&gt;adjtime()&lt;/tt&gt; and using the &lt;tt&gt;clock_[get|set]time()&lt;/tt&gt;. The &lt;tt&gt;./include/ntp_machine.h&lt;/tt&gt; file clearly marks how to do this.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;compilation-issues&#34;&gt;Compilation issues&lt;/h4&gt;
 &lt;p&gt;You will need autoconf and automake &amp;hellip; available free from the gnu archives worldwide.&lt;/p&gt;
@@ -2023,7 +2018,7 @@ Dave Mills (mills@udel.edu)
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;NOTE&lt;/h4&gt;
 
-    ntpd and &lt;tt&gt;ntp-keygen&lt;/tt&gt; both use OpenSSL which requires a random character file called &lt;tt&gt;.rnd&lt;/tt&gt; by default. Both of these programs will automatically generate this file if they are not found. The programs will look for an environmental variable called RANDFILE and use that for the name of the random character file if the variable exists. If it does not exist it will look for an environmental variable called HOME and use that directory to search for a file called &lt;tt&gt;.rnd&lt;/tt&gt; in that directory. Finally, if neither RANDFILE nor HOME exists it will look in &lt;tt&gt;C:&lt;code&gt;\&lt;/code&gt;&lt;/tt&gt; for a .rnd file. In each case it will search for and create the file if the environmental variable exists or in the &lt;tt&gt;C:&lt;code&gt;\&lt;/code&gt;&lt;/tt&gt; directory if it doesn&amp;rsquo;t.
+    ntpd and &lt;tt&gt;ntp-keygen&lt;/tt&gt; both use OpenSSL which requires a random character file called &lt;tt&gt;.rnd&lt;/tt&gt; by default. Both of these programs will automatically generate this file if they are not found. The programs will look for an environmental variable called RANDFILE and use that for the name of the random character file if the variable exists. If it does not exist it will look for an environmental variable called HOME and use that directory to search for a file called &lt;tt&gt;.rnd&lt;/tt&gt; in that directory. Finally, if neither RANDFILE nor HOME exists it will look in &lt;tt&gt;C:``&lt;/tt&gt; for a .rnd file. In each case it will search for and create the file if the environmental variable exists or in the &lt;tt&gt;C:&lt;code&gt;\&lt;/code&gt;&lt;/tt&gt; directory if it doesn&amp;rsquo;t.
 
 &lt;/div&gt;
 

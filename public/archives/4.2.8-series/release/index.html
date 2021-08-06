@@ -70,6 +70,28 @@ Table of Contents  New Features Changes and Upgrades Since the NTPv3 Version (xn
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
 			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
 			
 			<li class="nav-item dropdown d-none d-lg-block">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +114,8 @@ Table of Contents  New Features Changes and Upgrades Since the NTPv3 Version (xn
 	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
 	
 	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
 	
 </div>
 
@@ -173,7 +197,7 @@ Table of Contents  New Features Changes and Upgrades Since the NTPv3 Version (xn
 <li>There are two new burst mode features available where special conditions apply. One of these is enabled by the <tt>iburst</tt> keyword in the <tt>server</tt> configuration command. It is intended for cases where it is important to set the clock quickly when an association is first mobilized. The other is enabled by the <tt>burst</tt> keyword in the <tt>server</tt> configuration command. It is intended for cases where the network attachment requires an initial calling or training procedure. See the <a href="/archives/4.2.8-series/assoc">Association Management</a> page for further information.</li>
 <li>The OpenSSL cryptographic library has replaced the library formerly available from RSA Laboratories. All cryptographic routines except a version of the MD5 message digest algorithm have been removed from the base distribution. All 128-bit and 160-bit message digests algorithms are now supported for both symmetric key and public key cryptosystems. See the <a href="/archives/4.2.8-series/authentic">Authentication Support</a> page for further information and the <a href="/archives/4.2.8-series/authopt">Authentication Options</a> page for a list of supported digest algorithms.</li>
 <li>This release includes support for Autokey public-key cryptography for authenticating public servers to clients, as described in RFC 5906. This support requires the &ndash;enable-autokey option when building the distribution, which is the default is OpenSSL is available. The deployment of Autokey subnets is now considerably simpler than in earlier versions. A subnet naming scheme is now available to filter manycast and pool configurations. Additional information about Autokey is on the <a href="/archives/4.2.8-series/autokey">Autokey Public Key Authentication</a> page and links from there.</li>
-<li>The NTP descrete even simulator has been substantially upgraded, now including scenarios with multiple servers and time-sensitive scripts. This allows the NTP algorithms to be tested in an embedded environment with systematic and pseudo-random network delay and oscillator wander distributions. This has been used to verify correct operation under conditions of extreme error and misconfiguration. See the <a href="/archives/4.2.8-series/ntpdsim"><tt>ntpdsim</tt> - Network Time Protocol (NTP) simulator</a> page. A technical description and performance analysis is given in the white papers at the <a href="http://www.eecis.udel.edu/~mills/ntp.html">NTP Project Page</a>.</li>
+<li>The NTP discrete event simulator has been substantially upgraded, now including scenarios with multiple servers and time-sensitive scripts. This allows the NTP algorithms to be tested in an embedded environment with systematic and pseudo-random network delay and oscillator wander distributions. This has been used to verify correct operation under conditions of extreme error and misconfiguration. See the <a href="/archives/4.2.8-series/ntpdsim"><tt>ntpdsim</tt> - Network Time Protocol (NTP) simulator</a> page. A technical description and performance analysis is given in the white papers at the <a href="http://www.eecis.udel.edu/~mills/ntp.html">NTP Project Page</a>.</li>
 <li>NTPv4 includes three new server discovery schemes, which in most applications can avoid per-host configuration altogether. Two of these are based on IP multicast technology, while the remaining one is based on crafted DNS lookups. See the <a href="/archives/4.2.8-series/discover">Automatic NTP Configuration Schemes</a> page for further information.</li>
 <li>The status display and event report monitoring functions have been considerably expanded, including new statistics files and event reporting to files and the system log. See the <a href="/archives/4.2.8-series/decode">Event Messages and Status Words</a> page for further information.</li>
 <li>Several new options have been added for the <tt>ntpd</tt> command line. For the inveterate knob twiddlers several of the more important performance variables can be changed to fit actual or perceived special conditions. In particular, the <tt>tinker</tt> and <tt>tos</tt> commands can be used to adjust thresholds, throw switches and change limits.</li>
@@ -212,35 +236,34 @@ Table of Contents  New Features Changes and Upgrades Since the NTPv3 Version (xn
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
         
         
         
-<ul class="list-inline mb-0">
+<ul class="list-inline">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
       <i class="fab fa-linkedin-in"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -250,19 +273,11 @@ Table of Contents  New Features Changes and Upgrades Since the NTPv3 Version (xn
 
         
         
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Network Time Foundation All Rights Reserved</small>
-        
-	
-      </div>
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </div>
-  </div>
+	</div>
 </footer>
 
 
