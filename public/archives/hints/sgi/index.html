@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>SGI Hints | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="SGI Hints" />
+<meta property="og:description" content="adjtime, tick and tickadj: -------------------------- The SGI value for HZ is 100 under Irix 4, with the system clock running in nominal mode (ftimer off), so the value for tick is 10000 usec. Tickadj is a bit more tricky because of the behaviour of adjtime(), which seems to try to perform the correction over 100-200 seconds, with a rate limit of 0.04 secs/sec for large corrections. Corrections of less than 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/hints/sgi/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="SGI Hints">
+<meta itemprop="description" content="adjtime, tick and tickadj: -------------------------- The SGI value for HZ is 100 under Irix 4, with the system clock running in nominal mode (ftimer off), so the value for tick is 10000 usec. Tickadj is a bit more tricky because of the behaviour of adjtime(), which seems to try to perform the correction over 100-200 seconds, with a rate limit of 0.04 secs/sec for large corrections. Corrections of less than 0.">
+
+<meta itemprop="wordCount" content="466">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SGI Hints"/>
+<meta name="twitter:description" content="adjtime, tick and tickadj: -------------------------- The SGI value for HZ is 100 under Irix 4, with the system clock running in nominal mode (ftimer off), so the value for tick is 10000 usec. Tickadj is a bit more tricky because of the behaviour of adjtime(), which seems to try to perform the correction over 100-200 seconds, with a rate limit of 0.04 secs/sec for large corrections. Corrections of less than 0."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/hints/sgi/">SGI Hints</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>SGI Hints</h1>
+    
+	       
+	<pre>adjtime, tick and tickadj:
+--------------------------
+
+The SGI value for HZ is 100 under Irix 4, with the system clock running
+in nominal mode (ftimer off), so the value for tick is 10000 usec.
+Tickadj is a bit more tricky because of the behaviour of adjtime(),
+which seems to try to perform the correction over 100-200 seconds, with
+a rate limit of 0.04 secs/sec for large corrections.  Corrections of
+less than 0.017 seconds generally complete in less than a second,
+however.
+
+Some measured rates are as follows:
+
+	Delta       Rate (sec/sec)
+
+	> 1		0.04
+	0.75		0.04
+	0.6		0.004
+	0.5		0.004
+	0.4		0.0026
+	0.3		0.0026
+	0.2		0.0013
+	0.1		0.0015
+	0.05		0.0015
+	0.02		0.0003
+	0.01		0.015
+Strange.  Anyway, since adjtime will complete adjustments of less than
+17msec in less than a second, whether the fast clock is on or off, I
+have used a value of 150usec/tick for the tickadj value.
+
+Fast clock:
+-----------
+
+I get smoother timekeeping if I turn on the fast clock, thereby making
+the clock tick at 1kHz rather than 100Hz.  With the fast clock off, I
+see a sawtooth clock offset with an amplitude of 5msec.  With it on,
+the amplitude drops to 0.5msec (surprise!).  This may be a consequence
+of having a local reference clock which spits out the time at exactly
+one-second intervals - I am probably seeing sampling aliasing between
+that and the machine clock.  This may all be irrelevant for machines
+without a local reference clock.  Fiddling with the fast clock doesn't
+seem to compromise the above choices for tick and tickadj.
+
+I use the "ftimer" program to switch the fast clock on when the system
+goes into multiuser mode, but you can set the "fastclock" flag in
+/usr/sysgen/master.d/kernel to have it on by default.  See ftimer(1).
+
+timetrim:
+---------
+
+Irix has a kernel variable called timetrim which adjusts the system
+time increment, effectively trimming the clock frequency.  Xntpd could
+use this rather than adjtime() to do it's frequency trimming, but I
+haven't the time to explore this.  There is a utility program,
+"timetrim", in the util directory which allows manipulation of the
+timetrim value in both SGI and xntpd native units.  You can fiddle with
+default timetrim value in /usr/sysgen/master.d/kernel, but I think
+that's ugly.  I just use xntpd to figure out the right value for
+timetrim for a particular CPU and then set it using "timetrim" when
+going to multiuser mode.
+
+Serial I/O latency:
+-------------------
+
+If you use a local clock on an RS-232 line, look into the kernel
+configuration stuff with regard to improving the input latency (check
+out /usr/sysgen/master.d/[sduart|cdsio]).  I have a Kinemetrics OM-DC
+hooked onto /dev/ttyd2 (the second CPU board RS-232 port) on an SGI
+Crimson, and setting the duart_rsrv_duration flag to 0 improves things
+a bit.
+
+12 Jan 93
+Steve Clift, CSIRO Marine Labs, Hobart, Australia (clift@ml.csiro.au)
+
+</pre>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

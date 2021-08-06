@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Windows NT | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Windows NT" />
+<meta property="og:description" content="Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. IPv6 is not implemented yet for Win32 platforms. A ready-to-run install distribution is available from Meinberg at http://www." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/hints/winnt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Windows NT">
+<meta itemprop="description" content="Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. IPv6 is not implemented yet for Win32 platforms. A ready-to-run install distribution is available from Meinberg at http://www.">
+
+<meta itemprop="wordCount" content="1275">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Windows NT"/>
+<meta name="twitter:description" content="Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. IPv6 is not implemented yet for Win32 platforms. A ready-to-run install distribution is available from Meinberg at http://www."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/hints/winnt/">Windows NT</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Windows NT</h1>
+    
+	       
+	<h4 id="introduction">Introduction</h4>
+<p>The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. IPv6 is not implemented yet for Win32 platforms. A ready-to-run install distribution is available from Meinberg at <a href="http://www.meinberg.de/english/sw/ntp.htm">http://www.meinberg.de/english/sw/ntp.htm.</a></p>
+<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in Microsoft KB 875424. A less desirable alternative that avoids changing registry keys is to use the <tt>&ndash;with-wintime</tt> option when building the executable.</p>
+<hr>
+<h4 id="authentication-keys">Authentication Keys</h4>
+<p>With this release ntp-keygen is supported. See the <a href="/archives/4.2.8-series/keygen">ntp keygen documentation</a> for details on how to use ntp-keygen.</p>
+<p><tt>ntpd</tt> can now use the generated keys in the same way as on Unix platforms. Please refer to the <a href="/archives/4.2.8-series/authopt">Authentication Options</a> for details on how to use these.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">NOTE</h4>
+
+    ntpd and <tt>ntp-keygen</tt> both use OpenSSL which requires a random character file called <tt>.rnd</tt> by default. Both of these programs will automatically generate this file if they are not found. The programs will look for an environmental variable called RANDFILE and use that for the name of the random character file if the variable exists. If it does not exist it will look for an environmental variable called HOME and use that directory to search for a file called <tt>.rnd</tt> in that directory. Finally, if neither RANDFILE nor HOME exists it will look in <tt>C:``</tt> for a .rnd file. In each case it will search for and create the file if the environmental variable exists or in the <tt>C:<code>\</code></tt> directory if it doesn&rsquo;t.
+
+</div>
+
+<p>Note that ntpd normally runs as a service so that the only way that it will have either RANDFILE or HOME defined is if it is a System environmental variable or if the service is run under a specific account name and that account has one of those variables defined. Otherwise it will use the file <tt>c:.rnd</tt>. This was done so that OpenSSL will work normally on Win32 systems. This obviates the need to ship the OpenSSL.exe file and explain how to generate the .rnd file. A future version may change this behavior.</p>
+<p>Refer to Compiling Requirements and Instructions for how to compile the program.</p>
+<hr>
+<h4 id="reference-clocks">Reference Clocks</h4>
+<p>Reference clock support under Windows NT is tricky because the IO functions are so much different. Some of the clock types have been built into the ntpd executable and should work but have not been tested by the ntp project. If you have a clock that runs on Win32 and the driver is there but not implemented on Win32 you will have make the required configuration changes in config.h and then build ntpd from source and test it. The following reference clock is known to work and is supported by Windows NT: <a href="/archives/drivers/driver1">Type 1</a> Undisciplined Local Clock (LOCAL)</p>
+<hr>
+<h4 id="functions-supported">Functions Supported</h4>
+<p>All NTP functions are supported with some constraints. See the TODO list below. Note that the ntptrace executable is not supported and you should use the PERL script version instead.</p>
+<hr>
+<h4 id="accuracy">Accuracy</h4>
+<p>Greg Brackley has implemented a fantastic interpolation scheme that improves the precision of the NTP clock using a realtime thread (is that poetic or what!) which captures a tick count from the 8253 counter after each OS tick. The count is used to interpolate the time between operating system ticks.</p>
+<p>On a typical 200+ MHz system NTP achieves a precision of about 5 microseconds and synchronizes the clock to +/-500 microseconds using the <a href="/archives/drivers/driver29/">Trimble Palisade</a> as UTC reference. This allows distributed applications to use the 10 milliseconds ticks available to them with high confidence.</p>
+<hr>
+<h4 id="binaries">Binaries</h4>
+<p>Recent InstallShield based executable versions of NTP for Windows NT (intel) are available from:</p>
+<ul>
+<li><a href="http://www.five-ten-sg.com/">http://www.five-ten-sg.com/</a></li>
+</ul>
+<hr>
+<h4 id="todo">ToDo</h4>
+<p>These tasks are in no particular order of priority.</p>
+<ul>
+<li>Add IPv6 support</li>
+<li>See if precision can be improved by using CPU cycle counter for tick interpolation.</li>
+<li>Make precision time available to applications using NTP_GETTIME API</li>
+</ul>
+<hr>
+<h4 id="compiling-requirements">Compiling Requirements</h4>
+<ul>
+<li>Windows 7 or Windows.NET Server 2003, or later.</li>
+<li>Windows NT 4.0 Windows 2000, Windows XP or Windows Vista <em>may</em> still work.</li>
+<li>Microsoft Visual C++ 2008, 2010, or 2013 EE</li>
+<li>Some way of uncompressing and untarring the gzipped tar file.</li>
+<li>OpenSSL must be built on the box before building NTP. Additional steps would be required to not use OpenSSL.</li>
+<li>Microsoft Visual C++ redistributables</li>
+</ul>
+<p><a name="Compiling"><strong>Compiling Instructions</strong></a></p>
+<ol>
+<li>Install Microsoft Visual C++ <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">redistributables</a></li>
+<li>Install <a href="http://www.slproweb.com/products/Win32OpenSSL.html">OpenSSL full installer for Windows</a>. Add the following to your system environment variables in the control panel (adjusting paths as appropriate to point to the directory containing only an openssl subdirectory, for OPENSSL_INC, and to the directory containing openssl .lib files for OPENSSL_LIB:
+<ul>
+<li>OPENSSL_INC=C:\OpenSSL\include</li>
+<li>OPENSSL_LIB=C:\OpenSSL\lib</li>
+</ul>
+</li>
+<li>Unpack the <code>NTP-4.x.tar.gz</code> using utilities such as WinZip or WinRar.</li>
+<li>Run Microsoft Visual C++ 2008 EE.</li>
+<li>Open the <code>ports\winnt\vs2008\ntp.sln</code> solution file</li>
+<li>Batch build all projects (Build menu, Batch Build&hellip;, select all, build).</li>
+<li>The built binaries can be found in the <code>ports\winnt\v2008\Win32-bin\Release</code> directory.</li>
+<li>If you are shipping binaries in a kit it is strongly recommended that you ship this file along with the binaries.</li>
+</ol>
+<hr>
+<h4 id="configuration-file">Configuration File</h4>
+<p>The default NTP configuration file path is <code>%SystemRoot%\system32\drivers\etc\</code>. (<code>%SystemRoot%</code> is an environmental variable that can be determined by typing &ldquo;set&rdquo; at the &ldquo;Command Prompt&rdquo; or from the &ldquo;System&rdquo; icon in the &ldquo;Control Panel&rdquo;).</p>
+<p>Refer to your system environment and create your <tt>ntp.conf</tt> file in the directory corresponding to your system  installation. The older <code>&lt;WINDIR&gt;\ntp.conf</code> is still supported but you will get a log entry reporting that the first file wasn&rsquo;t found.</p>
+<hr>
+<h4 id="installation-instructions">Installation Instructions</h4>
+<p>The <tt>instsrv</tt> program in the instsrv subdirectory of the distribution can be used to install &lsquo;ntpd&rsquo; as a service and start automatically at boot time. Instsrv is automatically compiled with the rest of the distribution if you followed the steps above.</p>
+<ol>
+<li>Start a command prompt and enter <code>instsrv.exe &lt;pathname_for_ntpd.exe&gt;</code>.</li>
+<li>Clicking on the &ldquo;Services&rdquo; icon in the &ldquo;Control Panel&rdquo; will display the list of currently installed services in a dialog box. The NetworkTimeProtocol service should show up in this list. Select it in the list and hit the &ldquo;Start&rdquo; button in the dialog box. The NTP service should start.</li>
+<li>You can also stop and start the service by typing <code>net start | stop NetworkTimeProtocol</code> at the DOS prompt.</li>
+<li>View the event log by clicking on the &ldquo;Event Viewer&rdquo; icon in the &ldquo;Administrative Tools&rdquo; group, there should be several successful startup messages from NTP. NTP will keep running and restart automatically when the machine is rebooted.</li>
+</ol>
+<p>You can change the start mode (automatic/manual) and other startup parameters corresponding to the NTP service in the &ldquo;Services&rdquo; dialog box if you wish.</p>
+<hr>
+<h4 id="removing-ntp">Removing NTP</h4>
+<p>You can also use <tt>instsrv</tt> to delete the NTP service by entering: <code>instsrv.exe remove</code>.</p>
+<hr>
+<h4 id="command-line-parameters-and-registry-entries">Command Line Parameters and Registry Entries</h4>
+<p>Unlike the Unix environment, there is no clean way to run &lsquo;ntpdate&rsquo; and reset the clock before starting &lsquo;ntpd&rsquo; at boot time. NTP will step the clock up to 1000 seconds by default. While there is no reason that the system clock should be that much off during bootup if <tt>ntpd</tt> was running before, you may wish to override this default and/or pass other command line directives.</p>
+<p>Use the registry editor to edit the value for the ntpd executable under <code>LocalMachine\System\CurrentControlSet\Services\NTP</code>.</p>
+<p>Add the <code>-g</code> option to the ImagePath key, behind <code>%INSTALLDIR&gt;\ntpd.exe</code>. This will force NTP to accept large time errors (including 1.1.1980 00:00)</p>
+<hr>
+<h4 id="bug-reports">Bug Reports</h4>
+<p>Please follow the <a href="/archives/4.2.8-series/bugs">NTP Bug Reporting Procedures</a> to report bugs or request enhancements.</p>
+<p>Last update: 6-Apr-2014 23:27</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

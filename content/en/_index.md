@@ -13,6 +13,7 @@ The Network Time Foundation provides support for the NTP Project and hosted the 
 <p><br /></p>
 </div>
 
+<<<<<<< HEAD
 <section>
   <div class="container-fluid">
     <div class="row">
@@ -26,3 +27,7 @@ The Network Time Foundation provides support for the NTP Project and hosted the 
     </div>
   </div>
 </section>
+=======
+Network Time Foundation provides support for the NTP Project and hosts the [IETF NTP Working Group](https://datatracker.ietf.org/wg/ntp/about/). Learn more about the Foundation's work at https://www.nwtime.org.
+{{% /blocks/section %}}
+>>>>>>> f6fa582553b75b93935ca2c4308f23f8668820bd

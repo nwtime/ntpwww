@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Access Control Options | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Access Control Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+The skunk watches for intruders and sprays.
+Last update: 30-Sep-2009 17:16 UTC
+ Table of Contents  Access Control Support Access Control Commands   Access Control Support The ntpd daemon implements a general purpose access control list (ACL) containing address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.6-series/accopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Access Control Options">
+<meta itemprop="description" content="from Pogo, Walt Kelly
+The skunk watches for intruders and sprays.
+Last update: 30-Sep-2009 17:16 UTC
+ Table of Contents  Access Control Support Access Control Commands   Access Control Support The ntpd daemon implements a general purpose access control list (ACL) containing address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list.">
+
+<meta itemprop="wordCount" content="1105">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Access Control Options"/>
+<meta name="twitter:description" content="from Pogo, Walt Kelly
+The skunk watches for intruders and sprays.
+Last update: 30-Sep-2009 17:16 UTC
+ Table of Contents  Access Control Support Access Control Commands   Access Control Support The ntpd daemon implements a general purpose access control list (ACL) containing address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.6-series/">4.2.6-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.6-series/accopt/">Access Control Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Access Control Options</h1>
+    
+	       
+	<p><img src="/archives/pic/pogo6.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>The skunk watches for intruders and sprays.</p>
+<p>Last update: 30-Sep-2009 17:16 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.6-series/accopt/#access-control-support">Access Control Support</a></li>
+<li><a href="/archives/4.2.6-series/accopt/#access-control-commands">Access Control Commands</a></li>
+</ul>
+<hr>
+<h4 id="access-control-support">Access Control Support</h4>
+<p>The <tt>ntpd</tt> daemon implements a general purpose access control list (ACL) containing address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list. The list is searched in order with the last match found defining the restriction flags associated with the entry.</p>
+<p>An example may clarify how it works. Our campus has two class-B networks, 128.4 for the ECE and CIS departments and 128.175 for the rest of campus. Let&rsquo;s assume (not true!) that subnet 128.4.1 homes critical services like class rosters and spread sheets. A suitable ACL might be</p>
+<pre>restrict default nopeer				# deny new associations
+restrict 128.175.0.0 mask 255.255.0.0 		# allow campus access
+restrict 128.4.0.0 mask 255.255.0.0 none	# allow ECE and CIS access
+restrict 128.4.1.0 mask 255.255.255.0 notrust # require authentication on subnet 1
+restrict time.nist.gov				# allow access
+</pre>
+<p>While this facility may be useful for keeping unwanted, broken or malicious clients from congesting innocent servers, it should not be considered an alternative to the NTP authentication facilities. Source address based restrictions are easily circumvented by a determined cracker.</p>
+<h4 id="access-control-commands">Access Control Commands</h4>
+<dt id="discard"><tt>discard [ average _avg_ ][ minimum _min_ ] [ monitor _prob_ ]</tt></dt>
+<p>Set the parameters of the rate control facility which protects the server from client abuse. If the <tt>limited</tt> flag is present in the ACL, packets that violate these limits are discarded. If in addition the <tt>kod</tt> restriction is present, a kiss-o'-death packet is returned.</p>
+<p>    <tt>average <em>avg</em></tt></p>
+<p>    Specify the minimum average interpacket spacing (minimum average headway time) in log<sub>2</sub> s with default 3.</p>
+<p>    <tt>minimum <em>min</em></tt></p>
+<p>    Specify the minimum interpacket spacing (guard time) in log<sub>2</sub> s with default 1.</p>
+<p>    <tt>monitor</tt></p>
+<p>    Specify the probability of discard for packets that overflow the rate-control window. This is a performance optimization for servers with aggregate arrivals of 1000 packets per second or more.</p>
+<dt id="restrict"><tt>restrict _address_ [mask _mask_] [_flag_][...]</tt></dt>
+<p>The <tt><em>address</em></tt> argument expressed in dotted-quad form is the address of a host or network. Alternatively, the <tt><em>address</em></tt> argument can be a valid host DNS name. The <tt><em>mask</em></tt> argument expressed in dotted-quad form defaults to 255.255.255.255, meaning that the <tt><em>address</em></tt> is treated as the address of an individual host. A default entry (address 0.0.0.0, mask 0.0.0.0) is always included and is always the first entry in the list. Note that the text string <tt>default</tt>, with no mask option, may be used to indicate the default entry.</p>
+<p>Some flags have the effect to deny service, some have the effect to enable service and some are conditioned by other flags. The flags. are not orthogonal, in that more restrictive flags will often make less restrictive ones redundant. The flags that deny service are classed in two categories, those that restrict time service and those that restrict informational queries and attempts to do run-time reconfiguration of the server. One or more of the following flags may be specified:</p>
+<p>    <tt>flake</tt></p>
+<p>    Discard received NTP packets with probability 0.1; that is, on average drop one packet in ten. This is for testing and amusement. The name comes from Bob Braden&rsquo;s <em>flakeway</em>, which once did a similar thing for early Internet testing.</p>
+<p>    <tt>ignore</tt></p>
+<p>    Deny packets of all kinds, including <tt>ntpq</tt> and <tt>ntpdc</tt> queries.</p>
+<p>    <tt>kod</tt></p>
+<p>    Send a kiss-o'-death (KoD) packet if the <tt>limited</tt> flag is present and a packet violates the rate limits established by the <tt>discard</tt> command. KoD packets are themselves rate limited for each source address separately. If this flag is not present, packets that violate the rate limits are discarded.</p>
+<p>    <tt>limited</tt></p>
+<p>    Deny time service if the packet violates the rate limits established by the <tt>discard</tt> command. This does not apply to <tt>ntpq</tt> and <tt>ntpdc</tt> queries.</p>
+<p>    <tt>lowpriotrap</tt></p>
+<p>    Declare traps set by matching hosts to be low priority. The number of traps a server can maintain is limited (the current limit is 3). Traps are usually assigned on a first come, first served basis, with later trap requestors being denied service. This flag modifies the assignment algorithm by allowing low priority traps to be overridden by later requests for normal priority traps.</p>
+<p>    mssntp</tt></p>
+<p>    Enable Microsoft Windows MS-SNTP authentication using Active Directory services. <strong>Note: Potential users should be aware that these services involve a TCP connection to another process that could potentially block, denying services to other users. Therefore, this flag should be used only for a dedicated server with no clients other than MS-SNTP</strong>.</span></p>
+<p>    <tt>nomodify</tt></p>
+<p>    Deny <tt>ntpq</tt> and <tt>ntpdc</tt> queries which attempt to modify the state of the server (i.e., run time reconfiguration). Queries which return information are permitted.</p>
+<p>    <tt>noquery</tt></p>
+<p>    Deny <tt>ntpq</tt> and <tt>ntpdc</tt> queries. Time service is not affected.</p>
+<p>    <tt>nopeer</tt></p>
+<p>    Deny packets that might mobilize an association unless authenticated. This includes broadcast, symmetric-active and manycast server packets when a configured association does not exist. Note that this flag does not apply to packets that do not attempt to mobilize an association.</p>
+<p>    <tt>noserve</tt></p>
+<p>    Deny all packets except <tt>ntpq</tt> and <tt>ntpdc</tt> queries.</p>
+<p>    <tt>notrap</tt></p>
+<p>    Decline to provide mode 6 control message trap service to matching hosts. The trap service is a subsystem of the <tt>ntpdc</tt> control message protocol which is intended for use by remote event logging programs.</p>
+<p>    <tt>notrust</tt></p>
+<p>    Deny packets that are not cryptographically authenticated. Note carefully how this flag interacts with the <tt>auth</tt> option of the <tt>enable</tt> and <tt>disable</tt> commands. If <tt>auth</tt> is enabled, which is the default, authentication is required for all packets that might mobilize an association. If <tt>auth</tt> is disabled, but the <tt>notrust</tt> flag is not present, an association can be mobilized whether or not authenticated. If <tt>auth</tt> is disabled, but the <tt>notrust</tt> flag is present, authentication is required only for the specified address/mask range.</p>
+<p>    <tt>ntpport</tt></p>
+<p>    <tt>non-ntpport</tt></p>
+<p>    This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). Both <tt>ntpport</tt> and <tt>non-ntpport</tt> may be specified. The <tt>ntpport</tt> is considered more specific and is sorted later in the list.</p>
+<p>    <tt>version</tt></p>
+<p>    Deny packets that do not match the current NTP version.</p>
+<p>Default restriction list entries with the flags <tt>ignore, ntpport</tt>, for each of the local host&rsquo;s interface addresses are inserted into the table at startup to prevent the server from attempting to synchronize to its own time. A default entry is also always present, though if it is otherwise unconfigured; no flags are associated with the default entry (i.e., everything besides your own NTP server is unrestricted).</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

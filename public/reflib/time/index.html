@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>NTP Timestamp Calculations | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="NTP Timestamp Calculations" />
+<meta property="og:description" content="from The Wizard of Oz, L. Frank Baum
+Public transport in Oz
+Last update 26-May-2012
+ Table of Contents  Abstract 1. Introduction 2. Data Formats 3. Datestamps and Timestamps as Finite Groups 4. Time Difference Calculations 5. On-Wire Protocol Implications   Abstract This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finit additive groups using twos complement arithmetics." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reflib/time/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="NTP Timestamp Calculations">
+<meta itemprop="description" content="from The Wizard of Oz, L. Frank Baum
+Public transport in Oz
+Last update 26-May-2012
+ Table of Contents  Abstract 1. Introduction 2. Data Formats 3. Datestamps and Timestamps as Finite Groups 4. Time Difference Calculations 5. On-Wire Protocol Implications   Abstract This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finit additive groups using twos complement arithmetics.">
+
+<meta itemprop="wordCount" content="1626">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NTP Timestamp Calculations"/>
+<meta name="twitter:description" content="from The Wizard of Oz, L. Frank Baum
+Public transport in Oz
+Last update 26-May-2012
+ Table of Contents  Abstract 1. Introduction 2. Data Formats 3. Datestamps and Timestamps as Finite Groups 4. Time Difference Calculations 5. On-Wire Protocol Implications   Abstract This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finit additive groups using twos complement arithmetics."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/reflib/" ><span class="active">Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/reflib/time/">NTP Timestamp Calculations</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>NTP Timestamp Calculations</h1>
+    
+	       
+	<p><img src="/archives/pic/wingdorothy.gif" alt="gif"></p>
+<p>from <a href="/reflib/pictures"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
+<p>Public transport in Oz</p>
+<p>Last update 26-May-2012</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/reflib/time/#abstract">Abstract</a></li>
+<li><a href="/reflib/time/#1-introduction">1. Introduction</a></li>
+<li><a href="/reflib/time/#2-data-formats">2. Data Formats</a></li>
+<li><a href="/reflib/time/#3-datestamps-and-timestamps-as-finite-groups">3. Datestamps and Timestamps as Finite Groups</a></li>
+<li><a href="/reflib/time/#4-time-difference-calculations">4. Time Difference Calculations</a></li>
+<li><a href="/reflib/time/#5-on-wire-protocol-implications">5. On-Wire Protocol Implications</a></li>
+</ul>
+<hr>
+<h4 id="abstract">Abstract</h4>
+<p>This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finit additive groups using twos complement arithmetics. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started.</p>
+<hr>
+<h4 id="1-introduction">1. Introduction</h4>
+<p>The timestamp calculations described in this document are used by the NTP protocol machine and clock discipline algorithms to adjust the time of the client clock to align with the time of the server clock. The calculations are not designed to set the client clock directly, only to provide an offset correction relative to the server clock and without respect to any arbitrary epoch.</p>
+<p>The conclusion in this document is so important as to be previewed here.</p>
+<blockquote>
+<p>If the client clock is set within 68 years of the server clock before the NTP protocol is started, the NTP algorithms will set the client clock to the server clock with accuracy and without ambiguity.</p>
+</blockquote>
+<p>The discussion in this document is designed to support and confirm this statement before, at and beyond the timescale overflow event that will occur in 2036.</p>
+<hr>
+<h4 id="2-data-formats">2. Data Formats</h4>
+<p><em>Time</em> is an abstraction that establishes an ordering of events relative to a <em>timescale</em>. In NTP, a <em>date</em> is a point on the timescale expressed in one of two formats, <em>datestamp</em> and <em>timestamp.</em> As shown in Figure 1, a datestamp is a 128-bit, signed fixed-point number in seconds and fraction, with the decimal point to the left of bit 64. Dates are relative to the <em>prime epoch,</em> 0 h, 1 January 1900; dates prior to the prime epoch have negative values, while dates since then have positive values. A timestamp is a 64-bit, unsigned fixed-point number in seconds and fraction with the decimal point to the left of bit 32. Datestamps are used in internal calculations where extended range and freedom from overflow are important, while timestamps are used in packet headers where economy of storage is important.</p>
+<p><img src="/archives/pic/time1.gif" alt="gif"></p>
+<p><strong>Figure 1. NT Data Formats</strong></p>
+<p>Datestamps span the age of the Universe with a precision less than the time light transits an atom. Timestamps span a 136-year interval , called an <em>era</em>, with a precision of 232 ps. The datestamp format includes a timestamp field that specifies the seconds and fraction of an era, together with an era number field that specifies the timestamp origin. There is a special convention in both timestamp and datestamp formats where the value zero represents an undefined or unknown date that should not be used in time related calculations.</p>
+<hr>
+<h4 id="3-datestamps-and-timestamps-as-finite-groups">3. Datestamps and Timestamps as Finite Groups</h4>
+<p>In the remainder of this document, the decimal point in datestamps and timestamps formats is not significant and the numbers interpreted as 128-bit or 64-bit integers. Datestamps and timestamp are elements of additive groups consisting of integers and the operations of twos-complement arithmetic. There are only two operations in the NTP additive group, addition and complement, each modulo 2<sup>128</sup> for the datestamps group and 2<sup>64</sup> for the timestamp group, but otherwise the operations are the same. Datestamps are a signed data type, while timestamps are an unsigned data type.</p>
+<p>Let <em>A</em> and <em>B</em> be elements of an additive group of integers modulo 2_<sup>n</sup>_ for some _n_. Addition is defined _A_ + _B_ = _B_ + _A_ mod 2_<sup>n</sup>_. The identity 0 is defined such that _A_ + 0 = 0 + _A_ = _A_ mod 2_<sup>n</sup>_. The complement (inverse) -_A_ is defined such that _A_ + (-_A_) = 0 mod 2_<sup>n</sup>_. To form the complement -_A_, first invert each bit of _A_, then add the constant 1 to the result. Equivalently, -_A_ = 2_<sup>n</sup>_ - _A_. Finally, the _offset_ of _B_ relative to _A_ is defined _A_ + (-_B_) mod 2_<sup>n</sup>_. This is the only allowable operation involving datestamp or timestamp operands and results in a signed data type.</p>
+<hr>
+<h4 id="4-time-difference-calculations">4. Time Difference Calculations</h4>
+<p>For the additive group of 2_<sup>n</sup>_ elements, the arithmetic logic unit (ALU) consists of a straight binary adder that does not distinguish the sign of the operands or result. However, in twos-complement notation, the sign is implicit in the most significant bit _S_. The ALU produces an _n_-bit result together with a carry bit _C_ representing the _n_+1th bit. For timestamp calculations, the _C_ bit is in effect the least significant bit of the era number of the datestamp, but most often it is implicit in the calculation of offset.</p>
+<p>The mathematics involved in additive group calculations can be illustrated with the following examples. Let <em>A</em> and <em>B</em> be unsigned integers modulo 2_<sup>n</sup>_, where _n_ = 4. The integers 0-7 with _S_ = 0 are positive, while the integers 8-15 with _S_ = 1 are negative. Let _A_ = 7 and _B_ = 5, then the offset _A_ + (-_B_) = 7 + (-5) = 7 + 11 = 2 mod 16. Reversing the operands, let _A_ = 5 and _B_ = 7, then _A_ + (-_B_) = 5 + (-7) = 5 + 9 = -2 mod 16. Note that, while the operands are unsigned type, the resulting offset is interpreted as signed type. This represents typical cases when the operands are in the same era. If, for example, _A_ is in the next era later than _B_, let _A_ = 2 and _B_ =14. Then, _A_ + (-_B_) = 2 + (-14) = 4 mod 16. Note that the modular operations can be performed before, during and after the calculation. Similar examples can be contrived for other values of _n_, _A_ and _B_, as long as the offset is less than 2_<sup>n</sup>_<sup>-1</sup>= 8 in these examples.</p>
+<p>Returning to the interpretation of timestamps as fixed-point numbers, note that the integer portion represents an era of 136 years. This suggests the following general rule.</p>
+<blockquote>
+<p>Let the system clock be set within 68 years of the correct time, even if the correct time is not known exactly. Then, the offset can be correctly computed by the on-wire protocol and used to adjust the system clock to the correct time relative to an external source.</p>
+</blockquote>
+<p>As a practical example, consider an NTP client started somewhere in 2012. In principle, the system clock can be initially set any time between after 1944 in era 0 and before 2080 in era 1. However, since an era is 136 years, 1944 in era 0 corresponds to timestamp year 44, while 2080 in era 1 also corresponds to timestamp year 44. To avoid possible ambiguity, the time should be initially set within a more narrow range than 68 years, perhaps 50 years. In such cases, the NTP on-wire protocol and clock discipline will eventauly align the system clock to the correct time in 2012.</p>
+<hr>
+<h4 id="5-on-wire-protocol-implications">5. On-Wire Protocol Implications</h4>
+<p>Timestamp calculations are carefully constructed to avoid overflow while preserving precision. The only arithmetic operation permitted on raw timestamps is subtraction, which produces signed 64-bit timestamp differences from 68 years in the past to 68 years in the future.</p>
+<p>All of the timestamp calculations discussed in this document involve differences between timestamps recorded at events such as the arrival or departure of an NTP packet. As described in previous sections of this document, the calculations apply whether or not the differences span none, one or more eras. The crucial distinction is whether the client clock is set within 68 years of the server clock before the protocol is started.</p>
+<p>As in the protocol specification, let <em>T</em><sub>1</sub> be the client timestamp on the request packet, <em>T</em><sub>2</sub> the server timestamp upon arrival, <em>T</em><sub>3</sub> the server timestamp on departure of the reply packet and <em>T</em><sub>4</sub> the client timestamp upon arrival. The NTP on-wire protocol calculates the clock offset</p>
+<p><code>_offset_ = [(_T_&lt;sub&gt;2&lt;/sub&gt; - _T_&lt;sub&gt;1&lt;/sub&gt;) + (_T_&lt;sub&gt;3&lt;/sub&gt; - _T_&lt;sub&gt;4&lt;/sub&gt;)] / 2</code></p>
+<p>and roundtrip delay</p>
+<p><code>_delay_ = (_T_&lt;sub&gt;4&lt;/sub&gt; - _T_&lt;sub&gt;1&lt;/sub&gt;) - (_T_&lt;sub&gt;3&lt;/sub&gt; - _T_&lt;sub&gt;2&lt;/sub&gt;)</code>.</p>
+<p>In both the offset and delay equations, the calculations require raw timestamp differences that span no more than 68 years in the future to 68 years in the past. The previous discussion in this document confirms these differences can be computed correctly regardless of whether they span between two eras, as long as the eras are adjacent.</p>
+<p>The offset and delay calculations require sums and differences of these raw timestamp differences that can span no more than from 34 years in the future to 34 years in the past without overflow. This is a fundamental limitation in 64-bit integer calculations.</p>
+<p>In the NTPv4 reference implementation, all calculations involving offset and delay values use 64-bit floating double arithmetic, with the exception of raw timestamp subtraction, as mentioned above. The raw timestamp differences are then converted to 64-bit floating double format without loss of precision or chance of overflow in subsequent calculations.</p>
+<p>While this design benefits present and future NTP versions, it will not of course benefit previous versions that may be etched in hardware or firmware. Previous versions of the public NTP software, including NTP Version 3 (xntpd) will have the same problem, but these versions use integer arithmetic throughout and are much harder to update.</p>
+<p>NTP Version 3 has in addition well known ambiguities due to 16-bit overflows in some cases and is not recommended for new systems. However, it is important to note that Simple Network Time Protocol (SNTP) clients that set the clock directly and do not include the offset and delay calculations described in this document do not have the overflow problem and can continue to be used without hazard, at least until 2036.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

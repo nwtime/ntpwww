@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Miscellaneous Options | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Miscellaneous Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+We have three, now looking for more.
+Last update: 18:50 UTC Monday, January 09, 2006
+ broadcastdelay _seconds_ The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.4-series/miscopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Miscellaneous Options">
+<meta itemprop="description" content="from Pogo, Walt Kelly
+We have three, now looking for more.
+Last update: 18:50 UTC Monday, January 09, 2006
+ broadcastdelay _seconds_ The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.">
+
+<meta itemprop="wordCount" content="1785">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Miscellaneous Options"/>
+<meta name="twitter:description" content="from Pogo, Walt Kelly
+We have three, now looking for more.
+Last update: 18:50 UTC Monday, January 09, 2006
+ broadcastdelay _seconds_ The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.4-series/">4.2.4-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.4-series/miscopt/">Miscellaneous Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Miscellaneous Options</h1>
+    
+	       
+	<p><img src="/archives/pic/boom3.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>We have three, now looking for more.</p>
+<p>Last update: 18:50 UTC Monday, January 09, 2006</p>
+<hr>
+<dt><tt>broadcastdelay _seconds_</tt></dt>
+<p>The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example. This command specifies the default delay to be used under these circumstances. Typically (for Ethernet), a number between 0.003 and 0.007 seconds is appropriate. The default when this command is not used is 0.004 seconds.</p>
+<dt><tt>calldelay _delay_</tt></dt>
+<p>This option controls the delay in seconds between the first and second packets sent in burst or iburst mode to allow additional time for a modem or ISDN call to complete.</p>
+<dt><tt>driftfile _driftfile_ [ _minutes_ [ _tolerance_ ] ]</tt></dt>
+<p>This command specifies the complete path and name of the file used to record the frequency of the local clock oscillator. This is the same operation as the <tt>-f</tt> command linke option. If the file exists, it is read at startup in order to set the initial frequency and then updated once per hour with the current frequency computed by the daemon. If the file name is specified, but the file itself does not exist, the starts with an initial frequency of zero and creates the file when writing it for the first time. If this command is not given, the daemon will always start with an initial frequency of zero.</p>
+<p>The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <tt>ntpd</tt> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.</p>
+<p>The two optional values determine how often the file is written, and are particuarly useful when is it desirable to avoid spinning up the disk unnecessarily. The parameter <tt>minutes</tt> is how often the file will be written. If omitted or less than 1, the interval will be 60 minutes (one hour). The parameter <tt>tolerance</tt> is the threshold to skip writing the new value. If the new value is within <tt>tolerance</tt> percent of the last value written (compared out to 3 decimal places), the write will be skipped. The default is 0.0, which means that the write will occur unless the current and previous values are the same. A tolerance of .1 equates roughly to a difference in the 2nd decimal place.</p>
+<dt><tt>enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</tt>  
+<tt>disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats ]</tt></dt>
+<p>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the <a href="/archives/4.2.4-series/ntpdc"><tt>ntpdc</tt></a> utility program.</p>
+<p>    <tt>auth</tt></p>
+<p>    Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is enable.</p>
+<p>    <tt>bclient</tt></p>
+<p>    Enables the server to listen for a message from a broadcast or multicast server, as in the <tt>multicastclient</tt> command with default address. The default for this flag is disable.</p>
+<p>    <tt>calibrate</tt></p>
+<p>    Enables the calibrate feature for reference clocks. The default for this flag is disable.</p>
+<p>    <tt>kernel</tt></p>
+<p>    Enables the kernel time discipline, if available. The default for this flag is enable if support is available, otherwise disable.</p>
+<p>    <tt>monitor</tt></p>
+<p>    Enables the monitoring facility. See the <tt>ntpdc</tt> program and the <tt>monlist</tt> command or further information. The default for this flag is enable.</p>
+<p>    <tt>ntp</tt></p>
+<p>    Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is enable.</p>
+<p>    <tt>pps</tt></p>
+<p>    Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the <a href="/archives/4.2.4-series/kern">A Kernel Model for Precision Timekeeping</a> page for further information. The default for this flag is disable.</p>
+<p>    <tt>stats</tt></p>
+<p>    Enables the statistics facility. See the <a href="/archives/4.2.4-series/monopt">Monitoring Options</a> page for further information. The default for this flag is disable</p>
+<dt><tt>includefile _includefile_</tt></dt>
+<p>This command allows additional configuration commands to be included from a separate file. Include files may be nested to a depth of five; upon reaching the end of any include file, command processing resumes in the previous configuration file. This option is useful for sites that run <tt>ntpd</tt> on multiple hosts, with (mostly) common options (e.g., a restriction list).</p>
+<dt><tt>logconfig _configkeyword_</tt></dt>
+<p>This command controls the amount and type of output written to the system <tt>syslog</tt> facility or the alternate <tt>logfile</tt> log file. All <em><tt>configkeyword</tt></em> keywords can be prefixed with <tt>=</tt>, <tt>+</tt> and <tt>-</tt>, where <tt>=</tt> sets the <tt>syslogmask</tt>, <tt>+</tt> adds and <tt>-</tt> removes messages. <tt>syslog messages</tt> can be controlled in four classes (<tt>clock</tt>, <tt>peer</tt>, <tt>sys</tt> and <tt>sync</tt>). Within these classes four types of messages can be controlled: informational messages (<tt>info</tt>), event messages (<tt>events</tt>), statistics messages (<tt>statistics</tt>) and status messages (<tt>status</tt>).</p>
+<p>Configuration keywords are formed by concatenating the message class with the event class. The <tt>all</tt> prefix can be used instead of a message class. A message class may also be followed by the <tt>all</tt> keyword to enable/disable all messages of the respective message class. By default, <tt>logconfig</tt> output is set to <tt>allsync</tt>.</p>
+<p>Thus, a minimal log configuration could look like this:</p>
+<p>    <tt>logconfig=syncstatus +sysevents</tt></p>
+<p>    This would just list the synchronizations state of <tt>ntpd</tt> and the major system events. For a simple reference server, the following minimum message configuration could be useful:</p>
+<p>    <tt>logconfig=allsync +allclock</tt></p>
+<p>    This configuration will list all clock information and synchronization information. All other events and messages about peers, system events and so on is suppressed.</p>
+<dt><tt>logfile _logfile_</tt></dt>
+<p>This command specifies the location of an alternate log file to be used instead of the default system <tt>syslog</tt> facility. This is the same operation as the <tt>-l</tt> command line option.</p>
+<dt><tt>phone _dial_1 _dial_2 ...</tt></dt>
+<p>This command is used in conjunction with the ACTS modem driver (type 18). The arguments consist of a maximum of 10 telephone numbers used to dial USNO, NIST or European time services. The Hayes command ATDT is normally prepended to the number, which can contain other modem control codes as well.</p>
+<dt><tt>setvar _variable_ [default]</tt></dt>
+<p>This command adds an additional system variable. These variables can be used to distribute additional information such as the access policy. If the variable of the form <tt><em>name</em> = <em>value</em></tt> is followed by the <tt>default</tt> keyword, the variable will be listed as part of the default system variables (<tt>ntpq rv</tt> command). These additional variables serve informational purposes only. They are not related to the protocol other that they can be listed. The known protocol variables will always override any variables defined via the <tt>setvar</tt> mechanism. There are three special variables that contain the names of all variable of the same group. The <tt>sys_var_list</tt> holds the names of all system variables. The <tt>peer_var_list</tt> holds the names of all peer variables and the <tt>clock_var_list</tt> holds the names of the reference clock variables.</p>
+<dt><tt>tinker [ allan _allan_ | dispersion _dispersion_ | freq _freq_ | huffpuff _huffpuff_ | panic _panic_ | step _step_ | stepout _stepout_ ]</tt></dt>
+<p>This command can be used to alter several system variables in very exceptional circumstances. It should occur in the configuration file before any other configuration options. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. In general, they interact in intricate ways that are hard to predict and some combinations can result in some very nasty behavior. Very rarely is it necessary to change the default values; but, some folks can&rsquo;t resist twisting the knobs anyway and this command is for them. Emphasis added: twisters are on their own and can expect no help from the support group.</p>
+<p>The variables operate as follows:</p>
+<p>    <tt>allan <em>allan</em></tt></p>
+<p>    The argument becomes the new value for the Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm. The value is in seconds with default 1500 s, which is appropriate for most computer clocks.</p>
+<p>    <tt>dispersion <em>dispersion</em></tt></p>
+<p>    The argument becomes the new value for the dispersion increase rate, normally .000015 s/s.</p>
+<p>    <tt>freq <em>freq</em></tt></p>
+<p>    The argument becomes the initial value of the frequency offset in parts-per-million. This overrides the value in the frequency file, if present, and avoids the initial training state if it is not.</p>
+<p>    <tt>huffpuff <em>huffpuff</em></tt></p>
+<p>    The argument becomes the new value for the experimental huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 m), but a more reasonable value is 7200 (2 hours). There is no default, since the filter is not enabled unless this command is given.</p>
+<p>    <tt>panic <em>panic</em></tt></p>
+<p>    The argument is the panic threshold, by default 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.</p>
+<p>    <tt>step <em>step</em></tt></p>
+<p>    The argument is the step threshold, by default 0.128 s. It can be set to any positive number in seconds. If set to zero, step adjustments will never occur. <strong>Note:</strong> The kernel time discipline is disabled if the step threshold is set to zero or greater than the default.</p>
+<p>    <tt>stepout <em>stepout</em></tt></p>
+<p>    The argument is the stepout timeout, by default 900 s. It can be set to any positive number in seconds. If set to zero, the stepout pulses will not be suppressed.</p>
+<dt><tt>trap _host_address_ [port _port_number_] [interface _interface_address_]</tt></dt>
+<p>This command configures a trap receiver at the given host address and port number for sending messages with the specified local interface address. If the port number is unspecified, a value of 18447 is used. If the interface address is not specified, the message is sent with a source address of the local interface the message is sent through. Note that on a multihomed host the interface used may vary from time to time with routing changes.</p>
+<p>The trap receiver will generally log event messages and other information from the server in a log file. While such monitor programs may also request their own trap dynamically, configuring a trap receiver will ensure that no messages are lost when the server is started.</p>
+<dt><tt>ttl _hop_ ...</tt></dt>
+<p>This command specifies a list of TTL values in increasing order. up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.</p>
+<h4 id="files">Files</h4>
+<p><tt>ntp.drift</tt> frequency compensation (PPM)</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

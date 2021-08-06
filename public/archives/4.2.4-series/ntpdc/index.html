@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>ntpdc - special NTP query program | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="ntpdc - special NTP query program" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+This program is a big, deprecated puppy.
+Last update: 04:11 AM UTC Monday, November 27, 2006
+ Table of Contents  Synopsis Description Command Line Options Interactive Commands Control Message Commands Runtime Configuration Requests Bugs   Synopsis ntpdc [ -ilnps ] [ -c command ] [ host ] [ &hellip; ]
+ Description ntpdc is used to query the ntpd daemon about its current state and to request changes in that state." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.4-series/ntpdc/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="ntpdc - special NTP query program">
+<meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+This program is a big, deprecated puppy.
+Last update: 04:11 AM UTC Monday, November 27, 2006
+ Table of Contents  Synopsis Description Command Line Options Interactive Commands Control Message Commands Runtime Configuration Requests Bugs   Synopsis ntpdc [ -ilnps ] [ -c command ] [ host ] [ &hellip; ]
+ Description ntpdc is used to query the ntpd daemon about its current state and to request changes in that state.">
+
+<meta itemprop="wordCount" content="3173">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ntpdc - special NTP query program"/>
+<meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+This program is a big, deprecated puppy.
+Last update: 04:11 AM UTC Monday, November 27, 2006
+ Table of Contents  Synopsis Description Command Line Options Interactive Commands Control Message Commands Runtime Configuration Requests Bugs   Synopsis ntpdc [ -ilnps ] [ -c command ] [ host ] [ &hellip; ]
+ Description ntpdc is used to query the ntpd daemon about its current state and to request changes in that state."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.4-series/">4.2.4-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.4-series/ntpdc/">ntpdc - special NTP query program</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>ntpdc - special NTP query program</h1>
+    
+	       
+	<p><img src="/archives/pic/alice31.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>This program is a big, deprecated puppy.</p>
+<p>Last update: 04:11 AM UTC Monday, November 27, 2006</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.4-series/ntpdc/#synopsis">Synopsis</a></li>
+<li><a href="/archives/4.2.4-series/ntpdc/#description">Description</a></li>
+<li><a href="/archives/4.2.4-series/ntpdc/#command-line-options">Command Line Options</a></li>
+<li><a href="/archives/4.2.4-series/ntpdc/#interactive-commands">Interactive Commands</a></li>
+<li><a href="/archives/4.2.4-series/ntpdc/#control-message-commands">Control Message Commands</a></li>
+<li><a href="/archives/4.2.4-series/ntpdc/#runtime-configuration-requests">Runtime Configuration Requests</a></li>
+<li><a href="/archives/4.2.4-series/ntpdc/#bugs">Bugs</a></li>
+</ul>
+<hr>
+<h4 id="synopsis">Synopsis</h4>
+<p><tt>ntpdc [ -ilnps ] [ -c <em>command</em> ] [ <em>host</em> ] [ &hellip; ]</tt></p>
+<hr>
+<h4 id="description">Description</h4>
+<p><tt>ntpdc</tt> is used to query the <tt>ntpd</tt> daemon about its current state and to request changes in that state. The program may be run either in interactive mode or controlled using command line arguments. Extensive state and statistics information is available through the <tt>ntpdc</tt> interface. In addition, nearly all the configuration options which can be specified at startup using ntpd&rsquo;s configuration file may also be specified at run time using <tt>ntpdc</tt>.</p>
+<p>If one or more request options are included on the command line when <tt>ntpdc</tt> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <tt>ntpdc</tt> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <tt>ntpdc</tt> will prompt for commands if the standard input is a terminal device.</p>
+<p><tt>ntpdc</tt> uses NTP mode 7 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <tt>ntpdc</tt> makes no attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.</p>
+<p>The operation of <tt>ntpdc</tt> are specific to the particular implementation of the <tt>ntpd</tt> daemon and can be expected to work only with this and maybe some previous versions of the daemon. Requests from a remote <tt>ntpdc</tt> program which affect the state of the local server must be authenticated, which requires both the remote program and local server share a common key and key identifier.</p>
+<p>Note that in contexts where a host name is expected, a <tt>-4</tt> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <tt>-6</tt> qualifier forces DNS resolution to the IPv6 namespace.</p>
+<hr>
+<h4 id="command-line-options">Command Line Options</h4>
+<p>Specifying a command line option other than <tt>-i</tt> or <tt>-n</tt> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <tt>ntpdc</tt> will attempt to read interactive format commands from the standard input.</p>
+<dt><tt>-4</tt></dt>
+<p>Force DNS resolution of following host names on the command line to the IPv4 namespace.</p>
+<dt><tt>-6</tt></dt>
+<p>Force DNS resolution of following host names on the command line to the IPv6 namespace.</p>
+<dt><tt>-c _command_</tt></dt>
+<p>The following argument is interpreted as an interactive format command and is added to the list of commands to be executed on the specified host(s). Multiple -c options may be given.</p>
+<dt><tt>-i</tt></dt>
+<p>Force <tt>ntpdc</tt> to operate in interactive mode. Prompts will be written to the standard output and commands read from the standard input.</p>
+<dt><tt>-l</tt></dt>
+<p>Obtain a list of peers which are known to the server(s). This switch is equivalent to <tt>-c listpeers</tt>.</p>
+<dt><tt>-n</tt></dt>
+<p>Output all host addresses in dotted-quad numeric format rather than converting to the canonical host names.</p>
+<dt><tt>-p</tt></dt>
+<p>Print a list of the peers known to the server as well as a summary of their state. This is equivalent to <tt>-c peers</tt>.</p>
+<dt><tt>-s</tt></dt>
+<p>Print a list of the peers known to the server as well as a summary of their state, but in a slightly different format than the -p switch. This is equivalent to <tt>-c dmpeers</tt>.</p>
+<hr>
+<h4 id="interactive-commands">Interactive Commands</h4>
+<p>Interactive format commands consist of a keyword followed by zero to four arguments. Only enough characters of the full keyword to uniquely identify the command need be typed. The output of a command is normally sent to the standard output, but optionally the output of individual commands may be sent to a file by appending a <code>&lt;</code>, followed by a file name, to the command line.</p>
+<p>A number of interactive format commands are executed entirely within the <tt>ntpdc</tt> program itself and do not result in NTP mode 7 requests being sent to a server. These are described following.</p>
+<dt><tt>? [ _command_keyword_ ]</tt>  
+<tt>help [ _command_keyword_ ]</tt></dt>
+<p>A <tt>?</tt> by itself will print a list of all the command keywords known to this incarnation of <tt>ntpq</tt>. A <tt>?</tt> followed by a command keyword will print function and usage information about the command. This command is probably a better source of information about <tt>ntpq</tt> than this manual page.</p>
+<dt><tt>delay _milliseconds_</tt></dt>
+<p>Specify a time interval to be added to timestamps included in requests which require authentication. This is used to enable (unreliable) server reconfiguration over long delay network paths or between machines whose clocks are unsynchronized. Actually the server does not now require timestamps in authenticated requests, so this command may be obsolete.</p>
+<dt><tt>host _hostname_</tt></dt>
+<p>Set the host to which future queries will be sent. Hostname may be either a host name or a numeric address.</p>
+<dt><tt>hostnames [ yes | no ]</tt></dt>
+<p>If <tt>yes</tt> is specified, host names are printed in information displays. If <tt>no</tt> is specified, numeric addresses are printed instead. The default is <tt>yes</tt>, unless modified using the command line <tt>-n</tt> switch.</p>
+<dt><tt>keyid _keyid_</tt></dt>
+<p>This command allows the specification of a key number to be used to authenticate configuration requests from ntpdc to the host(s). This must correspond to a key number which the host/server has been configured to use for this purpose (server options: <tt>trustedkey</tt>, and <tt>requestkey</tt>). If authentication is not enabled on the host(s) for ntpdc commands, the command <code>keyid 0</code> should be given; otherwise the <em>keyid</em> of the next subsequent <tt>addpeer/addserver/broadcast</tt> command will be used.</p>
+<dt><tt>quit</tt></dt>
+<p>Exit <tt>ntpdc</tt>.</p>
+<dt><tt>passwd</tt></dt>
+<p>This command prompts you to type in a password (which will not be echoed) which will be used to authenticate configuration requests. The password must correspond to the key configured for use by the NTP server for this purpose if such requests are to be successful.</p>
+<dt><tt>timeout _milliseconds_</tt></dt>
+<p>Specify a timeout period for responses to server queries. The default is about 8000 milliseconds. Note that since <tt>ntpdc</tt> retries each query once after a timeout, the total waiting time for a timeout will be twice the timeout value set.</p>
+<hr>
+<h4 id="control-message-commands">Control Message Commands</h4>
+<p>Query commands result in NTP mode 7 packets containing requests for information being sent to the server. These are read-only commands in that they make no modification of the server configuration state.</p>
+<dt><tt>listpeers</tt></dt>
+<p>Obtains and prints a brief list of the peers for which the server is maintaining state. These should include all configured peer associations as well as those peers whose stratum is such that they are considered by the server to be possible future synchronization candidates.</p>
+<dt><tt>peers</tt></dt>
+<p>Obtains a list of peers for which the server is maintaining state, along with a summary of that state. Summary information includes the address of the remote peer, the local interface address (0.0.0.0 if a local address has yet to be determined), the stratum of the remote peer (a stratum of 16 indicates the remote peer is unsynchronized), the polling interval, in seconds, the reachability register, in octal, and the current estimated delay, offset and dispersion of the peer, all in seconds.</p>
+<p>The character in the left margin indicates the mode this peer entry is operating in. <code>+</code> denotes symmetric active, <code>-</code> indicates symmetric passive, <code>=</code> means the remote server is being polled in client mode, <code>^</code> indicates that the server is broadcasting to this address, <code>~</code> denotes that the remote peer is sending broadcasts and <code>*</code> marks the peer the server is currently synchronizing to.</p>
+<p>The contents of the host field may be one of four forms. It may be a host name, an IP address, a reference clock implementation name with its parameter or <tt>REFCLK(<em>implementation number</em>, <em>parameter</em>)</tt>. On <tt>hostnames no</tt> only IP-addresses will be displayed.</p>
+<dt><tt>dmpeers</tt></dt>
+<p>A slightly different peer summary list. Identical to the output of the <tt>peers</tt> command, except for the character in the leftmost column. Characters only appear beside peers which were included in the final stage of the clock selection algorithm. A <code>.</code> indicates that this peer was cast off in the falseticker detection, while <code>+</code> indicates that the peer made it through. A <code>*</code> denotes the peer the server is currently synchronizing with.</p>
+<dt><tt>showpeer _peer_address_ [...]</tt></dt>
+<p>Shows a detailed display of the current peer variables for one or more peers. Most of these values are described in the NTP Version 2 specification.</p>
+<dt><tt>pstats _peer_address_ [...]</tt></dt>
+<p>Show per-peer statistic counters associated with the specified peer(s).</p>
+<dt><tt>clockinfo _clock_peer_address_ [...]</tt></dt>
+<p>Obtain and print information concerning a peer clock. The values obtained provide information on the setting of fudge factors and other clock performance information.</p>
+<dt><tt>kerninfo</tt></dt>
+<p>Obtain and print kernel phase-lock loop operating parameters. This information is available only if the kernel has been specially modified for a precision timekeeping function.</p>
+<dt><tt>loopinfo [ oneline | multiline ]</tt></dt>
+<p>Print the values of selected loop filter variables. The loop filter is the part of NTP which deals with adjusting the local system clock. The <tt>offset</tt> is the last offset given to the loop filter by the packet processing code. The <tt>frequency</tt> is the frequency error of the local clock in parts-per-million (ppm). The <tt>time_const</tt> controls the stiffness of the phase-lock loop and thus the speed at which it can adapt to oscillator drift. The <tt>watchdog timer</tt> value is the number of seconds which have elapsed since the last sample offset was given to the loop filter. The <tt>oneline</tt> and <tt>multiline</tt> options specify the format in which this information is to be printed, with <tt>multiline</tt> as the default.</p>
+<dt><tt>sysinfo</tt></dt>
+<p>Print a variety of system state variables, i.e., state related to the local server. All except the last four lines are described in the NTP Version 3 specification, RFC-1305.</p>
+<p>The <tt>system flags</tt> show various system flags, some of which can be set and cleared by the <tt>enable</tt> and <tt>disable</tt> configuration commands, respectively. These are the <tt>auth</tt>, <tt>bclient</tt>, <tt>monitor</tt>, <tt>pll</tt>, <tt>pps</tt> and <tt>stats</tt> flags. See the <tt>ntpd</tt> documentation for the meaning of these flags. There are two additional flags which are read only, the <tt>kernel_pll</tt> and <tt>kernel_pps</tt>. These flags indicate the synchronization status when the precision time kernel modifications are in use. The <tt>kernel_pll</tt> indicates that the local clock is being disciplined by the kernel, while the kernel_pps indicates the kernel discipline is provided by the PPS signal.</p>
+<p>The <tt>stability</tt> is the residual frequency error remaining after the system frequency correction is applied and is intended for maintenance and debugging. In most architectures, this value will initially decrease from as high as 500 ppm to a nominal value in the range .01 to 0.1 ppm. If it remains high for some time after starting the daemon, something may be wrong with the local clock, or the value of the kernel variable <tt>tick</tt> may be incorrect.</p>
+<p>The <tt>broadcastdelay</tt> shows the default broadcast delay, as set by the <tt>broadcastdelay</tt> configuration command.</p>
+<p>The <tt>authdelay</tt> shows the default authentication delay, as set by the <tt>authdelay</tt> configuration command.</p>
+<dt><tt>sysstats</tt></dt>
+<p>Print statistics counters maintained in the protocol module.</p>
+<dt><tt>memstats</tt></dt>
+<p>Print statistics counters related to memory allocation code.</p>
+<dt><tt>iostats</tt></dt>
+<p>Print statistics counters maintained in the input-output module.</p>
+<dt><tt>timerstats</tt></dt>
+<p>Print statistics counters maintained in the timer/event queue support code.</p>
+<dt><tt>reslist</tt></dt>
+<p>Obtain and print the server&rsquo;s restriction list. This list is (usually) printed in sorted order and may help to understand how the restrictions are applied.</p>
+<dt><tt>ifstats</tt></dt>
+<p>List interface statistics for interfaces used by ntpd for network communication.</p>
+<dt><tt>ifreload</tt></dt>
+<p>Force rescan of current system interfaces. Outputs interface statistics for interfaces that could possibly change. Marks unchanged interfaces with <code>.</code>, added interfaces with <code>+</code> and deleted interfaces with <code>-</code>.</p>
+<dt><tt>monlist [ _version_ ]</tt></dt>
+<p>Obtain and print traffic counts collected and maintained by the monitor facility. The version number should not normally need to be specified.</p>
+<dt><tt>clkbug _clock_peer_address_ [...]</tt></dt>
+<p>Obtain debugging information for a reference clock driver. This information is provided only by some clock drivers and is mostly undecodable without a copy of the driver source in hand.</p>
+<hr>
+<h4 id="runtime-configuration-requests">Runtime Configuration Requests</h4>
+<p>All requests which cause state changes in the server are authenticated by the server using a configured NTP key (the facility can also be disabled by the server by not configuring a key). The key number and the corresponding key must also be made known to <tt>ntpdc</tt>. This can be done using the keyid and passwd commands, the latter of which will prompt at the terminal for a password to use as the encryption key. You will also be prompted automatically for both the key number and password the first time a command which would result in an authenticated request to the server is given. Authentication not only provides verification that the requester has permission to make such changes, but also gives an extra degree of protection again transmission errors.</p>
+<p>Authenticated requests always include a timestamp in the packet data, which is included in the computation of the authentication code. This timestamp is compared by the server to its receive time stamp. If they differ by more than a small amount the request is rejected. This is done for two reasons. First, it makes simple replay attacks on the server, by someone who might be able to overhear traffic on your LAN, much more difficult. Second, it makes it more difficult to request configuration changes to your server from topologically remote hosts. While the reconfiguration facility will work well with a server on the local host, and may work adequately between time-synchronized hosts on the same LAN, it will work very poorly for more distant hosts. As such, if reasonable passwords are chosen, care is taken in the distribution and protection of keys and appropriate source address restrictions are applied, the run time reconfiguration facility should provide an adequate level of security.</p>
+<p>The following commands all make authenticated requests.</p>
+<dt><tt>addpeer _peer_address_ [ _keyid_ ] [ _version_ ] [ <tt>minpoll# | prefer | iburst | burst | minpoll _N_ | <tt>maxpoll</tt> _N_ [ dynamic ] [...]</tt> ]</tt></dt>
+<dt><tt>addpeer _peer_address_ [ <tt>prefer | iburst | burst | minpoll _N_ | <tt>maxpoll</tt> _N_ | <tt>keyid</tt> _N_ | <tt>version</tt> _N_ [...]</tt> ]</tt></dt>
+<p>Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <tt>keyid</tt> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If ntpdc&rsquo;s key number has not yet been set (<em>e.g.,</em> by the keyid command), it will be set to this value. The <tt>version#</tt> can be 1 through 4 and defaults to 3. The remaining options are either a numeric value for <tt>minpoll</tt> or literals <tt>prefer</tt>, <tt>iburst</tt>, <tt>burst</tt>, <tt>minpoll</tt> <em>N</em>, <tt>keyid</tt> <em>N</em>, <tt>version</tt> <em>N</em>, or <tt>maxpoll</tt> <em>N</em> (where <em>N</em> is a numeric value), and have the action as specified in the <tt>peer</tt> configuration file command of ntpd. See the <a href="/archives/4.2.4-series/confopt">Server Options</a> page for further information. Each flag (or its absence) replaces the previous setting. The <tt>prefer</tt> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <tt>dynamic</tt> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.</p>
+<dt><tt>addserver _peer_address_ [ _keyid_ ] [ _version_ ] [ <tt>minpoll# | prefer | iburst | burst | minpoll _N_ | <tt>maxpoll</tt> _N_ [...]</tt> ]</tt></dt>
+<dt><tt>addserver _peer_address_ [ <tt>prefer | iburst | burst | minpoll _N_ | <tt>maxpoll</tt> _N_ | <tt>keyid</tt> _N_ | <tt>version</tt> _N_ [ dynamic } [...]</tt> ]</tt></dt>
+<p>Identical to the addpeer command, except that the operating mode is client.</p>
+<dt><tt>broadcast _peer_address_ [ _keyid_ ] [ _version_ ] [ _prefer_ ]</tt></dt>
+<p>Identical to the addpeer command, except that the operating mode is broadcast. In this case a valid non-zero key identifier and key are required. The <tt>peer_address</tt> parameter can be the broadcast address of the local network or a multicast group address assigned to NTP. If a multicast address, a multicast-capable kernel is required.</p>
+<dt><tt>unconfig _peer_address_ [...]</tt></dt>
+<p>This command causes the configured bit to be removed from the specified peer(s). In many cases this will cause the peer association to be deleted. When appropriate, however, the association may persist in an unconfigured mode if the remote peer is willing to continue on in this fashion.</p>
+<dt><tt>fudge _peer_address_ [ _time1_ ] [ _time2_ ] [ _stratum_ ] [ _refid_ ]</tt></dt>
+<p>This command provides a way to set certain data for a reference clock. See the source listing for further information.</p>
+<dt><tt>enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</tt>  
+<tt>disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</tt></dt>
+<p>These commands operate in the same way as the <tt>enable</tt> and <tt>disable</tt> configuration file commands of <tt>ntpd</tt>. See the <a href="/archives/4.2.4-series/miscopt">Miscellaneous Options</a> page for further information.</p>
+<dt><tt>restrict _address mask flag_ [ _flag_ ]</tt></dt>
+<p>This command operates in the same way as the <tt>restrict</tt> configuration file commands of <tt>ntpd</tt>.</p>
+<dt><tt>unrestrict _address mask flag_ [ _flag_ ]</tt></dt>
+<p>Unrestrict the matching entry from the restrict list.</p>
+<dt><tt>delrestrict _address mask [ ntpport ]_</tt></dt>
+<p>Delete the matching entry from the restrict list.</p>
+<dt><tt>readkeys</tt></dt>
+<p>Causes the current set of authentication keys to be purged and a new set to be obtained by rereading the keys file (which must have been specified in the <tt>ntpd</tt> configuration file). This allows encryption keys to be changed without restarting the server.</p>
+<dt><tt>trustedkey _keyid_ [...]</tt></dt>
+<dt><tt>untrustedkey _keyid_ [...]</tt></dt>
+<p>These commands operate in the same way as the <tt>trustedkey</tt> and <tt>untrustedkey</tt> configuration file commands of <tt>ntpd</tt>.</p>
+<dt><tt>authinfo</tt></dt>
+<p>Returns information concerning the authentication module, including known keys and counts of encryptions and decryptions which have been done.</p>
+<dt><tt>traps</tt></dt>
+<p>Display the traps set in the server. See the source listing for further information.</p>
+<dt><tt>addtrap [ _address_ ] [ _port_ ] [ _interface_ ]</tt></dt>
+<p>Set a trap for asynchronous messages. See the source listing for further information.</p>
+<dt><tt>clrtrap [ _address_ ] [ _port_ ] [ _interface_]</tt></dt>
+<p>Clear a trap for asynchronous messages. See the source listing for further information.</p>
+<dt><tt>reset</tt></dt>
+<p>Clear the statistics counters in various modules of the server. See the source listing for further information.</p>
+<hr>
+<h4 id="bugs">Bugs</h4>
+<p><tt>ntpdc</tt> is a crude hack. Much of the information it shows is deadly boring and could only be loved by its implementer. The program was designed so that new (and temporary) features were easy to hack in, at great expense to the program&rsquo;s ease of use. Despite this, the program is occasionally useful.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Configuration Options | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Configuration Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+The chicken is getting configuration advice.
+ Table of Contents  Configuration Commands Options Auxiliary Commands Bugs  Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.1.0/confopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Configuration Options">
+<meta itemprop="description" content="from Pogo, Walt Kelly
+The chicken is getting configuration advice.
+ Table of Contents  Configuration Commands Options Auxiliary Commands Bugs  Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.">
+
+<meta itemprop="wordCount" content="1426">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configuration Options"/>
+<meta name="twitter:description" content="from Pogo, Walt Kelly
+The chicken is getting configuration advice.
+ Table of Contents  Configuration Commands Options Auxiliary Commands Bugs  Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.1.0/">4.1.0</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.1.0/confopt/">Configuration Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Configuration Options</h1>
+    
+	       
+	<p><img src="/archives/pic/boom3a.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>The chicken is getting configuration advice.</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.1.0/confopt/#configuration-commands">Configuration Commands</a></li>
+<li><a href="/archives/4.1.0/confopt/#options">Options</a></li>
+<li><a href="/archives/4.1.0/confopt/#auxiliary-commands">Auxiliary Commands</a></li>
+<li><a href="/archives/4.1.0/confopt/#bugs">Bugs</a></li>
+</ul>
+<p>Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.</p>
+<hr>
+<h4 id="configuration-commands">Configuration Commands</h4>
+<p>The various modes are determined by the command keyword and the type of the required IP address. Addresses are classed by type as <code>s</code> a remote server or peer (IP class A, B and C), <code>b</code> the broadcast address of a local interface, <code>m</code> a multicast address (IP class D), or <code>r</code> a reference clock address (127.127.x.x). Note that only those options applicable to each command are listed below. Use of options not listed may not be caught as an error, but may result in some weird and even destructive behavior.</p>
+<dt><tt>server _address_ [key _key_ | autokey] [burst] [iburst] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_]</tt></dt>
+<dt><tt>peer _address_ [key _key_ | autokey] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_]</tt></dt>
+<dt><tt>broadcast _address_ [key _key_ | autokey] [version _version_] [minpoll _minpoll_] [ttl _ttl_]</tt></dt>
+<dt><tt>manycastclient _address_ [key _key_ | autokey] [version _version_] [minpoll _minpoll_ [maxpoll _maxpoll_] [ttl _ttl_]</tt></dt>
+<p>These four commands specify the time server name or address to be used and the mode in which to operate. The <tt>address</tt> can be either a DNS name or a IP address in dotted-quad notation. Additional information on association behavior can be found in the <a href="/archives/4.1.0/assoc">Association Management</a> page.</p>
+<dt><tt>server</tt></dt>
+<p>For type s and r addresses, this command mobilizes a persistent client mode association with the specified remote server or local radio clock. In this mode the local clock can synchronized to the remote server, but the remote server can never be synchronized to the local clock. This command should NOT be used for type <tt>b</tt> or <tt>m</tt> addresses.</p>
+<dt><tt>peer</tt></dt>
+<p>For type s addresses (only), this command mobilizes a persistent symmetric-active mode association with the specified remote peer. In this mode the local clock can be synchronized to the remote peer or the remote peer can be synchronized to the local clock. This is useful in a network of servers where, depending on various failure scenarios, either the local or remote peer may be the better source of time. This command should NOT be used for type <tt>b</tt>, <tt>m</tt> or <tt>r</tt> addresses.</p>
+<dt><tt>broadcast</tt></dt> 
+<p>For type <tt>b</tt> and <tt>m</tt> addresses (only), this command mobilizes a persistent broadcast mode association. Multiple commands can be used to specify multiple local broadcast interfaces (subnets) and/or multiple multicast groups. Note that local broadcast messages go only to the interface associated with the subnet specified, but multicast messages go to all interfaces.</p>
+<p>In broadcast mode the local server sends periodic broadcast messages to a client population at the <tt>address</tt> specified, which is usually the broadcast address on (one of) the local network(s) or a multicast address assigned to NTP. The IANA has assigned the multicast group address 224.0.1.1 exclusively to NTP, but other nonconflicting addresses can be used to contain the messages within administrative boundaries. Ordinarily, this specification applies only to the local server operating as a sender; for operation as a broadcast client, see the <tt>broadcastclient</tt> or <tt>multicastclient</tt> commands below.</p>
+<dt><tt>manycastclient</tt></dt> 
+<p>For type <tt>m</tt> addresses (only), this command mobilizes a preemptable manycast client mode association for the multicast group address specified. In this mode a specific address must be supplied which matches the address used on the <tt>manycastserver</tt> command for the designated manycast servers. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to avoid spraying large areas of the Internet with these messages and causing a possibly massive implosion of replies at the sender.</p>
+<p>The <tt>manycastclient</tt> command specifies that the host is to operate in client mode with the remote servers that are discovered as the result of broadcast/multicast messages. The client broadcasts a request message to the group address associated with the specified <tt>address</tt> and specifically enabled servers respond to these messages. The client selects the servers providing the best time and continues as with the <tt>server</tt> command. The remaining servers are discarded as if never heard.</p>
+<hr>
+<h4 id="options">Options</h4>
+<dt><tt>autokey</tt></dt>
+<p>All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in the <a href="/archives/4.1.0/authopt">Authentication Options</a> page.</p>
+<dt><tt>burst</tt></dt>
+<p>when the server is reachable and at each poll interval, send a burst of eight packets instead of the usual one packet. The spacing between the first and the second packets is about 16s to allow a modem call to complete, while the spacing between the remaining packets is about 2s. This is designed to improve timekeeping quality with the <tt>server</tt> command and <tt>s</tt> addresses.</p>
+<dt><tt>iburst</tt></dt>
+<p>When the server is unreachable and at each poll interval, send a burst of eight packets instead of the usual one. As long as the server is unreachable, the spacing between packets is about 16s to allow a modem call to complete. Once the server is reachable, the spacing between packets is about 2s. This is designed to speed the initial synchronization acquisition with the <tt>server</tt> command and <tt>s</tt> addresses and when <tt>ntpd</tt> is started with the <tt>-q</tt> option.</p>
+<dt><tt>key</tt> _<tt>key</tt>_</dt>
+<p>All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified <em><tt>key</tt></em> identifier with values from 1 to 65534, inclusive. The default is to include no encryption field.</p>
+<dt><tt>minpoll _minpoll  
+_</tt><tt>maxpoll _maxpoll_</tt></dt>
+<p>These options specify the minimum and maximum poll intervals for NTP messages, in seconds as a power of two. The maximum poll interval defaults to 10 (1024 s), but can be increased by the <tt>maxpoll</tt> option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the <tt>minpoll</tt> option to a lower limit of 4 (16 s).</p>
+<dt><tt>prefer</tt></dt>
+<p>Marks the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the <a href="/archives/4.1.0/prefer">Mitigation Rules and the <tt>prefer</tt> Keyword</a> page for further information.</p>
+<dt><tt>ttl _ttl_</tt></dt>
+<p>This option is used only with broadcast server and manycast client modes. It specifies the time-to-live <em><tt>ttl</tt></em> to use on broadcast server and multicast server and the maximum <tt>ttl</tt> for the expanding ring search with manycast client packets. Selection of the proper value, which defaults to 127, is something of a black art and should be coordinated with the network administrator.</p>
+<dt><tt>version _version_</tt></dt>
+<p>Specifies the version number to be used for outgoing NTP packets. Versions 1-4 are the choices, with version 4 the default.</p>
+<hr>
+<h4 id="auxiliary-commands">Auxiliary Commands</h4>
+<dt id="broadcastclient"><tt>broadcastclient</tt></dt>
+<p>This command enables reception of broadcast server messages to any local interface (type b) address. Upon receiving a message for the first time, the broadcast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding broadcast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric-key or public-key authentication as described in the <a href="/archives/4.1.0/authopt">Authentication Options</a> page.</p>
+<dt id="manycastserver"><tt>manycastserver _address_ [...]</tt></dt>
+<p>This command enables reception of manycast client messages to the multicast group address(es) (type <tt>m</tt>) specified. At least one address is required. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to limit the span of the reply and avoid a possibly massive implosion at the original sender. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the <a href="/archives/4.1.0/authopt">Authentication Options</a> page.</p>
+<dt id="multicastclient"><tt>multicastclient _address_ [...]</tt></dt>
+<p>This command enables reception of multicast server messages to the multicast group address(es) (type <tt>m</tt>) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the <a href="/archives/4.1.0/authopt">Authentication Options</a> page.</p>
+<hr>
+<h4 id="bugs">Bugs</h4>
+<p>The syntax checking is not picky; some combinations of ridiculous and even hilarious options and modes may not be detected.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

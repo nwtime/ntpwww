@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Monitoring Options | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Monitoring Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly 
+The pig watches the logs.
+ Table of Contents  Monitoring Support Monitoring Commands   Monitoring Support ntpd includes a comprehensive monitoring facility suitable for continuous, long term recording of server and client timekeeping performance. See the statistics command below for a listing and example of each type of statistics currently supported. Statistic files are managed using file generation sets and scripts in the ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.1.0/monopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Monitoring Options">
+<meta itemprop="description" content="from Pogo, Walt Kelly 
+The pig watches the logs.
+ Table of Contents  Monitoring Support Monitoring Commands   Monitoring Support ntpd includes a comprehensive monitoring facility suitable for continuous, long term recording of server and client timekeeping performance. See the statistics command below for a listing and example of each type of statistics currently supported. Statistic files are managed using file generation sets and scripts in the .">
+
+<meta itemprop="wordCount" content="1401">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Monitoring Options"/>
+<meta name="twitter:description" content="from Pogo, Walt Kelly 
+The pig watches the logs.
+ Table of Contents  Monitoring Support Monitoring Commands   Monitoring Support ntpd includes a comprehensive monitoring facility suitable for continuous, long term recording of server and client timekeeping performance. See the statistics command below for a listing and example of each type of statistics currently supported. Statistic files are managed using file generation sets and scripts in the ."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.1.0/">4.1.0</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.1.0/monopt/">Monitoring Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Monitoring Options</h1>
+    
+	       
+	<p><img src="/archives/pic/pogo8.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Pogo</em>, Walt Kelly
+</a></p>
+<p>The pig watches the logs.</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.1.0/monopt/#monitoring-support">Monitoring Support</a></li>
+<li><a href="/archives/4.1.0/monopt/#monitoring-commands">Monitoring Commands</a></li>
+</ul>
+<hr>
+<h4 id="monitoring-support">Monitoring Support</h4>
+<p><tt>ntpd</tt> includes a comprehensive monitoring facility suitable for continuous, long term recording of server and client timekeeping performance. See the <tt>statistics</tt> command below for a listing and example of each type of statistics currently supported. Statistic files are managed using file generation sets and scripts in the <tt>./scripts</tt> directory of this distribution. Using these facilities and Unix <tt>cron</tt> jobs, the data can be automatically summarized and archived for retrospective analysis.</p>
+<hr>
+<h4 id="monitoring-commands">Monitoring Commands</h4>
+<dt><tt>statistics _name_ [...]</tt></dt>
+<p>Enables writing of statistics records. Currently, four kinds of <em><tt>name</tt></em> statistics are supported.</p>
+<dt><tt>loopstats</tt></dt>
+<p>Enables recording of loop filter statistics information. Each update of the local clock outputs a line of the following form to the file generation set named <tt>loopstats</tt>:</p>
+<p><code>50935 75440.031 0.000006019 13.778190 0.000351733 0.013380 6</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next five fields show time offset (seconds), frequency offset (parts per million - PPM), RMS jitter (seconds), Allan deviation (PPM) and clock discipline time constant.</p>
+<dt><tt>peerstats</tt></dt>
+<p>Enables recording of peer statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each valid update appends a line of the following form to the current element of a file generation set named <tt>peerstats</tt>:</p>
+<p><code>48773 10847.650 127.127.4.1 9714 -0.001605 0.00000 0.00142</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix B of the NTP specification RFC 1305. The final three fields show the offset, delay, and RMS jitter, all in seconds.</p>
+<dt><tt>clockstats</tt></dt>
+<p>Enables recording of clock driver statistics information. Each update received from a clock driver appends a line of the following form to the file generation set named <tt>clockstats</tt>:</p>
+<p><code>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the clock address in dotted-quad notation. The final field shows the last timecode received from the clock in decoded ASCII format, where meaningful. In some clock drivers a good deal of additional information can be gathered and displayed as well. See information specific to each clock for further details.</p>
+<dt><tt>rawstats</tt></dt>
+<p>Enables recording of raw-timestamp statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each NTP message received from a peer or clock driver appends a line of the following form to the file generation set named <tt>rawstats</tt>:</p>
+<p><code>50928 2132.543 128.4.1.0 128.4.1.00 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the remote peer or clock address followed by the local address in dotted-quad notation, The final four fields show the originate, receive, transmit and final NTP timestamps in order. The timestamp values are as received and before processing by the various data smoothing and mitigation algorithms.</p>
+<dt><tt>statsdir _directory_path_</tt></dt>
+<p>Indicates the full path of a directory where statistics files should be created (see below). This keyword allows the (otherwise constant) <tt>filegen</tt> filename prefix to be modified for file generation sets, which is useful for handling statistics logs.</p>
+<dt><tt>filegen _name_ [file _filename_] [type _typename_] [link | nolink] [enable | disable]</tt></dt>
+<p>Configures setting of generation file set <em>name</em>. Generation file sets provide a means for handling files that are continuously growing during the lifetime of a server. Server statistics are a typical example for such files. Generation file sets provide access to a set of files used to store the actual data. At any time at most one element of the set is being written to. The type given specifies when and how data will be directed to a new element of the set. This way, information stored in elements of a file set that are currently unused are available for administrational operations without the risk of disturbing the operation of <tt>ntpd</tt>. (Most important: they can be removed to free space for new data produced.)</p>
+<p>Note that this command can be sent from the <tt>ntpdc</tt> program running at a remote location.</p>
+<p>    <em><tt>name</tt></em></p>
+<p>    This is the type of the statistics records, as shown in the <tt>statistics</tt> command.</p>
+<p>    <tt>file <em>filename</em></tt></p>
+<p>    This is the file name for the statistics records. Filenames of set members are built from three concatenated elements <em><tt>prefix</tt></em>, <em><tt>filename</tt></em> and <em><tt>suffix</tt></em>:</p>
+<p>    <em><tt>prefix</tt></em></p>
+<p>    This is a constant filename path. It is not subject to modifications via the <tt>filegen</tt> option. It is defined by the server, usually specified as a compile-time constant. It may, however, be configurable for individual file generation sets via other commands. For example, the prefix used with <tt>loopstats</tt> and <tt>peerstats</tt> generation can be configured using the <tt>statsdir</tt> option explained above.</p>
+<p>    <em><tt>filename</tt></em></p>
+<p>    This string is directly concatenated to the prefix mentioned above (no intervening <code>/</code> (slash)). This can be modified using the <tt>file</tt> argument to the <tt>filegen</tt> statement. No <tt>..</tt> elements are allowed in this component to prevent filenames referring to parts outside the filesystem hierarchy denoted by <tt>prefix</tt>.</p>
+<p>    <em><tt>suffix</tt></em></p>
+<p>    This part reflects individual elements of a file set. It is generated according to the type of a file set.</p>
+<p>    <tt>type <em>typename</em></tt></p>
+<p>    A file generation set is characterized by its type. The following types are supported:</p>
+<p>    <tt>none</tt></p>
+<p>    The file set is actually a single plain file.</p>
+<p>    <tt>pid</tt></p>
+<p>    One element of file set is used per incarnation of a <tt>ntpd</tt> server. This type does not perform any changes to file set members during runtime, however it provides an easy way of separating files belonging to different <tt>ntpd</tt> server incarnations. The set member filename is built by appending a <tt>.</tt> (dot) to concatenated <em>prefix</em> and <em>filename</em> strings, and appending the decimal representation of the process ID of the <tt>ntpd</tt> server process.</p>
+<p>    <tt>day</tt></p>
+<p>    One file generation set element is created per day. A day is defined as the period between 00:00 and 24:00 UTC. The file set member suffix consists of a <tt>.</tt> (dot) and a day specification in the form <tt>YYYYMMdd. YYYY</tt> is a 4-digit year number (e.g., 1992). <tt>MM</tt> is a two digit month number. <tt>dd</tt> is a two digit day number. Thus, all information written at 10 December 1992 would end up in a file named <tt><em>prefix filename</em>.19921210</tt>.</p>
+<p>    <tt>week</tt></p>
+<p>    Any file set member contains data related to a certain week of a year. The term week is defined by computing day-of-year modulo 7. Elements of such a file generation set are distinguished by appending the following suffix to the file set filename base: A dot, a 4-digit year number, the letter <tt>W</tt>, and a 2-digit week number. For example, information from January, 10th 1992 would end up in a file with suffix <tt>.1992W1</tt>.</p>
+<p>    <tt>month</tt></p>
+<p>    One generation file set element is generated per month. The file name suffix consists of a dot, a 4-digit year number, and a 2-digit month.</p>
+<p>    <tt>year</tt></p>
+<p>    One generation file element is generated per year. The filename suffix consists of a dot and a 4 digit year number.</p>
+<p>    <tt>age</tt></p>
+<p>    This type of file generation sets changes to a new element of the file set every 24 hours of server operation. The filename suffix consists of a dot, the letter <tt>a</tt>, and an 8-digit number. This number is taken to be the number of seconds the server is running at the start of the corresponding 24-hour period. Information is only written to a file generation by specifying <tt>enable</tt>; output is prevented by specifying <tt>disable</tt>.</p>
+<p>    <tt>link | nolink</tt></p>
+<p>    It is convenient to be able to access the current element of a file generation set by a fixed name. This feature is enabled by specifying <tt>link</tt> and disabled using <tt>nolink</tt>. If <tt>link</tt> is specified, a hard link from the current file set element to a file without suffix is created. When there is already a file with this name and the number of links of this file is one, it is renamed appending a dot, the letter <tt>C</tt>, and the pid of the <tt>ntpd</tt> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</p>
+<p>    <tt>enable | disable</tt></p>
+<p>    Enables or disables the recording function.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

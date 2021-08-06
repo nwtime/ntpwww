@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>ntp-keygen - generate public and private keys | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="ntp-keygen - generate public and private keys" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Alice holds the key.
+Last update: 22:32 UTC Monday, November 07, 2005
+ Table of Contents  Synopsis Description Running the program Trusted Hosts and Groups Identity Schemes Command Line Options Random Seed File Cryptographic Data Files Bugs   Synopsis ntp-keygen [ -deGgHIMnPT ] [ -c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ] ] [-i name ] [ -p password ] [ -S [ RSA | DSA ] ] [ -s name ] [ -V nkeys ]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.2-series/keygen/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="ntp-keygen - generate public and private keys">
+<meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Alice holds the key.
+Last update: 22:32 UTC Monday, November 07, 2005
+ Table of Contents  Synopsis Description Running the program Trusted Hosts and Groups Identity Schemes Command Line Options Random Seed File Cryptographic Data Files Bugs   Synopsis ntp-keygen [ -deGgHIMnPT ] [ -c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ] ] [-i name ] [ -p password ] [ -S [ RSA | DSA ] ] [ -s name ] [ -V nkeys ]">
+
+<meta itemprop="wordCount" content="3379">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ntp-keygen - generate public and private keys"/>
+<meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Alice holds the key.
+Last update: 22:32 UTC Monday, November 07, 2005
+ Table of Contents  Synopsis Description Running the program Trusted Hosts and Groups Identity Schemes Command Line Options Random Seed File Cryptographic Data Files Bugs   Synopsis ntp-keygen [ -deGgHIMnPT ] [ -c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ] ] [-i name ] [ -p password ] [ -S [ RSA | DSA ] ] [ -s name ] [ -V nkeys ]"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.2-series/">4.2.2-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.2-series/keygen/">ntp-keygen - generate public and private keys</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>ntp-keygen - generate public and private keys</h1>
+    
+	       
+	<p><img src="/archives/pic/alice23.gif" alt="gif"><a href="http://www.eecis.udel.edu/%7emills/pictures.html">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>Alice holds the key.</p>
+<p>Last update: 22:32 UTC Monday, November 07, 2005</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.2-series/keygen/#synopsis">Synopsis</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#description">Description</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#running-the-program">Running the program</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#trusted-hosts-and-groups">Trusted Hosts and Groups</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#identity-schemes">Identity Schemes</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#command-line-options">Command Line Options</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#random-seed-file">Random Seed File</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#cryptographic-data-files">Cryptographic Data Files</a></li>
+<li><a href="/archives/4.2.2-series/keygen/#bugs">Bugs</a></li>
+</ul>
+<hr>
+<h4 id="synopsis">Synopsis</h4>
+<p><tt>ntp-keygen [ -deGgHIMnPT ] [ -c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ] ] [-i <em>name</em> ] [ -p <em>password</em> ] [ -S [ RSA | DSA ] ] [ -s <em>name</em> ] [ -V <em>nkeys</em> ]</tt></p>
+<hr>
+<h4 id="description">Description</h4>
+<p>This program generates cryptographic data files used by the NTPv4 authentication and identification schemes. It generates MD5 key files used in symmetric key cryptography. In addition, if the OpenSSL software library has been installed, it generates keys, certificate and identity files used in public key cryptography. These files are used for cookie encryption, digital signature and challenge/response identification algorithms compatible with the Internet standard security infrastructure.</p>
+<p>By default, files are not encrypted by <tt>ntp-keygen</tt>. The <tt>-p <em>password</em></tt> option specifies the write password and <tt>-q <em>password</em></tt> option the read password for previously encrypted files. The <tt>ntp-keygen</tt> program prompts for the password if it reads an encrypted file and the password is missing or incorrect. If an encrypted file is read successfully and no write password is specified, the read password is used as the write password by default.</p>
+<p>The <tt>ntpd</tt> configuration command <tt>crypto pw <em>password</em></tt> specifies the read password for previously encrypted files. The daemon expires on the spot if the password is missing or incorrect. For convenience, if a file has been previously encrypted, the default read password is the name of the host running the program. If the previous write password is specified as the host name, these files can be read by that host with no explicit password.</p>
+<p>All files are in PEM-encoded printable ASCII format, so they can be embedded as MIME attachments in mail to other sites and certificate authorities. File names begin with the prefix <tt>ntpkey_</tt> and end with the postfix <tt>__hostname.filestamp_</tt>, where <tt>_hostname_</tt> is usually the string returned by the Unix <tt>gethostname()</tt> routine, and <tt>_filestamp_</tt> is the NTP seconds when the file was generated, in decimal digits. This both guarantees uniqueness and simplifies maintenance procedures, since all files can be quickly removed by a <tt>rm ntpkey*</tt> command or all files generated at a specific time can be removed by a <tt>rm *_filestamp_</tt> command. To further reduce the risk of misconfiguration, the first two lines of a file contain the file name and generation date and time as comments.</p>
+<p>All files are installed by default in the keys directory <tt>/usr/local/etc</tt>, which is normally in a shared filesystem in NFS-mounted networks. The actual location of the keys directory and each file can be overridden by configuration commands, but this is not recommended. Normally, the files for each host are generated by that host and used only by that host, although exceptions exist as noted later on this page.</p>
+<p>Normally, files containing private values, including the host key, sign key and identification parameters, are permitted root read/write-only; while others containing public values are permitted world readable. Alternatively, files containing private values can be encrypted and these files permitted world readable, which simplifies maintenance in shared file systems. Since uniqueness is insured by the hostname and file name extensions, the files for a NFS server and dependent clients can all be installed in the same shared directory.</p>
+<p>The recommended practice is to keep the file name extensions when installing a file and to install a soft link from the generic names specified elsewhere on this page to the generated files. This allows new file generations to be activated simply by changing the link. If a link is present, <tt>ntpd</tt> follows it to the file name to extract the filestamp. If a link is not present, <tt>ntpd</tt> extracts the filestamp from the file itself. This allows clients to verify that the file and generation times are always current. The <tt>ntp-keygen</tt> program uses the same extension for all files generated at one time, so each generation is distinct and can be readily recognized in monitoring data.</p>
+<h4 id="running-the-program">Running the program</h4>
+<p>The safest way to run the <tt>ntp-keygen</tt> program is logged in directly as root. The recommended procedure is change to the keys directory, usually <tt>/ust/local/etc</tt>, then run the program. When run for the first time, or if all <tt>ntpkey</tt> files have been removed, the program generates a RSA host key file and matching RSA-MD5 certificate file, which is all that is necessary in many cases. The program also generates soft links from the generic names to the respective files. If run again, the program uses the same host key file, but generates a new certificate file and link.</p>
+<p>The host key is used to encrypt the cookie when required and so must be RSA type. By default, the host key is also the sign key used to encrypt signatures. When necessary, a different sign key can be specified and this can be either RSA or DSA type. By default, the message digest type is MD5, but any combination of sign key type and message digest type supported by the OpenSSL library can be specified, including those using the MD2, MD5, SHA, SHA1, MDC2 and RIPE160 message digest algorithms. However, the scheme specified in the certificate must be compatible with the sign key. Certificates using any digest algorithm are compatible with RSA sign keys; however, only SHA and SHA1 certificates are compatible with DSA sign keys.</p>
+<p>Private/public key files and certificates are compatible with other OpenSSL applications and very likely other libraries as well. Certificates or certificate requests derived from them should be compatible with extant industry practice, although some users might find the interpretation of X509v3 extension fields somewhat liberal. However, the identification parameter files, although encoded as the other files, are probably not compatible with anything other than Autokey.</p>
+<p>Running the program as other than root and using the Unix <tt>su</tt> command to assume root may not work properly, since by default the OpenSSL library looks for the random seed file <tt>.rnd</tt> in the user home directory. However, there should be only one <tt>.rnd</tt>, most conveniently in the root directory, so it is convenient to define the <tt>$RANDFILE</tt> environment variable used by the OpenSSL library as the path to <tt>/.rnd</tt>.</p>
+<p>Installing the keys as root might not work in NFS-mounted shared file systems, as NFS clients may not be able to write to the shared keys directory, even as root. In this case, NFS clients can specify the files in another directory such as <tt>/etc</tt> using the <tt>keysdir</tt> command. There is no need for one client to read the keys and certificates of other clients or servers, as these data are obtained automatically by the Autokey protocol.</p>
+<p>Ordinarily, cryptographic files are generated by the host that uses them, but it is possible for a trusted agent (TA) to generate these files for other hosts; however, in such cases files should always be encrypted. The subject name and trusted name default to the hostname of the host generating the files, but can be changed by command line options. It is convenient to designate the owner name and trusted name as the subject and issuer fields, respectively, of the certificate. The owner name is also used for the host and sign key files, while the trusted name is used for the identity files.</p>
+<h4 id="trusted-hosts-and-groups">Trusted Hosts and Groups</h4>
+<p>Each cryptographic configuration involves selection of a signature scheme and identification scheme, called a cryptotype, as explained in the <a href="/archives/4.2.2-series/authopt">Authentication Options</a> page. The default cryptotype uses RSA encryption, MD5 message digest and TC identification. First, configure a NTP subnet including one or more low-stratum trusted hosts from which all other hosts derive synchronization directly or indirectly. Trusted hosts have trusted certificates; all other hosts have nontrusted certificates. These hosts will automatically and dynamically build authoritative certificate trails to one or more trusted hosts. A trusted group is the set of all hosts that have, directly or indirectly, a certificate trail ending at a trusted host. The trail is defined by static configuration file entries or dynamic means described on the <a href="/archives/4.2.2-series/manyopt">Automatic NTP Configuration Options</a> page.</p>
+<p>On each trusted host as root, change to the keys directory. To insure a fresh fileset, remove all <tt>ntpkey</tt> files. Then run <tt>ntp-keygen -T</tt> to generate keys and a trusted certificate. On all other hosts do the same, but leave off the <tt>-T</tt> flag to generate keys and nontrusted certificates. When complete, start the NTP daemons beginning at the lowest stratum and working up the tree. It may take some time for Autokey to instantiate the certificate trails throughout the subnet, but setting up the environment is completely automatic.</p>
+<p>If it is necessary to use a different sign key or different digest/signature scheme than the default, run <tt>ntp-keygen</tt> with the <tt>-S</tt>_ <tt>type</tt>_ option, where _<tt>type</tt>_ is either <tt>RSA</tt> or <tt>DSA</tt>. The most often need to do this is when a DSA-signed certificate is used. If it is necessary to use a different certificate scheme than the default, run <tt>ntp-keygen</tt> with the <tt>-c _scheme_</tt> option and selected _<tt>scheme</tt>_ as needed. If <tt>ntp-keygen</tt> is run again without these options, it generates a new certificate using the same scheme and sign key.</p>
+<p>After setting up the environment it is advisable to update certificates from time to time, if only to extend the validity interval. Simply run <tt>ntp-keygen</tt> with the same flags as before to generate new certificates using existing keys. However, if the host or sign key is changed, <tt>ntpd</tt> should be restarted. When ntpd is restarted, it loads any new files and restarts the protocol. Other dependent hosts will continue as usual until signatures are refreshed, at which time the protocol is restarted.</p>
+<h4 id="identity-schemes">Identity Schemes</h4>
+<p>As mentioned on the Autonomous Authentication page, the default TC identity scheme is vulnerable to a middleman attack. However, there are more secure identity schemes available, including PC, IFF, GQ and MV described on the <a href="https://www.eecis.udel.edu/~mills/ident.html">Identification Schemes</a> page. These schemes are based on a TA, one or more trusted hosts and some number of nontrusted hosts. Trusted hosts prove identity using values provided by the TA, while the remaining hosts prove identity using values provided by a trusted host and certificate trails that end on that host. The name of a trusted host is also the name of its sugroup and also the subject and issuer name on its trusted certificate. The TA is not necessarily a trusted host in this sense, but often is.</p>
+<p>In some schemes there are separate keys for servers and clients. A server can also be a client of another server, but a client can never be a server for another client. In general, trusted hosts and nontrusted hosts that operate as both server and client have parameter files that contain both server and client keys. Hosts that operate only as clients have key files that contain only client keys.</p>
+<p>The PC scheme supports only one trusted host in the group. On trusted host <em>alice</em> run <tt>ntp-keygen -P -p <em>password</em></tt> to generate the host key file <tt>ntpkey_RSAkey__alice.filestamp_</tt> and trusted private certificate file <tt>ntpkey_RSA-MD5_cert__alice.filestamp_</tt>. Copy both files to all group hosts; they replace the files which would be generated in other schemes. On each host _bob_ install a soft link from the generic name <tt>ntpkey_host__bob_</tt> to the host key file and soft link <tt>ntpkey_cert__bob_</tt> to the private certificate file. Note the generic links are on _bob_, but point to files generated by trusted host _alice_. In this scheme it is not possible to refresh either the keys or certificates without copying them to all other hosts in the group.</p>
+<p>For the IFF scheme proceed as in the TC scheme to generate keys and certificates for all group hosts, then for every trusted host in the group, generate the IFF parameter file. On trusted host <em>alice</em> run <tt>ntp-keygen -T</tt> <tt>-I -p <em>password</em></tt> to produce her parameter file <tt>ntpkey_IFFpar__alice.filestamp_</tt>, which includes both server and client keys. Copy this file to all group hosts that operate as both servers and clients and install a soft link from the generic <tt>ntpkey_iff__alice_</tt> to this file. If there are no hosts restricted to operate only as clients, there is nothing further to do. As the IFF scheme is independent of keys and certificates, these files can be refreshed as needed.</p>
+<p>If a rogue client has the parameter file, it could masquerade as a legitimate server and present a middleman threat. To eliminate this threat, the client keys can be extracted from the parameter file and distributed to all restricted clients. After generating the parameter file, on <em>alice</em> run <tt>ntp-keygen</tt> <tt>-e</tt> and pipe the output to a file or mail program. Copy or mail this file to all restricted clients. On these clients install a soft link from the generic <tt>ntpkey_iff__alice_</tt> to this file. To further protect the integrity of the keys, each file can be encrypted with a secret password.</p>
+<p>For the GQ scheme proceed as in the TC scheme to generate keys and certificates for all group hosts, then for every trusted host in the group, generate the IFF parameter file. On trusted host <em>alice</em> run <tt>ntp-keygen -T</tt> <tt>-G -p <em>password</em></tt> to produce her parameter file <tt>ntpkey_GQpar__alice.filestamp_</tt>, which includes both server and client keys. Copy this file to all group hosts and install a soft link from the generic <tt>ntpkey_gq__alice_</tt> to this file. In addition, on each host _bob_ install a soft link from generic <tt>ntpkey_gq__bob_</tt> to this file. As the GQ scheme updates the GQ parameters file and certificate at the same time, keys and certificates can be regenerated as needed.</p>
+<p>For the MV scheme, proceed as in the TC scheme to generate keys and certificates for all group hosts. For illustration assume <em>trish</em> is the TA, <em>alice</em> one of several trusted hosts and <em>bob</em> one of her clients. On TA <em>trish</em> run <tt>ntp-keygen</tt> <tt>-V <em>n</em> -p <em>password</em></tt>, where <em>n</em> is the number of revokable keys (typically 5) to produce the parameter file <tt>ntpkeys_MVpar__trish.filestamp_ </tt>and client key files <tt>ntpkeys_MVkey_d___trish.filestamp_</tt> where _<tt>d</tt>_ is the key number (0 &lt; _<tt>d</tt>_ &lt; _n_). Copy the parameter file to _alice_ and install a soft link from the generic <tt>ntpkey_mv__alice_</tt> to this file. Copy one of the client key files to _alice_ for later distribution to her clients. It doesn&rsquo;t matter which client key file goes to _alice_, since they all work the same way. _Alice_ copies the client key file to all of her clients. On client _bob_ install a soft link from generic <tt>ntpkey_mvkey__bob_ </tt>to the client key file. As the MV scheme is independent of keys and certificates, these files can be refreshed as needed.</p>
+<h4 id="command-line-options">Command Line Options</h4>
+<dt><tt>-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]</tt></dt>
+<p>Select certificate message digest/signature encryption scheme. Note that RSA schemes must be used with a RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <tt>RSA-MD5</tt>.</p>
+<dt><tt>-d</tt></dt>
+<p>Enable debugging. This option displays the cryptographic data produced in eye-friendly billboards.</p>
+<dt><tt>-e</tt></dt>
+<p>Write the IFF client keys to the standard output. This is intended for automatic key distribution by mail.</p>
+<dt><tt>-G</tt></dt>
+<p>Generate parameters and keys for the GQ identification scheme, obsoleting any that may exist.</p>
+<dt><tt>-g</tt></dt>
+<p>Generate keys for the GQ identification scheme using the existing GQ parameters. If the GQ parameters do not yet exist, create them first.</p>
+<dt><tt>-H</tt></dt>
+<p>Generate new host keys, obsoleting any that may exist.</p>
+<dt><tt>-I</tt></dt>
+<p>Generate parameters for the IFF identification scheme, obsoleting any that may exist.</p>
+<dt><tt>-i _name_</tt></dt>
+<p>Set the subject name to <em>name</em>. This is used as the subject field in certificates and in the file name for host and sign keys.</p>
+<dt><tt>-M</tt></dt>
+<p>Generate MD5 keys, obsoleting any that may exist.</p>
+<dt><tt>-P</tt></dt>
+<p>Generate a private certificate. By default, the program generates public certificates.</p>
+<dt><tt>-p _password_</tt></dt>
+<p>Encrypt generated files containing private data with <tt><em>password</em></tt> and the DES-CBC algorithm.</p>
+<dt><tt>-q</tt></dt>
+<p>Set the password for reading files to <tt><em>password</em></tt>.</p>
+<dt><tt>-S [ RSA | DSA ]</tt></dt>
+<p>Generate a new sign key of the designated type, obsoleting any that may exist. By default, the program uses the host key as the sign key.</p>
+<dt><tt>-s _name_</tt></dt>
+<p>Set the issuer name to <em>name</em>. This is used for the issuer field in certificates and in the file name for identity files.</p>
+<dt><tt>-T</tt></dt>
+<p>Generate a trusted certificate. By default, the program generates a non-trusted certificate.</p>
+<dt><tt>-V _nkeys_</tt></dt>
+<p>Generate parameters and keys for the Mu-Varadharajan (MV) identification scheme.</p>
+</dl>
+<h4 id="random-seed-file">Random Seed File</h4>
+<p>All cryptographically sound key generation schemes must have means to randomize the entropy seed used to initialize the internal pseudo-random number generator used by the library routines. The OpenSSL library uses a designated random seed file for this purpose. The file must be available when starting the NTP daemon and <tt>ntp-keygen</tt> program. If a site supports OpenSSL or its companion OpenSSH, it is very likely that means to do this are already available.</p>
+<p>It is important to understand that entropy must be evolved for each generation, for otherwise the random number sequence would be predictable. Various means dependent on external events, such as keystroke intervals, can be used to do this and some systems have built-in entropy sources. Suitable means are described in the OpenSSL software documentation, but are outside the scope of this page.</p>
+<p>The entropy seed used by the OpenSSL library is contained in a file, usually called <tt>.rnd</tt>, which must be available when starting the NTP daemon or the <tt>ntp-keygen</tt> program. The NTP daemon will first look for the file using the path specified by the <tt>randfile</tt> subcommand of the <tt>crypto</tt> configuration command. If not specified in this way, or when starting the <tt>ntp-keygen</tt> program, the OpenSSL library will look for the file using the path specified by the <tt>RANDFILE</tt> environment variable in the user home directory, whether root or some other user. If the <tt>RANDFILE</tt> environment variable is not present, the library will look for the <tt>.rnd</tt> file in the user home directory. If the file is not available or cannot be written, the daemon exits with a message to the system log and the program exits with a suitable error message.</p>
+<h4 id="cryptographic-data-files">Cryptographic Data Files</h4>
+<p>All other file formats begin with two lines. The first contains the file name, including the generated host name and filestamp. The second contains the datestamp in conventional Unix <tt>date</tt> format. Lines beginning with <tt>#</tt> are considered comments and ignored by the _<tt>ntp-keygen</tt> _program and <tt>ntpd</tt> daemon. Cryptographic values are encoded first using ASN.1 rules, then encrypted if necessary, and finally written PEM-encoded printable ASCII format preceded and followed by MIME content identifier lines.</p>
+<p>The format of the symmetric keys file is somewhat different than the other files in the interest of backward compatibility. Since DES-CBC is deprecated in NTPv4, the only key format of interest is MD5 alphanumeric strings. The keys are entered one per line in the format</p>
+<p><code>keyno type key</code></p>
+<p>where <em><tt>keyno</tt></em> is a positive integer in the range 1-65,535, <em><tt>type</tt></em> is the string <tt>MD5</tt> defining the key format and <em><tt>key</tt></em> is the key itself, which is a printable ASCII string 16 characters or less in length. Each character is chosen from the 93 printable characters in the range 0x21 through 0x7f excluding space and the <code>#</code> character.</p>
+<p>Note that the keys used by the <tt>ntpq</tt> and <tt>ntpdc</tt> programs are checked against passwords requested by the programs and entered by hand, so it is generally appropriate to specify these keys in human readable ASCII format.</p>
+<p>The <tt>ntp-keygen</tt> program generates a MD5 symmetric keys file <tt>ntpkey_MD5key__hostname.filestamp_</tt>. Since the file contains private shared keys, it should be visible only to root and distributed by secure means to other subnet hosts. The NTP daemon loads the file <tt>ntp.keys</tt>, so <tt>ntp-keygen</tt> installs a soft link from this name to the generated file. Subsequently, similar soft links must be installed by manual or automated means on the other subnet hosts. While this file is not used with the Autokey Version 2 protocol, it is needed to authenticate some remote configuration commands used by the <a href="/archives/4.2.2-series/ntpq"><tt>ntpq</tt></a> and <a href="/archives/4.2.2-series/ntpdc"><tt>ntpdc</tt></a> utilities.</p>
+<h4 id="bugs">Bugs</h4>
+<p>It can take quite a while to generate some cryptographic values, from one to several minutes with modern architectures such as UltraSPARC and up to tens of minutes to an hour with older architectures such as SPARC IPC.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

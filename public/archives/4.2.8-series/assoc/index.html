@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Association Management | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Association Management" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Make sure who your friends are.
+Last update: 31-Jan-2014 06:54 UTC
+ Table of Contents  Association Modes Client/Server Mode Symmetric Active/Passive Mode Broadcast/Multicast Modes Manycast and Pool Modes Poll Interval Management Burst Options   Association Modes This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: persistent, preemptable and ephemeral. Persistent associations are mobilized by a configuration command and never demobilized." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/4.2.8-series/assoc/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Association Management">
+<meta itemprop="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Make sure who your friends are.
+Last update: 31-Jan-2014 06:54 UTC
+ Table of Contents  Association Modes Client/Server Mode Symmetric Active/Passive Mode Broadcast/Multicast Modes Manycast and Pool Modes Poll Interval Management Burst Options   Association Modes This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: persistent, preemptable and ephemeral. Persistent associations are mobilized by a configuration command and never demobilized.">
+
+<meta itemprop="wordCount" content="1828">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Association Management"/>
+<meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Make sure who your friends are.
+Last update: 31-Jan-2014 06:54 UTC
+ Table of Contents  Association Modes Client/Server Mode Symmetric Active/Passive Mode Broadcast/Multicast Modes Manycast and Pool Modes Poll Interval Management Burst Options   Association Modes This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: persistent, preemptable and ephemeral. Persistent associations are mobilized by a configuration command and never demobilized."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/4.2.8-series/assoc/">Association Management</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Association Management</h1>
+    
+	       
+	<p><img src="/archives/pic/alice51.gif" alt="gif"><a href="http://www.eecis.udel.edu/~mills/pictures.html">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>Make sure who your friends are.</p>
+<p>Last update: 31-Jan-2014 06:54 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.8-series/assoc/#association-modes">Association Modes</a></li>
+<li><a href="/archives/4.2.8-series/assoc/#clientserver-mode">Client/Server Mode</a></li>
+<li><a href="/archives/4.2.8-series/assoc/#symmetric-activepassive-mode">Symmetric Active/Passive Mode</a></li>
+<li><a href="/archives/4.2.8-series/assoc/#broadcastmulticast-modes">Broadcast/Multicast Modes</a></li>
+<li><a href="/archives/4.2.8-series/assoc/#manycast-and-pool-modes">Manycast and Pool Modes</a></li>
+<li><a href="/archives/4.2.8-series/assoc/#poll-interval-management">Poll Interval Management</a></li>
+<li><a href="/archives/4.2.8-series/assoc/#burst-options">Burst Options</a></li>
+</ul>
+<hr>
+<h4 id="association-modes">Association Modes</h4>
+<p>This page describes the various modes of operation provided in NTPv4. There are three types of associations in NTP: <em>persistent</em>, <em>preemptable</em> and <em>ephemeral</em>. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the <tt>preempt</tt> option or upon arrival of an automatic server discovery packet. They are demobilized by timeout or when preempted by a &ldquo;better&rdquo; server, as described on the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery Schemes</a> page. Ephemeral associations are mobilized upon arrival of broadcast or multicast server packets and demobilized by timeout.</p>
+<p>Ordinarily, successful mobilization of ephemeral associations requires the server to be cryptographically authenticated to the client. This can be done using either symmetric key or Autokey public key cryptography, as described on the <a href="/archives/4.2.8-series/authentic">Authentication Support</a> page.</p>
+<p>There are three principal modes of operation in NTP: client/server, symmetric active/passive and broadcast/multicast. There are three automatic server discovery schemes in NTP: broadcast/multicast, manycast and pool described on the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery Schemes</a> page. In addition, the <a href="/archives/4.2.8-series/assoc/#burst-options">burst options</a> and <a href="/archives/4.2.8-series/orphan">orphan mode</a> can be used in appropriate cases.</p>
+<p>Following is a summary of the operations in each mode. Note that reference to option applies to the commands described on the <a href="/archives/4.2.8-series/confopt">Server Commands and Options</a> page. See that page for applicability and defaults.</p>
+<hr>
+<h4 id="clientserver-mode">Client/Server Mode</h4>
+<p>Client/server mode is the most common configuration in the Internet today. It operates in the classic remote-procedure-call (RPC) paradigm with stateless servers and stateful clients. In this mode a host sends a client (mode 3) request to the specified server and expects a server (mode 4) reply at some future time. In some contexts this would be described as a &ldquo;pull&rdquo; operation, in that the host pulls the time and related values from the server.</p>
+<p>A host is configured in client mode using the <tt>server</tt> (sic) command and specifying the server DNS name or IPv4 or IPv6 address; the server requires no prior configuration. The <tt>iburst</tt> option described later on this page is recommended for clients, as this speeds up initial synchronization from several minutes to several seconds. The <tt>burst</tt> option described later on this page can be useful to reduce jitter on very noisy dial-up or ISDN network links.</p>
+<p>Ordinarily, the program automatically manages the poll interval between the default minimum and maximum values. The <tt>minpoll</tt> and <tt>maxpoll</tt> options can be used to bracket the range. Unless noted otherwise, these options should not be used with reference clock drivers.</p>
+<hr>
+<h4 id="symmetric-activepassive-mode">Symmetric Active/Passive Mode</h4>
+<p>Symmetric active/passive mode is intended for configurations where a clique of low-stratum peers operate as mutual backups for each other. Each peer operates with one or more primary reference sources, such as a reference clock, or a set of secondary (stratum, 2) servers known to be reliable and authentic. Should one of the peers lose all reference sources or simply cease operation, the other peers will automatically reconfigure so that time and related values can flow from the surviving peers to all hosts in the subnet. In some contexts this would be described as a &ldquo;push-pull&rdquo; operation, in that the peer either pulls or pushes the time and related values depending on the particular configuration.</p>
+<p>A symmetric active peer sends a symmetric active (mode 1) message to a designated peer. If a matching configured symmetric active association is found, the designated peer returns a symmetric active message. If no matching association is found, the designated peer mobilizes a ephemeral symmetric passive association and returns a symmetric passive (mode 2) message. Since an intruder can impersonate a symmetric active peer and cause a spurious symmetric passive association to be mobilized, symmetric passive mode should always be cryptographically validated.</p>
+<p>A peer is configured in symmetric active mode using the <tt>peer</tt> command and specifying the other peer DNS name or IPv4 or IPv6 address. The <tt>burst</tt> and <tt>iburst</tt> options should not be used in symmetric modes, as this can upset the intended symmetry of the protocol and result in spurious duplicate or dropped messages.</p>
+<p>As symmetric modes are most often used as root servers for moderate to large subnets where rapid response is required, it is generally best to set the minimum and maximum poll intervals of each root server to the same value using the <tt>minpoll</tt> and <tt>maxpoll</tt> options.</p>
+<hr>
+<h4 id="broadcastmulticast-modes">Broadcast/Multicast Modes</h4>
+<p>NTP broadcast and multicast modes are intended for configurations involving one or a few servers and a possibly very large client population. Broadcast mode can be used with Ethernet, FDDI and WiFi spans interconnected by hubs or switches. Ordinarily, broadcast packets do not extend beyond a level-3 router. Where service is intended beyond a level-3 router, multicast mode can be used. Additional information is on the <a href="/archives/4.2.8-series/discover">Automatic NTP Configuration Options</a> page.</p>
+<p>A server is configured to send broadcast or multicast messages using the <tt>broadcast</tt> command and specifying the subnet address for broadcast or the multicast group address for multicast. A broadcast client is enabled using the <a href="/archives/4.2.8-series/confopt/#auxiliary-commands"><tt>broadcastclient</tt></a> command, while a multicast client is enabled using the <a href="/archives/4.2.8-series/confopt/#auxiliary-commands"><tt>multicastclient</tt></a> command and specifying the multicast group address. Multiple commands of either type can be used. However, the association is not mobilized until the first broadcast or multicast message is actually received.</p>
+<hr>
+<h4 id="manycast-and-pool-modes">Manycast and Pool Modes</h4>
+<p>Manycast and pool modes are automatic discovery and configuration paradigms new to NTPv4. They are intended as a means for a client to troll the nearby network neighborhood to find cooperating willing servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each client mobilizes ephemeral client associations with some number of the &ldquo;best&rdquo; of the nearby servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery Schemes</a> page.</p>
+<hr>
+<h4 id="poll-interval-management">Poll Interval Management</h4>
+<p>NTP uses an intricate heuristic algorithm to automatically control the poll interval for maximum accuracy consistent with minimum network overhead. The algorithm measures the incidental offset and jitter to determine the best poll interval. When <tt>ntpd</tt> starts, the interval is the default minimum 64 s. Under normal conditions when the clock discipline has stabilized, the interval increases in steps to the default maximum 1024 s. In addition, should a server become unreachable after some time, the interval increases in steps to the maximum in order to reduce network overhead. Additional information about the algorithm is on the <a href="/archives/4.2.8-series/poll">Poll Program</a> page.</p>
+<p>The default poll interval range is suitable for most conditions, but can be changed using options on the <a href="/archives/4.2.8-series/confopt">Server Commands and Options</a> and <a href="/archives/4.2.8-series/miscopt">Miscellaneous Options</a> pages. However, when using maximum intervals much larger than the default, the residual clock frequency error must be small enough for the discipline loop to capture and correct. The capture range is 500 PPM with a 64-s interval decreasing by a factor of two for each interval doubling. At a 36-hr interval, for example, the capture range is only 0.24 PPM.</p>
+<p>In the NTPv4 specification and reference implementation, the poll interval is expressed in log<sub>2</sub> units, properly called the <em>poll exponent.</em> It is constrained by the lower limit <tt>minpoll</tt> and upper limit <tt>maxpoll</tt> options of the <a href="/archives/4.2.8-series/confopt/#server-command-options"><tt>server</tt></a> command. The limits default to 6 (64 s) and 10 (1024 s), respectively, which are appropriate for the vast majority of cases.</p>
+<p>As a rule of thumb, the expected errors increase by a factor of two as the poll interval increases by a factor of four. The poll interval algorithm slowly increases the poll interval when jitter dominates the error budget, but quickly reduces the interval when wander dominates it. More information about this algorithm is on the <a href="/archives/4.2.8-series/warp">How NTP Works</a> page.</p>
+<p>There is normally no need to change the poll limits, as the poll interval is managed automatically as a function of prevailing jitter and wander. The most common exceptions are the following.</p>
+<ul>
+<li>With fast, lightly loaded LANs and modern processors, the nominal Allan intercept is about 500 s. In these cases the expected errors can be further reduced using a poll exponent of 4 (16 s). In the case of the pulse-per-second (PPS) driver, this is the recommended value.</li>
+<li>With symmetric modes the most stable behavior results when both peers are configured in symmetric active mode with matching poll intervals of 6 (64 s).</li>
+<li>The poll interval should not be modified for reference clocks, with the single exception the ACTS telephone modem driver. In this case the recommended minimum and maximum intervals are 12 (1.1 hr) and 17 (36 hr), respectively.</li>
+</ul>
+<hr>
+<h4 id="burst-options">Burst Options</h4>
+<p>Occasionally it is necessary to send packets temporarily at intervals less than the poll interval. For instance, with the <tt>burst</tt> and <tt>iburst</tt> options of the <a href="/archives/4.2.8-series/confopt/#server-command-options"><tt>server</tt></a> command, the poll program sends a burst of several packets at 2-s intervals. In either case the poll program avoids sending needless packets if the server is not responding. The client begins a burst with a single packet. When the first packet is received from the server, the client continues with the remaining packets in the burst. If the first packet is not received within 64 s, it will be sent again for two additional retries before beginning backoff. The result is to minimize network load if the server is not responding. Additional details are on the <a href="/archives/4.2.8-series/poll">Poll Program</a> page.</p>
+<p>There are two burst options where a single poll event triggers a burst. They should be used only with the <tt>server</tt> and <tt>pool</tt> commands, but not with reference clock drivers nor symmetric mode peers. In both modes, received server packets update the clock filter, which selects the best (most accurate) time values. When the last packet in the burst is sent, the next received packet updates the system variables and adjusts the system clock as if only a single packet exchange had occurred.</p>
+<p>The <tt>iburst</tt> option is useful where the system clock must be set quickly or when the network attachment requires an initial calling or training sequence, as in PPP or ISDN services. In general, this option is recommended for <tt>server</tt> and <tt>pool</tt> commands. A burst is sent only when the server is unreachable; in particular, when first starting up. Ordinarily, the clock is set within a few seconds after the first received packet. See the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page for further details about the startup behavior.</p>
+<p>The <tt>burst</tt> option is useful in cases of severe network jitter or when the network attachment requires an initial calling or training sequence. This option is recommended when the minimum poll exponent is larger than 10 (1024 s). A burst is sent only when the server is reachable. The number of packets in the burst is determined by the poll interval so that the average interval between packets (headway) is no less than the minimum poll interval for the association.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

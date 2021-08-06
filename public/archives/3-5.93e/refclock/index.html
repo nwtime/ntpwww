@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.84.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Reference Clock Drivers | NTP: Network Time Protocol</title>
+<meta name="description" content="NTP Documentation Archive"><meta property="og:title" content="Reference Clock Drivers" />
+<meta property="og:description" content="Reference Clock Drivers Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix xntpd. Individual clocks can be activated by configuration file commands, specifically the server and fudge commands described in the xntpd program manual page. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.
+Radio and modem clocks by convention have addresses in the form 127." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/3-5.93e/refclock/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+<meta itemprop="name" content="Reference Clock Drivers">
+<meta itemprop="description" content="Reference Clock Drivers Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix xntpd. Individual clocks can be activated by configuration file commands, specifically the server and fudge commands described in the xntpd program manual page. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.
+Radio and modem clocks by convention have addresses in the form 127.">
+
+<meta itemprop="wordCount" content="446">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reference Clock Drivers"/>
+<meta name="twitter:description" content="Reference Clock Drivers Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix xntpd. Individual clocks can be activated by configuration file commands, specifically the server and fudge commands described in the xntpd program manual page. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.
+Radio and modem clocks by convention have addresses in the form 127."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" as="style">
+<link href="/scss/main.min.c7590aab2525bc59dfb1dc16e6ad51978d04d1687ab16e19453b88b4ff42ceea.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">NTP: Network Time Protocol</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://www.nwtime.org" target="_blank" ><span>Network Time Foundation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/reflib/" ><span>Reference Library</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Docs
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+	
+	<a class="dropdown-item" href="/archives/4.2.0/toc">4.2.0</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.2/toc">4.1.2</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.1/toc">4.1.1</a>
+	
+	<a class="dropdown-item" href="/archives/4.1.0/toc">4.1.0</a>
+	
+	<a class="dropdown-item" href="/archives/3-5.93e/toc">3-5.93e</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/archives/3-5.93e/">3-5.93e</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/archives/3-5.93e/refclock/">Reference Clock Drivers</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Reference Clock Drivers</h1>
+    
+	       
+	<h4 id="reference-clock-drivers">Reference Clock Drivers</h4>
+<p>Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix <tt>xntpd</tt>. Individual clocks can be activated by configuration file commands, specifically the <tt>server</tt> and <tt>fudge</tt> commands described in the <a href="/archives/3-5.93e/xntpd"><tt>xntpd</tt> program manual page</a>. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.</p>
+<p>Radio and modem clocks by convention have addresses in the form 127.127.<em>t.u</em>, where <em>t</em> is the clock type and <em>u</em> is a unit number in the range 0-3 used to distinguish multiple instances of clocks of the same type. Most of these clocks require support in the form of a serial port or special bus peripheral. The particular device is normally specified by adding a soft link <tt>/dev/device_u_</tt> to the particular hardware device involved, where _<tt>u</tt>_ correspond to the unit number above.</p>
+<p>Following is a list showing the type and title of each driver currently implemented. The compile-time identifier for each is shown in parentheses. Click on a selected type for specific description and configuration documentation, including the clock address, reference ID, driver ID, serial port device name and speed, and features (line disciplines, etc.). For those drivers without specific documentation, please contact the author listed in the <a href="/archives/3-5.93e/copyright">Copyright Notice</a> page.</p>
+<ul>
+<li><a href="/archives/3-5.93e/driver1">Type 1</a> Local Clock Driver (<tt>LOCAL_CLOCK</tt>)</li>
+<li><a href="/archives/drivers/driver2">Type 2</a> Trak 8820 GPS Receiver (<tt>TRAK</tt></li>
+<li><a href="/archives/drivers/driver3">Type 3</a> PSTI/Traconex 1020 WWV/WWVH Receiver (<tt>PST</tt>)</li>
+<li><a href="/archives/3-5.93e/driver4">Type 4</a> Spectracom 8170 and Netclock/2 WWVB Receivers (<tt>WWVB</tt>)</li>
+<li><a href="/archives/3-5.93e/driver5">Type 5</a> TrueTime GPS/GOES/OMEGA Receivers (<tt>TRUETIME</tt>)</li>
+<li><a href="/archives/3-5.93e/driver6">Type 6</a> IRIG Audio Decoder (Sun only) (<tt>IRIG</tt>)</li>
+<li><a href="/archives/3-5.93e/driver7">Type 7</a> Scratchbuilt CHU Receiver (<tt>CHU</tt>)</li>
+<li><a href="/archives/3-5.93e/driver8">Type 8</a> Generic Reference Driver (<tt>PARSE</tt>)</li>
+<li><a href="/archives/3-5.93e/driver9">Type 9</a> Magnavox MX4200 GPS Receiver (<tt>MX4200</tt>)</li>
+<li><a href="/archives/3-5.93e/driver10">Type 10</a> Austron 2200A/2201A GPS Receivers (<tt>GPS_AS2201</tt>)</li>
+<li><a href="/archives/3-5.93e/driver11">Type 11</a> Arbiter 1088A/B GPS Receiver (<tt>ARBITER</tt>)</li>
+<li><a href="/archives/3-5.93e/driver12">Type 12</a> KSI/Odetics TPRO/S IRIG Interface (Sun only) (<tt>TPRO</tt>)</li>
+<li>Type 13 Leitch CSD 5300 Master Clock Controller (<tt>LEITCH</tt>)</li>
+<li>Type 14 EES M201 MSF Receiver (<tt>MSFEES</tt>)</li>
+<li><a href="/archives/3-5.93e/driver5">Type 15</a> * TrueTime TM-TMD GPS Receiver</li>
+<li>Type 16 Bancomm GPS/IRIG Receiver (HP only) (<tt>BANC</tt>)</li>
+<li>Type 17 Datum Precision Time System (<tt>DATUM</tt>)</li>
+<li><a href="/archives/3-5.93e/driver18">Type 18</a> NIST Modem Time Services (<tt>ACTS</tt>)</li>
+<li><a href="/archives/3-5.93e/driver19">Type 19</a> Heath WWV/WWVH Receiver (<tt>WWV_HEATH</tt>)</li>
+<li><a href="/archives/3-5.93e/driver20">Type 20</a> Generic NMEA GPS Receiver (<tt>NMEA</tt>)</li>
+<li>Type 21 TrueTime GPS-VME Interface (HP only) (<tt>GPSVME</tt>)</li>
+<li><a href="/archives/3-5.93e/driver22">Type 22</a> PPS Clock Discipline (<tt>ATOM</tt>)</li>
+<li><a href="/archives/3-5.93e/driver23">Type 23</a> PTB Modem Time Service (<tt>PTBACTS</tt>)</li>
+<li><a href="/archives/3-5.93e/driver24">Type 24</a> USNO Modem Time Service (<tt>USNO</tt>)</li>
+<li><a href="/archives/3-5.93e/driver5">Type 25</a> * TrueTime generic receivers</li>
+<li><a href="/archives/3-5.93e/driver26">Type 26</a> Hewlett Packard 58503A GPS Receiver (<tt>HPGPS</tt>)</li>
+<li><a href="/archives/3-5.93e/driver27">Type 27</a> Arcron MSF Receiver (<tt>ARCRON_MSF</tt>)</li>
+<li><a href="/archives/3-5.93e/driver28">Type 28</a> Shared Memory Driver (<tt>SHM</tt>)</li>
+</ul>
+<p>* All TrueTime receivers are now supported by one driver, type 5. Types 15 and 25 will be retained only for a limited time and may be reassigned in future.</p>
+
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <link href="/assets/scss/_variables_project.css" rel="stylesheet">
+
+<footer class="navbar site-footer fixed-bottom py-0">
+      <div>
+        
+        
+        
+<ul class="list-inline">
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+		</div>
+		<div>
+        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </div>
+	</div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
