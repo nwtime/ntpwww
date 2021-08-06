@@ -2,12 +2,29 @@ baseURL = "/"
 title = "NTP: Network Time Protocol"
 
 enableRobotsTXT = true
-theme = ["docsy"]
 
+  # CSS Plugins
+  [[params.plugins.css]]
+  link = "https://necolas.github.io/normalize.css/latest/normalize.css"
+  [[params.plugins.css]]
+  link = "plugins/bootstrap/bootstrap.min.css"
+  [[params.plugins.css]]
+  link = "https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"
+
+  # JS Plugins
+  [[params.plugins.js]]
+  link = "plugins/jQuery/jquery.min.js"
+  [[params.plugins.js]]
+  link = "plugins/bootstrap/bootstrap.min.js"
+  [[params.plugins.js]]
+  link = "https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"
+
+# Language settings
 contentDir = "content/en"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
+# Highlighting config
 pygmentsCodeFences = true
 pygmentsUseClasses = false
 pygmentsUseClassic = false
@@ -29,6 +46,7 @@ anchor = "smart"
 title = "NTP: Network Time Protocol"
 description = "NTP Documentation Archive"
 languageName ="English"
+# Weight used for sorting.
 weight = 1
 
 [markup]
@@ -36,74 +54,131 @@ weight = 1
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
+      # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
       style = "tango"
-
-# Everything below this are Site Params
+      # Uncomment if you want your chosen highlight style used for code blocks without a specified language
+      # guessSyntax = "true"
 
 [params]
 copyright = "Network Time Foundation"
 
-version_menu = "Docs"
-archived_version = false
-version = "4.2.8p15"
-url_latest_version = "/archives/4.2.8-series/index"
+[[menu.main]]
+    name = "Network Time Foundation"
+    weight = 10
+    url = "https://www.nwtime.org"
 
-[[params.versions]]
-  version = "4.2.8-series"
-  url = "/archives/4.2.8-series/toc"
+[[menu.main]]
+    name = "Reference Library"
+    url = "/reflib"
+    weight = 20
+    hasChildren = true
+	  [[menu.main]] 
+	  parent = "Reference Library"
+	  name = "Briefs"
+	  URL = "/reflib/brief"
+	  weight = 1
+	  [[menu.main]] 
+	  parent = "Reference Library"
+	  name = "Memos"
+	  URL = "/reflib/memos"
+	  weight = 2
+	  	  [[menu.main]] 
+	  parent = "Reference Library"
+	  name = "Reports"
+	  URL = "/reflib/reports"
+	  weight = 3
+	  [[menu.main]] 
+	  parent = "Reference Library"
+	  name = "RFCs"
+	  URL = "/reflib/rfc"
+	  weight = 4
+	  [[menu.main]] 
+	  parent = "Reference Library"
+	  name = "Software"
+	  URL = "/reflib/software"
+	  weight = 5
+	  [[menu.main]] 
+	  parent = "Reference Library"
+	  name = "White Papers"
+	  URL = "/reflib/papers"
+	  weight = 6
 
-[[params.versions]]
-  version = "4.2.6-series"
-  url = "/archives/4.2.6-series/toc"
-
-[[params.versions]]
-  version = "4.2.4-series"
-  url = "/archives/4.2.4-series/toc"
-
-[[params.versions]]
-  version = "4.2.2-series"
-  url = "/archives/4.2.2-series/toc"
-
-[[params.versions]]
-  version = "4.2.0"
-  url = "/archives/4.2.0/toc"
-
-[[params.versions]]
-  version = "4.1.2"
-  url = "/archives/4.1.2/toc"
-
-[[params.versions]]
-  version = "4.1.1"
-  url = "/archives/4.1.1/toc"
-
-[[params.versions]]
-  version = "4.1.0"
-  url = "/archives/4.1.0/toc"
-
-[[params.versions]]
-  version = "3-5.93e"
-  url = "/archives/3-5.93e/toc"
+[[menu.main]]
+    name = "Docs"
+    url = "/archives"
+    weight = 30
+    hasChildren = true
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.2.8-series"
+	  URL = "/archives/4.2.8-series/toc"
+	  weight = 1
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.2.6-series"
+	  URL = "/archives/4.2.6-series/toc"
+	  weight = 2
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.2.4-series"
+	  URL = "/archives/4.2.4-series/toc"
+	  weight = 3
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.2.2-series"
+	  URL = "/archives/4.2.2-series/toc"
+	  weight = 4
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.2.0"
+	  URL = "/archives/4.2.0/toc"
+	  weight = 5
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.1.2"
+	  URL = "/archives/4.1.2/toc"
+	  weight = 6
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.1.1"
+	  URL = "/archives/4.1.1/toc"
+	  weight = 7
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "4.1.0"
+	  URL = "/archives/4.1.0/toc"
+	  weight = 8
+	  [[menu.main]] 
+	  parent = "Docs"
+	  name = "3-5.93e"
+	  URL = "/archives/3-5.93e/toc"
+	  weight = 9
 
 github_repo = "https://github.com/ntp-project/ntp"
-
-gcs_engine_id = "d72aa9b2712488cc3"
-algolia_docsearch = false
-offlineSearch = false
-
 prism_syntax_highlighting = false
 
 [params.ui]
-sidebar_menu_compact = true
 breadcrumb_disable = false
+#  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
 sidebar_search_disable = false
-navbar_logo = false
+#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
+navbar_logo = true
+# Set to true to disable the About link in the site footer
 footer_about_disable = true
 
+# Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
+# This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
+# If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
+# add "hide_feedback: true" to the page's front matter.
 [params.ui.feedback]
 enable = true
-yes = 'Glad to hear it!</a>.'
-no = 'Sorry to hear that.</a>.'
+# The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
+yes = 'Glad to hear it!</a>'
+no = 'Sorry to hear that.</a>'
 
+# Adds a reading time to the top of each doc.
+# If you want this feature, but occasionally need to remove the Reading time from a single page, 
+# add "hide_readingtime: true" to the page's front matter
 [params.ui.readingtime]
 enable = false
 
@@ -111,25 +186,20 @@ enable = false
 [[params.links.user]]
 	name = "Mailing lists"
 	url = "https://lists.ntp.org/listinfo"
-	icon = "fa fa-envelope"
+	icon = "bi-envelope"
         desc = "Discussion and help from your fellow users"
 [[params.links.user]]
 	name ="Twitter"
 	url = "https://twitter.com/ntp"
-	icon = "fab fa-twitter"
+	icon = "bi-twitter"
         desc = "Follow us on Twitter to get the latest news!"
 [[params.links.user]]
 	name ="LinkedIn"
 	url = "https://www.linkedin.com/groups/4651343"
-	icon = "fab fa-linkedin-in"
+	icon = "bi-linkedin"
         desc = "Follow us on LinkedIn"
 [[params.links.user]]
 	name = "Facebook"
 	url = "https://www.facebook.com/networktimeprotocol"
-	icon = "fab fa-facebook-f"
+	icon = "bi-facebook"
         desc = "Follow us on Facebook"
-
-[[menu.main]]
-    name = "Network Time Foundation"
-    weight = 10
-    url = "https://www.nwtime.org"
