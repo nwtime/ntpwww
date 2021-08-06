@@ -210,6 +210,68 @@ delay = (<em>T</em><sub>4</sub> - <em>T</em><sub>1</sub>) - (<em>T</em><sub>3</s
 <p>The algorithms described on the <a href="/archives/4.2.8-series/prefer">Mitigation Rules and the <tt>prefer</tt> Keyword</a> page combine the survivor offsets, designate one of them as the <em>system peer</em> and produces the final offset used by the algorithm described on the <a href="/archives/4.2.8-series/discipline">Clock Discipline Algorithm</a> page to adjust the system clock time and frequency. The clock offset and frequency, are recorded by the <tt>loopstats</tt> option of the <a href="/archives/4.2.8-series/monopt/#monitoring-commands-and-options"><tt>filegen</tt></a> command. For additional details about these algorithms, see the Architecture Briefing on the <a href="http://www.eecis.udel.edu/~mills/ntp.html">Network Time Synchronization Research Project</a> page. For additional information on statistacl principles and performance metrics, see the <a href="/archives/4.2.8-series/stats">Performance Metrics</a> page.</p>
 
 	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div class="d-print-none">
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>.
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
 	
 </div>
 
