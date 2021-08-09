@@ -12,16 +12,17 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap');
 
 @import 'variables';
-
 @import 'mixins';
-
 @import 'buttons';
-
 @import 'common';
+@import 'boxes';
 
 @import 'templates/navigation';
-
 @import 'templates/homepage';
+
+@import "support/functions";
+@import "support/mixins";
+@import "support/utilities";
 
 /*
 - Clear Floats
@@ -31,9 +32,11 @@
 	- Headings
 	- Objects
 	- Tables
-	- Code (added by DL)
+	- Code 
+	- Alerts
+	- RSS
 - Forms
-	- Search Form
+	- Search
 	- Footer Widget Form
 - Accessibilty
 	- Screen Reader Text
@@ -70,6 +73,7 @@
 - Common Classes
 	- Archive/Author Box
 	- Breadcrumbs
+	- Informational Box
 - Common Plugins
 	- Jetpack
 	- Genesis eNews Extended
@@ -200,8 +204,7 @@ body.nav-visible {
 a {
 	color: #1a79c0;
 	text-decoration: underline;
-}
-
+  }
 }
 
 
@@ -213,6 +216,22 @@ a {
 a:hover,
 a:focus {
 	border-bottom: 0;
+	text-decoration: none;
+}
+
+a,
+button,
+select {
+  cursor: pointer;
+  transition: .2s ease;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+a:hover {
+  color: $primary-color;
 }
 
 p {
@@ -385,7 +404,7 @@ th {
 	font-weight: 400;
 }
 
-/*----------  DL add striping and dark border  ----------*/
+/*----------  Add striping and dark border  ----------*/
 
 tr:nth-child(odd) + tr {
    background-color:#e1e2e3;
@@ -431,8 +450,8 @@ code {
         }
     }
 
+/*----------  Code Blocks  ----------*/
 
-    // Code blocks
     pre {
         word-wrap: normal;
         background-color: $gray-100;
@@ -453,6 +472,28 @@ code {
     pre.mermaid {
         background-color: inherit;
         font-size: 0;
+    }
+}
+
+/*----------  Alerts  ----------*/
+
+.alert {
+    font-weight: 500;
+    background: $white;
+    color: inherit;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0 0 0 4px;
+}
+
+/*----------  RSS  ----------*/
+
+.td-blog {
+    .td-rss-button {
+        position: absolute;
+        top: 5.5rem;
+        right: 1rem;
+        z-index: 22;
     }
 }
 
@@ -545,35 +586,29 @@ input:focus[type="submit"],
     text-decoration: none;
 }
 
-/*----------  Search Form  ----------*/
+/*----------  Search  ----------*/
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button {
-	display: none;
+.td-search-input {
+    background: transparent;
+    max-width: 90%;
+    &.form-control:focus {
+        border-color: lighten($primary-color, 60%);
+        box-shadow: 0 0 0 2px lighten($primary-color, 30%);
+    }
+    font-family: $font-family-sans-serif;
 }
 
-.search-form {
-	overflow: hidden;
-}
+.popover.offline-search-result {
+    // Override bootstrap default style (max-width: $popover-max-width;)
+    max-width: 90%;
 
-.site-header .search-form {
-	float: right;
-}
+    .card {
+        margin-bottom: $spacer * .5;
 
-.entry-content .search-form,
-.site-header .search-form {
-	width: 50%;
-}
-
-.genesis-nav-menu .search input[type="submit"],
-.widget_search input[type="submit"] {
-	border: 0;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+        .card-header {
+            font-weight: bold;
+        }
+    }
 }
 
 
@@ -979,8 +1014,6 @@ img.alignright,
 	font-family: 'Nunito Sans', sans-serif;
 	font-weight: 900;
 }
-
-/*----------  Copied by DL from 17129-layout-partial  ----------*/
 
 .header-border {
     border-style: solid;
@@ -1407,185 +1440,7 @@ input[type="checkbox"]:disabled + label {
 #gform_widget-3 #input_3_3_6 {
 	background: #f9f9f9;
 }
-/* WooCommerce
---------------------------------------------- */
 
-.woocommerce #respond input#submit, 
-.woocommerce a.button, 
-.woocommerce button.button, 
-.woocommerce input.button {
-	background-color: #333 !important;
-    border: 1px solid #333 !important;
-    border-radius: 0px !important;
-    -webkit-box-shadow: 5px 5px 0px 0px #fff0ed !important;
-	-moz-box-shadow: 5px 5px 0px 0px #fff0ed !important;
-	box-shadow: 5px 5px 0px 0px #fff0ed !important;
-    color: #fff !important;
-    cursor: pointer;
-    font-family: 'Nunito Sans', sans-serif;
-	font-weight: 900;
-    font-size: 16px !important;
-    padding: 10px 25px !important;
-    text-transform: uppercase !important;
-    width: auto !important;
-}
-
-.woocommerce #respond input#submit:hover, 
-.woocommerce a.button:hover, 
-.woocommerce button.button:hover, 
-.woocommerce input.button:hover {
-	background-color: #fff !important;
-	border-color: #333 !important;
-	color: #333 !important;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li a {
-	font-family: 'Nunito Sans', sans-serif;
-	font-weight: 900;
-	font-size: 16px;
-	text-transform: uppercase;
-}
-
-.woocommerce .woocommerce-message::before,
-.woocommerce .woocommerce-info::before,
-.woocommerce div.product p.price,
-.woocommerce div.product span.price,
-.woocommerce ul.products li.product .price,
-.woocommerce form .form-row .required {
-	color: #bfa38b !important;
-}
-
-.woocommerce .woocommerce-message,
-.woocommerce .woocommerce-info {
-	border-top: none !important;
-}
-
-.woocommerce .woocommerce-error, 
-.woocommerce .woocommerce-info, 
-.woocommerce .woocommerce-message {
-	background-color: #F9F9F9 !important;
-}
-
-.woocommerce div.product p.price, 
-.woocommerce div.product span.price {
-	text-align: center;
-}
-
-.woocommerce span.onsale {
-	background-color: #bfa38b !important;
-	border-radius: 0 !important;
-	font-size: 16px !important;
-	padding: 4px 7px !important;
-}
-
-.woocommerce-cart table.cart img {
-	width: 100px !important;
-}
-
-.woocommerce ul.cart_list li, 
-.woocommerce ul.product_list_widget li, 
-.woocommerce-page ul.cart_list li, 
-.woocommerce-page ul.product_list_widget li {
-	float: left;
-	padding: 1% !important;
-	width: 33.3333%;
-}
-
-.sidebar .woocommerce ul.cart_list li, 
-.sidebar .woocommerce ul.product_list_widget li, 
-.sidebar .woocommerce-page ul.cart_list li, 
-.sidebar .woocommerce-page ul.product_list_widget li {
-	float: left;
-	padding: 1% !important;
-	width: 50%;
-}
-
-.woocommerce ul.products li.product, 
-.woocommerce-page ul.products li.product {
-	background: #fff;
-	border: 3px solid #fff;
-	margin: 0 !important;
-	padding: 1% !important;
-	width: 25% !important;
-}
-
-.woocommerce ul.cart_list li img, .woocommerce ul.product_list_widget li img {
-	width: 100% !important;
-}
-
-.woocommerce-checkout #payment ul.payment_methods li {
-	list-style: none;
-}
-
-.woocommerce-page input[type="checkbox"], 
-.woocommerce-page input[type="radio"] {
-	width: auto;
-}
-
-.woocommerce ul.products li.product .price del,
-.woocommerce div.product p.price del,
-.woocommerce div.product span.price del {
-	display: inline !important;
-}
-
-.woocommerce .quantity .qty {
-	padding: 9px 0px !important;
-}
-
-.woocommerce-cart table.cart td.actions .coupon .input-text {
-	padding: 10px 5px !important;
-}
-
-.woocommerce-checkout #payment {
-	background-color: #fff0ed !important;
-}
-
-.woocommerce .product-title {
-	font-family: 'Nunito Sans', sans-serif;
-	font-weight: 900;
-	font-size: 16px;
-	text-transform: uppercase;
-}
-
-.woocommerce form .form-row textarea {
-	height: 50px !important;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs::before,
-.woocommerce div.product .woocommerce-tabs ul.tabs li::after, 
-.woocommerce div.product .woocommerce-tabs ul.tabs li::before,
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-	border-color: #e5e5e5 !important;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-	background: #F9F9F9 !important;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-	background: #fff !important;
-	border-bottom-color: #fff !important;
-}
-.WooZone-price-info {
-	font-size: 12px;
-}
-.product .gallery,
-.product .tiled-gallery {
-	display:none;
-}
-a > h3 > mark {
-	background: #fff0ed;
-	border-radius: 50%;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	padding: 1px 3px;
-}
-.sku_wrapper {
-	display:none;
-}
-.tax-product_cat h1.page-title {
-	display:none; 
-}
 /*==============================
 =            Footer            =
 ==============================*/
@@ -1604,7 +1459,6 @@ a > h3 > mark {
 	color: #f9f9f9;
 	font-size: 14px;
 	font-style: italics;
-	text-align: center;
 	margin-bottom: 0;
 	min-height: 40px;
 }

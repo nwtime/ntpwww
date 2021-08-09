@@ -1,25 +1,15 @@
-{{ $links := .Site.Params.links }}
-<footer class="navbar site-footer fixed-bottom py-0 mr-auto">
-      <div>
-        {{ with $links }}
-        {{ with index . "user"}}
-        {{ template "footer-links-block"  . }}
-        {{ end }}
-        {{ end }}
-		</div>
-		<div>
-        <p style="font-size: 12px; font-family: 'Nunito Sans', sans-serif;">&copy; 2021 <a class="text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
-    </div>
-	</div>
+<footer class="navbar site-footer fixed-bottom py-0">
+  <ul class="mx-auto">
+    {{ range .Site.Params.links.user }}
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="{{ .name }}" aria-label="{{ .name }}">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="{{ .url }}">
+        <i class="{{ .icon }}"></i>
+      </a>
+    </li>
+    {{ end }}
+    <li class="navbar-text">
+      <p>&copy; 2021 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
 </footer>
-{{ define "footer-links-block" }}
-<ul class="list-inline">
-  {{ range . }}
-  <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="{{ .name }}" aria-label="{{ .name }}">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="{{ .url }}">
-      <i class="{{ .icon }}"></i>
-    </a>
-  </li>
-  {{ end }}
-</ul>
-{{ end }}
+
