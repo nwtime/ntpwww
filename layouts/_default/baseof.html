@@ -1,10 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ with site.LanguageCode }}{{ . }}{{ else }}en{{ end }}">
-  {{- partial "head.html" . -}}
+  <head>
+    {{ partial "head.html" . }}
+  </head>
   <body>
     {{- partial "preloader.html" . -}}
-    {{- partial "header.html" . -}}
-    {{- block "main" . }}{{- end }}
-    {{- partial "footer.html" . -}}
+    <header>
+      {{ partial "header.html" . }}
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            {{ partial "breadcrumb.html" . }}
+            {{ block "main" . }}{{ end }}
+          </main>
+        </div>
+      </div>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
   </body>
 </html>

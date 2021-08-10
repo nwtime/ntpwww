@@ -3,7 +3,7 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body class="td-{{ .Kind }}">
+  <body>
     {{- partial "preloader.html" . -}}
     <header>
       {{ partial "header.html" . }}
@@ -12,7 +12,7 @@
       <div class="td-main">
         <div class="row flex-xl-nowrap">
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-            {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
+            {{ partial "breadcrumb.html" . }}
             {{ block "main" . }}{{ end }}
           </main>
         </div>

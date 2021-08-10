@@ -2,8 +2,11 @@
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-            {{.Content}}
-          </div>
+    {{.Content}}
+	  {{ if (and (not .Params.hide_feedback) (.Site.Params.ui.feedback.enable) (.Site.GoogleAnalytics)) }}
+	  {{ partial "feedback.html" .Site.Params.ui.feedback }}
+	  <br />
+	{{ end }}
+  </div>
 </section>
-
 {{ end }}
