@@ -82,17 +82,17 @@ type: archives
 
 * * *
 
-#### External Links
+#### Other Links
 
-* [Computer Network Time Synchronization - The Network Time Protocol (book)](http://www.eecis.udel.edu/~mills/book.html)
+* [Computer Network Time Synchronization - The Network Time Protocol (book)](/reflib/book)
 * [NTP Public Services Project (home page)](http://www.ntp.org/index.html)
-* [NTP Research Project (home page)](http://www.eecis.udel.edu/~mills/ntp.html)
-* [Executive Summary: Computer Network Time Synchronization](http://www.eecis.udel.edu/~mills/exec.html)
-* [The NTP Timescale and Leap Seconds](http://www.eecis.udel.edu/~mills/leap.html)
-* [NTP Timestamp Calculations](http://www.eecis.udel.edu/~mills/time.html)
-* [The NTP Era and Era Numbering](http://www.eecis.udel.edu/~mills/y2k.html)
-* [Timestamp Capture Principles](http://www.eecis.udel.edu/~mills/stamp.html)
-* [Autonomous Configuration](http://www.eecis.udel.edu/~mills/autocfg.html)
-* [Autonomous Authentication](http://www.eecis.udel.edu/~mills/autokey.html)
-* [Autokey Protocol](http://www.eecis.udel.edu/~mills/proto.html)
-* [Autokey Identity Schemes](http://www.eecis.udel.edu/~mills/ident.html)
+* [NTP Research Project (home page)](/reflib/ntp)
+* [Executive Summary: Computer Network Time Synchronization](/reflib/exec)
+* [The NTP Timescale and Leap Seconds](/reflib/leap)
+* [NTP Timestamp Calculations](/reflib/time)
+* [The NTP Era and Era Numbering](/reflib/y2k)
+* [Timestamp Capture Principles](/reflib/stamp)
+* [Autonomous Configuration](/reflib/autocfg)
+* [Autonomous Authentication](/reflib/autokey)
+* [Autokey Protocol](/reflib/proto)
+* [Autokey Identity Schemes](/reflib/ident)
