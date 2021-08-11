@@ -3,7 +3,7 @@ title: "NTP Debugging Techniques"
 type: archives
 ---
 
-![gif](/archives/pic/pogo.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/pogo.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 We make house calls and bring our own bugs.
 
