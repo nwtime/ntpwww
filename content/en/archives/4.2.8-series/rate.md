@@ -70,4 +70,4 @@ In order to make sure the client notices the KoD packet, the server sets the rec
 
 #### References
 
-<a name="myfootnote1">1</a>  Mills, D.L., J. Levine, R. Schmidt and D. Plonka. Coping with overload on the Network Time Protocol public servers. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Washington DC, December 2004), 5-16. Paper: [PDF](http://www.eecis.udel.edu/~mills/database/papers/ptti/ptti04a.pdf), Slides:[PDF](http://www.eecis.udel.edu/~mills/database/brief/ptti/ptti04.pdf) | [PowerPoint](http://www.eecis.udel.edu/~mills/database/brief/ptti/ptti04.ppt)
+<a name="myfootnote1">1</a>  Mills, D.L., J. Levine, R. Schmidt and D. Plonka. Coping with overload on the Network Time Protocol public servers. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Washington DC, December 2004), 5-16. Paper: [PDF](/reflib/papers/ptti/ptti04a.pdf), Slides:[PDF](/reflib/brief/ptti/ptti04.pdf) | [PowerPoint](/reflib/brief/ptti/ptti04.ppt)
