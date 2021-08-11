@@ -1,0 +1,1 @@
+(function(a){'use strict';var b={init:function(){a(document).ready(function(){a(document).on('keypress','.td-search-input',function(d){var b,c;if(d.keyCode!==13)return;return b=a(this).val(),c="/search/?q="+b,document.location=c,!1})})}};b.init()})(jQuery)
