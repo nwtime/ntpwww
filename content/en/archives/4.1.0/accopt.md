@@ -3,7 +3,7 @@ title: "Access Control Options"
 type: archives
 ---
 
-![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 The skunk watches for intruders and sprays.
 

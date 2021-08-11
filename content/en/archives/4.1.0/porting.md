@@ -3,7 +3,7 @@ title: "Porting Hints"
 type: archives
 ---
 
-![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
 
 Porting Dorothy in Oz
 

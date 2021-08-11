@@ -3,7 +3,7 @@ title: "Patching Procedures"
 type: archives
 ---
 
-![gif](/archives/pic/alice38.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice38.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 The Mad Hatter needs patches.
 
