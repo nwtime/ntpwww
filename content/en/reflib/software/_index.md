@@ -1,6 +1,6 @@
 ---
 title: "Software"
-type: docs
+type: archives
 ---
 
 {{% pageinfo %}}

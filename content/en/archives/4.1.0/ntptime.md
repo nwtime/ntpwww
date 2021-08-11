@@ -3,7 +3,7 @@ title: "ntptime - read kernel time variables"
 type: archives
 ---
 
-![gif](/archives/pic/pogo5.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/pogo5.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 The turtle has been swimming in the kernel.
 

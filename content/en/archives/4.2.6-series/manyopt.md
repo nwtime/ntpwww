@@ -4,7 +4,7 @@ type: archives
 --- 
 
 
-![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Make sure who your friends are.
 
@@ -24,7 +24,7 @@ Last update: 25-Nov-2009 UTC
 
 #### Introduction
 
-This page describes the automatic server discovery schemes provided in NTPv4. Details about the configuration commands and options are described on the [Configuration Options](/archives/4.2.6-series/confopt) page. Details about the cryptographic authentication schemes are described on the [Authentication Options](/archives/4.2.6-series/authopt) page. Details about the other modes not directly involved in these schemes are described on the [Association Management](/archives/4.2.6-series/assoc) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](http://www.eecis.udel.edu/%7emills/ntp.html) page.
+This page describes the automatic server discovery schemes provided in NTPv4. Details about the configuration commands and options are described on the [Configuration Options](/archives/4.2.6-series/confopt) page. Details about the cryptographic authentication schemes are described on the [Authentication Options](/archives/4.2.6-series/authopt) page. Details about the other modes not directly involved in these schemes are described on the [Association Management](/archives/4.2.6-series/assoc) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp) page.
 
 There are three automatic server discovery schemes: broadcast/multicast, manycast and server pool described on this page. The broadcast/multicast and manycast schemes utilize the ubiquitous broadcast or one-to-many paradigm native to IPv4 and IPv6. The server pool scheme uses DNS to resolve addresses of multiple volunteer servers scattered throughout the world. All three schemes work in much the same way and might be described as _grab-n'-prune_. Through one means or another they grab a number of associations either directly or indirectly from the configuration file, order them from best to worst according to a defined metric, then cast off the associations with the lowest metric until no more than the number specified by the <tt>maxclock</tt> option of the <tt>tos</tt> command remain.
 

@@ -3,7 +3,7 @@ title: "Configuration Options"
 type: archives
 ---
 
-![gif](/archives/pic/boom3a.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 The chicken is getting configuration advice.
 

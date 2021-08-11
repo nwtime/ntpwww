@@ -3,7 +3,7 @@ title: "Event Messages and Status Words"
 type: archives
 ---
 
-![gif](/archives/pic/alice47.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice47.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Caterpillar knows all the error codes, which is more than most of us do.
 

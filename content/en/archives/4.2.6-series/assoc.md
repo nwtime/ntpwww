@@ -3,7 +3,7 @@ title: "Association Management"
 type: archives
 ---
 
-![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Make sure who your friends are.
 
@@ -25,7 +25,7 @@ Last update: 21:56 UTC Friday, December 28, 2007
 
 #### Association Modes
 
-This page describes the various modes of operation provided in NTPv4. Details about the configuration commands and options are given on the [Configuration Options](/archives/4.2.6-series/confopt) page. Details about the cryptographic authentication schemes are given on the [Authentication Options](/archives/4.2.6-series/authopt) page. Details about the automatic server discovery schemes are described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](http://www.eecis.udel.edu/~mills/ntp.html) page.
+This page describes the various modes of operation provided in NTPv4. Details about the configuration commands and options are given on the [Configuration Options](/archives/4.2.6-series/confopt) page. Details about the cryptographic authentication schemes are given on the [Authentication Options](/archives/4.2.6-series/authopt) page. Details about the automatic server discovery schemes are described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp) page.
 
 There are three types of associations in NTP: persistent, preemptable and ephemeral. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the prempt option and are demobilized by a "better" server or by timeout, but only if the number of survivors exceeds the threshold set by the tos maxclock configuration command. Ephemeral associations are mobilized upon arrival of designated messages and demobilized by timeout.
 

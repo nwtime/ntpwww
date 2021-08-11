@@ -3,7 +3,7 @@ title: "Reference Clock Support"
 type: archives
 ---
 
-![gif](/archives/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](http://www.eecis.udel.edu/%7emills/lab.html)
+![gif](/archives/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab)
 
 Last update: 10-Mar-2014 05:20 UTC
 
@@ -41,7 +41,7 @@ The local clock driver can also be used when an external synchronization source 
 
 Several drivers make use of the pulse-per-second (PPS) signal discipline, which is part of the generic driver interface, so require no specific configuration. For those drivers that do not use this interface, the [PPS Clock Discipline](/archives/drivers/driver22) driver can be can provide this function. It normally works in conjunction with the reference clock that produces the timecode signal, but can work with another driver or remote server. When PPS kernel features are present, the driver can redirect the PPS signal to the kernel.
 
-Some drivers depending on longwave or shortwave radio services need to know the radio propagation time from the transmitter to the receiver. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the [Time and Frequency Standard Station Information](http://www.eecis.udel.edu/%7emills/ntp/qth.html) page. Receiver coordinates can be obtained locally or from Google Earth. The actual calculations are beyond the scope of this document.
+Some drivers depending on longwave or shortwave radio services need to know the radio propagation time from the transmitter to the receiver. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the [Time and Frequency Standard Station Information](/reflib/qth) page. Receiver coordinates can be obtained locally or from Google Earth. The actual calculations are beyond the scope of this document.
 
 Depending on interface type, port speed, etc., a reference clock can have a small residual offset relative to another. To reduce the effects of jitter when switching from one driver to the another, it is useful to calibrate the drivers to a common ensemble offset. The <tt>enable calibrate</tt> configuration command described on the [Miscellaneous Options](/archives/4.2.8-series/miscopt) page activates a special feature which automatically calculates a correction factor for each driver relative to an association designated the prefer peer.
 

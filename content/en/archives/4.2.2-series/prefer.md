@@ -3,7 +3,7 @@ title: "Mitigation Rules and the prefer Keyword"
 type: archives
 ---
 
-![gif](/archives/pic/alice11.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice11.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Listen carefully to what I say; it is very complicated.
 

@@ -1,6 +1,6 @@
 ---
 title: "RFCs"
-type: docs
+type: archives
 ---
 
 #### RFCs

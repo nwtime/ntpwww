@@ -5,7 +5,7 @@ type: archives
 
 * * *
 
-![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures)
 
 Pleased to meet you.
 
@@ -81,4 +81,8 @@ Users are invited to report bugs and offer suggestions via the [NTP Bug Reportin
 
 The [Site Map](/archives/4.2.8-series/sitemap) page contains a list of document collections arranged by topic. The Program Manual Pages collection may be the best place to start. The [Command Index](/archives/4.2.8-series/comdex) collection contains a list of all configuration file commands together with a short function description. A great wealth of additional information is available via the External Links collection, including a book and numerous background papers and briefing presentations.
 
-Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](http://www.eecis.udel.edu/%7emills/exec.html) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release) page. Background information, bibliography and briefing slides suitable for presentations are on the [Network Time Synchronization Research Project](http://www.eecis.udel.edu/%7emills/ntp.html) page. Additional information is at the [NTP web site](https://www.ntp.org).
+Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](/reflib/exec) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release) page. Background information, bibliography and briefing slides suitable for presentations are on the [Network Time Synchronization Research Project](/reflib/ntp) page. Additional information is at the [NTP web site](http://www.ntp.org).
+
+* * *
+
+![gif](/archives/pic/pogo1a.gif)

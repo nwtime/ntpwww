@@ -4,7 +4,7 @@ type: archives
 ---
 
 ![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly
-](http://www.eecis.udel.edu/~mills/pictures.html) 
+](/reflib/pictures) 
 
 The pig watches the logs. 
 

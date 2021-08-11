@@ -5,7 +5,7 @@ type: archives
 
 * * *
 
-![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures)
 
 Pleased to meet you.
 
@@ -38,7 +38,7 @@ The Network Time Protocol (NTP) is widely used to synchronize a computer to Inte
 
 NTP time synchronization services are widely available in the public Internet. The public NTP subnet in early 2008 includes several thousand servers in most countries and on every continent of the globe, including Antarctica. These servers support a total population estimated at over 25 million computers in the global Internet. The NTP subnet operates with a hierarchy of levels, where each level is assigned a number called the stratum. Stratum 1 (primary) servers at the lowest level are directly synchronized to national time services. Stratum 2 (secondary) servers at the next higher level are synchronize to stratum 1 servers and so on. Normally, NTP clients and servers with a relatively small number of clients do not synchronize to public primary servers. There are several hundred public secondary servers operating at higher strata and are the preferred choice. 
 
-Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](http://www.eecis.udel.edu/%7emills/exec.html) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.6-series/release) page. Background information, bibliography and briefing slides suitable for presentations are on the [Network Time Synchronization Research Project](http://www.eecis.udel.edu/%7emills/ntp.html) page. Additional information is at the NTP web site www.ntp.org.
+Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](/reflib/exec) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.6-series/release) page. Background information, bibliography and briefing slides suitable for presentations are on the [Network Time Synchronization Research Project](/reflib/ntp) page. Additional information is at the NTP web site www.ntp.org.
 
 * * *
 

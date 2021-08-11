@@ -3,7 +3,7 @@ title: "Miscellaneous Options"
 type: archives
 ---
 
-![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 We have three, now looking for more.
 

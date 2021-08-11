@@ -1,7 +1,7 @@
 
 ---
 title: "Memos"
-type: docs
+type: archives
 ---
 
 {{% pageinfo %}}

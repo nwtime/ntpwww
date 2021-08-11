@@ -3,7 +3,7 @@ title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
 ---
 
-![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
 
 You need help from the monkeys.
 
@@ -83,15 +83,15 @@ As provided by international agreement, an extra second is sometimes inserted in
 
 If a host does not have the leapsecond values, they can be obtained over the net using the Autokey security protocol. Ordinarily, the leapseconds file is installed on the primary servers and the values flow from them via secondary servers to the clients. When multiple servers are involved, the values with the latest expiration time are used.
 
-If the latest leap is in the past, nothing further is done other than to install the TAI offset. If the leap is in the future less than 28 days, the leap warning bits are set. If in the future less than 23 hours, the kernel is armed to insert one second at the end of the current day. If the kernel is enabled, the leap is done automatically at that time; otherwise, the clock is effectively stopped for one second at the leap. Additional details are in the [The NTP Timescale and Leap Seconds](http://www.eecis.udel.edu/~mills/leap.html) white paper.
+If the latest leap is in the past, nothing further is done other than to install the TAI offset. If the leap is in the future less than 28 days, the leap warning bits are set. If in the future less than 23 hours, the kernel is armed to insert one second at the end of the current day. If the kernel is enabled, the leap is done automatically at that time; otherwise, the clock is effectively stopped for one second at the leap. Additional details are in the [The NTP Timescale and Leap Seconds](/reflib/leap) white paper.
 
-If none of the above provisions are available, dsependent servers and clients tally the leap warning bits of surviving servers and reference clocks. When a majority of the survivors show warning, a leap is programmed at the end of the current month. During the month and day of insertion, they operate as above. In this way the leap is propagated at all dependent servers and clients.
+If none of the above provisions are available, dependent servers and clients tally the leap warning bits of surviving servers and reference clocks. When a majority of the survivors show warning, a leap is programmed at the end of the current month. During the month and day of insertion, they operate as above. In this way the leap is propagated at all dependent servers and clients.
 
 * * *
 
 #### Additional Features
 
-A new experimental feature called interleaved modes can be used in NTP symmetric or broadcast modes. It is designed to improve accuracy by avoiding kernel latency and queueing delay, as described on the [NTP Interleaved Modes](/archives/4.2.6-series/xleave) page. It is activated by the <tt>xleave</tt> option with the <tt>peer</tt> or <tt>broadcast</tt> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved clients at the same time. Further details are in the white paper [NTP Interleaved On-Wire Protocol](http://www.eecis.udel.edu/~mills/onwire.html) and the briefing [Interleaved Synchronization Protocols for LANs and Space Data Links](http://www.eecis.udel.edu/~mills/database/brief/onwire/onwire.ppt).
+A new experimental feature called interleaved modes can be used in NTP symmetric or broadcast modes. It is designed to improve accuracy by avoiding kernel latency and queueing delay, as described on the [NTP Interleaved Modes](/archives/4.2.6-series/xleave) page. It is activated by the <tt>xleave</tt> option with the <tt>peer</tt> or <tt>broadcast</tt> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved clients at the same time. Further details are in the white paper [NTP Interleaved On-Wire Protocol](/reflib/onwire) and the briefing [Interleaved Synchronization Protocols for LANs and Space Data Links](/reflib/brief/onwire/onwire.pdf).
 
 If <tt>ntpd</tt>, is configured with NetInfo support, it will attempt to read its configuration from the NetInfo service if the default <tt>ntp.conf</tt> file cannot be read and no file is specified by the <tt>-c</tt> option.
 

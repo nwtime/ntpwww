@@ -3,7 +3,7 @@ title: "ntp-genkeys - generate public and private keys"
 type: archives
 ---
 
-![gif](/archives/pic/alice23.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice23.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Alice holds the key.
 

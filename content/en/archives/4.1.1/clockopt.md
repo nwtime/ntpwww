@@ -3,7 +3,7 @@ title: "Reference Clock Options"
 type: archives
 ---
 
-![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 See the radios, all in a row.
 

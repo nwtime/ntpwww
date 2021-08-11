@@ -3,7 +3,7 @@ title: "NTP Interleaved Modes"
 type: archives
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 You need a little magic.
 
@@ -21,7 +21,7 @@ Performacne varies widely between machines and network interface cards on a 100-
 
 Performance with the Pentia show a residual jitter of about 20 ms, which is by far the best performance so far. However, much better performance could result if the input delay could be reduced or elminated with driver or hardware timestamps. Should that be done, performance should be in the same order as the PPS and kernel discipline, which is in the order of 2 ms.
 
-Interleaved modes can be used only in NTP symmetric and broadcast modes. It is activated by the <tt>xleave</tt> option with the <tt>peer or</tt> <tt>broadcast</tt> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved broadcast clients at the same time. Further details are in the white paper [NTP Interleaved On-Wire Protocol](http://www.eecis.udel.edu/~mills/onwire.html) and the briefing [Interleaved Synchronization Protocols for LANs and Space Data Links](http://www.eecis.udel.edu/~mills/database/brief/onwire/onwire.ppt).
+Interleaved modes can be used only in NTP symmetric and broadcast modes. It is activated by the <tt>xleave</tt> option with the <tt>peer or</tt> <tt>broadcast</tt> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved broadcast clients at the same time. Further details are in the white paper [NTP Interleaved On-Wire Protocol](/reflib/onwire) and the briefing [Interleaved Synchronization Protocols for LANs and Space Data Links](/reflib/brief/onwire/onwire.ppt).
 
 * * *
 

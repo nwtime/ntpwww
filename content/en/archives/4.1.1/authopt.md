@@ -3,7 +3,7 @@ title: "Authentication Options"
 type: archives
 ---
 
-![gif](/archives/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Our resident cryptographer; now you see him, now you don't.
 

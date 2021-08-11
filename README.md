@@ -19,31 +19,13 @@ npm install -D postcss
 Grab the [ntpdoc repository](https://github.com/nwtime/ntpdoc/):
 
 ```
-git clone https://github.com/nwtime/ntpdoc ntpdoc
-cd ntpdoc
-mkdir themes
-cd themes
-```
+git clone https://github.com/nwtime/ntpdoc
 
-Finally, add the [Docsy theme](https://github.com/google/docsy) while in the `ntpdoc/themes` directory:
-
-```
-git clone https://github.com/google/docsy 
-cd docsy
-git submodule update --init --recursive
 ```
 
 ## Building the Documentation
 
-Once you've installed the requirements, `cd` back to `ntpdoc` and do what you need to do.
-
-To render the site into `public/` simply run:
-
-```
-hugo
-```
-
-To start Hugo, offering a web server on the localhost:
+Once you've installed the requirements, start Hugo from the `ntpdoc` directory:
 
 ```
 hugo server
@@ -68,4 +50,7 @@ you have not installed the extended version of Hugo, which is required by the Do
 
 If Hugo is running as you save edits to an ntpdoc file, it should automatically display the changes--occasionally you will need to refresh your browser to see the changes.
 
-To issue a git pull request for your edits, use [these instructions](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+Need help getting started or want to discuss edits? Join the WHAT SHOULD WE SUGGEST (FB, LINKEDIN, A MAILING LIST?
+
+To issue a git pull request for your edits, use the instructions at
+https://help.github.com/articles/using-pull-requests.
