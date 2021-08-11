@@ -3,7 +3,7 @@ title: "Monitoring Options"
 type: archives
 ---
 
-![gif](/archives/pic/pogo8.gif)[](http://www.eecis.udel.edu/~mills/pictures.html) from _Pogo_, Walt Kelly
+![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures) 
 
 Pig was hired to watch the logs.
 

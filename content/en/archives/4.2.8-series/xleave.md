@@ -3,7 +3,7 @@ title: "NTP Interleaved Modes"
 type: archives
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 You need a little magic.
 

@@ -3,7 +3,7 @@ title: "Rate Management and the Kiss-o'-Death Packet"
 type: archives
 ---
 
-![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 Our junior managers and the administrators.
 

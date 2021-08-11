@@ -3,7 +3,7 @@ title: "PPSAPI Interface for Precision Time Signals"
 type: archives
 ---
 
-![gif](/archives/pic/tonea.gif)[from _NBS Special Publication 432, 1979_](http://www.eecis.udel.edu/%7emills/pictures.html) (out of print)
+![gif](/archives/pic/tonea.gif)[from _NBS Special Publication 432, 1979_](/reflib/pictures) (out of print)
 
 Last update: 10-Mar-2014 05:10 UTC
 
