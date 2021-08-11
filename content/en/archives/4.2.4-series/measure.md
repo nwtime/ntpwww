@@ -7,7 +7,7 @@ Last update: Thursday, July 28, 2005
 
 * * *
 
-The technical memorandum: <cite>Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation</cite> [(PostScript)](http://www.eecis.udel.edu/%7emills/database/memos/memo96a.ps) describes a number of techniques for conducting experiments typical of computer network and transmission systems engineering.
+The technical memorandum: <cite>Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation</cite> [(PDF)](/reflib/memos/memo96a.pdf) describes a number of techniques for conducting experiments typical of computer network and transmission systems engineering.
 
 In most experiments in which time is involved, it is necessary to develop estimates of time, frequency and measurement errors from a series of time measurements between the clocks of a number of computers and ancillary devices interconnected by some kind of computer network. However, time is not a physical quantity, such as mass, nor can it be measured relative to an absolute frame of reference, such as velocity. The only way to measure time in our universe is to compare the reading of one clock, which runs according to its own timescale, with another clock, which runs according to a given timescale, at some given instant or epoch. The errors arise from the precision of time comparisons and the accuracy of frequency estimates between the timescales involved.
 
