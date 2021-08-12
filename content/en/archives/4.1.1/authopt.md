@@ -71,7 +71,7 @@ Due to the widespread use of interface-specific naming, the host names used in c
 
 #### Leapseconds Table
 
-The NIST provides a table showing the epoch for all historic occasions of leap second insertion since 1972. The leapsecond table shows each epoch of insertion along with the offset of International Atomic Time (TAI) with respect to Coordinated Universtal Time (UTC), as disseminated by NTP. The table can be obtained directly from NIST national time servers using <tt>ftp</tt> as the ASCII file <tt>pub/leap-seconds</tt>.
+The NIST provides [tables](https://www.nist.gov/pml/time-and-frequency-division/time-realization/leap-seconds) showing the epoch for all historic occasions of leap second insertion since 1972. The leapsecond table shows each epoch of insertion along with the offset of International Atomic Time (TAI) with respect to Coordinated Universtal Time (UTC), as disseminated by NTP.
 
 While not strictly a security function, the Autokey protocol provides means to securely retrieve the leapsecond table from a server or peer. Servers load the leapsecond table directly from the file specified in the <tt>crypto</tt> command, while clients can obtain the table indirectly from the servers using the Autokey protocol. Once loaded, the table can be provided on request to other clients and servers.
 
