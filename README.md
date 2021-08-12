@@ -38,19 +38,17 @@ Web Server is available at //localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
-If you instead get this error:
+If you instead get an error similar to this:
 
 ```
 Error: Error building site: TOCSS: failed to transform "scss/main.scss" (text/x-scss): resource "scss/scss/main.scss_9fadf33d895a46083cdd64396b57ef68" not found in file cache
 ```
 
-you have not installed the extended version of Hugo, which is required by the Docsy theme.
+you have not installed the extended version of Hugo.
 
 ## Editing the Documentation
 
 If Hugo is running as you save edits to an ntpdoc file, it should automatically display the changes--occasionally you will need to refresh your browser to see the changes.
-
-Need help getting started or want to discuss edits? Join the WHAT SHOULD WE SUGGEST (FB, LINKEDIN, A MAILING LIST?
 
 To issue a git pull request for your edits, use the instructions at
 https://help.github.com/articles/using-pull-requests.
