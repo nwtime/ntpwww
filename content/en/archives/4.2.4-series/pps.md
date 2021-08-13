@@ -3,7 +3,7 @@ title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
 ---
 
-![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Alice is trying to find the PPS signal connector.
 
@@ -31,7 +31,7 @@ A Gadget Box built by Chuck Hanavin
 
 #### Gadget Box
 
-The PPS signal can be connected in either of two ways: via the data carrier detector (DCD) pin of a serial port or via the acknowledge (ACK) pin of a parallel port, depending on the hardware and operating system. Note that NTP no longer supports connection via the data leads of a serial port. However, the PPS signal levels are usually incompatible with serial port levels. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional modem designed to decode the radio timecode signals transmitted by Canadian time and frequency station CHU. This can be used with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) driver. A complete set of schematics, PCB artwork and drill templates can be obtained via the web at [gadget.tar.Z](https://www.eecis.udel.edu/~ntp/ntp_spool/hardware/gadget.tar.Z).
+The PPS signal can be connected in either of two ways: via the data carrier detector (DCD) pin of a serial port or via the acknowledge (ACK) pin of a parallel port, depending on the hardware and operating system. Note that NTP no longer supports connection via the data leads of a serial port. However, the PPS signal levels are usually incompatible with serial port levels. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional modem designed to decode the radio timecode signals transmitted by Canadian time and frequency station CHU. This can be used with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) driver. A complete set of schematics, PCB artwork and drill templates can be obtained via the web at [gadget.tar.Z](/reflib/software/gadget.tar.Z).
 
 * * *
 
@@ -39,7 +39,7 @@ The PPS signal can be connected in either of two ways: via the data carrier dete
 
 Both the serial and parallel port connection require operating system support, which is available in only a few operating systems, including FreeBSD, Linux (with PPSkit patch) and Solaris. Support on an experimental basis is available for several other systems, including SunOS and HP/Compaq/Digital Tru64. The PPSAPI application program interface defined in <sup>[1](#myfootnote1)</sup> is the only interface currently supported. Older PPS interfaces based on the <tt>ppsclock</tt> and <tt>tty_clk</tt> streams modules are no longer supported. As the PPSAPI is expected to become an IETF cross-platform standard, it should be used by new applications.
 
-The entire PPS interface functionality is currently provided by inline code in the <tt>timepps.h</tt> header file. While not all implementations support the full PPSAPI specification, they do support all the functions required for the PPS driver described next. The FreeBSD, Linux and Solaris implementations can be used with the stock kernels provided with those systems; however, the Tru64 and SunOS kernels require additional functions not provided in the stock kernels. Solaris users are cautioned that these functions operate improperly in Solaris versions prior to 2.8 with patch Generic_108528-02. Header files for other systems can be found via the web at [nanokernel.tar.gz](https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz).
+The entire PPS interface functionality is currently provided by inline code in the <tt>timepps.h</tt> header file. While not all implementations support the full PPSAPI specification, they do support all the functions required for the PPS driver described next. The FreeBSD, Linux and Solaris implementations can be used with the stock kernels provided with those systems; however, the Tru64 and SunOS kernels require additional functions not provided in the stock kernels. Solaris users are cautioned that these functions operate improperly in Solaris versions prior to 2.8 with patch Generic_108528-02. Header files for other systems can be found via the web at [nanokernel.tar.gz](/reflib/software/nanokernel.tar.gz).
 
 * * *
 
@@ -55,5 +55,5 @@ Some configurations may include multiple radio clocks with individual PPS output
 
 * * *
 
-<a name="myfootnote1">1</a> Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](https://www.eecis.udel.edu/~mills/database/rfc/rfc2783.txt)
+<a name="myfootnote1">1</a> Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](/reflib/rfc/rfc2783.txt)
 

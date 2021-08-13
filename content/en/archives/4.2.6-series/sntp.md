@@ -3,7 +3,7 @@ title: "sntp - Simple Network Time Protocol (SNTP) Client"
 type: archives
 ---
 
-![gif](/archives/pic/dogsnake.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/dogsnake.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 S is for snakeoil.
 

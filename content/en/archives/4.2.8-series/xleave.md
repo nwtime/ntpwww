@@ -3,7 +3,7 @@ title: "NTP Interleaved Modes"
 type: archives
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 You need a little magic.
 
@@ -19,7 +19,7 @@ The reference implementation captures a softstamp before the message digest rout
 
 Interleaved mode can be used only in NTP symmetric and broadcast modes. It is activated by the <tt>xleave</tt> option with the <tt>peer</tt> or <tt>broadcast</tt> configuration commands. A broadcast server configured for interleaved mode is transparent to ordinary broadcast clients, so both ordinary and interleaved broadcast clients can use the same packets. An interleaved symmetric active peer automatically switches to ordinary symmetric mode if the other peer is not capable of operation in interleaved mode.
 
-As demonstrated in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](http://www.eecis.udel.edu/~mills/onwire.html), the interleaved modes have the same resistance to lost packets, duplicate packets, packets crossed in flight and protocol restarts as the ordinary modes. An application of the interleaved symmetric mode in space missions is presented in the white paper [Time Synchronization for Space Data Links](http://www.eecis.udel.edu/~mills/proximity.html).
+As demonstrated in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire), the interleaved modes have the same resistance to lost packets, duplicate packets, packets crossed in flight and protocol restarts as the ordinary modes. An application of the interleaved symmetric mode in space missions is presented in the white paper [Time Synchronization for Space Data Links](/reflib/proximity).
 
 * * *
 

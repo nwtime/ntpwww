@@ -3,7 +3,7 @@ title: "NTP Debugging Techniques"
 type: archives
 ---
 
-![gif](/archives/pic/pogo.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/pogo.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 We make house calls and bring our own bugs.
 
@@ -25,7 +25,7 @@ Last update: 16-Jul-2014 08:38 UTC
 
 #### Initial Startup
 
-This page discusses <tt>ntpd</tt> program monitoring and debugging techniques using the [<tt>ntpq</tt> - standard NTP query program](/archives/4.2.8-series/ntpq), either on the local server or from a remote machine. In special circumstances the [<tt>ntpdc</tt> - special NTP query program](/archives/4.2.8-series/ntpdc), can be useful, but its use is not covered here. The <tt>ntpq</tt> program implements the management functions specified in the NTP specification [RFC-1305, Appendix A](http://www.eecis.udel.edu/%7emills/database/rfc/rfc1305/rfc1305c.ps). It is used to read and write the variables defined in the NTP Version 4 specification now navigating the standards process. In addition, the program can be used to send remote configuration commands to the server.
+This page discusses <tt>ntpd</tt> program monitoring and debugging techniques using the [<tt>ntpq</tt> - standard NTP query program](/archives/4.2.8-series/ntpq), either on the local server or from a remote machine. In special circumstances the [<tt>ntpdc</tt> - special NTP query program](/archives/4.2.8-series/ntpdc), can be useful, but its use is not covered here. The <tt>ntpq</tt> program implements the management functions specified in the NTP specification [RFC-1305, Appendix A](/reflib/rfc/rfc1305/rfc1305c.pdf). It is used to read and write the variables defined in the NTP Version 4 specification now navigating the standards process. In addition, the program can be used to send remote configuration commands to the server.
 
 The <tt>ntpd</tt> daemon can operate in two modes, depending on the presence of the <tt>-d</tt> command-line option. Without the option the daemon detaches from the controlling terminal and proceeds autonomously. With one or more <tt>-d</tt> options the daemon does not detach and generates special trace output useful for debugging. In general, interpretation of this output requires reference to the sources. However, a single <tt>-d</tt> does produce only mildly cryptic output and can be very useful in finding problems with configuration and network troubles.
 

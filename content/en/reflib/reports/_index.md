@@ -1,7 +1,7 @@
 
 ---
 title: "Reports"
-type: docs
+type: archives
 ---
 
 {{% pageinfo %}}

@@ -3,7 +3,7 @@ title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
 ---
 
-![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
 
 You need help from the monkeys.
 

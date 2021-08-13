@@ -1,7 +1,7 @@
 
 ---
 title: "White Papers"
-type: docs
+type: archives
 ---
 
 {{% pageinfo %}}
@@ -17,6 +17,7 @@ The information in this section was originally hosted on the University of Delaw
 *  [Autonomous Configuration](/reflib/autocfg)
 *  [Autonomous Networks](/reflib/autonet)
 *  [Bibliography on Computer Network Time Synchronization](/reflib/biblio)
+*  [Collaboration Resources](/reflib/resource)
 *  [Executive Summary: Computer Network Time Synchronization](/reflib/exec)
 *  [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp)
 *  [Internet Research Laboratory](/reflib/lab)

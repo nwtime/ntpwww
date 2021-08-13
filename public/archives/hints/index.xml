@@ -1,2107 +1,277 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>NTP: Network Time Protocol – Hints</title>
+    <title>Hints on NTP: Network Time Protocol</title>
     <link>/archives/hints/</link>
     <description>Recent content in Hints on NTP: Network Time Protocol</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="/archives/hints/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/archives/hints/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Archives: A-UX Hints</title>
+      <title>A-UX Hints</title>
       <link>/archives/hints/a-ux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/a-ux/</guid>
-      <description>
-        
-        
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;-------------
-INTRODUCTION:
--------------
-Last revision:  06-Jul-1994
-
-Included in this distribution of XNTP V3 is a configuration file suitable
-for use under Apple&#39;s A/UX Version 3.x.x  There is also one for A/UX 2.0.1
-but it has not been fully tested. To make the executables follow the steps
-outlined below.
-
-*** NOTE:  You must have gcc installed to successfully compile the current
-distribution; the native cc supplied with A/UX will NOT correctly compile
-this source.  See the FAQ in comp.unix.aux for places to obtain gcc from
-and how to install it.
-
-----------------------
-MAKING XNTPD FOR A/UX:
-----------------------
-
-First, you need to create the makefiles (after you&#39;ve downloaded the
-source, of course):
-
-    % make clean
-    % make refconf
-
-After that, you should edit Config.local to make sure that BINDIR is
-correct for where you wish the programs to be &#34;installed&#34;. The default
-(and what I use) is /usr/local/etc. Make sure that DEFS_LOCAL and
-CLOCKDEFS are commented out! Presently, only the LOCAL_CLOCK/REFCLOCK
-clock is used and supported.
-
-After this is done (you should be told that your system is A/UX 3), make
-&#39;xntpd&#39; (the options to &#39;gcc&#39; are held in compilers/aux3.gcc):
-
-    % make
-
-I do not normally use the `make install&#39; option and so have not verified its
-compatibility with A/UX.  Rather, I pull out each of the executables and
-place them in the locally appropriate locations.
-
----------------
-STARTING XNTPD:
----------------
-
-At this point you need to set things up so that &#39;xntpd&#39; is started upon
-boot-up. You can do this in 1 of 2 ways: either add entries in /etc/inittab
-or, more ideally, create and use an /etc/rc.local file. Since rc.local is
-what I recommend, here&#39;s how you do it:
-
-By default, A/UX doesn&#39;t have rc.local, so you&#39;ll need to add the following to
-/etc/inittab:
-
-    net6:2:wait:/etc/syslogd		# set to &#34;wait&#34; to run a syslog daemon
-+   jmj0:2:wait:/etc/rc.local 1&gt;/dev/syscon 2&gt;&amp;1	# Local stuff
-    dbg2::wait:/etc/telinit v	# turn off init&#39;s verbose mode
-
-Now, the look of a sample /etc/rc.local is as follows:
-
-    #!/bin/sh
-    :
-    : rc.local
-    :
-    #	@(#)Copyright Apple Computer 1987	Version 1.17 of rc.sh on 91/11/08 15:56:21 (ATT 1.12)
-
-    #	Push line discipline/set the device so it will print
-    /etc/line_sane 1
-    echo &#34; &#34;
-    echo &#34;Entering rc.local...&#34;
-
-    set `/bin/who -r`
-    if [ &#34;$7&#34; = 2 ]
-    then
-        /bin/echo &#34; now setting the time...&#34;
-        /usr/local/etc/ntpdate -s -b &lt;host.domain&gt;
-        sleep 5
-    #
-    # start up &#39;xntpd&#39; if we want
-    #
-        if [ -f /etc/ntp.conf ]
-        then
-    	/bin/echo &#34; setting tick and tickadj...&#34;
-    	/usr/local/etc/tickadj -t 16672 -a 54
-    	sleep 5
-    	/bin/echo &#34; starting xntpd...&#34;
-    	/usr/local/etc/xntpd &lt;&amp;- &gt; /dev/null 2&gt;&amp;1
-    	sleep 5
-        fi
-    #
-    fi
-
-    echo &#34;Leaving rc.local...&#34;
-
-There are a few things to notice about the above:
-
-    o When run, &#39;ntpdate&#39; forces your clock to the time returned by the
-      host(s) specified by &lt;host.domain&gt; (you&#39;ll need to replace this
-      be the IP address(es) of your timehosts. This is good since it gets
-      things close to start off with. You can use more than one time
-      server.
-
-    o &#39;tickadj&#39; is also called. This does two things: changes the
-      default value of &#39;tick&#39; (which is the amount of time, in ms, that
-      is added to the clock every 1/60 seconds) and changes the value
-      of &#39;tickadj&#39; which is the amount that is added or subtracted
-      from &#39;tickadj&#39; when adjtime() is called.
-
-      Now Mac clocks are pretty bad and tend to be slow. Sooo, instead of
-      having A/UX add the default of 16666ms every 1/60th of a second, you
-      may want it to add more (or less) so that it keeps better time. The
-      above value works for me but your &#34;best&#34; value may be different and
-      will likely require some fooling around to find the best value. As a
-      general rule of thumb, if you see &#39;xntpd&#39; make a lot of negative clock
-      adjustments, then your clock is fast and you&#39;ll need to _decrease_
-      the value of &#39;tick&#39;. If your adjustments are positive, then you need
-      to increase &#39;tick&#39;. To make a guess on how fast/slow your clock is,
-      use &#39;ntpdate&#39; to sync your clock. Now watch &#39;xntpd&#39; and see how it
-      operates. If, for example, it resets your clock by 1 second every 30
-      minutes, then your clock is (1/(30*60)) is about 0.056% off and you&#39;ll
-      need to adjust &#39;tick&#39; by 16666*0.00056 or about 9 (i.e. &#39;tick&#39; should
-      be ~16675 if slow or ~16657 if fast)
-
-      A/UX&#39;s default value of &#39;tickadj&#39; is 1666 which is too big for
-      &#39;xntpd&#39;... so it also needs to be adjusted. I like using larger
-      values then the recommended value of 9 for &#39;tickadj&#39; (although not
-      anything near as big as 1666) since this allows for quick slews
-      when adjusting the clock. Even with semi-large values of &#39;tickadj&#39;
-      (~200), getting 5ms (1/200 s) accuracy is easy.
-
-Finally, before A/UX and &#39;xntpd&#39; will work happily together, you need to
-patch the kernel. This is due to the fact that A/UX attempts to keep the
-UNIX-software clock and the Mac-hardware clock in sync. Neither the h/w or
-the s/w clock are too accurate. Also, &#39;xntpd&#39; will be attempting to adjust
-the software clock as well, so having A/UX muck around with it is asking
-for headaches. What you therefore need to do is tell the kernel _not_ to
-sync the s/w clock with the h/w one. This is done using &#39;adb&#39;. The
-following is a shell script that will do the patch for you:
-
-    #! /bin/sh
-    adb -w /unix &lt;&lt;!
-    init_time_fix_timeout?4i
-    init_time_fix_timeout?w 0x4e75
-    init_time_fix_timeout?4i
-    $q
-    !
-
-This must be done _every_ time you create a new kernel (via newconfig or
-newunix) or else &#39;xntpd&#39; will go crazy.
-
---------
-HISTORY:
---------
-
-John Dundas was the original porter of &#39;xntpd&#39; and a lot of the additions
-and A/UX-ports are from him. I got involved when I wanted to run &#39;xntpd&#39;
-on jagubox. It was also around this time that the base-patchlevel of
-&#39;xntpd&#39; changed relatively (the so-called &#34;jones&#34; version). Since then,
-I&#39;ve been maintaining &#39;xntpd&#39; for A/UX for the xntp development team
-
-The original kernel patch (which patched &#39;time_fix_timeout&#39;) was from
-Richard Todd. I suggest patching &#39;init_time_fix_timeout&#39; which prevents
-&#39;time_fix_timeout&#39; from even being called.
-
-----------------
-TECHNICAL NOTES:
-----------------
-
-    o As configured (see machines/aux3), &#39;xntpd&#39; will log messages via syslogd
-      using the LOC_LOCAL1 facility. I would suggest the following in
-      /etc/syslog.conf:
-
-	local1.notice		/usr/adm/ntpd-syslog
-
-    o As mentioned above, the clocks on A/UX and Macs are kinda bad. Not
-      only that, but logging in and out of the MacOS mode as well as
-      extensive floppy use causes A/UX to drop and lose clock interupts
-      (these are sent every 1/60th of a second). So, if you do these
-      activities a lot, you find out that you lose about 300ms of time
-      (i.e., you become 300ms slow). &#39;xntpd&#39; default way of handling this
-      is to called &#39;settimeofday()&#39; and step the clock to the correct
-      time. I prefer having &#39;xntpd&#39; slew the clock back into line by
-      making gradual adjustments to the clock over a coupla minutes
-      or so. It&#39;s for this reason that SLEWALWAYS is defined in
-      include/ntp_machine.h for SYS_AUX3. It&#39;s also for this reason than
-      I like larger values of &#39;tickadj&#39;.
-
-Good luck!  If you have problems under A/UX feel free to contact me (e-mail
-is preferred).
---
-    Jim Jagielski               |  &#34;That is no ordinary rabbit... &#39;tis the
-    jim@jagubox.gsfc.nasa.gov   |   most foul, cruel and bad-tempered
-    NASA/GSFC, Code 734.4       |   rodent you ever set eyes on&#34;
-    Greenbelt, MD 20771         |                   Tim the Enchanter
-
-&lt;/pre&gt;
-&lt;/div&gt;
-
-      </description>
+      <description>------------- INTRODUCTION: ------------- Last revision: 06-Jul-1994 Included in this distribution of XNTP V3 is a configuration file suitable for use under Apple&#39;s A/UX Version 3.x.x There is also one for A/UX 2.0.1 but it has not been fully tested. To make the executables follow the steps outlined below. *** NOTE: You must have gcc installed to successfully compile the current distribution; the native cc supplied with A/UX will NOT correctly compile this source.</description>
     </item>
     
     <item>
-      <title>Archives: AIX Hints</title>
+      <title>AIX Hints</title>
       <link>/archives/hints/aix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/aix/</guid>
-      <description>
-        
-        
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;Problem with recent ANSI compilers
-
-On some systems, including AIX, the compiler quits on the ntp_refclock.c
-file when processing the refclock_report() routine. The problem, which
-is eithre a feature or a bug, has to do with an unwanted promotion of
-the u_char argument to an int and a failure of the compiler to recognize
-the preceding prototype. A workaround is to use ANSI syntax to delare
-the arguments. Since ANSI compilers are not universally available, this
-syntax can&#39;t be used in the stock distribution.
-
-(Message # 60: 2884 bytes, New)
-Date: Sat, 19 Aug 1995 13:20:50 -0400
-From: &#34;R. Bernstein&#34; &lt;rocky@panix.com&gt;Newsgroups: comp.protocols.time.ntp
-to: mills@udel.edu
-return-receipt-to: rocky@panix.com
-Subject: time and AIX 3.2.5 raw tty bug
-
-This posting isn&#39;t strictly about NTP, any program that may stop the
-clock or set the clock backwards is subject to the AIX 3.2.5 bug.
-
-On AIX 3.2.5, there is a bug in the tty driver for a raw device which
-may crash the box under certain conditions: basically a read() on a
-raw tty in effect, a character was read but not as many as specified
-by VMIN when a read timeout occurred. VTIME specifies the timeout. See
-the AIX manual page on termios.h or that include file. for Information
-on VMIN (or MIN) VTIME (or TIME).
-
-A remedy other than to not use raw tty&#39;s is to apply patch U435110.
-
-Details of the problem report follow.
-
-&gt; ABSTRACT:
-&gt; IX43779: TRAP IN PSX_TIMEO
-&gt;
-&gt; ORIGINATING DETAILS:
-&gt; Stacktrace shows:
-&gt; IAR:      01460214   posixdd:psx_timeo  + 8bf4: ti 4,r12,0x0
-&gt; *LR:      014601a0   posixdd:psx_timeo  + 8b80
-&gt; 00212c60: 014604f4   posixdd:psx_timer  + 8ed4
-&gt; 00212cc0: 0144b74c   ttydd:tty_do_offlevel  + 4284
-&gt; 00212d20: 000216fc  .i_offlevel + 8c
-&gt; 00212d70: 00021d78  .i_softint + c8
-&gt; 00001004: 00008714  .finish_interrupt + 80
-&gt;
-&gt; RESPONDER SUMMARY:
-&gt; AIX asserted in psx_timeo(). Reason for the assert was that
-&gt; the current time was behind psx_ctime. Since this state
-&gt; can occur when the current time is changed after a character
-&gt; is received but before the VTIME interbyte timer pops, we
-&gt; should not assert on this.
-&gt;
-&gt; RESPONDER CONCLUSION:
-&gt; Removed the requirement that current time &gt; psx_ctime by
-&gt; adding a new L_ntimersub macro that is used instead of the
-&gt; ntimersub macro in time.h. Also added a test for (current
-&gt; time - psx_ctime) being negative, in that case we do not
-&gt; adjust the new timeout.
-&gt;
-&gt; Reported to Correct a PTF in Error:     NO
-&gt; Reported as a Highly pervasive problem: NO
-&gt;
-&gt; PE Apar?:       NoPE
-&gt; Hiper Apar?:    NoHiper
-&gt; Status:         CLOSED  PER
-&gt; Component Name: AIX V3 FOR RS/6
-&gt; Version:        320
-&gt; Component ID:   575603001
-&gt; Submitted:      94/05/03
-&gt; Closed:         94/05/05
-&gt; ChangeTeam:     TX2527
-&gt;
-&gt; APAR FIXED BY:  U431696  U432151  U432844  U432870  U432979
-&gt; U433049  U433081  U433459  U433876  U433906  U434598  U434453
-&gt; U434672  U434737  U435110&lt;/rocky@panix.com&gt; &lt;/pre&gt;
-&lt;/div&gt;
-
-      </description>
+      <description>Problem with recent ANSI compilers On some systems, including AIX, the compiler quits on the ntp_refclock.c file when processing the refclock_report() routine. The problem, which is eithre a feature or a bug, has to do with an unwanted promotion of the u_char argument to an int and a failure of the compiler to recognize the preceding prototype. A workaround is to use ANSI syntax to delare the arguments. Since ANSI compilers are not universally available, this syntax can&#39;t be used in the stock distribution.</description>
     </item>
     
     <item>
-      <title>Archives: Available Hints</title>
+      <title>Available Hints</title>
       <link>/archives/hints/toc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/toc/</guid>
-      <description>
-        
-        
-        &lt;h4 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/a-ux&#34;&gt;A-UX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/aix&#34;&gt;AIX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/bsdi&#34;&gt;BSDi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/changes&#34;&gt;Changes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/decosf1&#34;&gt;DEC OSF/1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/decosf2&#34;&gt;DEC OSF/1 V2.0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/svr4-dell&#34;&gt;DELL SVR4 Hints&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/freebsd&#34;&gt;FreeBSD&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/hpux&#34;&gt;HPUX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/linux&#34;&gt;Linux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/mpeix&#34;&gt;MPE/iX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/notes-xntp-v3&#34;&gt;Notes for NTPv3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/refclocks&#34;&gt;NTPv3 refclocks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/parse&#34;&gt;parse&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/rs6000&#34;&gt;RS/6000&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/sco&#34;&gt;SCO Unix&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/sgi&#34;&gt;SGI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris&#34;&gt;Solaris&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris.xtra.4023118&#34;&gt;Solaris Bug #4023118&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris.xtra.4095849&#34;&gt;Solaris Bug #4095849&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris.xtra.patchfreq&#34;&gt;Solaris frequency patch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/svr4_package&#34;&gt;Solaris NTPv3 package&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris-dosynctodr&#34;&gt;Solaris Symptoms and Resolutions Article 19195&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris.xtra.S99ntpd&#34;&gt;Solaris S99 script for NTPv3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/sun4&#34;&gt;SunOS 4.1.1 and 4.1.3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/todo&#34;&gt;Todo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/vxworks&#34;&gt;vxWorks port&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/winnt&#34;&gt;Windows NT&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
+      <description>Table of Contents  A-UX AIX BSDi Changes DEC OSF/1 DEC OSF/1 V2.0 DELL SVR4 Hints FreeBSD HPUX Linux MPE/iX Notes for NTPv3 NTPv3 refclocks parse RS/6000 SCO Unix SGI Solaris Solaris Bug #4023118 Solaris Bug #4095849 Solaris frequency patch Solaris NTPv3 package Solaris Symptoms and Resolutions Article 19195 Solaris S99 script for NTPv3 SunOS 4.1.1 and 4.1.3 Todo vxWorks port Windows NT  </description>
     </item>
     
     <item>
-      <title>Archives: BSDi Hints</title>
+      <title>BSDi Hints</title>
       <link>/archives/hints/bsdi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/bsdi/</guid>
-      <description>
-        
-        
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;
-
-Author:		Bdale Garbee, bdale@gag.com
-Last revision:	27Oct94 (Paul Vixie)
-
-Included in this distribution of XNTP is a configuration file suitable
-for use with BSDI&#39;s BSD/OS 1.1 (formerly BSD/386 1.1).  On this system,
-the &#34;cc&#34; command is GCC 1.4x rather than PCC or GCC 2.x.  It is imperative
-that &#34;cc&#34; be used since it predefines the symbol __bsdi__; if you want to
-use another compiler you will need to add -D__bsdi__ to catch the various
-#ifdef&#39;s required for this system.
-
-The Kinemetrics/Truetime GPS-TM/TMD driver is known to work on this system.
-The GPS-805 and GOES should also work fine.  Hell, they should all work fine
-but it&#39;s hard to test very many locally.
-
-Due to BNR2&#39;s strict interpretation of POSIX and XNTP&#39;s use of SIGIO, BSD/OS
-can only handle one refclock per daemon.  We&#39;re working this out with the
-system architects.
-
-The config file is machine/bsdi, and the following steps should be all that
-are required to install and use the bits.
-
-Note that you will need GNU sed; the version supplied with BSD/OS 1.1 loops
-endlessly during &#34;make refconf&#34;.  Likewise you should get GNU make, which
-the instructions below assume that you have put in /usr/local/bin/gnumake.
-
-To build the software:
-
-	rm -f Config.local
-	gnumake refconf
-	gnumake MAKE=gnumake
-
-To install the software:
-
-	gnumake install
-
-	This will place all of the executables in /usr/local/etc.  The config
-	file is expected to be /usr/local/etc/xntp.conf and the key file for
-	the optional authentication is /etc/ntp.keys.
-
-	Craft a config file and a key file, and put them in the right places.
-	There is information on how to do this elsewhere in the documentation,
-	the only thing I&#39;ll mention is that I put the drift file in 
-	/var/log/ntp.drift, and the authdelay on my 486DX/50 system is 
-	0.000064.  Your mileage will vary, learn to use the authspeed tools
-	if you&#39;re going to authenticate.
-
-	In the file /etc/rc.local, make sure that the invocation of ntpd is
-	commented out, and add an invocation of xntpd.  Here&#39;s what I&#39;m using:
-
-		echo -n &#39;starting local daemons:&#39;
-
-		if [ -f /etc/ntp.keys -a -f /usr/local/etc/xntp.conf ]; then
-		    echo -n &#39; xntpd&#39;;           /usr/local/etc/xntpd
-		fi
-
-		#XXX# echo -n &#39; ntpd&#39;;          /usr/libexec/ntpd -t
-
-At this point, you should be good to go.  Try running /usr/local/etc/xntpd and
-using ntpq or xntpdc to see if things are working, then pay attention the next
-time you reboot to make sure that xntpd is being invoked, and use ntpq or
-xntpdc again to make sure all is well.  
-
-Enjoy!
-
-&lt;/pre&gt;
-&lt;/div&gt;
-      </description>
+      <description>Author:	Bdale Garbee, bdale@gag.com Last revision:	27Oct94 (Paul Vixie) Included in this distribution of XNTP is a configuration file suitable for use with BSDI&#39;s BSD/OS 1.1 (formerly BSD/386 1.1). On this system, the &#34;cc&#34; command is GCC 1.4x rather than PCC or GCC 2.x. It is imperative that &#34;cc&#34; be used since it predefines the symbol __bsdi__; if you want to use another compiler you will need to add -D__bsdi__ to catch the various #ifdef&#39;s required for this system.</description>
     </item>
     
     <item>
-      <title>Archives: Changes</title>
+      <title>Changes</title>
       <link>/archives/hints/changes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/changes/</guid>
-      <description>
-        
-        
-        &lt;div id=&#34;body&#34;&gt;
-&lt;pre&gt;Ulrich Windl &lt;Ulrich.Windl@rz.uni-regensburg.de&gt; (xntpd/refclock_parse.c):
-	- Added support to supply power from RS232 with CLOCK_RAWDCF.
-	  Known to work with Linux 1.2.
-	- Made Linux ignore parity errors with CLOCK_RAWDCF.
-
-Ulrich Windl &lt;Ulrich.Windl@rz.uni-regensburg.de&gt; (parse/util/dcfd.c):
-	- Removed conflicting prototype for Linux (sscanf)
-	- Corrected spelling error
-	- Made Linux ignore parity errors.
-	- Added support to supply power from RS232 with CLOCK_RAWDCF.
-
-Ulrich Windl &lt;Ulrich.Windl@rz.uni-regensburg.de&gt; (parse/util/testdcf.c):
-	- Made Linux ignore parity errors.
-
-&lt;/pre&gt;
-&lt;/div&gt;
-      </description>
+      <description>Ulrich Windl  (xntpd/refclock_parse.c): - Added support to supply power from RS232 with CLOCK_RAWDCF. Known to work with Linux 1.2. - Made Linux ignore parity errors with CLOCK_RAWDCF. Ulrich Windl  (parse/util/dcfd.c): - Removed conflicting prototype for Linux (sscanf) - Corrected spelling error - Made Linux ignore parity errors. - Added support to supply power from RS232 with CLOCK_RAWDCF. Ulrich Windl  (parse/util/testdcf.c): - Made Linux ignore parity errors.  </description>
     </item>
     
     <item>
-      <title>Archives: DEC OSF/1 Hints</title>
+      <title>DEC OSF/1 Hints</title>
       <link>/archives/hints/decosf1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/decosf1/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Some major changes were necessary to make xntp v3 run on the DEC Alpha
-hardware running DEC OSF/1.  All &#34;long&#34; and &#34;u_long&#34; declarations and
-casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header
-file (include/ntp_types.h) was added.  The new header file defines
-LONG as int and U_LONG as u_int for the Alpha hardware and as long
-and u_long for anything else.  A couple of #ifs where changed in
-ntpq and xntpdc to get the result of a signal defined correctly.  The
-Config.decosf1 file built the programs here with no problems.
-
-I don&#39;t have a radio clock here, so none of that code has been tested.
-I have run xntpd, xntpdc, xntpres, ntpq, ntpdate, and tickadj under
-DEC OSF/1 v1.2-2 (BL10).
-
-Mike Iglesias                        Internet:    iglesias@draco.acs.uci.edu
-University of California, Irvine     BITNET:      iglesias@uci
-Office of Academic Computing         uucp:        ...!ucbvax!ucivax!iglesias
-Distributed Computing Support        phone:       (714) 856-6926
-
-Support for NTP Version 2 is included with the current OSF/1 release. If
-you are upgrading to NTP Version 3 with this distribution, you should not
-use the xntpd or ntpq programs that come with the OSF/1 release. The
-older programs should be replaced by the newer programs of the same name,
-either in situ or via a link to a tranquil spot like /usr/local/bin. The
-make install script in the this distribution don&#39;t work due to a silly
-install program incompatibility, so you will need to copy the programs by
-hand.
-
-Don&#39;t use the setup utility to install or configure the xntpd installation,
-as it will cheerfully clobber your painstakingly crafted ntp.conf program.
-However, assuming you put this file in /etc/ntp.conf, you can use the
-/sbin/init.d/xntpd script to start and stop the daemon.
-
-This distribution compiles with nominal mumur with the stock cc compiler
-that comes with OSF/1.
-
-Dave Mills
-Electrical Engineering Department
-Unibergisty of Delabunch
-mills@udel.edu
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly.</description>
     </item>
     
     <item>
-      <title>Archives: DEC OSF/1 V2.0 Hints</title>
+      <title>DEC OSF/1 V2.0 Hints</title>
       <link>/archives/hints/decosf2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/decosf2/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Problems with DEC OSF/1 V2.0
-
-Compilation using gcc fails with ntp_config.c. The problem is an apparent
-error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h
-include files.
-
-cowbird:/usr/include/sys# diff -c wait.h.orig wait.h
-*** wait.h.orig Tue Feb 22 02:41:38 1994
---- wait.h      Thu Aug 25 14:52:57 1994
-***************
-*** 298,304 ****
-  #else
-
-  _BEGIN_CPLUSPLUS
-! extern int waitid(idtype_t, id_t, siginfo_t *, int);
-  _END_CPLUSPLUS
-  #endif /* _NO_PROTO */
-
---- 298,304 ----
-  #else
-
-  _BEGIN_CPLUSPLUS
-! extern int waitid(idtype_t, pid_t, siginfo_t *, int);
-  _END_CPLUSPLUS
-  #endif /* _NO_PROTO */
-
-cowbird:/usr/include/sys# diff -c procset.h.orig procset.h
-*** procset.h.orig      Tue Feb 22 02:41:44 1994
---- procset.h   Thu Aug 25 14:43:52 1994
-***************
-*** 86,95 ****
-                                 */
-
-        idtype_t p_lidtype;     /* The id type for the left set. */
-!       id_t p_lid;             /* The id for the left set. */
-
-        idtype_t p_ridtype;     /* The id type of for right set. */
-!       id_t p_rid;             /* The id of the right set. */
-  } procset_t;
-
---- 86,95 ----
-                                 */
-
-        idtype_t p_lidtype;     /* The id type for the left set. */
-!       pid_t p_lid;            /* The id for the left set. */
-
-        idtype_t p_ridtype;     /* The id type of for right set. */
-!       pid_t p_rid;            /* The id of the right set. */
-  } procset_t;
-
-Also, if using gcc from the freeware disk, either replace syscall.h
-in the directory /usr/local/lib/gcc-lib/alpha-dec-osf1/2.3.3/include
-or replace with a link to /usr/include/sys/syscall.h.
-
-&lt;/pre&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
-
-      </description>
+      <description>Problems with DEC OSF/1 V2.0 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h include files. cowbird:/usr/include/sys# diff -c wait.h.orig wait.h *** wait.h.orig Tue Feb 22 02:41:38 1994 --- wait.h Thu Aug 25 14:52:57 1994 *************** *** 298,304 **** #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, id_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ --- 298,304 ---- #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, pid_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ cowbird:/usr/include/sys# diff -c procset.</description>
     </item>
     
     <item>
-      <title>Archives: DELL SVR4 Hints</title>
+      <title>DELL SVR4 Hints</title>
       <link>/archives/hints/svr4-dell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/svr4-dell/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Notes on the DELL SVR4.
-
-You should use -DSETTIMEOFDAY_BROKEN.
-
-Philip.Gladstone@mail.citicorp.com
-
-(XXX But there is no checking for SETTIMEOFDAY_BROKEN in the code)
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Notes on the DELL SVR4. You should use -DSETTIMEOFDAY_BROKEN. Philip.Gladstone@mail.citicorp.com (XXX But there is no checking for SETTIMEOFDAY_BROKEN in the code)  </description>
     </item>
     
     <item>
-      <title>Archives: FreeBSD Hints</title>
+      <title>FreeBSD Hints</title>
       <link>/archives/hints/freebsd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/freebsd/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;If you are compiling under FreeBSD and see messages in the syslogs that
-indicate that the ntpd process is trying to use unavailable sched_
-calls, it means you are running a kernel that does not have the POSIX
-scheduling calls enabled.
-
-You have two choices:
-
-- Ignore the messages
-
-- Generate a new kernel, where the kernel configuration file contains
-  the lines:
-
-  options		&#34;P1003_1B&#34;
-  options		&#34;_KPOSIX_PRIORITY_SCHEDULING&#34;
-  options		&#34;_KPOSIX_VERSION=199309L&#34;
-
-&lt;/pre&gt;
-
-      </description>
+      <description>If you are compiling under FreeBSD and see messages in the syslogs that indicate that the ntpd process is trying to use unavailable sched_ calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled. You have two choices: - Ignore the messages - Generate a new kernel, where the kernel configuration file contains the lines: options	&#34;P1003_1B&#34; options	&#34;_KPOSIX_PRIORITY_SCHEDULING&#34; options	&#34;_KPOSIX_VERSION=199309L&#34;  </description>
     </item>
     
     <item>
-      <title>Archives: HPUX Hints</title>
+      <title>HPUX Hints</title>
       <link>/archives/hints/hpux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/hpux/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Last update: Sun Mar 13 15:05:31 PST 1994
-
-This file hopefully describes the whatever and however of how to get xntp
-running on hpux 7.0 and later: s300, s400, s700, and s800.  
-
-First off,  all the standard disclaimers hold here ... HP doesn&#39;t have anthing
-to do with this stuff.  I fool with it in my spare time because we use it and
-because I like to.  We just happen to have a lot of HP machines around here :-)
-Xntpd has been in use here for several years and has a fair amount of mileage
-on various HP platforms within the company.  I can&#39;t really guarantee bug fixes
-but I&#39;d certainly like to hear about bugs and I won&#39;t hestitate to look at
-any fixes sent to me.  
-
-Now lets talk OS.  If you don&#39;t have 7.0 or later, pretty much hang it up now.
-This stuff has run here on pretty much everything from 8.0 upward on s300, 
-s700, and s800.  It is known to run on 7.0 s300/s400 but all reports are 
-from the field and not my personal experience.
-
-If you are lucky enough to have a s300 or s400 with 9.03, then you no longer
-have to worry about adjtimed as HP-UX now has adjtime(2).  The rest of you
-will have to wait on 10.0 which will have adjtime(2) and a supported though
-a bit older version of xntpd.
-
-Next, let me explain a bit about how this stuff works on HP-UX&#39;s that do not
-have adjtime(2).  The directory adjtime contains libadjtime.a and the adjtimed
-daemon.  Instead of the adjtime(2) system call, we use a library routine to
-talk to adjtimed thru message queues.  Adjtimed munges into /dev/kmem and
-causes the clock to skew properly as needed.  PLEASE NOTE that the adjtime
-code provided here is NOT a general replacement for adjtime(2) ... use of
-this adjtime(3)/adjtimed(8) other than with xntpd may yield very odd results.
-
-What to do to get this stuff running ?
-
-    * If you are running an OS less than 10.0 or do not have a s300/s400 
-      with 9.03 or better
-	-&gt; cd machines
-	-&gt; vi hpux
-	-&gt; (change -DSYS_HPUX=? to match whatever you are running [7,8,9])
-	-&gt; cd ..
-
-    * Say &#34;make makeconfig&#34;
-
-    * Say &#34;make&#34;, sit back for a few minutes.
-
-    * cd authstuff
-	* Say &#34;./authcert &lt; certdata&#34; and check the output.  Every line should
-	  end with &#34;OK&#34; ... if not, we got trouble.
-	* Now try &#34;./authspeed auth.samplekeys&#34;.  What we want to 
-	  remember here is the &#34;authentication delay in CPU time&#34; 
-	* cd ..
-
-    * Say &#34;make install&#34;
-
-    * I&#39;d suggest reading the xntp docs about now :-) ... seriously !!
-
-    * One thing I have added to this version of xntpd is a way to select 
-      config files if you are sharing /usr/local thru NFS or whatever.  
-      If the file /usr/local/etc/xntp.conf happens to be a directory, the 
-      files in that directory are searched until a match is found.  The 
-      rules for a match are:
-
-	1. Our hostname
-	2. default.&lt;machine id&gt; (as in default.375 or default.850)
-	3. default
-
-    * Ok, make sure adjtimed is running (just start it up for now with
-      &#34;/usr/local/etc/adjtimed&#34;).  Using -z as an option will get you 
-      a usage message.
-
-    * Now start up xntpd and watch it work.
-
-    * Make sure that adjtimed gets started at boot right before xntpd.
-      We do this in /etc/netbsdsrc.  They must both run as root !!
-
-Possible problems ?
-
-    * On some 320&#39;s and 835&#39;s we have had to run adjtimed with &#34;-p 45&#34; or
-      so to get rid of syslog messages about &#34;last adjust did not finish&#34;.
-
-    * At 9.0, there is a problem with DIAGMON (patch available from the
-      response center) which causes it to delete the message queue that
-      adjtimed/xntpd use to communicate. (see next note for result)
-
-    * Xntpd has been known to get really ticked off when adjtime() fails
-      which is usually only while running the emulation code on HP-UX.
-      When it gets mad, it usually jumps the clock into never never land.
-      Possible reasons for this are adjtimed being killed or just never
-      started or adjtimed being completely swapped out on a really busy
-      machine (newer adjtimed try to lock themselves in memory to prevent
-      this one).
-
-Anything else ... just drop me a line at ken@sdd.hp.com
-
-Received: from louie.udel.edu by huey.udel.edu id aa14418; 15 Jun 95 9:19 EDT
-Received: from host5.colby.edu (host-05.colby.edu) by host-04.colby.edu with ESMTP  (1.37.109.15/Colby 1.1)
-	id AA165442355; Thu, 15 Jun 1995 09:19:16 -0400
-Received: by host5.colby.edu  (1.37.109.15/Colby 1.1)
-	id AA056252339; Thu, 15 Jun 1995 09:18:59 -0400
-Date: Thu, 15 Jun 1995 09:18:59 -0400 (EDT)
-From: &#34;Jeff A. Earickson&#34; &lt;jaearick@colby.edu&gt;
-To: Mills@huey.udel.edu
-Subject: More minor bugs in xntp3.4s
-In-Reply-To: &lt;9506150022.aa12727@huey.udel.edu&gt;
-Message-Id: &lt;Pine.HPP.3.91.950615083549.4557A-100000@host5.colby.edu&gt;
-Mime-Version: 1.0
-Content-Type: TEXT/PLAIN; charset=US-ASCII
-
-Dave,
-   After reading the hpux hints file, I realized I didn&#39;t install or 
-start adjtimed.  In the course of doing this, I discovered that:
-
---&gt; $(TOP) is not defined in adjtime/Makefile, so &#34;make install&#34; can&#39;t
-    find the install.sh script.
-
---&gt; &#34;make install&#34; from the main Makefile never goes into the adjtime
-    directory, so I added the following two lines into the install
-    target of the main Makefile:
-
-    @echo installing from adjtime
-    @cd adjtime &amp;&amp; $(MAKE) $(MFLAGS) MFLAGS=&#34;$(MFLAGS)&#34; MAKE=&#34;$(MAKE)&#34; install
-
-This twiddle may not be right for all systems, but it got adjtimed
-installed for me.
-
-   You might also want to add to the hpux hints file that one way to
-fire things up at boot time is to add the following lines to the localrc
-function of /etc/rc:
-
-    #---daemons for Network Time Protocol (version 3.4s)
-    #---note that adjtimed is only needed for HP-UX 9.X, not 10.0
-    #---adjtimed must be running or xntpd won&#39;t work right...
-    if [ -x /usr/local/bin/adjtimed ]; then
-        /usr/local/bin/adjtimed -r &amp; echo -n &#39; adjtimed&#39;
-        if [ -x /usr/local/bin/xntpd ]; then
-            /usr/local/bin/xntpd &amp;    echo -n &#39; xntpd&#39;
-        fi
-    fi
-
-I discovered that the &#34;-r&#34; option of adjtimed is needed to clear out any
-trash from a previous execution of it.  Otherwise adjtimed quietly dies
-and leaves xntpd in the lurch...
-
-Thanks for the help.
-
-** Jeff A. Earickson, Ph.D                         PHONE: 207-872-3659
-** Senior UNIX Sysadmin, Information Technology    EMAIL: jaearick@colby.edu
-** Colby College, 4214 Mayflower Hill,               FAX: 207-872-3555
-** Waterville ME, 04901-8842
-
-On Thu, 15 Jun 1995 Mills@huey.udel.edu wrote:
-
-&gt; Jeff,
-&gt; 
-&gt; Read the hpux file in the hints directory.
-&gt; 
-&gt; Dave
-&gt; 
-
-&lt;/pre&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
-
-      </description>
+      <description>Last update: Sun Mar 13 15:05:31 PST 1994 This file hopefully describes the whatever and however of how to get xntp running on hpux 7.0 and later: s300, s400, s700, and s800. First off, all the standard disclaimers hold here ... HP doesn&#39;t have anthing to do with this stuff. I fool with it in my spare time because we use it and because I like to. We just happen to have a lot of HP machines around here :-) Xntpd has been in use here for several years and has a fair amount of mileage on various HP platforms within the company.</description>
     </item>
     
     <item>
-      <title>Archives: Linux Hints</title>
+      <title>Linux Hints</title>
       <link>/archives/hints/linux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/linux/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The kernel PLL interface is broken, I know.
-Update RSN.&lt;/p&gt;
-&lt;p&gt;Torsten
-(&lt;a href=&#34;mailto:duwe@informatik.uni-erlangen.de&#34;&gt;duwe@informatik.uni-erlangen.de&lt;/a&gt;)&lt;/p&gt;
-
-      </description>
+      <description>The kernel PLL interface is broken, I know. Update RSN.
+Torsten (duwe@informatik.uni-erlangen.de)</description>
     </item>
     
     <item>
-      <title>Archives: MPE/iX Hints</title>
+      <title>MPE/iX Hints</title>
       <link>/archives/hints/mpeix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/mpeix/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;HP e3000 MPE/iX NTP Hints - May 29, 2001
-----------------------------------------
-
-NTP was first ported to MPE several years ago, but those diffs were never
-submitted back to the official NTP distribution.  For more information about
-that deprecated port, please see http://www.bixby.org/mark/xntpix.html.
-
-NTP was re-ported to MPE in May 2001.  What follows are hints learned from
-working with NTP 4.0.99k23.  For additional information about NTP on MPE,
-please see http://jazz.external.hp.com/src/hp_freeware/ntp/.
-
-MPE lacks the clock-related APIs expected by NTP, so adjtime(), gettimeofday(),
-and settimeofday() all had to be implemented from scratch by calling
-privileged, undocumented internal OS functions.
-
-Unfortunately the implementation of adjtime() has exposed a sub-second accuracy
-bug when slewing the system time.  This bug is documented in SR 5003462838, and
-exists on all current versions of MPE.  It has not been fixed at the time of
-this writing.  The adjtime() code may possibly need to be altered if/when this
-bug is fixed.
-
-This bug has a side-effect whereby the ntpd daemon will screw up the hardware
-PDC clock time by many minutes if used for continuous clock adjustments or in
-the one-time -q mode.  But note that you can safely run ntpd in order to become
-a time server if you include &#34;disable ntp&#34; in the ntp.conf configuration file.
-
-The one-time clock adjustment functionality of ntpdate and ntp_timeset is not
-affected by this bug side-effect.  You can safely use these commands to alter
-your system time with reasonable accuracy.
-
-The only reference clock that has been tested on MPE is the local clock.  So
-building NTP with --disable-all-clocks --enable-LOCAL_CLOCK is strongly
-recommended.
-
-NTP makes use of Privileged Mode (PM) capability in order to bind to the NTP
-network port (123) and to access the low-level clock functions.
-
-NTP was ported using the gcc compiler.  Attempting to use the HP C/iX compiler
-is not recommended and has not been tested.
-
-Please note that NTP is not an HP product and is NOT supported by HP.  The best
-place for asking MPE-specific questions about NTP is the HP3000-L mailing list
-at http://raven.utc.edu/Archives/hp3000-l.html or the associated Usenet
-newsgroup of comp.sys.hp.mpe.
-
-The original author of this port is:
-
-Mark Bixby
-HP CSY MPE Internet &amp; Interoperability Engineer
-mark_bixby@hp.com
-
-&lt;/pre&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
-
-      </description>
+      <description>HP e3000 MPE/iX NTP Hints - May 29, 2001 ---------------------------------------- NTP was first ported to MPE several years ago, but those diffs were never submitted back to the official NTP distribution. For more information about that deprecated port, please see http://www.bixby.org/mark/xntpix.html. NTP was re-ported to MPE in May 2001. What follows are hints learned from working with NTP 4.0.99k23. For additional information about NTP on MPE, please see http://jazz.external.hp.com/src/hp_freeware/ntp/. MPE lacks the clock-related APIs expected by NTP, so adjtime(), gettimeofday(), and settimeofday() all had to be implemented from scratch by calling privileged, undocumented internal OS functions.</description>
     </item>
     
     <item>
-      <title>Archives: Notes for NTPv3</title>
+      <title>Notes for NTPv3</title>
       <link>/archives/hints/notes-xntp-v3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/notes-xntp-v3/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Notes for NTP Version 3
-
-This version operates in much the same manner as Version 2 with the
-following changes and additions:
-
-1.   The protocol machinery operates in conformance with the RFC1305 NTP
-     Version 3 specification. The most visible characteristic of this
-     version is that the poll intervals for all polls, even selected
-     ones, is significantly increased. This is especially desirable when
-     serving a large client population. This implementation supports
-     previous versions as non-configured peers; for version-2 configured
-     peers a &#34;version 2&#34; keyword should be included on the &#34;peer&#34; line.
-
-2.   The configuration file has a new keyword: statfile &lt;file&gt;, where
-     &lt;file&gt; is the name of a statistics file.&#34; When present, each clock
-     update generates an entry of the form:
-
-     &lt;day&gt; &lt;sec&gt;.&lt;frac&gt; &lt;addr&gt; &lt;status&gt; &lt;offset&gt; &lt;delay&gt; &lt;disp&gt;
-
-     where &lt;day&gt; is the modified Julian day, &lt;sec&gt;.&lt;frac&gt; is the time of
-     day, &lt;addr&gt; is the peer address and &lt;status&gt; is the peer status.
-     The &lt;offset&gt;, &lt;delay&gt; and &lt;disp&gt; are the measured offset, delay and
-     dispersion, respectively, of the peer clock relative to the local
-     clock. About once per day the current file is closed and a new one
-     created with names &lt;file&gt;.&lt;gen&gt;, where &lt;gen&gt; starts at one and
-     increments for each new generation.
-
-3.   A number of additional platforms are supported. See ./Config file
-     for details.
-
-4.   A driver for the TrueTime 468DC GOES Synchronized Clock is
-     included. This driver (refclock_goes.c) should also work for other
-     TrueTime radio clocks, since all use the same format.
-
-5.   A replacement driver for the Spectracom 8170 WWVB Synchronized
-     Clock is included. This driver (refclock_wwvb.c) (a) does not
-     require a 1-pulse-per-second signal, (b) supports both format 0
-     (original 8170) and format 2 (Netclock/2 and upgraded 8170), (c)
-     can be connected to more than one computer and (d) automatically
-     compensates for all serial baud rates.
-
-6.   A driver for the German time/frequency station DCF77 is included.
-     This requires a special STREAMS module.
-
-7.   In Version 2 special line-discipline modules were required for the
-     CHU and WWVB drivers. This code continues to work in Version 3,
-     although it is no longer needed for the WWVB driver. However, this
-     code does not work under STREAMS, as used in SunOS 4.1.1.
-     Equivalent STREAMS modules are supplied with Version 3.
-
-8.   Support for an external 1-pulse-per-second (pps) signal is
-     provided. The signal is connected to a serial port (see
-     xntpd/ntp_loopfilter.c for details). When present the leading edge
-     of the pulse establishes the on-time epoch within an interval
-     established by the selected radio clock or other NTP time server.
-     Use of the pps is indicated when the tattletale displayed by ntpq
-     changes from &#34;*&#34; to &#34;o&#34;.
-
-9.   The clock-selection and poll-update procedures have been modified
-     slightly in order to achieve better performance on high speed LANs
-     with compromise in performance on typical WANs.
-
-10.  In order to comply with U.S. Commerce Department regulations, the DES
-     encryption routine lib/authdes.c cannot be exported. For exportable
-     versions of this distribution a DES-encrypted version of this routine
-     lib/authdes.c.des is included along with an unencrypted version
-     lib/authdes.c.export, which allows normal operation, but without the
-     NTP authentication feature. Further information is available in the
-     lib/authdes.c.export file.
-
-11.  As an alternative to the DES-based authentication mechanism, an
-     implementation of the RSA Message Digest 5 algorithm is provided.
-     (see applicable copyright information in the library files).
-
-12.  A driver for the Magnavox MX4200 GPS clock.
-
-13.  A STREAMS module which captures carrier-detect data-lead transitions to
-     connect a precision source of 1-pps, yet avoid the ugly overhead in the
-     usual STREAMS processing. See the ppsclock subdirectory.
-
-14.  Support for the Apple A/UX operating system and enhanced support for the
-     Hewlet-Packard HP/UX operating system. See the various README and Config
-     files for further information. 
-
-See the COPYRIGHT file for authors and copyright information. Note that some
-modules in this distribution contain copyright information that supersedes
-the copyright information in that file.
-
-If I missed something or neglected to give due credit, please advise.
-
-David L. Mills
-University of Delaware
-31 May 1992, amended 23 July 1992, 25 October 1992
-
-Bugs and notes
-
-A bug in the original tty_clk_STREAMS.c module has been fixed.
-
-The poll-interval randomization feature of poll_update (in
-xntpd/ntp_proto.c) has been extended to apply when the poll interval is
-increased, as well as reduced. This spreads the update messages in time
-and helps avoid unpleasant bursts of messages.
-
-In the clock_select algorithm the peers selected for combining are
-limited to those survivors at the lowest stratum, not the entire list.
-This helps avoid whiplash when large numbers of peers are at the same
-stratum.
-
-The number formerly displayed by ntpq as &#34;compliance&#34; is now the time
-constant of integration.
-
-The DNS resolver xntpd/ntp_intres.c is now integrated into xntpd, making
-configuration of multiple hosts easier.
-
-System and peer event are now written to the system log at priority
-LOG_INFO.
-
-The leap-second code was fixed to avoid broadcasting leap warnings on
-all except the last day of June and December.
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Notes for NTP Version 3 This version operates in much the same manner as Version 2 with the following changes and additions: 1. The protocol machinery operates in conformance with the RFC1305 NTP Version 3 specification. The most visible characteristic of this version is that the poll intervals for all polls, even selected ones, is significantly increased. This is especially desirable when serving a large client population. This implementation supports previous versions as non-configured peers; for version-2 configured peers a &#34;</description>
     </item>
     
     <item>
-      <title>Archives: NTPv3 refclocks</title>
+      <title>NTPv3 refclocks</title>
       <link>/archives/hints/refclocks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/refclocks/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;This is a short overview for the reference clocks currently supported
-by xntp V3. (Ultimate wisdom can be obtained from xntpd/refclock_*.c
-this file was derived from that information - unfortunately some comments
-in the files tend to get stale - so use with caution).
-
-Refclock address	Type
-127.127.0.x		no clock (fails to configure)
-127.127.1.x		local clock - use local clock as reference
-127.127.2.x		no clock (fails to configure)
-127.127.3.x		PSTI 1010/1020 WWV Clock
-127.127.4.x		SPECTRACOM WWVB receiver 8170 and Netclock/2
-127.127.5.x		Kinimetric Truetime 468-DC GOES receiver
-127.127.6.x		IRIG audio decode (Sun &amp; modified BSD audio driver)
-127.127.7.x		CHU Timecode (via normal receiver &amp; Bell 103 modem)
-127.127.8.x		PARSE (generic driver for a bunch of DCF/GPS clocks
-			       can be extended for other clocks too)
-	8.0-3		Meinberg PZF535/TCXO
-	8.4-7		Meinberg PZF535/OCXO
-	8.8-11		Meinberg DCF U/A 31
-	8.12-15		ELV DCF7000
-	8.16-19		Walter Schmid DCF receiver (Kit)
-	8.20-23		Conrad DCF77 receiver module + level converter (Kit)
-	8.24-27		TimeBrick (limited availability ask
-				   time@informatik.uni-erlangen.de)
-	8.28-31		Meinberg GPS166
-	8.32-35		Trimble SV6 GPS receiver
-127.127.9.x		MX4200 GPS receiver
-127.127.10.x		Austron 2201A GPS Timing Receiver
-127.127.11.x		Kinemetrics Truetime OM-DC OMEGA Receiver
-127.127.12.x		KSI/Odetecs TPRO-S IRIG-B / TPRO-SAT GPS
-127.127.13.x		Leitch: CSD 5300 Master Clock System Driver
-127.127.14.x		MSFEES
-127/127.15.x		TrueTime GPS/TM-TMD
-127.127.16.x		Bancomm GPS/IRIG Ticktock
-127.127.17.x		Datum Programmable Time System
-
-&lt;/pre&gt;
-
-      </description>
+      <description>This is a short overview for the reference clocks currently supported by xntp V3. (Ultimate wisdom can be obtained from xntpd/refclock_*.c this file was derived from that information - unfortunately some comments in the files tend to get stale - so use with caution). Refclock address	Type 127.127.0.x	no clock (fails to configure) 127.127.1.x	local clock - use local clock as reference 127.127.2.x	no clock (fails to configure) 127.127.3.x	PSTI 1010/1020 WWV Clock 127.</description>
     </item>
     
     <item>
-      <title>Archives: parse</title>
+      <title>parse</title>
       <link>/archives/hints/parse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/parse/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Compilation:
-	Usual thing: rm -f Config.local ; make for vanilla
-			make refconf for reference clock (e. g. DCF77)
-
-Directory contents:
-
-	hints/PARSE	- this file
-
-	xntpd/refclock_parse.c
-			- reference clock support for DCF77/GPS in xntp
-	parse/parse.c
-			- Reference clock data parser framework
-	parse/parse_conf.c
-			- parser configuration (clock types)
-	parse/clk_meinberg.c
-			- Meinberg clock formats (DCF U/A 31, PZF 535, GPS166)
-	parse/clk_schmid.c
-			- Schmid receiver (DCF77)
-	parse/clk_rawdcf.c
-			- 100/200ms pulses via 50 Baud line (DCF77)
-	parse/clk_dcf7000.c
-			- ELV DCF7000 (DCF77)
-	parse/clk_trimble.c
-			- Trimble SV6 GPS receiver
-
-			  If you want to add new clock types please check
-			  with kardel@informatik.uni-erlangen.de. These files
-			  implement the conversion of RS232 data streams into
-			  timing information used by refclock_parse.c which is
-			  mostly generic except for NTP configuration constants.
-
-	parse/Makefile.kernel
-			- *SIMPLE* makefile to build a loadable STREAMS
-			  module for SunOS 4.x / SunOS 5.x systems
-
-	parse/parsestreams.c
-			- SUN Streams module (loadable) for radio clocks
-			  This streams module is designed for SunOS 4.1.X.
-
-	parse/parsesolaris.c
-			- SUN Streams module (loadable) for radio clocks.
-			  This streams module is designed for SunOS 5.x
-			  Beware this is still new - so it might crash
-			  your machine (we have seen it working, though).
-
-	parse/parsetest.c
-			- simple test program for STREAMS module. Its so simple,
-			  that it doesn&#39;t even set TTY-modes, thus they got to
-			  be correct on startup - works for Meinberg receivers
-
-	parse/testdcf.c
-			- test program for raw DCF77 (100/200ms pulses)
-			  receivers
-
-        include/parse.h - interface to &#34;parse&#34; module and more
-        include/parse_conf.h
-			- interface to &#34;parse&#34; configuration
-
-	include/sys/parsestreams.h
-			- STREAMS specific definitions
-
-	scripts/support
-			- scripts (perl &amp; sh) for statistics and rc startup
-			  the startup scripts are used in Erlangen for
-			  starting the daemon on a variety of Suns and HPs
-			  and for Reference Clock startup on Suns
-			  These scripts may or may not be helpful to you.
-
-Supported clocks:
-	Meinberg DCF U/A 31
-	Meinberg PZF535/TCXO	(Software revision PZFUERL 4.6)
-	Meinberg PZF535/OCXO	(Software revision PZFUERL 4.6)
-	Meinberg GPS166		(Software version for Uni-Erlangen)
-	ELV DCF7000		(not recommended - casual/emergency use only)
-	Conrad DCF77 receiver	(email: time@informatik.uni-erlangen.de)
-	  + level converter
-	TimeBrick		(email: time@informatik.uni-erlangen.de)
-	Schmid Receiver Kit
-	Trimble SV6 GPS receiver
-
-Addresses:
-  Meinberg Funkuhren
-  Auf der Landwehr 22
-  31812 Bad Pyrmont
-  Germany
-  Tel.: 05281/20 18
-  FAX:  05281/60 81 80
-
-  ELV Kundenservice
-  Postfach 1000
-  26787 Leer
-  Germany
-  Tel.: 0491/60 08 88
-
-  Walter Schmidt
-  Eichwisrain 14
-  8634 Hombrechtikon
-  Switzerland
-
-If you have problems mail to:
-
-	time@informatik.uni-erlangen.de
-
-We&#39;ll help (conditions permitting)
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Compilation: Usual thing: rm -f Config.local ; make for vanilla make refconf for reference clock (e. g. DCF77) Directory contents: hints/PARSE	- this file xntpd/refclock_parse.c - reference clock support for DCF77/GPS in xntp parse/parse.c - Reference clock data parser framework parse/parse_conf.c - parser configuration (clock types) parse/clk_meinberg.c - Meinberg clock formats (DCF U/A 31, PZF 535, GPS166) parse/clk_schmid.c - Schmid receiver (DCF77) parse/clk_rawdcf.c - 100/200ms pulses via 50 Baud line (DCF77) parse/clk_dcf7000.</description>
     </item>
     
     <item>
-      <title>Archives: RS/6000 Hints</title>
+      <title>RS/6000 Hints</title>
       <link>/archives/hints/rs6000/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/rs6000/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;15.7.1993
-xntp3 compiles now again on AIX. I have disabled prototyping and added
-the switch -D_NO_PROTO which disables prototyping in the system include
-files.
-
-Matthias Ernst  maer@nmr.lpc.ethz.ch
---------------------------------------------------------------------------------
-Xntp version 3 now support the cc compiler for AIX.
-The Config.aix will now use cc by default.  You can still compile xntp
-with the bsd compiler by changing &#34;COMP= cc&#34; to &#34;COMP= bsdcc&#34; and
-removing the &#34;-DSTUPID_SIGNAL&#34; option from the &#34;DEFS&#34; option.
-
-xntp and tickadj was also modified  so that the value of tickadj is read
-form the kernel and can be set by tickadj.  For now I would not set 
-tickadj below 40 us.   
-
-Bill Jones 
-jones@chpc.utexas.edu
--------------------------------------------------------------------------------
-
-This is a modified version of xntp version 3 for the RS6000. It works for
-AIX 3.2 and these are the same changes as have been applied tothe version 2
-implementation of xntp. It works fine for us but I have not tested all of
-the features, especially the local clock support for the RS6000 is not tested
-at all.
-
-Matthias Ernst, ETH-Zuerich, Switzerland  -  maer@nmr.lpc.ethz.ch
-
---------------------------------------------------------------------------------
-
-Here the original README.rs6000 for the version 2 implementation:
-
-A hacked version of xntp for the IBM RS/6000 under AIX 3.1 can be found
-in xntp.rs6000.tar.Z. [ if still available at all - Frank Kardel 93/12/3 ]
-
-This will not work on older versions of AIX due to a kernel bug;  to find
-out whether you have the kernel bug, compile and run testrs6000.c (see
-comments in the code for instructions).
-
-xntp and testrs6000 require &#34;bsdcc&#34; to compile.  This is simply another
-entry point into the xlc compiler with various options set for BSD
-compatibility.  If your system does not have bsdcc, do the following:
-
-link /bin/bsdcc to /bin/xlc
-
-put the following into /etc/xlc.cfg:
-
-* BSD compatibility
-bsdcc:  use        = DEFLT
-        crt        = /lib/crt0.o
-        mcrt       = /lib/mcrt0.o
-        gcrt       = /lib/gcrt0.o
-        libraries  = -lbsd, -lc
-        proflibs   = -L/lib/profiled,-L/usr/lib/profiled
-        options    = -H512,-T512, -qlanglvl=extended, -qnoro, -D_BSD, -D_NONSTD_TYPES, -D_NO_PROTO, -tp,-B/lib/
-
-&lt;/pre&gt;
-
-      </description>
+      <description>15.7.1993 xntp3 compiles now again on AIX. I have disabled prototyping and added the switch -D_NO_PROTO which disables prototyping in the system include files. Matthias Ernst maer@nmr.lpc.ethz.ch -------------------------------------------------------------------------------- Xntp version 3 now support the cc compiler for AIX. The Config.aix will now use cc by default. You can still compile xntp with the bsd compiler by changing &#34;COMP= cc&#34; to &#34;COMP= bsdcc&#34; and removing the &#34;-DSTUPID_SIGNAL&#34; option from the &#34;DEFS&#34; option.</description>
     </item>
     
     <item>
-      <title>Archives: SCO Unix Hints</title>
+      <title>SCO Unix Hints</title>
       <link>/archives/hints/sco/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/sco/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Last update: 21-Oct-2010 23:44 UTC&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;older-sco-unix-versions&#34;&gt;Older SCO Unix versions&lt;/h4&gt;
-&lt;p&gt;NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&amp;rsquo;t mind to modify your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;compiling-ntp&#34;&gt;Compiling NTP&lt;/h4&gt;
-&lt;p&gt;Delete the old SCO supplied NTP programs using the &amp;ldquo;custom&amp;rdquo; utility. Run the NTP configure program with &lt;code&gt;CFLAGS=&amp;quot;-b elf -K _processor-type_&amp;quot;&lt;/code&gt; for best results.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;running-ntp&#34;&gt;Running NTP&lt;/h4&gt;
-&lt;p&gt;Run &lt;code&gt;tickadj -As&lt;/code&gt; after every reboot to set the variables &amp;ldquo;clock_drift&amp;rdquo; and &amp;ldquo;track_rtc&amp;rdquo; to the right values.&lt;/p&gt;
-&lt;p&gt;Run &lt;code&gt;ntpd&lt;/code&gt; with a high negative nice-value, i.e. &lt;code&gt;nice --19 ntpd&lt;/code&gt; for best results.&lt;/p&gt;
-&lt;p&gt;Kees Hendrikse, January 1999&lt;/p&gt;
-
-      </description>
+      <description>Last update: 21-Oct-2010 23:44 UTC
+ Older SCO Unix versions NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&amp;rsquo;t mind to modify your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.
+ Compiling NTP Delete the old SCO supplied NTP programs using the &amp;ldquo;custom&amp;rdquo; utility. Run the NTP configure program with CFLAGS=&amp;quot;-b elf -K _processor-type_&amp;quot; for best results.</description>
     </item>
     
     <item>
-      <title>Archives: SGI Hints</title>
+      <title>SGI Hints</title>
       <link>/archives/hints/sgi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/sgi/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;adjtime, tick and tickadj:
---------------------------
-
-The SGI value for HZ is 100 under Irix 4, with the system clock running
-in nominal mode (ftimer off), so the value for tick is 10000 usec.
-Tickadj is a bit more tricky because of the behaviour of adjtime(),
-which seems to try to perform the correction over 100-200 seconds, with
-a rate limit of 0.04 secs/sec for large corrections.  Corrections of
-less than 0.017 seconds generally complete in less than a second,
-however.
-
-Some measured rates are as follows:
-
-	Delta       Rate (sec/sec)
-
-	&gt; 1		0.04
-	0.75		0.04
-	0.6		0.004
-	0.5		0.004
-	0.4		0.0026
-	0.3		0.0026
-	0.2		0.0013
-	0.1		0.0015
-	0.05		0.0015
-	0.02		0.0003
-	0.01		0.015
-Strange.  Anyway, since adjtime will complete adjustments of less than
-17msec in less than a second, whether the fast clock is on or off, I
-have used a value of 150usec/tick for the tickadj value.
-
-Fast clock:
------------
-
-I get smoother timekeeping if I turn on the fast clock, thereby making
-the clock tick at 1kHz rather than 100Hz.  With the fast clock off, I
-see a sawtooth clock offset with an amplitude of 5msec.  With it on,
-the amplitude drops to 0.5msec (surprise!).  This may be a consequence
-of having a local reference clock which spits out the time at exactly
-one-second intervals - I am probably seeing sampling aliasing between
-that and the machine clock.  This may all be irrelevant for machines
-without a local reference clock.  Fiddling with the fast clock doesn&#39;t
-seem to compromise the above choices for tick and tickadj.
-
-I use the &#34;ftimer&#34; program to switch the fast clock on when the system
-goes into multiuser mode, but you can set the &#34;fastclock&#34; flag in
-/usr/sysgen/master.d/kernel to have it on by default.  See ftimer(1).
-
-timetrim:
----------
-
-Irix has a kernel variable called timetrim which adjusts the system
-time increment, effectively trimming the clock frequency.  Xntpd could
-use this rather than adjtime() to do it&#39;s frequency trimming, but I
-haven&#39;t the time to explore this.  There is a utility program,
-&#34;timetrim&#34;, in the util directory which allows manipulation of the
-timetrim value in both SGI and xntpd native units.  You can fiddle with
-default timetrim value in /usr/sysgen/master.d/kernel, but I think
-that&#39;s ugly.  I just use xntpd to figure out the right value for
-timetrim for a particular CPU and then set it using &#34;timetrim&#34; when
-going to multiuser mode.
-
-Serial I/O latency:
--------------------
-
-If you use a local clock on an RS-232 line, look into the kernel
-configuration stuff with regard to improving the input latency (check
-out /usr/sysgen/master.d/[sduart|cdsio]).  I have a Kinemetrics OM-DC
-hooked onto /dev/ttyd2 (the second CPU board RS-232 port) on an SGI
-Crimson, and setting the duart_rsrv_duration flag to 0 improves things
-a bit.
-
-12 Jan 93
-Steve Clift, CSIRO Marine Labs, Hobart, Australia (clift@ml.csiro.au)
-
-&lt;/pre&gt;
-
-      </description>
+      <description>adjtime, tick and tickadj: -------------------------- The SGI value for HZ is 100 under Irix 4, with the system clock running in nominal mode (ftimer off), so the value for tick is 10000 usec. Tickadj is a bit more tricky because of the behaviour of adjtime(), which seems to try to perform the correction over 100-200 seconds, with a rate limit of 0.04 secs/sec for large corrections. Corrections of less than 0.</description>
     </item>
     
     <item>
-      <title>Archives: Solaris Bug #4023118</title>
+      <title>Solaris Bug #4023118</title>
       <link>/archives/hints/solaris.xtra.4023118/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/solaris.xtra.4023118/</guid>
-      <description>
-        
-        
-        &lt;pre&gt; Bug Id: 4023118
- Category: kernel
- Subcategory: other
- State: integrated
- Synopsis: sun4u doesn&#39;t keep accurate time
- Description:
-
-[ bmc, 12/20/96 ]
-
-The clock on a sun4u drifts unacceptably.  On a typical 143 mHz Ultra,
-the clock took 1.0001350 seconds to count 1 second.  While this may seem
-trivial, it adds up quickly.  In this case, the TOD chip will have to
-pull the clock forward by 2 seconds every 4 hours and 7 minutes.
-This drift rate is so high, that the clock is close to being too broken
-for NTP to guarantee correctness (in order for NTP&#39;s mechanism to work,
-it must be assured that the local clock drifts no more than 20 ms in 64
-seconds;  this particular 143 mHz Ultra will drift by nearly 9 ms in that
-period).  This problem has been reproduced on virtually all sun4u
-classes.
-
-The fundamental problem lies in the kernel&#39;s perception of ticks per
-second.  The PROM is responsible for determining this figure exactly,
-and the kernel extracts it into the variable cpu_tick_freq.  On sun4u&#39;s,
-this number is disconcertingly round:  143000000, 167000000, 248000000,
-etc.  Indeed, a simple experiment revealed that these numbers were
-quite far from the actual ticks per second.  Typical was the 143 mHz
-Ultra which was discovered to tick around 142,980,806 (+/- 10) times
-per second.
-
- Work around:
-
-        Integrated in releases: s297_27
- Duplicate of:
- Patch id:
- See also:
- Summary:
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Bug Id: 4023118 Category: kernel Subcategory: other State: integrated Synopsis: sun4u doesn&#39;t keep accurate time Description: [ bmc, 12/20/96 ] The clock on a sun4u drifts unacceptably. On a typical 143 mHz Ultra, the clock took 1.0001350 seconds to count 1 second. While this may seem trivial, it adds up quickly. In this case, the TOD chip will have to pull the clock forward by 2 seconds every 4 hours and 7 minutes.</description>
     </item>
     
     <item>
-      <title>Archives: Solaris Bug #4095849</title>
+      <title>Solaris Bug #4095849</title>
       <link>/archives/hints/solaris.xtra.4095849/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/solaris.xtra.4095849/</guid>
-      <description>
-        
-        
-        &lt;pre&gt; Bug Id: 4095849
- Category: kernel
- Subcategory: syscall
- State: evaluated
- Synopsis: time_constant value &gt;6 with PLL in use leads to integer divide
-           zero trap panic
- Description:
-If the time_constant parameter is 7 or higher, and the phase-lock looping model
-is in use, the system will take a &#34;integer divide zero trap&#34; panic in
-the clock routine as soon as the time_offset becomes non-zero.
-
-time_constant defaults to 0\.  The only place it is set is in the ntp_adjtime
-system call, from the &#39;constant&#39; element of the timex structure argument.
-
- Work around:
-Never set the constant element of the timex structure passed to ntp_adjtime to
-a value larger than 6.
-
-satish.mynam@Eng 1998-04-30
-1. Use Sun&#39;s version of NTP software instead of PD version. This problem
-is not seen with Sun&#39;s NTP version (which is mostly eqivalent to PD NTP 3.4
-plus some Sun&#39;s local functionality futures).
-
-2. Workaround for the public domain NTP version  ONLY:
- =====================================================
-The workaround for public domain NTP version is to disable the
-KERNEL_PLL from the NTP code. This way ntp_Adjtime() system call is
-totally bypassed without sacrificing any of the functionality of the
-NTP. The only hit you might see is the way  kernel precision timminig
-is done without the PLL algorithm in the kernel.
-
-    The easiest way to disable ntp_adjtime option is(without changing
-    any makefiles or other config files) to disable the KERNEL_PLL
-    value in the ./config.h file.
-
-After doing a ./configure for probing for all the necessary tools(compilers,
-os version, libraries),  please comment out KERNEL_PLL macro in
-the ./config.h  file.  This will disable the KERNEL_PLL part of the source
-code and the newly obtained xntpd is just similar to the old one but it
-does not use ntp_adjtime() system call. This prevents it from panic&#39;ng
-the kernel.
-
-/*#define KERNEL_PLL 1*/
-
-I complied a new xntpd binary this way and it does nothave any ntp_adjtime()
-related stuff.
-
-Default:
-=======
-/net/divya/export/home/mynam/public_domain/ntp/xntp3-5.92/xntpd&gt;strings
-xntpd |
-grep ntp_adjtime
-354:adj_frequency: ntp_adjtime failed: %m
-357:loop_config: ntp_adjtime() failed: %m
-435:get_kernel_info: ntp_adjtime() failed: %m
-
-With KERNEL_PLL disabled in config.h file
--=======================
-
-/net/divya/export/home/mynam/public_domain/ntp/xntp3-5.92/xntpd&gt;strings
-xntpd.nopll | grep ntp_adjtime
-
-        Integrated in releases:
- Duplicate of:
- Patch id:
- See also: 4133517
- Summary:
-If the time_constant parameter is 7 or higher, and the phase-lock looping model
-is in use, the system will take a &#34;integer divide zero trap&#34; panic in
-the clock routine as soon as the time_offset becomes non-zero.
-
-time_constant defaults to 0\.  The only place it is set is in the ntp_adjtime
-system call, from the &#39;constant&#39; element of the timex structure argument.
-----------------------------------------------------------------------------
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Bug Id: 4095849 Category: kernel Subcategory: syscall State: evaluated Synopsis: time_constant value 6 with PLL in use leads to integer divide zero trap panic Description: If the time_constant parameter is 7 or higher, and the phase-lock looping model is in use, the system will take a &#34;integer divide zero trap&#34; panic in the clock routine as soon as the time_offset becomes non-zero. time_constant defaults to 0. The only place it is set is in the ntp_adjtime system call, from the &#39;constant&#39; element of the timex structure argument.</description>
     </item>
     
     <item>
-      <title>Archives: Solaris frequency patch</title>
+      <title>Solaris frequency patch</title>
       <link>/archives/hints/solaris.xtra.patchfreq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/solaris.xtra.patchfreq/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;#!/bin/ksh
-
-#
-# File:         patchfreq
-# Author:       Bryan Cantrill (bmc@eng.sun.com), Solaris Performance
-# Modified:     Sat Apr 26 04:00:59 PDT 1997
-#
-# This is a little script to patch a 5.5 or 5.5.1 kernel to get around
-# the cpu_tick_freq inaccuracy.  Before running this script, one must
-# know the true frequency of one&#39;s CPU;  this can be derived by NTP,
-# or by observing the clock relative to the time-of-day chip over a
-# long period of time (the TOD will pull system time when it drifts
-# by more than two seconds).
-#
-# Patching a kernel can render a machine unbootable;  do not run this
-# script unless you are prepared to accept that possibility.  It
-# is advisable to have a backout path (e.g. net booting, an alternate
-# boot disk, an installation CD) should your machine fail to boot.
-#
-# This is not a product of Sun Microsystems, and is provided &#34;as is&#34;,
-# without warranty of any kind expressed or implied including, but not
-# limited to, the suitability of this script for any purpose.
-#
-
-if [ $# -eq 0 ]; then
-        echo &#34;Usage:  $0 cpu_tick_freq [ alternate_kernel ]&#34;
-        exit 1
-fi
-
-cpu_tick_freq=$1
-kernel=/platform/sun4u/kernel/unix
-
-if [ $# -eq 2 ]; then
-        kernel=$2
-fi
-
-if [ ! -w $kernel ]; then
-        echo &#34;$0:  Cannot open $kernel for writing.&#34;
-        exit 1
-fi
-
-arch=`echo utsname+404?s | adb $kernel | cut -d: -f2`
-
-if [ ! $arch = &#34;sun4u&#34; ]; then
-        echo &#34;Patch only applies to sun4u&#34;
-        exit 1
-fi
-
-rel=`echo utsname+202?s | adb $kernel | cut -d: -f2`
-
-if [ ! $rel = &#34;5.5&#34; ] &amp;&amp; [ ! $rel = &#34;5.5.1&#34; ]; then
-        echo &#34;Patch only applies to 5.5 or 5.5.1...&#34;
-        exit 1
-fi
-
-nop=&#34;1000000&#34;           # nop
-store_mask=&#34;ffffe000&#34;   # mask out low 13 bits
-store=&#34;da256000&#34;        # st      %o5, [%l5 + offset]
-
-instr=`echo setcpudelay+34?X | adb $kernel | cut -d: -f 2 | nawk &#39;{ print $1 }&#39;`
-
-if [ $instr = $nop ]; then
-        echo &#34;Instruction already patched...&#34;
-else
-        let masked=&#34;(16#$store_mask &amp; 16#$instr) - 16#$store&#34;
-        if [ $masked -ne 0 ]; then
-                echo &#34;Couldn&#39;t find instruction to patch;  aborting.&#34;
-                exit 1
-        fi
-
-        if ! echo setcpudelay+34?W $nop | adb -w $kernel 1&gt; /dev/null
-        then
-                echo &#34;adb returned an unexpected error;  aborting.&#34;
-        fi
-fi
-
-echo &#34;Patching cpu_tick_freq to $cpu_tick_freq...&#34;
-
-if ! echo cpu_tick_freq?W 0t$cpu_tick_freq | adb -w $kernel 1&gt; /dev/null; then
-        echo &#34;adb returned an unexpected error;  aborting.&#34;
-        exit 1
-fi
-
-echo &#34;$kernel successfully patched.&#34;
-exit 0
-
-&lt;/pre&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
-
-      </description>
+      <description>#!/bin/ksh # # File: patchfreq # Author: Bryan Cantrill (bmc@eng.sun.com), Solaris Performance # Modified: Sat Apr 26 04:00:59 PDT 1997 # # This is a little script to patch a 5.5 or 5.5.1 kernel to get around # the cpu_tick_freq inaccuracy. Before running this script, one must # know the true frequency of one&#39;s CPU; this can be derived by NTP, # or by observing the clock relative to the time-of-day chip over a # long period of time (the TOD will pull system time when it drifts # by more than two seconds).</description>
     </item>
     
     <item>
-      <title>Archives: Solaris Hints</title>
+      <title>Solaris Hints</title>
       <link>/archives/hints/solaris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/solaris/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Information on compiling and executing ntpd under Solaris.&lt;/p&gt;
-&lt;p&gt;Last update: 27-Jan-2014 05:31 UTC, John Hawkinson, &lt;a href=&#34;mailto:jhawk@MIT.EDU&#34;&gt;jhawk@MIT.EDU&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;re not running Solaris 2.5.1 or later, it is likely that you will have problems; upgrading would be a really good plan.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris/#all-solaris-versions&#34;&gt;All Solaris versions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris/#dealing-with-frequency-tolerance-violations&#34;&gt;Dealing with Frequency Tolerance Violations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris/#solaris-26&#34;&gt;Solaris 2.6&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris/#solaris-25-and-251&#34;&gt;Solaris 2.5 and 2.5.1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris/#solaris-22&#34;&gt;Solaris 2.2&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/archives/hints/solaris/#solaris-21&#34;&gt;Solaris 2.1&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;all-solaris-versions&#34;&gt;All Solaris versions&lt;/h3&gt;
-&lt;p&gt;We have a report that says starting with Solaris 2.6 we should leave &lt;em&gt;dosynctodr&lt;/em&gt; alone. &lt;a href=&#34;/archives/hints/solaris-dosynctodr&#34;&gt;Here is the report&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Proper operation of ntp under Solaris may require setting the kernel variable &lt;em&gt;dosynctodr&lt;/em&gt; to zero (meaning &amp;ldquo;do not synchronize the clock to the hardware time-of-day clock&amp;rdquo;). This can be done with the tickadj utility:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;tickadj -s&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;If you prefer, it can also be done with the native Solaris kernel debugger:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;echo dosynctodr/W0 | adb -k -w /dev/ksyms /dev/mem&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Or, it can also be set by adding a line to /etc/system:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;set dosynctodr = 0&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Instead of the &lt;em&gt;tick&lt;/em&gt; kernel variable, which many operating systems use to control microseconds added to the system time every clock tick (c.f. &lt;a href=&#34;/archives/hints/solaris/#dealing-with-frequency-tolerance-violations&#34;&gt;Dealing with Frequency Tolerance Violations&lt;/a&gt;, Solaris has the variables &lt;em&gt;nsec_per_tick&lt;/em&gt; and &lt;em&gt;usec_per_tick&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;nsec_per_tick&lt;/em&gt; and &lt;em&gt;usec_per_tick&lt;/em&gt; control the number of nanoseconds and microseconds, respectively, added to the system clock each clock interrupt. Enterprising souls may set these based on information collected by ntpd in the &lt;code&gt;/etc/ntp.drift&lt;/code&gt; file to correct for individual hardware variations.&lt;/p&gt;
-&lt;p&gt;On UltraSPARC systems, &lt;em&gt;nsec_per_tick&lt;/em&gt; and &lt;em&gt;usec_per_tick&lt;/em&gt; are ignored in favor of the &lt;em&gt;cpu_tick_freq&lt;/em&gt; variable, which should be automatically be determined by the PROM in an accurate fashion.&lt;/p&gt;
-&lt;p&gt;In general, the same ntp binaries should not be used across multiple operating system releases. There is enough variation in the core operating system support for timekeeping that a rebuild of ntpd for the idiosyncracies of your specific operating system version is advisable.&lt;/p&gt;
-&lt;p&gt;It is recommended that ntp be started via a script like &lt;a href=&#34;/archives/hints/solaris.xtra.S99ntpd&#34;&gt;this one&lt;/a&gt;, installed in &lt;code&gt;/etc/init.d/ntpd&lt;/code&gt; with a symbol link from &lt;code&gt;/etc/rc2.d/S99ntpd&lt;/code&gt;.&lt;a id=&#34;frequency_tolerance&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;dealing-with-frequency-tolerance-violations&#34;&gt;Dealing with Frequency Tolerance Violations&lt;/h4&gt;
-&lt;p&gt;The NTP Version 3 specification RFC-1305 calls for a maximum oscillator frequency tolerance of +-100 parts-per-million (PPM), which is representative of those components suitable for use in relatively inexpensive workstation platforms. For those platforms meeting this tolerance, NTP will automatically compensate for the frequency errors of the individual oscillator and no further adjustments are required, either to the configuration file or to various kernel variables. For the NTP Version 4 release, this tolerance has been increased to +-500 PPM.&lt;/p&gt;
-&lt;p&gt;However, in the case of certain notorious platforms, in particular Sun 4.1.1 systems, the performance can be improved by adjusting the values of certain kernel variables; in particular, &lt;tt&gt;tick&lt;/tt&gt; and &lt;tt&gt;tickadj&lt;/tt&gt;. The variable &lt;tt&gt;tick&lt;/tt&gt; is the increment in microseconds added to the system time on each interval- timer interrupt, while the variable &lt;tt&gt;tickadj&lt;/tt&gt; is used by the time adjustment code as a slew rate, in microseconds per tick. When the time is being adjusted via a call to the system routine &lt;tt&gt;adjtime()&lt;/tt&gt;, the kernel increases or reduces tick by &lt;tt&gt;tickadj&lt;/tt&gt; microseconds per tick until the specified adjustment has been completed. Unfortunately, in most Unix implementations the tick increment must be either zero or plus/minus exactly &lt;tt&gt;tickadj&lt;/tt&gt; microseconds, meaning that adjustments are truncated to be an integral multiple of &lt;tt&gt;tickadj&lt;/tt&gt; (this latter behaviour is a misfeature, and is the only reason the &lt;tt&gt;tickadj&lt;/tt&gt; code needs to concern itself with the internal implementation of &lt;tt&gt;tickadj&lt;/tt&gt; at all). In addition, the stock Unix implementation considers it an error to request another adjustment before a prior one has completed.&lt;/p&gt;
-&lt;p&gt;Thus, to make very sure it avoids problems related to the roundoff, the &lt;tt&gt;tickadj&lt;/tt&gt; program can be used to adjust the values of &lt;tt&gt;tick&lt;/tt&gt; and &lt;tt&gt;tickadj&lt;/tt&gt;. This ensures that all adjustments given to &lt;tt&gt;adjtime()&lt;/tt&gt; are an even multiple of &lt;tt&gt;tickadj&lt;/tt&gt; microseconds and computes the largest adjustment that can be completed in the adjustment interval (using both the value of &lt;tt&gt;tick&lt;/tt&gt; and the value of &lt;tt&gt;tickadj&lt;/tt&gt;) so it can avoid exceeding this limit. It is important to note that not all systems will allow inspection or modification of kernel variables other than at system build time. It is also important to know that, with the current NTP tolerances, it is rarely necessary to make these changes, but in many cases they will substantially improve the general accuracy of the time service.&lt;/p&gt;
-&lt;p&gt;Unfortunately, the value of &lt;tt&gt;tickadj&lt;/tt&gt; set by default is almost always too large for &lt;tt&gt;ntpd&lt;/tt&gt;. NTP operates by continuously making small adjustments to the clock, usually at one-second intervals. If &lt;tt&gt;tickaj&lt;/tt&gt; is set too large, the adjustments will disappear in the roundoff; while, if &lt;tt&gt;tickadj&lt;/tt&gt; is too small, NTP will have difficulty if it needs to make an occasional large adjustment. While the daemon itself will read the kernel&amp;rsquo;s values of these variables, it will not change the values, even if they are unsuitable. You must do this yourself before the daemon is started using the &lt;tt&gt;tickadj&lt;/tt&gt; program included in the &lt;tt&gt;./util&lt;/tt&gt; directory of the distribution. Note that the latter program will also compute an optimal value of &lt;tt&gt;tickadj&lt;/tt&gt; for NTP use based on the kernel&amp;rsquo;s value of &lt;tt&gt;tick&lt;/tt&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;tt&gt;tickadj&lt;/tt&gt; program can reset several other kernel variables if asked. It can change the value of &lt;tt&gt;tick&lt;/tt&gt; if asked. This is handy to compensate for kernel bugs which cause the clock to run with a very large frequency error, as with SunOS 4.1.1 systems. It can also be used to set the value of the kernel &lt;tt&gt;dosynctodr&lt;/tt&gt; variable to zero. This variable controls whether to synchronize the system clock to the time-of-day clock, something you really don&amp;rsquo;t want to be happen when &lt;tt&gt;ntpd&lt;/tt&gt; is trying to keep it under control. In some systems, such as recent Sun Solaris kernels, the &lt;tt&gt;dosynctodr&lt;/tt&gt; variable is the only one that can be changed by the &lt;tt&gt;tickadj&lt;/tt&gt; program. In this and other modern kernels, it is not necessary to change the other variables in any case.&lt;/p&gt;
-&lt;p&gt;We have a report that says starting with Solaris 2.6 we should leave &lt;em&gt;dosynctodr&lt;/em&gt; alone.&lt;/p&gt;
-&lt;p&gt;In order to maintain reasonable correctness bounds, as well as reasonably good accuracy with acceptable polling intervals, &lt;tt&gt;ntpd&lt;/tt&gt; will complain if the frequency error is greater than 500 PPM. For machines with a value of &lt;tt&gt;tick&lt;/tt&gt; in the 10-ms range, a change of one in the value of &lt;tt&gt;tick&lt;/tt&gt; will change the frequency by about 100 PPM. In order to determine the value of &lt;tt&gt;tick&lt;/tt&gt; for a particular CPU, disconnect the machine from all source s of time (&lt;tt&gt;dosynctodr&lt;/tt&gt; = 0) and record its actual time compared to an outside source (eyeball-and-wristwatch will do) over a day or more. Multiply the time change over the day by 0.116 and add or subtract the result to tick, depending on whether the CPU is fast or slow. An example call to &lt;tt&gt;tickadj&lt;/tt&gt; useful on SunOS 4.1.1 is:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;tickadj -t 9999 -a 5 -s&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;which sets tick 100 PPM fast, &lt;tt&gt;tickadj&lt;/tt&gt; to 5 microseconds and turns off the clock/calendar chip fiddle. This line can be added to the &lt;tt&gt;rc.local&lt;/tt&gt; configuration file to automatically set the kernel variables at boot time.&lt;/p&gt;
-&lt;p&gt;All this stuff about diddling kernel variables so the NTP daemon will work is really silly. If vendors would ship machines with clocks that kept reasonable time and would make their &lt;tt&gt;adjtime()&lt;/tt&gt; system call apply the slew it is given exactly, independent of the value of &lt;tt&gt;tickadj&lt;/tt&gt;, all this could go away. This is in fact the case on many current Unix systems.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;solaris-26&#34;&gt;Solaris 2.6&lt;/h3&gt;
-&lt;/a&gt;
-&lt;p&gt;&lt;a id=&#34;frequency_tolerance&#34;&gt;Solaris 2.6 adds support for kernel PLL timekeeping, but breaks this support in such a fashion that using it worse than not. This is&lt;/a&gt; &lt;a href=&#34;/archives/hints/solaris.xtra.4095849&#34;&gt;SUN Bug ID 4095849&lt;/a&gt;, and it is not yet fixed as of June 1998.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;solaris-25-and-251&#34;&gt;Solaris 2.5 and 2.5.1&lt;/h3&gt;
-&lt;p&gt;On UltraSPARC systems, calculation of &lt;em&gt;cpu_tick_freq&lt;/em&gt; is broken such that values that are off by significant amounts may be used instead. This unfortunately means that ntpd may have severe problems keeping synchronization. This is &lt;a href=&#34;/archives/hints/solaris.xtra.4023118&#34;&gt;SUN Bug ID 4023118&lt;/a&gt;. Bryan Cantrill of Sun posted &lt;a href=&#34;/archives/hints/solaris.xtra.patchfreq&#34;&gt;patchfreq&lt;/a&gt;, a workaround script, to comp.protocols.time.ntp in March of 1997.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;old-data&#34;&gt;OLD DATA&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;I can&amp;rsquo;t vouch for the accuracy the information below this rule. It may be significantly dated or incorrect.&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;solaris-22&#34;&gt;Solaris 2.2&lt;/h3&gt;
-&lt;p&gt;Solaris 2.2 and later contain completely re-written clock code to provide high resolution microsecond timers. A benefit of the re-written clock code is that adjtime does not round off its adjustments, so ntp does not have to compensate for this rounding. Under Solaris 2.2 and later, ntp #define&amp;rsquo;s &lt;code&gt;ADJTIME_IS_ACCURATE&lt;/code&gt;, and does not look for the &lt;em&gt;tickadj&lt;/em&gt; kernel variable.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;solaris-21&#34;&gt;Solaris 2.1&lt;/h3&gt;
-&lt;p&gt;(This originally written by William L. Jones &lt;a href=&#34;mailto:jones@chpc.utexas.edu&#34;&gt;jones@chpc.utexas.edu&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Solaris 2.1 contains fairly traditional clock code, with &lt;em&gt;tick&lt;/em&gt; and &lt;em&gt;tickadj&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Since settimeofday under Solaris 2.1 only sets the seconds part of timeval care must be used in starting xntpd. I suggest the following start up script:&lt;/p&gt;
-&lt;pre&gt;tickadj -s -a 1000  
-ntpdate -v server1 server2  
-sleep 20  
-ntpdate -v server1 server2  
-sleep 20  
-tickadj -a 200  
-xntpd&lt;/pre&gt;
-&lt;p&gt;The first tickadj turns of the time of day clock and sets the tick adjust value to 1 millisecond. This will insure that an adjtime value of at most 2 seconds will complete in 20 seconds.&lt;/p&gt;
-&lt;p&gt;The first ntpdate will set the time to within two seconds using settimeofday or it will adjust time using adjtime.&lt;/p&gt;
-&lt;p&gt;The first sleep insures the adjtime has completed for the first ntpdate.&lt;/p&gt;
-&lt;p&gt;The second ntpdate will use adjtime to set the time of day since the clock should be within 2 seconds of the correct time.&lt;/p&gt;
-&lt;p&gt;The second tickadj set the tick adjust system value to 5 microseconds.&lt;/p&gt;
-&lt;p&gt;The second sleeps insure that adjtime will complete before starting the next xntpd.&lt;/p&gt;
-&lt;p&gt;I tried running with a tickadj of 5 microseconds with out much success. 200 microseconds seems to work well.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Prior versions of this file had major text contributed by:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Denny Gentry &lt;a href=&#34;mailto:denny@eng.sun.com&#34;&gt;denny@eng.sun.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
+      <description>Information on compiling and executing ntpd under Solaris.
+Last update: 27-Jan-2014 05:31 UTC, John Hawkinson, jhawk@MIT.EDU
+If you&amp;rsquo;re not running Solaris 2.5.1 or later, it is likely that you will have problems; upgrading would be a really good plan.
+ Table of Contents  All Solaris versions Dealing with Frequency Tolerance Violations Solaris 2.6 Solaris 2.5 and 2.5.1 Solaris 2.2 Solaris 2.1  All Solaris versions We have a report that says starting with Solaris 2.</description>
     </item>
     
     <item>
-      <title>Archives: Solaris NTPv3 package</title>
+      <title>Solaris NTPv3 package</title>
       <link>/archives/hints/svr4_package/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/svr4_package/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Date: Wed, 12 Apr 1995 12:42:03 +0100
-Message-ID: &lt;513.797686923@concurrent.co.uk&gt;
-From: Andy Chittenden &lt;asc@concurrent.co.uk&gt;
-
-Dave
-
-Here is a uuencoded, compressed tar file. The only file I&#39;ve
-changed is Makefile - I&#39;ve included the full file rather than diffs.
-There are some new files as well:
-
-	xntp	shell script that starts up ntp during boot up
-		(the packaging stuff creates links to it so it comes
-		up at run level 2). As with all svr4 start/stop
-		scripts, it takes one parameter which is either
-		start or stop. It assumes that ntp.conf is in
-		/etc/inet/ntp.conf (where it should be on svr4
-		machines).
-	prototype	describes the file contents of the package.
-			You might like to review its contents to
-			see whether you want to include any other
-			files or remove some. NB I&#39;ve made the man 
-			pages go into 1m as they should on svr4.
-	preinstall	runs before installation takes place. It
-			ensures that ntp is down if it is up before
-			installing a replacement package
-	postinstall	starts up ntp after package installation.
-	preremove	brings down ntp before removing the package.
-
-You create a package using &#34;make package&#34;. This creates a file
-called xntp.pkg. To install this package, you use 
-&#34;pkgadd -d `pwd`/xntp.pkg xntp&#34;. This will start up ntp if
-/etc/inet/ntp.conf exists. If you don&#39;t want the package anymore, use 
-&#34;pkgrm xntp&#34;. I have tested this on Solaris 2.4.
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Date: Wed, 12 Apr 1995 12:42:03 +0100 Message-ID:  From: Andy Chittenden  Dave Here is a uuencoded, compressed tar file. The only file I&#39;ve changed is Makefile - I&#39;ve included the full file rather than diffs. There are some new files as well: xntp	shell script that starts up ntp during boot up (the packaging stuff creates links to it so it comes up at run level 2). As with all svr4 start/stop scripts, it takes one parameter which is either start or stop.</description>
     </item>
     
     <item>
-      <title>Archives: Solaris S99 script for NTPv3</title>
+      <title>Solaris S99 script for NTPv3</title>
       <link>/archives/hints/solaris.xtra.s99ntpd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/solaris.xtra.s99ntpd/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;
-\#!/bin/sh
-if [ $1 = &#34;start&#34; ]; then
-        if [ -x /usr/local/bin/xntpd ]; then
-                echo &#34;Starting NTP daemon, takes about 1 minute... &#34;
-		# dosynctodr may need to be left alone as of with Solaris 2.6
-		# The following line is unnecessary if you turn off 
-		# dosynctodr in /etc/system.
-                /usr/local/bin/tickadj -s  
-                /usr/local/bin/ntpdate -v server1 server2
-                sleep 5
-                /usr/local/bin/xntpd
-        fi
-else
-        if [ $1 = &#34;stop&#34; ]; then
-                pid=`/usr/bin/ps -e | /usr/bin/grep xntpd | /usr/bin/sed -e &#39;s/^  *//&#39; -e &#39;s/ .*//&#39;`   
-                if [ &#34;${pid}&#34; != &#34;&#34; ]; then
-                        echo &#34;Stopping Network Time Protocol daemon &#34;
-                        /usr/bin/kill ${pid}
-                fi     
-        fi
-fi
-&lt;/pre&gt;
-
-      </description>
+      <description>\#!/bin/sh if [ $1 = &#34;start&#34; ]; then if [ -x /usr/local/bin/xntpd ]; then echo &#34;Starting NTP daemon, takes about 1 minute... &#34; # dosynctodr may need to be left alone as of with Solaris 2.6 # The following line is unnecessary if you turn off # dosynctodr in /etc/system. /usr/local/bin/tickadj -s /usr/local/bin/ntpdate -v server1 server2 sleep 5 /usr/local/bin/xntpd fi else if [ $1 = &#34;stop&#34; ]; then pid=`/usr/bin/ps -e | /usr/bin/grep xntpd | /usr/bin/sed -e &#39;s/^ *//&#39; -e &#39;s/ .</description>
     </item>
     
     <item>
-      <title>Archives: Solaris Symptoms and Resolutions Article 19195</title>
+      <title>Solaris Symptoms and Resolutions Article 19195</title>
       <link>/archives/hints/solaris-dosynctodr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/solaris-dosynctodr/</guid>
-      <description>
-        
-        
-        
-
-&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
-
-
-    This content is from SunSolve Article 19195 which once lived on the Sun Microsystems website.
-
-&lt;/div&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;SRDB ID&lt;/th&gt;
-&lt;th&gt;Synopsis&lt;/th&gt;
-&lt;th&gt;Date&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;19195&lt;/td&gt;
-&lt;td&gt;Upgraded to 2.6, using xntpd, but the system clock is drifting. Worked fine&lt;/td&gt;
-&lt;td&gt;4 Sep 1999&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;problem-description&#34;&gt;Problem Description&lt;/h4&gt;
-&lt;p&gt;Ever since upgrading to Solaris 2.6, the system clock has been drifting and
-there are messages like &amp;lsquo;synchronisation lost&amp;rsquo;, &amp;lsquo;Previous time adjustment
-didn&amp;rsquo;t complete&amp;rsquo; and &amp;lsquo;time reset (step)&amp;rsquo; a lot in the /var/adm/messages
-file. The system either was previously working fine with the freeware
-xntpd or the configuration was copied from another system that was
-using the freeware version.&lt;/p&gt;
-&lt;p&gt;&amp;ndash; 23-Apr-99 08:22 US/Eastern &amp;ndash;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;problem-solution&#34;&gt;Problem Solution&lt;/h4&gt;
-&lt;p&gt;The common lore for setting up xntpd on Solaris using
-the freeware version included the warning to set the
-kernel variable &lt;font color=&#34;red&#34;&gt;dosynctodr&lt;/font&gt; to 0 in the /etc/system
-file thus: set &lt;font color=&#34;red&#34;&gt;dosynctodr&lt;/font&gt;=0&lt;/p&gt;
-&lt;p&gt;When using NTP on Solaris 2.6 or later, the kernel
-variable MUST be left at the default value of 1. Prior
-to 2.6 this variable controlled whether or not to rein&lt;br&gt;
-in the softclock using the hardware clock, with the result
-that NTP and the hardware clock would fight for control of
-the soft clock; thus before 2.6 you had to set &lt;font color=&#34;red&#34;&gt;dosynctodr&lt;/font&gt;
-to 0. At 2.6, every system call that adjusts the softclock
-also sets the hard clock, thus while NTP controls the soft
-clock, the hard clock is also controlled. Setting
-&lt;font color=&#34;red&#34;&gt;dosynctodr&lt;/font&gt; to 0 reverts the behavior back to the pre 2.6
-defaulkt behavior, having exactly the opposite effect
-as that intended.&lt;/p&gt;
-&lt;p&gt;Do not set &lt;font color=&#34;red&#34;&gt;dosynctodr&lt;/font&gt; to 0.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Product Area&lt;/strong&gt; 	Bundled Network&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Product&lt;/strong&gt; 	NTP&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;OS&lt;/strong&gt; 	Solaris 2.6&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Hardware&lt;/strong&gt; 	Ultra 2&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Document Content&lt;/strong&gt; 	with freeware xntpd.&lt;/p&gt;
-
-      </description>
+      <description>This content is from SunSolve Article 19195 which once lived on the Sun Microsystems website.     SRDB ID Synopsis Date     19195 Upgraded to 2.6, using xntpd, but the system clock is drifting. Worked fine 4 Sep 1999     Problem Description Ever since upgrading to Solaris 2.6, the system clock has been drifting and there are messages like &amp;lsquo;synchronisation lost&amp;rsquo;, &amp;lsquo;Previous time adjustment didn&amp;rsquo;t complete&amp;rsquo; and &amp;lsquo;time reset (step)&amp;rsquo; a lot in the /var/adm/messages file.</description>
     </item>
     
     <item>
-      <title>Archives: SunOS 4.1.1 and 4.1.3 Hints</title>
+      <title>SunOS 4.1.1 and 4.1.3 Hints</title>
       <link>/archives/hints/sun4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/sun4/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Notes on CPU clock oscillator tolerance with SunOS 4.1.1 and 4.1.3
-
-A bug in SunOS 4.1.1 results in the kernel time losing 1 microsecond
-per tick of the system clock. The bug was fixed (bugid 1094383) for
-SunOS 4.1.1 and corrected in SunOS 4.1.3. The easiest way to fix this
-is to replace the 4.1.1 binary clock.o with the corresponding 4.1.3
-binary. Without this change it is necessary to use the tickadj program
-included in this distribution with the -t 9999 option.
-
-The tickadj option will work in all cases except when the kernel has
-been modified to correct the CPU clock oscillator frequency using a
-1-pps signal from a precision source. The bugfix must be installed for
-this wrinkle to work properly.
-
-Dave Mills (mills@udel.edu)
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Notes on CPU clock oscillator tolerance with SunOS 4.1.1 and 4.1.3 A bug in SunOS 4.1.1 results in the kernel time losing 1 microsecond per tick of the system clock. The bug was fixed (bugid 1094383) for SunOS 4.1.1 and corrected in SunOS 4.1.3. The easiest way to fix this is to replace the 4.1.1 binary clock.o with the corresponding 4.1.3 binary. Without this change it is necessary to use the tickadj program included in this distribution with the -t 9999 option.</description>
     </item>
     
     <item>
-      <title>Archives: Todo</title>
+      <title>Todo</title>
       <link>/archives/hints/todo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/todo/</guid>
-      <description>
-        
-        
-        &lt;pre&gt;Ulrich Windl &lt;Ulrich.Windl@rz.uni-regensburg.de&gt;:
-	Any change in a source file in the lib directory causes all files to
-	be recompiled (because the objects are removed). Add a better rule for
-	make to update the library. Maybe just remove &#34;-rm -f $?&#34;.
-
-&lt;/pre&gt;
-
-      </description>
+      <description>Ulrich Windl : Any change in a source file in the lib directory causes all files to be recompiled (because the objects are removed). Add a better rule for make to update the library. Maybe just remove &#34;-rm -f $?&#34;.  </description>
     </item>
     
     <item>
-      <title>Archives: vxWorks port</title>
+      <title>vxWorks port</title>
       <link>/archives/hints/vxworks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/vxworks/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Last update: 21-Oct-2010 23:44 UTC&lt;/p&gt;
-&lt;p&gt;Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time OS&amp;rsquo;s and other embeddable kernels, particularly where &lt;tt&gt;main()&lt;/tt&gt; is not allowed, and where the configure scripts need to be altered.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;configuration-issues&#34;&gt;Configuration issues&lt;/h4&gt;
-&lt;p&gt;I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree. The following changes were needed, as a side effect these changes will allow for easy porting of other autoconfigure enabled code.&lt;/p&gt;
-&lt;p&gt;Where I have 386 you will need to put in your target type. The vxWorks tree entry point is &lt;tt&gt;/usr/wind&lt;/tt&gt;. If these are the same for your system, you should be able to cut and paste the changes.&lt;/p&gt;
-&lt;p&gt;&lt;blink&gt;WARNING: Check you are not overwriting files, before entering the following: there should be no conflict, but check first&amp;hellip;&lt;/blink&gt;&lt;/p&gt;
-&lt;pre&gt;            export CC=&#34;cc386 -nostdlib -m486 -DCPU=I80486 -I/usr/wind/target/h&#34;
-            export RANLIB=ranlib386
-            export AR=ar386
-            export VX_KERNEL=/usr/wind/target/config/ims_std_bsp/vxWorks  
-
-            cd /usr/wind/target/sys
-            ln -s ../signal.h
-            ln -s ../time.h
-            ln -s socket.h sockio.h
-            ln -s ../selectLib.h select.h
-            ln -s ../timers.h
-            touch file.h param.h resource.h utsname.h var.h ../netdb.h ../a.out.h ../termios.h
-         echo &#34; ******ADD #include \&#34;sys/times.h\&#34; to sys/time.h &#34;
-            &lt;/pre&gt;
-&lt;p&gt;The configure script must be changed in the following way to get the linking tests to work, once in the correct directory issue the following commands:&lt;/p&gt;
-&lt;pre&gt;      sed -e &#39;s%main.*()%vxmain()%&#39; configure &gt; configure.vxnew
-            mv configure.vxnew configure
-            chmod 755 configure
-      &lt;/pre&gt;
-&lt;p&gt;The new version 4 of NTP requires some maths functions so it links in the maths library (-lm) in the &lt;tt&gt;./ntpd/Makefile.am&lt;/tt&gt; file change the line &lt;tt&gt;ntpd_LDADD = $(LDADD) -lm&lt;/tt&gt; by removing the &amp;ldquo;-lm&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;You are now ready to compile.&lt;/p&gt;
-&lt;p&gt;The ./configure.in file needed to be altered to allow for a host-target configuration to take place.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The define SYS_VXWORKS was added to the compilation flags.&lt;/li&gt;
-&lt;li&gt;Little endianess is set if the target is of type iX86.&lt;/li&gt;
-&lt;li&gt;The size of char, integer, long values are all set. If Wind River ever changes these values they will need to be updated.&lt;/li&gt;
-&lt;li&gt;clock_settime() is defined to be used for setting the clock.&lt;/li&gt;
-&lt;li&gt;The Linking flags have -r added to allow for relinking into the vxWorks kernel&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Unfortunately I have had to make use of the &lt;tt&gt;./include/ntp_machine.h&lt;/tt&gt; file to add in the checks that would have been checked at linking stage by &lt;tt&gt;autoconf&lt;/tt&gt;, a better method should be devised.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;There is now a &lt;tt&gt;NO_MAIN_ALLOWED&lt;/tt&gt; define that simulates command line args, this allows the use of the normal startup sysntax.&lt;/li&gt;
-&lt;li&gt;POSIX timers have been added.&lt;/li&gt;
-&lt;li&gt;Structures normally found in &lt;tt&gt;netdb.h&lt;/tt&gt; have been added with, the corresponding code is in &lt;tt&gt;./libntp/machines.c&lt;/tt&gt;. Where possible the defines for these have been kept non-vxWorks specific.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Unfortunately there are still quite a few &lt;tt&gt;SYS_VXWORKS&lt;/tt&gt; type defines in the source, but I have eliminated as many as possible. You have the choice of using the &lt;tt&gt;usrtime.a&lt;/tt&gt; library available from the vxworks archives or forgoing &lt;tt&gt;adjtime()&lt;/tt&gt; and using the &lt;tt&gt;clock_[get|set]time()&lt;/tt&gt;. The &lt;tt&gt;./include/ntp_machine.h&lt;/tt&gt; file clearly marks how to do this.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;compilation-issues&#34;&gt;Compilation issues&lt;/h4&gt;
-&lt;p&gt;You will need autoconf and automake &amp;hellip; available free from the gnu archives worldwide.&lt;/p&gt;
-&lt;p&gt;The variable &lt;tt&gt;arch&lt;/tt&gt; is the target architecture (e.g. i486)&lt;/p&gt;
-&lt;pre&gt;            mkdir A.vxworks)
-            cd A.vxworks
-            ../configure --target=arch-wrs-vxworks
-            make
-       &lt;/pre&gt;
-&lt;p&gt;Options I normally use are the &lt;tt&gt;&amp;ndash;disable-all-clocks &amp;ndash;enable-LOCAL-CLOCK&lt;/tt&gt; flags. The program should proceed to compile without problem. The daemon ntpd, ntpdate, ntptrace, ntpdc, ntpq programs and of course the libraries are all fully ported. The other utilities are not, but they should be easy to port.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;running-the-software&#34;&gt;Running the software&lt;/h4&gt;
-&lt;p&gt;Load in the various files, call them in the normal vxWorks function type manner. Here are some examples. Refer to the man pages for further information.&lt;/p&gt;
-&lt;pre&gt;            ld &lt; ntpdate/ntpdate
-            ld &lt; ntpd/ntpd
-            ld &lt; ntptrace/ntptrace
-            ld &lt; ntpq/ntpq
-            ld &lt; ntpdc/ntpdc
-            ntpdate (&#34;-b&#34;, &#34;192.168.0.245&#34;)
-            sp(ntpd, &#34;-c&#34;, &#34;/export/home/casey/ntp/ntp.conf&#34;)
-            ntpdc(&#34;-c&#34;, &#34;monlist&#34;, &#34;192.168.0.244&#34;)
-            ntpq(&#34;-c&#34;, &#34;peers&#34;, &#34;192.168.0.244&#34;)
-            ntptrace(&#34;192.168.0.244&#34;)
-        &lt;/pre&gt;
-&lt;p&gt;Casey Crellin, &lt;a href=&#34;mailto:casey@csc.co.za&#34;&gt;casey@csc.co.za&lt;/a&gt;&lt;/p&gt;
-
-      </description>
+      <description>Last update: 21-Oct-2010 23:44 UTC
+Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time OS&amp;rsquo;s and other embeddable kernels, particularly where main() is not allowed, and where the configure scripts need to be altered.
+ Configuration issues I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree.</description>
     </item>
     
     <item>
-      <title>Archives: Windows NT</title>
+      <title>Windows NT</title>
       <link>/archives/hints/winnt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/archives/hints/winnt/</guid>
-      <description>
-        
-        
-        &lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
-&lt;p&gt;The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. IPv6 is not implemented yet for Win32 platforms. A ready-to-run install distribution is available from Meinberg at &lt;a href=&#34;http://www.meinberg.de/english/sw/ntp.htm&#34;&gt;http://www.meinberg.de/english/sw/ntp.htm.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in Microsoft KB 875424. A less desirable alternative that avoids changing registry keys is to use the &lt;tt&gt;&amp;ndash;with-wintime&lt;/tt&gt; option when building the executable.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;authentication-keys&#34;&gt;Authentication Keys&lt;/h4&gt;
-&lt;p&gt;With this release ntp-keygen is supported. See the &lt;a href=&#34;/archives/4.2.8-series/keygen&#34;&gt;ntp keygen documentation&lt;/a&gt; for details on how to use ntp-keygen.&lt;/p&gt;
-&lt;p&gt;&lt;tt&gt;ntpd&lt;/tt&gt; can now use the generated keys in the same way as on Unix platforms. Please refer to the &lt;a href=&#34;/archives/4.2.8-series/authopt&#34;&gt;Authentication Options&lt;/a&gt; for details on how to use these.&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;NOTE&lt;/h4&gt;
-
-    ntpd and &lt;tt&gt;ntp-keygen&lt;/tt&gt; both use OpenSSL which requires a random character file called &lt;tt&gt;.rnd&lt;/tt&gt; by default. Both of these programs will automatically generate this file if they are not found. The programs will look for an environmental variable called RANDFILE and use that for the name of the random character file if the variable exists. If it does not exist it will look for an environmental variable called HOME and use that directory to search for a file called &lt;tt&gt;.rnd&lt;/tt&gt; in that directory. Finally, if neither RANDFILE nor HOME exists it will look in &lt;tt&gt;C:``&lt;/tt&gt; for a .rnd file. In each case it will search for and create the file if the environmental variable exists or in the &lt;tt&gt;C:&lt;code&gt;\&lt;/code&gt;&lt;/tt&gt; directory if it doesn&amp;rsquo;t.
-
-&lt;/div&gt;
-
-&lt;p&gt;Note that ntpd normally runs as a service so that the only way that it will have either RANDFILE or HOME defined is if it is a System environmental variable or if the service is run under a specific account name and that account has one of those variables defined. Otherwise it will use the file &lt;tt&gt;c:.rnd&lt;/tt&gt;. This was done so that OpenSSL will work normally on Win32 systems. This obviates the need to ship the OpenSSL.exe file and explain how to generate the .rnd file. A future version may change this behavior.&lt;/p&gt;
-&lt;p&gt;Refer to Compiling Requirements and Instructions for how to compile the program.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;reference-clocks&#34;&gt;Reference Clocks&lt;/h4&gt;
-&lt;p&gt;Reference clock support under Windows NT is tricky because the IO functions are so much different. Some of the clock types have been built into the ntpd executable and should work but have not been tested by the ntp project. If you have a clock that runs on Win32 and the driver is there but not implemented on Win32 you will have make the required configuration changes in config.h and then build ntpd from source and test it. The following reference clock is known to work and is supported by Windows NT: &lt;a href=&#34;/archives/drivers/driver1&#34;&gt;Type 1&lt;/a&gt; Undisciplined Local Clock (LOCAL)&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;functions-supported&#34;&gt;Functions Supported&lt;/h4&gt;
-&lt;p&gt;All NTP functions are supported with some constraints. See the TODO list below. Note that the ntptrace executable is not supported and you should use the PERL script version instead.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;accuracy&#34;&gt;Accuracy&lt;/h4&gt;
-&lt;p&gt;Greg Brackley has implemented a fantastic interpolation scheme that improves the precision of the NTP clock using a realtime thread (is that poetic or what!) which captures a tick count from the 8253 counter after each OS tick. The count is used to interpolate the time between operating system ticks.&lt;/p&gt;
-&lt;p&gt;On a typical 200+ MHz system NTP achieves a precision of about 5 microseconds and synchronizes the clock to +/-500 microseconds using the &lt;a href=&#34;/archives/drivers/driver29/&#34;&gt;Trimble Palisade&lt;/a&gt; as UTC reference. This allows distributed applications to use the 10 milliseconds ticks available to them with high confidence.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;binaries&#34;&gt;Binaries&lt;/h4&gt;
-&lt;p&gt;Recent InstallShield based executable versions of NTP for Windows NT (intel) are available from:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.five-ten-sg.com/&#34;&gt;http://www.five-ten-sg.com/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;todo&#34;&gt;ToDo&lt;/h4&gt;
-&lt;p&gt;These tasks are in no particular order of priority.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Add IPv6 support&lt;/li&gt;
-&lt;li&gt;See if precision can be improved by using CPU cycle counter for tick interpolation.&lt;/li&gt;
-&lt;li&gt;Make precision time available to applications using NTP_GETTIME API&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;compiling-requirements&#34;&gt;Compiling Requirements&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Windows 7 or Windows.NET Server 2003, or later.&lt;/li&gt;
-&lt;li&gt;Windows NT 4.0 Windows 2000, Windows XP or Windows Vista &lt;em&gt;may&lt;/em&gt; still work.&lt;/li&gt;
-&lt;li&gt;Microsoft Visual C++ 2008, 2010, or 2013 EE&lt;/li&gt;
-&lt;li&gt;Some way of uncompressing and untarring the gzipped tar file.&lt;/li&gt;
-&lt;li&gt;OpenSSL must be built on the box before building NTP. Additional steps would be required to not use OpenSSL.&lt;/li&gt;
-&lt;li&gt;Microsoft Visual C++ redistributables&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a name=&#34;Compiling&#34;&gt;&lt;strong&gt;Compiling Instructions&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install Microsoft Visual C++ &lt;a href=&#34;https://www.microsoft.com/en-us/download/details.aspx?id=48145&#34;&gt;redistributables&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Install &lt;a href=&#34;http://www.slproweb.com/products/Win32OpenSSL.html&#34;&gt;OpenSSL full installer for Windows&lt;/a&gt;. Add the following to your system environment variables in the control panel (adjusting paths as appropriate to point to the directory containing only an openssl subdirectory, for OPENSSL_INC, and to the directory containing openssl .lib files for OPENSSL_LIB:
-&lt;ul&gt;
-&lt;li&gt;OPENSSL_INC=C:\OpenSSL\include&lt;/li&gt;
-&lt;li&gt;OPENSSL_LIB=C:\OpenSSL\lib&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Unpack the &lt;code&gt;NTP-4.x.tar.gz&lt;/code&gt; using utilities such as WinZip or WinRar.&lt;/li&gt;
-&lt;li&gt;Run Microsoft Visual C++ 2008 EE.&lt;/li&gt;
-&lt;li&gt;Open the &lt;code&gt;ports\winnt\vs2008\ntp.sln&lt;/code&gt; solution file&lt;/li&gt;
-&lt;li&gt;Batch build all projects (Build menu, Batch Build&amp;hellip;, select all, build).&lt;/li&gt;
-&lt;li&gt;The built binaries can be found in the &lt;code&gt;ports\winnt\v2008\Win32-bin\Release&lt;/code&gt; directory.&lt;/li&gt;
-&lt;li&gt;If you are shipping binaries in a kit it is strongly recommended that you ship this file along with the binaries.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;configuration-file&#34;&gt;Configuration File&lt;/h4&gt;
-&lt;p&gt;The default NTP configuration file path is &lt;code&gt;%SystemRoot%\system32\drivers\etc\&lt;/code&gt;. (&lt;code&gt;%SystemRoot%&lt;/code&gt; is an environmental variable that can be determined by typing &amp;ldquo;set&amp;rdquo; at the &amp;ldquo;Command Prompt&amp;rdquo; or from the &amp;ldquo;System&amp;rdquo; icon in the &amp;ldquo;Control Panel&amp;rdquo;).&lt;/p&gt;
-&lt;p&gt;Refer to your system environment and create your &lt;tt&gt;ntp.conf&lt;/tt&gt; file in the directory corresponding to your system  installation. The older &lt;code&gt;&amp;lt;WINDIR&amp;gt;\ntp.conf&lt;/code&gt; is still supported but you will get a log entry reporting that the first file wasn&amp;rsquo;t found.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;installation-instructions&#34;&gt;Installation Instructions&lt;/h4&gt;
-&lt;p&gt;The &lt;tt&gt;instsrv&lt;/tt&gt; program in the instsrv subdirectory of the distribution can be used to install &amp;lsquo;ntpd&amp;rsquo; as a service and start automatically at boot time. Instsrv is automatically compiled with the rest of the distribution if you followed the steps above.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Start a command prompt and enter &lt;code&gt;instsrv.exe &amp;lt;pathname_for_ntpd.exe&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Clicking on the &amp;ldquo;Services&amp;rdquo; icon in the &amp;ldquo;Control Panel&amp;rdquo; will display the list of currently installed services in a dialog box. The NetworkTimeProtocol service should show up in this list. Select it in the list and hit the &amp;ldquo;Start&amp;rdquo; button in the dialog box. The NTP service should start.&lt;/li&gt;
-&lt;li&gt;You can also stop and start the service by typing &lt;code&gt;net start | stop NetworkTimeProtocol&lt;/code&gt; at the DOS prompt.&lt;/li&gt;
-&lt;li&gt;View the event log by clicking on the &amp;ldquo;Event Viewer&amp;rdquo; icon in the &amp;ldquo;Administrative Tools&amp;rdquo; group, there should be several successful startup messages from NTP. NTP will keep running and restart automatically when the machine is rebooted.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You can change the start mode (automatic/manual) and other startup parameters corresponding to the NTP service in the &amp;ldquo;Services&amp;rdquo; dialog box if you wish.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;removing-ntp&#34;&gt;Removing NTP&lt;/h4&gt;
-&lt;p&gt;You can also use &lt;tt&gt;instsrv&lt;/tt&gt; to delete the NTP service by entering: &lt;code&gt;instsrv.exe remove&lt;/code&gt;.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;command-line-parameters-and-registry-entries&#34;&gt;Command Line Parameters and Registry Entries&lt;/h4&gt;
-&lt;p&gt;Unlike the Unix environment, there is no clean way to run &amp;lsquo;ntpdate&amp;rsquo; and reset the clock before starting &amp;lsquo;ntpd&amp;rsquo; at boot time. NTP will step the clock up to 1000 seconds by default. While there is no reason that the system clock should be that much off during bootup if &lt;tt&gt;ntpd&lt;/tt&gt; was running before, you may wish to override this default and/or pass other command line directives.&lt;/p&gt;
-&lt;p&gt;Use the registry editor to edit the value for the ntpd executable under &lt;code&gt;LocalMachine\System\CurrentControlSet\Services\NTP&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Add the &lt;code&gt;-g&lt;/code&gt; option to the ImagePath key, behind &lt;code&gt;%INSTALLDIR&amp;gt;\ntpd.exe&lt;/code&gt;. This will force NTP to accept large time errors (including 1.1.1980 00:00)&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;bug-reports&#34;&gt;Bug Reports&lt;/h4&gt;
-&lt;p&gt;Please follow the &lt;a href=&#34;/archives/4.2.8-series/bugs&#34;&gt;NTP Bug Reporting Procedures&lt;/a&gt; to report bugs or request enhancements.&lt;/p&gt;
-&lt;p&gt;Last update: 6-Apr-2014 23:27&lt;/p&gt;
-
-      </description>
+      <description>Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. IPv6 is not implemented yet for Win32 platforms. A ready-to-run install distribution is available from Meinberg at http://www.</description>
     </item>
     
   </channel>

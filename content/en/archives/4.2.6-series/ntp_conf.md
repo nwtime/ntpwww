@@ -3,7 +3,7 @@ title: "Configuration File Definition (Advanced)"
 type: archives
 ---
 
-![gif](/archives/pic/pogo7.gif)[from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/pogo7.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 Racoon is shooting configuration bugs.
 

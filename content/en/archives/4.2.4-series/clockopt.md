@@ -3,7 +3,7 @@ title: "Reference Clock Options"
 type: archives
 ---
 
-![gif](/archives/pic/stack1a.jpg)Master Time Facility at the [UDel Internet Research Laboratory](http://www.eecis.udel.edu/%7emills/lab.html)
+![gif](/archives/pic/stack1a.jpg)Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab)
 
 Last update: 18:37 UTC Thursday, July 28, 2005
 

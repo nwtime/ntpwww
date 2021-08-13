@@ -3,7 +3,7 @@ title: "ntpd System Log Messages"
 type: archives
 ---
 
-![gif](/archives/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 The log can be shrill at times.
 

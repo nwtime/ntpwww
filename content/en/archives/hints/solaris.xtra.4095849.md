@@ -14,7 +14,7 @@ If the time_constant parameter is 7 or higher, and the phase-lock looping model
 is in use, the system will take a "integer divide zero trap" panic in
 the clock routine as soon as the time_offset becomes non-zero.
 
-time_constant defaults to 0\.  The only place it is set is in the ntp_adjtime
+time_constant defaults to 0.  The only place it is set is in the ntp_adjtime
 system call, from the 'constant' element of the timex structure argument.
 
  Work around:
@@ -74,7 +74,7 @@ If the time_constant parameter is 7 or higher, and the phase-lock looping model
 is in use, the system will take a "integer divide zero trap" panic in
 the clock routine as soon as the time_offset becomes non-zero.
 
-time_constant defaults to 0\.  The only place it is set is in the ntp_adjtime
+time_constant defaults to 0.  The only place it is set is in the ntp_adjtime
 system call, from the 'constant' element of the timex structure argument.
 ----------------------------------------------------------------------------
 

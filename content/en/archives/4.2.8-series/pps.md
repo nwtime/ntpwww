@@ -3,7 +3,7 @@ title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
 ---
 
-![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Alice is trying to find the PPS signal connector.
 
@@ -36,7 +36,7 @@ A Gadget Box built by Chuck Hanavin
 
 #### Gadget Box
 
-The gadget box shown above is assembled in a 5"x3"x2" aluminum minibox containing the circuitry, serial connector and optional 12-V power connector. A complete set of schematics, PCB artwork, drill templates can be obtained via the web from as [gadget.tar.Z](https://www.eecis.udel.edu/~ntp/ntp_spool/hardware/gadget.tar.Z).
+The gadget box shown above is assembled in a 5"x3"x2" aluminum minibox containing the circuitry, serial connector and optional 12-V power connector. A complete set of schematics, PCB artwork, drill templates can be obtained via the web from as [gadget.tar.Z](/reflib/software/gadget.tar.Z).
 
 The gadget box includes two subcircuits. One of these converts a TTL positive edge into a fixed-width pulse at EIA levels and is for use with a timecode receiver or precision oscillator with a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) driver.
 

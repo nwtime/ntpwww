@@ -3,7 +3,7 @@ title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
 ---
 
-![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Alice is trying to find the PPS signal connector.
 
@@ -35,7 +35,7 @@ A Gadget Box built by Chuck Hanavin
 
 The PPS signal can be connected in either of two ways: via the DCD data carrier detect pin of a serial port or via the ACK acknowledge pin of a parallel port, depending on the hardware and operating system. Note that NTP no longer supports connection via the RD data pin of a serial port.
 
-However, the PPS signal levels are usually incompatible with serial port levels. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional modem designed to decode the radio timecode signals transmitted by Canadian time and frequency station CHU. This can be used with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) driver. A complete set of schematics, PCB artwork and drill templates can be obrtained via the web at [gadget.tar.Z](https://www.eecis.udel.edu/~ntp/ntp_spool/hardware/gadget.tar.Z).
+However, the PPS signal levels are usually incompatible with serial port levels. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional modem designed to decode the radio timecode signals transmitted by Canadian time and frequency station CHU. This can be used with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) driver. A complete set of schematics, PCB artwork and drill templates can be obrtained via the web at [gadget.tar.Z](/reflib/software/gadget.tar.Z).
 
 * * *
 

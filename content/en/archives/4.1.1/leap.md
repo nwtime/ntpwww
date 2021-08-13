@@ -3,7 +3,7 @@ title: "NTP Timescale and Leap Seconds"
 type: archives
 --- 
 
-![gif](/archives/pic/alice15.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/alice15.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.  
 

@@ -1,7 +1,7 @@
 
 ---
 title: "Briefs"
-type: docs
+type: archives
 ---
 
 {{% pageinfo %}}

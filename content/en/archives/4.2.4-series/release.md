@@ -3,7 +3,7 @@ title: "NTP Version 4 Release Notes"
 type: archives
 ---
 
-![gif](/archives/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 The rabbit toots to make sure you read this.
 
@@ -24,7 +24,7 @@ The code compiles and runs properly in all test host configurations available to
 
 This release has been compiled and tested on many systems, including SunOS 4.1.3, Solaris 2.5.1-2.10, Alpha Tru64 4.0-5.1, Ultrix 4.4, Linux 2.4.2, FreeBSD 4.5-5.3 and HP-UX 10.02. It has been compiled and tested by others on Windows NT4, 2000 and XP, but not yet on other Windows versions or for VMS. There are several new features apparently incompatible with Linux systems, including some modes used with the Autokey protocol. The developer corps looks for help elsewhere to resolve these differences.
 
-This note summarizes the differences between this software release of NTPv4, called ntp-4.x.x, and the previous NTPv3 version, called xntp3-5.x.x. Additional information on protocol compatibility details is on the [Protocol Conformance Statement](http://www.eecis.udel.edu/%7emills/biblio.html) page.
+This note summarizes the differences between this software release of NTPv4, called ntp-4.x.x, and the previous NTPv3 version, called xntp3-5.x.x. Additional information on protocol compatibility details is on the [Protocol Conformance Statement](/reflib/biblio) page.
 
 * * *
 
@@ -38,7 +38,7 @@ This note summarizes the differences between this software release of NTPv4, cal
 *   The NTPv4 design allows clients to increase the poll intervals even when synchronized directly to the server. In NTPv3 the poll interval in such cases was clamped to the minimum, usually 64 s. For those servers with hundreds of clients, the new design can dramatically reduce the network load, especially when large numbers of potential clients, as in national laboratory services.
 *   A scheme designed to reduce "clockhopping" when the choice of servers changes frequently as the result of comparatively insignificant quality changes.
 
-4.  This release includes support for the [_nanokernel_](https://www.eecis.udel.edu/~ntp/ntp_spool/software/nanokernel.tar.gz) precision time kernel support, which is now in stock FreeBSD and optional Linux kernels. If a precision time source such as a GPS timing receiver or cesium clock is available, kernel timekeeping can be improved to the order of one microsecond. The older _microtime_ kernel for Digital/Compaq/HP Tru64, Digital Ultrix, as well as Sun Microsystems SunOS and Solaris, continues to be supported.
+4.  This release includes support for the [_nanokernel_](/reflib/software/nanokernel.tar.gz) precision time kernel support, which is now in stock FreeBSD and optional Linux kernels. If a precision time source such as a GPS timing receiver or cesium clock is available, kernel timekeeping can be improved to the order of one microsecond. The older _microtime_ kernel for Digital/Compaq/HP Tru64, Digital Ultrix, as well as Sun Microsystems SunOS and Solaris, continues to be supported.
 5.  This release includes support for Autokey public-key cryptography, which is the preferred scheme for authenticating servers to clients. Autokey Version 2 uses NTP header extension fields and protocols as described on the NTP project page linked from www.ntp.org. This release includes support for additional message digest and digital signature schemes supported by the OpenSSL software library, as well as new identity schemes based on cryptographic challenge/response algorithms. The new design greatly simplifies key generation and distribution and provides orderly key refreshment. Security procedures and media formats are consistent with industry standard X.509 Version 3 certificates and authority procedures. Specific improvements to the protocol include a reduction in the number of messages required and a method to protect the cookie used in client/server mode against disclosure. Additional information about Autokey cryptography is contained in the [Authentication Options](/archives/4.2.4-series/authopt) page and links from there. See also the new <tt>cryptostats</tt> monitoring statistics file in the [Monitoring Options](/archives/4.2.4-series/monopt) page.
 6.  This release includes support for a discrete event simulator (DES), which allows the NTP algorithms to be tested in an embedded environment with systematic and pseudorandom network delay and oscillator wander distributions. This has been used to verify correct operation under conditions of extreme error and misconfiguration. See the [<tt>ntpdsim</tt> - Network Time Protocol (NTP) simulator](/archives/4.2.4-series/ntpdsim) page.
 7.  NTPv4 includes two new association modes which in most applications can avoid per-host configuration altogether. Both of these are based on IP multicast technology and Autokey cryptography. They provide automatic discovery, configuration and authentication of servers and clients without identifying servers or clients in advance. In multicast mode a server sends a message at fixed intervals using specified multicast group addresses, while clients listen on these addresses.

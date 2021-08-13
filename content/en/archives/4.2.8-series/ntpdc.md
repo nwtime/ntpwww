@@ -3,7 +3,7 @@ title: "ntpdc - special NTP query program"
 type: archives
 ---
 
-![gif](/archives/pic/alice31.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/alice31.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 This program is a big, deprecated puppy.
 

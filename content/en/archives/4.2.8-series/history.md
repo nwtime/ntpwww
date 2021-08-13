@@ -17,13 +17,13 @@ Please note THE CHANGES DO NOT AFFECT THE PROTOCOL SPECIFICATION AND DO NOT AFFE
 
 * * *
 
-#### 1\. Transparent Design
+#### 1. Transparent Design
 
 During the project a number of minor inconsistencies in various algorithms were found and resolved. In most cases this did not result in any changes in behavior, just a more simplified, transparent and easier to maintain design. In a few cases behavior has been modified to correct deficiencies and to avoid hostile attacks, as described below.
 
 * * *
 
-#### 2\. Documentation
+#### 2. Documentation
 
 The documentation required a major upgrade. Many pages have been overhauled, some completely rewritten and new ones added. A site map has been added and sorted by page category. A comprehensive command index has been added and sorted by page category. The command index includes a brief gloss for each command. A page has been added to show the various status word and event decodes used for monitoring and event reporting. The decodes show the internal code, ASCII report and short function gloss.
 
@@ -31,13 +31,13 @@ New pages have been added on association management, automatic server discovery 
 
 * * *
 
-#### 3\. Bulletproofing
+#### 3. Bulletproofing
 
 In a continuing mission the code flow has been carefully adjusted to decrease vulnerability to configuration errors and possibly hostile attack. The order of restriction processing was adjusted to deflect access denials as early as possible and without consuming useless processor cycles. This is especially important in rate defense, as the MRU list should only be used for clients that could be legitimately served. In addition, the Autokey protocol was adjusted to avoid some potentially nasty disruption attacks.
 
 * * *
 
-#### 4\. Rate Management
+#### 4. Rate Management
 
 Strict rate controls have been refined in both outbound and inbound traffic for both minimum headway (guard time) and minimum average headway. This is a major improvement over the original limitreject design of 1992 and upgrade circa 2003. Headway violations result in an optional _kiss-o'-death_ (KoD) packet. To avoid a clogging vulnerability, the KoD packets are themselves rate controlled for each source address separately.
 
@@ -49,7 +49,7 @@ Rate management applies also to Autokey messages. This fixes a problem when ibur
 
 * * *
 
-#### 5\. Frequency File
+#### 5. Frequency File
 
 Initial frequency training has always been a problem, as it can take a very long time to trim the frequency estimate to nominal values. Once this happens and the frequency file is written, subsequent reboots will restore the frequency and frequency training is avoided. The problem is exacerbated using toll modem services such as ACTS which make a call at each poll interval. Until the training is complete the poll interval is held below the desired maximum as toll charges accrue.
 
@@ -61,7 +61,7 @@ In the original design the frequency file was written at one-hour intervals. Thi
 
 * * *
 
-#### 6\. Leapseconds
+#### 6. Leapseconds
 
 The leapsecond processing has been overhauled once again. The problem is to avoid fake leap warnings displayed by an errant server and to insure correct response in case of large time changes which might validate or invalidate arming for a subsequent leap. No leap information is used unless the client is synchronized to a proventic source. The values obtained from an Autokey server or peer are updated if newer than the current values. Server leap warning bits are disregarded if these values are available. If not, and if either a majority of the servers show leap warning bits or if one or more of the survivors are a reference clock with leap warning bit, the leap is armed. If armed by server leap warning bits and these provisions no longer prevail, the leap is disarmed. The NTPv4 protocol specifically does not speak to this issue.
 
@@ -69,7 +69,7 @@ The leap armed condition is displayed in the host status word. Transitions betwe
 
 * * *
 
-#### 7\. Orphan Mode and Local Clock Driver
+#### 7. Orphan Mode and Local Clock Driver
 
 The orphan mode code has been overhauled to correct some minor bugs and to clarify operation under normal and recovery conditions. The requirement that all subnet hosts have orphan configuration has been removed. The only requirement is that the orphan clients on the DMZ network sharing the root server(s) be so configured The scheme now works if the root servers are configured with each other, either in symmetric or broadcast modes. Orphan mode is not considered in the NTPv4 protocol specification.
 
@@ -77,7 +77,7 @@ The local clock driver can be very dangerous when used as a fallback when connec
 
 * * *
 
-#### 8\. Poll Rate Control
+#### 8. Poll Rate Control
 
 One of the most persistent problems is when after long operation and then a failure and then subsequently recovery, a client can take a long time to refresh the clock filter and resynchronize. Once the client has backed off the poll interval after a lengthy outage, it sends polls at that interval until receiving a response. At that time it temporarily retries at the minimum poll interval to fill up the clock filter. If iburst is configured, this will happen after 10 seconds or so and the client then resumes its poll interval required by the discipline time constant. This avoids needless network traffic while the poll interval increases gradually to the maximum. Further information is in the current web documentation.
 
@@ -87,7 +87,7 @@ In order to speed response to initial startup when a reference clock is availabl
 
 * * *
 
-#### 9\. Autokey
+#### 9. Autokey
 
 The management of host and group names with respect to Autokey configuration and key generation has been removed and simplified. On host certificates, the subject and issuer fields carry the group name, while other certificates carry the host name, which can be an arbitrary string having nothing to do with the DNS name. This opens up a possible future plan to use the Autokey name rather than the IP address when constructing the session key. It also allows a client to easily switch from one group to another without regenerating the certificate. Further information is in the current web documentation and in the latest Autokey ID.
 
@@ -97,7 +97,7 @@ The protocol machine is now restarted every several days in order to update cert
 
 * * *
 
-#### 10\. Report, Log and Event Codes
+#### 10. Report, Log and Event Codes
 
 The status, selection, source, event and log decodes have been adjusted for consistency. Some of the decodes were missing, some with errors and a few new ones added. Old versions of ntpq continue to work without change, but display a new code as space. Except for the new codes, this behavior is consistent with RFC 1305 and proposed for the NTPv4 protocol specification.
 
@@ -115,15 +115,15 @@ When the numbers were changed to align for reporting purposes, some scripts no l
 
 * * *
 
-#### 11\. Two-step and timestamp capture
+#### 11. Two-step and timestamp capture
 
-A number of interesting ideas were found in the IEEE 1588 Precision Time Protocol specification. One of them was the two-step protocol in which the transmit timestamp is sent in a following message. However, the PTP design operates only in a master-slave configuration and is not directly usable in NTP. The protocol was adapted to the NTP symmetric design, which requires four state variables rather than two. It is described on [Timestamp Capture Principles](http://www.eecis.udel.edu/~mills/stamp.html). This might be an interesting project for future research.
+A number of interesting ideas were found in the IEEE 1588 Precision Time Protocol specification. One of them was the two-step protocol in which the transmit timestamp is sent in a following message. However, the PTP design operates only in a master-slave configuration and is not directly usable in NTP. The protocol was adapted to the NTP symmetric design, which requires four state variables rather than two. It is described on [Timestamp Capture Principles](/reflib/stamp). This might be an interesting project for future research.
 
 A detailed study of the timestamp capture opportunities for both hardware and software timestamping revealed that the most accurate and interoperable design involves the transmit timestamp at the beginning of the packet and then receive timestamp at the end. This makes it possible to accurately measure the offset and delay even if the ends of the synchronization path operate at different rates. It is described on the Timestamp Capture Principles page.
 
 * * *
 
-#### 12\. Windows client bug
+#### 12. Windows client bug
 
 The Windows XP and Vista clients send the NTP request in symmetric active mode rather than client mode. An unsuspecting server could mobilize a symmetric passive association, which is a serious security vulnerability. The NTPv4 servers, including those at NIST and USNO, discard symmetric active requests unless cryptographically authenticated, so Windows clients do not work. The Microsoft KB 875424 discusses the preferred workaround; however, an optional workaround is now available so that, if the request is not authenticated, the server responds with symmetric passive mode, but without mobilize an association. The workaround is enabled with the WINTIME build option.
 
@@ -131,13 +131,13 @@ The spec assumes that either peer in symmetric modes can synchronize the other s
 
 * * *
 
-#### 13\. Autonomous configuration
+#### 13. Autonomous configuration
 
 The autonomous configuration (pool and manycast) code was refined to more reliably prune excess servers. If a truechimer is discarded by the clustering algorithm and the total number of survivors is greater than the maxclock option of the tos command, it is considered excess and shows a "#" tally code. If the association is ephemeral and survives the clustering algorithm, the watchdog counter is reset. If the watchdog timer expires and the total number of associations is greater than the maxclock option of the tos command, it is demobilized. This behavior is not considered in the NTPv4 protocol specification.
 
 * * *
 
-#### 14\. Code ornamentation
+#### 14. Code ornamentation
 
 When auditing the code and figuring out its historic origin and evolution, additional commentary has been added so future generations can figure it out, too.
 

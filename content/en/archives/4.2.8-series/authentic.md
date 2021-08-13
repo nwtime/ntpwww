@@ -3,7 +3,7 @@ title: "Authentication Support"
 type: archives
 ---
 
-![gif](/archives/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Our resident cryptographer; now you see him, now you don't.
 
@@ -22,7 +22,7 @@ Last update: 24-Jul-2018 09:12 UTC
 
 #### Introduction
 
-This page describes the various cryptographic authentication provisions in NTPv4. Authentication support allows the NTP client to verify that servers are in fact known and trusted and not intruders intending accidentally or intentionally to masquerade as a legitimate server. A detailed discussion of the NTP multi-layer security model and vulnerability analysis is in the white paper [NTP Security Analysis](http://www.eecis.udel.edu/~mills/security.html).
+This page describes the various cryptographic authentication provisions in NTPv4. Authentication support allows the NTP client to verify that servers are in fact known and trusted and not intruders intending accidentally or intentionally to masquerade as a legitimate server. A detailed discussion of the NTP multi-layer security model and vulnerability analysis is in the white paper [NTP Security Analysis](/reflib/security).
 
 The NTPv3 specification (RFC-1305) defined an authentication scheme properly described as _symmetric key cryptography_. It used the Data Encryption Standard (DES) algorithm operating in cipher-block chaining (CBC) mode. Subsequently, this algorithm was replaced by the RSA Message Digest 5 (MD5) algorithm commonly called keyed-MD5. Either algorithm computes a message digest or one-way hash which can be used to verify the client has the same message digest as the server. The MD5 message digest algorithm is included in the distribution, so without further cryptographic support, the distribution can be freely exported.
 

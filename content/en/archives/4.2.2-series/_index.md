@@ -3,7 +3,7 @@ title: "4.2.2-series"
 type: archives
 ---
 
-![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/%7emills/pictures.html)
+![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures)
 
 Pleased to meet you.
 

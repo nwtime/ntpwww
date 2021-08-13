@@ -3,7 +3,7 @@ title: "Kernel Model for Precision Timekeeping"
 type: archives
 ---
 
-![gif](/archives/pic/alice61.gif) [from _Pogo_, Walt Kelly](http://www.eecis.udel.edu/~mills/pictures.html)
+![gif](/archives/pic/alice61.gif) [from _Pogo_, Walt Kelly](/reflib/pictures)
 
 Alice finds the kernel a house of cards.
 
