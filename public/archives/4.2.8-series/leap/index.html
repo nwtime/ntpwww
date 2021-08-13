@@ -160,13 +160,8 @@
 <p>If the precision time kernel support is available and enabled, at the beginning of the day of the leap event, the leap bits are set by the Unix <tt>ntp_adjtime()</tt> system call to arm the kernel for the leap at the end of the day. The kernel automatically inserts one second exactly at the time of the leap, after which the leap bits are turned off. If the kernel support is not availed or disabled, the leap is implemented as a crude hack by setting the clock back one second using the Unix <tt>settimeofday()</tt> system call, which effectively repeats the last second. Note however that in any case setting the time backwards by one second does not actually set the system clock backwards, but effectively stalls the clock for one second. These points are expanded in the white paper <a href="/reflib/leap">The NTP Timescale and Leap Seconds</a>. If the leap timer is less than one day, the leap bits are set for dependent servers and clients.</p>
 <p>As an additional feature when the NIST leap seconds file is installed, it is possible to determine the number of leap seconds inserted in UTC since UTC began on 1 January 1972. This represents the offset between International Atomic Time (TAI) and UTC. If the precision time kernel modifications are available and enabled, the TAI offset is available to application programs using the <tt>antipasti()</tt> system call. If the Autokey public-key cryptography feature is installed, the TAI offset is automatically propagated along with other cryptographic media to dependent servers and clients.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -181,56 +176,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -242,7 +187,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

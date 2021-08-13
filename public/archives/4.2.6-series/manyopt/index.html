@@ -197,13 +197,8 @@
 <p>To support this service the DNS for some volunteer servers as been modified to collect a number of other volunteer servers and return a randomized list in response to a DNS query. The client receiving this list mobilizes some or all of them just as in the other discovery schemes and casts off the excess.</p>
 <p>The pool scheme is configured using one or <tt>pool</tt> commands with the DNS name <tt><em>region</em>.pool.ntp.org</tt>, where <tt><em>region</em></tt> is a region of the world, country of the region or state of the country or even the whole world if absent. The <tt>pool</tt> command can be used more than once; duplicate servers are detected and discarded. In principle, it is possible to use a configuration file containing a single line <tt>pool pool.ntp.org</tt>.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -218,56 +213,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -279,7 +224,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

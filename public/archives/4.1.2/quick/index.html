@@ -164,13 +164,8 @@
 <p>The best way to confirm NTP is working is using the <a href="/archives/4.1.2/ntpq"><tt>ntpq</tt></a> utility, although the <a href="/archives/4.1.2/ntpdc"><tt>ntpdc</tt></a> utility may be useful in extreme cases. See the documentation pages for further information. In the most extreme cases the <tt>-d</tt> option on the <tt>ntpd</tt> command line results in a blow-by-blow trace of the daemon operations. While the trace output can be cryptic, to say the least, it gives a general idea of what the program is doing and, in particular, details the arriving and departing packets and detected errors, if present.</p>
 <p>Sometimes the <tt>ntpd</tt>. behavior may seem to violate the Principle of Least Astonishment, but there are good reasons for this. See the <a href="/archives/4.1.2/ntpd">Network Time Protocol (NTP) daemon</a> page for revealing insights. See this page and its dependencies for additional configuration and control options. The <a href="/archives/4.1.2/notes">Notes on Configuring NTP and Setting up a NTP Subnet</a> page contains an extended discussion of these options.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -185,56 +180,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -246,7 +191,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

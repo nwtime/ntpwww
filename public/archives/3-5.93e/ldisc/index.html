@@ -187,13 +187,8 @@
 <p>On FreeBSD 2.2 and later systems the TIOCDCDTIMESTAMP ioctl is used to read the timestamp when the DCD serial go active. To use this the PPS signal must be tied to the serial port DCD signal through the appropriate level converters and pulse stretch circuitry if necessary. This enhances the accuracy of the driver to a few microseconds. Using FreeBSD 2.2 the measured delay between activation of the PPS signal and the time the timestamp is made on a 66MHz 486DX2 is 19us and on a 100MHz Pentium is 6us. The driver does NOT compensate for this.</p>
 <p>The TIOCDCDTIMESTAMP timestamping ioctl() is used automatically on FreeBSD systems if available. It is integrated into the refclock_gtlin() function so any driver using it will benefit from the enhanced accuracy.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -208,56 +203,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -269,7 +214,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

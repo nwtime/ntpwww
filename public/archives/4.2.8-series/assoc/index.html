@@ -208,13 +208,8 @@
 <p>The <tt>iburst</tt> option is useful where the system clock must be set quickly or when the network attachment requires an initial calling or training sequence, as in PPP or ISDN services. In general, this option is recommended for <tt>server</tt> and <tt>pool</tt> commands. A burst is sent only when the server is unreachable; in particular, when first starting up. Ordinarily, the clock is set within a few seconds after the first received packet. See the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page for further details about the startup behavior.</p>
 <p>The <tt>burst</tt> option is useful in cases of severe network jitter or when the network attachment requires an initial calling or training sequence. This option is recommended when the minimum poll exponent is larger than 10 (1024 s). A burst is sent only when the server is reachable. The number of packets in the burst is determined by the poll interval so that the average interval between packets (headway) is no less than the minimum poll interval for the association.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -229,56 +224,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -290,7 +235,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

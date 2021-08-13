@@ -159,13 +159,8 @@
 <p>For the utmost time quality, a number of Unix system kernel modifications can be made as described in the <a href="/archives/3-5.93e/kern">A Kernel Model for Precision Timekeeping</a> page. Specifically, the ppsclock module can be used to interface the PPS signal directly to the kernel for use as discipline sources for both time and frequency. These sources can be separately enabled and monitored using the <tt>ntp_adjtime()</tt> system call described in that page and the <tt>./include/sys/timex.h</tt> header file in the <tt>xntp3</tt> distribution. In order to use the kernel PPS signal, the <tt>xntp3</tt> distribution must be compiled with <tt>KERNEL_PLL</tt> defined.</p>
 <p>In some configurations may have multiple radio clocks, each with PPS outputs, as well as a kernel modified to use the PPS signal. In order to provide the highest degree of redundancy and survivability, the kernel PPS discipline, <tt>tty_clk</tt> module, <tt>ppsclock</tt> module and kernel modifications may all be in use at the same time, each backing up the other. The sometimes complicated mitigation rules are described in the Mitigation Rules and the <tt>prefer</tt> Keyword page.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -180,56 +175,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -241,7 +186,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

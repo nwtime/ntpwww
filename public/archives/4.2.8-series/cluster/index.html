@@ -166,13 +166,8 @@
 <p>The second termination condition is more intricate. Figure 1 shows a round where a candidate of (a) is pruned to yield the candidates of (b). Let φ<sub><em>max</em></sub> be the maximum select jitter and φ<sub><em>min</em></sub> be the minimum peer jitter over all candidates on the list. In (a), candidate 1 has the highest select jitter, so φ<sub><em>max</em></sub> = φ<sub>S</sub>(1). Candidate 4 has the lowest peer jitter, so φ<sub><em>min</em></sub> = φ<sub>R</sub>(4). Since φ<sub><em>max</em></sub> &gt; φ<sub><em>min</em></sub>, select jitter dominates peer jitter,the algorithm prunes candidate 1. In (b), φ<sub><em>max</em></sub> = φ<sub>S</sub>(3) and φ<sub><em>min</em> </sub>=φ<sub>R</sub>(4). Since φ<sub><em>max</em></sub> &lt; φ<sub><em>min</em></sub>, pruning additional candidates does not reduce select jitter, the algorithm terminates with candidates 2, 3 and 4 as survivors.</p>
 <p>The survivor list is passed on to the mitigation algorithms, which combine the survivors, select a system peer, and compute the system statistics passed on to dependent clients. Note the use of root distance λ as a weight factor at each round in the clock cluster algorithm. This is to favor the survivors with the lowest root distance and thus the smallest maximum error.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -187,56 +182,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -248,7 +193,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

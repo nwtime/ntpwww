@@ -162,13 +162,8 @@
 <p>The <tt>ntpdc</tt> utility program can be used for detailed inspection of the clock driver status. The most useful are the <tt>clockstat</tt> and <tt>clkbug</tt> commands described in the document page. While these commands permit getting quite personal with the particular driver involved, their use is seldom necessary, unless an implementation bug shows up. If all else fails, turn on the debugging trace using two <tt>-d</tt> flags in the <tt>ntpd</tt> startup command line. Most drivers will dump status at every received message in this case. While the displayed trace can be intimidating, this provides the most detailed and revealing indicator of how the driver and clock are performing and where bugs might lurk.</p>
 <p>Most drivers write a message to the <tt>clockstats</tt> file as each timecode or surrogate is received from the radio clock. By convention, this is the last ASCII timecode (or ASCII gloss of a binary-coded one) received from the radio clock. This file is managed by the <tt>filegen</tt> facility described in the <tt>ntpd</tt> page and requires specific commands in the configuration file. This forms a highly useful record to discover anomalies during regular operation of the clock. The scripts included in the <tt>./scripts/stats</tt> directory can be run from a <tt>cron</tt> job to collect and summarize these data on a daily or weekly basis. The summary files have proven inspirational to detect infrequent misbehavior due to clock implementation bugs in some radios.</p>
 
-<<<<<<< HEAD
-	
-		<style>
-=======
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -183,56 +178,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -244,7 +189,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');

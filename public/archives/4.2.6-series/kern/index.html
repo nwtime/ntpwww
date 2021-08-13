@@ -158,21 +158,12 @@
 <p>The technical report <sup><a href="#myfootnote2">2</a></sup>, which is a revision and update of an earlier report <sup><a href="#myfootnote3">3</a></sup>, describes an engineering model for a precision clock discipline function for a generic operating system. The model is the same hybrid phase/frequency-lock feedback loop used by <tt>ntpd</tt>, but implemented in the kernel. The code described in <sup><a href="#myfootnote2">2</a></sup> is included in Solaris and Digital/Compaq/HP Tru64. It provides two system calls <tt>ntp_gettime()</tt> and <tt>ntp_adjtime()</tt> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup><a href="#myfootnote1">1</a></sup> is in FreeBSD and is an option for Linux, SunOS and Tru64; however, of the options, only the Linux implementation, which does not include licensed code, is readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available from <a href="/reflib/software/nanokernel.tar.gz">nanokernel.tar.gz</a>.</p>
 <p>The kernel model also provides support for an external precision timing source, such as described in the <a href="/archives/4.2.6-series/pps">Pulse-per-second (PPS) Signal Interfacing</a> page. The new system calls are used by the <a href="/archives/4.2.6-series/kernpps">PPSAPI interface</a> and in turn by the <a href="/archives/drivers/driver22">PPS Clock Discipline</a> driver (type 22) to provide synchronization limited in principle only by the accuracy and stability of the external timing source.</p>
 <h4 id="footnotes">Footnotes</h4>
-<<<<<<< HEAD
-<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.pdf">PDF</a> | <a href="http://www.eecis.udel.edu/%7emills/database/brief/nano/nano.ppt">PowerPoint</a></p>
-<p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kerna.pdf">PDF</a>, Body: <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.ps">PostScript</a> | <a href="http://www.eecis.udel.edu/%7emills/database/reports/kern/kernb.pdf">PDF</a></p>
-<p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="http://www.eecis.udel.edu/%7emills/database/rfc/rfc1589.txt">ASCII</a></p>
-
-	
-		<style>
-=======
 <p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="/reflib/papers/nano/nano2.ps">PostScript</a> | <a href="/reflib/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="/reflib/brief/nano/nano.ps">PostScript</a> | <a href="/reflib/brief/nano/nano.pdf">PDF</a> | <a href="/reflib/brief/nano/nano.ppt">PowerPoint</a></p>
 <p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="/reflib/reports/kern/kerna.ps">PostScript</a> | <a href="/reflib/reports/kern/kerna.pdf">PDF</a>, Body: <a href="/reflib/reports/kern/kernb.ps">PostScript</a> | <a href="/reflib/reports/kern/kernb.pdf">PDF</a></p>
 <p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="/reflib/rfc/rfc1589.txt">ASCII</a></p>
 
 	  
 	  <style>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
   .feedback--answer {
     display: inline-block;
   }
@@ -187,56 +178,6 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
-	
-	
-=======
 <div>
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
@@ -248,7 +189,6 @@
 <p class="feedback--response feedback--response-no">
   Sorry to hear that.</a>
 </p>
->>>>>>> 6d5d26678335f136d76d3690b58ec7d8917691a8
 </div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');
