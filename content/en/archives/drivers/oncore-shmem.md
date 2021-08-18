@@ -196,7 +196,7 @@ The structure Hdr contains the Identifying string for each of the messages that 
 
 #### Examples
 
-There are two complete examples available. The first plots satellite positions and the station position as affected by SA, and keeps track of the mean station position, so you can run it for periods of days to get a better station position. The second shows the effective horizon by watching satellite tracks. The examples will be found in the [GNU-zipped tar file](https://www.eecis.udel.edu/~ntp/ntp_spool/software/OncorePlot.tar.gz).
+There are two complete examples available. The first plots satellite positions and the station position as affected by SA, and keeps track of the mean station position, so you can run it for periods of days to get a better station position. The second shows the effective horizon by watching satellite tracks. The examples will be found in the [GNU-zipped tar file](/reflib/software/OncorePlot.tar.gz).
 
 Try the new interface, enjoy.
 

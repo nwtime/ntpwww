@@ -3,7 +3,7 @@ title: "Reference Clock Drivers"
 type: archives
 ---
 
-![gif](/archives/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](http://www.eecis.udel.edu/%7emills/lab.html)
+![gif](/archives/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab)
 
 Last update:  13:06 UTC Wednesday, August 10, 2005
 
@@ -38,7 +38,7 @@ The local clock driver also supports an external synchronization source such as 
 
 #### Driver Calibration
 
-Some drivers depending on longwave and shortwave radio services need to know the radio propagation time from the transmitter to the receiver, which can amount to some tens of milliseconds. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the [Time and Frequency Standard Station Information](http://www.eecis.udel.edu/%7emills/ntp/qth.html) page. Receiver coordinates can be obtained or estimated from various sources. The actual calculations are beyond the scope of this document.
+Some drivers depending on longwave and shortwave radio services need to know the radio propagation time from the transmitter to the receiver, which can amount to some tens of milliseconds. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the [Time and Frequency Standard Station Information](/reflib/qth) page. Receiver coordinates can be obtained or estimated from various sources. The actual calculations are beyond the scope of this document.
 
 When more than one clock driver is supported, it is often the case that each shows small systematic offset differences relative to the rest. To reduce the effects of jitter when switching from one driver to the another, it is useful to calibrate the drivers to a common ensemble offset. The <tt>enable calibrate</tt> configuration command in the [Miscellaneous Options](/archives/4.2.2-series/miscopt) page is useful for this purpose. The calibration function can also be enabled and disabled using the <tt>ntpdc</tt> program utility.
 
