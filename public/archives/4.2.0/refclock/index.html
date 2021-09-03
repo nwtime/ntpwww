@@ -34,7 +34,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/icons/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -151,7 +151,7 @@
   <div class="container">
   	<h1>Reference Clock Drivers</h1>
      
-    <p><img src="/archives/pic/stack1a.jpg" alt="gif"> Master Time Facility at the <a href="http://www.eecis.udel.edu/%7emills/lab.html">UDel Internet Research Laboratory</a></p>
+    <p><img src="/archives/pic/stack1a.jpg" alt="gif"> Master Time Facility at the <a href="/reflib/lab">UDel Internet Research Laboratory</a></p>
 <p>Last update:  03:54 AM UTC Monday, October 13, 2003</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
@@ -172,7 +172,7 @@
 <p>The local clock driver also supports an external synchronization source such as a high resolution counter disciplined by a GPS receiver, for example. Further information is on the <a href="/archives/4.2.0/extern">External Clock Discipline and the Local Clock Driver</a> page.</p>
 <hr>
 <h4 id="driver-calibration">Driver Calibration</h4>
-<p>Some drivers depending on longwave and shortwave radio services need to know the radio propagation time from the transmitter to the receiver, which can amount to some tens of milliseconds. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the <a href="http://www.eecis.udel.edu/%7emills/ntp/qth.html">Time and Frequency Standard Station Information</a> page. Receiver coordinates can be obtained or estimated from various sources. The actual calculations are beyond the scope of this document.</p>
+<p>Some drivers depending on longwave and shortwave radio services need to know the radio propagation time from the transmitter to the receiver, which can amount to some tens of milliseconds. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the <a href="/reflib/qth">Time and Frequency Standard Station Information</a> page. Receiver coordinates can be obtained or estimated from various sources. The actual calculations are beyond the scope of this document.</p>
 <p>When more than one clock driver is supported, it is often the case that each shows small systematic offset differences relative to the rest. To reduce the effects of jitter when switching from one driver to the another, it is useful to calibrate the drivers to a common ensemble offset. The <tt>enable calibrate</tt> configuration command in the <a href="/archives/4.2.0/miscopt">Miscellaneous Options</a> page is useful for this purpose. The calibration function can also be enabled and disabled using the <tt>ntpdc</tt> program utility.</p>
 <p>Most clock drivers use the <tt>time1</tt> value specified in the <tt>fudge</tt> configuration command to provide the calibration correction when this cannot be provided by the clock or interface. When the calibration function is enabled, the <tt>time1</tt> value is automatically adjusted to match the offset of the remote server or local clock driver selected for synchronization. Ordinarily, the NTP selection algorithm chooses the best from among all sources, usually the best radio clock determined on the basis of stratum, synchronization distance and jitter. The calibration function adjusts the <tt>time1</tt> values for all clock drivers except this source so that their indicated offsets tend to zero. If the selected source is the kernel PPS discipline, the <tt>fudge time1</tt> values for all clock drivers are adjusted.</p>
 <p>The adjustment function is an exponential average designed to improve accuracy, so the function takes some time to converge. The recommended procedure is to enable the function, let it run for an hour or so, then edit the configuration file using the <tt>time1</tt> values displayed by the <tt>ntpq</tt> utility and <tt>clockvar</tt> command. Finally, disable the calibration function to avoid possible future disruptions due to misbehaving clocks or drivers.</p>
