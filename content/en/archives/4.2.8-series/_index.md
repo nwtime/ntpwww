@@ -69,7 +69,7 @@ NTP supports Unix, VMS and Windows (2000 and later) systems. The [Building and I
 
 #### Resolving Problems
 
-Like other things in modern Internet life, NTP problems can be devilishly intricate. This distribution includes a number of utilities designed to identify and repair problems using an integrated management protocol supported by the [<tt>ntpq</tt>](/archives/4.2.8-series/ntpq) utility program.
+Like other things in modern Internet life, NTP problems can be devilishly intricate. This distribution includes a number of utilities designed to identify and repair problems using an integrated management protocol supported by the [<code>ntpq</code>](/archives/4.2.8-series/ntpq) utility program.
 
 The [NTP Debugging Techniques](/archives/4.2.8-series/debug) and [Hints and Kinks](/archives/4.2.8-series/hints) pages contain useful information for identifying problems and devising solutions. Additional information on reference clock driver construction and debugging is in the [Debugging Hints for Reference Clock Drivers](/archives/4.2.8-series/rdebug) page.
 
