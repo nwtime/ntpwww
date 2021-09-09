@@ -11,24 +11,24 @@ type: archives
 * [Build Options](/archives/4.2.6-series/config)
 * [NTP Debugging Techniques](/archives/4.2.6-series/debug)
 * [Debugging Reference Clock Drivers](/archives/4.2.6-series/rdebug)
-* [<tt>ntpd</tt> Event Messages and Status Words](/archives/4.2.6-series/decode)
-* [<tt>ntpd</tt> System Log Messages](/archives/4.2.6-series/msyslog)
+* [<code>ntpd</code> Event Messages and Status Words](/archives/4.2.6-series/decode)
+* [<code>ntpd</code> System Log Messages](/archives/4.2.6-series/msyslog)
 * [NTP Bug Reporting Procedures](/archives/4.2.6-series/bugs)
 
 * * *
 
 #### Program Manual Pages
 
-* [<tt>ntpd</tt> - Network Time Protocol (NTP) daemon](/archives/4.2.6-series/ntpd)
-* [<tt>ntpq</tt> - standard NTP query program](/archives/4.2.6-series/ntpq)
-* [<tt>ntpdc</tt> - special NTP query program](/archives/4.2.6-series/ntpdc)
-* [<tt>ntpdate</tt> - set the date and time via NTP](/archives/4.2.6-series/ntpdate)
-* <tt>[sntp</tt> - Simple Network Time Protocol (SNTP) client](/archives/4.2.6-series/sntp)
-* [<tt>ntptrace</tt> - trace a chain of NTP servers back to the primary source](/archives/4.2.6-series/ntptrace)
-* [<tt>tickadj</tt> - set time-related kernel variables](/archives/4.2.6-series/tickadj)
-* [<tt>ntptime</tt> - read and set kernel time variables](/archives/4.2.6-series/ntptime)
-* [<tt>ntp-keygen</tt> - generate public and private keys](/archives/4.2.6-series/keygen)
-* [<tt>ntpdsim</tt> - Network Time Protocol (NTP) simulator](/archives/4.2.6-series/ntpdsim)
+* [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.2.6-series/ntpd)
+* [<code>ntpq</code> - standard NTP query program](/archives/4.2.6-series/ntpq)
+* [<code>ntpdc</code> - special NTP query program](/archives/4.2.6-series/ntpdc)
+* [<code>ntpdate</code> - set the date and time via NTP](/archives/4.2.6-series/ntpdate)
+* <code>[sntp</code> - Simple Network Time Protocol (SNTP) client](/archives/4.2.6-series/sntp)
+* [<code>ntptrace</code> - trace a chain of NTP servers back to the primary source](/archives/4.2.6-series/ntptrace)
+* [<code>tickadj</code> - set time-related kernel variables](/archives/4.2.6-series/tickadj)
+* [<code>ntptime</code> - read and set kernel time variables](/archives/4.2.6-series/ntptime)
+* [<code>ntp-keygen</code> - generate public and private keys](/archives/4.2.6-series/keygen)
+* [<code>ntpdsim</code> - Network Time Protocol (NTP) simulator](/archives/4.2.6-series/ntpdsim)
 
 * * *
 
@@ -74,7 +74,7 @@ type: archives
 #### Miscellaneous 
 
 * [Copyright Notice](/archives/4.2.6-series/copyright)
-* [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/4.2.6-series/prefer)
+* [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.2.6-series/prefer)
 * [Kernel Model for Precision Timekeeping](/archives/4.2.6-series/kern)
 * [PPSAPI Interface for Precision Time Signals](/archives/4.2.6-series/kernpps)
 * [Pulse-per-second (PPS) Signal Interfacing](/archives/4.2.6-series/pps)

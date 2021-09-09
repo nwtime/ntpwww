@@ -28,7 +28,7 @@ A list of all links is on the [Site Map](/archives/4.2.6-series/sitemap) page.
 
 #### Introduction
 
-Note: The NTP Version 4 software contained in this distribution is available without charge under the conditions set forth in the [Copyright Notice](/archives/4.2.6-series/copyright).
+> Note: The NTP Version 4 software contained in this distribution is available without charge under the conditions set forth in the [Copyright Notice](/archives/4.2.6-series/copyright).
 
 It is very important that readers understand that the NTP document collection began 25 years ago and remains today a work in progress. It has evolved as new features were invented and old features retired. It has been widely copied, cached and morphed to other formats, including man pages, with varying loss of fidelity. However, these HTML pages are the ONLY authoritative and definitive reference. Readers should always use the collection that comes with the distribution they use. A copy of the online collection at www.ntp.org is normally included in the most recent snapshot, but might not agree with an earlier snapshot or release version.
 
