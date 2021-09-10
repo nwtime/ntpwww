@@ -29,33 +29,35 @@ Once the NTP software distribution has been compiled and installed and the confi
 
 #### Initial Startup
 
-When started for the first time, the frequency file, usually called <tt>ntp.drift</tt>, has not yet been created. The daemon switches to a special training routine designed to quickly determine the system clock frequency offset of the particular machine. The routine first measures the current clock offset and sets the clock, then continues for up to twenty minutes before measuring the clock offset, which might involve setting the clock again. The two measurements are used to compute the initial frequency offset and the daemon continues in regular operation, during which the frequency offset is continuously updated. Once each hour the daemon writes the current frequency offset to the <tt>ntp.drift</tt> file. When restarted after that, the daemon reads the frequency offset from the <tt>ntp.drift</tt> file and avoids the training routine.
+When started for the first time, the frequency file, usually called <code>ntp.drift</code>, has not yet been created. The daemon switches to a special training routine designed to quickly determine the system clock frequency offset of the particular machine. The routine first measures the current clock offset and sets the clock, then continues for up to twenty minutes before measuring the clock offset, which might involve setting the clock again. The two measurements are used to compute the initial frequency offset and the daemon continues in regular operation, during which the frequency offset is continuously updated. Once each hour the daemon writes the current frequency offset to the <code>ntp.drift</code> file. When restarted after that, the daemon reads the frequency offset from the <code>ntp.drift</code> file and avoids the training routine.
 
-Note that the daemon requires at least four packet exchanges when first started in any case. This is required in order for the mitigation algorithms to insure valid and accurate measurements and defend against network delay spikes and accidental or malicious errors induced by the servers selected in the configuration file. It normally takes less than four minutes to set the clock when first started, but this can be reduced to less than ten seconds with the <tt>iburst</tt> configuration option.
+Note that the daemon requires at least four packet exchanges when first started in any case. This is required in order for the mitigation algorithms to insure valid and accurate measurements and defend against network delay spikes and accidental or malicious errors induced by the servers selected in the configuration file. It normally takes less than four minutes to set the clock when first started, but this can be reduced to less than ten seconds with the <code>iburst</code> configuration option.
 
-The best way to verify correct operation is using the [ntpq - standard NTP query program](/archives/4.2.4-series/ntpq) and [ntpdc - special NTP query program](/archives/4.2.4-series/ntpdc) utility programs, either on the server itself or from another machine elsewhere in the network. The <tt>ntpq</tt> program implements the management functions specified in the NTP specification [RFC-1305, Appendix A](/reflib/rfc/rfc1305/rfc1305c.pdf). The <tt>ntpdc</tt> program implements additional functions not provided in the standard. Both programs can be used to inspect the state variables defined in the specification and, in the case of <tt>ntpdc</tt>, additional ones intended for serious debugging. In addition, the <tt>ntpdc</tt> program can be used to selectively reconfigure and enable or disable some functions while the daemon is running.
+The best way to verify correct operation is using the [ntpq - standard NTP query program](/archives/4.2.4-series/ntpq) and [ntpdc - special NTP query program](/archives/4.2.4-series/ntpdc) utility programs, either on the server itself or from another machine elsewhere in the network. The <code>ntpq</code> program implements the management functions specified in the NTP specification [RFC-1305, Appendix A](/reflib/rfc/rfc1305/rfc1305c.pdf). The <code>ntpdc</code> program implements additional functions not provided in the standard. Both programs can be used to inspect the state variables defined in the specification and, in the case of <code>ntpdc</code>, additional ones intended for serious debugging. In addition, the <code>ntpdc</code> program can be used to selectively reconfigure and enable or disable some functions while the daemon is running.
 
-In extreme cases with elusive bugs, the daemon can operate in two modes, depending on the presence of the <tt>-d</tt> command-line debug switch. If not present, the daemon detaches from the controlling terminal and proceeds autonomously. If one or more <tt>-d</tt> switches are present, the daemon does not detach and generates special output useful for debugging. In general, interpretation of this output requires reference to the sources. However, a single <tt>-d</tt> does produce only mildly cryptic output and can be very useful in finding problems with configuration and network troubles. With a little experience, the volume of output can be reduced by piping the output to <tt>grep</tt> and specifying the keyword of the trace you want to see.
+In extreme cases with elusive bugs, the daemon can operate in two modes, depending on the presence of the <code>-d</code> command-line debug switch. If not present, the daemon detaches from the controlling terminal and proceeds autonomously. If one or more <code>-d</code> switches are present, the daemon does not detach and generates special output useful for debugging. In general, interpretation of this output requires reference to the sources. However, a single <code>-d</code> does produce only mildly cryptic output and can be very useful in finding problems with configuration and network troubles. With a little experience, the volume of output can be reduced by piping the output to <code>grep</code> and specifying the keyword of the trace you want to see.
 
-Some problems are immediately apparent when the daemon first starts running. The most common of these are the lack of a UDP port for NTP (123) in the Unix <tt>/etc/services</tt> file (or equivalent in some systems). **Note that NTP does not use TCP in any form. Also note that NTP requires 123 for both source and destination ports**. These facts should be pointed out to firewall administrators.
+Some problems are immediately apparent when the daemon first starts running. The most common of these are the lack of a UDP port for NTP (123) in the Unix <code>/etc/services</code> file (or equivalent in some systems). 
+
+> **Note that NTP does not use TCP in any form. Also note that NTP requires 123 for both source and destination ports**. These facts should be pointed out to firewall administrators.
 
 Other problems are apparent in the system log, which ordinarily shows the startup banner, some cryptic initialization data and the computed precision value. Error messages at startup and during regular operation are sent to the system log. In real emergencies the daemon will sent a terminal error message to the system log and then cease operation.
 
-The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file exists and that the address responds to the Unix <tt>ping</tt> command. The Unix <tt>traceroute</tt> or Windows <tt>tracert</tt> utility can be used to verify a partial or complete path exists. Most problems reported to the NTP newsgroup are not NTP problems, but problems with the network or firewall configuration.
+The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file exists and that the address responds to the Unix <code>ping</code> command. The Unix <code>traceroute</code> or Windows <code>tracert</code> utility can be used to verify a partial or complete path exists. Most problems reported to the NTP newsgroup are not NTP problems, but problems with the network or firewall configuration.
 
-When first started, the daemon polls the servers listed in the configuration file at 64-s intervals. In order to allow a sufficient number of samples for the NTP algorithms to reliably discriminate between truechimer servers and possible falsetickers, at least four valid messages from at least one server or peer listed in the configuration file is required before the daemon can set the clock. However, if the difference between the client time and server time is greater than the panic threshold, which defaults to 1000 s, the daemon sends a message to the system log and shuts down without setting the clock. It is necessary to set the local clock to within the panic threshold first, either manually by eyeball and wristwatch and the Unix <tt>date</tt> command, or by the <tt>ntpdate</tt> or <tt>ntpd -q</tt> commands. The panic threshold can be changed by the <tt>tinker panic</tt> command described on the [Miscellaneous Options](/archives/4.2.4-series/miscopt) page. The panic threshold can be disabled for the first measurement by the <tt>-g</tt> command line option described on the [ntpd - Network Time Protocol (NTP) daemon](/archives/4.2.4-series/ntpd) page.
+When first started, the daemon polls the servers listed in the configuration file at 64-s intervals. In order to allow a sufficient number of samples for the NTP algorithms to reliably discriminate between truechimer servers and possible falsetickers, at least four valid messages from at least one server or peer listed in the configuration file is required before the daemon can set the clock. However, if the difference between the client time and server time is greater than the panic threshold, which defaults to 1000 s, the daemon sends a message to the system log and shuts down without setting the clock. It is necessary to set the local clock to within the panic threshold first, either manually by eyeball and wristwatch and the Unix <code>date</code> command, or by the <code>ntpdate</code> or <code>ntpd -q</code> commands. The panic threshold can be changed by the <code>tinker panic</code> command described on the [Miscellaneous Options](/archives/4.2.4-series/miscopt) page. The panic threshold can be disabled for the first measurement by the <code>-g</code> command line option described on the [ntpd - Network Time Protocol (NTP) daemon](/archives/4.2.4-series/ntpd) page.
 
-If the difference between local time and server time is less than the panic threshold but greater than the step threshold, which defaults to 128 ms, the daemon will perform a step adjustment; otherwise, it will gradually slew the clock to the nominal time. Step adjustments are extremely rare in ordinary operation, usually as the result of reboot or hardware failure. The step threshold can be changed to 300 s using the -x command line option described on the ntpd page. This is usually sufficient to avoid a step after reboot or when the operator has set the system clock to within five minutes by eyeball-and-wristwatch. In extreme cases the step threshold can be changed by the <tt>tinker step</tt> command discribed on the [Miscellaneous Options](/archives/4.2.4-series/miscopt) page. If set to zero, the clock will never be stepped; however, users should understand the implications for doing this in a distributed data network where all processing must be tightly synchronized. See the [NTP Timescale and Leap Seconds](/reflib/leap) page for further information. If a step adjustment is made, the clock discipline algorithm will start all over again, requiring another round of at least four messages as before. This is necessary so that all servers and peers operate on the same set of time values.
+If the difference between local time and server time is less than the panic threshold but greater than the step threshold, which defaults to 128 ms, the daemon will perform a step adjustment; otherwise, it will gradually slew the clock to the nominal time. Step adjustments are extremely rare in ordinary operation, usually as the result of reboot or hardware failure. The step threshold can be changed to 300 s using the -x command line option described on the ntpd page. This is usually sufficient to avoid a step after reboot or when the operator has set the system clock to within five minutes by eyeball-and-wristwatch. In extreme cases the step threshold can be changed by the <code>tinker step</code> command discribed on the [Miscellaneous Options](/archives/4.2.4-series/miscopt) page. If set to zero, the clock will never be stepped; however, users should understand the implications for doing this in a distributed data network where all processing must be tightly synchronized. See the [NTP Timescale and Leap Seconds](/reflib/leap) page for further information. If a step adjustment is made, the clock discipline algorithm will start all over again, requiring another round of at least four messages as before. This is necessary so that all servers and peers operate on the same set of time values.
 
-The clock discipline algorithm is designed to avoid large noise spikes that might occur on a congested network or access line. If an offset sample exceeds the step threshold, it is ignored and a timer started. If a later sample is below the step threshold, the counter is reset and operation continues normally. However, if the counter is greater than the stepout interval, which defaults to 900 s, the next sample will step the time as directed. The stepout threshold can be changed by the <tt>tinker stepout</tt> command discribed on the Miscellaneous Options page.
+The clock discipline algorithm is designed to avoid large noise spikes that might occur on a congested network or access line. If an offset sample exceeds the step threshold, it is ignored and a timer started. If a later sample is below the step threshold, the counter is reset and operation continues normally. However, if the counter is greater than the stepout interval, which defaults to 900 s, the next sample will step the time as directed. The stepout threshold can be changed by the <code>tinker stepout</code> command discribed on the Miscellaneous Options page.
 
-If for some reason the hardware clock oscillator frequency error is very large, say over 400 PPM, the time offset when the daemon is started for the first time may increase over time until exceeding the step threshold, which requires a frequency adjustment and another step correction. However, due to provisions that reduce vulnerability to noise spikes, the second correction will not be done until after the stepout threshold. When the frequency error is very large, it may take a number of cycles like this until converging to the nominal frequency correction and writing the <tt>ntp.drift</tt> file. If the frequency error is over 500 PPM, convergence will never occur and occasional step adjustments will occur indefinitely.
+If for some reason the hardware clock oscillator frequency error is very large, say over 400 PPM, the time offset when the daemon is started for the first time may increase over time until exceeding the step threshold, which requires a frequency adjustment and another step correction. However, due to provisions that reduce vulnerability to noise spikes, the second correction will not be done until after the stepout threshold. When the frequency error is very large, it may take a number of cycles like this until converging to the nominal frequency correction and writing the <code>ntp.drift</code> file. If the frequency error is over 500 PPM, convergence will never occur and occasional step adjustments will occur indefinitely.
 
 * * *
 
 #### Verifying Correct Operation
 
-After starting the daemon, run the <tt>ntpq</tt> program using the <tt>-n</tt> switch, which will avoid possible distractions due to name resolution problems. Use the <tt>pe</tt> command to display a billboard showing the status of configured peers and possibly other clients poking the daemon. After operating for a few minutes, the display should be something like:
+After starting the daemon, run the <code>ntpq</code> program using the <code>-n</code> switch, which will avoid possible distractions due to name resolution problems. Use the <code>pe</code> command to display a billboard showing the status of configured peers and possibly other clients poking the daemon. After operating for a few minutes, the display should be something like:
 
 <pre>ntpq> pe
      remote      refid       st t when poll reach delay offset jitter
@@ -66,77 +68,77 @@ After starting the daemon, run the <tt>ntpq</tt> program using the <tt>-n</tt> s
 *pogo.udel.edu   .GPS1.        1 u  95 128  377   0.607  0.123  0.027
 </pre>
 
-The host names or addresses shown in the <tt>remote</tt> column correspond to the server and peer entries listed in the configuration file; however, the DNS names might not agree if the names listed are not the canonical DNS names. IPv4 addresses are shown in dotted quad notation, while IPv6 addresses are shown alarmingly. The <tt>refid</tt> column shows the current source of synchronization, while the <tt>st</tt> column reveals the stratum, <tt>t</tt> the type (<tt>u</tt> = unicast, <tt>m</tt> = multicast, <tt>l</tt> = local, <tt>-</tt> = don't know), and <tt>poll</tt> the poll interval in seconds. The <tt>when</tt> column shows the time since the peer was last heard in seconds, while the <tt>reach</tt> column shows the status of the reachability register (see RFC-1305) in octal. The remaining entries show the latest delay, offset and jitter in milliseconds. Note that in NTP Version 4 what used to be the <tt>dispersion</tt> column has been replaced by the <tt>jitter</tt> column.
+The host names or addresses shown in the <code>remote</code> column correspond to the server and peer entries listed in the configuration file; however, the DNS names might not agree if the names listed are not the canonical DNS names. IPv4 addresses are shown in dotted quad notation, while IPv6 addresses are shown alarmingly. The <code>refid</code> column shows the current source of synchronization, while the <code>st</code> column reveals the stratum, <code>t</code> the type (<code>u</code> = unicast, <code>m</code> = multicast, <code>l</code> = local, <code>-</code> = don't know), and <code>poll</code> the poll interval in seconds. The <code>when</code> column shows the time since the peer was last heard in seconds, while the <code>reach</code> column shows the status of the reachability register (see RFC-1305) in octal. The remaining entries show the latest delay, offset and jitter in milliseconds. Note that in NTP Version 4 what used to be the <code>dispersion</code> column has been replaced by the <code>jitter</code> column.
 
-As per the NTP specification RFC-1305, when the <tt>stratum</tt> is between 0 and 15 for a NTP server, the <tt>refid</tt> field shows the server DNS name or, if not found, the IP address in dotted-quad. When the <tt>stratum</tt> is any value for a reference clock, this field shows the identification string assigned to the clock. However, until the client has synchronized to a server, or when the <tt>stratum</tt> for a NTP server is 0 (appears as 16 in the billboards), the status cannot be determined. As a help in debugging, the <tt>refid</tt> field is set to a four-character string called the kiss code. The current kiss codes are as follows.
+As per the NTP specification RFC-1305, when the <code>stratum</code> is between 0 and 15 for a NTP server, the <code>refid</code> field shows the server DNS name or, if not found, the IP address in dotted-quad. When the <code>stratum</code> is any value for a reference clock, this field shows the identification string assigned to the clock. However, until the client has synchronized to a server, or when the <code>stratum</code> for a NTP server is 0 (appears as 16 in the billboards), the status cannot be determined. As a help in debugging, the <code>refid</code> field is set to a four-character string called the kiss code. The current kiss codes are as follows.
 
-**Peer Kiss Codes**
+##### Peer Kiss Codes
 
-<dt><tt>ACST</tt></dt>
+<code>**ACST**</code>
 
-The association belongs to a anycast server.
+: The association belongs to a anycast server.
 
-<dt><tt>AUTH</tt></dt>
+<code>**AUTH**</code>
 
-Server authentication failed. Please wait while the association is restarted.
+: Server authentication failed. Please wait while the association is restarted.
 
-<dt><tt>AUTO</tt></dt>
+<code>**AUTO**</code>
 
-Autokey sequence failed. Please wait while the association is restarted.
+: Autokey sequence failed. Please wait while the association is restarted.
 
-<dt><tt>BCST</tt></dt>
+<code>**BCST**</code>
 
-The association belongs to a broadcast server.
+: The association belongs to a broadcast server.
 
-<dt><tt>CRYP</tt></dt>
+<code>**CRYP**</code>
 
-Cryptographic authentication or identification failed. The details should be in the system log file or the <tt>cryptostats</tt> statistics file, if configured. No further messages will be sent to the server.
+: Cryptographic authentication or identification failed. The details should be in the system log file or the <code>cryptostats</code> statistics file, if configured. No further messages will be sent to the server.
 
-<dt><tt>DENY</tt></dt>
+<code>**DENY**</code>
 
-Access denied by remote server. No further messages will be sent to the server.
+: Access denied by remote server. No further messages will be sent to the server.
 
-<dt><tt>DROP</tt></dt>
+<code>**DROP**</code>
 
-Lost peer in symmetric mode. Please wait while the association is restarted.
+: Lost peer in symmetric mode. Please wait while the association is restarted.
 
-<dt><tt>RSTR</tt></dt>
+<code>**RSTR**</code>
 
-Access denied due to local policy. No further messages will be sent to the server.
+: Access denied due to local policy. No further messages will be sent to the server.
 
-<dt><tt>INIT</tt></dt>
+<code>**INIT**</code>
 
-The association has not yet synchronized for the first time.
+: The association has not yet synchronized for the first time.
 
-<dt><tt>MCST</tt></dt>
+<code>**MCST**</code>
 
-The association belongs to a manycast server.
+: The association belongs to a manycast server.
 
-<dt><tt>NKEY</tt></dt>
+<code>**NKEY**</code>
 
-No key found. Either the key was never installed or is not trusted.
+: No key found. Either the key was never installed or is not trusted.
 
-<dt><tt>RATE</tt></dt>
+<code>**RATE**</code>
 
-Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold.
+: Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold.
 
-<dt><tt>RMOT</tt></dt>
+<code>**RMOT**</code>
 
-Somebody is tinkering with the association from a remote host running <tt>ntpdc</tt>. Not to worry unless some rascal has stolen your keys.
+: Somebody is tinkering with the association from a remote host running <code>ntpdc</code>. Not to worry unless some rascal has stolen your keys.
 
-<dt><tt>STEP</tt></dt>
+<code>**STEP**</code>
 
-A step change in system time has occurred, but the association has not yet resynchronized.
+: A step change in system time has occurred, but the association has not yet resynchronized.
 
-**System Kiss Codes**
+##### System Kiss Codes
 
-<dt><tt>INIT</tt></dt>
+<code>**INIT**</code>
 
-The system clock has not yet synchronized for the first time.
+: The system clock has not yet synchronized for the first time.
 
-<dt><tt>STEP</tt></dt>
+<code>**STEP**</code>
 
-A step change in system time has occurred, but the system clock has not yet resynchronized.
+: A step change in system time has occurred, but the system clock has not yet resynchronized.
 
 The tattletale symbol at the left margin displays the synchronization status of each peer. The currently selected peer is marked <tt>*</tt>, while additional peers designated acceptable for synchronization are marked `+`. Peers marked `*` and `+` are included in the weighted average computation to set the local clock; the data produced by peers marked with other symbols are discarded. See the <tt>ntpq</tt> page for the meaning of these symbols.
 

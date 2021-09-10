@@ -29,9 +29,9 @@ Last update: 12:56 AM UTC Saturday, March 20, 2004
 
 The following options are for compiling and installing a working version of the NTP distribution. In most cases, the build process is completely automatic. In some cases where memory space is at a premium, or the binaries are to be installed in a different place, it is possible to tailor the configuration to remove such features as reference clock driver support, debugging support, and so forth.
 
-Configuration options are specified as arguments to the <tt>configure</tt> script. Following is a summary of the current options, as of the 4.0.99m version:
+Configuration options are specified as arguments to the <code>configure</code> script. Following is a summary of the current options, as of the 4.0.99m version:
 
-Usage: <tt>configure [options] [host]</tt>  
+Usage: <code>configure [options] [host]</code>  
 
 #### Options
 
