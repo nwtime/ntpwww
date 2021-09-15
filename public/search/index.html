@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <title>ntpdsim - Network Time Protocol (NTP) simulator</title>
+  <title>Search Results</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,191 +112,14 @@
   <div class="header-border">
   </div>
 </header>
-<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/ntpdsim/">ntpdsim - Network Time Protocol (NTP) simulator</a>
-</li>
-
-	</ol>
-</nav	>
-
-
-<section class="section pt-0  pb-auto">
-  <div class="container">
-  	<h1>ntpdsim - Network Time Protocol (NTP) simulator</h1>
-     
-    <p><img src="/archives/pic/oz2.gif" alt="gif"><a href="/reflib/pictures">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
-<p>All in a row.</p>
-<p>Last update: 11-Sep-2010 05:55 UTC</p>
-<hr>
-<h4 id="table-of-contents">Table of Contents</h4>
-<ul>
-<li><a href="/archives/4.2.8-series/ntpdsim/#synopsis">Synopsis</a></li>
-<li><a href="/archives/4.2.8-series/ntpdsim/#description">Description</a></li>
-<li><a href="/archives/4.2.8-series/ntpdsim/#command-line-options">Command Line Options</a></li>
-<li><a href="/archives/4.2.8-series/ntpdsim/#files">Files</a></li>
-</ul>
-<hr>
-<h4 id="synopsis">Synopsis</h4>
-<p><code>ntpdsim [ -B <em>bdly</em> ] [ -C <em>snse</em> ] [ -O <em>clk_time</em> ] [ -S <em>sim_time</em> ] [ -T <em>ferr</em> ] [ -W <em>fsne</em> ] [ -Y <em>ndly</em> ] [ -X <em>pdly</em> ]</code></p>
-<hr>
-<h4 id="description">Description</h4>
-<p>The <code>ntpdsim</code> program is an adaptation of the <code>ntpd</code> operating system daemon. The program operates as a discrete time simulator using specified systematic and random driving sources. It includes all the mitigation and discipline algorithms of the actual daemon, but with the packet I/O and system clock algorithms driven by simulation. Most functions of the real <code>ntpd</code> remain intact, including the monitoring, statistics recording, trace and host name resolution features. Further information on the simulator is on the <a href="/reflib/ntpsim">NTP Discrete Event Simulator</a> page.</p>
-<p>The simulator is most useful to study NTP behavior in response to time and/or frequency transients under specific conditions of network jitter and oscillator wander. For this purpose the daemon can be driven by pseudorandom jitter and wander sample sequences characteristic of real networks and oscillators. The jitter generator produces samples from a Poisson distribution, while the wander generator produces samples from a Guassian distribution.</p>
-<p>The easiest way to use this program is to create a <code>ntpstats</code> directory, configuration file <code>ntp.conf</code> and frequency file <code>ntp.drift</code> and test shell <code>test.sh</code> in the base directory. The <code>ntp.drift</code> file and <code>ntpstats</code> directory can be empty to start. The <code>test.sh</code> script can contain something like</p>
-<pre>rm ./ntpstats/*
-ntpdsim -O 0.1 -C .001 -T 400 -W 1 -c ./ntp.conf,
-</pre>
-<p>which starts the simulator with a time offset 100 ms, network jitter 1 ms, frequency offset 400 PPM and oscillator wander 1 PPM/s. These parameters represent typical conditions with modern workstations on a Ethernet LAN. The <code>ntp.conf</code> file should contain something like:</p>
-<pre>disable kernel
-server pogo
-driftfile ./ntp.drift
-statsdir ./ntpstats/
-filegen loopstats type day enable
-filegen peerstats type day enable
-</pre>
-<hr>
-<h4 id="command-line-options">Command Line Options</h4>
-
-
-<div class="alert alert-warning" role="alert">
-<h4 class="alert-heading">Note</h4>
-
-    The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a <a href="/archives/4.2.8-series/ntpdsim_new">new one</a>. Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim.</code>
+<!-- /navigation -->
+<section class="row td-search-result">
+<div class="col-12 col-md-8 offset-md-2">
+<h2 class="ml-4">Search Results</h2>
 
 </div>
-
-<dl>
-<dt><code><strong>-B <em>bdly</em></strong></code></dt>
-<dd>
-<p>Specify beep delay (3600) s.</p>
-</dd>
-<dt><code><strong>-C <em>snse</em></strong></code></dt>
-<dd>
-<p>Specify network jitter parameter (0) s.</p>
-</dd>
-<dt><code><strong>-O <em>clk_time</em></strong></code></dt>
-<dd>
-<p>Specify initial time offset (0) s.</p>
-</dd>
-<dt><code><strong>-S <em>sim_time</em></strong></code></dt>
-<dd>
-<p>Specify simulation duration (86400) s.</p>
-</dd>
-<dt><code><strong>-T <em>ferr</em></strong></code></dt>
-<dd>
-<p>Specify initial frequency offset (0) PPM.</p>
-</dd>
-<dt><code><strong>-W <em>fnse</em></strong></code></dt>
-<dd>
-<p>Specify oscillator wander parameter (0) PPM/s.</p>
-</dd>
-<dt><code><strong>-Y <em>ndly</em></strong></code></dt>
-<dd>
-<p>Specify network propagation delay (.001) s.</p>
-</dd>
-<dt><code><strong>-Z <em>pdly</em></strong></code></dt>
-<dd>
-<p>Specify server processing delay (.001) s.</p>
-</dd>
-</dl>
-<hr>
-<h4 id="files">Files</h4>
-<p><code>/etc/ntp.conf</code> - the default name of the configuration file<br>
-<code>/etc/ntp.drift</code> - the default name of the drift file<br>
-<code>/etc/ntp.keys</code> - the default name of the key file</p>
-
-	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
-  </div>
 </section>
+
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
     

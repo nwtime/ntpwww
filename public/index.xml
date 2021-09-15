@@ -154,7 +154,8 @@ Don&#39;t we know archaic barrel, Lullaby Lilla Boy, Louisville Lou.</descriptio
 The skunk watches for intruders and sprays.
 Last update: 7-Jan-2018 23:56 UTC
  Commands and Options Unless noted otherwise, further information about these commands is on the Access Control Support page.
-discard [ average _avg_ ][ minimum _min_ ] [ monitor _prob_ ] Set the parameters of the rate control facility which protects the server from client abuse. If the limited flag is present in the ACL, packets that violate these limits are discarded.</description>
+discard [ average avg ][ minimum min ] [ monitor prob ]
+Set the parameters of the rate control facility which protects the server from client abuse. If the limited flag is present in the ACL, packets that violate these limits are discarded.</description>
     </item>
     
     <item>
@@ -494,7 +495,7 @@ Features: tty_clk
 Our resident cryptographer; now you see him, now you don&amp;rsquo;t.
 Last update: 24-Jul-2018 07:27 UTC
  Commands and Options Unless noted otherwise, further information about these commands is on the Authentication Support page.
-automax [_logsec_] Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval.</description>
+ automax [logsec]  Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval.</description>
     </item>
     
     <item>
@@ -2635,7 +2636,7 @@ We have three, now looking for more.
       <description>from Pogo, Walt Kelly
 We have three, now looking for more.
 Last update: 01:50 UTC Friday, May 02, 2003
- broadcastdelay _seconds_ The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
+  broadcastdelay seconds  The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
     </item>
     
     <item>
@@ -2647,7 +2648,7 @@ Last update: 01:50 UTC Friday, May 02, 2003
       <description>from Pogo, Walt Kelly
 We have three, now looking for more.
 Last update: 18:50 UTC Monday, January 09, 2006
- broadcastdelay _seconds_ The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
+  broadcastdelay seconds  The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
     </item>
     
     <item>
@@ -2659,7 +2660,7 @@ Last update: 18:50 UTC Monday, January 09, 2006
       <description>from Pogo, Walt Kelly
 We have three, now looking for more.
 Last update: 18:50 UTC Monday, January 09, 2006
- broadcastdelay _seconds_ The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
+  broadcastdelay seconds  The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
     </item>
     
     <item>
@@ -2671,7 +2672,7 @@ Last update: 18:50 UTC Monday, January 09, 2006
       <description>from Pogo, Walt Kelly
 We have three, now looking for more.
 Last update: 13-Nov-2009 19:08 UTC
- broadcastdelay _seconds_ The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
+  broadcastdelay seconds  The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example.</description>
     </item>
     
     <item>
@@ -3076,7 +3077,7 @@ Last update: 18:44 UTC Thursday, July 28, 2005
       <guid>/archives/4.2.4-series/notes/</guid>
       <description>From NBS Special Publication 432 (out of print)
 Last update: Thursday, July 28, 2005
-Introduction This document is a collection of notes concerning the use of ntpd and related programs, and on coping with the Network Time Protocol (NTP) in general. It is a major rewrite and update of an earlier document written by Dennis Ferguson of the University of Toronto and includes many changes and additions resulting from the NTP Version 3 specification and new Version 4 implementation features.</description>
+ Table of Contents  Introduction How NTP Works Configuring Your Subnet Configuring Your Server or Client Configuring NTP with NetInfo Ntp4 Versus Previous Versions Traffic Monitoring Address-and-Mask Restrictions Authentication Query Programs Run-Time Reconfiguration Name Resolution Dealing with Frequency Tolerance Violations Tuning Your Subnet Provisions for Leap Seconds and Accuracy Metrics Clock Support Overview Towards the Ultimate Tick Parting Shots   Introduction This document is a collection of notes concerning the use of ntpd and related programs, and on coping with the Network Time Protocol (NTP) in general.</description>
     </item>
     
     <item>
@@ -3791,8 +3792,8 @@ I told you it was eyeball and wristwatch.
       <description>from Alice&amp;rsquo;s Adventures in Wonderland, Lewis Carroll
 I told you it was eyeball and wristwatch.
 Last update: 01:13 UTC Sunday, December 22, 2002
- Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
- Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
+  Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+  Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
     </item>
     
     <item>
@@ -3804,8 +3805,8 @@ Last update: 01:13 UTC Sunday, December 22, 2002
       <description>from Alice&amp;rsquo;s Adventures in Wonderland, Lewis Carroll
 I told you it was eyeball and wristwatch.
 Last update: 18:44 UTC Thursday, July 28, 2005
- Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
- Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
+  Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+  Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
     </item>
     
     <item>
@@ -3817,8 +3818,8 @@ Last update: 18:44 UTC Thursday, July 28, 2005
       <description>from Alice&amp;rsquo;s Adventures in Wonderland, Lewis Carroll
 I told you it was eyeball and wristwatch.
 Last update: 18:44 UTC Thursday, July 28, 2005
- Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
- Table of Contents  Synopsis Description Command Line Options Diagnostics Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
+  Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+  Table of Contents  Synopsis Description Command Line Options Diagnostics Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
     </item>
     
     <item>
@@ -3830,8 +3831,8 @@ Last update: 18:44 UTC Thursday, July 28, 2005
       <description>from Alice&amp;rsquo;s Adventures in Wonderland, Lewis Carroll
 I told you it was eyeball and wristwatch.
 Last update: 18:44 UTC Thursday, July 28, 2005
- Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
- Table of Contents  Synopsis Description Command Line Options Diagnostics Files Bugs   Synopsis ntpdate [ -46bBdqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
+  Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+  Table of Contents  Synopsis Description Command Line Options Diagnostics Files Bugs   Synopsis ntpdate [ -46bBdqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &amp;hellip; ]</description>
     </item>
     
     <item>
@@ -4843,7 +4844,7 @@ Last update: 18:48 UTC Thursday, July 28, 2005
       <description>from Alice&amp;rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 22:01 UTC Wednesday, January 02, 2008
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return ‹cr›, is normally limited to 100 microseconds.</description>
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return &amp;lt;cr&amp;gt;, is normally limited to 100 microseconds.</description>
     </item>
     
     <item>
@@ -4855,7 +4856,7 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
       <description>from Alice&amp;rsquo;s Adventures in Wonderland, Lewis Carroll
 Alice is trying to find the PPS signal connector.
 Last update: 10-Mar-2014 05:17 UTC
- Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return ‹cr›, is normally limited to 100 μs.</description>
+ Table of Contents  Introduction Gadget Box Operating System Support PPS Driver Using the Pulse-per-Second (PPS) Signal   Introduction Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character such as carriage-return &amp;lt;cr&amp;gt;, is normally limited to 100 μs.</description>
     </item>
     
     <item>
@@ -5437,6 +5438,15 @@ Features: chu_clk
     </item>
     
     <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Server Commands and Options</title>
       <link>/archives/4.2.8-series/confopt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -5469,7 +5479,7 @@ Last update: 03:08 AM UTC Monday, October 13, 2003
       <description>from Pogo, Walt Kelly
 The chicken is getting configuration advice.
 Last update: 20:57 UTC Monday, October 10, 2005
- Table of Contents  Configuration Commands Command Options Auxiliary Commands Bugs  Following is a description of the configuration commands in NTPv4. There are two classes of commands, configuration commands that configure an association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.</description>
+ Table of Contents  Configuration Commands Command Options Auxiliary Commands Bugs   Following is a description of the configuration commands in NTPv4. There are two classes of commands, configuration commands that configure an association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.</description>
     </item>
     
     <item>
@@ -5493,8 +5503,7 @@ Last update: 20:57 UTC Monday, October 10, 2005
       <description>from Pogo, Walt Kelly
 The chicken is getting configuration advice.
 Last update: 25-Nov-2009 4:46
- Table of Contents  Configuration Commands Command Options Auxiliary Commands Bugs  Following is a description of the configuration commands in NTPv4. There are two classes of commands, configuration commands that configure an association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.
-The various modes described on the Association Management page are determined by the command keyword and the DNS name or IP address.</description>
+ Table of Contents  Configuration Commands Command Options Auxiliary Commands Bugs   Following is a description of the configuration commands in NTPv4. There are two classes of commands, configuration commands that configure an association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.</description>
     </item>
     
     <item>
@@ -5871,9 +5880,7 @@ Last update: 12-May-2012
       
       <guid>/archives/4.2.6-series/tickadj/</guid>
       <description>Last update: Wednesday, January 16, 2008
- Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis tickadj [ tick ]
-tickadj [ -Aqs ] [ -a tickadj ] [ -t tick ]
- Description The tickadj program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision ttimekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel /dev/kmem.</description>
+ Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis  tickadj [ tick ] tickadj [ -Aqs ] [ -a tickadj ] [ -t tick ]   Description The tickadj program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision ttimekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel /dev/kmem.</description>
     </item>
     
     <item>

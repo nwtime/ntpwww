@@ -163,33 +163,45 @@
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p><tt>tickadj [ -Aqs ] [ -a <em>tickadj</em> ] [ -t <em>tick</em> ]</tt></p>
+<p><code>tickadj [ -Aqs ] [ -a <em>tickadj</em> ] [ -t <em>tick</em> ]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <tt>tickadj</tt> program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision timekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel <tt>/dev/kmem</tt>. Newer machines with precision time support, including Solaris, Tru64, FreeBSD and Linux (with PPSkit patch), should NOT use the program. The particular variables that can be changed with <tt>tickadj</tt> include <tt>tick</tt>, which is the number of microseconds added to the system time for a clock interrupt, <tt>tickadj</tt>, which sets the slew rate and resolution used by the <tt>adjtime</tt> system call, and <tt>dosynctodr</tt>, which indicates to the kernels on some machines whether they should internally adjust the system clock to keep it in line with time-of-day clock or not.</p>
-<p>By default, with no arguments, <tt>tickadj</tt> reads the variables of interest in the kernel and displays them. At the same time, it determines an &ldquo;optimal&rdquo; value for the value of the <tt>tickadj</tt> variable if the intent is to run the <tt>ntpd</tt> Network Time Protocol (NTP) daemon, and prints this as well. Since the operation of <tt>tickadj</tt> when reading the kernel mimics the operation of similar parts of the <tt>ntpd</tt> program fairly closely, this can be useful when debugging problems with <tt>ntpd</tt>.</p>
-<p>Note that <tt>tickadj</tt> should be run with some caution when being used for the first time on different types of machines. The operations which <tt>tickadj</tt> tries to perform are not guaranteed to work on all Unix machines and may in rare cases cause the kernel to crash.</p>
+<p>The <code>tickadj</code> program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision timekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel <code>/dev/kmem</code>. Newer machines with precision time support, including Solaris, Tru64, FreeBSD and Linux (with PPSkit patch), should NOT use the program. The particular variables that can be changed with <code>tickadj</code> include <code>tick</code>, which is the number of microseconds added to the system time for a clock interrupt, <code>tickadj</code>, which sets the slew rate and resolution used by the <code>adjtime</code> system call, and <code>dosynctodr</code>, which indicates to the kernels on some machines whether they should internally adjust the system clock to keep it in line with time-of-day clock or not.</p>
+<p>By default, with no arguments, <code>tickadj</code> reads the variables of interest in the kernel and displays them. At the same time, it determines an &ldquo;optimal&rdquo; value for the value of the <code>tickadj</code> variable if the intent is to run the <code>ntpd</code> Network Time Protocol (NTP) daemon, and prints this as well. Since the operation of <code>tickadj</code> when reading the kernel mimics the operation of similar parts of the <code>ntpd</code> program fairly closely, this can be useful when debugging problems with <code>ntpd</code>.</p>
+<p>Note that <code>tickadj</code> should be run with some caution when being used for the first time on different types of machines. The operations which <code>tickadj</code> tries to perform are not guaranteed to work on all Unix machines and may in rare cases cause the kernel to crash.</p>
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
-<dt><tt>-a _tickadj_</tt></dt>
-<p>Set the kernel variable <tt>tickadj</tt> to the value <em><tt>tickadj</tt></em> specified.</p>
-<dt><tt>-A</tt></dt>
-<p>Set the kernel variable <tt>tickadj</tt> to an internally computed &ldquo;optimal&rdquo; value.</p>
-<dt><tt>-t _tick_</tt></dt>
-<p>Set the kernel variable <tt>tick</tt> to the value <em><tt>tick</tt></em> specified.</p>
-<dt><tt>-s</tt></dt>
-<p>Set the kernel variable <tt>dosynctodr</tt> to zero, which disables the hardware time-of-year clock, a prerequisite for running the <tt>ntpd</tt> daemon under SunOS4.</p>
-<dt><tt>-q</tt></dt>
-<p>Normally, <tt>tickadj</tt> is quite verbose about what it is doing. The <tt>-q</tt> flag tells it to shut up about everything except errors.</p>
+<dl>
+<dt><code><strong>-a <em>tickadj</em></strong></code></dt>
+<dd>
+<p>Set the kernel variable <code>tickadj</code> to the value <code><em>tickadj</em></code> specified.</p>
+</dd>
+<dt><code><strong>-A</strong></code></dt>
+<dd>
+<p>Set the kernel variable <code>tickadj</code> to an internally computed &ldquo;optimal&rdquo; value.</p>
+</dd>
+<dt><code><strong>-t <em>tick</em></strong></code></dt>
+<dd>
+<p>Set the kernel variable <code>tick</code> to the value <code><em>tick</em></code> specified.</p>
+</dd>
+<dt><code><strong>-s</strong></code></dt>
+<dd>
+<p>Set the kernel variable <code>dosynctodr</code> to zero, which disables the hardware time-of-year clock, a prerequisite for running the <code>ntpd</code> daemon under SunOS4.</p>
+</dd>
+<dt><code><strong>-q</strong></code></dt>
+<dd>
+<p>Normally, <code>tickadj</code> is quite verbose about what it is doing. The <code>-q</code> flag tells it to shut up about everything except errors.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="files">Files</h4>
-<p><tt>/vmunix<br>
+<p><code>/vmunix<br>
 /unix<br>
 /dev/kmem<br>
-</tt></p>
+</code></p>
 <hr>
 <h4 id="bugs">Bugs</h4>
-<p>Fiddling with kernel variables at run time as a part of ordinary operations is a hideous practice which is only necessary to make up for deficiencies in the implementation of <tt>adjtime</tt> in many kernels and/or brokenness of the system clock in some vendors' kernels. It would be much better if the kernels were fixed and the <tt>tickadj</tt> program went away.</p>
+<p>Fiddling with kernel variables at run time as a part of ordinary operations is a hideous practice which is only necessary to make up for deficiencies in the implementation of <code>adjtime</code> in many kernels and/or brokenness of the system clock in some vendors' kernels. It would be much better if the kernels were fixed and the <code>tickadj</code> program went away.</p>
 
 	  
 	  <style>
