@@ -151,7 +151,7 @@
   <div class="container">
   	<h1>ntpd System Log Messages</h1>
      
-    <p><img src="/archives/pic/alice47.gif" alt="gif"><a href="/reflib/pictures">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+    <p><img src="/archives/pic/alice47.gif" alt="gif"> <a href="/reflib/pictures">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
 <p>The mushroom knows all the error codes, which is more than most of us do.</p>
 <p>Last update:  02:23 UTC Saturday, February 01, 2003</p>
 <hr>
@@ -164,93 +164,157 @@
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>You have come here because you found a cryptic message in the system log. This page by no means lists all messages that might be found, since new ones come and old ones go. Generally, however, the most common ones will be found here. They are listed by program module and log severity code in bold: <tt><strong>LOG_ERR</strong></tt>, <strong><tt>LOG_NOTICE</tt></strong> and <tt><strong>LOG_INFO</strong></tt>.</p>
-<p>Most of the time <strong><tt>LOG_ERR</tt></strong> messages are fatal, but often <tt>ntpd</tt> limps onward in the hopes of discovering more errors. The <tt><strong>LOG_NOTICE</strong></tt> messages usually mean the time has changed or some other condition that probably should be noticed. The <tt><strong>LOG_INFO</strong></tt> messages usually say something about the system operations, but do not affect the time.</p>
+<p>You have come here because you found a cryptic message in the system log. This page by no means lists all messages that might be found, since new ones come and old ones go. Generally, however, the most common ones will be found here. They are listed by program module and log severity code in bold: <code><strong>LOG_ERR</strong></code>, <code><strong>LOG_NOTICE</strong></code> and <code><strong>LOG_INFO</strong></code>.</p>
+<p>Most of the time <code><strong>LOG_ERR</strong></code> messages are fatal, but often <code>ntpd</code> limps onward in the hopes of discovering more errors. The <code><strong>LOG_NOTICE</strong></code> messages usually mean the time has changed or some other condition that probably should be noticed. The <code><strong>LOG_INFO</strong></code> messages usually say something about the system operations, but do not affect the time.</p>
 <p>In the following a <code>?</code> character stands for text in the message. The meaning should be clear from context.</p>
 <hr>
 <h4 id="protocol-module">Protocol Module</h4>
-<p><tt><strong>LOG_ERR</strong></tt></p>
-<dt><tt>buffer overflow ?</tt></dt>
+<p><code><strong>LOG_ERR</strong></code></p>
+<dl>
+<dt><code><strong>buffer overflow ?</strong></code></dt>
+<dd>
 <p>Fatal error. An input packet is too long for processing.</p>
-<p><tt><strong>LOG_NOTICE</strong></tt></p>
-<dt><tt>no reply; clock not set</tt></dt>
-<p>In <tt>ntpdate</tt> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.</p>
-<p><tt><strong>LOG_INFO</strong></tt></p>
-<dt><tt>proto_config: illegal item ?, value ?</tt></dt>
+</dd>
+</dl>
+<p><code><strong>LOG_NOTICE</strong></code></p>
+<dl>
+<dt><code><strong>no reply; clock not set</strong></code></dt>
+<dd>
+<p>In <code>ntpdate</code> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.</p>
+</dd>
+</dl>
+<p><code><strong>LOG_INFO</strong></code></p>
+<dl>
+<dt><code><strong>proto_config: illegal item ?, value ?</strong></code></dt>
+<dd>
 <p>Program error. Please report to <a href="mailto:bugs@ntp.org">bugs@ntp.org</a>.</p>
-<dt><tt>pps sync enabled</tt></dt>
+</dd>
+<dt><code><strong>pps sync enabled</strong></code></dt>
+<dd>
 <p>The PPS signal has been detected and enabled.</p>
-<dt><tt>transmit: encryption key ? not found</tt></dt>
+</dd>
+<dt><code><strong>transmit: encryption key ? not found</strong></code></dt>
+<dd>
 <p>The key cache is inconsistent. Please report to <a href="mailto:bugs@ntp.org">bugs@ntp.org</a>.</p>
-<dt><tt>precision = ? usec</tt></dt>
+</dd>
+<dt><code><strong>precision = ? usec</strong></code></dt>
+<dd>
 <p>This reports the precision measured for this machine.</p>
-<dt><tt>using 10ms tick adjustments</tt></dt>
+</dd>
+<dt><code><strong>using 10ms tick adjustments</strong></code></dt>
+<dd>
 <p>Gotcha for some machines with dirty rotten clock hardware.</p>
-<dt><tt>no servers reachable</tt></dt>
+</dd>
+<dt><code><strong>no servers reachable</strong></code></dt>
+<dd>
 <p>The system clock is running on internal batteries. The server(s) and/or network may be down.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="clock-discipline-module">Clock Discipline Module</h4>
-<p><tt><strong>LOG_ERR</strong></tt></p>
-<dt><tt>time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time</tt>.</dt>
+<p><code><strong>LOG_ERR</strong></code></p>
+<dl>
+<dt><code><strong>time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time.</strong></code></dt>
+<dd>
 <p>Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.</p>
-<dt><tt>sigaction() fails to save SIGSYS trap: ? </tt></dt>
-<dt><tt>sigaction() fails to restore SIGSYS trap: ?</tt></dt>
+</dd>
+<dt><code><strong>sigaction() fails to save SIGSYS trap: ?</strong></code></dt>
+<dd><code><strong>sigaction() fails to restore SIGSYS trap: ?</strong></code></dd>
+<dd>
 <p>Program error. Please report to <a href="mailto:bugs@ntp.org">bugs@ntp.org</a>.</p>
-<p><tt><strong>LOG_NOTICE</strong></tt></p>
-<dt><tt>frequency error ? exceeds tolerance 500 PPM</tt></dt>
+</dd>
+</dl>
+<p><code><strong>LOG_NOTICE</strong></code></p>
+<dl>
+<dt><code><strong>frequency error ? exceeds tolerance 500 PPM</strong></code></dt>
+<dd>
 <p>The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.</p>
-<dt><tt>time slew ? s</tt></dt>
+</dd>
+<dt><code><strong>time slew ? s</strong></code></dt>
+<dd>
 <p>The time error exceeds the step threshold and is being slewed to the correct time. You may have to wait a very long time.</p>
-<dt><tt>time reset ? s</tt></dt>
-<p>The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don&rsquo;t like this, but they can set the <tt>ntpd -x</tt> option and wait forever.</p>
-<dt><tt>kernel time sync disabled ?</tt></dt>
-<p>The kernel reports an error. See the codes in the <tt>timex.h</tt> file.</p>
-<dt><tt>pps sync disabled</tt></dt>
+</dd>
+<dt><code><strong>time reset ? s</strong></code></dt>
+<dd>
+<p>The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don&rsquo;t like this, but they can set the <code>ntpd -x</code> option and wait forever.</p>
+</dd>
+<dt><code><strong>kernel time sync disabled ?</strong></code></dt>
+<dd>
+<p>The kernel reports an error. See the codes in the <code>timex.h</code> file.</p>
+</dd>
+<dt><code><strong>pps sync disabled</strong></code></dt>
+<dd>
 <p>The PPS signal has died, probably due to a dead radio, broken wire or loose connector.</p>
-<p><tt><strong>LOG_INFO</strong></tt></p>
-<dt><tt>kernel time sync status ?</tt></dt>
-<p>For information only. See the codes in the <tt>timex.h</tt> file.</p>
+</dd>
+</dl>
+<p><code><strong>LOG_INFO</strong></code></p>
+<dl>
+<dt><code><strong>kernel time sync status ?</strong></code></dt>
+<dd>
+<p>For information only. See the codes in the <code>timex.h</code> file.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="cryptographic-module">Cryptographic Module</h4>
-<p><tt><strong>LOG_ERR</strong></tt></p>
-<p><tt>cert_parse ?</tt></p>
-<p><tt>cert_sign ?</tt></p>
-<p><tt>crypto_cert ?</tt></p>
-<p><tt>crypto_encrypt ?</tt></p>
-<p><tt>crypto_gq ?</tt></p>
-<p><tt>crypto_iff ?</tt></p>
-<p><tt>crypto_key ?</tt></p>
-<p><tt>crypto_mv ?</tt></p>
-<p><tt>crypto_setup ?</tt></p>
-<p><tt>make_keys ?</tt></p>
+<p><code><strong>LOG_ERR</strong></code></p>
+<dl>
+<dt><code><strong>cert_parse ?</strong></code></dt>
+<dd><code><strong>cert_sign ?</strong></code></dd>
+<dd><code><strong>crypto_cert ?</strong></code></dd>
+<dd><code><strong>crypto_encrypt ?</strong></code></dd>
+<dd><code><strong>crypto_gq ?</strong></code></dd>
+<dd><code><strong>crypto_iff ?</strong></code></dd>
+<dd><code><strong>crypto_key ?</strong></code></dd>
+<dd><code><strong>crypto_mv ?</strong></code></dd>
+<dd><code><strong>crypto_setup ?</strong></code></dd>
+<dd><code><strong>make_keys ?</strong></code></dd>
+<dd>
 <p>Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.</p>
-<p><tt>crypto_setup: certificate ? is trusted, but not self signed.</tt></p>
-<p><tt>crypto_setup: certificate ? not for this host</tt></p>
-<p><tt>crypto_setup: certificate file ? not found or corrupt</tt></p>
-<p><tt>crypto_setup: host key file ? not found or corrupt</tt></p>
-<p><tt>crypto_setup: host key is not RSA key type</tt></p>
-<p><tt>crypto_setup: random seed file ? not found</tt></p>
-<p><tt>rypto_setup: random seed file not specified</tt></p>
+</dd>
+<dt><code><strong>crypto_setup: certificate ? is trusted, but not self signed.</strong></code></dt>
+<dd><code><strong>crypto_setup: certificate ? not for this host</strong></code></dd>
+<dd><code><strong>crypto_setup: certificate file ? not found or corrupt</strong></code></dd>
+<dd><code><strong>crypto_setup: host key file ? not found or corrupt</strong></code></dd>
+<dd><code><strong>crypto_setup: host key is not RSA key type</strong></code></dd>
+<dd><code><strong>crypto_setup: random seed file ? not found</strong></code></dd>
+<dd><code><strong>crypto_setup: random seed file not specified</strong></code></dd>
+<dd>
 <p>Fatal errors. These messages show problems during the initialization procedure.</p>
-<p><tt><strong>LOG_INFO</strong></tt></p>
-<p><tt>cert_parse: expired ?</tt></p>
-<p><tt>cert_parse: invalid issuer ?</tt></p>
-<p><tt>cert_parse: invalid signature ?</tt></p>
-<p><tt>cert_parse: invalid subject ?</tt></p>
-<p>There is a problem with a certificate. Operation cannot proceed until the problem is fixed. If the certificate is local, it can be regenerated using the <tt>ntp-keygen</tt> program. If it is held somewhere else, it must be fixed by the holder.</p>
-<p><tt>crypto_?: defective key</tt></p>
-<p><tt>crypto_?: invalid filestamp</tt></p>
-<p><tt>crypto_?: missing challenge</tt></p>
-<p><tt>crypto_?: scheme unavailable</tt></p>
-<p>There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <tt>ntpd</tt> will usually time out and recover by itself.</p>
-<dt><tt>crypto_cert: wrong PEM type ?</tt></dt>
-<p>The certificate does not have MIME type <tt>CERTIFICATE</tt>. You are probably using the wrong type from OpenSSL or an external certificate authority.</p>
-<dt><tt>crypto_ident: no compatible identity scheme found</tt></dt>
+</dd>
+</dl>
+<p><code><strong>LOG_INFO</strong></code></p>
+<dl>
+<dt><code><strong>cert_parse: expired ?</strong></code></dt>
+<dd><code><strong>cert_parse: invalid issuer ?</strong></code></dd>
+<dd><code><strong>cert_parse: invalid signature ?</strong></code></dd>
+<dd><code><strong>cert_parse: invalid subject ?</strong></code></dd>
+<dd>
+<p>There is a problem with a certificate. Operation cannot proceed until the problem is fixed. If the certificate is local, it can be regenerated using the <code>ntp-keygen</code> program. If it is held somewhere else, it must be fixed by the holder.</p>
+</dd>
+<dt><code><strong>crypto_?: defective key</strong></code></dt>
+<dd><code><strong>crypto_?: invalid filestamp</strong></code></dd>
+<dd><code><strong>crypto_?: missing challenge</strong></code></dd>
+<dd><code><strong>crypto_?: scheme unavailable</strong></code></dd>
+<dd>
+<p>There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <code>ntpd</code> will usually time out and recover by itself.</p>
+</dd>
+<dt><code><strong>crypto_cert: wrong PEM type ?</strong></code></dt>
+<dd>
+<p>The certificate does not have MIME type <code>CERTIFICATE</code>. You are probably using the wrong type from OpenSSL or an external certificate authority.</p>
+</dd>
+<dt><code><strong>crypto_ident: no compatible identity scheme found</strong></code></dt>
+<dd>
 <p>Configuration error. The server and client identity schemes are incompatible.</p>
-<dt><tt>crypto_tai: kernel TAI update failed</tt></dt>
+</dd>
+<dt><code><strong>crypto_tai: kernel TAI update failed</strong></code></dt>
+<dd>
 <p>The kernel does not support this function. You may need a new kernel or patch.</p>
-<dt><tt>crypto_tai: leapseconds file ? error ?</tt></dt>
-<p>The leapseconds file is corrupt. Obtain the latest file from <tt>time.nist.gov</tt>.</p>
+</dd>
+<dt><code><strong>crypto_tai: leapseconds file ? error ?</strong></code></dt>
+<dd>
+<p>The leapseconds file is corrupt. Obtain the latest file from <code>time.nist.gov</code>.</p>
+</dd>
+</dl>
 
 	  
 	  <style>
