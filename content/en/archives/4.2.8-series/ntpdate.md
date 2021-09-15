@@ -11,7 +11,7 @@ Last update: 21-Jul-2018 04:09 UTC
 
 * * *
 
-Disclaimer: This program has known bugs and deficiencies and nobody has volunteered to fix them in a long time. The good news is the functionality originally intended for this program is available in the <tt>ntpd</tt> and <tt>sntp</tt> programs. See the [Deprecating <tt>ntpdate</tt> topic](http://support.ntp.org/Dev/DeprecatingNtpdate) in the NTP Support wiki for a thorough discussion and analysis of the issues. See the <tt>-q</tt> command line option in the [<tt>ntpd</tt> - Network Time Protocol (NTP) daemon](/archives/4.2.8-series/ntpd) page and/or the [<tt>sntp</tt> - Simple Network Time Protocol (SNTP) Client](/archives/4.2.8-series/sntp) page. After a suitable period of mourning, the <tt>ntpdate</tt> program will be retired from this distribution.
+Disclaimer: This program has known bugs and deficiencies and nobody has volunteered to fix them in a long time. The good news is the functionality originally intended for this program is available in the <code>ntpd</code> and <code>sntp</code> programs. See the [Deprecating <code>ntpdate</code> topic](http://support.ntp.org/Dev/DeprecatingNtpdate) in the NTP Support wiki for a thorough discussion and analysis of the issues. See the <code>-q</code> command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.2.8-series/ntpd) page and/or the [<code>sntp</code> - Simple Network Time Protocol (SNTP) Client](/archives/4.2.8-series/sntp) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
 
 #### Table of Contents
 
@@ -24,102 +24,102 @@ Disclaimer: This program has known bugs and deficiencies and nobody has voluntee
 
 #### Synopsis
 
-<tt>ntpdate [ -46bBdqsuv ] [ -a _key_ ] [ -e _authdelay_ ] [ -k _keyfile_ ] [ -o _version_ ] [ -p _samples_ ] [ -t _timeout_ ] _server_ [ ... ]</tt>
+<code>ntpdate [ -46bBdqsuv ] [ -a _key_ ] [ -e _authdelay_ ] [ -k _keyfile_ ] [ -o _version_ ] [ -p _samples_ ] [ -t _timeout_ ] _server_ [ ... ]</code>
 
 * * *
 
 #### Description
 
-<tt>ntpdate</tt> sets the local date and time by polling the Network Time Protocol (NTP) server(s) given as the _server_ arguments to determine the correct time. It must be run as root on the local host. A number of samples are obtained from each of the servers specified and a subset of the NTP clock filter and selection algorithms are applied to select the best of these. Note that the accuracy and reliability of <tt>ntpdate</tt> depends on the number of servers, the number of polls each time it is run and the interval between runs.
+<code>ntpdate</code> sets the local date and time by polling the Network Time Protocol (NTP) server(s) given as the _server_ arguments to determine the correct time. It must be run as root on the local host. A number of samples are obtained from each of the servers specified and a subset of the NTP clock filter and selection algorithms are applied to select the best of these. Note that the accuracy and reliability of <code>ntpdate</code> depends on the number of servers, the number of polls each time it is run and the interval between runs.
 
-<tt>ntpdate</tt> can be run manually as necessary to set the host clock, or it can be run from the host startup script to set the clock at boot time. This is useful in some cases to set the clock initially before starting the NTP daemon <tt>ntpd</tt>. It is also possible to run <tt>ntpdate</tt> from a <tt>cron</tt> script. However, it is important to note that <tt>ntpdate</tt> with contrived <tt>cron</tt> scripts is no substitute for the NTP daemon, which uses sophisticated algorithms to maximize accuracy and reliability while minimizing resource use. Finally, since <tt>ntpdate</tt> does not discipline the host clock frequency as does <tt>ntpd</tt>, the accuracy using <tt>ntpdate</tt> is limited.
+<code>ntpdate</code> can be run manually as necessary to set the host clock, or it can be run from the host startup script to set the clock at boot time. This is useful in some cases to set the clock initially before starting the NTP daemon <code>ntpd</code>. It is also possible to run <code>ntpdate</code> from a <code>cron</code> script. However, it is important to note that <code>ntpdate</code> with contrived <code>cron</code> scripts is no substitute for the NTP daemon, which uses sophisticated algorithms to maximize accuracy and reliability while minimizing resource use. Finally, since <code>ntpdate</code> does not discipline the host clock frequency as does <code>ntpd</code>, the accuracy using <code>ntpdate</code> is limited.
 
-Time adjustments are made by <tt>ntpdate</tt> in one of two ways. If <tt>ntpdate</tt> determines the clock is in error more than 0.5 second it will simply step the time by calling the system <tt>settimeofday()</tt> routine. If the error is less than 0.5 seconds, it will slew the time by calling the system <tt>adjtime()</tt> routine. The latter technique is less disruptive and more accurate when the error is small, and works quite well when <tt>ntpdate</tt> is run by <tt>cron</tt> every hour or two.
+Time adjustments are made by <code>ntpdate</code> in one of two ways. If <code>ntpdate</code> determines the clock is in error more than 0.5 second it will simply step the time by calling the system <code>settimeofday()</code> routine. If the error is less than 0.5 seconds, it will slew the time by calling the system <code>adjtime()</code> routine. The latter technique is less disruptive and more accurate when the error is small, and works quite well when <code>ntpdate</code> is run by <code>cron</code> every hour or two.
 
-<tt>ntpdate</tt> will, if the <tt>-u</tt> flag was not specified, decline to set the date if an NTP server daemon (e.g., <tt>ntpd</tt>) is running on the same host. When running <tt>ntpdate</tt> on a regular basis from <tt>cron</tt> as an alternative to running a daemon, doing so once every hour or two will result in precise enough timekeeping to avoid stepping the clock.
+<code>ntpdate</code> will, if the <code>-u</code> flag was not specified, decline to set the date if an NTP server daemon (e.g., <code>ntpd</code>) is running on the same host. When running <code>ntpdate</code> on a regular basis from <code>cron</code> as an alternative to running a daemon, doing so once every hour or two will result in precise enough timekeeping to avoid stepping the clock.
 
-Note that in contexts where a host name is expected, a <tt>-4</tt> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <tt>-6</tt> qualifier forces DNS resolution to the IPv6 namespace.
+Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.
 
-If NetInfo support is compiled into <tt>ntpdate</tt>, then the <tt>server</tt> argument is optional if <tt>ntpdate</tt> can find a time server in the NetInfo configuration for <tt>ntpd</tt>.
+If NetInfo support is compiled into <code>ntpdate</code>, then the <code>server</code> argument is optional if <code>ntpdate</code> can find a time server in the NetInfo configuration for <code>ntpd</code>.
 
 * * *
 
 #### Command Line Options
 
-<dt><tt>-4</tt></dt>
+<code>**-4**</code>
 
-Force DNS resolution of following host names on the command line to the IPv4 namespace.
+: Force DNS resolution of following host names on the command line to the IPv4 namespace.
 
-<dt><tt>-6</tt></dt>
+<code>**-6**</code>
 
-Force DNS resolution of following host names on the command line to the IPv6 namespace.
+: Force DNS resolution of following host names on the command line to the IPv6 namespace.
 
-<dt><tt>-a _key_</tt></dt>
+<code>**-a _key_**</code>
 
-Enable the authentication function and specify the key identifier to be used for authentication as the argument _key_. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.
+: Enable the authentication function and specify the key identifier to be used for authentication as the argument <code>_key_</code>. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.
 
-<dt><tt>-B</tt></dt>
+<code>**-B**</code>
 
-Force the time to always be slewed using the adjtime() system call, even if the measured offset is greater than +-500 ms. The default is to step the time using settimeofday() if the offset is greater than +-500 ms. Note that, if the offset is much greater than +-500 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time. the host should not be used to synchronize clients.
+: Force the time to always be slewed using the <code>adjtime()</code> system call, even if the measured offset is greater than +-500 ms. The default is to step the time using <code>settimeofday()</code> if the offset is greater than +-500 ms. Note that, if the offset is much greater than +-500 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time. the host should not be used to synchronize clients.
 
-<dt><tt>-b</tt></dt>
+<code>**-b**</code>
 
-Force the time to be stepped using the settimeofday() system call, rather than slewed (default) using the adjtime() system call. This option should be used when called from a startup file at boot time.
+: Force the time to be stepped using the <code>settimeofday()</code> system call, rather than slewed (default) using the <code>adjtime()</code> system call. This option should be used when called from a startup file at boot time.
 
-<dt><tt>-d</tt></dt>
+<code>**-d**</code>
 
-Enable the debugging mode, in which <tt>ntpdate</tt> will go through all the steps, but not adjust the local clock and using an unprivileged port. Information useful for general debugging will also be printed.
+: Enable the debugging mode, in which <code>ntpdate</code> will go through all the steps, but not adjust the local clock and using an unprivileged port. Information useful for general debugging will also be printed.
 
-<dt><tt>-e _authdelay_</tt></dt>
+<code>**-e _authdelay_**</code>
 
-Specify the processing delay to perform an authentication function as the value _authdelay_, in seconds and fraction (see <tt>ntpd</tt> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPU's.
+: Specify the processing delay to perform an authentication function as the value <code>_authdelay_</code>, in seconds and fraction (see <code>ntpd</code> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPU's.
 
-<dt><tt>-k _keyfile_</tt></dt>
+<code>**-k _keyfile_**</code>
 
-Specify the path for the authentication key file as the string _keyfile_. The default is <tt>/etc/ntp.keys</tt>. This file should be in the format described in <tt>ntpd</tt>.
+: Specify the path for the authentication key file as the string <code>_keyfile_</code>. The default is <code>/etc/ntp.keys</code>. This file should be in the format described in <code>ntpd</code>.
 
-<dt><tt>-o _version_</tt></dt>
+<code>**-o _version_**</code>
 
-Specify the NTP version for outgoing packets as the integer _version_, which can be 1, 2, 3 or 4. The default is 4. This allows <tt>ntpdate</tt> to be used with older NTP versions.
+: Specify the NTP version for outgoing packets as the integer <code>_version_</code>, which can be <code>1, 2, 3</code> or <code>4</code>. The default is <code>4</code>. This allows <code>ntpdate</code> to be used with older NTP versions.
 
-<dt><tt>-p _samples_</tt></dt>
+<code>**-p _samples_**</code>
 
-Specify the number of samples to be acquired from each server as the integer _samples_, with values from 1 to 8 inclusive. The default is 4.
+: Specify the number of samples to be acquired from each server as the integer <code>_samples_</code>, with values from <code>1</code> to <code>8</code> inclusive. The default is <code>4</code>.
 
-<dt>_<tt>-q</tt>_</dt>
+<code>**-q**</code>
 
-Query only - don't set the clock.
+: Query only - don't set the clock.
 
-<dt><tt>-s</tt></dt>
+<code>**-s**</code>
 
-Divert logging output from the standard output (default) to the system <tt>syslog</tt> facility. This is designed primarily for convenience of <tt>cron</tt> scripts.
+: Divert logging output from the standard output (default) to the system <code>syslog</code> facility. This is designed primarily for convenience of <code>cron</code> scripts.
 
-<dt><tt>-t _timeout_</tt></dt>
+<code>**-t _timeout_**</code>
 
-Specify the maximum time waiting for a server response as the value _timeout_, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 2 seconds, a value suitable for polling across a LAN.
+: Specify the maximum time waiting for a server response as the value <code>_timeout_</code>, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is <code>2</code> seconds, a value suitable for polling across a LAN.
 
-<dt><tt>-u</tt></dt>
+<code>**-u**</code>
 
-Direct <tt>ntpdate</tt> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <tt>-d</tt> option always uses unprivileged ports.
+: Direct <code>ntpdate</code> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <code>-d</code> option always uses unprivileged ports.
 
-<dt><tt>-_v_</tt></dt>
+<code>**-_v_**</code>
 
-Be verbose. This option will cause <tt>ntpdate</tt>'s version identification string to be logged.
+: Be verbose. This option will cause <code>ntpdate</code>'s version identification string to be logged.
 
 * * *
 
 #### Diagnostics
 
-<tt>ntpdate</tt>'s exit status is zero if it finds a server and updates the clock, and nonzero otherwise.
+<code>ntpdate</code>'s exit status is zero if it finds a server and updates the clock, and nonzero otherwise.
 
 * * *
 
 #### Files
 
-<tt>/etc/ntp.keys</tt> - encryption keys used by <tt>ntpdate</tt>.
+<code>/etc/ntp.keys</code> - encryption keys used by <code>ntpdate</code>.
 
 * * *
 
 #### Bugs
 
-The slew adjustment is actually 50% larger than the measured offset, since this (it is argued) will tend to keep a badly drifting clock more accurate. This is probably not a good idea and may cause a troubling hunt for some values of the kernel variables <tt>tick</tt> and <tt>tickadj</tt>. 
+The slew adjustment is actually 50% larger than the measured offset, since this (it is argued) will tend to keep a badly drifting clock more accurate. This is probably not a good idea and may cause a troubling hunt for some values of the kernel variables <code>tick</code> and <code>tickadj</code>. 

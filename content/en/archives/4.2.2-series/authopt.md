@@ -34,11 +34,11 @@ NTPv4 retains the NTPv3 scheme, properly described as symmetric key cryptography
 
 While the algorithms for symmetric key cryptography are included in the NTPv4 distribution, public key cryptography requires the OpenSSL software library to be installed before building the NTP distribution. This library is available from https://www.openssl.org and can be installed using the procedures outlined in the [Building and Installing the Distribution](/archives/4.2.2-series/build) page. Once installed, the configure and build process automatically detects the library and links the library routines required.
 
-Authentication is configured separately for each association using the <tt>key</tt> or <tt>autokey</tt> subcommand on the <tt>peer</tt>, <tt>server</tt>, <tt>broadcast</tt> and <tt>manycastclient</tt> configuration commands as described in the [Configuration Options](/archives/4.2.2-series/confopt) page. The authentication options described below specify the locations of the key files, if other than default, which symmetric keys are trusted and the interval between various operations, if other than default.
+Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> subcommand on the <code>peer</code>, <code>server</code>, <code>broadcast</code> and <code>manycastclient</code> configuration commands as described in the [Configuration Options](/archives/4.2.2-series/confopt) page. The authentication options described below specify the locations of the key files, if other than default, which symmetric keys are trusted and the interval between various operations, if other than default.
 
 Authentication is always enabled, although ineffective if not configured as described below. If a NTP packet arrives including a message authentication code (MAC), it is accepted only if it passes all cryptographic checks. The checks require correct key ID, key value and message digest. If the packet has been modified in any way or replayed by an intruder, it will fail one or more of these checks and be discarded. Furthermore, the Autokey scheme requires a preliminary protocol exchange to obtain the server certificate, verify its credentials and initialize the protocol
 
-The <tt>auth</tt> flag controls whether new associations or remote configuration commands require cryptographic authentication. This flag can be set or reset by the <tt>enable</tt> and <tt>disable</tt> commands and also by remote configuration commands sent by a <tt>ntpdc</tt> program running on another machine. If this flag is enabled, which is the default case, new broadcast/manycast client and symmetric passive associations and remote configuration commands must be cryptographically authenticated using either symmetric key or public key cryptography. If this flag is disabled, these operations are effective even if not cryptographic authenticated. It should be understood that operating with the <tt>auth</tt> flag disabled invites a significant vulnerability where a rogue hacker can masquerade as a truechimer and seriously disrupt system timekeeping. It is important to note that this flag has no purpose other than to allow or disallow a new association in response to new broadcast and symmetric active messages and remote configuration commands and, in particular, the flag has no effect on the authentication process itself.
+The <code>auth</code> flag controls whether new associations or remote configuration commands require cryptographic authentication. This flag can be set or reset by the <code>enable</code> and <code>disable</code> commands and also by remote configuration commands sent by a <code>ntpdc</code> program running on another machine. If this flag is enabled, which is the default case, new broadcast/manycast client and symmetric passive associations and remote configuration commands must be cryptographically authenticated using either symmetric key or public key cryptography. If this flag is disabled, these operations are effective even if not cryptographic authenticated. It should be understood that operating with the <code>auth</code> flag disabled invites a significant vulnerability where a rogue hacker can masquerade as a truechimer and seriously disrupt system timekeeping. It is important to note that this flag has no purpose other than to allow or disallow a new association in response to new broadcast and symmetric active messages and remote configuration commands and, in particular, the flag has no effect on the authentication process itself.
 
 The security model and protocol schemes for both symmetric key and public key cryptography are summarized below; further details are in the briefings, papers and reports at the NTP project page linked from www.ntp.org.
 
@@ -46,9 +46,9 @@ The security model and protocol schemes for both symmetric key and public key cr
 
 #### Symmetric Key Cryptography
 
-The original RFC-1305 specification allows any one of possibly 65,534 keys, each distinguished by a 32-bit key identifier, to authenticate an association. The servers and clients involved must agree on the key and key identifier to authenticate NTP packets. Keys and related information are specified in a key file, usually called <tt>ntp.keys</tt>, which must be distributed and stored using secure means beyond the scope of the NTP protocol itself. Besides the keys used for ordinary NTP associations, additional keys can be used as passwords for the [ntpq](/archives/4.2.2-series/ntpq) and [ntpdc](/archives/4.2.2-series/ntpdc) utility programs. Ordinarily, the <tt>ntp.keys</tt> file is generated by the [ntp-keygen](/archives/4.2.2-series/keygen) program.
+The original RFC-1305 specification allows any one of possibly 65,534 keys, each distinguished by a 32-bit key identifier, to authenticate an association. The servers and clients involved must agree on the key and key identifier to authenticate NTP packets. Keys and related information are specified in a key file, usually called <code>ntp.keys</code>, which must be distributed and stored using secure means beyond the scope of the NTP protocol itself. Besides the keys used for ordinary NTP associations, additional keys can be used as passwords for the [ntpq](/archives/4.2.2-series/ntpq) and [ntpdc](/archives/4.2.2-series/ntpdc) utility programs. Ordinarily, the <code>ntp.keys</code> file is generated by the [ntp-keygen](/archives/4.2.2-series/keygen) program.
 
-When <tt>ntpd</tt> is first started, it reads the key file specified in the <tt>keys</tt> configuration command and installs the keys in the key cache. However, individual keys must be activated with the <tt>trustedkey</tt> command before use. This allows, for instance, the installation of possibly several batches of keys and then activating or deactivating each batch remotely using <tt>ntpdc</tt>. This also provides a revocation capability that can be used if a key becomes compromised. The <tt>requestkey</tt> command selects the key used as the password for the <tt>ntpdc</tt> utility, while the <tt>controlkey</tt> command selects the key used as the password for the <tt>ntpq</tt> utility.
+When <code>ntpd</code> is first started, it reads the key file specified in the <code>keys</code> configuration command and installs the keys in the key cache. However, individual keys must be activated with the <code>trustedkey</code> command before use. This allows, for instance, the installation of possibly several batches of keys and then activating or deactivating each batch remotely using <code>ntpdc</code>. This also provides a revocation capability that can be used if a key becomes compromised. The <code>requestkey</code> command selects the key used as the password for the <code>ntpdc</code> utility, while the <code>controlkey</code> command selects the key used as the password for the <code>ntpq</code> utility.
 
 * * *
 
@@ -58,7 +58,7 @@ NTPv4 supports the original NTPv3 symmetric key scheme described in RFC-1305 and
 
 The Autokey protocol has several modes of operation corresponding to the various NTP modes supported. Most modes use a special cookie which can be computed independently by the client and server, but encrypted in transmission. All modes use in addition a variant of the S-KEY scheme, in which a pseudo-random key list is generated and used in reverse order. These schemes are described along with an executive summary, current status, briefing slides and reading list on the [Autonomous Authentication](/reflib/autokey) page.
 
-The specific cryptographic environment used by Autokey servers and clients is determined by a set of files and soft links generated by the [ntp-keygen](/archives/4.2.2-series/keygen) program. This includes a required host key file, required host certificate file and optional sign key file, leapsecond file and identity scheme files. The digest/signature scheme is specified in the X.509 certificate along with the matching sign key. There are several schemes available in the OpenSSL software library, each identified by a specific string such as <tt>md5WithRSAEncryption</tt>, which stands for the MD5 message digest with RSA encryption scheme. The current NTP distribution supports all the schemes in the OpenSSL library, including those based on RSA and DSA digital signatures.
+The specific cryptographic environment used by Autokey servers and clients is determined by a set of files and soft links generated by the [ntp-keygen](/archives/4.2.2-series/keygen) program. This includes a required host key file, required host certificate file and optional sign key file, leapsecond file and identity scheme files. The digest/signature scheme is specified in the X.509 certificate along with the matching sign key. There are several schemes available in the OpenSSL software library, each identified by a specific string such as <code>md5WithRSAEncryption</code>, which stands for the MD5 message digest with RSA encryption scheme. The current NTP distribution supports all the schemes in the OpenSSL library, including those based on RSA and DSA digital signatures.
 
 NTP secure groups can be used to define cryptographic compartments and security hierarchies. It is important that every host in the group be able to construct a certificate trail to one or more trusted hosts in the same group. Each group host runs the Autokey protocol to obtain the certificates for all hosts along the trail to one or more trusted hosts. This requires the configuration file in all hosts to be engineered so that, even under anticipated failure conditions, the NTP subnet will form such that every group host can find a trail to at least one trusted host.
 
@@ -68,7 +68,7 @@ NTP secure groups can be used to define cryptographic compartments and security 
 
 It is important to note that Autokey does not use DNS to resolve addresses, since DNS can't be completely trusted until the name servers have synchronized clocks. The cryptographic name used by Autokey to bind the host identity credentials and cryptographic values must be independent of interface, network and any other naming convention. The name appears in the host certificate in either or both the subject and issuer fields, so protection against DNS compromise is essential.
 
-By convention, the name of an Autokey host is the name returned by the Unix <tt>gethostname()</tt> system call or equivalent in other systems. By the system design model, there are no provisions to allow alternate names or aliases. However, this is not to say that DNS aliases, different names for each interface, etc., are constrained in any way.
+By convention, the name of an Autokey host is the name returned by the Unix <code>gethostname()</code> system call or equivalent in other systems. By the system design model, there are no provisions to allow alternate names or aliases. However, this is not to say that DNS aliases, different names for each interface, etc., are constrained in any way.
 
 It is also important to note that Autokey verifies authenticity using the host name, network address and public keys, all of which are bound together by the protocol specifically to deflect masquerade attacks. For this reason Autokey includes the source and destination IP addresses in message digest computations and so the same addresses must be available at both the server and client. For this reason operation with network address translation schemes is not possible. This reflects the intended robust security model where government and corporate NTP servers are operated outside firewall perimeters.
 
@@ -82,17 +82,17 @@ For example, trusted host Alice generates keys using
 
 `ntp-keygen -H -T -I -p xyz`
 
-where H specifies a new host key, T the trusted certificate, I the IFF identity scheme and p the password used to encrypt the private key files. The group key file is <tt>ntpkey_IFFpar_alice.filestamp</tt>, where filestamp represents the NTP time in seconds when the file was generated.
+where H specifies a new host key, T the trusted certificate, I the IFF identity scheme and p the password used to encrypt the private key files. The group key file is <code>ntpkey_IFFpar_alice.filestamp</code>, where filestamp represents the NTP time in seconds when the file was generated.
 
 Host Bob generate keys using
 
 `ntp-keygen -H -p abc`
 
-where <tt>abc</tt> is different for each group host. The trusted host generates a password-protected group key using
+where <code>abc</code> is different for each group host. The trusted host generates a password-protected group key using
 
 `ntp-keygen -q xyz -p abc -e >temp`
 
-where <tt>xyz</tt> is the trusted host password, abc is the password supplied by the client and <tt>temp</tt> is a temporary file. This file is transmitted to Bob using secure means and renamed to the fully qualified host name for Alice preceded by the string <tt>ntpkey_iff_</tt>.
+where <code>xyz</code> is the trusted host password, abc is the password supplied by the client and <code>temp</code> is a temporary file. This file is transmitted to Bob using secure means and renamed to the fully qualified host name for Alice preceded by the string <code>ntpkey_iff_</code>.
 
 * * *
 
@@ -100,173 +100,173 @@ where <tt>xyz</tt> is the trusted host password, abc is the password supplied by
 
 A specific combination of authentication scheme (none, symmetric key, public key) and identity scheme is called a cryptotype, although not all combinations are compatible. There may be management configurations where the clients, servers and peers may not all support the same cryptotypes. A secure NTPv4 subnet can be configured in many ways while keeping in mind the principles explained above and in this section. Note however that some cryptotype combinations may successfully interoperate with each other, but may not represent good security practice.
 
-The cryptotype of an association is determined at the time of mobilization, either at configuration time or some time later when a message of appropriate cryptotype arrives. When mobilized by a <tt>server</tt> or <tt>peer</tt> configuration command and no <tt>key</tt> or <tt>autokey</tt> subcommands are present, the association is not authenticated; if the <tt>key</tt> subcommand is present, the association is authenticated using the symmetric key ID specified; if the <tt>autokey</tt> subcommand is present, the association is authenticated using Autokey.
+The cryptotype of an association is determined at the time of mobilization, either at configuration time or some time later when a message of appropriate cryptotype arrives. When mobilized by a <code>server</code> or <code>peer</code> configuration command and no <code>key</code> or <code>autokey</code> subcommands are present, the association is not authenticated; if the <code>key</code> subcommand is present, the association is authenticated using the symmetric key ID specified; if the <code>autokey</code> subcommand is present, the association is authenticated using Autokey.
 
 * * *
 
 #### Key Management
 
-The cryptographic values used by the Autokey protocol are incorporated as a set of files generated by the [ntp-keygen](/archives/4.2.2-series/keygen) utility program, including symmetric key, host key and public certificate files, as well as sign key, identity parameters and leapseconds files. Alternatively, host and sign keys and certificate files can be generated by the OpenSSL utilities and certificates can be imported from public certificate authorities. Note that symmetric keys are necessary for the <tt>ntpq</tt> and <tt>ntpdc</tt> utility programs. The remaining files are necessary only for the Autokey protocol.
+The cryptographic values used by the Autokey protocol are incorporated as a set of files generated by the [ntp-keygen](/archives/4.2.2-series/keygen) utility program, including symmetric key, host key and public certificate files, as well as sign key, identity parameters and leapseconds files. Alternatively, host and sign keys and certificate files can be generated by the OpenSSL utilities and certificates can be imported from public certificate authorities. Note that symmetric keys are necessary for the <code>ntpq</code> and <code>ntpdc</code> utility programs. The remaining files are necessary only for the Autokey protocol.
 
-Certificates imported from OpenSSL or public certificate authorities have certain limitations. The certificate should be in ASN.1 syntax, X.509 Version 3 format and encoded in PEM, which is the same format used by OpenSSL. The overall length of the certificate encoded in ASN.1 must not exceed 1024 bytes. The subject distinguished name field (<tt>CN</tt>) is the fully qualified name of the host on which it is used; the remaining subject fields are ignored. The certificate extension fields must not contain either a subject key identifier or a issuer key identifier field; however, an extended key usage field for a trusted host must contain the value <tt>trustRoot;</tt>. Other extension fields are ignored.
+Certificates imported from OpenSSL or public certificate authorities have certain limitations. The certificate should be in ASN.1 syntax, X.509 Version 3 format and encoded in PEM, which is the same format used by OpenSSL. The overall length of the certificate encoded in ASN.1 must not exceed 1024 bytes. The subject distinguished name field (<code>CN</code>) is the fully qualified name of the host on which it is used; the remaining subject fields are ignored. The certificate extension fields must not contain either a subject key identifier or a issuer key identifier field; however, an extended key usage field for a trusted host must contain the value <code>trustRoot;</code>. Other extension fields are ignored.
 
 * * *
 
 #### Authentication Commands
 
-<dt><tt>autokey [_logsec_]</tt></dt>
+<code>**autokey [_logsec_]**</code>
 
-Specifies the interval between regenerations of the session key list used with the Autokey protocol. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (4096 s or about 1.1 hours). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent.
+: Specifies the interval between regenerations of the session key list used with the Autokey protocol. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (4096 s or about 1.1 hours). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent.
 
-<dt id="controlkey"><tt>controlkey _key_</tt></dt>
+<code>**controlkey _key_**</code>
 
-Specifies the key identifier to use with the [<tt>ntpq</tt>](/archives/4.2.2-series/ntpq) utility, which uses the standard protocol defined in RFC-1305. The <tt>_key_</tt> argument is the key identifier for a trusted key, where the value can be in the range 1 to 65534, inclusive.
+: Specifies the key identifier to use with the [<code>ntpq</code>](/archives/4.2.2-series/ntpq) utility, which uses the standard protocol defined in RFC-1305. The <code>_key_</code> argument is the key identifier for a trusted key, where the value can be in the range 1 to 65534, inclusive.
 
-<dt id="crypto"><tt>crypto [cert _file_] [leap _file_] [randfile _file_] [host _file_] [sign _file_] [ident _scheme_] [iffpar _file_] [ggpar _file_] [mvpar _file_] [pw _password_]</tt></dt>
+<code>**crypto [cert _file_] [leap _file_] [randfile _file_] [host _file_] [sign _file_] [ident _scheme_] [iffpar _file_] [ggpar _file_] [mvpar _file_] [pw _password_]**</code>
 
-This command requires the OpenSSL library. It activates public key cryptography, selects the message digest and signature encryption scheme and loads the required private and public values described above. If one or more files are left unspecified, the default names are used as described above. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <tt>keysdir</tt> command or default <tt>/usr/local/etc</tt>. Following are the subcommands:
+: This command requires the OpenSSL library. It activates public key cryptography, selects the message digest and signature encryption scheme and loads the required private and public values described above. If one or more files are left unspecified, the default names are used as described above. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <code>keysdir</code> command or default <code>/usr/local/etc</code>. Following are the subcommands:
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>cert _file_</tt> 
+<code>cert _file_</code> 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the required host public certificate file. This overrides the link <tt>ntpkey_cert_hostname</tt> in the keys directory. 
+: Specifies the location of the required host public certificate file. This overrides the link <code>ntpkey_cert_hostname</code> in the keys directory. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>ggpar _file_</tt> 
+<code>ggpar _file_</code> 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the client GQ parameters file. This overrides the link <tt>ntpkey_gq_hostname</tt> in the keys directory. 
+: Specifies the location of the client GQ parameters file. This overrides the link <code>ntpkey_gq_hostname</code> in the keys directory. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>host _file_</tt>&nbsp;&nbsp;&nbsp;&nbsp;
+<code>host _file_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the required host key file. This overrides the link <tt>ntpkey_key_hostname</tt> in the keys directory. 
+: Specifies the location of the required host key file. This overrides the link <code>ntpkey_key_hostname</code> in the keys directory. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>ident _scheme_</tt>
+<code>ident _scheme_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Requests the server identity <tt>scheme</tt>, which can be <tt>IFF</tt>, <tt>GQ</tt> or <tt>MV</tt>. This is used when the host will not be a server for a dependent client.
+: Requests the server identity <code>scheme</code>, which can be <code>IFF</code>, <code>GQ</code> or <code>MV</code>. This is used when the host will not be a server for a dependent client.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>iffpar _file_</tt> 
+<code>iffpar _file_</code> 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the optional IFF parameters file.This overrides the link <tt>ntpkey_iff_hostname</tt> in the keys directory. 
+: Specifies the location of the optional IFF parameters file.This overrides the link <code>ntpkey_iff_hostname</code> in the keys directory. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>leap _file_</tt> 
+<code>leap _file_</code> 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the client leapsecond file. This overrides the link <tt>ntpkey_leap</tt> in the keys directory. 
+: Specifies the location of the client leapsecond file. This overrides the link <code>ntpkey_leap</code> in the keys directory. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>mv</tt> 
+<code>mv</code> 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Requests the MV server identity scheme. 
+: Requests the MV server identity scheme. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>mvpar _file_</tt> 
+<code>mvpar _file_</code> 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the client MV parameters file. This overrides the link <tt>ntpkey_mv_hostname</tt> in the keys directory. 
+: Specifies the location of the client MV parameters file. This overrides the link <code>ntpkey_mv_hostname</code> in the keys directory. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>pw _password_</tt>
+<code>pw _password_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the password to decrypt files containing private keys and identity parameters. This is required only if these files have been encrypted. 
+: Specifies the password to decrypt files containing private keys and identity parameters. This is required only if these files have been encrypted. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>randfile _file_</tt>
+<code>randfile _file_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the random seed file used by the OpenSSL library. The defaults are described in the main text above.
+: Specifies the location of the random seed file used by the OpenSSL library. The defaults are described in the main text above.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>sign _file_</tt>
+<code>sign _file_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the location of the optional sign key file. This overrides the link <tt>ntpkey_sign_hostname</tt> in the keys directory. If this file is not found, the host key is also the sign key. 
+: Specifies the location of the optional sign key file. This overrides the link <code>ntpkey_sign_hostname</code> in the keys directory. If this file is not found, the host key is also the sign key. 
 
-<dt id="keys"><tt>keys _keyfile_</tt></dt>
+<code>**keys _keyfile_**</code>
 
-Specifies the complete path to the MD5 key file containing the keys and key identifiers used by <tt>ntpd</tt>, <tt>ntpq</tt> and <tt>ntpdc</tt> when operating with symmetric key cryptography. This is the same operation as the <tt>-k</tt> command line option. 
+: Specifies the complete path to the MD5 key file containing the keys and key identifiers used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric key cryptography. This is the same operation as the <code>-k</code> command line option. 
 
-<dt id="keysdir"><tt>keysdir _path_</tt></dt>
+<code>**keysdir _path_**</code>
 
-This command specifies the default directory path for cryptographic keys, parameters and certificates. The default is <tt>/usr/local/etc/</tt>. 
+: This command specifies the default directory path for cryptographic keys, parameters and certificates. The default is <code>/usr/local/etc/</code>. 
 
-<dt id="requestkey"><tt>requestkey _key_</tt></dt>
+<code>**requestkey _key_**</code>
 
-Specifies the key identifier to use with the [<tt>ntpdc</tt>](/archives/4.2.2-series/ntpdc) program, which uses a proprietary protocol specific to this implementation of <tt>ntpd</tt>. The <tt>_key_</tt> argument is a key identifier for the trusted key, where the value can be in the range 1 to 65534, inclusive.
+: Specifies the key identifier to use with the [<code>ntpdc</code>](/archives/4.2.2-series/ntpdc) program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code>_key_</code> argument is a key identifier for the trusted key, where the value can be in the range 1 to 65534, inclusive.
 
-<dt id="revoke"><tt>revoke [_logsec_]</tt></dt>
+<code>**revoke [_logsec_]**</code>
 
-Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds. These values need to be updated frequently in order to deflect brute-force attacks on the algorithms of the scheme; however, updating some values is a relatively expensive operation. The default interval is 16 (65,536 s or about 18 hours). For poll intervals above the specified interval, the values will be updated for every message sent. 
+: Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds. These values need to be updated frequently in order to deflect brute-force attacks on the algorithms of the scheme; however, updating some values is a relatively expensive operation. The default interval is 16 (65,536 s or about 18 hours). For poll intervals above the specified interval, the values will be updated for every message sent. 
 
-<dt id="trustedkey"><tt>trustedkey [_key_] [...]</tt></dt>
+<code>**trustedkey [_key_] [...]**</code>
 
-Specifies the key identifiers which are trusted for the purposes of authenticating peers with symmetric key cryptography, as well as keys used by the <tt>ntpq</tt> and <tt>ntpdc</tt> programs. The authentication procedures require that both the local and remote servers share the same key and key identifier for this purpose, although different keys can be used with different servers. The <tt>key</tt> arguments are 32-bit unsigned integers with values from 1 to 65,534. 
+: Specifies the key identifiers which are trusted for the purposes of authenticating peers with symmetric key cryptography, as well as keys used by the <code>ntpq</code> and <code>ntpdc</code> programs. The authentication procedures require that both the local and remote servers share the same key and key identifier for this purpose, although different keys can be used with different servers. The <code>key</code> arguments are 32-bit unsigned integers with values from 1 to 65,534. 
 
 * * *
 
 #### Error Codes
 
-Errors can occur due to mismatched configurations, unexpected restarts, expired certificates and unfriendly people. In most cases the protocol state machine recovers automatically by retransmission, timeout and restart, where necessary. Some errors are due to mismatched keys, digest schemes or identity schemes and must be corrected by installing the correct media and/or correcting the configuration file. One of the most common errors is expired certificates, which must be regenerated and signed at least once per year using the [<tt>ntp-keygen</tt>](/archives/4.2.2-series/keygen) program.
+Errors can occur due to mismatched configurations, unexpected restarts, expired certificates and unfriendly people. In most cases the protocol state machine recovers automatically by retransmission, timeout and restart, where necessary. Some errors are due to mismatched keys, digest schemes or identity schemes and must be corrected by installing the correct media and/or correcting the configuration file. One of the most common errors is expired certificates, which must be regenerated and signed at least once per year using the [<code>ntp-keygen</code>](/archives/4.2.2-series/keygen) program.
 
 The following error codes are reported via the NTP control and monitoring protocol trap mechanism.
 
-<dt>101 bad field format or length</dt>
+**101 bad field format or length**
 
-The packet has invalid version, length or format.
+: The packet has invalid version, length or format.
 
-<dt>102 bad timestamp</dt>
+**102 bad timestamp**
 
-The packet timestamp is the same or older than the most recent received. This could be due to a replay or a server clock time step.
+: The packet timestamp is the same or older than the most recent received. This could be due to a replay or a server clock time step.
 
-<dt>103 bad filestamp</dt>
+**103 bad filestamp**
 
-The packet filestamp is the same or older than the most recent received. This could be due to a replay or a key file generation error.
+: The packet filestamp is the same or older than the most recent received. This could be due to a replay or a key file generation error.
 
-<dt>104 bad or missing public key</dt>
+**104 bad or missing public key**
 
-The public key is missing, has incorrect format or is an unsupported type.
+: The public key is missing, has incorrect format or is an unsupported type.
 
-<dt>105 unsupported digest type</dt>
+**105 unsupported digest type**
 
-The server requires an unsupported digest/signature scheme.
+: The server requires an unsupported digest/signature scheme.
 
-<dt>106 unsupported identity type</dt>
+**106 unsupported identity type**
 
-The client or server has requested an identity scheme the other does not support.
+: The client or server has requested an identity scheme the other does not support.
 
-<dt>107 bad signature length</dt>
+**107 bad signature length**
 
-The signature length does not match the current public key.
+: The signature length does not match the current public key.
 
-<dt>108 signature not verified</dt>
+**108 signature not verified**
 
-The message fails the signature check. It could be bogus or signed by a different private key.
+: The message fails the signature check. It could be bogus or signed by a different private key.
 
-<dt>109 certificate not verified</dt>
+**109 certificate not verified**
 
-The certificate is invalid or signed with the wrong key.
+: The certificate is invalid or signed with the wrong key.
 
-<dt>110 host certificate expired</dt>
+**110 host certificate expired**
 
-The old server certificate has expired.
+: The old server certificate has expired.
 
-<dt>111 bad or missing cookie</dt>
+**111 bad or missing cookie**
 
-The cookie is missing, corrupted or bogus.
+: The cookie is missing, corrupted or bogus.
 
-<dt>112 bad or missing leapseconds table</dt>
+**112 bad or missing leapseconds table**
 
-The leapseconds table is missing, corrupted or bogus.
+: The leapseconds table is missing, corrupted or bogus.
 
-<dt>113 bad or missing certificate</dt>
+**113 bad or missing certificate**
 
-The certificate is missing, corrupted or bogus.
+: The certificate is missing, corrupted or bogus.
 
-<dt>114 bad or missing group key</dt>
+**114 bad or missing group key**
 
-The identity key is missing, corrupt or bogus.
+: The identity key is missing, corrupt or bogus.
 
-<dt>115 protocol error</dt>
+**115 protocol error**
 
-The protocol state machine has wedged due to unexpected restart.
+: The protocol state machine has wedged due to unexpected restart.
 
-<dt>116 (server certificate expired)</dt>
+**116 (server certificate expired)**
 
-The old server certificate has expired.
+: The old server certificate has expired.
 
 * * *
 
 #### Files
 
-See the [<tt>ntp-keygen</tt>](/archives/4.2.2-series/keygen) page. 
+See the [<code>ntp-keygen</code>](/archives/4.2.2-series/keygen) page. 
 
 * * *
 
@@ -274,4 +274,4 @@ See the [<tt>ntp-keygen</tt>](/archives/4.2.2-series/keygen) page.
 
 The NIST provides [tables](https://www.nist.gov/pml/time-and-frequency-division/time-realization/leap-seconds) showing the epoch for all historic occasions of leap second insertion since 1972. The leapsecond table shows each epoch of insertion along with the offset of International Atomic Time (TAI) with respect to Coordinated Universtal Time (UTC), as disseminated by NTP.
 
-While not strictly a security function, the Autokey protocol provides means to securely retrieve the leapsecond table from a server or peer. Servers load the leapsecond table directly from the file specified in the <tt>crypto</tt> command, with default <tt>ntpkey_leap</tt>, while clients can obtain the table indirectly from the servers using the Autokey protocol. Once loaded, the table can be provided on request to other clients and servers.
+While not strictly a security function, the Autokey protocol provides means to securely retrieve the leapsecond table from a server or peer. Servers load the leapsecond table directly from the file specified in the <code>crypto</code> command, with default <code>ntpkey_leap</code>, while clients can obtain the table indirectly from the servers using the Autokey protocol. Once loaded, the table can be provided on request to other clients and servers.

@@ -23,111 +23,111 @@ Last update: 1-Apr-2015 11:05 UTC
 
 #### Synopsis
 
-<tt>sntp [{--help -?}][{-4 -6}][-a _keynum_][-b _bcaddress_][-B _bctimeout_][-c][-d][-D _debug-level_][-g _delay_][-K _kodfile_][-k _keyfile_][-l _logfile_][-M _steplimit_][-o _ntpver_][-r][-S][-s][-u _uctimeout_][--wait][--version][_address(es)_]</tt>
+<code>sntp [{--help -?}][{-4 -6}][-a _keynum_][-b _bcaddress_][-B _bctimeout_][-c][-d][-D _debug-level_][-g _delay_][-K _kodfile_][-k _keyfile_][-l _logfile_][-M _steplimit_][-o _ntpver_][-r][-S][-s][-u _uctimeout_][--wait][--version][_address(es)_]</code>
 
 * * *
 
 #### Description
 
-This program is a Simple Network Time Protocol (SNTP) client that can be used to query a Network Time Protocol (NTP) server and display the time offset of the system clock relative to the server clock. Run as root it can correct the system clock to this offset as well. It can be run as an interactive command or from a script by a <tt>cron</tt> job. The program implements the SNTP client protocol defined in RFC 5905, including the full on-wire protocol but does not provide the sanity checks, access controls, security functions and mitigation algorithms as in the full NTP version 4 specification, also defined in RFC 5905.
+This program is a Simple Network Time Protocol (SNTP) client that can be used to query a Network Time Protocol (NTP) server and display the time offset of the system clock relative to the server clock. Run as root it can correct the system clock to this offset as well. It can be run as an interactive command or from a script by a <code>cron</code> job. The program implements the SNTP client protocol defined in RFC 5905, including the full on-wire protocol but does not provide the sanity checks, access controls, security functions and mitigation algorithms as in the full NTP version 4 specification, also defined in RFC 5905.
 
-By default, <tt>sntp</tt> writes the local date and time (i.e., not UTC) to the standard output in the format
+By default, <code>sntp</code> writes the local date and time (i.e., not UTC) to the standard output in the format
 
-<tt>2011-08-04 00:40:36.642222 (+0000) +0.006611 +/- 0.041061 psp-os1 149.20.68.26 s3 no-leap</tt>
+`2011-08-04 00:40:36.642222 (+0000) +0.006611 +/- 0.041061 psp-os1 149.20.68.26 s3 no-leap`
 
-where the <tt>+0.006611 +/- 0.041061</tt> indicates the time offset and error bound of the system clock relative to the server clock, in seconds. The hostname and/or the IP is displayed, as is the stratum of the server. Finally, the leap indicator status is displayed.
+where the <code>+0.006611 +/- 0.041061</code> indicates the time offset and error bound of the system clock relative to the server clock, in seconds. The hostname and/or the IP is displayed, as is the stratum of the server. Finally, the leap indicator status is displayed.
 
-If -b _bcaddress_ is not specified, the program sends a single message to each address and waits up to _uctimeout_ (default 5) seconds for a unicast server response. Otherwise, it sends no message and waits up to _bctimeout_ (default 68) seconds for a broadcast NTP message.
+If <code>-b _bcaddress_</code> is not specified, the program sends a single message to each address and waits up to <code>_uctimeout_</code> (default 5) seconds for a unicast server response. Otherwise, it sends no message and waits up to <code>_bctimeout_</code> (default 68) seconds for a broadcast NTP message.
 
 * * *
 
 #### Options
 
-<tt>sntp</tt> recognizes the following options:
+<code>sntp</code> recognizes the following options:
 
-<dt><tt>-?, --help</tt></dt>
+<code>**-?, -\-help**</code>
 
-displays usage information. The short form typically requires shell quoting, such as <tt>-\?</tt>, otherwise <tt>?</tt> is consumed by the shell.
+: Displays usage information. The short form typically requires shell quoting, such as <code>-\?</code>, otherwise <code>?</code> is consumed by the shell.
 
-<dt><tt>-4, --ipv4</tt></dt>
+<code>**-4, -\-ipv4**</code>
 
-When resolving hostnames to IP addresses, use IPv4 addresses only.
+: When resolving hostnames to IP addresses, use IPv4 addresses only.
 
-<dt><tt>-6, --ipv6</tt></dt>
+<code>**-6, -\-ipv6**</code>
 
-When resolving hostnames to IP addresses, use IPv6 addresses only.
+: When resolving hostnames to IP addresses, use IPv6 addresses only.
 
-<dt><tt>-a _keynum_, --authentication _keynum_</tt></dt>
+<code>**-a _keynum_, -\-authentication _keynum_**</code>
 
-Enable authentication with the key ID _keynum_. _keynum_ is a number specified in the keyfile along with an authentication secret (password or digest). See the <tt>-k, --keyfile</tt> option for more details.
+: Enable authentication with the key ID <code>_keynum_</code>. <code>_keynum_</code> is a number specified in the keyfile along with an authentication secret (password or digest). See the <code>-k, --keyfile</code> option for more details.
 
-<dt><tt>-b _bcaddress_, --broadcast _bcaddress_</tt></dt>
+<code>**-b _bcaddress_, -\-broadcast _bcaddress_**</code>
 
-Listen for NTP packets sent to the broadcast or multicast address _bcaddress_, which can be a DNS name or IP address. The default maximum time to listen for broadcasts/multicasts, 68 seconds, can be modified with the <tt>-B, --bctimeout</tt> option.
+: Listen for NTP packets sent to the broadcast or multicast address <code>_bcaddress_</code>, which can be a DNS name or IP address. The default maximum time to listen for broadcasts/multicasts, 68 seconds, can be modified with the <code>-B, --bctimeout</code> option.
 
-<dt><tt>-B _bctimeout_, --bctimeout _bctimeout_</tt></dt>
+<code>**-B _bctimeout_, -\-bctimeout _bctimeout_**</code>
 
-Wait _bctimeout_ seconds for broadcast or multicast NTP message before terminating. The default is 68 seconds, chosen because ntpd typically transmits broadcasts/multicasts every 64 seconds. Note that the short option is <tt>-B</tt>, an uppercase letter B.
+: Wait <code>_bctimeout_</code> seconds for broadcast or multicast NTP message before terminating. The default is 68 seconds, chosen because ntpd typically transmits broadcasts/multicasts every 64 seconds. Note that the short option is <code>-B</code>, an uppercase letter B.
 
-<dt><tt>-c, --concurrent</tt></dt>
+<code>**-c, -\-concurrent**</code>
 
-Concurrently query all addresses returned for hostname. Requests from an NTP client to a single server should never be sent more often than once every two seconds. By default, all addresses resolved from a single hostname are assumed to be for a single instance of ntpd, and therefore sntp will send queries to these addresses one after another, waiting two seconds between queries. This option indicates multiple addresses returned for a hostname are on different machines, so sntp can send concurrent queries. This is appropriate when using *.pool.ntp.org, for example.
+: Concurrently query all addresses returned for hostname. Requests from an NTP client to a single server should never be sent more often than once every two seconds. By default, all addresses resolved from a single hostname are assumed to be for a single instance of <code>ntpd</code>, and therefore <code>sntp</code> will send queries to these addresses one after another, waiting two seconds between queries. This option indicates multiple addresses returned for a hostname are on different machines, so <code>sntp</code> can send concurrent queries. This is appropriate when using <code>*.pool.ntp.org</code>, for example.
 
-<dt><tt>-d, --debug-level</tt></dt>
+<code>**-d, -\-debug-level**</code>
 
-Increase debug verbosity level by one. May be specified multiple times. See also the <tt>-D, --set-debug-level</tt> option.
+: Increase debug verbosity level by one. May be specified multiple times. See also the <code>-D, --set-debug-level</code> option.
 
-<dt><tt>-D _debug-level_, --set-debug-level _debug-level_</tt></dt>
+<code>**-D _debug-level_, -\-set-debug-level _debug-level_**</code>
 
-Set the debug verbosity level to _debug-level_. The default level is zero. Note that the short option is <tt>-D</tt>, an uppercase letter D. See also the <tt>-d, --debug-level</tt> option.
+: Set the debug verbosity level to <code>_debug-level_</code>. The default level is zero. Note that the short option is <code>-D</code>, an uppercase letter D. See also the <code>-d, --debug-level</code> option.
 
-<dt><tt>-g _delay_, --gap _delay_</tt></dt>
+<code>**-g _delay_, -\-gap _delay_**</code>
 
-Specify the _delay_ in milliseconds between outgoing queries, defaulting to 50. <tt>sntp</tt> sends queries to all provided hostnames/addresses in short succession, and by default terminates once the first valid response is received. With multiple time sources provided, all but one will not be used. To limit the number of queries whose responses will not be used, each query is separated from the preceding one by _delay_ milliseconds, to allow time for responses to earlier queries to be received. A larger _delay_ reduces the query load on the time sources, increasing the time to receive a valid response if the first source attempted is slow or unreachable.
+: Specify the <code>_delay_</code> in milliseconds between outgoing queries, defaulting to 50. <code>sntp</code> sends queries to all provided hostnames/addresses in short succession, and by default terminates once the first valid response is received. With multiple time sources provided, all but one will not be used. To limit the number of queries whose responses will not be used, each query is separated from the preceding one by _delay_ milliseconds, to allow time for responses to earlier queries to be received. A larger _delay_ reduces the query load on the time sources, increasing the time to receive a valid response if the first source attempted is slow or unreachable.
 
-<dt><tt>-K _kodfile_, --kod _kodfile_</tt></dt>
+<code>**-K _kodfile_, -\-kod _kodfile_**</code>
 
-Specifies the filename _kodfile_ to be used for the persistent history of KoD (Kiss Of Death, or rate-limiting) responses received from servers. The default is <tt>/var/db/ntp-kod</tt>. If the file does not exist, a warning message will be displayed. The file will not be created. Note that the short option is <tt>-K</tt>, an uppercase letter K.
+: Specifies the filename <code>_kodfile_</code> to be used for the persistent history of KoD (Kiss Of Death, or rate-limiting) responses received from servers. The default is <code>/var/db/ntp-kod</code>. If the file does not exist, a warning message will be displayed. The file will not be created. Note that the short option is <code>-K</code>, an uppercase letter K.
 
-<dt><tt>-k _keyfile_, --keyfile _keyfile_</tt></dt>
+<code>**-k _keyfile_, -\-keyfile _keyfile_**</code>
 
-Specifies the filename _keyfile_ used with the <tt>-a</tt>/<tt>--authentication</tt> option. The format of the file is described on the [<tt>ntp-keygen</tt> page](/archives/4.2.8-series/keygen).
+: Specifies the filename <code>_keyfile_</code> used with the <code>-a</code>/<code>-\-authentication</code> option. The format of the file is described on the [<code>ntp-keygen</code> page](/archives/4.2.8-series/keygen).
 
-<dt><tt>-l _logfile_, --filelog _logfile_</tt></dt>
+<code>**-l _logfile_, -\-filelog _logfile_**</code>
 
-Specifies the filename in which to append a copy of status messages, which also appear on the terminal.
+: Specifies the filename in which to append a copy of status messages, which also appear on the terminal.
 
-<dt><tt>-M _steplimit_, --steplimit _steplimit_</tt></dt>
+<code>**-M _steplimit_, -\-steplimit _steplimit_**</code>
 
-If both <tt>-S</tt>/<tt>--step</tt> and <tt>-s</tt>/<tt>--slew</tt> options are provided, an offset of less than _steplimit_ milliseconds will be corrected by slewing the clock using adjtime(), while an offset of _steplimit_ or more will be corrected by setting the clock to the corrected time. Note that the short option is <tt>-M</tt>, an uppercase letter M.
+: If both <code>-S</code>/<code>-\-step</code> and <code>-s</code>/<code>-\-slew</code> options are provided, an offset of less than _steplimit_ milliseconds will be corrected by slewing the clock using adjtime(), while an offset of _steplimit_ or more will be corrected by setting the clock to the corrected time. Note that the short option is <code>-M</code>, an uppercase letter M.
 
-<dt><tt>-o _ntpver_, --ntpversion _ntpver_</tt></dt>
+<code>**-o _ntpver_, -\-ntpversion _ntpver_**</code>
 
-Specifies the NTP protocol version number _ntpver_ to include in requests, default 4. This option is rarely useful.
+: Specifies the NTP protocol version number <code>_ntpver_</code> to include in requests, default 4. This option is rarely useful.
 
-<dt><tt>-r, --usereservedport</tt></dt>
+<code>**-r, -\-usereservedport**</code>
 
-By default, <tt>sntp</tt> uses a UDP source port number selected by the operating system. When this option is used, the reserved NTP port 123 is used, which most often requires <tt>sntp</tt> be invoked as the superuser (commonly "root"). This can help identify connectivity failures due to port-based firewalling which affect <tt>ntpd</tt>, which always uses source port 123.
+: By default, <code>sntp</code> uses a UDP source port number selected by the operating system. When this option is used, the reserved NTP port 123 is used, which most often requires <code>sntp</code> be invoked as the superuser (commonly "root"). This can help identify connectivity failures due to port-based firewalling which affect <code>ntpd</code>, which always uses source port 123.
 
-<dt><tt>-S, --step</tt></dt>
+<code>**-S, -\-step**</code>
 
-By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by stepping, that is, directly setting the clock to the corrected time. This typically requires <tt>sntp</tt> be invoked as the superuser ("root"). Note that the short option is <tt>-S</tt>, an uppercase letter S.
+: By default, <code>sntp</code> displays the clock offset but does not attempt to correct it. This option enables offset correction by stepping, that is, directly setting the clock to the corrected time. This typically requires <code>sntp</code> be invoked as the superuser ("root"). Note that the short option is <code>-S</code>, an uppercase letter S.
 
-<dt><tt>-s, --slew</tt></dt>
+<code>**-s, -\-slew**</code>
 
-By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by slewing using adjtime(), which changes the rate of the clock for a period long enough to accomplish the required offset (phase) correction. This typically requires <tt>sntp</tt> be invoked as the superuser ("root").
+: By default, <code>sntp</code> displays the clock offset but does not attempt to correct it. This option enables offset correction by slewing using adjtime(), which changes the rate of the clock for a period long enough to accomplish the required offset (phase) correction. This typically requires <code>sntp</code> be invoked as the superuser ("root").
 
-<dt><tt>-u _uctimeout_, --uctimeout _uctimeout_</tt></dt>
+<code>**-u _uctimeout_, -\-uctimeout _uctimeout_**</code>
 
-Specifies the maximum time _uctimeout_ in seconds to wait for a unicast response before terminating.
+: Specifies the maximum time <code>_uctimeout_</code> in seconds to wait for a unicast response before terminating.
 
-<dt><tt>--wait</tt></dt>
+<code>**-\-wait**</code>
 
-When neither <tt>-S</tt>/<tt>--step</tt> nor <tt>-s</tt>/<tt>--slew</tt> options are provided, <tt>sntp</tt> will by default terminate after the first valid response is received. This option causes <tt>sntp</tt> to instead wait for all pending queries' responses.
+: When neither <code>-S</code>/<code>-\-step</code> nor <code>-s</code>/<code>-\-slew</code> options are provided, <code>sntp</code> will by default terminate after the first valid response is received. This option causes <code>sntp</code> to instead wait for all pending queries' responses.
 
-<dt><tt>--version</tt></dt>
+<code>**-\-version**</code>
 
-Display the <tt>sntp</tt> program's version number and the date and time it was compiled.
+: Display the <code>sntp</code> program's version number and the date and time it was compiled.
 
 * * *
 
@@ -139,4 +139,4 @@ The program returns an exit status of zero for if a valid response is received a
 
 #### Author
 
-This <tt>sntp</tt> was originally developed by Johannes Maximilian Kuehn. Harlan Stenn and Dave Hart modified it to query more than one server at a time. See the file <tt>ChangeLog</tt> in the distribution for details.
+This <code>sntp</code> was originally developed by Johannes Maximilian Kuehn. Harlan Stenn and Dave Hart modified it to query more than one server at a time. See the file <code>ChangeLog</code> in the distribution for details.

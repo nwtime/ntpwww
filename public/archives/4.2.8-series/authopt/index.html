@@ -105,7 +105,8 @@
           
           
         </ul>
-
+	<div class="navbar-nav d-none d-lg-block">
+</div>
       </div>
     </nav>
   </div>
@@ -157,36 +158,74 @@
 <hr>
 <h4 id="commands-and-options">Commands and Options</h4>
 <p>Unless noted otherwise, further information about these commands is on the <a href="/archives/4.2.8-series/authentic">Authentication Support</a> page.</p>
-<dt id="automax"><tt>automax [_logsec_]</tt></dt>
+<dl>
+<dt><code><strong>automax [<em>logsec</em>]</strong></code></dt>
+<dd>
 <p>Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (about 1.1 hr). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent. See the <a href="/archives/4.2.8-series/autokey">Autokey Public Key Authentication</a> page for further information.</p>
-<dt id="controlkey"><tt>controlkey _keyid_</tt></dt>
-<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpq"><tt>ntpq</tt></a> utility, which uses the standard protocol defined in RFC-1305. The <tt><em>keyid</em></tt> argument is the key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, where the value can be in the range 1 to 65535, inclusive.</p>
-<dt id="crypto"><tt>crypto [digest _digest_] [host _name_] [ident _name_] [pw _password_] [randfile _file_]</tt></dt>
-<p>This command activates the Autokey public key cryptography and loads the required host keys and certificate. If one or more files are unspecified, the default names are used. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <tt>keysdir</tt> configuration command with default <tt>/usr/local/etc</tt>. See the <a href="/archives/4.2.8-series/autokey">Autokey Public Key Authentication</a> page for further information. Following are the options.</p>
-<dt><tt>digest</tt> _digest_</dt>
-<p>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <tt><em>digest</em></tt> can be any message digest algorithm supported by the library. The current selections are: <tt>MD2</tt>, <tt>MD4</tt>, <tt>MD5,</tt> <tt>MDC2</tt>, <tt>RIPEMD160</tt>, <tt>SHA</tt> and <tt>SHA1</tt>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <tt>SHA</tt> or <tt>SHA1</tt>.</p>
-<dt><tt>host _name_</tt></dt>
-<p>Specify the cryptographic media names for the host, sign and certificate files. If this option is not specified, the default name is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
-<p><span class="style1">Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</span></p>
-<dt><tt>ident _group_</tt></dt>
-<p>Specify the cryptographic media names for the identity scheme files. If this option is not specified, the default name is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
-<p><span class="style1">Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</span></p>
-<dt><tt>pw _password_</tt></dt>
-<p>Specifies the password to decrypt files previously encrypted by the <tt>ntp-keygen</tt> program with the <tt>-p</tt> option. If this option is not specified, the default password is the string returned by the Unix <tt>gethostname()</tt> routine.</p>
-<dt><tt>randfile _file_</tt></dt>
-<p>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt> page</a>.</p>
-<dt id="ident"><tt>ident _group_</tt></dt>
+</dd>
+<dt><code><strong>controlkey <em>keyid</em></strong></code></dt>
+<dd>
+<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpq"><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. The <code><em>keyid</em></code> argument is the key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, where the value can be in the range 1 to 65535, inclusive.</p>
+</dd>
+<dt><code><strong>crypto [digest <em>digest</em>] [host <em>name</em>] [ident <em>name</em>] [pw <em>password</em>] [randfile <em>file</em>]</strong></code></dt>
+<dd>
+<p>This command activates the Autokey public key cryptography and loads the required host keys and certificate. If one or more files are unspecified, the default names are used. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <code>keysdir</code> configuration command with default <code>/usr/local/etc</code>. See the <a href="/archives/4.2.8-series/autokey">Autokey Public Key Authentication</a> page for further information. Following are the options.</p>
+</dd>
+<dt><code><strong>digest <em>digest</em></strong></code></dt>
+<dd>
+<p>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <code><em>digest</em></code> can be any message digest algorithm supported by the library. The current selections are: <code>MD2</code>, <code>MD4</code>, <code>MD5,</code> <code>MDC2</code>, <code>RIPEMD160</code>, <code>SHA</code> and <code>SHA1</code>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <code>SHA</code> or <code>SHA1</code>.</p>
+</dd>
+<dt><code><strong>host <em>name</em></strong></code></dt>
+<dd>
+<p>Specify the cryptographic media names for the host, sign and certificate files. If this option is not specified, the default name is the string returned by the Unix <code>gethostname()</code> routine.</p>
+</dd>
+</dl>
+<blockquote>
+<p>Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</p>
+</blockquote>
+<dl>
+<dt><code><strong>ident <em>group</em></strong></code></dt>
+<dd>
+<p>Specify the cryptographic media names for the identity scheme files. If this option is not specified, the default name is the string returned by the Unix <code>gethostname()</code> routine.</p>
+</dd>
+</dl>
+<blockquote>
+<p>Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</p>
+</blockquote>
+<dl>
+<dt><code><strong>pw <em>password</em></strong></code></dt>
+<dd>
+<p>Specifies the password to decrypt files previously encrypted by the <code>ntp-keygen</code> program with the <code>-p</code> option. If this option is not specified, the default password is the string returned by the Unix <code>gethostname()</code> routine.</p>
+</dd>
+<dt><code><strong>randfile <em>file</em></strong></code></dt>
+<dd>
+<p>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code> page</a>.</p>
+</dd>
+<dt><code><strong>ident <em>group</em></strong></code></dt>
+<dd>
 <p>Specifies the group name for ephemeral associations mobilized by broadcast and symmetric passive modes. See the <a href="/archives/4.2.8-series/autokey">Autokey Public-Key Authentication</a> page for further information.</p>
-<dt id="keys"><tt>keys _path_</tt></dt>
-<p>Specifies the complete directory path for the key file containing the key IDs, key types and keys used by <tt>ntpd</tt>, <tt>ntpq</tt> and <tt>ntpdc</tt> when operating with symmetric key cryptography. The format of the keyfile is described on the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt> page</a>. This is the same operation as the <tt>-k</tt> command line option. Note that the directory path for Autokey cryptographic media is specified by the <tt>keysdir</tt> command.</p>
-<dt id="keysdir"><tt>keysdir _path_</tt></dt>
-<p>Specifies the complete directory path for the Autokey cryptographic keys, parameters and certificates. The default is <tt>/usr/local/etc/</tt>. Note that the path for the symmetric keys file is specified by the <tt>keys</tt> command.</p>
-<dt id="requestkey"><tt>requestkey _keyid_</tt></dt>
-<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpdc"><tt>ntpdc</tt></a> utility program, which uses a proprietary protocol specific to this implementation of <tt>ntpd</tt>. The <tt><em>keyid</em></tt> argument is a key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, in the range 1 to 65535, inclusive.</p>
-<dt id="revoke"><tt>revoke [_logsec_]</tt></dt>
+</dd>
+<dt><code><strong>keys <em>path</em></strong></code></dt>
+<dd>
+<p>Specifies the complete directory path for the key file containing the key IDs, key types and keys used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric key cryptography. The format of the keyfile is described on the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code> page</a>. This is the same operation as the <code>-k</code> command line option. Note that the directory path for Autokey cryptographic media is specified by the <code>keysdir</code> command.</p>
+</dd>
+<dt><code><strong>keysdir <em>path</em></strong></code></dt>
+<dd>
+<p>Specifies the complete directory path for the Autokey cryptographic keys, parameters and certificates. The default is <code>/usr/local/etc/</code>. Note that the path for the symmetric keys file is specified by the <code>keys</code> command.</p>
+</dd>
+<dt><code><strong>requestkey <em>keyid</em></strong></code></dt>
+<dd>
+<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpdc"><code>ntpdc</code></a> utility program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code><em>keyid</em></code> argument is a key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, in the range 1 to 65535, inclusive.</p>
+</dd>
+<dt><code><strong>revoke [<em>logsec</em>]</strong></code></dt>
+<dd>
 <p>Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds, with default 17 (36 hr). See the <a href="/archives/4.2.8-series/autokey">Autokey Public-Key Authentication</a> page for further information.</p>
-<dt id="trustedkey"><tt>trustedkey [_keyid_ | (_lowid_ ... _highid_)] [...]</tt></dt>
-<p>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <tt>ntpq</tt> and <tt>ntpdc</tt> operations must be listed here and additionally be enabled with <a href="/archives/4.2.8-series/authopt/#controlkey">controlkey</a> and/or <a href="/archives/4.2.8-series/authopt/#requestkey">requestkey</a>. The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <tt>trustedkey (1 &hellip; 19) 1000 (100 &hellip; 199)</tt> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</p>
+</dd>
+<dt><code><strong>trustedkey [<em>keyid</em> | (<em>lowid</em> &hellip; <em>highid</em>)] [&hellip;]</strong></code></dt>
+<dd>
+<p>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <code>ntpq</code> and <code>ntpdc</code> operations must be listed here and additionally be enabled with <a href="/archives/4.2.8-series/authopt/#controlkey">controlkey</a> and/or <a href="/archives/4.2.8-series/authopt/#requestkey">requestkey</a>. The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <code>trustedkey (1 &hellip; 19) 1000 (100 &hellip; 199)</code> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</p>
+</dd>
+</dl>
 
 	  
 	  <style>

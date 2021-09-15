@@ -105,7 +105,8 @@
           
           
         </ul>
-
+	<div class="navbar-nav d-none d-lg-block">
+</div>
       </div>
     </nav>
   </div>
@@ -151,7 +152,7 @@
   <div class="container">
   	<h1>ntptrace - trace a chain of NTP servers back to the primary source</h1>
      
-    <p><img src="/archives/pic/alice13.gif" alt="gif"><a href="/reflib/pictures">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+    <p><img src="/archives/pic/alice13.gif" alt="gif"> <a href="/reflib/pictures">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
 <p>The rabbit knows the way back.</p>
 <p>Last update: 19:06 UTC Wednesday, January 16, 2008</p>
 <hr>
@@ -164,21 +165,25 @@
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p><tt>ntptrace [ -n ] [ -m <em>maxhosts</em> ] [ <em>server</em> ]</tt></p>
+<p><code>ntptrace [ -n ] [ -m <em>maxhosts</em> ] [ <em>server</em> ]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p><tt>ntptrace</tt> is a <tt>perl</tt> script that uses the <tt>ntpq</tt> utility program to follow the chain of NTP servers from a given host back to the primary time source. For <tt>ntptrace</tt> to work properly, each of these servers must implement the NTP Control and Monitoring Protocol specified in RFC 1305 and enable NTP Mode 6 packets.</p>
-<p>If given no arguments, <tt>ntptrace</tt> starts with <tt>localhost</tt>. Here is an example of the output from <tt>ntptrace</tt>:</p>
+<p><code>ntptrace</code> is a <code>perl</code> script that uses the <code>ntpq</code> utility program to follow the chain of NTP servers from a given host back to the primary time source. For <code>ntptrace</code> to work properly, each of these servers must implement the NTP Control and Monitoring Protocol specified in RFC 1305 and enable NTP Mode 6 packets.</p>
+<p>If given no arguments, <code>ntptrace</code> starts with <code>localhost</code>. Here is an example of the output from <code>ntptrace</code>:</p>
 <pre>% ntptrace
 localhost: stratum 4, offset 0.0019529, synch distance 0.144135
 server2ozo.com: stratum 2, offset 0.0124263, synch distance 0.115784
 usndh.edu: stratum 1, offset 0.0019298, synch distance 0.011993, refid 'WWVB'
 </pre>
-<p>On each line, the fields are (left to right): the host name, the host stratum, the time offset between that host and the local host (as measured by <tt>ntptrace</tt>; this is why it is not always zero for &ldquo;<tt>localhost</tt>&quot;), the host synchronization distance, and (only for stratum-1 servers) the reference clock ID. All times are given in seconds. Note that the stratum is the server hop count to the primary source, while the synchronization distance is the estimated error relative to the primary source. These terms are precisely defined in RFC-1305.</p>
+<p>On each line, the fields are (left to right): the host name, the host stratum, the time offset between that host and the local host (as measured by <code>ntptrace</code>; this is why it is not always zero for <code>localhost</code>), the host synchronization distance, and (only for stratum-1 servers) the reference clock ID. All times are given in seconds. Note that the stratum is the server hop count to the primary source, while the synchronization distance is the estimated error relative to the primary source. These terms are precisely defined in RFC-1305.</p>
 <hr>
 <h4 id="options">Options</h4>
-<dt><tt>-n</tt></dt>
+<dl>
+<dt><code><strong>-n</strong></code></dt>
+<dd>
 <p>Turns off the printing of host names; instead, host IP addresses are given. This may be useful if a nameserver is down.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="bugs">Bugs</h4>
 <p>This program makes no attempt to improve accuracy by doing multiple samples.</p>

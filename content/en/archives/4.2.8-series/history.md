@@ -81,7 +81,7 @@ The local clock driver can be very dangerous when used as a fallback when connec
 
 One of the most persistent problems is when after long operation and then a failure and then subsequently recovery, a client can take a long time to refresh the clock filter and resynchronize. Once the client has backed off the poll interval after a lengthy outage, it sends polls at that interval until receiving a response. At that time it temporarily retries at the minimum poll interval to fill up the clock filter. If iburst is configured, this will happen after 10 seconds or so and the client then resumes its poll interval required by the discipline time constant. This avoids needless network traffic while the poll interval increases gradually to the maximum. Further information is in the current web documentation.
 
-The same thing happens on initial startup or when an association is restarted. The intent is to avoid a blast of <tt>iburst</tt> packets unless the server actually responds to the first one and to retry only while responding to the rate controls.
+The same thing happens on initial startup or when an association is restarted. The intent is to avoid a blast of <code>iburst</code> packets unless the server actually responds to the first one and to retry only while responding to the rate controls.
 
 In order to speed response to initial startup when a reference clock is available, the clock is set on the first message received from the driver. This exposed an interesting bug, now fixed, with the ACTS modem driver, which began prematurely to ramp up the poll interval.
 

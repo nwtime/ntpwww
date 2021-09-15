@@ -11,183 +11,180 @@ Last update: 13-Nov-2009 19:08 UTC
 
 * * *
 
-<dt id="broadcastdelay"><tt>broadcastdelay _seconds_</tt></dt>
+<code>**broadcastdelay _seconds_**</code>
 
-The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example. This command specifies the default delay to be used under these circumstances. Typically (for Ethernet), a number between 0.003 and 0.007 seconds is appropriate.
+: The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example. This command specifies the default delay to be used under these circumstances. Typically (for Ethernet), a number between 0.003 and 0.007 seconds is appropriate.
 
-<dt id="driftfile"><tt>driftfile _driftfile_ { _tolerance_ ]</tt></dt>
+<code>**driftfile _driftfile_ { _tolerance_ ]**</code>
 
-This command specifies the complete path and name of the file used to record the frequency of the local clock oscillator. This is the same operation as the <tt>-f</tt> command linke option. If the file exists, it is read at startup in order to set the initial frequency and then updated once per hour or more with the current frequency computed by the daemon. If the file name is specified, but the file itself does not exist, the starts with an initial frequency of zero and creates the file when writing it for the first time. If this command is not given, the daemon will always start with an initial frequency of zero.
+: This command specifies the complete path and name of the file used to record the frequency of the local clock oscillator. This is the same operation as the <code>-f</code> command linke option. If the file exists, it is read at startup in order to set the initial frequency and then updated once per hour or more with the current frequency computed by the daemon. If the file name is specified, but the file itself does not exist, the starts with an initial frequency of zero and creates the file when writing it for the first time. If this command is not given, the daemon will always start with an initial frequency of zero.
 
-The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <tt>ntpd</tt> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.
+The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <code>ntpd</code> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.
 
-The parameter <tt>tolerance</tt> is the wander threshold to skip writing the new value. If the value of wander computed from recent frequency changes is greater than this threshold the file will be updated once per hour. If below the threshold, the file will not be written.
+The parameter <code>tolerance</code> is the wander threshold to skip writing the new value. If the value of wander computed from recent frequency changes is greater than this threshold the file will be updated once per hour. If below the threshold, the file will not be written.
 
-<dt id="enable"><tt>enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</tt>  
-<tt>disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats ]</tt></dt>
+<code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>  
+: <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats ]**</code>
 
-Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<tt>ntpdc</tt>](/archives/4.2.6-series/ntpdc) utility program.
+: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>ntpdc</code>](/archives/4.2.6-series/ntpdc) utility program.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>auth</tt>
+<code>auth</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is enable.
+: Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is enable.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>bclient</tt>
+<code>bclient</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enables the server to listen for a message from a broadcast or multicast server, as in the <tt>multicastclient</tt> command with default address. The default for this flag is disable.
+: Enables the server to listen for a message from a broadcast or multicast server, as in the <code>multicastclient</code> command with default address. The default for this flag is disable.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>calibrate</tt>
+<code>calibrate</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enables the calibrate feature for reference clocks. The default for this flag is disable.
+: Enables the calibrate feature for reference clocks. The default for this flag is disable.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>kernel</tt>
+<code>kernel</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enables the kernel time discipline, if available. The default for this flag is enable if support is available, otherwise disable.
+: Enables the kernel time discipline, if available. The default for this flag is enable if support is available, otherwise disable.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>monitor</tt>
+<code>monitor</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enables the monitoring facility. See the <tt>ntpdc</tt> program and the <tt>monlist</tt> command or further information. The default for this flag is enable.
+: Enables the monitoring facility. See the <code>ntpdc</code> program and the <code>monlist</code> command or further information. The default for this flag is enable.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>ntp</tt>
+<code>ntp</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is enable.
+: Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is enable.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>stats</tt>
+<code>stats</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Enables the statistics facility. See the [Monitoring Options](/archives/4.2.6-series/monopt) page for further information. The default for this flag is disable.
+: Enables the statistics facility. See the [Monitoring Options](/archives/4.2.6-series/monopt) page for further information. The default for this flag is disable.
 
-<dt id="includefile"><tt>includefile _includefile_</tt></dt>
+<code>**includefile _includefile_**</code>
 
-This command allows additional configuration commands to be included from a separate file. Include files may be nested to a depth of five; upon reaching the end of any include file, command processing resumes in the previous configuration file. This option is useful for sites that run <tt>ntpd</tt> on multiple hosts, with (mostly) common options (e.g., a restriction list).
+: This command allows additional configuration commands to be included from a separate file. Include files may be nested to a depth of five; upon reaching the end of any include file, command processing resumes in the previous configuration file. This option is useful for sites that run <code>ntpd</code> on multiple hosts, with (mostly) common options (e.g., a restriction list).
 
-<dt id="interface"><tt>interface [listen | ignore | drop] [all | ipv4 | ipv6 | wildcard | _name_ | _address_[/_prefixlen_]]</tt></dt>
+<code>**interface [listen | ignore | drop] [all | ipv4 | ipv6 | wildcard | _name_ | _address_[/_prefixlen_]]**</code>
 
-This command controls which network addresses <tt>ntpd</tt> opens, and whether input is dropped without processing. The first parameter determines the action for addresses which match the second parameter. That parameter specifies a class of addresses, or a specific interface name, or an address. In the address case, <tt>_prefixlen_</tt> determines how many bits must match for this rule to apply. <tt>ignore</tt> prevents opening matching addresses, <tt>drop</tt> causes <tt>ntpd</tt> to open the address and drop all received packets without examination. Multiple <tt>interface</tt> commands can be used. The last rule which matches a particular address determines the action for it. <tt>interface</tt> commands are disabled if any [<tt>-I</tt>](/archives/4.2.6-series/ntpd#--interface) or [<tt>-L</tt>](/archives/4.2.6-series/ntpd#--novirtualips) command-line options are used. If none of those options are used and no <tt>interface</tt> actions are specified in the configuration file, all available network addresses are opened. The <tt>nic</tt> command is an alias for <tt>interface</tt>.
+: This command controls which network addresses <code>ntpd</code> opens, and whether input is dropped without processing. The first parameter determines the action for addresses which match the second parameter. That parameter specifies a class of addresses, or a specific interface name, or an address. In the address case, <code>_prefixlen_</code> determines how many bits must match for this rule to apply. <code>ignore</code> prevents opening matching addresses, <code>drop</code> causes <code>ntpd</code> to open the address and drop all received packets without examination. Multiple <code>interface</code> commands can be used. The last rule which matches a particular address determines the action for it. <code>interface</code> commands are disabled if any [<code>-I</code>](/archives/4.2.6-series/ntpd#--interface) or [<code>-L</code>](/archives/4.2.6-series/ntpd#--novirtualips) command-line options are used. If none of those options are used and no <code>interface</code> actions are specified in the configuration file, all available network addresses are opened. The <code>nic</code> command is an alias for <code>interface</code>.
 
-<dt id="leapfile"><tt>leapfile _leapfile_</tt></dt>
+<code>**leapfile _leapfile_**</code>
 
-This command loads the NIST leapseconds file and initializes the leapsecond values for the next leapsecond time, expiration time and TAI offset. The file can be obtained directly from NIST national time servers using <tt>ftp</tt> as the ASCII file <tt>pub/leap-seconds</tt>.
+: This command loads the NIST leapseconds file and initializes the leapsecond values for the next leapsecond time, expiration time and TAI offset. The file can be obtained directly from NIST national time servers using <code>ftp</code> as the ASCII file <code>pub/leap-seconds</code>.
 
 While not strictly a security function, the Autokey protocol provides means to securely retrieve the current or updated leapsecond values from a server.
 
-<dt id="logconfig"><tt>logconfig _configkeyword_</tt></dt>
+<code>**logconfig _configkeyword_**</code>
 
-This command controls the amount and type of output written to the system <tt>syslog</tt> facility or the alternate <tt>logfile</tt> log file. All _<tt>configkeyword</tt>_ keywords can be prefixed with <tt>=</tt>, <tt>+</tt> and <tt>-</tt>, where <tt>=</tt> sets the <tt>syslogmask</tt>, <tt>+</tt> adds and <tt>-</tt> removes messages. <tt>syslog messages</tt> can be controlled in four classes (<tt>clock</tt>, <tt>peer</tt>, <tt>sys</tt> and <tt>sync</tt>). Within these classes four types of messages can be controlled: informational messages (<tt>info</tt>), event messages (<tt>events</tt>), statistics messages (<tt>statistics</tt>) and status messages (<tt>status</tt>).
+: This command controls the amount and type of output written to the system <code>syslog</code> facility or the alternate <code>logfile</code> log file. All _<code>configkeyword</code>_ keywords can be prefixed with <code>=</code>, <code>+</code> and <code>-</code>, where <code>=</code> sets the <code>syslogmask</code>, <code>+</code> adds and <code>-</code> removes messages. <code>syslog messages</code> can be controlled in four classes (<code>clock</code>, <code>peer</code>, <code>sys</code> and <code>sync</code>). Within these classes four types of messages can be controlled: informational messages (<code>info</code>), event messages (<code>events</code>), statistics messages (<code>statistics</code>) and status messages (<code>status</code>).
 
-Configuration keywords are formed by concatenating the message class with the event class. The <tt>all</tt> prefix can be used instead of a message class. A message class may also be followed by the <tt>all</tt> keyword to enable/disable all messages of the respective message class. By default, <tt>logconfig</tt> output is set to <tt>allsync</tt>.
+Configuration keywords are formed by concatenating the message class with the event class. The <code>all</code> prefix can be used instead of a message class. A message class may also be followed by the <code>all</code> keyword to enable/disable all messages of the respective message class. By default, <code>logconfig</code> output is set to <code>allsync</code>.
 
 Thus, a minimal log configuration could look like this:
 
-<tt>logconfig=syncstatus +sysevents</tt>
+`logconfig=syncstatus +sysevents`
 
-This would just list the synchronizations state of <tt>ntpd</tt> and the major system events. For a simple reference server, the following minimum message configuration could be useful:
+This would just list the synchronizations state of <code>ntpd</code> and the major system events. For a simple reference server, the following minimum message configuration could be useful:
 
-<tt>logconfig allsync +allclock</tt>
+`logconfig allsync +allclock`
 
 This configuration will list all clock information and synchronization information. All other events and messages about peers, system events and so on is suppressed.
 
-<dt id="logfile"><tt>logfile _logfile_</tt></dt>
+<code>**logfile _logfile_**</code>
 
-This command specifies the location of an alternate log file to be used instead of the default system <tt>syslog</tt> facility. This is the same operation as the <tt>-l</tt> command line option.
+: This command specifies the location of an alternate log file to be used instead of the default system <code>syslog</code> facility. This is the same operation as the <code>-l</code> command line option.
 
-<dt id="phone"><tt>phone _dial_1 _dial_2 ...</tt></dt>
+<code>**phone _dial_1 _dial_2 ...**</code>
 
-This command is used in conjunction with the ACTS modem driver (type 18). The arguments consist of a maximum of 10 telephone numbers used to dial USNO, NIST or European time services. The Hayes command ATDT is normally prepended to the number, which can contain other modem control codes as well.
+: This command is used in conjunction with the ACTS modem driver (type 18). The arguments consist of a maximum of 10 telephone numbers used to dial USNO, NIST or European time services. The Hayes command ATDT is normally prepended to the number, which can contain other modem control codes as well.
 
-<dt id="saveconfigdir"><tt>saveconfigdir _directory_path_</tt></dt>
+<code>**saveconfigdir _directory_path_**</code>
 
-Specify the directory in which to write configuration snapshots requested with <tt>ntpq</tt>'s [saveconfig](/archives/4.2.6-series/ntpq#saveconfig) command. If <tt>saveconfigdir</tt> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
+: Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>'s [saveconfig](/archives/4.2.6-series/ntpq#saveconfig) command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
 
-<dt id="setvar"><tt>setvar _variable_ [default]</tt></dt>
+<code>**setvar _variable_ [default]**</code>
 
-This command adds an additional system variable. These variables can be used to distribute additional information such as the access policy. If the variable of the form <tt>_name_ = _value_</tt> is followed by the <tt>default</tt> keyword, the variable will be listed as part of the default system variables (<tt>ntpq rv</tt> command). These additional variables serve informational purposes only. They are not related to the protocol other that they can be listed. The known protocol variables will always override any variables defined via the <tt>setvar</tt> mechanism. There are three special variables that contain the names of all variable of the same group. The <tt>sys_var_list</tt> holds the names of all system variables. The <tt>peer_var_list</tt> holds the names of all peer variables and the <tt>clock_var_list</tt> holds the names of the reference clock variables.
+: This command adds an additional system variable. These variables can be used to distribute additional information such as the access policy. If the variable of the form <code>_name_ = _value_</code> is followed by the <code>default</code> keyword, the variable will be listed as part of the default system variables (<code>ntpq rv</code> command). These additional variables serve informational purposes only. They are not related to the protocol other that they can be listed. The known protocol variables will always override any variables defined via the <code>setvar</code> mechanism. There are three special variables that contain the names of all variable of the same group. The <code>sys_var_list</code> holds the names of all system variables. The <code>peer_var_list</code> holds the names of all peer variables and the <code>clock_var_list</code> holds the names of the reference clock variables.
 
-<dt id="tinker"><tt>tinker [ allan _allan_ | dispersion _dispersion_ | freq _freq_ | huffpuff _huffpuff_ | panic _panic_ | step _step_ | stepout _stepout_ ]</tt></dt>
+<code>**tinker [ allan _allan_ | dispersion _dispersion_ | freq _freq_ | huffpuff _huffpuff_ | panic _panic_ | step _step_ | stepout _stepout_ ]**</code>
 
-This command alters certain system variables used by the clock discipline algorithm. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can't resist twisting the knobs. The options are as follows:
+: This command alters certain system variables used by the clock discipline algorithm. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can't resist twisting the knobs. The options are as follows:
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>allan _allan_</tt>
+<code>allan _allan_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm, in seconds with default 1500 s.
+: Specifies the Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm, in seconds with default 1500 s.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>dispersion _dispersion_</tt>
+<code>dispersion _dispersion_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the dispersion increase rate in parts-per-million (PPM) with default 15 PPM.
+: Specifies the dispersion increase rate in parts-per-million (PPM) with default 15 PPM.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>freq _freq_</tt>
+<code>freq _freq_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the frequency offset in parts-per-million (PPM) with default the value in the frequency file.
+: Specifies the frequency offset in parts-per-million (PPM) with default the value in the frequency file.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>huffpuff _huffpuff_</tt>
+<code>huffpuff _huffpuff_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 m), but a more reasonable value is 7200 (2 hours).
+: Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 m), but a more reasonable value is 7200 (2 hours).
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>panic _panic_</tt>
+<code>panic _panic_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the panic threshold in seconds with default 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.
+: Specifies the panic threshold in seconds with default 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>step _step_</tt>
+<code>step _step_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. **Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s.**
+: Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. 
+> **Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s.**
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>stepout _stepout_</tt>
+<code>stepout _stepout_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stepout threshold in seconds. The default without this command is 900 s. If set to zero, popcorn spikes will not be suppressed.
+: Specifies the stepout threshold in seconds. The default without this command is 900 s. If set to zero, popcorn spikes will not be suppressed.
 
-<dt id="tos"><tt>tos [ beacon _beacon_ | ceiling _ceiling_ | cohort {0 | 1} | floor _floor_ | maxclock _maxclock_ | maxdist _maxdist_ | minclock _minclock_ | mindist _mindist_ | minsane _minsane_ | orphan _stratum_ ]</tt></dt>
+<code>**tos [ beacon _beacon_ | ceiling _ceiling_ | cohort {0 | 1} | floor _floor_ | maxclock _maxclock_ | maxdist _maxdist_ | minclock _minclock_ | mindist _mindist_ | minsane _minsane_ | orphan _stratum_ ]**</code>
 
-This command alters certain system variables used by the clock selection and clustering algorithms. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can't resist twisting the knobs. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in dynamic server discovery schemes. The options are as follows:
+: This command alters certain system variables used by the clock selection and clustering algorithms. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can't resist twisting the knobs. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in dynamic server discovery schemes. The options are as follows:
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>beacon _beacon_</tt>
+<code>beacon _beacon_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;The manycast server sends packets at intervals of 64 s if less than <tt>maxclock</tt> servers are available. Otherwise, it sends packets at the _<tt>beacon</tt>_ interval in seconds. The default is 3600 s. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+: The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the _<code>beacon</code>_ interval in seconds. The default is 3600 s. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>ceiling _ceiling_</tt>
+<code>ceiling _ceiling_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+: Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>cohort { 0 | 1 }</tt>
+<code>cohort { 0 | 1 }</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+: Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>floor _floor_</tt>
+<code>floor _floor_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the minimum stratum (inclusive) for acceptable server packest. The default is 1. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+: Specify the minimum stratum (inclusive) for acceptable server packest. The default is 1. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>maxclock _maxclock_</tt>
+<code>maxclock _maxclock_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
+: Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page for further details.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>maxdist _maxdistance_</tt>
+<code>maxdist _maxdistance_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the synchronization distance threshold used by the clock selection algorithm. The default is 1.5 s. This determines both the minimum number of packets to set the system clock and the maximum roundtrip delay. It can be decreased to improve reliability or increased to synchronize clocks on the Moon or planets.
+: Specify the synchronization distance threshold used by the clock selection algorithm. The default is 1.5 s. This determines both the minimum number of packets to set the system clock and the maximum roundtrip delay. It can be decreased to improve reliability or increased to synchronize clocks on the Moon or planets.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>minclock _minclock_</tt>
+<code>minclock _minclock_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the number of servers used by the clustering algorithm as the minimum to include on the candidate list. The default is 3. This is also the number of servers to be averaged by the combining algorithm.
+: Specify the number of servers used by the clustering algorithm as the minimum to include on the candidate list. The default is 3. This is also the number of servers to be averaged by the combining algorithm.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>mindist _mindistance_</tt>
+<code>mindist _mindistance_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the minimum distance used by the selection and anticlockhop algorithm. Larger values increase the tolerance for outliers; smaller values increase the selectivity. The default is .001 s. In some cases, such as reference clocks with high jitter and a PPS signal, it is useful to increase the value to insure the intersection interval is always nonempty.
+: Specify the minimum distance used by the selection and anticlockhop algorithm. Larger values increase the tolerance for outliers; smaller values increase the selectivity. The default is .001 s. In some cases, such as reference clocks with high jitter and a PPS signal, it is useful to increase the value to insure the intersection interval is always nonempty.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>minsane _minsane_</tt>
+<code>minsane _minsane_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the number of servers used by the selection algorithm as the minimum to set the system clock. The default is 1 for legacy purposes; however, for critical applications the value should be somewhat higher but less than <tt>minclock</tt>.
+: Specify the number of servers used by the selection algorithm as the minimum to set the system clock. The default is 1 for legacy purposes; however, for critical applications the value should be somewhat higher but less than <code>minclock</code>.
 
-&nbsp;&nbsp;&nbsp;&nbsp;<tt>orphan _stratum_</tt>
+<code>orphan _stratum_</code>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the [Association Management](/archives/4.2.6-series/assoc) page for further details.
+: Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the [Association Management](/archives/4.2.6-series/assoc) page for further details.
 
-</dl>
+<code>**trap _host_address_ [port _port_number_] [interface _interfSace_address_]**</code>
 
-
-
-<dt id="trap"><tt>trap _host_address_ [port _port_number_] [interface _interfSace_address_]</tt></dt>
-
-This command configures a trap receiver at the given host address and port number for sending messages with the specified local interface address. If the port number is unspecified, a value of 18447 is used. If the interface address is not specified, the message is sent with a source address of the local interface the message is sent through. Note that on a multihomed host the interface used may vary from time to time with routing changes.
+: This command configures a trap receiver at the given host address and port number for sending messages with the specified local interface address. If the port number is unspecified, a value of 18447 is used. If the interface address is not specified, the message is sent with a source address of the local interface the message is sent through. Note that on a multihomed host the interface used may vary from time to time with routing changes.
 
 The trap receiver will generally log event messages and other information from the server in a log file. While such monitor programs may also request their own trap dynamically, configuring a trap receiver will ensure that no messages are lost when the server is started.
 
-<dt id="ttl"><tt>ttl _hop_ ...</tt></dt>
+<code>**ttl _hop_ ...**</code>
 
-This command specifies a list of TTL values in increasing order. up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.
+: This command specifies a list of TTL values in increasing order. up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.

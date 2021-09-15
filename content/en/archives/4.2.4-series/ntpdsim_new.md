@@ -31,26 +31,18 @@ Each simulated server runs according to a specified script that describes the se
 
 #### Configuration
 
-The ntpdsim program is configured by providing a configuration file at startup. The crux of the simulator configuration is specified using a <tt>simulate</tt> command, the syntax of which is given below. Note that all time quantities are in seconds and all frequency quantities are in parts per million (PPM):
+The ntpdsim program is configured by providing a configuration file at startup. The crux of the simulator configuration is specified using a <code>simulate</code> command, the syntax of which is given below. Note that all time quantities are in seconds and all frequency quantities are in parts per million (PPM):
 
 
-`<_simulate_command_> ::= <tt>simulate</tt> { <_init_statement_list_> <_server_list_> }`  
-
-`<_init_statement_list_> ::= <init_statement_list> <init_statement> | <init_statement>`  
-
-`<_init_statement_> ::= <tt>beep_delay</tt> = <number> | <tt>simulation_duration</tt> = <number>`  
-
-`<_server_list_> ::= <_server_list_> <server> | <server>`  
-
-`<_server_list_> ::= <tt>server</tt> = <address> { <tt>server_offset</tt> = <number> <act_list> }`  
-
-`<_act_list_> ::= <_act_list_> <_act_> | <_act_>`  
-
-`<_act_> ::= <tt>duration</tt> = <number> { <_act_stmt_list_> }`  
-
-`<_act_stmt_list_> ::= <_act_stmt_list_> <_act_stmt_> | <_act_stmt_>`  
-
-`<_act_stmt_> ::= <tt>freq_offset</tt> = <number> | <tt>wander</tt> = <number> | <tt>jitter</tt> = <number> | <tt>prop_delay</tt> = <number> | <tt>proc_delay</tt> = <number>`
+<code><_simulate_command_> ::= simulate { <_init_statement_list_> <_server_list_> }</code>  
+: <code><_init_statement_list_> ::= <init_statement_list> <init_statement> | <init_statement></code>  
+: <code><_init_statement_> ::= beep_delay = \<number> | simulation_duration = \<number></code>  
+: <code><_server_list_> ::= <_server_list_> \<server> | \<server></code> 
+: <code><_server_list_> ::= server = \<address> { server_offset = \<number> <act_list> }</code>  
+: <code><_act_list_> ::= <_act_list_> <_act_> | <_act_></code> 
+: <code><_act_> ::= duration = \<number> { <_act_stmt_list_> }</code>
+: <code><_act_stmt_list_> ::= <_act_stmt_list_> <_act_stmt_> | <_act_stmt_></code>
+: <code><_act_stmt_> ::= freq_offset = \<number> | wander = \<number> | jitter = \<number> | prop_delay = \<number> | proc_delay = \<number></code>
 
 
 In addition to the simulate command, other standard NTP configuration commands can be specified. These commands have the same meaning as in the ntpd configuration. Note that newlines are **not** significant within the simulate command even though they are used to mark the end of a normal NTP configuration command.

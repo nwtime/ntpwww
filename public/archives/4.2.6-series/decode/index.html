@@ -105,7 +105,8 @@
           
           
         </ul>
-
+	<div class="navbar-nav d-none d-lg-block">
+</div>
       </div>
     </nav>
   </div>
@@ -167,13 +168,13 @@
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>This page lists the status words, event messages and error codes used for <tt>ntpd</tt> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the <tt>ntpq</tt> program.</p>
-<p>Significant changes in program state are reported as events. There is one set of system events and a set of peer events for each association. In addition, there is a set of clock events for each association that supports a reference clock. Events are normally reported to the <tt>protostats</tt> monitoring file and optionally to the system log. In addition, if the trap facility is configured, events can be reported to a remote program that can page an administrator.</p>
-<p>This page also includes a description of the error messages produced by the Autokey protocol. These messages are normally sent to the <tt>cryptostats</tt> monitoring file.</p>
+<p>This page lists the status words, event messages and error codes used for <code>ntpd</code> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the <code>ntpq</code> program.</p>
+<p>Significant changes in program state are reported as events. There is one set of system events and a set of peer events for each association. In addition, there is a set of clock events for each association that supports a reference clock. Events are normally reported to the <code>protostats</code> monitoring file and optionally to the system log. In addition, if the trap facility is configured, events can be reported to a remote program that can page an administrator.</p>
+<p>This page also includes a description of the error messages produced by the Autokey protocol. These messages are normally sent to the <code>cryptostats</code> monitoring file.</p>
 <p>In the following tables the Code Field is the status or event code assigned and the Message Field a short string used for display and event reporting. The Description field contains a longer explanation of the status or event. Some messages include additional information useful for error diagnosis and performance assessment.</p>
 <hr>
 <h4 id="system-status-word">System Status Word</h4>
-<p>The system status word consists of four fields LI (0-1), Source (2-7), Count (8-11) and Code (12-15). It is reported in the first line of the <tt>rv</tt> display produced by the <tt>ntpq</tt> program.</p>
+<p>The system status word consists of four fields LI (0-1), Source (2-7), Count (8-11) and Code (12-15). It is reported in the first line of the <code>rv</code> display produced by the <code>ntpq</code> program.</p>
 <p>The <strong>Leap Field</strong> displays the system leap indicator bits coded as follows:</p>
 <table>
 <thead>
@@ -368,7 +369,7 @@
 </table>
 <hr>
 <h4 id="peer-status-word">Peer Status Word</h4>
-<p>The peer status word consists of four fields: Status (0-4), Select (5-7), Count (8-11) and Code (12-15). It is reported in the first line of the <tt>rv <em>associd</em></tt> display produced by the <tt>ntpq</tt> program.</p>
+<p>The peer status word consists of four fields: Status (0-4), Select (5-7), Count (8-11) and Code (12-15). It is reported in the first line of the <code>rv <em>associd</em></code> display produced by the <code>ntpq</code> program.</p>
 <p>The <strong>Status Field</strong> displays the peer status code bits in hexadecimal; each bit is an independent flag. <strong>Note this field is 5 bits wide, and combines with the 3-bit-wide Select Field to create the first full byte of the peer status word.</strong> The meaning of each bit in the Status Field is listed in the following table:</p>
 <table>
 <thead>
@@ -406,7 +407,7 @@
 </tr>
 </tbody>
 </table>
-<p>The <strong>Select Field</strong> displays the current selection status. The T Field in the following table gives the corresponding tally codes used in the <tt>ntpq peers</tt> display. The values are coded as follows:</p>
+<p>The <strong>Select Field</strong> displays the current selection status. The T Field in the following table gives the corresponding tally codes used in the <code>ntpq peers</code> display. The values are coded as follows:</p>
 <table>
 <thead>
 <tr>
@@ -451,7 +452,7 @@
 <td>5</td>
 <td>sel_backup</td>
 <td>#</td>
-<td>backup (more than <tt>tos maxclock</tt> sources)</td>
+<td>backup (more than <code>tos maxclock</code> sources)</td>
 </tr>
 <tr>
 <td>6</td>
@@ -506,17 +507,17 @@
 <tr>
 <td>06</td>
 <td>no_reply</td>
-<td>no server found (<tt>ntpdate</tt> mode)</td>
+<td>no server found (<code>ntpdate</code> mode)</td>
 </tr>
 <tr>
 <td>07</td>
 <td>rate_exceeded</td>
-<td>rate exceeded (kiss code <tt>RATE</tt>)</td>
+<td>rate exceeded (kiss code <code>RATE</code>)</td>
 </tr>
 <tr>
 <td>08</td>
 <td>access_denied</td>
-<td>access denied (kiss code <tt>DENY</tt>)</td>
+<td>access denied (kiss code <code>DENY</code>)</td>
 </tr>
 <tr>
 <td>09</td>
@@ -562,8 +563,8 @@
 </table>
 <hr>
 <h4 id="clock-status-word">Clock Status Word</h4>
-<p>The clock status word consists of three fields: Unused (0-7), Count (8-11) and Code (12-15). It is reported in the first line of the <tt>clockvar <em>associd</em></tt> display produced by the <tt>ntpq</tt> program.</p>
-<p>The Count Field displays the number of events since the last <tt>lockvar</tt> command, while the <strong>Event Field</strong> displays the most recent event message coded as follows:</p>
+<p>The clock status word consists of three fields: Unused (0-7), Count (8-11) and Code (12-15). It is reported in the first line of the <code>clockvar <em>associd</em></code> display produced by the <code>ntpq</code> program.</p>
+<p>The Count Field displays the number of events since the last <code>lockvar</code> command, while the <strong>Event Field</strong> displays the most recent event message coded as follows:</p>
 <table>
 <thead>
 <tr>
@@ -610,10 +611,10 @@
 </tr>
 </tbody>
 </table>
-<p>When the clock driver sets the code to a new value, a <tt>clock_alarm</tt> (11) peer event is reported.</p>
+<p>When the clock driver sets the code to a new value, a <code>clock_alarm</code> (11) peer event is reported.</p>
 <hr>
 <h4 id="flash-status-word">Flash Status Word</h4>
-<p>The flash status word is displayed by the <tt>ntpq</tt> program <tt>rv</tt> command. It consists of a number of bits coded in hexadecimal as follows:</p>
+<p>The flash status word is displayed by the <code>ntpq</code> program <code>rv</code> command. It consists of a number of bits coded in hexadecimal as follows:</p>
 <table>
 <thead>
 <tr>
@@ -706,7 +707,7 @@
 </table>
 <hr>
 <h4 id="kiss-codes">Kiss Codes</h4>
-<p>Kiss codes are used in kiss-o'-death (KoD) packets, billboard displays and log messages. They consist of a string of four zero-padded ASCII characters. In practice they are informal and tend to change with time and implementation. Some of these codes can appear in the reference identifier field in <tt>ntpq</tt> billboards. Following is the current list:</p>
+<p>Kiss codes are used in kiss-o'-death (KoD) packets, billboard displays and log messages. They consist of a string of four zero-padded ASCII characters. In practice they are informal and tend to change with time and implementation. Some of these codes can appear in the reference identifier field in <code>ntpq</code> billboards. Following is the current list:</p>
 <table>
 <thead>
 <tr>
@@ -763,7 +764,7 @@
 </table>
 <hr>
 <h4 id="crypto-messages">Crypto Messages</h4>
-<p>These messages are sent to the <tt>cryptostats</tt> file when an error is detected in the Autokey protocol.</p>
+<p>These messages are sent to the <code>cryptostats</code> file when an error is detected in the Autokey protocol.</p>
 <table>
 <thead>
 <tr>

@@ -93,7 +93,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 26.  [Hans Lambermont <Hans.Lambermont@nl.origin-it.com>](mailto:%20Hans.Lambermont@nl.origin-it.com) or [<H.Lambermont@chello.nl>](mailto:H.Lambermont@chello.nl) ntpsweep
 27.  [Poul-Henning Kamp <phk@FreeBSD.ORG>](mailto:%20phk@FreeBSD.ORG) Oncore driver (Original author)
 28.  [Frank Kardel](http://www4.informatik.uni-erlangen.de/%7ekardel) [<kardel (at) ntp (dot) org>](mailto:kardel@ntp.org) PARSE <GENERIC> (driver 14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup, dynamic interface handling
-29.  [Johannes Maximilian Kuehn <kuehn@ntp.org>](mailto:kuehn@ntp.org) Rewrote <tt>sntp</tt> to comply with NTPv4 specification, <tt>ntpq saveconfig</tt>
+29.  [Johannes Maximilian Kuehn <kuehn@ntp.org>](mailto:kuehn@ntp.org) Rewrote <code>sntp</code> to comply with NTPv4 specification, <code>ntpq saveconfig</code>
 30.  [William L. Jones <jones@hermes.chpc.utexas.edu>](mailto:%20jones@hermes.chpc.utexas.edu) RS/6000 AIX modifications, HPUX modifications
 31.  [Dave Katz <dkatz@cisco.com>](mailto:%20dkatz@cisco.com) RS/6000 AIX port
 32.  [Craig Leres <leres@ee.lbl.gov>](mailto:%20leres@ee.lbl.gov) 4.4BSD port, ppsclock, Magnavox GPS clock driver

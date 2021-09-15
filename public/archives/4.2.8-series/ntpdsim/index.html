@@ -105,7 +105,8 @@
           
           
         </ul>
-
+	<div class="navbar-nav d-none d-lg-block">
+</div>
       </div>
     </nav>
   </div>
@@ -164,16 +165,16 @@
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p><tt>ntpdsim [ -B <em>bdly</em> ] [ -C <em>snse</em> ] [ -O <em>clk_time</em> ] [ -S <em>sim_time</em> ] [ -T <em>ferr</em> ] [ -W <em>fsne</em> ] [ -Y</tt> <em><tt>ndly</tt></em> <tt>] [ -X</tt> <em><tt>pdly</tt></em> <tt>]</tt></p>
+<p><code>ntpdsim [ -B <em>bdly</em> ] [ -C <em>snse</em> ] [ -O <em>clk_time</em> ] [ -S <em>sim_time</em> ] [ -T <em>ferr</em> ] [ -W <em>fsne</em> ] [ -Y <em>ndly</em> ] [ -X <em>pdly</em> ]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <tt>ntpdsim</tt> program is an adaptation of the <tt>ntpd</tt> operating system daemon. The program operates as a discrete time simulator using specified systematic and random driving sources. It includes all the mitigation and discipline algorithms of the actual daemon, but with the packet I/O and system clock algorithms driven by simulation. Most functions of the real <tt>ntpd</tt> remain intact, including the monitoring, statistics recording, trace and host name resolution features. Further information on the simulator is on the <a href="/reflib/ntpsim">NTP Discrete Event Simulator</a> page.</p>
+<p>The <code>ntpdsim</code> program is an adaptation of the <code>ntpd</code> operating system daemon. The program operates as a discrete time simulator using specified systematic and random driving sources. It includes all the mitigation and discipline algorithms of the actual daemon, but with the packet I/O and system clock algorithms driven by simulation. Most functions of the real <code>ntpd</code> remain intact, including the monitoring, statistics recording, trace and host name resolution features. Further information on the simulator is on the <a href="/reflib/ntpsim">NTP Discrete Event Simulator</a> page.</p>
 <p>The simulator is most useful to study NTP behavior in response to time and/or frequency transients under specific conditions of network jitter and oscillator wander. For this purpose the daemon can be driven by pseudorandom jitter and wander sample sequences characteristic of real networks and oscillators. The jitter generator produces samples from a Poisson distribution, while the wander generator produces samples from a Guassian distribution.</p>
-<p>The easiest way to use this program is to create a <tt>ntpstats</tt> directory, configuration file <tt>ntp.conf</tt> and frequency file <tt>ntp.drift</tt> and test shell <tt>test.sh</tt> in the base directory. The <tt>ntp.drift</tt> file and <tt>ntpstats</tt> directory can be empty to start. The <tt>test.sh</tt> script can contain something like</p>
+<p>The easiest way to use this program is to create a <code>ntpstats</code> directory, configuration file <code>ntp.conf</code> and frequency file <code>ntp.drift</code> and test shell <code>test.sh</code> in the base directory. The <code>ntp.drift</code> file and <code>ntpstats</code> directory can be empty to start. The <code>test.sh</code> script can contain something like</p>
 <pre>rm ./ntpstats/*
 ntpdsim -O 0.1 -C .001 -T 400 -W 1 -c ./ntp.conf,
 </pre>
-<p>which starts the simulator with a time offset 100 ms, network jitter 1 ms, frequency offset 400 PPM and oscillator wander 1 PPM/s. These parameters represent typical conditions with modern workstations on a Ethernet LAN. The ntp.conf file should contain something like</p>
+<p>which starts the simulator with a time offset 100 ms, network jitter 1 ms, frequency offset 400 PPM and oscillator wander 1 PPM/s. These parameters represent typical conditions with modern workstations on a Ethernet LAN. The <code>ntp.conf</code> file should contain something like:</p>
 <pre>disable kernel
 server pogo
 driftfile ./ntp.drift
@@ -188,31 +189,49 @@ filegen peerstats type day enable
 <div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a <a href="/archives/4.2.8-series/ntpdsim_new">new one</a>. Most of the <tt>ntpd</tt> command line options apply also to <tt>ntpdsim</tt>. In addition, the following command line options apply to <tt>ntpdsim.</tt>
+    The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a <a href="/archives/4.2.8-series/ntpdsim_new">new one</a>. Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim.</code>
 
 </div>
 
-<dt><tt>-B _bdly_</tt></dt>
+<dl>
+<dt><code><strong>-B <em>bdly</em></strong></code></dt>
+<dd>
 <p>Specify beep delay (3600) s.</p>
-<dt><tt>-C _snse_</tt></dt>
+</dd>
+<dt><code><strong>-C <em>snse</em></strong></code></dt>
+<dd>
 <p>Specify network jitter parameter (0) s.</p>
-<dt><tt>-O _clk_time_</tt></dt>
+</dd>
+<dt><code><strong>-O <em>clk_time</em></strong></code></dt>
+<dd>
 <p>Specify initial time offset (0) s.</p>
-<dt><tt>-S _sim_time_</tt></dt>
+</dd>
+<dt><code><strong>-S <em>sim_time</em></strong></code></dt>
+<dd>
 <p>Specify simulation duration (86400) s.</p>
-<dt><tt>-T _ferr_</tt></dt>
+</dd>
+<dt><code><strong>-T <em>ferr</em></strong></code></dt>
+<dd>
 <p>Specify initial frequency offset (0) PPM.</p>
-<dt><tt>-W _fnse_</tt></dt>
+</dd>
+<dt><code><strong>-W <em>fnse</em></strong></code></dt>
+<dd>
 <p>Specify oscillator wander parameter (0) PPM/s.</p>
-<dt><tt>-Y _ndly_</tt></dt>
+</dd>
+<dt><code><strong>-Y <em>ndly</em></strong></code></dt>
+<dd>
 <p>Specify network propagation delay (.001) s.</p>
-<dt><tt>-Z _pdly_</tt></dt>
+</dd>
+<dt><code><strong>-Z <em>pdly</em></strong></code></dt>
+<dd>
 <p>Specify server processing delay (.001) s.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="files">Files</h4>
-<p><tt>/etc/ntp.conf</tt> - the default name of the configuration file<br>
-<tt>/etc/ntp.drift</tt> - the default name of the drift file<br>
-<tt>/etc/ntp.keys</tt> - the default name of the key file</p>
+<p><code>/etc/ntp.conf</code> - the default name of the configuration file<br>
+<code>/etc/ntp.drift</code> - the default name of the drift file<br>
+<code>/etc/ntp.keys</code> - the default name of the key file</p>
 
 	  
 	  <style>
