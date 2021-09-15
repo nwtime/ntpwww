@@ -3,7 +3,7 @@ title: "Reference Clock Audio Drivers"
 type: archives
 ---
 
-![jpg](/archives/pic/radio2.jpg)ICOM R-72 shortwave receiver and Sure audio mixer
+![jpg](/archives/pic/radio2.jpg) ICOM R-72 shortwave receiver and Sure audio mixer
 
 * * *
 
@@ -23,11 +23,11 @@ All three drivers make ample use of sophisticated digital signal processing algo
 
 Currently, the audio drivers are compatible with Sun operating systems, including Solaris and SunOS, and the native audio codec interface supported by these systems. In fact, the interface is quite generic and support for other systems, in particular the various Unix generics, should not be difficult. Volunteers are solicited.
 
-The audio drivers include a number of common features designed to groom input signals, suppress spikes and normalize signal levels. An automatic gain control (AGC) feature provides protection against overdriven or underdriven input signals. It is designed to maintain adequate demodulator signal amplitude while avoiding occasional noise spikes. In order to assure reliable operation, the signal level must be in the range where the audio gain control is effective. In general, this means the input signal level must be such as to cause the AGC to set the gain somewhere in the middle of the range from 0 to 255, as indicated in the timecode displayed by the <tt>ntpq</tt> program.
+The audio drivers include a number of common features designed to groom input signals, suppress spikes and normalize signal levels. An automatic gain control (AGC) feature provides protection against overdriven or underdriven input signals. It is designed to maintain adequate demodulator signal amplitude while avoiding occasional noise spikes. In order to assure reliable operation, the signal level must be in the range where the audio gain control is effective. In general, this means the input signal level must be such as to cause the AGC to set the gain somewhere in the middle of the range from 0 to 255, as indicated in the timecode displayed by the <code>ntpq</code> program.
 
 The drivers operate by disciplining a logical clock based on the codec sample clock to the audio signal as received. This is done by stuffing or slipping samples as required to maintain exact frequency to the order of 0.1 PPM. In order for the driver to reliably lock on the audio signal, the sample clock frequency tolerance must be less than 250 PPM (.025 percent) for the IRIG driver and half that for the radio drivers. The largest error observed so far is about 60 PPM, but it is possible some sound cards or codecs may exceed that value.
 
-The drivers include provisions to select the input port and to monitor the input signal. The <tt>fudge flag 2</tt> selects the microphone port if set to zero or the line-in port if set to one. It does not seem useful to specify the compact disc player port. The <tt>fudge flag 3</tt> enables the input signal monitor using the previously selected output port and output gain. Both of these flags can be set in the configuration file or remotely using the <tt>ntpdc</tt> utility program.
+The drivers include provisions to select the input port and to monitor the input signal. The <code>fudge flag 2</code> selects the microphone port if set to zero or the line-in port if set to one. It does not seem useful to specify the compact disc player port. The <code>fudge flag 3</code> enables the input signal monitor using the previously selected output port and output gain. Both of these flags can be set in the configuration file or remotely using the <code>ntpdc</code> utility program.
 
 * * *
 
@@ -55,6 +55,6 @@ The best way to choose a frequency is to listen at various times over the day an
 
 #### Debugging Aids
 
-The audio drivers include extensive setup and debugging support to help hook up the audio signals and monitor the driver operations. The documentation page for each driver describes the various messages that can be produced either in real time or written to the <tt>clockstats</tt> file for later analysis. Of particular help in verifying signal connections and compatibility is a provision to monitor the signal via headphones or speaker.
+The audio drivers include extensive setup and debugging support to help hook up the audio signals and monitor the driver operations. The documentation page for each driver describes the various messages that can be produced either in real time or written to the <code>clockstats</code> file for later analysis. Of particular help in verifying signal connections and compatibility is a provision to monitor the signal via headphones or speaker.
 
-The drivers write a synthesized timecode to the <tt>clockstats</tt> file each time the clock is set or verified and at other times if verbose monitoring is enabled. The format includes several fixed-length fields defining the Gregorian time to the millisecond, together with additional variable-length fields specific to each driver. The data include the intervals since the clock was last set or verified, the audio gain and various state variables and counters specific to each driver.
+The drivers write a synthesized timecode to the <code>clockstats</code> file each time the clock is set or verified and at other times if verbose monitoring is enabled. The format includes several fixed-length fields defining the Gregorian time to the millisecond, together with additional variable-length fields specific to each driver. The data include the intervals since the clock was last set or verified, the audio gain and various state variables and counters specific to each driver.
