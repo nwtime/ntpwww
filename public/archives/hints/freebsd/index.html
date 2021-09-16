@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="If you are compiling under FreeBSD and see messages in the syslogs that
+indicate that the ntpd process is trying to use unavailable sched_
+calls, it …">
+<meta property="og:title" content="FreeBSD Hints" />
+<meta property="og:description" content="If you are compiling under FreeBSD and see messages in the syslogs that indicate that the ntpd process is trying to use unavailable sched_ calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled. You have two choices: - Ignore the messages - Generate a new kernel, where the kernel configuration file contains the lines: options	&#34;P1003_1B&#34; options	&#34;_KPOSIX_PRIORITY_SCHEDULING&#34; options	&#34;_KPOSIX_VERSION=199309L&#34;  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/hints/freebsd/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>FreeBSD Hints</title>
 
   <!-- Mobile Responsive Meta -->
