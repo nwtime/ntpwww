@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha
+hardware running DEC OSF/1.  All &#34;long&#34; and &#34;u_long&#34; declarations and
+casts in …">
+<meta property="og:title" content="DEC OSF/1 Hints" />
+<meta property="og:description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1. All &#34;long&#34; and &#34;u_long&#34; declarations and casts in the code were changed to &#34;LONG&#34; and &#34;U_LONG&#34; and a new header file (include/ntp_types.h) was added. The new header file defines LONG as int and U_LONG as u_int for the Alpha hardware and as long and u_long for anything else. A couple of #ifs where changed in ntpq and xntpdc to get the result of a signal defined correctly." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/hints/decosf1/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>DEC OSF/1 Hints</title>
 
   <!-- Mobile Responsive Meta -->

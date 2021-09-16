@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="adjtime, tick and tickadj:
+--------------------------
+
+The SGI value for HZ is 100 under Irix 4, with the system clock running
+in nominal mode (ftimer …">
+<meta property="og:title" content="SGI Hints" />
+<meta property="og:description" content="adjtime, tick and tickadj: -------------------------- The SGI value for HZ is 100 under Irix 4, with the system clock running in nominal mode (ftimer off), so the value for tick is 10000 usec. Tickadj is a bit more tricky because of the behaviour of adjtime(), which seems to try to perform the correction over 100-200 seconds, with a rate limit of 0.04 secs/sec for large corrections. Corrections of less than 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/hints/sgi/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>SGI Hints</title>
 
   <!-- Mobile Responsive Meta -->
