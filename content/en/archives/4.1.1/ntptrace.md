@@ -3,7 +3,7 @@ title: "ntptrace - trace a chain of NTP servers back to the primary source"
 type: archives
 ---
 
-![gif](/archives/pic/alice13.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice13.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 The rabbit knows the way back.
 
@@ -20,13 +20,13 @@ The rabbit knows the way back.
 
 #### Synopsis
 
-<tt>ntptrace [ -vdn ] [ -r _retries_ ] [ -t _timeout_ ] [ _server_ ]</tt>
+<code>ntptrace [ -vdn ] [ -r _retries_ ] [ -t _timeout_ ] [ _server_ ]</code>
 
 * * *
 
 #### Description
 
-<tt>ntptrace</tt> determines where a given Network Time Protocol (NTP) server gets its time from, and follows the chain of NTP servers back to their master time source. If given no arguments, it starts with <tt>localhost</tt>. Here is an example of the output from <tt>ntptrace</tt>:
+<code>ntptrace</code> determines where a given Network Time Protocol (NTP) server gets its time from, and follows the chain of NTP servers back to their master time source. If given no arguments, it starts with <code>localhost</code>. Here is an example of the output from <code>ntptrace</code>:
 
 <pre>% ntptrace
 localhost: stratum 4, offset 0.0019529, synch distance 0.144135
@@ -34,31 +34,31 @@ server2ozo.com: stratum 2, offset 0.0124263, synch distance 0.115784
 usndh.edu: stratum 1, offset 0.0019298, synch distance 0.011993, refid 'WWVB'
 </pre>
 
-On each line, the fields are (left to right): the host name, the host stratum, the time offset between that host and the local host (as measured by <tt>ntptrace</tt>; this is why it is not always zero for "<tt>localhost</tt>"), the host synchronization distance, and (only for stratum-1 servers) the reference clock ID. All times are given in seconds. Note that the stratum is the server hop count to the primary source, while the synchronization distance is the estimated error relative to the primary source. These terms are precisely defined in RFC-1305.
+On each line, the fields are (left to right): the host name, the host stratum, the time offset between that host and the local host (as measured by <code>ntptrace</code>; this is why it is not always zero for <code>localhost</code>), the host synchronization distance, and (only for stratum-1 servers) the reference clock ID. All times are given in seconds. Note that the stratum is the server hop count to the primary source, while the synchronization distance is the estimated error relative to the primary source. These terms are precisely defined in RFC-1305.
 
 * * *
 
 #### Options
 
-<dt><tt>-d</tt>
+<code>**-d**</code>
 
-Turns on some debugging output.
+: Turns on some debugging output.
 			
-<dt><tt>-n</tt>
+<code>**-n**</code>
 
-Turns off the printing of host names; instead, host IP addresses are given. This may be useful if a nameserver is down.
+: Turns off the printing of host names; instead, host IP addresses are given. This may be useful if a nameserver is down.
 			
-<dt><tt>-r <i>retries</i></tt>
+<code>**-r _retries_**</code>
 
-Sets the number of retransmission attempts for each host (default = 5).
+: Sets the number of retransmission attempts for each host (default = 5).
 			
-<dt><tt>-t <i>timeout</i></tt>
+<code>**-t _timeout_**</code>
 
-Sets the retransmission timeout (in seconds) (default = 2).
+: Sets the retransmission timeout (in seconds) (default = 2).
 			
-<dt><tt>-v</tt>
+<code>**-v**</code>
 
-Prints verbose information about the NTP servers.
+: Prints verbose information about the NTP servers.
 
 * * *
 
