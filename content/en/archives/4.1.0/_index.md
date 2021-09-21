@@ -43,7 +43,7 @@ Bringing up a NTP primary server requires a radio or satellite receiver or modem
 
 NTP is by its very nature a complex distributed network application and can be configured and used for a great many widely divergent timekeeping scenarios. The documentation presented on these pages attempts to cover the entire suite of configuration, operation and maintenance facilities which this distribution supports. However, most applications will need only a few of these facilities. If this is the case, the [Quick Start](/archives/4.1.0/quick) page may be useful to get a simple workstation on the air with an existing server.
 
-However, in order to participate in the existing NTP synchronization subnet and obtain accurate, reliable time, it is usually necessary to construct an appropriate configuration file, commonly called <tt>ntp.conf</tt>, which establishes the servers and/or external receivers or modems to be used by this particular machine. Directions for constructing this file are in the [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/4.1.0/notes) page. However, in many common cases involving simple network topologies and workstations, the configuration data can be specified entirely on the command line for the [<tt>ntpd</tt> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd).
+However, in order to participate in the existing NTP synchronization subnet and obtain accurate, reliable time, it is usually necessary to construct an appropriate configuration file, commonly called <code>ntp.conf</code>, which establishes the servers and/or external receivers or modems to be used by this particular machine. Directions for constructing this file are in the [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/4.1.0/notes) page. However, in many common cases involving simple network topologies and workstations, the configuration data can be specified entirely on the command line for the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd).
 
 The most important factor in providing accurate, reliable time is the selection of modes and servers to be used in the configuration file. A discussion on the available modes is on the [Association Management](/archives/4.1.0/assoc) page. NTP support for one or more computers is normally engineered as part of the existing NTP synchronization subnet. The existing NTP subnet consists of a multiply redundant hierarchy of servers and clients, with each level in the hierarchy identified by stratum number. Primary servers operate at stratum one and provide synchronization to secondary servers operating at stratum two and so on to higher strata. In this hierarchy, clients are simply servers that have no dependents.
 
@@ -61,14 +61,14 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 
 #### Program Manual Pages
 
-*   [<tt>ntpd</tt> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd)
-*   [<tt>ntpq</tt> - standard NTP query program](/archives/4.1.0/ntpq)
-*   [<tt>ntpdc</tt> - special NTP query program](/archives/4.1.0/ntpdc)
-*   [<tt>ntpdate</tt> - set the date and time via NTP](/archives/4.1.0/ntpdate)
-*   [<tt>ntptrace</tt> - trace a chain of NTP servers back to the primary source](/archives/4.1.0/ntptrace)
-*   [<tt>tickadj</tt> - set time-related kernel variables](/archives/4.1.0/tickadj)
-*   [<tt>ntptime</tt> - read kernel time variables](/archives/4.1.0/ntptime)
-*   [<tt>ntp-genkeys</tt> - generate public and private keys](/archives/4.1.0/genkeys)
+*   [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd)
+*   [<code>ntpq</code> - standard NTP query program](/archives/4.1.0/ntpq)
+*   [<code>ntpdc</code> - special NTP query program](/archives/4.1.0/ntpdc)
+*   [<code>ntpdate</code> - set the date and time via NTP](/archives/4.1.0/ntpdate)
+*   [<code>ntptrace</code> - trace a chain of NTP servers back to the primary source](/archives/4.1.0/ntptrace)
+*   [<code>tickadj</code> - set time-related kernel variables](/archives/4.1.0/tickadj)
+*   [<code>ntptime</code> - read kernel time variables](/archives/4.1.0/ntptime)
+*   [<code>ntp-genkeys</code> - generate public and private keys](/archives/4.1.0/genkeys)
 
 * * *
 
@@ -93,7 +93,7 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 
 #### Application Notes
 
-*   [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/4.1.0/prefer)
+*   [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.1.0/prefer)
 *   [Association Management](/archives/4.1.0/assoc)
 *   [Pulse-per-second (PPS) Signal Interfacing](/archives/4.1.0/pps)
 *   [Gadget Box PPS Level Converter and CHU Modem](/archives/4.1.0/gadget)
@@ -104,6 +104,3 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 * * *
 
 ![gif](/archives/pic/pogo1a.gif)
-
-
-

@@ -3,7 +3,7 @@ title: "Gadget Box PPS Level Converter and CHU Modem"
 type: archives
 ---
 
-![jpg](/archives/pic/gadget.jpg)A Gadget Box built by Chuck Hanavin
+![jpg](/archives/pic/gadget.jpg) A Gadget Box built by Chuck Hanavin
 
 * * *
 
@@ -39,16 +39,16 @@ If only the PPS circuit is required, U2 and U4 can be deleted and the gadget box
 
 #### Files
 
-Following is a list of files included in this archive. All files are in PostScript, except the <tt>README</tt> and <tt>gadget.lst</tt> files, which are in ASCII. The files <tt>gadget.s01, gadget.s02</tt> and <tt>gadget.lst</tt> were generated using the Schema schematic-capture program from Omation. The printed-circuit files <tt>*.lpr</tt> were generated using Schema-PCB, also from Omation.
+Following is a list of files included in this archive. All files are in PostScript, except the <code>README</code> and <code>gadget.lst</code> files, which are in ASCII. The files <code>gadget.s01, gadget.s02</code> and <code>gadget.lst</code> were generated using the Schema schematic-capture program from Omation. The printed-circuit files <code>\*.lpr</code> were generated using Schema-PCB, also from Omation.
 
-<tt>README</tt> - helpful information  
-<tt>gadget.s01</tt> - circuit schematic  
-<tt>gadget.s02</tt> - minibox assembly drawing  
-<tt>gadget.lst</tt> - net list, pin list, parts list, etc.  
-<tt>gen0102.lpr</tt> - pcb x-ray diagram  
-<tt>art01.lpr</tt> - pcb artword side 1  
-<tt>art02.lpr</tt> - pcb artwork side 2  
-<tt>adt0127.lpr</tt> - pcb assembly drawing  
-<tt>dd0124.lpr</tt> - pcb drill drawing  
-<tt>sm0228.lpr</tt> - pcb solder mask (side 2)  
-<tt>sst0126.lpr</tt> - pcb silkscreen mask (side 1)
+<code>README</code> - helpful information  
+<code>gadget.s01</code> - circuit schematic  
+<code>gadget.s02</code> - minibox assembly drawing  
+<code>gadget.lst</code> - net list, pin list, parts list, etc.  
+<code>gen0102.lpr</code> - pcb x-ray diagram  
+<code>art01.lpr</code> - pcb artword side 1  
+<code>art02.lpr</code> - pcb artwork side 2  
+<code>adt0127.lpr</code> - pcb assembly drawing  
+<code>dd0124.lpr</code> - pcb drill drawing  
+<code>sm0228.lpr</code> - pcb solder mask (side 2)  
+<code>sst0126.lpr</code> - pcb silkscreen mask (side 1)

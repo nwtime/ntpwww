@@ -19,50 +19,50 @@ The turtle has been swimming in the kernel.
 
 #### Synopsis
 
-<tt>ntptime [ -chr ] [ -e _est_error_ ] [ -f _frequency_ ] [ -m _max_error_ ] [ -o _offset_ ] [ -s _status_ ] [ -t _time_constant_]</tt>
+<code>ntptime [ -chr ] [ -e _est_error_ ] [ -f _frequency_ ] [ -m _max_error_ ] [ -o _offset_ ] [ -s _status_ ] [ -t _time_constant_]</code>
 
 * * *
 
 #### Description
 
-This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/4.1.0/kern) page. It reads and displays time-related kernel variables using the <tt>ntp_gettime()</tt> system call. A similar display can be obtained using the <tt>ntpdc</tt> program and <tt>kerninfo</tt> command.
+This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/4.1.0/kern) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>ntpdc</code> program and <code>kerninfo</code> command.
 
 * * *
 
 #### Options
 
-<dt><tt>-c</tt></dt>
+<code>**-c**</code>
 
-Display the execution time of <tt>ntptime</tt> itself.
+: Display the execution time of <code>ntptime</code> itself.
 
-<dt><tt>-e _est_error_</tt></dt>
+<code>**-e _est_error_**</code>
 
-Specify estimated error, in microseconds.
+: Specify estimated error, in microseconds.
 
-<dt><tt>-f _frequency_</tt></dt>
+<code>**-f _frequency_**</code>
 
-Specify frequency offset, in parts per million.
+: Specify frequency offset, in parts per million.
 
-<dt><tt>-h</tt></dt>
+<code>**-h**</code>
 
-Display help information.
+: Display help information.
 
-<dt><tt>-m _max_error_</tt></dt>
+<code>**-m _max_error_**</code>
 
-Specify max possible errors, in microseconds.
+: Specify max possible errors, in microseconds.
 
-<dt><tt>-o _offset_</tt></dt>
+<code>**-o _offset_**</code>
 
-Specify clock offset, in microseconds.
+: Specify clock offset, in microseconds.
 
-<dt><tt>-r</tt></dt>
+<code>**-r**</code>
 
-Display Unix and NTP times in raw format.
+: Display Unix and NTP times in raw format.
 
-<dt><tt>-s _status_</tt></dt>
+<code>**-s _status_**</code>
 
-Specify clock status. Better know what you are doing.
+: Specify clock status. Better know what you are doing.
 
-<dt><tt>-t _time_constant_</tt></dt>
+<code>**-t _time_constant_**</code>
 
-Specify time constant, an integer in the range 0-10.
+: Specify time constant, an integer in the range 0-10.
