@@ -3,7 +3,7 @@ title: "Event Messages and Status Words"
 type: archives
 ---
 
-![gif](/archives/pic/alice47.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Caterpillar knows all the error codes, which is more than most of us do.
 
@@ -25,13 +25,13 @@ Last update: 26-Jul-2015 06:26 UTC
 
 #### Introduction
 
-This page lists the status words, event messages and error codes used for <code>ntpd</code> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the <code>ntpq</code> program.
+This page lists the status words, event messages and error codes used for <code>ntpd</code> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the [<code>ntpq</code>](/archives/4.2.8-series/ntpq) program.
 
 Significant changes in program state are reported as events. There is one set of system events and a set of peer events for each association. In addition, there is a set of clock events for each association that supports a reference clock. Events are normally reported to the <code>protostats</code> monitoring file and optionally to the system log. In addition, if the trap facility is configured, events can be reported to a remote program that can page an administrator.
 
 This page also includes a description of the error messages produced by the Autokey protocol. These messages are normally sent to the <code>cryptostats</code> monitoring file.
 
-In the following tables the Event Field is the status or event code assigned and the Message Field a short string used for display and event reporting. The Description field contains a longer explanation of the status or event. Some messages include additional information useful for error diagnosis and performance assessment.
+In the following tables the Code is the status or event code assigned and the Message is a short string used for display and event reporting. The Description contains a longer explanation of the status or event. Some messages include additional information useful for error diagnosis and performance assessment.
 
 * * *
 
@@ -42,7 +42,7 @@ The system status word consists of four fields LI (0-1), Source (2-7), Count (8-
 The **Leap Field** displays the system leap indicator bits coded as follows:
 
 | Code | Message | Description |
-| ---- | ------ | ----- | 
+| ---- | ------ | ----- |
 | 0 | leap_none | normal synchronized state |
 | 1 | leap_add_sec | insert second after 23:59:59 of the current day |
 | 2 | leap_del_sec | delete second 23:59:59 of the current day |
@@ -51,7 +51,7 @@ The **Leap Field** displays the system leap indicator bits coded as follows:
 The **Source Field** displays the current synchronization source coded as follows:
 
 | Code | Message | Description |
-| ---- | ------ | ----- | 
+| ---- | ------ | ----- |
 | 0 | sync_unspec | not yet synchronized |
 | 1 | sync_pps | pulse-per-second signal (Cs, Ru, GPS, etc.) |
 | 2 | sync_lf_radio | VLF/LF radio (WWVB, DCF77, etc.) |

@@ -58,7 +58,7 @@ You are now ready to configure the daemon. You will need to create a NTP configu
 
 If you have problems with your hardware and software environment (e.g. operating system-specific issues), browse the [Hints and Kinks](/archives/4.2.8-series/hints) pages. For other problems a tutorial on debugging technique is in the [NTP Debugging Technique](/archives/4.2.8-series/debug) page. A list of important system log messages is on the [<code>ntpd</code> System Log Messages](/archives/4.2.8-series/msyslog) page.
 
-The first line of general assistance is the NTP web site [www.ntp.org](http://www.ntp.org) and the helpful documents resident there. Requests for assistance of a general nature and of interest to other timekeepers should be sent to the NTP newsgroup comp.protocols.time.ntp.
+The first line of general assistance is the [documentation](/archives/4.2.8-series/). Requests for assistance of a general nature and of interest to other timekeepers should be sent to the NTP newsgroup comp.protocols.time.ntp.
 
 Users are invited to report bugs and offer suggestions via the [NTP Bug Reporting Procedures](/archives/4.2.8-series/bugs) page.
 

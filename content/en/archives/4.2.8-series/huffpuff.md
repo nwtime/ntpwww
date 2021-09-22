@@ -17,11 +17,8 @@ The huff-n'-puff filter is designed to correct the apparent time offset in these
 
 **Figure 1: Huff-n'-Puff Wedge Scattergram**
 
-Figure 1 shows how the huff-n'-puff filter works. Recall from the [Clock Filter Algorithm](/archives/4.2.8-series/filter) page that the wedge scattergram plots sample points (_x_, _y_) corresponding to the measured delay and offset, and that the limb lines are at slope ±0.5. Note in the figure that the samples are clustered close to the upper limb line, representing heavy traffic in the download direction. The apparent offset _y_<sub>0</sub> is near zero at the minimum delay _x_<sub>0</sub>, which is near 0.1s. Thus, for a point (_x_, _y_), the true offset is
+Figure 1 shows how the huff-n'-puff filter works. Recall from the [Clock Filter Algorithm](/archives/4.2.8-series/filter) page that the wedge scattergram plots sample points (_x_, _y_) corresponding to the measured delay and offset, and that the limb lines are at slope ±0.5. Note in the figure that the samples are clustered close to the upper limb line, representing heavy traffic in the download direction. The apparent offset <code>_y_<sub>0</sub></code> is near zero at the minimum delay <code>_x_<sub>0</sub></code>, which is near 0.1s. Thus, for a point <code>(_x_, _y_)</code>, the true offset is <code>\> θ = _y_ - (_x_ - _x_<sub>0</sub>) / 2</code> for <code>_y_ > _y_<sub>0</sub></code> at or near the upper limb line or <code>\> θ = _y_ + (_x_ - _x_<sub>0</sub>) / 2</code> for <code>_y_ < _y_<sub>0</sub></code> at or near the lower limb line.
 
-\> θ = _y_ <font face="symbol">-</font> (_x_ <font face="symbol">-</font> _x_<sub>0</sub>) / 2 for _y_ > _y_<sub>0</sub> at or near the upper limb line or  
-\> θ = _y_ <font face="symbol">+</font> (_x_ <font face="symbol">-</font> _x_<sub>0</sub>) / 2 for _y_ < _y_<sub>0</sub> at or near the lower limb line.
-
-In either case the associated delay is δ = _x_.
+In either case the associated delay is <code>δ = _x_</code>.
 
 In the interior of the wedge scattergram far from the limb lines, the corrections are less effective and can lead to significant errors if the area between the limb lines is heavily populated.

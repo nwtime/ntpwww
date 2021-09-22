@@ -1,7 +1,7 @@
 ---
 title: "External Clock Discipline and the Local Clock Driver"
 type: archives
---- 
+---
 
 Last update: 9-May-2014 04:46 UTC
 
@@ -17,10 +17,10 @@ When the external clock is enabled, <code>ntpd</code> does not discipline the sy
 
 In order to implement a reliable mitigation between ordinary NTP sources and the external clock source, a protocol is necessary between the local clock driver and the external clock driver. This is implemented using Boolean variables and certain bits in the kernel clock status word. The Boolean variables include the following:
 
-<code>**ntp_enable**</code> 
+<code>**ntp_enable**</code>
 : set/reset by the <code>enable</code> command. Enables ntpd clock discipline.
 
-<code>**ntp_control**</code> 
+<code>**ntp_control**</code>
 : set during initial configuration if kernel support is available.
 
 <code>**kern_enable**</code>

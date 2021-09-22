@@ -30,6 +30,6 @@ restrict 128.4.1.0 mask 255.255.255.0 notrust   # require authentication on subn
 restrict time.nist.gov				# allow access
 </pre>
 
-While this facility may be useful for keeping unwanted, broken or malicious clients from congesting innocent servers, it should not be considered an alternative to the NTP authentication facilities. Source address based restrictions are easily circumvented by a determined cracker.
+While this facility may be useful for keeping unwanted, broken or malicious clients from congesting innocent servers, it should not be considered an alternative to the NTP authentication facilities. Source address-based restrictions are easily circumvented by a determined cracker.
 
 Default restriction list entries with the flags <code>ignore, ntpport</code>, for each of the local host's interface addresses are inserted into the table at startup to prevent the server from attempting to synchronize to its own time. A default entry is also always present, though if it is otherwise unconfigured; no flags are associated with the default entry (i.e., everything besides your own NTP server is unrestricted).

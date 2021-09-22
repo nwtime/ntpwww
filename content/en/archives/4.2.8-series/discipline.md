@@ -24,7 +24,7 @@ At the heart of the NTP specification and reference implementation is the clock 
 
 #### Clock Discipline Operations
 
-A block diagram of the clock discipline is shown in Figure 1. The timestamp of a reference clock or remote server is compared with the timestamp of the system clock, represented as a variable frequency oscillator (VFO), to produce a raw offset sample _V<sub>d</sub>_. Offset samples are processed by the clock filter to produce a filtered update _V<sub>s</sub>_. The loop filter implements a type-2 proportional-integrator controller (PIC). The PIC can minimize errors in both time and frequency using predictors _x_ and _y_, respectively. The clock adjust process samples these predictors once each second for the daemon discipline or once each tick interrupt for the kernel discipline to produce the system clock update _V<sub>c</sub>_.
+A block diagram of the clock discipline is shown in Figure 1. The timestamp of a reference clock or remote server is compared with the timestamp of the system clock, represented as a variable frequency oscillator (VFO), to produce a raw offset sample <code>_V<sub>d</sub>_</code>. Offset samples are processed by the clock filter to produce a filtered update <code>_V<sub>s</sub>_</code>. The loop filter implements a type-2 proportional-integrator controller (PIC). The PIC can minimize errors in both time and frequency using predictors <code>_x_</code> and <code>_y_</code>, respectively. The clock adjust process samples these predictors once each second for the daemon discipline or once each tick interrupt for the kernel discipline to produce the system clock update <code>_V<sub>c</sub>_</code>.
 
 ![gif](/archives/pic/discipline.gif)
 

@@ -55,10 +55,9 @@ The receive routine retrieves a timecode string via serial or parallel port, PPS
 
 The best way to understand how the clock drivers work is to study one of the drivers already implemented, such as <code>refclock_wwvb.c</code>. The main interface is the <code>refclockproc</code> structure, which contains for most drivers the decoded timecode, on-time timestamp, reference timestamp, exception reports and statistics tallies, etc. The support routines are passed a pointer to the <code>peer</code> structure, which contains a pointer to the <code>refclockproc</code> structure, which in turn contains a pointer to the unit structure, if used. For legacy purposes, a table <code>typeunit[type][unit]</code> contains the peer structure pointer for each configured clock type and unit. This structure should not be used for new implementations.
 
-Radio and modem reference clocks by convention have addresses of the form <code>127.127._t_._u_</code>, where _t_ is the clock type and _u_ in the range 0-3 is used to distinguish multiple instances of clocks of the same type. Most clocks require a serial or parallel port or special bus peripheral. The particular device is normally specified by adding a soft link <code>/dev/device_u_</code> to the particular hardware device.
+Radio and modem reference clocks by convention have addresses of the form <code>127.127._t_._u_</code>, where <code>_t_</code> is the clock type and <code>_u_</code> in the range 0-3 is used to distinguish multiple instances of clocks of the same type. Most clocks require a serial or parallel port or special bus peripheral. The particular device is normally specified by adding a soft link <code>/dev/device\__u_</code> to the particular hardware device.
 
-By convention, reference clock drivers are named in the form <code>refclock__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name and device name. The existing assignments are in the [Reference Clock Drivers](/archives/4.2.8-series/refclock) page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the 
-autoconfigure phase and conditionally compiled.
+By convention, reference clock drivers are named in the form <code>refclock__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name and device name. The existing assignments are in the [Reference Clock Drivers](/archives/4.2.8-series/refclock) page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the autoconfigure phase and conditionally compiled.
 
 * * *
 
@@ -76,7 +75,7 @@ When a new reference clock driver is installed, the following files need to be e
 
 <code>**./include/ntp.h**</code>
 
-: The reference clock type defines are used in many places. Each driver is assigned a unique type number. Unused numbers are clearly marked in the list. A unique <code>REFCLK__xxxx_</code> identification code should be recorded in the list opposite its assigned type number.
+: The reference clock type defines are used in many places. Each driver is assigned a unique type number. Unused numbers are clearly marked in the list. A unique <code>REFCLK\__xxxx_</code> identification code should be recorded in the list opposite its assigned type number.
 
 <code>**./libntp/clocktypes.c**</code>
 
@@ -84,7 +83,7 @@ When a new reference clock driver is installed, the following files need to be e
 
 <code>**./ntpd/ntp_control.c**</code>
 
-: The <code>clocktypes</code> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification RFC-1305. See the <code>./include/ntp_control.h</code> header file for the assigned classes.
+: The <code>clocktypes</code> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification [RFC 1305](/reflib/rfc/rfc1305/rfc1305b.pdf). See the <code>./include/ntp_control.h</code> header file for the assigned classes.
 
 <code>**./ntpd/refclock_conf.c**</code>
 
@@ -110,7 +109,7 @@ This routine implements the NTP transmit procedure for a reference clock. This p
 
 : This routine saves the offset computed from the on-time timestamp and the days, hours, minutes, seconds and nanoseconds in the circular buffer. Note that no provision is included for the year, as provided by some (but not all) radio clocks. Ordinarily, the year is implicit in the Unix file system and hardware/software clock support, so this is ordinarily not a problem.
 
-<code**>refclock_receive</code> - simulate the receive and packet procedures**
+<code>**refclock_receive</code> - simulate the receive and packet procedures**
 
 : This routine simulates the NTP receive and packet procedures for a reference clock. This provides a mechanism in which the ordinary NTP filter, selection and combining algorithms can be used to suppress misbehaving radios and to mitigate between them when more than one is available for backup.
 
@@ -128,7 +127,7 @@ This routine implements the NTP transmit procedure for a reference clock. This p
 
 <code>**refclock_ppsapi**</code>
 
-: This routine initializes the Pulse-per-Second interface (see below).
+: This routine initializes the [Pulse-per-Second interface](#pulse-per-second-interface).
 
 <code>**refclock_pps**</code>
 
@@ -138,9 +137,9 @@ This routine implements the NTP transmit procedure for a reference clock. This p
 
 #### Pulse-per-Second Interface
 
-When the Pulse-per-Second Application Interface (RFC 2783) is present, a compact PPS interface is available to all drivers. See the [Mitigation Rules and the Prefer Peer](/archives/4.2.8-series/prefer) page for further information. To use this interface, include the <code>timeppps.h</code> and <code>refclock_atom.h</code> header files and define the <code>refclock_atom</code> structure in the driver private storage. The <code>timepps.h</code> file is specific to each operating system and may not be available for some systems.
+When the Pulse-per-Second Application Interface ([RFC 2783](/reflib/rfc/rfc2783.txt)) is present, a compact PPS interface is available to all drivers. See the [Mitigation Rules and the Prefer Peer](/archives/4.2.8-series/prefer) page for further information. To use this interface, include the <code>timeppps.h</code> and <code>refclock_atom.h</code> header files and define the <code>refclock_atom</code> structure in the driver private storage. The <code>timepps.h</code> file is specific to each operating system and may not be available for some systems.
 
-To use the interface, call <code>refclock_ppsapi</code> from the startup routine passing the device file descriptor and <code>refclock_atom</code> structure pointer. Then, call <code>refclock_pps</code> from the timer routine passing the association pointer and <code>refclock_atom</code> structure pointer. See the <code>refclock_atom.c</code> file for examples and calling sequences. If the PPS signal is valid, the offset sample will be save in the circular buffer and a bit set in the association flags word indicating the sample is valid and the driver an be selected as a PPS peer. If this bit is set when the poll routine is called, the driver calls the <code>refclock_receive</code> routine to process the samples in the circular buffer and update the system clock.
+To use the interface, call <code>refclock_ppsapi</code> from the startup routine passing the device file descriptor and <code>refclock_atom</code> structure pointer. Then, call <code>refclock_pps</code> from the timer routine passing the association pointer and <code>refclock_atom</code> structure pointer. See the <code>refclock_atom.c</code> file for examples and calling sequences. If the PPS signal is valid, the offset sample will be save in the circular buffer and a bit set in the association flags word indicating the sample is valid and the driver can be selected as a PPS peer. If this bit is set when the poll routine is called, the driver calls the <code>refclock_receive</code> routine to process the samples in the circular buffer and update the system clock.
 
 * * *
 

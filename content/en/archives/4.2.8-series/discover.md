@@ -1,10 +1,10 @@
 ---
 title: "Automatic Server Discovery Schemes"
 type: archives
---- 
+---
 
 
-![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Make sure who your friends are.
 
@@ -52,7 +52,7 @@ Following the volley, the server continues in listen-only mode and sends no furt
 
 A server is configured in broadcast mode using the <code>broadcast</code> command and specifying the broadcast address of a local interface. If two or more local interfaces are installed with different broadcast addresses, a <code>broadcast</code> command is needed for each address. This provides a way to limit exposure in a firewall, for example. A broadcast client is configured using the <code>broadcastclient</code> command.
 
-NTP multicast mode can be used to extend the scope using IPv4 multicast or IPv6 broadcast with defined span. The IANA has assigned IPv4 multicast address 224.0.1.1 and IPv6 address FF05::101 (site local) to NTP, but these addresses should be used only where the multicast span can be reliably constrained to protect neighbor networks. In general, administratively scoped IPv4 group addresses should be used, as described in RFC-2365, or GLOP group addresses, as described in RFC-2770.
+NTP multicast mode can be used to extend the scope using IPv4 multicast or IPv6 broadcast with defined span. The IANA has assigned IPv4 multicast address 224.0.1.1 and IPv6 address FF05::101 (site local) to NTP, but these addresses should be used only where the multicast span can be reliably constrained to protect neighbor networks. In general, administratively scoped IPv4 group addresses should be used, as described in [RFC 2365](https://www.rfc-editor.org/rfc/rfc2365.html), or GLOP group addresses, as described in [RFC 2770](https://www.rfc-editor.org/rfc/rfc2770.html).
 
 A multicast server is configured using the <code>broadcast</code> command, but specifying a multicast address instead of a broadcast address. A multicast client is configured using the <code>multicastclient</code> command specifying a list of one or more multicast addresses. Note that there is a subtle distinction between the IPv4 and IPv6 address families. The IPv4 broadcast or mulitcast mode is determined by the IPv4 class. For IPv6 the same distinction can be made using the link-local prefix FF02 for each interface and site-local prefix FF05 for all interfaces.
 
@@ -70,7 +70,7 @@ Public key cryptography can be used with some restrictions. If multiple servers 
 
 Manycast is an automatic server discovery and configuration paradigm new to NTPv4. It is intended as a means for a client to troll the nearby network neighborhood to find cooperating servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. It uses the grab-n'-drop paradigm with the additional feature that active means are used to grab additional servers should the number of associations fall below the <code>maxclock</code> option of the <code>tos</code> command.
 
-The manycast paradigm is not the anycast paradigm described in RFC-1546, which is designed to find a single server from a clique of servers providing the same service. The manycast paradigm is designed to find a plurality of redundant servers satisfying defined optimality criteria.
+The manycast paradigm is not the anycast paradigm described in [RFC 1546](https://www.rfc-editor.org/rfc/rfc1546.html), which is designed to find a single server from a clique of servers providing the same service. The manycast paradigm is designed to find a plurality of redundant servers satisfying defined optimality criteria.
 
 A manycast client is configured using the <code>manycastclient</code> configuration command, which is similar to the <code>server</code> configuration command. It sends ordinary client mode messages, but with a broadcast address rather than a unicast address and sends only if less than <code>maxclock</code> associations remain and then only at the minimum feasible rate and minimum feasible time-to-live (TTL) hops. The polling strategy is designed to reduce as much as possible the volume of broadcast messages and the effects of implosion due to near-simultaneous arrival of manycast server messages. There can be as many manycast client associations as different addresses, each one serving as a template for future unicast client/server associations.
 
@@ -88,4 +88,4 @@ The idea of targeting servers on a random basis to distribute and balance the lo
 
 To support this service, custom DNS software is used by pool.ntp.org and its subdomains to discover a random selection of participating servers in response to a DNS query. The client receiving this list mobilizes some or all of them, similar to the manycast discovery scheme, and prunes the excess. Unlike <code>manycastclient</code>, cryptographic authentication is not required. The pool scheme solicits a single server at a time, compared to <code>manycastclient</code> which solicits all servers within a multicast TTL range simultaneously. Otherwise, the pool server discovery scheme operates as manycast does.
 
-The pool scheme is configured using one or more <code>pool</code> commands with DNS names indicating the pool from which to draw. The <code>pool</code> command can be used more than once; duplicate servers are detected and discarded. In principle, it is possible to use a configuration file containing a single line <code>pool pool.ntp.org</code>. The [NTP Pool Project](http://www.pool.ntp.org/en/use.html) offers instructions on using the pool with the <code>server</code> command, which is suboptimal but works with older versions of <code>ntpd</code> predating the <code>pool</code> command. With recent ntpd, consider replacing the multiple <code>server</code> commands in their example with a single <code>pool</code> command.
+The pool scheme is configured using one or more <code>pool</code> commands with DNS names indicating the pool from which to draw. The <code>pool</code> command can be used more than once; duplicate servers are detected and discarded. In principle, it is possible to use a configuration file containing a single line <code>pool pool.ntp.org</code>. The [NTP Pool Project](http://www.pool.ntp.org/en/use.html) offers instructions on using the pool with the <code>server</code> command, which is suboptimal but works with older versions of <code>ntpd</code> predating the <code>pool</code> command. With recent <code>ntpd</code>, consider replacing the multiple <code>server</code> commands in their example with a single <code>pool</code> command.

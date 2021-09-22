@@ -3,7 +3,7 @@ title: "Association Management"
 type: archives
 ---
 
-![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Make sure who your friends are.
 

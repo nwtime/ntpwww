@@ -22,7 +22,7 @@ Last update: 4-Aug-2011 23:40 UTC
 
 In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail.
 
-The state machine is activated upon receipt of an update by the clock discipline algorithm. its primary purpose is to determines whether the clock is slewed or stepped and how the initial time and frequency are determined using three thresholds: _panic_, _step_ and _stepout_, and one timer: _hold_.
+The state machine is activated upon receipt of an update by the clock discipline algorithm. Its primary purpose is to determine whether the clock is slewed or stepped and how the initial time and frequency are determined using three thresholds: _panic_, _step_ and _stepout_, and one timer: _hold_.
 
 * * *
 
@@ -56,7 +56,7 @@ The state machine operates in one of four nonoverlapping intervals.
 
 **Training interval**
 
-: This interval is used at startup when the frequency file is nor present at startup. It begins when the first update is received by the discipline algorithm and ends when an update is received following the stepout threshold. The clock phase is steered to the offset presented at the beginning of the interval, but without affecting the frequency. During the interval further updates are ignored. At the end of the interval the frequency is calculated as the phase change during the interval divided by the length of the interval. This generally results in a frequency error less than 0.5 PPM. Note that, if the intrinsic oscillator frequency error is large, the offset will in general have significant error. This is corrected during the subsequent startup interval.
+: This interval is used at startup when the frequency file is not present at startup. It begins when the first update is received by the discipline algorithm and ends when an update is received following the stepout threshold. The clock phase is steered to the offset presented at the beginning of the interval, but without affecting the frequency. During the interval further updates are ignored. At the end of the interval the frequency is calculated as the phase change during the interval divided by the length of the interval. This generally results in a frequency error less than 0.5 PPM. Note that, if the intrinsic oscillator frequency error is large, the offset will in general have significant error. This is corrected during the subsequent startup interval.
 
 **Startup interval**
 

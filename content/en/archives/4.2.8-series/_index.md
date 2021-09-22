@@ -27,11 +27,11 @@ A list of all links is on the [Site Map](/archives/4.2.8-series/sitemap) page.
 
 #### Introduction
 
-Note: The NTP Version 4 software contained in this distribution is available without charge under the conditions set forth in the [Copyright Notice](/archives/4.2.8-series/copyright).
+> Note: The NTP Version 4 software contained in this distribution is available without charge under the conditions set forth in the [Copyright Notice](/archives/4.2.8-series/copyright).
 
-It is very important that readers understand that the NTP document collection began 25 years ago and remains today a work in progress. It has evolved as new features were invented and old features retired. It has been widely copied, cached and morphed to other formats, including man pages, with varying loss of fidelity. However, these HTML pages are the ONLY authoritative and definitive reference. Readers should always use the collection that comes with the distribution they use. A copy of the online collection at www.ntp.org is normally included in the most recent snapshot, but might not agree with an earlier snapshot or release version.
+It is very important that readers understand that the NTP document collection began 25 years ago and remains today a work in progress. It has evolved as new features were invented and old features retired. It has been widely copied, cached and morphed to other formats, including man pages, with varying loss of fidelity. However, these HTML pages are the ONLY authoritative and definitive reference. Readers should always use the collection that comes with the distribution they use. A copy of the online collection is normally included in the most recent snapshot, but might not agree with an earlier snapshot or release version.
 
-This distribution is an implementation of RFC-5905 "Network Time Protocol Version 4: Protocol and Algorithms Specification".  
+This distribution is an implementation of [RFC-5905 "Network Time Protocol Version 4: Protocol and Algorithms Specification"](/reflib/rfc/rfc5905.txt).
 
 NTP is widely used to synchronize a computer to Internet time servers or other sources, such as a radio or satellite receiver or telephone modem service. It can also be used as a server for dependent clients. It provides accuracies typically less than a millisecond on LANs and up to a few milliseconds on WANs. Typical NTP configurations utilize multiple redundant servers and diverse network paths in order to achieve high accuracy and reliability.
 
@@ -79,9 +79,9 @@ Users are invited to report bugs and offer suggestions via the [NTP Bug Reportin
 
 #### Further Information
 
-The [Site Map](/archives/4.2.8-series/sitemap) page contains a list of document collections arranged by topic. The Program Manual Pages collection may be the best place to start. The [Command Index](/archives/4.2.8-series/comdex) collection contains a list of all configuration file commands together with a short function description. A great wealth of additional information is available via the External Links collection, including a book and numerous background papers and briefing presentations.
+The [Site Map](/archives/4.2.8-series/sitemap) page contains a list of document collections arranged by topic. The Program Manual Pages collection may be the best place to start. The [Command Index](/archives/4.2.8-series/comdex) collection contains a list of all configuration file commands together with a short function description. A great wealth of additional information is available in the [Reference Library](/reflib), including a book and numerous background papers and briefing presentations.
 
-Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](/reflib/exec) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release) page. Background information, bibliography and briefing slides suitable for presentations are on the [Network Time Synchronization Research Project](/reflib/ntp) page. Additional information is at the [NTP web site](http://www.ntp.org).
+Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](/reflib/exec) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release) page. Background information, bibliography and briefing slides suitable for presentations are on the [Network Time Synchronization Research Project](/reflib/ntp) page.
 
 * * *
 
