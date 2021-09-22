@@ -33,7 +33,7 @@ Bringing up a NTP primary server requires a radio or satellite receiver or modem
 
 #### Configuring Clients and Servers
 
-In order to participate in the existing NTP synchronization subnet and obtain accurate, reliable time, it is necessary to construct an appropriate configuration file, usually called <tt>ntp.conf</tt>, which establishes the servers and/or external receivers or modems to be used by this particular machine. Directions for constructing this file are in the [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/3-5.93e/notes) page.
+In order to participate in the existing NTP synchronization subnet and obtain accurate, reliable time, it is necessary to construct an appropriate configuration file, usually called <code>ntp.conf</code>, which establishes the servers and/or external receivers or modems to be used by this particular machine. Directions for constructing this file are in the [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/3-5.93e/notes) page.
 
 The most important factor in providing accurate, reliable time is the selection of modes and servers to be used in the configuration file. NTP support for one or more computers is normally engineered as part of the existing NTP synchronization subnet. The existing NTP subnet consists of a multiply redundant hierarchy of servers and clients, with each level in the hierarchy identified by stratum number. Primary servers operate at stratum one and provide synchronization to secondary servers operating at stratum two and so on to higher strata. In this hierarchy, clients are simply servers that have no dependents.
 
@@ -51,16 +51,16 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 
 #### Program Manual Pages
 
-* [<tt>xntpd</tt> - Network Time Protocol (NTP) daemon](/archives/3-5.93e/xntpd)  
-* [<tt>ntpq</tt> - standard NTP query program](/archives/3-5.93e/ntpq)  
-* [<tt>xntpdc</tt> - special NTP query program](/archives/3-5.93e/xntpdc)  
-* [<tt>ntpdate</tt> - set the date and time via NTP](/archives/3-5.93e/ntpdate)  
-* [<tt>ntptrace</tt> - trace a chain of NTP servers back to the primary source](/archives/3-5.93e/ntptrace)  
-* [<tt>tickadj</tt> - set time-related kernel variables](/archives/3-5.93e/tickadj)  
-* [<tt>ntptime</tt> - read kernel time variables](/archives/3-5.93e/ntptime)  
-* [<tt>authspeed</tt> - determine authentication delays](/archives/3-5.93e/authspeed)  
-* [<tt>authcert</tt> - DES validation program](/archives/3-5.93e/authcert)  
-* [<tt>md5</tt> - generate message digest](/archives/3-5.93e/md5cert)
+* [<code>xntpd</code> - Network Time Protocol (NTP) daemon](/archives/3-5.93e/xntpd)  
+* [<code>ntpq</code> - standard NTP query program](/archives/3-5.93e/ntpq)  
+* [<code>xntpdc</code> - special NTP query program](/archives/3-5.93e/xntpdc)  
+* [<code>ntpdate</code> - set the date and time via NTP](/archives/3-5.93e/ntpdate)  
+* [<code>ntptrace</code> - trace a chain of NTP servers back to the primary source](/archives/3-5.93e/ntptrace)  
+* [<code>tickadj</code> - set time-related kernel variables](/archives/3-5.93e/tickadj)  
+* [<code>ntptime</code> - read kernel time variables](/archives/3-5.93e/ntptime)  
+* [<code>authspeed</code> - determine authentication delays](/archives/3-5.93e/authspeed)  
+* [<code>authcert</code> - DES validation program](/archives/3-5.93e/authcert)  
+* [<code>md5</code> - generate message digest](/archives/3-5.93e/md5cert)
 
 * * *
 
@@ -82,7 +82,7 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 
 #### Application Notes
 
-* [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/3-5.93e/prefer)  
+* [Mitigation Rules and the <code>prefer</code> Keyword](/archives/3-5.93e/prefer)  
 * [Gadget Box PPS Level Converter and CHU Modem](/archives/3-5.93e/gadget)  
 * [IRIG Support Using Sun SPARC Audio](/archives/3-5.93e/irig)  
 * [Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation](/archives/3-5.93e/measure)  

@@ -15,7 +15,7 @@ type: archives
 
 Many radio clocks used as a primary reference source for NTP servers produce a pulse-per-second (PPS) signal that can be used to improve accuracy to a high degree. However, the signals produced are usually incompatible with the modem interface signals on the serial ports used to connect the signal to the host. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional radio modem designed to decode the radio timecode signals transmitted by the Canadian time and frequency station CHU. A complete set of schematics, PCB artwork, drill templates is in the [gadget.tar.Z](/reflib/software/gadget.tar.Z) file.
 
-The gadget box is assembled in a 5"x3"x2" aluminum minibox containing the level converter and modem circuitry. It includes two subcircuits. One of these converts a TTL positive edge into a fixed- width pulse at EIA levels and is for use with a timecode receiver or oscillator including a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the <tt>tty_clk</tt> and <tt>chu_tty</tt> line disciplines in the xntp3 distribution. 
+The gadget box is assembled in a 5"x3"x2" aluminum minibox containing the level converter and modem circuitry. It includes two subcircuits. One of these converts a TTL positive edge into a fixed- width pulse at EIA levels and is for use with a timecode receiver or oscillator including a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the <code>tty_clk</code> and <code>chu_tty</code> line disciplines in the xntp3 distribution. 
 
 This archive contains complete construction details for the gadget box, including schematic, parts list and artwork for a two-sided, printed-circuit board. All files are in PostScript, with the exception of this file and an information file, which are in ASCII. The artwork is in the 1:1 scale and is suitable for direct printing on photographic resist for each side of the board. While a plated-through-holes process is most convenient, it is possible to bridge the two sides using soldered wires where necessary. 
 
@@ -35,16 +35,16 @@ If only the PPS circuit is required, U2 and U4 can be deleted and the gadget box
 
 #### Files
 
-Following is a list of files included in this archive. All files are in PostScript, except the <tt>README</tt> and <tt>gadget.lst</tt> files, which are in ASCII. The files <tt>gadget.s01, gadget.s02</tt> and <tt>gadget.lst</tt> were generated using the Schema schematic-capture program from Omation. The printed-circuit files <tt>*.lpr</tt> were generated using Schema-PCB, also from Omation.
+Following is a list of files included in this archive. All files are in PostScript, except the <code>README</code> and <code>gadget.lst</code> files, which are in ASCII. The files <code>gadget.s01, gadget.s02</code> and <code>gadget.lst</code> were generated using the Schema schematic-capture program from Omation. The printed-circuit files <code>\*.lpr</code> were generated using Schema-PCB, also from Omation.
 
-<tt>README</tt> - helpful information  
-<tt>gadget.s01</tt> - circuit schematic  
-<tt>gadget.s02</tt> - minibox assembly drawing  
-<tt>gadget.lst</tt> - net list, pin list, parts list, etc.  
-<tt>gen0102.lpr</tt> - pcb x-ray diagram  
-<tt>art01.lpr</tt> - pcb artword side 1  
-<tt>art02.lpr</tt> - pcb artwork side 2  
-<tt>adt0127.lpr</tt> - pcb assembly drawing  
-<tt>dd0124.lpr</tt> - pcb drill drawing  
-<tt>sm0228.lpr</tt> - pcb solder mask (side 2)  
-<tt>sst0126.lpr</tt> - pcb silkscreen mask (side 1)
+<code>README</code> - helpful information  
+<code>gadget.s01</code> - circuit schematic  
+<code>gadget.s02</code> - minibox assembly drawing  
+<code>gadget.lst</code> - net list, pin list, parts list, etc.  
+<code>gen0102.lpr</code> - pcb x-ray diagram  
+<code>art01.lpr</code> - pcb artword side 1  
+<code>art02.lpr</code> - pcb artwork side 2  
+<code>adt0127.lpr</code> - pcb assembly drawing  
+<code>dd0124.lpr</code> - pcb drill drawing  
+<code>sm0228.lpr</code> - pcb solder mask (side 2)  
+<code>sst0126.lpr</code> - pcb silkscreen mask (side 1)

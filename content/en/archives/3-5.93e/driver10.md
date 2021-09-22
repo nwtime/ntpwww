@@ -15,11 +15,11 @@ type: archives
 
 #### Synopsis
 
-Address: 127.127.10._u_  
-Reference ID: <tt>GPS</tt>  
-Driver ID: <tt>GPS_AS2201</tt>  
-Serial Port: <tt>/dev/gps_u_</tt>; 9600 baud, 8-bits, no parity  
-Features: <tt>tty_clk</tt>, <tt>ppsclock</tt> (required)
+**Address:** <code>127.127.10._u_</code>  
+: **Reference ID:** <code>GPS</code>  
+: **Driver ID:** <code>GPS_AS2201</code>  
+: **Serial Port:** <code>/dev/gps\__u_</code>; 9600 baud, 8-bits, no parity  
+: **Features:** <code>tty_clk</code>, <code>ppsclock</code> (required)
 
 * * *
 
@@ -29,49 +29,49 @@ This driver supports the Austron 2200A/2201A GPS/LORAN Synchronized Clock and Ti
 
 This receiver is capable of a comprehensive and large volume of statistics and operational data. The specific data collection commands and attributes are embedded in the driver source code; however, the collection process can be enabled or disabled using the flag4 flag. If set, collection is enabled; if not, which is the default, it is disabled. A comprehensive suite of data reduction and summary scripts is in the ./scripts/stats directory of the xntp3 distribution.
 
-To achieve the high accuracy this device provides, it is necessary to use the <tt>ppsclock</tt> feature of the xntp3 program distribution or, alternatively, to install the kernel modifications described in the README.kern. The clock can be wired to provide time to a single CPU or bussed in parallel to several CPUs, with one CPU controlling the receiver and the others just listening. Fair accuracy can be achieved in the single-CPU configuration without use of the 1-pps signal, but in multiple CPU configurations accuracy is severely degraded without it.
+To achieve the high accuracy this device provides, it is necessary to use the <code>ppsclock</code> feature of the xntp3 program distribution or, alternatively, to install the kernel modifications described in the README.kern. The clock can be wired to provide time to a single CPU or bussed in parallel to several CPUs, with one CPU controlling the receiver and the others just listening. Fair accuracy can be achieved in the single-CPU configuration without use of the 1-pps signal, but in multiple CPU configurations accuracy is severely degraded without it.
 
 * * *
 
 #### Monitor Data
 
-When enabled by the <tt>flag4</tt> fudge flag, every received timecode is written as-is to the <tt>clockstats</tt> file.
+When enabled by the <code>flag4</code> fudge flag, every received timecode is written as-is to the <code>clockstats</code> file.
 
 * * *
 
 #### Fudge Factors
 
-<dt><tt>time1 _time_</tt></dt>
+<code>**time1 _time_**</code>
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dt><tt>time2 _time_</tt></dt>
+<code>**time2 _time_**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>stratum _number_</tt></dt>
+<code>**stratum _number_**</code>
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dt><tt>refid _string_</tt></dt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>GPS</tt>.
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default <code>GPS</code>.
 
-<dt><tt>flag1 0 | 1</tt></dt>
+<code>**flag1 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag2 0 | 1</tt></dt>
+<code>**flag2 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag3 0 | 1</tt></dt>
+<code>**flag3 0 | 1**</code>
 
-Enable <tt>ppsclock</tt> line discipline/streams module if set.
+: Enable <code>ppsclock</code> line discipline/streams module if set.
 
-<dt><tt>flag4 0 | 1</tt></dt>
+<code>**flag4 0 | 1**</code>
 
-Enable <tt>clockstats</tt> recording if set.
+: Enable <code>clockstats</code> recording if set.
 
 * * *
 

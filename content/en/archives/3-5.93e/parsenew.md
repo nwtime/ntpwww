@@ -13,13 +13,13 @@ Prerequisites:
 
 What to do:
 
-Make a conversion module (<tt>libparse/clk_\*.c</tt>)
+Make a conversion module (<code>libparse/clk_\*.c</code>)
 
 1.  What is the time code format ?
 
-Find year, month, day, hour, minute, second, status (synchronised or not), possibly time zone information (you need to give the offset to UTC). You will have to convert the data from a string into a struct clocktime:
+    Find year, month, day, hour, minute, second, status (synchronised or not), possibly time zone information (you need to give the offset to UTC). You will have to convert the data from a string into a <code>struct clocktime</code>:
 
-        <pre>      struct clocktime                /* clock time broken up from time code */
+<pre>      struct clocktime                /* clock time broken up from time code */
               {
         	long day;
         	long month;
@@ -32,11 +32,11 @@ Find year, month, day, hour, minute, second, status (synchronised or not), possi
         	time_t utcoffset;     /* true utc time instead of date/time */
         	long flags;           /* current clock status */
               };
-        </pre>
+</pre>
 
 Conversion is usually simple and straight forward. For the flags following values can be OR'ed together:
 
-        <pre>     PARSEB_ANNOUNCE           switch time zone warning (informational only)
+<pre>     PARSEB_ANNOUNCE           switch time zone warning (informational only)
              PARSEB_POWERUP            no synchronisation - clock confused (must set then)
              PARSEB_NOSYNC             timecode currently not confirmed (must set then)
                                        usually on reception error when there is still a
@@ -52,21 +52,21 @@ Conversion is usually simple and straight forward. For the flags following value
              PARSEB_POSITION           geographic position available (informational only)
              PARSEB_LEAPSECOND         actual leap second (this time code is the leap
                                        second - informational only)
-        </pre>
+</pre>
 
 These are feature flags denoting items that are supported by the clock:
 
-        <pre>     PARSEB_S_LEAP             supports LEAP - might set PARSEB_LEAP
+<pre>     PARSEB_S_LEAP             supports LEAP - might set PARSEB_LEAP
              PARSEB_S_ANTENNA          supports ANTENNA - might set PARSEB_ALTERNATE
              PARSEB_S_PPS              supports PPS time stamping
              PARSEB_S_POSITION         supports position information (GPS)
-           </pre>
+</pre>
 
-If the utctime field is non zero this value will be take as time code value. This allows for conversion routines that already have the utc time value. The utctime field gives the seconds since Jan 1st 1970, 0:00:00. The useconds field gives the respective usec value. The fields for date and time (down to second resolution) will be ignored.
+If the <code>utctime</code> field is non-zero this value will be take as time code value. This allows for conversion routines that already have the utc time value. The <code>utctime</code> field gives the seconds since Jan 1st 1970, 0:00:00. The <code>useconds</code> field gives the respective <code>usec</code> value. The fields for date and time (down to second resolution) will be ignored.
 
-Conversion is done in the <tt>cvt_\*</tt> routine in <tt>parse/clk_\*.c</tt> files, look in them for examples. The basic structure is:
+Conversion is done in the <code>cvt_\*</code> routine in <code>parse/clk_\*.c</code> files, look in them for examples. The basic structure is:
 
-        <pre>     struct clockformat <yourclock>_format = {
+<pre>     struct clockformat <yourclock>_format = {
                lots of fields for you to fill out (see below)
              };
 
@@ -83,11 +83,11 @@ Conversion is done in the <tt>cvt_\*</tt> routine in <tt>parse/clk_\*.c</tt> fil
                    return CVT_FAIL|CVT_BADFMT;
                  }
                }
-        </pre>
+</pre>
 
-The struct clockformat is the interface to the rest of the parse driver - it holds all information necessary for finding the clock message and doing the appropriate time stamping.
+The <code>struct clockformat</code> is the interface to the rest of the parse driver - it holds all information necessary for finding the clock message and doing the appropriate time stamping.
 
-        <pre>struct clockformat
+<pre>struct clockformat
         {
           u_long (*input)();
           /* input routine - your routine - cvt_<yourclock> */
@@ -106,19 +106,19 @@ The struct clockformat is the interface to the rest of the parse driver - it hol
           u_long   flags;
          /* information for the parser what to look for */
         };
-        </pre>
+</pre>
 
-The above should have given you some hints on how to build a <tt>clk_\*.c</tt> file with the time code conversion. See the examples and pick a clock closest to yours and tweak the code to match your clock.
+The above should have given you some hints on how to build a <code>clk_\*.c</code> file with the time code conversion. See the examples and pick a clock closest to yours and tweak the code to match your clock.
 
-In order to make your <tt>clk_\*.c</tt> file usable a reference to the clockformat structure must be put into <tt>parse_conf.c</tt>.
+In order to make your <code>clk_\*.c</code> file usable a reference to the clockformat structure must be put into <code>parse_conf.c</code>.
 
-2. TTY setup and initialisation/configuration will be done in <tt>ntpd/refclock_parse.c</tt>.
+2. TTY setup and initialisation/configuration will be done in <code>ntpd/refclock_parse.c</code>.
 
-Find out the exact tty settings for your clock (baud rate, parity, stop bits, character size, ...) and note them in terms of <tt>termio\*.h</tt> c_cflag macros.
+   Find out the exact tty settings for your clock (baud rate, parity, stop bits, character size, ...) and note them in terms of <code>termio\*.h</code> c_cflag macros.
 
-In <tt>ntpd/refclock_parse.c</tt> fill out a new the struct clockinfo element (that allocates a new "IP" address - see comments) (see all the other clocks for example).
+   In <code>ntpd/refclock_parse.c</code> fill out a new the struct clockinfo element (that allocates a new "IP" address - see comments) (see all the other clocks for example).
 
-        <pre>   struct clockinfo
+<pre>   struct clockinfo
              {
               u_long  cl_flags;             /* operation flags (io modes) */
         	 PARSE_F_PPSPPS       use loopfilter PPS code (CIOGETEV)
@@ -184,8 +184,7 @@ In <tt>ntpd/refclock_parse.c</tt> fill out a new the struct clockinfo element (t
           ...,<other clocks>,...
           { < your parameters> },
           };
-
-        </pre>
+</pre>
 
 Well, this is very sketchy, I know. But I hope it helps a little bit. The best way is to look which clock comes closest to your and tweak that code.
 

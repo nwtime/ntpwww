@@ -3,7 +3,7 @@ title: "NTP PARSE clock data formats"
 type: archives
 ---
 
-The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I'll sum up the major features of the clocks (this information is distributed in the <tt>parse/clk_*.c</tt> and <tt>ntpd/refclock_parse.c</tt> files).
+The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I'll sum up the major features of the clocks (this information is distributed in the <code>parse/clk_*.c</code> and <code>ntpd/refclock_parse.c</code> files).
 
 * * *
 
@@ -132,7 +132,7 @@ Examples for Uni Erlangen strings from GPS receivers:
 
 The Uni Erlangen formats should be used preferably. Newer Meinberg GPS receivers can be configured to transmit that format, for older devices there may be a special firmware version available.
 
-For the Meinberg parse look into <tt>clk_meinberg.c</tt>.  
+For the Meinberg parse look into <code>clk_meinberg.c</code>.  
 
 * * *
 

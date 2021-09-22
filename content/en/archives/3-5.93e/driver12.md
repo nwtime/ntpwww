@@ -15,11 +15,11 @@ type: archives
 
 #### Synopsis
 
-Address: 127.127.12._u_  
-Reference ID: <tt>IRIG</tt>  
-Driver ID: <tt>IRIG_TPRO</tt>  
-TPRO Device: <tt>/dev/tpro_u_</tt>  
-Requires: KSI/Odetics device driver, <tt>/usr/include/sys/tpro.h</tt> header file
+**Address:** <code>127.127.12._u_</code>  
+: **Reference ID:** <code>IRIG</code>
+: **Driver ID:** <code>IRIG_TPRO</code>
+: **TPRO Device:** <code>/dev/tpro\__u_</code>
+: **Requires:** KSI/Odetics device driver, <code>/usr/include/sys/tpro.h</code> header file
 
 * * *
 
@@ -33,43 +33,43 @@ Using the TPRO interface as a NTP reference clock provides precision time only t
 
 #### Monitor Data
 
-The driver writes each timecode as received to the <tt>clockstats</tt> file. 
+The driver writes each timecode as received to the <code>clockstats</code> file. 
 
 * * *
 
 #### Fudge Factors
 
-<dt><tt>time1 _time_</tt></dt>
+<code>**time1 _time_**</code>
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0. For a calibrated Sun IPC, the correct value is about .00037.
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0. For a calibrated Sun IPC, the correct value is about .00037.
 
-<dt><tt>time2 _time_</tt></dt>
+<code>**time2 _time_**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>stratum _number_</tt></dt>
+<code>**stratum _number_**</code>
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dt><tt>refid _string_</tt></dt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>IRIG</tt>.
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default <code>IRIG</code>.
 
-<dt><tt>flag1 0 | 1</tt></dt>
+<code>**flag1 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag2 0 | 1</tt></dt>
+<code>**flag2 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag3 0 | 1</tt></dt>
+<code>**flag3 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag4 0 | 1</tt></dt>
+<code>**flag4 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
 * * *
 

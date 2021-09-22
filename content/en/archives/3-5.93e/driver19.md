@@ -15,12 +15,12 @@ type: archives
 
 #### Synopsis
 
-Address: 127.127.19._u_  
-Reference ID: <tt>WWV</tt>  
-Driver ID: <tt>WWV_HEATH</tt>  
-Serial Port: <tt>/dev/heath_u_</tt>; 1200 baud, 8-bits, no parity  
-Features: <tt>tty_clk</tt>  
-Requires: <tt>/usr/include/sys/termios.h</tt> header file with modem control
+**Address:** <code>127.127.19._u_</code>
+: **Reference ID:** <code>WWV</code>
+: **Driver ID:** <code>WWV_HEATH</code>
+: **Serial Port:** <code>/dev/heath\__u_</code>; 1200 baud, 8-bits, no parity
+: **Features:** <code>tty_clk</code>
+: **Requires:** <code>/usr/include/sys/termios.h</code> header file with modem control
 
 * * *
 
@@ -30,11 +30,13 @@ This driver supports the Heath GC-1000 Most Accurate Clock, with RS232C Output A
 
 The internal DIPswitches should be set to operate at 1200 baud in MANUAL mode and the current year. The external DIPswitches should be set to GMT and 24-hour format. It is very important that the year be set correctly in the DIPswitches; otherwise, the day of year will be incorrect after 28 April of a normal or leap year.
 
-In MANUAL mode the clock responds to a rising edge of the request to send (RTS) modem control line by sending the timecode. Therefore, it is necessary that the operating system implement the <tt>TIOCMBIC</tt> and <tt>TIOCMBIS</tt> ioctl system calls and <tt>TIOCM_RTS</tt> control bit. Present restrictions require the use of a POSIX-compatible programming interface, although other interfaces may work as well.
+In MANUAL mode the clock responds to a rising edge of the request to send (RTS) modem control line by sending the timecode. Therefore, it is necessary that the operating system implement the <code>TIOCMBIC</code> and <code>TIOCMBIS</code> ioctl system calls and <code>TIOCM_RTS</code> control bit. Present restrictions require the use of a POSIX-compatible programming interface, although other interfaces may work as well.
 
 The clock message consists of 23 ASCII printing characters in the following format:
 
-<pre>hh:mm:ss.f     dd/mm/yr&lsaquo;cr&rsaquo;</pre>
+<code>hh:mm:ss.f     dd/mm/yr\<cr></code>
+
+where:
 
 `hh:mm:ss.f` = hours, minutes, seconds
 
@@ -50,45 +52,43 @@ A fudge time1 value of .07 s appears to center the clock offset residuals.
 
 #### Monitor Data
 
-When enabled by the <tt>flag4</tt> fudge flag, every received timecode is written as-is to the <tt>clockstats</tt> file. 
+When enabled by the <code>flag4</code> fudge flag, every received timecode is written as-is to the <code>clockstats</code> file. 
 
 * * *
 
 #### Fudge Factors
 
-<dl>
+<code>**time1 _time_**</code>
 
-<dt><tt>time1 _time_</tt></dt>
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
+<code>**time2 _time_**</code>
 
-<dt><tt>time2 _time_</tt></dt>
+: Not used by this driver.
 
-Not used by this driver.
+<code>**stratum _number_**</code>
 
-<dt><tt>stratum _number_</tt></dt>
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+<code>**refid _string_**</code>
 
-<dt><tt>refid _string_</tt></dt>
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default <code>WWV</code>.
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>WWV</tt>.
+<code>**flag1 0 | 1**</code>
 
-<dt><tt>flag1 0 | 1</tt></dt>
+: Not used by this driver.
 
-Not used by this driver.
+<code>**flag2 0 | 1**</code>
 
-<dt><tt>flag2 0 | 1</tt></dt>
+: Not used by this driver.
 
-Not used by this driver.
+<code>**flag3 0 | 1**</code>
 
-<dt><tt>flag3 0 | 1</tt></dt>
+: Enable <code>ppsclock</code> line discipline/streams module if set. 
 
-Enable <tt>ppsclock</tt> line discipline/streams module if set. 
+<code>**flag4 0 | 1**</code>
 
-<dt><tt>flag4 0 | 1</tt></dt>
-
-Enable <tt>clockstats</tt> recording if set.
+: Enable <code>clockstats</code> recording if set.
 
 * * *
 

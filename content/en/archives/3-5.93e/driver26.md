@@ -14,10 +14,10 @@ type: archives
 
 #### Synopsis
 
-Address: 127.127.26._u_  
-Reference ID: <tt>GPS</tt>  
-Driver ID: <tt>GPS_HP</tt>  
-Serial Port: <tt>/dev/hpgps_u_</tt>; 9600 baud, 8-bits, no parity
+**Address:** <code>127.127.26._u_</code>  
+: **Reference ID:** <code>GPS</code>
+: **Driver ID:** <code>GPS_HP</code>
+: **Serial Port:** <code>/dev/hpgps\__u_</code>; 9600 baud, 8-bits, no parity
 
 * * *
 
@@ -25,15 +25,15 @@ Serial Port: <tt>/dev/hpgps_u_</tt>; 9600 baud, 8-bits, no parity
 
 This driver supports the HP 58503A Time and Frequency Reference Receiver. It uses HP SmartClock (TM) to implement an Enhanced GPS receiver. The receiver accuracy when locked to GPS in normal operation is better than 1 usec. The accuracy when operating in holdover is typically better than 10 us per day. It receiver should be operated with factory default settings. Initial driver operation: expects the receiver to be already locked to GPS, configured and able to output timecode format 2 messages. 
 
-The driver uses the poll sequence <tt>:PTIME:TCODE?</tt> to get a response from the receiver. The receiver responds with a timecode string of ASCII printing characters, followed by a &lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;, followed by a prompt string issued by the receiver, in the following format:
+The driver uses the poll sequence <code>:PTIME:TCODE?</code> to get a response from the receiver. The receiver responds with a timecode string of ASCII printing characters, followed by a &lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;, followed by a prompt string issued by the receiver, in the following format:
 
-<pre>T#yyyymmddhhmmssMFLRVcc&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;</pre>
+<code>T#yyyymmddhhmmssMFLRVcc\<cr>\<lf></code>
 
-The driver processes the response at the &lsaquo;cr&rsaquo; and &lsaquo;lf&rsaquo;, so what the driver sees is the prompt from the previous poll, followed by this timecode. The prompt from the current poll is (usually) left unread until the next poll. So (except on the very first poll) the driver sees this: 
+The driver processes the response at the <code>\<cr></code> and <code>\<lf></code>, so what the driver sees is the prompt from the previous poll, followed by this timecode. The prompt from the current poll is (usually) left unread until the next poll. So (except on the very first poll) the driver sees this: 
 
-<pre>T#yyyymmddhhmmssMFLRVcc&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;</pre>
+<code>T#yyyymmddhhmmssMFLRVcc\<cr>\<lf></code>
 
-The T is the on-time character, at 980 msec. before the next 1PPS edge. The # is the timecode format type. We look for format 2. Without any of the CLK or PPS stuff, then, the receiver buffer timestamp at the &lsaquo;cr&rsaquo; is 24 characters later, which is about 25 msec. at 9600 bps, so the first approximation for fudge time1 is nominally -0.955 seconds. This number probably needs adjusting for each machine / OS type, so far: -0.955000 on an HP 9000 Model 712/80 HP-UX 9.05 -0.953175 on an HP 9000 Model 370 HP-UX 9.10 
+The <code>T</code> is the on-time character, at 980 msec. before the next 1PPS edge. The `#` is the timecode format type. We look for format 2. Without any of the CLK or PPS stuff, then, the receiver buffer timestamp at the `<cr>` is 24 characters later, which is about 25 msec. at 9600 bps, so the first approximation for <code>fudge time1</code> is nominally -0.955 seconds. This number probably needs adjusting for each machine / OS type, so far: -0.955000 on an HP 9000 Model 712/80 HP-UX 9.05 -0.953175 on an HP 9000 Model 370 HP-UX 9.10 
 
 This receiver also provides a 1-PPS signal, but I haven't figured out how to deal with any of the CLK or PPS stuff yet. Stay tuned. 
 
@@ -41,40 +41,40 @@ This receiver also provides a 1-PPS signal, but I haven't figured out how to dea
 
 #### Monitor Data
 
-When enabled by the <tt>flag4</tt> fudge flag, every received timecode is written as-is to the <tt>clockstats</tt> file. 
+When enabled by the <code>flag4</code> fudge flag, every received timecode is written as-is to the <code>clockstats</code> file. 
 
 * * *
 
 #### Fudge Factors
 
-<dt><tt>time1 _time_</tt></dt>
+<code>**time1 _time_**</code>
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dt><tt>time2 _time_</tt></dt>
+<code>**time2 _time_**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>stratum _number_</tt></dt>
+<code>**stratum _number_**</code>
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dt><tt>refid _string_</tt></dt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>GPS</tt>.
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default <code>GPS</code>.
 
-<dt><tt>flag1 0 | 1</tt></dt>
+<code>**flag1 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag2 0 | 1</tt></dt>
+<code>**flag2 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag3 0 | 1</tt></dt>
+<code>**flag3 0 | 1**</code>
 
-Enable <tt>ppsclock</tt> line discipline/streams module if set. 
+: Enable <code>ppsclock</code> line discipline/streams module if set. 
 
-<dt><tt>flag4 0 | 1</tt></dt>
+<code>**flag4 0 | 1**</code>
 
-Enable <tt>clockstats</tt> recording if set.
+: Enable <code>clockstats</code> recording if set.

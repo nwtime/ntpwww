@@ -4,26 +4,34 @@ type: archives
 ---
 
 {{% alert title="NOTE" color="warning" %}} 
-The following procedures have been replaced by GNU <tt>automake</tt> and <tt>autoconfigure</tt>. This page is to be updated in the next release.
+The following procedures have been replaced by GNU <code>automake</code> and <code>autoconfigure</code>. This page is to be updated in the next release.
 {{% /alert %}}
 
-Porting to a new machine or operating system ordinarily requires updating the <tt>./machines</tt> directory and the <tt>./compilers</tt> directories in order to define the build environment and autoconfigure means. You will probably have to modify the <tt>ntp_machines.h</tt> file and <tt>l_stdlib.h</tt> files as well. The two most famous trouble spots are the I/O code in <tt>./xntpd/ntp_io.c</tt> and the clock adjustment code in <tt>./xntpd/ntp_unixclock.c</tt>.
+Porting to a new machine or operating system ordinarily requires updating the <code>./machines</code> directory and the <code>./compilers</code> directories in order to define the build environment and autoconfigure means. You will probably have to modify the <code>ntp_machines.h</code> file and <code>l_stdlib.h</code> files as well. The two most famous trouble spots are the I/O code in <code>./xntpd/ntp_io.c</code> and the clock adjustment code in <code>./xntpd/ntp_unixclock.c</code>.
 
 These are the rules so that older bsd systems and the POSIX standard system can coexist together.
 
-1.  If you use <tt>select</tt> then include <tt>ntp_select.h</tt>. <tt>select</tt> is not standard, since it is very system dependent as to where it is defined. The logic to include the right system dependent include file is in <tt>ntp_select.h</tt>.
-2.  Always use POSIX definition of strings. Include <tt>ntp_string.h</tt> instead of <tt><string.h></tt>.
-3.  Always include <tt>ntp_malloc.h</tt> if you use <tt>malloc</tt>.
-4.  Always include <tt>ntp_io.h</tt> instead of <tt><sys/file.h></tt> or <tt><fnctl.h></tt> to get <tt>O_*</tt> flags.
-5.  Always include <tt>ntp_if.h</tt> instead of <tt><net/if.h></tt>.
-6.  Always include <tt>ntp_stdlib.h</tt> instead of <tt><stdlib.h></tt>.
-7.  Define any special defines needed for a system in <tt>./include/ntp_machine.h</tt> based on system identifier. This file is included by the <tt>ntp_types.h</tt> file and should always be placed first after the <tt><></tt> defines.
-8.  Define any special library prototypes left over from the system library and include files in the <tt>l_stdlib.h</tt> file. This file is included by the <tt>ntp_stdlib.h</tt> file and should ordinarily be placed last in the includes list.
+1.  If you use <code>select</code> then include <code>ntp_select.h</code>. <code>select</code> is not standard, since it is very system dependent as to where it is defined. The logic to include the right system dependent include file is in <code>ntp_select.h</code>.
+
+2.  Always use POSIX definition of strings. Include <code>ntp_string.h</code> instead of <code><string.h></code>.
+
+3.  Always include <code>ntp_malloc.h</code> if you use <code>malloc</code>.
+
+4.  Always include <code>ntp_io.h</code> instead of <code><sys/file.h></code> or <code><fnctl.h></code> to get <code>O_*</code> flags.
+
+5.  Always include <code>ntp_if.h</code> instead of <code><net/if.h></code>.
+
+6.  Always include <code>ntp_stdlib.h</code> instead of <code><stdlib.h></code>.
+
+7.  Define any special defines needed for a system in <code>./include/ntp_machine.h</code> based on system identifier. This file is included by the <code>ntp_types.h</code> file and should always be placed first after the <code><></code> defines.
+
+8.  Define any special library prototypes left over from the system library and include files in the <code>l_stdlib.h</code> file. This file is included by the <code>ntp_stdlib.h</code> file and should ordinarily be placed last in the includes list.
+
 9.  Don't define a include file by the same name as a system include file.
 
-<tt>l_stdlib.h</tt> can contain any extra definitions that are needed so that <tt>gcc</tt> will shut up. They should be controlled by a system identifier and there should be a separate section for each system. Really this will make it easier to maintain.
+<code>l_stdlib.h</code> can contain any extra definitions that are needed so that <code>gcc</code> will shut up. They should be controlled by a system identifier and there should be a separate section for each system. Really this will make it easier to maintain.
 
-See <tt>include/ntp_machines.h</tt> for the various compile time options.
+See <code>include/ntp_machines.h</code> for the various compile time options.
 
 When you are satisfied the port works and that other ports are not adversely affected, please send [patches](/archives/3-5.93e/patches) for the system files you have changed, as well as any documentation that should be updated, including the advice herein.
 

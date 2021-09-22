@@ -16,12 +16,12 @@ type: archives
 
 #### Synopsis
 
-Address: 127.127.18._u_  
-Reference ID: <tt>ACTS</tt>  
-Driver ID: <tt>NIST_ACTS</tt>  
-Serial Port: <tt>/dev/acts_u_</tt>; 1200 baud, 8-bits, no parity  
-Features: <tt>tty_clk</tt>  
-Requires: <tt>/usr/include/sys/termios.h</tt> header file with modem control 
+**Address:** <code>127.127.18._u_</code>  
+: **Reference ID:** <code>ACTS</code>
+: **Driver ID:** <code>NIST_ACTS</code>
+: **Serial Port:** <code>/dev/acts\__u_</code>; 1200 baud, 8-bits, no parity
+: **Features:** <code>tty_clk</code>
+: **Requires:** <code>/usr/include/sys/termios.h</code> header file with modem control
 
 * * *
 
@@ -39,7 +39,7 @@ For reliable call management, this driver requires a 1200-bps modem with a Hayes
 
 The fudge time1 parameter represents a propagation-delay correction factor which is added to the value computed by ACTS when the echo-delay scheme is used. This scheme does not work with all modems; for those that don't, fudge flag2 should be set to disable the feature. In this case the fudge time1 parameter represents the total propagation delay due to all causes and must be determined by external calibration.
 
-The ACTS call interval is determined by a counter initially set to the fudge time2 parameter. At each poll interval, minpoll (usually 64 s) is subtracted from the counter. When the counter is equal to or less than zero, the fudge flag1 is set, which causes up to three call attempts to be made to ACTS. The fudge flag1 is reset after a valid clock update has been determined or by a device fault, timeout or manually using `xntpdc`. After a valid clock update, the counter is reset for the next interval. Setting the `fudge time2` parameter to zero disables automatic call attempts. Manual call attempts can be made at any time by setting `fudge flag1` using xntpdc.
+The ACTS call interval is determined by a counter initially set to the fudge time2 parameter. At each poll interval, minpoll (usually 64 s) is subtracted from the counter. When the counter is equal to or less than zero, the fudge flag1 is set, which causes up to three call attempts to be made to ACTS. The fudge flag1 is reset after a valid clock update has been determined or by a device fault, timeout or manually using `xntpdc`. After a valid clock update, the counter is reset for the next interval. Setting the `fudge time2` parameter to zero disables automatic call attempts. Manual call attempts can be made at any time by setting `fudge flag1` using <code>xntpdc</code>.
 
 The NIST timecode message is transmitted at 1200 bps in the following format:
 
@@ -62,25 +62,25 @@ Since the accumulated error grows with the interval between calls, it is importa
 
 The behavior of the clock selection algorithm is modified when this driver is in use. The algorithm is designed so that this driver will never be selected unless no other discipline source is available. This can be overridden with the prefer keyword of the server configuration command, in which case only this driver will be selected for synchronization and all other discipline sources will be ignored.
 
-Unlike other drivers, each ACTS call generates one clock correction and that correction is processed immediately. There is no wait to allow the clock filter to accumulate samples. In addition, the watchdog timeout of the local clock algorithm is disabled, so that a correction received from this driver that exceeds CLOCK_MAX (128 ms) causes an immediate step/slew.
+Unlike other drivers, each ACTS call generates one clock correction and that correction is processed immediately. There is no wait to allow the clock filter to accumulate samples. In addition, the watchdog timeout of the local clock algorithm is disabled, so that a correction received from this driver that exceeds <code>CLOCK_MAX</code> (128 ms) causes an immediate step/slew.
 
-Since the interval between updates can be much longer than used with ordinary NTP peers, the local clock procedure has been modified to operate in either of two modes, depending on whether the interval between updates is less than or greater than CLOCK_MAXSEC (1200 s). If less than this value, the local clock procedure operates using the standard NTP phase-lock loop as with other NTP peers. If greater than this value, the procedure operates using a modified frequency-lock loop suggested by Judah Levine in his lockclock algorithm designed specifically for ACTS.
+Since the interval between updates can be much longer than used with ordinary NTP peers, the local clock procedure has been modified to operate in either of two modes, depending on whether the interval between updates is less than or greater than <code>CLOCK_MAXSEC</code> (1200 s). If less than this value, the local clock procedure operates using the standard NTP phase-lock loop as with other NTP peers. If greater than this value, the procedure operates using a modified frequency-lock loop suggested by Judah Levine in his lockclock algorithm designed specifically for ACTS.
 
 * * *
 
 #### Call Management
 
-Since ACTS will be a toll call in most areas of the country, it is necessary to carefully manage the call frequency. This can be done in two ways, by specifying the interval between calls, or by setting a flag bit manually or via a cron job. The call interval is determined by a counter initially set to the fudge time2 parameter. At each poll interval, minpoll (usually 64 s) is subtracted from the counter. When the counter is equal to or less than zero, the fudge flag1 is set, which causes up to three call attempts to be made. The fudge flag1 is reset after ten offset samples have been determined in a single call or by a device fault, timeout or manually using xntpdc. Upon successful completion of a call, the eight samples have been shifted into the clock filter, the local clock updated and the counter reset for the next interval. Setting the fudge time2 parameter to zero disables automatic call attempts.
+Since ACTS will be a toll call in most areas of the country, it is necessary to carefully manage the call frequency. This can be done in two ways, by specifying the interval between calls, or by setting a flag bit manually or via a <code>cron</code> job. The call interval is determined by a counter initially set to the <code>fudge time2</code> parameter. At each poll interval, <code>minpoll</code> (usually 64 s) is subtracted from the counter. When the counter is equal to or less than zero, the <code>fudge flag1</code> is set, which causes up to three call attempts to be made. The <code>fudge flag1</code> is reset after ten offset samples have been determined in a single call or by a device fault, timeout, or manually using <code>xntpdc</code>. Upon successful completion of a call, the eight samples have been shifted into the clock filter, the local clock updated and the counter reset for the next interval. Setting the <code>fudge time2</code> parameter to zero disables automatic call attempts.
 
-Manual call attempts can be made at any time by setting fudge flag1 using xntpdc. For example, the xntpdc command
+Manual call attempts can be made at any time by setting <code>fudge flag1</code> using <code>xntpdc</code>. For example, the <code>xntpdc</code> command
 
 <pre>
 fudge 127.127.18.1 flags 1
 </pre>
 
-will ask for a key identifier and password and, if authenticated by the server, will set flag1. There may be a short delay until the expiration of the current poll timeout.
+will ask for a key identifier and password and, if authenticated by the server, will set <code>flag1</code>. There may be a short delay until the expiration of the current poll timeout.
 
-The flag1 can be set from a cron job in the following way. Construct a file with contents
+The <code>flag1</code> can be set from a <code>cron</code> job in the following way. Construct a file with contents
 
 <pre>keyid 11
 passwd dialup
@@ -96,43 +96,43 @@ Then, run the following program at specified times as required.
 
 #### Monitor Data
 
-When enabled by the <tt>flag4</tt> fudge flag, every received timecode is written as-is to the <tt>clockstats</tt> file.
+When enabled by the <code>flag4</code> fudge flag, every received timecode is written as-is to the <code>clockstats</code> file.
 
 * * *
 
 #### Fudge Factors
 
-<dt><tt>time1 _time_</tt></dt>
+<code>**time1 _time_**</code>
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dt><tt>time2 _time_</tt></dt>
+<code>**time2 _time_**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>stratum _number_</tt></dt>
+<code>**stratum _number_**</code>
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dt><tt>refid _string_</tt></dt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>ACTS</tt>.
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default <code>ACTS</code>.
 
-<dt><tt>flag1 0 | 1</tt></dt>
+<code>**flag1 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag2 0 | 1</tt></dt>
+<code>**flag2 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag3 0 | 1</tt></dt>
+<code>**flag3 0 | 1**</code>
 
-Enable <tt>ppsclock</tt> line discipline/streams module if set.
+: Enable <code>ppsclock</code> line discipline/streams module if set.
 
-<dt><tt>flag4 0 | 1</tt></dt>
+<code>**flag4 0 | 1**</code>
 
-Enable <tt>clockstats</tt> recording if set.
+: Enable <code>clockstats</code> recording if set.
 
 * * *
 
