@@ -39,7 +39,7 @@ Note that <code>tickadj</code> should be run with some caution when being used f
 
 <code>**-a _tickadj_**</code>
 
-: Set the kernel variable <code>tickadj</code> to the value _<code>tickadj specified</code>_.
+: Set the kernel variable <code>tickadj</code> to the value <code>_tickadj_</code> specified.
 
 <code>**-A**</code>
 
@@ -61,9 +61,9 @@ Note that <code>tickadj</code> should be run with some caution when being used f
 
 #### Files
 
-<code>/vmunix  
-/unix  
-/dev/kmem  
+<code>/vmunix
+: /unix
+: /dev/kmem
 </code>
 
 * * *

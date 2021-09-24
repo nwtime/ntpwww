@@ -3,7 +3,7 @@ title: "Monitoring Options"
 type: archives
 ---
 
-![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures) 
+![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
 
 Pig was hired to watch the logs.
 
@@ -57,31 +57,31 @@ Unless noted otherwise, further information about these commands is on the [Even
 
 : Specifies the file set interval. The following intervals are supported with default <code>day</code>:
 
-<code>**none**</code>
+<code>none</code>
 
 : The file set is actually a single plain file.
 
-<code>**pid**</code>
+<code>pid</code>
 
 : One file set member is created for every incarnation of <code>ntpd</code>. The file name suffix is the string .<code>n</code>, where <code>n</code> is the process ID of the <code>ntpd</code> server process.
 
-<code>**day**</code>
+<code>day</code>
 
 : One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<code>yyyymmdd</code>, where <code>yyyy</code> is the year, <code>mm</code> the month of the year and <code>dd</code> the day of the month. Thus, member created on 10 December 1992 would have suffix <code>.19921210</code>.
 
-<code>**week**</code>
+<code>week</code>
 
 : One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<code>yyyyWww</code>, where <code>yyyy</code> is the year, <code>W</code> stands for itself and <code>ww</code> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <code>.1992W1</code>.
 
-<code>**month**</code>
+<code>month</code>
 
 : One file set member is created per month. The file name suffix is the string .<code>yyyymm</code>, where <code>yyyy</code> is the year and <code>mm</code> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <code>.199201</code>.
 
-<code>**year**</code>
+<code>year</code>
 
 : One file set member is generated per year. The file name suffix is the string .<code>yyyy</code>, where <code>yyyy</code> is the year. For example, The member created on 1 January 1992 would have suffix <code>.1992</code>.
 
-<code>**age**</code>
+<code>age</code>
 
 : One file set member is generated every 24 hours of <code>ntpd</code> operation. The filename suffix is the string <code>.adddddddd</code>, where <code>a</code> stands for itself and <code>dddddddd</code> is the <code>ntpd</code> running time in seconds at the start of the corresponding 24-hour period.
 
@@ -95,7 +95,7 @@ Unless noted otherwise, further information about these commands is on the [Even
 
 <code>**statistics _name_...**</code>
 
-: Enables writing of statistics records. Currently, eight kinds of statistics are supported: _name_s specify the file set type(s) from the list in the next section.
+: Enables writing of statistics records. Currently, eight kinds of statistics are supported: _names_ specify the file set type(s) from the list in the next section.
 
 <code>**statsdir _directory_path_**</code>
 
@@ -168,7 +168,7 @@ The <code>_message_</code> field includes the message type and certain ancillary
 | `0.001424877` | s | dispersion |
 | `0.000958674` | s | RMS jitter |
 
-The status field is encoded in hex format as described in Appendix B of the NTP specification RFC 1305.
+The status field is encoded in hex format as described in [Appendix B of the NTP specification RFC 1305](/reflib/rfc/rfc1305/rfc1305c.pdf).
 
 <code>**protostats**</code>
 
@@ -234,7 +234,7 @@ The event message code and <code>_message_</code> field are described on the [Ev
 | `9546` | # | current versions |
 | `56` | # | old version |
 | `512` | # | access denied |
-| `540` | # | bad length or format 
+| `540` | # | bad length or format |
 | `10` | # | bad authentication |
 | `4` | # | declined |
 | `147` | # | rate exceeded |
@@ -242,7 +242,7 @@ The event message code and <code>_message_</code> field are described on the [Ev
 
 <code>**timingstats**</code>
 
-: (Only available when the daemon is compiled with process time debugging support (<code>--enable-debug-timing - costs performance</code>). Record processing time statistics for various selected code paths.
+: (Only available when the daemon is compiled with process time debugging support (<code>-\-enable-debug-timing</code> - costs performance). Record processing time statistics for various selected code paths.
 
 `53876 36.920 10.0.3.5 1 0.000014592 input processing delay`
 

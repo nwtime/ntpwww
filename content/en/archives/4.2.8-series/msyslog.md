@@ -33,39 +33,44 @@ In the following a <code>?</code> character stands for text in the message. The 
 #### Protocol Module
 
 <code>**LOG_ERR**</code>
-
 <code>**buffer overflow ?**</code>
 : Fatal error. An input packet is too long for processing.
 
 <code>**LOG_NOTICE**</code>
-
 <code>**no reply; clock not set**</code>
 : In <code>ntpdate</code> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.
 
 <code>**LOG_INFO**</code>
-
 <code>**proto_config: illegal item ?, value ?**</code>
+
 : Program error. Bugs can be reported [here](/archives/4.2.8-series/bugs).
 
 <code>**receive: autokey requires two-way communication**</code>
+
 : Configuration error on the <code>broadcastclient</code> command.
 
-<code>**receive: server _server_ maaximum rate exceeded**</code>
+<code>**receive: server _server_ maximum rate exceeded**</code>
+
 : A kiss-o'death packet has been received. The transmit rate is automatically reduced.
 
 <code>**pps sync enabled**</code>
+
 : The PPS signal has been detected and enabled.
 
 <code>**transmit: encryption key ? not found**</code>
+
 : The encryption key is not defined or not trusted.
 
 <code>**precision = ? usec**</code>
+
 : This reports the precision measured for this machine.
 
 <code>**using 10ms tick adjustments**</code>
+
 : Gotcha for some machines with dirty rotten clock hardware.
 
 <code>**no servers reachable**</code>
+
 : The system clock is running on internal batteries. The server(s) and/or network may be down.
 
 * * *
@@ -73,16 +78,15 @@ In the following a <code>?</code> character stands for text in the message. The 
 #### Clock Discipline Module
 
 <code>**LOG_ERR**</code>
-
 <code>**time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time.**</code>
+
 : Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.
 
-<code>**sigaction() fails to save SIGSYS trap: ?**</code> 
+<code>**sigaction() fails to save SIGSYS trap: ?**</code>
 : <code>**sigaction() fails to restore SIGSYS trap: ?**</code>
 : Program error. Bugs can be reported [here](/archives/4.2.8-series/bugs).
 
 <code>**LOG_NOTICE**</code>
-
 <code>**frequency error ? exceeds tolerance 500 PPM**</code>
 : The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.
 
@@ -99,7 +103,6 @@ In the following a <code>?</code> character stands for text in the message. The 
 : The PPS signal has died, probably due to a dead radio, broken wire or loose connector.
 
 <code>**LOG_INFO**</code>
-
 <code>**kernel time sync status ?**</code>
 : For information only. See the codes in the <code>timex.h</code> file.
 
@@ -108,7 +111,6 @@ In the following a <code>?</code> character stands for text in the message. The 
 #### Cryptographic Module
 
 <code>**LOG_ERR**</code>
-
 <code>**cert_parse ?**</code>
 : <code>**cert_sign ?**</code>
 : <code>**crypto_cert ?**</code>
@@ -119,6 +121,7 @@ In the following a <code>?</code> character stands for text in the message. The 
 : <code>**crypto_mv ?**</code>
 : <code>**crypto_setup ?**</code>
 : <code>**make_keys ?**</code>
+
 : Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.
 
 <code>**crypto_setup: certificate ? is trusted, but not self signed.**</code>
@@ -128,10 +131,10 @@ In the following a <code>?</code> character stands for text in the message. The 
 : <code>**crypto_setup: host key is not RSA key type**</code>
 : <code>**crypto_setup: random seed file ? not found**</code>
 : <code>**crypto_setup: random seed file not specified**</code>
+
 : Fatal errors. These messages show problems during the initialization procedure.
 
 <code>**LOG_INFO**</code>
-
 <code>**cert_parse: expired ?**</code>
 : <code>**cert_parse: invalid issuer ?**</code>
 : <code>**cert_parse: invalid signature ?**</code>
@@ -142,16 +145,21 @@ In the following a <code>?</code> character stands for text in the message. The 
 : <code>**crypto\_?: invalid filestamp**</code>
 : <code>**crypto\_?: missing challenge**</code>
 : <code>**crypto\_?: scheme unavailable**</code>
+
 : There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <code>ntpd</code> will usually time out and recover by itself.
 
 <code>**crypto_cert: wrong PEM type ?**</code>
+
 : The certificate does not have MIME type <code>CERTIFICATE</code>. You are probably using the wrong type from OpenSSL or an external certificate authority.
 
 <code>**crypto_ident: no compatible identity scheme found**</code>
+
 : Configuration error. The server and client identity schemes are incompatible.
 
 <code>**crypto_tai: kernel TAI update failed**</code>
+
 : The kernel does not support this function. You may need a new kernel or patch.
 
 <code>**crypto_tai: leapseconds file ? error ?**</code>
-: The leapseconds file is corrupt. Obtain the latest file from <code>time.nist.gov</code>.
+
+: The leapseconds file is corrupt. Obtain the latest file from NIST.

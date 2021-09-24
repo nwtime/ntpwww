@@ -11,7 +11,7 @@ Last update: 21-Jul-2018 04:09 UTC
 
 * * *
 
-Disclaimer: This program has known bugs and deficiencies and nobody has volunteered to fix them in a long time. The good news is the functionality originally intended for this program is available in the <code>ntpd</code> and <code>sntp</code> programs. See the [Deprecating <code>ntpdate</code> topic](http://support.ntp.org/Dev/DeprecatingNtpdate) in the NTP Support wiki for a thorough discussion and analysis of the issues. See the <code>-q</code> command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.2.8-series/ntpd) page and/or the [<code>sntp</code> - Simple Network Time Protocol (SNTP) Client](/archives/4.2.8-series/sntp) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
+> Disclaimer: This program has known bugs and deficiencies and nobody has volunteered to fix them in a long time. The good news is the functionality originally intended for this program is available in the <code>ntpd</code> and <code>sntp</code> programs. See the [Deprecating <code>ntpdate</code> topic](http://support.ntp.org/Dev/DeprecatingNtpdate) in the NTP Support wiki for a thorough discussion and analysis of the issues. See the <code>-q</code> command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.2.8-series/ntpd) page and/or the [<code>sntp</code> - Simple Network Time Protocol (SNTP) Client](/archives/4.2.8-series/sntp) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
 
 #### Table of Contents
 
@@ -30,7 +30,7 @@ Disclaimer: This program has known bugs and deficiencies and nobody has voluntee
 
 #### Description
 
-<code>ntpdate</code> sets the local date and time by polling the Network Time Protocol (NTP) server(s) given as the _server_ arguments to determine the correct time. It must be run as root on the local host. A number of samples are obtained from each of the servers specified and a subset of the NTP clock filter and selection algorithms are applied to select the best of these. Note that the accuracy and reliability of <code>ntpdate</code> depends on the number of servers, the number of polls each time it is run and the interval between runs.
+<code>ntpdate</code> sets the local date and time by polling the Network Time Protocol (NTP) server(s) given as the <code>_server_</code> arguments to determine the correct time. It must be run as root on the local host. A number of samples are obtained from each of the servers specified and a subset of the NTP clock filter and selection algorithms are applied to select the best of these. Note that the accuracy and reliability of <code>ntpdate</code> depends on the number of servers, the number of polls each time it is run and the interval between runs.
 
 <code>ntpdate</code> can be run manually as necessary to set the host clock, or it can be run from the host startup script to set the clock at boot time. This is useful in some cases to set the clock initially before starting the NTP daemon <code>ntpd</code>. It is also possible to run <code>ntpdate</code> from a <code>cron</code> script. However, it is important to note that <code>ntpdate</code> with contrived <code>cron</code> scripts is no substitute for the NTP daemon, which uses sophisticated algorithms to maximize accuracy and reliability while minimizing resource use. Finally, since <code>ntpdate</code> does not discipline the host clock frequency as does <code>ntpd</code>, the accuracy using <code>ntpdate</code> is limited.
 
@@ -72,7 +72,7 @@ If NetInfo support is compiled into <code>ntpdate</code>, then the <code>server<
 
 <code>**-e _authdelay_**</code>
 
-: Specify the processing delay to perform an authentication function as the value <code>_authdelay_</code>, in seconds and fraction (see <code>ntpd</code> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPU's.
+: Specify the processing delay to perform an authentication function as the value <code>_authdelay_</code>, in seconds and fraction (see <code>ntpd</code> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPUs.
 
 <code>**-k _keyfile_**</code>
 
@@ -122,4 +122,4 @@ If NetInfo support is compiled into <code>ntpdate</code>, then the <code>server<
 
 #### Bugs
 
-The slew adjustment is actually 50% larger than the measured offset, since this (it is argued) will tend to keep a badly drifting clock more accurate. This is probably not a good idea and may cause a troubling hunt for some values of the kernel variables <code>tick</code> and <code>tickadj</code>. 
+The slew adjustment is actually 50% larger than the measured offset, since this (it is argued) will tend to keep a badly drifting clock more accurate. This is probably not a good idea and may cause a troubling hunt for some values of the kernel variables <code>tick</code> and <code>tickadj</code>.

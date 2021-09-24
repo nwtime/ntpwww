@@ -51,9 +51,7 @@ filegen peerstats type day enable
 
 #### Command Line Options
 
-{{% alert title=Note color="warning" %}}
-The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a [new one](/archives/4.2.8-series/ntpdsim_new). Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim.</code>
-{{% /alert %}}
+> **NOTE:** The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a [new one](/archives/4.2.8-series/ntpdsim_new). Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim</code>.
 
 <code>**-B _bdly_**</code>
 
@@ -91,6 +89,8 @@ The NTP development team is moving to the use of a syntax-directed configuration
 
 #### Files
 
-<code>/etc/ntp.conf</code> - the default name of the configuration file  
-<code>/etc/ntp.drift</code> - the default name of the drift file  
+<code>/etc/ntp.conf</code> - the default name of the configuration file
+
+<code>/etc/ntp.drift</code> - the default name of the drift file
+
 <code>/etc/ntp.keys</code> - the default name of the key file

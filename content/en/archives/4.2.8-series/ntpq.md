@@ -32,7 +32,7 @@ Last update: 24-Jan-2018 08:35 UTC
 
 #### Description
 
-The <code>ntpq</code> utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305. The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.
+The <code>ntpq</code> utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in [Appendix B of the NTPv3 specification RFC 1305](/reflib/rfc/rfc1305/rfc1305c.pdf). The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.
 
 The program can be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. The <code>ntpq</code> can also obtain and print a list of peers in a common format by sending multiple queries to the server.
 
@@ -78,15 +78,15 @@ Command line options are described following. Specifying a command line option o
 
 #### Internal Commands
 
-Interactive format commands consist of a keyword followed by zero to four arguments. Only enough characters of the full keyword to uniquely identify the command need be typed. The output of a command is normally sent to the standard output, but optionally the output of individual commands may be sent to a file by appending a <code>></code>, followed by a file name, to the command line. A number of interactive format commands are executed entirely within the <code>ntpq</code> program itself and do not result in NTP mode-6 requests being sent to a server. These are described following.
+Interactive format commands consist of a keyword followed by zero to four arguments. Only enough characters of the full keyword to uniquely identify the command need be typed. The output of a command is normally sent to the standard output, but optionally the output of individual commands may be sent to a file by appending a `>`, followed by a file name, to the command line. A number of interactive format commands are executed entirely within the <code>ntpq</code> program itself and do not result in NTP mode-6 requests being sent to a server. These are described following.
 
-<code>**? [_command_keyword_]**</code>  
+<code>**? [_command_keyword_]**</code>
 : <code>**help [_command_keyword_]**</code>
 
 : A <code>?</code> by itself will print a list of all the command keywords known to <code>ntpq</code>. A <code>?</code> followed by a command keyword will print function and usage information about the command.
 
-<code>**addvars _name_ [ = _value_] [...]**</code>  
-: <code>**rmvars _name_ [...]**</code>  
+<code>**addvars _name_ [ = _value_] [...]**</code>
+: <code>**rmvars _name_ [...]**</code>
 : <code>**clearvars**</code>
 
 : The arguments to this command consist of a list of items of the form <code>_name_ = _value_</code>, where the <code>= _value_</code> is ignored, and can be omitted in read requests. <code>ntpq</code> maintains an internal list in which data to be included in control messages can be assembled, and sent using the <code>readlist</code> and <code>writelist</code> commands described below. The <code>addvars</code> command allows variables and optional values to be added to the list. If more than one variable is to be added, the list should be comma-separated and not contain white space. The <code>rmvars</code> command can be used to remove individual variables from the list, while the <code>clearlist</code> command removes all variables from the list.
@@ -163,7 +163,7 @@ Association IDs are used to identify system, peer and clock variables. System va
 | `last_event` | event report (see the `event` field of the peer status word) |
 | `cnt` | event count (see the `count` field of the peer status word) |
 
-<code>**clockvar _assocID_ [_name_ [ = _value_ [...]] [...]**</code>  
+<code>**clockvar _assocID_ [_name_ [ = _value_ [...]] [...]**</code>
 : <code>**cv _assocID_ [_name_ [ = _value_ [...] ][...]**</code>
 
 : Display a list of clock variables for those associations supporting a reference clock.
@@ -186,7 +186,7 @@ Association IDs are used to identify system, peer and clock variables. System va
 
 <code>**kerninfo**</code>
 
-: Display kernel loop and PPS statistics. As with other ntpq output, times are in milliseconds. The precision value displayed is in milliseconds as well, unlike the precision system variable.
+: Display kernel loop and PPS statistics. As with other <code>ntpq</code> output, times are in milliseconds. The precision value displayed is in milliseconds as well, unlike the precision system variable.
 
 <code>**lassociations**</code>
 
@@ -206,7 +206,7 @@ The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <
 | ----- | ----- |
 | `lstint` | Interval in s between the receipt of the most recent packet from this address and the completion of the retrieval of the MRU list by `ntpq`. |
 | `avgint` | Average interval in s between packets from this address. |
-| `rstr` | Restriction flags associated with this address. Most are copied unchanged from the matching `restrict` command, however 0x400 (kod) and 0x20 (limited) flags are cleared unless the last packet from this address triggered a rate control response. |
+| `rstr` | Restriction flags associated with this address. Most are copied unchanged from the matching `restrict` command, however `0x400` (kod) and `0x20` (limited) flags are cleared unless the last packet from this address triggered a rate control response. |
 | `r` | Rate control indicator, either a period, `L` or `K` for no rate control response, rate limiting by discarding, or rate limiting with a KoD response, respectively. |
 | `m` | Packet mode. |
 | `v` | Packet version number. |
@@ -243,14 +243,14 @@ The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <
 | `offset` | offset of server relative to this host |
 | `jitter` | jitter |
 
-<code>**readvar _assocID_ _name_ [ = _value_ ] [,...]**</code>  
+<code>**readvar _assocID_ _name_ [ = _value_ ] [,...]**</code>
 : <code>**rv _assocID_ [ _name_ ] [,...]**</code>
 
 : Display the specified variables. If <code>_assocID_</code> is zero, the variables are from the system variables name space, otherwise they are from the peer variables name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces. If no <code>_name_</code> is included, all operative variables in the name space are displayed. In this case only, if the <code>_assocID_</code> is omitted, it is assumed zero. Multiple names are specified with comma separators and without whitespace. Note that time values are represented in milliseconds and frequency values in parts-per-million (PPM). Some NTP timestamps are represented in the format <code>YYYYMMDDTTTT</code>, where <code>YYYY</code> is the year, <code>MM</code> the month of year, <code>DD</code> the day of month and <code>TTTT</code> the time of day.
 
 <code>**saveconfig _filename_**</code>
 
-: Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/archives/4.2.8-series/miscopt) appears in the <code>ntpd</code> configuration file. _filename_ can use strftime() format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.
+: Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/archives/4.2.8-series/miscopt) appears in the <code>ntpd</code> configuration file. <code>_filename_</code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.
 
 <code>**writevar _assocID_ _name_ = _value_ [,...]**</code>
 
@@ -312,7 +312,7 @@ When the NTPv4 daemon is compiled with the OpenSSL software library, additional 
 | ----- | ----- |
 | `host` | Autokey host name for this host |
 | `ident` | Autokey group name for this host |
-| `flags` | host flags (see Autokey specification) |
+| `flags` | host flags (see [Autokey specification](/reflib/rfc/rfc5906.txt)) |
 | `digest` | OpenSSL message digest algorithm |
 | `signature` | OpenSSL digest/signature scheme |
 | `update` | NTP seconds at last signature update |
@@ -354,13 +354,13 @@ The following peer variables appear in the <code>rv</code> billboard for each as
 | `bias` | unicast/broadcast bias |
 | `xleave` | interleave delay (see [NTP Interleaved Modes](/archives/4.2.8-series/xleave)) |
 
-The bias variable is calculated when the first broadcast packet is received after the calibration volley. It represents the offset of the broadcast subgraph relative to the unicast subgraph. The xleave variable appears only the interleaved symmetric and interleaved modes. It represents the internal queuing, buffering and transmission delays for the preceding packet.
+The `bias` variable is calculated when the first broadcast packet is received after the calibration volley. It represents the offset of the broadcast subgraph relative to the unicast subgraph. The `xleave` variable appears only the interleaved symmetric and interleaved modes. It represents the internal queuing, buffering and transmission delays for the preceding packet.
 
 When the NTPv4 daemon is compiled with the OpenSSL software library, additional peer variables are displayed, including the following:
 
 | Variable | Description |
 | ----- | ----- |
-| `flags` | peer flags (see Autokey specification) |
+| `flags` | peer flags (see [Autokey specification](/reflib/rfc/rfc5906.txt)) |
 | `host` | Autokey server name |
 | `flags` | peer flags (see Autokey specification) |
 | `signature` | OpenSSL digest/signature scheme |

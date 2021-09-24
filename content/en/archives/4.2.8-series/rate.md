@@ -32,7 +32,7 @@ There are several features in the reference implementation designed to defend th
 *   Send at the lowest rate consistent with the expected accuracy requirements.
 *   Maintain strict guard time and minimum average headway time, even if multiple burst options and/or the Autokey protocol are operating.
 *   When the first packet of a burst is sent to a server, do not send further packets until the first packet has been received from the server.
-*   Upon receiving a Kiss-o'-Death packet (KoD, see below), immediately reduce the sending rate.
+*   Upon receiving a [Kiss-o'-Death packet](#the-kiss-of-death-packet) (KoD), immediately reduce the sending rate.
 
 Rate management involves four algorithms to manage resources: (1) poll rate control, (2) burst control, (3) average headway time and (4) guard time. The first two algorithms are described on the [Poll Program](/archives/4.2.8-series/poll) page; the remaining two are described in following sections.
 
