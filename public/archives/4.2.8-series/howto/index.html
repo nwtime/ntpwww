@@ -20,22 +20,11 @@ You need a little magic.
 Last update: 10-Mar-2014 05:08 UTC
  Table of Contents  Description Conventions, Fudge Factors and Flags Files Which Need to be Changed Interface Routine Overview Pulse-per-Second Interface   Description NTP reference clock support maintains the fiction that the clock is actually an ordinary server in the NTP tradition, but operating at a synthetic stratum of zero. The entire suite of algorithms filter the received data and select the best sources to correct the system clock." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/4.2.8-series/howto/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/howto/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>How to Write a Reference Clock Driver</title>
@@ -44,22 +33,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -71,7 +60,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -80,7 +69,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -96,17 +85,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -119,23 +108,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -164,21 +153,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/howto/">How to Write a Reference Clock Driver</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/howto/">How to Write a Reference Clock Driver</a>
 </li>
 
 	</ol>
@@ -231,9 +220,8 @@ if (!doNotTrack) {
 </dl>
 <p>The receive routine retrieves a timecode string via serial or parallel port, PPS signal or other means. It decodes the timecode in days, hours, minutes, seconds and nanoseconds and checks for errors. It provides these data along with the on-time timestamp to the <code>refclock_process</code> routine, which saves the computed offset in a 60-sample circular buffer. On occasion, either by timeout, sample count or call to the poll routine, the driver calls <code>refclock_receive</code> to process the circular buffer samples and update the system clock.</p>
 <p>The best way to understand how the clock drivers work is to study one of the drivers already implemented, such as <code>refclock_wwvb.c</code>. The main interface is the <code>refclockproc</code> structure, which contains for most drivers the decoded timecode, on-time timestamp, reference timestamp, exception reports and statistics tallies, etc. The support routines are passed a pointer to the <code>peer</code> structure, which contains a pointer to the <code>refclockproc</code> structure, which in turn contains a pointer to the unit structure, if used. For legacy purposes, a table <code>typeunit[type][unit]</code> contains the peer structure pointer for each configured clock type and unit. This structure should not be used for new implementations.</p>
-<p>Radio and modem reference clocks by convention have addresses of the form <code>127.127.<em>t</em>.<em>u</em></code>, where <em>t</em> is the clock type and <em>u</em> in the range 0-3 is used to distinguish multiple instances of clocks of the same type. Most clocks require a serial or parallel port or special bus peripheral. The particular device is normally specified by adding a soft link <code>/dev/device_u_</code> to the particular hardware device.</p>
-<p>By convention, reference clock drivers are named in the form <code>refclock__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name and device name. The existing assignments are in the <a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a> page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the
-autoconfigure phase and conditionally compiled.</p>
+<p>Radio and modem reference clocks by convention have addresses of the form <code>127.127.<em>t</em>.<em>u</em></code>, where <code><em>t</em></code> is the clock type and <code><em>u</em></code> in the range 0-3 is used to distinguish multiple instances of clocks of the same type. Most clocks require a serial or parallel port or special bus peripheral. The particular device is normally specified by adding a soft link <code>/dev/device_<em>u</em></code> to the particular hardware device.</p>
+<p>By convention, reference clock drivers are named in the form <code>refclock__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name and device name. The existing assignments are in the <a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a> page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the autoconfigure phase and conditionally compiled.</p>
 <hr>
 <h4 id="conventions-fudge-factors-and-flags">Conventions, Fudge Factors and Flags</h4>
 <p>Most drivers support manual or automatic calibration for systematic offset bias using values encoded in the <code>fudge</code> configuration command. By convention, the <code>time1</code> value defines the calibration offset in seconds. For those drivers that support statistics collection using the <code>filegen</code> utility and the <code>clockstats</code> file, the <code>flag4</code> switch enables the utility.</p>
@@ -244,7 +232,7 @@ autoconfigure phase and conditionally compiled.</p>
 <dl>
 <dt><code><strong>./include/ntp.h</strong></code></dt>
 <dd>
-<p>The reference clock type defines are used in many places. Each driver is assigned a unique type number. Unused numbers are clearly marked in the list. A unique <code>REFCLK__xxxx_</code> identification code should be recorded in the list opposite its assigned type number.</p>
+<p>The reference clock type defines are used in many places. Each driver is assigned a unique type number. Unused numbers are clearly marked in the list. A unique <code>REFCLK_<em>xxxx</em></code> identification code should be recorded in the list opposite its assigned type number.</p>
 </dd>
 <dt><code><strong>./libntp/clocktypes.c</strong></code></dt>
 <dd>
@@ -252,7 +240,7 @@ autoconfigure phase and conditionally compiled.</p>
 </dd>
 <dt><code><strong>./ntpd/ntp_control.c</strong></code></dt>
 <dd>
-<p>The <code>clocktypes</code> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification RFC-1305. See the <code>./include/ntp_control.h</code> header file for the assigned classes.</p>
+<p>The <code>clocktypes</code> array is used for certain control message displays functions. It should be initialized with the reference clock class assigned to the driver, as per the NTP specification <a href="/reflib/rfc/rfc1305/rfc1305b.pdf">RFC 1305</a>. See the <code>./include/ntp_control.h</code> header file for the assigned classes.</p>
 </dd>
 <dt><code><strong>./ntpd/refclock_conf.c</strong></code></dt>
 <dd>
@@ -278,7 +266,7 @@ autoconfigure phase and conditionally compiled.</p>
 <dd>
 <p>This routine saves the offset computed from the on-time timestamp and the days, hours, minutes, seconds and nanoseconds in the circular buffer. Note that no provision is included for the year, as provided by some (but not all) radio clocks. Ordinarily, the year is implicit in the Unix file system and hardware/software clock support, so this is ordinarily not a problem.</p>
 </dd>
-<dt>&lt;code**&gt;refclock_receive</code> - simulate the receive and packet procedures**</dt>
+<dt><code><strong>refclock_receive</code> - simulate the receive and packet procedures</strong></dt>
 <dd>
 <p>This routine simulates the NTP receive and packet procedures for a reference clock. This provides a mechanism in which the ordinary NTP filter, selection and combining algorithms can be used to suppress misbehaving radios and to mitigate between them when more than one is available for backup.</p>
 </dd>
@@ -296,7 +284,7 @@ autoconfigure phase and conditionally compiled.</p>
 </dd>
 <dt><code><strong>refclock_ppsapi</strong></code></dt>
 <dd>
-<p>This routine initializes the Pulse-per-Second interface (see below).</p>
+<p>This routine initializes the <a href="#pulse-per-second-interface">Pulse-per-Second interface</a>.</p>
 </dd>
 <dt><code><strong>refclock_pps</strong></code></dt>
 <dd>
@@ -305,74 +293,12 @@ autoconfigure phase and conditionally compiled.</p>
 </dl>
 <hr>
 <h4 id="pulse-per-second-interface">Pulse-per-Second Interface</h4>
-<p>When the Pulse-per-Second Application Interface (RFC 2783) is present, a compact PPS interface is available to all drivers. See the <a href="/archives/4.2.8-series/prefer">Mitigation Rules and the Prefer Peer</a> page for further information. To use this interface, include the <code>timeppps.h</code> and <code>refclock_atom.h</code> header files and define the <code>refclock_atom</code> structure in the driver private storage. The <code>timepps.h</code> file is specific to each operating system and may not be available for some systems.</p>
-<p>To use the interface, call <code>refclock_ppsapi</code> from the startup routine passing the device file descriptor and <code>refclock_atom</code> structure pointer. Then, call <code>refclock_pps</code> from the timer routine passing the association pointer and <code>refclock_atom</code> structure pointer. See the <code>refclock_atom.c</code> file for examples and calling sequences. If the PPS signal is valid, the offset sample will be save in the circular buffer and a bit set in the association flags word indicating the sample is valid and the driver an be selected as a PPS peer. If this bit is set when the poll routine is called, the driver calls the <code>refclock_receive</code> routine to process the samples in the circular buffer and update the system clock.</p>
+<p>When the Pulse-per-Second Application Interface (<a href="/reflib/rfc/rfc2783.txt">RFC 2783</a>) is present, a compact PPS interface is available to all drivers. See the <a href="/archives/4.2.8-series/prefer">Mitigation Rules and the Prefer Peer</a> page for further information. To use this interface, include the <code>timeppps.h</code> and <code>refclock_atom.h</code> header files and define the <code>refclock_atom</code> structure in the driver private storage. The <code>timepps.h</code> file is specific to each operating system and may not be available for some systems.</p>
+<p>To use the interface, call <code>refclock_ppsapi</code> from the startup routine passing the device file descriptor and <code>refclock_atom</code> structure pointer. Then, call <code>refclock_pps</code> from the timer routine passing the association pointer and <code>refclock_atom</code> structure pointer. See the <code>refclock_atom.c</code> file for examples and calling sequences. If the PPS signal is valid, the offset sample will be save in the circular buffer and a bit set in the association flags word indicating the sample is valid and the driver can be selected as a PPS peer. If this bit is set when the poll routine is called, the driver calls the <code>refclock_receive</code> routine to process the samples in the circular buffer and update the system clock.</p>
 <hr>
 <p><img src="/archives/pic/pogo1a.gif" alt="gif"></p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -419,7 +345,7 @@ autoconfigure phase and conditionally compiled.</p>
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

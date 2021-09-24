@@ -20,22 +20,11 @@ We make house calls and bring our own bugs.
 Last update: 16-Jul-2014 08:38 UTC
  Table of Contents  Initial Startup Verifying Correct Operation Large Frequency Errors Access Controls Large Delay Variations Cryptographic Authentication Debugging Checklist   Initial Startup This page discusses ntpd program monitoring and debugging techniques using the ntpq - standard NTP query program, either on the local server or from a remote machine." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/4.2.8-series/debug/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/debug/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>NTP Debugging Techniques</title>
@@ -44,22 +33,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -71,7 +60,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -80,7 +69,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -96,17 +85,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -119,23 +108,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -164,21 +153,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/debug/">NTP Debugging Techniques</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/debug/">NTP Debugging Techniques</a>
 </li>
 
 	</ol>
@@ -208,14 +197,14 @@ if (!doNotTrack) {
 <p>This page discusses <code>ntpd</code> program monitoring and debugging techniques using the <a href="/archives/4.2.8-series/ntpq"><code>ntpq</code> - standard NTP query program</a>, either on the local server or from a remote machine. In special circumstances the <a href="/archives/4.2.8-series/ntpdc"><code>ntpdc</code> - special NTP query program</a>, can be useful, but its use is not covered here. The <code>ntpq</code> program implements the management functions specified in the NTP specification <a href="/reflib/rfc/rfc1305/rfc1305c.pdf">RFC-1305, Appendix A</a>. It is used to read and write the variables defined in the NTP Version 4 specification now navigating the standards process. In addition, the program can be used to send remote configuration commands to the server.</p>
 <p>The <code>ntpd</code> daemon can operate in two modes, depending on the presence of the <code>-d</code> command-line option. Without the option the daemon detaches from the controlling terminal and proceeds autonomously. With one or more <code>-d</code> options the daemon does not detach and generates special trace output useful for debugging. In general, interpretation of this output requires reference to the sources. However, a single <code>-d</code> does produce only mildly cryptic output and can be very useful in finding problems with configuration and network troubles.</p>
 <p>Some problems are immediately apparent when the daemon first starts running. The most common of these are the lack of a UDP port for NTP (123) in the Unix <code>/etc/services</code> file (or equivalent in some systems). <strong>Note that NTP does not use TCP in any form. Also note that NTP requires port 123 for both source and destination ports.</strong> These facts should be pointed out to firewall administrators.</p>
-<p>Other problems are apparent in the system log, which ordinarily shows the startup banner, some cryptic initialization data and the computed precision value. Event messages at startup and during regular operation are sent to the optional <code>protostats</code> monitor file, as described on the <a href="/archives/4.2.8-series/decode">Event Messages and Status Words</a> page. These and other error messages are sent to the system log, as described on the <a href="/archives/4.2.8-series/msyslog"><code>ntpd</code> System Log Messages</a> page. In real emergencies the daemon will sent a terminal error message to the system log and then cease operation.</p>
+<p>Other problems are apparent in the system log, which ordinarily shows the startup banner, some cryptic initialization data and the computed precision value. Event messages at startup and during regular operation are sent to the optional <code>protostats</code> monitor file, as described on the <a href="/archives/4.2.8-series/decode">Event Messages and Status Words</a> page. These and other error messages are sent to the system log, as described on the <a href="/archives/4.2.8-series/msyslog"><code>ntpd</code> System Log Messages</a> page. In real emergencies the daemon will send a terminal error message to the system log and then cease operation.</p>
 <p>The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file exists and that the address responds to the Unix <code>ping</code> command. The Unix <code>traceroute</code> or Windows <code>tracert</code> utility can be used to verify a partial or complete path exists. Most problems reported to the NTP newsgroup are not NTP problems, but problems with the network or firewall configuration.</p>
 <hr>
 <h4 id="verifying-correct-operation">Verifying Correct Operation</h4>
 <p>Unless using the <code>iburst</code> option, the client normally takes a few minutes to synchronize to a server. If the client time at startup happens to be more than 1000 s distant from NTP time, the daemon exits with a message to the system log directing the operator to manually set the time within 1000 s and restart. If the time is less than 1000 s but more than 128 s distant, a step correction occurs and the daemon restarts automatically.</p>
 <p>When started for the first time and a frequency file is not present, the daemon enters a special mode in order to calibrate the frequency. This takes 900 s during which the time is not disciplined. When calibration is complete, the daemon creates the frequency file and enters normal mode to amortize whatever residual offset remains.</p>
-<p>The <code>ntpq</code> commands <code>pe</code>, <code>as</code> and <code>rv</code> are normally sufficient to verify correct operation and assess nominal performance. The <a href="/archives/4.2.8-series/ntpq/#pe"><code>pe</code></a> command displays a list showing the DNS name or IP address for each association along with selected status and statistics variables. The first character in each line is the tally code, which shows which associations are candidates to set the system clock and of these which one is the system peer. The encoding is shown in the <code>select</code> field of the <a href="/archives/4.2.8-series/decode/#peer-status-word">peer status word</a>.</p>
-<p>The <a href="/archives/4.2.8-series/ntpq/#as"><code>as</code></a> command displays a list of associations and association identifiers. Note the <code>condition</code> column, which reflects the tally code. The <a href="/archives/4.2.8-series/ntpq/#pe"><code>rv</code></a> command displays the <a href="/archives/4.2.8-series/ntpq/#system-variables">system variables</a> billboard, including the <a href="/archives/4.2.8-series/decode/#system-status-word">system status word</a>. The <a href="/archives/4.2.8-series/ntpq/#rv"><code>rv <em>assocID</em></code></a> command, where <code><em>assocID</em></code> is the association ID, displays the <a href="/archives/4.2.8-series/ntpq/#peer-variables">peer variables</a> billboard, including the <a href="/archives/4.2.8-series/decode/#peer-status-word">peer status word</a>. Note that, except for explicit calendar dates, times are in milliseconds and frequencies are in parts-per-million (PPM).</p>
+<p>The <code>ntpq</code> commands <code>pe</code>, <code>as</code> and <code>rv</code> are normally sufficient to verify correct operation and assess nominal performance. The <a href="/archives/4.2.8-series/ntpq/#control-message-commands"><code>pe</code></a> command displays a list showing the DNS name or IP address for each association along with selected status and statistics variables. The first character in each line is the tally code, which shows which associations are candidates to set the system clock and of these which one is the system peer. The encoding is shown in the <code>select</code> field of the <a href="/archives/4.2.8-series/decode/#peer-status-word">peer status word</a>.</p>
+<p>The <a href="/archives/4.2.8-series/ntpq/#control-message-commands"><code>as</code></a> command displays a list of associations and association identifiers. Note the <code>condition</code> column, which reflects the tally code. The <a href="/archives/4.2.8-series/ntpq/#control-message-commands"><code>rv</code></a> command displays the <a href="/archives/4.2.8-series/ntpq/#system-variables">system variables</a> billboard, including the <a href="/archives/4.2.8-series/decode/#system-status-word">system status word</a>. The <a href="/archives/4.2.8-series/ntpq/#control-message-commands"><code>rv <em>assocID</em></code></a> command, where <code><em>assocID</em></code> is the association ID, displays the <a href="/archives/4.2.8-series/ntpq/#peer-variables">peer variables</a> billboard, including the <a href="/archives/4.2.8-series/decode/#peer-status-word">peer status word</a>. Note that, except for explicit calendar dates, times are in milliseconds and frequencies are in parts-per-million (PPM).</p>
 <p>A detailed explanation of the system, peer and clock variables in the billboards is beyond the scope of this page; however, a comprehensive explanation for each one is in the NTPv4 protocol specification. The following observations will be useful in debugging and monitoring.</p>
 <ol>
 <li>The server has successfully synchronized to its sources if the <code>leap</code> peer variable has value other than 3 (11b) The client has successfully synchronized to the server when the <code>leap</code> system variable has value other than 3.</li>
@@ -227,7 +216,7 @@ if (!doNotTrack) {
 <hr>
 <h4 id="large-frequency-errors">Large Frequency Errors</h4>
 <p>The frequency tolerance of computer clock oscillators varies widely, sometimes above 500 PPM. While the daemon can handle frequency errors up to 500 PPM, or 43 seconds per day, values much above 100 PPM reduce the headroom, especially at the lowest poll intervals. To determine the particular oscillator frequency, start <code>ntpd</code> using the <code>noselect</code> option with the <code>server</code> configuration command.</p>
-<p>Record the time of day and offset displayed by the <code>ntpq</code> <a href="/archives/4.2.8-series/ntpq/#pe"><code>pe</code></a> command. Wait for an hour or so and record the time of day and offset. Calculate the frequency as the offset difference divided by the time difference. If the frequency is much above 100 PPM, the <a href="/archives/4.2.8-series/tickadj">tickadj</a> program might be useful to adjust the kernel clock frequency below that value. For systems that do not support this program, this might be one using a command in the system startup file.</p>
+<p>Record the time of day and offset displayed by the <code>ntpq</code> <a href="/archives/4.2.8-series/ntpq/#control-message-commands"><code>pe</code></a> command. Wait for an hour or so and record the time of day and offset. Calculate the frequency as the offset difference divided by the time difference. If the frequency is much above 100 PPM, the <a href="/archives/4.2.8-series/tickadj">tickadj</a> program might be useful to adjust the kernel clock frequency below that value. For systems that do not support this program, this might be one using a command in the system startup file.</p>
 <hr>
 <h4 id="access-controls">Access Controls</h4>
 <p>Provisions are included in <code>ntpd</code> for access controls which deflect unwanted traffic from selected hosts or networks. The controls described on the <a href="/archives/4.2.8-series/accopt">Access Control Options</a> include detailed packet filter operations based on source address and address mask. Normally, filtered packets are dropped without notice other than to increment tally counters. However, the server can be configured to send a &ldquo;kiss-o'-death&rdquo; (KoD) packet to the client either when explicitly configured or when cryptographic authentication fails for some reason. The client association is permanently disabled, the access denied bit (TEST4) is set in the flash variable and a message is sent to the system log.</p>
@@ -241,8 +230,8 @@ if (!doNotTrack) {
 <p>Reliable source authentication requires the use of symmetric key or public key cryptography, as described on the <a href="/archives/4.2.8-series/authopt">Authentication Options</a> page. In symmetric key cryptography servers and clients share session keys contained in a secret key file In public key cryptography, which requires the OpenSSL software library, the server has a private key, never shared, and a public key with unrestricted distribution. The cryptographic media required are produced by the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code></a> program.</p>
 <p>Problems with symmetric key authentication are usually due to mismatched keys or improper use of the <code>trustedkey</code> command. A simple way to check for problems is to use the trace facility, which is enabled using the <code>ntpd -d</code> command line. As each packet is received a trace line is displayed which shows the authentication status in the <code>auth</code> field. A status of 1 indicates the packet was successful authenticated; otherwise it has failed.</p>
 <p>A common misconception is the implication of the <code>auth</code> bit in the <code>enable</code> and <code>disable</code> commands. <strong>This bit does not affect authentication in any way other than to enable or disable mobilization of a new persistent association in broadcast/multicast client, manycast client or symmetric passive modes.</strong> If enabled, which is the default, these associations require authentication; if not, an association is mobilized even if not authenticated. Users are cautioned that running with authentication disabled is very dangerous, since an intruder can easily strike up an association and inject false time values.</p>
-<p>Public key cryptography is supported in NTPv4 using the Autokey protocol, which is described in briefings on the NTP Project page linked from <a href="http://www.ntp.org">www.ntp.org</a>. Development of this protocol is mature and the <code>ntpd</code> implementation is basically complete. Autokey version 2, which is the latest and current version, includes provisions to hike certificate trails, operate as certificate authorities and verify identity using challenge/response identification schemes. Further details of the protocol are on the <a href="/archives/4.2.8-series/authopt">Authentication Options</a> page. Common problems with configuration and key generation are mismatched key files, broken links and missing or broken random seed file.</p>
-<p>As in the symmetric key cryptography case, the trace facility is a good way to verify correct operation. A statistics file <code>cryptostats</code> records protocol transactions and error messages. The daemon requires a random seed file, public/private key file and a valid certificate file; otherwise it exits immediately with a message to the system log. As each file is loaded a trace message appears with its filestamp. There are a number of checks to insure that only consistent data are used and that the certificate is valid. When the protocol is in operation a number of checks are done to verify the server has the expected credentials and its filestamps and timestamps are consistent. Errors found are reported using NTP control and monitoring protocol traps with extended trap codes shown in the Authentication Options page.</p>
+<p>Public key cryptography is supported in NTPv4 using the Autokey protocol, which is described in <a href="/reflib/brief">briefings in the Reference Library</a>. Development of this protocol is mature and the <code>ntpd</code> implementation is basically complete. Autokey version 2, which is the latest and current version, includes provisions to hike certificate trails, operate as certificate authorities and verify identity using challenge/response identification schemes. Further details of the protocol are on the <a href="/archives/4.2.8-series/authopt">Authentication Options</a> page. Common problems with configuration and key generation are mismatched key files, broken links and missing or broken random seed file.</p>
+<p>As in the symmetric key cryptography case, the trace facility is a good way to verify correct operation. A statistics file <code>cryptostats</code> records protocol transactions and error messages. The daemon requires a random seed file, public/private key file and a valid certificate file; otherwise it exits immediately with a message to the system log. As each file is loaded a trace message appears with its filestamp. There are a number of checks to insure that only consistent data are used and that the certificate is valid. When the protocol is in operation a number of checks are done to verify the server has the expected credentials and its filestamps and timestamps are consistent. Errors found are reported using NTP control and monitoring protocol traps with extended trap codes shown in the <a href="/archives/4.2.8-series/authopt">Authentication Options</a> page.</p>
 <p>To assist debugging every NTP extension field is displayed in the trace along with the Autokey operation code. Every extension field carrying a verified signature is identified and displayed along with filestamp and timestamp where meaningful. In all except broadcast/multicast client mode, correct operation of the protocol is confirmed by the absence of extension fields and an <code>auth</code> value of one. It is normal in broadcast/multicast client mode that the broadcast server use one extension field to show the host name, status word and association ID.</p>
 <hr>
 <h4 id="debugging-checklist">Debugging Checklist</h4>
@@ -254,73 +243,11 @@ if (!doNotTrack) {
 <li>Check that the remote NTP server is up and running. The usual evidence that it is not is a <code>Connection refused</code> message.</li>
 <li>Using the <code>ntpdc</code> program, verify that the packets received and packets sent counters are incrementing. If the sent counter does not increment and the configuration file includes configured servers, something may be wrong in the host network or interface configuration. If this counter does increment, but the received counter does not increment, something may be wrong in the network or the server NTP daemon may not be running or the server itself may be down or not responding.</li>
 <li>If both the sent and received counters do increment, but the <code>reach</code> values in the <code>pe</code> billboard with <code>ntpq</code> continues to show zero, received packets are probably being discarded for some reason. If this is the case, the cause should be evident from the <code>flash</code> variable as discussed above and on the <code>ntpq</code> page. It could be that the server has disabled access for the client address, in which case the <code>refid</code> field in the <code>ntpq pe</code> billboard will show a kiss code. See earlier on this page for a list of kiss codes and their meaning.</li>
-<li>If the <code>reach</code> values in the <code>pe</code> billboard show the servers are alive and responding, note the tattletale symbols at the left margin, which indicate the status of each server resulting from the various grooming and mitigation algorithms. The interpretation of these symbols is discussed on the <code>ntpq</code> page. After a few minutes of operation, one or another of the reachable server candidates should show a * tattletale symbol. If this doesn&rsquo;t happen, the intersection algorithm, which classifies the servers as truechimers or falsetickers, may be unable to find a majority of truechimers among the server population.</li>
-<li>If all else fails, see the FAQ and/or the discussion and briefings at the NTP Project page.</li>
+<li>If the <code>reach</code> values in the <code>pe</code> billboard show the servers are alive and responding, note the tattletale symbols at the left margin, which indicate the status of each server resulting from the various grooming and mitigation algorithms. The interpretation of these symbols is discussed on the <code>ntpq</code> page. After a few minutes of operation, one or another of the reachable server candidates should show a <code>*</code> tattletale symbol. If this doesn&rsquo;t happen, the intersection algorithm, which classifies the servers as truechimers or falsetickers, may be unable to find a majority of truechimers among the server population.</li>
+<li>If all else fails, refer to the <a href="/archives/4.2.8-series">documentation</a>.</li>
 </ol>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -367,7 +294,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

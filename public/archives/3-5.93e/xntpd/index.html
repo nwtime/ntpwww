@@ -22,22 +22,11 @@ xntpd [ -aAbdm ] [ -c conffile ] [ -f …">
 <meta property="og:description" content="Table of Contents  Synopsis Description Command Line Options The Configuration File Files Bugs   Synopsis xntpd [ -aAbdm ] [ -c conffile ] [ -f driftfile ] [ -k keyfile ] [ -l logfile ] [ -p pidfile ] [ -r broadcastdelay ] [ -s statsdir ] [ -t key ] [ -v variable ] [ -V variable ]
  Description xntpd is an operating system daemon which sets and maintains the system time-of-day in synchronism with Internet standard time servers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/3-5.93e/xntpd/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/3-5.93e/xntpd/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>xntpd - Network Time Protocol (NTP) daemon</title>
@@ -46,22 +35,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -73,7 +62,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -82,7 +71,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -98,17 +87,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -121,23 +110,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -166,21 +155,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/3-5.93e/">3-5.93e</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/">3-5.93e</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/3-5.93e/xntpd/">xntpd - Network Time Protocol (NTP) daemon</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/xntpd/">xntpd - Network Time Protocol (NTP) daemon</a>
 </li>
 
 	</ol>
@@ -202,50 +191,82 @@ if (!doNotTrack) {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p><tt>xntpd [ -aAbdm ] [ -c <em>conffile</em> ] [ -f <em>driftfile</em> ] [ -k <em>keyfile</em> ] [ -l <em>logfile</em> ] [ -p <em>pidfile</em> ] [ -r <em>broadcastdelay</em> ] [ -s <em>statsdir</em> ] [ -t <em>key</em> ] [ -v <em>variable</em> ] [ -V <em>variable</em> ]</tt></p>
+<p><code>xntpd [ -aAbdm ] [ -c <em>conffile</em> ] [ -f <em>driftfile</em> ] [ -k <em>keyfile</em> ] [ -l <em>logfile</em> ] [ -p <em>pidfile</em> ] [ -r <em>broadcastdelay</em> ] [ -s <em>statsdir</em> ] [ -t <em>key</em> ] [ -v <em>variable</em> ] [ -V <em>variable</em> ]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p><tt>xntpd</tt> is an operating system daemon which sets and maintains the system time-of-day in synchronism with Internet standard time servers. <tt>xntpd</tt> is a complete implementation of the Network Time Protocol (NTP) version 3, as defined by RFC-1305, but also retains compatibility with version 1 and 2 servers as defined by RFC- 1059 and RFC-1119, respectively. <tt>xntpd</tt> does all computations in 64-bit fixed point arithmetic and requires no floating point support. While the ultimate precision of this design, about 232 picoseconds, is not achievable with ordinary workstations and networks of today, it may be required with future nanosecond CPU clocks and gigabit LANs.</p>
+<p><code>xntpd</code> is an operating system daemon which sets and maintains the system time-of-day in synchronism with Internet standard time servers. <code>xntpd</code> is a complete implementation of the Network Time Protocol (NTP) version 3, as defined by RFC-1305, but also retains compatibility with version 1 and 2 servers as defined by RFC- 1059 and RFC-1119, respectively. <code>xntpd</code> does all computations in 64-bit fixed point arithmetic and requires no floating point support. While the ultimate precision of this design, about 232 picoseconds, is not achievable with ordinary workstations and networks of today, it may be required with future nanosecond CPU clocks and gigabit LANs.</p>
 <p>The daemon can operate in any of several modes, including symmetric active/passive, client/server and broadcast/multicast, as described in RFC-1305. A broadcast/multicast client can discover remote servers, compute server-client propagation delay correction factors and configure itself automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment.</p>
-<p>Ordinarily, <tt>xntpd</tt> reads the <tt>ntp.conf</tt> configuration file at startup time in order to determine the synchronization sources and operating modes. It is also possible to specify a working, although limited, configuration entirely on the command line, obviating the need for a configuration file. This may be particularly appropriate when the local host is to be configured as a broadcast or multicast client, with all peers being determined by listening to broadcasts at run time.</p>
-<p>Various internal <tt>xntpd</tt> variables can be displayed and configuration options altered while the daemon is running using the <a href="/archives/3-5.93e/ntpq">ntpq</a> and <a href="/archives/3-5.93e/xntpdc">xntpdc</a> utility programs.</p>
-<p>When <tt>xntpd</tt> starts it looks at the value of <tt>umask</tt>, and if it&rsquo;s zero <tt>xntpd</tt> will set the <tt>umask</tt> to <tt>022</tt>.</p>
+<p>Ordinarily, <code>xntpd</code> reads the <code>ntp.conf</code> configuration file at startup time in order to determine the synchronization sources and operating modes. It is also possible to specify a working, although limited, configuration entirely on the command line, obviating the need for a configuration file. This may be particularly appropriate when the local host is to be configured as a broadcast or multicast client, with all peers being determined by listening to broadcasts at run time.</p>
+<p>Various internal <code>xntpd</code> variables can be displayed and configuration options altered while the daemon is running using the <a href="/archives/3-5.93e/ntpq">ntpq</a> and <a href="/archives/3-5.93e/xntpdc">xntpdc</a> utility programs.</p>
+<p>When <code>xntpd</code> starts it looks at the value of <code>umask</code>, and if it&rsquo;s zero <code>xntpd</code> will set the <code>umask</code> to <code>022</code>.</p>
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
-<dt><tt>-a</tt></dt>
+<dl>
+<dt><code><strong>-a</strong></code></dt>
+<dd>
 <p>Enable authentication mode. The default is enabled, so this option is obsolete now.</p>
-<dt><tt>-A</tt></dt>
+</dd>
+<dt><code><strong>-A</strong></code></dt>
+<dd>
 <p>Disable authentication mode.</p>
-<dt><tt>-b</tt></dt>
+</dd>
+<dt><code><strong>-b</strong></code></dt>
+<dd>
 <p>Synchronize using NTP broadcast messages.</p>
-<dt><tt>-c _conffile_</tt></dt>
+</dd>
+<dt><code><strong>-c <em>conffile</em></strong></code></dt>
+<dd>
 <p>Specify the name and path of the configuration file.</p>
-<dt><tt>-d</tt></dt>
+</dd>
+<dt><code><strong>-d</strong></code></dt>
+<dd>
 <p>Specify debugging mode. This flag may occur multiple times, with each occurrence indicating greater detail of display.</p>
-<dt><tt>-f _driftfile_</tt></dt>
+</dd>
+<dt><code><strong>-f <em>driftfile</em></strong></code></dt>
+<dd>
 <p>Specify the name and path of the drift file.</p>
-<dt><tt>-k _keyfile_</tt></dt>
+</dd>
+<dt><code><strong>-k <em>keyfile</em></strong></code></dt>
+<dd>
 <p>Specify the name and path of the file containing the NTP authentication keys.</p>
-<dt><tt>-l _logfile_</tt></dt>
+</dd>
+<dt><code><strong>-l <em>logfile</em></strong></code></dt>
+<dd>
 <p>Specify the name and path of the log file. The default is the system log facility.</p>
-<dt><tt>-m</dt></tt>
+</dd>
+<dt><code><strong>-m</strong></code></dt>
+<dd>
 <p>Synchronize using NTP multicast messages on the IP multicast group address 224.0.1.1 (requires multicast kernel).</p>
-<dt><tt>-p _pidfile_</tt></dt>
-<p>Specify the name and path to record the <tt>xntpd</tt>&rsquo;s process ID.</p>
-<dt><tt>-r _broadcastdelay_</tt></dt>
+</dd>
+<dt><code><strong>-p <em>pidfile</em></strong></code></dt>
+<dd>
+<p>Specify the name and path to record the <code>xntpd</code>&rsquo;s process ID.</p>
+</dd>
+<dt><code><strong>-r <em>broadcastdelay</em></strong></code></dt>
+<dd>
 <p>Specify the default propagation delay from the broadcast/multicast server and this computer. This is used only if the delay cannot be computed automatically by the protocol.</p>
-<dt><tt>-s _statsdir_</tt></dt>
+</dd>
+<dt><code><strong>-s <em>statsdir</em></strong></code></dt>
+<dd>
 <p>Specify the directory path for files created by the statistics facility.</p>
-<dt><tt>-t _key_</tt></dt>
+</dd>
+<dt><code><strong>-t <em>key</em></strong></code></dt>
+<dd>
 <p>Add a key number to the trusted key list.</p>
-<dt><tt>-v _variable_</tt></dt>
+</dd>
+<dt><code><strong>-v <em>variable</em></strong></code></dt>
+<dd>
 <p>Add a system variable.</p>
-<dt><tt>-V _variable_</tt></dt>
+</dd>
+<dt><code><strong>-V <em>variable</em></strong></code></dt>
+<dd>
 <p>Add a system variable listed by default.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="the-configuration-file">The Configuration File</h4>
-<p>The <tt>xntpd</tt> configuration file is read at initial startup in order to specify the synchronization sources, modes and other related information. Usually, it is installed in the <tt>/etc</tt> directory, but could be installed elsewhere (see the <tt>-c <em>conffile</em></tt> command line option). The file format is similar to other Unix configuration files - comments begin with a <tt>#</tt> character and extend to the end of the line; blank lines are ignored. Configuration commands consist of an initial keyword followed by a list of arguments, some of which may be optional, separated by whitespace. Commands may not be continued over multiple lines. Arguments may be host names, host addresses written in numeric, dotted-quad form, integers, floating point numbers (when specifying times in seconds) and text strings. Optional arguments are delimited by <tt>[ ]</tt> in the following descriptions, while alternatives are separated by <tt>|</tt>. The notation <tt>[ &hellip; ]</tt> means an optional, indefinite repetition of the last item before the <tt>[ &hellip; ]</tt>.</p>
-<p>See the following pages for configuration and control options. While there is a rich set of options available, the only required option is one or more <tt>server, peer</tt> or <tt>broadcast</tt> commands described in the Configuration Options page. The <a href="/archives/3-5.93e/notes">Notes on Configuring NTP and Setting up a NTP Subnet</a> page contains an extended discussion of these options.</p>
+<p>The <code>xntpd</code> configuration file is read at initial startup in order to specify the synchronization sources, modes and other related information. Usually, it is installed in the <code>/etc</code> directory, but could be installed elsewhere (see the <code>-c <em>conffile</em></code> command line option). The file format is similar to other Unix configuration files - comments begin with a <code>#</code> character and extend to the end of the line; blank lines are ignored. Configuration commands consist of an initial keyword followed by a list of arguments, some of which may be optional, separated by whitespace. Commands may not be continued over multiple lines. Arguments may be host names, host addresses written in numeric, dotted-quad form, integers, floating point numbers (when specifying times in seconds) and text strings. Optional arguments are delimited by <code>[ ]</code> in the following descriptions, while alternatives are separated by <code>|</code>. The notation <code>[ &hellip; ]</code> means an optional, indefinite repetition of the last item before the <code>[ &hellip; ]</code>.</p>
+<p>See the following pages for configuration and control options. While there is a rich set of options available, the only required option is one or more <code>server, peer</code> or <code>broadcast</code> commands described in the Configuration Options page. The <a href="/archives/3-5.93e/notes">Notes on Configuring NTP and Setting up a NTP Subnet</a> page contains an extended discussion of these options.</p>
 <p><a href="/archives/3-5.93e/confopt">Configuration Options</a><br>
 <a href="/archives/3-5.93e/authopt">Authentication Options</a><br>
 <a href="/archives/3-5.93e/monopt">Monitoring Options</a><br>
@@ -254,76 +275,14 @@ if (!doNotTrack) {
 <a href="/archives/3-5.93e/miscopt">Miscellaneous Options</a></p>
 <hr>
 <h4 id="files">Files</h4>
-<p><tt>/etc/ntp.conf</tt> - the default name of the configuration file</p>
-<p><tt>/etc/ntp.drift</tt> - the default name of the drift file</p>
-<p><tt>/etc/ntp.keys</tt> - the default name of the key file</p>
+<p><code>/etc/ntp.conf</code> - the default name of the configuration file</p>
+<p><code>/etc/ntp.drift</code> - the default name of the drift file</p>
+<p><code>/etc/ntp.keys</code> - the default name of the key file</p>
 <hr>
 <h4 id="bugs">Bugs</h4>
-<p><tt>xntpd</tt> has gotten rather fat. While not huge, it has gotten larger than might be desirable for an elevated-priority daemon running on a workstation, particularly since many of the fancy features which consume the space were designed more with a busy primary server, rather than a high stratum workstation, in mind.</p>
+<p><code>xntpd</code> has gotten rather fat. While not huge, it has gotten larger than might be desirable for an elevated-priority daemon running on a workstation, particularly since many of the fancy features which consume the space were designed more with a busy primary server, rather than a high stratum workstation, in mind.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -370,7 +329,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

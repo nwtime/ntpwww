@@ -12,22 +12,11 @@
 Last update: 21-Oct-2010 23:44 UTC
  Table of Contents  Meinberg clocks Raw DCF77 Data via serial line DCF77 raw time code Schmid clock Trimble SV6 ASCII time code (TAIP) ELV DCF7000 HOPF 6021 und Kompatible Diem Computime Clock WHARTON 400A Series Clock with a 404." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/4.2.8-series/parsedata/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/parsedata/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>NTP PARSE clock data formats</title>
@@ -36,22 +25,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -63,7 +52,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -72,7 +61,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -88,17 +77,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -111,23 +100,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -156,21 +145,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/parsedata/">NTP PARSE clock data formats</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/parsedata/">NTP PARSE clock data formats</a>
 </li>
 
 	</ol>
@@ -202,8 +191,8 @@ if (!doNotTrack) {
       pattern="\2  .  .  ;  ;   :  :  ;        \3"
       pattern="\2  .  .  ;  ;   :  :  ;    :  ;        ;   .         .       "
 </pre>
-<p>Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach <a href="http://www.meinberg.de/">Meinberg</a> via the Web. Information can also be ordered via eMail from <a href="mailto:%20info@meinberg.de">info@meinberg.de</a></p>
-<p><strong>General characteristics:</strong></p>
+<p>Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach <a href="http://www.meinberg.de/">Meinberg</a> via the Web. Information can also be ordered via eMail from <a href="mailto:%20info@meinberg.de">info@meinberg.de</a>.</p>
+<h5 id="general-characteristics">General characteristics</h5>
 <p>Meinberg clocks primarily output pulse per second and a describing ASCII string. This string can be produced in two modes: either upon the reception of a question mark or every second. NTP uses the latter mechanism. DCF77 AM clocks have a limited accuracy of a few milliseconds. The DCF77 PZF5xx variants provide higher accuracy and have a pretty good relationship between RS232 time code and the PPS signal. Except for early versions of the old GPS166 receiver type, Meinberg GPS receivers have a very good timing relationship between the datagram and the pulse. The beginning of the start bit of the first character has basically the same accuracy as the PPS signal, plus a jitter of up to 1 bit time depending on the selected baud rate, i.e. 52 μs @ 19200. PPS support should always be used, if possible, in order to yield the highest possible accuracy.</p>
 <p>The preferred tty setting for Meinberg DCF77 receivers is 9600/7E2:</p>
 <pre>		CFLAG		(B9600|CS7|PARENB|CREAD|HUPCL)
@@ -219,72 +208,204 @@ if (!doNotTrack) {
         </pre>
 <p>All clocks should be run at datagram once per second.</p>
 <p>Format of the Meinberg standard time string:</p>
-<pre>        **_<STX>_D:_dd.mm.yy_;T:_w_;U:_hh.mm.ss_;_uvxy__<ETX>_**
-    pos:  0  000000001111111111222222222233  3
-          1  234567890123456789012345678901  2
-
-    _<STX>_         = start-of-text, ASCII code 0x02
-    _dd.mm.yy_      = day of month, month, year of the century, separated by dots
-    _w_             = day of week (1..7, Monday = 1)
-    _hh:mm:ss_      = hour, minute, second, separated by dots
-    _u_             = '#' for GPS receivers: time is **not** synchronized
-                           '#' for older PZF5xx receivers: no correlation, not synchronized
-                           '#' for other devices: never sync'ed since powerup
-                           ' ' if nothing of the above applies
-    _v_             = '*' for GPS receivers: position has **not** been verified
-                           '*' for other devices: freewheeling based on internal quartz
-                           ' ' if nothing of the above applies
-    _x_             = 'U' if UTC time is transmitted
-                           'S' if daylight saving time is active
-                           ' ' if nothing of the above applies
-    _y_             = '!' during the hour preceding start or end of daylight saving time
-                           'A' during the hour preceding a leap second
-                           ' ' if nothing of the above applies
-    _<ETX>_         = end-of-text, ASCII code 0x03
-</pre>
+<dl>
+<dt><code><em><strong>&lt;STX&gt;_D:<em>dd.mm.yy</em>;T:<em>w</em>;U:<em>hh.mm.ss</em>;<em>uvxy_</em>&lt;ETX&gt;</strong></em></code></dt>
+<dd><code>pos:  0  000000001111111111222222222233  3</code></dd>
+<dd><code>1  234567890123456789012345678901  2</code></dd>
+</dl>
+<p>where:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><em>&lt;STX&gt;</em></code></td>
+<td>start-of-text, ASCII code <code>0x02</code></td>
+</tr>
+<tr>
+<td><code><em>dd.mm.yy</em></code></td>
+<td>day of month, month, year of the century, separated by dots</td>
+</tr>
+<tr>
+<td><code><em>w</em></code></td>
+<td>day of week (<code>1..7</code>, Monday = <code>1</code>)</td>
+</tr>
+<tr>
+<td><code><em>hh:mm:ss</em></code></td>
+<td>hour, minute, second, separated by dots</td>
+</tr>
+<tr>
+<td><code><em>u</em><code></td>
+<td><code>#</code> for GPS receivers: time is <strong>not</strong> synchronized<br> <code>#</code> for older PZF5xx receivers: no correlation, not synchronized<br> <code>#</code> for other devices: never synced since powerup<br> ' ' if nothing of the above applies</td>
+</tr>
+<tr>
+<td><code><em>v</em><code></td>
+<td><code>*</code> for GPS receivers: position has <strong>not</strong> been verified<br> <code>*</code> for other devices: freewheeling based on internal quartz<br> ' ' if none of the above applies</td>
+</tr>
+<tr>
+<td><code><em>x</em></code></td>
+<td><code>U</code> if UTC time is transmitted<br> <code>S</code> if daylight saving time is active<br> ' ' if none of the above applies</td>
+</tr>
+<tr>
+<td><code><em>y</em><code></td>
+<td><code>!</code> during the hour preceding start or end of daylight saving time<br> <code>A</code> during the hour preceding a leap second<br> ' ' if none of the above applies</td>
+</tr>
+<tr>
+<td><code><em>&lt;ETX&gt;</em></code></td>
+<td>end-of-text, ASCII code <code>0x03</code></td>
+</tr>
+</tbody>
+</table>
 <p>Format of the Uni Erlangen time string for PZF5xx receivers:</p>
-<pre>        **_<STX>__dd.mm.yy_; _w_; _hh:mm:ss_; _tuvxyza__<ETX>_**
-    pos:  0  000000001111111111222222222233  3
-          1  234567890123456789012345678901  2
-
-    _<STX>_         = start-of-text, ASCII code 0x02
-    _dd.mm.yy_      = day of month, month, year of the century, separated by dots
-    _w_             = day of week (1..7, Monday = 1)
-    _hh:mm:ss_      = hour, minute, second, separated by colons
-
-    _t_             = 'U' if UTC time is transmitted, else ' '
-    _u_             = '#' for older PZF5xx receivers: no correlation, not synchronized
-                           '#' for PZF511 and newer: never sync'ed since powerup
-                           ' ' if nothing of the above applies
-    _v_             = '*' if freewheeling based on internal quartz, else ' '
-    _x_             = 'S' if daylight saving time is active, else ' '
-    _y_             = '!' during the hour preceding start or end of daylight saving time, else ' '
-    _z_             = 'A' during the hour preceding a leap second, else ' '
-    _a_             = 'R' alternate antenna (reminiscent of PZF5xx), usually ' ' for GPS receivers
-    _<ETX>_         = end-of-text, ASCII code 0x03
-</pre>
+<dl>
+<dt><code><em><strong>&lt;STX&gt;_<em>dd.mm.yy</em>; <em>w</em>; <em>hh:mm:ss</em>; <em>tuvxyza_</em>&lt;ETX&gt;</strong></em></code></dt>
+<dd><code>pos:  0  000000001111111111222222222233  3</code></dd>
+<dd><code>1  234567890123456789012345678901  2</code></dd>
+</dl>
+<p>where:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><em>&lt;STX&gt;</em></code></td>
+<td>start-of-text, ASCII code <code>0x02</code></td>
+</tr>
+<tr>
+<td><code><em>dd.mm.yy</em></code></td>
+<td>day of month, month, year of the century, separated by dots</td>
+</tr>
+<tr>
+<td><code><em>w</em><code></td>
+<td>day of week (<code>1..7</code>, Monday = <code>1</code>)</td>
+</tr>
+<tr>
+<td><code><em>hh:mm:ss</em></code></td>
+<td>hour, minute, second, separated by colons</td>
+</tr>
+<tr>
+<td><code><em>t</em></code></td>
+<td><code>U</code> if UTC time is transmitted, else ' '</td>
+</tr>
+<tr>
+<td><code><em>u</em></code></td>
+<td><code>#</code> for older PZF5xx receivers: no correlation, not synchronized<br> <code>#</code> for PZF511 and newer: never sync&rsquo;ed since powerup<br> ' ' if none of the above applies</td>
+</tr>
+<tr>
+<td><code><em>v</em></code></td>
+<td><code>*</code> if freewheeling based on internal quartz, else ' '</td>
+</tr>
+<tr>
+<td><code><em>x</em></code></td>
+<td><code>S</code> if daylight saving time is active, else ' '</td>
+</tr>
+<tr>
+<td><code><em>y</em></code></td>
+<td><code>!</code> during the hour preceding start or end of daylight saving time, else ' '</td>
+</tr>
+<tr>
+<td><code><em>z</em></code></td>
+<td><code>A</code> during the hour preceding a leap second, else ' '</td>
+</tr>
+<tr>
+<td><code><em>a</em></code></td>
+<td><code>R</code> alternate antenna (reminiscent of PZF5xx), usually ' ' for GPS receivers</td>
+</tr>
+<tr>
+<td><code><em>&lt;ETX&gt;</em></code></td>
+<td>end-of-text, ASCII code <code>0x03</code></td>
+</tr>
+</tbody>
+</table>
 <p>Format of the Uni Erlangen time string for GPS16x/GPS17x receivers:</p>
-<pre>        **_<STX>__dd.mm.yy_; _w_; _hh:mm:ss_; _+uu:uu_; _uvxyzab_; _ll.lllln_ _lll.lllle_ _hhhh_m_<ETX>_**
-    pos:  0  0000000011111111112222222222333333333344444444445555555555666666  6
-          1  2345678901234567890123456789012345678901234567890123456789012345  6
-
-    _<STX>_         = start-of-text, ASCII code 0x02
-    _dd.mm.yy_      = day of month, month, year of the century, separated by dots
-    _w_             = day of week (1..7, Monday = 1)
-    _hh:mm:ss_      = hour, minute, second, separated by colons
-    _+uu:uu_        = offset to UTC in hours and minutes, preceded by + or -
-    _u_             = '#' if time is **not** synchronized, else ' '
-    _v_             = '*' if position has **not** been verified, else ' '
-    _x_             = 'S' if daylight saving time is active, else ' '
-    _y_             = '!' during the hour preceding start or end of daylight saving time, else ' '
-    _z_             = 'A' during the hour preceding a leap second, else ' '
-    _a_             = 'R' alternate antenna (reminiscent of PZF5xx), usually ' ' for GPS receivers
-    _b_             = 'L' during a leap second, i.e. if the seconds field is 60, else ' '
-    _ll.lllln_      = position latitude in degrees, 'n' can actually be 'N' or 'S', i.e. North or South
-    _lll.lllle_     = position longitude in degrees, 'e' can actually be 'E' or 'W', i.e. East or West
-    _hhhh_          = position altitude in meters, always followed by 'm'
-    _<ETX>_         = end-of-text, ASCII code 0x03
-</pre>
+<dl>
+<dt><code><em><strong>&lt;STX&gt;_<em>dd.mm.yy</em>; <em>w</em>; <em>hh:mm:ss</em>; <em>+uu:uu</em>; <em>uvxyzab</em>; <em>ll.lllln</em> <em>lll.lllle</em> <em>hhhh_m</em>&lt;ETX&gt;</strong></em></code></dt>
+<dd><code>pos:  0  0000000011111111112222222222333333333344444444445555555555666666  6</code></dd>
+<dd><code>1  2345678901234567890123456789012345678901234567890123456789012345  6</code></dd>
+</dl>
+<p>where:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><em>&lt;STX&gt;</em></code></td>
+<td>start-of-text, ASCII code <code>0x02</code></td>
+</tr>
+<tr>
+<td><code><em>dd.mm.yy</em></code></td>
+<td>day of month, month, year of the century, separated by dots</td>
+</tr>
+<tr>
+<td><code><em>w</em></code></td>
+<td>day of week (<code>1..7</code>, Monday = <code>1</code>)</td>
+</tr>
+<tr>
+<td><code><em>hh:mm:ss</em></code></td>
+<td>hour, minute, second, separated by colons</td>
+</tr>
+<tr>
+<td><code><em>+uu:uu</em></code></td>
+<td>offset to UTC in hours and minutes, preceded by <code>+</code> or <code>-</code></td>
+</tr>
+<tr>
+<td><code><em>u</em></code></td>
+<td><code>#</code> if time is <strong>not</strong> synchronized, else ' '</td>
+</tr>
+<tr>
+<td><code><em>v</em></code></td>
+<td><code>*</code> if position has <strong>not</strong> been verified, else ' '</td>
+</tr>
+<tr>
+<td><code><em>x</em></code></td>
+<td><code>S</code> if daylight saving time is active, else ' '</td>
+</tr>
+<tr>
+<td><code><em>y</em></code></td>
+<td><code>!</code> during the hour preceding start or end of daylight saving time, else ' '</td>
+</tr>
+<tr>
+<td><code><em>z</em></code></td>
+<td><code>A</code> during the hour preceding a leap second, else ' '</td>
+</tr>
+<tr>
+<td><code><em>a</em></code></td>
+<td><code>R</code> alternate antenna (reminiscent of PZF5xx), usually ' ' for GPS receivers</td>
+</tr>
+<tr>
+<td><code><em>b</em></code></td>
+<td><code>L</code> during a leap second, i.e. if the seconds field is 60, else ' '</td>
+</tr>
+<tr>
+<td><code><em>ll.lllln</em></code></td>
+<td>position latitude in degrees, <code>n</code> can actually be <code>N</code> or <code>S</code>, i.e. North or South</td>
+</tr>
+<tr>
+<td><code><em>lll.lllle</em></code></td>
+<td>position longitude in degrees, <code>e</code> can actually be <code>E</code> or <code>W</code>, i.e. East or West</td>
+</tr>
+<tr>
+<td><code> <em>hhhh</em></code></td>
+<td>position altitude in meters, always followed by <code>m</code></td>
+</tr>
+<tr>
+<td><code><em>&lt;ETX&gt;</em></code></td>
+<td>end-of-text, ASCII code <code>0x03</code></td>
+</tr>
+</tbody>
+</table>
 <p>Examples for Uni Erlangen strings from GPS receivers:</p>
 <pre>        \x02 09.07.93; 5; 08:48:26; +00:00;        ; 49.5736N  11.0280E  373m \x03
         \x02 08.11.06; 3; 14:39:39; +00:00;        ; 51.9828N   9.2258E  176m \x03
@@ -295,7 +416,7 @@ if (!doNotTrack) {
 <h4 id="raw-dcf77-data-via-serial-line">Raw DCF77 Data via serial line</h4>
 <p>RAWDCF: end=TIMEOUT&gt;1.5s, sync each char (any char),generate pseudo time codes, fixed format</p>
 <p>direct DCF77 code input</p>
-<p>In Europe it is relatively easy/cheap the receive the german time code transmitter DCF77. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. parse/clk_rawdcf.c holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.</p>
+<p>In Europe it is relatively easy/cheap to receive the German time code transmitter DCF77. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. <code>parse/clk_rawdcf.c</code> holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.</p>
 <pre>	The preferred tty setting is:
 		CFLAG           (B50|CS8|CREAD|CLOCAL)
 		IFLAG		0
@@ -305,51 +426,117 @@ if (!doNotTrack) {
 <hr>
 <h4 id="dcf77-raw-time-code">DCF77 raw time code</h4>
 <p>From &ldquo;Zur Zeit&rdquo;, Physikalisch-Technische Bundesanstalt (PTB), Braunschweig und Berlin, März 1989</p>
-<p>Timecode transmission:</p>
-<pre>	AM:
-
-	time marks are send every second except for the second before the
-	next minute mark
-	time marks consist of a reduction of transmitter power to 25%
-	of the nominal level
-	the falling edge is the time indication (on time)
-	time marks of a 100ms duration constitute a logical 0
-	time marks of a 200ms duration constitute a logical 1
-</pre>
+<p>Timecode transmission for AM:</p>
+<ul>
+<li>time marks are sent every second except for the second before the next minute mark</li>
+<li>time marks consist of a reduction of transmitter power to 25% of the nominal level</li>
+<li>the falling edge is the time indication (on time)</li>
+<li>time marks of a 100ms duration constitute a logical 0</li>
+<li>time marks of a 200ms duration constitute a logical 1</li>
+</ul>
 <p>see the spec. (basically a (non-)inverted pseudo random phase shift) encoding:</p>
-<pre>	FM:
-
-	Second	Contents
-	0  - 10	AM: free, FM: 0
-	11 - 14	free
-	15		R     - alternate antenna
-	16		A1    - expect zone change (1 hour before)
-	17 - 18	Z1,Z2 - time zone
-		 0  0 illegal
-		 0  1 MEZ  (MET)
-		 1  0 MESZ (MED, MET DST)
-		 1  1 illegal
-	19	A2    - expect leap insertion/deletion (1 hour before)
-	20	S     - start of time code (1)
-	21 - 24	M1    - BCD (lsb first) Minutes
-	25 - 27	M10   - BCD (lsb first) 10 Minutes
-	28	P1    - Minute Parity (even)
-	29 - 32	H1    - BCD (lsb first) Hours
-	33 - 34	H10   - BCD (lsb first) 10 Hours
-	35	P2    - Hour Parity (even)
-	36 - 39	D1    - BCD (lsb first) Days
-	40 - 41	D10   - BCD (lsb first) 10 Days
-	42 - 44	DW    - BCD (lsb first) day of week (1: Monday -> 7: Sunday)
-	45 - 49	MO1   - BCD (lsb first) Month
-	50	MO10  - 10 Months
-	51 - 53	Y1    - BCD (lsb first) Years
-	54 - 57	Y10   - BCD (lsb first) 10 Years
-	58 	P3    - Date Parity (even)
-	59	      - usually missing (minute indication), except for leap insertion
-</pre>
+<p>For FM:</p>
+<table>
+<thead>
+<tr>
+<th>Second</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0  - 10</td>
+<td>AM: free<br> FM: <code>0</code></td>
+</tr>
+<tr>
+<td>11 - 14</td>
+<td>free</td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>R</code> - alternate antenna</td>
+</tr>
+<tr>
+<td>16</td>
+<td><code>A1</code> - expect zone change (1 hour before)</td>
+</tr>
+<tr>
+<td>17 - 18</td>
+<td><code>Z1, Z2</code> - time zone<br> <code>0 0</code> illegal<br> <code>0 1</code> MEZ  (MET)<br> <code>1 0</code> MESZ (MED, MET DST)<br> <code>1 1</code> illegal</td>
+</tr>
+<tr>
+<td>19</td>
+<td><code>A2</code> - expect leap insertion/deletion (1 hour before)</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>S</code> - start of time code (1)</td>
+</tr>
+<tr>
+<td>21 - 24</td>
+<td><code>M1</code> - BCD (lsb first) Minutes</td>
+</tr>
+<tr>
+<td>25 - 27</td>
+<td><code>M10</code> - BCD (lsb first) 10 Minutes</td>
+</tr>
+<tr>
+<td>28</td>
+<td><code>P1</code> - Minute Parity (even)</td>
+</tr>
+<tr>
+<td>29 - 32</td>
+<td><code>H1</code> - BCD (lsb first) Hours</td>
+</tr>
+<tr>
+<td>33 - 34</td>
+<td><code>H10</code> - BCD (lsb first) 10 Hours</td>
+</tr>
+<tr>
+<td>35</td>
+<td><code>P2</code> - Hour Parity (even)</td>
+</tr>
+<tr>
+<td>36 - 39</td>
+<td><code>D1</code> - BCD (lsb first) Days</td>
+</tr>
+<tr>
+<td>40 - 41</td>
+<td><code>D10</code> - BCD (lsb first) 10 Days</td>
+</tr>
+<tr>
+<td>42 - 44</td>
+<td><code>DW</code>- BCD (lsb first) day of week (<code>1</code>: Monday -&gt; <code>7</code>: Sunday)</td>
+</tr>
+<tr>
+<td>45 - 49</td>
+<td><code>MO1</code> - BCD (lsb first) Month</td>
+</tr>
+<tr>
+<td>50</td>
+<td><code>MO10</code> - 10 Months</td>
+</tr>
+<tr>
+<td>51 - 53</td>
+<td><code>Y1</code> - BCD (lsb first) Years</td>
+</tr>
+<tr>
+<td>54 - 57</td>
+<td><code>Y10</code> - BCD (lsb first) 10 Years</td>
+</tr>
+<tr>
+<td>58</td>
+<td><code>P3</code> - Date Parity (even)</td>
+</tr>
+<tr>
+<td>59</td>
+<td>usually missing (minute indication), except for leap insertion</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h4 id="schmid-clock">Schmid clock</h4>
-<p>Schmid clock: needs poll, binary input, end='\xFC', sync start</p>
+<p>Schmid clock: needs poll, binary input, end=<code>\xFC</code>, sync start</p>
 <p>The Schmid clock is a DCF77 receiver that sends a binary time code at the reception of a flag byte. The contents if the flag byte determined the time code format. The binary time code is delimited by the byte 0xFC.</p>
 <pre>	TTY setup is:
 		CFLAG		(B1200|CS8|CREAD|CLOCAL)
@@ -359,26 +546,48 @@ if (!doNotTrack) {
 
 </pre>
 <p>The command to Schmid&rsquo;s DCF77 clock is a single byte; each bit allows the user to select some part of the time string, as follows (the output for the lsb is sent first).</p>
-<pre>	Bit 0:	time in MEZ, 4 bytes *binary, not BCD*; hh.mm.ss.tenths
-	Bit 1:	date 3 bytes *binary, not BCD: dd.mm.yy
-	Bit 2:	week day, 1 byte (unused here)
-	Bit 3:	time zone, 1 byte, 0=MET, 1=MEST. (unused here)
-	Bit 4:	clock status, 1 byte,	0=time invalid,
-					1=time from crystal backup,
-					3=time from DCF77
-	Bit 5:	transmitter status, 1 byte,
-					bit 0: backup antenna
-					bit 1: time zone change within 1h
-					bit 3,2: TZ 01=MEST, 10=MET
-					bit 4: leap second will be
-						added within one hour
-					bits 5-7: Zero
-	Bit 6:	time in backup mode, units of 5 minutes (unused here)
-</pre>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>time in MEZ, 4 bytes <strong>binary, not BCD</strong>; <code>hh.mm.ss.tenths</code></td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>date 3 bytes <strong>binary, not BCD</strong>: <code>dd.mm.yy</code></td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>week day, 1 byte (unused here)</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>time zone, 1 byte<br> <code>0</code>=MET<br> <code>1</code>=MEST. (unused here)</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>clock status, 1 byte<br> <code>0</code>=time invalid<br> <code>1</code>=time from crystal backup<br> <code>3</code>=time from DCF77</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>transmitter status, 1 byte<br> bit <code>0</code>: backup antenna<br> bit <code>1</code>: time zone change within 1h<br> bit <code>3,2</code>: TZ <code>01</code>=MEST, <code>10</code>=MET<br> bit <code>4</code>: leap second will be added within one hour<br> bits <code>5-7</code>: Zero</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>time in backup mode, units of 5 minutes (unused here)</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h4 id="trimble-sv6-ascii-time-code-taip">Trimble SV6 ASCII time code (TAIP)</h4>
-<p>Trimble SV6: needs poll, ascii timecode, start='&gt;', end='&lt;', query='&gt;QTM&lt;', eol='&lt;'</p>
-<p>Trimble SV6 is a GPS receiver with PPS output. It needs to be polled. It also need a special tty mode setup (EOL='&lt;').</p>
+<p>Trimble SV6: needs poll, ascii timecode, start=<code>&gt;</code>, end=<code>&lt;</code>, query=<code>&gt;QTM&lt;</code>, eol=<code>&lt;</code></p>
+<p>Trimble SV6 is a GPS receiver with PPS output. It needs to be polled. It also need a special tty mode setup (EOL=<code>&lt;</code>).</p>
 <pre>	TTY setup is:
 		CFLAG            (B4800|CS8|CREAD)
 		IFLAG            (BRKINT|IGNPAR|ISTRIP|ICRNL|IXON)
@@ -386,10 +595,8 @@ if (!doNotTrack) {
 		LFLAG            (ICANON|ECHOK)
 </pre>
 <p>Special flags are:</p>
-<pre>		PARSE_F_PPSPPS	    - use CIOGETEV for PPS time stamping
-		PARSE_F_PPSONSECOND - the time code is not related to
-				      the PPS pulse (so use the time code
-				      only for the second epoch)
+<pre>PARSE_F_PPSPPS	    - use CIOGETEV for PPS time stamping
+PARSE_F_PPSONSECOND - the time code is not related to the PPS pulse (so use the time code only for the second epoch)
 
 	Timecode
 	0000000000111111111122222222223333333	/ char
@@ -400,19 +607,19 @@ if (!doNotTrack) {
 </pre>
 <hr>
 <h4 id="elv-dcf7000">ELV DCF7000</h4>
-<p>ELV DCF7000: end='\r', pattern=&quot; - - - - - - - \r&quot;</p>
-<p>The ELV DCF7000 is a cheap DCF77 receiver sending each second a time code (though not very precise!) delimited by &lsquo;`r&rsquo;</p>
-<pre>	Timecode
-	  YY-MM-DD-HH-MM-SS-FF\r
+<p>ELV DCF7000: end=<code>\r</code>, pattern=<code> - - - - - - - \r</code></p>
+<p>The ELV DCF7000 is a cheap DCF77 receiver sending each second a time code (though not very precise!) delimited by <code>\r</code>.</p>
+<pre>Timecode
+YY-MM-DD-HH-MM-SS-FF\r
 
-		FF&0x1	- DST
-		FF&0x2	- DST switch warning
-		FF&0x4  - unsynchronised
+FF&0x1	- DST
+FF&0x2	- DST switch warning
+FF&0x4  - unsynchronised
 </pre>
 <hr>
 <h4 id="hopf-6021-und-kompatible">HOPF 6021 und Kompatible</h4>
-<p>HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl <a href="mailto:frank@comsys.dofn.de">frank@comsys.dofn.de</a> from clk_rcc8000.c Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.</p>
-<pre> hopf Funkuhr 6021 
+<p>HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl <a href="mailto:frank@comsys.dofn.de">frank@comsys.dofn.de</a> from <code>clk_rcc8000.c</code> Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.</p>
+<pre> hopf Funkuhr 6021
       used with 9600,8N1,
       UTC via serial line
       "Sekundenvorlauf" ON
@@ -442,7 +649,7 @@ if (!doNotTrack) {
       x x 0 x  - Wintertime
       x x 1 x  - Summertime
       0 0 x x  - Time/Date invalid
-      0 1 x x  - Internal clock used 
+      0 1 x x  - Internal clock used
       1 0 x x  - Radio clock
       1 1 x x  - Radio clock highprecision
 
@@ -460,20 +667,20 @@ if (!doNotTrack) {
 <hr>
 <h4 id="diem-computime-clock">Diem Computime Clock</h4>
 <p>The Computime receiver sends a datagram in the following format every minute</p>
-<pre>   
-   Timestamp	T:YY:MM:MD:WD:HH:MM:SSCRLF 
+<pre>
+   Timestamp	T:YY:MM:MD:WD:HH:MM:SSCRLF
    Pos          0123456789012345678901 2 3
 		0000000000111111111122 2 2
    Parse        T:  :  :  :  :  :  :  \r\n
 
-   T	Startcharacter "T" specifies start of the timestamp 
-   YY	Year MM	Month 1-12 
-   MD	Day of the month 
-   WD	Day of week 
-   HH	Hour 
-   MM   Minute 
+   T	Startcharacter "T" specifies start of the timestamp
+   YY	Year MM	Month 1-12
+   MD	Day of the month
+   WD	Day of week
+   HH	Hour
+   MM   Minute
    SS   Second
-   CR   Carriage return 
+   CR   Carriage return
    LF   Linefeed
 </pre>
 <hr>
@@ -509,68 +716,6 @@ if (!doNotTrack) {
 </pre>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -617,7 +762,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

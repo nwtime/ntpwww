@@ -20,24 +20,13 @@ Internal Commands …">
 A typical NTP monitoring packet
 Last update: 24-Jan-2018 08:35 UTC
  Table of Contents  Synopsis Description Internal Commands Control Message Commands Status Words and Kiss Codes System Variables Peer Variables Clock Variables   Synopsis ntpq [-46dinp] [-c command] [host] [&hellip;]
- Description The ntpq utility program is used to monitor NTP daemon ntpd operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305." />
+ Description The ntpq utility program is used to monitor NTP daemon ntpd operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC 1305." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/4.2.8-series/ntpq/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/ntpq/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>ntpq - standard NTP query program</title>
@@ -46,22 +35,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -73,7 +62,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -82,7 +71,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -98,17 +87,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -121,23 +110,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -166,21 +155,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/ntpq/">ntpq - standard NTP query program</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/ntpq/">ntpq - standard NTP query program</a>
 </li>
 
 	</ol>
@@ -211,7 +200,7 @@ if (!doNotTrack) {
 <p><code>ntpq [-46dinp] [-c <em>command</em>] [<em>host</em>] [&hellip;]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <code>ntpq</code> utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305. The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.</p>
+<p>The <code>ntpq</code> utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in <a href="/reflib/rfc/rfc1305/rfc1305c.pdf">Appendix B of the NTPv3 specification RFC 1305</a>. The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.</p>
 <p>The program can be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. The <code>ntpq</code> can also obtain and print a list of peers in a common format by sending multiple queries to the server.</p>
 <p>If one or more request options is included on the command line when <code>ntpq</code> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <code>ntpq</code> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <code>ntpq</code> will prompt for commands if the standard input is a terminal device.</p>
 <p><code>ntpq</code> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <code>ntpq</code> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.</p>
@@ -392,7 +381,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>kerninfo</strong></code></dt>
 <dd>
-<p>Display kernel loop and PPS statistics. As with other ntpq output, times are in milliseconds. The precision value displayed is in milliseconds as well, unlike the precision system variable.</p>
+<p>Display kernel loop and PPS statistics. As with other <code>ntpq</code> output, times are in milliseconds. The precision value displayed is in milliseconds as well, unlike the precision system variable.</p>
 </dd>
 <dt><code><strong>lassociations</strong></code></dt>
 <dd>
@@ -426,7 +415,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>rstr</code></td>
-<td>Restriction flags associated with this address. Most are copied unchanged from the matching <code>restrict</code> command, however 0x400 (kod) and 0x20 (limited) flags are cleared unless the last packet from this address triggered a rate control response.</td>
+<td>Restriction flags associated with this address. Most are copied unchanged from the matching <code>restrict</code> command, however <code>0x400</code> (kod) and <code>0x20</code> (limited) flags are cleared unless the last packet from this address triggered a rate control response.</td>
 </tr>
 <tr>
 <td><code>r</code></td>
@@ -532,7 +521,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>saveconfig <em>filename</em></strong></code></dt>
 <dd>
-<p>Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host&rsquo;s file <code><em>filename</em></code>. This command will be rejected by the server unless <a href="/archives/4.2.8-series/miscopt">saveconfigdir</a> appears in the <code>ntpd</code> configuration file. <em>filename</em> can use strftime() format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.</p>
+<p>Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host&rsquo;s file <code><em>filename</em></code>. This command will be rejected by the server unless <a href="/archives/4.2.8-series/miscopt">saveconfigdir</a> appears in the <code>ntpd</code> configuration file. <code><em>filename</em></code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.</p>
 </dd>
 <dt><code><strong>writevar <em>assocID</em> <em>name</em> = <em>value</em> [,&hellip;]</strong></code></dt>
 <dd>
@@ -676,7 +665,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>flags</code></td>
-<td>host flags (see Autokey specification)</td>
+<td>host flags (see <a href="/reflib/rfc/rfc5906.txt">Autokey specification</a>)</td>
 </tr>
 <tr>
 <td><code>digest</code></td>
@@ -817,7 +806,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<p>The bias variable is calculated when the first broadcast packet is received after the calibration volley. It represents the offset of the broadcast subgraph relative to the unicast subgraph. The xleave variable appears only the interleaved symmetric and interleaved modes. It represents the internal queuing, buffering and transmission delays for the preceding packet.</p>
+<p>The <code>bias</code> variable is calculated when the first broadcast packet is received after the calibration volley. It represents the offset of the broadcast subgraph relative to the unicast subgraph. The <code>xleave</code> variable appears only the interleaved symmetric and interleaved modes. It represents the internal queuing, buffering and transmission delays for the preceding packet.</p>
 <p>When the NTPv4 daemon is compiled with the OpenSSL software library, additional peer variables are displayed, including the following:</p>
 <table>
 <thead>
@@ -829,7 +818,7 @@ if (!doNotTrack) {
 <tbody>
 <tr>
 <td><code>flags</code></td>
-<td>peer flags (see Autokey specification)</td>
+<td>peer flags (see <a href="/reflib/rfc/rfc5906.txt">Autokey specification</a>)</td>
 </tr>
 <tr>
 <td><code>host</code></td>
@@ -924,68 +913,6 @@ if (!doNotTrack) {
 </table>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -1032,7 +959,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

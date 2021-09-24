@@ -10,22 +10,11 @@
 <meta property="og:title" content="Pulse-Per-Second (PPS) Signal Interfacing" />
 <meta property="og:description" content="Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the Gadget Box PPS Level Converter and CHU Modem page." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/3-5.93e/pps/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/3-5.93e/pps/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>Pulse-Per-Second (PPS) Signal Interfacing</title>
@@ -34,22 +23,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -61,7 +50,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -70,7 +59,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -86,17 +75,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -109,23 +98,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -154,21 +143,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/3-5.93e/">3-5.93e</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/">3-5.93e</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/3-5.93e/pps/">Pulse-Per-Second (PPS) Signal Interfacing</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/pps/">Pulse-Per-Second (PPS) Signal Interfacing</a>
 </li>
 
 	</ol>
@@ -180,76 +169,14 @@ if (!doNotTrack) {
   	<h1>Pulse-Per-Second (PPS) Signal Interfacing</h1>
      
     <p>Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the <a href="/archives/3-5.93e/gadget">Gadget Box PPS Level Converter and CHU Modem</a> page.</p>
-<p>The data leads interface requires regenerating the PPS pulse and converting to RS232 signal levels, so that the pulse looks like a legitimate ASCII character. The optional <tt>tty_clk</tt> line discipline/streams module inserts a timestamp following this character in the input data stream. The driver uses this timestamp to determine the time of arrival of the PPS pulse to within 26 us at 38.4 kbps while eliminating error due to operating system queues and service times. In order to use the kernel PPS signal, the <tt>xntp3</tt> distribution must be compiled with <tt>TTYCLK</tt> defined.</p>
-<p>The modem control leads interface requires converting to RS232 levels and connecting to the data carrier detect (DCD) lead of a serial port. The optional <tt>ppsclock</tt> streams module captures a timestamp upon transition of the DCD signal. This module can be built from the <a href="/reflib/software/ppsclock.tar.Z"><tt>ppsclock.tar.Z</tt> distribution.</a> The driver reads the latest timestamp with a designated <tt>ioctl()</tt> system call to determine the time of arrival of the PPS pulse to within a few tens of microseconds. In order to use the kernel PPS signal, the <tt>xntp3</tt> distribution must be compiled with <tt>PPS</tt> defined.</p>
-<p>Both the <tt>tty_clk</tt> and <tt>ppsclock</tt> modules are described in the <a href="/archives/3-5.93e/ldisc">Line Disciplines and Streams Drivers</a> page. Directions for building the modules themselves are in the <tt>./kernel</tt> directory. Directions on how to configure <tt>xntpd</tt> to operate with these modules is described in <a href="/archives/3-5.93e/build">Building and Installing the Distribution</a> page.</p>
-<p>Both of these mechanisms are supported by the <tt>ATOM_PPS</tt> reference clock driver described in the <a href="/archives/3-5.93e/refclock">Reference Clock Drivers</a> page and its dependencies. This driver is ordinarily used in conjunction with another clock driver that supports the radio clock that produces the PPS pulse, as described in the <a href="/archives/3-5.93e/prefer">Mitigation Rules and the <tt>prefer</tt> Keyword</a> page. This driver furnishes the coarse timecode used to disambiguate the seconds numbering of the PPS pulse itself. The NTP daemon mitigates between the radio clock driver and <tt>ATOM_PPS</tt> driver as described in that page in order to provide the most accurate time, while respecting the various types of equipment failures that could happen.</p>
-<p>For the utmost time quality, a number of Unix system kernel modifications can be made as described in the <a href="/archives/3-5.93e/kern">A Kernel Model for Precision Timekeeping</a> page. Specifically, the ppsclock module can be used to interface the PPS signal directly to the kernel for use as discipline sources for both time and frequency. These sources can be separately enabled and monitored using the <tt>ntp_adjtime()</tt> system call described in that page and the <tt>./include/sys/timex.h</tt> header file in the <tt>xntp3</tt> distribution. In order to use the kernel PPS signal, the <tt>xntp3</tt> distribution must be compiled with <tt>KERNEL_PLL</tt> defined.</p>
-<p>In some configurations may have multiple radio clocks, each with PPS outputs, as well as a kernel modified to use the PPS signal. In order to provide the highest degree of redundancy and survivability, the kernel PPS discipline, <tt>tty_clk</tt> module, <tt>ppsclock</tt> module and kernel modifications may all be in use at the same time, each backing up the other. The sometimes complicated mitigation rules are described in the Mitigation Rules and the <tt>prefer</tt> Keyword page.</p>
+<p>The data leads interface requires regenerating the PPS pulse and converting to RS232 signal levels, so that the pulse looks like a legitimate ASCII character. The optional <code>tty_clk</code> line discipline/streams module inserts a timestamp following this character in the input data stream. The driver uses this timestamp to determine the time of arrival of the PPS pulse to within 26 us at 38.4 kbps while eliminating error due to operating system queues and service times. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>TTYCLK</code> defined.</p>
+<p>The modem control leads interface requires converting to RS232 levels and connecting to the data carrier detect (DCD) lead of a serial port. The optional <code>ppsclock</code> streams module captures a timestamp upon transition of the DCD signal. This module can be built from the <a href="/reflib/software/ppsclock.tar.Z"><code>ppsclock.tar.Z</code> distribution.</a> The driver reads the latest timestamp with a designated <code>ioctl()</code> system call to determine the time of arrival of the PPS pulse to within a few tens of microseconds. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>PPS</code> defined.</p>
+<p>Both the <code>tty_clk</code> and <code>ppsclock</code> modules are described in the <a href="/archives/3-5.93e/ldisc">Line Disciplines and Streams Drivers</a> page. Directions for building the modules themselves are in the <code>./kernel</code> directory. Directions on how to configure <code>xntpd</code> to operate with these modules is described in <a href="/archives/3-5.93e/build">Building and Installing the Distribution</a> page.</p>
+<p>Both of these mechanisms are supported by the <code>ATOM_PPS</code> reference clock driver described in the <a href="/archives/3-5.93e/refclock">Reference Clock Drivers</a> page and its dependencies. This driver is ordinarily used in conjunction with another clock driver that supports the radio clock that produces the PPS pulse, as described in the <a href="/archives/3-5.93e/prefer">Mitigation Rules and the <code>prefer</code> Keyword</a> page. This driver furnishes the coarse timecode used to disambiguate the seconds numbering of the PPS pulse itself. The NTP daemon mitigates between the radio clock driver and <code>ATOM_PPS</code> driver as described in that page in order to provide the most accurate time, while respecting the various types of equipment failures that could happen.</p>
+<p>For the utmost time quality, a number of Unix system kernel modifications can be made as described in the <a href="/archives/3-5.93e/kern">A Kernel Model for Precision Timekeeping</a> page. Specifically, the ppsclock module can be used to interface the PPS signal directly to the kernel for use as discipline sources for both time and frequency. These sources can be separately enabled and monitored using the <code>ntp_adjtime()</code> system call described in that page and the <code>./include/sys/timex.h</code> header file in the <code>xntp3</code> distribution. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>KERNEL_PLL</code> defined.</p>
+<p>In some configurations may have multiple radio clocks, each with PPS outputs, as well as a kernel modified to use the PPS signal. In order to provide the highest degree of redundancy and survivability, the kernel PPS discipline, <code>tty_clk</code> module, <code>ppsclock</code> module and kernel modifications may all be in use at the same time, each backing up the other. The sometimes complicated mitigation rules are described in the Mitigation Rules and the <code>prefer</code> Keyword page.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -296,7 +223,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

@@ -17,25 +17,13 @@ Unless noted otherwise, …">
 The skunk watches for intruders and sprays.
 Last update: 7-Jan-2018 23:56 UTC
  Commands and Options Unless noted otherwise, further information about these commands is on the Access Control Support page.
-discard [ average avg ][ minimum min ] [ monitor prob ]
-Set the parameters of the rate control facility which protects the server from client abuse. If the limited flag is present in the ACL, packets that violate these limits are discarded." />
+ discard [ average avg ][ minimum min ] [ monitor prob ]  Set the parameters of the rate control facility which protects the server from client abuse. If the limited flag is present in the ACL, packets that violate these limits are discarded." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/4.2.8-series/accopt/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/accopt/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>Access Control Commands and Options</title>
@@ -44,22 +32,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -71,7 +59,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -80,7 +68,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -96,17 +84,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -119,23 +107,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -164,21 +152,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/accopt/">Access Control Commands and Options</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/accopt/">Access Control Commands and Options</a>
 </li>
 
 	</ol>
@@ -195,126 +183,104 @@ if (!doNotTrack) {
 <hr>
 <h4 id="commands-and-options">Commands and Options</h4>
 <p>Unless noted otherwise, further information about these commands is on the <a href="/archives/4.2.8-series/access">Access Control Support</a> page.</p>
-<p><code><strong>discard [ average <em>avg</em> ][ minimum <em>min</em> ] [ monitor <em>prob</em> ]</strong></code></p>
+<dl>
+<dt><code><strong>discard [ average <em>avg</em> ][ minimum <em>min</em> ] [ monitor <em>prob</em> ]</strong></code></dt>
+<dd>
 <p>Set the parameters of the rate control facility which protects the server from client abuse. If the <code>limited</code> flag is present in the ACL, packets that violate these limits are discarded. If, in addition, the <code>kod</code> flag is present, a kiss-o'-death packet is returned. See the <a href="/archives/4.2.8-series/rate">Rate Management</a> page for further information. The options are:</p>
-<p><code><strong>average <em>avg</em></strong></code></p>
+</dd>
+<dt><code><strong>average <em>avg</em></strong></code></dt>
+<dd>
 <p>Specify the minimum average interpacket spacing (minimum average headway time) in log<sub>2</sub> s with default 3.</p>
-<p><code><strong>minimum <em>min</em></strong></code></p>
+</dd>
+<dt><code><strong>minimum <em>min</em></strong></code></dt>
+<dd>
 <p>Specify the minimum interpacket spacing (guard time) in seconds with default 2.</p>
+</dd>
+</dl>
 <p><code><strong>monitor</strong></code></p>
 <p>Specify the probability of being recorded for packets that overflow the MRU list size limit set by <code>mru maxmem</code> or <code>mru maxdepth</code>. This is a performance optimization for servers with aggregate arrivals of 1000 packets per second or more.</p>
-<p><code><strong>restrict [-4 | -6] default [ippeerlimit <em>num</em>] [<em>flag</em>][&hellip;]</strong></code></p>
-<p><code><strong>restrict source [ippeerlimit <em>num</em>] [<em>flag</em>][&hellip;]</strong></code></p>
-<p><code><strong>restrict <em>address</em> [mask <em>mask</em>] [ippeerlimit <em>num</em>] [<em>flag</em>][&hellip;]</strong></code></p>
+<dl>
+<dt><code><strong>restrict [-4 | -6] default [ippeerlimit <em>num</em>] [<em>flag</em>][&hellip;]</strong></code></dt>
+<dd><code><strong>restrict source [ippeerlimit <em>num</em>] [<em>flag</em>][&hellip;]</strong></code></dd>
+<dd><code><strong>restrict <em>address</em> [mask <em>mask</em>] [ippeerlimit <em>num</em>] [<em>flag</em>][&hellip;]</strong></code></dd>
+</dl>
 <p>The <code><em>address</em></code> argument expressed in IPv4 or IPv6 numeric address form is the address of a host or network. Alternatively, the <code><em>address</em></code> argument can be a valid host DNS name. The <code><em>mask</em></code> argument expressed in IPv4 or IPv6 numeric address form defaults to all mask bits on, meaning that the <code><em>address</em></code> is treated as the address of an individual host. A default entry (address 0.0.0.0, mask 0.0.0.0 for IPv4 and address :: mask :: for IPv6) is always the first entry in the list. <code>restrict default</code>, with no mask option, modifies both IPv4 and IPv6 default entries. <code>restrict source</code> configures a template restriction automatically added at runtime for each association, whether configured, ephemeral, or preemptible, and removed when the association is demobilized.</p>
-<p>The optional <code>ippeerlimit</code> takes a numeric argument that indicates how many incoming (at present) peer requests will be permitted for each IP, regardless of whether or not the request comes from an authenticated source. A value of -1 means &ldquo;unlimited&rdquo;, which is the current default. A value of 0 means &ldquo;none&rdquo;. Ordinarily one would expect at most 1 of these sessions to exist per IP, however if the remote side is operating thru a proxy there would be one association for each remote peer at that IP.</p>
+<p>The optional <code>ippeerlimit</code> takes a numeric argument that indicates how many incoming (at present) peer requests will be permitted for each IP, regardless of whether or not the request comes from an authenticated source. A value of <code>-1</code> means &ldquo;unlimited&rdquo;, which is the current default. A value of <code>0</code> means &ldquo;none&rdquo;. Ordinarily one would expect at most 1 of these sessions to exist per IP, however if the remote side is operating thru a proxy there would be one association for each remote peer at that IP.</p>
 <p>Some flags have the effect to deny service, some have the effect to enable service and some are conditioned by other flags. The flags are not orthogonal, in that more restrictive flags will often make less restrictive ones redundant. The flags that deny service are classed in two categories, those that restrict time service and those that restrict informational queries and attempts to do run-time reconfiguration of the server. One or more of the following flags may be specified:</p>
-<p><code><strong>flake</strong></code></p>
+<dl>
+<dt><code><strong>flake</strong></code></dt>
+<dd>
 <p>Discard received NTP packets with probability 0.1; that is, on average drop one packet in ten. This is for testing and amusement. The name comes from Bob Braden&rsquo;s <em>flakeway</em>, which once did a similar thing for early Internet testing.</p>
-<p><code><strong>ignore</strong></code></p>
+</dd>
+<dt><code><strong>ignore</strong></code></dt>
+<dd>
 <p>Deny packets of all kinds, including <code>ntpq</code> and <code>ntpdc</code> queries.</p>
-<p><code><strong>kod</strong></code></p>
+</dd>
+<dt><code><strong>kod</strong></code></dt>
+<dd>
 <p>Send a kiss-o'-death (KoD) packet if the <code>limited</code> flag is present and a packet violates the rate limits established by the <code>discard</code> command. KoD packets are themselves rate limited for each source address separately. If the <code>kod</code> flag is used in a restriction which does not have the <code>limited</code> flag, no KoD responses will result.</p>
-<p><code><strong>limited</strong></code></p>
+</dd>
+<dt><code><strong>limited</strong></code></dt>
+<dd>
 <p>Deny time service if the packet violates the rate limits established by the <code>discard</code> command. This does not apply to <code>ntpq</code> and <code>ntpdc</code> queries.</p>
-<p><code><strong>lowpriotrap</strong></code></p>
+</dd>
+<dt><code><strong>lowpriotrap</strong></code></dt>
+<dd>
 <p>Declare traps set by matching hosts to be low priority. The number of traps a server can maintain is limited (the current limit is 3). Traps are usually assigned on a first come, first served basis, with later trap requestors being denied service. This flag modifies the assignment algorithm by allowing low priority traps to be overridden by later requests for normal priority traps.</p>
-<p><code><strong>mssntp</strong></code></p>
+</dd>
+<dt><code><strong>mssntp</strong></code></dt>
+<dd>
 <p>Enable Microsoft Windows MS-SNTP authentication using Active Directory services.</p>
-
-
-<div class="alert alert-warning" role="alert">
-<h4 class="alert-heading">Note</h4>
-
-    Potential users should be aware that these services involve a TCP connection to another process that could potentially block, denying services to other users. Therefore, this flag should be used only for a dedicated server with no clients other than MS-SNTP.
-
-</div>
-
-<p><code><strong>noepeer</strong></code></p>
+</dd>
+</dl>
+<blockquote>
+<p><strong>NOTE:</strong> Potential users should be aware that these services involve a TCP connection to another process that could potentially block, denying services to other users. Therefore, this flag should be used only for a dedicated server with no clients other than MS-SNTP.</p>
+</blockquote>
+<dl>
+<dt><code><strong>noepeer</strong></code></dt>
+<dd>
 <p>Deny packets that would mobilize an ephemeral peering association, even if authenticated.</p>
-<p><code><strong>nomodify</strong></code></p>
+</dd>
+<dt><code><strong>nomodify</strong></code></dt>
+<dd>
 <p>Deny <code>ntpq</code> and <code>ntpdc</code> queries which attempt to modify the state of the server (i.e., run time reconfiguration). Queries which return information are permitted.</p>
-<p><code><strong>noquery</strong></code></p>
+</dd>
+<dt><code><strong>noquery</strong></code></dt>
+<dd>
 <p>Deny <code>ntpq</code> and <code>ntpdc</code> queries. Time service is not affected.</p>
-<p><code><strong>nopeer</strong></code></p>
+</dd>
+<dt><code><strong>nopeer</strong></code></dt>
+<dd>
 <p>Deny packets that might mobilize an association unless authenticated. This includes broadcast, symmetric-active and manycast server packets when a configured association does not exist. It also includes <code>pool</code> associations, so if you want to use servers from a <code>pool</code> directive and also want to use <code>nopeer</code> by default, you&rsquo;ll want a <code>restrict source</code> line as well that does <em>not</em> include the <code>nopeer</code> directive. Note that this flag does not apply to packets that do not attempt to mobilize an association.</p>
-<p><code><strong>noserve</strong></code></p>
+</dd>
+<dt><code><strong>noserve</strong></code></dt>
+<dd>
 <p>Deny all packets except <code>ntpq</code> and <code>ntpdc</code> queries.</p>
-<p><code><strong>notrap</strong></code></p>
+</dd>
+<dt><code><strong>notrap</strong></code></dt>
+<dd>
 <p>Decline to provide mode 6 control message trap service to matching hosts. The trap service is a subsystem of the <code>ntpdc</code> control message protocol which is intended for use by remote event logging programs.</p>
-<p><code><strong>notrust</strong></code></p>
+</dd>
+<dt><code><strong>notrust</strong></code></dt>
+<dd>
 <p>Deny packets that are not cryptographically authenticated. Note carefully how this flag interacts with the <code>auth</code> option of the <code>enable</code> and <code>disable</code> commands. If <code>auth</code> is enabled, which is the default, authentication is required for all packets that might mobilize an association. If <code>auth</code> is disabled, but the <code>notrust</code> flag is not present, an association can be mobilized whether or not authenticated. If <code>auth</code> is disabled, but the <code>notrust</code> flag is present, authentication is required only for the specified address/mask range.</p>
-<p><code><strong>ntpport</strong></code></p>
+</dd>
+<dt><code><strong>ntpport</strong></code></dt>
+<dd>
 <p>This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). A restrict line containing <code>ntpport</code> is considered more specific than one with the same address and mask, but lacking <code>ntpport</code>.</p>
-<p><code><strong>serverresponse fuzz</strong></code></p>
+</dd>
+<dt><code><strong>serverresponse fuzz</strong></code></dt>
+<dd>
 <p>When responding to server requests, fuzz the low order bits of the <code>reftime</code>.</p>
-<p><code><strong>version</strong></code></p>
+</dd>
+<dt><code><strong>version</strong></code></dt>
+<dd>
 <p>Deny packets that do not match the current NTP version.</p>
+</dd>
+</dl>
 <p>Default restriction list entries with the flags <code>ignore, ntpport</code>, for each of the local host&rsquo;s interface addresses are inserted into the table at startup to prevent the server from attempting to synchronize to its own time. A default entry is also always present, though if it is otherwise unconfigured; no flags are associated with the default entry (i.e., everything besides your own NTP server is unrestricted).</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -361,7 +327,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

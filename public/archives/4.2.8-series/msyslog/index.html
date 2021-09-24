@@ -17,22 +17,11 @@ The log can be shrill at times.
 Last update: 10-Mar-2014 05:12 UTC
  Table of Contents  Introduction Protocol Module Clock Discipline Module Cryptographic Module   Introduction You have come here because you found a cryptic message in the system log. This page by no means lists all messages that might be found, since new ones come and old ones go. Generally, however, the most common ones will be found here." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/4.2.8-series/msyslog/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/msyslog/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>ntpd System Log Messages</title>
@@ -41,22 +30,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -68,7 +57,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -77,7 +66,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -93,17 +82,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -116,23 +105,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -161,21 +150,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/msyslog/">ntpd System Log Messages</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/msyslog/">ntpd System Log Messages</a>
 </li>
 
 	</ol>
@@ -204,47 +193,59 @@ if (!doNotTrack) {
 <p>In the following a <code>?</code> character stands for text in the message. The meaning should be clear from context.</p>
 <hr>
 <h4 id="protocol-module">Protocol Module</h4>
-<p><code><strong>LOG_ERR</strong></code></p>
 <dl>
+<dt><code><strong>LOG_ERR</strong></code></dt>
 <dt><code><strong>buffer overflow ?</strong></code></dt>
 <dd>Fatal error. An input packet is too long for processing.</dd>
-</dl>
-<p><code><strong>LOG_NOTICE</strong></code></p>
-<dl>
+<dt><code><strong>LOG_NOTICE</strong></code></dt>
 <dt><code><strong>no reply; clock not set</strong></code></dt>
 <dd>In <code>ntpdate</code> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.</dd>
-</dl>
-<p><code><strong>LOG_INFO</strong></code></p>
-<dl>
+<dt><code><strong>LOG_INFO</strong></code></dt>
 <dt><code><strong>proto_config: illegal item ?, value ?</strong></code></dt>
-<dd>Program error. Bugs can be reported <a href="/archives/4.2.8-series/bugs">here</a>.</dd>
+<dd>
+<p>Program error. Bugs can be reported <a href="/archives/4.2.8-series/bugs">here</a>.</p>
+</dd>
 <dt><code><strong>receive: autokey requires two-way communication</strong></code></dt>
-<dd>Configuration error on the <code>broadcastclient</code> command.</dd>
-<dt><code><strong>receive: server <em>server</em> maaximum rate exceeded</strong></code></dt>
-<dd>A kiss-o&rsquo;death packet has been received. The transmit rate is automatically reduced.</dd>
+<dd>
+<p>Configuration error on the <code>broadcastclient</code> command.</p>
+</dd>
+<dt><code><strong>receive: server <em>server</em> maximum rate exceeded</strong></code></dt>
+<dd>
+<p>A kiss-o&rsquo;death packet has been received. The transmit rate is automatically reduced.</p>
+</dd>
 <dt><code><strong>pps sync enabled</strong></code></dt>
-<dd>The PPS signal has been detected and enabled.</dd>
+<dd>
+<p>The PPS signal has been detected and enabled.</p>
+</dd>
 <dt><code><strong>transmit: encryption key ? not found</strong></code></dt>
-<dd>The encryption key is not defined or not trusted.</dd>
+<dd>
+<p>The encryption key is not defined or not trusted.</p>
+</dd>
 <dt><code><strong>precision = ? usec</strong></code></dt>
-<dd>This reports the precision measured for this machine.</dd>
+<dd>
+<p>This reports the precision measured for this machine.</p>
+</dd>
 <dt><code><strong>using 10ms tick adjustments</strong></code></dt>
-<dd>Gotcha for some machines with dirty rotten clock hardware.</dd>
+<dd>
+<p>Gotcha for some machines with dirty rotten clock hardware.</p>
+</dd>
 <dt><code><strong>no servers reachable</strong></code></dt>
-<dd>The system clock is running on internal batteries. The server(s) and/or network may be down.</dd>
+<dd>
+<p>The system clock is running on internal batteries. The server(s) and/or network may be down.</p>
+</dd>
 </dl>
 <hr>
 <h4 id="clock-discipline-module">Clock Discipline Module</h4>
-<p><code><strong>LOG_ERR</strong></code></p>
 <dl>
+<dt><code><strong>LOG_ERR</strong></code></dt>
 <dt><code><strong>time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time.</strong></code></dt>
-<dd>Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.</dd>
+<dd>
+<p>Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.</p>
+</dd>
 <dt><code><strong>sigaction() fails to save SIGSYS trap: ?</strong></code></dt>
 <dd><code><strong>sigaction() fails to restore SIGSYS trap: ?</strong></code></dd>
 <dd>Program error. Bugs can be reported <a href="/archives/4.2.8-series/bugs">here</a>.</dd>
-</dl>
-<p><code><strong>LOG_NOTICE</strong></code></p>
-<dl>
+<dt><code><strong>LOG_NOTICE</strong></code></dt>
 <dt><code><strong>frequency error ? exceeds tolerance 500 PPM</strong></code></dt>
 <dd>The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.</dd>
 <dt><code><strong>time slew ? s</strong></code></dt>
@@ -255,16 +256,14 @@ if (!doNotTrack) {
 <dd>The kernel reports an error. See the codes in the <code>timex.h</code> file.</dd>
 <dt><code><strong>pps sync disabled</strong></code></dt>
 <dd>The PPS signal has died, probably due to a dead radio, broken wire or loose connector.</dd>
-</dl>
-<p><code><strong>LOG_INFO</strong></code></p>
-<dl>
+<dt><code><strong>LOG_INFO</strong></code></dt>
 <dt><code><strong>kernel time sync status ?</strong></code></dt>
 <dd>For information only. See the codes in the <code>timex.h</code> file.</dd>
 </dl>
 <hr>
 <h4 id="cryptographic-module">Cryptographic Module</h4>
-<p><code><strong>LOG_ERR</strong></code></p>
 <dl>
+<dt><code><strong>LOG_ERR</strong></code></dt>
 <dt><code><strong>cert_parse ?</strong></code></dt>
 <dd><code><strong>cert_sign ?</strong></code></dd>
 <dd><code><strong>crypto_cert ?</strong></code></dd>
@@ -275,7 +274,9 @@ if (!doNotTrack) {
 <dd><code><strong>crypto_mv ?</strong></code></dd>
 <dd><code><strong>crypto_setup ?</strong></code></dd>
 <dd><code><strong>make_keys ?</strong></code></dd>
-<dd>Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.</dd>
+<dd>
+<p>Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.</p>
+</dd>
 <dt><code><strong>crypto_setup: certificate ? is trusted, but not self signed.</strong></code></dt>
 <dd><code><strong>crypto_setup: certificate ? not for this host</strong></code></dd>
 <dd><code><strong>crypto_setup: certificate file ? not found or corrupt</strong></code></dd>
@@ -283,10 +284,10 @@ if (!doNotTrack) {
 <dd><code><strong>crypto_setup: host key is not RSA key type</strong></code></dd>
 <dd><code><strong>crypto_setup: random seed file ? not found</strong></code></dd>
 <dd><code><strong>crypto_setup: random seed file not specified</strong></code></dd>
-<dd>Fatal errors. These messages show problems during the initialization procedure.</dd>
-</dl>
-<p><code><strong>LOG_INFO</strong></code></p>
-<dl>
+<dd>
+<p>Fatal errors. These messages show problems during the initialization procedure.</p>
+</dd>
+<dt><code><strong>LOG_INFO</strong></code></dt>
 <dt><code><strong>cert_parse: expired ?</strong></code></dt>
 <dd><code><strong>cert_parse: invalid issuer ?</strong></code></dd>
 <dd><code><strong>cert_parse: invalid signature ?</strong></code></dd>
@@ -296,80 +297,28 @@ if (!doNotTrack) {
 <dd><code><strong>crypto_?: invalid filestamp</strong></code></dd>
 <dd><code><strong>crypto_?: missing challenge</strong></code></dd>
 <dd><code><strong>crypto_?: scheme unavailable</strong></code></dd>
-<dd>There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <code>ntpd</code> will usually time out and recover by itself.</dd>
+<dd>
+<p>There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <code>ntpd</code> will usually time out and recover by itself.</p>
+</dd>
 <dt><code><strong>crypto_cert: wrong PEM type ?</strong></code></dt>
-<dd>The certificate does not have MIME type <code>CERTIFICATE</code>. You are probably using the wrong type from OpenSSL or an external certificate authority.</dd>
+<dd>
+<p>The certificate does not have MIME type <code>CERTIFICATE</code>. You are probably using the wrong type from OpenSSL or an external certificate authority.</p>
+</dd>
 <dt><code><strong>crypto_ident: no compatible identity scheme found</strong></code></dt>
-<dd>Configuration error. The server and client identity schemes are incompatible.</dd>
+<dd>
+<p>Configuration error. The server and client identity schemes are incompatible.</p>
+</dd>
 <dt><code><strong>crypto_tai: kernel TAI update failed</strong></code></dt>
-<dd>The kernel does not support this function. You may need a new kernel or patch.</dd>
+<dd>
+<p>The kernel does not support this function. You may need a new kernel or patch.</p>
+</dd>
 <dt><code><strong>crypto_tai: leapseconds file ? error ?</strong></code></dt>
-<dd>The leapseconds file is corrupt. Obtain the latest file from <code>time.nist.gov</code>.</dd>
+<dd>
+<p>The leapseconds file is corrupt. Obtain the latest file from NIST.</p>
+</dd>
 </dl>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -416,7 +365,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 

@@ -16,22 +16,11 @@ Last update: 24-Jul-2018 07:27 UTC
  Commands and Options Unless noted otherwise, further information about these commands is on the Authentication Support page.
  automax [logsec]  Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/archives/4.2.8-series/authopt/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/authopt/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-286159547"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-286159547', { 'anonymize_ip': false });
-}
-</script>
 
   
   <title>Authentication Commands and Options</title>
@@ -40,22 +29,22 @@ if (!doNotTrack) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -67,7 +56,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-light py-0">
 		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -76,7 +65,7 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
           
           
@@ -92,17 +81,17 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -115,23 +104,23 @@ if (!doNotTrack) {
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
@@ -160,21 +149,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/authopt/">Authentication Commands and Options</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/authopt/">Authentication Commands and Options</a>
 </li>
 
 	</ol>
@@ -198,17 +187,22 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>controlkey <em>keyid</em></strong></code></dt>
 <dd>
-<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpq"><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. The <code><em>keyid</em></code> argument is the key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, where the value can be in the range 1 to 65535, inclusive.</p>
+<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpq"><code>ntpq</code></a> utility, which uses the standard protocol defined in <a href="/reflib/rfc/rfc1305/rfc1305b.pdf">RFC-1305</a>. The <code><em>keyid</em></code> argument is the key ID for a <a href="/archives/4.2.8-series/authopt/">trusted key</a>, where the value can be in the range 1 to 65535, inclusive.</p>
 </dd>
 <dt><code><strong>crypto [digest <em>digest</em>] [host <em>name</em>] [ident <em>name</em>] [pw <em>password</em>] [randfile <em>file</em>]</strong></code></dt>
 <dd>
 <p>This command activates the Autokey public key cryptography and loads the required host keys and certificate. If one or more files are unspecified, the default names are used. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <code>keysdir</code> configuration command with default <code>/usr/local/etc</code>. See the <a href="/archives/4.2.8-series/autokey">Autokey Public Key Authentication</a> page for further information. Following are the options.</p>
 </dd>
-<dt><code><strong>digest <em>digest</em></strong></code></dt>
+<dt><code>digest <em>digest</em></code></dt>
 <dd>
-<p>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <code><em>digest</em></code> can be any message digest algorithm supported by the library. The current selections are: <code>MD2</code>, <code>MD4</code>, <code>MD5,</code> <code>MDC2</code>, <code>RIPEMD160</code>, <code>SHA</code> and <code>SHA1</code>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm. Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <code>SHA</code> or <code>SHA1</code>.</p>
+<p>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <code><em>digest</em></code> can be any message digest algorithm supported by the library. The current selections are: <code>MD2</code>, <code>MD4</code>, <code>MD5,</code> <code>MDC2</code>, <code>RIPEMD160</code>, <code>SHA</code> and <code>SHA1</code>. All participants in an Autokey subnet must use the same algorithm. The Autokey message digest algorithm is separate and distinct from the symmetric key message digest algorithm.</p>
 </dd>
-<dt><code><strong>host <em>name</em></strong></code></dt>
+</dl>
+<blockquote>
+<p>Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <code>SHA</code> or <code>SHA1</code>.</p>
+</blockquote>
+<dl>
+<dt><code>host <em>name</em></code></dt>
 <dd>
 <p>Specify the cryptographic media names for the host, sign and certificate files. If this option is not specified, the default name is the string returned by the Unix <code>gethostname()</code> routine.</p>
 </dd>
@@ -217,7 +211,7 @@ if (!doNotTrack) {
 <p>Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</p>
 </blockquote>
 <dl>
-<dt><code><strong>ident <em>group</em></strong></code></dt>
+<dt><code>ident <em>group</em></code></dt>
 <dd>
 <p>Specify the cryptographic media names for the identity scheme files. If this option is not specified, the default name is the string returned by the Unix <code>gethostname()</code> routine.</p>
 </dd>
@@ -226,13 +220,13 @@ if (!doNotTrack) {
 <p>Note: In the latest Autokey version, this option has no effect other than to change the cryptographic media file names.</p>
 </blockquote>
 <dl>
-<dt><code><strong>pw <em>password</em></strong></code></dt>
+<dt><code>pw <em>password</em></code></dt>
 <dd>
 <p>Specifies the password to decrypt files previously encrypted by the <code>ntp-keygen</code> program with the <code>-p</code> option. If this option is not specified, the default password is the string returned by the Unix <code>gethostname()</code> routine.</p>
 </dd>
-<dt><code><strong>randfile <em>file</em></strong></code></dt>
+<dt><code>randfile <em>file</em></code></dt>
 <dd>
-<p>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code> page</a>.</p>
+<p>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code></a> page.</p>
 </dd>
 <dt><code><strong>ident <em>group</em></strong></code></dt>
 <dd>
@@ -240,7 +234,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>keys <em>path</em></strong></code></dt>
 <dd>
-<p>Specifies the complete directory path for the key file containing the key IDs, key types and keys used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric key cryptography. The format of the keyfile is described on the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code> page</a>. This is the same operation as the <code>-k</code> command line option. Note that the directory path for Autokey cryptographic media is specified by the <code>keysdir</code> command.</p>
+<p>Specifies the complete directory path for the key file containing the key IDs, key types and keys used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric key cryptography. The format of the keyfile is described on the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code></a> page. This is the same operation as the <code>-k</code> command line option. Note that the directory path for Autokey cryptographic media is specified by the <code>keysdir</code> command.</p>
 </dd>
 <dt><code><strong>keysdir <em>path</em></strong></code></dt>
 <dd>
@@ -248,7 +242,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>requestkey <em>keyid</em></strong></code></dt>
 <dd>
-<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpdc"><code>ntpdc</code></a> utility program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code><em>keyid</em></code> argument is a key ID for a <a href="/archives/4.2.8-series/authopt/#trustedkey">trusted key</a>, in the range 1 to 65535, inclusive.</p>
+<p>Specifies the key ID for the <a href="/archives/4.2.8-series/ntpdc"><code>ntpdc</code></a> utility program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code><em>keyid</em></code> argument is a key ID for a <a href="/archives/4.2.8-series/authopt">trusted key</a>, in the range 1 to 65535, inclusive.</p>
 </dd>
 <dt><code><strong>revoke [<em>logsec</em>]</strong></code></dt>
 <dd>
@@ -256,73 +250,11 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>trustedkey [<em>keyid</em> | (<em>lowid</em> &hellip; <em>highid</em>)] [&hellip;]</strong></code></dt>
 <dd>
-<p>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <code>ntpq</code> and <code>ntpdc</code> operations must be listed here and additionally be enabled with <a href="/archives/4.2.8-series/authopt/#controlkey">controlkey</a> and/or <a href="/archives/4.2.8-series/authopt/#requestkey">requestkey</a>. The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <code>trustedkey (1 &hellip; 19) 1000 (100 &hellip; 199)</code> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</p>
+<p>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <code>ntpq</code> and <code>ntpdc</code> operations must be listed here and additionally be enabled with <a href="/archives/4.2.8-series/authopt">controlkey</a> and/or <a href="/archives/4.2.8-series/authopt">requestkey</a>. The authentication procedure for time transfer requires that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <code>trustedkey (1 &hellip; 19) 1000 (100 &hellip; 199)</code> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</p>
 </dd>
 </dl>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -369,7 +301,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
+<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
 
 
 
