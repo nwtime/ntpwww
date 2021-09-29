@@ -6,29 +6,28 @@
   
 
   
-  <meta name="description" content="
-from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+  <meta name="description" content="Last update: 12-Jul-2011 22:03 UTC
 
-Table of Contents
+Synopsis
+ntp-wait [ -v ] [ -n tries ] [ -s seconds ]
 
-Importance of the Problem
-Approach
-Further Information
-
-
-Importance of …">
-<meta property="og:title" content="Autonomous Networks" />
-<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
- Table of Contents  Importance of the Problem Approach Further Information   Importance of the Problem The Network Time Protocol (NTP) is widely used in the Internet to synchronize computer clocks. It is supported by well over a hundred primary time servers located in many countries, together with a hierarchical, distributed subnetwork of well over 100,000 servers and clients scattered all over the globe." />
+Description
+The ntp-wait program blocks until ntpd is in …">
+<meta property="og:title" content="ntp-wait - waits until ntpd is in synchronized state" />
+<meta property="og:description" content="Last update: 12-Jul-2011 22:03 UTC
+ Synopsis ntp-wait [ -v ] [ -n tries ] [ -s seconds ]
+ Description The ntp-wait program blocks until ntpd is in synchronized state. This can be useful at boot time, to delay the boot sequence until after ntpd -g has set the time.
+ Command Line Options  -n tries  Number of tries before giving up. The default is 1000.
+ -s seconds  Seconds to sleep between tries." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/reflib/autonet/" /><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/ntp-wait/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
   
-  <title>Autonomous Networks</title>
+  <title>ntp-wait - waits until ntpd is in synchronized state</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -150,15 +149,25 @@ Importance of …">
 
 
 
+
+
+
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/reflib/autonet/">Autonomous Networks</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/ntp-wait/">ntp-wait - waits until ntpd is in synchronized state</a>
 </li>
 
 	</ol>
@@ -167,34 +176,31 @@ Importance of …">
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>Autonomous Networks</h1>
+  	<h1>ntp-wait - waits until ntpd is in synchronized state</h1>
      
-    <p><img src="/archives/pic/rabbit.gif" alt="gif"></p>
-<p>from <a href="/reflib/pictures"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
+    <p>Last update: 12-Jul-2011 22:03 UTC</p>
 <hr>
-<h4 id="table-of-contents">Table of Contents</h4>
-<ul>
-<li><a href="/reflib/autonet/#importance-of-the-problem">Importance of the Problem</a></li>
-<li><a href="/reflib/autonet/#approach">Approach</a></li>
-<li><a href="/reflib/autonet/#further-information">Further Information</a></li>
-</ul>
+<h4 id="synopsis">Synopsis</h4>
+<p><code>ntp-wait [ -v ] [ -n <em>tries</em> ] [ -s <em>seconds</em> ]</code></p>
 <hr>
-<h4 id="importance-of-the-problem">Importance of the Problem</h4>
-<p>The Network Time Protocol (NTP) is widely used in the Internet to synchronize computer clocks. It is supported by well over a hundred primary time servers located in many countries, together with a hierarchical, distributed subnetwork of well over 100,000 servers and clients scattered all over the globe. Management and configuration of this network has become almost unworkable. As the network is still growing rapidly, a means is required to automatically configure and authenticate the hierarchy in response to changing network topology and available server and network resources.</p>
-<p>There are many points in common between NTP in the Internet and autonomous sensor networks that might be deployed on the battlefield or planetary surface. Both missions must operate in ad-hoc networking environments with diverse, redundant network paths where nodes and links can be damaged or compromised and connectivity restored without management intervention. Both missions must survive cryptographic attacks including replay, masquerade and flooding. Therefore, we use NTP and the NTP subnet as a convenient vehicle for protocol development, testing and evaluation.</p>
+<h4 id="description">Description</h4>
+<p>The <code>ntp-wait</code> program blocks until <code>ntpd</code> is in synchronized state. This can be useful at boot time, to delay the boot sequence until after <code>ntpd -g</code> has set the time.</p>
 <hr>
-<h4 id="approach">Approach</h4>
-<p>There are two broad areas of effort on this project, each supporting the other, but funded as separate DARPA contracts. Each has its own project description, briefing slides and status reports. The <a href="/reflib/autocfg">Autonomous Configuration</a> effort explores how a broadly distributed service such as NTP can be deployed and maintained autonomously in a very large network without manual configuration engineering. The <a href="/reflib/autokey">Autonomous Authentication</a> effort explores how a autonomously configured NTP subnet can be cryptographically authenticated relative to certified public values. The technology developed can be reused for battlefield and planetary exploration missions and other protocols and services to be deployed in very large, ad hoc networks.</p>
-<p>A vital component of our research program is the <a href="/reflib/lab">Internetworking Research Laboratory</a>, <a href="/reflib/dcnet">DCnet Research Network</a> and <a href="/reflib/dartnet">CAIRN/DARTnet Collaboration</a>. These provide connectivity between our collaborators as well as isolation from the Internet at large so we can conduct experiments in routing paradigms and traffic management without danger to the general Internet community.</p>
-<p>As immediately evident in the project descriptions is the application of the developing technology to the <a href="/reflib/ntp">Network Time Synchronization Project</a>. While not funded specifically by this and related contracts, the Network Time Protocol (NTP) has been a highly useful testbed for distributed, self-organizing and secure applications in the Internet and ad hoc sensor networks.</p>
-<hr>
-<h4 id="further-information">Further Information</h4>
-<ul>
-<li><a href="/reflib/autocfg">Autonomous Configuration</a></li>
-<li><a href="/reflib/autokey">Autonomous Authentication</a></li>
-<li><a href="/reflib/proto">Autokey Protocol</a></li>
-<li><a href="/reflib/ident">Autokey Identity Schemes</a></li>
-</ul>
+<h4 id="command-line-options">Command Line Options</h4>
+<dl>
+<dt><code><strong>-n <em>tries</em></strong></code></dt>
+<dd>
+<p>Number of tries before giving up. The default is 1000.</p>
+</dd>
+<dt><code><strong>-s <em>seconds</em></strong></code></dt>
+<dd>
+<p>Seconds to sleep between tries. The default is 6 seconds.</p>
+</dd>
+<dt><code><strong>-v</strong></code></dt>
+<dd>
+<p>Be verbose.</p>
+</dd>
+</dl>
 
 	  
   </div>
