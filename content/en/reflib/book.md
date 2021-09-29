@@ -17,10 +17,10 @@ ISBN 978-1-4398-1463-5
 
 #### Author
 
-David L. Mills, PhD  
-Electrical and Computer Engineering Department and Computer and Information Systems Department  
-University of Delaware, Newark, DE 19716  
-mills@udel.edu www.eecis.udel.edu/~mills
+David L. Mills, PhD
+: Electrical and Computer Engineering Department and Computer and Information Systems Department
+: University of Delaware, Newark, DE 19716
+: mills@udel.edu www.eecis.udel.edu/~mills
 
 Dr. David L. Mills is Professo Emeritus of Electrical and Computer Engineering and Computer and Information Sciences at the University of Delaware. He has been an active contributor for many years in Internet technology and in particular computer network time synchronization. He is the original developer of the Network Time Protocol and has authored over 30 papers and technical reports on the subject, including the current operative standards documents. His PhD degree in Computer Science was conferred by the University of Michigan in 1971. He is a member of the National Academy of Engineering and a Fellow in both the Association for Computing Machinery and the Institute of Electrical and Electronic Engineering
 
@@ -61,28 +61,28 @@ The book in its entirety would certainly be of interest to an NTP administrator 
 
 The development, deployment and maintenance of NTP in the Internet has been a daunting task made possible by over four dozen volunteers from several professions and from several countries. NTP enthusiasts have much in common with radio amateurs (including me, W3HCF), even if the boss sees little need to wind the clock to the nanosecond. We have been fortunate that several manufacturers have donated radio and satellite receivers, computers and cool gadgets over the years. Especially valued is the mutual support of Judah Levine at NIST and Richard Schmidt at USNO, intrepid timekeepers in their own right. Many thanks to Interneteers Danny Mayer and Dave Hart of the NTP Public Services Project, who reviewed the entire book, and to Simon Wu and John Veregge of NASA Jet Propulsion Laboratory, who reviewed the new chapters. Finally, a word about the Parting Shots sections sprinkled at the end of most chapters. While the main text explores the timescape up to the cutting edge of the cliff, these sections rappel over the edge. Some are speculative, others offer proposals and still others present an alternate view. All in all, they have been great fun.
 
-David L. Mills  
-September 2009
+David L. Mills
+: September 2009
 
 #### Abbreviated Table of Contents
 
-1 Basic Concepts  
-2 How NTP Works  
-3 In the Belly of the Beast  
-4 Clock Discipline Algorithm  
-5 NTP System Engineering and Configuration  
-6 NTP Performance in the Internet  
-7 Primary Servers and Reference Clocks  
-8 Kernel Timekeeping Support  
-9 Cryptographic Authentication  
-10 Identity Schemes  
-11 Analysis of Errors  
-12 Modeling and Analysis of Computer Clocks  
-13 Metrology and Chronometry of the NTP Timescale  
-14 NTP Reference Implementation  
-15 15.3Precision System Clock Architecture  
-16 NTP Interleaved Modes  
-17 Time Transfer for Space Data Links  
-18 Time Transfer for Deep Space Missions  
-19 Technical History of NTP  
-20 Bibliography on Computer Network Time Synchronization
+1. Basic Concepts
+2. How NTP Works
+3. In the Belly of the Beast
+4. Clock Discipline Algorithm
+5. NTP System Engineering and Configuration
+6. NTP Performance in the Internet
+7. Primary Servers and Reference Clocks
+8. Kernel Timekeeping Support
+9. Cryptographic Authentication
+10. Identity Schemes
+11. Analysis of Errors
+12. Modeling and Analysis of Computer Clocks
+13. Metrology and Chronometry of the NTP Timescale
+14. NTP Reference Implementation
+15. 15.3Precision System Clock Architecture
+16. NTP Interleaved Modes
+17. Time Transfer for Space Data Links
+18. Time Transfer for Deep Space Missions
+19. Technical History of NTP
+20. Bibliography on Computer Network Time Synchronization

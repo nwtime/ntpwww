@@ -6,7 +6,7 @@ toc_hide: true
 
 ![jpg](/archives/pic/family.jpg)
 
-In the baby photo at left (circa 1971), that's me (b 1938), Beverly (b 1942), Eileen (b 1965), and Keith (b 1968).  
+In the baby photo at left (circa 1971), that's me (b 1938), Beverly (b 1942), Eileen (b 1965), and Keith (b 1968).
 
 Bev is a classically trained singer (lyric soprano) and musician (violin, piano) and is a retired music teacher in Wilmington, DE. She has a BA in Music and a Second Degree Brown Belt in Judo. Eileen works as a computer network technician in Newark, DE. She has a MCSE and volunteers at Tri State Bird Rescue, one of only three in the country. Keith is a photojournalist based in Baltimore, MD, and travels the world with laptop, WiFi and digital cameras. Kittens Midnight and Sunshine live and play anywhere they please. Charlie is intimidated and keeps to herself.
 
@@ -22,13 +22,17 @@ Now, Sunshine stands watch for breakin attempts.
 When off duty, the two chums serve as bedtime footwarmers.
 ![jpg](/archives/pic/cat16.jpg)
 
-![jpg](/archives/pic/43_front.jpg) 
+![jpg](/archives/pic/43_front.jpg)
 We live in a [leafy subdivision](/reflib/gallery/gallery1) about 2.4 km from campus at
 
-David and Beverly Mills  
-43 The Horseshoe, Newark, DE 19711  
-GC: 39:42:02.915N, 75:46:52.046W  
-Phone: (302) 737-9212  
+David and Beverly Mills
+
+43 The Horseshoe, Newark, DE 19711
+
+GC: 39:42:02.915N, 75:46:52.046W
+
+Phone: (302) 737-9212
+
 Mail: mills@udel.edu, Antennas: W3HCF
 
 In emergencies, the rooftop antenna can be converted into helicopter rotor blades and lift the house to safety.
@@ -39,7 +43,7 @@ In emergencies, the rooftop antenna can be converted into helicopter rotor blade
 
 ![jpg](/archives/pic/bug-1.jpg)
 
-2004 was the Year of the Cicada. The critters crawl out from the ground and rendevous at a nearby tree. There they mate, lay eggs and die. The eggs fall to the ground, there to stay for the next seventeen years.  
+2004 was the Year of the Cicada. The critters crawl out from the ground and rendevous at a nearby tree. There they mate, lay eggs and die. The eggs fall to the ground, there to stay for the next seventeen years.
 
 ![jpg](/archives/pic/hawk6.jpg)
 

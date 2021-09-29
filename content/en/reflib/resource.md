@@ -38,9 +38,9 @@ We participate in many network experiments with our international partners in se
 
 #### Software and Documentation Resources
 
-Following is a hodgepodge of programs and other resources which may be helpful for adventuring in computer network time synchronization. Note that all software and documentation are now retrieved directly from the web. the security requirements of our campus FTP server preclude access from many places in the Internet.
+Following is a hodgepodge of programs and other resources which may be helpful for adventuring in computer network time synchronization.
 
-In the case of software distributions, we have stashed Unix-friendly (<tt>gz</tt> file extensions) compressed tar archives. Most documents are available in PostScript (<tt>.ps</tt>) and Adobe PDF (<tt>.pdf</tt>) formats. Beware, some of these files, especially the PostScript ones, are rather large.
+In the case of software distributions, we have stashed Unix-friendly (`gz` file extensions) compressed tar archives. Many documents are available in PostScript (`.ps`) and Adobe PDF (`.pdf`) formats. Beware, some of these files, especially the PostScript ones, are rather large.
 
 **Important: Respect the copyright information included in each distribution.**
 
@@ -50,7 +50,7 @@ In the case of software distributions, we have stashed Unix-friendly (<tt>gz</tt
 
 The Network Time Protocol is used to synchrnize clocks in Unix, VMS and Windows systems in an estimated population of over 25 million computers in most countries and all continents of the world. The current NTP Version 4 and previous versions have been used for over 30 year in almost all computer embedded and software systems currently available.
 
-The NTP Version 4 software distribution, documentation and configuration information is available at the www.ntp.org web site. An extensive review of the technology and application is available on the [Network Time Synchronization Research Project](/reflib/ntp) page and the white papers in the [Reference Library](/reflib).
+The NTP Version 4 software distribution, documentation and configuration information is available on thisweb site. An extensive review of the technology and application is available on the [Network Time Synchronization Research Project](/reflib/ntp) page and the white papers in the [Reference Library](/reflib).
 
 The current NTP Version 4 protocol specification is at
 
@@ -63,7 +63,7 @@ NTP servers and clients can be protected using symmetric key cryptography and al
 
 #### The Fuzzball
 
-[<tt>fuzzball.tar.gz</tt>](/reflib/software/fuzzball.tar.gz)
+[fuzzball.tar.gz](/reflib/software/fuzzball.tar.gz)
 
 This is a compressed archive containing the source code used by the Fuzzball, a prototyping and test system used in the early Internet. The archive consists of four directories containing the source code in PDP11 assembler format. It can be built under the RT-11 operating system, either directly or in simulation. The system is described in:
 
@@ -75,7 +75,7 @@ This is a compressed archive containing the source code used by the Fuzzball, a 
 
 ![jpg](/archives/pic/dsp93.jpg)
 
-[<tt>wwv.tar.gz</tt>](/reflib/software/wwv.tar.gz)
+[wwv.tar.gz](/reflib/software/wwv.tar.gz)
 
 This is a program for the DSP-93, a digital signal processor system based on the Texas Instruments TMS320C25 DSP chip. The program works with an inexpensive shortwave receiver to receive, demodulate and decode signals broadcast by NIST radio stations WWV, Ft. Collins, CO, and WWVH, Kauai, HI. The system can provide an ASCII timecode suitable to set the clock on a computer with accuracy less than a millisecond. The principal advantage using the DSP approach is successful operation with very weak signals, such as with an indoor antenna far from the transmitters. Further details are in the technical report:
 
@@ -85,7 +85,7 @@ This is a program for the DSP-93, a digital signal processor system based on the
 
 #### Gadget Box Level Converter
 
-![jpg](/archives/pic/gadget.jpg) [<tt>gadget.tar.Z</tt>](/reflib/software/gadget.tar.Z)
+![jpg](/archives/pic/gadget.jpg) [gadget.tar.Z](/reflib/software/gadget.tar.Z)
 
 This is a compressed archive containing the schematics, artwork and related information for (a) a modem for the Canadian time/frequency radio service CHU, which can be used as a primary reference clock for NTP Version 2 and Version 3 daemons, and (b) a pulse shaper and line driver used to provide an external one-pulse-per-second signal from a radio clock to a serial port. See above and the NTP Version 3 distribution for an example of its use.
 
@@ -93,7 +93,7 @@ This is a compressed archive containing the schematics, artwork and related info
 
 #### Unix Kernel Timekeeping Support
 
-[<tt>nanokernel.tar.gz</tt>](/reflib/software/nanokernel.tar.gz)
+[nanokernel.tar.gz](/reflib/software/nanokernel.tar.gz)
 
 This is a compressed archive containing sample code segments and documentation for Unix kernel modifications which implement a precision, disciplined clock. The sample code segments, which involve no licensed code, can be incorporated in the timer interrupt routine of Unix workstations. Complete kernels with these modifications have been constructed for SunOS, Ultrix, HP-UX, Digital OSF/1 and Linux kernels. Since these modifications involve licensed code, they are available only from the manufacturer's representatives. A technical report is also available:
 
@@ -115,7 +115,7 @@ This is a compressed archive containing sample code segments and documentation f
 
 #### LORAN-C Stabilized Precision Oscillator
 
-[<tt>loran.tar.gz</tt>](/reflib/software/loran.tar.gz)
+[loran.tar.gz](/reflib/software/loran.tar.gz)
 
 ![jpg](/archives/pic/loran.gif)
 
@@ -131,7 +131,7 @@ This is a compressed archive containing the schematics, artwork and documentatio
 
 #### ICOM Radio Controller
 
-[<tt>icom.tar.gz</tt>](/reflib/software/icom.tar.gz)
+[icom.tar.gz](/reflib/software/icom.tar.gz)
 
 This is a compressed archive containing a C-language program to control HF/VHF radios made by the ICOM Corporation. It can be used interactively or run from a shell script to adjust the frequency, mode and related parameters of one or more radios connected to the CI-V local network. It can also be used in conjunction with the MINIMUF distribution below to automatically tune radios as propagation conditions change throughout the seasons and hours.
 
@@ -139,7 +139,7 @@ This is a compressed archive containing a C-language program to control HF/VHF r
 
 #### MINIMUF Program for HF Radio Propagation Predictions
 
-[<tt>minimuf.tar.gz</tt>](/reflib/software/minimuf.tar.gz)
+[minimuf.tar.gz](/reflib/software/minimuf.tar.gz)
 
 This is a compressed archive containing a C-language program that computes high frequency radio propagation data between two geographic locations on the Earth. It is useful in setting propagation-delay switches on radio clocks. It can be used interactively or in a shell script in conjunction with the ICOM distribution above to automatically tune radios as propagation conditions change throughout the seasons and hours.
 
@@ -147,8 +147,8 @@ This is a compressed archive containing a C-language program that computes high 
 
 #### DSP Software Modem for RTTY and SITOR signals
 
-[<tt>modem.tar.gz</tt>](/reflib/software/modem.tar.gz)
+[modem.tar.gz](/reflib/software/modem.tar.gz)
 
-This is a compressed archive containing the program and documentation for an advanced linear receiver for radiotelegraph signals. The program is written for the TI TMS320C25 and the DSP-93 digital modem available from the Tucson Amateur Packet Radio organization (TAPR) (see picture above). A technical report is available:
+This is a compressed archive containing the program and documentation for an advanced linear receiver for radiotelegraph signals. The program is written for the TI TMS320C25 and the DSP-93 digital modem available from the Tucson Amateur Packet Radio organization (TAPR). A technical report is available:
 
 *   Mills, D.L. An optimal linear receiver and codec for a class of radiotelegraph signals. Electrical Engineering Department Report 95-8-1, University of Delaware, August 1995, 91 pp. Abstract: [PDF](/reflib/reports/dsp93/dsp93a.pdf), Body: [PDF](/reflib/reports/dsp93/dsp93b.pdf), Appendix A Operations: [PDF](/reflib/reports/dsp93/dsp93c.pdf), Appendix B RTTY Analysis: [PDF](/reflib/reports/dsp93/dsp93d.pdf), Appendix C DCD Analysis:[PDF](/reflib/reports/dsp93/dsp93e.pdf)

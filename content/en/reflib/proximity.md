@@ -68,7 +68,7 @@ The specification includes a Transmit Parameters SPDU to enable the remote MAC t
 
 SPDU frames carry no sequence numbers, so time tags associated with these frames are not useful in the present design. The specification expects that the time tags and associated sequence numbers are captured only for expedited frames. To capture for both sequenced and expedited frames would create an ambiguity, as the sequence numbers are from different spaces. The C&S wiretaps the frame type and sequence number from the 5-octet frame header.
 
-This is the same approach used with the IEEE 1588 Precision Time Protocol (PTP). The network interface card (NIC) reaches far into the packet to inspect the frame type, packet type (UDP/IP) and port number to determine whether this is a PTP packet and if so, captures a timestamp for later retrieval. In some designs the timestamp in the packet itself is overwritten. This of course causes a messy UDP checksum error unless explicitly corrected or disabled.
+This is the same approach used with the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp). The network interface card (NIC) reaches far into the packet to inspect the frame type, packet type (UDP/IP) and port number to determine whether this is a PTP packet and if so, captures a timestamp for later retrieval. In some designs the timestamp in the packet itself is overwritten. This of course causes a messy UDP checksum error unless explicitly corrected or disabled.
 
 What would seem to be a prudent procedure is for the MAC to enable the C&S to capture a number of transmit and receive time tags and send SPDUs to the other end of the link to enable the C&S to do the same thing. Then, each end sends a number of expedited frames to the other.
 
@@ -86,7 +86,7 @@ The protocol is similar to the NTP interleaved symmetric mode described in the w
 
 In order to avoid conflict with the existing Proximity-1 provisions, we define a new, variable-length Timestamp SPDU (type 3). The C&S sublayer already sniffs the data stream for an expedited frame and captures the time tag and sequence number on request. In this proposal, the C&S sublayer sniffs the data stream for a Timestamp SPDU and captures a time tag (only). On transmit the C&S recognizes the Timestamp SPDU, captures a time tag and saves it in a buffer. On receive the C&S recognizes this SPDU, captures a time tag and saves it in a buffer. No sequence numbers are necessary and capture does not need to be enabled - it is always enabled for the Timestamp SPDU.
 
-Timestamp SPDUs are exchanged over the link several times each pass for redundancy and in order to discipline the rate offset, if needed. The Timestamp SPDU has two 8-octet fields, one for the last transmit timestamp, the other for the last receive timestamp, both converted to coordinate time. At each end of the link this results in four timestamps which can be used by the PITS protocol described in the next section to compute the relative offset and roundtrip delay as in NTP and the IEEE 1588 Precision Time Protocol (PTP).
+Timestamp SPDUs are exchanged over the link several times each pass for redundancy and in order to discipline the rate offset, if needed. The Timestamp SPDU has two 8-octet fields, one for the last transmit timestamp, the other for the last receive timestamp, both converted to coordinate time. At each end of the link this results in four timestamps which can be used by the PITS protocol described in the next section to compute the relative offset and roundtrip delay as in NTP and the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp).
 
 * * *
 
@@ -94,9 +94,9 @@ Timestamp SPDUs are exchanged over the link several times each pass for redundan
 
 The PITS state machine is very similar to the NTP interleaved symmetric mode state machine as described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire). Pseudo-code is contained in a companion S briefing document [NTP Interleaved Protocol for LANs and Space Data Links](reflib/brief/onwire/onwire.ppt). While NTP supports an interleaved broadcast mode, this mode is not appropriate for the current Mars space fleet configuration, but could be considered in a future study.
 
-The basic idea is that the PITS primary servers synchronize to Earth by some means and in the process determines the coordinate time _t_<sub>0</sub> and the offset _T_ = _t_<sub>0</sub> - _S_, where _S_ is the SCLK time at _t_<sub>0</sub>. Each time the SCLK is read, _T_ is added to its value _S_ to determine the coordinate time _t_. If necessary, the SCLK rate can be disciplined as in NTP. Coordinate time values are used in Timestamp SPDU fields, so operation continues as in NTP.
+The basic idea is that the PITS primary servers synchronize to Earth by some means and in the process determines the coordinate time <code>_t_<sub>0</sub></code> and the offset <code>_T_ = _t_<sub>0</sub> - _S_</code>, where <code>_S_</code> is the SCLK time at <code>_t_<sub>0</sub></code>. Each time the SCLK is read, <code>_T_</code> is added to its value <code>_S_</code> to determine the coordinate time <code>_t_</code>. If necessary, the SCLK rate can be disciplined as in NTP. Coordinate time values are used in Timestamp SPDU fields, so operation continues as in NTP.
 
-Note that the Timestamp SPDU packet has room for only two timestamp fields, while NTP headers require three. The need for this limitation is to avoid fracturing the Proximity-1 existing packet data formats. In PITS the origin timestamp field is not used, as its only function is to detect bogus packets, where are highly unlikely in the space environment where transmissions are point-to-point and there is no possibility of retransmission of the same packet. Where bogus detecting is required, the timestamps can be integrated with an ordinary NTP protocol implementation.
+Note that the Timestamp SPDU packet has room for only two timestamp fields, while NTP headers require three. The need for this limitation is to avoid fracturing the Proximity-1 existing packet data formats. In PITS the origin timestamp field is not used, as its only function is to detect bogus packets, which are highly unlikely in the space environment where transmissions are point-to-point and there is no possibility of retransmission of the same packet. Where bogus detecting is required, the timestamps can be integrated with an ordinary NTP protocol implementation.
 
 Implicit in this discussion is the need to convert coordinate time as received over the space data link to proper time as used by each spacecraft. The details on how to do this and correct for orbit mechanics, relativistic time dilation and red shift effects are beyond the scope of this document, but can be found in Chapter 17 of <sup>[3](#myfootnote3)</sup>.
 
@@ -108,7 +108,7 @@ The synchronization method described in the previous section assumes the vehicle
 
 A more accurate synchronization method requires dynamic measurement or prediction of space vehicle position and velocity, such as could be achieved using Keplerian elements. Using these six elements, it is possible to determine the orbital position and velocity state vector as a function of coordinate time. If these elements could be uploaded to the space vehicles in advance, accuracies in the order of tens of microseconds could be achieved. This would require using an iterated procedure, as described in Chapter 17 of <sup>[3](#myfootnote3)</sup>.
 
-In practice, multiple measurements of range and range rate (Doppler) are required in order to determine the Keplerian elements. These measurements are usually made using speciallized optical or radio signals. For a given coordinate time, Keplerian elements determine the spacecraft state vector, including its position and velocity relative to the inertial frame of the elements.
+In practice, multiple measurements of range and range rate (Doppler) are required in order to determine the Keplerian elements. These measurements are usually made using specialized optical or radio signals. For a given coordinate time, Keplerian elements determine the spacecraft state vector, including its position and velocity relative to the inertial frame of the elements.
 
 For synchronization flow from vehicle A to vehicle B, the position vector and coordinate time of A must be included in the message to B. At B, the coordinate time of arrival must be accurately determined along with the position and velocity of B. Assuming A and B are in the same inertial frame, such as the Earth and its satellites, the iterated procedure then refines these estimates as in <sup>[3](#myfootnote3)</sup>. This results in a coordinate time at B. The success of this method depends on the orbit geometry of B and can result in ambiguity or degeneracy that must be resolved by other means.
 
@@ -128,6 +128,8 @@ Questions remain on how to implement this method as a practical matter. Computin
 
 #### References
 
-<a name="myfootnote1">1</a>  CCSDS 210.0-G-1 Proximity-1 Space Link Protocol--Rationale, Architecture, a^*nd Scenarios. Green Book. Issue 1. August 2007.
+<a name="myfootnote1">1</a>  CCSDS 210.0-G-1 Proximity-1 Space Link Protocol--Rationale, Architecture, and Scenarios. Green Book. Issue 1. August 2007.
+
 <a name="myfootnote2">2</a>  CCSDS 301.0-B-3 Time Code Formats. Blue Book. Issue 3. January 2002.
-<a name="myfootnote3">3</a>  Mills, D.L. Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition, CRC Press 2011.
+
+<a name="myfootnote3">3</a>  Mills, D.L. [Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition](/reflib/book), CRC Press 2011.

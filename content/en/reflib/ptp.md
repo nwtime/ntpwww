@@ -30,7 +30,7 @@ Last update 18-May-2012
 
 #### Abstract
 
-This document explores the similarities and differences between the Network Time Protocol (NTP) and the IEEE 1588 Precision Time Protocol (PTP). For the configurations considered in this doecument, these protocols provide clock synchronization in high-speed local area networks. Of particular interest are the opportunities for interoperation between the protocols and how they can be used in a dual-protocol server and client.
+This document explores the similarities and differences between the Network Time Protocol (NTP) and the IEEE 1588 Precision Time Protocol (PTP). For the configurations considered in this document, these protocols provide clock synchronization in high-speed local area networks. Of particular interest are the opportunities for interoperation between the protocols and how they can be used in a dual-protocol server and client.
 
 * * *
 
@@ -42,37 +42,37 @@ PTP is used most often to synchronize device clocks in special-purpose industria
 
 This document explores their individual characteristics, accuracy expectations and interoperability possibilities. Following is a summary of the similarities and differences between the two protocols.
 
-<dt>Harware Timestamps</dt>
+Harware Timestamps
 
-NTP requires no hardware provisions to capture timestamps other than a typical Unix timer interrupt or counter/timer motherboard chip. PTP normally includes hardware provisions in the servers, clients and switches to capture timestamps upon the passage of an Ethernet frame at the physical layer. Further information about timestamping for both NTP and PTP can be found in the white paper [Timestamp Capture Principles](/reflib/stamp).
+: NTP requires no hardware provisions to capture timestamps other than a typical Unix timer interrupt or counter/timer motherboard chip. PTP normally includes hardware provisions in the servers, clients and switches to capture timestamps upon the passage of an Ethernet frame at the physical layer. Further information about timestamping for both NTP and PTP can be found in the white paper [Timestamp Capture Principles](/reflib/stamp).
 
-<dt>On-Wire Protocol</dt>
+On-Wire Protocol
 
-The PTP on-wire protocol operates primarily in a broadcast mode where a grandmaster provides synchronization to multiple clients sharing the same network. Alternatively, the protocol can operate in a master/slave mode, where each client synchrhronizes to the grandmaster using a separate client/server message exchange. The NTP on-wire protocol can operate in broadcast, as well as master/slave, and symmetric modes where one or more primary servers provide synchronization to multiple clients on the same or different networks. This document is concerned primarily with broadcast configurations. Further information on NTP configurations can be found in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire).
+: The PTP on-wire protocol operates primarily in a broadcast mode where a grandmaster provides synchronization to multiple clients sharing the same network. Alternatively, the protocol can operate in a master/slave mode, where each client synchrhronizes to the grandmaster using a separate client/server message exchange. The NTP on-wire protocol can operate in broadcast, as well as master/slave, and symmetric modes where one or more primary servers provide synchronization to multiple clients on the same or different networks. This document is concerned primarily with broadcast configurations. Further information on NTP configurations can be found in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire).
 
-<dt>Timescale</dt>
+Timescale
 
-The PTP timescale is defined in seconds and nanoseconds. While the PTP specification defines no particular timescale and origin, the common assumption is that the POSIX timescale with origin 1 January 1970 is used, with or without leap seconds. The NTP timescale is defined in seconds and fraction with origin 1 January 1900, as described in the white paper [NTP Timestamp Calculations](/reflib/time). Discussion on UTC leap seconds is in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap). Discussion on the extended NTP timescale and era considerations is in the white paper [The NTP Era and Era Numbering](/reflib/y2k).
+: The PTP timescale is defined in seconds and nanoseconds. While the PTP specification defines no particular timescale and origin, the common assumption is that the POSIX timescale with origin 1 January 1970 is used, with or without leap seconds. The NTP timescale is defined in seconds and fraction with origin 1 January 1900, as described in the white paper [NTP Timestamp Calculations](/reflib/time). Discussion on UTC leap seconds is in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap). Discussion on the extended NTP timescale and era considerations is in the white paper [The NTP Era and Era Numbering](/reflib/y2k).
 
-<dt>Accuracy Expectations</dt>
+Accuracy Expectations
 
-The accuracy expectations of PTP synchronized clocks is in the order of 100 ns determined primarily by the resolution and stability of a dedicated clock oscillator and counter. The accuracy expectations of NTP vary widely, depending on the motherboard oscillator and counter. Typical results range from a few microseconds in PPS-assisted primary servers to tens of milliseconds in widely dispersed Internet networks.
+: The accuracy expectations of PTP synchronized clocks is in the order of 100 ns determined primarily by the resolution and stability of a dedicated clock oscillator and counter. The accuracy expectations of NTP vary widely, depending on the motherboard oscillator and counter. Typical results range from a few microseconds in PPS-assisted primary servers to tens of milliseconds in widely dispersed Internet networks.
 
-<dt>Network Overhead</dt>
+Network Overhead
 
-The network overhead in PTP networks is seldom an issue, as the update intervals are typically a few seconds over lightly loaded Ethernet LAN segments. The overhead in NTP networks is often of serious concern, as the network paths are often shared with demanding Internet applications including speech and video. In general, this requires update intervals in the range of one minute to several hours, depending on network characteristics and in some cases on network usage charges.
+: The network overhead in PTP networks is seldom an issue, as the update intervals are typically a few seconds over lightly loaded Ethernet LAN segments. The overhead in NTP networks is often of serious concern, as the network paths are often shared with demanding Internet applications including speech and video. In general, this requires update intervals in the range of one minute to several hours, depending on network characteristics and in some cases on network usage charges.
 
-<dt>Optimization Algorithms</dt>
+Optimization Algorithms
 
-Both PTP and NTP use crafted algorithms to improve accuracy and select among a possibly complex set of network paths. PTP uses the Best Master Clock (BMC) algorithm to select the optimal path to the grandmaster as a function of various quality measures, including hop count. NTP uses a suite of mitigation algorithms, including the filter, select, cluster and combine algorithms, which depend on Byzantine agreement and statistical clustering principles.
+: Both PTP and NTP use crafted algorithms to improve accuracy and select among a possibly complex set of network paths. PTP uses the Best Master Clock (BMC) algorithm to select the optimal path to the grandmaster as a function of various quality measures, including hop count. NTP uses a suite of mitigation algorithms, including the filter, select, cluster and combine algorithms, which depend on Byzantine agreement and statistical clustering principles.
 
-<dt>Clock Discipline Algorithm</dt>
+Clock Discipline Algorithm
 
-The PTP specification defines no algorithms to compensate for offset and frequency errors in either the device or system clocks. These algorithms are assumed to be implementation specific. The NTP specification defines a highly evolved, adaptive-parameter, hybrid phase-frequency lock loop. The discipline algorithm adjusts the system clock time and frequency in response to widely varying ambient conditions.
+: The PTP specification defines no algorithms to compensate for offset and frequency errors in either the device or system clocks. These algorithms are assumed to be implementation specific. The NTP specification defines a highly evolved, adaptive-parameter, hybrid phase-frequency lock loop. The discipline algorithm adjusts the system clock time and frequency in response to widely varying ambient conditions.
 
-<dt>Security</dt>
+Security
 
-Both NTP and PTP can provide message security in the form of symmetric key cryptography. In addition, NTP can provide a variant of public key cryptography called Autokey <sup>[3](#myfootnote3)</sup>. Further information that applies in part to both PTP and NTP can be found in the white paper [NTP Security Analysis](/reflib/security).
+: Both NTP and PTP can provide message security in the form of symmetric key cryptography. In addition, NTP can provide a variant of public key cryptography called Autokey <sup>[3](#myfootnote3)</sup>. Further information that applies in part to both PTP and NTP can be found in the white paper [NTP Security Analysis](/reflib/security).
 
 This document explores the technical issues implicit in the above. It characterizes PTP and NTP; in particular, the timestamp technology, on-wire protocol and discipline algorithms. It concludes with a discussion on NTP and PTP interoperability issues.
 
@@ -84,7 +84,7 @@ PTP and NTP servers and clients use the on-wire protocols described in the next 
 
 PTP timestamps, properly called _preamble hardstamps,_ are captured by the Ethernet network interface card (NIC) hardware upon passage of a start of frame (SOF) symbol in the input and output frame data streams. The timestamp is captured at the media independent interface (MII) relative to a dedicated oscillator and counter within typically 100 ns.
 
-Some 1588 Ethernet drivers use a dedicated input or output frame buffer to store a PTP protocol data unit (PDU) including a single timestamp field along with other related data. These designs us a field programmable gate array (FPGA) to monitor the frame data stream and can modify the timestamp fields on-fly. On output the timestamp field is updated after the frame has been sent. On input the field is updated after the frame has been received. If the timestamp field has been modified, the UDP checksum is recomputed before the frame is passed to the upper layer protocol.
+Some 1588 Ethernet drivers use a dedicated input or output frame buffer to store a PTP protocol data unit (PDU) including a single timestamp field along with other related data. These designs use a field programmable gate array (FPGA) to monitor the frame data stream and can modify the timestamp fields on-fly. On output the timestamp field is updated after the frame has been sent. On input the field is updated after the frame has been received. If the timestamp field has been modified, the UDP checksum is recomputed before the frame is passed to the upper layer protocol.
 
 NTP timestamps, properly called _trailer drivestamps,_ are captured by the Ethernet driver interrupt routine shortly after the checksum that terminates the frame. These timestamps are captured from the system clock, so include errors due to the operating system clock reading latencies. Relative to the preamble hardstamp, the trailer drivestamp is delayed by the frame and checksum transmission time plus a latency due to the interrupt queuing and processing time. As a result, NTP timestamps have a deterministic delay due to the transmission time plus a stochastic delay due to queuing and scheduling latencies. When calculating the clock offset, if the transmission rate and frame size are the same in both directions on the wire, the deterministic delays cancel out. However, the stochastic delay, amounting to a microsecond or two, remain.
 
@@ -96,29 +96,29 @@ There is a valid argument that the continued downward cost of 1588  components, 
 
 #### On-Wire Protocols
 
-The on-wire protocols used by PTP and NTP are intended to synchronize a secondary server or client to a primary server or grandmaster. While they are slightly difference, as described below, both accomplish the same thins. In a round initiated by either the client or server, the client or server A sends a request message to B. Then, B sends a response message to A.
+The on-wire protocols used by PTP and NTP are intended to synchronize a secondary server or client to a primary server or grandmaster. While they are slightly difference, as described below, both accomplish the same thing. In a round initiated by either the client or server, the client or server A sends a request message to B. Then, B sends a response message to A.
 
-In most applications, rounds are executed periodically,at intervals of a few seconds to a few tens of minutes.
+In most applications, rounds are executed periodically, at intervals of a few seconds to a few tens of minutes.
 
-In both PTP and NTP the protocol can operate in a point-to-point _master-slave mode_, or in a point-to-multipoint _broadcast mode_. In addition, NTP can operate in _symmetric mode_ in which either peer can provide synchronization to the other for backup..
-
-![gif](/archives/pic/stamp2.gif)
-
-**Figure 1. Master-Slave Mode**
+In both PTP and NTP the protocol can operate in a point-to-point _master-slave mode_, or in a point-to-multipoint _broadcast mode_. In addition, NTP can operate in _symmetric mode_ in which either peer can provide synchronization to the other for backup.
 
 * * *
 
 #### Master-Slave Mode
 
-Figure 1 illustrates how the NTP on-wire protocol operates in master-slave mode. Let A be the client and B the server. The roles are reversed in broadcast mode. .In this and subsequent figures in this document, messages are transmitted in the direction shown with timestamps captured at the beginning and end of transmission. First, A sends a client (mode 3) message to B, then B sends a server (mode 4) message to A. This is called a round. There are four timestamps involved, the _origin timestamp_ _T_<sub>1</sub> when the client message departs A, the _receive timestamp_ _T_<sub>2</sub> when this message arrives at B, the _transmit timestamp_ _T_<sub>3</sub> when the server message departs B, and the _destination timestamp_ _T_<sub>4</sub> when this message arrives at A.
+![gif](/archives/pic/stamp2.gif)
+
+**Figure 1. Master-Slave Mode**
+
+Figure 1 illustrates how the NTP on-wire protocol operates in master-slave mode. Let A be the client and B the server. The roles are reversed in broadcast mode. In this and subsequent figures in this document, messages are transmitted in the direction shown with timestamps captured at the beginning and end of transmission. First, A sends a client (mode 3) message to B, then B sends a server (mode 4) message to A. This is called a round. There are four timestamps involved, the _origin timestamp_ <code>_T_<sub>1</sub></code> when the client message departs A, the _receive timestamp_ <code>_T_<sub>2</sub></code> when this message arrives at B, the _transmit timestamp_ <code>_T_<sub>3</sub></code> when the server message departs B, and the _destination timestamp_ <code>_T_<sub>4</sub></code> when this message arrives at A.
 
 In NTP master-slave mode, the on-wire protocol calculates the clock offset
 
-`θ = [(_T_<sub>2</sub> − _T_<sub>1</sub>) + (_T_<sub>3</sub> − _T_<sub>4</sub>)] / 2`
+<code>θ = [(_T_<sub>2</sub> − _T_<sub>1</sub>) + (_T_<sub>3</sub> − _T_<sub>4</sub>)] / 2</code>
 
 and roundtrip delay
 
-`δ = (_T_<sub>4</sub> − _T_<sub>1</sub>) − (_T_<sub>3</sub> − _T_<sub>2</sub>).`
+<code>δ = (_T_<sub>4</sub> − _T_<sub>1</sub>) − (_T_<sub>3</sub> − _T_<sub>2</sub>)</code>
 
 While it is possible to use master-slave mode in PTP, this requires an awkward message exchange and is not likely to be used in practice.
 
@@ -132,35 +132,35 @@ In broadcast mode for both NTP and PTP, the offset expression has an inverted si
 
 **Figure 2: Broadcast Mode**
 
-In NTP interleaved broadcast mode, broadcast (mode 5) messages at _T_<sub>1</sub>, _T_<sub>3</sub>, _T_<sub>11</sub> and _T_<sub>13</sub> are sent by the broadcast server and received by each broadcast client separately at _T_<sub>2</sub>, _T_<sub>4</sub>, _T_<sub>12</sub> and _T_<sub>14</sub>, respectively. Each broadcast message includes the previous broadcast message transmit timestamp in a data field. For instance, the broadcast message sent at _T_<sub>3</sub> includes the transmit timestamp _T_<sub>1</sub>. Similarly, the broadcast messages sent at _T_<sub>11</sub> and _T_<sub>13</sub> include the transmit timestamps _T_<sub>3</sub> and _T_<sub>11</sub>, respectively. In order to calculate the roundtrip delay, a broadcast client can send a master-slave round, for example, beginning at _T_<sub>5</sub> and ending at _T_<sub>8</sub>.
+In NTP interleaved broadcast mode, broadcast (mode 5) messages at <code>_T_<sub>1</sub></code>, <code>_T_<sub>3</sub>, _T_<sub>11</sub></code> and <code>_T_<sub>13</sub></code> are sent by the broadcast server and received by each broadcast client separately at <code>_T_<sub>2</sub>, _T_<sub>4</sub>, _T_<sub>12</sub></code> and <code>_T_<sub>14</sub></code>, respectively. Each broadcast message includes the previous broadcast message transmit timestamp in a data field. For instance, the broadcast message sent at <code>_T_<sub>3</sub></code> includes the transmit timestamp <code>_T_<sub>1</sub></code>. Similarly, the broadcast messages sent at <code>_T_<sub>11</sub></code> and <code>_T_<sub>13</sub></code> include the transmit timestamps <code>_T_<sub>3</sub></code> and <code>_T_<sub>11</sub></code>, respectively. In order to calculate the roundtrip delay, a broadcast client can send a master-slave round, for example, beginning at <code>_T_<sub>5</sub></code> and ending at <code>_T_<sub>8</sub></code>.
 
-Broadcast messages are sent by the broadcast server at regular intervals of about one minute in order to calculate the clock offset, while master-slave rounds are sent infrequently by each broadcast client in order to calibrate the roundtrip delay. In the master-slave round the receive timestamp _T_<sub>6</sub> of the request message sent at _T_<sub>5</sub> is captured by the broadcast server and returned in a data field of the response message received at _T_<sub>8</sub>. In the clock offset calculation, for example, the origin timestamp _T_<sub>3</sub> cannot be sent in the message at _T_<sub>3</sub>, so this timestamp is sent in the following broadcast message at _T_<sub>11</sub>. In this case, the origin timestamp is _T_<sub>3</sub>, receive timestamp _T_<sub>4</sub>, transmit timestamp _T_<sub>5</sub> and destination timestamp _T_<sub>6</sub>. although the complete set of timestamps is not available until _T_<sub>12</sub>. Thus, the clock offset determined at _T_<sub>12</sub> is
+Broadcast messages are sent by the broadcast server at regular intervals of about one minute in order to calculate the clock offset, while master-slave rounds are sent infrequently by each broadcast client in order to calibrate the roundtrip delay. In the master-slave round the receive timestamp <code>_T_<sub>6</sub></code> of the request message sent at <code>_T_<sub>5</sub></code> is captured by the broadcast server and returned in a data field of the response message received at <code>_T_<sub>8</sub></code>. In the clock offset calculation, for example, the origin timestamp <code>_T_<sub>3</sub></code> cannot be sent in the message at <code>_T_<sub>3</sub></code>, so this timestamp is sent in the following broadcast message at <code>_T_<sub>11</sub></code>. In this case, the origin timestamp is <code>_T_<sub>3</sub></code>, receive timestamp <code>_T_<sub>4</sub></code>, transmit timestamp <code>_T_<sub>5</sub></code> and destination timestamp <code>_T_<sub>6</sub></code>, although the complete set of timestamps is not available until <code>_T_<sub>12</sub></code>. Thus, the clock offset determined at <code>_T_<sub>12</sub></code> is
 
-`θ = −[(_T_<sub>4</sub> − _T_<sub>3</sub>) + (_T_<sub>5</sub> − _T_<sub>6</sub>)] / 2`
+<code>θ = −[(_T_<sub>4</sub> − _T_<sub>3</sub>) + (_T_<sub>5</sub> − _T_<sub>6</sub>)] / 2</code>
 
 and roundtrip delay
 
-`δ = (_T_<sub>6</sub> − _T_<sub>3</sub>) − (_T_<sub>5</sub> − _T_<sub>4</sub>).`
+<code>δ = (_T_<sub>6</sub> − _T_<sub>3</sub>) − (_T_<sub>5</sub> − _T_<sub>4</sub>)</code>
 
-In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at _T_<sub>14</sub>:
+In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at <code>_T_<sub>14</sub></code>:
 
-`θ = _T_<sub>11</sub> + δ / 2 −_T_<sub>12</sub>`
+<code>θ = _T_<sub>11</sub> + δ / 2 − _T_<sub>12</sub></code>
 
 computed at _T_<sub>14</sub>.
 
-The PTP on-wire broadcast protocol is similar to NTP, but using two messages to carry the broadcast timestamps, instead of the single message and interleaved design as in NTP. The protocol begins with a Synch message at _T_<sub>1</sub> in Figure 2. The broadcast client records the receive timestamp _T_<sub>2</sub>. The next message at _T_<sub>3</sub> is a Follow-Up message containing _T_<sub>1</sub> in a data field. The subsequent master-slave round beginning at _T_<sub>5</sub> is identical to that in NTP. The results are the originate timestamp _T_<sub>1</sub>, receive timestamp _T_<sub>2</sub>, transmit timestamp _T_<sub>5</sub> and destination timestamp_T_<sub>6</sub>. The clock offset is
+The PTP on-wire broadcast protocol is similar to NTP, but using two messages to carry the broadcast timestamps, instead of the single message and interleaved design as in NTP. The protocol begins with a Synch message at <code>_T_<sub>1</sub></code> in Figure 2. The broadcast client records the receive timestamp <code>_T_<sub>2</sub></code>. The next message at <code>_T_<sub>3</sub></code> is a Follow-Up message containing <code>_T_<sub>1</sub></code> in a data field. The subsequent master-slave round beginning at <code>_T_<sub>5</sub></code> is identical to that in NTP. The results are the originate timestamp <code>_T_<sub>1</sub></code>, receive timestamp <code>_T_<sub>2</sub></code>, transmit timestamp <code>_T_<sub>5</sub></code> and destination timestamp <code>_T_<sub>6</sub></code>. The clock offset is
 
-`θ = −[(_T_<sub>2</sub> − _T_<sub>1</sub>) + (_T_<sub>5</sub> − _T_<sub>6</sub>)] / 2`
+<code>θ = −[(_T_<sub>2</sub> − _T_<sub>1</sub>) + (_T_<sub>5</sub> − _T_<sub>6</sub>)] / 2</code>
 
 and roundtrip delay
 
-`δ = (_T_<sub>6</sub> − _T_<sub>1</sub>) − (_T_<sub>5</sub> − _T_<sub>2</sub>).`
+<code>δ = (_T_<sub>6</sub> − _T_<sub>1</sub>) − (_T_<sub>5</sub> − _T_<sub>2</sub>)</code>
 
-In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at _T_<sub>14</sub>:
+In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at <code>_T_<sub>14</sub></code>:
 
-`θ = _T_<sub>11</sub> + δ / 2 −_T_<sub>12</sub>.`
+<code>θ = _T_<sub>11</sub> + δ / 2 − _T_<sub>12</sub></code>
 
-The only difference between NTP and PTP protocol is that NTP uses an interleaved design and single broadcast message, while PTP uses two messages, Sync and Follow-Up,. Subsequently, NTP uses a client (mode 3) and server (mode 4) exchange, while PTP uses a Delay_Req and Delay_Resp for the same purpose.
+The only difference between the NTP and PTP protocol is that NTP uses an interleaved design and single broadcast message, while PTP uses two messages, Sync and Follow-Up. Subsequently, NTP uses a client (mode 3) and server (mode 4) exchange, while PTP uses a Delay_Req and Delay_Resp for the same purpose.
 
 * * *
 
@@ -176,7 +176,7 @@ The queuing delay consists of two components, a stochastic contribution due to t
 
 In order to preserve submicrosecond accuracy in PTP, the switches must have some provision to compensate for port-to-port residence time. This can be done in two ways, PTP boundary clocks (BC) and PTP transparent clocks (TC). BC switches function as secondary servers, as in NTP. They synchronize to an upstream server and provide synchronization to one or more downstream clients. A downstream BC client uses the same on-wire protocol as the grandmaster, including the BMC algorithm.
 
-A TC switch uses a timestamp oscillator and counter to measure the residence time of a frame between its arrival at an upstream port and its departure from a downstream port. The timestamp counter need not be particularly accurate, as the residence time is typically only a few tens of microseconds. The switch latches a hardware timestamp upon arrival of a frame and records it in the frame buffer. The switch latches a timestamp upon departure of the frame and computes the residence time. The residence time is added to a field in the frame buffer upon departure. When the frame is received at the downstream destination , possibly after multiple switches, the accumulated value is used to correct the offset calculation.
+A TC switch uses a timestamp oscillator and counter to measure the residence time of a frame between its arrival at an upstream port and its departure from a downstream port. The timestamp counter need not be particularly accurate, as the residence time is typically only a few tens of microseconds. The switch latches a hardware timestamp upon arrival of a frame and records it in the frame buffer. The switch latches a timestamp upon departure of the frame and computes the residence time. The residence time is added to a field in the frame buffer upon departure. When the frame is received at the downstream destination, possibly after multiple switches, the accumulated value is used to correct the offset calculation.
 
 There are no provisions in the NTP specification to employ the strategies used by PTP, but these could be added in an amendment. If this were done, the accuracy and precision of PTP could be extended to NTP.
 
@@ -200,10 +200,10 @@ Since PTP is designed to operate in a relatively benign environment with low jit
 
 #### References
 
-<a name="myfootnote1">1</a>  Mills, D.L. Network Time Synchronization - the Network Time Protocol on Earth and in Space. CRC Press, 2011, 466 pp.
+<a name="myfootnote1">1</a>  Mills, D.L. [Network Time Synchronization - the Network Time Protocol on Earth and in Space](/reflib/book). CRC Press, 2011, 466 pp.
 
-<a name="myfootnote2">2</a>  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments RFC 5905, Internet Engineering Task Force, June 2010.
+<a name="myfootnote2">2</a>  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments [RFC 5905](/reflib/rfc/rfc5905.txt), Internet Engineering Task Force, June 2010.
 
-<a name="myfootnote3">3</a>  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments RFC 5906, Internet Engineering Task Force, June 2010.
+<a name="myfootnote3">3</a>  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments [RFC 5906](/reflib/rfc/rfc5906.txt), Internet Engineering Task Force, June 2010.
 
-<a name="myfootnote4">4</a>  IEEE 1588 Precision Time Protocol (PTP) Version 2 Specification, IEEE, March 2008.
+<a name="myfootnote4">4</a>  [IEEE 1588 Precision Time Protocol (PTP) Version 2 Specification](https://standards.ieee.org/standard/1588-2008.html), IEEE, March 2008.

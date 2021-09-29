@@ -6,7 +6,8 @@ toc_hide: true
 
 ![gif](/archives/pic/trail.gif)
 
-43 The Horseshoe, Newark, DE 19711  
+43 The Horseshoe, Newark, DE 19711
+
 Phone: (302) 737-9212
 
 [Mills family pages](/reflib/fam)
@@ -39,7 +40,7 @@ Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and
 
 Call me on CW or SSB phone or on the ham club repeater W3UD 145.31/144.71 MHz FM (I'm the club advisor and station trustee).
 
-![gif](/archives/pic/qst1.gif)![gif](/archives/pic/a002.jpg)  
+![gif](/archives/pic/qst1.gif)![gif](/archives/pic/a002.jpg)
 
 In fifty years of sometimes sporadic attention to the hobby, I have worked stations in well over 200 countries of the world, including some geographical extremes, such as these three rare ones at Palmer Station, Antarctica and the South Pole. Careful observers will note that since the pictures on these cards were taken both installations have grown to huge proportions.
 
@@ -62,5 +63,3 @@ In the 1970s when the Seabees were building the South Pole Station I ran occasio
 <a name="myfootnote4">4</a>  Mills, D.L. On the chronology and metrology of computer network timescales and their application to the Network Time Protocol. _ACM Computer Communications Review 21, 5_ (October 1991), 8-17. [PDF](/reflib/papers/time.pdf)
 
 <a name="myfootnote5">5</a>  Nielson, J. _Icebound_. Hyperion, New York, 2001, 362 pp.
-
-					
