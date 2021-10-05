@@ -3,8 +3,8 @@ title: "PSTI/Traconex 1020 WWV/WWVH Receiver"
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)  
-Last update: 11-Sep-2010 05:56 UTC
+Author: David L. Mills (mills@udel.edu)
+: Last update: 11-Sep-2010 05:56 UTC
 
 * * *
 
@@ -20,21 +20,21 @@ Last update: 11-Sep-2010 05:56 UTC
 
 #### Synopsis
 
-Address: 127.127.3._u_  
-Reference ID: <tt>WWV</tt>  
-Driver ID: <tt>WWV_PST</tt>  
-Serial Port: <tt>/dev/wwv_u_</tt>; 9600 baud, 8-bits, no parity  
-Features: <tt>tty_clk</tt>
+**Address:** <code>127.127.3._u_</code>
+: **Reference ID:** `WWV`
+: **Driver ID:** `WWV_PST`
+: **Serial Port:** <code>/dev/wwv*u*</code>; 9600 baud, 8-bits, no parity
+: **Features:** `tty_clk`
 
 * * *
 
 #### Description
 
-This driver supports the PSTI 1010 and Traconex 1020 WWV/WWVH Receivers. No specific claim of accuracy is made for these receiver, but actual experience suggests that 10 ms would be a conservative assumption.
+This driver supports the PSTI 1010 and Traconex 1020 WWV/WWVH Receivers. No specific claim of accuracy is made for these receivers, but actual experience suggests that 10 ms would be a conservative assumption.
 
-The dipswitches should be set for 9600 bps line speed, 24-hour day-of-year format and UTC time zone. Automatic correction for DST should be disabled. It is very important that the year be set correctly in the DIP-switches; otherwise, the day of year will be incorrect after 28 April of a normal or leap year. As the there are only four dipswitches to set the year and the base value of zero correspondes to 1986, years beyond 2001 recycle with the value of zero corresponding to 2002. The propagation delay DIP-switches should be set according to the distance from the transmitter for both WWV and WWVH, as described in the instructions. While the delay can be set only to within 11 ms, the fudge time1 parameter can be used for vernier corrections.
+The dipswitches should be set for 9600 bps line speed, 24-hour day-of-year format and UTC time zone. Automatic correction for DST should be disabled. It is very important that the year be set correctly in the DIP-switches; otherwise, the day of year will be incorrect after 28 April of a normal or leap year. As there are only four dipswitches to set the year and the base value of zero correspondes to 1986, years beyond 2001 recycle with the value of zero corresponding to 2002. The propagation delay DIP-switches should be set according to the distance from the transmitter for both WWV and WWVH, as described in the instructions. While the delay can be set only to within 11 ms, the `fudge time1` parameter can be used for vernier corrections.
 
-Using the poll sequence <tt>QTQDQM</tt>, the response timecode is in three sections totalling 50 ASCII printing characters, as concatenated by the driver, in the following format:
+Using the poll sequence `QTQDQM`, the response timecode is in three sections totalling 50 ASCII printing characters, as concatenated by the driver, in the following format:
 
 <pre>ahh:mm:ss.fffs&lsaquo;cr&rsaquo; yy/dd/mm/ddd&lsaquo;cr&rsaquo;
 frdzycchhSSFTttttuuxx&lsaquo;cr&rsaquo;
@@ -59,53 +59,49 @@ tttt = time since last update (0000 = minutes)
 uu = flush character (03 = ^c)
 xx = 94 (unknown)</pre>
 
-The alarm condition is indicated by other than <tt>8</tt> at <tt>a</tt>, which occurs during initial synchronization and when received signal is lost for an extended period; unlock condition is indicated by other than <tt>0000</tt> in the <tt>tttt</tt> subfield.
+The alarm condition is indicated by other than `8` at `a`, which occurs during initial synchronization and when received signal is lost for an extended period; unlock condition is indicated by other than `0000` in the `tttt` subfield.
 
 * * *
 
 #### Monitor Data
 
-When enabled by the <tt>flag4</tt> fudge flag, every received timecode is written as-is to the <tt>clockstats</tt> file.
+When enabled by the `flag4` fudge flag, every received timecode is written as-is to the `clockstats` file.
 
 * * *
 
 #### Fudge Factors
 
-<dl>
+<code>**time1 _time_**</code>
 
-<dt><tt>time1 _time_</tt></dt>
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dd>Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.</dd>
+<code>**time2 _time_**</code>
 
-<dt><tt>time2 _time_</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**stratum _number_**</code>
 
-<dt><tt>stratum _number_</tt></dt>
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+<code>**refid _string_**</code>
 
-<dt><tt>refid _string_</tt></dt>
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default `WWV`.
 
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>WWV</tt>.</dd>
+<code>**flag1 0 | 1**</code>
 
-<dt><tt>flag1 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag2 0 | 1**</code>
 
-<dt><tt>flag2 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag3 0 | 1**</code>
 
-<dt><tt>flag3 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag4 0 | 1**</code>
 
-<dt><tt>flag4 0 | 1</tt></dt>
-
-<dd>Not used by this driver.</dd>
-
-</dl>
+: Not used by this driver.
 
 * * *
 

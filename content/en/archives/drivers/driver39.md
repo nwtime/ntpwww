@@ -20,11 +20,9 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Synopsis
 
-<tt>Address:  </tt> `127.127.39._X_`
-
-<tt>Reference ID:  </tt> `.hopf.` (default), `GPS`, `DCF`
-
-<tt>Driver ID:  </tt> `HOPF_P`
+**Address:** <code>127.127.39._X_</code>
+: **Reference ID:** `hopf` (default), `GPS`, `DCF`
+: **Driver ID:** `HOPF_P`
 
 ![gif](/archives/pic/fg6039.jpg)
 
@@ -32,14 +30,15 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Description
 
-The **refclock_hopf_pci** driver supports the [hopf](http://www.hopf.com) PCI-bus interface 6039 GPS/DCF77.  
+The `refclock_hopf_pci` driver supports the [hopf](http://www.hopf.com) PCI-bus interface 6039 GPS/DCF77.
+
 Additional software and information about the software drivers as well as the latest NTP driver source, executables, and documentation is maintained at [http://www.ATLSoft.de/ntp](http://www.ATLSoft.de/ntp).
 
 * * *
 
 #### Operating System Compatibility
 
-The hopf clock driver has been tested on the following software and hardware platforms:  
+The hopf clock driver has been tested on the following software and hardware platforms:
 
 | Platform | Operating System |
 | ----- | ----- |
@@ -63,17 +62,16 @@ The driver attempts to open the device by calling the function `OpenHopfDevice()
 
 #### Fudge Factors
 
-<tt>**refid _string_**</tt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, **GPS** or **DCF**.
+: Specifies the driver reference identifier, `GPS` or `DCF`.
 
-<tt>**flag1 0 | 1**</tt>
+<code>**flag1 0 | 1**</code>
 
-When set to 1, driver syncs even if only crystal driven.
+: When set to 1, driver syncs even if only crystal driven.
 
 * * *
 
 #### Questions or Comments
 
-[Bernd Altmeier](mailto:altmeier@atlsoft.de)[  
-Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)
+[Bernd Altmeier](mailto:altmeier@atlsoft.de), [Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)

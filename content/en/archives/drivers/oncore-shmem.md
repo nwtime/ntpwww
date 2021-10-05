@@ -24,7 +24,7 @@ In NMEA mode, the Oncore GPS receiver provides the user with the same informatio
 
 In particular, you can ask for satellite positions, satellite health, signal levels, the ephemeris and the almanac, and you can set many operational parameters. In the case of the VP, you can get the pseudorange corrections necessary to act as a DGPS base station, and you can see the raw satellite data messages themselves.
 
-When using the Oncore GPS receiver with NTP, this additional information is usually not available since the receiver is only talking to the oncore driver in NTPD. To make this information available for use in other programs, (say graphic displays of satellites positions, plots of SA, etc.), a shared memory interface (SHMEM) has been added to the refclock_oncore driver on those operating systems that support shared memory.
+When using the Oncore GPS receiver with NTP, this additional information is usually not available since the receiver is only talking to the oncore driver in NTPD. To make this information available for use in other programs, (say graphic displays of satellites positions, plots of SA, etc.), a shared memory interface (SHMEM) has been added to the `refclock_oncore` driver on those operating systems that support shared memory.
 
 To make use of this information you will need an Oncore Reference Manual for the Oncore GPS receiver that you have. The Manual for the VP only exists as a paper document, the UT+/GT+/M12 manuals are available at [Synergy](https://synergy-gps.com/motorola/).
 
@@ -34,13 +34,13 @@ This interface was written by Poul-Henning Kamp (phk@FreeBSD.org), and modified 
 
 #### Activating the Interface
 
-Although the Shared Memory Interface will be compiled into the Oncore driver on those systems where Shared Memory is supported, to activate this interface you must include a `STATUS` or `SHMEM` line in the <tt>/etc/ntp.oncore</tt> data file that looks like
+Although the Shared Memory Interface will be compiled into the Oncore driver on those systems where Shared Memory is supported, to activate this interface you must include a `STATUS` or `SHMEM` line in the `/etc/ntp.oncore` data file that looks like
 
-`STATUS < file_name >`  
+<code>STATUS \<_file_name_></code>
 
-or  
+or
 
-`SHMEM < file_name >`
+<code>SHMEM \<_file_name_></code>
 
 Thus a line like
 
@@ -48,7 +48,7 @@ Thus a line like
 
 would be acceptable. This file name will be used to access the Shared Memory.
 
-In addition, one the two keywords **Posn2D** and **Posn3D** can be added to see @@Ea records containing the 2D or 3D position of the station (see below). Thus to activate the interface, and see 3D positions, something like
+In addition, one the two keywords `Posn2D` and `Posn3D` can be added to see `@@Ea` records containing the 2D or 3D position of the station (see below). Thus to activate the interface, and see 3D positions, something like
 
 `SHMEM /var/adm/ntpstats/ONCORE`
 
@@ -60,9 +60,9 @@ would be required.
 
 #### Storage of Messages in Shared Memory
 
-With the shared memory interface, the oncore driver (refclock_oncore) allocates space for all of the messages that it is configured to receive, and then puts each message in the appropriate slot in shared memory as it arrives from the receiver. Since there is no easy way for a client program to know when the shared memory has been updated, a sequence number is associated with each message, and is incremented when a new message arrives. With the sequence number it is easy to check through the shared memory segment for messages that have changed.
+With the shared memory interface, the oncore driver (`refclock_oncore`) allocates space for all of the messages that it is configured to receive, and then puts each message in the appropriate slot in shared memory as it arrives from the receiver. Since there is no easy way for a client program to know when the shared memory has been updated, a sequence number is associated with each message, and is incremented when a new message arrives. With the sequence number it is easy to check through the shared memory segment for messages that have changed.
 
-The Oncore binary messages are kept in their full length, as described in the Reference manual, that is everything from the @@ prefix thru the <checksum>&lsaquo;CR&rsaquo;&lsaquo;LF&rsaquo;.
+The Oncore binary messages are kept in their full length, as described in the Reference manual, that is everything from the `@@` prefix thru the <code>\<checksum>\<CR>\<LF></code>.
 
 The data starts at location ONE of SHMEM (NOT location ZERO).
 
@@ -75,30 +75,29 @@ The messages are stacked in a series of variable length structures, that look li
         }
 </pre>
 
-if something like that were legal. That is, there are two bytes (caution, these may NOT be aligned with word boundaries, so the field needs to be treated as a pair of u_char), that contains the length of the next message. This is followed by a u_char sequence number, that is incremented whenever a new message of this type is received. This is followed by 'length' characters of the actual message.
+if something like that were legal. That is, there are two bytes (caution, these may NOT be aligned with word boundaries, so the field needs to be treated as a pair of `u_char`), that contains the length of the next message. This is followed by a `u_char` sequence number, that is incremented whenever a new message of this type is received. This is followed by `length` characters of the actual message.
 
 The next structure starts immediately following the last char of the previous message (no alignment). Thus, each structure starts a distance of `length+3` from the previous structure.
 
-Following the last structure, is a u_int containing a zero length to indicate the end of the data.
+Following the last structure, is a `u_int` containing a zero length to indicate the end of the data.
 
-The messages are recognized by reading the headers in the data itself, viz @@Ea or whatever.
+The messages are recognized by reading the headers in the data itself, viz `@@Ea` or whatever.
 
 There are two special cases.
 
-1. The almanac takes a total of 34 submessages all starting with @@Cb.  
-35 slots are allocated in shared memory. Each @@Cb message is initially placed in the first of these locations, and then later it is moved to the appropriate location for that submessage. The submessages can be distinguished by the first two characters following the @@Cb header, and new data is received only when the almanac changes.
+1. The almanac takes a total of 34 submessages all starting with `@@Cb`. 35 slots are allocated in shared memory. Each `@@Cb` message is initially placed in the first of these locations, and then later it is moved to the appropriate location for that submessage. The submessages can be distinguished by the first two characters following the `@@Cb` header, and new data is received only when the almanac changes.
 
-2. The @@Ea message contains the calculated location of the antenna, and is received once per second. However, when in timekeeping mode, the receiver is normally put in 0D mode, with the position fixed, to get better accuracy. In 0D mode no position is calculated.
+2. The `@@Ea` message contains the calculated location of the antenna, and is received once per second. However, when in timekeeping mode, the receiver is normally put in 0D mode, with the position fixed, to get better accuracy. In 0D mode no position is calculated.
 
-When the SHMEM option is active, and if one of **Posn2D** or **Posn3D** is specified, one @@Ea record is hijacked each 15s, and the receiver is put back in 2D/3D mode so the current location can be determined (for position determination, or for tracking SA). The timekeeping code is careful NOT to use the time associated with this (less accurate) 2D/3D tick in its timekeeping functions.
+When the SHMEM option is active, and if one of `Posn2D` or `Posn3D` is specified, one `@@Ea` record is hijacked each 15s, and the receiver is put back in 2D/3D mode so the current location can be determined (for position determination, or for tracking SA). The timekeeping code is careful NOT to use the time associated with this (less accurate) 2D/3D tick in its timekeeping functions.
 
-Following the initial @@Ea message are 3 additional slots for a total of four. As with the almanac, the first gets filled each time a new record becomes available, later in the code, the message is distributed to the appropriate slot. The additional slots are for messages containing 0D, 2D and 3D positions. These messages can be distinguished by different bit patterns in the last data byte of the record.
+Following the initial `@@Ea` message are 3 additional slots for a total of four. As with the almanac, the first gets filled each time a new record becomes available, later in the code, the message is distributed to the appropriate slot. The additional slots are for messages containing 0D, 2D and 3D positions. These messages can be distinguished by different bit patterns in the last data byte of the record.
 
 * * *
 
 #### Opening the Shared Memory File
 
-The shared memory segment is accessed through a file name given on a **SHMEM** card in the <tt>/etc/ntp.oncore</tt> input file. The following code could be used to open the Shared Memory Segment:
+The shared memory segment is accessed through a file name given on a **SHMEM** card in the `/etc/ntp.oncore` input file. The following code could be used to open the Shared Memory Segment:
 
 <pre>        char *Buf, *file;
         int size, fd;
@@ -202,6 +201,6 @@ Try the new interface, enjoy.
 
 * * *
 
-[Reg.Clemens](mailto:reg@dwf.com) 
+[Reg.Clemens](mailto:reg@dwf.com)
 
 [Poul-Henning Kamp](mailto:phk@FreeBSD.org)

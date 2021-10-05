@@ -15,11 +15,11 @@ type: archives
 
 #### Synopsis
 
-Address: <tt>127.127.2._u_</tt>  
-Reference ID: <tt>GPS</tt>  
-Driver ID: <tt>GPS_TRAK</tt>  
-Serial Port: <tt>/dev/trak_u_</tt>; 9600 baud, 8-bits, no parity  
-Features: <tt>tty_clk</tt>
+**Address:** <code>127.127.2._u_</code>
+: **Reference ID:** `GPS`
+: **Driver ID:** `GPS_TRAK`
+: **Serial Port:** <code>/dev/trak*u*</code>; 9600 baud, 8-bits, no parity
+: **Features:** `tty_clk`
 
 * * *
 
@@ -27,11 +27,11 @@ Features: <tt>tty_clk</tt>
 
 This driver supports the Trak 8820 GPS Station Clock. The claimed accuracy at the 1-PPS output is 200-300 ns relative to the broadcast signal; however, in most cases the actual accuracy is limited by the precision of the timecode and the latencies of the serial interface and operating system.
 
-For best accuracy, this radio requires the <tt>tty_clk</tt> line discipline, which captures a timestamp at the `*` on-time character of the timecode. Using this discipline the jitter is in the order of 1 ms and systematic error about 0.5 ms. If unavailable, the buffer timestamp is used, which is captured at the `\r` ending the timecode message. This introduces a systematic error of 23 character times, or about 24 ms at 9600 bps, together with a jitter well over 8 ms on Sun IPC-class machines.
+For best accuracy, this radio requires the `tty_clk` line discipline, which captures a timestamp at the `*` on-time character of the timecode. Using this discipline the jitter is in the order of 1 ms and systematic error about 0.5 ms. If unavailable, the buffer timestamp is used, which is captured at the `\r` ending the timecode message. This introduces a systematic error of 23 character times, or about 24 ms at 9600 bps, together with a jitter well over 8 ms on Sun IPC-class machines.
 
 Using the menus, the radio should be set for 9600 bps, one stop bit and no parity. It should be set to operate in computer (no echo) mode. The timecode format includes neither the year nor leap-second warning.
 
-In operation, this driver sends a <tt>RQTS\r</tt> request to the radio at initialization in order to put it in continuous time output mode. The radio then sends the following message once each second:
+In operation, this driver sends a <code>RQTS\r</code> request to the radio at initialization in order to put it in continuous time output mode. The radio then sends the following message once each second:
 
 <pre>*RQTS U,ddd:hh:mm:ss.0,q&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;
 on-time = *
@@ -45,53 +45,51 @@ q = quality indicator (phase error), 0-6:
      3 > 10 ns
      2 < 10 ns</pre>
 
-The alarm condition is indicated by <tt>0</tt> at <tt>Q</tt>, which means the radio has a phase error greater than 20 us relative to the broadcast time. The absence of year, DST and leap-second warning in this format is also alarmed.
+The alarm condition is indicated by `0` at `Q`, which means the radio has a phase error greater than 20 us relative to the broadcast time. The absence of year, DST and leap-second warning in this format is also alarmed.
 
-The continuous time mode is disabled using the <tt>RQTX\r</tt> request, following which the radio sends a <tt>RQTX DONEq&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;</tt> response. In the normal mode, other control and status requests are effective, including the leap-second status request <tt>RQLS&lsaquo;cr&rsaquo;</tt>. The radio responds with <tt>RQLS yy,mm,dd&lsaquo;cr&rsaquo;&lsaquo;lf&rsaquo;</tt>, where <tt>yy,mm,dd</tt> are the year, month and day. Presumably, this gives the epoch of the next leap second, <tt>RQLS 00,00,00</tt> if none is specified in the GPS message. Specified in this form, the information is generally useless and is ignored by the driver.
+The continuous time mode is disabled using the <code>RQTX\r</code> request, following which the radio sends a <code>RQTX DONE\<cr>\<lf></code> response. In the normal mode, other control and status requests are effective, including the leap-second status request <code>RQLS\<cr></code>. The radio responds with <code>RQLS yy,mm,dd\<cr>\<lf></code>, where `yy,mm,dd` are the year, month and day. Presumably, this gives the epoch of the next leap second, `RQLS 00,00,00` if none is specified in the GPS message. Specified in this form, the information is generally useless and is ignored by the driver.
 
 * * *
 
 #### Monitor Data
 
-When enabled by the <tt>flag4</tt> fudge flag, every received timecode is written as-is to the <tt>clockstats</tt> file.
+When enabled by the `flag4` fudge flag, every received timecode is written as-is to the `clockstats` file.
 
 * * *
 
 #### Fudge Factors
 
-<dl>
+<code>**time1 _time_**</code>
 
-<dt><tt>time1 _time_</tt></dt>
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dd>Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.</dd>
+<code>**time2 _time_**</code>
 
-<dt><tt>time2 _time_</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**stratum _number_**</code>
 
-<dt><tt>stratum _number_</tt></dt>
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+<code>**refid _string_**</code>
 
-<dt><tt>refid _string_</tt></dt>
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default `GPS`.
 
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>GPS</tt>.</dd>
+<code>**flag1 0 | 1**</code>
 
-<dt><tt>flag1 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag2 0 | 1**</code>
 
-<dt><tt>flag2 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag3 0 | 1**</code>
 
-<dt><tt>flag3 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag4 0 | 1**</code>
 
-<dt><tt>flag4 0 | 1</tt></dt>
-
-<dd>Not used by this driver.
+: Not used by this driver.
 
 * * *
 

@@ -16,19 +16,19 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Synopsis
 
-Address: 127.127.33._u_  
-Reference ID: <tt>DUMBCLOCK</tt>  
-Driver ID: <tt>DUMBCLOCK</tt>  
-Serial Port: <tt>/dev/dumbclock_u_</tt>; 9600 bps, 8-bits, no parity  
-Features: <tt>(none)</tt>
+**Address:** <code>127.127.33._u_</code>
+: **Reference ID:** `DUMBCLOCK`
+: **Driver ID:** `DUMBCLOCK`
+: **Serial Port:** <code>/dev/dumbclock*u*</code>; 9600 bps, 8-bits, no parity
+: **Features:** none
 
 * * *
 
 #### Description
 
-This driver supports a dumb ASCII clock that only emits localtime at a reliable interval. This has no provisions for leap seconds, quality codes, etc. It assumes output in the local time zone, and that the C library mktime()/localtime() routines will correctly convert back and forth between local and UTC.
+This driver supports a dumb ASCII clock that only emits localtime at a reliable interval. This has no provisions for leap seconds, quality codes, etc. It assumes output in the local time zone, and that the C library `mktime()` / `localtime()` routines will correctly convert back and forth between local and UTC.
 
-Most of this code is originally from refclock_wwvb.c with thanks. It has been so mangled that wwvb is not a recognizable ancestor.
+Most of this code is originally from `refclock_wwvb.c` with thanks. It has been so mangled that wwvb is not a recognizable ancestor.
 
 <pre>Timecode format: hh:mm:ssCL
 hh:mm:ss - local time

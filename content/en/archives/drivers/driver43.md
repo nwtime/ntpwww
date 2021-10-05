@@ -22,9 +22,9 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Synopsis
 
-Address: `127.127.43._u_`  
-Reference ID: <tt>RIPENCC</tt>  
-Driver ID: <tt>RIPENCC</tt>
+**Address:** <code>127.127.43._u_</code>
+: **Reference ID:** `RIPENCC`
+: **Driver ID:** `RIPENCC`
 
 * * *
 
@@ -36,11 +36,11 @@ This is a special driver developed to be used in conjunction with the RIPE NCC c
 
 #### Why this driver?
 
-The reason we created a separate driver for an antenna for which a (vendor supplied) driver already exists is a design decision. To be more specific, the standard Trimble interface uses a 12 pin connector. The cable sold by Trimble to connect to this wire is a very thick cable. Certainly not something you wish to run for several 100 meters through your building. And if you wanted to run it for 100 meters, you always would have to really run the cable, and didn't have the option to use existing wiring.  
+The reason we created a separate driver for an antenna for which a (vendor supplied) driver already exists is a design decision. To be more specific, the standard Trimble interface uses a 12 pin connector. The cable sold by Trimble to connect to this wire is a very thick cable. Certainly not something you wish to run for several 100 meters through your building. And if you wanted to run it for 100 meters, you always would have to really run the cable, and didn't have the option to use existing wiring.
 
 This is where we wanted more flexibility. We wanted to be able to use existing wiring in buildings. That lead us to CAT-5(UTP) which only gives us 8 wires. Therefore we decided to redesign the use of the Trimble antenna. The Trimble supports two modes: EVENT driver and PPS mode. The default is to use the EVENT mode which needs all 12 wires. We only use the PPS timestamps for which we have enough with 8 wires. For our purposes this is more than fine.
 
-More information about the project can be found on the [Test Traffic Measurements](https://www.ripe.net/analyse/archived-projects/ttm) website. 
+More information about the project can be found on the [Test Traffic Measurements](https://www.ripe.net/analyse/archived-projects/ttm) website.
 
 ![RIPE NCC clock card](/archives/pic/driver43_1.gif)
 
@@ -50,7 +50,7 @@ More information about the project can be found on the [Test Traffic Measurement
 
 The card is a very simple PCI card. The only feature on the bus it uses is the power supply. It uses this power supply to power the Trimble GPS antenna.
 
-The card is basicly just a RS422 to RS232 converter. It gets the Trimble's RS422 signal on a RJ45 connector and transforms that to RS232 on a DIN9 connector. This connector should be loopbacked on the back of the machine to the serial port. As said, the card doesn't do any PCI data transfers.
+The card is basically just a RS422 to RS232 converter. It gets the Trimble's RS422 signal on a RJ45 connector and transforms that to RS232 on a DIN9 connector. This connector should be loopbacked on the back of the machine to the serial port. As said, the card doesn't do any PCI data transfers.
 
 [//]: # (25/5/2021 DL: this project was archived in 2014 and original schematics have been removed?)
 [//]: # (The schematics of the interface card are available at http://www.ripe.net/projects/ttm/Host_testbox/gps_if.pdf. You are free to create this card yourself as long as you give some credit or reference to us. Note that we don't sell these cards on a commercial basis, but for interested parties we do have some spares to share.)
@@ -59,7 +59,7 @@ The card is basicly just a RS422 to RS232 converter. It gets the Trimble's RS422
 
 #### Monitor Data
 
-In the <tt>filegen clockstats</tt> file the following (example) data is collected:
+In the `filegen clockstats` file the following (example) data is collected:
 
 <pre>52445 41931.275 127.127.40.0 U1 20.6.2002 11:38:51 13 11
 52445 41931.395 127.127.40.0 C1 20062002 113851 6  364785 110.2 450 6.7 13 5222.374737 N 0453.268013 E 48  7 11 0 1 -14 20 0 -25
@@ -74,7 +74,7 @@ In the <tt>filegen clockstats</tt> file the following (example) data is collecte
 This is in the form of:
 
 <pre>All output lines consist of a prefix and a message, the prefix is:
-[days since epoch] [sec.ms since start of day] [peer address] 
+[days since epoch] [sec.ms since start of day] [peer address]
 
 And all individual messages:
 
