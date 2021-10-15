@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Last update: 3-Jan-2020 02:12 UTC
+
+Table of Contents
+
+General Overview
+Clock Discipline Operations
+Loop Dynamics
+Clock Initialization and Management …">
+<meta property="og:title" content="Clock Discipline Algorithm" />
+<meta property="og:description" content="Last update: 3-Jan-2020 02:12 UTC
+ Table of Contents  General Overview Clock Discipline Operations Loop Dynamics Clock Initialization and Management   General Overview At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/discipline/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>Clock Discipline Algorithm</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +55,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +71,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +81,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +100,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +152,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/discipline/">Clock Discipline Algorithm</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/discipline/">Clock Discipline Algorithm</a>
 </li>
 
 	</ol>
@@ -165,7 +191,7 @@
 <p>At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that.</p>
 <hr>
 <h4 id="clock-discipline-operations">Clock Discipline Operations</h4>
-<p>A block diagram of the clock discipline is shown in Figure 1. The timestamp of a reference clock or remote server is compared with the timestamp of the system clock, represented as a variable frequency oscillator (VFO), to produce a raw offset sample <em>V<sub>d</sub></em>. Offset samples are processed by the clock filter to produce a filtered update <em>V<sub>s</sub></em>. The loop filter implements a type-2 proportional-integrator controller (PIC). The PIC can minimize errors in both time and frequency using predictors <em>x</em> and <em>y</em>, respectively. The clock adjust process samples these predictors once each second for the daemon discipline or once each tick interrupt for the kernel discipline to produce the system clock update <em>V<sub>c</sub></em>.</p>
+<p>A block diagram of the clock discipline is shown in Figure 1. The timestamp of a reference clock or remote server is compared with the timestamp of the system clock, represented as a variable frequency oscillator (VFO), to produce a raw offset sample <code><em>V<sub>d</sub></em></code>. Offset samples are processed by the clock filter to produce a filtered update <code><em>V<sub>s</sub></em></code>. The loop filter implements a type-2 proportional-integrator controller (PIC). The PIC can minimize errors in both time and frequency using predictors <code><em>x</em></code> and <code><em>y</em></code>, respectively. The clock adjust process samples these predictors once each second for the daemon discipline or once each tick interrupt for the kernel discipline to produce the system clock update <code><em>V<sub>c</sub></em></code>.</p>
 <p><img src="/archives/pic/discipline.gif" alt="gif"></p>
 <p><strong>Figure 1: Clock Discipline Algorithm</strong></p>
 <p>In PLL mode the frequency predictor is an integral of the offset over past updates, while the phase predictor is the offset amortized over time in order to avoid setting the clock backward. In FLL mode the phase predictor is not used, while the frequency predictor is similar to the NIST <em>lockclock</em> algorithm. In this algorithm, the frequency predictor is computed as a fraction of the current offset divided by the time since the last update in order to minimize the offset at the next update.</p>
@@ -183,74 +209,12 @@
 <p>If left running continuously, an NTP client on a fast LAN in a home or office environment can maintain synchronization nominally within one millisecond. When the ambient temperature variations are less than a degree Celsius, the clock oscillator frequency is disciplined to within one part per million (PPM), even when the clock oscillator native frequency offset is 100 PPM or more.</p>
 <p>For laptops and portable devices when the power is turned off, the battery backup clock offset error can increase as much as one second per day. When power is restored after several hours or days, the clock offset and oscillator frequency errors must be resolved by the clock discipline algorithm, but this can take several hours without specific provisions.</p>
 <p>The provisions described in this section insure that, in all but pathological situations, the startup transient is suppressed to within nominal levels in no more than five minutes after a warm start or ten minutes after a cold start. Following is a summary of these provisions. A detailed discussion of these provisions is on the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page.</p>
-<p>The reference implementation measures the clock oscillator frequency and updates a frequency file at intervals of one hour or more, depending on the measured frequency wander. This design is intended to minimize write cycles in NVRAM that might be used in a laptop or portable device. In a warm start, the frequency is initialized from this file, which avoids a possibly lengthy convergence time. In a cold start when no frequency file is available, the reference implementation first measures the oscillator frequency over a five-min interval. This generally results in a residual frequency error less than 1 PPM. The measurement interval can be changed using the <tt>stepout</tt> option of the <a href="/archives/4.2.8-series/miscopt"><tt>tinker</tt></a> command.</p>
-<p>In order to reduce the clock offset error at restart, the reference implementation next disables oscillator frequency discipline and enables clock offset discipline with a small time constant. This is designed to quickly reduce the clock offset error without causing a frequency surge. This configuration is continued for an interval of five-min, after which the clock offset error is usually no more than a millisecond. The measurement interval can be changed using the <tt>stepout</tt> option of the <a href="/archives/4.2.8-series/miscopt"><tt>tinker</tt></a> command.</p>
-<p>Another concern at restart is the time necessary for the select and cluster algorithms to refine and validate the initial clock offset estimate. Normally, this takes several updates before setting the system clock. As the default minimum poll interval in most configurations is about one minute, it can take several minutes before setting the system clock. The <tt>iburst</tt> option of the <a href="/archives/4.2.8-series/confopt/#server-command-options"><tt>server</tt></a> command changes the behavior at restart and is recommended for client/server configurations. When this option is enabled, the client sends a volley of six requests at intervals of two seconds. This usually insures a reliable estimate is available in about ten seconds before setting the clock. Once this initial volley is complete, the procedures described above are executed.</p>
-<p>As a result of the above considerations, when a backup source, such as the local clock driver, ACTS modem driver or orphan mode is included in the system configuration, it may happen that one or more of them are selectable before one or more of the regular sources are selectable. When backup sources are included in the configuration, the reference implementation waits an interval of several minutes without regular sources before switching to backup sources. This is generally enough to avoid startup transients due to premature switching to backup sources. The interval can be changed using the <tt>orphanwait</tt> option of the <a href="/archives/4.2.8-series/miscopt"><tt>tos</tt></a> command.</p>
+<p>The reference implementation measures the clock oscillator frequency and updates a frequency file at intervals of one hour or more, depending on the measured frequency wander. This design is intended to minimize write cycles in NVRAM that might be used in a laptop or portable device. In a warm start, the frequency is initialized from this file, which avoids a possibly lengthy convergence time. In a cold start when no frequency file is available, the reference implementation first measures the oscillator frequency over a five-min interval. This generally results in a residual frequency error less than 1 PPM. The measurement interval can be changed using the <code>stepout</code> option of the <a href="/archives/4.2.8-series/miscopt"><code>tinker</code></a> command.</p>
+<p>In order to reduce the clock offset error at restart, the reference implementation next disables oscillator frequency discipline and enables clock offset discipline with a small time constant. This is designed to quickly reduce the clock offset error without causing a frequency surge. This configuration is continued for an interval of five-min, after which the clock offset error is usually no more than a millisecond. The measurement interval can be changed using the <code>stepout</code> option of the <a href="/archives/4.2.8-series/miscopt"><code>tinker</code></a> command.</p>
+<p>Another concern at restart is the time necessary for the select and cluster algorithms to refine and validate the initial clock offset estimate. Normally, this takes several updates before setting the system clock. As the default minimum poll interval in most configurations is about one minute, it can take several minutes before setting the system clock. The <code>iburst</code> option of the <a href="/archives/4.2.8-series/confopt/#server-command-options"><code>server</code></a> command changes the behavior at restart and is recommended for client/server configurations. When this option is enabled, the client sends a volley of six requests at intervals of two seconds. This usually insures a reliable estimate is available in about ten seconds before setting the clock. Once this initial volley is complete, the procedures described above are executed.</p>
+<p>As a result of the above considerations, when a backup source, such as the local clock driver, ACTS modem driver or orphan mode is included in the system configuration, it may happen that one or more of them are selectable before one or more of the regular sources are selectable. When backup sources are included in the configuration, the reference implementation waits an interval of several minutes without regular sources before switching to backup sources. This is generally enough to avoid startup transients due to premature switching to backup sources. The interval can be changed using the <code>orphanwait</code> option of the <a href="/archives/4.2.8-series/miscopt"><code>tos</code></a> command.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -286,20 +250,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

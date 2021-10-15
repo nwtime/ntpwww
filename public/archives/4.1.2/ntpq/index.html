@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Pogo, Walt Kelly
+A typical NTP monitoring packet
+
+Table of Contents
+
+Synopsis
+Description
+Internal Commands
+Control Message Commands
+Bugs …">
+<meta property="og:title" content="ntpq - standard NTP query program" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+A typical NTP monitoring packet
+ Table of Contents  Synopsis Description Internal Commands Control Message Commands Bugs   Synopsis ntpq [-inp] [-c command] [host] [&hellip;]
+ Description The ntpq utility program is used to query NTP servers which implement the recommended NTP mode 6 control message format about current state and to request changes in that state. The program may be run either in interactive mode or controlled using command line arguments." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.1.2/ntpq/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>ntpq - standard NTP query program</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +59,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +75,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +85,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +104,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +156,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.1.2/">4.1.2</a>
+	<a href="https://doc.ntp.org/archives/4.1.2/">4.1.2</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.1.2/ntpq/">ntpq - standard NTP query program</a>
+	<a href="https://doc.ntp.org/archives/4.1.2/ntpq/">ntpq - standard NTP query program</a>
 </li>
 
 	</ol>
@@ -164,247 +194,355 @@
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p><tt>ntpq [-inp] [-c <em>command</em>] [<em>host</em>] [&hellip;]</tt></p>
+<p><code>ntpq [-inp] [-c <em>command</em>] [<em>host</em>] [&hellip;]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <tt>ntpq</tt> utility program is used to query NTP servers which implement the recommended NTP mode 6 control message format about current state and to request changes in that state. The program may be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. <tt>ntpq</tt> can also obtain and print a list of peers in a common format by sending multiple queries to the server.</p>
-<p>If one or more request options is included on the command line when <tt>ntpq</tt> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <tt>ntpq</tt> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <tt>ntpq</tt> will prompt for commands if the standard input is a terminal device.</p>
-<p><tt>ntpq</tt> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <tt>ntpq</tt> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.</p>
+<p>The <code>ntpq</code> utility program is used to query NTP servers which implement the recommended NTP mode 6 control message format about current state and to request changes in that state. The program may be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. <code>ntpq</code> can also obtain and print a list of peers in a common format by sending multiple queries to the server.</p>
+<p>If one or more request options is included on the command line when <code>ntpq</code> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <code>ntpq</code> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <code>ntpq</code> will prompt for commands if the standard input is a terminal device.</p>
+<p><code>ntpq</code> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <code>ntpq</code> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.</p>
 <p>For examples and usage, see the <a href="/archives/4.1.2/debug">NTP Debugging Techniques</a> page.</p>
-<p>Command line options are described following. Specifying a command line option other than <tt>-i</tt> or <tt>-n</tt> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <tt>ntpq</tt> will attempt to read interactive format commands from the standard input.</p>
-<dt><tt>-c</tt></dt>
-<p>The following argument is interpreted as an interactive format command and is added to the list of commands to be executed on the specified host(s). Multiple <tt>-c</tt> options may be given.</p>
-<dt><tt>-i</tt></dt>
-<p>Force <tt>ntpq</tt> to operate in interactive mode. Prompts will be written to the standard output and commands read from the standard input.</p>
-<dt><tt>-n</tt></dt>
+<p>Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.</p>
+<dl>
+<dt><code><strong>-c</strong></code></dt>
+<dd>
+<p>The following argument is interpreted as an interactive format command and is added to the list of commands to be executed on the specified host(s). Multiple <code>-c</code> options may be given.</p>
+</dd>
+<dt><code><strong>-i</strong></code></dt>
+<dd>
+<p>Force <code>ntpq</code> to operate in interactive mode. Prompts will be written to the standard output and commands read from the standard input.</p>
+</dd>
+<dt><code><strong>-n</strong></code></dt>
+<dd>
 <p>Output all host addresses in dotted-quad numeric format rather than converting to the canonical host names.</p>
-<dt><tt>-p</tt></dt>
-<p>Print a list of the peers known to the server as well as a summary of their state. This is equivalent to the <tt>peers</tt> interactive command.</p>
+</dd>
+<dt><code><strong>-p</strong></code></dt>
+<dd>
+<p>Print a list of the peers known to the server as well as a summary of their state. This is equivalent to the <code>peers</code> interactive command.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="internal-commands">Internal Commands</h4>
-<p>Interactive format commands consist of a keyword followed by zero to four arguments. Only enough characters of the full keyword to uniquely identify the command need be typed. The output of a command is normally sent to the standard output, but optionally the output of individual commands may be sent to a file by appending a <code>&lt;</code>, followed by a file name, to the command line. A number of interactive format commands are executed entirely within the <tt>ntpq</tt> program itself and do not result in NTP mode 6 requests being sent to a server. These are described following.</p>
-<dt><tt>? [_command_keyword_]</tt>  
-<tt>help [_command_keyword_]</tt></dt>
-<p>A <tt>?</tt> by itself will print a list of all the command keywords known to this incarnation of <tt>ntpq</tt>. A <tt>?</tt> followed by a command keyword will print function and usage information about the command. This command is probably a better source of information about <tt>ntpq</tt> than this manual page.</p>
-<dt><tt>addvars _variable_name_ [ = _value_] [...]</tt>  
-<tt>rmvars _variable_name_ [...]</tt>  
-<tt>clearvars</tt></dt>
-<p>The data carried by NTP mode 6 messages consists of a list of items of the form <tt><em>variable_name</em> = <em>value</em></tt>, where the <tt>= <em>value</em></tt> is ignored, and can be omitted, in requests to the server to read variables. <tt>ntpq</tt> maintains an internal list in which data to be included in control messages can be assembled, and sent using the <tt>readlist</tt> and <tt>writelist</tt> commands described below. The <tt>addvars</tt> command allows variables and their optional values to be added to the list. If more than one variable is to be added, the list should be comma-separated and not contain white space. The <tt>rmvars</tt> command can be used to remove individual variables from the list, while the <tt>clearlist</tt> command removes all variables from the list.</p>
-<dt><tt>authenticate yes | no</tt></dt>
-<p>Normally <tt>ntpq</tt> does not authenticate requests unless they are write requests. The command <tt>authenticate yes</tt> causes <tt>ntpq</tt> to send authentication with all requests it makes. Authenticated requests causes some servers to handle requests slightly differently, and can occasionally melt the CPU in fuzzballs if you turn authentication on before doing a <tt>peer</tt> display.</p>
-<dt><tt>cooked</tt></dt>
-<p>Causes output from query commands to be &ldquo;cooked&rdquo;, so that variables which are recognized by <tt>ntpq</tt> will have their values reformatted for human consumption. Variables which <tt>ntpq</tt> thinks should have a decodable value but didn&rsquo;t are marked with a trailing <tt>?</tt>.</p>
-<dt><tt>debug more | less | off</tt></dt>
+<p>Interactive format commands consist of a keyword followed by zero to four arguments. Only enough characters of the full keyword to uniquely identify the command need be typed. The output of a command is normally sent to the standard output, but optionally the output of individual commands may be sent to a file by appending a <code>&lt;</code>, followed by a file name, to the command line. A number of interactive format commands are executed entirely within the <code>ntpq</code> program itself and do not result in NTP mode 6 requests being sent to a server. These are described following.</p>
+<dl>
+<dt><code><strong>? [<em>command_keyword</em>]</strong></code></dt>
+<dd><code><strong>help [<em>command_keyword</em>]</strong></code></dd>
+<dd>
+<p>A <code>?</code> by itself will print a list of all the command keywords known to this incarnation of <code>ntpq</code>. A <code>?</code> followed by a command keyword will print function and usage information about the command. This command is probably a better source of information about <code>ntpq</code> than this manual page.</p>
+</dd>
+<dt><code><strong>addvars <em>variable_name</em> [ = <em>value</em>] [&hellip;]</strong></code></dt>
+<dd><code><strong>rmvars <em>variable_name</em> [&hellip;]</strong></code></dd>
+<dd><code><strong>clearvars</strong></code></dd>
+<dd>
+<p>The data carried by NTP mode 6 messages consists of a list of items of the form <code><em>variable_name</em> = <em>value</em></code>, where the <code>= <em>value</em></code> is ignored, and can be omitted, in requests to the server to read variables. <code>ntpq</code> maintains an internal list in which data to be included in control messages can be assembled, and sent using the <code>readlist</code> and <code>writelist</code> commands described below. The <code>addvars</code> command allows variables and their optional values to be added to the list. If more than one variable is to be added, the list should be comma-separated and not contain white space. The <code>rmvars</code> command can be used to remove individual variables from the list, while the <code>clearlist</code> command removes all variables from the list.</p>
+</dd>
+<dt><code><strong>authenticate yes | no</strong></code></dt>
+<dd>
+<p>Normally <code>ntpq</code> does not authenticate requests unless they are write requests. The command <code>authenticate yes</code> causes <code>ntpq</code> to send authentication with all requests it makes. Authenticated requests causes some servers to handle requests slightly differently, and can occasionally melt the CPU in fuzzballs if you turn authentication on before doing a <code>peer</code> display.</p>
+</dd>
+<dt><code><strong>cooked</strong></code></dt>
+<dd>
+<p>Causes output from query commands to be &ldquo;cooked&rdquo;, so that variables which are recognized by <code>ntpq</code> will have their values reformatted for human consumption. Variables which <code>ntpq</code> thinks should have a decodable value but didn&rsquo;t are marked with a trailing <code>?</code>.</p>
+</dd>
+<dt><code><strong>debug more | less | off</strong></code></dt>
+<dd>
 <p>Turns internal query program debugging on and off.</p>
-<dt><tt>delay _milliseconds_</tt></dt>
+</dd>
+<dt><code><strong>delay <em>milliseconds</em></strong></code></dt>
+<dd>
 <p>Specify a time interval to be added to timestamps included in requests which require authentication. This is used to enable (unreliable) server reconfiguration over long delay network paths or between machines whose clocks are unsynchronized. Actually the server does not now require timestamps in authenticated requests, so this command may be obsolete.</p>
-<dt><tt>host _hostname_</tt></dt>
+</dd>
+<dt><code><strong>host <em>hostname</em></strong></code></dt>
+<dd>
 <p>Set the host to which future queries will be sent. Hostname may be either a host name or a numeric address.</p>
-<dt><tt>hostnames [yes | no]</tt></dt>
-<p>If <tt>yes</tt> is specified, host names are printed in information displays. If <tt>no</tt> is specified, numeric addresses are printed instead. The default is <tt>yes</tt>, unless modified using the command line <tt>-n</tt> switch.</p>
-<dt><tt>keyid _keyid_</tt></dt>
+</dd>
+<dt><code><strong>hostnames [yes | no]</strong></code></dt>
+<dd>
+<p>If <code>yes</code> is specified, host names are printed in information displays. If <code>no</code> is specified, numeric addresses are printed instead. The default is <code>yes</code>, unless modified using the command line <code>-n</code> switch.</p>
+</dd>
+<dt><code><strong>keyid <em>keyid</em></strong></code></dt>
+<dd>
 <p>This command allows the specification of a key number to be used to authenticate configuration requests. This must correspond to a key number the server has been configured to use for this purpose.</p>
-<dt><tt>ntpversion 1 | 2 | 3 | 4</tt></dt>
-<p>Sets the NTP version number which <tt>ntpq</tt> claims in packets. Defaults to 3. Note that mode 6 control messages (and modes, for that matter) didn&rsquo;t exist in NTP version 1. There appear to be no servers left which demand version 1.</p>
-<dt><tt>quit</tt></dt>
-<p>Exit <tt>ntpq</tt>.</p>
-<dt><tt>passwd</tt></dt>
+</dd>
+<dt><code><strong>ntpversion 1 | 2 | 3 | 4</strong></code></dt>
+<dd>
+<p>Sets the NTP version number which <code>ntpq</code> claims in packets. Defaults to 3. Note that mode 6 control messages (and modes, for that matter) didn&rsquo;t exist in NTP version 1. There appear to be no servers left which demand version 1.</p>
+</dd>
+<dt><code><strong>quit</strong></code></dt>
+<dd>
+<p>Exit <code>ntpq</code>.</p>
+</dd>
+<dt><code><strong>passwd</strong></code></dt>
+<dd>
 <p>This command prompts you to type in a password (which will not be echoed) which will be used to authenticate configuration requests. The password must correspond to the key configured for use by the NTP server for this purpose if such requests are to be successful.</p>
-<dt><tt>raw</tt></dt>
+</dd>
+<dt><code><strong>raw</strong></code></dt>
+<dd>
 <p>Causes all output from query commands is printed as received from the remote server. The only formating/interpretation done on the data is to transform nonascii data into a printable (but barely understandable) form.</p>
-<dt><tt>timeout _millseconds_</tt></dt>
-<p>Specify a timeout period for responses to server queries. The default is about 5000 milliseconds. Note that since <tt>ntpq</tt> retries each query once after a timeout, the total waiting time for a timeout will be twice the timeout value set.</p>
+</dd>
+<dt><code><strong>timeout <em>milliseconds</em></strong></code></dt>
+<dd>
+<p>Specify a timeout period for responses to server queries. The default is about 5000 milliseconds. Note that since <code>ntpq</code> retries each query once after a timeout, the total waiting time for a timeout will be twice the timeout value set.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="control-message-commands">Control Message Commands</h4>
 <p>Each peer known to an NTP server has a 16 bit integer association identifier assigned to it. NTP control messages which carry peer variables must identify the peer the values correspond to by including its association ID. An association ID of 0 is special, and indicates the variables are system variables, whose names are drawn from a separate name space.</p>
 <p>Control message commands result in one or more NTP mode 6 messages being sent to the server, and cause the data returned to be printed in some format. Most commands currently implemented send a single message and expect a single response. The current exceptions are the peers command, which will send a preprogrammed series of messages to obtain the data it needs, and the mreadlist and mreadvar commands, which will iterate over a range of associations.</p>
-<dt><tt>associations</tt></dt>
-<p>Obtains and prints a list of association identifiers and peer statuses for in-spec peers of the server being queried. The list is printed in columns. The first of these is an index numbering the associations from 1 for internal use, the second the actual association identifier returned by the server and the third the status word for the peer. This is followed by a number of columns containing data decoded from the status word. See the peers command for a decode of the <tt>condition</tt> field. Note that the data returned by the <tt>associations</tt> command is cached internally in <tt>ntpq</tt>. The index is then of use when dealing with stupid servers which use association identifiers which are hard for humans to type, in that for any subsequent commands which require an association identifier as an argument, the form and index may be used as an alternative.</p>
-<dt><tt>clockvar [_assocID_] [_variable_name_ [ = _value_ [...]] [...]</tt></dt>
-<dt><tt>cv [_assocID_] [_variable_name_ [ = _value_ [...] ][...]</tt></dt>
-<p>Requests that a list of the server&rsquo;s clock variables be sent. Servers which have a radio clock or other external synchronization will respond positively to this. If the association identifier is omitted or zero the request is for the variables of the <tt>system clock</tt> and will generally get a positive response from all servers with a clock. If the server treats clocks as pseudo-peers, and hence can possibly have more than one clock connected at once, referencing the appropriate peer association ID will show the variables of a particular clock. Omitting the variable list will cause the server to return a default variable display.</p>
-<dt><tt>lassociations</tt></dt>
-<p>Obtains and prints a list of association identifiers and peer statuses for all associations for which the server is maintaining state. This command differs from the <tt>associations</tt> command only for servers which retain state for out-of-spec client associations (i.e., fuzzballs). Such associations are normally omitted from the display when the <tt>associations</tt> command is used, but are included in the output of <tt>lassociations</tt>.</p>
-<dt><tt>lpassociations</tt></dt>
-<p>Print data for all associations, including out-of-spec client associations, from the internally cached list of associations. This command differs from <tt>passociations</tt> only when dealing with fuzzballs.</p>
-<dt><tt>lpeers</tt></dt>
+<dl>
+<dt><code><strong>associations</strong></code></dt>
+<dd>
+<p>Obtains and prints a list of association identifiers and peer statuses for in-spec peers of the server being queried. The list is printed in columns. The first of these is an index numbering the associations from 1 for internal use, the second the actual association identifier returned by the server and the third the status word for the peer. This is followed by a number of columns containing data decoded from the status word. See the peers command for a decode of the <code>condition</code> field. Note that the data returned by the <code>associations</code> command is cached internally in <code>ntpq</code>. The index is then of use when dealing with stupid servers which use association identifiers which are hard for humans to type, in that for any subsequent commands which require an association identifier as an argument, the form and index may be used as an alternative.</p>
+</dd>
+<dt><code><strong>clockvar [<em>assocID</em>] [<em>variable_name</em> [ = <em>value</em> [&hellip;]] [&hellip;]</strong></code></dt>
+<dd><code><strong>cv [<em>assocID</em>] [<em>variable_name</em> [ = <em>value</em> [&hellip;] ][&hellip;]</strong></code></dd>
+<dd>
+<p>Requests that a list of the server&rsquo;s clock variables be sent. Servers which have a radio clock or other external synchronization will respond positively to this. If the association identifier is omitted or zero the request is for the variables of the <code>system clock</code> and will generally get a positive response from all servers with a clock. If the server treats clocks as pseudo-peers, and hence can possibly have more than one clock connected at once, referencing the appropriate peer association ID will show the variables of a particular clock. Omitting the variable list will cause the server to return a default variable display.</p>
+</dd>
+<dt><code><strong>lassociations</strong></code></dt>
+<dd>
+<p>Obtains and prints a list of association identifiers and peer statuses for all associations for which the server is maintaining state. This command differs from the <code>associations</code> command only for servers which retain state for out-of-spec client associations (i.e., fuzzballs). Such associations are normally omitted from the display when the <code>associations</code> command is used, but are included in the output of <code>lassociations</code>.</p>
+</dd>
+<dt><code><strong>lpassociations</strong></code></dt>
+<dd>
+<p>Print data for all associations, including out-of-spec client associations, from the internally cached list of associations. This command differs from <code>passociations</code> only when dealing with fuzzballs.</p>
+</dd>
+<dt><code><strong>lpeers</strong></code></dt>
+<dd>
 <p>Like R peers, except a summary of all associations for which the server is maintaining state is printed. This can produce a much longer list of peers from fuzzball servers.</p>
-<dt><tt>mreadlist _assocID_ _assocID_</tt>  
-<tt>mrl _assocID_ _assocID_</tt></dt>
-<p>Like the <tt>readlist</tt> command, except the query is done for each of a range of (nonzero) association IDs. This range is determined from the association list cached by the most recent <tt>associations</tt> command.</p>
-<dt><tt>mreadvar _assocID_ _assocID_ [ _variable_name_ [ = _value_[ ... ]</tt>  
-<tt>mrv _assocID_ _assocID_ [ _variable_name_ [ = _value_[ ... ]</tt></dt>
-<p>Like the <tt>readvar</tt> command, except the query is done for each of a range of (nonzero) association IDs. This range is determined from the association list cached by the most recent <tt>associations</tt> command.</p>
-<dt><tt>opeers</tt></dt>
-<p>An old form of the <tt>peers</tt> command with the reference ID replaced by the local interface address.</p>
-<dt><tt>passociations</tt></dt>
-<p>Displays association data concerning in-spec peers from the internally cached list of associations. This command performs identically to the <tt>associations</tt> except that it displays the internally stored data rather than making a new query.</p>
-<dt><tt>peers</tt></dt>
-<p>Obtains a current list peers of the server, along with a summary of each peer&rsquo;s state. Summary information includes the address of the remote peer, the reference ID (0.0.0.0 if this is unknown), the stratum of the remote peer, the type of the peer (local, unicast, multicast or broadcast), when the last packet was received, the polling interval, in seconds, the reachability register, in octal, and the current estimated delay, offset and dispersion of the peer, all in milliseconds.</p>
-<p>The character in the left margin indicates the fate of this peer in the clock selection process. Following is a list of these characters, the pigeon used in the <tt>rv</tt> command, and a short explanation of the condition revealed.</p>
-<p>    <tt>space reject</tt></dt></p>
-<p>    The peer is discarded as unreachable, synchronized to this server (synch loop) or outrageous synchronization distance.</p>
-<p>    <tt>x  falsetick</tt></p>
-<p>    The peer is discarded by the intersection algorithm as a falseticker.</p>
-<p>    <tt>.  excess</tt></p>
-<p>    The peer is discarded as not among the first ten peers sorted by synchronization distance and so is probably a poor candidate for further consideration.</p>
-<p>    <tt>-  outlyer</tt></p>
-<p>    The peer is discarded by the clustering algorithm as an outlyer.</p>
-<p>    <tt>+  candidat</tt></p>
-<p>    The peer is a survivor and a candidate for the combining algorithm.</p>
-<p>    <tt>#  selected</tt></p>
-<p>    The peer is a survivor, but not among the first six peers sorted by synchronization distance. If the association is ephemeral, it may be demobilized to conserve resources.</p>
-<p>    <tt>*  sys.peer</tt></p>
-<p>    The peer has been declared the system peer and lends its variables to the system variables.</p>
-<p>    <tt>o  pps.peer</tt></p>
-<p>    The peer has been declared the system peer and lends its variables to thesystem variables. However, the actual system synchronization is derived from a pulse-per-second (PPS) signal, either indirectly via the PPS reference clock driver or directly via kernel interface.</p>
-<p>The <tt>flash</tt> variable is a valuable debugging aid. It displays the results of the original sanity checks defined in the NTP specification RFC-1305 and additional ones added in NTP Version 4. There are eleven tests called <tt>TEST1</tt> through <tt>TEST11</tt>. The tests are performed in a certain order designed to gain maximum diagnostic information while protecting against accidental or malicious errors. The <tt>flash</tt> variable is first initialized to zero. If after each set of tests one or more bits are set, the packet is discarded.</p>
-<p>Tests <tt>TEST4</tt> and <tt>TEST5</tt> check the access permissions and cryptographic message digest. If any bits are set after that, the packet is discarded. Tests <tt>TEST10</tt> and <tt>TEST11</tt> check the authentication state using Autokey public-key cryptography, as described in the <a href="/archives/4.1.2/authopt">Authentication Options</a> page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.</p>
-<p>Tests <tt>TEST1</tt> through <tt>TEST3</tt> check the packet timestamps from which the offset and delay are calculated. If any bits are set, the packet is discarded; otherwise, the packet header variables are saved. Tests <tt>TEST6</tt> through <tt>TEST8</tt> check the health of the server. If any bits are set, the packet is discarded; otherwise, the offset and delay relative to the server are calculated and saved. Test <tt>TEST9</tt> checks the health of the association itself. If any bits are set, the packet is discarded; otherwise, the saved variables are passed to the clock filter and mitigation algorithms.</p>
-<p>The <tt>flash</tt> bits for each test read in increasing order from the least significant bit are defined as follows.</p>
-<p>    <tt>TEST1</tt></p>
-<p>    Duplicate packet. The packet is at best a casual retransmission and at worst a malicious replay.</p>
-<p>    <tt>TEST2</tt></p>
-<p>    Bogus packet. The packet is not a reply to a message previously sent. This can happen when the NTP daemon is restarted and before somebody else notices.</p>
-<p>    <tt>TEST3</tt></p>
-<p>    Unsynchronized. One or more timestamp fields are invalid. This normally happens when the first packet from a peer is received.</p>
-<p>    <tt>TEST4</tt></p>
-<p>    Access is denied. See the <a href="/archives/4.1.2/accopt">Access Control Options</a> page.</p>
-<p>    <tt>TEST5</tt></p>
-<p>    Cryptographic authentication fails. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
-<p>    <tt>TEST6</tt></p>
-<p>    The server is unsynchronized. Wind up its clock first.</p>
-<p>    <tt>TEST7</tt></p>
-<p>    The server stratum is at the maximum than 15. It is probably unsynchronized and its clock needs to be wound up.</p>
-<p>    <tt>TEST8</tt></p>
-<p>    Either the root delay or dispersion is greater than one second, which is highly unlikely unless the peer is synchronized to Mars.</p>
-<p>    <tt>TEST9</tt></p>
-<p>    Either the peer delay or dispersion is greater than one second, which is highly unlikely unless the peer is on Mars.</p>
-<p>    <tt>TEST10</tt></p>
-<p>    The autokey protocol has detected an authentication failure. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
-<p>    <tt>TEST11</tt></p>
-<p>    The autokey protocol has not verified the server or peer is authentic and has valid public key credentials. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
+</dd>
+<dt><code><strong>mreadlist <em>assocID</em> <em>assocID</em></strong></code></dt>
+<dd><code><strong>mrl <em>assocID</em> <em>assocID</em></strong></code></dd>
+<dd>
+<p>Like the <code>readlist</code> command, except the query is done for each of a range of (nonzero) association IDs. This range is determined from the association list cached by the most recent <code>associations</code> command.</p>
+</dd>
+<dt><code><strong>mreadvar <em>assocID</em> <em>assocID</em> [ <em>variable_name</em> [ = <em>value</em>[ &hellip; ]</strong></code></dt>
+<dd><code><strong>mrv <em>assocID</em> <em>assocID</em> [ <em>variable_name</em> [ = <em>value</em>[ &hellip; ]</strong></code></dd>
+<dd>
+<p>Like the <code>readvar</code> command, except the query is done for each of a range of (nonzero) association IDs. This range is determined from the association list cached by the most recent <code>associations</code> command.</p>
+</dd>
+<dt><code><strong>opeers</strong></code></dt>
+<dd>
+<p>An old form of the <code>peers</code> command with the reference ID replaced by the local interface address.</p>
+</dd>
+<dt><code><strong>passociations</strong></code></dt>
+<dd>
+<p>Displays association data concerning in-spec peers from the internally cached list of associations. This command performs identically to the <code>associations</code> except that it displays the internally stored data rather than making a new query.</p>
+</dd>
+<dt><code><strong>peers</strong></code></dt>
+<dd>
+<p>Obtains a current list peers of the server, along with a summary of each peer&rsquo;s state. Summary information includes the address of the remote peer, the reference ID (<code>0.0.0.0</code> if this is unknown), the stratum of the remote peer, the type of the peer (local, unicast, multicast or broadcast), when the last packet was received, the polling interval, in seconds, the reachability register, in octal, and the current estimated delay, offset and dispersion of the peer, all in milliseconds.</p>
+</dd>
+</dl>
+<p>The character in the left margin indicates the fate of this peer in the clock selection process. Following is a list of these characters, the pigeon used in the <code>rv</code> command, and a short explanation of the condition revealed.</p>
+<dl>
+<dt><code>space reject</code></dt>
+<dd>
+<p>The peer is discarded as unreachable, synchronized to this server (synch loop) or outrageous synchronization distance.</p>
+</dd>
+<dt><code>x  falsetick</code></dt>
+<dd>
+<p>The peer is discarded by the intersection algorithm as a falseticker.</p>
+</dd>
+<dt><code>.  excess</code></dt>
+<dd>
+<p>The peer is discarded as not among the first ten peers sorted by synchronization distance and so is probably a poor candidate for further consideration.</p>
+</dd>
+<dt><code>-  outlyer</code></dt>
+<dd>
+<p>The peer is discarded by the clustering algorithm as an outlyer.</p>
+</dd>
+<dt><code>+  candidat</code></dt>
+<dd>
+<p>The peer is a survivor and a candidate for the combining algorithm.</p>
+</dd>
+<dt><code>#  selected</code></dt>
+<dd>
+<p>The peer is a survivor, but not among the first six peers sorted by synchronization distance. If the association is ephemeral, it may be demobilized to conserve resources.</p>
+</dd>
+<dt><code>*  sys.peer</code></dt>
+<dd>
+<p>The peer has been declared the system peer and lends its variables to the system variables.</p>
+</dd>
+<dt><code>o  pps.peer</code></dt>
+<dd>
+<p>The peer has been declared the system peer and lends its variables to thesystem variables. However, the actual system synchronization is derived from a pulse-per-second (PPS) signal, either indirectly via the PPS reference clock driver or directly via kernel interface.</p>
+</dd>
+</dl>
+<p>The <code>flash</code> variable is a valuable debugging aid. It displays the results of the original sanity checks defined in the NTP specification RFC-1305 and additional ones added in NTP Version 4. There are eleven tests called <code>TEST1</code> through <code>TEST11</code>. The tests are performed in a certain order designed to gain maximum diagnostic information while protecting against accidental or malicious errors. The <code>flash</code> variable is first initialized to zero. If after each set of tests one or more bits are set, the packet is discarded.</p>
+<p>Tests <code>TEST4</code> and <code>TEST5</code> check the access permissions and cryptographic message digest. If any bits are set after that, the packet is discarded. Tests <code>TEST10</code> and <code>TEST11</code> check the authentication state using Autokey public-key cryptography, as described in the <a href="/archives/4.1.2/authopt">Authentication Options</a> page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.</p>
+<p>Tests <code>TEST1</code> through <code>TEST3</code> check the packet timestamps from which the offset and delay are calculated. If any bits are set, the packet is discarded; otherwise, the packet header variables are saved. Tests <code>TEST6</code> through <code>TEST8</code> check the health of the server. If any bits are set, the packet is discarded; otherwise, the offset and delay relative to the server are calculated and saved. Test <code>TEST9</code> checks the health of the association itself. If any bits are set, the packet is discarded; otherwise, the saved variables are passed to the clock filter and mitigation algorithms.</p>
+<p>The <code>flash</code> bits for each test read in increasing order from the least significant bit are defined as follows.</p>
+<dl>
+<dt><code>TEST1</code></dt>
+<dd>
+<p>Duplicate packet. The packet is at best a casual retransmission and at worst a malicious replay.</p>
+</dd>
+<dt><code>TEST2</code></dt>
+<dd>
+<p>Bogus packet. The packet is not a reply to a message previously sent. This can happen when the NTP daemon is restarted and before somebody else notices.</p>
+</dd>
+<dt><code>TEST3</code></dt>
+<dd>
+<p>Unsynchronized. One or more timestamp fields are invalid. This normally happens when the first packet from a peer is received.</p>
+</dd>
+<dt><code>TEST4</code></dt>
+<dd>
+<p>Access is denied. See the <a href="/archives/4.1.2/accopt">Access Control Options</a> page.</p>
+</dd>
+<dt><code>TEST5</code></dt>
+<dd>
+<p>Cryptographic authentication fails. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
+</dd>
+<dt><code>TEST6</code></dt>
+<dd>
+<p>The server is unsynchronized. Wind up its clock first.</p>
+</dd>
+<dt><code>TEST7</code></dt>
+<dd>
+<p>The server stratum is at the maximum than 15. It is probably unsynchronized and its clock needs to be wound up.</p>
+</dd>
+<dt><code>TEST8</code></dt>
+<dd>
+<p>Either the root delay or dispersion is greater than one second, which is highly unlikely unless the peer is synchronized to Mars.</p>
+</dd>
+<dt><code>TEST9</code></dt>
+<dd>
+<p>Either the peer delay or dispersion is greater than one second, which is highly unlikely unless the peer is on Mars.</p>
+</dd>
+<dt><code>TEST10</code></dt>
+<dd>
+<p>The autokey protocol has detected an authentication failure. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
+</dd>
+<dt><code>TEST11</code></dt>
+<dd>
+<p>The autokey protocol has not verified the server or peer is authentic and has valid public key credentials. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
+</dd>
+</dl>
 <p>Additional system variables used by the NTP Version 4 Autokey support include the following:</p>
-<p>    <tt>certificate <em>filestamp</em></tt></p>
-<p>    Shows the NTP seconds when the certificate file was created.</p>
-<p>    <tt>hostname <em>host</em></tt></p>
-<p>    Shows the name of the host as returned by the Unix <tt>gethostname()</tt> library function.</p>
-<p>    <tt>flags <em>hex</em></tt></p>
-<p>    Shows the current flag bits, where the <tt><em>hex</em></tt> bits are interpreted as follows:</p>
-<p>    <tt>0x01</tt></p>
-<p>    autokey enabled</p>
-<p>    <tt>0x02</tt></p>
-<p>    RSA public/private key files present</p>
-<p>    <tt>0x04</tt></p>
-<p>    PKI certificate file present</p>
-<p>    <tt>0x08</tt></p>
-<p>    Diffie-Hellman parameters file present</p>
-<p>    <tt>0x10</tt></p>
-<p>    NIST leapseconds table file present</p>
-<p>    <tt>leapseconds <em>filestamp</em></tt></p>
-<p>    Shows the NTP seconds when the NIST leapseconds table file was created.</p>
-<p>    <tt>params <em>filestamp</em></tt></p>
-<p>    Shows the NTP seconds when the Diffie-Hellman agreement parameter file was created.</p>
-<p>    <tt>publickey <em>filestamp</em></tt></p>
-<p>    Shows the NTP seconds when the RSA public/private key files were created.</p>
-<p>    <tt>refresh <em>timestamp</em></tt></p>
-<p>    Shows the NTP seconds when the public cryptographic values were refreshed and signed.</p>
-<p>    <tt>tai <em>offset</em></tt></p>
-<p>    Shows the TAI-UTC offset in seconds obtained from the NIST leapseconds table.</p>
+<dl>
+<dt><code><strong>certificate <em>filestamp</em></strong></code></dt>
+<dd>
+<p>Shows the NTP seconds when the certificate file was created.</p>
+</dd>
+<dt><code><strong>hostname <em>host</em></strong></code></dt>
+<dd>
+<p>Shows the name of the host as returned by the Unix <code>gethostname()</code> library function.</p>
+</dd>
+<dt><code><strong>flags <em>hex</em></strong></code></dt>
+<dd>
+<p>Shows the current flag bits, where the <code><em>hex</em></code> bits are interpreted as follows:</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x01</code></td>
+<td>autokey enabled</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>RSA public/private key files present</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>PKI certificate file present</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>Diffie-Hellman parameters file present</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>NIST leapseconds table file present</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt><code><strong>leapseconds <em>filestamp</em></strong></code></dt>
+<dd>
+<p>Shows the NTP seconds when the NIST leapseconds table file was created.</p>
+</dd>
+<dt><code><strong>params <em>filestamp</em></strong></code></dt>
+<dd>
+<p>Shows the NTP seconds when the Diffie-Hellman agreement parameter file was created.</p>
+</dd>
+<dt><code><strong>publickey <em>filestamp</em></strong></code></dt>
+<dd>
+<p>Shows the NTP seconds when the RSA public/private key files were created.</p>
+</dd>
+<dt><code><strong>refresh <em>timestamp</em></strong></code></dt>
+<dd>
+<p>Shows the NTP seconds when the public cryptographic values were refreshed and signed.</p>
+</dd>
+<dt><code><strong>tai <em>offset</em></strong></code></dt>
+<dd>
+<p>Shows the TAI-UTC offset in seconds obtained from the NIST leapseconds table.</p>
+</dd>
+</dl>
 <p>Additional peer variables used by the NTP Version 4 Autokey support include the following:</p>
-<p>    <tt>certificate <em>filestamp</em></tt></p>
-<p>    Shows the NTP seconds when the certificate file was created.</p>
-<p>    <tt>flags <em>hex</em></tt></p>
-<p>    Shows the current flag bits, where the <em>hex</em> bits are interpreted as in the system variable of the same name. The bits are set in the first autokey message received from the server and then reset as the associated data are obtained from the server and stored.</p>
-<p>    <tt>hcookie <em>hex</em></tt></p>
-<p>    Shows the host cookie used in the key agreement algorithm.</p>
-<p>    <tt>initkey <em>key</em></tt></p>
-<p>    Shows the initial key used by the key list generator in the autokey protocol.</p>
-<p>    <tt>initsequence <em>index</em></tt></p>
-<p>    Shows the initial index used by the key list generator in the autokey protocol.</p>
-<p>    <tt>pcookie <em>hex</em></tt></p>
-<p>    Specifies the peer cookie used in the key agreement algorithm.</p>
-<p>    <tt>timestamp <em>time</em></tt></p>
-<p>    Shows the NTP seconds when the last autokey key list was generated and signed.</p>
-<dt><tt>pstatus _assocID_</tt></dt>
+<dl>
+<dt><code><strong>certificate <em>filestamp</em></strong></code></dt>
+<dd>
+<p>Shows the NTP seconds when the certificate file was created.</p>
+</dd>
+<dt><code><strong>flags <em>hex</em></strong></code></dt>
+<dd>
+<p>Shows the current flag bits, where the <code><em>hex</em></code> bits are interpreted as in the system variable of the same name. The bits are set in the first autokey message received from the server and then reset as the associated data are obtained from the server and stored.</p>
+</dd>
+<dt><code>hcookie <em>hex</em></code></dt>
+<dd>
+<p>Shows the host cookie used in the key agreement algorithm.</p>
+</dd>
+<dt><code>initkey <em>key</em></code></dt>
+<dd>
+<p>Shows the initial key used by the key list generator in the autokey protocol.</p>
+</dd>
+<dt><code>initsequence <em>index</em></code></dt>
+<dd>
+<p>Shows the initial index used by the key list generator in the autokey protocol.</p>
+</dd>
+<dt><code>pcookie <em>hex</em></code></dt>
+<dd>
+<p>Specifies the peer cookie used in the key agreement algorithm.</p>
+</dd>
+<dt><code>timestamp <em>time</em></code></dt>
+<dd>
+<p>Shows the NTP seconds when the last autokey key list was generated and signed.</p>
+</dd>
+<dt><code><strong>pstatus <em>assocID</em></strong></code></dt>
+<dd>
 <p>Sends a read status request to the server for the given association. The names and values of the peer variables returned will be printed. Note that the status word from the header is displayed preceding the variables, both in hexadecimal and in pidgeon English.</p>
-<dt><tt>readlist [ _assocID_ ]</tt>  
-<tt>rl [ _assocID_ ]</tt></dt>
+</dd>
+<dt><code><strong>readlist [ <em>assocID</em> ]</strong></code></dt>
+<dd><code><strong>rl [ <em>assocID</em> ]</strong></code></dd>
+<dd>
 <p>Requests that the values of the variables in the internal variable list be returned by the server. If the association ID is omitted or is 0 the variables are assumed to be system variables. Otherwise they are treated as peer variables. If the internal variable list is empty a request is sent without data, which should induce the remote server to return a default display.</p>
-<dt><tt>readvar _assocID_ _variable_name_ [ = _value_ ] [ ...]</tt>  
-<tt>rv _assocID_ [ _variable_name_ [ = _value_ ] [...]</tt></dt>
+</dd>
+<dt><code><strong>readvar <em>assocID</em> <em>variable_name</em> [ = <em>value</em> ] [ &hellip;]</strong></code></dt>
+<dd><code><strong>rv <em>assocID</em> [ <em>variable_name</em> [ = <em>value</em> ] [&hellip;]</strong></code></dd>
+<dd>
 <p>Requests that the values of the specified variables be returned by the server by sending a read variables request. If the association ID is omitted or is given as zero the variables are system variables, otherwise they are peer variables and the values returned will be those of the corresponding peer. Omitting the variable list will send a request with no data which should induce the server to return a default display.</p>
-<dt><tt>writevar _assocID_ _variable_name_ [ = _value_ [ ...]</tt></dt>
-<p>Like the readvar request, except the specified variables are written instead of read.</p>
-<dt><tt>writelist [ _assocID_ ]</tt></dt>
-<p>Like the readlist request, except the internal list variables are written instead of read.</p>
+</dd>
+<dt><code><strong>writevar <em>assocID</em> <em>variable_name</em> [ = <em>value</em> [ &hellip;]</strong></code></dt>
+<dd>
+<p>Like the <code>readvar</code> request, except the specified variables are written instead of read.</p>
+</dd>
+<dt><code><strong>writelist [ <em>assocID</em> ]</strong></code></dt>
+<dd>
+<p>Like the <code>readlist</code> request, except the internal list variables are written instead of read.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="bugs">Bugs</h4>
 <p>The peers command is non-atomic and may occasionally result in spurious error messages about invalid associations occurring and terminating the command. The timeout time is a fixed constant, which means you wait a long time for timeouts since it assumes sort of a worst case. The program should improve the timeout estimate as it sends queries to a particular host, but doesn&rsquo;t.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -440,20 +578,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

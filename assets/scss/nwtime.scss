@@ -201,6 +201,14 @@ sup > a {
 	color: #1a79c0;
 }
 
+a.footnote-ref::before {
+    content: '[';
+}
+
+a.footnote-ref::after {
+    content: ']';
+}
+
 a {
 	color: #1a79c0;
 	text-decoration: underline;
@@ -422,7 +430,10 @@ thead {
 // Code formatting.
 
 code {
- color: #6c757d !important;
+   color: #404040 !important;
+   font-family: monospace;
+   font-size: 16px;
+   font-weight: 400;
 }
 
 .td-content {
@@ -592,28 +603,34 @@ input:focus[type="submit"],
 
 /*----------  Search  ----------*/
 
-.td-search-input {
-    background: transparent;
-    max-width: 90%;
-    &.form-control:focus {
-        border-color: lighten($primary-color, 60%);
-        box-shadow: 0 0 0 2px lighten($primary-color, 30%);
-    }
-    font-family: $font-family-sans-serif;
+table.gsc-search-box {
+    border-spacing: 0 0  !important;
+} 
+
+.gsc-input-box  {
+    border: none !important;
+    margin: 0 !important;
+    height: 35px;
+ }
+ 
+.gsc-search-box-tools .gsc-search-box .gsc-input .gsc-input-box, .gsc-search-box-tools .gsc-search-box .gsc-input .gsc-input-box-focus {
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 1;
+    border: 2x solid #dadada;
+    padding: 0;
+    margin: 0;
 }
 
-.popover.offline-search-result {
-    // Override bootstrap default style (max-width: $popover-max-width;)
-    max-width: 90%;
-
-    .card {
-        margin-bottom: $spacer * .5;
-
-        .card-header {
-            font-weight: bold;
-        }
-    }
+.gsc-input-box input[type="text"], .gsc-input-box input[type="text"]:focus, .gsc-input-box input[type="text"]:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+    line-height: normal;
 }
+
 
 
 /*=====================================
@@ -635,21 +652,6 @@ input:focus[type="submit"],
 
 .screen-reader-text:focus,
 .screen-reader-shortcut:focus,
-.genesis-nav-menu .search input[type="submit"]:focus,
-.widget_search input[type="submit"]:focus  {
-	clip: auto !important;
-	height: auto;
-	width: auto;
-	display: block;
-	font-size: 1em;
-	font-weight: bold;
-	padding: 15px 23px 14px;
-	color: #333;
-	background: #fff;
-	z-index: 133300; /* Above WP toolbar. */
-	text-decoration: none;
-	box-shadow: 0 0 5px 0 rgba(0,0,0,.7);
-}
 
 .more-link {
     position: relative;
@@ -1507,10 +1509,6 @@ li.comment {
 	.site-header .widget-area,
 	.site-title*/ {
 		text-align: center;
-	}
-
-	.site-header .search-form {
-		margin: 16px auto;
 	}
 
 	.nav-primary {

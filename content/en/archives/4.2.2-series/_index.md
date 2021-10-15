@@ -51,7 +51,7 @@ While public key cryptography is optional but highly recommended for all NTP ope
 
 NTP is by its very nature a complex distributed network application and can be configured and used for a great many widely divergent timekeeping scenarios. The documentation presented on these pages attempts to cover the entire suite of configuration, operation and maintenance facilities which this distribution supports. However, most applications will need only a few of these facilities. If this is the case, the [Quick Start](/archives/4.2.2-series/quick) page may be useful to get a simple workstation on the air with an existing server.
 
-However, in order to participate in the existing NTP synchronization subnet and obtain accurate, reliable time, it is usually necessary to construct an appropriate configuration file, commonly called <tt>ntp.conf</tt>, which establishes the servers and/or external receivers or modems to be used by this particular machine. Directions for constructing this file are in the [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/4.2.2-series/notes) page. However, in many common cases involving simple network topologies and workstations, the configuration data can be specified entirely on the command line for the [<tt>ntpd</tt> - Network Time Protocol (NTP) daemon](/archives/4.2.2-series/ntpd).
+However, in order to participate in the existing NTP synchronization subnet and obtain accurate, reliable time, it is usually necessary to construct an appropriate configuration file, commonly called <code>ntp.conf</code>, which establishes the servers and/or external receivers or modems to be used by this particular machine. Directions for constructing this file are in the [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/4.2.2-series/notes) page. However, in many common cases involving simple network topologies and workstations, the configuration data can be specified entirely on the command line for the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.2.2-series/ntpd).
 
 The most important factor in providing accurate, reliable time is the selection of modes and servers to be used in the configuration file. A discussion on the available modes is on the [Association Management](/archives/4.2.2-series/assoc) page. NTP support for one or more computers is normally engineered as part of the existing public NTP synchronization subnet. The public subnet consists of a multiply redundant hierarchy of servers and clients, with each level in the hierarchy identified by stratum number. Primary servers operate at stratum one and provide synchronization to secondary servers operating at stratum two and so on to higher strata. In this hierarchy, clients are simply servers that have no dependents.
 
@@ -63,7 +63,7 @@ The NTP subnet in early 2003 includes well over a hundred public primary (stratu
 
 #### Resolving Problems
 
-Like other things Internet, the NTP synchronization subnets tend to be large and devilishly intricate, with many opportunities for misconfiguration and network problems. The NTP engineering model is specifically designed to help isolate and repair such problems using an integrated management protocol, together with a suite of monitoring and debugging tools. There is an optional statistics data recording facility which can be used to record normal and aberrant operation, log problems to the system log facility, and retain records of client access. The [NTP Debugging Techniques](/archives/4.2.2-series/debug) and [Hints and Kinks](/archives/4.2.2-series/hints) pages contain useful information for identifying problems and devising solutions. In extreme cases, problems can be detected through the use of the [<tt>ntpdsim</tt> - Network Time Protocol (NTP) simulator](/archives/4.2.2-series/ntpdsim) included in this software distribution.
+Like other things Internet, the NTP synchronization subnets tend to be large and devilishly intricate, with many opportunities for misconfiguration and network problems. The NTP engineering model is specifically designed to help isolate and repair such problems using an integrated management protocol, together with a suite of monitoring and debugging tools. There is an optional statistics data recording facility which can be used to record normal and aberrant operation, log problems to the system log facility, and retain records of client access. The [NTP Debugging Techniques](/archives/4.2.2-series/debug) and [Hints and Kinks](/archives/4.2.2-series/hints) pages contain useful information for identifying problems and devising solutions. In extreme cases, problems can be detected through the use of the [<code>ntpdsim</code> - Network Time Protocol (NTP) simulator](/archives/4.2.2-series/ntpdsim) included in this software distribution.
 
 Users are requested to report bugs, offer suggestions and contribute additions to this distribution. The [Patching Procedures](/archives/4.2.2-series/patches) page suggests procedures which greatly simplify distribution updates, while the [Porting Hints](/archives/4.2.2-series/porting) page suggest ways to make porting this code to new hardware and operating systems easier. Additional information on reference clock driver construction and debugging can be found in the [Debugging Hints for Reference Clock Drivers](/archives/4.2.2-series/rdebug) page.
 
@@ -71,15 +71,15 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 
 #### Program Manual Pages
 
-*   [<tt>ntpd</tt> - Network Time Protocol (NTP) daemon](/archives/4.2.2-series/ntpd)
-*   [<tt>ntpq</tt> - standard NTP query program](/archives/4.2.2-series/ntpq)
-*   [<tt>ntpdc</tt> - special NTP query program](/archives/4.2.2-series/ntpdc)
-*   [<tt>ntpdate</tt> - set the date and time via NTP](/archives/4.2.2-series/ntpdate)
-*   [<tt>ntptrace</tt> - trace a chain of NTP servers back to the primary source](/archives/4.2.2-series/ntptrace)
-*   [<tt>tickadj</tt> - set time-related kernel variables](/archives/4.2.2-series/tickadj)
-*   [<tt>ntptime</tt> - read kernel time variables](/archives/4.2.2-series/ntptime)
-*   [<tt>ntp-keygen</tt> - generate public and private keys](/archives/4.2.2-series/keygen)
-*   [<tt>ntpdsim</tt> - Network Time Protocol (NTP) simulator](/archives/4.2.2-series/ntpdsim)
+*   [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.2.2-series/ntpd)
+*   [<code>ntpq</code> - standard NTP query program](/archives/4.2.2-series/ntpq)
+*   [<code>ntpdc</code> - special NTP query program](/archives/4.2.2-series/ntpdc)
+*   [<code>ntpdate</code> - set the date and time via NTP](/archives/4.2.2-series/ntpdate)
+*   [<code>ntptrace</code> - trace a chain of NTP servers back to the primary source](/archives/4.2.2-series/ntptrace)
+*   [<code>tickadj</code> - set time-related kernel variables](/archives/4.2.2-series/tickadj)
+*   [<code>ntptime</code> - read kernel time variables](/archives/4.2.2-series/ntptime)
+*   [<code>ntp-keygen</code> - generate public and private keys](/archives/4.2.2-series/keygen)
+*   [<code>ntpdsim</code> - Network Time Protocol (NTP) simulator](/archives/4.2.2-series/ntpdsim)
 
 * * *
 
@@ -93,7 +93,7 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 *   [Reference Clock Drivers](/archives/4.2.2-series/refclock)
 *   [NTP Debugging Techniques](/archives/4.2.2-series/debug)
 *   [Debugging Reference Clock Drivers](/archives/4.2.2-series/rdebug)
-*   [<tt>ntpd</tt> System Log Messages](/archives/4.2.2-series/msyslog)
+*   [<code>ntpd</code> System Log Messages](/archives/4.2.2-series/msyslog)
 *   [Patching Procedures](/archives/4.2.2-series/patches)
 *   [Hints and Kinks](/archives/4.2.2-series/hints)
 *   [Porting Hints](/archives/4.2.2-series/porting)
@@ -112,7 +112,7 @@ Users are requested to report bugs, offer suggestions and contribute additions t
 
 #### Application Notes
 
-*   [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/4.2.2-series/prefer)
+*   [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.2.2-series/prefer)
 *   [Association Management](/archives/4.2.2-series/assoc)
 *   [Pulse-per-second (PPS) Signal Interfacing](/archives/4.2.2-series/pps)
 *   [Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation](/archives/4.2.2-series/measure)

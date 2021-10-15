@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Compilation
+Usual thing: rm -f Config.local ; make for vanilla and make refconf for reference clock (e. g. DCF77).
+
+Directory Contents
+
+hints/PARSE …">
+<meta property="og:title" content="parse" />
+<meta property="og:description" content="Compilation Usual thing: rm -f Config.local ; make for vanilla and make refconf for reference clock (e. g. DCF77).
+ Directory Contents  hints/PARSE This file. xntpd/refclock_parse.c Reference clock support for DCF77/GPS in xntp. parse/parse.c Reference clock data parser framework. parse/parse_conf.c Parser configuration (clock types). parse/clk_meinberg.c Meinberg clock formats (DCF U/A 31, PZF 535, GPS166). parse/clk_schmid.c Schmid receiver (DCF77). parse/clk_rawdcf.c 100/200ms pulses via 50 Baud line (DCF77). parse/clk_dcf7000.c ELV DCF7000 (DCF77)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/hints/parse/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>parse</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +53,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +69,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +79,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +98,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +150,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/hints/">Hints</a>
+	<a href="https://doc.ntp.org/archives/hints/">Hints</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/hints/parse/">parse</a>
+	<a href="https://doc.ntp.org/archives/hints/parse/">parse</a>
 </li>
 
 	</ol>
@@ -151,176 +175,85 @@
   <div class="container">
   	<h1>parse</h1>
      
-    <pre>Compilation:
-	Usual thing: rm -f Config.local ; make for vanilla
-			make refconf for reference clock (e. g. DCF77)
-
-Directory contents:
-
-	hints/PARSE	- this file
-
-	xntpd/refclock_parse.c
-			- reference clock support for DCF77/GPS in xntp
-	parse/parse.c
-			- Reference clock data parser framework
-	parse/parse_conf.c
-			- parser configuration (clock types)
-	parse/clk_meinberg.c
-			- Meinberg clock formats (DCF U/A 31, PZF 535, GPS166)
-	parse/clk_schmid.c
-			- Schmid receiver (DCF77)
-	parse/clk_rawdcf.c
-			- 100/200ms pulses via 50 Baud line (DCF77)
-	parse/clk_dcf7000.c
-			- ELV DCF7000 (DCF77)
-	parse/clk_trimble.c
-			- Trimble SV6 GPS receiver
-
-			  If you want to add new clock types please check
-			  with kardel@informatik.uni-erlangen.de. These files
-			  implement the conversion of RS232 data streams into
-			  timing information used by refclock_parse.c which is
-			  mostly generic except for NTP configuration constants.
-
-	parse/Makefile.kernel
-			- *SIMPLE* makefile to build a loadable STREAMS
-			  module for SunOS 4.x / SunOS 5.x systems
-
-	parse/parsestreams.c
-			- SUN Streams module (loadable) for radio clocks
-			  This streams module is designed for SunOS 4.1.X.
-
-	parse/parsesolaris.c
-			- SUN Streams module (loadable) for radio clocks.
-			  This streams module is designed for SunOS 5.x
-			  Beware this is still new - so it might crash
-			  your machine (we have seen it working, though).
-
-	parse/parsetest.c
-			- simple test program for STREAMS module. Its so simple,
-			  that it doesn't even set TTY-modes, thus they got to
-			  be correct on startup - works for Meinberg receivers
-
-	parse/testdcf.c
-			- test program for raw DCF77 (100/200ms pulses)
-			  receivers
-
-        include/parse.h - interface to "parse" module and more
-        include/parse_conf.h
-			- interface to "parse" configuration
-
-	include/sys/parsestreams.h
-			- STREAMS specific definitions
-
-	scripts/support
-			- scripts (perl & sh) for statistics and rc startup
-			  the startup scripts are used in Erlangen for
-			  starting the daemon on a variety of Suns and HPs
-			  and for Reference Clock startup on Suns
-			  These scripts may or may not be helpful to you.
-
-Supported clocks:
-	Meinberg DCF U/A 31
-	Meinberg PZF535/TCXO	(Software revision PZFUERL 4.6)
-	Meinberg PZF535/OCXO	(Software revision PZFUERL 4.6)
-	Meinberg GPS166		(Software version for Uni-Erlangen)
-	ELV DCF7000		(not recommended - casual/emergency use only)
-	Conrad DCF77 receiver	(email: time@informatik.uni-erlangen.de)
-	  + level converter
-	TimeBrick		(email: time@informatik.uni-erlangen.de)
-	Schmid Receiver Kit
-	Trimble SV6 GPS receiver
-
-Addresses:
-  Meinberg Funkuhren
-  Auf der Landwehr 22
-  31812 Bad Pyrmont
-  Germany
-  Tel.: 05281/20 18
-  FAX:  05281/60 81 80
-
-  ELV Kundenservice
-  Postfach 1000
-  26787 Leer
-  Germany
-  Tel.: 0491/60 08 88
-
-  Walter Schmidt
-  Eichwisrain 14
-  8634 Hombrechtikon
-  Switzerland
-
-If you have problems mail to:
-
-	time@informatik.uni-erlangen.de
-
-We'll help (conditions permitting)
-
-</pre>
+    <h4 id="compilation">Compilation</h4>
+<p>Usual thing: <code>rm -f Config.local ; make</code> for vanilla and <code>make refconf</code> for reference clock (e. g. DCF77).</p>
+<hr>
+<h4 id="directory-contents">Directory Contents</h4>
+<dl>
+<dt><code><strong>hints/PARSE</strong></code></dt>
+<dd>This file.</dd>
+<dt><code><strong>xntpd/refclock_parse.c</strong></code></dt>
+<dd>Reference clock support for DCF77/GPS in <code>xntp</code>.</dd>
+<dt><code><strong>parse/parse.c</strong></code></dt>
+<dd>Reference clock data parser framework.</dd>
+<dt><code><strong>parse/parse_conf.c</strong></code></dt>
+<dd>Parser configuration (clock types).</dd>
+<dt><code><strong>parse/clk_meinberg.c</strong></code></dt>
+<dd>Meinberg clock formats (DCF U/A 31, PZF 535, GPS166).</dd>
+<dt><code><strong>parse/clk_schmid.c</strong></code></dt>
+<dd>Schmid receiver (DCF77).</dd>
+<dt><code><strong>parse/clk_rawdcf.c</strong></code></dt>
+<dd>100/200ms pulses via 50 Baud line (DCF77).</dd>
+<dt><code><strong>parse/clk_dcf7000.c</strong></code></dt>
+<dd>ELV DCF7000 (DCF77).</dd>
+<dt><code><strong>parse/clk_trimble.c</strong></code></dt>
+<dd>Trimble SV6 GPS receiver. If you want to add new clock types please check with <a href="mailto:kardel@informatik.uni-erlangen.de">kardel@informatik.uni-erlangen.de</a>. These files implement the conversion of RS232 data streams into timing information used by <code>refclock_parse.c</code> which is mostly generic except for NTP configuration constants.</dd>
+<dt><code><strong>parse/Makefile.kernel</strong></code></dt>
+<dd><em>SIMPLE</em> makefile to build a loadable STREAMS module for SunOS 4.x / SunOS 5.x systems.</dd>
+<dt><code><strong>parse/parsestreams.c</strong></code></dt>
+<dd>SUN Streams module (loadable) for radio clocks. This streams module is designed for SunOS 4.1.X.</dd>
+<dt><code><strong>parse/parsesolaris.c</strong></code></dt>
+<dd>SUN Streams module (loadable) for radio clocks. This streams module is designed for SunOS 5.x. Beware this is still new - so it might crash your machine (we have seen it working, though).</dd>
+<dt><code><strong>parse/parsetest.c</strong></code></dt>
+<dd>Simple test program for STREAMS module. It&rsquo;s so simple, that it doesn&rsquo;t even set TTY-modes, thus they got to be correct on startup - works for Meinberg receivers.</dd>
+<dt><code><strong>parse/testdcf.c</strong></code></dt>
+<dd>Test program for raw DCF77 (100/200ms pulses) receivers.</dd>
+<dt><code><strong>include/parse.h</strong></code></dt>
+<dd>Interface to <code>parse</code> module and more.</dd>
+<dt><code><strong>include/parse_conf.h</strong></code></dt>
+<dd>Interface to <code>parse</code> configuration.</dd>
+<dt><code><strong>include/sys/parsestreams.h</strong></code></dt>
+<dd>STREAMS specific definitions.</dd>
+<dt><code><strong>scripts/support</strong></code></dt>
+<dd>Scripts (<code>perl</code> and <code>sh</code>) for statistics and <code>rc</code> startup. The startup scripts are used in Erlangen for
+starting the daemon on a variety of Suns and HPs and for Reference Clock startup on Suns. These scripts may or may not be helpful to you.</dd>
+</dl>
+<hr>
+<h4 id="supported-clocks">Supported Clocks</h4>
+<ul>
+<li>Meinberg DCF U/A 31</li>
+<li>Meinberg PZF535/TCXO	(Software revision PZFUERL 4.6)</li>
+<li>Meinberg PZF535/OCXO	(Software revision PZFUERL 4.6)</li>
+<li>Meinberg GPS166		(Software version for Uni-Erlangen)</li>
+<li>ELV DCF7000		(not recommended - casual/emergency use only)</li>
+<li>Conrad DCF77 receiver	(email: <a href="mailto:time@informatik.uni-erlangen.de">time@informatik.uni-erlangen.de</a>) + level converter</li>
+<li>TimeBrick		(email: <a href="mailto:time@informatik.uni-erlangen.de">time@informatik.uni-erlangen.de</a>)</li>
+<li>Schmid Receiver Kit</li>
+<li>Trimble SV6 GPS receiver</li>
+</ul>
+<hr>
+<h4 id="addresses">Addresses</h4>
+<dl>
+<dt>Meinberg Funkuhren</dt>
+<dd>Auf der Landwehr 22</dd>
+<dd>31812 Bad Pyrmont</dd>
+<dd>Germany</dd>
+<dd>Tel.: 05281/20 18</dd>
+<dd>FAX:  05281/60 81 80</dd>
+<dt>ELV Kundenservice</dt>
+<dd>Postfach 1000</dd>
+<dd>26787 Leer</dd>
+<dd>Germany</dd>
+<dd>Tel.: 0491/60 08 88</dd>
+<dt>Walter Schmidt</dt>
+<dd>Eichwisrain 14</dd>
+<dd>8634 Hombrechtikon</dd>
+<dd>Switzerland</dd>
+</dl>
+<p>If you have problems mail to: <a href="mailto:time@informatik.uni-erlangen.de">time@informatik.uni-erlangen.de</a> and we&rsquo;ll help (conditions permitting).</p>
+<p></pre></p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -356,20 +289,5 @@ We'll help (conditions permitting)
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

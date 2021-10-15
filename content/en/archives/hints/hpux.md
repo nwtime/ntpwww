@@ -3,115 +3,90 @@ title: "HPUX Hints"
 type: archives
 ---
 
-<pre>Last update: Sun Mar 13 15:05:31 PST 1994
+Last update: Sun Mar 13 15:05:31 PST 1994
 
-This file hopefully describes the whatever and however of how to get xntp
-running on hpux 7.0 and later: s300, s400, s700, and s800.  
+* * *
 
-First off,  all the standard disclaimers hold here ... HP doesn't have anthing
-to do with this stuff.  I fool with it in my spare time because we use it and
-because I like to.  We just happen to have a lot of HP machines around here :-)
-Xntpd has been in use here for several years and has a fair amount of mileage
-on various HP platforms within the company.  I can't really guarantee bug fixes
-but I'd certainly like to hear about bugs and I won't hestitate to look at
-any fixes sent to me.  
+This file hopefully describes the whatever and however of how to get `xntp` running on HP-UX 7.0 and later: s300, s400, s700, and s800.
 
-Now lets talk OS.  If you don't have 7.0 or later, pretty much hang it up now.
-This stuff has run here on pretty much everything from 8.0 upward on s300, 
-s700, and s800.  It is known to run on 7.0 s300/s400 but all reports are 
-from the field and not my personal experience.
+First off,  all the standard disclaimers hold here ... HP doesn't have anything to do with this stuff.  I fool with it in my spare time because we use it and because I like to.  We just happen to have a lot of HP machines around here :-) `xntpd` has been in use here for several years and has a fair amount of mileage on various HP platforms within the company.  I can't really guarantee bug fixes but I'd certainly like to hear about bugs and I won't hestitate to look at any fixes sent to me.
+
+Now lets talk OS.  If you don't have 7.0 or later, pretty much hang it up now. This stuff has run here on pretty much everything from 8.0 upward on s300, s700, and s800.  It is known to run on 7.0 s300/s400 but all reports are from the field and not my personal experience.
 
 If you are lucky enough to have a s300 or s400 with 9.03, then you no longer
-have to worry about adjtimed as HP-UX now has adjtime(2).  The rest of you
-will have to wait on 10.0 which will have adjtime(2) and a supported though
-a bit older version of xntpd.
+have to worry about `adjtimed` as HP-UX now has `adjtime(2)`.  The rest of you
+will have to wait on 10.0 which will have `adjtime(2)` and a supported though
+a bit older version of `xntpd`.
 
-Next, let me explain a bit about how this stuff works on HP-UX's that do not
-have adjtime(2).  The directory adjtime contains libadjtime.a and the adjtimed
-daemon.  Instead of the adjtime(2) system call, we use a library routine to
-talk to adjtimed thru message queues.  Adjtimed munges into /dev/kmem and
-causes the clock to skew properly as needed.  PLEASE NOTE that the adjtime
-code provided here is NOT a general replacement for adjtime(2) ... use of
-this adjtime(3)/adjtimed(8) other than with xntpd may yield very odd results.
+Next, let me explain a bit about how this stuff works on HP-UX's that do not have `adjtime(2)`.  The directory `adjtime` contains `libadjtime.a` and the `adjtimed` daemon.  Instead of the `adjtime(2)` system call, we use a library routine to talk to `adjtimed` thru message queues.  `adjtimed` munges into `/dev/kmem` and causes the clock to skew properly as needed.  PLEASE NOTE that the `adjtime` code provided here is NOT a general replacement for `adjtime(2)` ... use of this `adjtime(3)/adjtimed(8)` other than with `xntpd` may yield very odd results.
 
-What to do to get this stuff running ?
+What to do to get this stuff running? If you are running an OS less than 10.0 or do not have a s300/s400 with 9.03 or better:
 
-    * If you are running an OS less than 10.0 or do not have a s300/s400 
-      with 9.03 or better
-	-> cd machines
-	-> vi hpux
-	-> (change -DSYS_HPUX=? to match whatever you are running [7,8,9])
-	-> cd ..
+      cd machines
+	  vi hpux
+  (change `-DSYS_HPUX=?` to match whatever you are running [7,8,9])
 
-    * Say "make makeconfig"
+	  cd ..
+      make makeconfig
+      make 
+	  
+  Sit back for a few minutes.
 
-    * Say "make", sit back for a few minutes.
+      cd authstuff
+	  ./authcert < certdata
 
-    * cd authstuff
-	* Say "./authcert < certdata" and check the output.  Every line should
-	  end with "OK" ... if not, we got trouble.
-	* Now try "./authspeed auth.samplekeys".  What we want to 
-	  remember here is the "authentication delay in CPU time" 
-	* cd ..
+  Check the output.  Every line should end with "OK" ... if not, we got trouble.
+  
+	  ./authspeed auth.samplekeys  
+	  
+  What we want to remember here is the "authentication delay in CPU time".
+	
+	  cd ..
+      make install
 
-    * Say "make install"
+I'd suggest reading the `xntp` docs about now :-) ... seriously !!
 
-    * I'd suggest reading the xntp docs about now :-) ... seriously !!
+One thing I have added to this version of `xntpd` is a way to select config files if you are sharing `/usr/local` thru NFS or whatever. If the file `/usr/local/etc/xntp.conf` happens to be a directory, the  files in that directory are searched until a match is found. The rules for a match are:
+1. Our hostname
+2. <code>default.\<machine id></code> (as in `default.375` or `default.850`)
+3. default
 
-    * One thing I have added to this version of xntpd is a way to select 
-      config files if you are sharing /usr/local thru NFS or whatever.  
-      If the file /usr/local/etc/xntp.conf happens to be a directory, the 
-      files in that directory are searched until a match is found.  The 
-      rules for a match are:
+Ok, make sure `adjtimed` is running (just start it up for now with `/usr/local/etc/adjtimed`).  Using `-z` as an option will get you a usage message.
 
-	1. Our hostname
-	2. default.<machine id> (as in default.375 or default.850)
-	3. default
+Now start up `xntpd` and watch it work.
 
-    * Ok, make sure adjtimed is running (just start it up for now with
-      "/usr/local/etc/adjtimed").  Using -z as an option will get you 
-      a usage message.
+Make sure that `adjtimed` gets started at boot right before `xntpd`. We do this in `/etc/netbsdsrc`.  They must both run as root!
 
-    * Now start up xntpd and watch it work.
+Possible problems:
 
-    * Make sure that adjtimed gets started at boot right before xntpd.
-      We do this in /etc/netbsdsrc.  They must both run as root !!
+* On some 320's and 835's we have had to run `adjtimed` with `-p 45` or so to get rid of `syslog` messages about "last adjust did not finish".
 
-Possible problems ?
+* At 9.0, there is a problem with DIAGMON (patch available from the response center) which causes it to delete the message queue that `adjtimed/xntpd` use to communicate. (see next note for result)
 
-    * On some 320's and 835's we have had to run adjtimed with "-p 45" or
-      so to get rid of syslog messages about "last adjust did not finish".
-
-    * At 9.0, there is a problem with DIAGMON (patch available from the
-      response center) which causes it to delete the message queue that
-      adjtimed/xntpd use to communicate. (see next note for result)
-
-    * Xntpd has been known to get really ticked off when adjtime() fails
-      which is usually only while running the emulation code on HP-UX.
-      When it gets mad, it usually jumps the clock into never never land.
-      Possible reasons for this are adjtimed being killed or just never
-      started or adjtimed being completely swapped out on a really busy
-      machine (newer adjtimed try to lock themselves in memory to prevent
-      this one).
+* `xntpd` has been known to get really ticked off when `adjtime()` fails which is usually only while running the emulation code on HP-UX. When it gets mad, it usually jumps the clock into never never land.
+ Possible reasons for this are `adjtimed` being killed or just never started or `adjtimed` being completely swapped out on a really busy machine (newer `adjtimed` try to lock themselves in memory to prevent this one).
 
 Anything else ... just drop me a line at ken@sdd.hp.com
 
+* * *
+
+<pre>
 Received: from louie.udel.edu by huey.udel.edu id aa14418; 15 Jun 95 9:19 EDT
 Received: from host5.colby.edu (host-05.colby.edu) by host-04.colby.edu with ESMTP  (1.37.109.15/Colby 1.1)
 	id AA165442355; Thu, 15 Jun 1995 09:19:16 -0400
 Received: by host5.colby.edu  (1.37.109.15/Colby 1.1)
 	id AA056252339; Thu, 15 Jun 1995 09:18:59 -0400
 Date: Thu, 15 Jun 1995 09:18:59 -0400 (EDT)
-From: "Jeff A. Earickson" <jaearick@colby.edu>
+From: "Jeff A. Earickson" &lsaquo;jaearick@colby.edu&rsaquo;
 To: Mills@huey.udel.edu
 Subject: More minor bugs in xntp3.4s
-In-Reply-To: <9506150022.aa12727@huey.udel.edu>
-Message-Id: <Pine.HPP.3.91.950615083549.4557A-100000@host5.colby.edu>
+In-Reply-To: &lsaquo;9506150022.aa12727@huey.udel.edu&rsaquo;
+Message-Id: &lsaquo;Pine.HPP.3.91.950615083549.4557A-100000@host5.colby.edu&rsaquo;
 Mime-Version: 1.0
 Content-Type: TEXT/PLAIN; charset=US-ASCII
 
 Dave,
-   After reading the hpux hints file, I realized I didn't install or 
+   After reading the hpux hints file, I realized I didn't install or
 start adjtimed.  In the course of doing this, I discovered that:
 
 --> $(TOP) is not defined in adjtime/Makefile, so "make install" can't
@@ -155,10 +130,8 @@ Thanks for the help.
 On Thu, 15 Jun 1995 Mills@huey.udel.edu wrote:
 
 > Jeff,
-> 
+>
 > Read the hpux file in the hints directory.
-> 
+>
 > Dave
-> 
-
 </pre>

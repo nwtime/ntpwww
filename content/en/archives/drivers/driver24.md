@@ -13,11 +13,11 @@ type: archives
 
 #### Synopsis
 
-Address: <tt>127.127.24._u_</tt>  
-Reference ID: <tt>USNO</tt>  
-Driver ID: <tt>ACTS_USNO</tt>  
-Serial Port: <tt>/dev/cua_u_</tt>; 1200 baud, 8-bits, no parity  
-Requires: <tt>/usr/include/sys/termios.h</tt> header file with modem control
+**Address:** <code>127.127.24._u_</code>
+: **Reference ID:** `USNO`
+: **Driver ID:** `ACTS_USNO`
+: **Serial Port:** <code>/dev/cua*u*</code>; 1200 baud, 8-bits, no parity
+: **Requires:** `/usr/include/sys/termios.h` header file with modem control
 
 * * *
 
@@ -29,34 +29,34 @@ No information available.
 
 #### Fudge Factors
 
-<dt><tt>time1 _time_</tt></dt>
+<code>**time1 _time_**</code>
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dt><tt>time2 _time_</tt></dt>
+<code>**time2 _time_**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>stratum _number_</tt></dt>
+<code>**stratum _number_**</code>
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dt><tt>refid _string_</tt></dt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>USNO</tt>.
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default `USNO`.
 
-<dt><tt>flag1 0 | 1</tt></dt>
+<code>**flag1 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag2 0 | 1</tt></dt>
+<code>**flag2 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag3 0 | 1</tt></dt>
+<code>**flag3 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag4 0 | 1</tt></dt>
+<code>**flag4 0 | 1**</code>
 
-Enable <tt>clockstats</tt> recording if set.
+: Enable `clockstats` recording if set.

@@ -27,7 +27,7 @@ Last update 26-May-2012
 
 #### Abstract
 
-This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finit additive groups using twos complement arithmetics. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started.
+This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finite additive groups using two's complement arithmetic. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started.
 
 * * *
 
@@ -57,17 +57,17 @@ Datestamps span the age of the Universe with a precision less than the time ligh
 
 #### 3. Datestamps and Timestamps as Finite Groups
 
-In the remainder of this document, the decimal point in datestamps and timestamps formats is not significant and the numbers interpreted as 128-bit or 64-bit integers. Datestamps and timestamp are elements of additive groups consisting of integers and the operations of twos-complement arithmetic. There are only two operations in the NTP additive group, addition and complement, each modulo 2<sup>128</sup> for the datestamps group and 2<sup>64</sup> for the timestamp group, but otherwise the operations are the same. Datestamps are a signed data type, while timestamps are an unsigned data type.
+In the remainder of this document, the decimal point in datestamps and timestamps formats is not significant and the numbers are interpreted as 128-bit or 64-bit integers. Datestamps and timestamps are elements of additive groups consisting of integers and the operations of two's complement arithmetic. There are only two operations in the NTP additive group, addition and complement, each modulo 2<sup>128</sup> for the datestamps group and 2<sup>64</sup> for the timestamp group, but otherwise the operations are the same. Datestamps are a signed data type, while timestamps are an unsigned data type.
 
-Let _A_ and _B_ be elements of an additive group of integers modulo 2_<sup>n</sup>_ for some _n_. Addition is defined _A_ + _B_ = _B_ + _A_ mod 2_<sup>n</sup>_. The identity 0 is defined such that _A_ + 0 = 0 + _A_ = _A_ mod 2_<sup>n</sup>_. The complement (inverse) -_A_ is defined such that _A_ + (-_A_) = 0 mod 2_<sup>n</sup>_. To form the complement -_A_, first invert each bit of _A_, then add the constant 1 to the result. Equivalently, -_A_ = 2_<sup>n</sup>_ - _A_. Finally, the _offset_ of _B_ relative to _A_ is defined _A_ + (-_B_) mod 2_<sup>n</sup>_. This is the only allowable operation involving datestamp or timestamp operands and results in a signed data type.
+Let <code>_A_</code> and <code>_B_</code> be elements of an additive group of integers <code>modulo 2<sup>_n</sup>_</code> for some <code>_n_</code>. Addition is defined <code>_A_ + _B_ = _B_ + _A_ mod 2<sup>_n</sup>_</code>. The identity 0 is defined such that <code>_A_ + 0 = 0 + _A_ = _A_ mod 2<sup>_n</sup>_</code>. The complement (inverse) <code>-_A_</code> is defined such that <code>_A_ + (-_A_) = 0 mod 2<sup>_n</sup>_</code>. To form the complement <code>-_A_</code>, first invert each bit of <code>_A_</code>, then add the constant 1 to the result. Equivalently, <code>-_A_ = 2<sup>_n</sup>_ - _A_</code>. Finally, the _offset_ of <code>_B_</code> relative to <code>_A_</code> is defined <code>_A_ + (-_B_) mod 2<sup>_n</sup>_</code>. This is the only allowable operation involving datestamp or timestamp operands and results in a signed data type.
 
 * * *
 
 #### 4. Time Difference Calculations
 
-For the additive group of 2_<sup>n</sup>_ elements, the arithmetic logic unit (ALU) consists of a straight binary adder that does not distinguish the sign of the operands or result. However, in twos-complement notation, the sign is implicit in the most significant bit _S_. The ALU produces an _n_-bit result together with a carry bit _C_ representing the _n_+1th bit. For timestamp calculations, the _C_ bit is in effect the least significant bit of the era number of the datestamp, but most often it is implicit in the calculation of offset.
+For the additive group of <code>2<sup>_n</sup>_</code> elements, the arithmetic logic unit (ALU) consists of a straight binary adder that does not distinguish the sign of the operands or result. However, in two's complement notation, the sign is implicit in the most significant bit <code>_S_</code>. The ALU produces an <code>_n_</code>-bit result together with a carry bit <code>_C_</code> representing the <code>_n_+1</code>th bit. For timestamp calculations, the <code>_C_</code> bit is in effect the least significant bit of the era number of the datestamp, but most often it is implicit in the calculation of offset.
 
-The mathematics involved in additive group calculations can be illustrated with the following examples. Let _A_ and _B_ be unsigned integers modulo 2_<sup>n</sup>_, where _n_ = 4. The integers 0-7 with _S_ = 0 are positive, while the integers 8-15 with _S_ = 1 are negative. Let _A_ = 7 and _B_ = 5, then the offset _A_ + (-_B_) = 7 + (-5) = 7 + 11 = 2 mod 16. Reversing the operands, let _A_ = 5 and _B_ = 7, then _A_ + (-_B_) = 5 + (-7) = 5 + 9 = -2 mod 16. Note that, while the operands are unsigned type, the resulting offset is interpreted as signed type. This represents typical cases when the operands are in the same era. If, for example, _A_ is in the next era later than _B_, let _A_ = 2 and _B_ =14. Then, _A_ + (-_B_) = 2 + (-14) = 4 mod 16. Note that the modular operations can be performed before, during and after the calculation. Similar examples can be contrived for other values of _n_, _A_ and _B_, as long as the offset is less than 2_<sup>n</sup>_<sup>-1</sup>= 8 in these examples.
+The mathematics involved in additive group calculations can be illustrated with the following examples. Let <code>_A_</code> and <code>_B_</code> be unsigned integers <code>modulo 2<sup>_n</sup>_</code>, where<code> _n_ = 4</code>. The integers 0-7 with <code>_S_ = 0</code> are positive, while the integers 8-15 with <code>_S_ = 1</code> are negative. Let <code>_A_ = 7</code> and <code>_B_ = 5</code>, then the offset <code>_A_ + (-_B_) = 7 + (-5) = 7 + 11 = 2 mod 16</code>. Reversing the operands, let <code>_A_ = 5</code> and <code>_B_ = 7</code>, then <code>_A_ + (-_B_) = 5 + (-7) = 5 + 9 = -2 mod 16</code>. Note that, while the operands are unsigned type, the resulting offset is interpreted as signed type. This represents typical cases when the operands are in the same era. If, for example, <code>_A_</code> is in the next era later than <code>_B_</code>, let <code>_A_ = 2</code> and <code>_B_ =14</code>. Then,<code> _A_ + (-_B_) = 2 + (-14) = 4 mod 16</code>. Note that the modular operations can be performed before, during and after the calculation. Similar examples can be contrived for other values of <code>_n_, _A_,</code> and <code>_B_</code>, as long as the offset is less than <code>2<sup>_n</sup>_<sup>-1</sup>= 8</code> in these examples.
 
 Returning to the interpretation of timestamps as fixed-point numbers, note that the integer portion represents an era of 136 years. This suggests the following general rule.
 
@@ -83,13 +83,13 @@ Timestamp calculations are carefully constructed to avoid overflow while preserv
 
 All of the timestamp calculations discussed in this document involve differences between timestamps recorded at events such as the arrival or departure of an NTP packet. As described in previous sections of this document, the calculations apply whether or not the differences span none, one or more eras. The crucial distinction is whether the client clock is set within 68 years of the server clock before the protocol is started.
 
-As in the protocol specification, let _T_<sub>1</sub> be the client timestamp on the request packet, _T_<sub>2</sub> the server timestamp upon arrival, _T_<sub>3</sub> the server timestamp on departure of the reply packet and _T_<sub>4</sub> the client timestamp upon arrival. The NTP on-wire protocol calculates the clock offset
+As in the protocol specification, let <code>_T_<sub>1</sub></code> be the client timestamp on the request packet, <code>_T_<sub>2</sub></code> the server timestamp upon arrival, <code>_T_<sub>3</sub></code> the server timestamp on departure of the reply packet and <code>_T_<sub>4</sub></code> the client timestamp upon arrival. The NTP on-wire protocol calculates the clock offset
 
-`_offset_ = [(_T_<sub>2</sub> - _T_<sub>1</sub>) + (_T_<sub>3</sub> - _T_<sub>4</sub>)] / 2`
+<code>_offset_ = [(_T_<sub>2</sub> - _T_<sub>1</sub>) + (_T_<sub>3</sub> - _T_<sub>4</sub>)] / 2</code>
 
 and roundtrip delay
 
-`_delay_ = (_T_<sub>4</sub> - _T_<sub>1</sub>) - (_T_<sub>3</sub> - _T_<sub>2</sub>)`.
+<code>_delay_ = (_T_<sub>4</sub> - _T_<sub>1</sub>) - (_T_<sub>3</sub> - _T_<sub>2</sub>)</code>
 
 In both the offset and delay equations, the calculations require raw timestamp differences that span no more than 68 years in the future to 68 years in the past. The previous discussion in this document confirms these differences can be computed correctly regardless of whether they span between two eras, as long as the eras are adjacent.
 
@@ -97,6 +97,6 @@ The offset and delay calculations require sums and differences of these raw time
 
 In the NTPv4 reference implementation, all calculations involving offset and delay values use 64-bit floating double arithmetic, with the exception of raw timestamp subtraction, as mentioned above. The raw timestamp differences are then converted to 64-bit floating double format without loss of precision or chance of overflow in subsequent calculations.
 
-While this design benefits present and future NTP versions, it will not of course benefit previous versions that may be etched in hardware or firmware. Previous versions of the public NTP software, including NTP Version 3 (xntpd) will have the same problem, but these versions use integer arithmetic throughout and are much harder to update.
+While this design benefits present and future NTP versions, it will not of course benefit previous versions that may be etched in hardware or firmware. Previous versions of the public NTP software, including NTP Version 3 (`xntpd`) will have the same problem, but these versions use integer arithmetic throughout and are much harder to update.
 
 NTP Version 3 has in addition well known ambiguities due to 16-bit overflows in some cases and is not recommended for new systems. However, it is important to note that Simple Network Time Protocol (SNTP) clients that set the clock directly and do not include the offset and delay calculations described in this document do not have the overflow problem and can continue to be used without hazard, at least until 2036.

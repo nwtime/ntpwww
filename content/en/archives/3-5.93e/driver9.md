@@ -16,17 +16,17 @@ type: archives
 
 #### Synopsis
 
-Address: 127.127.9._u_  
-Reference ID: <tt>GPS</tt>  
-Driver ID: <tt>GPS_MX4200</tt>  
-Serial Port: <tt>/dev/gps_u_</tt>; 4800 baud, 8-bits, no parity  
-Features: <tt>ppsclock</tt> (required)
+**Address:** <code>127.127.9._u_</code> 
+: **Reference ID:** <code>GPS</code>
+: **Driver ID:** <code>GPS_MX4200</code>
+: **Serial Port:** <code>/dev/gps\__u_</code>; 4800 baud, 8-bits, no parity
+: **Features:** <code>ppsclock</code> (required)
 
 * * *
 
 #### Description
 
-This driver supports the Magnavox MX 4200 Navigation Receiver adapted to precision timing applications. It requires the <tt>ppsclock</tt> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps) page.
+This driver supports the Magnavox MX 4200 Navigation Receiver adapted to precision timing applications. It requires the <code>ppsclock</code> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps) page.
 
 This driver supports all compatible receivers such as the 6-channel MX 4200, MX 4200D, and the 12-channel MX 9212, MX 9012R, MX 9112. 
 
@@ -42,46 +42,46 @@ In mobile mode, the driver assumes the GPS antenna is mounted on a moving platfo
 
 #### Monitor Data
 
-The driver writes each timecode as received to the <tt>clockstats</tt> file. 
+The driver writes each timecode as received to the <code>clockstats</code> file. 
 
 * * *
 
 #### Fudge Factors
 
-<dt><tt>time1 _time_</tt></dt>
+<code>**time1 _time_**</code>
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dt><tt>time2 _time_</tt></dt>
+<code>**time2 _time_**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>stratum _number_</tt></dt>
+<code>**stratum _number_**</code>
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dt><tt>refid _string_</tt></dt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>GPS</tt>.
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default <code>GPS</code>.
 
-<dt><tt>flag1 0 | 1</tt></dt>
+<code>**flag1 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag2 0 | 1</tt></dt>
+<code>**flag2 0 | 1**</code>
 
-Assume GPS receiver is on a mobile platform if set.
+: Assume GPS receiver is on a mobile platform if set.
 
-<dt><tt>flag3 0 | 1</tt></dt>
+<code>**flag3 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag4 0 | 1</tt></dt>
+<code>**flag4 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
 * * *
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock) 
+[Reference Clock Drivers](/archives/3-5.93e/refclock)

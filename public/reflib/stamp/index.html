@@ -1,28 +1,54 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
+from Wizard of Oz, L. Frank Baum
+Ya gotta salute the principles.
+Last update 12-May-2012
+David L. Mills and Stuart Venters
+
+Table of Contents …">
+<meta property="og:title" content="Timestamp Capture Principles" />
+<meta property="og:description" content="from Wizard of Oz, L. Frank Baum
+Ya gotta salute the principles.
+Last update 12-May-2012
+David L. Mills and Stuart Venters
+ Table of Contents  Abstract 1. Introduction 2. Application Clock Interface 2.1 Structural Metrics 2.2. Application Clock Interface Algorithm 2.3. Entropy Mask Algorithm 3. Improving the System Clock 4. Requirements and Principles of Hardware Timestamping 5. Timestamp Transposition 6. Error Analysis 7. Reciprocity Errors 8. Hardware Timestamping 9. Driver Timestamping 10." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/reflib/stamp/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>Timestamp Capture Principles</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +57,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +73,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +83,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +102,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -123,14 +151,14 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/reflib/">Reference Library</a>
+	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/reflib/stamp/">Timestamp Capture Principles</a>
+	<a href="https://doc.ntp.org/reflib/stamp/">Timestamp Capture Principles</a>
 </li>
 
 	</ol>
@@ -176,7 +204,7 @@
 <p>One of the main strengths of NTP is that it has been, and will continue to be, implemented in a wide variety of scenarios with significantly different available resources and accuracy requirements. Furthermore, timekeeping is not an exact science. No implementation provides perfect time. As such, this white paper proposes a timestamp scheme which is not an implementation requirement, but rather a specification for a model in which specific schemes can interoperate without significant loss of accuracy.</p>
 <hr>
 <h4 id="2-application-clock-interface">2. Application Clock Interface</h4>
-<p>The system clock interface (SCI) is the only source of time used by the NTP process and dependent applications. In Unix operating systems the SCI provides two data types, <tt>timeval</tt> (<tt>gettimeofday()</tt>) and <em><tt>timespec</tt></em> (<tt>getclock()</tt>). Both data types represent the time in seconds past 0h, 1 January 1970. In <tt>timeval</tt> format the second is represented in microseconds, while in timespec format the second is represented in nanoseconds. In either format, the Unix time must be converted to an NTP data type before use by NTP application programs.</p>
+<p>The system clock interface (SCI) is the only source of time used by the NTP process and dependent applications. In Unix operating systems the SCI provides two data types, <code>timeval</code> (<code>gettimeofday()</code>) and<code><em>timespec</em></code> (<code>getclock()</code>). Both data types represent the time in seconds past 0h, 1 January 1970. In <code>timeval</code> format the second is represented in microseconds, while in <code>timespec</code> format the second is represented in nanoseconds. In either format, the Unix time must be converted to an NTP data type before use by NTP application programs.</p>
 <p>As described in the white paper <a href="/reflib/time">NTP Timestamp Calculations</a>, there are two NTP data types, <em>datestamp</em> and <em>timestamp</em>. Datestamps have 128 bits, including a 64-bit seconds field followed by a 64-bit fraction field. Timestamps have 64 bits, including a 32-bit seconds field followd by a 32-bit fraction field. The datestamp is relative to the base epoch, 0h, 1 January 1900. The timestamp data type is relative to the era number, as described in the white paper <a href="/reflib/y2k">The NTP Era and Era Numbering</a>. For the purposes of this section, either data type is acceptable.</p>
 <p>The NTP on-wire protocol reads the SCI on two occasions: when a packet arrives and when a packet departs. In either case the SCI is subject to operating system and hardware latencies. The operating system latency typically involves a context switch in order to map the kernel address space, as well as hardware latencies to either lock the system clock variable or read the clock registers.</p>
 <p>The SCI is not always directly usable by the NTP process and applications, and often must be augmented by a wrapper called the application clock interface (ACI). This interface provides additional functionality in order to conform to rules established by the computer science theory community and to provide additional resilience to hostile attacks. The interface conforms to the following rules.</p>
@@ -188,59 +216,63 @@
 <p>The ACI wrapper is most useful as a library routine linked with the NTP process and with applications dependent on NTP synchronization. The ACI algorithms and data structures are described in following sections.</p>
 <hr>
 <h4 id="21-structural-metrics">2.1 Structural Metrics</h4>
-<p>There are three important metrics in the ACI. The <em>precision</em> ρ is the time taken to read the system clock by an application program, typically in the hundreds of nanoseconds in modern processors and operating systems. The <em>resolution</em> ζ is the minimum increment that can be distinguished in successive clock readings, typically from a few nanoseconds to tens of milliseconds in differnent operating systems and supporting hardware. The <em>entropy</em> π is the number of significant bits returned in a SCI call. This number depends on the resolution of the hardware clock and the Unix clock data type. For a <tt>timeval</tt> data type with microsecond resolution, this number is 20 bits; for a <tt>timespec</tt> data type with nanosecond resolution, this number is 29 bits.</p>
-<p>The metrics can be measured when the NTP process begins and before regular operation. It is important to observe that the measurement technique makes no a-priori assumptions about the machine harware or operating system. The technique is to read the SCI in a continuous loop and record the number of completions in a measurement interval in the order of one second. The ρ metric is the measurement interval divided by the number of SCI completions during the interval. The ζ metric is the measurement interval divided by the number of SCI changes during the interval. For interpolated SCI using the TSC in Intel systems or the PCC in Alpha systems, the ζ is equal to ρ; for non-interpolated SCI, ζ is the interval between ticks of the system clock, which can be up to tens of milliseconds. Measurement of the π metric requires a special algorithm, as described below.</p>
+<p>There are three important metrics in the ACI. The <em>precision</em> <code>ρ</code> is the time taken to read the system clock by an application program, typically in the hundreds of nanoseconds in modern processors and operating systems. The <em>resolution</em> <code>ζ</code> is the minimum increment that can be distinguished in successive clock readings, typically from a few nanoseconds to tens of milliseconds in different operating systems and supporting hardware. The <em>entropy</em> <code>π</code> is the number of significant bits returned in a SCI call. This number depends on the resolution of the hardware clock and the Unix clock data type. For a <code>timeval</code> data type with microsecond resolution, this number is 20 bits; for a <code>timespec</code> data type with nanosecond resolution, this number is 29 bits.</p>
+<p>The metrics can be measured when the NTP process begins and before regular operation. It is important to observe that the measurement technique makes no a-priori assumptions about the machine hardware or operating system. The technique is to read the SCI in a continuous loop and record the number of completions in a measurement interval in the order of one second. The <code>ρ</code> metric is the measurement interval divided by the number of SCI completions during the interval. The <code>ζ</code> metric is the measurement interval divided by the number of SCI changes during the interval. For interpolated SCI using the TSC in Intel systems or the PCC in Alpha systems, the <code>ζ</code> is equal to <code>ρ</code>; for non-interpolated SCI, <code>ζ</code> is the interval between ticks of the system clock, which can be up to tens of milliseconds. Measurement of the <code>π</code> metric requires a special algorithm, as described below.</p>
 <hr>
 <h4 id="22-application-clock-interface-algorithm">2.2. Application Clock Interface Algorithm</h4>
 <p>An algorithm to read the system clock consistent with the above rules is as follows. The algorithm assumes the SCI returns monotone values, but not necessarily monotone-definite. Thus, successive calls on the SCI might return the same values.</p>
-<p>Let the persistent variable <em>u</em> represent the last value returned by the SCI and <em>v</em> represent the last value returned by the ACI algorithm. The algorithm works as follows.</p>
-<blockquote>
-<p>If the value returned by the SCI is different than <em>u</em>, replace <em>u</em> and <em>v</em> by this value and return <em>v</em> as the algorithm result.</p>
-<p>If the value returned by the SCI is the same as <em>u</em>, set <em>v</em> = <em>v</em> + ρ and return <em>v</em> as the algorithm result.</p>
-</blockquote>
+<p>Let the persistent variable <code><em>u</em></code> represent the last value returned by the SCI and <code><em>v</em></code> represent the last value returned by the ACI algorithm. The algorithm works as follows.</p>
+<ul>
+<li>
+<p>If the value returned by the SCI is different than <code><em>u</em></code>, replace <code><em>u</em></code> and <code><em>v</em></code> by this value and return <code><em>v</em></code> as the algorithm result.</p>
+</li>
+<li>
+<p>If the value returned by the SCI is the same as <code><em>u</em></code>, set <code><em>v</em> = <em>v</em> + ρ</code> and return <code><em>v</em></code> as the algorithm result.</p>
+</li>
+</ul>
 <p>Clearly, the algorithm result is monotone-definite and cannot &ldquo;run away&rdquo; as the result of repeated calls, no matter how often.</p>
 <hr>
 <h4 id="23-entropy-mask-algorithm">2.3. Entropy Mask Algorithm</h4>
 <p>In order to enhance intruder resistance, it is necessary to modulate the low-order nonsignificant bits of the SCI reading with a random bit string. However, identifying which low-order bits are nonsignificant may not be straightforward. The algorithm described in this section does this by measuring the entropy of each bit of the SCI reading and constructing a bit mask covering the nonsignificant bits. While the description assumes a 32-bit timestamp fraction, the same algorithm applies for a 64-bit datestamp fraction.</p>
-<p>The algorithm proceeds in the same steps as the ACI algorithm above. Let <em>x</em>, <em>y</em> and <em>z</em> be persistent 32-bit integer variables and <em>d</em> be a 32-element array of integers, all initialized at zero. The <em>x</em> holds the seconds fraction returned by the previous SCI call, while <em>y</em> holds the seconds fraction returned by the current call. After each call to the SCI, set <em>z</em> equal to the exclusive-OR of <em>x</em> and <em>y</em>, then set <em>x</em> equal to <em>y</em>.</p>
-<p>The entropy array <em>d</em> is updated in the following step. Consider each bit <em>i</em> of <em>z</em>:<em>i</em> (<em>i</em> = 0, 1, &hellip;, 31). If <em>z</em>:<em>i</em> is equal to 1, increment <em>d</em>[<em>i</em>]; otherwise, do nothing. This continues over the interval processed by the ACI algorithm. Then, the <em>d</em> array is normalized, so that the sum of the elements is equal to 1.</p>
-<p>The entropy and entropy mask are determined as follows. Scan the <em>d</em>[<em>i</em>] entries in the order (<em>i</em> = 31, 30, &hellip;, 0) and stop at the first element <em>k</em> such that <em>d</em>[<em>k</em>] is greater than a threshold to be determined later. The value k is the entropy π, while value <em>b</em> = 31 − <em>k</em> is the size of the entropy mask of 1 bits. However, there is an additional restriction. The size of the entropy mask can not exceed the size of the precision mask defined as log<sub>2</sub>ρ.</p>
-<p>During regular operation after the ACI and entropy mask algorithms are complete, each call to the ACI is exclusive-ORed by a right-adjusted string of <em>b</em> random bits. The result maximizes the entropy of the reading while conforming to the rules described at the beginning of this section.</p>
+<p>The algorithm proceeds in the same steps as the ACI algorithm above. Let <code><em>x</em>, <em>y</em></code> and <code><em>z</em></code> be persistent 32-bit integer variables and <code><em>d</em></code> be a 32-element array of integers, all initialized at zero. The <code><em>x</em></code> holds the seconds fraction returned by the previous SCI call, while <code><em>y</em></code> holds the seconds fraction returned by the current call. After each call to the SCI, set <code><em>z</em></code> equal to the exclusive-OR of <code><em>x</em></code> and <code><em>y</em></code>, then set <code><em>x</em></code> equal to <code><em>y</em></code>.</p>
+<p>The entropy array <code><em>d</em></code> is updated in the following step. Consider each bit <code><em>i</em></code> of <code><em>z</em>:<em>i</em> (<em>i</em> = 0, 1, &hellip;, 31)</code>. If <code><em>z</em>:<em>i</em></code> is equal to 1, increment <code><em>d</em>[<em>i</em>]</code>; otherwise, do nothing. This continues over the interval processed by the ACI algorithm. Then, the <code><em>d</em></code> array is normalized, so that the sum of the elements is equal to 1.</p>
+<p>The entropy and entropy mask are determined as follows. Scan the <code><em>d</em>[<em>i</em>]</code> entries in the order <code>(<em>i</em> = 31, 30, &hellip;, 0)</code> and stop at the first element <code><em>k</em></code> such that <code><em>d</em>[<em>k</em>]</code> is greater than a threshold to be determined later. The value <code>k</code> is the entropy <code>π</code>, while value <code><em>b</em> = 31 − <em>k</em></code> is the size of the entropy mask of 1 bits. However, there is an additional restriction. The size of the entropy mask can not exceed the size of the precision mask defined as <code>log<sub>2</sub>ρ</code>.</p>
+<p>During regular operation after the ACI and entropy mask algorithms are complete, each call to the ACI is exclusive-ORed by a right-adjusted string of <code><em>b</em></code> random bits. The result maximizes the entropy of the reading while conforming to the rules described at the beginning of this section.</p>
 <hr>
 <h4 id="3-improving-the-system-clock">3. Improving the System Clock</h4>
-<p>In a program to improve timekeeping accuracy and precision, the first thing to look at is the system clock maintainted by the operating system kernel. In current tecghnowlogy and without initroducing external hardware components is to use the precision kernel described elsewhere. However, there are ways to further improve performance, as described in this section.</p>
+<p>In a program to improve timekeeping accuracy and precision, the first thing to look at is the system clock maintainted by the operating system kernel. In current technology and without introducing external hardware components, use the precision kernel described elsewhere. However, there are ways to further improve performance, as described in this section.</p>
 <p>For historic reasons, the clock is implemented as two 32- or 64-bit words; the high-order word counts the seconds, while the low-order word counts the modulus of the second. Modern systems use moduli of 10<sup>6</sup> (microseconds), 10<sup>9</sup> (nanoseconds), 2<sup>32</sup> (fraction for 32-bit word size) or 2<sup>64</sup> (fraction for 64-bit word size). The first two moduli are used by Unix systems, while the last two would be appropriate should the system clock be implemented in hardware. As aside, DEC systems (VAX) increment the clock in nanoseconds, while IBM (VMS) systems increment the clock in microseconds at bit 52 of a 64-bit word. The result is that bit 31 rolls over at something close to but not exactly one second. Apparently believing in time dilation, IBM calls this a megamicrosecond.</p>
-<p>A hardware clock oscillator and counter/divider provide interrupts at regular intervals called <em>ticks</em> by computer engineers and <em>jiffies</em> by computer scientists. At each interrupt the low-order systen clock word is incremented by the modulus multiplied by the tick in seconds. When the incremented value equals or exceeds the modulus, the high- order word is incremented by one and the modulus is subtracted from the low-order word. Note that the resolution without interpolation is by construction equal to the tick.</p>
-<p>There are considerable differences between systems about the design parameters. Various machines, past and present, have used clock frequencies off several MHz and timer frequencies (reciprocal of the tick) of 50/60 Hz, 100 Hz, 256 Hz, 1000 Hz and 1024 Hz. At one time in the past kernle implementors were reluctant to use timer frequencies that do not divide the modulus; e.g., 1024 Hz does not divide 10<sup>9</sup>, but does divide 2<sup>32</sup>. This was because early kernels accumulated the number of ticks, not the tick values themselves.</p>
-<p>Conventional Unix kernels store the tick as a 32-bit fixed value in microseconds or nanosecons. In the precision kernel this value is a variable proportional to the frequency computed by the clock discipline. For a frequency resolution of 1 ns/s, 32 bits is not enough, especially at timer frequencies of 1000 Hz or greater. For this reason the precision kernel uses a 64-bit tick value in nanoseconds with the decimal point in the middle.</p>
+<p>A hardware clock oscillator and counter/divider provide interrupts at regular intervals called <em>ticks</em> by computer engineers and <em>jiffies</em> by computer scientists. At each interrupt the low-order system clock word is incremented by the modulus multiplied by the tick in seconds. When the incremented value equals or exceeds the modulus, the high-order word is incremented by one and the modulus is subtracted from the low-order word. Note that the resolution without interpolation is by construction equal to the tick.</p>
+<p>There are considerable differences between systems about the design parameters. Various machines, past and present, have used clock frequencies off several MHz and timer frequencies (reciprocal of the tick) of 50/60 Hz, 100 Hz, 256 Hz, 1000 Hz and 1024 Hz. At one time in the past kernel implementors were reluctant to use timer frequencies that do not divide the modulus; e.g., 1024 Hz does not divide 10<sup>9</sup>, but does divide 2<sup>32</sup>. This was because early kernels accumulated the number of ticks, not the tick values themselves.</p>
+<p>Conventional Unix kernels store the tick as a 32-bit fixed value in microseconds or nanoseconds. In the precision kernel this value is a variable proportional to the frequency computed by the clock discipline. For a frequency resolution of 1 ns/s, 32 bits is not enough, especially at timer frequencies of 1000 Hz or greater. For this reason the precision kernel uses a 64-bit tick value in nanoseconds with the decimal point in the middle.</p>
 <p>Most modern machines have a processor cycle counter (Intel TSC, DEC Alpha PCC), which can be used to interpolate the tick with high resolution. However, there is a subtle complication when multiple processors are involved. Typically, these machines have a separate cycle counter for each processor and implement the timer components in a separate support chip. In systems known by this author, the timer interrupt is vectored to one processor. However, a request to read the system clock could happen in any processor.</p>
-<p>On a 64-bit machine the cycle counter <em>c</em> for any processor can be converted to seconds fraction in three steps: (1) multiply the low-order 32 bits of c by a factor <em>d</em> to be determined later, (2) shift right 32 bits and (3) store as the low-order word. This avoids an integer divide operation, which along with floating point arithmetic is to be avoided in kernel code. The factor <em>d</em> is</p>
-<p><code>_d_ = 2&lt;sup&gt;32&lt;/sup&gt; _r_ / _f_</code>,</p>
-<p>where <em>r</em> is the modulus and <em>f</em> is the processor clock frequency, which must be measured to very close tolerances in the order of 1 ns/s.</p>
-<p>In practice, <em>f</em> is measured at relatively infrequent intervals, like a second or two, as the change in <em>c</em> over the interval divided by the change in system time <em>t</em> over the interval. As the system time at a timer interrupt is exact, the frequency and thus <em>d</em> can be determined to a high degree of accuracy. For instance, with <em>r</em> = 10<sup>9</sup> and <em>f</em> = 3.4 GHz, <em>d</em> = 1.2632x10<sup>9</sup>. For frequency adjustment, this provides a resolution of about 1 ns/s.</p>
-<p>On a 32-bit machine this gets much more messy. Now we have to read the clock in two steps, so either a synchronizing primitive like spin lock is necessary or we can use Lamport&rsquo;s rule. Brieftly put, in Lamports rule the program reads the high order word, then the low order word and finally the high order word again. If the first and second high order words disaggree, do this again until they do.</p>
+<p>On a 64-bit machine the cycle counter <code><em>c</em></code> for any processor can be converted to seconds fraction in three steps: (1) multiply the low-order 32 bits of <code>c</code> by a factor <code><em>d</em></code> to be determined later, (2) shift right 32 bits and (3) store as the low-order word. This avoids an integer divide operation, which along with floating point arithmetic is to be avoided in kernel code. The factor <code><em>d</em></code> is</p>
+<p><code><em>d</em> = 2<sup>32</sup> <em>r</em> / <em>f</em></code></p>
+<p>where <code><em>r</em></code> is the modulus and <code><em>f</em></code> is the processor clock frequency, which must be measured to very close tolerances in the order of 1 ns/s.</p>
+<p>In practice, <code><em>f</em></code> is measured at relatively infrequent intervals, like a second or two, as the change in <code><em>c</em></code> over the interval divided by the change in system time <code><em>t</em></code> over the interval. As the system time at a timer interrupt is exact, the frequency and thus <code><em>d</em></code> can be determined to a high degree of accuracy. For instance, with <code><em>r</em> = 10<sup>9</sup></code> and <code><em>f</em> = 3.4 GHz</code>, <code><em>d</em> = 1.2632x10<sup>9</sup></code>. For frequency adjustment, this provides a resolution of about 1 ns/s.</p>
+<p>On a 32-bit machine this gets much more messy. Now we have to read the clock in two steps, so either a synchronizing primitive like spin lock is necessary or we can use Lamport&rsquo;s rule. Brieftly put, in Lamports rule the program reads the high-order word, then the low-order word and finally the high-order word again. If the first and second high-order words disagree, do this again until they do.</p>
 <hr>
 <h4 id="4-requirements-and-principles-of-hardware-timestamping">4. Requirements and Principles of Hardware Timestamping</h4>
 <p>In practice, the precision kernel delivers about the best accuracy and precision available, assuming external synchronization sources are of sufficient quality are available. In general, and even with faster hardware and network links, improved accuracy can only be achieved with minute attention to the residual errors that occur in normal operation, including systematic and stochastic delay variations due to competing network traffic and operating system scheduling.</p>
-<p>Stochastic errors are generally mitigated by the NTP mitigfation and discipline algorithms. In general, these errors can be further reduced using some kind of hardware assist or special provisions in the network interface card (NIC) or device driver. Improved means to do this ae discussed in this section.</p>
+<p>Stochastic errors are generally mitigated by the NTP mitigation and discipline algorithms. In general, these errors can be further reduced using some kind of hardware assist or special provisions in the network interface card (NIC) or device driver. Improved means to do this are discussed in this section.</p>
 <p>To better understand the issues, consider the ultimate case where the server and client implement clocks that can be read with exquisite accuracy. The object is to measure the time offset of a server relative to the client.</p>
 <p><img src="/archives/pic/stamp2.gif" alt="gif"></p>
 <p><strong>Figure 1</strong></p>
-<p>As shown in Figure 1, the NTP on-wire specification uses what is called here the reference timestamps <em>T</em><sub>1</sub>, <em>T</em><sub>2</sub>, <em>T</em><sub>3</sub> and <em>T</em><sub>4</sub>, respectively called the origin, receive, transmit and destination timestamps. <em>T</em><sub>1</sub> and <em>T</em><sub>4</sub> are struck by peer A from its clock, while <em>T</em><sub>2</sub> and <em>T</em><sub>3</sub> are struck by peer B from its clock. The object of the protocol is to determine the time offset of B relative to A and the roundtrip delay ABA:</p>
-<p><code>offset θ = [(_T_&lt;sub&gt;2&lt;/sub&gt; − _T_&lt;sub&gt;1&lt;/sub&gt;) + (_T_&lt;sub&gt;3&lt;/sub&gt; − _T_&lt;sub&gt;4&lt;/sub&gt;)] / 2</code>, <a name="myfootnote1">1</a></p>
-<p><code>delay δ = (_T_&lt;sub&gt;4&lt;/sub&gt; − _T_&lt;sub&gt;1&lt;/sub&gt;) − (_T_&lt;sub&gt;3&lt;/sub&gt; − _T_&lt;sub&gt;2&lt;/sub&gt;)</code>. <a name="myfootnote2">2</a></p>
+<p>As shown in Figure 1, the NTP on-wire specification uses what is called here the reference timestamps <code><em>T</em><sub>1</sub>, <em>T</em><sub>2</sub>, <em>T</em><sub>3</sub>,</code> and <code><em>T</em><sub>4</sub></code>, respectively called the origin, receive, transmit and destination timestamps. <code><em>T</em><sub>1</sub></code> and <code><em>T</em><sub>4</sub></code> are struck by peer A from its clock, while <code><em>T</em><sub>2</sub></code> and <code><em>T</em><sub>3</sub></code> are struck by peer B from its clock. The object of the protocol is to determine the time offset of B relative to A and the roundtrip delay ABA:</p>
+<p><code>offset θ = [(<em>T</em><sub>2</sub> − <em>T</em><sub>1</sub>) + (<em>T</em><sub>3</sub> − <em>T</em><sub>4</sub>)] / 2</code> (<a name="myfootnote1">Example 1</a>)</p>
+<p><code>delay δ = (<em>T</em><sub>4</sub> − <em>T</em><sub>1</sub>) − (<em>T</em><sub>3</sub> − <em>T</em><sub>2</sub>)</code> (<a name="myfootnote2">Example 2</a>)</p>
 <p>The precision to which the offset and delay can be calculated depends on the precision with which the timestamps can be struck. In general, it is best to strike the timestamps as close to the physical media as possible in order to avoid various queuing and buffering latencies. In this case the physical data media block is properly called a frame, but for clarity in the following discussion and for consistency with other documents in this collection, it will be called a packet.</p>
-<p>Timestamps are categoized by the point in the code flow that they are captured. <em>Softstamps</em> are captured in the mainline code before a packet is sent ir after a packet is received. <em>Drivestamps</em> are captured in the packet interrupt routine after a packet is sent or received. <em>Hardstamps</em> are captured by the hardware upon passage of a designated symbol in the media interface. This document does not consider hardstamps, as this requires special purpose network interfaces unavailable in the general population. By default, the NTPv4 reference implementation uses softstamps for transmitted packets and drivestamps for received packets. If interleaved mode is enabled in symmmetric and broadcast modes, drivestamps are used for transmitted packets as well. Additional information on interleaved modes is in the white paper <a href="/reflib/onwire">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
+<p>Timestamps are categoized by the point in the code flow that they are captured. <em>Softstamps</em> are captured in the mainline code before a packet is sent or after a packet is received. <em>Drivestamps</em> are captured in the packet interrupt routine after a packet is sent or received. <em>Hardstamps</em> are captured by the hardware upon passage of a designated symbol in the media interface. This document does not consider hardstamps, as this requires special purpose network interfaces unavailable in the general population. By default, the NTPv4 reference implementation uses softstamps for transmitted packets and drivestamps for received packets. If interleaved mode is enabled in symmmetric and broadcast modes, drivestamps are used for transmitted packets as well. Additional information on interleaved modes is in the white paper <a href="/reflib/onwire">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
 <p>The timestamp scheme used by the NTP reference implementation attempts to approximate the reference timestamps as follows:</p>
 <ol>
 <li>
-<p>When interleaved mode is not enabled, <em>T</em><sub>1</sub> and <em>T</em><sub>3</sub> softstamps are struck by the output packet routine just before the message digest (if used) is calculated and the buffer is passed to the operating system. Applicable latencies include digest overhead, output queuing, operating system scheduling, NIC buffering and possibly NIC retransmissions. If interleaved mode is enabled, but only in symmetric and broadcast modes, <em>T</em><sub>1</sub> and <em>T</em><sub>3</sub> drivestamps are struck in the transmit interrupt routine.</p>
+<p>When interleaved mode is not enabled, <code><em>T</em><sub>1</sub></code> and <code><em>T</em><sub>3</sub></code> softstamps are struck by the output packet routine just before the message digest (if used) is calculated and the buffer is passed to the operating system. Applicable latencies include digest overhead, output queuing, operating system scheduling, NIC buffering and possibly NIC retransmissions. If interleaved mode is enabled, but only in symmetric and broadcast modes, <code><em>T</em><sub>1</sub></code> and <code><em>T</em><sub>3</sub></code> drivestamps are struck in the transmit interrupt routine.</p>
 </li>
 <li>
-<p>In all modes, <em>T</em><sub>2</sub> and <em>T</em><sub>4</sub> drivestamps are struck just after the input packet interrupt routine and before the buffer is queued for the input packet routine. Applicable latencies include NIC buffering, interrupt processing and operating system scheduling, but not input queuing.</p>
+<p>In all modes, <code><em>T</em><sub>2</sub></code> and <code><em>T</em><sub>4</sub></code> drivestamps are struck just after the input packet interrupt routine and before the buffer is queued for the input packet routine. Applicable latencies include NIC buffering, interrupt processing and operating system scheduling, but not input queuing.</p>
 </li>
 </ol>
-<p>If these latencies can be avoided, the remaining latencies are due only to network propagation, packet transmission and network queues. Inspection of <sup><a href="#myfootnote1">1</a></sup> shows that the best accuracy is obtained when the delays on the outbound path <em>T</em><sub>1</sub> → <em>T</em><sub>2</sub> and inbound path <em>T</em><sub>3</sub> → <em>T</em><sub>4</sub> are statistically identical; in this case we say the delays are reciprocal. Further refinement demonstrated later in this section shows that, if the reciprocal delays differ by <em>x</em> seconds, the resulting offset error is <em>x</em>/2 seconds.</p>
+<p>If these latencies can be avoided, the remaining latencies are due only to network propagation, packet transmission and network queues. Inspection of <a href="#myfootnote1">Example 1</a> shows that the best accuracy is obtained when the delays on the outbound path <code><em>T</em><sub>1</sub> → <em>T</em><sub>2</sub></code> and inbound path <code><em>T</em><sub>3</sub> → <em>T</em><sub>4</sub></code> are statistically identical; in this case we say the delays are reciprocal. Further refinement demonstrated later in this section shows that, if the reciprocal delays differ by <code><em>x</em></code> seconds, the resulting offset error is <code><em>x</em>/2</code> seconds.</p>
 <p>Lack of reciprocity is due to two causes, different delays on the outbound and inbound paths and where in the packet the timestamps are struck. If the overall data rate and packet lengths are not the same on both directions, errors will result. If the transmitter and receiver choose different points in the packet to strike a timestamp, errors will result. What happens depends on the hardware and software design, as described below.</p>
 <p>There are many workable schemes to implement timestamp capture. Using a different scheme at each end of the link is likely to result in a lack of reciprocity. The following provisions apply:</p>
 <ol>
@@ -254,7 +286,7 @@
 <p>A trailer timestamp is struck as near to the end of the packet as possible. On transmit this follows the last octet of the data and before the frame check sequence (FCS); on receive this follows the last octet of the FCS. The reason the capture locations necessarily differ is due to the hardware and protocol design. (Note: A sufficiently large and complex FPGA might be able to deliver the timestamp at the same point as the transmitter, but this doesn&rsquo;t seem worth the trouble.</p>
 </li>
 <li>
-<p>In addition to the timestamps, the NIC and/or driver must provide both</p>
+<p>In addition to the timestamps, the NIC and/or driver must provide both the nominal transmission rate and number of octets between the preamble and trailer timestamps. This can be used by the driver or application to transpose between the preamble and trailer timestamps without significant loss of accuracy. The transposition error with acceptable frequency tolerance of 300 PPM for 100-Mb Ethernets and nominal 1000-bit NTP packet is less than 3 ns.</p>
 </li>
 </ol>
 <p>As shown later in this section, the best way to preserve accuracy when single or multiple network segments are involved, some possibly operating at different rates, is the following:</p>
@@ -263,10 +295,10 @@
 <p>The propagation delay measured from the first bit sent in a packet to the first bit received on each direction of transmission must be the same. This is called the reciprocity rule.</p>
 </li>
 <li>
-<p><em>T</em><sub>1</sub> and <em>T</em><sub>3</sub> must be struck from the preamble timestamp.</p>
+<p><code><em>T</em><sub>1</sub></code> and <code><em>T</em><sub>3</sub></code> must be struck from the preamble timestamp.</p>
 </li>
 <li>
-<p><em>T</em><sub>2</sub> and <em>T</em><sub>4</sub> must be the struck from the trailer timestamp.</p>
+<p><code><em>T</em><sub>2</sub></code> and <code><em>T</em><sub>4</sub></code> must be the struck from the trailer timestamp.</p>
 </li>
 </ol>
 <p>Whatever timestamping scheme is developed, it should allow interworking between schemes so that every combination of schemes used by the server and client results in the highest accuracy possible. As shown later, this can be achieved only using the above rules.</p>
@@ -283,155 +315,93 @@
 <hr>
 <h4 id="6-error-analysis">6. Error Analysis</h4>
 <p>The analysis so far does not account for various statistical latencies, nor does it accounts for systematic errors resulting from nonreciprocal network paths. The NTP code path delay and the latency to read the system clock are substantially the same on either direction, so cancel out. As previously noted, the Ethernet transceivers themselves contribute significant delays. While these delays are generally constant, additional delays can occur due to operating system and device latencies. In addition, NTP traffic typically competes with other network traffic causing additional statistical latencies. However, the important assumption about these delays is that the probability distribution for the reciprocal paths are substantially the same.</p>
-<p>In Figures 1 and the following, upper case variables represent the reference timestamps used in <sup><a href="#myfootnote1">1</a></sup> and <sup><a href="#myfootnote2">2</a></sup>. In the following, lower case variables represent the actual timestamps struck by the hardware or software. The on-wire protocol uses the actual timestamps in the same fashion as <sup><a href="#myfootnote1">1</a></sup> and <sup><a href="#myfootnote2">2</a></sup>. The object is to explore the possible errors that might result from different timestamp strategies.</p>
-<p>In the NTP reference implementation the <em>t</em><sub>1</sub> and <em>t</em><sub>3</sub> (transmit) softstamps are struck before computing the message digest (if used) and handing the packet buffer to the operating system, which results in various digest, queuing and buffering latencies represented by the random variable ε<sub><em>t</em></sub>. In Unix, for example, the user-space buffer is ordinarily copied to kernel-space buffers (mbufs) which then are passed to the NIC. However, modern NICs of the PCNET family can use a chain of hardware descriptors, one for each buffer, and can DMA directly from a user-space buffer to an internal 16K FIFO, shared between the transmit and receive sides, and separate PHY buffers for each side. The NIC driver manages the FIFO and PHY scheduling to achieve maximum throughput, but might not be sensitive to latencies. The NIC driver manages the FIFO and PHY scheduling to achieve maximum throughput, but might not be sensitive to latencies.</p>
-<p>The random variables ε<sub><em>t</em></sub> and ε<sub><em>r</em></sub> represent samples from a continuous distribution, However, the clock discipline algorithm average many measurements to determine the clock adjustment. Therefore, a useful simplification in this document is to represent the random variables by their expectations. Thus, we assume <em>T</em><sub>1</sub> = <em>t</em><sub>1</sub> + ε<sub><em>t</em></sub> and <em>T</em><sub>3</sub> = <em>t</em><sub>3</sub> + ε<sub><em>t</em></sub>.</p>
-<p>In anticipation of a packet arrival, the NTP implementation allocates an input buffer in user space. When a complete packet (chain of kernel mbufs) arrives, the driver copies the mbufs to the buffer. The <em>t</em><sub>2</sub> or <em>t</em><sub>4</sub> (receive) drivestamp is struck from the system clock and copied to the buffer. The drivestamp is delayed by various device driver and operating system latencies represented by the random variable ε<sub><em>r</em></sub>. Thus, <em>T</em><sub>2</sub> = <em>t</em><sub>2</sub>− ε<sub><em>r</em></sub> and <em>T</em><sub>4</sub> = <em>t</em><sub>4</sub> − ε<sub><em>r</em></sub>. The interrupt routine then copies the drivestamp to a preallocated field in the buffer.</p>
+<p>In Figures 1 and the following, upper case variables represent the reference timestamps used in <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a>. In the following, lower case variables represent the actual timestamps struck by the hardware or software. The on-wire protocol uses the actual timestamps in the same fashion as <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a>. The object is to explore the possible errors that might result from different timestamp strategies.</p>
+<p>In the NTP reference implementation the <code><em>t</em><sub>1</sub></code> and <code><em>t</em><sub>3</sub></code> (transmit) softstamps are struck before computing the message digest (if used) and handing the packet buffer to the operating system, which results in various digest, queuing and buffering latencies represented by the random variable <code>ε<sub><em>t</em></sub></code>. In Unix, for example, the user-space buffer is ordinarily copied to kernel-space buffers (mbufs) which then are passed to the NIC. However, modern NICs of the PCNET family can use a chain of hardware descriptors, one for each buffer, and can DMA directly from a user-space buffer to an internal 16K FIFO, shared between the transmit and receive sides, and separate PHY buffers for each side. The NIC driver manages the FIFO and PHY scheduling to achieve maximum throughput, but might not be sensitive to latencies. The NIC driver manages the FIFO and PHY scheduling to achieve maximum throughput, but might not be sensitive to latencies.</p>
+<p>The random variables <code>ε<sub><em>t</em></sub></code> and <code>ε<sub><em>r</em></sub></code> represent samples from a continuous distribution, However, the clock discipline algorithm averages many measurements to determine the clock adjustment. Therefore, a useful simplification in this document is to represent the random variables by their expectations. Thus, we assume <code><em>T</em><sub>1</sub> = <em>t</em><sub>1</sub> + ε<sub><em>t</em></sub></code> and <code><em>T</em><sub>3</sub> = <em>t</em><sub>3</sub> + ε<sub><em>t</em></sub></code>.</p>
+<p>In anticipation of a packet arrival, the NTP implementation allocates an input buffer in user space. When a complete packet (chain of kernel mbufs) arrives, the driver copies the mbufs to the buffer. The <code><em>t</em><sub>2</sub></code> or <code><em>t</em><sub>4</sub></code> (receive) drivestamp is struck from the system clock and copied to the buffer. The drivestamp is delayed by various device driver and operating system latencies represented by the random variable <code>ε<sub><em>r</em></sub></code>. Thus, <code><em>T</em><sub>2</sub> = <em>t</em><sub>2</sub>− ε<sub><em>r</em></sub></code> and <code><em>T</em><sub>4</sub> = <em>t</em><sub>4</sub> − ε<sub><em>r</em></sub></code>. The interrupt routine then copies the drivestamp to a preallocated field in the buffer.</p>
 <p><img src="/archives/pic/stamp1.gif" alt="gif"></p>
 <p><strong>Figure 5</strong></p>
-<p>As shown in Figure 5, the NTP on-wire protocol performs the same calculations as <sup><a href="#myfootnote1">1</a></sup> and <sup><a href="#myfootnote2">2</a></sup> but using the actual timestamps. After substitution we have</p>
-<p><code>θ = {[(_T_&lt;sub&gt;2&lt;/sub&gt;− ε&lt;sub&gt;_r_&lt;/sub&gt;) − (_T_&lt;sub&gt;1&lt;/sub&gt; + ε&lt;sub&gt;_t_&lt;/sub&gt;)] + [(_T_&lt;sub&gt;3&lt;/sub&gt; + ε&lt;sub&gt;_t_&lt;/sub&gt;)− (_T_&lt;sub&gt;4&lt;/sub&gt;−ε&lt;sub&gt;_r_&lt;/sub&gt;)]} / 2</code>,</p>
-<p>which after simplification is the same as <sup><a href="#myfootnote1">1</a></sup>. On the other hand,</p>
-<p><code>δ = [(_T_&lt;sub&gt;3&lt;/sub&gt; + ε&lt;sub&gt;_t_&lt;/sub&gt;) − (_T_&lt;sub&gt;2&lt;/sub&gt;− ε&lt;sub&gt;_r_&lt;/sub&gt;)] − [(_T_&lt;sub&gt;4&lt;/sub&gt;− ε&lt;sub&gt;_r_&lt;/sub&gt;)− (_T_&lt;sub&gt;1&lt;/sub&gt; + ε&lt;sub&gt;_t_&lt;/sub&gt;)]</code>,</p>
-<p>which results in an additional delay of 2(ε<sub><em>t</em> </sub>+ ε<sub><em>r</em></sub>).</p>
-<p>While these equations involve random variables, we can make strong statements about the resulting accuracy if we assume the probabilty distributions of ε<sub><em>t</em> </sub>and ε<sub><em>r</em></sub> are stationary over the averaging time of the clock discipline algorithm. We conclude that, as long as the delays on the reciprocal paths are the same and the packet lengths are the same, the offset is as in <sup><a href="#myfootnote1">1</a></sup> without dilution of accuracy. There is a small increase in roundtrip delay relative to <sup><a href="#myfootnote2">2</a></sup>, but this is not ordinarily significant.</p>
-<p>The principal remaining terms in the error budget are nonreciprocal delays due to different data rates and nonuniform transposition between the preamble and trailer timestamps. The errors due such causes are summarized in following sections.</p>
+<p>As shown in Figure 5, the NTP on-wire protocol performs the same calculations as <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a> but using the actual timestamps. After substitution we have</p>
+<p><code>θ = {[(<em>T</em><sub>2</sub>− ε<sub><em>r</em></sub>) − (<em>T</em><sub>1</sub> + ε<sub><em>t</em></sub>)] + [(<em>T</em><sub>3</sub> + ε<sub><em>t</em></sub>)− (<em>T</em><sub>4</sub>−ε<sub><em>r</em></sub>)]} / 2</code></p>
+<p>which after simplification is the same as <a href="#myfootnote1">Example 1</a>. On the other hand,</p>
+<p><code>δ = [(<em>T</em><sub>3</sub> + ε<sub><em>t</em></sub>) − (<em>T</em><sub>2</sub>− ε<sub><em>r</em></sub>)] − [(<em>T</em><sub>4</sub>− ε<sub><em>r</em></sub>)− (<em>T</em><sub>1</sub> + ε<sub><em>t</em></sub>)]</code></p>
+<p>results in an additional delay of <code>2(ε<sub><em>t</em> </sub>+ ε<sub><em>r</em></sub>)</code>.</p>
+<p>While these equations involve random variables, we can make strong statements about the resulting accuracy if we assume the probabilty distributions of <code>ε<sub><em>t</em> </sub></code> and <code>ε<sub><em>r</em></sub></code> are stationary over the averaging time of the clock discipline algorithm. We conclude that, as long as the delays on the reciprocal paths are the same and the packet lengths are the same, the offset is as in <a href="#myfootnote1">Example 1</a> without dilution of accuracy. There is a small increase in roundtrip delay relative to <a href="#myfootnote2">Example 2</a>, but this is not ordinarily significant.</p>
+<p>The principal remaining terms in the error budget are nonreciprocal delays due to different data rates and nonuniform transposition between the preamble and trailer timestamps. The errors due to such causes are summarized in following sections.</p>
 <hr>
 <h4 id="7-reciprocity-errors">7. Reciprocity Errors</h4>
-<p>The above analysis assumes that the delays on the outbound and inbound paths are the same; that is, the paths are reciprocal. This is assured if the ropagation delays are the same, the transmission rates are the same and the packet lengths are the same. In the NTP on-wire protocol all packets havethe the same length. If we assume the transmission rates are the same, the only difference in path delays must be due to nonreciprocal transmission paths. This often occurs if one way is via landline and the other via satellite. It can also occur when the paths traverse tag-switched core networks.</p>
-<p>Some idea of the errors introduced by nonreciprocal paths is illustrated in Figure 6, where the reference timestamps represent a network with zero delays and then add an outbound delay <em>d<sub>AB</sub></em> and inbound delay <em>d<sub>BA</sub></em>.</p>
+<p>The above analysis assumes that the delays on the outbound and inbound paths are the same; that is, the paths are reciprocal. This is assured if the propagation delays are the same, the transmission rates are the same and the packet lengths are the same. In the NTP on-wire protocol all packets have the same length. If we assume the transmission rates are the same, the only difference in path delays must be due to nonreciprocal transmission paths. This often occurs if one way is via landline and the other via satellite. It can also occur when the paths traverse tag-switched core networks.</p>
+<p>Some idea of the errors introduced by nonreciprocal paths is illustrated in Figure 6, where the reference timestamps represent a network with zero delays and then add an outbound delay <code><em>d<sub>AB</sub></em></code> and inbound delay <code><em>d<sub>BA</sub></em></code>.</p>
 <p><strong>Figure 6</strong></p>
 <p><img src="/archives/pic/stamp3.gif" alt="gif"></p>
-<p>As shown in Figure 6, the NTP on-wire protocol performs the same calculations as <sup><a href="#myfootnote1">1</a></sup> and <sup><a href="#myfootnote2">2</a></sup> using the reference timestamps but ignoring the latencies discussed in the preceding section. After substitution we have</p>
-<p><code>θ = {[(_T_&lt;sub&gt;2&lt;/sub&gt; + _d&lt;sub&gt;AB&lt;/sub&gt;_) − _T_&lt;sub&gt;1&lt;/sub&gt;] + [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;4&lt;/sub&gt; + _d&lt;sub&gt;BA&lt;/sub&gt;_)]} / 2</code>,</p>
-<p>which after simplification results in an error of (<em>d<sub>AB</sub></em> - <em>d<sub>BA</sub></em>) / 2. On the other hand,</p>
-<p><code>δ = [(_T_&lt;sub&gt;4&lt;/sub&gt; + _d&lt;sub&gt;BA&lt;/sub&gt;_) − _T_&lt;sub&gt;1&lt;/sub&gt;] − [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;2&lt;/sub&gt; + _d&lt;sub&gt;AB&lt;/sub&gt;_)]</code>,</p>
-<p>which results in a roundtrip delay of <em>d<sub>AB</sub></em> + <em>d<sub>BA</sub></em> as expected.</p>
+<p>As shown in Figure 6, the NTP on-wire protocol performs the same calculations as <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a> using the reference timestamps but ignoring the latencies discussed in the preceding section. After substitution we have</p>
+<p><code>θ = {[(<em>T</em><sub>2</sub> + <em>d<sub>AB</sub></em>) − <em>T</em><sub>1</sub>] + [<em>T</em><sub>3</sub> − (<em>T</em><sub>4</sub> + <em>d<sub>BA</sub></em>)]} / 2</code></p>
+<p>which after simplification results in an error of <code>(<em>d<sub>AB</sub></em> - <em>d<sub>BA</sub></em>) / 2</code>. On the other hand,</p>
+<p><code>δ = [(<em>T</em><sub>4</sub> + <em>d<sub>BA</sub></em>) − <em>T</em><sub>1</sub>] − [<em>T</em><sub>3</sub> − (<em>T</em><sub>2</sub> + <em>d<sub>AB</sub></em>)]</code></p>
+<p>results in a roundtrip delay of <code><em>d<sub>AB</sub></em> + <em>d<sub>BA</sub></em></code> as expected.</p>
 <p><strong>Example</strong></p>
 <ul>
 <li>Sun Ultra pogo and Intel Pentium deacon, both synchronized to PPS sources showing typical offset and jitter less than 5 μs. Both are clients of each other via bridged 100-Mbps LAN segments so the roundtrip delay between the NICs is 40 μs for 1000-b packets and four hops. The roundtrip delay measured by either machine is about 400 μs and the jitter estimated at 25 μs. The measured offset of pogo relative to rackety is 89 μs, while the measured offset of rackety relative to pogo is -97 μs.</li>
 </ul>
-<p>The fact that the two machines are synchronized closely to the PPS signal and the measured offsets are almost equal and with opposite sign suggests the that the two paths are nonreciprocal. Of the measured roundtrip delay, 40 μs is packet transmission times; the remaining 360 μs must be due to buffering in the operating system and NICs. From the above analysis, the offset error is consistent with one path having about 200 μs more overall delay than the other. Of the 360 μs roundtrip delay, this suggest rackety accounts for 80 μs leaving 280 μs for pogo.</p>
+<p>The fact that the two machines are synchronized closely to the PPS signal and the measured offsets are almost equal and with opposite sign suggests that the two paths are nonreciprocal. Of the measured roundtrip delay, 40 μs is packet transmission times; the remaining 360 μs must be due to buffering in the operating system and NICs. From the above analysis, the offset error is consistent with one path having about 200 μs more overall delay than the other. Of the 360 μs roundtrip delay, this suggest rackety accounts for 80 μs leaving 280 μs for pogo.</p>
 <hr>
 <h4 id="8-hardware-timestamping">8. Hardware Timestamping</h4>
-<p>There are two ways to reduce the queuing and buffering latencies, hardware timestamps and driver timestamps. An example of hardware timestamps is IEEE 1588, in which an event such as the passage of the Ethernet STF octet, tches in internal NIC counter. We assume the internal counter is discipined by means other than NTP, e.g., IEEE 1588. This approach requires at least two latches, one for the transmit side and the other for the receive side. In addition, the driver must read a latch before another STF comes along, or the latches must be buffered in a FIFO.</p>
+<p>There are two ways to reduce the queuing and buffering latencies: hardware timestamps and driver timestamps. An example of hardware timestamps is IEEE 1588, in which an event such as the passage of the Ethernet STF octet, latches an internal NIC counter. We assume the internal counter is disciplined by means other than NTP, e.g., IEEE 1588. This approach requires at least two latches, one for the transmit side and the other for the receive side. In addition, the driver must read a latch before another STF comes along, or the latches must be buffered in a FIFO.</p>
 <p>With application to NTP, the latch can be read by the Ethernet driver, converted to NTP format and inserted following the packet data. With Unix systems this ordinarily would be saved in the mbuf chain. On output, the driver reads the latch, converts to NTP format and does one of two things. It can provide the information in the form of a pseudo-input buffer or use some form of interprocess message, both of which are awkward. Either method avoids substantially all queuing and buffering latencies in the software design.</p>
-<p>With hardware timestamps the actual preamble timestamps are struck from h hardware and are thus identical to the reference timestamps. However, <em>t</em><sub>1</sub> and <em>t</em><sub>3</sub> are valid only if the packet is the final successful transmission. We conclude that, as long as the transmission rates on the reciprocal paths are the same, the offset and delay can be computed as in <sup><a href="#myfootnote1">1</a></sup> and <sup><a href="#myfootnote2">2</a></sup> without dilution of accuracy.</p>
+<p>With hardware timestamps the actual preamble timestamps are struck from hardware and are thus identical to the reference timestamps. However, <code><em>t</em><sub>1</sub></code> and <code><em>t</em><sub>3</sub></code> are valid only if the packet is the final successful transmission. We conclude that, as long as the transmission rates on the reciprocal paths are the same, the offset and delay can be computed as in <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a> without dilution of accuracy.</p>
 <hr>
 <h4 id="9-driver-timestamping">9. Driver Timestamping</h4>
-<p>With driver timestamps a trailer timestamp is struck from the for each packet sent or received. The timestamp is available only at driver interrupt time; that is, at the end of the packet and before the FCS on transmit and after the FCS on receive. Assuming the timestamps can be passed up the protocol stack as in hardware timestamping, this avoids most of the output queue and kernel buffer latencies of the software design.</p>
-<p>With driver timestamps there is a delay <em>d</em> between the reference timestamp *preamble timesstamp) and the trailer timestamp corresponding to the packet transmission time. Assuming this is the same for the reciprocal paths, <em>t</em><sub>1</sub> = <em>T</em><sub>1</sub> + <em>d</em>, <em>t</em><sub>2</sub> = <em>T</em><sub>2</sub> + <em>d</em>, <em>t</em><sub>3</sub> = <em>T</em><sub>3</sub> + <em>d</em> and <em>t</em><sub>4</sub> = <em>T</em><sub>4</sub> + <em>d</em>. In this case we neglect the time to transmit the checksum, which is 32 ns for 1000-Mb LANs and 320 ns for 100-Mb LANs. Then,</p>
-<p><code>θ = {[(_T_&lt;sub&gt;2&lt;/sub&gt; + _d_) − (_T_&lt;sub&gt;1&lt;/sub&gt; + _d_)] + [(_T_&lt;sub&gt;3&lt;/sub&gt; + _d_) − (_T_&lt;sub&gt;4&lt;/sub&gt; + _d_)]} / 2</code>,</p>
-<p>which after simplification is the same as <sup><a href="#myfootnote1">1</a></sup>. On the other hand,</p>
-<p><code>δ = [(_T_&lt;sub&gt;4&lt;/sub&gt; + _d_) − (_T_&lt;sub&gt;1&lt;/sub&gt; + _d_)] − [(_T_&lt;sub&gt;3&lt;/sub&gt; + _d_) − (_T_&lt;sub&gt;2&lt;/sub&gt; + _d_)]</code>,</p>
-<p>which after simplification is the same as <sup><a href="#myfootnote2">2</a></sup>. We conclude that, as long as the transmission rates on the reciprocal paths are the same and the packet lengths are the same, the offset and delay can be computed as in <sup><a href="#myfootnote1">1</a></sup> and <sup><a href="#myfootnote2">2</a></sup> without dilution of accuracy.</p>
+<p>With driver timestamps a trailer timestamp is struck from for each packet sent or received. The timestamp is available only at driver interrupt time; that is, at the end of the packet and before the FCS on transmit and after the FCS on receive. Assuming the timestamps can be passed up the protocol stack as in hardware timestamping, this avoids most of the output queue and kernel buffer latencies of the software design.</p>
+<p>With driver timestamps there is a delay <code><em>d</em></code> between the reference timestamp (preamble timestamp) and the trailer timestamp corresponding to the packet transmission time. Assuming this is the same for the reciprocal paths, <code><em>t</em><sub>1</sub> = <em>T</em><sub>1</sub> + <em>d</em>, <em>t</em><sub>2</sub> = <em>T</em><sub>2</sub> + <em>d</em>, <em>t</em><sub>3</sub> = <em>T</em><sub>3</sub> + <em>d</em>,</code> and <code><em>t</em><sub>4</sub> = <em>T</em><sub>4</sub> + <em>d</em></code>. In this case we neglect the time to transmit the checksum, which is 32 ns for 1000-Mb LANs and 320 ns for 100-Mb LANs. Then,</p>
+<p><code>θ = {[(<em>T</em><sub>2</sub> + <em>d</em>) − (<em>T</em><sub>1</sub> + <em>d</em>)] + [(<em>T</em><sub>3</sub> + <em>d</em>) − (<em>T</em><sub>4</sub> + <em>d</em>)]} / 2</code></p>
+<p>which after simplification is the same as <a href="#myfootnote1">Example 1</a>. On the other hand,</p>
+<p><code>δ = [(<em>T</em><sub>4</sub> + <em>d</em>) − (<em>T</em><sub>1</sub> + <em>d</em>)] − [(<em>T</em><sub>3</sub> + <em>d</em>) − (<em>T</em><sub>2</sub> + <em>d</em>)]</code></p>
+<p>which after simplification is the same as <a href="#myfootnote2">Example 2</a>. We conclude that, as long as the transmission rates on the reciprocal paths are the same and the packet lengths are the same, the offset and delay can be computed as in <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a> without dilution of accuracy.</p>
 <hr>
 <h4 id="10-interworking-errors">10. Interworking Errors</h4>
-<p>Recall that reference timestamps are struck at the beginning of the packet on both transmit and receive and so are invariant to the transmission rates and packet length. However, trailer timestamps are struck at the end of the packet, which is later than the reference timestamps depending on the transmission rate and packet length. Let the delay between the reference and trailer timestamps be <em>d</em>. Then, consider what happens when interworking between various combinations of software, hardware and driver timestamps without proper transposition?</p>
+<p>Recall that reference timestamps are struck at the beginning of the packet on both transmit and receive and so are invariant to the transmission rates and packet length. However, trailer timestamps are struck at the end of the packet, which is later than the reference timestamps depending on the transmission rate and packet length. Let the delay between the reference and trailer timestamps be <code><em>d</em></code>. Then, consider what happens when interworking between various combinations of software, hardware and driver timestamps without proper transposition.</p>
 <p>Let A use hardware timestamps and B driver timestamps. Then,</p>
-<p><code>θ = {[_T_&lt;sub&gt;2&lt;/sub&gt; − (_T_&lt;sub&gt;1&lt;/sub&gt; + _d_)] + [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;4&lt;/sub&gt; + _d_)]} / 2</code></p>
-<p>results in an offset error of −2_d_, while</p>
-<p><code>δ = [(_T_&lt;sub&gt;4&lt;/sub&gt; + _d_) − (_T_&lt;sub&gt;1&lt;/sub&gt; + _d_)] − (_T_&lt;sub&gt;3&lt;/sub&gt; − _T_&lt;sub&gt;2&lt;/sub&gt;)</code>,</p>
+<p><code>θ = {[<em>T</em><sub>2</sub> − (<em>T</em><sub>1</sub> + <em>d</em>)] + [<em>T</em><sub>3</sub> − (<em>T</em><sub>4</sub> + <em>d</em>)]} / 2</code></p>
+<p>results in an offset error of <code>−2<em>d</em></code>, while</p>
+<p><code>δ = [(<em>T</em><sub>4</sub> + <em>d</em>) − (<em>T</em><sub>1</sub> + <em>d</em>)] − (<em>T</em><sub>3</sub> − <em>T</em><sub>2</sub>)</code></p>
 <p>results in no error.</p>
 <p>Let A use driver timestamps and B software timestamps. Then,</p>
-<p><code>θ = {[(_T_&lt;sub&gt;2&lt;/sub&gt; + _d_) − (_T_&lt;sub&gt;1&lt;/sub&gt; + _d_)] + [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;4&lt;/sub&gt; + _d_)]} / 2</code></p>
-<p>results in an offset error of −_d_, while</p>
-<p><code>δ = [(_T_&lt;sub&gt;4&lt;/sub&gt; + _d_) − (_T_&lt;sub&gt;1&lt;/sub&gt; + _d_)] − [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;2&lt;/sub&gt; + _d_)]</code></p>
-<p>results in a delay increase of <em>d</em>. Other combinations are possible.</p>
+<p><code>θ = {[(<em>T</em><sub>2</sub> + <em>d</em>) − (<em>T</em><sub>1</sub> + <em>d</em>)] + [<em>T</em><sub>3</sub> − (<em>T</em><sub>4</sub> + <em>d</em>)]} / 2</code></p>
+<p>results in an offset error of <code>−<em>d</em></code>, while</p>
+<p><code>δ = [(<em>T</em><sub>4</sub> + <em>d</em>) − (<em>T</em><sub>1</sub> + <em>d</em>)] − [<em>T</em><sub>3</sub> − (<em>T</em><sub>2</sub> + <em>d</em>)]</code></p>
+<p>results in a delay increase of <code><em>d</em></code>. Other combinations are possible.</p>
 <hr>
 <h4 id="11-store-and-forward-delay-errors">11. Store and Forward Delay Errors</h4>
 <p>Consider a scenario with two LAN segments connected by a switch or router, where one segment operates at 10 Mb and the other at 100 Mb. Even with hardware timestamps errors can occur due to the different packet transmission times.</p>
 <p><img src="/archives/pic/stamp7.gif" alt="gif"></p>
 <p><strong>Figure 7</strong></p>
-<p>In Figure 7 let <em>d</em><sub>A</sub> be the packet time for A and <em>d</em><sub>B</sub> be the packet time for B. The router sends the packet to B only after the packet has been received from A, assuming the switch is not capable of cut-through switching. With hardware (preamble) timestamps,</p>
-<p><code>θ = {[(_T_&lt;sub&gt;2&lt;/sub&gt; + _d_&lt;sub&gt;A&lt;/sub&gt;) − _T_&lt;sub&gt;1&lt;/sub&gt;] + [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;4&lt;/sub&gt; + _d_&lt;sub&gt;B&lt;/sub&gt;)]} / 2</code></p>
-<p>results in an offset error (<em>d</em><sub>A</sub> − <em>d</em><sub>B</sub>) / 2. As above, if <em>d<sub>A</sub></em> = <em>d<sub>B</sub></em>, there is no offset error. On the other hand,</p>
-<p><code>δ = [(_T_&lt;sub&gt;4&lt;/sub&gt; + _d_&lt;sub&gt;B&lt;/sub&gt;) − _T_&lt;sub&gt;1&lt;/sub&gt;)] − [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;2&lt;/sub&gt; + _d_&lt;sub&gt;A&lt;/sub&gt;)]</code></p>
-<p>results in a delay increase of <em>d</em><sub>A</sub> + <em>d</em><sub>B</sub>.</p>
+<p>In Figure 7 let <code><em>d</em><sub>A</sub></code> be the packet time for A and <code><em>d</em><sub>B</sub></code> be the packet time for B. The router sends the packet to B only after the packet has been received from A, assuming the switch is not capable of cut-through switching. With hardware (preamble) timestamps,</p>
+<p><code>θ = {[(<em>T</em><sub>2</sub> + <em>d</em><sub>A</sub>) − <em>T</em><sub>1</sub>] + [<em>T</em><sub>3</sub> − (<em>T</em><sub>4</sub> + <em>d</em><sub>B</sub>)]} / 2</code></p>
+<p>results in an offset error <code>(<em>d</em><sub>A</sub> − <em>d</em><sub>B</sub>) / 2</code>. As above, if <code><em>d<sub>A</sub></em> = <em>d<sub>B</sub></em></code>, there is no offset error. On the other hand,</p>
+<p><code>δ = [(<em>T</em><sub>4</sub> + <em>d</em><sub>B</sub>) − <em>T</em><sub>1</sub>)] − [<em>T</em><sub>3</sub> − (<em>T</em><sub>2</sub> + <em>d</em><sub>A</sub>)]</code></p>
+<p>results in a delay increase of <code><em>d</em><sub>A</sub> + <em>d</em><sub>B</sub></code>.</p>
 <p>If a software timestamp scheme is chosen for the above example, then,</p>
-<p><code>θ = {[(_T_&lt;sub&gt;2&lt;/sub&gt; + _d_&lt;sub&gt;A&lt;/sub&gt; + _d_&lt;sub&gt;B&lt;/sub&gt;) − _T_&lt;sub&gt;1&lt;/sub&gt;] + [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;4&lt;/sub&gt; + _d_&lt;sub&gt;A&lt;/sub&gt; + _d_&lt;sub&gt;B&lt;/sub&gt;)]} / 2</code></p>
+<p><code>θ = {[(<em>T</em><sub>2</sub> + <em>d</em><sub>A</sub> + <em>d</em><sub>B</sub>) − <em>T</em><sub>1</sub>] + [<em>T</em><sub>3</sub> − (<em>T</em><sub>4</sub> + <em>d</em><sub>A</sub> + <em>d</em><sub>B</sub>)]} / 2</code></p>
 <p>results in a zero offset error. On the other hand,</p>
-<p><code>δ = [(_T_&lt;sub&gt;4&lt;/sub&gt; + _d_&lt;sub&gt;A&lt;/sub&gt; + _d_&lt;sub&gt;B&lt;/sub&gt;) − _T_&lt;sub&gt;1&lt;/sub&gt;)] − [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;2&lt;/sub&gt; + _d_&lt;sub&gt;A&lt;/sub&gt; + _d_&lt;sub&gt;B&lt;/sub&gt;)]</code></p>
-<p>results in a delay increase of 2(<em>d</em><sub>A</sub> + <em>d</em><sub>B</sub>).</p>
+<p><code>δ = [(<em>T</em><sub>4</sub> + <em>d</em><sub>A</sub> + <em>d</em><sub>B</sub>) − <em>T</em><sub>1</sub>)] − [<em>T</em><sub>3</sub> − (<em>T</em><sub>2</sub> + <em>d</em><sub>A</sub> + <em>d</em><sub>B</sub>)]</code></p>
+<p>results in a delay increase of <code>2(<em>d</em><sub>A</sub> + <em>d</em><sub>B</sub>)</code>.</p>
 <p>From this we can conclude that it&rsquo;s not only the timestamping schemes at A and B which must match, some consideration must also be given to the forwarding behavior of the switches connecting A and B when the link speeds differ. Using the preamble timestamp as the transmit timestamp and the trailer timestamp as the receive timestamp solves this problem.</p>
 <hr>
 <h4 id="12-nonreciprocal-rate-errors">12. Nonreciprocal Rate Errors</h4>
 <p>A transmission path will typically be two or more concatenated network segments that might operate at different rates. The above analysis assumes that the transmit and receive rates are the same for each network segment, even if different on different segments. The problem considered in this section is when the transmit and receive rates is different on some segment. This is a common condition on space data links.</p>
-<p>Assume the packet transmission time on a particular segment is δ = <em>p</em> + <em>L</em> / <em>r</em>, where <em>p</em> is the propagation delay, <em>L</em> the packet length in bits and <em>r</em> is the transmission rate in bits per second. Now consider the total delay δ over a path consisting of caoncatenated segments,</p>
-<p><code>δ = (_p_&lt;sub&gt;1&lt;/sub&gt; + _L / r_&lt;sub&gt;1&lt;/sub&gt;) + (_p_&lt;sub&gt;2&lt;/sub&gt; + _L / r_&lt;sub&gt;2&lt;/sub&gt;) + ... + (_p&lt;sub&gt;n&lt;/sub&gt;_ + _L / r&lt;sub&gt;n&lt;/sub&gt;_)</code>,</p>
-<p>where <em>n</em> is the number of segments on the path. If we assume the outbound and return paths traverse the same segments in reverse order, the total delay on each direction will be the same. If the timestamps are taken as described previously, the delays are reciprocal and accuracy is not diluted.</p>
-<p>Let δ<sub>21</sub> be the total delay on the outbound path from the client to the server, then above can be written</p>
-<p><code>δ&lt;sub&gt;21&lt;/sub&gt; = sum(_p&lt;sub&gt;i&lt;/sub&gt;_) + _L_ sum(1 / _r&lt;sub&gt;i&lt;/sub&gt;_) (_i_ = 1..._n_)</code>,</p>
-<p>where <em>n</em> is the number of network segments. Let <em>r</em><sub>21</sub>= 1 / sum(1 / <em>r<sub>i</sub></em>) be the overall outbound transmission rate, where <em>i</em> indexes the outbound segments. Let <em>r</em><sub>34</sub>= 1 / sum(1 / <em>r<sub>i</sub></em>) be the overall inbound transmission rate, where <em>i</em> indexes the inbound segments. Then, <em>L</em> / <em>r</em><sub>21</sub> is the overall outbound delay and <em>L</em> / <em>r</em><sub>34</sub> is the overall inbound delay.</p>
-<p>In the case of space data links, the delay from the first symbol of the RF signal to the timeestamp capture point, the ASM octet, is primarily due to Reed-Solomon encoding and interleaving. The delay is typically included in the light time propagation delay. Also, the message bit rate is typically one-half the channel bit rate due to convolutional encoding. The net channel delay and bit rate are determined from the RF channel parameters, which are known in advance. Thus, the clock offset is</p>
-<p><code>θ = {[(_T_&lt;sub&gt;2&lt;/sub&gt; + _L / r_&lt;sub&gt;21&lt;/sub&gt;) − _T_&lt;sub&gt;1&lt;/sub&gt;] + [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;4&lt;/sub&gt; + _L / r_&lt;sub&gt;34&lt;/sub&gt;)]} / 2</code>,</p>
-<p>which as expected results in no delution of acuracy if the overall inbound and outbound rates are the same. If not, a workable remedy is to subtract the rate term from the corresponding receive <em>T</em><sub>2</sub> and destination <em>T</em><sub>4</sub> timestamps before tthey are stored.</p>
+<p>Assume the packet transmission time on a particular segment is <code>δ = <em>p</em> + <em>L</em> / <em>r</em></code>, where <code><em>p</em></code> is the propagation delay, <code><em>L</em></code> the packet length in bits and <code><em>r</em></code> is the transmission rate in bits per second. Now consider the total delay <code>δ</code> over a path consisting of concatenated segments,</p>
+<p><code>δ = (<em>p</em><sub>1</sub> + <em>L / r</em><sub>1</sub>) + (<em>p</em><sub>2</sub> + <em>L / r</em><sub>2</sub>) + &hellip; + (<em>p<sub>n</sub></em> + <em>L / r<sub>n</sub></em>)</code></p>
+<p>where <code><em>n</em></code> is the number of segments on the path. If we assume the outbound and return paths traverse the same segments in reverse order, the total delay on each direction will be the same. If the timestamps are taken as described previously, the delays are reciprocal and accuracy is not diluted.</p>
+<p>Let <code>δ<sub>21</sub></code> be the total delay on the outbound path from the client to the server, then above can be written</p>
+<p><code>δ<sub>21</sub> = sum(<em>p<sub>i</sub></em>) + <em>L</em> sum(1 / <em>r<sub>i</sub></em>) (<em>i</em> = 1&hellip;<em>n</em>)</code></p>
+<p>where <code><em>n</em></code> is the number of network segments. Let <code><em>r</em><sub>21</sub>= 1 / sum(1 / <em>r<sub>i</sub></em>)</code> be the overall outbound transmission rate, where <code><em>i</em></code> indexes the outbound segments. Let <code><em>r</em><sub>34</sub>= 1 / sum(1 / <em>r<sub>i</sub></em>)</code> be the overall inbound transmission rate, where <code><em>i</em></code> indexes the inbound segments. Then, <code><em>L</em> / <em>r</em><sub>21</sub></code> is the overall outbound delay and <code><em>L</em> / <em>r</em><sub>34</sub></code> is the overall inbound delay.</p>
+<p>In the case of space data links, the delay from the first symbol of the RF signal to the timestamp capture point, the ASM octet, is primarily due to Reed-Solomon encoding and interleaving. The delay is typically included in the light time propagation delay. Also, the message bit rate is typically one-half the channel bit rate due to convolutional encoding. The net channel delay and bit rate are determined from the RF channel parameters, which are known in advance. Thus, the clock offset is</p>
+<p><code>θ = {[(<em>T</em><sub>2</sub> + <em>L / r</em><sub>21</sub>) − <em>T</em><sub>1</sub>] + [<em>T</em><sub>3</sub> − (<em>T</em><sub>4</sub> + <em>L / r</em><sub>34</sub>)]} / 2</code></p>
+<p>which as expected results in no delution of accuracy if the overall inbound and outbound rates are the same. If not, a workable remedy is to subtract the rate term from the corresponding receive <code><em>T</em><sub>2</sub></code> and destination <code><em>T</em><sub>4</sub></code> timestamps before tthey are stored.</p>
 <p>Where necessary, the roundtrip delay can be determined as</p>
-<p><code>δ = [(_T_&lt;sub&gt;4&lt;/sub&gt; + _L / r_&lt;sub&gt;34&lt;/sub&gt;) − _T_&lt;sub&gt;1&lt;/sub&gt;] − [_T_&lt;sub&gt;3&lt;/sub&gt; − (_T_&lt;sub&gt;2&lt;/sub&gt; + _L / r_&lt;sub&gt;21&lt;/sub&gt;)]</code>.</p>
+<p><code>δ = [(<em>T</em><sub>4</sub> + <em>L / r</em><sub>34</sub>) − <em>T</em><sub>1</sub>] − [<em>T</em><sub>3</sub> − (<em>T</em><sub>2</sub> + <em>L / r</em><sub>21</sub>)]</code></p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -467,20 +437,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

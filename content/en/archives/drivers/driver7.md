@@ -2,8 +2,8 @@
 title: "Radio CHU Audio Demodulator/Decoder"
 type: archives
 ---
-Author: David L. Mills (mills@udel.edu)  
-Last update: 17-Jul-2014 02:17 UTC
+Author: David L. Mills (mills@udel.edu)
+: Last update: 17-Jul-2014 02:17 UTC
 
 * * *
 
@@ -23,12 +23,12 @@ Last update: 17-Jul-2014 02:17 UTC
 
 #### Synopsis
 
-Address: 127.127.7._u_  
-Reference ID: <tt>CHU</tt>  
-Driver ID: <tt>CHU</tt>  
-Modem Port: <tt>/dev/chu_u_</tt>; 300 baud, 8-bits, no parity  
-Autotune Port: <tt>/dev/icom</tt>; 1200/9600 baud, 8-bits, no parity  
-Audio Device: <tt>/dev/audio</tt> and <tt>/dev/audioctl</tt>
+**Address:** <code>127.127.7._u_</code>
+: **Reference ID:** `CHU`
+: **Driver ID:** `CHU`
+: **Modem Port:** <code>/dev/chu*u*</code>; 300 baud, 8-bits, no parity
+: **Autotune Port:** `/dev/icom`; 1200/9600 baud, 8-bits, no parity
+: **Audio Device:** `/dev/audio` and `/dev/audioctl`
 
 * * *
 
@@ -90,7 +90,7 @@ If the timecode is valid, it is passed to the reference clock interface along wi
 
 The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio) page.
 
-If specified, the driver will attempt to open the device <tt>/dev/icom</tt> and, if successful will tune the radio to 3.331 MHz. The 1-kHz offset is useful with a narrowband SSB filter where the passband includes the carrier and modem signals. However, the driver is liberal in what it assumes of the configuration. If the <tt>/dev/icom</tt> link is not present or the open fails or the CI-V bus is inoperative, the driver continues in single-frequency mode.
+If specified, the driver will attempt to open the device `/dev/icom` and, if successful will tune the radio to 3.331 MHz. The 1-kHz offset is useful with a narrowband SSB filter where the passband includes the carrier and modem signals. However, the driver is liberal in what it assumes of the configuration. If the `/dev/icom` link is not present or the open fails or the CI-V bus is inoperative, the driver continues in single-frequency mode.
 
 As long as no bursts are received, the driver cycles over the three frequencies in turn, one minute for each station. When bursts are received from one or more stations, the driver operates in a five-minute cycle. During the first four minutes it tunes to the station with the highest metric. During the last minute it alternates between the other two stations in turn in order to measure the metric.
 
@@ -98,13 +98,13 @@ As long as no bursts are received, the driver cycles over the three frequencies 
 
 #### Debugging Aids
 
-The most convenient way to track the program status is using the <tt>ntpq</tt> program and the <tt>clockvar</tt> command. This displays the last determined timecode and related status and error counters, even when the program is not discipline the system clock. If the debugging trace feature (<tt>-d</tt> on the <tt>ntpd</tt> command line) is enabled, the program produces detailed status messages as it operates. If the <tt>fudge flag 4</tt> is set, these messages are written to the <tt>clockstats</tt> file. All messages produced by this driver have the prefix <tt>chu</tt> for convenient filtering with the Unix <tt>grep</tt> command.
+The most convenient way to track the program status is using the `ntpq` program and the `clockvar` command. This displays the last determined timecode and related status and error counters, even when the program is not disciplined by the system clock. If the debugging trace feature (`-d` on the `ntpd` command line) is enabled, the program produces detailed status messages as it operates. If the `fudge flag 4` is set, these messages are written to the `clockstats` file. All messages produced by this driver have the prefix `chu` for convenient filtering with the Unix `grep` command.
 
-With debugging enabled the driver produces messages in the following formats: A single message beginning with <tt>chuB</tt> is produced for each format B burst received in second 31, while eight messages beginning with <tt>chuA</tt> are produced for each format A burst received in seconds 32 through 39 of the minute. The first four fields are
+With debugging enabled the driver produces messages in the following formats: A single message beginning with `chuB` is produced for each format B burst received in second 31, while eight messages beginning with `chuA` are produced for each format A burst received in seconds 32 through 39 of the minute. The first four fields are
 
-<tt>stat sig n b</tt>
+`stat sig n b`
 
-where <tt>stat</tt> is the status code, <tt>sig</tt> the character span, <tt>n</tt> the number of characters in the burst (9-11) and <tt>b</tt> the burst distance (0-40). Good bursts will have spans of a 800 or more and the other numbers near the top of the range specified. See the source for the interpretation of the remaining data in the burst. Note that each character of the burst is encoded as two digits in nibble-swapped order.
+where `stat` is the status code, `sig` the character span, `n` the number of characters in the burst (9-11), and `b` the burst distance (0-40). Good bursts will have spans of 800 or more and the other numbers near the top of the range specified. See the source for the interpretation of the remaining data in the burst. Note that each character of the burst is encoded as two digits in nibble-swapped order.
 
 If the CI-V interface for ICOM radios is active, a debug level greater than 1 will produce a trace of the CI-V command and response messages. Interpretation of these messages requires knowledge of the CI-V protocol, which is beyond the scope of this document.
 
@@ -112,7 +112,7 @@ If the CI-V interface for ICOM radios is active, a debug level greater than 1 wi
 
 #### Monitor Data
 
-When enabled by the <tt>filegen</tt> facility, every received timecode is written to the <tt>clockstats</tt> file in the following format:
+When enabled by the `filegen` facility, every received timecode is written to the `clockstats` file in the following format:
 
 <pre>        sq yyyy ddd hh:mm:ss lw dst du lset agc rfrq bcnt dist tsmp
 
@@ -133,114 +133,93 @@ When enabled by the <tt>filegen</tt> facility, every received timecode is writte
         tsmp    timestamps captured
 </pre>
 
-The fields beginning with <tt>year</tt> and extending through <tt>dut</tt> are decoded from the received data and are in fixed-length format. The <tt>agc</tt> and <tt>lset</tt> fields, as well as the following driver-dependent fields, are in variable-length format.
+The fields beginning with `year` and extending through `dut` are decoded from the received data and are in fixed-length format. The `agc` and `lset` fields, as well as the following driver-dependent fields, are in variable-length format.
 
-<dl>
+<code>**s**</code>
 
-<dt><tt>s</tt></dt>
+: The sync indicator is initially `?` before the clock is set, but turns to `space` when the clock has been correctly set.
 
-The sync indicator is initially <tt>?</tt> before the clock is set, but turns to space when the clock has been correctly set.
+<code>**q**</code>
 
-<dt><tt>q</tt></dt>
+: The quality character is a four-bit hexadecimal code showing which alarms have been raised during the most recent minute. Each bit is associated with a specific alarm condition according to the following:
 
-The quality character is a four-bit hexadecimal code showing which alarms have been raised during the most recent minute. Each bit is associated with a specific alarm condition according to the following:
+| Bit | Description |
+| ----- | ----- |
+| `8` | Timestamp alarm. Fewer than 20 timestamps have been determined. |
+| `4` | Decoder alarm. A majority of repetitions for at least one digit of the timecode fails to agree. |
+| `2` | Format alarm. One or more bursts contained invalid data or was improperly formatted. |
+| `1` | Frame alarm. One or more bursts was improperly framed or contained too many repetition errors. |
 
-<dl>
+The timestamp and decoder alarms are fatal; the data accumulated during the minute are not used to set the clock. The format and frame alarm are nonfatal; only the data in the burst are discarded.
 
-<dt><tt>8</tt></dt>
+<code>**yyyy ddd hh:mm:ss**</code>
 
-Timestamp alarm. Fewer than 20 timestamps have been determined.
+: The timecode format itself is self explanatory. Note that the Gregorian year is decoded directly from the transmitted timecode.
 
-<dt><tt>4</tt></dt>
+<code>**lw**</code>
 
-Decoder alarm. A majority of repetitions for at least one digit of the timecode fails to agree.
+: The leap second warning is normally `space`, but changes to `L` if a leap second is to occur at the end of the month.
 
-<dt><tt>2</tt></dt>
+<code>**dst**</code>
 
-Format alarm. One or more bursts contained invalid data or was improperly formatted.
+: The DST code for Canada encodes the state for all provinces. It is encoded as two hex characters.
 
-<dt><tt>1</tt></dt>
+<code>**dut**</code>
 
-Frame alarm. One or more bursts was improperly framed or contained too many repetition errors.
+: The DUT sign and magnitude shows the current UT1 offset relative to the displayed UTC time, in deciseconds. It is encoded as one digit preceded by sign.
 
-</dl>
+<code>**lset**</code>
 
-The timestamp and decoder alarms are fatal; the data accumulated during the minute are not used to set the clock. The format and fram alarm are nonfatal; only the data in the burst are discarded.
+: Before the clock is set, this is the number of minutes since the program was started; after the clock is set, this is the number of minutes since the time was last verified relative to the broadcast signal.
 
-<dt><tt>yyyy ddd hh:mm:ss</tt></dt>
+<code>**agc**</code>
 
-The timecode format itself is self explanatory. Note that the Gregorian year is decoded directly from the transmitted timecode.
+: The audio gain shows the current codec gain setting in the range 0 to 255. Ordinarily, the receiver audio gain control should be set for a value midway in this range.
 
-<dt><tt>lw</tt></dt>
+<code>**ident**</code>
 
-The leap second warning is normally space, but changes to <tt>L</tt> if a leap second is to occur at the end of the month.
+: The CHU identifier `CHU` followed by the current radio frequency code, if the CI-V interface is active, or `CHU` if not. The radio frequncy is encoded as 0 for 3.330 MHz, 1 for 7.850 MHz and 2 for 14.670 MHz.
 
-<dt><tt>dst</tt></dt>
+<code>**dist**</code>
 
-The DST code for Canada encodes the state for all provinces. It is encoded as two hex characters.
+: The decoding distance determined during the most recent minute bursts were received. The values range from 0 to 160, with the higher values indicating better signals. The decoding algorithms require the distance at least 50; otherwise all data in the minute are discarded.
 
-<dt><tt>dut</tt></dt>
+<code>**tsmp**</code>
 
-The DUT sign and magnitude shows the current UT1 offset relative to the displayed UTC time, in deciseconds. It is encoded as one digit preceded by sign.
-
-<dt><tt>lset</tt></dt>
-
-Before the clock is set, this is the number of minutes since the program was started; after the clock is set, this is the number of minutes since the time was last verified relative to the broadcast signal.
-
-<dt><tt>agc</tt></dt>
-
-The audio gain shows the current codec gain setting in the range 0 to 255. Ordinarily, the receiver audio gain control should be set for a value midway in this range.
-
-<dt><tt>ident</tt></dt>
-
-The CHU identifier <tt>CHU</tt> followed by the current radio frequency code, if the CI-V interface is active, or <tt>CHU</tt> if not. The radio frequncy is encoded as 0 for 3.330 MHz, 1 for 7.850 MHz and 2 for 14.670 MHz.
-
-<dt><tt>dist</tt></dt>
-
-The decoding distance determined during the most recent minute bursts were received. The values range from 0 to 160, with the higher values indicating better signals. The decoding algorithms require the distance at least 50; otherwise all data in the minute are discarded.
-
-<dt><tt>tsmp</tt></dt>
-
-The number of timestamps determined during the most recent minute bursts were received. The values range from 0 to 60, with the higher values indicating better signals. The decoding algoriths require at least 20 timestamps in the minute; otherwise all data in the minute are discarded.
-
-</dl>
+: The number of timestamps determined during the most recent minute bursts were received. The values range from 0 to 60, with the higher values indicating better signals. The decoding algorithms require at least 20 timestamps in the minute; otherwise all data in the minute are discarded.
 
 * * *
 
 #### Fudge Factors
 
-<dl>
+<code>**time1 _time_**</code>
 
-<dt><tt>time1 _time_</tt></dt>
+: Specifies the propagation delay for CHU (45:18N 75:45N), in seconds and fraction, with default 0.0.
 
-Specifies the propagation delay for CHU (45:18N 75:45N), in seconds and fraction, with default 0.0.
+<code>**time2 _time_**</code>
 
-<dt><tt>time2 _time_</tt></dt>
+: Not used by this driver.
 
-Not used by this driver.
+<code>**stratum _number_**</code>
 
-<dt><tt>stratum _number_</tt></dt>
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+<code>**refid _string_**</code>
 
-<dt><tt>refid _string_</tt></dt>
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default `CHU`.
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>CHU</tt>.
+<code>**flag1 0 | 1**</code>
 
-<dt><tt>flag1 0 | 1</tt></dt>
+: Not used by this driver.
 
-Not used by this driver.
+<code>**flag2 0 | 1**</code>
 
-<dt><tt>flag2 0 | 1</tt></dt>
+: When the audio driver is compiled, this flag selects the audio input port, where 0 is the mike port (default) and 1 is the line-in port. It does not seem useful to select the compact disc player port.
 
-When the audio driver is compiled, this flag selects the audio input port, where 0 is the mike port (default) and 1 is the line-in port. It does not seem useful to select the compact disc player port.
+<code>**flag3 0 | 1**</code>
 
-<dt><tt>flag3 0 | 1</tt></dt>
+: When the audio driver is compiled, this flag enables audio monitoring of the input signal. For this purpose, the speaker volume must be set before the driver is started.
 
-When the audio driver is compiled, this flag enables audio monitoring of the input signal. For this purpose, the speaker volume must be set before the driver is started.
+<code>**flag4 0 | 1**</code>
 
-<dt><tt>flag4 0 | 1</tt></dt>
-
-Enable verbose <tt>clockstats</tt> recording if set.
-
-</dl>
+: Enable verbose `clockstats` recording if set.

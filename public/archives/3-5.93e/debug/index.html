@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Once the NTP software distribution has been compiled and installed and the configuration file constructed, the next step is to verify correct …">
+<meta property="og:title" content="NTP Debugging Techniques" />
+<meta property="og:description" content="Once the NTP software distribution has been compiled and installed and the configuration file constructed, the next step is to verify correct operation and fix any bugs that may result. Usually, the command line that starts the daemon is included in the system startup file, so it is executed only at system boot time; however, the daemon can be stopped and restarted from root at any time. Usually, no command-line arguments are required, unless special actions described in the xntpd." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/3-5.93e/debug/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>NTP Debugging Techniques</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +47,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +63,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +73,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +92,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +144,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/3-5.93e/">3-5.93e</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/">3-5.93e</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/3-5.93e/debug/">NTP Debugging Techniques</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/debug/">NTP Debugging Techniques</a>
 </li>
 
 	</ol>
@@ -152,11 +170,11 @@
   	<h1>NTP Debugging Techniques</h1>
      
     <p>Once the NTP software distribution has been compiled and installed and the configuration file constructed, the next step is to verify correct operation and fix any bugs that may result. Usually, the command line that starts the daemon is included in the system startup file, so it is executed only at system boot time; however, the daemon can be stopped and restarted from root at any time. Usually, no command-line arguments are required, unless special actions described in the xntpd.8 man page are required. Once started, the daemon will begin sending messages, as specified in the configuration file, and interpreting received messages.</p>
-<p>The best way to verify correct operation is using the <a href="/archives/3-5.93e/ntpq"><tt>ntpq</tt> - standard NTP query program</a> and <a href="/archives/3-5.93e/xntpdc"><tt>xntpdc</tt> - special NTP query program</a> utility programs, either on the server itself or from another machine elsewhere in the network. The <tt>ntpq</tt> program implements the management functions specified in Appendix A of the NTP specification <a href="/reflib/rfc/rfc1305/rfc1305c.pdf">RFC-1305, Appendix A</a>. The <tt>xntpdc</tt> program implements additional functions not provided in the standard. Both programs can be used to inspect the state variables defined in the specification and, in the case of <tt>xntpdc</tt>, additional ones of interest. In addition, the <tt>xntpdc</tt> program can be used to selectively enable and disable some functions of the daemon while the daemon is running.</p>
-<p>In extreme cases with elusive bugs, the daemon can operate in two modes, depending on the presence of the <tt>-d</tt> command-line debug switch. If not present, the daemon detaches from the controlling terminal and proceeds autonomously. If one or more <tt>-d</tt> switches are present, the daemon does not detach and generates special output useful for debugging. In general, interpretation of this output requires reference to the sources.</p>
-<p>Some problems are immediately apparent when the daemon first starts running. The most common of these are the lack of a ntp (UDP port 123) in the host <tt>/etc/services</tt> file. Note that NTP does not use TCP in any form. Other problems are apparent in the system log file. The log file should show the startup banner, some cryptic initialization data, and the computed precision value. The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file responds to the Unix <tt>ping</tt> command.</p>
+<p>The best way to verify correct operation is using the <a href="/archives/3-5.93e/ntpq"><code>ntpq</code> - standard NTP query program</a> and <a href="/archives/3-5.93e/xntpdc"><code>xntpdc</code> - special NTP query program</a> utility programs, either on the server itself or from another machine elsewhere in the network. The <code>ntpq</code> program implements the management functions specified in Appendix A of the NTP specification <a href="/reflib/rfc/rfc1305/rfc1305c.pdf">RFC-1305, Appendix A</a>. The <code>xntpdc</code> program implements additional functions not provided in the standard. Both programs can be used to inspect the state variables defined in the specification and, in the case of <code>xntpdc</code>, additional ones of interest. In addition, the <code>xntpdc</code> program can be used to selectively enable and disable some functions of the daemon while the daemon is running.</p>
+<p>In extreme cases with elusive bugs, the daemon can operate in two modes, depending on the presence of the <code>-d</code> command-line debug switch. If not present, the daemon detaches from the controlling terminal and proceeds autonomously. If one or more <code>-d</code> switches are present, the daemon does not detach and generates special output useful for debugging. In general, interpretation of this output requires reference to the sources.</p>
+<p>Some problems are immediately apparent when the daemon first starts running. The most common of these are the lack of a ntp (UDP port 123) in the host <code>/etc/services</code> file. Note that NTP does not use TCP in any form. Other problems are apparent in the system log file. The log file should show the startup banner, some cryptic initialization data, and the computed precision value. The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file responds to the Unix <code>ping</code> command.</p>
 <p>When first started, the daemon normally polls the servers listed in the configuration file at 64-second intervals. In order to allow a sufficient number of samples for the NTP algorithms to reliably discriminate between correctly operating servers and possible intruders, at least four valid messages from at least one server is required before the daemon can not set the local clock. However, if the current local time is greater than 1000 seconds in error from the server time, the daemon will not set the local clock; instead, it will plant a message in the system log and shut down. It is necessary to set the local clock to within 1000 seconds first, either by a time-of-year hardware clock, by first using the <a href="/archives/3-5.93e/ntpdate">ntpdate</a> program or manually be eyeball and wristwatch.</p>
-<p>After starting the daemon, run the <tt>ntpq</tt> program using the <tt>-n</tt> switch, which will avoid possible distractions due to name resolution problems. Use the <tt>pe</tt> command to display a billboard showing the status of configured peers and possibly other clients poking the daemon. After operating for a few minutes, the display should be something like:</p>
+<p>After starting the daemon, run the <code>ntpq</code> program using the <code>-n</code> switch, which will avoid possible distractions due to name resolution problems. Use the <code>pe</code> command to display a billboard showing the status of configured peers and possibly other clients poking the daemon. After operating for a few minutes, the display should be something like:</p>
 <pre>ntpq> pe
   remote           refid      st when poll reach   delay  offset    disp
 ========================================================================
@@ -165,9 +183,9 @@
 -128.8.2.88   128.8.10.1       2   49  128  376   294.14    5.94   17.47
 +128.4.2.17   .WWVB.           1  173  256  377   279.95   20.56   16.40
 </pre>
-<p>The host addresses shown in the <tt>remote</tt> column should agree with the DNS entries in the configuration file, plus any peers not mentioned in the file at the same or lower than your stratum that happen to be configured to peer with you. Be prepared for surprises in cases where the peer has multiple addresses or multiple names. The <tt>refid</tt> entry shows the current source of synchronization for each peer, while the st reveals its stratum and the <tt>poll</tt> entry the polling interval, in seconds. The <tt>when</tt> entry shows the time since the peer was last heard, normally in seconds, while the <tt>reach</tt> entry shows the status of the reachability register (see RFC-1305), which is in octal format. The remaining entries show the latest delay, offset and dispersion computed for the peer, in milliseconds.</p>
-<p>The tattletale character at the left margin displays the synchronization status of each peer. The currently selected peer is marked <code>*</code>, while additional peers designated acceptable for synchronization are marked <code>+</code>. Peers marked <code>*</code> and <code>+</code> are included in the weighted average computation to set the local clock; the data produced by peers marked with other symbols are discarded. See the <tt>ntpq</tt> page for the meaning of these symbols.</p>
-<p>Additional details for each peer separately can be determined by the following procedure. First, use the <tt>as</tt> command to display an index of association identifiers, such as</p>
+<p>The host addresses shown in the <code>remote</code> column should agree with the DNS entries in the configuration file, plus any peers not mentioned in the file at the same or lower than your stratum that happen to be configured to peer with you. Be prepared for surprises in cases where the peer has multiple addresses or multiple names. The <code>refid</code> entry shows the current source of synchronization for each peer, while the st reveals its stratum and the <code>poll</code> entry the polling interval, in seconds. The <code>when</code> entry shows the time since the peer was last heard, normally in seconds, while the <code>reach</code> entry shows the status of the reachability register (see RFC-1305), which is in octal format. The remaining entries show the latest delay, offset and dispersion computed for the peer, in milliseconds.</p>
+<p>The tattletale character at the left margin displays the synchronization status of each peer. The currently selected peer is marked <code>*</code>, while additional peers designated acceptable for synchronization are marked <code>+</code>. Peers marked <code>*</code> and <code>+</code> are included in the weighted average computation to set the local clock; the data produced by peers marked with other symbols are discarded. See the <code>ntpq</code> page for the meaning of these symbols.</p>
+<p>Additional details for each peer separately can be determined by the following procedure. First, use the <code>as</code> command to display an index of association identifiers, such as</p>
 <pre>ntpq> as
 ind assID status  conf reach auth condition  last_event cnt
 ===========================================================
@@ -176,7 +194,7 @@ ind assID status  conf reach auth condition  last_event cnt
   3 11833  7314    no   yes   ok    outlyer   reachable  1
   4 11868  7414    no   yes   ok    synchr.   reachable  1
 </pre>
-<p>Each line in this billboard is associated with the corresponding line in the <tt>pe</tt> billboard above. Next, use the <tt>rv</tt> command and the respective identifier to display a detailed synopsis for the selected peer, such as</p>
+<p>Each line in this billboard is associated with the corresponding line in the <code>pe</code> billboard above. Next, use the <code>rv</code> command and the respective identifier to display a detailed synopsis for the selected peer, such as</p>
 <pre>ntpq> rv 11670
 status=7414 reach, auth, sel_sync, 1 event, event_reach
 srcadr=128.4.2.6, srcport=123, dstadr=128.4.2.7, dstport=123, keyid=1,
@@ -193,7 +211,7 @@ filtoffset= 13.24  16.28 -49.19  16.04  16.83  16.49  16.95 -39.43,
 filterror=  16.27  20.17  27.98  31.89  35.80  39.70  43.61  47.52
 </pre>
 <p>A detailed explanation of the fields in this billboard are beyond the scope of this discussion; however, most variables defined in the specification RFC-1305 can be found. The most useful portion for debugging is the last three lines, which give the roundtrip delay, clock offset and dispersion for each of the last eight measurement rounds, all in milliseconds. Note that the dispersion, which is an estimate of the error, increases as the age of the sample increases. From these data, it is usually possible to determine the incidence of severe packet loss, network congestion, and unstable local clock oscillators. There are no hard and fast rules here, since every case is unique; however, if one or more of the rounds show zeros, or if the clock offset changes dramatically in the same direction for each round, cause for alarm exists.</p>
-<p>Finally, the state of the local clock can be determined using the <tt>rv</tt> command (without the argument), such as</p>
+<p>Finally, the state of the local clock can be determined using the <code>rv</code> command (without the argument), such as</p>
 <pre>ntpq> rv
 status=0664 leap_none, sync_ntp, 6 events, event_peer/strat_chg
 system="UNIX", leap=00, stratum=2, rootdelay=280.62,
@@ -202,98 +220,36 @@ reftime=af00bb42.56111000  Fri, Jan 15 1993  4:25:38.336, poll=8,
 clock=af00bbcd.8a5de000  Fri, Jan 15 1993  4:27:57.540, phase=21.147,
 freq=13319.46, compliance=2
 </pre>
-<p>The most useful data in this billboard show when the clock was last adjusted <tt>reftime</tt>, together with its status and most recent exception event. An explanation of these data is in the specification RFC-1305.</p>
-<p>When nothing seems to happen in the <tt>pe</tt> billboard after some minutes, there may be a network problem. The most common network problem is an access controlled router on the path to the selected peer. No known public NTP time server selectively restricts access at this time, although this may change in future; however, many private networks do. It also may be the case that the server is down or running in unsynchronized mode due to a local problem. Use thee <tt>ntpq</tt> program to spy on its own variables in the same way you can spy on your own.</p>
+<p>The most useful data in this billboard show when the clock was last adjusted <code>reftime</code>, together with its status and most recent exception event. An explanation of these data is in the specification RFC-1305.</p>
+<p>When nothing seems to happen in the <code>pe</code> billboard after some minutes, there may be a network problem. The most common network problem is an access controlled router on the path to the selected peer. No known public NTP time server selectively restricts access at this time, although this may change in future; however, many private networks do. It also may be the case that the server is down or running in unsynchronized mode due to a local problem. Use thee <code>ntpq</code> program to spy on its own variables in the same way you can spy on your own.</p>
 <p>Once the daemon has set the local clock, it will continuously track the discrepancy between local time and NTP time and adjust the local clock accordingly. There are two components of this adjustment, time and frequency. These adjustments are automatically determined by the clock discipline algorithm, which functions as a hybrid phase/frequency feedback loop. The behavior of this algorithm is carefully controlled to minimize residual errors due to network jitter and frequency variations of the local clock hardware oscillator that normally occur in practice. However, when started for the first time, the algorithm may take some time to converge on the intrinsic frequency error of the host machine.</p>
-<p>It has sometimes been the experience that the local clock oscillator frequency error is too large for the NTP discipline algorithm, which can correct frequency errors as large as 30 seconds per day. There are two possibilities that may result in this problem. First, the hardware time- of-year clock chip must be disabled when using NTP, since this can destabilize the discipline process. This is usually done using the <a href="/archives/3-5.93e/tickadj">tickadj</a> program and the <tt>-s</tt> command line argument, but other means may be necessary. For instance, in the Sun Solaris kernel, this must be done using a command in the system startup file.</p>
+<p>It has sometimes been the experience that the local clock oscillator frequency error is too large for the NTP discipline algorithm, which can correct frequency errors as large as 30 seconds per day. There are two possibilities that may result in this problem. First, the hardware time- of-year clock chip must be disabled when using NTP, since this can destabilize the discipline process. This is usually done using the <a href="/archives/3-5.93e/tickadj">tickadj</a> program and the <code>-s</code> command line argument, but other means may be necessary. For instance, in the Sun Solaris kernel, this must be done using a command in the system startup file.</p>
 <p>Normally, the daemon will adjust the local clock in small steps in such a way that system and user programs are unaware of its operation. The adjustment process operates continuously as long as the apparent clock error exceeds 128 milliseconds, which for most Internet paths is a quite rare event. If the event is simply an outlyer due to an occasional network delay spike, the correction is simply discarded; however, if the apparent time error persists for an interval of about 20 minutes, the local clock is stepped to the new value (as an option, the daemon can be compiled to slew at an accelerated rate to the new value, rather than be stepped). This behavior is designed to resist errors due to severely congested network paths, as well as errors due to confused radio clocks upon the epoch of a leap second.</p>
 <hr>
 <h4 id="debugging-checklist">Debugging Checklist</h4>
-<p>If the <tt>ntpq</tt> or <tt>xntpdc</tt> programs do not show that messages are being received by the daemon or that received messages do not result in correct synchronization, verify the following:</p>
+<p>If the <code>ntpq</code> or <code>xntpdc</code> programs do not show that messages are being received by the daemon or that received messages do not result in correct synchronization, verify the following:</p>
 <ol>
 <li>
-<p>Verify the <tt>/etc/services</tt> file host machine is configured to accept UDP packets on the NTP port 123. NTP is specifically designed to use UDP and does not respond to TCP.</p>
+<p>Verify the <code>/etc/services</code> file host machine is configured to accept UDP packets on the NTP port 123. NTP is specifically designed to use UDP and does not respond to TCP.</p>
 </li>
 <li>
-<p>Check the system log for <tt>xntpd</tt> messages about configuration errors, name-lookup failures or initialization problems.</p>
+<p>Check the system log for <code>xntpd</code> messages about configuration errors, name-lookup failures or initialization problems.</p>
 </li>
 <li>
-<p>Using the <tt>xntpdc</tt> program and <tt>iostats</tt> command, verify that the received packets and packets sent counters are incrementing. If the packets send counter does not increment and the configuration file includes designated servers, something may be wrong in the network configuration of the xntpd host. If this counter does increment and packets are actually being sent to the network, but the received packets counter does not increment, something may be wrong in the network or the server may not be responding.</p>
+<p>Using the <code>xntpdc</code> program and <code>iostats</code> command, verify that the received packets and packets sent counters are incrementing. If the packets send counter does not increment and the configuration file includes designated servers, something may be wrong in the network configuration of the xntpd host. If this counter does increment and packets are actually being sent to the network, but the received packets counter does not increment, something may be wrong in the network or the server may not be responding.</p>
 </li>
 <li>
-<p>If both the packets sent counter and received packets counter do increment, but the <tt>rec</tt> timestamp in the <tt>pe</tt> billboard shows a date in 1972, received packets are probably being discarded for some reason. There is a handy, undocumented state variable flash visible in the pebillboard. The value is in hex and normally has the value zero (OK). However, if something is wrong, the bits of this variable, reading from the right, correspond to the sanity checks listed in Section 3.4.3 of the NTP specification RFC-1305. A bit other than zero indicates the associated sanity check failed.</p>
+<p>If both the packets sent counter and received packets counter do increment, but the <code>rec</code> timestamp in the <code>pe</code> billboard shows a date in 1972, received packets are probably being discarded for some reason. There is a handy, undocumented state variable flash visible in the pebillboard. The value is in hex and normally has the value zero (OK). However, if something is wrong, the bits of this variable, reading from the right, correspond to the sanity checks listed in Section 3.4.3 of the NTP specification RFC-1305. A bit other than zero indicates the associated sanity check failed.</p>
 </li>
 <li>
-<p>If the <tt>org</tt>, <tt>rec</tt> and <tt>xmt</tt> timestamps in the <tt>pe</tt> billboard appear current, but the local clock is not set, as indicated by a stratum number less than 16 in the <tt>rv</tt> command without arguments, verify that valid clock offset, roundtrip delay and dispersion are displayed for at least one peer. The clock offset should be less than 1000 seconds, the roundtrip delay less than one second and the dispersion less than one second.</p>
+<p>If the <code>org</code>, <code>rec</code> and <code>xmt</code> timestamps in the <code>pe</code> billboard appear current, but the local clock is not set, as indicated by a stratum number less than 16 in the <code>rv</code> command without arguments, verify that valid clock offset, roundtrip delay and dispersion are displayed for at least one peer. The clock offset should be less than 1000 seconds, the roundtrip delay less than one second and the dispersion less than one second.</p>
 </li>
 <li>
-<p>While the algorithm can tolerate a relatively large frequency error (over 350 parts per million or 30 seconds per day), various configuration errors (and in some cases kernel bugs) can exceed this tolerance, leading to erratic behavior. This can result in frequent loss of synchronization, together with wildly swinging offsets. Use the <tt>xntpdc</tt> program (or temporary configuration file) and <tt>disable pll</tt> command to prevent the <tt>xntpd</tt> daemon from setting the clock. Using the <tt>ntpq</tt> or <tt>xntpdc</tt> programs, watch the apparent offset as it varies over time to determine the intrinsic frequency error. If the error increases by more than 22 milliseconds per 64-second poll interval, the intrinsic frequency must be reduced by some means. The easiest way to do this is with the <a href="/archives/3-5.93e/tickadj">tickadj</a> program and the <tt>-t</tt> command line argument.</p>
+<p>While the algorithm can tolerate a relatively large frequency error (over 350 parts per million or 30 seconds per day), various configuration errors (and in some cases kernel bugs) can exceed this tolerance, leading to erratic behavior. This can result in frequent loss of synchronization, together with wildly swinging offsets. Use the <code>xntpdc</code> program (or temporary configuration file) and <code>disable pll</code> command to prevent the <code>xntpd</code> daemon from setting the clock. Using the <code>ntpq</code> or <code>xntpdc</code> programs, watch the apparent offset as it varies over time to determine the intrinsic frequency error. If the error increases by more than 22 milliseconds per 64-second poll interval, the intrinsic frequency must be reduced by some means. The easiest way to do this is with the <a href="/archives/3-5.93e/tickadj">tickadj</a> program and the <code>-t</code> command line argument.</p>
 </li>
 </ol>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -329,20 +285,5 @@ freq=13319.46, compliance=2
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

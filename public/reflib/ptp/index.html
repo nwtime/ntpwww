@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
+from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Public transport in Oz
+Last update 18-May-2012
+
+Table of Contents
+
+Abstract
+Introduction …">
+<meta property="og:title" content="IEEE 1588 Precision Time Protocol (PTP)" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Public transport in Oz
+Last update 18-May-2012
+ Table of Contents  Abstract Introduction Timestamp Capture On-Wire Protocols Master-Slave Mode Broadcast Mode Routers and Switches Conclusions References   Abstract This document explores the similarities and differences between the Network Time Protocol (NTP) and the IEEE 1588 Precision Time Protocol (PTP). For the configurations considered in this document, these protocols provide clock synchronization in high-speed local area networks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/reflib/ptp/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>IEEE 1588 Precision Time Protocol (PTP)</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +58,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +74,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +84,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +103,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -123,14 +152,14 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/reflib/">Reference Library</a>
+	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/reflib/ptp/">IEEE 1588 Precision Time Protocol (PTP)</a>
+	<a href="https://doc.ntp.org/reflib/ptp/">IEEE 1588 Precision Time Protocol (PTP)</a>
 </li>
 
 	</ol>
@@ -160,72 +189,90 @@
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
-<p>This document explores the similarities and differences between the Network Time Protocol (NTP) and the IEEE 1588 Precision Time Protocol (PTP). For the configurations considered in this doecument, these protocols provide clock synchronization in high-speed local area networks. Of particular interest are the opportunities for interoperation between the protocols and how they can be used in a dual-protocol server and client.</p>
+<p>This document explores the similarities and differences between the Network Time Protocol (NTP) and the IEEE 1588 Precision Time Protocol (PTP). For the configurations considered in this document, these protocols provide clock synchronization in high-speed local area networks. Of particular interest are the opportunities for interoperation between the protocols and how they can be used in a dual-protocol server and client.</p>
 <hr>
 <h4 id="introduction">Introduction</h4>
 <p>The Network Time Protocol (NTP) and Precision Time Protocol (PTP) are used to synchronize clocks in the Internet computing infrastructure. NTP has evolved over the last thirty years as documented in RFC 5905 <sup><a href="#myfootnote2">2</a></sup>, while PTP has evolved over the last several years as documented in the IEEE standards <sup><a href="#myfootnote4">4</a></sup>. The two protocols have a substantially different user community, accuracy and precision expectations and supporting hardware.</p>
 <p>PTP is used most often to synchronize device clocks in special-purpose industrial automation and measurement networks. These devices are connected to dedicated, high-speed Ethernet LAN segments interconnected by switches. NTP is used most often to synchronize system clocks in general-purpose Unix, Windows and VMS workstations and servers. These machines are connected by the global internet by routers and gateways and operate over a wide range of network speeds.</p>
 <p>This document explores their individual characteristics, accuracy expectations and interoperability possibilities. Following is a summary of the similarities and differences between the two protocols.</p>
+<dl>
 <dt>Harware Timestamps</dt>
+<dd>
 <p>NTP requires no hardware provisions to capture timestamps other than a typical Unix timer interrupt or counter/timer motherboard chip. PTP normally includes hardware provisions in the servers, clients and switches to capture timestamps upon the passage of an Ethernet frame at the physical layer. Further information about timestamping for both NTP and PTP can be found in the white paper <a href="/reflib/stamp">Timestamp Capture Principles</a>.</p>
+</dd>
 <dt>On-Wire Protocol</dt>
+<dd>
 <p>The PTP on-wire protocol operates primarily in a broadcast mode where a grandmaster provides synchronization to multiple clients sharing the same network. Alternatively, the protocol can operate in a master/slave mode, where each client synchrhronizes to the grandmaster using a separate client/server message exchange. The NTP on-wire protocol can operate in broadcast, as well as master/slave, and symmetric modes where one or more primary servers provide synchronization to multiple clients on the same or different networks. This document is concerned primarily with broadcast configurations. Further information on NTP configurations can be found in the white paper <a href="/reflib/onwire">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
+</dd>
 <dt>Timescale</dt>
+<dd>
 <p>The PTP timescale is defined in seconds and nanoseconds. While the PTP specification defines no particular timescale and origin, the common assumption is that the POSIX timescale with origin 1 January 1970 is used, with or without leap seconds. The NTP timescale is defined in seconds and fraction with origin 1 January 1900, as described in the white paper <a href="/reflib/time">NTP Timestamp Calculations</a>. Discussion on UTC leap seconds is in the white paper <a href="/reflib/leap">The NTP Timescale and Leap Seconds</a>. Discussion on the extended NTP timescale and era considerations is in the white paper <a href="/reflib/y2k">The NTP Era and Era Numbering</a>.</p>
+</dd>
 <dt>Accuracy Expectations</dt>
+<dd>
 <p>The accuracy expectations of PTP synchronized clocks is in the order of 100 ns determined primarily by the resolution and stability of a dedicated clock oscillator and counter. The accuracy expectations of NTP vary widely, depending on the motherboard oscillator and counter. Typical results range from a few microseconds in PPS-assisted primary servers to tens of milliseconds in widely dispersed Internet networks.</p>
+</dd>
 <dt>Network Overhead</dt>
+<dd>
 <p>The network overhead in PTP networks is seldom an issue, as the update intervals are typically a few seconds over lightly loaded Ethernet LAN segments. The overhead in NTP networks is often of serious concern, as the network paths are often shared with demanding Internet applications including speech and video. In general, this requires update intervals in the range of one minute to several hours, depending on network characteristics and in some cases on network usage charges.</p>
+</dd>
 <dt>Optimization Algorithms</dt>
+<dd>
 <p>Both PTP and NTP use crafted algorithms to improve accuracy and select among a possibly complex set of network paths. PTP uses the Best Master Clock (BMC) algorithm to select the optimal path to the grandmaster as a function of various quality measures, including hop count. NTP uses a suite of mitigation algorithms, including the filter, select, cluster and combine algorithms, which depend on Byzantine agreement and statistical clustering principles.</p>
+</dd>
 <dt>Clock Discipline Algorithm</dt>
+<dd>
 <p>The PTP specification defines no algorithms to compensate for offset and frequency errors in either the device or system clocks. These algorithms are assumed to be implementation specific. The NTP specification defines a highly evolved, adaptive-parameter, hybrid phase-frequency lock loop. The discipline algorithm adjusts the system clock time and frequency in response to widely varying ambient conditions.</p>
+</dd>
 <dt>Security</dt>
+<dd>
 <p>Both NTP and PTP can provide message security in the form of symmetric key cryptography. In addition, NTP can provide a variant of public key cryptography called Autokey <sup><a href="#myfootnote3">3</a></sup>. Further information that applies in part to both PTP and NTP can be found in the white paper <a href="/reflib/security">NTP Security Analysis</a>.</p>
+</dd>
+</dl>
 <p>This document explores the technical issues implicit in the above. It characterizes PTP and NTP; in particular, the timestamp technology, on-wire protocol and discipline algorithms. It concludes with a discussion on NTP and PTP interoperability issues.</p>
 <hr>
 <h4 id="timestamp-capture">Timestamp Capture</h4>
 <p>PTP and NTP servers and clients use the on-wire protocols described in the next section to exchange timestamps used to synchronize the client clock to the server clock. The PTP and NTP protocols have much in common; both develop four timestamps, although in different ways. These timestamps are used to compute the clock offset and roundtrip delay for a client relative to a server.</p>
 <p>PTP timestamps, properly called <em>preamble hardstamps,</em> are captured by the Ethernet network interface card (NIC) hardware upon passage of a start of frame (SOF) symbol in the input and output frame data streams. The timestamp is captured at the media independent interface (MII) relative to a dedicated oscillator and counter within typically 100 ns.</p>
-<p>Some 1588 Ethernet drivers use a dedicated input or output frame buffer to store a PTP protocol data unit (PDU) including a single timestamp field along with other related data. These designs us a field programmable gate array (FPGA) to monitor the frame data stream and can modify the timestamp fields on-fly. On output the timestamp field is updated after the frame has been sent. On input the field is updated after the frame has been received. If the timestamp field has been modified, the UDP checksum is recomputed before the frame is passed to the upper layer protocol.</p>
+<p>Some 1588 Ethernet drivers use a dedicated input or output frame buffer to store a PTP protocol data unit (PDU) including a single timestamp field along with other related data. These designs use a field programmable gate array (FPGA) to monitor the frame data stream and can modify the timestamp fields on-fly. On output the timestamp field is updated after the frame has been sent. On input the field is updated after the frame has been received. If the timestamp field has been modified, the UDP checksum is recomputed before the frame is passed to the upper layer protocol.</p>
 <p>NTP timestamps, properly called <em>trailer drivestamps,</em> are captured by the Ethernet driver interrupt routine shortly after the checksum that terminates the frame. These timestamps are captured from the system clock, so include errors due to the operating system clock reading latencies. Relative to the preamble hardstamp, the trailer drivestamp is delayed by the frame and checksum transmission time plus a latency due to the interrupt queuing and processing time. As a result, NTP timestamps have a deterministic delay due to the transmission time plus a stochastic delay due to queuing and scheduling latencies. When calculating the clock offset, if the transmission rate and frame size are the same in both directions on the wire, the deterministic delays cancel out. However, the stochastic delay, amounting to a microsecond or two, remain.</p>
 <p>It is important to emphasize that the overall synchronization accuracy and precision depends primarily on the accuracy and precision of the timestamps. In principle, either PTP or NTP can use either preamble hardstamps or trailer drivestamps, with the accuracy dependent on which method is used.</p>
 <p>There is a valid argument that the continued downward cost of 1588  components, in particular the NIC engine, can lead to much less expensive 1588 NICs and switches. While the current NICs costs several hundred dollars, the Intel 1588 NIC chip, which includes timestamp capture buffers and an ARM processor on-chip, costs about $15 in quantity. However, the current NICs come with proprietor drivers bundled with Windows or Linux drivers that may not be appropriate for general applications.</p>
 <hr>
 <h4 id="on-wire-protocols">On-Wire Protocols</h4>
-<p>The on-wire protocols used by PTP and NTP are intended to synchronize a secondary server or client to a primary server or grandmaster. While they are slightly difference, as described below, both accomplish the same thins. In a round initiated by either the client or server, the client or server A sends a request message to B. Then, B sends a response message to A.</p>
-<p>In most applications, rounds are executed periodically,at intervals of a few seconds to a few tens of minutes.</p>
-<p>In both PTP and NTP the protocol can operate in a point-to-point <em>master-slave mode</em>, or in a point-to-multipoint <em>broadcast mode</em>. In addition, NTP can operate in <em>symmetric mode</em> in which either peer can provide synchronization to the other for backup..</p>
-<p><img src="/archives/pic/stamp2.gif" alt="gif"></p>
-<p><strong>Figure 1. Master-Slave Mode</strong></p>
+<p>The on-wire protocols used by PTP and NTP are intended to synchronize a secondary server or client to a primary server or grandmaster. While they are slightly difference, as described below, both accomplish the same thing. In a round initiated by either the client or server, the client or server A sends a request message to B. Then, B sends a response message to A.</p>
+<p>In most applications, rounds are executed periodically, at intervals of a few seconds to a few tens of minutes.</p>
+<p>In both PTP and NTP the protocol can operate in a point-to-point <em>master-slave mode</em>, or in a point-to-multipoint <em>broadcast mode</em>. In addition, NTP can operate in <em>symmetric mode</em> in which either peer can provide synchronization to the other for backup.</p>
 <hr>
 <h4 id="master-slave-mode">Master-Slave Mode</h4>
-<p>Figure 1 illustrates how the NTP on-wire protocol operates in master-slave mode. Let A be the client and B the server. The roles are reversed in broadcast mode. .In this and subsequent figures in this document, messages are transmitted in the direction shown with timestamps captured at the beginning and end of transmission. First, A sends a client (mode 3) message to B, then B sends a server (mode 4) message to A. This is called a round. There are four timestamps involved, the <em>origin timestamp</em> <em>T</em><sub>1</sub> when the client message departs A, the <em>receive timestamp</em> <em>T</em><sub>2</sub> when this message arrives at B, the <em>transmit timestamp</em> <em>T</em><sub>3</sub> when the server message departs B, and the <em>destination timestamp</em> <em>T</em><sub>4</sub> when this message arrives at A.</p>
+<p><img src="/archives/pic/stamp2.gif" alt="gif"></p>
+<p><strong>Figure 1. Master-Slave Mode</strong></p>
+<p>Figure 1 illustrates how the NTP on-wire protocol operates in master-slave mode. Let A be the client and B the server. The roles are reversed in broadcast mode. In this and subsequent figures in this document, messages are transmitted in the direction shown with timestamps captured at the beginning and end of transmission. First, A sends a client (mode 3) message to B, then B sends a server (mode 4) message to A. This is called a round. There are four timestamps involved, the <em>origin timestamp</em> <code><em>T</em><sub>1</sub></code> when the client message departs A, the <em>receive timestamp</em> <code><em>T</em><sub>2</sub></code> when this message arrives at B, the <em>transmit timestamp</em> <code><em>T</em><sub>3</sub></code> when the server message departs B, and the <em>destination timestamp</em> <code><em>T</em><sub>4</sub></code> when this message arrives at A.</p>
 <p>In NTP master-slave mode, the on-wire protocol calculates the clock offset</p>
-<p><code>θ = [(_T_&lt;sub&gt;2&lt;/sub&gt; − _T_&lt;sub&gt;1&lt;/sub&gt;) + (_T_&lt;sub&gt;3&lt;/sub&gt; − _T_&lt;sub&gt;4&lt;/sub&gt;)] / 2</code></p>
+<p><code>θ = [(<em>T</em><sub>2</sub> − <em>T</em><sub>1</sub>) + (<em>T</em><sub>3</sub> − <em>T</em><sub>4</sub>)] / 2</code></p>
 <p>and roundtrip delay</p>
-<p><code>δ = (_T_&lt;sub&gt;4&lt;/sub&gt; − _T_&lt;sub&gt;1&lt;/sub&gt;) − (_T_&lt;sub&gt;3&lt;/sub&gt; − _T_&lt;sub&gt;2&lt;/sub&gt;).</code></p>
+<p><code>δ = (<em>T</em><sub>4</sub> − <em>T</em><sub>1</sub>) − (<em>T</em><sub>3</sub> − <em>T</em><sub>2</sub>)</code></p>
 <p>While it is possible to use master-slave mode in PTP, this requires an awkward message exchange and is not likely to be used in practice.</p>
 <hr>
 <h4 id="broadcast-mode">Broadcast Mode</h4>
 <p>In broadcast mode for both NTP and PTP, the offset expression has an inverted sign, while the delay calculation is the same. Note that NTP can operate in either basic or interleaved broadcast mode. In this document, only NTP interleaved mode is considered. The on-wire protocol operations in broadcast mode are illustrated in Figure 2.</p>
 <p><img src="/archives/pic/bcst1.gif" alt="gif"></p>
 <p><strong>Figure 2: Broadcast Mode</strong></p>
-<p>In NTP interleaved broadcast mode, broadcast (mode 5) messages at <em>T</em><sub>1</sub>, <em>T</em><sub>3</sub>, <em>T</em><sub>11</sub> and <em>T</em><sub>13</sub> are sent by the broadcast server and received by each broadcast client separately at <em>T</em><sub>2</sub>, <em>T</em><sub>4</sub>, <em>T</em><sub>12</sub> and <em>T</em><sub>14</sub>, respectively. Each broadcast message includes the previous broadcast message transmit timestamp in a data field. For instance, the broadcast message sent at <em>T</em><sub>3</sub> includes the transmit timestamp <em>T</em><sub>1</sub>. Similarly, the broadcast messages sent at <em>T</em><sub>11</sub> and <em>T</em><sub>13</sub> include the transmit timestamps <em>T</em><sub>3</sub> and <em>T</em><sub>11</sub>, respectively. In order to calculate the roundtrip delay, a broadcast client can send a master-slave round, for example, beginning at <em>T</em><sub>5</sub> and ending at <em>T</em><sub>8</sub>.</p>
-<p>Broadcast messages are sent by the broadcast server at regular intervals of about one minute in order to calculate the clock offset, while master-slave rounds are sent infrequently by each broadcast client in order to calibrate the roundtrip delay. In the master-slave round the receive timestamp <em>T</em><sub>6</sub> of the request message sent at <em>T</em><sub>5</sub> is captured by the broadcast server and returned in a data field of the response message received at <em>T</em><sub>8</sub>. In the clock offset calculation, for example, the origin timestamp <em>T</em><sub>3</sub> cannot be sent in the message at <em>T</em><sub>3</sub>, so this timestamp is sent in the following broadcast message at <em>T</em><sub>11</sub>. In this case, the origin timestamp is <em>T</em><sub>3</sub>, receive timestamp <em>T</em><sub>4</sub>, transmit timestamp <em>T</em><sub>5</sub> and destination timestamp <em>T</em><sub>6</sub>. although the complete set of timestamps is not available until <em>T</em><sub>12</sub>. Thus, the clock offset determined at <em>T</em><sub>12</sub> is</p>
-<p><code>θ = −[(_T_&lt;sub&gt;4&lt;/sub&gt; − _T_&lt;sub&gt;3&lt;/sub&gt;) + (_T_&lt;sub&gt;5&lt;/sub&gt; − _T_&lt;sub&gt;6&lt;/sub&gt;)] / 2</code></p>
+<p>In NTP interleaved broadcast mode, broadcast (mode 5) messages at <code><em>T</em><sub>1</sub></code>, <code><em>T</em><sub>3</sub>, <em>T</em><sub>11</sub></code> and <code><em>T</em><sub>13</sub></code> are sent by the broadcast server and received by each broadcast client separately at <code><em>T</em><sub>2</sub>, <em>T</em><sub>4</sub>, <em>T</em><sub>12</sub></code> and <code><em>T</em><sub>14</sub></code>, respectively. Each broadcast message includes the previous broadcast message transmit timestamp in a data field. For instance, the broadcast message sent at <code><em>T</em><sub>3</sub></code> includes the transmit timestamp <code><em>T</em><sub>1</sub></code>. Similarly, the broadcast messages sent at <code><em>T</em><sub>11</sub></code> and <code><em>T</em><sub>13</sub></code> include the transmit timestamps <code><em>T</em><sub>3</sub></code> and <code><em>T</em><sub>11</sub></code>, respectively. In order to calculate the roundtrip delay, a broadcast client can send a master-slave round, for example, beginning at <code><em>T</em><sub>5</sub></code> and ending at <code><em>T</em><sub>8</sub></code>.</p>
+<p>Broadcast messages are sent by the broadcast server at regular intervals of about one minute in order to calculate the clock offset, while master-slave rounds are sent infrequently by each broadcast client in order to calibrate the roundtrip delay. In the master-slave round the receive timestamp <code><em>T</em><sub>6</sub></code> of the request message sent at <code><em>T</em><sub>5</sub></code> is captured by the broadcast server and returned in a data field of the response message received at <code><em>T</em><sub>8</sub></code>. In the clock offset calculation, for example, the origin timestamp <code><em>T</em><sub>3</sub></code> cannot be sent in the message at <code><em>T</em><sub>3</sub></code>, so this timestamp is sent in the following broadcast message at <code><em>T</em><sub>11</sub></code>. In this case, the origin timestamp is <code><em>T</em><sub>3</sub></code>, receive timestamp <code><em>T</em><sub>4</sub></code>, transmit timestamp <code><em>T</em><sub>5</sub></code> and destination timestamp <code><em>T</em><sub>6</sub></code>, although the complete set of timestamps is not available until <code><em>T</em><sub>12</sub></code>. Thus, the clock offset determined at <code><em>T</em><sub>12</sub></code> is</p>
+<p><code>θ = −[(<em>T</em><sub>4</sub> − <em>T</em><sub>3</sub>) + (<em>T</em><sub>5</sub> − <em>T</em><sub>6</sub>)] / 2</code></p>
 <p>and roundtrip delay</p>
-<p><code>δ = (_T_&lt;sub&gt;6&lt;/sub&gt; − _T_&lt;sub&gt;3&lt;/sub&gt;) − (_T_&lt;sub&gt;5&lt;/sub&gt; − _T_&lt;sub&gt;4&lt;/sub&gt;).</code></p>
-<p>In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at <em>T</em><sub>14</sub>:</p>
-<p><code>θ = _T_&lt;sub&gt;11&lt;/sub&gt; + δ / 2 −_T_&lt;sub&gt;12&lt;/sub&gt;</code></p>
+<p><code>δ = (<em>T</em><sub>6</sub> − <em>T</em><sub>3</sub>) − (<em>T</em><sub>5</sub> − <em>T</em><sub>4</sub>)</code></p>
+<p>In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at <code><em>T</em><sub>14</sub></code>:</p>
+<p><code>θ = <em>T</em><sub>11</sub> + δ / 2 − <em>T</em><sub>12</sub></code></p>
 <p>computed at <em>T</em><sub>14</sub>.</p>
-<p>The PTP on-wire broadcast protocol is similar to NTP, but using two messages to carry the broadcast timestamps, instead of the single message and interleaved design as in NTP. The protocol begins with a Synch message at <em>T</em><sub>1</sub> in Figure 2. The broadcast client records the receive timestamp <em>T</em><sub>2</sub>. The next message at <em>T</em><sub>3</sub> is a Follow-Up message containing <em>T</em><sub>1</sub> in a data field. The subsequent master-slave round beginning at <em>T</em><sub>5</sub> is identical to that in NTP. The results are the originate timestamp <em>T</em><sub>1</sub>, receive timestamp <em>T</em><sub>2</sub>, transmit timestamp <em>T</em><sub>5</sub> and destination timestamp_T_<sub>6</sub>. The clock offset is</p>
-<p><code>θ = −[(_T_&lt;sub&gt;2&lt;/sub&gt; − _T_&lt;sub&gt;1&lt;/sub&gt;) + (_T_&lt;sub&gt;5&lt;/sub&gt; − _T_&lt;sub&gt;6&lt;/sub&gt;)] / 2</code></p>
+<p>The PTP on-wire broadcast protocol is similar to NTP, but using two messages to carry the broadcast timestamps, instead of the single message and interleaved design as in NTP. The protocol begins with a Synch message at <code><em>T</em><sub>1</sub></code> in Figure 2. The broadcast client records the receive timestamp <code><em>T</em><sub>2</sub></code>. The next message at <code><em>T</em><sub>3</sub></code> is a Follow-Up message containing <code><em>T</em><sub>1</sub></code> in a data field. The subsequent master-slave round beginning at <code><em>T</em><sub>5</sub></code> is identical to that in NTP. The results are the originate timestamp <code><em>T</em><sub>1</sub></code>, receive timestamp <code><em>T</em><sub>2</sub></code>, transmit timestamp <code><em>T</em><sub>5</sub></code> and destination timestamp <code><em>T</em><sub>6</sub></code>. The clock offset is</p>
+<p><code>θ = −[(<em>T</em><sub>2</sub> − <em>T</em><sub>1</sub>) + (<em>T</em><sub>5</sub> − <em>T</em><sub>6</sub>)] / 2</code></p>
 <p>and roundtrip delay</p>
-<p><code>δ = (_T_&lt;sub&gt;6&lt;/sub&gt; − _T_&lt;sub&gt;1&lt;/sub&gt;) − (_T_&lt;sub&gt;5&lt;/sub&gt; − _T_&lt;sub&gt;2&lt;/sub&gt;).</code></p>
-<p>In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at <em>T</em><sub>14</sub>:</p>
-<p><code>θ = _T_&lt;sub&gt;11&lt;/sub&gt; + δ / 2 −_T_&lt;sub&gt;12&lt;/sub&gt;.</code></p>
-<p>The only difference between NTP and PTP protocol is that NTP uses an interleaved design and single broadcast message, while PTP uses two messages, Sync and Follow-Up,. Subsequently, NTP uses a client (mode 3) and server (mode 4) exchange, while PTP uses a Delay_Req and Delay_Resp for the same purpose.</p>
+<p><code>δ = (<em>T</em><sub>6</sub> − <em>T</em><sub>1</sub>) − (<em>T</em><sub>5</sub> − <em>T</em><sub>2</sub>)</code></p>
+<p>In between master-slave rounds, the clock offset can be determined from the previous transmit and receive timestamps as at <code><em>T</em><sub>14</sub></code>:</p>
+<p><code>θ = <em>T</em><sub>11</sub> + δ / 2 − <em>T</em><sub>12</sub></code></p>
+<p>The only difference between the NTP and PTP protocol is that NTP uses an interleaved design and single broadcast message, while PTP uses two messages, Sync and Follow-Up. Subsequently, NTP uses a client (mode 3) and server (mode 4) exchange, while PTP uses a Delay_Req and Delay_Resp for the same purpose.</p>
 <hr>
 <h4 id="routers-and-switches">Routers and Switches</h4>
 <p>Routers are used to connect one network to another, while switches are used to connect computers to each other on the same network. Routers operate at the IP packet (level-3) layer and are usually slow compared to switches. Switches operate at the Ethernet frame (level 2) layer, usually well below capacity. While routers and switches can be used by either PTP or NTP, switching and queuing delays are much harder to control in routers than switches, so the advantages of PTP can be lost if multiple network hops are involved.</p>
@@ -233,7 +280,7 @@
 <p>A switch receives a frame on an ingress port and routes it to an egress port. This results in three sources of delay: propagation delay, transmission delay, and queuing delay. In general, the propagation and transmission delays can be predicted from knowledge of the channel parameters and frame length, but queuing delays cannot. However, as shown in the clock offset calculations in the previous section, if the overall delays between the server and client are the same in either direction, the accuracy of the clock offset calculation is not degraded. This applies to both NTP and PTP, even if hardware assisted timestamps are not available.</p>
 <p>The queuing delay consists of two components, a stochastic contribution due to the hardware and operating system latencies, and a contribution when an egress frame is delayed while a previous frame is being transmitted. This is called <em>head-of-line</em> (HOL) blocking. A working assumption in the NTP mitigation algorithms is that stochastic delays can be largely avoided by the clock filter and popcorn spike suppressor algorithms. In principle, these algorithms can be used in PTP as well.</p>
 <p>In order to preserve submicrosecond accuracy in PTP, the switches must have some provision to compensate for port-to-port residence time. This can be done in two ways, PTP boundary clocks (BC) and PTP transparent clocks (TC). BC switches function as secondary servers, as in NTP. They synchronize to an upstream server and provide synchronization to one or more downstream clients. A downstream BC client uses the same on-wire protocol as the grandmaster, including the BMC algorithm.</p>
-<p>A TC switch uses a timestamp oscillator and counter to measure the residence time of a frame between its arrival at an upstream port and its departure from a downstream port. The timestamp counter need not be particularly accurate, as the residence time is typically only a few tens of microseconds. The switch latches a hardware timestamp upon arrival of a frame and records it in the frame buffer. The switch latches a timestamp upon departure of the frame and computes the residence time. The residence time is added to a field in the frame buffer upon departure. When the frame is received at the downstream destination , possibly after multiple switches, the accumulated value is used to correct the offset calculation.</p>
+<p>A TC switch uses a timestamp oscillator and counter to measure the residence time of a frame between its arrival at an upstream port and its departure from a downstream port. The timestamp counter need not be particularly accurate, as the residence time is typically only a few tens of microseconds. The switch latches a hardware timestamp upon arrival of a frame and records it in the frame buffer. The switch latches a timestamp upon departure of the frame and computes the residence time. The residence time is added to a field in the frame buffer upon departure. When the frame is received at the downstream destination, possibly after multiple switches, the accumulated value is used to correct the offset calculation.</p>
 <p>There are no provisions in the NTP specification to employ the strategies used by PTP, but these could be added in an amendment. If this were done, the accuracy and precision of PTP could be extended to NTP.</p>
 <hr>
 <h4 id="conclusions">Conclusions</h4>
@@ -245,74 +292,12 @@
 <p>Since PTP is designed to operate in a relatively benign environment with low jitter and little threat of hostile interference, the paranoid mitigation algorithms used in NTP may not be appropriate for PTP. The PTP best master clock (BMC) algorithm is probably not well suited for NTP, while NTP algorithms to select and combine multiple sources may not be appropriate for PTP. In any case, if PTP is used to discipline the system clock, it would be wholly appropriate to use the precision kernel support originally designed for NTP, but could be used with other synchrotron designs as well.</p>
 <hr>
 <h4 id="references">References</h4>
-<p><a name="myfootnote1">1</a>  Mills, D.L. Network Time Synchronization - the Network Time Protocol on Earth and in Space. CRC Press, 2011, 466 pp.</p>
-<p><a name="myfootnote2">2</a>  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments RFC 5905, Internet Engineering Task Force, June 2010.</p>
-<p><a name="myfootnote3">3</a>  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments RFC 5906, Internet Engineering Task Force, June 2010.</p>
-<p><a name="myfootnote4">4</a>  IEEE 1588 Precision Time Protocol (PTP) Version 2 Specification, IEEE, March 2008.</p>
+<p><a name="myfootnote1">1</a>  Mills, D.L. <a href="/reflib/book">Network Time Synchronization - the Network Time Protocol on Earth and in Space</a>. CRC Press, 2011, 466 pp.</p>
+<p><a name="myfootnote2">2</a>  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments <a href="/reflib/rfc/rfc5905.txt">RFC 5905</a>, Internet Engineering Task Force, June 2010.</p>
+<p><a name="myfootnote3">3</a>  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments <a href="/reflib/rfc/rfc5906.txt">RFC 5906</a>, Internet Engineering Task Force, June 2010.</p>
+<p><a name="myfootnote4">4</a>  <a href="https://standards.ieee.org/standard/1588-2008.html">IEEE 1588 Precision Time Protocol (PTP) Version 2 Specification</a>, IEEE, March 2008.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -348,20 +333,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

@@ -1,28 +1,54 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+S is for snakeoil.
+Last update: 1-Apr-2015 11:05 UTC
+
+Table of Contents
+
+Synopsis …">
+<meta property="og:title" content="sntp - Simple Network Time Protocol (SNTP) Client" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+S is for snakeoil.
+Last update: 1-Apr-2015 11:05 UTC
+ Table of Contents  Synopsis Description Options Return Value Author   Synopsis sntp [{&ndash;help -?}][{-4 -6}][-a keynum][-b bcaddress][-B bctimeout][-c][-d][-D debug-level][-g delay][-K kodfile][-k keyfile][-l logfile][-M steplimit][-o ntpver][-r][-S][-s][-u uctimeout][&ndash;wait][&ndash;version][address(es)]
+ Description This program is a Simple Network Time Protocol (SNTP) client that can be used to query a Network Time Protocol (NTP) server and display the time offset of the system clock relative to the server clock." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/sntp/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>sntp - Simple Network Time Protocol (SNTP) Client</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +57,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +73,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +83,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +102,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +154,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.8-series/sntp/">sntp - Simple Network Time Protocol (SNTP) Client</a>
+	<a href="https://doc.ntp.org/archives/4.2.8-series/sntp/">sntp - Simple Network Time Protocol (SNTP) Client</a>
 </li>
 
 	</ol>
@@ -165,129 +193,111 @@
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p><tt>sntp [{&ndash;help -?}][{-4 -6}][-a <em>keynum</em>][-b <em>bcaddress</em>][-B <em>bctimeout</em>][-c][-d][-D <em>debug-level</em>][-g <em>delay</em>][-K <em>kodfile</em>][-k <em>keyfile</em>][-l <em>logfile</em>][-M <em>steplimit</em>][-o <em>ntpver</em>][-r][-S][-s][-u <em>uctimeout</em>][&ndash;wait][&ndash;version][<em>address(es)</em>]</tt></p>
+<p><code>sntp [{&ndash;help -?}][{-4 -6}][-a <em>keynum</em>][-b <em>bcaddress</em>][-B <em>bctimeout</em>][-c][-d][-D <em>debug-level</em>][-g <em>delay</em>][-K <em>kodfile</em>][-k <em>keyfile</em>][-l <em>logfile</em>][-M <em>steplimit</em>][-o <em>ntpver</em>][-r][-S][-s][-u <em>uctimeout</em>][&ndash;wait][&ndash;version][<em>address(es)</em>]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>This program is a Simple Network Time Protocol (SNTP) client that can be used to query a Network Time Protocol (NTP) server and display the time offset of the system clock relative to the server clock. Run as root it can correct the system clock to this offset as well. It can be run as an interactive command or from a script by a <tt>cron</tt> job. The program implements the SNTP client protocol defined in RFC 5905, including the full on-wire protocol but does not provide the sanity checks, access controls, security functions and mitigation algorithms as in the full NTP version 4 specification, also defined in RFC 5905.</p>
-<p>By default, <tt>sntp</tt> writes the local date and time (i.e., not UTC) to the standard output in the format</p>
-<p><tt>2011-08-04 00:40:36.642222 (+0000) +0.006611 +/- 0.041061 psp-os1 149.20.68.26 s3 no-leap</tt></p>
-<p>where the <tt>+0.006611 +/- 0.041061</tt> indicates the time offset and error bound of the system clock relative to the server clock, in seconds. The hostname and/or the IP is displayed, as is the stratum of the server. Finally, the leap indicator status is displayed.</p>
-<p>If -b <em>bcaddress</em> is not specified, the program sends a single message to each address and waits up to <em>uctimeout</em> (default 5) seconds for a unicast server response. Otherwise, it sends no message and waits up to <em>bctimeout</em> (default 68) seconds for a broadcast NTP message.</p>
+<p>This program is a Simple Network Time Protocol (SNTP) client that can be used to query a Network Time Protocol (NTP) server and display the time offset of the system clock relative to the server clock. Run as root it can correct the system clock to this offset as well. It can be run as an interactive command or from a script by a <code>cron</code> job. The program implements the SNTP client protocol defined in <a href="/reflib/rfc/rfc5905.txt">RFC 5905</a>, including the full on-wire protocol but does not provide the sanity checks, access controls, security functions and mitigation algorithms as in the full NTP version 4 specification, also defined in RFC 5905.</p>
+<p>By default, <code>sntp</code> writes the local date and time (i.e., not UTC) to the standard output in the format</p>
+<p><code>2011-08-04 00:40:36.642222 (+0000) +0.006611 +/- 0.041061 psp-os1 149.20.68.26 s3 no-leap</code></p>
+<p>where the <code>+0.006611 +/- 0.041061</code> indicates the time offset and error bound of the system clock relative to the server clock, in seconds. The hostname and/or the IP is displayed, as is the stratum of the server. Finally, the leap indicator status is displayed.</p>
+<p>If <code>-b <em>bcaddress</em></code> is not specified, the program sends a single message to each address and waits up to <code><em>uctimeout</em></code> (default 5) seconds for a unicast server response. Otherwise, it sends no message and waits up to <code><em>bctimeout</em></code> (default 68) seconds for a broadcast NTP message.</p>
 <hr>
 <h4 id="options">Options</h4>
-<p><tt>sntp</tt> recognizes the following options:</p>
-<dt><tt>-?, --help</tt></dt>
-<p>displays usage information. The short form typically requires shell quoting, such as <tt>-?</tt>, otherwise <tt>?</tt> is consumed by the shell.</p>
-<dt><tt>-4, --ipv4</tt></dt>
+<p><code>sntp</code> recognizes the following options:</p>
+<dl>
+<dt><code><strong>-?, --help</strong></code></dt>
+<dd>
+<p>Displays usage information. The short form typically requires shell quoting, such as <code>-?</code>, otherwise <code>?</code> is consumed by the shell.</p>
+</dd>
+<dt><code><strong>-4, --ipv4</strong></code></dt>
+<dd>
 <p>When resolving hostnames to IP addresses, use IPv4 addresses only.</p>
-<dt><tt>-6, --ipv6</tt></dt>
+</dd>
+<dt><code><strong>-6, --ipv6</strong></code></dt>
+<dd>
 <p>When resolving hostnames to IP addresses, use IPv6 addresses only.</p>
-<dt><tt>-a _keynum_, --authentication _keynum_</tt></dt>
-<p>Enable authentication with the key ID <em>keynum</em>. <em>keynum</em> is a number specified in the keyfile along with an authentication secret (password or digest). See the <tt>-k, &ndash;keyfile</tt> option for more details.</p>
-<dt><tt>-b _bcaddress_, --broadcast _bcaddress_</tt></dt>
-<p>Listen for NTP packets sent to the broadcast or multicast address <em>bcaddress</em>, which can be a DNS name or IP address. The default maximum time to listen for broadcasts/multicasts, 68 seconds, can be modified with the <tt>-B, &ndash;bctimeout</tt> option.</p>
-<dt><tt>-B _bctimeout_, --bctimeout _bctimeout_</tt></dt>
-<p>Wait <em>bctimeout</em> seconds for broadcast or multicast NTP message before terminating. The default is 68 seconds, chosen because ntpd typically transmits broadcasts/multicasts every 64 seconds. Note that the short option is <tt>-B</tt>, an uppercase letter B.</p>
-<dt><tt>-c, --concurrent</tt></dt>
-<p>Concurrently query all addresses returned for hostname. Requests from an NTP client to a single server should never be sent more often than once every two seconds. By default, all addresses resolved from a single hostname are assumed to be for a single instance of ntpd, and therefore sntp will send queries to these addresses one after another, waiting two seconds between queries. This option indicates multiple addresses returned for a hostname are on different machines, so sntp can send concurrent queries. This is appropriate when using *.pool.ntp.org, for example.</p>
-<dt><tt>-d, --debug-level</tt></dt>
-<p>Increase debug verbosity level by one. May be specified multiple times. See also the <tt>-D, &ndash;set-debug-level</tt> option.</p>
-<dt><tt>-D _debug-level_, --set-debug-level _debug-level_</tt></dt>
-<p>Set the debug verbosity level to <em>debug-level</em>. The default level is zero. Note that the short option is <tt>-D</tt>, an uppercase letter D. See also the <tt>-d, &ndash;debug-level</tt> option.</p>
-<dt><tt>-g _delay_, --gap _delay_</tt></dt>
-<p>Specify the <em>delay</em> in milliseconds between outgoing queries, defaulting to 50. <tt>sntp</tt> sends queries to all provided hostnames/addresses in short succession, and by default terminates once the first valid response is received. With multiple time sources provided, all but one will not be used. To limit the number of queries whose responses will not be used, each query is separated from the preceding one by <em>delay</em> milliseconds, to allow time for responses to earlier queries to be received. A larger <em>delay</em> reduces the query load on the time sources, increasing the time to receive a valid response if the first source attempted is slow or unreachable.</p>
-<dt><tt>-K _kodfile_, --kod _kodfile_</tt></dt>
-<p>Specifies the filename <em>kodfile</em> to be used for the persistent history of KoD (Kiss Of Death, or rate-limiting) responses received from servers. The default is <tt>/var/db/ntp-kod</tt>. If the file does not exist, a warning message will be displayed. The file will not be created. Note that the short option is <tt>-K</tt>, an uppercase letter K.</p>
-<dt><tt>-k _keyfile_, --keyfile _keyfile_</tt></dt>
-<p>Specifies the filename <em>keyfile</em> used with the <tt>-a</tt>/<tt>&ndash;authentication</tt> option. The format of the file is described on the <a href="/archives/4.2.8-series/keygen"><tt>ntp-keygen</tt> page</a>.</p>
-<dt><tt>-l _logfile_, --filelog _logfile_</tt></dt>
+</dd>
+<dt><code><strong>-a <em>keynum</em>, --authentication <em>keynum</em></strong></code></dt>
+<dd>
+<p>Enable authentication with the key ID <code><em>keynum</em></code>. <code><em>keynum</em></code> is a number specified in the keyfile along with an authentication secret (password or digest). See the <code>-k, &ndash;keyfile</code> option for more details.</p>
+</dd>
+<dt><code><strong>-b <em>bcaddress</em>, --broadcast <em>bcaddress</em></strong></code></dt>
+<dd>
+<p>Listen for NTP packets sent to the broadcast or multicast address <code><em>bcaddress</em></code>, which can be a DNS name or IP address. The default maximum time to listen for broadcasts/multicasts, 68 seconds, can be modified with the <code>-B, &ndash;bctimeout</code> option.</p>
+</dd>
+<dt><code><strong>-B <em>bctimeout</em>, --bctimeout <em>bctimeout</em></strong></code></dt>
+<dd>
+<p>Wait <code><em>bctimeout</em></code> seconds for broadcast or multicast NTP message before terminating. The default is 68 seconds, chosen because <code>ntpd</code> typically transmits broadcasts/multicasts every 64 seconds. Note that the short option is <code>-B</code>, an uppercase letter B.</p>
+</dd>
+<dt><code><strong>-c, --concurrent</strong></code></dt>
+<dd>
+<p>Concurrently query all addresses returned for hostname. Requests from an NTP client to a single server should never be sent more often than once every two seconds. By default, all addresses resolved from a single hostname are assumed to be for a single instance of <code>ntpd</code>, and therefore <code>sntp</code> will send queries to these addresses one after another, waiting two seconds between queries. This option indicates multiple addresses returned for a hostname are on different machines, so <code>sntp</code> can send concurrent queries. This is appropriate when using <code>*.pool.ntp.org</code>, for example.</p>
+</dd>
+<dt><code><strong>-d, --debug-level</strong></code></dt>
+<dd>
+<p>Increase debug verbosity level by one. May be specified multiple times. See also the <code>-D, &ndash;set-debug-level</code> option.</p>
+</dd>
+<dt><code><strong>-D <em>debug-level</em>, --set-debug-level <em>debug-level</em></strong></code></dt>
+<dd>
+<p>Set the debug verbosity level to <code><em>debug-level</em></code>. The default level is zero. Note that the short option is <code>-D</code>, an uppercase letter D. See also the <code>-d, &ndash;debug-level</code> option.</p>
+</dd>
+<dt><code><strong>-g <em>delay</em>, --gap <em>delay</em></strong></code></dt>
+<dd>
+<p>Specify the <code><em>delay</em></code> in milliseconds between outgoing queries, defaulting to 50. <code>sntp</code> sends queries to all provided hostnames/addresses in short succession, and by default terminates once the first valid response is received. With multiple time sources provided, all but one will not be used. To limit the number of queries whose responses will not be used, each query is separated from the preceding one by <em>delay</em> milliseconds, to allow time for responses to earlier queries to be received. A larger <em>delay</em> reduces the query load on the time sources, increasing the time to receive a valid response if the first source attempted is slow or unreachable.</p>
+</dd>
+<dt><code><strong>-K <em>kodfile</em>, --kod <em>kodfile</em></strong></code></dt>
+<dd>
+<p>Specifies the filename <code><em>kodfile</em></code> to be used for the persistent history of KoD (Kiss Of Death, or rate-limiting) responses received from servers. The default is <code>/var/db/ntp-kod</code>. If the file does not exist, a warning message will be displayed. The file will not be created. Note that the short option is <code>-K</code>, an uppercase letter K.</p>
+</dd>
+<dt><code><strong>-k <em>keyfile</em>, --keyfile <em>keyfile</em></strong></code></dt>
+<dd>
+<p>Specifies the filename <code><em>keyfile</em></code> used with the <code>-a</code> / <code>--authentication</code> option. The format of the file is described on the <a href="/archives/4.2.8-series/keygen"><code>ntp-keygen</code> page</a>.</p>
+</dd>
+<dt><code><strong>-l <em>logfile</em>, --filelog <em>logfile</em></strong></code></dt>
+<dd>
 <p>Specifies the filename in which to append a copy of status messages, which also appear on the terminal.</p>
-<dt><tt>-M _steplimit_, --steplimit _steplimit_</tt></dt>
-<p>If both <tt>-S</tt>/<tt>&ndash;step</tt> and <tt>-s</tt>/<tt>&ndash;slew</tt> options are provided, an offset of less than <em>steplimit</em> milliseconds will be corrected by slewing the clock using adjtime(), while an offset of <em>steplimit</em> or more will be corrected by setting the clock to the corrected time. Note that the short option is <tt>-M</tt>, an uppercase letter M.</p>
-<dt><tt>-o _ntpver_, --ntpversion _ntpver_</tt></dt>
-<p>Specifies the NTP protocol version number <em>ntpver</em> to include in requests, default 4. This option is rarely useful.</p>
-<dt><tt>-r, --usereservedport</tt></dt>
-<p>By default, <tt>sntp</tt> uses a UDP source port number selected by the operating system. When this option is used, the reserved NTP port 123 is used, which most often requires <tt>sntp</tt> be invoked as the superuser (commonly &ldquo;root&rdquo;). This can help identify connectivity failures due to port-based firewalling which affect <tt>ntpd</tt>, which always uses source port 123.</p>
-<dt><tt>-S, --step</tt></dt>
-<p>By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by stepping, that is, directly setting the clock to the corrected time. This typically requires <tt>sntp</tt> be invoked as the superuser (&ldquo;root&rdquo;). Note that the short option is <tt>-S</tt>, an uppercase letter S.</p>
-<dt><tt>-s, --slew</tt></dt>
-<p>By default, <tt>sntp</tt> displays the clock offset but does not attempt to correct it. This option enables offset correction by slewing using adjtime(), which changes the rate of the clock for a period long enough to accomplish the required offset (phase) correction. This typically requires <tt>sntp</tt> be invoked as the superuser (&ldquo;root&rdquo;).</p>
-<dt><tt>-u _uctimeout_, --uctimeout _uctimeout_</tt></dt>
-<p>Specifies the maximum time <em>uctimeout</em> in seconds to wait for a unicast response before terminating.</p>
-<dt><tt>--wait</tt></dt>
-<p>When neither <tt>-S</tt>/<tt>&ndash;step</tt> nor <tt>-s</tt>/<tt>&ndash;slew</tt> options are provided, <tt>sntp</tt> will by default terminate after the first valid response is received. This option causes <tt>sntp</tt> to instead wait for all pending queries' responses.</p>
-<dt><tt>--version</tt></dt>
-<p>Display the <tt>sntp</tt> program&rsquo;s version number and the date and time it was compiled.</p>
+</dd>
+<dt><code><strong>-M <em>steplimit</em>, --steplimit <em>steplimit</em></strong></code></dt>
+<dd>
+<p>If both <code>-S</code> / <code>--step</code> and <code>-s</code> / <code>--slew</code> options are provided, an offset of less than <code><em>steplimit</em></code> milliseconds will be corrected by slewing the clock using adjtime(), while an offset of <code><em>steplimit</em></code> or more will be corrected by setting the clock to the corrected time. Note that the short option is <code>-M</code>, an uppercase letter M.</p>
+</dd>
+<dt><code><strong>-o <em>ntpver</em>, --ntpversion <em>ntpver</em></strong></code></dt>
+<dd>
+<p>Specifies the NTP protocol version number <code><em>ntpver</em></code> to include in requests, default 4. This option is rarely useful.</p>
+</dd>
+<dt><code><strong>-r, --usereservedport</strong></code></dt>
+<dd>
+<p>By default, <code>sntp</code> uses a UDP source port number selected by the operating system. When this option is used, the reserved NTP port 123 is used, which most often requires <code>sntp</code> be invoked as the superuser (commonly &ldquo;root&rdquo;). This can help identify connectivity failures due to port-based firewalling which affect <code>ntpd</code>, which always uses source port 123.</p>
+</dd>
+<dt><code><strong>-S, --step</strong></code></dt>
+<dd>
+<p>By default, <code>sntp</code> displays the clock offset but does not attempt to correct it. This option enables offset correction by stepping, that is, directly setting the clock to the corrected time. This typically requires <code>sntp</code> be invoked as the superuser (&ldquo;root&rdquo;). Note that the short option is <code>-S</code>, an uppercase letter S.</p>
+</dd>
+<dt><code><strong>-s, --slew</strong></code></dt>
+<dd>
+<p>By default, <code>sntp</code> displays the clock offset but does not attempt to correct it. This option enables offset correction by slewing using <code>adjtime()</code>, which changes the rate of the clock for a period long enough to accomplish the required offset (phase) correction. This typically requires <code>sntp</code> be invoked as the superuser (&ldquo;root&rdquo;).</p>
+</dd>
+<dt><code><strong>-u <em>uctimeout</em>, --uctimeout <em>uctimeout</em></strong></code></dt>
+<dd>
+<p>Specifies the maximum time <code><em>uctimeout</em></code> in seconds to wait for a unicast response before terminating.</p>
+</dd>
+<dt><code><strong>--wait</strong></code></dt>
+<dd>
+<p>When neither <code>-S</code> / <code>--step</code> nor <code>-s</code> / <code>--slew</code> options are provided, <code>sntp</code> will by default terminate after the first valid response is received. This option causes <code>sntp</code> to instead wait for all pending queries' responses.</p>
+</dd>
+<dt><code><strong>--version</strong></code></dt>
+<dd>
+<p>Display the <code>sntp</code> program&rsquo;s version number and the date and time it was compiled.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="return-value">Return Value</h4>
-<p>The program returns an exit status of zero for if a valid response is received and non-zero otherwise.</p>
+<p>The program returns an exit status of zero if a valid response is received and non-zero otherwise.</p>
 <hr>
 <h4 id="author">Author</h4>
-<p>This <tt>sntp</tt> was originally developed by Johannes Maximilian Kuehn. Harlan Stenn and Dave Hart modified it to query more than one server at a time. See the file <tt>ChangeLog</tt> in the distribution for details.</p>
+<p>This <code>sntp</code> was originally developed by Johannes Maximilian Kuehn. Harlan Stenn and Dave Hart modified it to query more than one server at a time. See the file <code>ChangeLog</code> in the distribution for details.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -323,20 +333,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

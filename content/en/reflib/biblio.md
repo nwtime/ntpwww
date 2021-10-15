@@ -25,26 +25,26 @@ The following citations have at least some relevance to the field of computer ne
 
 #### Contributors
 
-Abali, B. (abali@watson.ibm.com)  
-Ahamad, Mustaq (mustaq%bay@gatech.edu)  
-Bubenik, Rick (rick@wucs1.wustl.edu)  
-Downing, Alan (downing@erg.sri.com)  
-Dunigan, Tom (dunigan@cs.utk.edu)  
-Graham, P. (pgraham@gold.cs.UManitoba.CA)  
-Malczewski, Frank D. (fdm@WLV.IMSD.CONTEL.COM)  
-Marzullo, Keith (marzullo@cs.cornell.edu)  
-Mattern, Friedemann (mattern@uklirb.informatik.uni-kl.de)  
-McCallum, Doug (dougm@ico.isc.com)  
-Mills, Dave (mills@udel.edu)  
-Neiger, Gil (gil@cc.gatech.edu)  
-Partridge. Craig (craig@sics.se)  
-Plumb, Colin (ccplumb@rose.waterloo.edu)  
-Rajsbaum, Sergio (rajsbaum@crl.dec.com)  
-Reiher, Peter (reiher@onyx.Jpl.Nasa.Gov)  
-Strom, Rob (STROM@IBM.COM)  
-Vera, M (vera%chook.adelaide.edu.au@augean.ua.OZ.AU)  
-Vielmetti, Ed (emv@ox.com)  
-Yih, Benny (yih%albion@cs.utah.edu)
+Abali, B. (abali@watson.ibm.com)
+: Ahamad, Mustaq (mustaq%bay@gatech.edu)
+: Bubenik, Rick (rick@wucs1.wustl.edu)
+: Downing, Alan (downing@erg.sri.com)
+: Dunigan, Tom (dunigan@cs.utk.edu)
+: Graham, P. (pgraham@gold.cs.UManitoba.CA)
+: Malczewski, Frank D. (fdm@WLV.IMSD.CONTEL.COM)
+: Marzullo, Keith (marzullo@cs.cornell.edu)
+: Mattern, Friedemann (mattern@uklirb.informatik.uni-kl.de)
+: McCallum, Doug (dougm@ico.isc.com)
+: Mills, Dave (mills@udel.edu)
+: Neiger, Gil (gil@cc.gatech.edu)
+: Partridge. Craig (craig@sics.se)
+: Plumb, Colin (ccplumb@rose.waterloo.edu)
+: Rajsbaum, Sergio (rajsbaum@crl.dec.com)
+: Reiher, Peter (reiher@onyx.Jpl.Nasa.Gov)
+: Strom, Rob (STROM@IBM.COM)
+: Vera, M (vera%chook.adelaide.edu.au@augean.ua.OZ.AU)
+: Vielmetti, Ed (emv@ox.com)
+: Yih, Benny (yih%albion@cs.utah.edu)
 
 * * *
 
@@ -67,13 +67,13 @@ Yih, Benny (yih%albion@cs.utah.edu)
 14.  Calendar. _The Encyclopaedia Britannica Macropaedia_, 15th ed., vol. 15, pp. 460-477. Encyclopaedia Britannica Co., New York, NY, 1986.
 15.  Chaffee, J.W. Relating the Allan variance to the diffusion coefficients of a linear stochastic differential equation model for precision oscillators. _IEEE Trans. Ultrasonics, Ferroelectrics and Frequency Control UFFC-34, 6_ (November 1987), 655-658.
 16.  Cole, R., and C. Foxcroft. An experiment in clock synchronisation. _The Computer Journal 31, 6_ (1988), 496-502.
-17.  Crocroft, J., and J.P. Onions. Network Time Protocol (NTP) Over the OSI Remote Operations Service. Network Working Group Report RFC-1165, University College London, June 1990, 10 pp.
+17.  Crocroft, J., and J.P. Onions. Network Time Protocol (NTP) Over the OSI Remote Operations Service. Network Working Group Report [RFC 1165](https://www.rfc-editor.org/rfc/rfc1165.html), University College London, June 1990, 10 pp.
 18.  Cristian, F. A probabilistic approach to distributed clock synchronization. _Distributed Computing 3_ (1989), 146-158.
 19.  Cristian, F., H. Aghili and R. Strong. Clock synchronization in the presence of omission and performance faults, and processor joins. _Proc. Sixteenth International Symposium on Fault-Tolerant Computing_ (July 1986), 218-233.
 20.  Data Encryption Standard. Federal Information Processing Standards Publication 46. National Bureau of Standards, U.S. Department of Commerce, 1977.
 21.  Deering, S.E., and D.R. Cheriton. Multicast routing in datagram internetworks and extended LANs. _ACM Trans. Computing Systems 8, 2_ (May 1990), 85-100.
-22.  Defense Advanced Research Projects Agency. Internet Protocol. Network Working Group Report RFC-791, USC Information Sciences Institute, September 1981.
-23.  Defense Advanced Research Projects Agency. Internet Control Message Protocol. Network Working Group Report RFC-792, USC Information Sciences Institute, September 1981.
+22.  Defense Advanced Research Projects Agency. Internet Protocol. Network Working Group Report [RFC 791](https://www.rfc-editor.org/rfc/rfc791.html), USC Information Sciences Institute, September 1981.
+23.  Defense Advanced Research Projects Agency. Internet Control Message Protocol. Network Working Group Report [RFC 792](https://www.rfc-editor.org/rfc/rfc792.html), USC Information Sciences Institute, September 1981.
 24.  Dershowitz, N., and E.M. Reingold. Calendrical Calculations. _Software Practice and Experience 20_, 9 (September 1990), 899-928.
 25.  DES Modes of Operation. Federal Information Processing Standards Publication 81. National Bureau of Standards, U.S. Department of Commerce, December 1980.
 26.  Digital Time Service Functional Specification Version T.1.0.5. Digital Equipment Corporation, 1989.
@@ -113,12 +113,12 @@ Yih, Benny (yih%albion@cs.utah.edu)
 60.  Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000. 23 pp. Abstract: [PostScript](/reflib/reports/pkey/pkeya.ps) | [PDF](/reflib/reports/pkey/pkeya.pdf), Body: [PostScript](/reflib/reports/pkey/pkeyb.ps) | [PDF](/reflib/reports/pkey/pkeyb.pdf)
 61.  Mills, D.L. Adaptive hybrid clock discipline algorithm for the Network Time Protocol. _IEEE/ACM Trans. on Networking 6, 5_ (October 1998), 505-514.  [PDF](/reflib/papers/allan.pdf)
 62.  Mills, D.L. Improved algorithms for synchronizing computer network clocks. _IEEE/ACM Trans. on Networks_ (June 1995), 245-254. [(PostScript)](/reflib/papers/tune2.ps).
-63.  Mills, D.L. Internet time synchronization: the Network Time Protocol. _IEEE Trans. Communications COM-39, 10_ (October 1991), 1482-1493. [PDF](/reflib/papers/trans.pdf) Also in: Yang, Z., and T.A. Marsland (Eds.). _Global States and Time in Distributed Systems_. IEEE Computer Society Press, Los Alamitos, CA, 1994, 91-102. Condensed from: _Ibid_. Network Working Group Report RFC-1129, University of Delaware, October 1989. Also published as: Electrical Engineering Department Report 89-9-1, University of Delaware, September 1989.
+63.  Mills, D.L. Internet time synchronization: the Network Time Protocol. _IEEE Trans. Communications COM-39, 10_ (October 1991), 1482-1493. [PDF](/reflib/papers/trans.pdf) Also in: Yang, Z., and T.A. Marsland (Eds.). _Global States and Time in Distributed Systems_. IEEE Computer Society Press, Los Alamitos, CA, 1994, 91-102. Condensed from: _Ibid_. Network Working Group Report [RFC 1129](/reflib/rfc/rfc1129/rfc1129b.pdf), University of Delaware, October 1989. Also published as: Electrical Engineering Department Report 89-9-1, University of Delaware, September 1989.
 64.  Mills, D.L. On the chronology and metrology of computer network timescales and their application to the Network Time Protocol. _ACM Computer Communications Review 21, 5_ (October 1991), 8-17. [PDF](/reflib/papers/time.pdf)
 65.  Mills, D.L. Precision synchronization of computer network clocks. _ACM Computer Communication Review 24, 2_ (April 1994). 28-43. [PostScript](/reflib/papers/fine.ps) | [PDF](/reflib/papers/fine.pdf) Condensed from: _Ibid_. Electrical Engineering Department Report 93-11-1, University of Delaware, November 1993, 66 pp.
 66.  Mitra, D. Network synchronization: analysis of a hybrid of master-slave and mutual synchronization. _IEEE Trans. Communications COM-28, 8_ (August 1980), 1245-1259.
-67.  Mockapetris, P. Domain names - concepts and facilities. Network Working Group Report RFC-1034, USC Information Sciences Institute, November 1987.
-68.  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](/reflib/rfc/rfc2783.txt)
+67.  Mockapetris, P. Domain names - concepts and facilities. Network Working Group Report [RFC 1034](https://www.rfc-editor.org/rfc/rfc1034.html), USC Information Sciences Institute, November 1987.
+68.  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC 2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](/reflib/rfc/rfc2783.txt)
 69.  Morley, S.G., G.W. Brainerd and R.J. Sharer. _The Ancient Maya_, 4th ed., pp. 598-600. Stanford University Press, Stanford, CA, 1983.
 70.  Morgan, C. Global and logical time in distributed algorithms. _Information Processing Letters 20_ (1985), 189-194.
 71.  Moyer, G. The Gregorian Calendar. _Scientific American 246, 5_ (May 1982), 144-152.
@@ -131,9 +131,9 @@ Yih, Benny (yih%albion@cs.utah.edu)
 78.  Pease, M., R. Shostak and L. Lamport. Reaching agreement in the presence of faults. _JACM 27, 2_ (April 1980), 228-234.
 79.  Percival, D.B. The U.S. Naval Observatory Clock Time Scales. _IEEE Trans. Instrumentation and Measurement IM-27, 4_ (December 1978), 376-385.
 80.  Peterson, L.L. Preserving context information in an IPC abstraction. _Proc. Sixth symposium on Reliability in Distributed Software and Database Systems_ (March 1987), 22-31.
-81.  Postel, J. Daytime protocol. Network Working Group Report RFC-867, USC Information Sciences Institute, May 1983.
-82.  Postel, J. Time protocol. Network Working Group Report RFC-868, USC Information Sciences Institute, May 1983.
-83.  Postel, J. User Datagram Protocol. Network Working Group Report RFC-768, USC Information Sciences Institute, August 1980.
+81.  Postel, J. Daytime protocol. Network Working Group Report [RFC 867](https://www.rfc-editor.org/rfc/rfc867.html), USC Information Sciences Institute, May 1983.
+82.  Postel, J. Time protocol. Network Working Group Report [RFC 868](https://www.rfc-editor.org/rfc/rfc868.html), USC Information Sciences Institute, May 1983.
+83.  Postel, J. User Datagram Protocol. Network Working Group Report [RFC 768](https://www.rfc-editor.org/rfc/rfc768.html), USC Information Sciences Institute, August 1980.
 84.  Ramanathan, P., D.D. Kandlur and K.G. Shin. Hardware-assisted software clock synchronization for homogeneous distributed systems. _IEEE Trans. Computers C-39, 4_ (April 1990), 514-524.
 85.  Ramanathan, P., K.G. Shin and R.W. Butler. Fault-tolerant clock synchronization in distributed systems. _IEEE Computer 23, 10_ (October 1990), 33-42.
 86.  Rawley, L.A., J.H. Taylor, M.M. Davis and D.W. Allan. Millisecond pulsar PSR 1937+21: a highly stable clock. _Science 238_ (6 November 1987), 761-765.
@@ -150,7 +150,7 @@ Yih, Benny (yih%albion@cs.utah.edu)
 97.  Stein, S.R. Frequency and time - their measurement and characterization (Chapter 12). In: E.A. Gerber and A. Ballato (Eds.). _Precision Frequency Control, Vol. 2_, Academic Press, New York 1985, 191-232, 399-416. Also in: Sullivan, D.B., D.W. Allan, D.A. Howe and F.L. Walls (Eds.). _Characterization of Clocks and Oscillators_. National Institute of Standards and Technology Technical Note 1337, U.S. Government Printing Office (January 1990), TN61-TN119.
 98.  Storz, W., and G. Beling. Transmitting time-critical data over heterogeneous subnetworks using standardized protocols. _Mobile Networks and Applications 2_, Balzer Science Publishers (1997), 243-249.
 99.  Strom, R.E., and S. Yemini. Optimistic recovery in distributed systems. _ACM Trans. on Computer Systems 3, 3_ (August 1985), 204-226.
-100.  Su, Z. A specification of the Internet protocol (IP) timestamp option. Network Working Group Report RFC-781. SRI International, May 1981.
+100.  Su, Z. A specification of the Internet protocol (IP) timestamp option. Network Working Group Report [RFC 781](https://www.rfc-editor.org/rfc/rfc781.html). SRI International, May 1981.
 101.  Tel, G., E. Korach and S. Zaks. Synchronizing ABD networks. _IEEE/ACM Trans. on Networking 2, 1_ (February 1994), 66-69.
 102.  Time. _The Encyclopaedia Britannica Macropaedia_, 15th ed., vol. 28, pp. 652-664. Encyclopaedia Britannica Co., New York, NY, 1986.
 103.  Time and Frequency Dissemination Services. NBS Special Publication 432, U.S. Department of Commerce, 1979.

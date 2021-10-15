@@ -13,7 +13,7 @@ type: archives
 
 #### Synopsis
 
-<tt>md5 [ -0123456789 ] [ -h] _file_</tt>
+<code>md5 [ -0123456789 ] [ -h] _file_</code>
 
 * * *
 
@@ -25,20 +25,23 @@ This program generates the message digest of the given _file_ using the RSA Mess
 
 #### Options
 
-<dt><tt>-0123456789</tt></dt>
+<code>**-0123456789**</code>
 
-Select algorithm from the following list  
-<tt>-0</tt> null  
-<tt>-1</tt> MD5  
-<tt>-2</tt> SNEFRU  
-<tt>-3</tt> CRC32  
-<tt>-4</tt> CRC16  
-<tt>-5</tt> MD4  
-<tt>-6</tt> MD2  
-<tt>-7</tt> SHA  
-<tt>-8</tt> HAVAL  
-<tt>-9</tt> null
+: Select algorithm from the following list:
 
-<dt><tt>-h</tt></dt>
+| Option | Algorithm |
+| ----- | ----- |
+| `-0` | null |
+| `-1` | MD5 |
+| `-2` | SNEFRU |
+| `-3` | CRC32 |
+| `-4` | CRC16 |
+| `-5` | MD4 |
+| `-6` | MD2 |
+| `-7` | SHA |
+| `-8` | HAVAL |
+| `-9` | null |
 
-Display the result in hex; the default is base-64.
+<code>**-h**</code>
+
+: Display the result in hex; the default is base-64.

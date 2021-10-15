@@ -3,7 +3,7 @@ title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
 ---
 
-![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice32.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Alice is trying to find the PPS signal connector.
 
@@ -37,15 +37,15 @@ The PPS signal can be connected in either of two ways: via the data carrier dete
 
 #### Operating System Support
 
-Both the serial and parallel port connection require operating system support, which is available in only a few operating systems, including FreeBSD, Linux (with PPSkit patch) and Solaris. Support on an experimental basis is available for several other systems, including SunOS and HP/Compaq/Digital Tru64. The PPSAPI application program interface defined in <sup>[1](#myfootnote1)</sup> is the only interface currently supported. Older PPS interfaces based on the <tt>ppsclock</tt> and <tt>tty_clk</tt> streams modules are no longer supported. As the PPSAPI is expected to become an IETF cross-platform standard, it should be used by new applications.
+Both the serial and parallel port connection require operating system support, which is available in only a few operating systems, including FreeBSD, Linux (with PPSkit patch) and Solaris. Support on an experimental basis is available for several other systems, including SunOS and HP/Compaq/Digital Tru64. The PPSAPI application program interface defined in <sup>[1](#myfootnote1)</sup> is the only interface currently supported. Older PPS interfaces based on the <code>ppsclock</code> and <code>tty_clk</code> streams modules are no longer supported. As the PPSAPI is expected to become an IETF cross-platform standard, it should be used by new applications.
 
-The entire PPS interface functionality is currently provided by inline code in the <tt>timepps.h</tt> header file. While not all implementations support the full PPSAPI specification, they do support all the functions required for the PPS driver described next. The FreeBSD, Linux and Solaris implementations can be used with the stock kernels provided with those systems; however, the Tru64 and SunOS kernels require additional functions not provided in the stock kernels. Solaris users are cautioned that these functions operate improperly in Solaris versions prior to 2.8 with patch Generic_108528-02. Header files for other systems can be found via the web at [nanokernel.tar.gz](/reflib/software/nanokernel.tar.gz).
+The entire PPS interface functionality is currently provided by inline code in the <code>timepps.h</code> header file. While not all implementations support the full PPSAPI specification, they do support all the functions required for the PPS driver described next. The FreeBSD, Linux and Solaris implementations can be used with the stock kernels provided with those systems; however, the Tru64 and SunOS kernels require additional functions not provided in the stock kernels. Solaris users are cautioned that these functions operate improperly in Solaris versions prior to 2.8 with patch Generic_108528-02. Header files for other systems can be found via the web at [nanokernel.tar.gz](/reflib/software/nanokernel.tar.gz).
 
 * * *
 
 #### PPS Driver
 
-In the preferred mode of operation, PPS signals are processed by the [PPS Clock Discipline](/archives/drivers/driver22) driver and other clock drivers which might be involved need not know or care about them. In some cases where there is no other driver, time might be obtained from remote NTP servers via the network and local PPS signals, for instance from a calibrated cesium oscillator, used to stabilize the frequency and remove network jitter. Note that the <tt>pps</tt> configuration command has been obsoleted by this driver.
+In the preferred mode of operation, PPS signals are processed by the [PPS Clock Discipline](/archives/drivers/driver22) driver and other clock drivers which might be involved need not know or care about them. In some cases where there is no other driver, time might be obtained from remote NTP servers via the network and local PPS signals, for instance from a calibrated cesium oscillator, used to stabilize the frequency and remove network jitter. Note that the <code>pps</code> configuration command has been obsoleted by this driver.
 
 The PPS driver operates in conjunction with a preferred peer, as described in the [Mitigation Rules and the prefer Keyword](/archives/4.2.2-series/prefer) page. One of the drivers described in the [Reference Clock Drivers](/archives/4.2.2-series/refclock) page or another NTP server furnishes the coarse timing and disambiguates the seconds numbering of the PPS signal itself. The NTP daemon mitigates between the clock driver or NTP server and the PPS driver as described in that page in order to provide the most accurate time, while respecting the various types of equipment failures that could happen.
 
@@ -56,4 +56,3 @@ Some configurations may include multiple radio clocks with individual PPS output
 * * *
 
 <a name="myfootnote1">1</a> Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments RFC-2783, Internet Engineering Task Force, March 2000, 31 pp. [ASCII](/reflib/rfc/rfc2783.txt)
-

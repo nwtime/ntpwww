@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
+Bug Id: 4095849
+Category: kernel
+Subcategory: syscall
+State: evaluated
+Synopsis: time_constant value &gt;6 with PLL in use leads to integer divide …">
+<meta property="og:title" content="Solaris Bug #4095849" />
+<meta property="og:description" content="Bug Id: 4095849 Category: kernel Subcategory: syscall State: evaluated Synopsis: time_constant value &gt;6 with PLL in use leads to integer divide zero trap panic Description: If the time_constant parameter is 7 or higher, and the phase-lock looping model is in use, the system will take a &ldquo;integer divide zero trap&rdquo; panic in the clock routine as soon as the time_offset becomes non-zero.  time_constant defaults to 0. The only place it is set is in the ntp_adjtime system call, from the constant element of the timex structure argument." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/hints/solaris.xtra.4095849/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>Solaris Bug #4095849</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +52,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +68,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +78,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +97,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +149,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/hints/">Hints</a>
+	<a href="https://doc.ntp.org/archives/hints/">Hints</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/hints/solaris.xtra.4095849/">Solaris Bug #4095849</a>
+	<a href="https://doc.ntp.org/archives/hints/solaris.xtra.4095849/">Solaris Bug #4095849</a>
 </li>
 
 	</ol>
@@ -151,146 +174,58 @@
   <div class="container">
   	<h1>Solaris Bug #4095849</h1>
      
-    <pre> Bug Id: 4095849
- Category: kernel
- Subcategory: syscall
- State: evaluated
- Synopsis: time_constant value >6 with PLL in use leads to integer divide
-           zero trap panic
- Description:
-If the time_constant parameter is 7 or higher, and the phase-lock looping model
-is in use, the system will take a "integer divide zero trap" panic in
-the clock routine as soon as the time_offset becomes non-zero.
-
-time_constant defaults to 0.  The only place it is set is in the ntp_adjtime
-system call, from the 'constant' element of the timex structure argument.
-
- Work around:
-Never set the constant element of the timex structure passed to ntp_adjtime to
-a value larger than 6.
-
-satish.mynam@Eng 1998-04-30
-1. Use Sun's version of NTP software instead of PD version. This problem
-is not seen with Sun's NTP version (which is mostly eqivalent to PD NTP 3.4
-plus some Sun's local functionality futures).
-
-2. Workaround for the public domain NTP version  ONLY:
- =====================================================
-The workaround for public domain NTP version is to disable the
-KERNEL_PLL from the NTP code. This way ntp_Adjtime() system call is
-totally bypassed without sacrificing any of the functionality of the
-NTP. The only hit you might see is the way  kernel precision timminig
-is done without the PLL algorithm in the kernel.
-
-    The easiest way to disable ntp_adjtime option is(without changing
-    any makefiles or other config files) to disable the KERNEL_PLL
-    value in the ./config.h file.
-
-After doing a ./configure for probing for all the necessary tools(compilers,
-os version, libraries),  please comment out KERNEL_PLL macro in
-the ./config.h  file.  This will disable the KERNEL_PLL part of the source
-code and the newly obtained xntpd is just similar to the old one but it
-does not use ntp_adjtime() system call. This prevents it from panic'ng
-the kernel.
-
-/*#define KERNEL_PLL 1*/
-
-I complied a new xntpd binary this way and it does nothave any ntp_adjtime()
-related stuff.
-
-Default:
-=======
-/net/divya/export/home/mynam/public_domain/ntp/xntp3-5.92/xntpd>strings
+    <dl>
+<dt><strong>Bug Id:</strong> <code>4095849</code></dt>
+<dd><strong>Category:</strong> kernel</dd>
+<dd><strong>Subcategory:</strong> syscall</dd>
+<dd><strong>State:</strong> evaluated</dd>
+<dd><strong>Synopsis:</strong> time_constant value &gt;6 with PLL in use leads to integer divide zero trap panic</dd>
+<dd><strong>Description:</strong> If the <code>time_constant</code> parameter is 7 or higher, and the phase-lock looping model
+is in use, the system will take a &ldquo;integer divide zero trap&rdquo; panic in the clock routine as soon as the <code>time_offset</code> becomes non-zero.</dd>
+<dd>
+<p><code>time_constant</code> defaults to 0.  The only place it is set is in the <code>ntp_adjtime</code> system call, from the <code>constant</code> element of the <code>timex</code> structure argument.</p>
+</dd>
+<dd><strong>Work around:</strong> Never set the <code>constant</code> element of the <code>timex</code> structure passed to <code>ntp_adjtime</code> to
+a value larger than 6.</dd>
+</dl>
+<hr>
+<p>satish.mynam@Eng 1998-04-30</p>
+<ol>
+<li>
+<p>Use Sun&rsquo;s version of NTP software instead of PD version. This problem is not seen with Sun&rsquo;s NTP version (which is mostly eqivalent to PD NTP 3.4 plus some Sun&rsquo;s local functionality futures).</p>
+</li>
+<li>
+<p><strong>Workaround for the public domain NTP version ONLY:</strong> The workaround for public domain NTP version is   to disable the <code>KERNEL_PLL</code> from the NTP code. This way the <code>ntp_Adjtime()</code> system call is totally bypassed without sacrificing any of the functionality of NTP. The only hit you might see is the way  kernel precision timinig is done without the PLL algorithm in the kernel.</p>
+<p>The easiest way to disable <code>ntp_adjtime</code> option is(without changing any makefiles or other config files) to disable the <code>KERNEL_PLL</code> value in the <code>./config.h</code> file.</p>
+<p>After doing a <code>./configure</code> for probing for all the necessary tools(compilers, OS version, libraries),  please comment out <code>KERNEL_PLL</code> macro in the <code>./config.h</code> file.  This will disable the <code>KERNEL_PLL</code> part of the source code and the newly obtained <code>xntpd</code> is just similar to the old one but it does not use <code>ntp_adjtime()</code> system call. This prevents it from panicing the kernel.</p>
+<p><code>/*#define KERNEL_PLL 1*/</code></p>
+<p>I complied a new <code>xntpd</code> binary this way and it does not have any <code>ntp_adjtime()</code> related stuff.</p>
+<p>Default:</p>
+<pre><code>/net/divya/export/home/mynam/public_domain/ntp/xntp3-5.92/xntpd&gt;strings
 xntpd |
 grep ntp_adjtime
 354:adj_frequency: ntp_adjtime failed: %m
 357:loop_config: ntp_adjtime() failed: %m
 435:get_kernel_info: ntp_adjtime() failed: %m
-
-With KERNEL_PLL disabled in config.h file
--=======================
-
-/net/divya/export/home/mynam/public_domain/ntp/xntp3-5.92/xntpd>strings
+</code></pre>
+<p>With <code>KERNEL_PLL</code> disabled in <code>config.h</code> file:</p>
+<pre><code>/net/divya/export/home/mynam/public_domain/ntp/xntp3-5.92/xntpd&gt;strings
 xntpd.nopll | grep ntp_adjtime
-
-        Integrated in releases:
- Duplicate of:
- Patch id:
- See also: 4133517
- Summary:
-If the time_constant parameter is 7 or higher, and the phase-lock looping model
-is in use, the system will take a "integer divide zero trap" panic in
-the clock routine as soon as the time_offset becomes non-zero.
-
-time_constant defaults to 0.  The only place it is set is in the ntp_adjtime
-system call, from the 'constant' element of the timex structure argument.
-----------------------------------------------------------------------------
-
-</pre>
+</code></pre>
+</li>
+</ol>
+<hr>
+<dl>
+<dt>Integrated in releases:</dt>
+<dd><strong>Duplicate of:</strong></dd>
+<dd><strong>Patch id:</strong></dd>
+<dd><strong>See also:</strong> 4133517</dd>
+<dd><strong>Summary:</strong> If the time_constant parameter is 7 or higher, and the phase-lock looping model is in use,    the system will take a &ldquo;integer divide zero trap&rdquo; panic in the clock routine as soon as the  <code>time_offset</code> becomes non-zero.
+<p><code>time_constant</code> defaults to 0.  The only place it is set is in the <code>ntp_adjtime</code> system call, from the <code>constant</code> element of the <code>timex</code> structure argument.</p>
+</dd>
+</dl>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -326,20 +261,5 @@ system call, from the 'constant' element of the timex structure argument.
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

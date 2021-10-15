@@ -19,11 +19,11 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Synopsis
 
-Address: 127.127.9._u_  
-Reference ID: <tt>GPS</tt>  
-Driver ID: <tt>GPS_MX4200</tt>  
-Serial Port: <tt>/dev/gps_u_</tt>; 4800 baud, 8-bits, no parity  
-Features: <tt>ppsclock</tt> (required)
+**Address:** <code>127.127.9._u_</code>
+: **Reference ID:** `GPS`
+: **Driver ID:** `GPS_MX4200`
+: **Serial Port:** <code>/dev/gps*u*</code>; 4800 baud, 8-bits, no parity
+: **Features:** `ppsclock` (required)
 
 * * *
 
@@ -40,58 +40,54 @@ This driver supports the Magnavox MX4200 Navigation Receiver adapted to precisio
 
 #### Operating Modes
 
-This driver supports two modes of operation, static and mobile, controlled by clock flag 2.
+This driver supports two modes of operation, static and mobile, controlled by clock `flag 2`.
 
-In static mode (the default) the driver assumes that the GPS antenna is in a fixed location. The receiver is initially placed in a "Static, 3D Nav" mode, where latitude, longitude, elevation and time are calculated for a fixed station. An average position is calculated from this data. After 24 hours, the receiver is placed into a "Known Position" mode, initialized with the calculated position, and then solves only for time.
+In static mode (the default) the driver assumes that the GPS antenna is in a fixed location. The receiver is initially placed in a `Static, 3D Nav` mode, where latitude, longitude, elevation and time are calculated for a fixed station. An average position is calculated from this data. After 24 hours, the receiver is placed into a `Known Position` mode, initialized with the calculated position, and then solves only for time.
 
-In mobile mode, the driver assumes the GPS antenna is mounted on a moving platform such as a car, ship, or aircraft. The receiver is placed in "Dynamic, 3D Nav" mode and solves for position, altitude and time while moving. No position averaging is performed.
+In mobile mode, the driver assumes the GPS antenna is mounted on a moving platform such as a car, ship, or aircraft. The receiver is placed in `Dynamic, 3D Nav` mode and solves for position, altitude and time while moving. No position averaging is performed.
 
 #### Monitor Data
 
-The driver writes each timecode as received to the <tt>clockstats</tt> file. Documentation for the <cite>NMEA-0183</cite> proprietary sentences produced by the MX4200 can be found in [MX4200 Receiver Data Format](/archives/drivers/mx4200data).
+The driver writes each timecode as received to the `clockstats` file. Documentation for the <cite>NMEA-0183</cite> proprietary sentences produced by the MX4200 can be found in [MX4200 Receiver Data Format](/archives/drivers/mx4200data).
 
 * * *
 
 #### Fudge Factors
 
-<dl>
+<code>**time1 _time_**</code>
 
-<dt><tt>time1 _time_</tt></dt>
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dd>Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.</dd>
+<code>**time2 _time_**</code>
 
-<dt><tt>time2 _time_</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**stratum _number_**</code>
 
-<dt><tt>stratum _number_</tt></dt>
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dd>Specifies the driver stratum, in decimal from 0 to 15, with default 0.</dd>
+<code>**refid _string_**</code>
 
-<dt><tt>refid _string_</tt></dt>
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default `GPS`.
 
-<dd>Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>GPS</tt>.</dd>
+<code>**flag1 0 | 1**</code>
 
-<dt><tt>flag1 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag2 0 | 1**</code>
 
-<dt><tt>flag2 0 | 1</tt></dt>
+: Assume GPS receiver is on a mobile platform if set.
 
-<dd>Assume GPS receiver is on a mobile platform if set.</dd>
+<code>**flag3 0 | 1**</code>
 
-<dt><tt>flag3 0 | 1</tt></dt>
+: Not used by this driver.
 
-<dd>Not used by this driver.</dd>
+<code>**flag4 0 | 1**</code>
 
-<dt><tt>flag4 0 | 1</tt></dt>
-
-<dd>Not used by this driver.</dd>
-
-</dl>
+: Not used by this driver.
 
 * * *
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock) 
+[Reference Clock Drivers](/archives/4.2.8-series/refclock)

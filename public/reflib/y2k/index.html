@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
+from The Wizard of Oz, L. Frank Baum
+Era dynamically aloft
+Last update 12-May-2012
+
+Table of Contents
+
+Abstract
+1. Introduction
+2. The UTC Timescale …">
+<meta property="og:title" content="The NTP Era and Era Numbering" />
+<meta property="og:description" content="from The Wizard of Oz, L. Frank Baum
+Era dynamically aloft
+Last update 12-May-2012
+ Table of Contents  Abstract 1. Introduction 2. The UTC Timescale 3. The NTP Timescale 4. The NTP Era   Abstract The Network Time Protocol (NTP) specification defines the timescale in terms of timestamps and datestamps. Timestamps define an era spanning 136 years, while datestamps extend over multiple eras spanning the age of the Universe to when the stars grow dim." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/reflib/y2k/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>The NTP Era and Era Numbering</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +59,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +75,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +85,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +104,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -123,14 +153,14 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/reflib/">Reference Library</a>
+	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/reflib/y2k/">The NTP Era and Era Numbering</a>
+	<a href="https://doc.ntp.org/reflib/y2k/">The NTP Era and Era Numbering</a>
 </li>
 
 	</ol>
@@ -169,8 +199,8 @@
 <hr>
 <h4 id="3-the-ntp-timescale">3. The NTP Timescale</h4>
 <p>The NTP timescale can be implemented using a binary counter of indefinite width and with the unit seconds bit placed somewhere in the middle. The counter is synchronized to UTC such that it runs at the same rate and the units increment coincides with the UTC seconds tick. The NTP timescale is defined by 128 bits of this counter, of which the first 64 bits count the seconds and the last 64 bits interpolates the fraction of the second. The timescale covers well beyond the age of the universe with a precision well below the smallest times that can be directly measured. An implementation may choose to limit the size of the fraction field, but not less than 32 bits.</p>
-<p>An NTP date is a sample of the counter interpreted as a twos-complement integer. An NTP epoch is a special date distinguished by some event. The origin of the timescale, called the prime epoch (epoch 0) corresponds to 0h, 1 January 1900. Positive values represent times after the prime epoch; negative values represent times before then. Conversion between any calendar date format and NTP format is done by computing the seconds and fraction difference between the given date and the NTP prime epoch; the 128-bit signed value is the NTP date.</p>
-<p>An NTP timestamp is a truncated NTP date expressed as an unsigned 64-bit integer including the low order 32 bits of the seconds field concatenated with the high-order 32 bits of the fraction field. This format can represent the 136 years from 1900 to 2036 with a precision of 232 ps. As will be shown later, ranges beyond these years require an era number which is the high order 32 bits of the seconds field of the associated date.</p>
+<p>An NTP date is a sample of the counter interpreted as a two&rsquo;s-complement integer. An NTP epoch is a special date distinguished by some event. The origin of the timescale, called the prime epoch (epoch 0) corresponds to 0h, 1 January 1900. Positive values represent times after the prime epoch; negative values represent times before then. Conversion between any calendar date format and NTP format is done by computing the seconds and fraction difference between the given date and the NTP prime epoch; the 128-bit signed value is the NTP date.</p>
+<p>An NTP timestamp is a truncated NTP date expressed as an unsigned 64-bit integer including the low order 32 bits of the seconds field concatenated with the high-order 32 bits of the fraction field. This format can represent the 136 years from 1900 to 2036 with a precision of 232 ps. As will be shown later, ranges beyond these years require an era number which is the high-order 32 bits of the seconds field of the associated date.</p>
 <p>The most important thing to observe about the NTP timescale is that it knows nothing about days, years or centuries, only the seconds and fraction relative to the prime epoch. Table 1 illustrates the correspondence between calendar date, Julian day number (JDN), NTP date, NTP era and NTP timestamp. Prior to 15 October 1582 CE, JDN years are reckoned in 365.25 days; after that, JDN years are reckoned in the Gregorian calendar. Most historians and Julian calculators do this to avoid Pope Gregory&rsquo;s ten-day hole.</p>
 <table>
 <thead>
@@ -262,81 +292,19 @@
 </li>
 </ul>
 <p>Note the correspondence between the NTP date on one hand and the NTP era and timestamp on the other. The signed era number provides the base epoch in multiples of 2<sup>32</sup> s and the unsigned timestamp the offset in that era. Conversion between date and era-timestamp formats can be done by simple cut and paste requiring no arithmetic operations.</p>
-<p>The NTP timescale is almost never used directly by system or application programs. The generic Unix kernel keeps time in seconds and microseconds (<tt>timeval</tt>) or seconds and nanoseconds (<tt>timespec</tt>). These provide both time of day and interval timer functions.</p>
-<p>Most Unix kernels implement the <tt>timeval</tt> and <tt>timespec</tt> functions using two signed 32-bit integers, one representing the seconds since Unix life began at 0h, 1 January 1970, and the other the microseconds or nanoseconds of the second. In practice, the seconds integer will changes sign in 68-year intervals,, the next of which will happen in 2038. How the particular Unix system copes with this epoch is of concern, but is beyond the scope of discussion here.</p>
+<p>The NTP timescale is almost never used directly by system or application programs. The generic Unix kernel keeps time in seconds and microseconds (<code>timeval</code>) or seconds and nanoseconds (<code>timespec</code>). These provide both time of day and interval timer functions.</p>
+<p>Most Unix kernels implement the <code>timeval</code> and <code>timespec</code> functions using two signed 32-bit integers, one representing the seconds since Unix life began at 0h, 1 January 1970, and the other the microseconds or nanoseconds of the second. In practice, the seconds integer changes sign in 68-year intervals, the next of which will happen in 2038. How the particular Unix system copes with this epoch is of concern, but is beyond the scope of discussion here.</p>
 <p>The most probable solution when 2038 comes near is to replace the 32-bit seconds field of the system clock with a 64-bit field, and some kernels, including Digital Alpha, have already done that. Certainly a 64-bit integer can be used in the NTP software, but this cannot be used in packet headers exchanged over the network, as the timestamp fields contain only 64-bits and cannot be changed without causing awkward compatibility issues, especially as some provision would have to be made to operate with both 32-bit and 64-bit fields.</p>
 <hr>
 <h4 id="4-the-ntp-era">4. The NTP Era</h4>
-<p>As required by the NTP specification, the NTP reference implementation operate with four 64-bit raw timestamps to calculate both the clock offset and roundtrip delay. The only arithmetic operation permitted on raw timestamps is subtraction, which produces signed 63-bit timestamp differences from 68 years in the past to 68 years in the future. When computing timestamp differences and the timestamps are in the same era, the differences can be calculated directly. If not, in all credible cases the two eras will be adjacent; that is, if one timestamp is in era <em>n</em>, the other will be in either era <em>n</em> or <em>n</em> + 1.</p>
-<p>Consider the case in Figure 1, where timestamps are represented as years mod 136. Server clock <em>S</em> is set to 2056 (timestamp 20 in era 1), while the client clock <em>C</em> is set to 2006 (timestamp 106 in era 0).</p>
+<p>As required by the NTP specification, the NTP reference implementation operates with four 64-bit raw timestamps to calculate both the clock offset and roundtrip delay. The only arithmetic operation permitted on raw timestamps is subtraction, which produces signed 63-bit timestamp differences from 68 years in the past to 68 years in the future. When computing timestamp differences and the timestamps are in the same era, the differences can be calculated directly. If not, in all credible cases the two eras will be adjacent; that is, if one timestamp is in era <code><em>n</em></code>, the other will be in either era <code><em>n</em></code> or <code><em>n</em> + 1</code>.</p>
+<p>Consider the case in Figure 1, where timestamps are represented as years mod 136. Server clock <code><em>S</em></code> is set to 2056 (timestamp 20 in era 1), while the client clock <code><em>C</em></code> is set to 2006 (timestamp 106 in era 0).</p>
 <p><img src="/archives/pic/era.gif" alt="gif"></p>
 <p><strong>Figure 1</strong></p>
-<p>If <em>S</em> is within 68 years of <em>C</em> = 2006, <em>S</em> can be anywhere between 1938 (timestamp 38 in era 0) and 2074 (timestamp 38 in era 1). If, as in the figure, <em>S</em> and <em>C</em> are expressed as datestamps, the offset <em>S</em> - <em>C</em> = 2056 - 2006 = 50 years. However, if <em>S</em> and <em>C</em> are expressed as timestamps, as in the white paper <a href="/reflib/time">NTP Timestamp Calculatins</a>, the offset is <em>S</em> +(-<em>C</em>) = 20 + (136 - 106= 50. mod 136 years. Thus, even if the timestamps span adjacent eras, the offset compuation is correct.</p>
-<p>To convert system time in any format to NTP format requires only that the number of seconds <em>s</em> from the prime epoch to system time be determined. The era number is <em>s</em> / 2<sup>32</sup> and the timestamp is <em>s</em> mod 2<sup>32</sup>. To convert from NTP era number and timestamp to system time requires only the calculation <em>s</em> = 2<sup>32</sup> * <em>era</em> + <em>timestamp</em> to determine the number of seconds since the prime epoch.</p>
+<p>If <code><em>S</em></code> is within 68 years of <code><em>C</em> = 2006</code>, <code><em>S</em></code> can be anywhere between 1938 (timestamp 38 in era 0) and 2074 (timestamp 38 in era 1). If, as in the figure, <code><em>S</em></code> and <code><em>C</em></code> are expressed as datestamps, the offset <code><em>S</em> - <em>C</em> = 2056 - 2006 = 50</code> years. However, if <code><em>S</em></code> and <code><em>C</em></code> are expressed as timestamps, as in the white paper <a href="/reflib/time">NTP Timestamp Calculatins</a>, the offset is <code><em>S</em> +(-<em>C</em>) = 20 + (136 - 106= 50) mod 136</code> years. Thus, even if the timestamps span adjacent eras, the offset compuation is correct.</p>
+<p>To convert system time in any format to NTP format requires only that the number of seconds <code><em>s</em></code> from the prime epoch to system time be determined. The era number is <code><em>s</em> / 2<sup>32</sup></code> and the timestamp is <code><em>s</em> mod 2<sup>32</sup></code>. To convert from NTP era number and timestamp to system time requires only the calculation <code><em>s</em> = 2<sup>32</sup> * <em>era</em> + <em>timestamp</em></code> to determine the number of seconds since the prime epoch.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -372,20 +340,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

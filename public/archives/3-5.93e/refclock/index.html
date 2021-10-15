@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Reference Clock Drivers
+Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon …">
+<meta property="og:title" content="Reference Clock Drivers" />
+<meta property="og:description" content="Reference Clock Drivers Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix xntpd. Individual clocks can be activated by configuration file commands, specifically the server and fudge commands described in the xntpd program manual page. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.
+Radio and modem clocks by convention have addresses in the form 127." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/3-5.93e/refclock/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>Reference Clock Drivers</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +49,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +65,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +75,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +94,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +146,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/3-5.93e/">3-5.93e</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/">3-5.93e</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/3-5.93e/refclock/">Reference Clock Drivers</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/refclock/">Reference Clock Drivers</a>
 </li>
 
 	</ol>
@@ -152,104 +172,42 @@
   	<h1>Reference Clock Drivers</h1>
      
     <h4 id="reference-clock-drivers">Reference Clock Drivers</h4>
-<p>Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix <tt>xntpd</tt>. Individual clocks can be activated by configuration file commands, specifically the <tt>server</tt> and <tt>fudge</tt> commands described in the <a href="/archives/3-5.93e/xntpd"><tt>xntpd</tt> program manual page</a>. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.</p>
-<p>Radio and modem clocks by convention have addresses in the form 127.127.<em>t.u</em>, where <em>t</em> is the clock type and <em>u</em> is a unit number in the range 0-3 used to distinguish multiple instances of clocks of the same type. Most of these clocks require support in the form of a serial port or special bus peripheral. The particular device is normally specified by adding a soft link <tt>/dev/device_u_</tt> to the particular hardware device involved, where _<tt>u</tt>_ correspond to the unit number above.</p>
+<p>Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix <code>xntpd</code>. Individual clocks can be activated by configuration file commands, specifically the <code>server</code> and <code>fudge</code> commands described in the <a href="/archives/3-5.93e/xntpd"><code>xntpd</code> program manual page</a>. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.</p>
+<p>Radio and modem clocks by convention have addresses in the form <code>127.127.<em>t.u</em></code>, where <code><em>t</em></code> is the clock type and <code><em>u</em></code> is a unit number in the range 0-3 used to distinguish multiple instances of clocks of the same type. Most of these clocks require support in the form of a serial port or special bus peripheral. The particular device is normally specified by adding a soft link <code>/dev/device_<em>u</em></code> to the particular hardware device involved, where <code><em>u</em></code> correspond to the unit number above.</p>
 <p>Following is a list showing the type and title of each driver currently implemented. The compile-time identifier for each is shown in parentheses. Click on a selected type for specific description and configuration documentation, including the clock address, reference ID, driver ID, serial port device name and speed, and features (line disciplines, etc.). For those drivers without specific documentation, please contact the author listed in the <a href="/archives/3-5.93e/copyright">Copyright Notice</a> page.</p>
 <ul>
-<li><a href="/archives/3-5.93e/driver1">Type 1</a> Local Clock Driver (<tt>LOCAL_CLOCK</tt>)</li>
-<li><a href="/archives/drivers/driver2">Type 2</a> Trak 8820 GPS Receiver (<tt>TRAK</tt></li>
-<li><a href="/archives/drivers/driver3">Type 3</a> PSTI/Traconex 1020 WWV/WWVH Receiver (<tt>PST</tt>)</li>
-<li><a href="/archives/3-5.93e/driver4">Type 4</a> Spectracom 8170 and Netclock/2 WWVB Receivers (<tt>WWVB</tt>)</li>
-<li><a href="/archives/3-5.93e/driver5">Type 5</a> TrueTime GPS/GOES/OMEGA Receivers (<tt>TRUETIME</tt>)</li>
-<li><a href="/archives/3-5.93e/driver6">Type 6</a> IRIG Audio Decoder (Sun only) (<tt>IRIG</tt>)</li>
-<li><a href="/archives/3-5.93e/driver7">Type 7</a> Scratchbuilt CHU Receiver (<tt>CHU</tt>)</li>
-<li><a href="/archives/3-5.93e/driver8">Type 8</a> Generic Reference Driver (<tt>PARSE</tt>)</li>
-<li><a href="/archives/3-5.93e/driver9">Type 9</a> Magnavox MX4200 GPS Receiver (<tt>MX4200</tt>)</li>
-<li><a href="/archives/3-5.93e/driver10">Type 10</a> Austron 2200A/2201A GPS Receivers (<tt>GPS_AS2201</tt>)</li>
-<li><a href="/archives/3-5.93e/driver11">Type 11</a> Arbiter 1088A/B GPS Receiver (<tt>ARBITER</tt>)</li>
-<li><a href="/archives/3-5.93e/driver12">Type 12</a> KSI/Odetics TPRO/S IRIG Interface (Sun only) (<tt>TPRO</tt>)</li>
-<li>Type 13 Leitch CSD 5300 Master Clock Controller (<tt>LEITCH</tt>)</li>
-<li>Type 14 EES M201 MSF Receiver (<tt>MSFEES</tt>)</li>
+<li><a href="/archives/3-5.93e/driver1">Type 1</a> Local Clock Driver (<code>LOCAL_CLOCK</code>)</li>
+<li><a href="/archives/drivers/driver2">Type 2</a> Trak 8820 GPS Receiver (<code>TRAK</code></li>
+<li><a href="/archives/drivers/driver3">Type 3</a> PSTI/Traconex 1020 WWV/WWVH Receiver (<code>PST</code>)</li>
+<li><a href="/archives/3-5.93e/driver4">Type 4</a> Spectracom 8170 and Netclock/2 WWVB Receivers (<code>WWVB</code>)</li>
+<li><a href="/archives/3-5.93e/driver5">Type 5</a> TrueTime GPS/GOES/OMEGA Receivers (<code>TRUETIME</code>)</li>
+<li><a href="/archives/3-5.93e/driver6">Type 6</a> IRIG Audio Decoder (Sun only) (<code>IRIG</code>)</li>
+<li><a href="/archives/3-5.93e/driver7">Type 7</a> Scratchbuilt CHU Receiver (<code>CHU</code>)</li>
+<li><a href="/archives/3-5.93e/driver8">Type 8</a> Generic Reference Driver (<code>PARSE</code>)</li>
+<li><a href="/archives/3-5.93e/driver9">Type 9</a> Magnavox MX4200 GPS Receiver (<code>MX4200</code>)</li>
+<li><a href="/archives/3-5.93e/driver10">Type 10</a> Austron 2200A/2201A GPS Receivers (<code>GPS_AS2201</code>)</li>
+<li><a href="/archives/3-5.93e/driver11">Type 11</a> Arbiter 1088A/B GPS Receiver (<code>ARBITER</code>)</li>
+<li><a href="/archives/3-5.93e/driver12">Type 12</a> KSI/Odetics TPRO/S IRIG Interface (Sun only) (<code>TPRO</code>)</li>
+<li>Type 13 Leitch CSD 5300 Master Clock Controller (<code>LEITCH</code>)</li>
+<li>Type 14 EES M201 MSF Receiver (<code>MSFEES</code>)</li>
 <li><a href="/archives/3-5.93e/driver5">Type 15</a> * TrueTime TM-TMD GPS Receiver</li>
-<li>Type 16 Bancomm GPS/IRIG Receiver (HP only) (<tt>BANC</tt>)</li>
-<li>Type 17 Datum Precision Time System (<tt>DATUM</tt>)</li>
-<li><a href="/archives/3-5.93e/driver18">Type 18</a> NIST Modem Time Services (<tt>ACTS</tt>)</li>
-<li><a href="/archives/3-5.93e/driver19">Type 19</a> Heath WWV/WWVH Receiver (<tt>WWV_HEATH</tt>)</li>
-<li><a href="/archives/3-5.93e/driver20">Type 20</a> Generic NMEA GPS Receiver (<tt>NMEA</tt>)</li>
-<li>Type 21 TrueTime GPS-VME Interface (HP only) (<tt>GPSVME</tt>)</li>
-<li><a href="/archives/3-5.93e/driver22">Type 22</a> PPS Clock Discipline (<tt>ATOM</tt>)</li>
-<li><a href="/archives/3-5.93e/driver23">Type 23</a> PTB Modem Time Service (<tt>PTBACTS</tt>)</li>
-<li><a href="/archives/3-5.93e/driver24">Type 24</a> USNO Modem Time Service (<tt>USNO</tt>)</li>
+<li>Type 16 Bancomm GPS/IRIG Receiver (HP only) (<code>BANC</code>)</li>
+<li>Type 17 Datum Precision Time System (<code>DATUM</code>)</li>
+<li><a href="/archives/3-5.93e/driver18">Type 18</a> NIST Modem Time Services (<code>ACTS</code>)</li>
+<li><a href="/archives/3-5.93e/driver19">Type 19</a> Heath WWV/WWVH Receiver (<code>WWV_HEATH</code>)</li>
+<li><a href="/archives/3-5.93e/driver20">Type 20</a> Generic NMEA GPS Receiver (<code>NMEA</code>)</li>
+<li>Type 21 TrueTime GPS-VME Interface (HP only) (<code>GPSVME</code>)</li>
+<li><a href="/archives/3-5.93e/driver22">Type 22</a> PPS Clock Discipline (<code>ATOM</code>)</li>
+<li><a href="/archives/3-5.93e/driver23">Type 23</a> PTB Modem Time Service (<code>PTBACTS</code>)</li>
+<li><a href="/archives/3-5.93e/driver24">Type 24</a> USNO Modem Time Service (<code>USNO</code>)</li>
 <li><a href="/archives/3-5.93e/driver5">Type 25</a> * TrueTime generic receivers</li>
-<li><a href="/archives/3-5.93e/driver26">Type 26</a> Hewlett Packard 58503A GPS Receiver (<tt>HPGPS</tt>)</li>
-<li><a href="/archives/3-5.93e/driver27">Type 27</a> Arcron MSF Receiver (<tt>ARCRON_MSF</tt>)</li>
-<li><a href="/archives/3-5.93e/driver28">Type 28</a> Shared Memory Driver (<tt>SHM</tt>)</li>
+<li><a href="/archives/3-5.93e/driver26">Type 26</a> Hewlett Packard 58503A GPS Receiver (<code>HPGPS</code>)</li>
+<li><a href="/archives/3-5.93e/driver27">Type 27</a> Arcron MSF Receiver (<code>ARCRON_MSF</code>)</li>
+<li><a href="/archives/3-5.93e/driver28">Type 28</a> Shared Memory Driver (<code>SHM</code>)</li>
 </ul>
 <p>* All TrueTime receivers are now supported by one driver, type 5. Types 15 and 25 will be retained only for a limited time and may be reassigned in future.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -285,20 +243,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

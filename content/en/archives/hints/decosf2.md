@@ -3,12 +3,11 @@ title: "DEC OSF/1 V2.0 Hints"
 type: archives
 ---
 
-<pre>Problems with DEC OSF/1 V2.0
+#### Problems with DEC OSF/1 V2.0
 
-Compilation using gcc fails with ntp_config.c. The problem is an apparent
-error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h
-include files.
+Compilation using `gcc` fails with `ntp_config.c`. The problem is an apparent error in the `/usr/include/sys/procset.h` and `/usr/include/sys/wait.h` include files.
 
+<pre>
 cowbird:/usr/include/sys# diff -c wait.h.orig wait.h
 *** wait.h.orig Tue Feb 22 02:41:38 1994
 --- wait.h      Thu Aug 25 14:52:57 1994
@@ -52,9 +51,6 @@ cowbird:/usr/include/sys# diff -c procset.h.orig procset.h
         idtype_t p_ridtype;     /* The id type of for right set. */
 !       pid_t p_rid;            /* The id of the right set. */
   } procset_t;
-
-Also, if using gcc from the freeware disk, either replace syscall.h
-in the directory /usr/local/lib/gcc-lib/alpha-dec-osf1/2.3.3/include
-or replace with a link to /usr/include/sys/syscall.h.
-
 </pre>
+
+Also, if using `gcc` from the freeware disk, either replace `syscall.h` in the directory `/usr/local/lib/gcc-lib/alpha-dec-osf1/2.3.3/include` or replace with a link to `/usr/include/sys/syscall.h`.

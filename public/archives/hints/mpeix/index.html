@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <title>MPE/iX Hints</title>
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="May 29, 2001
+
+NTP was first ported to MPE several years ago, but those diffs were never submitted back to the official NTP distribution.
+NTP was …">
+<meta property="og:title" content="HP e3000 MPE/iX NTP Hints" />
+<meta property="og:description" content="May 29, 2001
+ NTP was first ported to MPE several years ago, but those diffs were never submitted back to the official NTP distribution.
+NTP was re-ported to MPE in May 2001. What follows are hints learned from working with NTP 4.0.99k23.
+ MPE lacks the clock-related APIs expected by NTP, so adjtime(), gettimeofday(), and settimeofday() all had to be implemented from scratch by calling privileged, undocumented internal OS functions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/hints/mpeix/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>HP e3000 MPE/iX NTP Hints</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +53,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +69,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +79,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +98,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +150,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/hints/">Hints</a>
+	<a href="https://doc.ntp.org/archives/hints/">Hints</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/hints/mpeix/">MPE/iX Hints</a>
+	<a href="https://doc.ntp.org/archives/hints/mpeix/">HP e3000 MPE/iX NTP Hints</a>
 </li>
 
 	</ol>
@@ -149,125 +173,30 @@
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>MPE/iX Hints</h1>
+  	<h1>HP e3000 MPE/iX NTP Hints</h1>
      
-    <pre>HP e3000 MPE/iX NTP Hints - May 29, 2001
-----------------------------------------
-
-NTP was first ported to MPE several years ago, but those diffs were never
-submitted back to the official NTP distribution.  For more information about
-that deprecated port, please see http://www.bixby.org/mark/xntpix.html.
-
-NTP was re-ported to MPE in May 2001.  What follows are hints learned from
-working with NTP 4.0.99k23.  For additional information about NTP on MPE,
-please see http://jazz.external.hp.com/src/hp_freeware/ntp/.
-
-MPE lacks the clock-related APIs expected by NTP, so adjtime(), gettimeofday(),
-and settimeofday() all had to be implemented from scratch by calling
-privileged, undocumented internal OS functions.
-
-Unfortunately the implementation of adjtime() has exposed a sub-second accuracy
-bug when slewing the system time.  This bug is documented in SR 5003462838, and
-exists on all current versions of MPE.  It has not been fixed at the time of
-this writing.  The adjtime() code may possibly need to be altered if/when this
-bug is fixed.
-
-This bug has a side-effect whereby the ntpd daemon will screw up the hardware
-PDC clock time by many minutes if used for continuous clock adjustments or in
-the one-time -q mode.  But note that you can safely run ntpd in order to become
-a time server if you include "disable ntp" in the ntp.conf configuration file.
-
-The one-time clock adjustment functionality of ntpdate and ntp_timeset is not
-affected by this bug side-effect.  You can safely use these commands to alter
-your system time with reasonable accuracy.
-
-The only reference clock that has been tested on MPE is the local clock.  So
-building NTP with --disable-all-clocks --enable-LOCAL_CLOCK is strongly
-recommended.
-
-NTP makes use of Privileged Mode (PM) capability in order to bind to the NTP
-network port (123) and to access the low-level clock functions.
-
-NTP was ported using the gcc compiler.  Attempting to use the HP C/iX compiler
-is not recommended and has not been tested.
-
-Please note that NTP is not an HP product and is NOT supported by HP.  The best
-place for asking MPE-specific questions about NTP is the HP3000-L mailing list
-at http://raven.utc.edu/Archives/hp3000-l.html or the associated Usenet
-newsgroup of comp.sys.hp.mpe.
-
-The original author of this port is:
-
-Mark Bixby
-HP CSY MPE Internet & Interoperability Engineer
-mark_bixby@hp.com
-
-</pre><blockquote>
-</blockquote>
+    <p>May 29, 2001</p>
+<hr>
+<p>NTP was first ported to MPE several years ago, but those diffs were never submitted back to the official NTP distribution.</p>
+<p>NTP was re-ported to MPE in May 2001.  What follows are hints learned from working with NTP 4.0.99k23.</p>
+<hr>
+<p>MPE lacks the clock-related APIs expected by NTP, so <code>adjtime(), gettimeofday()</code>, and <code>settimeofday()</code> all had to be implemented from scratch by calling privileged, undocumented internal OS functions.</p>
+<p>Unfortunately the implementation of <code>adjtime()</code> has exposed a sub-second accuracy bug when slewing the system time.  This bug is documented in SR 5003462838, and exists on all current versions of MPE.  It has not been fixed at the time of this writing.  The <code>adjtime()</code> code may possibly need to be altered if/when this bug is fixed.</p>
+<p>This bug has a side-effect whereby the <code>ntpd</code> daemon will screw up the hardware PDC clock time by many minutes if used for continuous clock adjustments or in the one-time <code>-q</code> mode.  But note that you can safely run <code>ntpd</code> in order to become a time server if you include <code>disable ntp</code> in the <code>ntp.conf</code> configuration file.</p>
+<p>The one-time clock adjustment functionality of <code>ntpdate</code> and <code>ntp_timeset</code> is not affected by this bug side-effect.  You can safely use these commands to alter your system time with reasonable accuracy.</p>
+<p>The only reference clock that has been tested on MPE is the local clock.  So building NTP with <code>--disable-all-clocks --enable-LOCAL_CLOCK</code> is strongly recommended.</p>
+<p>NTP makes use of Privileged Mode (PM) capability in order to bind to the NTP network port (123) and to access the low-level clock functions.</p>
+<p>NTP was ported using the <code>gcc</code> compiler.  Attempting to use the HP C/iX compiler is not recommended and has not been tested.</p>
+<p>Please note that NTP is not an HP product and is NOT supported by HP.  The best place for asking MPE-specific questions about NTP is the <a href="http://raven.utc.edu/Archives/hp3000-l.html">HP3000-L mailing list</a> or the associated Usenet newsgroup of comp.sys.hp.mpe.</p>
+<hr>
+<p>The original author of this port is:</p>
+<dl>
+<dt>Mark Bixby</dt>
+<dd>HP CSY MPE Internet &amp; Interoperability Engineer</dd>
+<dd><a href="mailto:mark_bixby@hp.com">mark_bixby@hp.com</a></dd>
+</dl>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -303,20 +232,5 @@ mark_bixby@hp.com
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

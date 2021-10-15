@@ -40,7 +40,7 @@ toc_hide: true
 
 #### Introduction
 
-The Autokey protocol is based on the public key infrastructure (PKI) algorithms of the OpenSSL library, which includes an assortment of message digest, digital signature and encryption schemes. As in NTPv3, NTPv4 supports symmetric key cryptography using keyed MD5 message digests to detect message modification and sequence numbers (actually timestamps) to avoid replay. In addition, NTPv4 supports timestamped digital signatures and X.509 certificates to verify the source as per common industry practices. It also suppoorts several optional identity schemes based on cryptographic challenge-response algorithms.
+The Autokey protocol is based on the public key infrastructure (PKI) algorithms of the OpenSSL library, which includes an assortment of message digest, digital signature and encryption schemes. As in NTPv3, NTPv4 supports symmetric key cryptography using keyed MD5 message digests to detect message modification and sequence numbers (actually timestamps) to avoid replay. In addition, NTPv4 supports timestamped digital signatures and X.509 certificates to verify the source as per common industry practices. It also supports several optional identity schemes based on cryptographic challenge-response algorithms.
 
 What makes Autokey special is the way in which these algorithms are used to deflect intruder attacks while maintaining the integrity and accuracy of the time synchronization function. The detailed design is complicated by the need to provisionally authenticate under conditions when reliable time values have not yet been acquired. Only when the server identities have been confirmed, signatures verified and accurate time values obtained does the Autokey protocol declare success.
 
@@ -58,7 +58,7 @@ A timestamped digital signature scheme provides secure server authentication, bu
 
 Our model is that every member of a closed group, such as might be operated by a timestamping service, be in possession of a secret group key. This could take the form of a private certificate or one or another identification schemes described in the literature and below. Certificate trails and identification schemes are at the heart of the NTP security model preventing masquerade and middleman attacks. The Autokey protocol operates to hike the trails and run the identity schemes.
 
-A NTP secure group consists of a number of hosts dynamically assembled as a forest with roots the trusted hosts (TH) at the lowest stratum of the group. The TH do not have to be, but ofter are, primary (stratum 1) servers. A TA, not necessarily a group host, generates private and public identiity values and deploys selected values to the group members using secure means.
+A NTP secure group consists of a number of hosts dynamically assembled as a forest with roots the trusted hosts (TH) at the lowest stratum of the group. The TH do not have to be, but often are, primary (stratum 1) servers. A TA, not necessarily a group host, generates private and public identiity values and deploys selected values to the group members using secure means.
 
 ![gif](/archives/pic/identa.gif)
 
@@ -108,13 +108,13 @@ The interesting case is Eileen, who may verify identity either via Brenda or Den
 
 #### Identity Schemes
 
-While the identity scheme described in RFC-2875 is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here. There are five schemes now implemented in Autokey to prove identity: (1) private certificates (PC), (2) trusted certificates (TC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). The [Identity Schemes](ident.html) page contains a detailed description of each scheme.
+While the identity scheme described in [RFC 2875](/reflib/rfc/rfc2875.txt) is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here. There are five schemes now implemented in Autokey to prove identity: (1) private certificates (PC), (2) trusted certificates (TC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). The [Identity Schemes](ident.html) page contains a detailed description of each scheme.
 
 When multiple identity schemes are supported in the Autokey protocol, the first message exchange determines which one is used, called the _cryptotype_. The client request message contains bits corresponding to which schemes it has available. The server response message contains bits corresponding to which schemes it has available. Both server and client match the received bits with their own and select a common scheme.
 
 Following the principle that time is a public value, a server responds to any client packet that matches its cryptotype capabilities. Thus, a server receiving an unauthenticated packet will respond with an unauthenticated packet, while the same server receiving a packet of a cryptotype it supports will respond with packets of that cryptotype. However, unconfigured broadcast or manycast client associations or symmetric passive associations will not be mobilized unless the server supports a cryptotype compatible with the first packet received. By default, unauthenticated associations will not be mobilized unless overridden in a decidedly dangerous way.
 
-Some examples may help to reduce confusion. Client Alice has no specific cryptotype selected. Server Bob has both a symmetric key file and minimal Autokey files. Alice's unauthenticated messages arrive at Bob, who replies with unauthenticated messages. Cathy has a copy of Bob's symmetric key file and has selected key ID 4 in messages to Bob. Bob verifies the message with his key ID 4\. If it's the same key and the message is verified, Bob sends Cathy a reply authenticated with that key. If verification fails, Bob sends Cathy a thing called a crypto-NAK, which tells her something broke. She can see the debris using the <tt>ntpq</tt> program.
+Some examples may help to reduce confusion. Client Alice has no specific cryptotype selected. Server Bob has both a symmetric key file and minimal Autokey files. Alice's unauthenticated messages arrive at Bob, who replies with unauthenticated messages. Cathy has a copy of Bob's symmetric key file and has selected key ID 4 in messages to Bob. Bob verifies the message with his key ID 4\. If it's the same key and the message is verified, Bob sends Cathy a reply authenticated with that key. If verification fails, Bob sends Cathy a thing called a crypto-NAK, which tells her something broke. She can see the debris using the `ntpq` program.
 
 Denise has rolled her own host key and certificate. She also uses one of the identity schemes as Bob. She sends the first Autokey message to Bob and they both dance the protocol authentication and identity steps. If all comes out okay, Denise and Bob continue as described above.
 
@@ -124,11 +124,10 @@ It should be clear from the above that Bob can support all the girls at the same
 
 #### Selected Publications
 
-1.  Adams, C., S. Farrell. Internet X.509 public key infrastructure certificate management protocols. Network Working Group Request for Comments RFC-2510, Entrust Technologies, March 1999, 30 pp.
+1.  Adams, C., S. Farrell. Internet X.509 public key infrastructure certificate management protocols. Network Working Group Request for Comments [RFC 2510](/reflib/rfc/rfc2510.txt), Entrust Technologies, March 1999, 30 pp.
 2.  Guillou, L.C., and J.-J. Quisquatar. A "paradoxical" identity-based signature scheme resulting from zero-knowledge. _Proc. CRYPTO 88 Advanced in Cryptology_, Springer-Verlag, 1990, 216-231.
-3.  Housley, R., et al. Internet X.509 public key infrastructure certificate and certificate revocation list (CRL) profile. Network Working Group Request for Comments RFC-3280, RSA Laboratories, April 2002, 129 pp.
+3.  Housley, R., et al. Internet X.509 public key infrastructure certificate and certificate revocation list (CRL) profile. Network Working Group Request for Comments [RFC 3280](/reflib/rfc/rfc3280.txt), RSA Laboratories, April 2002, 129 pp.
 4.  Mills, D.L. The Autokey security architecture, protocol and algorithms. Electrical and Computer Engineering Technical Report 06-1-1, University of Delaware, January 2006, 59 pp, [PDF](/reflib/reports/stime1/stime.pdf).
 5.  Mu, Y., and V. Varadharajan. Robust and secure broadcasting. Proc. INDOCRYPT 2001, LNCS 2247, Springer Verlag, 2001, 223-231.
-6.  Prafullchandra, H., and J. Schaad. Diffie-Hellman proof-of-possession algorithms. Network Working Group Request for Comments RFC-2875, Critical Path, Inc., July 2000, 23 pp.
+6.  Prafullchandra, H., and J. Schaad. Diffie-Hellman proof-of-possession algorithms. Network Working Group Request for Comments [RFC 2875](/reflib/rfc/rfc2875.txt), Critical Path, Inc., July 2000, 23 pp.
 7.  Schnorr, C.P. Efficient signature generation for smart cards. _J. Cryptology 4, 3_ (1991), 161-174.
-					

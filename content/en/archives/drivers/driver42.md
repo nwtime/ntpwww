@@ -17,11 +17,11 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Synopsis
 
-Address: `127.127.42._u_`  
-Reference ID: <tt>GPS</tt>  
-Driver ID: <tt>Zyfer GPStarplus</tt>  
-Serial Port: <tt>/dev/zyfer_u_</tt>; 9600 baud, 8-bits, no parity  
-Features: <tt>(none)</tt>
+**Address:** <code>127.127.42._u_</code>
+: **Reference ID:** `GPS`
+: **Driver ID:** `Zyfer GPStarplus`
+: **Serial Port:** <code>/dev/zyfer*u*</code>; 9600 baud, 8-bits, no parity
+: **Features:** none
 
 * * *
 

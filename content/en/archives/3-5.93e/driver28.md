@@ -17,9 +17,9 @@ type: archives
 
 #### Synopsis
 
-Address: 127.127.28._u_  
-Reference ID: <tt>SHM</tt>  
-Driver ID: <tt>SHM</tt>
+**Address:** <code>127.127.28._u_</code>
+: **Reference ID:** <code>SHM</code>
+: **Driver ID:** <code>SHM</code>
 
 * * *
 
@@ -61,7 +61,7 @@ struct shmTime {
 
 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:
 
-If set, the values in the record (clockTimeStampSec, clockTimeStampUSec, receiveTimeStampSec, receiveTimeStampUSec, leap, precision) are passed to ntp, and the valid-flag is cleared.
+If set, the values in the record (<code>clockTimeStampSec, clockTimeStampUSec, receiveTimeStampSec, receiveTimeStampUSec, leap, precision</code>) are passed to ntp, and the <code>valid-flag</code> is cleared.
 
 If not set, a timeout is reported to ntp, nothing else happened.
 
@@ -71,7 +71,7 @@ If not set, a timeout is reported to ntp, nothing else happened.
 
 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:
 
-If set, the count-field of the record is remembered, and the values in the record (clockTimeStampSec, clockTimeStampUSec, receiveTimeStampSec, receiveTimeStampUSec, leap, precision) are read. Then, the remembered count is compared to the count now in the record. If both are equal, the values read from the record are passed to ntp. If they differ, another process has modified the record while it was read out (was not able to produce this case), and failure is reported to ntp. The valid flag is cleared.
+If set, the count-field of the record is remembered, and the values in the record (<code>clockTimeStampSec, clockTimeStampUSec, receiveTimeStampSec, receiveTimeStampUSec, leap, precision</code>) are read. Then, the remembered count is compared to the count now in the record. If both are equal, the values read from the record are passed to ntp. If they differ, another process has modified the record while it was read out (was not able to produce this case), and failure is reported to ntp. The valid flag is cleared.
 
 If not set, a timeout is reported to ntp, nothing else happened.
 
@@ -79,37 +79,37 @@ If not set, a timeout is reported to ntp, nothing else happened.
 
 #### Fudge Factors
 
-<dt><tt>time1 _time_</tt></dt>
+<code>**time1 _time_**</code>
 
-Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
+: Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
 
-<dt><tt>time2 _time_</tt></dt>
+<code>**time2 _time_**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>stratum _number_</tt></dt>
+<code>**stratum _number_**</code>
 
-Specifies the driver stratum, in decimal from 0 to 15, with default 0.
+: Specifies the driver stratum, in decimal from 0 to 15, with default 0.
 
-<dt><tt>refid _string_</tt></dt>
+<code>**refid _string_**</code>
 
-Specifies the driver reference identifier, an ASCII string from one to four characters, with default <tt>SHM</tt>.
+: Specifies the driver reference identifier, an ASCII string from one to four characters, with default <code>SHM</code>.
 
-<dt><tt>flag1 0 | 1</tt></dt>
+<code>**flag1 0 | 1**</code>
 
-Not used by this driver. 
+: Not used by this driver. 
 
-<dt><tt>flag2 0 | 1</tt></dt>
+<code>**flag2 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag3 0 | 1</tt></dt>
+<code>**flag3 0 | 1**</code>
 
-Not used by this driver.
+: Not used by this driver.
 
-<dt><tt>flag4 0 | 1</tt></dt>
+<code>**flag4 0 | 1**</code>
 
-Not used by this driver. 
+: Not used by this driver. 
 
 * * *
 

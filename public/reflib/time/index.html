@@ -1,28 +1,57 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
+from The Wizard of Oz, L. Frank Baum
+Public transport in Oz
+Last update 26-May-2012
+
+Table of Contents
+
+Abstract
+1. Introduction
+2. Data Formats
+3. …">
+<meta property="og:title" content="NTP Timestamp Calculations" />
+<meta property="og:description" content="from The Wizard of Oz, L. Frank Baum
+Public transport in Oz
+Last update 26-May-2012
+ Table of Contents  Abstract 1. Introduction 2. Data Formats 3. Datestamps and Timestamps as Finite Groups 4. Time Difference Calculations 5. On-Wire Protocol Implications   Abstract This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finite additive groups using two&rsquo;s complement arithmetic." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/reflib/time/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>NTP Timestamp Calculations</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +60,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +76,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +86,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +105,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -123,14 +154,14 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/reflib/">Reference Library</a>
+	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/reflib/time/">NTP Timestamp Calculations</a>
+	<a href="https://doc.ntp.org/reflib/time/">NTP Timestamp Calculations</a>
 </li>
 
 	</ol>
@@ -157,7 +188,7 @@
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
-<p>This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finit additive groups using twos complement arithmetics. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started.</p>
+<p>This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finite additive groups using two&rsquo;s complement arithmetic. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started.</p>
 <hr>
 <h4 id="1-introduction">1. Introduction</h4>
 <p>The timestamp calculations described in this document are used by the NTP protocol machine and clock discipline algorithms to adjust the time of the client clock to align with the time of the server clock. The calculations are not designed to set the client clock directly, only to provide an offset correction relative to the server clock and without respect to any arbitrary epoch.</p>
@@ -174,12 +205,12 @@
 <p>Datestamps span the age of the Universe with a precision less than the time light transits an atom. Timestamps span a 136-year interval , called an <em>era</em>, with a precision of 232 ps. The datestamp format includes a timestamp field that specifies the seconds and fraction of an era, together with an era number field that specifies the timestamp origin. There is a special convention in both timestamp and datestamp formats where the value zero represents an undefined or unknown date that should not be used in time related calculations.</p>
 <hr>
 <h4 id="3-datestamps-and-timestamps-as-finite-groups">3. Datestamps and Timestamps as Finite Groups</h4>
-<p>In the remainder of this document, the decimal point in datestamps and timestamps formats is not significant and the numbers interpreted as 128-bit or 64-bit integers. Datestamps and timestamp are elements of additive groups consisting of integers and the operations of twos-complement arithmetic. There are only two operations in the NTP additive group, addition and complement, each modulo 2<sup>128</sup> for the datestamps group and 2<sup>64</sup> for the timestamp group, but otherwise the operations are the same. Datestamps are a signed data type, while timestamps are an unsigned data type.</p>
-<p>Let <em>A</em> and <em>B</em> be elements of an additive group of integers modulo 2_<sup>n</sup>_ for some _n_. Addition is defined _A_ + _B_ = _B_ + _A_ mod 2_<sup>n</sup>_. The identity 0 is defined such that _A_ + 0 = 0 + _A_ = _A_ mod 2_<sup>n</sup>_. The complement (inverse) -_A_ is defined such that _A_ + (-_A_) = 0 mod 2_<sup>n</sup>_. To form the complement -_A_, first invert each bit of _A_, then add the constant 1 to the result. Equivalently, -_A_ = 2_<sup>n</sup>_ - _A_. Finally, the _offset_ of _B_ relative to _A_ is defined _A_ + (-_B_) mod 2_<sup>n</sup>_. This is the only allowable operation involving datestamp or timestamp operands and results in a signed data type.</p>
+<p>In the remainder of this document, the decimal point in datestamps and timestamps formats is not significant and the numbers are interpreted as 128-bit or 64-bit integers. Datestamps and timestamps are elements of additive groups consisting of integers and the operations of two&rsquo;s complement arithmetic. There are only two operations in the NTP additive group, addition and complement, each modulo 2<sup>128</sup> for the datestamps group and 2<sup>64</sup> for the timestamp group, but otherwise the operations are the same. Datestamps are a signed data type, while timestamps are an unsigned data type.</p>
+<p>Let <code><em>A</em></code> and <code><em>B</em></code> be elements of an additive group of integers <code>modulo 2<sup><em>n</sup></em></code> for some <code><em>n</em></code>. Addition is defined <code><em>A</em> + <em>B</em> = <em>B</em> + <em>A</em> mod 2<sup><em>n</sup></em></code>. The identity 0 is defined such that <code><em>A</em> + 0 = 0 + <em>A</em> = <em>A</em> mod 2<sup><em>n</sup></em></code>. The complement (inverse) <code>-<em>A</em></code> is defined such that <code><em>A</em> + (-<em>A</em>) = 0 mod 2<sup><em>n</sup></em></code>. To form the complement <code>-<em>A</em></code>, first invert each bit of <code><em>A</em></code>, then add the constant 1 to the result. Equivalently, <code>-<em>A</em> = 2<sup><em>n</sup></em> - <em>A</em></code>. Finally, the <em>offset</em> of <code><em>B</em></code> relative to <code><em>A</em></code> is defined <code><em>A</em> + (-<em>B</em>) mod 2<sup><em>n</sup></em></code>. This is the only allowable operation involving datestamp or timestamp operands and results in a signed data type.</p>
 <hr>
 <h4 id="4-time-difference-calculations">4. Time Difference Calculations</h4>
-<p>For the additive group of 2_<sup>n</sup>_ elements, the arithmetic logic unit (ALU) consists of a straight binary adder that does not distinguish the sign of the operands or result. However, in twos-complement notation, the sign is implicit in the most significant bit _S_. The ALU produces an _n_-bit result together with a carry bit _C_ representing the _n_+1th bit. For timestamp calculations, the _C_ bit is in effect the least significant bit of the era number of the datestamp, but most often it is implicit in the calculation of offset.</p>
-<p>The mathematics involved in additive group calculations can be illustrated with the following examples. Let <em>A</em> and <em>B</em> be unsigned integers modulo 2_<sup>n</sup>_, where _n_ = 4. The integers 0-7 with _S_ = 0 are positive, while the integers 8-15 with _S_ = 1 are negative. Let _A_ = 7 and _B_ = 5, then the offset _A_ + (-_B_) = 7 + (-5) = 7 + 11 = 2 mod 16. Reversing the operands, let _A_ = 5 and _B_ = 7, then _A_ + (-_B_) = 5 + (-7) = 5 + 9 = -2 mod 16. Note that, while the operands are unsigned type, the resulting offset is interpreted as signed type. This represents typical cases when the operands are in the same era. If, for example, _A_ is in the next era later than _B_, let _A_ = 2 and _B_ =14. Then, _A_ + (-_B_) = 2 + (-14) = 4 mod 16. Note that the modular operations can be performed before, during and after the calculation. Similar examples can be contrived for other values of _n_, _A_ and _B_, as long as the offset is less than 2_<sup>n</sup>_<sup>-1</sup>= 8 in these examples.</p>
+<p>For the additive group of <code>2<sup><em>n</sup></em></code> elements, the arithmetic logic unit (ALU) consists of a straight binary adder that does not distinguish the sign of the operands or result. However, in two&rsquo;s complement notation, the sign is implicit in the most significant bit <code><em>S</em></code>. The ALU produces an <code><em>n</em></code>-bit result together with a carry bit <code><em>C</em></code> representing the <code><em>n</em>+1</code>th bit. For timestamp calculations, the <code><em>C</em></code> bit is in effect the least significant bit of the era number of the datestamp, but most often it is implicit in the calculation of offset.</p>
+<p>The mathematics involved in additive group calculations can be illustrated with the following examples. Let <code><em>A</em></code> and <code><em>B</em></code> be unsigned integers <code>modulo 2<sup><em>n</sup></em></code>, where<code> <em>n</em> = 4</code>. The integers 0-7 with <code><em>S</em> = 0</code> are positive, while the integers 8-15 with <code><em>S</em> = 1</code> are negative. Let <code><em>A</em> = 7</code> and <code><em>B</em> = 5</code>, then the offset <code><em>A</em> + (-<em>B</em>) = 7 + (-5) = 7 + 11 = 2 mod 16</code>. Reversing the operands, let <code><em>A</em> = 5</code> and <code><em>B</em> = 7</code>, then <code><em>A</em> + (-<em>B</em>) = 5 + (-7) = 5 + 9 = -2 mod 16</code>. Note that, while the operands are unsigned type, the resulting offset is interpreted as signed type. This represents typical cases when the operands are in the same era. If, for example, <code><em>A</em></code> is in the next era later than <code><em>B</em></code>, let <code><em>A</em> = 2</code> and <code><em>B</em> =14</code>. Then,<code> <em>A</em> + (-<em>B</em>) = 2 + (-14) = 4 mod 16</code>. Note that the modular operations can be performed before, during and after the calculation. Similar examples can be contrived for other values of <code><em>n</em>, <em>A</em>,</code> and <code><em>B</em></code>, as long as the offset is less than <code>2<sup><em>n</sup></em><sup>-1</sup>= 8</code> in these examples.</p>
 <p>Returning to the interpretation of timestamps as fixed-point numbers, note that the integer portion represents an era of 136 years. This suggests the following general rule.</p>
 <blockquote>
 <p>Let the system clock be set within 68 years of the correct time, even if the correct time is not known exactly. Then, the offset can be correctly computed by the on-wire protocol and used to adjust the system clock to the correct time relative to an external source.</p>
@@ -189,79 +220,17 @@
 <h4 id="5-on-wire-protocol-implications">5. On-Wire Protocol Implications</h4>
 <p>Timestamp calculations are carefully constructed to avoid overflow while preserving precision. The only arithmetic operation permitted on raw timestamps is subtraction, which produces signed 64-bit timestamp differences from 68 years in the past to 68 years in the future.</p>
 <p>All of the timestamp calculations discussed in this document involve differences between timestamps recorded at events such as the arrival or departure of an NTP packet. As described in previous sections of this document, the calculations apply whether or not the differences span none, one or more eras. The crucial distinction is whether the client clock is set within 68 years of the server clock before the protocol is started.</p>
-<p>As in the protocol specification, let <em>T</em><sub>1</sub> be the client timestamp on the request packet, <em>T</em><sub>2</sub> the server timestamp upon arrival, <em>T</em><sub>3</sub> the server timestamp on departure of the reply packet and <em>T</em><sub>4</sub> the client timestamp upon arrival. The NTP on-wire protocol calculates the clock offset</p>
-<p><code>_offset_ = [(_T_&lt;sub&gt;2&lt;/sub&gt; - _T_&lt;sub&gt;1&lt;/sub&gt;) + (_T_&lt;sub&gt;3&lt;/sub&gt; - _T_&lt;sub&gt;4&lt;/sub&gt;)] / 2</code></p>
+<p>As in the protocol specification, let <code><em>T</em><sub>1</sub></code> be the client timestamp on the request packet, <code><em>T</em><sub>2</sub></code> the server timestamp upon arrival, <code><em>T</em><sub>3</sub></code> the server timestamp on departure of the reply packet and <code><em>T</em><sub>4</sub></code> the client timestamp upon arrival. The NTP on-wire protocol calculates the clock offset</p>
+<p><code><em>offset</em> = [(<em>T</em><sub>2</sub> - <em>T</em><sub>1</sub>) + (<em>T</em><sub>3</sub> - <em>T</em><sub>4</sub>)] / 2</code></p>
 <p>and roundtrip delay</p>
-<p><code>_delay_ = (_T_&lt;sub&gt;4&lt;/sub&gt; - _T_&lt;sub&gt;1&lt;/sub&gt;) - (_T_&lt;sub&gt;3&lt;/sub&gt; - _T_&lt;sub&gt;2&lt;/sub&gt;)</code>.</p>
+<p><code><em>delay</em> = (<em>T</em><sub>4</sub> - <em>T</em><sub>1</sub>) - (<em>T</em><sub>3</sub> - <em>T</em><sub>2</sub>)</code></p>
 <p>In both the offset and delay equations, the calculations require raw timestamp differences that span no more than 68 years in the future to 68 years in the past. The previous discussion in this document confirms these differences can be computed correctly regardless of whether they span between two eras, as long as the eras are adjacent.</p>
 <p>The offset and delay calculations require sums and differences of these raw timestamp differences that can span no more than from 34 years in the future to 34 years in the past without overflow. This is a fundamental limitation in 64-bit integer calculations.</p>
 <p>In the NTPv4 reference implementation, all calculations involving offset and delay values use 64-bit floating double arithmetic, with the exception of raw timestamp subtraction, as mentioned above. The raw timestamp differences are then converted to 64-bit floating double format without loss of precision or chance of overflow in subsequent calculations.</p>
-<p>While this design benefits present and future NTP versions, it will not of course benefit previous versions that may be etched in hardware or firmware. Previous versions of the public NTP software, including NTP Version 3 (xntpd) will have the same problem, but these versions use integer arithmetic throughout and are much harder to update.</p>
+<p>While this design benefits present and future NTP versions, it will not of course benefit previous versions that may be etched in hardware or firmware. Previous versions of the public NTP software, including NTP Version 3 (<code>xntpd</code>) will have the same problem, but these versions use integer arithmetic throughout and are much harder to update.</p>
 <p>NTP Version 3 has in addition well known ambiguities due to 16-bit overflows in some cases and is not recommended for new systems. However, it is important to note that Simple Network Time Protocol (SNTP) clients that set the clock directly and do not include the offset and delay calculations described in this document do not have the overflow problem and can continue to be used without hazard, at least until 2036.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -297,20 +266,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

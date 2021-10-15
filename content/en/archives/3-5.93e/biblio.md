@@ -36,8 +36,8 @@ This software distribution contains a fully compliant implementation of the NTP 
       Mills, D.L. Precision synchronization of computer network clocks. _ACM Computer Communication Review 24, 2_ (April 1994). 28-43. [Body: (PDF)](/reflib/reports/fine/fineb.pdf).
 
 5.  Support for over two dozen reference clock drivers for all known national and international radio, satellite and modem standard time services known at this time. See the [Reference Clock Drivers](/archives/3-5.93e/refclock) page.
-6.  Support for the MD5 cryptographic hash algorithm, in addition to the DES-CBC algorithm described in RFC-1305, as described in the [<tt>xntpd</tt> - Network Time Protocol (NTP) daemon](/archives/3-5.93e/xntpd) page.
-7.  The prefer-peer scheme, as described in the [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/3-5.93e/prefer) page.
+6.  Support for the MD5 cryptographic hash algorithm, in addition to the DES-CBC algorithm described in RFC-1305, as described in the [<code>xntpd</code> - Network Time Protocol (NTP) daemon](/archives/3-5.93e/xntpd) page.
+7.  The prefer-peer scheme, as described in the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/3-5.93e/prefer) page.
 
 * * *
 

@@ -52,7 +52,7 @@ A ubiquitous time service such as NTP operating over the public Internet can be 
 
 It is essential to consider the use of the term _authentic_ as used in this document. A server that can be proven authentic by one cryptographic means or another can deliver correct time with respect to its synchronization sources and best estimate according to the available mitigation algorithms described elsewhere. However, a server that has been proven authentic can deliver incorrect time if, for instance, its synchronization sources deliver incorrect time. On the other hand, a server that has not been proven authentic may or may not deliver correct time or even deliver bogus time not synchronized to any source. To determine authenticity, all credible security threats must be evaluated. As used in this document, to _defend_ against a particular threat means to detect it and take countermeasures against it.
 
-The software means assumed in this document and used in the reference implementation include the software cryptographic library available from https://www.openssl.org. This library is automatically included in the build process, if available, but the Autokey provisions must be separately enabled in the <tt>configure</tt> command. The library includes several encryption algorithms, hash functions and signature schemes used throughout the industry; however, in conformance with US federal regulations, no data other than signatures and cookies are encrypted.
+The software means assumed in this document and used in the reference implementation include the software cryptographic library available from https://www.openssl.org. This library is automatically included in the build process, if available, but the Autokey provisions must be separately enabled in the `configure` command. The library includes several encryption algorithms, hash functions and signature schemes used throughout the industry; however, in conformance with US federal regulations, no data other than signatures and cookies are encrypted.
 
 > Note: If symmetric key cryptography using the MD5 hash algorithm is the only means required, the OpenSSL library is not required. The MD5 hash algorithm is included with the reference implementation base distribution.
 
@@ -76,15 +76,15 @@ One or more intruders can collaborate in a _denial of service_ (DoS) _attack,_ w
 
 The security measures discussed in this document are not the only defenses available. This document does not consider access controls, which are an integral part of the NTP reference implementation. It does not consider the packet sanity tests which detect and discard packets with invalid format or packet header values. Finally, it does not consider the various mitigation algorithms, in particular the select algorithm which separates the truechimer servers from the falseticker rascals.
 
-![gif](/archives/pic/sx1.gif)
-
-**Figure 1. NTP Security Model**
-
 * * *
 
 #### 1.2 Protocol Layers
 
-The NTP security model has the hierarchical structure shown in Figure 1. Defense against intruder attack starts at the bottom layer of the hierarchy, the _On-Wire Protocol_ layer. Successful attacks on this layer, if there are any, are defended by the next upward layer, the _Message Digest_ layer, using symmetric key cryptography. Successful attacks on this layer, if there are any, are defended by the _Autokey Sequence_ layer, which uses a hash or pseudo-random sequence technique to bind packets to digital signatures. The Autokey architecture, protocol and algorithms are described in "Network Time Protocol Version 4: Autokey Specification RFC-5906." Defense against a masquerade attack depends on the _Autokey Protocol_ layer, which uses public key cryptography to securely bind the server credentials to digital signatures.
+![gif](/archives/pic/sx1.gif)
+
+**Figure 1. NTP Security Model**
+
+The NTP security model has the hierarchical structure shown in Figure 1. Defense against intruder attack starts at the bottom layer of the hierarchy, the _On-Wire Protocol_ layer. Successful attacks on this layer, if there are any, are defended by the next upward layer, the _Message Digest_ layer, using symmetric key cryptography. Successful attacks on this layer, if there are any, are defended by the _Autokey Sequence_ layer, which uses a hash or pseudo-random sequence technique to bind packets to digital signatures. The Autokey architecture, protocol and algorithms are described in [Network Time Protocol Version 4: Autokey Specification RFC 5906](/reflib/rfc/rfc5906.txt). Defense against a masquerade attack depends on the _Autokey Protocol_ layer, which uses public key cryptography to securely bind the server credentials to digital signatures.
 
 Note that, if a particular threat is successfully defended at one layer, it is assumed defended at higher layers. However, if a particular threat is successfully defended at one layer, it may or may not be defended at lower layers. In general, the layers above the On-Wire Protocol layer are optional. Symmetric key cryptography uses only the bottom two layers; public key cryptography uses all four layers.
 
@@ -112,7 +112,7 @@ The message digest is a cryptographic hash computed by an algorithm such as MD5 
 
 **Figure 2. Typical Symmetric Key File**
 
-The security of the message digest layer depends on the _message digest key_. In symmetric key cryptography, a set of secret message digest keys is defined in a keys file such as shown in Figure 2. A file such as this is loaded by the reference implementation when the program is started. Each line consists of a key ID used in the packet header, a digest algorithm identifier and the key. In the case of MD5, the key is restricted to a maximum of 16 ASCII printing characters, either a given string, such as <tt>2late4Me</tt> for key ID 10, or a random string. In other digest algorithms the key is a 20-octet random string represented as 40 hex digits.
+The security of the message digest layer depends on the _message digest key_. In symmetric key cryptography, a set of secret message digest keys is defined in a keys file such as shown in Figure 2. A file such as this is loaded by the reference implementation when the program is started. Each line consists of a key ID used in the packet header, a digest algorithm identifier and the key. In the case of MD5, the key is restricted to a maximum of 16 ASCII printing characters, either a given string, such as `2late4Me` for key ID 10, or a random string. In other digest algorithms the key is a 20-octet random string represented as 40 hex digits.
 
 A tabular definition is not the only method to define message digest keys. In the Autokey sequence layer described in [Section 4](/reflib/security/#4-autokey-sequence-layer), the message digest key is computed by a crafted algorithm involving shared secrets.
 
@@ -130,15 +130,15 @@ The Autokey sequence layer is used to authenticate NTP packets using public key 
 
 > Note: That digital signatures are used only in protocol responses from the server to the client, and then only if the server is synchronized to an authentic source.
 
-The protocol design takes two approaches, one for client/server and symmetric modes; the other for broadcast modes. Both are based on the _autokey_ described in Appendix A. Autokeys are used when constructing client and server cookies and message digest keys, also described in Appendix A.
+The protocol design takes two approaches, one for client/server and symmetric modes; the other for broadcast modes. Both are based on the _autokey_ described in [Appendix A](/reflib/security/#appendix-a-autokey-extension-fields). Autokeys are used when constructing client and server cookies and message digest keys, also described in Appendix A.
 
 * * *
 
 #### 4.1. Client/Server Mode
 
-In client/server mode, the server has a _server cookie_ that is used to generate a _client cookie_ unique to each client separately. The server cookie is a nonce and is refreshed at intervals of about one day. The server computes the client cookie as the MD5 hash of the autokey with client and server IP addresses, a key ID of zero and the server cookie. On request, the server returns the client cookie encrypted using the client public host key provided in the request. In order to avoid counterfeit, the response is signs using the server private sign key. The client decrypts the client cookie and verifies the signature using the server public sign key contained on its certificate. The client cookie is a shared secret retained by the client and regenerated by the server when a client packet arrives. Once the client cookie has been obtained, extension fields are no longer required.
+In client/server mode, the server has a _server cookie_ that is used to generate a _client cookie_ unique to each client separately. The server cookie is a nonce and is refreshed at intervals of about one day. The server computes the client cookie as the MD5 hash of the autokey with client and server IP addresses, a key ID of zero and the server cookie. On request, the server returns the client cookie encrypted using the client public host key provided in the request. In order to avoid counterfeit, the response is signed using the server private sign key. The client decrypts the client cookie and verifies the signature using the server public sign key contained on its certificate. The client cookie is a shared secret retained by the client and regenerated by the server when a client packet arrives. Once the client cookie has been obtained, extension fields are no longer required.
 
-The client generates a nonce to be used as the key ID included in both the client and server packets and is used only once. When sending or receiving an NTP packet, both the client and server calculate the message digest key as described in Appendix A. Both the client and server verify the message digest as in [Section 3](/reflib/security/#3-message-digest-layer). Without the client cookie, an intruder cannot produce a packet acceptable to either the server or client. In this way, each NTP packet is bound to the client cookie which itself is bound to the server signature.
+The client generates a nonce to be used as the key ID included in both the client and server packets and is used only once. When sending or receiving an NTP packet, both the client and server calculate the message digest key as described in [Appendix A](/reflib/security/#appendix-a-autokey-extension-fields). Both the client and server verify the message digest as in [Section 3](/reflib/security/#3-message-digest-layer). Without the client cookie, an intruder cannot produce a packet acceptable to either the server or client. In this way, each NTP packet is bound to the client cookie which itself is bound to the server signature.
 
 As long as the client cookie is not compromised, a middleman cannot manufacture bogus packets or modify legitimate packets acceptable to either the server or client. However, a significant _cookie snatcher_ vulnerability exists where a middleman is able to wiretap the client cookie request to learn the client and server IP addresses. The middleman then launches a client cookie request using its own public encryption key. Using the client cookie, the middleman can masquerade as the legitimate server and inject bogus packets acceptable to the client.
 
@@ -148,7 +148,7 @@ As long as the client cookie is not compromised, a middleman cannot manufacture 
 
 #### 4.2. Symmetric Modes
 
-In symmetric modes, each peer operates as a server for the other peer as client; however, each peer has a unique certificate, private/public sign key pair and private/public host key pair. Each peer independently obtains a client cookie as described above. Once the client cookie has been obtained, each peer calculates the shared peer cookie is as the exclusive OR of its client cookie and the client cookie obtains from the other peer.
+In symmetric modes, each peer operates as a server for the other peer as client; however, each peer has a unique certificate, private/public sign key pair and private/public host key pair. Each peer independently obtains a client cookie as described above. Once the client cookie has been obtained, each peer calculates the shared peer cookie as the exclusive OR of its client cookie and the client cookie obtained from the other peer.
 
 > Note: Close inspection of the symmetric modes protocol reveal that the protocol has the same cookie snatcher vulnerability as in the client/server mode. The middleman sends a cookie request to both peers and forms the exclusive OR of the two client cookies. The middleman can now masquerade as either peer. A modification to this design which does not have this hazard is described in [Section 7](/reflib/security/#7-parting-shots).
 
@@ -162,11 +162,11 @@ In broadcast modes the design is more complex, since a two-way exchange is not p
 
 **Figure 3. Autokey Sequence in Broadcast Modes**
 
-Here, _T<sub>i</sub>_ represents the transmit timestamp in the NTP header and _T<sub>i</sub>_ < _T_<sub>_i_+1</sub>. The broadcast server constructs a key list, where each entry represents the key ID and corresponding message digest key of an autokey with the server source IP address, the broadcast destination IP address, a key ID _x_ and a cookie zero. Let _y_ = S(_x_) be the first four octets of the message digest key _x_.
+Here, <code>_T<sub>i</sub>_</code> represents the transmit timestamp in the NTP header and <code>_T<sub>i</sub>_ < _T_<sub>_i_+1</sub></code>. The broadcast server constructs a key list, where each entry represents the key ID and corresponding message digest key of an autokey with the server source IP address, the broadcast destination IP address, a key ID <code>_x_</code> and a cookie zero. Let <code>_y_ = S(_x_)</code> be the first four octets of the message digest key <code>_x_</code>.
 
-There is a broadcast server serving each subnet, each with an individual key list. If for some reason the system clock is stepped, all key lists are expunged and regenerated. Each broadcast server constructs a key list as follows. Let _C_ be a nonce. From Figure 3, S(_C_) = 11, S(11) = S(S(C)) = 1, S(1) = S(S(S(C))) = 5 and so on. The final S(3) = 7, along with the number of hashes 5, are called the _autokey values_, in this case (7, 5). These values are transmitted in an Autokey extension field signed by the server private sign key. A key list populated in this way has from one to several hundred entries, depending on the poll interval, and lasts about one hour, after which it is regenerated with a new nonce _C_.
+There is a broadcast server serving each subnet, each with an individual key list. If for some reason the system clock is stepped, all key lists are expunged and regenerated. Each broadcast server constructs a key list as follows. Let <code>_C_</code> be a nonce. From Figure 3, <code>S(_C_) = 11, S(11) = S(S(C)) = 1, S(1) = S(S(S(C))) = 5</code> and so on. The final <code>S(3) = 7</code>, along with the number of hashes <code>5</code>, are called the _autokey values_, in this case <code>(7, 5)</code>. These values are transmitted in an Autokey extension field signed by the server private sign key. A key list populated in this way has from one to several hundred entries, depending on the poll interval, and lasts about one hour, after which it is regenerated with a new nonce <code>_C_</code>.
 
-Once the key list has been constructed, the server uses the entries in reverse order. One entry with key ID and message digest key is used for each packet. For instance, the packet sent at _T_<sub>2</sub> has key ID 3. The clients verify S(3) = 7. Operations continue in this way until packet _T_<sub>5</sub>, after which a new key list is constructed.
+Once the key list has been constructed, the server uses the entries in reverse order. One entry with key ID and message digest key is used for each packet. For instance, the packet sent at <code>_T_<sub>2</sub></code> has key ID 3. The clients verify <code>S(3) = 7</code>. Operations continue in this way until packet <code>_T_<sub>5</sub></code>, after which a new key list is constructed.
 
 Both the client and server compute the message digest key from the autokey formed by the IP addresses and key ID in the packet, and a cookie of zero. In principle, a wiretapper can manufacture a packet with bogus key ID and valid message digest key, but as a practical matter the first four octets of the message digest key will not match any previous key ID, even if the hash calculation is repeated. If for some reason the system clock is stepped, all key lists are expunged and regenerated. In case of a bogus or old duplicate packet, the number of hash repetitions will exceed the maximum number specified by the autokey values. In case a packet is lost, a subsequent packet may cause the client to repeat the hash, but the hash will eventually match the autokey values.
 
@@ -180,13 +180,13 @@ The Autokey protocol layer is used to retrieve and update cryptographic media su
 
 Cryptographic media fall into two categories, private values and public/private key pairs. Private values are nonces with a limited lifetime. They include the autokey values seed and the server cookie. Private values are routinely regenerated and are always obscured by a hash computation.
 
-Public/private key pairs include the host keys, sign keys and identity keys. Host keys are used to encrypt the client cookie, as described in [Section 4](/reflib/security/#4-autokey-sequence-layer). New host keys can be generated at any time without affecting other servers or client. Sign keys are used on certificates to verify signatures on extension fields, as described in [Section 4](/reflib/security/#4-autokey-sequence-layer). If sign keys are changed, all certificates dependent on them must be regenerated. Certificates have a limited lifetime, by default one year, and must be regenerated as required. Identity keys are used to avoid middleman masquerade attacks. Their primary use is to authenticate sign keys when certificates cannot be reliably obtained, as in complex security configurations not discussed in this document. By design, identity keys have a very long lifetime and are used in algorithms that are extremely difficult to crypt analyze.
+Public/private key pairs include the host keys, sign keys and identity keys. Host keys are used to encrypt the client cookie, as described in [Section 4](/reflib/security/#4-autokey-sequence-layer). New host keys can be generated at any time without affecting other servers or client. Sign keys are used on certificates to verify signatures on extension fields, as described in [Section 4](/reflib/security/#4-autokey-sequence-layer). If sign keys are changed, all certificates dependent on them must be regenerated. Certificates have a limited lifetime, by default one year, and must be regenerated as required. Identity keys are used to avoid middleman masquerade attacks. Their primary use is to authenticate sign keys when certificates cannot be reliably obtained, as in complex security configurations not discussed in this document. By design, identity keys have a very long lifetime and are used in algorithms that are extremely difficult to cryptanalyze.
 
 > Note: Identity keys are necessary only if an identity scheme is configured. Host keys and the server cookie are not necessary if the protocol changes proposed in [Section 7](/reflib/security/#7-parting-shots) are adopted.
 
 While not strictly necessary in all configurations, the reference implementation requires the servers and clients to load the RSA host key pair, RSA or DSA sign key pair, corresponding RSA or DSA trusted certificate, and optional identity key pair from files when NTP is first started. The client obtains the public component of these keys as the protocol proceeds.
 
-Autokey protocol messages are contained in extension fields, as described in Appendix A. Each extension field is signed by the server private sign key and verified using the server public sign key included in the server certificate. An Autokey packet includes the NTP header followed by one or more extension fields and then the MAC. The message digest key is determined as in [Section 4](/reflib/security/#4-autokey-sequence-layer) with a cookie value of zero.
+Autokey protocol messages are contained in extension fields, as described in [Appendix A](/reflib/security/#appendix-a-autokey-extension-fields). Each extension field is signed by the server private sign key and verified using the server public sign key included in the server certificate. An Autokey packet includes the NTP header followed by one or more extension fields and then the MAC. The message digest key is determined as in [Section 4](/reflib/security/#4-autokey-sequence-layer) with a cookie value of zero.
 
 > Note: While the extension field signature protects against modification, it does not prevent middleman cut-and-paste attacks where one extension field is exchanged with another. Since the key ID and cookie are exposed. It also does not protect against modification of the packet header fields, so these fields should not be used when extension fields are present. As the Autokey protocol exchanges in the various modes are brief and the on-wire protocol can tolerate moderate packet loss, this has not been a problem.
 
@@ -209,7 +209,7 @@ A determined invader might attempt a DoS attack designed to consume server compu
 
 Client/server mode is the most appropriate for a national time server with thousands of clients. In this case the trusted certificate (TC) scheme is used along with an optional identity exchange such as IFF. The protocol messages, collectively called a _dance_, consist of several exchanges, including the association, certificate, cookie and optional identity exchanges. These exchanges are the logical equivalent of the TLS handshake protocol. They must be processed in a defined order, with each exchange required to be complete before the next one. Requests are retransmitted as required until the corresponding response is received or until timeout.
 
-> Note: An optional design would be to use the TLS handshake protocol as described in <sup>[2](#myfootnote2)</sup>; however, the overhead to use this for multiple associations in embedded system would be considerable. The Autokey dances accomplished the same thing with far fewer required resources.
+> Note: An optional design would be to use the TLS handshake protocol as described in <sup>[2](#myfootnote2)</sup>; however, the overhead to use this for multiple associations in embedded systems would be considerable. The Autokey dances accomplished the same thing with far fewer required resources.
 
 The client/server dance begins when the client sends an association request including its X.509 distinguished name and available cryptographic options. The stateless server sends an association response including its X.509 distinguished name and available cryptographic options. The client selects among the available options and sends a certificate request specifying the server distinguished name, which is also the certificate subject name. The server sends the certificate signed by the server private sign key for positive identification.
 
@@ -260,7 +260,7 @@ The analysis in this document has exposed a number of deficiencies in the existi
 
 #### 7.1 Cookie Size
 
-In the design described below, the autokey of Appendix A is used for all modes. However, the cookie size of 4 octets is way too small. The size should be increased to match the message digest size, 16 octets with MD5 or 20octets with SHA.
+In the design described below, the autokey of [Appendix A](/reflib/security/#appendix-a-autokey-extension-fields) is used for all modes. However, the cookie size of 4 octets is way too small. The size should be increased to match the message digest size, 16 octets with MD5 or 20 octets with SHA.
 
 * * *
 
@@ -270,7 +270,7 @@ The cookie snatcher attack described in [Section 4](/reflib/security/#4-autokey-
 
 A defense against the cookie snatcher attack is to adopt a key agreement scheme such as used by the TLS handshake protocol. In this scheme the cookie is not used and the client sets the message digest key as a nonce. The client then encrypts the key using the server public sign key on its certificate and sends the encrypted key to the server in an agreement exchange. The server decrypts the key and saves it for future use. This might be a topic for future standardization.
 
-As mentioned in [Section 4](/reflib/security/#4-autokey-sequence-layer), the cookie snatcher vulnerability exists in symmetric modes. This vulnerability can be mitigate using an agreement exchange as in client/server mode. However, since the peers maintain persistent state in symmetric modes, an alternate approach might be the Station-to-Station (StS) protocol in <sup>[1](#myfootnote1)</sup> or some modification of it, as suggested in Photures, Oackley or ISAKMP using the Diffie-Hellman (D-H) key agreement algorithm. This might be a topic for future standardization.
+As mentioned in [Section 4](/reflib/security/#4-autokey-sequence-layer), the cookie snatcher vulnerability exists in symmetric modes. This vulnerability can be mitigated using an agreement exchange as in client/server mode. However, since the peers maintain persistent state in symmetric modes, an alternate approach might be the Station-to-Station (StS) protocol in <sup>[1](#myfootnote1)</sup> or some modification of it, as suggested in Photures, Oackley or ISAKMP using the Diffie-Hellman (D-H) key agreement algorithm. This might be a topic for future standardization.
 
 The following design considerations apply.
 
@@ -291,7 +291,7 @@ The existing Autokey design assumes no external cryptographic support, such as a
 Following are suggested changes in the NTP reference implementation.
 
 *   The Autokey interpretation of the certificate trail coincides with the X.509 specification. However, certain minor changes might be required to resolve the use of an X.509 extension field to identify the Autokey trusted host.
-*   If a host is configured with no dependent clients, there is no need to load a sign key pair and dependent certificate. In this case the typical client of a national time server would need no special configuration or key generation and the Autokey dance is reduced to only three exchanges, association, certificate and agreement.
+*   If a host is configured with no dependent clients, there is no need to load a sign key pair and dependent certificate. In this case the typical client of a national time server would need no special configuration or key generation and the Autokey dance is reduced to only three exchanges: association, certificate and agreement.
 *   The agreement exchange should be implemented as described above. If so, there is no need to load a host key pair.
 *   The reference implementation loads a self-signed certificate generated for the host. This certificate can be replaced by a commercial CA root certificate without change in the implementation. Provisions should be added to load a host certificate signed by the CA.
 
@@ -301,7 +301,7 @@ Following are suggested changes in the NTP reference implementation.
 
 <a name="myfootnote1">1</a>  Diffie, W., P.C. Van Oorschot, M.J. Wiener. Authentication and authenticated key exchanges. Designs, Codes and Cryptography 2 (1992), 107-125.
 
-<a name="myfootnote2">2</a>  Dierks, T. The Transport Layer Security (TLS) Protocol Version 1.2. Request for Comments RFC 5246. Internet Engineering Task Force, August 2008.
+<a name="myfootnote2">2</a>  Dierks, T. The Transport Layer Security (TLS) Protocol Version 1.2. Request for Comments [RFC 5246](https://www.rfc-editor.org/rfc/rfc5246.html). Internet Engineering Task Force, August 2008.
 
 * * *
 

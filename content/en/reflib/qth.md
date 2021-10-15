@@ -23,7 +23,7 @@ The following data were obtained from the International Frequency List published
 | [DCF77](http://www.dcf77.de) Mainflingen, DE | 77.5 kHz | 50° 1' N, 9° 0' E | [![gif](/archives/pic/redball.gif)](www.dcf77.html) |
 | [MSF](http://www.npl.co.uk/time/msf) Anthorn, UK | 60 kHz | 54° 55' N, 3° 15' W | [![gif](/archives/pic/redball.gif)](http://www.npl.co.uk/science-technology/time-frequency/time/products-and-services/msf-radio-time-signal) |
 | TDF Allouis, FR | 162 kHz | 47° 10' N, 2° 12' E | [![gif](/archives/pic/redball.gif)](tdf.html) |
-| [JJY](http://jjy.nict.go.jp/index-e.html) Fukushima, JP | 40 KHz | 37° 22' N, 140° 51' E | [![gif](/archives/pic/redball.gif)] (http://www2.nict.go.jp/dk/c253/jjy/index-e.html) |
+| [JJY](http://jjy.nict.go.jp/index-e.html) Fukushima, JP | 40 KHz | 37° 22' N, 140° 51' E | [![gif](/archives/pic/redball.gif)](http://www2.nict.go.jp/dk/c253/jjy/index-e.html) |
 | [JJY](http://jjy.nict.go.jp/jjy/log/index-e.html) Kyushu, JP | 60 KHz | 33° 28' N, 130° 11' E | [![gif](/archives/pic/redball.gif)](http://www2.nict.go.jp/dk/c253/jjy/index-e.html) |
 | [HBG](http://www.metas.ch/en/labors/official-time/hbg/index.html) Prangins, HB | 75 KHz | 46° 24' N, 6° 15' E | [![gif](/archives/pic/redball.gif)](http://www.metas.ch/en/labors/official-time/hbg/code.html) |
 

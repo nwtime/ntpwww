@@ -3,7 +3,7 @@ title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
 ---
 
-![gif](/archives/pic/alice32.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice32.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
 
 Alice is trying to find the PPS signal connector.
 
@@ -22,7 +22,7 @@ Last update: 22:01 UTC Wednesday, January 02, 2008
 
 #### Introduction
 
-Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return <tt>&lsaquo;cr&rsaquo;</tt>, is normally limited to 100 microseconds. Using carefuly crafted averaging techniques, the NTP algorithms can whittle this down to a few tens of microseconds. However, some radios produce a PPS signal which can be used to improve the accuracy to few microseconds. This page describes the hardware and software necessar for NTP to use the PPS signal.
+Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return <code>\<cr></code>, is normally limited to 100 microseconds. Using carefuly crafted averaging techniques, the NTP algorithms can whittle this down to a few tens of microseconds. However, some radios produce a PPS signal which can be used to improve the accuracy to few microseconds. This page describes the hardware and software necessar for NTP to use the PPS signal.
 
 ![gif](/archives/pic/gadget.jpg)
 
@@ -41,13 +41,13 @@ However, the PPS signal levels are usually incompatible with serial port levels.
 
 #### Operating System Support
 
-Both the serial and parallel port connection require operating system support, which is available in only a few operating systems, including FreeBSD, Linux (with PPSkit patch) and Solaris. Support on an experimental basis is available for several other systems, including SunOS and HP/Compaq/Digital Tru64. The kernel interface described on the [PPSAPI Interface for Precision Time Signals](/archives/4.2.6-series/kernpps) page is the only interface currently supported. Older PPS interfaces based on the <tt>ppsclock</tt> and <tt>tty_clk</tt> streams modules are no longer supported. 
+Both the serial and parallel port connection require operating system support, which is available in only a few operating systems, including FreeBSD, Linux (with PPSkit patch) and Solaris. Support on an experimental basis is available for several other systems, including SunOS and HP/Compaq/Digital Tru64. The kernel interface described on the [PPSAPI Interface for Precision Time Signals](/archives/4.2.6-series/kernpps) page is the only interface currently supported. Older PPS interfaces based on the <code>ppsclock</code> and <code>tty_clk</code> streams modules are no longer supported. 
 
 * * *
 
 #### PPS Driver
 
-PPS support requires the PPS driver (described on the [Type 22 PPS Clock Discipline](/archives/drivers/driver22) page. The driver operates in conjunction with a prefer peer, as described in the [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/4.2.6-series/prefer) page. The prefer peer is ordinarily the radio clock that provides the PPS signal, but in principle another radio clock or remote Internet server could be designated. A source is designated prefer using the <tt>prefer</tt> keyword, as described on the [Mitigation Rules and the <tt>prefer</tt> Keyword](/archives/4.2.6-series/prefer) page. Only one source can be designated preferred. PPS signals are processed by the PPS driver and other clock drivers which might be involved need not know or care about PPS capability. Note that the <tt>pps</tt> configuration command has been obsoleted by this driver.
+PPS support requires the PPS driver (described on the [Type 22 PPS Clock Discipline](/archives/drivers/driver22) page. The driver operates in conjunction with a prefer peer, as described in the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.2.6-series/prefer) page. The prefer peer is ordinarily the radio clock that provides the PPS signal, but in principle another radio clock or remote Internet server could be designated. A source is designated prefer using the <code>prefer</code> keyword, as described on the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.2.6-series/prefer) page. Only one source can be designated preferred. PPS signals are processed by the PPS driver and other clock drivers which might be involved need not know or care about PPS capability. Note that the <code>pps</code> configuration command has been obsoleted by this driver.
 
 * * *
 

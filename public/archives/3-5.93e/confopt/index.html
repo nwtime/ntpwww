@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Configuration Commands
+
+peer address [key key ] [version version] [prefer] [minpoll minpoll] [maxpoll maxpoll]
+server address [key key ] [version …">
+<meta property="og:title" content="Configuration Options" />
+<meta property="og:description" content="Configuration Commands  peer address [key key ] [version version] [prefer] [minpoll minpoll] [maxpoll maxpoll] server address [key key ] [version version] [prefer] [mode mode] broadcast address [key key ] [version version] [ttl ttl]  These three commands specify the time server name or address address to be used and the mode in which to operate. The address can be either a DNS name or a IP address in dotted-quad notation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/3-5.93e/confopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>Configuration Options</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +50,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +66,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +76,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +95,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +147,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/3-5.93e/">3-5.93e</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/">3-5.93e</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/3-5.93e/confopt/">Configuration Options</a>
+	<a href="https://doc.ntp.org/archives/3-5.93e/confopt/">Configuration Options</a>
 </li>
 
 	</ol>
@@ -152,114 +173,96 @@
   	<h1>Configuration Options</h1>
      
     <h4 id="configuration-commands">Configuration Commands</h4>
-<dt><tt>peer _address_ [key _key_ ] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_]</tt></dt>
-<dt><tt>server _address_ [key _key_ ] [version _version_] [prefer] [mode _mode_]</tt></dt>
-<dt><tt>broadcast _address_ [key _key_ ] [version _version_] [ttl _ttl_]</tt></dt>
-<p>These three commands specify the time server name or address <em>address</em> to be used and the mode in which to operate. The <em>address</em> can be either a DNS name or a IP address in dotted-quad notation. The <tt>peer</tt> command specifies that the local server is to operate in symmetric active mode with the remote server. In this mode, the local server can be synchronized to the remote server and, in addition, the remote server can be synchronized by the local server. This is useful in a network of servers where, depending on various failure scenarios, either the local or remote server may be the better source of time.</p>
-<p>The <tt>server</tt> command specifies that the local server is to operate in client mode with the specified remote server. In this mode, the local server can be synchronized to the remote server, but the remote server can never be synchronized to the local server.</p>
-<p>The <tt>broadcast</tt> command specifies that the local server is to operate in broadcast mode, where the local server sends periodic broadcast messages to a client population at the broadcast/multicast <em>address</em> specified. Ordinarily, this specification applies only to the local server operating as a sender; for operation as a broadcast client, see the <tt>broadcastclient</tt> or <tt>multicastclient</tt> commands below. In this mode, <em>address</em> is usually the broadcast address on (one of) the local network(s) or a multicast address assigned to NTP. The Numbers Czar has assigned the address 224.0.1.1 to NTP; this is presently the only address that should be used. Note that the use of multicast features requires a multicast kernel, which is not yet ubiquitous in vendor products.</p>
-<p>    <tt>key</tt> <em><tt>key</tt></em></p>
-<p>    All packets sent to the address are to include authentication fields encrypted using the specified key identifier, which is an unsigned 32 bit integer. The default is to not include an encryption field.</p>
-<p>    <tt>version <em>version</em></tt></p>
-<p>    Specifies the version number to be used for outgoing NTP packets. Versions 1, 2, and 3 are the choices, with version 3 the default.</p>
-<p>    <tt>prefer</tt></p>
-<p>    Marks the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the <a href="/archives/3-5.93e/prefer">Mitigation Rules and the <tt>prefer</tt> Keyword</a> page for further information.</p>
-<p>    <tt>ttl <em>ttl</em></tt></p>
-<p>    This option is used only with broadcast mode. It specifies the time- to-live ttl to use on multicast packets. Selection of the proper value, which defaults to 127, is something of a black art and must be coordinated with the network administrator(s).</p>
-<p>    <tt>minpoll <em>minpoll</em></tt></p>
-<p>    This option specifies the minimum polling interval for NTP messages, in seconds to the power of two. The allowable range is 4 (16 s to 14 (16384 s) inclusive. The default is 6 (64 s) for all except reference clocks.</p>
-<p>    <tt>maxpoll <em>maxpoll</em></tt></p>
-<p>    This option specifies the maximum polling interval for NTP messages, in seconds to the power of two. The allowable range is 4 (16 s to 14 (16384 s) inclusive. The default is 10 (1024 s) for all except reference clocks.</p>
-<dt><tt>broadcastclient [ _address_ ]</tt></dt>
-<p>This command directs the local server to listen for broadcast messages at the broadcast address <em>address</em> of the local network. The default address is the subnet address with the host field bits set to ones. Upon hearing a broadcast message for the first time, the local server measures the nominal network delay using a brief client/server exchange with the remote server, then enters the broadcastclient mode, in which it listens for and synchronizes to succeeding broadcast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the local and remote servers should operate using authentication and the same trusted key and key identifier.</p>
-<dt><tt>multicastclient [ _address_ ] [ ... ]</tt></dt>
-<p>This command directs the local server to listen for multicast messages at the group <em>address</em>(es) of the global network. The default address is that assigned by the Numbers Czar to NTP (224.0.1.1). This command operates in the same way as the <tt>broadcastclient</tt> command, but uses IP multicasting. Support for this command requires a multicast kernel.</p>
-<dt><tt>driftfile _driftfile_</tt></dt>
+<dl>
+<dt><code><strong>peer <em>address</em> [key <em>key</em> ] [version <em>version</em>] [prefer] [minpoll <em>minpoll</em>] [maxpoll <em>maxpoll</em>]</strong></code></dt>
+<dd><code><strong>server <em>address</em> [key <em>key</em> ] [version <em>version</em>] [prefer] [mode <em>mode</em>]</strong></code></dd>
+<dd><code><strong>broadcast <em>address</em> [key <em>key</em> ] [version <em>version</em>] [ttl <em>ttl</em>]</strong></code></dd>
+<dd>
+<p>These three commands specify the time server name or address <code><em>address</em></code> to be used and the mode in which to operate. The <em>address</em> can be either a DNS name or a IP address in dotted-quad notation. The <code>peer</code> command specifies that the local server is to operate in symmetric active mode with the remote server. In this mode, the local server can be synchronized to the remote server and, in addition, the remote server can be synchronized by the local server. This is useful in a network of servers where, depending on various failure scenarios, either the local or remote server may be the better source of time.</p>
+</dd>
+</dl>
+<p>The <code>server</code> command specifies that the local server is to operate in client mode with the specified remote server. In this mode, the local server can be synchronized to the remote server, but the remote server can never be synchronized to the local server.</p>
+<p>The <code>broadcast</code> command specifies that the local server is to operate in broadcast mode, where the local server sends periodic broadcast messages to a client population at the broadcast/multicast <code><em>address</em></code> specified. Ordinarily, this specification applies only to the local server operating as a sender; for operation as a broadcast client, see the <code>broadcastclient</code> or <code>multicastclient</code> commands below. In this mode, <code><em>address</em></code> is usually the broadcast address on (one of) the local network(s) or a multicast address assigned to NTP. The Numbers Czar has assigned the address 224.0.1.1 to NTP; this is presently the only address that should be used. Note that the use of multicast features requires a multicast kernel, which is not yet ubiquitous in vendor products.</p>
+<dl>
+<dt><code>key <em>key</em></code></dt>
+<dd>
+<p>All packets sent to the address are to include authentication fields encrypted using the specified key identifier, which is an unsigned 32 bit integer. The default is to not include an encryption field.</p>
+</dd>
+<dt><code>version <em>version</em></code></dt>
+<dd>
+<p>Specifies the version number to be used for outgoing NTP packets. Versions 1, 2, and 3 are the choices, with version 3 the default.</p>
+</dd>
+</dl>
+<p><code>prefer</code></p>
+<p>Marks the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the <a href="/archives/3-5.93e/prefer">Mitigation Rules and the <code>prefer</code> Keyword</a> page for further information.</p>
+<dl>
+<dt><code>ttl <em>ttl</em></code></dt>
+<dd>
+<p>This option is used only with broadcast mode. It specifies the time- to-live ttl to use on multicast packets. Selection of the proper value, which defaults to 127, is something of a black art and must be coordinated with the network administrator(s).</p>
+</dd>
+<dt><code>minpoll <em>minpoll</em></code></dt>
+<dd>
+<p>This option specifies the minimum polling interval for NTP messages, in seconds to the power of two. The allowable range is 4 (16 s to 14 (16384 s) inclusive. The default is 6 (64 s) for all except reference clocks.</p>
+</dd>
+<dt><code>maxpoll <em>maxpoll</em></code></dt>
+<dd>
+<p>This option specifies the maximum polling interval for NTP messages, in seconds to the power of two. The allowable range is 4 (16 s to 14 (16384 s) inclusive. The default is 10 (1024 s) for all except reference clocks.</p>
+</dd>
+<dt><code><strong>broadcastclient [ <em>address</em> ]</strong></code></dt>
+<dd>
+<p>This command directs the local server to listen for broadcast messages at the broadcast address <code><em>address</em></code> of the local network. The default address is the subnet address with the host field bits set to ones. Upon hearing a broadcast message for the first time, the local server measures the nominal network delay using a brief client/server exchange with the remote server, then enters the broadcastclient mode, in which it listens for and synchronizes to succeeding broadcast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the local and remote servers should operate using authentication and the same trusted key and key identifier.</p>
+</dd>
+<dt><code><strong>multicastclient [ <em>address</em> ] [ &hellip; ]</strong></code></dt>
+<dd>
+<p>This command directs the local server to listen for multicast messages at the group <code><em>address</em></code>(es) of the global network. The default address is that assigned by the Numbers Czar to NTP (224.0.1.1). This command operates in the same way as the <code>broadcastclient</code> command, but uses IP multicasting. Support for this command requires a multicast kernel.</p>
+</dd>
+<dt><code><strong>driftfile <em>driftfile</em></strong></code></dt>
+<dd>
 <p>This command specifies the name of the file used to record the frequency offset of the local clock oscillator. If the file exists, it is read at startup in order to set the initial frequency offset and then updated once per hour with the current frequency offset computed by the daemon. If the file does not exist or this command is not given, the initial frequency offset is assumed zero. In this case, it may take some hours for the frequency to stabilize and the residual timing errors to subside.</p>
-<p>The <tt>ntp.drift</tt> file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). That the file is updated once per hour by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <tt>xntpd</tt> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should probably be avoided.</p>
-<dt><tt>enable auth | bclient | monitor | pll | pps | stats</tt></dt>
-<dt><tt>disable auth | bclient | monitor | pll | pps | stats</tt></dt>
-<p>Provides a way to enable or disable various server options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the <a href="/archives/3-5.93e/xntpdc"><tt>xntpdc</tt></a> utility program.</p>
-<p>    <tt>auth</tt></p>
-<p>    Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using a trusted key and key identifier. The default for this flag is enable.</p>
-<p>    <tt>bclient</tt></p>
-<p>    Enables the server to listen for a message from a broadcast or multicast server, as in the <tt>multicastclient</tt> command with default address. The default for this flag is disable.</p>
-<p>    <tt>monitor</tt></p>
-<p>    Enables the monitoring facility. See the <tt>xntpdc</tt> program and the <tt>monlist</tt> command or further information. The default for this flag is enable.</p>
-<p>    <tt>pll</tt></p>
-<p>    Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the <a href="/archives/3-5.93e/refclock">Reference Clock Drivers</a> page for further information. The default for this flag is enable.</p>
-<p>    <tt>pps</tt></p>
-<p>    Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the <a href="/archives/3-5.93e/kern">A Kernel Model for Precision Timekeeping</a> page for further information. The default for this flag is disable.</p>
-<p>    <tt>stats</tt></p>
-<p>    Enables the statistics facility. See the <a href="/archives/3-5.93e/monopt">Monitoring Options</a> page for further information. The default for this flag is enable.</p>
-<dt><tt>tick value</tt></dt>
-<p>If no value for <tt>tick</tt> can be found from the kernel, use this value. This is the &ldquo;normalized&rdquo; value; if your system keeps <tt>tick</tt> in nanoseconds you must divide your value by 1000. The expected range of the value is between 900 and 11,000 (don&rsquo;t use the comma in the config file).</p>
-<dt><tt>tickadj value</tt></dt>
-<p>If no value for <tt>tickadj</tt> can be found in the kernel, use this value. The value must be &ldquo;normalized&rdquo;; if your system keeps <tt>tickadj</tt> in nanoseconds you must divide your value by 1000. The expected range of the value is between 1 and 50.</p>
+</dd>
+</dl>
+<p>The <code>ntp.drift</code> file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). That the file is updated once per hour by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <code>xntpd</code> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should probably be avoided.</p>
+<dl>
+<dt><code><strong>enable auth | bclient | monitor | pll | pps | stats</strong></code></dt>
+<dd><code><strong>disable auth | bclient | monitor | pll | pps | stats</strong></code></dd>
+<dd>
+<p>Provides a way to enable or disable various server options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the <a href="/archives/3-5.93e/xntpdc"><code>xntpdc</code></a> utility program.</p>
+</dd>
+<dt><code>auth</code></dt>
+<dd>
+<p>Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using a trusted key and key identifier. The default for this flag is enable.</p>
+</dd>
+<dt><code>bclient</code></dt>
+<dd>
+<p>Enables the server to listen for a message from a broadcast or multicast server, as in the <code>multicastclient</code> command with default address. The default for this flag is disable.</p>
+</dd>
+<dt><code>monitor</code></dt>
+<dd>
+<p>Enables the monitoring facility. See the <code>xntpdc</code> program and the <code>monlist</code> command or further information. The default for this flag is enable.</p>
+</dd>
+<dt><code>pll</code></dt>
+<dd>
+<p>Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the <a href="/archives/3-5.93e/refclock">Reference Clock Drivers</a> page for further information. The default for this flag is enable.</p>
+</dd>
+<dt><code>pps</code></dt>
+<dd>
+<p>Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the <a href="/archives/3-5.93e/kern">A Kernel Model for Precision Timekeeping</a> page for further information. The default for this flag is disable.</p>
+</dd>
+<dt><code>stats</code></dt>
+<dd>
+<p>Enables the statistics facility. See the <a href="/archives/3-5.93e/monopt">Monitoring Options</a> page for further information. The default for this flag is enable.</p>
+</dd>
+<dt><code><strong>tick value</strong></code></dt>
+<dd>
+<p>If no value for <code>tick</code> can be found from the kernel, use this value. This is the &ldquo;normalized&rdquo; value; if your system keeps <code>tick</code> in nanoseconds you must divide your value by 1000. The expected range of the value is between 900 and 11,000 (don&rsquo;t use the comma in the config file).</p>
+</dd>
+<dt><code><strong>tickadj value</strong></code></dt>
+<dd>
+<p>If no value for <code>tickadj</code> can be found in the kernel, use this value. The value must be &ldquo;normalized&rdquo;; if your system keeps <code>tickadj</code> in nanoseconds you must divide your value by 1000. The expected range of the value is between 1 and 50.</p>
+</dd>
+</dl>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -295,20 +298,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

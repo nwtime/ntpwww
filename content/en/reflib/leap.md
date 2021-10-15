@@ -47,7 +47,7 @@ While UT1 defines the solar day, adopting it would require resetting our clocks 
 
 For the most precise coordination and timestamping of events since 1972, it is necessary to know when leap seconds were implemented in UTC and how the seconds are numbered. This is currently the responsibility of the IERS, which publishes periodic bulletins available on the Internet. As specified in CCIR Report 517 and later revised, a leap second is inserted following second 23:59:59 on the last day of any designated month and becomes second 23:59:60 of that day. A leap second would be deleted by omitting second 23:59:59 on one of these days, although this has never happened.
 
-A record of leap seconds, both historic and anticipated, is included in the [NIST Time Scale Data Archive](http://tf.nist.gov/pubs/bulletin/leapsecond.htm), which has been updated on a monthly basis since UTC began in 1972. A computer-readable summary is available in the <tt>leap-seconds.list</tt> file, which includes the NTP time of each leap second, along with the TAI-UTC offset. The file is available via FTP from most NIST time servers, including utcnist2.colorado.edu. A specimen <tt>leap-seconds.list</tt> file is shown in [Appendix A](/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file).
+A record of leap seconds, both historic and anticipated, is included in the [NIST Time Scale Data Archive](http://tf.nist.gov/pubs/bulletin/leapsecond.htm), which has been updated on a monthly basis since UTC began in 1972. A computer-readable summary is available in the `leap-seconds.list` file, which includes the NTP time of each leap second, along with the TAI-UTC offset. A specimen `leap-seconds.list` file is shown in [Appendix A](/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file).
 
 The UTC timescale thus ticks in standard SI seconds and was set TAI - 10 s at 0h Modified Julian Day (MJD) 41,317.5 according to the Julian-day calendar or 0h 1 January 1972 according to the Gregorian calendar. This established the first tick of the UTC era and its reckoning with these calendars. Subsequently, the UTC timescale has marched backward relative to the TAI timescale exactly one second on scheduled occasions recorded in the institutional memory of our civilization.
 
@@ -73,11 +73,11 @@ There are three approaches to implementing a leap second. The first approach is 
 
 The NTP conventions are based on a set of formal assertions suggested by the computer science theory community.
 
-*   The time apparent to dependent processes must be quasi-continuous. That is, if δx is the actual interval between two clock readings and δy is the measured difference between the readings, then as δx approaches zero, the maximum value of δy approaches _p_, where _p_ is the precision as defined in the specification.
+*   The time apparent to dependent processes must be quasi-continuous. That is, if <code>δx</code> is the actual interval between two clock readings and <code>δy</code> is the measured difference between the readings, then as <code>δx</code> approaches zero, the maximum value of <code>δy</code> approaches <code>_p_</code>, where <code>_p_</code> is the precision as defined in the specification.
 *   The time apparent to dependent processes must be monotone-definite increasing. That is, if process B reads the clock after process A, the reading of B must be strictly greater than the reading of A. This is a consequence of Lamport's "happens before" relation, which is designed to produce a partial order of clock readings.
 *   The time apparent to dependent processes must be correct before and after the leap second itself. That is, a clock step, even if not apparent to dependent processes, occurs somewhere during the leap second itself. In NTP the step occurs at the beginning of the leap second, while in POSIX the step occurs at the end.
 
-The detailed chronometry with either of the POSIX or NTP conventions is illustrated in Figure 1. It shows the seconds numbering at the beginning of the second just before, during and just after the leap second at 23:59:59 UTC on 31 December 1998.
+The detailed chronometry with either of the POSIX or NTP conventions is illustrated in Table 1. It shows the seconds numbering at the beginning of the second just before, during and just after the leap second at 23:59:59 UTC on 31 December 1998.
 
 | Date | Time | TAI Offset | NTP Leap | NTP Seconds |
 | ----- | ----- | ----- | ----- | ----- |
@@ -86,11 +86,11 @@ The detailed chronometry with either of the POSIX or NTP conventions is illustra
 | 1 Jan 99 | 00:00:00 | 32 | 00 | 3,124,137,600 |
 | | 00:00:01 | 32 | 00 | 3,124,137,601 |
 
-**Figure 1. NTP Leap Second Numbering**
+**Table 1. NTP Leap Second Numbering**
 
 While the last second of a normal day is 23:59:59, the last second of a leap day is 23:59:60. Since this makes the day one second longer than the usual day, the day rollover will not occur until the end of the first occurrence of second 3,124,137,600.
 
-Note that the NTP Seconds column in Figure 1 actually shows the epoch of the leap second itself, which is the precise epoch of insertion. The TAI Offset column shows the cumulative seconds offset of UTC relative to TAI; that is, the number of seconds to add to UTC in order to maintain nominal agreement with TAI.
+Note that the NTP Seconds column in Table 1 actually shows the epoch of the leap second itself, which is the precise epoch of insertion. The TAI Offset column shows the cumulative seconds offset of UTC relative to TAI; that is, the number of seconds to add to UTC in order to maintain nominal agreement with TAI.
 
 Finally, note that the epoch of insertion is relative to the timescale immediately prior to that epoch; e.g., the epoch of the 31 December 1998 insertion is determined on the timescale in effect just prior to this insertion, which means the actual insertion relative to TAI is 21 seconds earlier than the apparent time on the UTC timescale.
 
@@ -100,15 +100,15 @@ Finally, note that the epoch of insertion is relative to the timescale immediate
 
 The obvious question raised by the NTP conventions is what happens during the leap second itself when NTP time stops and the clock remains unchanged. The NTP leap bits are set on the leap day, either directly by a reference clock driver or indirectly by the protocol. The leap second is implemented at the end of the normal day of 86,400 s, then the leap bits are reset.
 
-If the precision time kernel modifications have been implemented, the kernel includes a state machine that implements the actions required by the scenario. The state machine implemented in most recent Unix kernels is described in the [<tt>nanokernel</tt>](/reflib/software/nanokernel.tar.gz) software distribution. At the first occurrence of second 3,124,137,600, the system clock is stepped backward one second. The operating system kernel time conversion routines can recognize this condition and show the leap second as number 60.
+If the precision time kernel modifications have been implemented, the kernel includes a state machine that implements the actions required by the scenario. The state machine implemented in most recent Unix kernels is described in the [<code>nanokernel</code>](/reflib/software/nanokernel.tar.gz) software distribution. At the first occurrence of second 3,124,137,600, the system clock is stepped backward one second. The operating system kernel time conversion routines can recognize this condition and show the leap second as number 60.
 
 However, the routine that actually reads the clock is constrained never to step backwards, unless the step is significantly larger than one second, which might occur due to explicit operator direction. In this design time stands still during the leap second, but is correct commencing with the next second.
 
 ![gif](/archives/pic/leap.gif)
 
-**Figure 2. NTP Offset In the Vicinity of a Leap Second**
+**Figure 1. NTP Offset In the Vicinity of a Leap Second**
 
-Figure 2 shows the behavior with the modified design used in most kernels. Unlike the POSIX conventions , the NTP clock is frozen and does not advanced during the leap second, so there is no need to set it back one second at the end of the leap second. The chronometric correspondence between the UTC and NTP timescales continues, but NTP has forgotten about all past leap insertions. Thus, determination of UTC time intervals spanning leap seconds will be in error, unless the exact times of insertion are known from the NIST table and its successors.
+Figure 1 shows the behavior with the modified design used in most kernels. Unlike the POSIX conventions, the NTP clock is frozen and does not advance during the leap second, so there is no need to set it back one second at the end of the leap second. The chronometric correspondence between the UTC and NTP timescales continues, but NTP has forgotten about all past leap insertions. Thus, determination of UTC time intervals spanning leap seconds will be in error, unless the exact times of insertion are known from the NIST table and its successors.
 
 Immediately after the leap second insertion, both timescales resume ticking the seconds as if the leap had never happened. The clock reading is constrained to always increase, so every reading during the leap second increases the NTP clock by at least one microsecond for older kernels and one nanosecond for newer ones.
 
@@ -124,15 +124,15 @@ There might be some concern about the possibility of a software hazard which att
 
 #### Appendix A. Specimen NIST <tt>leap-seconds.list</tt> File
 
-The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file available via FTP from most NIST time servers. The file name is a link to the actual file name with extension depending on the file generation, such as <tt>leap-seconds.</tt>
+The following is a verbatim copy of a specimen <code>leap seconds.list</code> file available from most NIST time servers. The file name is a link to the actual file name with extension depending on the file generation, such as <code>leap-seconds</code>.
 
-<pre> #
+<pre>#
 #	In the following text, the symbol '#' introduces
-#	a comment, which continues from that symbol until 
+#	a comment, which continues from that symbol until
 #	the end of the line. A plain comment line has a
 #	whitespace character following the comment indicator.
-#	There are also special comment lines defined below. 
-#	A special comment will always have a non-whitespace 
+#	There are also special comment lines defined below.
+#	A special comment will always have a non-whitespace
 #	character in column 2.
 #
 #	A blank line should be ignored.
@@ -145,12 +145,12 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #	The first column shows an epoch as a number of seconds
 #	since 1900.0 and the second column shows the number of
 #	seconds that must be added to UTC to compute TAI for
-#	any timestamp at or after that epoch. The value on 
+#	any timestamp at or after that epoch. The value on
 #	each line is valid from the indicated initial instant
-#	until the epoch given on the next one or indefinitely 
+#	until the epoch given on the next one or indefinitely
 #	into the future if there is no next line.
 #	(The comment on each line shows the representation of
-#	the corresponding initial epoch in the usual 
+#	the corresponding initial epoch in the usual
 #	day-month-year format. The epoch always begins at
 #	00:00:00 UTC on the indicated day. See Note 5 below.)
 #	
@@ -161,7 +161,7 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #	longer used, and the use of GMT to designate UTC is
 #	discouraged.
 #
-#	2. The UTC time scale is realized by many national 
+#	2. The UTC time scale is realized by many national
 #	laboratories and timing centers. Each laboratory
 #	identifies its realization with its name: Thus
 #	UTC(NIST), UTC(USNO), etc. The differences among
@@ -172,10 +172,10 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #	by the International Bureau of Weights and Measures
 #	(BIPM). See www.bipm.fr for more information.
 #
-#	3. The current defintion of the relationship between UTC 
-#	and TAI dates from 1 January 1972. A number of different 
-#	time scales were in use before than epoch, and it can be 
-#	quite difficult to compute precise timestamps and time 
+#	3. The current definition of the relationship between UTC
+#	and TAI dates from 1 January 1972. A number of different
+#	time scales were in use before than epoch, and it can be
+#	quite difficult to compute precise timestamps and time
 #	intervals in those prehistoric days. For more information,
 #	consult:
 #
@@ -188,7 +188,7 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #
 #	4.  The insertion of leap seconds into UTC is currently the
 #	responsibility of the International Earth Rotation Service,
-#	which is located at the Paris Observatory: 
+#	which is located at the Paris Observatory:
 #
 #	Central Bureau of IERS
 #	61, Avenue de l'Observatoire
@@ -203,19 +203,19 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #	local realizations of UTC.
 #
 #	Although the definition also includes the possibility
-#	of dropping seconds (negative leap seconds), this has 
-#	never been done and is unlikely to be necessary in the 
+#	of dropping seconds (negative leap seconds), this has
+#	never been done and is unlikely to be necessary in the
 #	foreseeable future.
 #
 #	5. If your system keeps time as the number of seconds since
 #	some epoch (e.g., NTP timestamps), then the algorithm for
 #	assigning a UTC time stamp to an event that happens during a positive
-#	leap second is not well defined. The official name of that leap 
-#	second is 23:59:60, but there is no way of representing that time 
-#	in these systems. 
-#	Many systems of this type effectively stop the system clock for 
-#	one second during the leap second and use a time that is equivalent 
-#	to 23:59:59 UTC twice. For these systems, the corresponding TAI 
+#	leap second is not well defined. The official name of that leap
+#	second is 23:59:60, but there is no way of representing that time
+#	in these systems.
+#	Many systems of this type effectively stop the system clock for
+#	one second during the leap second and use a time that is equivalent
+#	to 23:59:59 UTC twice. For these systems, the corresponding TAI
 #	timestamp would be obtained by advancing to the next entry in the
 #	following table when the time equivalent to 23:59:59 UTC
 #	is used for the second time. Thus the leap second which
@@ -230,7 +230,7 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #
 #	If your system realizes the leap second by repeating 00:00:00 UTC twice
 #	(this is possible but not usual), then the advance to the next entry
-#	in the table must occur the second time that a time equivlent to 
+#	in the table must occur the second time that a time equivalent to
 #	00:00:00 UTC is used. Thus, using the same example as above:
 #
 #	...
@@ -242,11 +242,11 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #	in both cases the use of timestamps based on TAI produces a smooth
 #	time scale with no discontinuity in the time interval.
 #
-#	This complexity would not be needed for negative leap seconds (if they 
-#	are ever used). The UTC time would skip 23:59:59 and advance from 
-#	23:59:58 to 00:00:00 in that case.  The TAI offset would decrease by 
-#	1 second at the same instant.  This is a much easier situation to deal 
-#	with, since the difficulty of unambiguously representing the epoch 
+#	This complexity would not be needed for negative leap seconds (if they
+#	are ever used). The UTC time would skip 23:59:59 and advance from
+#	23:59:58 to 00:00:00 in that case.  The TAI offset would decrease by
+#	1 second at the same instant.  This is a much easier situation to deal
+#	with, since the difficulty of unambiguously representing the epoch
 #	during the leap second does not arise.
 #
 #	Questions or comments to:
@@ -258,56 +258,56 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #
 #	Last Update of leap second values:   8 August 2008
 #
-#	The following line shows this last update date in NTP timestamp 
+#	The following line shows this last update date in NTP timestamp
 #	format. This is the date on which the most recent change to
 #	the leap second data was added to the file. This line can
-#	be identified by the unique pair of characters in the first two 
+#	be identified by the unique pair of characters in the first two
 #	columns as shown below.
 #
 #$	 3427142400
 #
 #	The NTP timestamps are in units of seconds since the NTP epoch,
 #	which is 1900.0. The Modified Julian Day number corresponding
-#	to the NTP time stamp, X, can be computed as 
+#	to the NTP time stamp, X, can be computed as
 #
 #	X/86400 + 15020
 #
-#	where the first term converts seconds to days and the second 
+#	where the first term converts seconds to days and the second
 #	term adds the MJD corresponding to 1900.0. The integer portion
 #	of the result is the integer MJD for that day, and any remainder
-#	is the time of day, expressed as the fraction of the day since 0 
+#	is the time of day, expressed as the fraction of the day since 0
 #	hours UTC. The conversion from day fraction to seconds or to
 #	hours, minutes, and seconds may involve rounding or truncation,
 #	depending on the method used in the computation.
 #
-#	The data in this file will be updated periodically as new leap 
+#	The data in this file will be updated periodically as new leap
 #	seconds are announced. In addition to being entered on the line
-#	above, the update time (in NTP format) will be added to the basic 
+#	above, the update time (in NTP format) will be added to the basic
 #	file name leap-seconds to form the name leap-seconds.
-#	In addition, the generic name leap-seconds.list will always point to 
+#	In addition, the generic name leap-seconds.list will always point to
 #	the most recent version of the file.
 #
 #	This update procedure will be performed only when a new leap second
-#	is announced. 
+#	is announced.
 #
 #	The following entry specifies the expiration date of the data
-#	in this file in units of seconds since 1900.0.  This expiration date 
-#	will be changed at least twice per year whether or not a new leap 
+#	in this file in units of seconds since 1900.0.  This expiration date
+#	will be changed at least twice per year whether or not a new leap
 #	second is announced. These semi-annual changes will be made no
 #	later than 1 June and 1 December of each year to indicate what
-#	action (if any) is to be taken on 30 June and 31 December, 
+#	action (if any) is to be taken on 30 June and 31 December,
 #	respectively. (These are the customary effective dates for new
 #	leap seconds.) This expiration date will be identified by a
 #	unique pair of characters in columns 1 and 2 as shown below.
-#	In the unlikely event that a leap second is announced with an 
+#	In the unlikely event that a leap second is announced with an
 #	effective date other than 30 June or 31 December, then this
 #	file will be edited to include that leap second as soon as it is
 #	announced or at least one month before the effective date
-#	(whichever is later). 
-#	If an announcement by the IERS specifies that no leap second is 
-#	scheduled, then only the expiration date of the file will 
+#	(whichever is later).
+#	If an announcement by the IERS specifies that no leap second is
+#	scheduled, then only the expiration date of the file will
 #	be advanced to show that the information in the file is still
-#	current -- the update time stamp, the data and the name of the file 
+#	current -- the update time stamp, the data and the name of the file
 #	will not change.
 #
 #	Updated through IERS Bulletin C41
@@ -349,7 +349,7 @@ The following is a verbatim copy of a specimen <tt>leap seconds.list</tt> file a
 #	computed. Note that the hash computation
 #	ignores comments and whitespace characters
 #	in data lines. It includes the NTP values
-#	of both the last modification time and the 
+#	of both the last modification time and the
 #	expiration time of the file, but not the
 #	white space on those lines.
 #	the hash line is also ignored in the

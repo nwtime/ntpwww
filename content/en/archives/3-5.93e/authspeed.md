@@ -14,7 +14,7 @@ type: archives
 
 #### Synopsis
 
-<tt>authspeed [ -cdm ] [ -n _loops_ ] auth.samplekeys</tt>
+<code>authspeed [ -cdm ] [ -n _loops_ ] auth.samplekeys</code>
 
 * * *
 
@@ -26,26 +26,26 @@ This program encrypts a test file and determines the authentication delay to use
 
 #### Options
 
-<dt><tt>-c</tt></dt>
+<code>**-c**</code>
 
-Select total cost of encryption. Default is value to use in the authdelay configuration command.
+: Select total cost of encryption. Default is value to use in the authdelay configuration command.
 
-<dt><tt>-d</tt></dt>
+<code>**-d**</code>
 
-Enable debug output. Default is no debug output.
+: Enable debug output. Default is no debug output.
 
-<dt><tt>-m</tt></dt>
+<code>**-m**</code>
 
-Enable MD5 algorithm. Default is DES-CBC algorithm.
+: Enable MD5 algorithm. Default is DES-CBC algorithm.
 
-<dt><tt>-n _loops_</tt></dt>
+<code>**-n _loops_**</code>
 
-Specify the number of program loops. Default is 20,000.
+: Specify the number of program loops. Default is 20,000.
 
 * * *
 
 #### Files
 
-<tt>./authstuff/auth.samplekeys</tt> - a representative list of keys
+<code>./authstuff/auth.samplekeys</code> - a representative list of keys
 
-<tt>./authstuff/auth.speed</tt> - a listing of results for a representative set of architectures and compilers
+<code>./authstuff/auth.speed</code> - a listing of results for a representative set of architectures and compilers

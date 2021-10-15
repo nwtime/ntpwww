@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Last update: 18:38 UTC Thursday, July 28, 2005
+
+The NTPv4 implementation includes provisions for an external clock, where the system clock is …">
+<meta property="og:title" content="External Clock Discipline and the Local Clock Driver" />
+<meta property="og:description" content="Last update: 18:38 UTC Thursday, July 28, 2005
+ The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.4-series/extern/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>External Clock Discipline and the Local Clock Driver</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +50,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +66,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +76,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +95,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +147,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/4.2.4-series/">4.2.4-series</a>
+	<a href="https://doc.ntp.org/archives/4.2.4-series/">4.2.4-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/4.2.4-series/extern/">External Clock Discipline and the Local Clock Driver</a>
+	<a href="https://doc.ntp.org/archives/4.2.4-series/extern/">External Clock Discipline and the Local Clock Driver</a>
 </li>
 
 	</ol>
@@ -153,83 +174,26 @@
      
     <p>Last update: 18:38 UTC Thursday, July 28, 2005</p>
 <hr>
-<p>The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server. A third implementation might be a completely separate clock discipline algorithm and synchronization protocol, such as the <tt>Lockclock</tt> algorithm used with NIST Automated Computer Time Service (ACTS) modem synchronized time.</p>
-<p>When external clocks are used in conjunction with NTP service, some way needs to be provided for the external clock driver and NTP daemon <tt>ntpd</tt> to communicate and determine which discipline is in control. This is necessary in order to provide backup, for instance if the external clock or protocol were to fail and synchronization service fall back to other means, such as a local reference clock or another NTP server. In addition, when the external clock and driver are in control, some means needs to be provided for the clock driver to pass on status information and error statistics to the NTP daemon.</p>
-<p>Control and monitoring functions for the external clock and driver are implemented using the <a href="/archives/drivers/driver1">Local Clock (type 1) driver</a> and the <tt>ntp_adjtime()</tt> system call. This system call is implemented by special kernel provisions included in the kernel of several operating systems, including Solaris, Tru64, FreeBSD and Linux, and possibly others. When the external clock is disabled or not implemented, the system call is used to pass time and frequency information, as well as error statistics, to the kernel. Besides disciplining the system time, the same interface can be used by other applications to determine the operating parameters of the discipline.</p>
-<p>When the external clock is enabled, <tt>ntpd</tt> does not discipline the system clock, nor does it maintain the error statistics. In this case, the external clock and driver do this using mechanisms unknown to <tt>ntpd</tt>; however, in this case the kernel state variables are retrieved at 64-s intervals by the Local Clock driver and used by the clock selection and mitigation algorithms to determine the system variables presented to other NTP clients and peers. In this way, downstream clients and servers in the NTP subnet can make an intelligent choice when more than one server is available.</p>
+<p>The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server. A third implementation might be a completely separate clock discipline algorithm and synchronization protocol, such as the <code>Lockclock</code> algorithm used with NIST Automated Computer Time Service (ACTS) modem synchronized time.</p>
+<p>When external clocks are used in conjunction with NTP service, some way needs to be provided for the external clock driver and NTP daemon <code>ntpd</code> to communicate and determine which discipline is in control. This is necessary in order to provide backup, for instance if the external clock or protocol were to fail and synchronization service fall back to other means, such as a local reference clock or another NTP server. In addition, when the external clock and driver are in control, some means needs to be provided for the clock driver to pass on status information and error statistics to the NTP daemon.</p>
+<p>Control and monitoring functions for the external clock and driver are implemented using the <a href="/archives/drivers/driver1">Local Clock (type 1) driver</a> and the <code>ntp_adjtime()</code> system call. This system call is implemented by special kernel provisions included in the kernel of several operating systems, including Solaris, Tru64, FreeBSD and Linux, and possibly others. When the external clock is disabled or not implemented, the system call is used to pass time and frequency information, as well as error statistics, to the kernel. Besides disciplining the system time, the same interface can be used by other applications to determine the operating parameters of the discipline.</p>
+<p>When the external clock is enabled, <code>ntpd</code> does not discipline the system clock, nor does it maintain the error statistics. In this case, the external clock and driver do this using mechanisms unknown to <code>ntpd</code>; however, in this case the kernel state variables are retrieved at 64-s intervals by the Local Clock driver and used by the clock selection and mitigation algorithms to determine the system variables presented to other NTP clients and peers. In this way, downstream clients and servers in the NTP subnet can make an intelligent choice when more than one server is available.</p>
 <p>In order to implement a reliable mitigation between ordinary NTP sources and the external clock source, a protocol is necessary between the local clock driver and the external clock driver. This is implemented using Boolean variables and certain bits in the kernel clock status word. The Boolean variables include the following:</p>
-<p><tt>ntp_enable</tt> set/reset by the <tt>enable</tt> command. enables ntp clock discipline</p>
-<p><tt>ntp_control</tt> set during initial configuration if kernel support is available</p>
-<p><tt>kern_enable</tt> set/reset by the <tt>enable</tt> command</p>
-<p>If the <tt>kern_enable</tt> switch is set, the daemon computes the offset, frequency, maximum error, estimated error, time constand and status bits, then provides them to the kernel via <tt>ntp_adjtime()</tt>. If this switch is not set, these values are not passed to the kernel; however, the daemon retrieves their present values and uses them in place of the values computed by the daemon.</p>
-<p>The <tt>pps_update</tt> bit set in the protocol routine if the prefer peer has survived and has offset less than 128 ms; otherwise set to zero.</p>
-<p>The <tt>pps_contro</tt>l Updated to the current time by kernel support if the PPS signal is enabled and working correctly. Set to zero in the adjust routine if the interval since the last update exceeds 120 s.</p>
-<p>The <tt>ntp_enable</tt> and <tt>kern_enable</tt> are set by the configuration module. Normally, both switches default on, so the daemon can control the time and the kernel discipline can be used, if available. The <tt>pps_update</tt> switch is set by the protocol module when it believes the PPS provider source is legitimate and operating within nominals. The <tt>ntp_control</tt> switch is set during configuration by interrogating the kernel. If both the <tt>kern_enable</tt> and <tt>ntp_control</tt> switches are set, the daemon disciplines the clock via the kernel and the internal daemon discipline is disabled.</p>
-<p>The external clock driver controls the system time and clock selection in the following way. Normally, the driver adjusts the kernel time using the <tt>ntp_adjtime()</tt> system call in the same way as the daemon. In the case where the kernel discipline is to be used intact, the clock offset is provided in this call and the loop operates as specified. In the case where the driver steers only the frequency, the offset is specified as zero.</p>
+<dl>
+<dt><code><strong>ntp_enable</strong></code></dt>
+<dd>Set/reset by the <code>enable</code> command. Enables ntp clock discipline.</dd>
+<dt><code><strong>ntp_control</strong></code></dt>
+<dd>Set during initial configuration if kernel support is available.</dd>
+<dt><code><strong>kern_enable</strong></code></dt>
+<dd>Set/reset by the <code>enable</code> command.</dd>
+</dl>
+<p>If the <code>kern_enable</code> switch is set, the daemon computes the offset, frequency, maximum error, estimated error, time constand and status bits, then provides them to the kernel via <code>ntp_adjtime()</code>. If this switch is not set, these values are not passed to the kernel; however, the daemon retrieves their present values and uses them in place of the values computed by the daemon.</p>
+<p>The <code>pps_update</code> bit isset in the protocol routine if the prefer peer has survived and has offset less than 128 ms; otherwise set to zero.</p>
+<p>The <code>pps_control</code> bit is updated to the current time by kernel support if the PPS signal is enabled and working correctly. Set to zero in the adjust routine if the interval since the last update exceeds 120 s.</p>
+<p>The <code>ntp_enable</code> and <code>kern_enable</code> are set by the configuration module. Normally, both switches default on, so the daemon can control the time and the kernel discipline can be used, if available. The <code>pps_update</code> switch is set by the protocol module when it believes the PPS provider source is legitimate and operating within nominals. The <code>ntp_control</code> switch is set during configuration by interrogating the kernel. If both the <code>kern_enable</code> and <code>ntp_control</code> switches are set, the daemon disciplines the clock via the kernel and the internal daemon discipline is disabled.</p>
+<p>The external clock driver controls the system time and clock selection in the following way. Normally, the driver adjusts the kernel time using the <code>ntp_adjtime()</code> system call in the same way as the daemon. In the case where the kernel discipline is to be used intact, the clock offset is provided in this call and the loop operates as specified. In the case where the driver steers only the frequency, the offset is specified as zero.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -265,20 +229,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

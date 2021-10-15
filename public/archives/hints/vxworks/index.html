@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Last update: 21-Oct-2010 23:44 UTC
+Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to …">
+<meta property="og:title" content="vxWorks port" />
+<meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
+Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where main() is not allowed, and where the configure scripts need to be altered.
+ Configuration issues I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/hints/vxworks/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
   <title>vxWorks port</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NTP Documentation Archive">
   
-  <meta name="generator" content="Hugo 0.84.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
   
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -31,10 +50,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="/"><img class="img-fluid" src="/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -43,14 +66,8 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/"></a>
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -59,17 +76,17 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/brief">Briefs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/memos">Memos</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/reports">Reports</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/rfc">RFCs</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/software">Software</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/reflib/papers">White Papers</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
               
             </div>
           </li>
@@ -78,35 +95,39 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.8-series/toc">4.2.8-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.6-series/toc">4.2.6-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.4-series/toc">4.2.4-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.2-series/toc">4.2.2-series</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.2.0/toc">4.2.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.2/toc">4.1.2</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.1/toc">4.1.1</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/4.1.0/toc">4.1.0</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
               
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="/archives/3-5.93e/toc">3-5.93e</a>
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
               
             </div>
           </li>
           
           
         </ul>
-
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -126,21 +147,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/">Docs</a>
+	<a href="https://doc.ntp.org/archives/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/archives/hints/">Hints</a>
+	<a href="https://doc.ntp.org/archives/hints/">Hints</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/archives/hints/vxworks/">vxWorks port</a>
+	<a href="https://doc.ntp.org/archives/hints/vxworks/">vxWorks port</a>
 </li>
 
 	</ol>
@@ -152,16 +173,18 @@
   	<h1>vxWorks port</h1>
      
     <p>Last update: 21-Oct-2010 23:44 UTC</p>
-<p>Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time OS&rsquo;s and other embeddable kernels, particularly where <tt>main()</tt> is not allowed, and where the configure scripts need to be altered.</p>
+<p>Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where <code>main()</code> is not allowed, and where the configure scripts need to be altered.</p>
 <hr>
 <h4 id="configuration-issues">Configuration issues</h4>
-<p>I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree. The following changes were needed, as a side effect these changes will allow for easy porting of other autoconfigure enabled code.</p>
-<p>Where I have 386 you will need to put in your target type. The vxWorks tree entry point is <tt>/usr/wind</tt>. If these are the same for your system, you should be able to cut and paste the changes.</p>
-<p><blink>WARNING: Check you are not overwriting files, before entering the following: there should be no conflict, but check first&hellip;</blink></p>
+<p>I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree. The following changes were needed; as a side effect these changes will allow for easy porting of other autoconfigure-enabled code.</p>
+<p>Where I have <code>386</code> you will need to put in your target type. The vxWorks tree entry point is <code>/usr/wind</code>. If these are the same for your system, you should be able to cut and paste the changes.</p>
+<blockquote>
+<p><strong>WARNING:</strong> Check you are not overwriting files, before entering the following: there should be no conflict, but check first.</p>
+</blockquote>
 <pre>            export CC="cc386 -nostdlib -m486 -DCPU=I80486 -I/usr/wind/target/h"
             export RANLIB=ranlib386
             export AR=ar386
-            export VX_KERNEL=/usr/wind/target/config/ims_std_bsp/vxWorks  
+            export VX_KERNEL=/usr/wind/target/config/ims_std_bsp/vxWorks
 
             cd /usr/wind/target/sys
             ln -s ../signal.h
@@ -169,41 +192,41 @@
             ln -s socket.h sockio.h
             ln -s ../selectLib.h select.h
             ln -s ../timers.h
-            touch file.h param.h resource.h utsname.h var.h ../netdb.h ../a.out.h ../termios.h
+            touch file .h param.h resource.h utsname.h var.h ../netdb.h ../a.out.h ../termios.h
          echo " ******ADD #include \"sys/times.h\" to sys/time.h "
             </pre>
-<p>The configure script must be changed in the following way to get the linking tests to work, once in the correct directory issue the following commands:</p>
+<p>The configure script must be changed in the following way to get the linking tests to work; once in the correct directory issue the following commands:</p>
 <pre>      sed -e 's%main.*()%vxmain()%' configure > configure.vxnew
             mv configure.vxnew configure
             chmod 755 configure
       </pre>
-<p>The new version 4 of NTP requires some maths functions so it links in the maths library (-lm) in the <tt>./ntpd/Makefile.am</tt> file change the line <tt>ntpd_LDADD = $(LDADD) -lm</tt> by removing the &ldquo;-lm&rdquo;.</p>
+<p>The new version 4 of NTP requires some <code>maths</code> functions so it links in the <code>maths</code> library (<code>-lm</code>). In the <code>./ntpd/Makefile.am</code> file change the line <code>ntpd_LDADD = $(LDADD) -lm</code> by removing the <code>-lm</code>.</p>
 <p>You are now ready to compile.</p>
-<p>The ./configure.in file needed to be altered to allow for a host-target configuration to take place.</p>
+<p>The <code>./configure.in</code> file needs to be altered to allow for a host-target configuration to take place.</p>
 <ul>
-<li>The define SYS_VXWORKS was added to the compilation flags.</li>
-<li>Little endianess is set if the target is of type iX86.</li>
-<li>The size of char, integer, long values are all set. If Wind River ever changes these values they will need to be updated.</li>
-<li>clock_settime() is defined to be used for setting the clock.</li>
-<li>The Linking flags have -r added to allow for relinking into the vxWorks kernel</li>
+<li>The define <code>SYS_VXWORKS</code> was added to the compilation flags.</li>
+<li>Little endianess is set if the target is of type <code>iX86</code>.</li>
+<li>The size of <code>char, integer, long</code> values are all set. If Wind River ever changes these values they will need to be updated.</li>
+<li><code>clock_settime()</code> is defined to be used for setting the clock.</li>
+<li>The <code>Linking</code> flags have <code>-r</code> added to allow for relinking into the vxWorks kernel.</li>
 </ul>
-<p>Unfortunately I have had to make use of the <tt>./include/ntp_machine.h</tt> file to add in the checks that would have been checked at linking stage by <tt>autoconf</tt>, a better method should be devised.</p>
+<p>Unfortunately I have had to make use of the <code>./include/ntp_machine.h</code> file to add in the checks that would have been checked at linking stage by <code>autoconf</code>, a better method should be devised.</p>
 <ul>
-<li>There is now a <tt>NO_MAIN_ALLOWED</tt> define that simulates command line args, this allows the use of the normal startup sysntax.</li>
+<li>There is now a <code>NO_MAIN_ALLOWED</code> define that simulates command line args, this allows the use of the normal startup syntax.</li>
 <li>POSIX timers have been added.</li>
-<li>Structures normally found in <tt>netdb.h</tt> have been added with, the corresponding code is in <tt>./libntp/machines.c</tt>. Where possible the defines for these have been kept non-vxWorks specific.</li>
+<li>Structures normally found in <code>netdb.h</code> have been added; the corresponding code is in <code>./libntp/machines.c</code>. Where possible the defines for these have been kept non-vxWorks specific.</li>
 </ul>
-<p>Unfortunately there are still quite a few <tt>SYS_VXWORKS</tt> type defines in the source, but I have eliminated as many as possible. You have the choice of using the <tt>usrtime.a</tt> library available from the vxworks archives or forgoing <tt>adjtime()</tt> and using the <tt>clock_[get|set]time()</tt>. The <tt>./include/ntp_machine.h</tt> file clearly marks how to do this.</p>
+<p>Unfortunately there are still quite a few <code>SYS_VXWORKS</code> type defines in the source, but I have eliminated as many as possible. You have the choice of using the <code>usrtime.a</code> library available from the vxworks archives or forgoing <code>adjtime()</code> and using the <code>clock_[get|set]time()</code>. The <code>./include/ntp_machine.h</code> file clearly marks how to do this.</p>
 <hr>
 <h4 id="compilation-issues">Compilation issues</h4>
-<p>You will need autoconf and automake &hellip; available free from the gnu archives worldwide.</p>
-<p>The variable <tt>arch</tt> is the target architecture (e.g. i486)</p>
-<pre>            mkdir A.vxworks)
+<p>You will need <code>autoconf</code> and <code>automake</code> &hellip; available free from the gnu archives worldwide.</p>
+<p>The variable <code>arch</code> is the target architecture (e.g. <code>i486</code>):</p>
+<pre>            mkdir A.vxworks
             cd A.vxworks
             ../configure --target=arch-wrs-vxworks
             make
        </pre>
-<p>Options I normally use are the <tt>&ndash;disable-all-clocks &ndash;enable-LOCAL-CLOCK</tt> flags. The program should proceed to compile without problem. The daemon ntpd, ntpdate, ntptrace, ntpdc, ntpq programs and of course the libraries are all fully ported. The other utilities are not, but they should be easy to port.</p>
+<p>Options I normally use are the <code>--disable-all-clocks --enable-LOCAL-CLOCK</code> flags. The program should proceed to compile without problem. The daemon <code>ntpd</code>, the <code>ntpdate, ntptrace, ntpdc, ntpq</code> programs, and of course the libraries are all fully ported. The other utilities are not, but they should be easy to port.</p>
 <hr>
 <h4 id="running-the-software">Running the software</h4>
 <p>Load in the various files, call them in the normal vxWorks function type manner. Here are some examples. Refer to the man pages for further information.</p>
@@ -221,68 +244,6 @@
 <p>Casey Crellin, <a href="mailto:casey@csc.co.za">casey@csc.co.za</a></p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
@@ -318,20 +279,5 @@
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.edda36f11310414202808e2ac1dd0640e32cfff39126d93bd3d8a899e091711f.js" integrity="sha256-7do28RMQQUICgI4qwd0GQOMs//ORJtk709iomeCRcR8=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

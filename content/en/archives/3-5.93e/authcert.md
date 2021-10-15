@@ -13,7 +13,7 @@ type: archives
 
 #### Synopsis
 
-<tt>authcert</tt>
+<code>authcert</code>
 
 * * *
 
@@ -49,4 +49,4 @@ and generates output as in the following
 
 #### Files
 
-<tt>./authstuff/certdata</tt> - a representative test file
+<code>./authstuff/certdata</code> - a representative test file

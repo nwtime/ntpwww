@@ -2,8 +2,9 @@
 title: "JJY Receivers"
 type: archives
 ---
-Last update: 12-Oct-2017 09:05 UTC          
-[ENGLISH（英語）](/archives/drivers/driver40)   
+Last update: 12-Oct-2017 09:05 UTC
+       
+[ENGLISH（英語）](/archives/drivers/driver40)
 
 * * *
 
@@ -25,10 +26,10 @@ Last update: 12-Oct-2017 09:05 UTC
 
 #### Synopsis
 
-Address: `127.127.40._u_`  
-Reference ID: `JJY`  
-Driver ID: `JJY`  
-Serial Port: `/dev/jjy_u_`; それぞれのJJY受信機、GPS時計、テレフォンJJYを参照して下さい。
+**Address:** <code>127.127.40._u_</code>
+: **Reference ID:** `JJY`
+: **Driver ID:** `JJY`
+: **Serial Port:** <code>/dev/jjy*u*</code>; それぞれのJJY受信機、GPS時計、テレフォンJJYを参照して下さい。
 
 * * *
 
@@ -38,13 +39,13 @@ Serial Port: `/dev/jjy_u_`; それぞれのJJY受信機、GPS時計、テレフ�
 
 | Model | Mode | Language |
 | ----- | ----- | ----- |
-| [トライステート   TS-JJY01, TS-JJY02](http://www.tristate.ne.jp/) | [1](/archives/drivers/driver40-ja/#mode-1) | 日本語 |  
+| [トライステート   TS-JJY01, TS-JJY02](http://www.tristate.ne.jp/) | [1](/archives/drivers/driver40-ja/#mode-1) | 日本語 |
 | [シーデックス   JST2000](http://www.c-dex.co.jp/) | [2](/archives/drivers/driver40-ja/#mode-2) | 日本語 | 
-| エコー計測器   LT-2000 | [3](/archives/drivers/driver40-ja/#mode-3) | | 
-| [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/archives/drivers/driver40-ja/#mode-4) | 日本語 |  
-| [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40-ja/#mode-5) | 日本語 |  
-| [セイコー タイム システム   TDC-300](http://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40-ja/#mode-6) | 英語と日本語 |  
-[テレフォンJJY](http://jjy.nict.go.jp/) | [100](/archives/drivers/driver40-ja/#mode-100) | 英語と日本語 |  
+| エコー計測器   LT-2000 | [3](/archives/drivers/driver40-ja/#mode-3) | |
+| [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/archives/drivers/driver40-ja/#mode-4) | 日本語 |
+| [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40-ja/#mode-5) | 日本語 |
+| [セイコー タイム システム   TDC-300](http://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40-ja/#mode-6) | 英語と日本語 |
+[テレフォンJJY](http://jjy.nict.go.jp/) | [100](/archives/drivers/driver40-ja/#mode-100) | 英語と日本語 |
 
 * * *
 
@@ -57,10 +58,10 @@ Serial Port: `/dev/jjy_u_`; それぞれのJJY受信機、GPS時計、テレフ�
 
 `fudge   127.127.40.X   time1 0.NNN   flag1 0|1   flag2 0|1   time2 H`
 
- Time1 は、受信機からの時刻に加算する調整時間を、固定小数点形式の秒で設定します。  
+ Time1 は、受信機からの時刻に加算する調整時間を、固定小数点形式の秒で設定します。
  この受信機には、数10ミリ秒 ( 0.0NN秒 ) から百数10ミリ秒 ( 0.1NN秒 ) の調整時間を設定すると良いでしょう。
 
- Time2 は、STUSコマンドの応答が adjusted ではなくなってからの猶予時間を時単位で指定します。  
+ Time2 は、STUSコマンドの応答が adjusted ではなくなってからの猶予時間を時単位で指定します。
  この猶予時間は、flag1 と flag2 を共に 1 に設定したときに有効です。
 
  Flag1 は、flag2 を 1 に設定しない限り、時刻同期には無関係です。Flag1 を 1 に設定すると、状態を問い合わせるコマンドを DATE コマンドと STIM コマンドの前に発行して、応答を clockstats ファイルに記録します。
@@ -96,7 +97,7 @@ RS-232C, 9600 BPS, 8ビット, パリティなし, 1ストップ・ビット
 | `stim{CR}{LF}` | `HH:MM:SS{CR}{LF}` |
 
 日付と時刻は、別々に問い合わせます。日付が深夜０時の前か後かの不確定をチェックするため、日付の問い合わせの前後に時刻を問い合わせています。
-	
+
 * * *
 
 #### Mode-2
@@ -116,10 +117,10 @@ RS-232C, 9600 BPS, 8ビット, パリティなし, 1ストップ・ビット
 | コマンド | 応答 |
 | ----- | ----- |
 | `{ENQ}1J{ETX}` | `{STX}JYYMMDDWHHMMSSS{ETX}` |
-	
+
 * * *
 
-#### Mode-3 
+#### Mode-3
 
 エコー計測器株式会社は解散しました。2015年7月に、一部の事業は、フレックタイム株式会社に継承されました。
 
@@ -140,7 +141,7 @@ RS-232C, 9600 BPS, 8ビット, パリティなし, 1ストップ・ビット
 | `C` | ( Mode 2 : Continuous ) |
 | ( Every second before 0.5 second ) | `YYMMDDWHHMMSS{ST1}{ST2}{ST3}{ST4}{CR}` |
 | `#` | ( Mode 1 : Request&Send ) |
-	
+
 * * *
 
 #### Mode-4
@@ -162,13 +163,13 @@ RS-232C, 4800 BPS, 8ビット, パリティなし, 1ストップ・ビット
 | コマンド | 応答 |
 | ----- | ----- |
 | (Every second) | `'XX YY/MM/DD W HH:MM:SS{CR}` |
-	
+
 * * *
 
 #### Mode-5
 
-このドライバーは、JJY受信機ではないGPS時計のトライステート TS-GPSclock-01 のコマンド・レスポンス・モードをサポートします。  
-TS-GPSclock-01 は、オンボードのスイッチとメニューでコマンド・レスポンス・モードとタイム・ゾーンをJST（日本標準時）に設定しなければなりまん。  
+このドライバーは、JJY受信機ではないGPS時計のトライステート TS-GPSclock-01 のコマンド・レスポンス・モードをサポートします。
+TS-GPSclock-01 は、オンボードのスイッチとメニューでコマンド・レスポンス・モードとタイム・ゾーンをJST（日本標準時）に設定しなければなりまん。
 この Type 40 のドライバーの他, TS-GPSclock-01 のNMEAモードは、[一般 NMEA GPS ドライバー ( Type 20 )](/archives/drivers/driver20) でも利用することができます。
 
 **NTPの設定 (ntp.conf)**
@@ -201,7 +202,7 @@ USB (`/dev/ttyACM_0_`)
 | `date{CR}{LF}` | `YYYY/MM/DD{CR}{LF}` |
 
 日付と時刻は、別々に問い合わせます。日付が深夜０時の前か後かの不確定をチェックするため、日付の問い合わせの前後に時刻を問い合わせています。
-	
+
 * * *
 
 #### Mode-6
@@ -222,14 +223,14 @@ RS-232C, 2400 BPS, 8-bits, no parity, 1 stop bit
 
 | コマンド | 応答 |
 | ----- | ----- |
-| | `{STX}YYMMDDWHHMMSS{ETX}` | 
-| (5 to 10 mSec. before second) |`{STX}{xE5}{ETX}` | 
-	
+| | `{STX}YYMMDDWHHMMSS{ETX}` |
+| (5 to 10 mSec. before second) |`{STX}{xE5}{ETX}` |
+
 * * *
 
 #### Mode-100
 
-テレフォンJJYは、電話回線による時刻配信サービスです。  
+テレフォンJJYは、電話回線による時刻配信サービスです。
 このサービスは、国立研究開発法人　情報通信研究機構が提供しています。
 
 注意：　このモード（テレフォンJJY）は、refclock_acts ( Type 18 ) のドライバーと同時に利用することはできません。 設定ファイルの phone は、server と関係付けられていないため、ドライバーの refclock_acts ( type 18 ) も、この refclock_jjy ( type 40, mode 100 to 180 ) のいずれも、 複数の phone のうち、どれが自分に関係するものか識別できないからです。
@@ -238,18 +239,18 @@ RS-232C, 2400 BPS, 8-bits, no parity, 1 stop bit
 
 `server   127.127.40.X   mode (100, 101 to 180)   minpoll N`
 
-モード 100 を設定した場合、このドライバーは、遅延を計測するためのループバック・コマンドは発行せず、電話回線とシステムの処理による遅延は調整しません。  
-モード 101 から 180 を設定した場合、このドライバーは、ループバック・コマンドを発行して、テレフォンJJYのループバック回路を通して電話回線とシステムの処理による遅延を計測します。  
-テレフォンJJYのループバック回路を経由した往復の時間は、5回、計測されます。 それぞれの遅延時間のうち、700ミリ秒を超えたものは、平均遅延時間の計算より除外されます。 また、700ミリ秒以下の有効な遅延時間が、3回以上の場合は、そのうち、最大の遅延時間は、平均遅延時間の計算より除外され、 4回以上の場合は、そのうち、最小の遅延時間は、平均遅延時間の計算より除外されます。 調整時間は、往復時間　×　( モード番号 - 100 ) % で計算し、同期する時刻に加算されます。  
+モード 100 を設定した場合、このドライバーは、遅延を計測するためのループバック・コマンドは発行せず、電話回線とシステムの処理による遅延は調整しません。
+モード 101 から 180 を設定した場合、このドライバーは、ループバック・コマンドを発行して、テレフォンJJYのループバック回路を通して電話回線とシステムの処理による遅延を計測します。
+テレフォンJJYのループバック回路を経由した往復の時間は、5回、計測されます。 それぞれの遅延時間のうち、700ミリ秒を超えたものは、平均遅延時間の計算より除外されます。 また、700ミリ秒以下の有効な遅延時間が、3回以上の場合は、そのうち、最大の遅延時間は、平均遅延時間の計算より除外され、 4回以上の場合は、そのうち、最小の遅延時間は、平均遅延時間の計算より除外されます。 調整時間は、往復時間　×　( モード番号 - 100 ) % で計算し、同期する時刻に加算されます。
 モード 101 から 180 を設定して自動遅延補正を選択するなら、モード 145 から 165 が良いでしょう。
 
-デフォルトの日時問い合わせ処理間隔 6 ( 64 秒 ) は、このモードには、短すぎます。　"minpoll" は、8 ( 256 秒, 約 4 分 ) 以上を設定して下さい。  
+デフォルトの日時問い合わせ処理間隔 6 ( 64 秒 ) は、このモードには、短すぎます。　"minpoll" は、8 ( 256 秒, 約 4 分 ) 以上を設定して下さい。
 日時問い合わせ処理間隔は、秒数を 2 のべき乗で指定します。　minpoll の値が、12 なら 4096 秒（約1時間）、14 なら 16384 秒（約4.5時間）、16 なら 65536 秒（約18時間）となります。
 
 `fudge   127.127.40.X   flag1 0|1   flag2 0|1   flag3 0|1   flag4 0|1`
 
-Time1 は、受信機からの時刻に加算する調整時間を、固定小数点形式の秒で設定します。  
-mode 100 の場合は、time1 で調整する時間を設定したほうが良いでしょう。  
+Time1 は、受信機からの時刻に加算する調整時間を、固定小数点形式の秒で設定します。
+mode 100 の場合は、time1 で調整する時間を設定したほうが良いでしょう。
  mode 101 から 180 の場合は、このドライバーが計測したループバックの遅延時間の一定の割合を同期時刻に加算しますので、time1 は設定しないほうが良いでしょう。
 
 **fudge flag1**
@@ -288,16 +289,16 @@ Flag4 は、スピーカーの音量を指定します。
 
 **phone 042NNNNNNN**
 
-電話番号は、[http://jjy.nict.go.jp/](http://jjy.nict.go.jp/) で公開されています。  
-電話番号の桁数をチェックしています。もし、日本国外から発信するために国際電話アクセス番号と国番号を付加すると、桁数制限を超えます。  
-また、電話番号の最初の2桁や3桁をチェックしています。日本の緊急番号や特別のサービスの番号を指定することはできません。  
+電話番号は、[http://jjy.nict.go.jp/](http://jjy.nict.go.jp/) で公開されています。
+電話番号の桁数をチェックしています。もし、日本国外から発信するために国際電話アクセス番号と国番号を付加すると、桁数制限を超えます。
+また、電話番号の最初の2桁や3桁をチェックしています。日本の緊急番号や特別のサービスの番号を指定することはできません。
 内線から外線に発信する時は、"0," ( ゼロとカンマ ) を先頭に付加して下さい。外線発信番号は、チェックしていて、それ以外の外線発信番号を指定することはできません。
 
 **インターフェース**
 
 RS-232C 又は USB, 2400 BPS, 8ビット, パリティなし, 1ストップ・ビット
 
-モデム制御コマンド:  
+モデム制御コマンド:
 
 `ATE0Q0V1, ATMnLn, AT&K4, AT+MS=V22B, AT%C0, AT\Nn, ATH1, ATDWxnn...nn`  
 `+++, ATH0`
@@ -315,7 +316,7 @@ RS-232C 又は USB, 2400 BPS, 8ビット, パリティなし, 1ストップ・�
 | `>` | `LEAPSEC{CR}` | `{SP}0{CR} \| +1{CR} \| -1{CR}` |
 | `>` | `BYE{CR}` | Sayounara messages |
 
-日付と時刻は、別々に問い合わせます。日付が深夜０時の前か後かの不確定をチェックするため、日付の問い合わせの前後に時刻を問い合わせています。  
+日付と時刻は、別々に問い合わせます。日付が深夜０時の前か後かの不確定をチェックするため、日付の問い合わせの前後に時刻を問い合わせています。
 うるう秒は、処理していません。情報として clockstats ファイルに記録しているだけです。
 
 JJY は、長波で日本標準時(JST)を送信している無線局で、国立研究開発法人　情報通信研究機構が運用しています。JJY の運用情報などは、 [http://www.nict.go.jp/](http://www.nict.go.jp/)（英語と日本語）や [http://jjy.nict.go.jp/](http://jjy.nict.go.jp/)（英語と日本語）で提供されています。
@@ -336,7 +337,7 @@ Windows NT の場合は、 COM_X_: の数字部分がドライバーのユニッ
 
 このドライバーは、JJY受信機、GPS時計、モデムとの送受信データを `clockstats` ファイルに記録します。
 
-`statsdir /var/log/ntpd/  
+`statsdir /var/log/ntpd/
 filegen clockstats file clockstats type day enable`
 
 **レコード中のマークについて**
@@ -355,36 +356,34 @@ filegen clockstats file clockstats type day enable`
 
 #### Fudge Factors
 
-`time1 _time_`
+<code>**time1 _time_**</code>
 
-<dd>受信機からの時刻に対する調整時間を、固定小数点形式の秒で設定します。デフォルトは、0.0秒です。</dd>
+: 受信機からの時刻に対する調整時間を、固定小数点形式の秒で設定します。デフォルトは、0.0秒です。
 
-`time2 _time_`
+<code>**time2 _time_**</code>
 
-<dd>未使用。</dd>
+: 未使用。
 
-`stratum _number_`
+<code>**stratum _number_**</code>
 
-<dd>NTPの階層番号を 0 から 15 で指定します。デフォルトは、0です。</dd>
+: NTPの階層番号を 0 から 15 で指定します。デフォルトは、0です。
 
-`refid _string_`
+<code>**refid _string_**</code>
 
-<dd>ドライバーIDで、ASCII の1文字から4文字で指定します。デフォルトは、`JJY` です。</dd>
+: ドライバーIDで、ASCII の1文字から4文字で指定します。デフォルトは、`JJY` です。
 
-`flag1 0 | 1`
+<code>**flag1 0 | 1**</code>
 
-<dd>それぞれのモードを参照して下さい。</dd>
+: それぞれのモードを参照して下さい。
 
-`flag2 0 | 1`
+<code>**flag2 0 | 1**</code>
 
-<dd>それぞれのモードを参照して下さい。</dd>
+: それぞれのモードを参照して下さい。
 
-`flag3 0 | 1`
+<code>**flag3 0 | 1**</code>
 
-<dd>それぞれのモードを参照して下さい。</dd>
+: それぞれのモードを参照して下さい。
 
-`flag4 0 | 1`
+<code>**flag4 0 | 1**</code>
 
-<dd>それぞれのモードを参照して下さい。</dd>
-
-</dl>
+: それぞれのモードを参照して下さい。

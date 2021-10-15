@@ -1,7 +1,6 @@
 ---
 title: "About the Pictures"
 type: archives
-toc_hide: true
 ---
 
 ![gif](/archives/pic/tribeb.gif)
@@ -24,29 +23,25 @@ _The Okefenokee Orchestra_, Walt Kelly
 
 #### Our Anthem
 
-Sung to the tune of _Deck the halls with boughs of holly._ 
+Sung to the tune of _Deck the halls with boughs of holly._
 
 [//]: <> (commented by DL July/2021:[Hear the words sung by Beverly Mills](wav/song1a.wav).)
 
 ![gif](/archives/pic/bostona.gif)
 
-<dt>Deck us all with Boston Charlie,</dt>
+Deck us all with Boston Charlie,
+: _Walla Walla, Wash., an' Kalamazoo!_
 
-_Walla Walla, Wash., an' Kalamazoo!_
+Nora's freezin' on the trolley,
+: _swaller dollar cauliflower alleygaroo!_
 
-<dt>Nora's freezin' on the trolley,</dt>
+Don't we know archaic barrel,
+: _Lullaby Lilla Boy, Louisville Lou._
 
-_swaller dollar cauliflower alleygaroo!_
+Trolley Molly don't love Harold,
+: _boola boola Pensacoola hullabalou!_
 
-<dt>Don't we know archaic barrel,</dt>
-
-_Lullaby Lilla Boy, Louisville Lou._
-
-<dt>Trolley Molly don't love Harold,</dt>
-
-_boola boola Pensacoola hullabalou!_
-
-<dt>- Walt Kelly</dt>
+**- Walt Kelly**
 
 * * *
 
@@ -56,7 +51,7 @@ The artwork sprinkled on these pages is drawn from several sources, including te
 
 #### The Pogo Collection
 
-![gif](/archives/pic/pogo.gif) 
+![gif](/archives/pic/pogo.gif)
 
 ![gif](/archives/pic/w_kellya.gif)
 
@@ -64,58 +59,50 @@ _Pogo Possum_, the DCnet mascot (top), carries a bag of tools used to repair Uni
 
 "We have met the enemy and he is us" is probably the most famous line from the _Pogo_ comic strips and books published by Walt Kelly (above) <sup>[6](#myfootnote6)</sup>. The mugshots scattered over these pages were taken from his books [4-11](/reflib/pictures/#references), some of which are now valuable collectors items. The workstations, routers and other Internet munchkins that lurk in the DCnet swamp are named after his critters.
 
-![gif](/archives/pic/mugshot.gif) 
+![gif](/archives/pic/mugshot.gif)
 
 Here are some songs from _Songs of the Pogo_ <sup>[5](#myfootnote5)</sup> sung by Beverly Mills [Final Focus]:
 
-<dt>Boston Charlie</dt>
+[//]: <> (commented by DL July/2021 wav/song1a.wav)
+Boston Charlie
+: _Deck us All with Boston Charlie,_
+: _Wala, Wala Wash., an' Kalamazoo! ..._
 
-[//]: <> (commented by DL July/2021 wav/song1a.wav) 
- 
-_Deck us All with Boston Charlie,_
+[//]: <> (commented by DL July/2021 wav/song2a.wav)
 
-_Wala, Wala Wash., an' Kalamazoo! ..._
+Wry Song
+: _Oh, pick a pock of peach pits, pockets full of pie,_
+: _Foreign twenty black boards baked until they cry, ..._
 
-<dt>Wry Song</dt>
+[//]: <> (commented by DL July/2021 wav/song3a.wav)
 
-[//]: <> (commented by DL July/2021 wav/song2a.wav)  
-_Oh, pick a pock of peach pits, pockets full of pie,_
+Slopposition
+: _Oh, once the opposition was completally opposed_
+: _To all the suppositions that was gen'rally supposed; ..._
 
-_Foreign twenty black boards baked until they cry, ..._
+[//]: <> (wav/song4a.wav)
 
-<dt>Slopposition</dt>
+Parsnoops
+: _Oh, the parsnips were snipping their snappers,_
+: _While the parsley was parceling the peas, ..._
 
-[//]: <> (commented by DL July/2021 wav/song3a.wav)  
-_Oh, once the opposition was completally opposed_
+[//]: <> (commented by DL July/2021 wav/song5a.wav)
 
-_To all the suppositions that was gen'rally supposed; ..._
+A Song Not for Now
+: _A song not for_
+: _Now you need not put stay, ..._
 
-<dt>Parsnoops</dt>
+[//]: <> (commented by DL July/2021 wav/song6a.wav)
 
-[//]: <> (wav/song4a.wav)  
-_Oh, the parsnips were snipping their snappers,_
-
-_While the parsley was parceling the peas, ..._
-
-<dt>A Song Not for Now</dt>
-
-[//]: <> (commented by DL July/2021 wav/song5a.wav)  
-_A song not for_
-
-_Now you need not put stay, ..._
-
-<dt>The Keen and the Quing</dt>
-
-[//]: <> (commented by DL July/2021 wav/song6a.wav)  
-_The Keen and the Quing were quirling at quoits in the meadow behind of the mere,_
-
-_Tho' mainly the meadow was middled with mow, an heretical hitherto here, ..._
+The Keen and the Quing
+: _The Keen and the Quing were quirling at quoits in the meadow behind of the mere,_
+: _Tho' mainly the meadow was middled with mow, an heretical hitherto here, ..._
 
 * * *
 
 #### The Alice Books
 
-![gif](/archives/pic/alice47.gif) 
+![gif](/archives/pic/alice47.gif)
 
 ![jpg](/archives/pic/alice05s.jpg)
 
@@ -125,7 +112,7 @@ The life and works of Lewis Carroll and the story behind the Alice books have be
 
 Dodgson is the author not only of the Alice books [1-2](/reflib/pictures/#references), but of many delightful poems and puzzles <sup>[3](#myfootnote3)</sup>, the best known of which may be _The Hunting of the Snark_. In them can be found the _Bandersnatch_, _Boojum_, _Snark_, and other creatures of imagination that make wonderful names for computers.
 
-![jpg](/archives/pic/alice100.jpg) 
+![jpg](/archives/pic/alice100.jpg)
 
 Curiously, Sir John's rendition of Alice Pleasance Liddel, for whom the Alice books were written, is nothing like the real Alice, whose picture, taken by Dodgson himself and in the style of the day, is above <sup>[2](#myfootnote2)</sup>.
 
@@ -137,7 +124,7 @@ Alice herself lived a long life, during which several musical plays, books and f
 
 #### The Oz Books
 
-![gif](/archives/pic/flatheads.gif) 
+![gif](/archives/pic/flatheads.gif)
 
 The books by L. Frank Baum that began with _The Wizard of Oz_ <sup>[13](#myfootnote13)</sup>, first published in 1900, are probably, along with the Alice books, the best known children's books in the world. The artwork appearing on these pages is from the original by W.W. Denslow.
 
@@ -145,7 +132,7 @@ The books by L. Frank Baum that began with _The Wizard of Oz_ <sup>[13](#myfootn
 
 #### The Maya Glyphs
 
-![gif](/archives/pic/kin1.gif) 
+![gif](/archives/pic/kin1.gif)
 
 The [Classic Maya](/reflib/maya) civilization of southern Mexico, Guatemala and Belize flourished in the fourth through tenth century AD. They were accomplished astronomers and mathematicians and left a historic record engraved as glyphs in stone monuments called _stellae_. The glyphs record the rise and fall of the rulers, as well as the places, dates and atrocities of the age. The Maya calendar glyphs on these pages are from <sup>[14](#myfootnote14)</sup>. They illustrate the Maya calendar and arithmetic systems, which were highly developed long before the Europeans expunged the awkward Roman arithmetic system in favor of the much more practical Arabic system.
 
@@ -195,4 +182,3 @@ As for our [young playful rascals](/reflib/fam) here, be advised kittens use the
 <a name="myfootnote13">13</a>  Baum, L. Frank. _The Wizard of Oz_. Rand McNally and Company, 1956. Illustrations by W.W. Denslow.
 
 <a name="myfootnote14">14</a>  Morley, S.G., G.W. Brainerd and R.J. Sharer. _The Ancient Maya, 4th ed._Stanford University Press, Stanford, CA, 1983.
-					

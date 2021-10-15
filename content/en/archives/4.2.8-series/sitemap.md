@@ -27,6 +27,8 @@ type: archives
 * [ntptime - read and set kernel time variables](/archives/4.2.8-series/ntptime)
 * [ntp-keygen - generate public and private keys](/archives/4.2.8-series/keygen)
 * [ntpdsim - Network Time Protocol (NTP) simulator](/archives/4.2.8-series/ntpdsim)
+* [ntp-wait -waits until ntpd is in synchronized state](/archives/4.2.8-series/ntp-wait)
+* [ntp_conf - Configuration File Definition (Advanced)](/archives/4.2.8-series/ntp_conf)
 
 * * *
 

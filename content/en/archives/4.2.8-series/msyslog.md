@@ -22,184 +22,144 @@ Last update: 10-Mar-2014 05:12 UTC
 
 #### Introduction
 
-You have come here because you found a cryptic message in the system log. This page by no means lists all messages that might be found, since new ones come and old ones go. Generally, however, the most common ones will be found here. They are listed by program module and log severity code in bold: <tt>**LOG_ERR**</tt>, **<tt>LOG_NOTICE</tt>** and <tt>**LOG_INFO**</tt>.
+You have come here because you found a cryptic message in the system log. This page by no means lists all messages that might be found, since new ones come and old ones go. Generally, however, the most common ones will be found here. They are listed by program module and log severity code in bold: <code>**LOG_ERR**</code>, <code>**LOG_NOTICE**</code> and <code>**LOG_INFO**</code>.
 
-Most of the time **<tt>LOG_ERR</tt>** messages are fatal, but often <tt>ntpd</tt> limps onward in the hopes of discovering more errors. The <tt>**LOG_NOTICE**</tt> messages usually mean the time has changed or some other condition that probably should be noticed. The <tt>**LOG_INFO**</tt> messages usually say something about the system operations, but do not affect the time.
+Most of the time <code>**LOG_ERR**</code> messages are fatal, but often <code>ntpd</code> limps onward in the hopes of discovering more errors. The <code>**LOG_NOTICE**</code> messages usually mean the time has changed or some other condition that probably should be noticed. The <code>**LOG_INFO**</code> messages usually say something about the system operations, but do not affect the time.
 
-In the following a '?' character stands for text in the message. The meaning should be clear from context.
+In the following a <code>?</code> character stands for text in the message. The meaning should be clear from context.
 
 * * *
 
 #### Protocol Module
 
-<tt>**LOG_ERR**</tt>
+<code>**LOG_ERR**</code>
+<code>**buffer overflow ?**</code>
+: Fatal error. An input packet is too long for processing.
 
-<dt><tt>buffer overflow ?</tt></dt>
+<code>**LOG_NOTICE**</code>
+<code>**no reply; clock not set**</code>
+: In <code>ntpdate</code> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.
 
-Fatal error. An input packet is too long for processing.
+<code>**LOG_INFO**</code>
+<code>**proto_config: illegal item ?, value ?**</code>
 
-<tt>**LOG_NOTICE**</tt>
+: Program error. Bugs can be reported [here](/archives/4.2.8-series/bugs).
 
-<dt><tt>no reply; clock not set</tt></dt>
+<code>**receive: autokey requires two-way communication**</code>
 
-In <tt>ntpdate</tt> mode no servers have been found. The server(s) and/or network may be down. Standard debugging procedures apply.
+: Configuration error on the <code>broadcastclient</code> command.
 
-<tt>**LOG_INFO**</tt>
+<code>**receive: server _server_ maximum rate exceeded**</code>
 
-<dt><tt>proto_config: illegal item ?, value ?</tt></dt>
+: A kiss-o'death packet has been received. The transmit rate is automatically reduced.
 
-Program error. Bugs can be reported [here](/archives/4.2.8-series/bugs).
+<code>**pps sync enabled**</code>
 
-<dt><tt>receive: autokey requires two-way communication</tt></dt>
+: The PPS signal has been detected and enabled.
 
-Configuration error on the <tt>broadcastclient</tt> command.
+<code>**transmit: encryption key ? not found**</code>
 
-<dt><tt>receive: server _server_ maaximum rate exceeded</tt></dt>
+: The encryption key is not defined or not trusted.
 
-A kiss-o'death packet has been received. The transmit rate is automatically reduced.
+<code>**precision = ? usec**</code>
 
-<dt><tt>pps sync enabled</tt></dt>
+: This reports the precision measured for this machine.
 
-The PPS signal has been detected and enabled.
+<code>**using 10ms tick adjustments**</code>
 
-<dt><tt>transmit: encryption key ? not found</tt></dt>
+: Gotcha for some machines with dirty rotten clock hardware.
 
-The encryption key is not defined or not trusted.
+<code>**no servers reachable**</code>
 
-<dt><tt>precision = ? usec</tt></dt>
-
-This reports the precision measured for this machine.
-
-<dt><tt>using 10ms tick adjustments</tt></dt>
-
-Gotcha for some machines with dirty rotten clock hardware.
-
-<dt><tt>no servers reachable</tt></dt>
-
-The system clock is running on internal batteries. The server(s) and/or network may be down.
+: The system clock is running on internal batteries. The server(s) and/or network may be down.
 
 * * *
 
 #### Clock Discipline Module
 
-<tt>**LOG_ERR**</tt>
+<code>**LOG_ERR**</code>
+<code>**time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time.**</code>
 
-<dt><tt>time correction of ? seconds exceeds sanity limit (?); set clock manually to the correct UTC time</tt>.</dt>
+: Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.
 
-Fatal error. Better do what it says, then restart the daemon. Be advised NTP and Unix know nothing about local time zones. The clock must be set to Coordinated Universal Time (UTC). Believe it; by international agreement abbreviations are in French and descriptions are in English.
+<code>**sigaction() fails to save SIGSYS trap: ?**</code>
+: <code>**sigaction() fails to restore SIGSYS trap: ?**</code>
+: Program error. Bugs can be reported [here](/archives/4.2.8-series/bugs).
 
-<dt><tt>sigaction() fails to save SIGSYS trap: ? </tt></dt> 
+<code>**LOG_NOTICE**</code>
+<code>**frequency error ? exceeds tolerance 500 PPM**</code>
+: The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.
 
-<dt><tt>sigaction() fails to restore SIGSYS trap: ?</tt></dt>
+<code>**time slew ? s**</code>
+: The time error exceeds the step threshold and is being slewed to the correct time. You may have to wait a very long time.
 
-Program error. Bugs can be reported [here](/archives/4.2.8-series/bugs).
+<code>**time reset ? s**</code>
+: The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don't like this, but they can set the <code>ntpd -x</code> option and wait forever.
 
-<tt>**LOG_NOTICE**</tt>
+<code>**kernel time sync disabled ?**</code>
+: The kernel reports an error. See the codes in the <code>timex.h</code> file.
 
-<dt><tt>frequency error ? exceeds tolerance 500 PPM</tt></dt>
+<code>**pps sync disabled**</code>
+: The PPS signal has died, probably due to a dead radio, broken wire or loose connector.
 
-The hardware clock frequency error exceeds the rate the kernel can correct. This could be a hardware or a kernel problem.
-
-<dt><tt>time slew ? s</tt></dt>
-
-The time error exceeds the step threshold and is being slewed to the correct time. You may have to wait a very long time.
-
-<dt><tt>time reset ? s</tt></dt>
-
-The time error exceeds the step threshold and has been reset to the correct time. Computer scientists don't like this, but they can set the <tt>ntpd -x</tt> option and wait forever.
-
-<dt><tt>kernel time sync disabled ?</tt></dt>
-
-The kernel reports an error. See the codes in the <tt>timex.h</tt> file.
-
-<dt><tt>pps sync disabled</tt></dt>
-
-The PPS signal has died, probably due to a dead radio, broken wire or loose connector.
-
-<tt>**LOG_INFO**</tt>
-
-<dt><tt>kernel time sync status ?</tt></dt>
-
-For information only. See the codes in the <tt>timex.h</tt> file.
+<code>**LOG_INFO**</code>
+<code>**kernel time sync status ?**</code>
+: For information only. See the codes in the <code>timex.h</code> file.
 
 * * *
 
 #### Cryptographic Module
 
-<tt>**LOG_ERR**</tt>
+<code>**LOG_ERR**</code>
+<code>**cert_parse ?**</code>
+: <code>**cert_sign ?**</code>
+: <code>**crypto_cert ?**</code>
+: <code>**crypto_encrypt ?**</code>
+: <code>**crypto_gq ?**</code>
+: <code>**crypto_iff ?**</code>
+: <code>**crypto_key ?**</code>
+: <code>**crypto_mv ?**</code>
+: <code>**crypto_setup ?**</code>
+: <code>**make_keys ?**</code>
 
-<tt>cert_parse ?</tt>
+: Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.
 
-<tt>cert_sign ?</tt>
+<code>**crypto_setup: certificate ? is trusted, but not self signed.**</code>
+: <code>**crypto_setup: certificate ? not for this host**</code>
+: <code>**crypto_setup: certificate file ? not found or corrupt**</code>
+: <code>**crypto_setup: host key file ? not found or corrupt**</code>
+: <code>**crypto_setup: host key is not RSA key type**</code>
+: <code>**crypto_setup: random seed file ? not found**</code>
+: <code>**crypto_setup: random seed file not specified**</code>
 
-<tt>crypto_cert ?</tt>
+: Fatal errors. These messages show problems during the initialization procedure.
 
-<tt>crypto_encrypt ?</tt>
+<code>**LOG_INFO**</code>
+<code>**cert_parse: expired ?**</code>
+: <code>**cert_parse: invalid issuer ?**</code>
+: <code>**cert_parse: invalid signature ?**</code>
+: <code>**cert_parse: invalid subject ?**</code>
+: There is a problem with a certificate. Operation cannot proceed until the problem is fixed. If the certificate is local, it can be regenerated using the <code>ntp-keygen</code> program. If it is held somewhere else, it must be fixed by the holder.
 
-<tt>crypto_gq ?</tt>
+<code>**crypto\_?: defective key**</code>
+: <code>**crypto\_?: invalid filestamp**</code>
+: <code>**crypto\_?: missing challenge**</code>
+: <code>**crypto\_?: scheme unavailable**</code>
 
-<tt>crypto_iff ?</tt>
+: There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <code>ntpd</code> will usually time out and recover by itself.
 
-<tt>crypto_key ?</tt>
+<code>**crypto_cert: wrong PEM type ?**</code>
 
-<tt>crypto_mv ?</tt>
+: The certificate does not have MIME type <code>CERTIFICATE</code>. You are probably using the wrong type from OpenSSL or an external certificate authority.
 
-<tt>crypto_setup ?</tt>
+<code>**crypto_ident: no compatible identity scheme found**</code>
 
-<tt>make_keys ?</tt>
+: Configuration error. The server and client identity schemes are incompatible.
 
-Usually fatal errors. These messages display error codes returned from the OpenSSL library. See the OpenSSL documentation for explanation.
+<code>**crypto_tai: kernel TAI update failed**</code>
 
-<tt>crypto_setup: certificate ? is trusted, but not self signed.</tt>
+: The kernel does not support this function. You may need a new kernel or patch.
 
-<tt>crypto_setup: certificate ? not for this host</tt>
+<code>**crypto_tai: leapseconds file ? error ?**</code>
 
-<tt>crypto_setup: certificate file ? not found or corrupt</tt>
-
-<tt>crypto_setup: host key file ? not found or corrupt</tt>
-
-<tt>crypto_setup: host key is not RSA key type</tt>
-
-<tt>crypto_setup: random seed file ? not found</tt>
-
-<tt>rypto_setup: random seed file not specified</tt>
-
-Fatal errors. These messages show problems during the initialization procedure.
-
-<tt>**LOG_INFO**</tt>
-
-<tt>cert_parse: expired ?</tt>
-
-<tt>cert_parse: invalid issuer ?</tt>
-
-<tt>cert_parse: invalid signature ?</tt>
-
-<tt>cert_parse: invalid subject ?</tt>
-
-There is a problem with a certificate. Operation cannot proceed until the problem is fixed. If the certificate is local, it can be regenerated using the <tt>ntp-keygen</tt> program. If it is held somewhere else, it must be fixed by the holder.
-
-<tt>crypto_?: defective key</tt>
-
-<tt>crypto_?: invalid filestamp</tt>
-
-<tt>crypto_?: missing challenge</tt>
-
-<tt>crypto_?: scheme unavailable</tt>
-
-There is a problem with the identity scheme. Operation cannot proceed until the problem is fixed. Usually errors are due to misconfiguration or an orphan association. If the latter, <tt>ntpd</tt> will usually time out and recover by itself.
-
-<dt><tt>crypto_cert: wrong PEM type ?</tt></dt>
-
-The certificate does not have MIME type <tt>CERTIFICATE</tt>. You are probably using the wrong type from OpenSSL or an external certificate authority.
-
-<dt><tt>crypto_ident: no compatible identity scheme found</tt></dt>
-
-Configuration error. The server and client identity schemes are incompatible.
-
-<dt><tt>crypto_tai: kernel TAI update failed</tt></dt>
-
-The kernel does not support this function. You may need a new kernel or patch.
-
-<dt><tt>crypto_tai: leapseconds file ? error ?</tt></dt>
-
-The leapseconds file is corrupt. Obtain the latest file from <tt>time.nist.gov</tt>.
+: The leapseconds file is corrupt. Obtain the latest file from NIST.
