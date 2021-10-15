@@ -10,13 +10,24 @@
 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and …">
 <meta property="og:title" content="DEC OSF/1 V2.0 Hints" />
 <meta property="og:description" content="Problems with DEC OSF/1 V2.0 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h include files.
- cowbird:/usr/include/sys# diff -c wait.h.orig wait.h *** wait.h.orig Tue Feb 22 02:41:38 1994 --- wait.h Thu Aug 25 14:52:57 1994 *************** *** 298,304 **** #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, id_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ --- 298,304 ---- #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, pid_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ cowbird:/usr/include/sys# diff -c procset." />
+cowbird:/usr/include/sys# diff -c wait.h.orig wait.h*** wait.h.orig Tue Feb 22 02:41:38 1994--- wait.h Thu Aug 25 14:52:57 1994****************** 298,304 ****#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, id_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */--- 298,304 ----#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, pid_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */cowbird:/usr/include/sys# diff -c procset." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/hints/decosf2/" /><meta property="article:section" content="archives" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
   
   <title>DEC OSF/1 V2.0 Hints</title>
@@ -221,6 +232,68 @@ cowbird:/usr/include/sys# diff -c procset.h.orig procset.h
 <p>Also, if using <code>gcc</code> from the freeware disk, either replace <code>syscall.h</code> in the directory <code>/usr/local/lib/gcc-lib/alpha-dec-osf1/2.3.3/include</code> or replace with a link to <code>/usr/include/sys/syscall.h</code>.</p>
 
 	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
   </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
