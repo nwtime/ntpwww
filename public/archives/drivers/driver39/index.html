@@ -17,10 +17,7 @@ O/S System Configuration
 Fudge Factors …">
 <meta property="og:title" content="hopf PCI-Bus Receiver (6039 GPS/DCF77)" />
 <meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
- Table of Contents  Synopsis Description Operating System Compatibility O/S System Configuration Fudge Factors Questions or Comments   Synopsis Address:  127.127.39._X_
-Reference ID:  .hopf. (default), GPS, DCF
-Driver ID:  HOPF_P
- Description The refclock_hopf_pci driver supports the hopf PCI-bus interface 6039 GPS/DCF77.
+ Table of Contents  Synopsis Description Operating System Compatibility O/S System Configuration Fudge Factors Questions or Comments   Synopsis  Address: 127.127.39.X Reference ID: hopf (default), GPS, DCF Driver ID: HOPF_P   Description The refclock_hopf_pci driver supports the hopf PCI-bus interface 6039 GPS/DCF77.
 Additional software and information about the software drivers as well as the latest NTP driver source, executables, and documentation is maintained at http://www." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/drivers/driver39/" /><meta property="article:section" content="archives" />
@@ -60,10 +57,14 @@ Additional software and information about the software drivers as well as the la
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -74,12 +75,6 @@ Additional software and information about the software drivers as well as the la
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -107,7 +102,7 @@ Additional software and information about the software drivers as well as the la
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -134,9 +129,12 @@ Additional software and information about the software drivers as well as the la
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -194,14 +192,16 @@ Additional software and information about the software drivers as well as the la
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p><tt>Address:  </tt> <code>127.127.39._X_</code></p>
-<p><tt>Reference ID:  </tt> <code>.hopf.</code> (default), <code>GPS</code>, <code>DCF</code></p>
-<p><tt>Driver ID:  </tt> <code>HOPF_P</code></p>
+<dl>
+<dt><strong>Address:</strong> <code>127.127.39.<em>X</em></code></dt>
+<dd><strong>Reference ID:</strong> <code>hopf</code> (default), <code>GPS</code>, <code>DCF</code></dd>
+<dd><strong>Driver ID:</strong> <code>HOPF_P</code></dd>
+</dl>
 <p><img src="/archives/pic/fg6039.jpg" alt="gif"></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <strong>refclock_hopf_pci</strong> driver supports the <a href="http://www.hopf.com">hopf</a> PCI-bus interface 6039 GPS/DCF77.<br>
-Additional software and information about the software drivers as well as the latest NTP driver source, executables, and documentation is maintained at <a href="http://www.ATLSoft.de/ntp">http://www.ATLSoft.de/ntp</a>.</p>
+<p>The <code>refclock_hopf_pci</code> driver supports the <a href="http://www.hopf.com">hopf</a> PCI-bus interface 6039 GPS/DCF77.</p>
+<p>Additional software and information about the software drivers as well as the latest NTP driver source, executables, and documentation is maintained at <a href="http://www.ATLSoft.de/ntp">http://www.ATLSoft.de/ntp</a>.</p>
 <hr>
 <h4 id="operating-system-compatibility">Operating System Compatibility</h4>
 <p>The hopf clock driver has been tested on the following software and hardware platforms:</p>
@@ -235,14 +235,19 @@ Additional software and information about the software drivers as well as the la
 <p>The driver attempts to open the device by calling the function <code>OpenHopfDevice()</code>. This function will be installed by the Device Driver for the PCI-bus board. The driver belongs to the delivery equipment of the PCI-board.</p>
 <hr>
 <h4 id="fudge-factors">Fudge Factors</h4>
-<p><tt><strong>refid <em>string</em></strong></tt></p>
-<p>Specifies the driver reference identifier, <strong>GPS</strong> or <strong>DCF</strong>.</p>
-<p><tt><strong>flag1 0 | 1</strong></tt></p>
+<dl>
+<dt><code><strong>refid <em>string</em></strong></code></dt>
+<dd>
+<p>Specifies the driver reference identifier, <code>GPS</code> or <code>DCF</code>.</p>
+</dd>
+<dt><code><strong>flag1 0 | 1</strong></code></dt>
+<dd>
 <p>When set to 1, driver syncs even if only crystal driven.</p>
+</dd>
+</dl>
 <hr>
 <h4 id="questions-or-comments">Questions or Comments</h4>
-<p><a href="mailto:altmeier@atlsoft.de">Bernd Altmeier</a><a href="http://www.ATLSoft.de"><br>
-Ing.-Büro für Software www.ATLSoft.de</a></p>
+<p><a href="mailto:altmeier@atlsoft.de">Bernd Altmeier</a>, <a href="http://www.ATLSoft.de">Ing.-Büro für Software www.ATLSoft.de</a></p>
 
 	  
   </div>
@@ -280,20 +285,5 @@ Ing.-Büro für Software www.ATLSoft.de</a></p>
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

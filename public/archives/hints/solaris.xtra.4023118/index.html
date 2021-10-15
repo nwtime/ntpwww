@@ -6,16 +6,19 @@
   
 
   
-  <meta name="description" content=" Bug Id: 4023118
- Category: kernel
- Subcategory: other
- State: integrated
- Synopsis: sun4u doesn&#39;t keep accurate time
- Description:
+  <meta name="description" content="
+Bug Id: 4023118
+Category: kernel
+Subcategory: other
+State: integrated
+Synopsis: sun4u doesn&rsquo;t keep accurate time
+Description:
 
-[ bmc, 12/20/96 ] …">
+
+[ bmc, 12/20/96 …">
 <meta property="og:title" content="Solaris Bug #4023118" />
-<meta property="og:description" content="Bug Id: 4023118 Category: kernel Subcategory: other State: integrated Synopsis: sun4u doesn&#39;t keep accurate time Description: [ bmc, 12/20/96 ] The clock on a sun4u drifts unacceptably. On a typical 143 mHz Ultra, the clock took 1.0001350 seconds to count 1 second. While this may seem trivial, it adds up quickly. In this case, the TOD chip will have to pull the clock forward by 2 seconds every 4 hours and 7 minutes." />
+<meta property="og:description" content="Bug Id: 4023118 Category: kernel Subcategory: other State: integrated Synopsis: sun4u doesn&rsquo;t keep accurate time Description:   [ bmc, 12/20/96 ]
+The clock on a sun4u drifts unacceptably. On a typical 143 mHz Ultra, the clock took 1.0001350 seconds to count 1 second. While this may seem trivial, it adds up quickly. In this case, the TOD chip will have to pull the clock forward by 2 seconds every 4 hours and 7 minutes." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/hints/solaris.xtra.4023118/" /><meta property="article:section" content="archives" />
 
@@ -54,10 +57,14 @@
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -68,12 +75,6 @@
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -101,7 +102,7 @@
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -128,9 +129,12 @@
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -175,44 +179,26 @@
   <div class="container">
   	<h1>Solaris Bug #4023118</h1>
      
-    <pre> Bug Id: 4023118
- Category: kernel
- Subcategory: other
- State: integrated
- Synopsis: sun4u doesn't keep accurate time
- Description:
-
-[ bmc, 12/20/96 ]
-
-The clock on a sun4u drifts unacceptably.  On a typical 143 mHz Ultra,
-the clock took 1.0001350 seconds to count 1 second.  While this may seem
-trivial, it adds up quickly.  In this case, the TOD chip will have to
-pull the clock forward by 2 seconds every 4 hours and 7 minutes.
-This drift rate is so high, that the clock is close to being too broken
-for NTP to guarantee correctness (in order for NTP's mechanism to work,
-it must be assured that the local clock drifts no more than 20 ms in 64
-seconds;  this particular 143 mHz Ultra will drift by nearly 9 ms in that
-period).  This problem has been reproduced on virtually all sun4u
-classes.
-
-The fundamental problem lies in the kernel's perception of ticks per
-second.  The PROM is responsible for determining this figure exactly,
-and the kernel extracts it into the variable cpu_tick_freq.  On sun4u's,
-this number is disconcertingly round:  143000000, 167000000, 248000000,
-etc.  Indeed, a simple experiment revealed that these numbers were
-quite far from the actual ticks per second.  Typical was the 143 mHz
-Ultra which was discovered to tick around 142,980,806 (+/- 10) times
-per second.
-
- Work around:
-
-        Integrated in releases: s297_27
- Duplicate of:
- Patch id:
- See also:
- Summary:
-
-</pre>
+    <dl>
+<dt>Bug Id: <code>4023118</code></dt>
+<dd><strong>Category:</strong> kernel</dd>
+<dd><strong>Subcategory:</strong> other</dd>
+<dd><strong>State:</strong> integrated</dd>
+<dd><strong>Synopsis:</strong> sun4u doesn&rsquo;t keep accurate time</dd>
+<dd><strong>Description:</strong></dd>
+</dl>
+<hr>
+<p>[ bmc, 12/20/96 ]</p>
+<p>The clock on a sun4u drifts unacceptably.  On a typical 143 mHz Ultra, the clock took 1.0001350 seconds to count 1 second.  While this may seem trivial, it adds up quickly.  In this case, the TOD chip will have to pull the clock forward by 2 seconds every 4 hours and 7 minutes. This drift rate is so high, that the clock is close to being too broken for NTP to guarantee correctness (in order for NTP&rsquo;s mechanism to work, it must be assured that the local clock drifts no more than 20 ms in 64 seconds;  this particular 143 mHz Ultra will drift by nearly 9 ms in that period).  This problem has been reproduced on virtually all sun4u classes.</p>
+<p>The fundamental problem lies in the kernel&rsquo;s perception of ticks per second.  The PROM is responsible for determining this figure exactly, and the kernel extracts it into the variable <code>cpu_tick_freq</code>.  On sun4u&rsquo;s, this number is disconcertingly round:  143000000, 167000000, 248000000, etc.  Indeed, a simple experiment revealed that these numbers were quite far from the actual ticks per second.  Typical was the 143 mHz Ultra which was discovered to tick around 142,980,806 (+/- 10) times per second.</p>
+<hr>
+<dl>
+<dt><strong>Work around:</strong> <code>Integrated in releases: s297_27</code></dt>
+<dd><strong>Duplicate of:</strong></dd>
+<dd><strong>Patch id:</strong></dd>
+<dd><strong>See also:</strong></dd>
+<dd><strong>Summary:</strong></dd>
+</dl>
 
 	  
   </div>
@@ -250,20 +236,5 @@ per second.
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

@@ -12,8 +12,8 @@ Older SCO Unix versions
 NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older …">
 <meta property="og:title" content="SCO Unix Hints" />
 <meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
- Older SCO Unix versions NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&rsquo;t mind to modify your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.
- Compiling NTP Delete the old SCO supplied NTP programs using the &ldquo;custom&rdquo; utility. Run the NTP configure program with CFLAGS=&quot;-b elf -K _processor-type_&quot; for best results." />
+ Older SCO Unix versions NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&rsquo;t mind modifying your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.
+ Compiling NTP Delete the old SCO supplied NTP programs using the custom utility. Run the NTP configure program with CFLAGS=&quot;-b elf -K processor-type&quot; for best results." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/hints/sco/" /><meta property="article:section" content="archives" />
 
@@ -52,10 +52,14 @@ NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP o
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -66,12 +70,6 @@ NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP o
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -99,7 +97,7 @@ NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP o
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -126,9 +124,12 @@ NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP o
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -176,13 +177,13 @@ NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP o
     <p>Last update: 21-Oct-2010 23:44 UTC</p>
 <hr>
 <h4 id="older-sco-unix-versions">Older SCO Unix versions</h4>
-<p>NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&rsquo;t mind to modify your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.</p>
+<p>NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&rsquo;t mind modifying your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.</p>
 <hr>
 <h4 id="compiling-ntp">Compiling NTP</h4>
-<p>Delete the old SCO supplied NTP programs using the &ldquo;custom&rdquo; utility. Run the NTP configure program with <code>CFLAGS=&quot;-b elf -K _processor-type_&quot;</code> for best results.</p>
+<p>Delete the old SCO supplied NTP programs using the <code>custom</code> utility. Run the NTP configure program with <code>CFLAGS=&quot;-b elf -K <em>processor-type</em>&quot;</code> for best results.</p>
 <hr>
 <h4 id="running-ntp">Running NTP</h4>
-<p>Run <code>tickadj -As</code> after every reboot to set the variables &ldquo;clock_drift&rdquo; and &ldquo;track_rtc&rdquo; to the right values.</p>
+<p>Run <code>tickadj -As</code> after every reboot to set the variables <code>clock_drift</code> and <code>track_rtc</code> to the right values.</p>
 <p>Run <code>ntpd</code> with a high negative nice-value, i.e. <code>nice --19 ntpd</code> for best results.</p>
 <p>Kees Hendrikse, January 1999</p>
 
@@ -222,20 +223,5 @@ NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP o
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

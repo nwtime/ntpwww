@@ -17,15 +17,13 @@ Fudge Factors
 
 Synopsis
 
-Address:   127.127.44.u
-Reference ID: neol …">
+
+Address: 127.127.44.u
+Reference ID: neol
+Driver …">
 <meta property="og:title" content="NeoClock4X" />
 <meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
- Table of Contents  Synopsis Description Fudge Factors   Synopsis Address:  127.127.44.u
-Reference ID: neol
-Driver ID: NEOCLK4X
-Serial Port: /dev/neoclock4x-u
- Description The refclock_neoclock4x driver supports the NeoClock4X receiver available from Linum Software GmbH. The receiver is available as a DCF77 or TDF receiver. Both receivers have the same output string. For more information about the NeoClock4X receiver please visit http://www.linux-funkuhr.de." />
+ Table of Contents  Synopsis Description Fudge Factors   Synopsis  Address: 127.127.44.u Reference ID: neol Driver ID: NEOCLK4X Serial Port: /dev/neoclock4x-u   Description The refclock_neoclock4x driver supports the NeoClock4X receiver available from Linum Software GmbH. The receiver is available as a DCF77 or TDF receiver. Both receivers have the same output string. For more information about the NeoClock4X receiver please visit http://www." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/drivers/driver44/" /><meta property="article:section" content="archives" />
 
@@ -64,10 +62,14 @@ Serial Port: /dev/neoclock4x-u
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -78,12 +80,6 @@ Serial Port: /dev/neoclock4x-u
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -111,7 +107,7 @@ Serial Port: /dev/neoclock4x-u
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -138,9 +134,12 @@ Serial Port: /dev/neoclock4x-u
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -196,33 +195,55 @@ Serial Port: /dev/neoclock4x-u
 <hr>
 <h2 id="synopsis">Synopsis</h2>
 <p><img src="/archives/pic/neoclock4x.gif" alt="NeoClock4X - DCF77 receiver"></p>
-<p><tt>Address:  </tt> <code>127.127.44.u</code></p>
-<p><tt>Reference ID:</tt> <code>neol</code></p>
-<p><tt>Driver ID:</tt>  <code>NEOCLK4X</code></p>
-<p><tt>Serial Port:</tt>  <code>/dev/neoclock4x-u</code></p>
+<dl>
+<dt><strong>Address:</strong> <code>127.127.44.u</code></dt>
+<dd><strong>Reference ID:</strong> <code>neol</code></dd>
+<dd><strong>Driver ID:</strong>  <code>NEOCLK4X</code></dd>
+<dd><strong>Serial Port:</strong>  <code>/dev/neoclock4x-u</code></dd>
+</dl>
 <hr>
 <h4 id="description">Description</h4>
-<p>The refclock_neoclock4x driver supports the NeoClock4X receiver available from Linum Software GmbH. The receiver is available as a DCF77 or TDF receiver. Both receivers have the same output string. For more information about the NeoClock4X receiver please visit <a href="http://www.linux-funkuhr.de">http://www.linux-funkuhr.de</a>.</p>
+<p>The <code>refclock_neoclock4x</code> driver supports the NeoClock4X receiver available from Linum Software GmbH. The receiver is available as a DCF77 or TDF receiver. Both receivers have the same output string. For more information about the NeoClock4X receiver please visit <a href="http://www.linux-funkuhr.de">http://www.linux-funkuhr.de</a>.</p>
 <hr>
 <h4 id="fudge-factors">Fudge Factors</h4>
-<p><a href="/archives/4.2.8-series/clockopt/#commands-and-options"><strong><tt>time1 time</tt></strong></a></p>
-<p>Specifies the time offset calibration factor with the default value off 0.16958333 seconds. This offset is used  to correct serial line and operating system delays incurred in capturing time stamps. If you want to fudge the time1 offset <strong>ALWAYS</strong> add a value off 0.16958333. This is necessary to compensate to delay that is caused by transmit the timestamp at 2400 Baud. If you want to compensate the delay that the DCF77 or TDF radio signal takes to travel to your site simply add the needed millisecond delay to the given value. Note that the time here is given in seconds.</p>
+<dl>
+<dt><code><strong>time1 <em>time</em></strong></code></dt>
+<dd>
+<p>Specifies the time offset calibration factor with the default value off 0.16958333 seconds. This offset is used  to correct serial line and operating system delays incurred in capturing time stamps. If you want to fudge the <code>time1</code> offset <strong>ALWAYS</strong> add a value off 0.16958333. This is necessary to compensate the delay to transmit the timestamp at 2400 Baud. If you want to compensate the delay that the DCF77 or TDF radio signal takes to travel to your site simply add the needed millisecond delay to the given value. Note that the time here is given in seconds.</p>
+</dd>
+</dl>
 <p>Default setting is 0.16958333 seconds.</p>
-<p><a href="/archives/4.2.8-series/clockopt/#commands-and-options"><strong><tt>time2 time</tt></strong></a></p>
+<dl>
+<dt><code><strong>time2 <em>time</em></strong></code></dt>
+<dd>
 <p>Not used by this driver.</p>
-<p><a href="/archives/4.2.8-series/clockopt#commands-and-options"><strong><tt>flag1 0 | 1</tt></strong></a></p>
-<p>When set to 1 the driver will feed ntp with timestampe even if the radio signal is lost. In this case an internal backup clock generates the timestamps. This is ok as long as the receiver is synced once since the receiver is able to keep time for a long period.</p>
-<p>Default setting is 0 = don&rsquo;t synchronize to CMOS clock.</p>
-<p><a href="/archives/4.2.8-series/clockopt#commands-and-options"><strong><tt>flag2 0 | 1</tt></strong></a></p>
-<p>You can allow the NeoClock4X driver to use the quartz clock even if it is never synchronized to a radio clock. This is usually not a good idea if you want preceise timestamps since the CMOS clock is maybe not adjusted to a dst status change. So <strong>PLEASE</strong> switch this only on if you now what you&rsquo;re doing.</p>
-<p>Default setting is 0 = don&rsquo;t synchronize to unsynchronized CMOS clock.</p>
-<p><a href="/archives/4.2.8-series/clockopt#commands-and-options"><strong><tt>flag3 0 | 1</tt></strong></a></p>
+</dd>
+<dt><code><strong>flag1 0 | 1</strong></code></dt>
+<dd>
+<p>When set to 1 the driver will feed ntp with timestamps even if the radio signal is lost. In this case an internal backup clock generates the timestamps. This is ok as long as the receiver is synced once, since the receiver is able to keep time for a long period.</p>
+</dd>
+</dl>
+<p>Default setting is 0 (don&rsquo;t synchronize to CMOS clock).</p>
+<dl>
+<dt><code><strong>flag2 0 | 1</strong></code></dt>
+<dd>
+<p>You can allow the NeoClock4X driver to use the quartz clock even if it is never synchronized to a radio clock. This is usually not a good idea if you want precise timestamps since the CMOS clock is maybe not adjusted to a dst status change. So <strong>PLEASE</strong> only switch this on if you know what you&rsquo;re doing.</p>
+</dd>
+</dl>
+<p>Default setting is 0 (don&rsquo;t synchronize to unsynchronized CMOS clock).</p>
+<dl>
+<dt><code><strong>flag3 0 | 1</strong></code></dt>
+<dd>
 <p>Not used by this driver.</p>
-<p><a href="/archives/4.2.8-series/clockopt#commands-and-options"><strong><tt>flag4 0 | 1</tt></strong></a></p>
-<p>It is recommended to allow extensive logging while you setup the NeoClock4X receiver. If you activate flag4 every received data is logged. You should turn off flag4 as soon as the clock works as expected to reduce logfile cluttering.</p>
-<p>Default setting is 0 = don&rsquo;t log received data and converted utc time.</p>
+</dd>
+<dt><code><strong>flag4 0 | 1</strong></code></dt>
+<dd>
+<p>It is recommended to allow extensive logging while you setup the NeoClock4X receiver. If you activate <code>flag4</code>, every received data is logged. You should turn off <code>flag4</code> as soon as the clock works as expected to reduce logfile cluttering.</p>
+</dd>
+</dl>
+<p>Default setting is 0 (don&rsquo;t log received data and converted UTC time).</p>
 <hr>
-<p>Please send any comments or question to <a href="mailto:neoclock4@linum.com">neoclock4x@linum.com</a>.</p>
+<p>Please send any comments or questions to <a href="mailto:neoclock4@linum.com">neoclock4x@linum.com</a>.</p>
 
 	  
   </div>
@@ -260,20 +281,5 @@ Serial Port: /dev/neoclock4x-u
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

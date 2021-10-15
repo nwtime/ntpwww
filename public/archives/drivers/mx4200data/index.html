@@ -57,10 +57,14 @@ Control …">
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -71,12 +75,6 @@ Control …">
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -104,7 +102,7 @@ Control …">
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -131,9 +129,12 @@ Control …">
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -201,7 +202,7 @@ Control …">
 </thead>
 <tbody>
 <tr>
-<td>`</td>
+<td><code>`</code></td>
 <td>Sentence Start Character</td>
 </tr>
 <tr>
@@ -293,13 +294,17 @@ Control …">
 </tr>
 </tbody>
 </table>
-<p>NULL fields are fields which do not contain any data. They would appear as two commas together in the sentence format, except for the final field. Some Magnavox proprietary sentences require that the format contain NULL fields. mandatory NULL fields are identified by an <code>*</code> next to the respective field.</p>
+<p>NULL fields are fields which do not contain any data. They would appear as two commas together in the sentence format, except for the final field. Some Magnavox proprietary sentences require that the format contain NULL fields. Mandatory NULL fields are identified by an <code>*</code> next to the respective field.</p>
 <hr>
 <h4 id="control-port-input-sentences">Control Port Input Sentences</h4>
 <p>These are the subset of the MX4200 control port input sentences sent by the NTP driver to the GPS receiver.</p>
 <p><strong>$PMVXG,000</strong></p>
-<p><strong>Initialization/Mode Control - Part A</strong></p>
+<dl>
+<dt><strong>Initialization/Mode Control - Part A</strong></dt>
+<dd>
 <p>Initializes the time, position and antenna height of the MX4200.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -399,8 +404,12 @@ Control …">
 <code>$PMVXG,000,,,,,5128.4651,N,00020.0715,W,58.04,*4F</code></p>
 <hr>
 <p><strong>$PMVXG,001</strong></p>
-<p><strong>Initialization/Mode Control - Part B</strong></p>
-<p>Specifies various navigation parameters: Altitude aiding, acceleration DOP limits, and satellite elevation limits.</p>
+<dl>
+<dt><strong>Initialization/Mode Control - Part B</strong></dt>
+<dd>
+<p>Specifies various navigation parameters: altitude aiding, acceleration DOP limits, and satellite elevation limits.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -432,7 +441,7 @@ Control …">
 <tr>
 <td><code>*3</code></td>
 <td>Horizontal Acceleration Factor</td>
-<td>m/sec^2</td>
+<td>m/sec<sup>^</sup>2</td>
 <td>Float</td>
 <td>1.0</td>
 <td>0.5-10.0</td>
@@ -491,8 +500,12 @@ Control …">
 <p><code>$PMVXG,001,3,,0.1,0.1,10,10,5,U,0*06</code></p>
 <hr>
 <p><strong>$PMVXG,007</strong></p>
-<p><strong>Control Port Output Configuration</strong></p>
+<dl>
+<dt><strong>Control Port Output Configuration</strong></dt>
+<dd>
 <p>This message enables or disables output of the specified sentence and defines the output rate. The user sends this message for each sentence that the receiver is to output.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -575,8 +588,12 @@ Control …">
 <p><code>$PMVXG,007,022,0,1,,1,,,*4F</code></p>
 <hr>
 <p><strong>$PMVXG,023</strong></p>
-<p><strong>Time Recovery Configuration</strong></p>
+<dl>
+<dt><strong>Time Recovery Configuration</strong></dt>
+<dd>
 <p>This message is used to enable/disable the time recovery feature of the receiver. The time synchronization for the 1PPS output is specified in addition to a user time bias and an error tolerance for a valid pulse. This record is accepted in units configured for time recovery. If the back panel contains a 1PPS outlet, the receiver is a time recovery unit.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -651,8 +668,12 @@ Control …">
 <p><code>$PMVXG,023,S,U,A,500,0,1,*16</code></p>
 <hr>
 <p><strong>$CDGPQ,YYY</strong></p>
-<p><strong>Query From a Remote Device / Request to Output a Sentence</strong></p>
+<dl>
+<dt><strong>Query From a Remote Device / Request to Output a Sentence</strong></dt>
+<dd>
 <p>Enables the controller to request a one-time transmission of a specific block label. To output messages at a periodic rate, refer to input sentence $PMVXG,007.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -695,8 +716,12 @@ Control …">
 <h4 id="control-port-output-sentences">Control Port Output Sentences</h4>
 <p>These are the subset of the MX4200 control port output sentences recognized by the NTP driver.</p>
 <p><strong>$PMVXG,000</strong></p>
-<p><strong>Receiver Status</strong></p>
+<dl>
+<dt><strong>Receiver Status</strong></dt>
+<dd>
 <p>Returns the current status of the receiver including the operating mode, number of satellites visible, and the number of satellites being tracked.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -749,8 +774,12 @@ Control …">
 <p><code>$PMVXG,000,TRK,3,3,0122,1*19</code></p>
 <hr>
 <p><strong>$PMVXG,021</strong></p>
-<p><strong>Position, Height, Velocity</strong></p>
+<dl>
+<dt><strong>Position, Height, Velocity</strong></dt>
+<dd>
 <p>This sentence gives the receiver position, height, navigation mode and velocity north/east. <em>This sentence is intended for post-analysis applications.</em></p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -838,8 +867,12 @@ Control …">
 <p><code>$PMVXG,021,142244.00,5128.4744,N,00020.0593,W,00054.4,0047.4,0000.1,-000.2,03*66</code></p>
 <hr>
 <p><strong>$PMVXG,022</strong></p>
-<p><strong>DOPs</strong></p>
+<dl>
+<dt><strong>DOPs</strong></dt>
+<dd>
 <p>This sentence reports the DOP (Dilution Of Precision) values actually used in the measurement processing corresponding to the satellites listed. The satellites are listed in receiver channel order. Fields 11-16 are output only on 12-channel receivers.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -969,8 +1002,12 @@ Control …">
 <p><code>$PMVXG,022,142243.00,00.7,00.8,01.9,27,26,10,09,13,23*77</code></p>
 <hr>
 <p><strong>$PMVXG,030</strong></p>
-<p><strong>Software Configuration</strong></p>
+<dl>
+<dt><strong>Software Configuration</strong></dt>
+<dd>
 <p>This sentence contains the navigation processor and baseband firmware version numbers.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -996,8 +1033,12 @@ Control …">
 <p><code>$PMVXG,030,DA35,015</code></p>
 <hr>
 <p><strong>$PMVXG,101</strong></p>
-<p><strong>Control Sentence Accept/Reject</strong></p>
-<p>This sentence is returned (on the Control Port) for every <strong>$PMVXG</strong> and <strong>$XXGPQ</strong> sentence that is received.</p>
+<dl>
+<dt><strong>Control Sentence Accept/Reject</strong></dt>
+<dd>
+<p>This sentence is returned (on the Control Port) for every <code>$PMVXG</code> and <code>$XXGPQ</code> sentence that is received.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -1043,8 +1084,12 @@ Control …">
 <p><code>$PMVXG,101,GPQ,0,,030*0D</code></p>
 <hr>
 <p><strong>$PMVXG,523</strong></p>
-<p><strong>Time Recovery Configuration</strong></p>
+<dl>
+<dt><strong>Time Recovery Configuration</strong></dt>
+<dd>
 <p>This sentence contains the configuration of the time recovery function of the receiver.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -1111,8 +1156,12 @@ Control …">
 <p><code>$PMVXG,523,S,U,A,0500,000000,1,0*23</code></p>
 <hr>
 <p><strong>$PMVXG,830</strong></p>
-<p><strong>Time Recovery Results</strong></p>
+<dl>
+<dt><strong>Time Recovery Results</strong></dt>
+<dd>
 <p>This sentence is output approximately 1 second preceding the 1PPS output. It indicates the exact time of the next pulse, whether or not the time mark will be valid (based on operator-specified error tolerance), the time to which the pulse is synchronized, the receiver operating mode, and the time error of the <strong>last</strong> 1PPS output. The leap second flag (Field #11) is not output by older receivers.</p>
+</dd>
+</dl>
 <table>
 <thead>
 <tr>
@@ -1242,20 +1291,5 @@ Control …">
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

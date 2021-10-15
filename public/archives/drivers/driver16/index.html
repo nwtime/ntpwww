@@ -16,16 +16,12 @@ Additional Information
 
 
 Synopsis
+
 Address: 127.127.16.u
-Reference ID: BTFP …">
+Reference ID: …">
 <meta property="og:title" content="Bancomm bc635VME Time and Frequency Processor" />
 <meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
- Table of Contents  Synopsis Description Additional Information   Synopsis Address: 127.127.16.u
-Reference ID: BTFP
-Driver ID: GPS_BANCOMM
-Bancomm Device /dev/btfp0
-Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x
- Description This is the clock driver for the Bancomm bc635VME Time and Frequency Processor. It requires the BANCOMM bc635VME bc350VXI Time and Frequency Processor Module Driver for SunOS 4.x/SunOS 5.x UNIX Systems." />
+ Table of Contents  Synopsis Description Additional Information   Synopsis  Address: 127.127.16.u Reference ID: BTFP Driver ID: GPS_BANCOMM Bancomm Device: /dev/btfp0 Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x   Description This is the clock driver for the Bancomm bc635VME Time and Frequency Processor. It requires the BANCOMM bc635VME bc350VXI Time and Frequency Processor Module Driver for SunOS 4." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/drivers/driver16/" /><meta property="article:section" content="archives" />
 
@@ -64,10 +60,14 @@ Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -78,12 +78,6 @@ Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -111,7 +105,7 @@ Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -138,9 +132,12 @@ Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -195,15 +192,17 @@ Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<p>Address: 127.127.16.<em>u</em><br>
-Reference ID: BTFP<br>
-Driver ID: GPS_BANCOMM<br>
-Bancomm Device <tt>/dev/btfp0</tt><br>
-Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x</p>
+<dl>
+<dt><strong>Address:</strong> <code>127.127.16.<em>u</em></code></dt>
+<dd><strong>Reference ID:</strong> <code>BTFP</code></dd>
+<dd><strong>Driver ID:</strong> <code>GPS_BANCOMM</code></dd>
+<dd><strong>Bancomm Device:</strong> <code>/dev/btfp0</code></dd>
+<dd><strong>Requires:</strong> Bancomm <code>bc635</code> TFP device module driver for SunOS 4.x/SunOS 5.x</dd>
+</dl>
 <hr>
 <h4 id="description">Description</h4>
 <p>This is the clock driver for the Bancomm bc635VME Time and Frequency Processor. It requires the BANCOMM bc635VME bc350VXI Time and Frequency Processor Module Driver for SunOS 4.x/SunOS 5.x UNIX Systems.</p>
-<p>Most of this code is originally from refclock_bancomm.c with thanks. It has been modified and tested on an UltraSparc IIi-cEngine running Solaris 2.6. A port for HPUX is not available henceforth.</p>
+<p>Most of this code is originally from <code>refclock_bancomm.c</code> with thanks. It has been modified and tested on an UltraSparc IIi-cEngine running Solaris 2.6. A port for HPUX is not available henceforth.</p>
 <hr>
 <h4 id="additional-information">Additional Information</h4>
 <p><a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
@@ -244,20 +243,5 @@ Requires: Bancomm bc635 TFP device module driver for SunOS 4.x/SunOS 5.x</p>
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

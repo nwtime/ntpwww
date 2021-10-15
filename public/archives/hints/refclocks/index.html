@@ -6,11 +6,10 @@
   
 
   
-  <meta name="description" content="This is a short overview for the reference clocks currently supported
-by xntp V3. (Ultimate wisdom can be obtained from xntpd/refclock_*.c
-this file …">
+  <meta name="description" content="This is a short overview for the reference clocks currently supported by xntp V3. Ultimate wisdom can be obtained from xntpd/refclock_*.c. This page …">
 <meta property="og:title" content="NTPv3 refclocks" />
-<meta property="og:description" content="This is a short overview for the reference clocks currently supported by xntp V3. (Ultimate wisdom can be obtained from xntpd/refclock_*.c this file was derived from that information - unfortunately some comments in the files tend to get stale - so use with caution). Refclock address	Type 127.127.0.x	no clock (fails to configure) 127.127.1.x	local clock - use local clock as reference 127.127.2.x	no clock (fails to configure) 127.127.3.x	PSTI 1010/1020 WWV Clock 127." />
+<meta property="og:description" content="This is a short overview for the reference clocks currently supported by xntp V3. Ultimate wisdom can be obtained from xntpd/refclock_*.c. This page was derived from that information - unfortunately some comments in the files tend to get stale - so use with caution.
+   Refclock address Type     127.127.0.x no clock (fails to configure)   127.127.1.x local clock - use local clock as reference   127." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/hints/refclocks/" /><meta property="article:section" content="archives" />
 
@@ -49,10 +48,14 @@ this file …">
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -63,12 +66,6 @@ this file …">
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -96,7 +93,7 @@ this file …">
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -123,9 +120,12 @@ this file …">
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -170,43 +170,89 @@ this file …">
   <div class="container">
   	<h1>NTPv3 refclocks</h1>
      
-    <pre>This is a short overview for the reference clocks currently supported
-by xntp V3. (Ultimate wisdom can be obtained from xntpd/refclock_*.c
-this file was derived from that information - unfortunately some comments
-in the files tend to get stale - so use with caution).
-
-Refclock address	Type
-127.127.0.x		no clock (fails to configure)
-127.127.1.x		local clock - use local clock as reference
-127.127.2.x		no clock (fails to configure)
-127.127.3.x		PSTI 1010/1020 WWV Clock
-127.127.4.x		SPECTRACOM WWVB receiver 8170 and Netclock/2
-127.127.5.x		Kinimetric Truetime 468-DC GOES receiver
-127.127.6.x		IRIG audio decode (Sun & modified BSD audio driver)
-127.127.7.x		CHU Timecode (via normal receiver & Bell 103 modem)
-127.127.8.x		PARSE (generic driver for a bunch of DCF/GPS clocks
-			       can be extended for other clocks too)
-	8.0-3		Meinberg PZF535/TCXO
-	8.4-7		Meinberg PZF535/OCXO
-	8.8-11		Meinberg DCF U/A 31
-	8.12-15		ELV DCF7000
-	8.16-19		Walter Schmid DCF receiver (Kit)
-	8.20-23		Conrad DCF77 receiver module + level converter (Kit)
-	8.24-27		TimeBrick (limited availability ask
-				   time@informatik.uni-erlangen.de)
-	8.28-31		Meinberg GPS166
-	8.32-35		Trimble SV6 GPS receiver
-127.127.9.x		MX4200 GPS receiver
-127.127.10.x		Austron 2201A GPS Timing Receiver
-127.127.11.x		Kinemetrics Truetime OM-DC OMEGA Receiver
-127.127.12.x		KSI/Odetecs TPRO-S IRIG-B / TPRO-SAT GPS
-127.127.13.x		Leitch: CSD 5300 Master Clock System Driver
-127.127.14.x		MSFEES
-127/127.15.x		TrueTime GPS/TM-TMD
-127.127.16.x		Bancomm GPS/IRIG Ticktock
-127.127.17.x		Datum Programmable Time System
-
-</pre>
+    <p>This is a short overview for the reference clocks currently supported by <code>xntp</code> V3. Ultimate wisdom can be obtained from <code>xntpd/refclock_*.c</code>. This page was derived from that information - unfortunately some comments in the files tend to get stale - so use with caution.</p>
+<table>
+<thead>
+<tr>
+<th>Refclock address</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>127.127.0.x</code></td>
+<td>no clock (fails to configure)</td>
+</tr>
+<tr>
+<td><code>127.127.1.x</code></td>
+<td>local clock - use local clock as reference</td>
+</tr>
+<tr>
+<td><code>127.127.2.x</code></td>
+<td>no clock (fails to configure)</td>
+</tr>
+<tr>
+<td><code>127.127.3.x</code></td>
+<td>PSTI 1010/1020 WWV Clock</td>
+</tr>
+<tr>
+<td><code>127.127.4.x</code></td>
+<td>SPECTRACOM WWVB receiver 8170 and Netclock/2</td>
+</tr>
+<tr>
+<td><code>127.127.5.x</code></td>
+<td>Kinimetric Truetime 468-DC GOES receiver</td>
+</tr>
+<tr>
+<td><code>127.127.6.x</code></td>
+<td>IRIG audio decode (Sun &amp; modified BSD audio driver)</td>
+</tr>
+<tr>
+<td><code>127.127.7.x</code></td>
+<td>CHU Timecode (via normal receiver &amp; Bell 103 modem)</td>
+</tr>
+<tr>
+<td><code>127.127.8.x</code></td>
+<td>PARSE (generic driver for a bunch of DCF/GPS clocks; can be extended for other clocks too). <code>x</code> can be:<br><code>0-3</code>: Meinberg PZF535/TCXO<br> <code>4-7</code>:	Meinberg PZF535/OCXO<br> <code>8-11</code>: Meinberg DCF U/A 31<br> <code>12-15:</code> ELV DCF7000<br> <code>16-19</code>:	Walter Schmid DCF receiver (Kit)<br> <code>20-23</code>: Conrad DCF77 receiver module + level converter (Kit)<br> <code>24-27</code>:	TimeBrick (limited availability ask <a href="mailto:time@informatik.uni-erlangen.de">time@informatik.uni-erlangen.de</a>)<br> <code>28-31</code>:	Meinberg GPS166<br> <code>32-35</code>	Trimble SV6 GPS receiver</td>
+</tr>
+<tr>
+<td><code>127.127.9.x</code></td>
+<td>MX4200 GPS receiver</td>
+</tr>
+<tr>
+<td><code>127.127.10.x</code></td>
+<td>Austron 2201A GPS Timing Receiver</td>
+</tr>
+<tr>
+<td><code>127.127.11.x</code></td>
+<td>Kinemetrics Truetime OM-DC OMEGA Receiver</td>
+</tr>
+<tr>
+<td><code>127.127.12.x</code></td>
+<td>KSI/Odetecs TPRO-S IRIG-B / TPRO-SAT GPS</td>
+</tr>
+<tr>
+<td><code>127.127.13.x</code></td>
+<td>Leitch: CSD 5300 Master Clock System Driver</td>
+</tr>
+<tr>
+<td><code>127.127.14.x</code></td>
+<td>MSFEES</td>
+</tr>
+<tr>
+<td><code>127/127.15.x</code></td>
+<td>TrueTime GPS/TM-TMD</td>
+</tr>
+<tr>
+<td><code>127.127.16.x</code></td>
+<td>Bancomm GPS/IRIG Ticktock</td>
+</tr>
+<tr>
+<td><code>127.127.17.x</code></td>
+<td>Datum Programmable Time System</td>
+</tr>
+</tbody>
+</table>
 
 	  
   </div>
@@ -244,20 +290,5 @@ Refclock address	Type
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

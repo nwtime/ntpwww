@@ -18,10 +18,7 @@ Monitor Data
 Additional Information …">
 <meta property="og:title" content="RIPE NCC interface for Trimble Palisade" />
 <meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
- Table of Contents  Synopsis Description Why this driver? RIPE NCC clock card Monitor Data Additional Information   Synopsis Address: 127.127.43._u_
-Reference ID: RIPENCC
-Driver ID: RIPENCC
- Description This is a special driver developed to be used in conjunction with the RIPE NCC clock card in the RIPE NCC Test Traffic Measurements project.
+ Table of Contents  Synopsis Description Why this driver? RIPE NCC clock card Monitor Data Additional Information   Synopsis  Address: 127.127.43.u Reference ID: RIPENCC Driver ID: RIPENCC   Description This is a special driver developed to be used in conjunction with the RIPE NCC clock card in the RIPE NCC Test Traffic Measurements project.
  Why this driver? The reason we created a separate driver for an antenna for which a (vendor supplied) driver already exists is a design decision." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/drivers/driver43/" /><meta property="article:section" content="archives" />
@@ -61,10 +58,14 @@ Driver ID: RIPENCC
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -75,12 +76,6 @@ Driver ID: RIPENCC
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -108,7 +103,7 @@ Driver ID: RIPENCC
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -135,9 +130,12 @@ Driver ID: RIPENCC
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -196,9 +194,11 @@ Driver ID: RIPENCC
 <hr>
 <p><img src="/archives/pic/driver43_2.jpg" alt="Trimble Acutime 2000"></p>
 <h4 id="synopsis">Synopsis</h4>
-<p>Address: <code>127.127.43._u_</code><br>
-Reference ID: <tt>RIPENCC</tt><br>
-Driver ID: <tt>RIPENCC</tt></p>
+<dl>
+<dt><strong>Address:</strong> <code>127.127.43.<em>u</em></code></dt>
+<dd><strong>Reference ID:</strong> <code>RIPENCC</code></dd>
+<dd><strong>Driver ID:</strong> <code>RIPENCC</code></dd>
+</dl>
 <hr>
 <h4 id="description">Description</h4>
 <p>This is a special driver developed to be used in conjunction with the RIPE NCC clock card in the RIPE NCC Test Traffic Measurements project.</p>
@@ -211,10 +211,10 @@ Driver ID: <tt>RIPENCC</tt></p>
 <hr>
 <h4 id="ripe-ncc-clock-card">RIPE NCC clock card</h4>
 <p>The card is a very simple PCI card. The only feature on the bus it uses is the power supply. It uses this power supply to power the Trimble GPS antenna.</p>
-<p>The card is basicly just a RS422 to RS232 converter. It gets the Trimble&rsquo;s RS422 signal on a RJ45 connector and transforms that to RS232 on a DIN9 connector. This connector should be loopbacked on the back of the machine to the serial port. As said, the card doesn&rsquo;t do any PCI data transfers.</p>
+<p>The card is basically just a RS422 to RS232 converter. It gets the Trimble&rsquo;s RS422 signal on a RJ45 connector and transforms that to RS232 on a DIN9 connector. This connector should be loopbacked on the back of the machine to the serial port. As said, the card doesn&rsquo;t do any PCI data transfers.</p>
 <hr>
 <h4 id="monitor-data">Monitor Data</h4>
-<p>In the <tt>filegen clockstats</tt> file the following (example) data is collected:</p>
+<p>In the <code>filegen clockstats</code> file the following (example) data is collected:</p>
 <pre>52445 41931.275 127.127.40.0 U1 20.6.2002 11:38:51 13 11
 52445 41931.395 127.127.40.0 C1 20062002 113851 6  364785 110.2 450 6.7 13 5222.374737 N 0453.268013 E 48  7 11 0 1 -14 20 0 -25
 52445 41931.465 127.127.40.0 S1 07 1 1 02 59.3 291.5 39.3
@@ -226,7 +226,7 @@ Driver ID: <tt>RIPENCC</tt></p>
 </pre>
 <p>This is in the form of:</p>
 <pre>All output lines consist of a prefix and a message, the prefix is:
-[days since epoch] [sec.ms since start of day] [peer address] 
+[days since epoch] [sec.ms since start of day] [peer address]
 
 And all individual messages:
 
@@ -279,20 +279,5 @@ S1 [prn] [channel] [aqflag] [ephstat] [snr] [azinuth] [elevation]
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

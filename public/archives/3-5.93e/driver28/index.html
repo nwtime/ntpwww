@@ -17,7 +17,7 @@ Fudge Factors
 Additional Information …">
 <meta property="og:title" content="Shared Memory Driver" />
 <meta property="og:description" content="Table of Contents  Synopsis Description Structure of shared memory-segment Operation mode=0 Operation mode=1 Fudge Factors Additional Information   Synopsis  Address: 127.127.28.u Reference ID: SHM Driver ID: SHM   Description This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access for unit 0 and 1, and world access for unit 2 and 3.
- Structure of shared memory-segment  struct shmTime { int mode; /* 0 - if valid set * use values, * clear valid * 1 - if valid set * if count before and after read of * values is equal, * use values * clear valid */ int count; time_t clockTimeStampSec; /* external clock */ int clockTimeStampUSec; /* external clock */ time_t receiveTimeStampSec; /* internal clock, when external value was received */ int receiveTimeStampUSec; /* internal clock, when external value was received */ int leap; int precision; int nsamples; int valid; int dummy[10]; };   Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:" />
+ Structure of shared memory-segment struct shmTime {int mode; /* 0 - if valid set* use values, * clear valid* 1 - if valid set * if count before and after read of * values is equal,* use values * clear valid*/int count;time_t clockTimeStampSec; /* external clock */int clockTimeStampUSec; /* external clock */time_t receiveTimeStampSec; /* internal clock, when external value was received */int receiveTimeStampUSec; /* internal clock, when external value was received */int leap;int precision;int nsamples;int valid;int dummy[10]; }; Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/3-5.93e/driver28/" /><meta property="article:section" content="archives" />
 
@@ -56,10 +56,14 @@ Additional Information …">
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -70,12 +74,6 @@ Additional Information …">
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -103,7 +101,7 @@ Additional Information …">
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -130,9 +128,12 @@ Additional Information …">
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -308,20 +309,5 @@ struct shmTime {
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>

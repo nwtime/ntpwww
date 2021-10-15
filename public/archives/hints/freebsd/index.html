@@ -6,11 +6,11 @@
   
 
   
-  <meta name="description" content="If you are compiling under FreeBSD and see messages in the syslogs that
-indicate that the ntpd process is trying to use unavailable sched_
-calls, it …">
+  <meta name="description" content="If you are compiling under FreeBSD and see messages in the syslogs that indicate that the ntpd process is trying to use unavailable sched_ calls, it …">
 <meta property="og:title" content="FreeBSD Hints" />
-<meta property="og:description" content="If you are compiling under FreeBSD and see messages in the syslogs that indicate that the ntpd process is trying to use unavailable sched_ calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled. You have two choices: - Ignore the messages - Generate a new kernel, where the kernel configuration file contains the lines: options	&#34;P1003_1B&#34; options	&#34;_KPOSIX_PRIORITY_SCHEDULING&#34; options	&#34;_KPOSIX_VERSION=199309L&#34;  " />
+<meta property="og:description" content="If you are compiling under FreeBSD and see messages in the syslogs that indicate that the ntpd process is trying to use unavailable sched_ calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled.
+ You have two choices:  Ignore the messages.     Generate a new kernel, where the kernel configuration file contains the lines:
+options	&quot;P1003_1B&quot; options	&quot;_KPOSIX_PRIORITY_SCHEDULING&quot; options	&quot;_KPOSIX_VERSION=199309L&quot;     " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/hints/freebsd/" /><meta property="article:section" content="archives" />
 
@@ -49,10 +49,14 @@ calls, it …">
 
 <header class="sticky-top navigation">
   <div class="container">
-    
+
+
     <nav class="navbar navbar-expand-lg navbar-light py-0">
-		<div class="d-flex align-items-center" style="height:100px; width:100px;">
-		 <a class="navbar-brand py-0" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
       </div>
 	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="bi-plus"></i>
@@ -63,12 +67,6 @@ calls, it …">
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
-          
-          
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.nwtime.org">Network Time Foundation</a>
-          </li>
-          
           
           
           <li class="nav-item dropdown py-0">
@@ -96,7 +94,7 @@ calls, it …">
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Docs
+              Documentation
             </a>
             <div class="dropdown-menu">
               
@@ -123,9 +121,12 @@ calls, it …">
           
           
         </ul>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
       </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
     </nav>
   </div>
   <div class="header-border">
@@ -170,23 +171,23 @@ calls, it …">
   <div class="container">
   	<h1>FreeBSD Hints</h1>
      
-    <pre>If you are compiling under FreeBSD and see messages in the syslogs that
-indicate that the ntpd process is trying to use unavailable sched_
-calls, it means you are running a kernel that does not have the POSIX
-scheduling calls enabled.
-
-You have two choices:
-
-- Ignore the messages
-
-- Generate a new kernel, where the kernel configuration file contains
-  the lines:
-
-  options		"P1003_1B"
-  options		"_KPOSIX_PRIORITY_SCHEDULING"
-  options		"_KPOSIX_VERSION=199309L"
-
-</pre>
+    <p>If you are compiling under FreeBSD and see messages in the syslogs that indicate that the <code>ntpd</code> process is trying to use unavailable <code>sched_</code> calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled.</p>
+<dl>
+<dt>You have two choices:</dt>
+<dd><ul>
+<li>Ignore the messages.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>
+<p>Generate a new kernel, where the kernel configuration file contains the lines:</p>
+<pre><code>options		&quot;P1003_1B&quot;
+options		&quot;_KPOSIX_PRIORITY_SCHEDULING&quot;
+options		&quot;_KPOSIX_VERSION=199309L&quot;</code></pre>
+</li>
+</ul>
+</dd>
+</dl>
 
 	  
   </div>
@@ -224,20 +225,5 @@ You have two choices:
   </ul>
 </footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.ad396f5ec05b650939dd4f6fe40c9a7474e1e5cffab299383281b366113ce6bd.js" integrity="sha256-rTlvXsBbZQk53U9v5AyadHTh5c/6spk4MoGzZhE85r0=" crossorigin="anonymous"></script>
-
-
-
-  </body>
+</body>
 </html>
