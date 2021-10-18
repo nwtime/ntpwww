@@ -9,7 +9,7 @@ For platforms and operating systems other than those mentioned here, there may b
 
 4.3.1. [Official Providers](#official-providers)  
 4.3.1.1. [Can I get some Standard Time using NTP?](#can-i-get-some-standard-time-using-ntp)  
-4.3.1.2. [Which Protocols are supported by the Reference Implementation?](#which-protocols-are-supported-by-the-reference-implementation)
+4.3.1.2. [Which Protocols are supported by the Reference Implementation?](#which-protocols-are-supported-by-the-reference-implementation)  
 4.3.2. [UNIX Systems](#unix-systems)  
 4.3.2.1. [Which Implementations are available for UNIX?](#which-implementations-are-available-for-unix)
 4.3.3. [Microsoft Windows](#microsoft-windows)  
@@ -66,7 +66,7 @@ scripts
 
 According to [Gilles Vollant](NTP-a-faq.htm#AU-GV), Windows/2000 includes a built-in SNTP client. Follow this procedure:
 
-1.  Select a NTP server, using <code>net time /setsntp:_ntp-server_</code>. However "Only the domain controller that holds the PDC FSMO (Primary Domain Controller Flexible Single Master Operation) role can query an external time source to set the time." [1]](NTP-s-def-impl.htm#FTN.AEN1667)
+1.  Select a NTP server, using <code>net time /setsntp:_ntp-server_</code>. However "Only the domain controller that holds the PDC FSMO (Primary Domain Controller Flexible Single Master Operation) role can query an external time source to set the time."
 
 2.  Start the `W32time` service with `net start W32Time`. You can also set the start option of the Windows Time Synchronization Service (`W32Time`) to `Automatic`, so the service will start when Windows/2000 starts.
 
@@ -78,7 +78,7 @@ For further information about NTP in Windows/2000 see:
 
 [Marc Brett](NTP-a-faq.htm#AU-MB) contributed:
 
-A Google search with `"NET TIME /SET /SETSNTP"` yields all sorts of clues, including several Microsoft Knowledgebase articles, and a bunch of W2K-specific stuff at http://www.labmice.net/timesynch.htm.[<span class="footnote">[2]</span>](NTP-s-def-impl.htm#FTN.AEN1699)
+A Google search with `"NET TIME /SET /SETSNTP"` yields all sorts of clues, including several Microsoft Knowledgebase articles.
  
 You may also want to run a Samba server on your Linux NTP box, and set it up as an SMB time server (`time server = true` in `smb.conf`) so your W2K boxes will find a it automagically.
 
@@ -90,7 +90,7 @@ The software discussed in [Which Implementations are available for UNIX?](NTP-s-
 
 * [TimeServ](http://www.niceties.com/TimeServ.html) or ftp://ftp.microsoft.com/reskit/y2kfix/x86/timeserv/timeserv.htm
 
-* [Tardis](http://www.kaska.demon.co.uk/) is an SNTP client
+* [Tardis](https://www.mingham-smith.com/tardis.htm) is an SNTP client
 
 > XXX _Note from the editor:_ More should be listed here, but isn't.
 
@@ -103,15 +103,3 @@ The software discussed in [Which Implementations are available for UNIX?](NTP-s-
 [Theo Jakobus](NTP-a-faq.htm#AU-TJ) wrote:
 
 TCPIP supports NTP version 3, see http://www.openvms.compaq.com:8000/72final/6526/6526profile_contents_002.html#toc_chapter_10. The configuration is done in `SYS$SPECIFIC:[TCPIP$NTP]TCPIP$NTP.CONF`. I just added different time sources in Germany like: `server ntp.fhg.de server noc.belwue.de`. The service is activated using `$@SYS$MANAGER:TCPIP$CONFIG`. I'm getting the time using NTP and distributing the time to Digital systems using DTSS.
-
-* * *
-
-#### Notes
-
-[1]</span>](NTP-s-def-impl.htm#AEN1667)</td>
-
-See http://support.microsoft.com/support/kb/articles/Q243/5/74.ASP
-
-[2]</span>](NTP-s-def-impl.htm#AEN1699)</td>
-
-The URL seems to be gone; however there's a copy at http://web.archive.org/web/20011029133318/http://labmice.net/timesynch.htm as [Anand Kumria](NTP-a-faq.htm#AU-AK) pointed out.

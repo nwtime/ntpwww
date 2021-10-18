@@ -5,7 +5,7 @@ type: "archives"
 
 This section discusses general topics related to time and time-keeping.
 
-> **Note:** XXX _Note from the editor:_< This part is still incomplete. Please contribute!
+> **Note:** XXX _Note from the editor:_ This part is still incomplete. Please contribute!
 
 * * *
 
@@ -24,7 +24,7 @@ In the meantime I'll throw in a quote from the back of my mind (a fortune cookie
 
 There's another interesting relation between time and change: There is no change without the concept of time, and there is no movement without time.
 
-[Philippe Eveque](NTP-a-faq.htm#AU-PE) contributed:
+[Philippe Eveque](mailto:philippe_eveque@grenoble.hp.com) contributed:
 
 Nobody can tell what Time is. However everybody does know its effects. Time implies memory and this is specially strange to consider this, in the context of computer science. Reversely does memory implies time in some way?
 
@@ -37,8 +37,7 @@ UTC (Universal Time Coordinated, _Temps Universel Coordonné_) is an official st
 The following list will explain the main components of UTC:
 
 * _Universal_ means that the time can be used everywhere in the world, meaning that it is independent from time zones (i.e. it's not _local time_). To convert UTC to local time, one would have to add or subtract the local time zone.
-
-* _Coordinated_< means that several institutions contribute their estimate of the current time, and UTC< is built by combining these estimates.
+* _Coordinated_ means that several institutions contribute their estimate of the current time, and UTC is built by combining these estimates.
 
 The UTC second has been defined by the 13th General Conference of Weights and Measures in 1967 as "The second is the duration of 9,192,631,770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom."
 
