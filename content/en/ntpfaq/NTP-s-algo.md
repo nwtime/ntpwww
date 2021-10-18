@@ -53,7 +53,7 @@ In NTP these time references are also named _stratum 0_, the highest possible qu
 
 #### 5.1.1.2. How will NTP use a reference clock?
 
-A reference clock will provide the current time, that's for sure. NTP will compute some additional statistical values that describe the quality of time it sees. Among these values are: _offset_ (or _phase_), _jitter_ (or _dispersion_), <_frequency error_, and _stability_ (See also [Section 3.3](/ntpfaq/ntp-s-sw-clocks-quality)). Thus each NTP server will maintain an estimate of the quality of its reference clocks and of itself.
+A reference clock will provide the current time, that's for sure. NTP will compute some additional statistical values that describe the quality of time it sees. Among these values are: _offset_ (or _phase_), _jitter_ (or _dispersion_), _frequency error_, and _stability_ (See also [Section 3.3](/ntpfaq/ntp-s-sw-clocks-quality)). Thus each NTP server will maintain an estimate of the quality of its reference clocks and of itself.
 
 * * *
 
@@ -79,7 +79,7 @@ Naturally, the algorithm is also applied when `ntpd` is started for the first ti
 
 #### 5.1.1.5. What is a stratum 1 Server?
 
-A server operating at _stratum 1_ belongs to the class of best NTP servers available, because it has a [reference clock](#what-is-a-reference-clock)) attached to it. As accurate reference clocks are expensive, only rather few of these servers are publically available.
+A server operating at _stratum 1_ belongs to the class of best NTP servers available, because it has a [reference clock](#5111-what-is-a-reference-clock) attached to it. As accurate reference clocks are expensive, only rather few of these servers are publically available.
 
 A stratum 1 server should not only have a precise and well-maintained and calibrated reference clock, but also should be highly available as other systems may rely on its time service. Maybe that's the reason why not every NTP server with a reference clock is publically available.
 
@@ -89,7 +89,7 @@ A stratum 1 server should not only have a precise and well-maintained and calibr
 
 #### 5.1.2.1. How is Time synchronized?
 
-Time can be passed from one time source to another, typically starting from a reference clock connected to a stratum 1 server. Servers synchronized to a stratum 1 server will be _stratum 2_. Generally the stratum of a server will be one more than the stratum of its reference (See also [Q: 5.1.4.1.](NTP-s-algo.htm#Q-ALGO-BASIC-STRATUM)).
+Time can be passed from one time source to another, typically starting from a reference clock connected to a stratum 1 server. Servers synchronized to a stratum 1 server will be _stratum 2_. Generally the stratum of a server will be one more than the stratum of its reference (See also [Q: 5.1.4.1.](#5141-what-is-the-stratum)).
 
 Synchronizing a client to a network server consists of several packet exchanges where each exchange is a pair of request and reply. When sending out a request, the client stores its own time (_originate timestamp_) into the packet being sent. When a server receives such a packet, it will in turn store its own time (_receive timestamp_) into the packet, and the packet will be returned after putting a _transmit timestamp_ into the packet. When receiving the reply, the receiver will once more log its own receipt time to estimate the travelling time of the packet. The travelling time (_delay_) is estimated to be half of "the total delay minus remote processing time", assuming symmetrical delays.
 
@@ -111,7 +111,7 @@ NTP uses UDP/IP packets for data transfer because of the fast connection setup a
 
 #### 5.1.2.3. How is Time encoded in NTP?
 
-There was a nice answer from [Don Payette](NTP-a-faq.htm#AU-DP) in news://comp.protocols.time.ntp, slightly adapted:
+There was a nice answer from Don Payette in news://comp.protocols.time.ntp, slightly adapted:
 
 The NTP timestamp is a 64 bit binary value with an implied fraction point between the two 32 bit halves. If you take all the bits as a 64 bit unsigned integer, stick it in a floating point variable with at least 64 bits of mantissa (usually double) and do a floating point divide by 2<sup>^</sup>32, you'll get the right answer.
 
@@ -136,7 +136,7 @@ NTP:  bd5927ee.bc616000
 
 #### 5.1.2.4. When are the Servers polled?
 
-When polling servers, a similar algorithm as described in [Q: 5.1.3.3.](NTP-s-algo.htm#Q-ALGO-PLL-UPD) is used. Basically the _jitter_ (white phase noise) should not exceed the _wander_ (random walk frequency noise). The polling interval tries to be close to the point where the total noise is minimal, known as _Allan intercept_, and the interval is always a power of two. The minimum and maximum allowable exponents can be specified using `minpoll` and `maxpoll` respectively (See [Q: 5.1.5.1.](NTP-s-algo.htm#Q-POLL-RANGE)). If a local reference clock with low jitter is selected to synchronize the system clock, remote servers may be polled more frequently than without a local reference clock in recent version of `ntpd`. The intended purpose is to detect a faulty reference clock in time.[<span class="footnote">[1]</span>](NTP-s-algo.htm#FTN.AEN1939)
+When polling servers, a similar algorithm as described in [Q: 5.1.3.3.](#5133-how-frequently-are-correction-values-updated) is used. Basically the _jitter_ (white phase noise) should not exceed the _wander_ (random walk frequency noise). The polling interval tries to be close to the point where the total noise is minimal, known as _Allan intercept_, and the interval is always a power of two. The minimum and maximum allowable exponents can be specified using `minpoll` and `maxpoll` respectively (See [Q: 5.1.5.1.](#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll)). If a local reference clock with low jitter is selected to synchronize the system clock, remote servers may be polled more frequently than without a local reference clock in recent version(after version 4.1.0) of `ntpd`. The intended purpose is to detect a faulty reference clock in time.
 
 * * *
 
@@ -152,17 +152,15 @@ For a general discussion see [Section 3](/ntpfaq/ntp-s-sw-clocks). Also keep in 
 
 Of course the final achievable accuracy depends on the time source being used. Basically, no client can be more accurate than its server. In addition the quality of network connection also influences the final accuracy. Slow and non predictable networks with varying delays are very bad for good time synchronization.
 
-A time difference of less than 128ms between server and client is required to maintain NTP synchronization. The typical accuracy on the Internet ranges from about 5ms to 100ms, possibly varying with network delays. A recent survey[<span class="footnote">[2]</span>](NTP-s-def.htm#FTN.FTN-NTP-SURVEY99) suggests that 90% of the NTP servers have network delays below 100ms, and about 99% are synchronized within one second to the _synchronization peer_.
+A time difference of less than 128ms between server and client is required to maintain NTP synchronization. The typical accuracy on the Internet ranges from about 5ms to 100ms, possibly varying with network delays. A recent survey by Professor David L Mills suggests that 90% of the NTP servers have network delays below 100ms, and about 99% are synchronized within one second to the _synchronization peer_.
 
 With PPS synchronization an accuracy of 50µs and a stability below 0.1 PPM is achievable on a Pentium PC (running Linux for example). However, there are some hardware facts to consider. Judah Levine wrote:
 
 In addition, the FreeBSD system I have been playing with has a clock oscillator with a temperature coefficient of about 2 PPM per degree C. This results in time dispersions on the order of lots of microseconds per hour (or lots of nanoseconds per second) due solely to the cycling of the room heating/cooling system. This is pretty good by PC standards. I have seen a lot worse.
 
-[Terje Mathisen](NTP-a-faq.htm#AU-TM) wrote in reply to a question about the actual offsets achievable: "I found that 400 of the servers had offsets below 2ms, (...)"
+[Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com) wrote in reply to a question about the actual offsets achievable: "I found that 400 of the servers had offsets below 2ms, (...)"
 
-<div class="ANSWER">
-
-[David Dalton](NTP-a-faq.htm#AU-DD) wrote about the same subject:
+David Dalton wrote about the same subject:
 
 The true answer is: It All Depends.....
 
@@ -172,7 +170,7 @@ Mostly, it depends on your networking. Sure, you can get your machines within a 
 
 #### 5.1.3.2. How frequently will the System Clock be updated?
 
-As time should be a continuous and steady stream, `ntpd` updates the clock in small quantities. However, to keep up with clock errors, such corrections have to be applied frequently. If `adjtime()` is used, `ntpd` will update the system clock every second. If `ntp_adjtime()` is available, the operating system can compensate clock errors automatically, requiring only infrequent updates. See also [Section 5.2](/ntpfaq/ntp-s-algo-kernel) and [Q: 5.1.6.1.](NTP-s-algo.htm#Q-CLOCK-DISCIPLINE).
+As time should be a continuous and steady stream, `ntpd` updates the clock in small quantities. However, to keep up with clock errors, such corrections have to be applied frequently. If `adjtime()` is used, `ntpd` will update the system clock every second. If `ntp_adjtime()` is available, the operating system can compensate clock errors automatically, requiring only infrequent updates. See also [Section 5.2](/ntpfaq/ntp-s-algo-kernel) and [Q: 5.1.6.1.](#5161-how-will-ntp-discipline-my-clock).
 
 * * *
 
@@ -200,7 +198,7 @@ While in theory estimates of the clock error are maintained, there were practica
 
 #### 5.1.3.5. What is the Limit for the Number of Clients?
 
-The limit actually depends on several factors, like speed of the main processor and network bandwidth, but the limit is quite high. [Terje Mathisen](NTP-a-faq.htm#AU-TM) once presented a calculation:
+The limit actually depends on several factors, like speed of the main processor and network bandwidth, but the limit is quite high. [Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com) once presented a calculation:
 
 2 packets/256 seconds * 500 K machines -> 4 K packets/second (half in each direction).
  
@@ -228,9 +226,9 @@ In a synchonization loop, the time derived from one source along a specific path
 
 *   The Internet address of a time source is used as _reference identifier_ to avoid duplicates. The reference identifier is limited to 32 bits however.
 
-*   The stratum as described in [Q: 5.1.4.1.](NTP-s-algo.htm#Q-ALGO-BASIC-STRATUM) is used to form an acyclic synchronization network.
+*   The [stratum](#5141-what-is-the-stratum) is used to form an acyclic synchronization network.
 
-More precisely[<span class="footnote">[2]</span>](NTP-s-algo.htm#FTN.AEN2077), the algorithm finds a shortest path spanning tree with metric based on synchronization distance dominated by hop count. The reference identifier provides additional information to avoid neighbor loops under conditions where the topology is changing rapidly. This is a very well known problem with algorithms such as this. See any textbook on computer network routing algorithms. _Computer Networks_ by Bertsekas and Gallagher is a good one.
+More precisely, according to Professor David L. Mills, the algorithm finds a shortest path spanning tree with metric based on synchronization distance dominated by hop count. The reference identifier provides additional information to avoid neighbor loops under conditions where the topology is changing rapidly. This is a very well known problem with algorithms such as this. See any textbook on computer network routing algorithms. _Computer Networks_ by Bertsekas and Gallagher is a good one.
  
 In IPv6 the reference ID field is a timestamp that can be used for the same purpose.
 
@@ -250,7 +248,7 @@ For ntp-4.0.99f the smallest and largest allowable polling values are `4` (16 se
 
 #### 5.1.5.2. What is the best polling Interval?
 
-Actually there is none: Short polling intervals update the parameters frequently and are sensitive to jitter and random errors. Long intervals may require larger corrections with significant errors between the updates. However there seems to be an optimum between those two. For common operating system clocks this value happens to be close to the default maximum polling time, 1024s. See also [Q: 5.1.3.1.](NTP-s-algo.htm#Q-ACCURATE-CLOCK).
+Actually there is none: Short polling intervals update the parameters frequently and are sensitive to jitter and random errors. Long intervals may require larger corrections with significant errors between the updates. However there seems to be an optimum between those two. For common operating system clocks this value happens to be close to the default maximum polling time, 1024s. See also [Q: 5.1.3.1.](#5131-how-accurate-will-my-clock-be).
 
 * * *
 
@@ -260,7 +258,7 @@ Actually there is none: Short polling intervals update the parameters frequently
 
 In order to keep the right time, `xntpd` must make adjustments to the system clock. Different operating systems provide different means, but the most popular ones are listed below.
 
-Basically there are four mechanisms (system calls) an NTP implementation can use to discipline the system clock (For details see the different RFCs found in [Table 4](NTP-s-related.htm#TAB-RELATED-RFCS)):
+Basically there are four mechanisms (system calls) an NTP implementation can use to discipline the system clock (For details see the different RFCs found in [Table 4](/ntpfaq/ntp-s-related#94-where-can-i-find-more-information)):
 
 *   `settimeofday(2)` to step (set) the time. This method is used if the time if off by more than 128ms.
 
@@ -278,16 +276,4 @@ Basically there are four mechanisms (system calls) an NTP implementation can use
 
     *   Read and set some related characteristic values of the clock
 
-*   `hardpps()` is a function that is only called from an interrupt service routine inside the operating system. If enabled, `hardpps()` will update the frequency and offset correction of the kernel clock in response to an external signal (See also [Section 6.2.4](NTP-s-config-adv.htm#S-CONFIG-ADV-PPS)).
-
-* * *
-
-#### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-algo.htm#AEN1939)</td>
-
-This statement was derived from a mail message by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) in response to a suspected bug in version 4.1.0.
-
-[<span class="footnote">[2]</span>](NTP-s-algo.htm#AEN2077)</td>
-
-...says [Professor David L. Mills](NTP-a-faq.htm#AU-DLM)...
+*   `hardpps()` is a function that is only called from an interrupt service routine inside the operating system. If enabled, `hardpps()` will update the frequency and offset correction of the kernel clock in response to an external signal (See also [Section 6.2.4](/ntpfaq/ntp-s-config-adv/#624-pps-synchronization)).

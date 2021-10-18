@@ -5,7 +5,7 @@ type: "archives"
 
 #### 4.1. Overview
 
-This section tries to introduce and explain the most basic features of NTP, the>Network Time Protocol. The discussion here will be limited to the more theroretical aspects of NTP, while the next section ([Section 5](NTP-s-algo.htm)) will go further towards real life.
+This section tries to introduce and explain the most basic features of NTP, the Network Time Protocol. The discussion here will be limited to the more theroretical aspects of NTP, while the [next section](/ntpfaq/ntp-s-algo) will go further towards real life.
 
 4.1.1. [What is NTP?](#what-is-ntp)  
 4.1.2. [What is SNTP?](#what-is-sntp)  
@@ -22,13 +22,13 @@ This section tries to introduce and explain the most basic features of NTP, the>
 
 #### 4.1.1 What is NTP?
 
-NTP stands for Network Time Protocol, and it is an Internet protocol used to synchronize the clocks of computers to some time reference. NTP is an Internet standard protocol originally developed by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) at the University of Delaware.
+NTP stands for Network Time Protocol, and it is an Internet protocol used to synchronize the clocks of computers to some time reference. NTP is an Internet standard protocol originally developed by [Professor David L. Mills](mailto:mills@udel.edu) at the University of Delaware.
 
 * * *
 
 #### 4.1.2. What is SNTP?
 
-SNTP (Simple Network Time Protocol) is basically also NTP, but lacks some internal algorithms that are not needed for all types of servers. See [Q: 9.4.](NTP-s-related.htm#Q-RELATED-MORE-INFO) for more and detailed information.
+SNTP (Simple Network Time Protocol) is basically also NTP, but lacks some internal algorithms that are not needed for all types of servers. See [Q: 9.4.](/ntpfaq/ntp-s-related#94-where-can-i-find-more-information) for more and detailed information.
 
 As a full implementation of the NTP protocol seemed too complicated for many systems, a simplified version of the protocol, namely SNTP had been defined.
 
@@ -40,7 +40,7 @@ Time usually just advances. If you have communicating programs running on differ
 
 As a consequence, isolated networks may run their own wrong time, but as soon as you connect to the Internet, effects will be visible. Just imagine some EMail message arrived five minutes before it was sent, and there even was a reply two minutes before the message was sent.
 
-Even on a single computer some applications have trouble when the time jumps backwards. For example, database systems using transactions and crash recovery like to know the time of the last good state.[<span class="footnote">[1]</span>](NTP-s-def.htm#FTN.AEN1291)
+Even on a single computer some applications have trouble when the time jumps backwards. For example, database systems using transactions and crash recovery like to know the time of the last good state. Even if a database like Oracle uses integer numbers for transaction sequencing internally, users may want to perform time-based recovery. There's a document numbered 1013279.6 from Oracle that discusses the issue.
 
 Therefore, air traffic control was one of the first applications for NTP.
 
@@ -52,7 +52,7 @@ There exist several protocols to synchronize computer clocks, each having distin
 
 * NTP needs some _reference clock_ that defines the _true time_ to operate. All clocks are set towards that true time. (It will not just make all systems agree on _some_ time, but will make them agree upon the true time as defined by some standard.)
 
-  NTP uses UTC as reference time (See also [What is UTC?](NTP-s-time.htm#Q-UTC)).
+  NTP uses [UTC](/ntpfaq/ntp-s-time#22-what-is-utc) as reference time.
 
 * NTP is a fault-tolerant protocol that will automatically select the best of several available time sources to synchronize to. Multiple candidates can be combined to minimize the accumulated error. Temporarily or permanently insane time sources will be detected and avoided.
 
@@ -68,19 +68,19 @@ There exist several protocols to synchronize computer clocks, each having distin
 
 #### 4.1.5. Which Operating Systems are supported?
 
-The implementation described in [Which Implementations are available for  UNIX?](NTP-s-def-impl.htm#Q-NTP-IMPL-UNIX) works for most popular UNIX operating systems. Among those are: AIX, FreeBSD, HP-UX, Irix, Linux, NetBSD, SCO UNIX, OpenBSD, OSF/1, Solaris, System V.4.
+The implementation described in [Which Implementations are available for  UNIX?](/ntpfaq/ntp-s-def-impl#4321-which-implementations-are-available-for-unix) works for most popular UNIX operating systems. Among those are: AIX, FreeBSD, HP-UX, Irix, Linux, NetBSD, SCO UNIX, OpenBSD, OSF/1, Solaris, System V.4.
 
-According to a message in news://comp.protocols.time.ntp there's also a supported implementation for VMS: "UCX (the VMS TCP stack) has a full implementation of NTP built-in. As of v5 it's pretty much vanilla NTP, prior to that the command syntax and control file formats were proprietary. Check the manuals." See [Q: 4.3.4.1.](NTP-s-def-impl.htm#Q-NTP-IMPL-VMS) for more details.
+According to a message in news://comp.protocols.time.ntp there's also a supported implementation for VMS: "UCX (the VMS TCP stack) has a full implementation of NTP built-in. As of v5 it's pretty much vanilla NTP, prior to that the command syntax and control file formats were proprietary. Check the manuals." See [Q: 4.3.4.1.](/ntpfaq/ntp-s-def-impl#4341-which-implementations-are-available-for-vms) for more details.
 
-In addition there are efforts to make it run on Windows/NT (see [Q: 8.3.11.2.3.](NTP-s-trbl-spec.htm#Q-TRBL-SPEC-WINNT-IMPL-NTP)). Currently there are problems with time resolution, reference clock drivers, authentication and name resolution.
+In addition there are efforts to make it run on Windows/NT. Currently there are problems with time resolution, reference clock drivers, authentication and name resolution.
 
-For more detailed information see [Section 4.3](NTP-s-def-impl.htm).
+For more detailed information see [Section 4.3](/ntpfaq/ntp-s-def-impl).
 
 * * *
 
 #### 4.1.6. How many NTP servers are available in the Internet?
 
-According to _A Survey of the NTP Network_[<span class="footnote">[2]</span>](NTP-s-def.htm#FTN.FTN-NTP-SURVEY99) there were at least 175,000 hosts running NTP in the Internet. Among these there were over 300 valid _stratum-1_ servers. In addition there were over 20,000 servers at stratum 2, and over 80,000 servers at stratum 3.
+According to [A Survey of the NTP Network](/reflib/reports/ntp-survey99-minar.pdf) there were at least 175,000 hosts running NTP in the Internet. Among these there were over 300 valid _stratum-1_ servers. In addition there were over 20,000 servers at stratum 2, and over 80,000 servers at stratum 3.
 
 * * *
 
@@ -90,19 +90,19 @@ Unfortunately the answer to this question is not quite easy: Currently there are
 
 If you are worried with compatibility issues, older version clients can generally talk to newer version servers automagically (as newer servers know how to answer the queries, hopefully), but the other direction requires manual interference (See `html/confopt.htm` about the `version` keyword).
 
-NTPv4 introduces some new features that you may find desirable (See [Q: 4.1.9.](/ntpfaq/ntp-s-def#419-Q-DEF-OV-V4NEWS)). For example, if you use dial-up connections, version four can increase its polling interval above one day if the clock is stable enough. In addition the new algorithms can deal with high delay variations a bit better than the LAN-oriented version three. On the other hand, NTPv4 uses floating point operations where NTPv3 used integer arithmetic. This should not be a problem for current hardware, but might be an issue for older systems without a floating point unit.
+NTPv4 introduces some [new features](#419-whats-new-in-version-4) that you may find desirable. For example, if you use dial-up connections, version four can increase its polling interval above one day if the clock is stable enough. In addition the new algorithms can deal with high delay variations a bit better than the LAN-oriented version three. On the other hand, NTPv4 uses floating point operations where NTPv3 used integer arithmetic. This should not be a problem for current hardware, but might be an issue for older systems without a floating point unit.
 
 There is also a security issue with all versions probably older than 4.0.99k23 that may allow denial of service or even unauthorized system access. Still vendors supplying older versions may have fixed their particular version.
 
-See also [Section 6.4](NTP-s-compat.htm)
+See also [Section 6.4](/ntpfaq/ntp-s-compat).
 
 * * *
 
 #### 4.1.8. What's the difference between xntp and ntp?
 
-Obviously the difference is an `x`, and its meaning some years ago was (according to [Professor David L. Mills](NTP-a-faq.htm#AU-DLM)):
+Obviously the difference is an `x`, and its meaning some years ago was (according to [Professor David L. Mills](mailto:mills@udel.edu)):
 
-Dennis Fergusson intended the `x` as "experimental". I got maybe twenty messages over the years suggesting the `x` was not appropriate for code in use over a decade and I dropped it for NTPv4. See the paper on [NTP history](http://www.eecis.udel.edu/~mills/papers.htm).
+Dennis Fergusson intended the `x` as "experimental". I got maybe twenty messages over the years suggesting the `x` was not appropriate for code in use over a decade and I dropped it for NTPv4. See the paper on [NTP history](/reflib/memos/hist.txt).
 
 In practice `xntp` refers to an implementation of version three or older while `ntp` refers to implementation of version four (or later).
 
@@ -127,7 +127,7 @@ According to the [NTP Version 4 Release Notes](/archives/4.2.8-series/release), 
 
 The official specification of NTP version 3 is [RFC 1305](/reflib/rfc/rfc1305/rfc1305b.pdf). Specifically, there is no specification for version 4 yet. Despite of some arguments to update the specification, there won't be one in the near future.
 
-There was a recent discussion on the subject. [Hans P. Reiser](NTP-a-faq.htm#AU-HPR) wrote:
+There was a recent discussion on the subject. Hans P. Reiser wrote:
 
 Several slides and papers on NTP illustrate the NTP Interval Intersection Algorithm with an example of 4 peers, `A` to `D`, showing two confidence intervals labeled "Correct DTS" and "Correct NTP". (Also shown in [Appendix of RFC 1305](/reflib/rfc/rfc1305/rfc1305c.pdf)), Fig. 16). While it is easy to understand the DTS case, I have some problems matching the shown NTP interval with the specified algorithms.
 
@@ -142,15 +142,15 @@ Some documents now say "declare failure if `f>=m/2`", which is the case now. Eve
 
 Do I get something really wrong here (and I really tried hard to locate any flaw in my argument), or is there really a error in the RFC example and all other places which use this example?
 
-The answer written by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) reads:
+The answer written by [Professor David L. Mills](mailto:mills@udel.edu) reads:
 
 (...) What's more, you exposed a significant error in both the documentation and the implementation.
 
-See slide 15 from the [architecture and protocol briefing](). The statements preceeding the algorithm are correct; that is the intent of its design according to the set of formal correctness assertions worked out with the computer science theory community. Unfortunately, in my haste to bottle the algorithm in quick and easy gulps, something got lost in the description. The actual algorithm is constructed differently, but accomplishes the same thing. Pseudo code for the correctness model is in rfc1305 but (sigh) there is a leetle buggie in that description.
+See slide 15 from the [architecture and protocol briefing](/reflib/brief/arch/arch.pdf). The statements preceeding the algorithm are correct; that is the intent of its design according to the set of formal correctness assertions worked out with the computer science theory community. Unfortunately, in my haste to bottle the algorithm in quick and easy gulps, something got lost in the description. The actual algorithm is constructed differently, but accomplishes the same thing. Pseudo code for the correctness model is in RFC 1305 but (sigh) there is a leetle buggie in that description.
  
 Just to be honest I rechecked the actual NTPv4 code and found a nasty surprise. The code is broken and does not exactly implement the formal model. Under some conditions it allows a falseticker to masquerade as a truechimer. Not to panic; the masquerade is subtle and will not result in significant error. However, I don't know how this happened; the core code is 14 years old, may have been noodled (but not by me) and hasn't been carefully reviewed since.
 
-I repaired the code as per rfc1305 and bugfix and verified it does what the formal model intended. The repair is in the development version here and should be in the repository when other known bugs are fixed. Meanwhile, I fixed the description in the briefing.
+I repaired the code as per RFC 1305 and bugfix and verified it does what the formal model intended. The repair is in the development version here and should be in the repository when other known bugs are fixed. Meanwhile, I fixed the description in the briefing.
  
 The clock selection algorithm is at the very heart of the NTP design. While a formal description of its operation is now in the briefing, an informal description may be of interest to folks in this group. I know there are many skeptics who complain when the algorithm does something they don't like, rather than what the correctness assertions require.
  
@@ -161,15 +161,3 @@ Now consider a number of correctness intervals aligned along the time axis at th
 Consider the common case of two intervals that do not overlap due to a systematic error. According to principle, one of the two must not be synchronized to UTC, but there is no way for the selection algorithm to know which one. So, by the above, a correct time cannot be determined. In prinicple, you could choose one based on other characteristics, like the size of the interval, but this would seriously complicate the algorithm and probably cause the theory community to disown me.
 
 While the corrected code is strict to principle, it may be too strict for some who don't care that much about correctness principles. There may be a need for a tinker switch with appropriate warning disclaimers.
-
-* * *
-
-### Notes
-
-[1]</span>](NTP-s-def.htm#AEN1291)</td>
-
-Even if a database like Oracle uses integer numbers for transaction sequencing internally, users may want to perform time-based recovery. There's a document numbered 1013279.6 from Oracle that discusses the issue.
-
-[2]</span>](NTP-s-def.htm#FTN-NTP-SURVEY99)</td>
-
-_A Survey of the NTP Network_ by [Nelson Minar](NTP-a-faq.htm#AU-NM) is available via http://www.media.mit.edu/~nelson/research/ntp-survey99/.

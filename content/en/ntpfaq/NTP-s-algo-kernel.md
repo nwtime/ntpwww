@@ -3,7 +3,7 @@ title: "5.2. The Kernel Discipline"
 type: "archives"
 --- 
 
-In addition to the NTP protocol specification there also exists a description for a kernel clock model ([RFC 1589]()) that is discussed here.
+In addition to the NTP protocol specification there also exists a description for a kernel clock model ([RFC 1589](/reflib/rfc/rfc1589.txt)) that is discussed here.
 
 5.2.1. [Basic Functionality](#521-basic-functionality)  
    5.2.1.1. [What is special about the Kernel Clock?](#5211-what-is-special-about-the-kernel-clock)  
@@ -24,13 +24,13 @@ In addition to the NTP protocol specification there also exists a description fo
 
 #### 5.2.1.1. What is special about the Kernel Clock?
 
-NTP keeps precision time by applying small adjustments to to system clock periodically (See also [Q: 5.1.6.1.](NTP-s-algo.htm#Q-CLOCK-DISCIPLINE)). However, some clock implementations do not allow small corrections to be applied to the system clock, and there is no standard interface to monitor the system clock's quality.
+NTP keeps precision time by [applying small adjustments to system clock periodically](/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock). However, some clock implementations do not allow small corrections to be applied to the system clock, and there is no standard interface to monitor the system clock's quality.
 
-Therefore a new clock model is suggested that has the following features (See also [RFC 1589]()):
+Therefore a new clock model is suggested that has the following features (See also [RFC 1589](/reflib/rfc/rfc1589.txt)):
 
 *   Two new system calls to query and control the clock: `ntp_gettime()` and `ntp_adjtime()`
-*   The clock keeps time with a precision of one microsecond.[<span class="footnote">[1]</span>](NTP-s-algo-kernel.htm#FTN.FTN-NANOKERNEL) In real life operating systems there are clocks that are much worse.
-*   Time can be corrected in quantities of one microsecond, and repetitive corrections accumulate.[<span class="footnote">[1]</span>](NTP-s-algo-kernel.htm#FTN.FTN-NANOKERNEL) The <span class="PRODUCTNAME">UNIX</span> system call `adjtime()` does not accumulate successive corrections.
+*   The clock keeps time with a precision of one microsecond. (The latest proposal, known as nanokernel, keeps time using even fractional nanoseconds.) In real life operating systems there are clocks that are much worse.
+*   Time can be corrected in quantities of one microsecond, and repetitive corrections accumulate. (The latest proposal, known as nanokernel, keeps time using even fractional nanoseconds.) The <span class="PRODUCTNAME">UNIX</span> system call `adjtime()` does not accumulate successive corrections.
 *   The clock model maintains additional parameters that can be queried or controlled. Among these are:
     *   A _clock synchronization status_ that shows the state of the clock machinery (e.g. `TIME_OK`).
     *   Several _clock control and status bits_ that control and show the state of the machinery (e.g. `STA_PLL`). This includes automatic handling of leap seconds (when announced).
@@ -38,7 +38,7 @@ Therefore a new clock model is suggested that has the following features (See al
     *   Other control and monitoring values like _precision_, _estimated error_ and _frequency tolerance_.
 *   Corrections to the clock can be automatically maintained and applied.
 
-Applying corrections automatically within the operating system kernel does no longer require periodic corrections through an application program. Unfortunately there exist several revisions of the clock model that are partly incompatible. See [Section 6.4.1](NTP-s-compat.htm#S-COMPAT-PLL).
+Applying corrections automatically within the operating system kernel does no longer require periodic corrections through an application program. Unfortunately there exist several revisions of the clock model that are partly incompatible. See [Section 6.4.1](/ntpfaq/ntp-s-compat/#641-the-kernel-pll).
 
 * * *
 
@@ -50,16 +50,13 @@ If you can find an include file named `timex.h` that contains a structure named 
 
 #### 5.2.1.3. How can I verify the Kernel Discipline?
 
-The following guidelines were presented by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM):
+The following guidelines were presented by [Professor David L. Mills](mailto:mills@udel.edu):
 
 Feedback loops and in particular phase-lock loops and I go way, way back since the first time I built one as part of a frequency synthesizer project as a grad student in 1959 no less. All the theory I could dredge up then convinced me they were evil, nonlinear things and tamed only by experiment, breadboard and cut-and-try. Not so now, of course, but the cut-and-try still lives on. The essential lessons I learned back then and have forgotten and relearned every ten years or so are:
 
 1.  Carefully calibrate the frequency to the control voltage and never forget it.
-    
 2.  Don't try to improve performance by cranking up the gain beyond the phase crossover.
-    
 3.  Keep the loop delay much smaller than the time constant.
-     
 4.  For the first couple of decade re-learns, the critters were analog and with short time constants so I could watch it with a scope. The last couple of re-learns were digital with time constants of days. So, another lesson:
     
 There is nothing in an analog loop that can't be done in a digital loop except debug it with a pair of headphones and a good test oscillator. Yes, I did say headphones.
@@ -67,9 +64,7 @@ There is nothing in an analog loop that can't be done in a digital loop except d
 So, this nonsense leads me to a couple of simple experiments:
 
 1. First, open the loop (`kill ntpd`). Using `ntptime`, zero the frequency and offset. Measure the frequency offset, which could take a day.
-    
 2. Then, do the same thing with a known offset via `ntptime` of say 50 PPM. You now have really and truly calibrated the VFO gain.
-     
 3. Next, close the loop after forcing the local clock maybe 100 ms offset. Watch the offset-time characteristic. Make sure it crosses zero in about 3000 s and overshoots about 5 percent. That with a time constant of 6 in the current nanokernel.
 
 In very simple words, step 1 means that you measure the error of your clock without any correction. You should see a linear increase for the offset. step 2 says you should then try a correction with a fixed offset. Finally, step 3 applies corrections using varying frequency corrections.
@@ -163,10 +158,6 @@ In addition to these direct manipulations, `hardpps()` also detects, signals, an
 * * *
 
 ### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-algo-kernel.htm#FTN-NANOKERNEL)
-
-The latest proposal, known as nanokernel, keeps time using even fractional nanoseconds.
 
 [<span class="footnote">[2]</span>](NTP-s-algo-kernel.htm#AEN2289)
 

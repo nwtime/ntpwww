@@ -1,5 +1,5 @@
 ---
-title: "Clock Quality"
+title: "3.3. Clock Quality"
 type: "archives"
 --- 
 
@@ -67,10 +67,4 @@ I'm not sure, but but I think a chronometer is allowed to drift mostly by six se
 
 I read about a temperature compensated quartz that should guarantee a clock error of less than 15 seconds per year, but I think they were actually talking about the frequency variation instead of absolute frequency error. In any case that would be 0.47 PPM. As I actually own a wrist watch that should include that quartz, I can state that the absolute frequency error is about 2.78 PPM, or 6 seconds in 25 days.
 
-For the Meinberg GPS 167 the frequency error of the free running oven-controlled quartz is specified as 0.5 PPM after one year, or 43 milliseconds per day (roughly 16 seconds per year).[<span class="footnote">[1]</span>](NTP-s-sw-clocks-quality.htm#FTN.AEN1242)
-
-### Notes
-
-[1]</span>](NTP-s-sw-clocks-quality.htm#AEN1242)</td>
-
-See the examples about _Mills-speak_ in [Q: 9.1.](NTP-s-related.htm#Q-MILLS-SPEAK).
+For the Meinberg GPS 167 the frequency error of the free running oven-controlled quartz is specified as 0.5 PPM after one year, or 43 milliseconds per day (roughly 16 seconds per year). See the examples about [Mills-speak](/ntpfaq/ntp-s-related#91-what-is-mills-speak).
