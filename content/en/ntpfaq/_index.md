@@ -22,11 +22,13 @@ Last update: 2006-11-21
 1.8 [I contributed to this FAQ, but my name is not mentioned anywhere. What's wrong?](#18-i-contributed-to-this-faq-but-my-name-is-not-mentioned-anywhere-whats-wrong)  
 1.9 [Why are Graphics stored in PNG Format?](#19-why-are-graphics-stored-in-png-format)  
 1.10 [Credits](#110-credits)
+
 2. [Time, what Time?](/ntpfaq/ntp-s-time)  
-2.1. [What is Time?](/ntpfaq/ntp-s-time#21-what-is-time)  
-2.2. [What is UTC?](/ntpfaq/ntp-s-time#22-what-is-utc)  
-2.3. [Is UTC the same as GMT?](/ntpfaq/ntp-s-time#23-is-utc-the-same-as-gmt)  
-2.4. [What happens during a Leap Second?](/ntpfaq/ntp-s-time#24-what-happens-during-a-leap-second)  
+2.1 [What is Time?](/ntpfaq/ntp-s-time#21-what-is-time)  
+2.2 [What is UTC?](/ntpfaq/ntp-s-time#22-what-is-utc)  
+2.3 [Is UTC the same as GMT?](/ntpfaq/ntp-s-time#23-is-utc-the-same-as-gmt)  
+2.4 [What happens during a Leap Second?](/ntpfaq/ntp-s-time#24-what-happens-during-a-leap-second)  
+
 3. [How do Computer Clocks work?](/ntpfaq/ntp-s-sw-clocks)  
 3.1 [Bits and Registers](/ntpfaq/ntp-s-sw-clocks/#31-bits-and-registers)  
 3.2 [Making Time go on](/ntpfaq/ntp-s-sw-clocks-tick)  
