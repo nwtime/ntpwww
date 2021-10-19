@@ -16,7 +16,7 @@ This section presents some background information and other related stuff that o
 
 #### 9.1. What is Mills-speak?
 
-Most people using NTP know that it has been invented by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM). So they frequently address him to solve their problems. Unfortunately they mostly don't know about Mills-speak, the language used by the aforementioned person. To avoid some disappointment, I'll give a small example of Mills-speak.
+Most people using NTP know that it has been invented by [Professor David L. Mills](mailto:mills@udel.edu). So they frequently address him to solve their problems. Unfortunately they mostly don't know about Mills-speak, the language used by the aforementioned person. To avoid some disappointment, I'll give a small example of Mills-speak.
 
 **Example 12. Mills-speak**
 
@@ -34,7 +34,7 @@ Fancy that; when you pop the cover off the CPU chip, a little guy with pointy ea
 
 Dave
 
-Still another one dealing with specifications of clock errors:[<span class="footnote">[1]</span>](NTP-s-related.htm#FTN.AEN6754)
+Still another one dealing with specifications of clock errors:
 
 Colin,
 
@@ -50,11 +50,13 @@ Most folks, including me, characterize each clock oscillator in terms of what is
 
 Dave
 
+> As [David Craggs](mailto:dcraggs@gotadsl.co.uk) (and others) pointed out, the calculation is obviously wrong: 12 PPM correspond to 43 ms per hour, and not per day. Likewise an error of 0.602 s per fortnight corresponds to a frequency error of 0.49 PPM.
+
 * * *
 
 #### 9.2. How can I convert a date to NTP format?
 
-NTP uses seconds since `1900`, while UNIX uses seconds since `1970`. The following routine by [Tom Van Baak](NTP-a-faq.htm#AU-TB) will convert the times accordingly:
+NTP uses seconds since `1900`, while UNIX uses seconds since `1970`. The following routine by [Tom Van Baak](mailto:tvb@veritas.com) will convert the times accordingly:
 
 <pre>/*
  * Return Modified Julian Date given calendar year,
@@ -93,7 +95,7 @@ SecondsSince1900 (int y, int m, int d)
 
 #### 9.3. How can I convert an NTP Timestamp to UNIX Time?
 
-The following Perl code presented by [Terje Mathisen](NTP-a-faq.htm#AU-TM) (slightly improved by [Ulrich Windl](NTP-a-faq.htm#AU-UW)) will do the job:
+The following Perl code presented by [Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com) (slightly improved by Ulrich Windl) will do the job:
 
 <pre># usage: perl n2u.pl timestamp
 # timestamp is either decimal: [0-9]+.?[0-9]*
@@ -134,27 +136,20 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
 
 There are various sources of information about NTP. The following list is definitely not complete, but probably a good starting point:
 
-*   Although intended for Solaris, the material mentioned in footnote [<span class="footnote">[4]</span>](NTP-s-trbl-spec.htm#FTN.FTN-SUN-BLUEPRINTS-NTP) for [Q: 8.3.7.1.](NTP-s-trbl-spec.htm#Q-TRBL-SPEC-SOLARIS-SUPP) is a good introduction for system administrators.
-
 *   This NTP website has a lot of information about NTP and related topics.
-
 *   There is also https://support.ntp.org.
-
 *   One of the oldest sources of useful information is the newsgroup news://comp.protocols.time.ntp. That newsgroup is visited by many beginners as well as a few experts, and occasionally even the father of NTP will post a note there.
-
-*   The page (Time, with focus on NTP and Slovenia)](http://www.ijs.si/time/) contains a good summary of time synchronization using NTP as well as valuable references.[<span class="footnote">[2]</span>](NTP-s-related.htm#FTN.AEN6825)
-
-*   Several technical papers by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) are available in the [Reference Library](/reflib).
-
-*   Various RFCs deal with NTP<. While newer RFCs obsolete older ones, it might still be interesting to read the older ones.
+*   The page [Time, with focus on NTP and Slovenia](http://www.ijs.si/time/) contains a good summary of time synchronization using NTP as well as valuable references. (The author allowed inclusion of his material into this FAQ. I really appreciate that.)
+*   Technical papers by [Professor David L. Mills](mailto:mills@udel.edu) are available in the [Reference Library](/reflib).
+*   Various [RFCs deal with NTP](/reflib/rfc). While newer RFCs obsolete older ones, it might still be interesting to read the older ones.
 
 **Table 4. RFCs related to NTP**
 
 | RFC Number | Date | Title or Description |
 | ----- | ----- | ----- |
-| 956 | September 1985 | Algorithms for synchronizing network clocks |
-| 957 | September 1985 | Experiments in network clock synchronization |
-| 958 | September 1985 | Network Time Protocol (NTP) |
+| 956 | September 1985 | [Algorithms for synchronizing network clocks](https://www.rfc-editor.org/rfc/rfc956) |
+| 957 | September 1985 | [Experiments in network clock synchronization](https://www.rfc-editor.org/rfc/rfc957) |
+| 958 | September 1985 | [Network Time Protocol (NTP)](https://www.rfc-editor.org/rfc/rfc958) |
 | 1059 | July 1988 | [Network Time Protocol (version 1) - specification and implementation](/reflib/rfc/rfc1059.txt) |
 | 1119 | September 1989 | [Network Time Protocol (version 2) - specification and implementation](/reflib/rfc/rfc1119/rfc1119b.pdf) |
 | 1305 | March 1992 | [Network Time Protocol (Version 3) - Specification, Implementation and Analysis](/reflib/rfc/rfc1305/rfc1305b.pdf) |
@@ -170,7 +165,9 @@ There are various sources of information about NTP. The following list is defini
 
 This section tries to give some information about GPS.
 
-The Navstar Global Positioning System (GPS) was developed in the seventies by U.S. military forces to supply position and time information all over the world. The system (to be precise: the GPS Space Segment) consists of 28 satellites (also termed Space Vehicles) orbiting the earth in six groups with four satellites in each group, roughly 20000km above the surface (12 hour orbits).[<span class="footnote">[3]</span>](NTP-s-related.htm#FTN.AEN6913) Each satellite has four atomic clocks (two Cesium, two Rubidium) for very high precision timing on board.[<span class="footnote">[4]</span>](NTP-s-related.htm#FTN.AEN6920) Currently it is controlled by the United States Air Force Space Command, Second Space Wing, Satellite Control Squadron located at the Falcon Air Force Base in Colorado. The satellites are monitored and controlled from four additional terrestial stations (Hawaii, Ascension Island, Kwajalein, and Diego Garcia).
+The Navstar Global Positioning System (GPS) was developed in the seventies by U.S. military forces to supply position and time information all over the world. The system (to be precise: the GPS Space Segment) consists of 28 satellites (also termed Space Vehicles) orbiting the earth in six groups with four satellites in each group, roughly 20000km above the surface (12 hour orbits). Current Kepler data can be found [here](http://www.celestrak.com/NORAD/elements/gps-ops.txt). There is also some visualization software named [WXtrack](http://www.satsignal.net).
+
+Each satellite has four atomic clocks (two Cesium, two Rubidium) for very high precision timing on board. (The very first and the latest satellites lack one Cesium clock.) Currently it is controlled by the United States Air Force Space Command, Second Space Wing, Satellite Control Squadron located at the Falcon Air Force Base in Colorado. The satellites are monitored and controlled from four additional terrestial stations (Hawaii, Ascension Island, Kwajalein, and Diego Garcia).
 
 To maintain the specified accuracy, most of the satellites require daily updates of their data, but some of them can receive and store corrections for several days. Under normal conditions the attitude error of the satellites is within 0.5°, and the error on the surface is 16m. If no corrections are uploaded for 14 days, the positioning error on the surface will increase to 425m. After 180 days the error will be 10km. If a satellite operates without current correction data, it is called to be in _extended operation_.
 
@@ -206,9 +203,9 @@ The system offers two classes of precision:
 
     The precision may be further degraded by Selective Availability (SA) which was implemented in 1991, and turned off on May 2, 2000 at 0400 UTC.
 
-Although derived from UTC (as presented by the U.S. Naval Observatory master clock, the UTC(USNO MC)), GPS time does not include leap seconds found in UTC, but the data stream provides the difference from UTC in seconds (See also [Q: 2.2.](NTP-s-time.htm#Q-UTC) and ftp://tycho.usno.navy.mil/pub/gps/gpstt.txt. At the time of writing the difference is 13s. While the difference between UTC and GPS time will change over time, there's a fixed offset between TAI and GPS time (19 seconds).
+Although derived from [UTC](/ntpfaq/ntp-s-time/#22-what-is-utc) (as presented by the U.S. Naval Observatory master clock, the UTC(USNO MC)), GPS time does not include leap seconds found in UTC, but the data stream provides [the difference from UTC in seconds](https://www.usno.navy.mil/USNO/time/gps/gps-timing-data-and-information). At the time of writing the difference is 18s. While the difference between UTC and GPS time will change over time, there's a fixed offset between TAI and GPS time (19 seconds).
 
-There is a military document describing the details of GPS, and it is very technical, but unclassified. The document is named [ICD-GPS-200](ftp://ftp.navcen.uscg.mil/policy/icd200/icd200c.pdf) (thanks to [Nicolai E M Plum](NTP-a-faq.htm#AU-NEP)). The current version seems to be ftp://ftp.navcen.uscg.mil/policy/icd200/ICD200Cw1234.pdf (thanks to [John Sager](NTP-a-faq.htm#AU-JCS)).
+There is a military document describing the details of GPS, and it is very technical, but unclassified. The document is named [ICD-GPS-200](https://www.navcen.uscg.gov/pdf/gps/ICD200c.pdf) (thanks to [Nicolai E M Plum](mailto:nicolai@esperi.org)). Thanks to [John Sager](mailto:jcs@zoo.bt.co.uk) for the [current version](https://www.navcen.uscg.gov/pubs/gps/icd200/ICD200Cw1234.pdf).
 
 **Example 13. A Glance at the GPS Sky**
 
@@ -244,25 +241,3 @@ Finally, the following figure combines the three coordinates in space to give yo
 On May 1st, 2000 there was an announcement about turning off Selective Availability (SA). The document titled _President Clinton: Improving the Civilian Global Positioning System (GPS)_ quotes Bill Clinton: "The decision to discontinue Selective Availability is the latest measure in an ongoing effort to make GPS more responsive to civil and commercial users worldwide. --This increase in accuracy will allow new GPS applications to emerge and continue to enhance the lives of people around the world."
 
 However the algorithm that is used for SA is not explained, and it seems SA has just been replaced by more selective availability ("New technologies demonstrated by the military enable the U.S. to degrade the GPS signal on a regional basis. GPS users worldwide would not be affected by regional, security-motivated, GPS degradations, and businesses reliant on GPS could continue to operate at peak efficiency." Pay attention to the wording (...) "could continue to operate (...)").
-
-"Additional information about GPS and the Selective Availability decision is available online at the Interagency GPS Executive Board web site: http://www.igeb.gov".
-
-* * *
-
-#### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-related.htm#AEN6754)
-
-As [David Craggs](NTP-a-faq.htm#AU-DC) (and others) pointed out, the calculation is obviously wrong: 12 PPM correspond to 43 ms per hour, and not per day. Likewise an error of 0.602 s per fortnight corresponds to a frequency error of 0.49 PPM.
-
-[<span class="footnote">[2]</span>](NTP-s-related.htm#AEN6825)
-
-The author allowed inclusion of his material into this FAQ. I really appreciate that.
-
-[<span class="footnote">[3]</span>](NTP-s-related.htm#AEN6913)
-
-Current Kepler data can be found at http://www.celestrak.com/NORAD/elements/gps-ops.txt. There is also some visualization software named [WXtrack<](http://www.satsignal.net).
-
-[<span class="footnote">[4]</span>](NTP-s-related.htm#AEN6920)
-
-The very first and the latest satellites lack one Cesium clock.

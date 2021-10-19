@@ -1,5 +1,5 @@
 ---
-title: "6. Configuration of xntpd"
+title: "6. Configuration"
 type: "archives"
 ---
 
@@ -11,7 +11,7 @@ Configuration is a manual procedure that is necessary to get a running NTP syste
 
 In contrast, running `xntpd` will learn and remember the clock drift and it will correct it autonomously, even if there is no reachable server. Therefore large clock steps can be avoided while the machine is synchronized to some reference clock. In addition `xntpd` will maintain error estimates and statistics, and finally it can offer NTP service for other machines. Last, but no least, `ntpdate` cannot query a local reference clock.
 
-In addition, there are plans to put the functionality of `ntpdate` into `ntpd`. Let me quote [Professor David L. Mills](NTP-a-faq.htm#AU-DLM):
+In addition, there are plans to put the functionality of `ntpdate` into `ntpd`. Let me quote [Professor David L. Mills](mailto:mills@udel.edu):
 
 Our zeal to deprecate `ntpdate` and friends like that is based entirely on our wish to eliminate redundant maintenance. The `ntpdate` program was crafted many years ago as a ripoff of `xntpd` with poorly adapted I/O, outdated algorithms and poor debugging support. If we can satisfy folks that `ntpd` with appropriate command line switch is the answer to their collective prayers, then we will scrap `ntpdate` and friend. It is in principle easy to modify `ntpd` to "quickly" set the clock; however, please do understand our reluctance to do that for the following reasons.
 
@@ -41,7 +41,7 @@ Obviously, keeping most folks happy with any one set of rules may not be accepta
 
 (...)
 
-To avoid a biased impression, lets quote [Per Hedeland](NTP-a-faq.htm#AU-PH) as well:
+To avoid a biased impression, lets quote [Per Hedeland](mailto:per@erix.ericsson.se) as well:
 
 99.9999% of NTP users don't care one iota whether `ntpdate` does such a lousy job that the clock ends up just within 50 ms of the correct time instead of 5 or 0.005. On the other hand they care a lot if the boot has to be delayed - for how long? 5 x 64 seconds? - just to allow `ntpd` to get a good enough fix that it is prepared to step the clock. And they care a lot, though they may not know it, if various applications (which may be many more than "some database servers") run into problems because the clock is stepped after they've started instead of before.
 
@@ -75,18 +75,18 @@ In reality one would add several other configuration items, like a drift-file, a
 
 #### 6.1.1.2. Is the minimum configuration a typical one?
 
-Besides being functional, configurations for the real life look differently from the one shown in question [Q: 6.1.1.1.](NTP-s-config.htm#Q-CONF-MINIMUM). Most NTP servers have no reference clocks, but use lower stratum servers as time references (See also [Q: 5.1.4.1.](NTP-s-algo.htm#Q-ALGO-BASIC-STRATUM)). Public time servers can be found [here](). Courtesy suggests to inform the maintainers of the time server that you are using their service (See also [What is the preferred etiquette when synchronizing to a public server?](NTP-s-config.htm#Q-CLIENT-ETIQUETTE)). As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:
+Besides being functional, configurations for the real life look differently from the one shown in question [Q: 6.1.1.1.](#6111-what-is-the-minimum-configuration). Most NTP servers have no reference clocks, but use lower [stratum](/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum) servers as time references. Public time servers can be found [here](https://support.ntp.org/bin/view/Servers/WebHome). [Courtesy](#6141-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server) suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:
 
 <pre>server 132.199.176.10	# some NTP server's IP address
 # You might add the EMail address of the contact person</pre>
 
-Configuring multiple servers improves the quality of the time. That is because of NTP being able to select the best time sources from a set of available ones. See [Why should I have more than one clock?](NTP-s-algo-real.htm#Q-NTP-ALGO) for details.
+[Configuring multiple servers](/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock) improves the quality of the time. That is because of NTP being able to select the best time sources from a set of available ones.
 
 * * *
 
 #### 6.1.1.3. What is the correct Pseudo IP Address for my reference clock?
 
-As seen in [Q: 6.1.1.1.](NTP-s-config.htm#Q-CONF-MINIMUM), the various drivers for reference clocks are selected using IP adresses. Such an IP address consists of four bytes that are separated by a dot.[<span class="footnote">[1]</span>](NTP-s-config.htm#FTN.AEN2781) The individual bytes are: <code>127.127._Clock Type.Unit Number_</code>.
+The various drivers for reference clocks are selected using IPv4 adresses. (NTP for IP version 6 has not yet been defined.) Such an IP address consists of four bytes that are separated by a dot. The individual bytes are: <code>127.127._Clock Type.Unit Number_</code>.
 
 The supported clock types are listed [here](/archives/4.2.8-series/refclock/#list-of-reference-clock-drivers). Usually it does not make sense, but if you want to connect more than one clock of a type, you can do so by using different unit numbers. The driver maps these unit numbers to one or more device files. The exact name of the device file can be found in the description of the individual reference clock's driver.
 
@@ -98,7 +98,11 @@ When running, `xntpd` learns about the drift of the system clock relative to the
 
 <pre>driftfile /etc/ntp.drift        # remember the drift of the local clock</pre>
 
-When using a drift-file, `xntpd` will use the last written value as initial frequency correction after restart. That way the best correction is set up much faster (Without a drift-file the initial frequency correction is always zero).[<span class="footnote">[2]</span>](NTP-s-config.htm#FTN.AEN2814)
+When using a drift-file, `xntpd` will use the last written value as initial frequency correction after restart. That way the best correction is set up much faster (Without a drift-file the initial frequency correction is always zero).
+
+[Mark Martinec](mailto:mark.martinec@ijs.si) contributed:
+
+On a Cisco router running IOS one can save the current frequency offset estimate to a nonvolatile memory with a command `write memory` (or a newer `copy running-config startup-config`), to make sure router starts up with a good frequency estimate after a reset. Do that manually after a day or two of a stable router operation with its NTP synchronized, and perhaps a few more times per year during seasons changes if router is operating in non-air-conditioned environment. This operation saves the current frequency estimate as a configuration line <code>ntp clock-period _xxxx_</code>.
 
 * * *
 
@@ -108,7 +112,7 @@ During startup `xntpd` resolves symbolic addresses to numeric addresses using th
 
 *   If a symbolic name has assigned multiple IP addresses, you may wish to explicitly select one.
 *   Using numeric addresses does not require a correct configuration of a resolver, and it may avoid making a connection to the Internet.
-*   Many service providers use _aliases_ or _logical host names_ when providing services. When using names like `ntp-1-a` for an NTP server, the service provider may map the logical name to a different machine, possibly without informing any clients. So if you use host names in your configuration file, all you have to do is to restart or [reconfigure](NTP-s-config.htm#Q-AUTH-KEYS) your `ntpd`.
+*   Many service providers use _aliases_ or _logical host names_ when providing services. When using names like `ntp-1-a` for an NTP server, the service provider may map the logical name to a different machine, possibly without informing any clients. So if you use host names in your configuration file, all you have to do is to restart or [reconfigure](#6134-how-do-i-use-authentication-keys) your `ntpd`.
 
 * * *
 
@@ -118,21 +122,19 @@ If you are not permanently connected to the Internet, you may need a different c
 
 #### 6.1.2.1. Can I use my system clock as reference clock?
 
-In short: You can, but you should not. See also [What is LCL, the Local Clock?](NTP-s-refclk.htm#Q-LOCAL-CLOCK).
+In short: You can, but you should not. See also [What is LCL, the Local Clock?](/ntpfaq/ntp-s-refclk/#711-what-is-lcl-the-local-clock).
 
 > **Warning**: Using the free-running system clock means that your NTP server announces that time as reference time to any client, no matter how wrong it is. Especially when connected to the Internet this can cause severe confusion.
 
-A recent survey[<span class="footnote">[2]</span>](NTP-s-def.htm#FTN.FTN-NTP-SURVEY99) discovered that about 95% of bad stratum-1 servers had configured `LCL`, the local clock, as time reference. So please don't make the same mistake after having read this!
+A [survey](/reflib/reports/ntp-survey99-minar.pdf) discovered that about 95% of bad stratum-1 servers had configured `LCL`, the local clock, as time reference. So please don't make the same mistake after having read this!
 
-Care has to be taken if you intend NTP to propagate manual changes of the local system time. `xntpd` (NTP v3) uses an artificial time scale that will not (immediately) follow such changes. See also [Q: 5.1.1.4.](NTP-s-algo.htm#Q-ALGO-BASIC-STEP-SLEW).
-
-XXX _Note from the editor:_ This issue probably requires further discussion.
+Care has to be taken if you intend NTP to propagate manual changes of the local system time. `xntpd` (NTP v3) uses an artificial time scale that will not (immediately) follow such changes. See also [Q: 5.1.1.4.](/ntpfaq/ntp-s-algo/#5114-what-happens-if-the-reference-time-changes).
 
 * * *
 
 #### 6.1.2.2. Can I avoid manual time adjustments in a network without reference clock?
 
-If you have a MODEM and you can afford the telephone costs, you can use the following configuration to call NIST (thanks to [William R. Pennock](NTP-a-faq.htm#AU-WRP)):
+If you have a MODEM and you can afford the telephone costs, you can use the following configuration to call NIST (thanks to [William R. Pennock](mailto:bill.pennock@transquest.com)):
 
 <pre># NIST Automated Computer Time Service. This driver calls a special
 # telephone number in Boulder, CO, to fetch the time directly from the
@@ -179,7 +181,7 @@ When absolutely clueless of what's going on, you might enable full logging (Make
 
 #### 6.1.3.2. How can I speed up initial Synchronization?
 
-As explained [earlier](NTP-s-algo.htm#Q-ALGO-BASIC-SYNC), several packet exchanges are needed before time can be corrected. Therefore the obvious trick is to speed up packet exchanges. See [Q: 5.1.2.4.](NTP-s-algo.htm#Q-ALGO-SERVER-POLL) for a general discussion of the polling algorithm. In NTP version 4 a new keyword named `iburst` can be used to quickly set up the registers of the receive filter when they are empty. Typically this is true for a restart, or when the connection to a server was down for a longer period. When used, the data should be available within 30 seconds.
+[Several packet exchanges are needed](/ntpfaq/ntp-s-algo/#5121-how-is-time-synchronized) before time can be corrected. Therefore the obvious trick is to speed up packet exchanges. See [Q: 5.1.2.4.](/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled) for a general discussion of the polling algorithm. The `iburst` keyword can be used to quickly set up the registers of the receive filter when they are empty. Typically this is true for a restart, or when the connection to a server was down for a longer period. When used, the data should be available within 30 seconds.
 
 If the local clock does not have a good estimate for the current time, using option `-g` on the command line may also speed up the time until `ntpd` sets the clock for the first time. Furthermore that option will also allow suspiciously huge initial correction.
 
@@ -197,7 +199,7 @@ trustedkey 1 2 15
 requestkey 15
 controlkey 15</pre>
 
-This tells `xntpd` to trust keys `1` and `2` when receiving time information. Key `15` is trusted for queries and configuration changes (`requestkey` is used by `xntpdc` while <`controlkey` is used by `ntpq`).
+This tells `xntpd` to trust keys `1` and `2` when receiving time information. Key `15` is trusted for queries and configuration changes (`requestkey` is used by `xntpdc` while `controlkey` is used by `ntpq`).
 
 > **Note:** Even though `controlkey` and `requestkey` are explicitly specified, you still must add the keys to `trustedkey`.
 
@@ -205,7 +207,7 @@ To specify the keys for `xntpd` you'll have to create the file `/etc/ntp.keys`. 
 
 > **Note:** Password are stored unencrypted in the keyfile. Therefore no other user should have read or write access to that file (or write access to any containing directory).
 
-Here's an example for the contents of a keyfile; the first column specifies the key number (range 1 to 65535), the second column the key type `S` (DES key in DES format), `N` (DES key in NTP format), `A` (DES key as ASCII string), `M` (MD5 key as ASCII string), and the third column is the key itself:[<span class="footnote">[3]</span>](NTP-s-config.htm#FTN.AEN2963)
+Here's an example for the contents of a keyfile; the first column specifies the key number (range 1 to 65535), the second column the key type `S` (DES key in DES format), `N` (DES key in NTP format), `A` (DES key as ASCII string), `M` (MD5 key as ASCII string), and the third column is the key itself. In _NTP Security Model_ key IDs are described as 32-bit values.
 
 <pre>1   S    68767ce625aef123
 2   S    df2ab658da62237a
@@ -214,7 +216,7 @@ Here's an example for the contents of a keyfile; the first column specifies the 
 
 Depending on the type of key (DES or MD5) you want to use, you'll have to use the command `keytype` in `xntpdc` to specify the type your key has. Normally you are asked for the key's number and the password when `xntpdc` uses a command to change the configuration. Your input will be remembered inside `xntpdc`, so that you only have to enter it once per session.
 
-The example above uses DES keys. DES stands for Data Encryption Standard and is considered as munition in the USA, and therefore may not be exported. Probably as this 56-bit encryption is rather ridiculous to the rest of the world, DES keys are no longer supported in NTPv4. You would change all the letters in the second column to `M`. `M` stands for MD5 (Message Digest #5), a strong one-way hash function described in [RFC 1321 - The MD5 Message-Digest Algorithm]().
+The example above uses DES keys. DES stands for Data Encryption Standard and is considered as munition in the USA, and therefore may not be exported. Probably as this 56-bit encryption is rather ridiculous to the rest of the world, DES keys are no longer supported in NTPv4. You would change all the letters in the second column to `M`. `M` stands for MD5 (Message Digest #5), a strong one-way hash function described in [RFC 1321 - The MD5 Message-Digest Algorithm](/reflib/rfc/rfc1321.txt).
 
 * * *
 
@@ -235,7 +237,7 @@ While possible, specifying the password on `xntpdc`'s command line like <code>xn
 
 #### 6.1.3.5. What are all the different Keys used for?
 
-In addition to the example given in [Q: 6.1.3.3.](NTP-s-config.htm#Q-CONF-REMOTE-ADMIN), [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) states:
+In addition to the example given in [Q: 6.1.3.3.](#6133-how-do-i-configure-remote-administration), [Professor David L. Mills](mailto:mills@udel.edu) states:
 
 Control keys are for the ntpq program and request keys are for the ntpdc program. The key file(s) define the cryptographic keys, but these must be activated individually using the trustedkey command. That last is so a single key file can be shared among a bunch of servers, but only certain ones used between pairwise symmetric mode servers. You are invited to cut this paragraph and paste it on the refrigerator door if it eases confusion.
 
@@ -243,14 +245,13 @@ Control keys are for the ntpq program and request keys are for the ntpdc program
 
 #### 6.1.3.6. How do I use the new autokey feature?
 
-NTP version 4 has a new way of managing authentication keys, commonly referred to as autokey mechanism. The following procedure had been given by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM):
+NTP version 4 has a new way of managing authentication keys, commonly referred to as autokey mechanism. The following procedure had been given by [Professor David L. Mills](mailto:mills@udel.edu):
 
 1.  A broadcast server needs to have a line like `broadcast 128.4.2.255 autokey`.
 2.  The clients simply have `broadcastclient`.
 
-Replace `broadcast` with `multicast` and follow `autokey` with `ttl 5` or something like that. As for the crypto questions, refer to [<autokey](/reflib/autokey) and briefings from there.[<span class="footnote">[1]</span>](NTP-a-faq.htm#FTN.FTN-VOLATILE-URL)
-
-For more details see also [Q: 6.2.2.6.](NTP-s-config-adv.htm#Q-CONFIG-ADV-AUTH-AUTOKEY) in section [Section 6.2.2](NTP-s-config-adv.htm#S-CONFIG-ADV-AUTH).
+Replace `broadcast` with `multicast` and follow `autokey` with `ttl 5` or something like that. As for the crypto questions, refer to [Autonomous Authentication](/reflib/autokey) and 
+[Q: 6.2.2.6.](/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey).
 
 * * *
 
@@ -258,34 +259,16 @@ For more details see also [Q: 6.2.2.6.](NTP-s-config-adv.htm#Q-CONFIG-ADV-AUTH-A
 
 #### 6.1.4.1. What is the preferred etiquette when synchronizing to a public server?
 
-If the [listing]() says to notify before before using a server, then you should send email and wait until you get an affirmative reply before using that server.
+If the [listing](https://support.ntp.org/bin/view/Servers/WebHome) says to notify before before using a server, then you should send email and wait until you get an affirmative reply before using that server.
 
 Some public timeservers are listed as "open access" with no notice required (especially the secondaries). Very public-spirited. I have one of these (stratum-2 right now) at ntp-cup.external.hp.com.
 
 You should probably have no more than three of your timeservers using any individual public timeserver. Let all of your internal clients be served by those three (or three-groups-of-three).
 
-The most popular time servers are highly overloaded, recommending that you should avoid them if possible. The official etiquette is described in http://www.eecis.udel.edu/~mills/ntp/servers.htm, section _Rules of Engagement_.[<span class="footnote">[1]</span>](NTP-a-faq.htm#FTN.FTN-VOLATILE-URL)
+The most popular time servers are highly overloaded, recommending that you should avoid them if possible. The official etiquette is described in [Rules of Engagement](https://support.ntp.org/bin/view/Servers/RulesOfEngagement).
 
 * * *
 
 #### 6.1.4.2. How and where can I find public Time Servers?
 
-Additionally, NIST (the United States National Instute of Standards and Technology) has a list of public time servers at http://www.boulder.nist.gov/timefreq/service/time-computer.html. Their policy statement implies that their Internet time servers are open access to everyone.
-
-* * *
-
-### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-config.htm#AEN2781)
-
-This is true for IP version 4. NTP for IP version 6 has not yet been defined.
-
-[<span class="footnote">[2]</span>](NTP-s-config.htm#AEN2814)
-
-[Mark Martinec](NTP-a-faq.htm#AU-MM) contributed:
-
-On a Cisco router running IOS one can save the current frequency offset estimate to a nonvolatile memory with a command `write memory` (or a newer `copy running-config startup-config`), to make sure router starts up with a good frequency estimate after a reset. Do that manually after a day or two of a stable router operation with its NTP synchronized, and perhaps a few more times per year during seasons changes if router is operating in non-air-conditioned environment. This operation saves the current frequency estimate as a configuration line <code>ntp clock-period _xxxx_</code>.
-
-[3]</span>](NTP-s-config.htm#AEN2963)
-
-In _NTP Security Model_ key IDs are described as 32-bit values.
+Additionally, NIST (the United States National Instute of Standards and Technology) has a [list of public time servers](https://tf.nist.gov/tf-cgi/servers.cgi). Their policy statement implies that their Internet time servers are open access to everyone.

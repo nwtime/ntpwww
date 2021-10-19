@@ -75,13 +75,13 @@ In very simple words, step 1 means that you measure the error of your clock with
 
 #### 5.2.2.1. Should the Kernel Discipline be used?
 
-Despite of the features described in [Q: 5.2.1.1.](NTP-s-algo-kernel.htm#Q-ALGO-KERNEL-CLOCK) there are reasons to disable the use of the kernel discipline. Especially for very long polling intervals (see also [Q: 5.1.5.1.](NTP-s-algo.htm#Q-POLL-RANGE)) there are disadvantages with the kernel discipline designed for NTP version 3. [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) said:
+Despite the features described in [Q: 5.2.1.1.](/ntpfaq/ntp-s-algo-kernel/#5211-what-is-special-about-the-kernel-clock) there are reasons to disable the use of the kernel discipline. Especially for very long polling intervals (see also [Q: 5.1.5.1.](/ntpfaq/ntp-s-algo/#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll)) there are disadvantages with the kernel discipline designed for NTP version 3. [Professor David L. Mills](mailto:mills@udel.edu) said:
 
 The key to the daemon loop performance is the use of the Allan intercept to weight the PLL/FLL contributions. The result is to weight the FLL contributions more heavily with the longer poll intervals. However, the effects are noticeable mostly in the transition region between 256 s and the Allan intercept, which is dynamically estimated as a function of phase noise. All this could be implemented in the kernel discipline, but it doesn't seem worthwhile in view of the very mintor performance that could be achieved. The correct advice in these cases is to avoid the kernel loop entirely if you expect to allow intervals much over 1024 s. (...)
 
-Basically it means that `ntpd` performs more complex computations than the kernel clock does. Floating point operations are generally avoided in operating system kernels. As mentioned in [Q: 5.1.5.2.](NTP-s-algo.htm#Q-ALGO-POLL-BEST), there's a polling interval where the total error is minimal. This is what is called _Allan intercept_ above.
+Basically it means that `ntpd` performs more complex computations than the kernel clock does. Floating point operations are generally avoided in operating system kernels. As mentioned in [Q: 5.1.5.2.](/ntpfaq/ntp-s-algo/#5152-what-is-the-best-polling-interval), there's a polling interval where the total error is minimal. This is what is called _Allan intercept_ above.
 
-In NTP version 3 that point was hardcoded as 1024 seconds. For shorter polling intervals PLL mode was used, while for longer intervals FLL mode was used. NTP version 4 has a mixed model where PLL and FLL both contribute to the estimated correction value. However, this does not mean that the older kernel code fails; I successfully ran a standard Linux kernel with `maxpoll 17`, and the polling interval actually reached 36 hours.[<span class="footnote">[2]</span>](NTP-s-algo-kernel.htm#FTN.AEN2289)
+In NTP version 3 that point was hardcoded as 1024 seconds. For shorter polling intervals PLL mode was used, while for longer intervals FLL mode was used. NTP version 4 has a mixed model where PLL and FLL both contribute to the estimated correction value. However, this does not mean that the older kernel code fails; I successfully ran a standard Linux kernel with `maxpoll 17`, and the polling interval actually reached 36 hours. I used Linux-2.2.13. Unfortunately the `maxerror` reached 16 seconds, and the implementation turned on `STA_UNSYNC` (The reference implementation grows `maxerror` very fast, but it does not set `STA_UNSYNC` when reaching some limit). IMHO if the maximum error is that high, `ntpd` should lower the polling interval.
 
 * * *
 
@@ -89,7 +89,7 @@ In NTP version 3 that point was hardcoded as 1024 seconds. For shorter polling i
 
 #### 5.2.3.1. What are the individual monitoring values about?
 
-Most of the values are described in [Q: 6.2.4.2.1.](NTP-s-config-adv.htm#Q-CONFIG-ADV-PPS-VERIFY). The remaining values of interest are:
+Most of the values are described in [Q: 6.2.4.2.1.](/ntpfaq/ntp-s-config-adv/#62421-so-i-think-i-have-all-required-components-ready-how-will-i-see-that-everything-is-working). The remaining values of interest are:
 
 time
 : The current time.
@@ -131,13 +131,13 @@ During normal time synchronization, the time stamps of some server are compared 
 
 #### 5.2.4.2. How is PPS Processing related to the Kernel Discipline?
 
-PPS processing can be done in application programs (see also [Q: 6.2.4.5.1.](NTP-s-config-adv.htm#Q-PPS-API)), but it makes much more sense when done in the operating system kernel. When polling a time source every 20 minutes, an offset of 5ms is rather small, but when polling a signal every second, an offset of 5ms is very high. Therefore a high accuracy is required for PPS processing. Application programs usually can't fulfil these demands.
+PPS processing can be done in application programs, but it makes much more sense when done in the operating system kernel. When polling a time source every 20 minutes, an offset of 5ms is rather small, but when polling a signal every second, an offset of 5ms is very high. Therefore a high accuracy is required for PPS processing. Application programs usually can't fulfil these demands.
 
-The kernel clock model described before also includes algorithms to discipline the clock through an external pulse, the PPS. The additional requirements consist of two mechanisms: Capturing an external event with high accuracy, and applying that event to the clock model. The first is nowadays solved by using the [PPS API](NTP-s-config-adv.htm#Q-PPS-API)), while the second is implemented mostly in a routine named `hardpps()`. The latter routine is called every time when an external PPS event has been detected.
+The kernel clock model described before also includes algorithms to discipline the clock through an external pulse, the PPS. The additional requirements consist of two mechanisms: Capturing an external event with high accuracy, and applying that event to the clock model. The first is nowadays solved by using the [PPS API](/ntpfaq/ntp-s-config-adv/#62451-what-is-that-pps-api), while the second is implemented mostly in a routine named `hardpps()`. The latter routine is called every time when an external PPS event has been detected.
 
 * * *
 
-#### 5.2.4.3. What does `hardpps()` do?
+#### 5.2.4.3. What does hardpps() do?
 
 `hardpps()` is called with two parameters, the absolute time of the event, and the time relative to the last pulse. Both times are measured by the system clock.
 
@@ -155,10 +155,3 @@ When flag `STA_PPSTIME` is set, the start of a second is moved towards the PPS e
 
 In addition to these direct manipulations, `hardpps()` also detects, signals, and filters various error conditions. The length of the calibration interval is also adjusted automatically. As the limit for a bad calibration is ridiculously high (about 500 PPM per calibration), the calibration interval normally is always at its configured maximum.
 
-* * *
-
-### Notes
-
-[<span class="footnote">[2]</span>](NTP-s-algo-kernel.htm#AEN2289)
-
-I used Linux-2.2.13. Unfortunately the `maxerror` reached 16 seconds, and the implementation turned on `STA_UNSYNC` (The reference implementation grows `maxerror` very fast, but it does not set `STA_UNSYNC` when reaching some limit). IMHO if the maximum error is that high, `ntpd` should lower the polling interval.

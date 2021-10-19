@@ -107,7 +107,7 @@ Last update: 2006-11-21
    5.4. [Encryption](/ntpfaq/ntp-s-algo-crypt)  
    5.4.1. [The Basics of Autokey](#the-basics-of-autokey)
 
-6. [Configuration of xntpd](/ntpfaq/ntp-s-config)  
+6. [Configuration](/ntpfaq/ntp-s-config)  
    6.1. [Basic Configuration](#basic-configuration)  
    6.1.1. [Recommended Minimum](#recommended-minimum)  
    6.1.2. [Running an isolated Network](#running-an-isolated-network)  
@@ -301,7 +301,7 @@ This is an alphabetical list of contributors:
 * [Daniel Drucker](mailto:ddrucker@easylink.com)
 * [Arthur Darren Dunham](mailto:add@netcom.com)
 * [Philippe Eveque](mailto:philippe_eveque@grenoble.hp.com)
-* [Jürgen Georgi](mailto:georgi@BelWue.DE)
+* [J&#252;rgen Georgi](mailto:georgi@BelWue.DE)
 * [Tim Granger](mailto:Tim.Granger@cl.cam.ac.uk)
 * [Benjamin Greenwald](mailto:beng@lcs.mit.edu)
 * [James & Charlotte Griffin](mailto:agriffin@cpcug.org)

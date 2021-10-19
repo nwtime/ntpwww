@@ -5,9 +5,9 @@ type: "archives"
 
 This section discusses the use of encryption and related technology for NTP.
 
-Providing or enabling the use of encryption in software is (or at least was) considered harmful by the U.S.A.[<span class="footnote">[1]</span>](NTP-s-algo-crypt.htm#FTN.AEN2521) Therefore NTP version 3 was available as _export version_ without DES encryption as well as a non-export version. As `xntpd` is actually an international product developed and improved allover in the world, NTP version 4 includes no cryptography (from the viewpoint of government regulations) and introduces MD5 keys.
+Providing or enabling the use of encryption in software is (or at least was) considered harmful by the USA. (However electronic commerce is only possibly with safe data exchange, so use of encryption became a bit more allowed recently.) Therefore NTP version 3 was available as _export version_ without DES encryption as well as a non-export version. As `xntpd` is actually an international product developed and improved allover in the world, NTP version 4 includes no cryptography (from the viewpoint of government regulations) and introduces MD5 keys.
 
-As MD5 is heavily used in digital signatures, MD5 is not considered as cryptography (despite of the fact that digital signatures actually _do_ use encryption).
+As MD5 is heavily used in digital signatures, MD5 is not considered as cryptography (despite the fact that digital signatures actually _do_ use encryption).
 
 * * *
 
@@ -62,7 +62,7 @@ Therefore NTP tries to avoid cryptography whenever possibly. MD5 is believed to 
 
 #### 5.4.1. The Basics of Autokey
 
-Symmetric key encryption requires a secure channel to exchange secret keys. Every communication partner (NTP client) needs such a secret key for authenticating the time messages from a server. Therefore public key cryptography and X.509 version 3 certificates are used for a new authentication schema that is summarized below. See the original documentation and [Q: 6.2.2.6.](NTP-s-config-adv.htm#Q-CONFIG-ADV-AUTH-AUTOKEY) for details.
+Symmetric key encryption requires a secure channel to exchange secret keys. Every communication partner (NTP client) needs such a secret key for authenticating the time messages from a server. Therefore public key cryptography and X.509 version 3 certificates are used for a new authentication schema that is summarized below. See the original documentation and [Q: 6.2.2.6.](/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey) for details.
 
 As public key algorithms are computationally expensive, those algorithms are not used for every packet being exchanged.
 
@@ -114,12 +114,4 @@ According to _NTP Security Protocol_, a _proventic trail_ (certificate trail) is
 
 #### 5.4.1.5. Session Keys
 
-According to _NTP Security Protocol_, _session keys_ are 128 bits (16 octets). Session keys are created as lists of keys, and the last key in the list is digitally signed. See [RFC 2104 HMAC: Keyed-Hashing for Message Authentication]() for basics.
-
-* * *
-
-### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-algo-crypt.htm#AEN2521)
-
-However electronic commerce is only possibly with safe data exchange, so use of encryption became a bit more allowed recently.
+According to _NTP Security Protocol_, _session keys_ are 128 bits (16 octets). Session keys are created as lists of keys, and the last key in the list is digitally signed. See [RFC 2104 HMAC: Keyed-Hashing for Message Authentication](https://www.rfc-editor.org/rfc/rfc2104) for basics.

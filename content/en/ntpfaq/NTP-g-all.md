@@ -4,7 +4,7 @@ type: "archives"
 ---
 
 anal-retentive programmer
-: Probably the opposite of the famous "real programmer", used by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM).
+: Probably the opposite of the famous "real programmer", used by [Professor David L. Mills]((mailto:mills@udel.edu).
 
 AM
 : Amplitude Modulation. Information is encoded in the strength of the signal.
@@ -49,4 +49,4 @@ RFC
 : Request For Comments, a document describing an informal Internet standard. Numbers for RFCs are assigned by the IETF.
 
 SA
-: Selective Availability, sometimes also called dither, the fact that the GPS information available to the public is made inexact by some non-obvious method. See also [Section 9.1](NTP-s-related.htm#S-GPS-BACKGROUND).
+: Selective Availability, sometimes also called dither, the fact that the GPS information available to the public is made inexact by some non-obvious method. See also [Section 9.1](/ntpfaq/ntp-s-related/#91-gps).

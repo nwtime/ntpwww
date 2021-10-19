@@ -6,7 +6,7 @@ type: "archives"
 This section discusses problems that are independent of a specific operating system, probably referring to more specific entries.
 
 8.2.1. [Starting, running, querying](#starting-running-querying)  
-8.2.1.1. [How can I check that xntpd is up and running?](#how-can-i-check-that-xntpd-is-up-and-running)  
+8.2.1.1. [How can I check that ntpd is up and running?](#how-can-i-check-that-ntpd-is-up-and-running)  
 8.2.1.2. [Whenever I execute ntpd the daemon will only run for about 10 to 20 minutes. Do you have any idea why?](#whenever-i-execute-ntpd-the-daemon-will-only-run-for-about-10-to-20-minutes-do-you-have-any-idea-why)  
 8.2.2. [Cabling and Interfacing](#cabling-and-interfacing)  
 8.2.2.1. [Why does my Serial Interface hang when I connect a PPS Signal to DCD?](#why-does-my-serial-interface-hang-when-i-connect-a-pps-signal-to-dcd)  
@@ -16,13 +16,11 @@ This section discusses problems that are independent of a specific operating sys
 8.2.3.2. [My server is up and running, but it is unusable for clients](#my-server-is-up-and-running-but-it-is-unusable-for-clients)  
 8.2.3.3. [I waited a long time, still server not working](#i-waited-a-long-time-still-server-not-working)  
 8.2.4. [Cryptography](#cryptography)  
-8.2.4.1. [No time received when using autokey](#no-time-received-when-using-autokey)  
-8.2.4.2. [Error when creating GQ or MV Parameters](#error-when-creating-gq-or-mv-parameters)  
+8.2.4.1. [No time received when using autokey](#no-time-received-when-using-autokey) 
 8.2.5. [Time Errors](#time-errors)  
 8.2.5.1. [Why does my server change time references quite frequently?](#why-does-my-server-change-time-references-quite-frequently)  
 8.2.5.2. [My server periodically loses synchronization](#my-server-periodically-loses-synchronization)  
 8.2.5.3. [Why does my system step 0.6 seconds several times a day?](#why-does-my-system-step-06-seconds-several-times-a-day)  
-8.2.5.4. [ntpdate sets time to Year 1933](#ntpdate-sets-time-to-year-1933)  
 8.2.6. [Messing with broken Hardware](#messing-with-broken-hardware)  
 8.2.6.1. [How do I set the correct value for tick?](#how-do-i-set-the-correct-value-for-tick)  
 8.2.7. [Incompatibilities](#incompatibilities)  
@@ -45,9 +43,9 @@ This section discusses problems that are independent of a specific operating sys
 
 #### 8.2.1. Starting, running, querying
 
-#### 8.2.1.1. How can I check that xntpd is up and running?
+#### 8.2.1.1. How can I check that ntpd is up and running?
 
-The easiest command to verify that `xntpd` is still running is `ntpq -p`. This command will contact `xntpd` on the local host, and it will list all configured servers together with some health status. If `xntpd` is not running, the typical error message is `ntpq: read: Connection refused`.
+The easiest command to verify that `ntpd` is still running is `ntpq -p`. This command will contact `ntpd` on the local host, and it will list all configured servers together with some health status. If `ntpd` is not running, the typical error message is `ntpq: read: Connection refused`.
 
 If your are logged in to a UNIX machine, you can use `ps` to look for the daemon.
 
@@ -55,7 +53,7 @@ If your are logged in to a UNIX machine, you can use `ps` to look for the daemon
 
 #### 8.2.1.2. Whenever I execute ntpd the daemon will only run for about 10 to 20 minutes. Do you have any idea why?
 
-`ntpd` expects that the system time has been set closely to the real time, for example by using `ntpdate`. If the reference time is significantly off, `ntpd` waits up to 20 minutes until it sets the time (See also [Q: 5.1.1.4.](NTP-s-algo.htm#Q-ALGO-BASIC-STEP-SLEW)).
+`ntpd` expects that the system time has been set closely to the real time, for example by using `ntpdate`. If the [reference time is significantly off](/ntpfaq/ntp-s-algo/#5114-what-happens-if-the-reference-time-changes), `ntpd` waits up to 20 minutes until it sets the time).
 
 However, if the time is off by more than some magic amount of roughly 20 minutes, `ntpd` refuses to set the system time, and it terminates instead. To confirm what is going on, look into syslog or into the logfile you configured!
 
@@ -75,7 +73,7 @@ Sometimes drivers misinterpret the meaning of DCD to be a MODEM status. When usi
 
 First, the PPS API is not required to provide an implementation that can detect both edges of a pulse. See function `time_pps_getcap()` in the description of the API.
 
-Then the hardware may not be responding fast enough. See also [Q: 6.2.4.6.1.](NTP-s-config-adv.htm#Q-CONFIG-ADV-PPS-HW-SHORTEST-SERIAL-PULSE) about timing on a serial port.
+Then the hardware may not be responding fast enough. See also [Q: 6.2.4.6.1.](/ntpfaq/ntp-s-config-adv/#62461-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface) about timing on a serial port.
 
 Finally, even if the hardware can send an interrupt for the edge being detected first, the CPU may be still busy with handling the interrupt when the hardware detects the other edge. That may either cause the second interrupt to be missed, or the interrupt handler being called for the first interrupt actually sees a hardware state that corresponds to the second interrupt condition, thereby reporting the wrong event, ignoring the edge that originally triggered the interrupt.
 
@@ -91,7 +89,7 @@ There is another command named `ntptrace` to follow a complete synchronization p
 
 **Example 7. Using ntptrace**
 
-This example is taken from [David Dalton](NTP-a-faq.htm#AU-DD)'s _NTP Primer_, another good introduction to NTP (originally written for HP-UX):
+This example is taken from David Dalton's _NTP Primer_, another good introduction to NTP (originally written for HP-UX):
 
 <pre>ntptrace cosl4
 cosl4: stratum 5, offset 0.022003, synch distance 0.24033
@@ -108,7 +106,7 @@ The output of the command shows the stratum of the desired server, the estimated
 
 Well, this is the answer for the impatient: Probably you have made no mistakes, but you simply have to wait for about five minutes until the server synchronizes to a time reference for the first time. If you changed the `minpoll` parameter, the wait time may change accordingly.
 
-If you are running `xntpd` for the first time, you may even have to wait longer, because `xntpd` resets after a _time step_, thus needing another five minutes. (see also [How will _NTP_ discipline my Clock?](NTP-s-algo.htm#Q-CLOCK-DISCIPLINE)).
+If you are running `xntpd` for the first time, you may even have to wait longer, because `xntpd` resets after a _time step_, thus needing another five minutes. (see also [How will NTP discipline my Clock?](/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock)).
 
 If the above does not apply, see the next question.
 
@@ -116,16 +114,16 @@ If the above does not apply, see the next question.
 
 #### 8.2.3.3. I waited a long time, still server not working
 
-If you have waited for more than 20 minutes since startup of `xntpd`, it's time for monitoring `xntp`. First you should verify that your daemon is [still running](NTP-s-trbl-general.htm#Q-MON-DAEMON-RUNNING)). In any case you should also check your `syslog` for messages from `xntpd`. Messages found there are influenced by the `logconfig` statement in `/etc/ntp.conf` and by your `/etc/syslog.conf`.
+If you have waited for more than 20 minutes since startup of `ntpd`, it's time for monitoring `ntpd`. First you should verify that your daemon is [still running](#8211-how-can-i-check-that-ntpd-is-up-and-running). In any case you should also check your `syslog` for messages from `ntpd`. Messages found there are influenced by the `logconfig` statement in `/etc/ntp.conf` and by your `/etc/syslog.conf`.
 
-If you still have no clue of what's going wrong, you should contact `xntpd` with one of the frontend programs named `ntpq` and `xntpdc`. One of the easiest ways to get a first impression of the daemon's status is:
+If you still have no clue of what's going wrong, you should contact `ntpd` with one of the frontend programs named `ntpq` and `ntpdc`. One of the easiest ways to get a first impression of the daemon's status is:
 
-1.  Run `ntpq -p` on the host where `xntpd` is running, or specify the host name at the end of the command line for a remote host (e.g. <code>ntpq -p _hostname_</code>). This command will show you the number and the status of your configured or otherwise used time references.
-2.  Run `ntpq -c as` in a similar way to see what `xntpd` thinks of these time references.
+1.  Run `ntpq -p` on the host where `ntpd` is running, or specify the host name at the end of the command line for a remote host (e.g. <code>ntpq -p _hostname_</code>). This command will show you the number and the status of your configured or otherwise used time references.
+2.  Run `ntpq -c as` in a similar way to see what `ntpd` thinks of these time references.
 
 If the above does not explain your problem, use `ntpq -p` to quickly inspect configured time sources, reachability, delay, and dispersion. Basically the reachability should be `377` for full reachability (an octal value). The delay should be positive, but small, depending on your network technology. Dispersion should be below `1000` (1 second) for at least one server. One of the servers should be marked with a `*`.
 
-Here's another example taken from [David Dalton](NTP-a-faq.htm#AU-DD)'s NTP Primer (<NTPv3):
+Here's another example taken from David Dalton's NTP Primer (NTPv3):
 
 <pre>remote  refid   st t when poll reach   delay   offset    disp
 =========================================================================
@@ -144,7 +142,7 @@ Here's another example taken from [David Dalton](NTP-a-faq.htm#AU-DD)'s NTP Prim
 
 #### 8.2.4.1. No time received when using autokey
 
-The first place to check (as always) is the system log file or (if configured) `ntpd`'s log file. Here's a sample of successful configuration between `ltgpsdemo`, an external timeserver (Meinberg LANTIME) synchronized to GPS and PPS, and `elf`, a client running Linux with no kernel modifications (SUSE Linux 9.2).[<span class="footnote">[1]</span>](NTP-s-trbl-general.htm#FTN.AEN5299) Right after startup, the client displays a `refid` of `.INIT.` like this:
+The first place to check (as always) is the system log file or (if configured) `ntpd`'s log file. Here's a sample of successful configuration between `ltgpsdemo`, an external timeserver (Meinberg LANTIME) synchronized to GPS and PPS, and `elf`, a client running Linux with no kernel modifications (SUSE Linux 9.2). Right after startup, the client displays a `refid` of `.INIT.` like this:
 
 <pre>ntpq> pe
      remote           refid      st t when poll reach   delay   offset  jitter
@@ -276,17 +274,11 @@ ntpq></pre>
 
 * * *
 
-#### 8.2.4.2. Error  when creating GQ or MV Parameters
-
-The problem occurred in SuSE Linux 10.0 with openssl-0.9.7g-2.6, but the reason is unknown. The problem might be some existing keys or certificates or incompatibilities between IFF and MV identity schemes.
-
-* * *
-
 #### 8.2.5. Time Errors
 
 #### 8.2.5.1. Why does my server change time references quite frequently?
 
-Ideally the quality of a time reference is a static feature. In reality however they can be of varying quality over time. In addition you should realize that the observed quality can have the two reasons already mentioned in [My server periodically loses synchronization](NTP-s-trbl-general.htm#Q-LOSE-SYNC).
+Ideally the quality of a time reference is a static feature. In reality however they can be of varying quality over time. In addition you should realize that the observed quality can have the two reasons already mentioned in [My server periodically loses synchronization](#8252-my-server-periodically-loses-synchronization).
 
 In fact this behaviour is so frequent that it has a name of its own: _clock hopping_.
 
@@ -298,26 +290,30 @@ Clock hopping can be avoided by deterministic network delays, but usually you ca
 
 The typical reason is that system time and the time received from a reference disagree. This can be caused by the local clock that drifts very badly and needs a significant _drift correction_, or by a virtually bad time reference. I say _virtually bad_, because the client (i.e. your server) cannot decide whether random variations in network delay or variations in the time reference itself cause that observation. Not only because of that it is recommended to have several independent time references configured.
 
-In any case you should keep an eye on the _reachability register_, on `delay` (see [Q: 8.1.4.](NTP-s-trouble.htm#Q-MON-REACH) and [Q: 8.1.2.](NTP-s-trouble.htm#Q-TRB-MON-STATFIL)) and on `dispersion` (`jitter`).
+In any case you should keep an eye on the [_reachability register_](/ntpfaq/ntp-s-trouble/#814-what-does-257-mean-as-value-for-reach), on [`delay`](/ntpfaq/ntp-s-trouble/#812-how-do-i-use-peerstats-and-loopstats) and on `dispersion` (`jitter`).
 
 * * *
 
-#### 8.2.5.3. My system steps 0.6 seconds several times a day. How comes?
+#### 8.2.5.3. Why does  my system step 0.6 seconds several times a day.
 
-`ntpd` has problems controlling the system clock. Most likely the frequency of your timer interrupts is either too fast or too slow. Another possibility is a broken interface between `ntpd` and the operating system. In any case the problem is serious. If you suspect the first problem, you should adjust the value of `tick` to compensate the error (See [Q: 8.2.6.1.](NTP-s-trbl-general.htm#Q-CORRECT-TICK)).[<span class="footnote">[2]</span>](NTP-s-trbl-general.htm#FTN.FTN-ADJUSTING-TICK) If you are using the kernel discipline (see [Q: 5.1.6.1.](NTP-s-algo.htm#Q-CLOCK-DISCIPLINE)) and you are suspecting the second problem, try to use `adjtime()` instead.
+`ntpd` has problems controlling the system clock. Most likely the frequency of your timer interrupts is either too fast or too slow. Another possibility is a broken interface between `ntpd` and the operating system. In any case the problem is serious. If you suspect the first problem, you should [adjust the value of `tick`](#8261-how-do-i-set-the-correct-value-for-tick) to compensate the error.
 
-Usually `xntpd` can compensate small and even not-so-small errors, but in this case the clock is too bad to be adjusted by the NTP algorithm. Any clock error of more than one minute per day is definitely too large to be corrected by NTP.
+> As adjustments to `tick` are not possible for every operating system, it's deprecated in general. The suggested solution is to use suitable hardware for time servers.
 
-**Example 8. Entries in logfile from xntpd**
+If you are using the [kernel discipline](/ntpfaq/ntp-s-algo#5161-how-will-ntp-discipline-my-clock) and you are suspecting the second problem, try to use `adjtime()` instead.
 
-<pre> 9 Jun 21:56:53 xntpd[116]: time reset (step) 0.706052 s
- 9 Jun 23:51:04 xntpd[116]: time reset (step) 0.821992 s
-10 Jun 01:57:31 xntpd[116]: time reset (step) 0.720290 s
-10 Jun 03:47:25 xntpd[116]: time reset (step) 0.855968 s</pre>
+Usually `ntpd` can compensate small and even not-so-small errors, but in this case the clock is too bad to be adjusted by the NTP algorithm. Any clock error of more than one minute per day is definitely too large to be corrected by NTP.
 
-This means that in the period from `9 Jun 21:56:53` (excluding) to `10 Jun 03:47:25` (including), that is during 21032 seconds, `xntpd` added 2.398250 seconds (do _not_ include the amount added during the first time step). Thus in each second 114.0286 microseconds should have been added.
+**Example 8. Entries in logfile from ntpd**
 
-You get a more accurate calculation when you do _not_ run `xntpd`. Start the measurement by synchronizing your system to a NTP-server using e.g. `ntpdate -b -s -p 4 -t 0.1 NTPserver`. Complete the measurement with the same command after a few hours.
+<pre> 9 Jun 21:56:53 ntpd[116]: time reset (step) 0.706052 s
+ 9 Jun 23:51:04 ntpd[116]: time reset (step) 0.821992 s
+10 Jun 01:57:31 ntpd[116]: time reset (step) 0.720290 s
+10 Jun 03:47:25 ntpd[116]: time reset (step) 0.855968 s</pre>
+
+This means that in the period from `9 Jun 21:56:53` (excluding) to `10 Jun 03:47:25` (including), that is during 21032 seconds, `ntpd` added 2.398250 seconds (do _not_ include the amount added during the first time step). Thus in each second 114.0286 microseconds should have been added.
+
+You get a more accurate calculation when you do _not_ run `ntpd`. Start the measurement by synchronizing your system to a NTP server using `ntpdate -b -s -p 4 -t 0.1 NTPserver`. Complete the measurement with the same command after a few hours.
 
 In your `/var/log/messages` (`syslog` file) file you will have 2 lines like:
 
@@ -326,15 +322,7 @@ Jun 9 21:40:23 NTPclient ntpdate[515]: step time server 10.0.0.1 offset 2.718281
 
 Use this information to compute the number of microseconds to add to `tick`.
 
-For some operating systems there is a `tickadj` utility that can be used to change the value of `tick`. See [Section 3](NTP-s-sw-clocks.htm) and [Q: 8.2.6.1.](NTP-s-trbl-general.htm#Q-CORRECT-TICK) for a discussion on how to compute the necessary adjustment.
-
-* * *
-
-#### 8.2.5.4\. ntpdate sets time to Year 1933
-
-For ntp-4.1.0 (and most likely for all earlier releases as well), `ntpdate` can set the date to year 1933 when the current date is also completely wrong. According to an analysis by [Michael Andres](NTP-a-faq.htm#AU-MA), the problem is caused by some overflow when adding two signed 32-bit numbers. The effect is visible if the difference between the current date and the system time is too big. Occasionally the user will see "Can't adjust the time of day: Invalid argument".
-
-As a patch has been suggested to fix the problem, recent version should no longer have that defect.
+For some operating systems there is a `tickadj` utility that can be used to change the value of `tick`. See [Section 3](/ntpfaq/ntp-s-sw-clocks) and [Q: 8.2.6.1.](#8261-how-do-i-set-the-correct-value-for-tick) for a discussion on how to compute the necessary adjustment.
 
 * * *
 
@@ -342,7 +330,7 @@ As a patch has been suggested to fix the problem, recent version should no longe
 
 #### 8.2.6.1. How do I set the correct value for tick?
 
-Here is a procedure taken from an article by [Andrew Hood](NTP-a-faq.htm#AU-AH):
+Here is a procedure taken from an article by Andrew Hood:
 
 1.  Watch the value in `ntp.drift` and when it seems to stabilise continue at the next step.
 2.  Run `tickadj` without any options to get the value of tick.
@@ -368,13 +356,13 @@ The author points out that it can also be done with one single command:
 
 **Example 10. Changing nsec_per_tick**
 
-For the Solaris operating system the variable `nsec_per_tick` is in nanoseconds and can be modified using `adb` (thanks to [Thomas Tornblom](NTP-a-faq.htm#AU-TT)):
+For the Solaris operating system the variable `nsec_per_tick` is in nanoseconds and can be modified using `adb` (thanks to Thomas Tornblom):
 
 The command `echo 'nsec_per_tick/W 0t10000900' |adb -w -k` makes the clock faster by 90 PPM, i.e. a drift value of 97 can be reduced to 7.
 
-For FreeBSD there are two sysctls that you can use, `machdep.i8254_freq` and `machdep.tsc_freq`. Use the one that is being used on your machine to tell FreeBSD what the frequency of your clock is. (according to [John Hay](NTP-a-faq.htm#AU-JH))
+For FreeBSD there are two sysctls that you can use, `machdep.i8254_freq` and `machdep.tsc_freq`. Use the one that is being used on your machine to tell FreeBSD what the frequency of your clock is. (according to [John Hay](mailto:John.Hay@mikom.csir.co.za))
 
-Changing the value of `tick` is considered an obsolete technology by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM), and the `tickadj` utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of `tick` to the default value when a PPS signal is detected.
+Changing the value of `tick` is considered an obsolete technology by [Professor David L. Mills](mailto:mills@udel.edu), and the `tickadj` utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of `tick` to the default value when a PPS signal is detected.
 
 With this new strategy clock errors of up to 500 PPM can be corrected by the kernel clock machinery. Severely broken machines that really needed `tickadj` either should be running no NTP or an older version of the software.
 
@@ -396,13 +384,13 @@ The statement above is valid for the system clock and should also be valid for t
 
 Originally NTP has not been designed with dial-up connections in mind. Therefore it does not care very much about when to send out packets.
 
-If you have defined an external `server` or `peer`, `ntpd` will periodically poll it. The polling interval is limited by the settings `minpoll` and `maxpoll` (See [Q: 5.1.2.4.](NTP-s-algo.htm#Q-ALGO-SERVER-POLL) and [Q: 5.1.5.1.](NTP-s-algo.htm#Q-POLL-RANGE)). The virtual stability of the system clock determines whether the polling interval is reduced or increased.
+If you have defined an external `server` or `peer`, `ntpd` will periodically poll it. The [polling interval](/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled) is limited by the [settings `minpoll` and `maxpoll`](/ntpfaq/ntp-s-algo#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll). The virtual stability of the system clock determines whether the polling interval is reduced or increased.
 
 However, increasing the polling interval may be a sub-optimal solution: `ntpd` will take longer for the initial synchronization, and it may become unable to catch up with the clock's drift.
 
 For some operating systems you may be able to select what types of packets are allowed to open a dial-up connection.
 
-The following solution has been donated by [Eric W. Bates](NTP-a-faq.htm#AU-EWB):[<span class="footnote">[3]</span>](NTP-s-trbl-general.htm#FTN.AEN5533)
+The following solution has been donated by [Eric W. Bates](mailto:ericx@vineyard.net). As [chunkeey](mailto:chunkeey@web.de) pointed out, the solution will also work for Linux. The preferred directory for your additions may be `/etc/ppp/ip-up.d` and `/etc/ppp/ip-down.d`: All the scripts found there are executed.
 
 When using `PPP` on `FreeBSD` or `NetBSD` (`Linux` kernel does not properly support `pppd`'s demand dialing; so you will have to solve this another way), I configured my `pppd` options to ignore traffic on the NTP port (snippet):
 
@@ -439,7 +427,7 @@ This has worked nicely for me for some years. I recognize that frequent connect/
 
 #### 8.2.8.2. Any more Hints?
 
-Together with the recent NTP software comes a set of HTML pages, including [NTP Debugging Techniques](debug.htm).
+Try the suggestions in [NTP Debugging Techniques](/archives/4.2.8-series/debug/).
 
 * * *
 
@@ -451,13 +439,13 @@ This section deals with messages that are not too obvious in their meaning.
 
 #### 8.2.9.1.1. ntpq: read: connection refused
 
-This message typically indicates that a connection could not be made because the service is not available. See [Q: 8.2.1.1.](NTP-s-trbl-general.htm#Q-MON-DAEMON-RUNNING).
+This message typically indicates that a connection could not be made because the [service is not available](#8211-how-can-i-check-that-ntpd-is-up-and-running).
 
 * * *
 
 #### 8.2.9.1.2. 127.0.0.1: timed out, nothing received, Request timed out
 
-No response was received within the timeout interval. Either the network did drop the request or the answer, or it delayed it considerably, or the server did not respond. One reason for the latter would be a configuration line like this:[<span class="footnote">[4]</span>](NTP-s-trbl-general.htm#FTN.AEN5589)
+No response was received within the timeout interval. Either the network dropped the request or the answer, or it delayed it considerably, or the server did not respond. One reason for the latter would be a configuration line like this:
 
 <pre>restrict default ignore</pre>
 
@@ -468,7 +456,6 @@ No response was received within the timeout interval. Either the network did dro
 If you see that message in your log file, the system time was not set by `ntpdate`. There are several possible reasons:
 
 *   `ntpdate` failed to communicate through UDP port 123. This could be caused by some packet filtering or by firewalls. Unfortunately, using option `-d` to turn on debugging also changes the port `ntpdate` uses.
-
 * If `ntpdate` works with option `-d`, you should try option `-u` to use an unpriviledged port. In any case you should check your packet filtering.
 
 * * *
@@ -477,7 +464,7 @@ If you see that message in your log file, the system time was not set by `ntpdat
 
 #### 8.2.9.9.1. configure: keyword "precision" unknown, line ignored
 
-The keyword `precision` is no longer known by the configuration parser. Most likely you are using a configuration file intended for an older version of the NTP software. See also [Q: 8.2.7.1.](NTP-s-trbl-general.htm#Q-TRB-GEN-INCOMPAT-PRECISION).
+The [keyword `precision`](#8271-how-do-i-set-the-precision) is no longer known by the configuration parser. Most likely you are using a configuration file intended for an old version of NTP.
 
 * * *
 
@@ -485,7 +472,7 @@ The keyword `precision` is no longer known by the configuration parser. Most lik
 
 #### 8.2.9.3.1. Previous time adjustment didn't complete
 
-Using `adjtime()` your system clock can be corrected by some amount of time (See also [Q: 5.1.6.1.](NTP-s-algo.htm#Q-CLOCK-DISCIPLINE)). Normally `xntpd` will only use small amounts that can be applied within one second. However, if you disallow time steps, the last correction may be not completed yet, and `xntpd` is unable to apply another correction until the last one is finished. This is what the message says.
+Using `adjtime()` your system clock can be corrected by [some amount of time](/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock). Normally `ntpd` will only use small amounts that can be applied within one second. However, if you disallow time steps, the last correction may be not completed yet, and `ntpd` is unable to apply another correction until the last one is finished. This is what the message says.
 
 * * *
 
@@ -493,32 +480,8 @@ Using `adjtime()` your system clock can be corrected by some amount of time (See
 
 #### 8.2.9.4.1. sendto: Overlapped I/O operation is in progress.
 
-This message was seen in Windows/NT 4.0 with `ntpd` 4.0. The exact cause is not clear, but it seems some non-NTP applications also use port `123`. The strange IP address (`192.0.0.192`) is a strong indication for this.
+The exact cause of this message is not clear, but it seems some non-NTP applications also use port `123`. The strange IP address (`192.0.0.192`) is a strong indication for this.
 
-John Hay contributed the output of `nslookup 192.0.0.192`, namely `192.0.0.0-is-used-for-printservices-discovery----illegally.iana.net`, and [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) stated: "Port 123 was assigned well before 1985 as per documented, but was in use probably from 1982." This means the address is not registered officially, and it should not be used. Also it seems some software for printers or printing is using that address together with NTP's port number.
+John Hay contributed the output of `nslookup 192.0.0.192`, namely `192.0.0.0-is-used-for-printservices-discovery----illegally.iana.net`, and [Professor David L. Mills](mailto:mills@udel.edu) stated: "Port 123 was assigned well before 1985 as per documented, but was in use probably from 1982." This means the address is not registered officially, and it should not be used. Also it seems some software for printers or printing is using that address together with NTP's port number.
 
-Despite of worrying some system administrator the message indicates no trouble. Specifically no printer is known to need a NTP server to operate, nor do printers and NTP servers harm each other.[<span class="footnote">[5]</span>](NTP-s-trbl-general.htm#FTN.AEN5657)
-
-* * *
-
-#### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-trbl-general.htm#AEN5299)
-
-Please note that the standard `ntpd` shipped on the distribution media needs an update for autokey to work (xntp-4.2.0a-27.3). Also note that `ntpd` fails to find the keys when running in a `chroot` environment.
-
-[<span class="footnote">[2]</span>](NTP-s-trbl-general.htm#FTN-ADJUSTING-TICK)
-
-As adjustments to `tick` are not possible for every operating system, it's deprecated in general. The suggested solution is to use suitable hardware for time servers.
-
-[<span class="footnote">[3]</span>](NTP-s-trbl-general.htm#AEN5533)
-
-As [chunkeey](NTP-a-faq.htm#AU-CHUNKEEY) pointed out, the solution will also work for Linux. The preferred directory for your additions may be `/etc/ppp/ip-up.d` and `/etc/ppp/ip-down.d`: All the scripts found there are executed.
-
-[<span class="footnote">[4]</span>](NTP-s-trbl-general.htm#AEN5589)
-
-Actually some vendors supply such a default configuration, notably Mandrake Linux 8.0.
-
-[<span class="footnote">[5]</span>](NTP-s-trbl-general.htm#AEN5657)
-
-Updates for this answer appreciated.
+Despite worrying some system administrator the message indicates no trouble. Specifically no printer is known to need a NTP server to operate, nor do printers and NTP servers harm each other.

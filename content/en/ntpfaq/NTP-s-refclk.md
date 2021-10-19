@@ -3,9 +3,9 @@ title: "7. Reference Clocks"
 type: "archives"
 ---
 
-The NTP software supports different kinds of reference clocks. This section presents various reference clocks. For a more general discussion on the topic see [What is a _reference clock_?](NTP-s-algo.htm#Q-REFCLK).
+The NTP software supports different kinds of reference clocks. This section presents various reference clocks. For a more general discussion on the topic see [What is a _reference clock_?](/ntpfaq/ntp-s-algo#5111-what-is-a-reference-clock).
 
-According to a recent survey[<span class="footnote">[2]</span>](NTP-s-def.htm#FTN.FTN-NTP-SURVEY99), the most popular real reference clocks are:
+According to a [survey](reflib/reports/ntp-survey99-minar.pdf), the most popular real reference clocks are:
 
 * GPS
 * DCF77
@@ -13,7 +13,7 @@ According to a recent survey[<span class="footnote">[2]</span>](NTP-s-def.htm#FT
 
 While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.
 
-More information on reference clocks can be found in [Reference Clock Drivers](), http://www.ntp.org/hardware.html, and http://www.boulder.nist.gov/timefreq/general/receiverlist.htm.
+More information on reference clocks can be found in [Reference Clock Drivers](/archives/4.2.8-series/refclock/) and [NIST's list of receiver manufacturers](https://www.nist.gov/time-distribution/radio-station-wwv/manufacturers-time-and-frequency-receivers).
 
 1. [No reference clocks](#no-reference-clocks)  
 7.1.1. [What is LCL, the Local Clock?](#what-is-lcl-the-local-clock)  
@@ -50,9 +50,9 @@ fudge  127.127.1.1 stratum 12	# increase stratum</pre>
 
 #### 7.2.1. What should I know about various GPS Receivers?
 
-GPS receivers have high accuracy, are simple to install, rather immune against electromagnetic noise, and they only need an antenna with free view to the sky, preferrably as much of the hemisphere as possible.[<span class="footnote">[1]</span>](NTP-s-refclk.htm#FTN.AEN4591) Most calibration happens automatically.
+GPS receivers have high accuracy, are simple to install, rather immune against electromagnetic noise, and they only need an antenna with free view to the sky, preferrably as much of the hemisphere as possible. Most calibration happens automatically.
 
-GPS, the Global Positioning System, a satellite based navigation aid originally developed for military use in the USA, can provide the receiver with accurate data about the current position, elevation, and time (See also [Section 9.1](NTP-s-related.htm#S-GPS-BACKGROUND)). Unfortunately many of these receivers were not designed with accurate time-keeping in mind. Therefore the time information provided in a stream of serial data sometimes is freely floating within one second, thereby losing the precision of the receiver (Accurate time is needed in the receiver to calculate the exact position. See also [How accurate will my Clock be?](NTP-s-algo.htm#Q-ACCURATE-CLOCK)).
+[GPS](/ntpfaq/ntp-s-related/#91-gps), the Global Positioning System, a satellite based navigation aid originally developed for military use in the USA, can provide the receiver with accurate data about the current position, elevation, and time. Unfortunately many of these receivers were not designed with accurate time-keeping in mind. Therefore the time information provided in a stream of serial data sometimes is freely floating within one second, thereby losing the precision of the receiver. [Accurate time](/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be) is needed in the receiver to calculate the exact position.
 
 Fortunately there are also receivers that were designed for precision timekeeping. Among these are:
 
@@ -88,11 +88,11 @@ These parameters qualify the accuracy of a GPS receiver. The following is a tran
 
 | Parameter | Value |
 | ----- | ----- |
-| Horizontal | HDOP = sqrt(dx^2 + dy^2) |
+| Horizontal | HDOP = sqrt(dx<sup>^</sup>2 + dy<sup>^</sup>2) |
 | Vertical | VDOP = dz |
-| Position | PDOP = sqrt(dx^2 + dy^2 + dz^2) |
+| Position | PDOP = sqrt(dx<sup>^</sup>2 + dy<sup>^</sup>2 + dz<sup>^</sup>2) |
 | Time | TDOP = dt |
-| General | GDOP = sqrt(dx^2 + dy^2 + dz^2 + dt^2) |
+| General | GDOP = sqrt(dx<sup>^</sup>2 + dy<sup>^</sup>2 + dz<sup>^</sup>2 + dt<sup>^</sup>2) |
 
 
 * * *
@@ -123,11 +123,13 @@ TSIP stands for Trimble Standard Interface Protocol, and it is used in products 
 
 In comparison to GPS, DCF77 receivers are cheap, and they don't need an antenna with a view at the sky.
 
-Germany has a highly accurate clock and a long-wave transmitter that sends out time data at 77.5kHz. This service is commonly known as DCF77. Time is taken from the German UTC contributor PTB (Physikalisch Technische Bundesanstalt) in Braunschweig. The sender located in Mainflingen (50:01N 9:00E)[<span class="footnote">[2]</span>](NTP-s-refclk.htm#FTN.AEN4810) can be received even in a distance of up to 1000km as the waves easily pass obstacles in the line of sight. The delay of the signal, a few milliseconds, caused by the distance between transmitter and receiver should be compensated manually.
+Germany has a highly accurate clock and a long-wave transmitter that sends out time data at 77.5kHz. This service is commonly known as DCF77. Time is taken from the German UTC contributor PTB (Physikalisch Technische Bundesanstalt) in Braunschweig. The sender located in Mainflingen (50:01N 9:00E) (near Frankfurt am Main) can be received even in a distance of up to 1000km as the waves easily pass obstacles in the line of sight. The delay of the signal, a few milliseconds, caused by the distance between transmitter and receiver should be compensated manually.
 
 In addition the demodulation of the time signal can be done easily in very cheap receivers (20DEM or similar). Thus these receivers are quite popular in Germany and its neighbourhood. That type of receivers are typically powered from a serial port, just like a serial mouse. The output signal carries pulses of 100 and 200ms, starting at the beginning of a second, and encoding one bit. There is no pulse for the last second of each minute. Those can be feed into an UART that decodes the pulses as characters received at 50 baud. The best signal quality can be achieved if the antenna of the receiver is oriented tangential to the transmitter's antenna.
 
-Because of the simple AM modulation, the demodulation is sensitive to spikes and varying receive conditions. Accuracy is typically only around 3ms. Trying to make the resolution higher will increase the receiver's sensitivity for noise and spikes that are around anyway. There's also a FM[<span class="footnote">[3]</span>](NTP-s-refclk.htm#FTN.AEN4818) modulation (pseudo-random phase noise) in the signal that can be decoded by sophisticated and expensive receivers. These receivers can achieve a resolution of 50µs.
+Because of the simple AM modulation, the demodulation is sensitive to spikes and varying receive conditions. Accuracy is typically only around 3ms. Trying to make the resolution higher will increase the receiver's sensitivity for noise and spikes that are around anyway. There's also a FM modulation (pseudo-random phase noise) in the signal that can be decoded by sophisticated and expensive receivers. These receivers can achieve a resolution of 50µs.
+
+> As [Mark Martinec](mailto:mark.martinec@ijs.si) points out, it's actually PSK (phase shift keying) (see [Time and Frequency Dissemination with DCF77](https://www.ptb.de/cms/fileadmin/internet/fachabteilungen/abteilung_4/4.4_zeit_und_frequenz/pdf/2011_PTBMitt_50a_DCF77_engl.pdf). I'm assuming the typical audience will neither care nor be able to build such a thing, so please forgive me!.
 
 The data format transmits 59 bits per minute. These bits that start every second, only when the minute is complete no bit is transmitted. Therefore it takes at least one minute until the time and date have been successfully transmitted. As the data format has little redundancy, most receivers wait until two consistent time messages have been decoded without error. Typically it takes between two and three minutes until the receiver is synchronized.
 
@@ -135,7 +137,7 @@ The data format transmits 59 bits per minute. These bits that start every second
 
 #### 7.3.2. What can make my DCF77 Receiver fail?
 
-Besides the fact that the huge[<span class="footnote">[4]</span>](NTP-s-refclk.htm#FTN.AEN4833) antenna (and its backup) of the sender is turned off for maintenance occasionally, there are a few other reasons why DCF77 reception may be impossible:[<span class="footnote">[5]</span>](NTP-s-refclk.htm#FTN.AEN4836)
+Besides the fact that the huge (flying above Frankfurt, I once thought I've seen the two huge piles of the antenna.) antenna (and its backup) of the sender is turned off for maintenance occasionally, there are a few other reasons why DCF77 reception may be impossible. The following list possibly applies to other low-frequency receivers (like MSF) as well:
 
 *   The sending antenna may be turned off during thunderstorms to avoid the risk of electrical damage.
 *   Lightning itself may cause spikes on the received signal.
@@ -154,17 +156,16 @@ Besides the fact that the huge[<span class="footnote">[4]</span>](NTP-s-refclk.h
 
 #### 4. Others
 
-XXX _Note from the editor:_ Other types of reference clocks are still to come (are missing now). Contributors invited!
 
 #### 7.4.1. What can make my MSF Receiver fail?
 
-See [Q: 7.3.2.](NTP-s-refclk.htm#Q-REFCLK-DCF77-NOSIGNAL) for some basics.
+See [Q: 7.3.2.](/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail) for some basics.
 
 * * *
 
 #### 7.4.2. How can I find a low-cost Receiver for Low-Frequency Transmissions?
 
-[Markus Kuhn](NTP-a-faq.htm#AU-MK) has set up a page describing low-frequency time standards (WWVB, MSF, DCF77, etc) and receiver designs at http://www.cl.cam.ac.uk/~mgk25/lf-clocks.html.
+[Markus Kuhn](mailto:mgk25@cl.cam.ac.uk) has set up a [page](http://www.cl.cam.ac.uk/~mgk25/lf-clocks.html) describing low-frequency time standards (WWVB, MSF, DCF77, etc) and receiver designs.
 
 * * *
 
@@ -178,31 +179,5 @@ This section will provide rudimentary resources to find a reference clock for NT
 
 The easiest way to find a suitable reference clock seems to be the following:
 
-*   Use one of the models mentioned in the documentation (e.g. Table 1).
+*   Use one of the models mentioned in the documentation (e.g. [Table 1](#721-what-should-i-know-about-various-gps-receivers)).
 *   Use a model that someone else is already using with success.
-
-In addition to these hints and the [hardware[(/hardware) information, there are some additional resources like http://www.boulder.nist.gov/timefreq/general/receiverlist.htm and http://www.ieee-uffc.org/freqcontrol/piezo.html.
-
-* * *
-
-#### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-refclk.htm#AEN4591)
-
-There is some planning software available at http://www.trimble.com/planningsoftware.html. That software could be used to explain periodic dropouts when only a limited view to the sky is available. An anonymous contributor added: "After installing the software be sure to import the ephemeris file using Almanac ->Import ->SSF and set your station location using File ->Station."
-
-[<span class="footnote">[2]</span>](NTP-s-refclk.htm#AEN4810)
-
-Near Frankfurt am Main
-
-[<span class="footnote">[3]</span>](NTP-s-refclk.htm#AEN4818)
-
-As [Mark Martinec](NTP-a-faq.htm#AU-MM) points out, it's actually PSK (phase shift keying) (see http://www.ptb.de/english/org/4/43/433/disse.htm. I'm assuming the typical audience will neither care nor be able to build such a thing, so please forgive me!.
-
-[<span class="footnote">[4]</span>](NTP-s-refclk.htm#AEN4833)
-
-Flying above Frankfurt, I once thought I've seen the two huge piles of the antenna.
-
-[<span class="footnote">[5]</span>](NTP-s-refclk.htm#AEN4836)
-
-The following list possibly applies to other low-frequency receivers (like MSF) as well.

@@ -19,19 +19,19 @@ An ideal world has no compatibility issues. However, this section deals with the
 
 There are definitely at least two major versions for the kernel PLL: The model for NTP version 3, and the model for NTP version 4. Maybe there is a model for older versions too, but I don't know.
 
-In addition to these major versions there are minor variants of these models. Unfortunately these minor variants can't easily be distinguished, because their inventor and chief designer, [Professor David L. Mills](NTP-a-faq.htm#AU-DLM), did not like version control systems or version numbers in the past (see also [Q: 6.4.1.4.](NTP-s-compat.htm#Q-KERNEL-PLL-VERSION)).
+In addition to these major versions there are minor variants of these models. Unfortunately these minor variants can't easily be distinguished, because their inventor and chief designer, [Professor David L. Mills](mailto:mills@udel.edu), did not like version control systems or version numbers in the past (see also [Q: 6.4.1.4.](/ntpfaq/ntp-s-compat#6414-how-can-i-find-out-which-kernel-is-in-effect)).
 
 * * *
 
 #### 6.4.1.2. What's new in each Version?
 
-As said in [Q: 6.4.1.1.](NTP-s-compat.htm#Q-COMPAT-PLL-NUM-IMPLEM) the history of the earlier kernel clock models are somewhat obscure. The basic features are described in [Q: 5.2.1.1.](NTP-s-algo-kernel.htm#Q-ALGO-KERNEL-CLOCK).
+The history of the earlier kernel clock models is somewhat obscure. The basic features are described in [Q: 5.2.1.1.](/ntpfaq/ntp-s-algo-kernel#5211-what-is-special-about-the-kernel-clock).
 
-The new clock model designed during development of NTP version 4 has the following new features:
+The clock model designed during development of NTP version 4 has the following new features:
 
 *   Timestamps are represented with 64 bit (instead of 32) to represent a sub-nanosecond resolution. There is also a new interface to control these nanoseconds. The higher precision results in a more continuous flow of time.
 *   A new status bit, `STA_MODE`, controls a hybrid PLL/FLL mode, avoiding instabilities.
-*   The minimum interval between adjustments has been reduced from 16 seconds to one second, while the maximum interval has been extended from about one hour to 36 hours. Unfortunately `constant` has an incompatible meaning (See [Q: 6.4.1.3.](NTP-s-compat.htm#Q-COMPAT)).
+*   The minimum interval between adjustments has been reduced from 16 seconds to one second, while the maximum interval has been extended from about one hour to 36 hours. Unfortunately `constant` has an [incompatible meaning](/#6413-are-the-individual-kernel-models-compatible).
 *   PPS processing has been significantly revised as well. The calibration range has been extended, and the robustness towards spikes and jitter has been improved. Sampling intervals have been reduced to achieve a faster response to offset and frequency errors.
 
 Revision 3 of the nanokernel introduced a shorter default calibration interval when correcting the frequency with PPS. At the same time the maximum interval can be adjusted using `MOD_PPSMAX`. Selection of PLL and FLL mode is done automatically now.
@@ -50,7 +50,7 @@ When the old kernel implementation is used with the new version 4 daemon, the PL
 
 When the new version 4 daemon has set the `STA_NANO` bit, the old version 3 daemon gets completely confused by nanoseconds which are believed to be microseconds. As it seems, the daemon does not clear `STA_NANO` during startup, so the only solution is to reboot or clear that flag by other means.
 
-[Professor David L. Mills](NTP-a-faq.htm#AU-DLM) wrote:
+[Professor David L. Mills](mailto:mills@udel.edu) wrote:
 
 The old and new kernel code does use different time constant ranges. The current ntpd and API do understand and adjust accordingly. The old xntpd will probably be off by a factor of 16 in the time constant. That is absolutely certain to cause unstable operation.
 
@@ -84,11 +84,11 @@ XXX _Note from the editor:_ The procedures above can probably be improved. Contr
 
 #### 6.4.1.5. Is the Linux implementation different?
 
-Yes, it is. One reason is that the original nanokernel (after it had been said to work well and be stable) was found to be broken with respect to `STA_PPSWANDER`. According to [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) the current nanokernel is no longer showing that defect. As I was not aware of that change, I did something different.
+Yes, it is. One reason is that the original nanokernel (after it had been said to work well and be stable) was found to be broken with respect to `STA_PPSWANDER`. According to [Professor David L. Mills](mailto:mills@udel.edu) the current nanokernel is no longer showing that defect. As I was not aware of that change, I did something different.
 
-[Professor David L. Mills](NTP-a-faq.htm#AU-DLM) wrote: `MAXWANDER` is 100 in the current nanokernel, not 500. This value was adjusted due to simulation experience."
+Professor David L. Mills wrote: `MAXWANDER` is 100 in the current nanokernel, not 500. This value was adjusted due to simulation experience."
 
-When used with a PPS signal, the Linux implementation (as of PPSkit-0.7) also computes uncommon values for `tolerance` as I explained to [Professor David L. Mills](NTP-a-faq.htm#AU-DLM):
+When used with a PPS signal, the Linux implementation (as of PPSkit-0.7) also computes uncommon values for `tolerance` as I explained to Professor David L. Mills:
 
 Secondly my code starts out at 500 PPM (because that's what the nanokernel simulator used that I had). Only if a PPS signal is active and within bounds (`pps_shift` >= 5 in my case, rather arbitrary), I watch the interval of PPS frequencies and make the maximum width of that interval the new `tolerance` (clamped at 500 PPM, of course). Then I use that value of `tolerance` as limit for the "wander". As the first interval is quite narrow (close to zero), the calibration interval will get stuck at 2^5 seconds if the frequency adjustment increases, or maybe even it will be reduced until the wander either within the current bounds. Only if the calibration interval is at its minimum possible length with a desire to decrease still, the wander will be adjusted (otherwise you might end with a maximum wander of 1 PPM and the PPS frequency will bump up and down by that limit).
 

@@ -16,20 +16,15 @@ type: "archives"
 8.3.4.1.2. [What does the syslog message kernel: adjtimex: ntpd could be using obsolete ADJ_TICKADJ mean?](#what-does-the-syslog-message-kernel-adjtimex-ntpd-could-be-using-obsolete-adj-tickadj-mean)  
 8.3.4.2. [Serial Port](#serial-port)   
 8.3.4.2.2. [Do Multiport Serial Cards cause Trouble?](#do-multiport-serial-cards-cause-trouble)  
-8.3.4.2.3. [My DCF77 Receiver gets no Power from the serial Port. Why?](#my-dcf77-receiver-gets-no-power-from-the-serial-port-why)  
-8.3.4.3. [Networking](#networking)  
-8.3.4.3.1. [How do I open a Firewall for NTP?](#how-do-i-open-a-firewall-for-ntp)  
-8.3.4.3.2. [Why can't ntpd running on RedHat Linux talk to other Hosts?](#why-cant-ntpd-running-on-redhat-linux-talk-to-other-hosts)  
+8.3.4.2.3. [My DCF77 Receiver gets no Power from the serial Port. Why?](#my-dcf77-receiver-gets-no-power-from-the-serial-port-why)   
 8.3.4.4. [Hardware Clock](#hardware-clock)  
-8.3.4.4.1. [How can I read or write the CMOS clock?](#how-can-i-read-or-write-the-cmos-clock)  
-8.3.4.4.2. [With PPSkit-0.9 my hardware clock is set to UTC; why?](#with-ppskit-09-my-hardware-clock-is-set-to-utc-why)  
+8.3.4.4.1. [How can I read or write the CMOS clock?](#how-can-i-read-or-write-the-cmos-clock)   
 8.3.4.5. [Miscellaneous](#miscellaneous)  
 8.3.4.5.1. [Why does my Linux system lose several milliseconds every once in a while.](#why-does-my-linux-system-lose-several-milliseconds-every-once-in-a-while)   
 8.3.7 [Solaris](#solaris)     
 8.3.7.6. [What is dosyncdr?](#what-is-dosyncdr)  
-8.3.7.7. [I have read some conflicting advice on the use of **tickadj -s** to ensure that the OS is not trying to synchronize the kernel clock to the Clock/calendar chip on <span class="SYSTEMITEM">Solaris</span> systems. On recent <span class="SYSTEMITEM">Solaris</span> systems, e.g. 2.5, 2.6, 7, and 8, how does one ensure that **xntpd** has full control of clock synchronization?](NTP-s-trbl-spec.htm#AEN6321)</dt>
 8.3.7.8. [What causes occasional 2s Time Steps?](#what-causes-occasional-2s-time-steps)   
-8.3.11. [Windows/NT Family](#windows-nt-family)  
+8.3.11. [Windows](#windows)  
 8.3.11.1. [General](#general)   
 8.3.11.1.2. [Why doesn't net time /setsntp:server synchronize the Time?](NTP-s-trbl-spec.htm#AEN6513)       
 
@@ -67,9 +62,9 @@ There is also a user-space program to set the RTC, but it requires special privi
 
 #### 8.3.1.2.1. How can SMM affect Interrupt Processing?
 
-Let me quote an explanation written by [Poul-Henning Kamp](NTP-a-faq.htm#AU-PHK) from the newsgroup:
+Let me quote an explanation written by [Poul-Henning Kamp](mailto:phk@freebsd.dk) from the newsgroup:
 
-I was gathering some data for [Professor David L. Mills](NTP-a-faq.htm#AU-DLM) today and they looked lousy to put it mildly, every 300-400 seconds I had a 40-50 microsecond peak in my data. After some debugging I know know what it was: The SMM mode interrupts to the BIOS.
+I was gathering some data for [Professor David L. Mills]((mailto:mills@udel.edu) today and they looked lousy to put it mildly, every 300-400 seconds I had a 40-50 microsecond peak in my data. After some debugging I know know what it was: The SMM mode interrupts to the BIOS.
 
 This machine is brand new, and I had never put a PPS signal on it before, it uses the PIIX4 chip from Intel and appearantly the SMM BIOS gets called at regular (but not very precise) intervals to monitor temperatures and fans and whats not.
 
@@ -143,56 +138,7 @@ Somewhere in the code cleanup between NTPv3 and NTPv4, the code to set the modem
 
 For my receiver the command `setserialbits /dev/refclock-0 -rts` turns on power while `ntpd` is running. Some receivers care about polarity, some don't. You might try substituting `-rts` with `-dtr`.
 
-For the [RAWDCF PARSE driver]() there is a `mode 14`, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.
-
-* * *
-
-#### 8.3.4.3. Networking
-
-#### 8.3.4.3.1. How do I open a Firewall for NTP?
-
-Here is a solution provided by [Wolfgang Barth](NTP-a-faq.htm#AU-WB) for <span class="PRODUCTNAME">SuSE Linux 6.3</span> using the `ipchains` packet filter (originally in German):
-
-1.  Set all default policies to `DENY`.
-
-2.  Allow the NTP protocol on interface `ippp0`:
-
-    <pre>$IPCHAINS -A ippp0_ou  -p UDP -s $ippp0_ip 123 --dport 123 -j ACCEPT -l
-    $IPCHAINS -A ippp0_in  -p UDP -d $ippp0_ip 123 --sport 123 -j ACCEPT -l</pre>
-
-Wolfgang writes (originally in German): "Chains <code>ippp0\__xx_</code> become active if interface `ippp0` (my Internet connection) is used. Server to server connections use port `123` exclusively. I even set DNS to `DENY`, and it still works. You only have to remember not to use `ntpq` without `-n` because otherwise it will try to resolve the address."
-
-[Wolfgang Barth](NTP-a-faq.htm#AU-WB) also suggests the following debugging procedure:
-
-Rules are processed beginning at the top. It's useful to have all the rules (<code>ipchains-save \> file</code>), because the logfile contains the rule numbers also. For example:
-
-<pre>Mar 13 22:44:49 swobspace kernel: Packet log: ippp0_ou ACCEPT ippp0
-PROTO=3D17 149.225.47.53:123 129.132.98.11:123 L=3D76 S=3D0x00 I=3D2201 F=
-=3D0x0000
-T=3D64 (#12)
-Mar 13 22:44:49 swobspace kernel: Packet log: ippp0_in ACCEPT ippp0
-PROTO=3D17 129.132.98.11:123 149.225.47.53:123 L=3D76 S=3D0x00 I=3D21191 =
-F=3D0x4000
-T=3D239 (#16)</pre>
-
-"In chain `ippp0_ou` rule `#12` triggers the `ACCEPT`, and here's the corresponding line from the rule save file:"
-
-<pre>-A ippp0_ou -s 149.225.25.39/255.255.255.255 123:123 -d 0.0.0.0/0.0.0.0
-123:123 -p 17 -j ACCEPT -l</pre>
-
-* * *
-
-#### 8.3.4.3.2. Why can't ntpd running on RedHat Linux talk to other Hosts?
-
-According to [Hal Murray](NTP-a-faq.htm#AU-HM), at least RedHat Linux 7.1 was shipped with this line in `/etc/ntp.conf`:
-
-<pre>restrict default ignore</pre>
-
-Thus any NTP network messages are ignored. Either remove that offending line, or selectively allow individual addresses. Usually one would use the IP address, but see how the `restrict` directive really works. Consider this fragment:
-
-<pre>restrict default ignore
-server 10.9.8.7
-restrict 10.9.8.7</pre>
+For the [RAWDCF PARSE driver](/archives/drivers/driver8/) there is a `mode 14`, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.
 
 * * *
 
@@ -206,39 +152,7 @@ There are several possibilities besides using the BIOS:
 
 *   You can set the clock using either `hwclock --set` (possibly with `--utc`) or the `ioctl()` interface and `RTC_SET_TIME`.
 
-*   The kernel will normally read the clock during boot (when it does not know the timezone yet) and when APM had been active. When the kernel PLL is used, the system time will be written to the clock periodically (see also [Q: 8.3.1.1.2.](NTP-s-trbl-spec.htm#Q-TRBL-SPEC-HW-CLOCK) and [Q: 8.3.4.1.1.](NTP-s-trbl-spec.htm#Q-LINUX-SET-RTC-MMSS)). Setting or adjusting the time by other means will not update the hardware clock.
-
-    However beginning with PPSkit-0.9< the hardware clock will be updated if the system time is set. You can even set up the correct timezone (see [Q: 8.3.4.4.2.](NTP-s-trbl-spec.htm#Q-LINUX-CMOS-UTC) for details).
-
-* * *
-
-#### 8.3.4.4.2. With PPSkit-0.9 my hardware clock is set to UTC; why?
-
-See also [Q: 8.3.1.1.2.](NTP-s-trbl-spec.htm#Q-TRBL-SPEC-HW-CLOCK). According to the `README` file that comes along with PPSkit-0.9, there are some new features:
-
-*   The hardware clock's date and time is set whenever it is updated. Previously only the minutes and seconds were updated. Naturally this requires different treatment depending on whether the hardware clock is expected to run in UTC or local time.
-*   The hardware clock is updated whenever the system time is set (actually it happens 0.5s after the next second begins, but that's only because of the strange hardware).
-*   The interval for automatic updates of the RTC can be modified. Automatic updates can be disabled completely.
-
-These changes were designed to make everybody happy. Therefore some new `sysctl()` functions were introduced. These variables can be accessed through files in `/proc/sys/kernel/time`:
-
-<code>**rtc_runs_localtime**</code>
-: Decides whether RTC is set to UTC or local time. A value of `0` means UTC.
-
-<code>**rtc_update**</code>
-: Determines the interval after which the RTC is updated. If the value is `0`, no automatic update happens.
-
-<code>**timezone**</code>
-: Determines the kernel timezone. This is a pair of values: The first value determines the minutes west of GMT, and the second value determines whether DST is in effect. These values are used when the kernel has to convert UTC to local time.
-
-As up to these changes most people did not care much about the kernel's timezone, the time zone is not set correctly in many cases. There is a trick to copy the current timezone to the kernel. (This is only needed if you want your CMOS clock to keep local time instead of UTC. Also keep in mind that the timezone changes when entering or leaving Daylight Saving Time, requiring that you execute the commands for each new timezone.) I use the following code in `/sbin/init.d/boot.local` (<SuSE Linux):
-
-<pre>timezone=$(date +%z | sed -e 's/\([0-9][0-9]\)\([0-9][0-9]\)/(60*10#\1+10#\2)/')
-TIMESYSCTL=/proc/sys/kernel/time
-[ -w $TIMESYSCTL/timezone ] && echo $((-$timezone)) 0 >$TIMESYSCTL/timezone
-[ -w $TIMESYSCTL/rtc_runs_localtime ] && echo 1 >$TIMESYSCTL/rtc_runs_localtime</pre>
-
-For Slackware Linux the proper place seems to be `rc.local`. (Contributed by [Richard M. Hambly](NTP-a-faq.htm#AU-RMH))
+*   The kernel will normally read the clock during boot (when it does not know the timezone yet) and when APM had been active. When the kernel PLL is used, the system time will be written to the clock periodically (see also [Q: 8.3.1.1.2.](#83112-how-can-i-set-the-cmos-clock) and [Q: 8.3.4.1.1.](#83441-how-can-i-read-or-write-the-cmos-clock)). Setting or adjusting the time by other means will not update the hardware clock.
 
 * * *
 
@@ -262,7 +176,7 @@ Another reason for lost interrupts are closely connected with the use of IDE dri
 
 It seems this product speaks a different protocol than the original hardware. To complicate matters, Gary Sanders found out that "If you got your eval kit from Synergy Systems, the PPS output on the eval board is inverted from the older Oncores(...)". To really confuse the users "(...) Synergy has a simple wiring change on the eval board to fix it. The boards that are currently shipping have this fix incorporated."
 
-[Mark Martinec](NTP-a-faq.htm#AU-MM) contributed: "I just stumbled across the specs of the 12-channel GPS receiver Motorola Oncore M12. Its acquisition time (time to first fix) for cold start is less than 60 seconds typical. See http://www.motorola.com/ies/GPS/pdfs/m12.pdf".
+[Mark Martinec](mailto:mark.martinec@ijs.si) contributed: "I just stumbled across the specs of the 12-channel GPS receiver Motorola Oncore M12. Its acquisition time (time to first fix) for cold start is less than 60 seconds typical.
 
 * * *
 
@@ -290,19 +204,15 @@ Unfortunately some essential documentation can only be found in the source file 
 
 There's a kernel variable named `dosyncdr` that influences how the kernel keeps time. Generally it's neither necessary nor recommended to change the value from the default. Only in Solaris 2.5.1 (where NTP was not officially supported) it was necessary to set `dosyncdr` manually to `0`.
 
-* * *
+[Michael Sinatra](mailto:msinatra@uclink4.berkeley.edu) wrote in news://comp.protocols.time.ntp:
 
-#### 8.3.7.7. I have read some conflicting advice on the use of tickadj -s to ensure that the OS is not trying to synchronize the kernel clock to the Clock/calendar chip on Solaris systems. On recent Solaris systems, e.g. 2.5, 2.6, 7, and 8, how does one ensure that xntpd has full control of clock synchronization?
-
-[Michael Sinatra](NTP-a-faq.htm#AU-MS) wrote in news://comp.protocols.time.ntp:
-
-My understanding is, after Solaris 2.6 "not necessary at all" is the correct answer. In the past you need to put `set dosynctodr=0` in `/etc/system`; now, you are NOT supposed to do that. Moreover, you are NOT supposed to use `tickadj`.
+My understanding is, after Solaris 2.6 this is "not necessary at all" . In the past you need to put `set dosynctodr=0` in `/etc/system`; now, you are NOT supposed to do that. Moreover, you are NOT supposed to use `tickadj`.
 
 * * *
 
 #### 8.3.7.8. What causes occasional 2s Time Steps?
 
-After some experiments, [Thomas Schulz](NTP-a-faq.htm#AU-TS) found out:
+After some experiments, [Thomas Schulz](mailto:schulz@adi.com) found out:
 
 This behavior is normal for Solaris when NTP is not running. This wandering is due to Solaris correcting the system clock from the hardware clock (the TODR). The hardware clock is assumed to be the more accurate one (and it is). This correction is done whenever the two clocks are more than about 1.5 to 2 seconds apart. You will see this behavior on any Solaris system if you wait long enough. This correction is not done if NTP is running. Of course on a system with a very bad clock this behavior will be much more obvious than on one with a better clock (no Sparc has a good clock).
 
@@ -312,7 +222,7 @@ This behavior is normal for Solaris when NTP is not running. This wandering is d
 
 #### 8.3.9.1. Only one Edge of my Trimble Acutime's PPS Pulse is detected
 
-If the device uses very short pulses (like 1 microsecond), the hardware or software may have trouble processing the pulse correctly (See [Q: 8.2.2.2.](NTP-s-trbl-general.htm#Q-PPS-MISSING-EDGE) and [Q: 6.2.4.6.1.](NTP-s-config-adv.htm#Q-CONFIG-ADV-PPS-HW-SHORTEST-SERIAL-PULSE)). Recent clocks feature a programmable pulse width. Using 100 or 200 milliseconds as width will assist you finding the right edge, assuming that the first edge is the more accurate one.
+If the device uses very short pulses (like 1 microsecond), the hardware or software may have trouble processing the pulse correctly (See [Q: 8.2.2.2.](/ntpfaq/ntp-s-trbl-general/#8222-why-is-the-pps-api-only-detecting-one-edge) and [Q: 6.2.4.6.1.](/ntpfaq/ntp-s-config-adv/#62461-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface)). Recent clocks feature a programmable pulse width. Using 100 or 200 milliseconds as width will assist you finding the right edge, assuming that the first edge is the more accurate one.
 
 * * *
 
@@ -326,19 +236,19 @@ Most likely you are using NTP version 4 on your client while the firmware in you
 2.  Locate and examine your NTP configuration file for `server` and `peer` statements. If your `TrueTime box only knows about version 3, add `version 3 to these lines. This will make the client use version 3 protocol packets for the specified server.
 3.  You might consult the vendor of your TrueTime box about a firmware upgrade that can handle version 4 packets.
 
-[John K. Doyle, Jr.](NTP-a-faq.htm#AU-JKD) contributed: "Another good quickie debugging technique is to point just about any Cisco brand router running just about any release of Cisco IOS (9.21 or later) at a TrueTime unit. Cisco handles (or doesn't care) the differing NTP protocol version numbers and was always happy with the TrueTime unit. This is how I knew that the TrueTime unit was OK even though `xntp` for Windows/NT said that it was unreachable."
+John K. Doyle, Jr. contributed: "Another good quickie debugging technique is to point just about any Cisco brand router running just about any release of Cisco IOS (9.21 or later) at a TrueTime unit. Cisco handles (or doesn't care) the differing NTP protocol version numbers and was always happy with the TrueTime unit. This is how I knew that the TrueTime unit was OK even though `xntp` for Windows/NT said that it was unreachable."
 
 * * *
 
-#### 8.3.11. Windows/NT Family
+#### 8.3.11. Windows
 
-This section is about the operating systems based on Windows/NT, namely Windows/NT, Windows/2000, and Windows/XP.
+This section is about Windows operating systems.
 
 #### 8.3.11.1. General
 
 #### 8.3.11.1.2. Why doesn't net time /setsntp:server synchronize the Time?
 
-[Nicholas Jenkins](NTP-a-faq.htm#AU-NJ) contributed:
+[Nicholas Jenkins](mailto:njenkins@mad.scientist.com) contributed:
 
 (...) The obvious key to this all; however, that doesn't appear in the Microsoft® documentation is that the W32time service is, IN FACT, *NOT* running by default! So, the simple solution to the whole problem is to just change the "startup type" of the w32time service in the "services" control panel to `automatic`, rather than `manual`. Then, either reboot, or just "start" the service, and the time will sync as nicely as you could possibly want!
 

@@ -44,7 +44,7 @@ Key: 1 = stratum-1, 2 = stratum-2, 3 = stratum-3, p = peer</pre>
 
 The example configuration uses six stratum-1 servers (`1a` ... `1f`) to synchronize three stratum-2 servers (`2a` ... `2c`). All servers at stratum two are peers to each other. Each of these stratum-2 servers serve three stratum-3 servers. Clients will be using the servers at stratum three.
 
-Having more than one reference server configured increases reliability and stability of the client (See [Q: 5.3.2.](NTP-s-algo-real.htm#Q-NTP-ALGO)). That is why there are two servers for each of the stratum-2 servers. Distributing time horizontally (peering) reduces the amount of traffic to the stratum-1 servers while giving additional redundancy for the stratum-2 servers. The extra layer of stratum-2 servers helps to distribute the load created by lower levels (stratum-3).
+Having [more than one reference server configured](/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock) increases reliability and stability of the client. That is why there are two servers for each of the stratum-2 servers. Distributing time horizontally (peering) reduces the amount of traffic to the stratum-1 servers while giving additional redundancy for the stratum-2 servers. The extra layer of stratum-2 servers helps to distribute the load created by lower levels (stratum-3).
 
 If you have a reference clock, you would probably arrange peering with one or more stratum-1 server. For most networks you can probably leave out the third layer (stratum-3) completely.
 
@@ -52,7 +52,7 @@ There's an additional comment by David Dalton:
 
 But my advice is this: if your stratum-N peers all use the same ISP to get to the outside world, then peers are mostly pointless. Your single-point-of-failure is the network path, not the stratum-1 machines themselves. Building huge redundancy into your hierarchy can get very expensive very quickly. Think hard about how much redundancy you really need.
 
-And another comment from [Mark Martinec](NTP-a-faq.htm#AU-MM):
+And another comment from [Mark Martinec](mailto:mark.martinec@ijs.si):
 
 I don't find the Figure 5 a good idea. It has a big problem in that stratum-3 servers in the picture all have a single point of failure in their single reference stratum-2 NTP server, not to mention it throws away all the fancy NTP algorithms.
 
@@ -85,9 +85,9 @@ Most users of NTP do not need authentication as the protocol contains several fi
 
 #### 6.2.2.2. How is Authentication applied?
 
-NTP uses keys to implement authentication. These keys are used when exchanging data between two machines. As shown in [Q: 6.1.3.3.](NTP-s-config.htm#Q-CONF-REMOTE-ADMIN) and [Q: 6.1.3.4.](NTP-s-config.htm#Q-AUTH-KEYS), one of the uses has to do with remote administration. When configuring a `server` or `peer`, an authentication key can be specified.
+NTP uses keys to implement authentication. These keys are used when exchanging data between two machines. As shown in [Q: 6.1.3.3.](/ntpfaq/ntp-s-config/#6133-how-do-i-configure-remote-administration) and [Q: 6.1.3.4.](/ntpfaq/ntp-s-config/6134-how-do-i-use-authentication-keys), one of the uses has to do with remote administration. When configuring a `server` or `peer`, an authentication key can be specified.
 
-In general, both parties need to know the keys. The keys residing in `/etc/ntp.keys` typically are unencrypted and thus should be hidden from public.[<span class="footnote">[1]</span>](NTP-s-config-adv.htm#FTN.AEN3168) This means, the keys have to be distributed to all communication partners in a secure way. The following example is derived from [Notes]():
+In general, both parties need to know the keys. The keys residing in `/etc/ntp.keys` typically are unencrypted and thus should be hidden from public. (There is a recent, but not yet completed project to provide a public keys mechanism for NTP.) This means, the keys have to be distributed to all communication partners in a secure way. The following example is derived from [Notes](/archives/4.2.4-series/notes/):
 
 <pre>peer 128.100.49.105 key 22
 peer 128.8.10.1     key 4
@@ -113,7 +113,7 @@ The keyword `key` specifies the key to be used when talking to the specified ser
 *   An `S` key is a 64 bit value with the low order bit of each byte being odd parity.
 *   An `A` key is a 64 bit value with the high order bit of each byte being odd parity.
 
-Now that you know the basics for keys, use a key as good as a password. For an example with some valid keys see [Q: 6.1.3.3.](NTP-s-config.htm#Q-CONF-REMOTE-ADMIN). More information can be found in [confopt]() and [notes]().
+Now that you know the basics for keys, use a key as good as a password. For an example with some valid keys see [Q: 6.1.3.3.](/ntpfaq/ntp-s-config/#6133-how-do-i-configure-remote-administration). More information can be found in [confopt](/archives/4.2.8-series/confopt/) and [notes](/archives/4.2.4-series/notes/).
 
 * * *
 
@@ -123,99 +123,19 @@ Basically authentication is a digital signature, and no data encryption (if ther
 
 * * *
 
-#### 6.2.2.5. Can I add Authentication without restarting `ntpd`?
+#### 6.2.2.5. Can I add Authentication without restarting ntpd?
 
-Yes and No: You can dynamically add servers that use authentication keys, and you can trust or un-trust any key using `xntpdc`. You can also re-read the keyfile using the `readkeys` command. Unfortunately you need basic authentication before using any of these commands (see [Q: 6.1.3.3.](NTP-s-config.htm#Q-CONF-REMOTE-ADMIN)).
+Yes and No: You can dynamically add servers that use authentication keys, and you can trust or un-trust any key using `xntpdc`. You can also re-read the keyfile using the `readkeys` command. Unfortunately you need basic authentication before using any of these commands (see [Q: 6.1.3.3.](/ntpfaq/ntp-s-config/#6133-how-do-i-configure-remote-administration)).
 
 * * *
 
 #### 6.2.2.6. How do I use Public-Key Authentication (autokey)?
 
-The following material is mostly from an article by [Jürgen Georgi](NTP-a-faq.htm#AU-JG), based on release 4.0.99k (autokey v1, rsaref20).[<span class="footnote">[2]</span>](NTP-s-config-adv.htm#FTN.AEN3228)
+Refer to the examples in [Autokey Public-Key-Authentication](/archives/4.2.8-series/autokey/).
 
-1.  You need extra RSA libraries (like rsaref). See `README.rsa` for instructions.
+See also [Q: 6.1.3.6.](/ntpfaq/ntp-s-config/#6136-how-do-i-use-the-new-autokey-feature). For those interested in the details, let's quote [Professor David L. Mills](mailto:mills@udel.edu): "Almost all the cryptographic means is in `./ntpd/ntp_crypto.c` in the latest distribution. (...)"
 
-2.  You need the utility `ntp_genkeys` to generate key-pairs and the Diffie-Hellman parameters file. All generated files have a timestamp suffix, it is recommended to install a symlink from the default name (without the timestamp extension) to the actual file:
-
-    <pre>$ ntp_genkeys
-    Generating MD5 key file...
-    Generating RSA public/private key pair (512 bits)...
-    Generating Diffie-Hellman parameters (512 bits)...
-    $ ls
-    ntp.keys.3174020162               ntpkey_dh.3174020162
-    ntpkey.3174020162                 ntpkey_nops.BelWue.DE.3174020162
-    $ ln -s ntp.keys.3174020162 ntp.keys
-    $ ln -s ntpkey.3174020162 ntpkey
-    $ ln -s ntpkey_dh.3174020162 ntpkey_dh
-    $ ln -s ntpkey_nops.BelWue.DE.3174020162 ntpkey_nops.BelWue.DE</pre>
-
-    In this example, `nops.BelWue.DE` is the canonical name of the local host. It is automatically appended to the file names by `ntp_genkeys`. File `ntpkey_nops.BelWue.DE` contains the public RSA key of host `nops.BelWue.DE`. File `ntpkey` contains the private RSA key. Needless to say that `ntpkey` and `ntp.keys` must not be world readable.
-
-3.  Create a configuration file `ntp.conf` and a directory structure like this:
-
-    <pre>crypto
-    keysdir /etc/ntp/
-    keys /etc/ntp/ntp.keys
-       ...
-    server noc1.belwue.de autokey version 4
-    server noc2.belwue.de autokey version 4
-    server rustime01.rus.uni-stuttgart.de version 3
-    peer nepi.BelWue.DE autokey version 4
-       ...
-
-    /etc/ntp/
-    /etc/ntp/leap-seconds.3169152000
-    /etc/ntp/ntp.keys -> ntp.keys.3174020162
-    /etc/ntp/ntp.keys.3174020162
-    /etc/ntp/ntpkey -> ntpkey.3174020162
-    /etc/ntp/ntpkey.3174020162
-    /etc/ntp/ntpkey_dh -> ntpkey_dh.3174020906
-    /etc/ntp/ntpkey_dh.3174020906
-    /etc/ntp/ntpkey_leap -> leap-seconds.3169152000
-    /etc/ntp/ntpkey_nepi.BelWue.DE -> ntpkey_nepi.BelWue.DE.3174020497
-    /etc/ntp/ntpkey_nepi.BelWue.DE.3174020497
-    /etc/ntp/ntpkey_nops.BelWue.DE -> ntpkey_nops.BelWue.DE.3174020162
-    /etc/ntp/ntpkey_nops.BelWue.DE.3174020162</pre>
-
-    File `leap-seconds.3169152000` was downloaded from NIST. File `ntpkey_nepi.BelWue.DE` is the public RSA key of peer `nepi.BelWue.DE`. File `ntpkey_dh` is the same with all authenticated associations, it must be shared among all clients and servers of a security compartment. It does not matter on which host it was generated. You see that the public RSA keys for to the other two authenticated servers are missing. They autokey mechanism is able to download these keys from the servers over the net.
-
-4.  If authentication is working, your output should be similar to this:
-
-    <pre>ntpq> pe
-     remote           refid      st t when poll reach   delay   offset  jitter
-    ==============================================================================
-     LOCAL(1)        LOCAL(1)         6 l   58   64  377    0.000    0.000   0.000
-    +noc1.belwue.de  .DCFp.           1 u  415 1024  377    2.071    4.886   0.020
-    +noc2.belwue.de  .DCFp.           1 u  520 1024  377    1.936    4.891   0.016
-    *rustime01.rus.u .DCFp.           1 u  422 1024  377    3.855    3.829   0.037
-    -nepi.BelWue.DE  rustime01.rus.u  2 u  259 1024  376    1.839    8.957   0.217
-	
-    ntpq> as
-    <samp class="COMPUTEROUTPUT">ind assID status  conf reach auth condition  last_event cnt
-    ===========================================================
-      1 57740  9014   yes   yes  none    reject   reachable  1
-      2 57741  f4f4   yes   yes   ok   candidat   reachable 15
-      3 57742  f4f4   yes   yes   ok   candidat   reachable 15
-      4 57743  9634   yes   yes  none  sys.peer   reachable  3
-      5 57744  f334   yes   yes   ok    outlyer   reachable  3
-	  
-    ntpq> rv
-    status=06f4 leap_none, sync_ntp, 15 events, event_peer/strat_chg,
-    version="ntpd 4.0.99k-r Thu Jul 27 15:41:30 MET DST 2000 (7)",
-    processor="sun4u", system="SunOS5.6", leap=00, stratum=2, precision=-15,
-    rootdelay=3.855, rootdispersion=25.972, peer=57743,
-    refid=rustime01.rus.uni-stuttgart.de,
-    reftime=bd4d0006.7ba24894  Tue, Aug 22 2000 15:35:02.482, poll=10,
-    clock=bd4d01be.a8915bdd  Tue, Aug 22 2000 15:42:22.658, state=4,
-    phase=4.548, frequency=7.357, jitter=1.913, stability=0.016,
-    hostname="nops.BelWue.DE", publickey=3174020162, params=3174020906,
-    refresh=3175878685, leaptable=3169152000, tai=32<</pre>
-
-Let's add a final quote from [Jürgen Georgi](NTP-a-faq.htm#AU-JG): "This setup works with ntp-4.0.99k. I could not get it working with 4.0.99i. If my description contains errors, please let me know."
-
-See also [Q: 6.1.3.6.](NTP-s-config.htm#Q-CONFIG-BASIC-REC-AUTOKEY). For those interested in the details, let's quote [Professor David L. Mills](NTP-a-faq.htm#AU-DLM): "The latest Autokey draft is at http://www.ietf.org/internet-drafts/draft-ietf-stime-ntpauth-04.txt. Almost all the cryptographic means is in `./ntpd/ntp_crypto.c` in the latest distribution. (...)"
-
-The following procedure for configuring autokey v2 had been extracted from an article posted by [Steve Kostecke](NTP-a-faq.htm#AU-SK) in news://comp.protocols.time.ntp. You should also have a look at http://support.ntp.org/bin/view/Support/ConfiguringAutokey for a possibly updated procedure. The original procedure has been updated from that URL.
+The following procedure for configuring autokey v2 had been extracted from an article posted by [Steve Kostecke](mailto:kostecke@ntp.org) in news://comp.protocols.time.ntp. You should also have a look at http://support.ntp.org/bin/view/Support/ConfiguringAutokey for a possibly updated procedure. The original procedure has been updated from that URL.
 
 There are several Identity Schemes available in the NTP Reference Implemenation: Private Certificate (PC), Schnorr (IFF) scheme, Guillou-Quisquater (GQ) scheme, and Mu-Varadharajan (MV) scheme. Identity Scheme selection and enforcement of crypto use (with `restrict` statements) are beyond the scope of this document. See [Identity Schemes](/reflib/keygen). Using just one Identity Scheme should be sufficient.
 
@@ -353,13 +273,13 @@ There are several Identity Schemes available in the NTP Reference Implemenation:
 
     1.  **IFF Group Keys**
 
-        Obtain the IFF group key via a Secure Web Form[<span class="footnote">[3]</span>](NTP-s-config-adv.htm#FTN.AEN3551) or some other secure means, copy the key file to the <code>_keysdir_</code>, and create the standard symbolic link:
+        Obtain the IFF group key via secure means, copy the key file to the <code>_keysdir_</code>, and create the standard symbolic link:
 
         <code>cd _/etc/ntp_</code>
 		
         <code>ln -s ntpkey_IFFpar\__server.3301264563_ ntpkey_iff\__server_</code>
 
-        As the parameter file contains both, server and client keys, one might prefer to create only the client key on the server using <code>ntp-keygen -e -q _serverpassword_</code> (according to [keygen]()).
+        As the parameter file contains both, server and client keys, one might prefer to create only the client key on the server using <code>ntp-keygen -e -q _serverpassword_</code> (according to [keygen](/archives/4.2.8-series/keygen/)).
 
     2.  **GQ Group Keys**
 
@@ -386,7 +306,7 @@ There are several Identity Schemes available in the NTP Reference Implemenation:
     RSA-MD5cert
     : X.509 self-signed CA certificate of the host (valid for one year)
 
-The procedure above has been verified successfully using `ntpd` versions 4.2.0a@1.1320-o and 4.2.0a@1.1190-r running on Linux.
+The procedure above has been verified successfully using `ntpd` versions `4.2.0a@1.1320-o` and `4.2.0a@1.1190-r` running on Linux.
 
 > **Warning**: As the hostname is used when generating keys, keys must be created on the right machine, and the the network name must match the host name for authentication to succeed in `ntpd`. Options <code>-i _name_</code> and <code>-s _name_</code> of `ntp-keygen` allow to specify a different subject and issuer respectively.
 
@@ -396,18 +316,18 @@ The procedure above has been verified successfully using `ntpd` versions 4.2.0a@
 
 With Broadcasting and Multicasting several clients can be addressed with a single packet transmitted by the server.
 
-1. [Broadcasting](#broadcasting)  
+6.2.3.1. [Broadcasting](#broadcasting)  
 6.2.3.1.1. [How do I configure a Broadcast Server?](#how-do-i-configure-a-broadcast-server)  
 6.2.3.1.2. [How do I configure a Broadcast Client?](#how-do-i-configure-a-broadcast-client)  
 6.2.3.1.3. [Why doesn't Broadcasting work with LCL?](#why-doesnt-broadcasting-work-with-lcl)  
-2. [Multicasting](#multicasting)  
+6.2.3.2. [Multicasting](#multicasting)  
 6.2.3.2.1. [How do I configure Multicast Servers and Clients?](#how-do-i-configure-multicast-servers-and-clients)  
-3. [Manycasting](#manycasting)  
+6.2.3.3. [Manycasting](#manycasting)  
 6.2.3.3.1. [What is Manycasting?](#what-is-manycasting)
 
 * * *
 
-#### 1. Broadcasting
+#### 6.2.3.1. Broadcasting
 
 #### 6.2.3.1.1. How do I configure a Broadcast Server?
 
@@ -419,17 +339,17 @@ For the client use a line containing `broadcastclient`.
 
 #### 6.2.3.1.2. How do I configure a Broadcast Client?
 
-Using the line `broadcastclient` will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In version 3 you would have to define the `broadcastdelay` to compensate the network delay. In version 4 the client actively will query a broadcasting server to calibrate the delay. More details can be found in file [Association Management]().
+Using the line `broadcastclient` will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In version 3 you would have to define the `broadcastdelay` to compensate the network delay. In version 4 the client actively will query a broadcasting server to calibrate the delay. More details can be found in file [Association Management](/archives/4.2.8-series/assoc).
 
 * * *
 
 #### 6.2.3.1.3. Why doesn't Broadcasting work with LCL?
 
-Before continuing, make sure you read and understood [Q: 7.1.1.](NTP-s-refclk.htm#Q-LOCAL-CLOCK) and [Q: 6.1.2.1.](NTP-s-config.htm#Q-CONF-LAN-LCL). As you shouldn't broadcast bad time, a `prefer` keyword is required when using `LCL`.
+Before continuing, make sure you read and understood [Q: 7.1.1.](/ntpfaq/ntp-s-refclk/#711-what-is-lcl-the-local-clock) and [Q: 6.1.2.1.](/ntpfaq/ntp-s-config/#6121-can-i-use-my-system-clock-as-reference-clock). As you shouldn't broadcast bad time, a `prefer` keyword is required when using `LCL`.
 
 * * *
 
-#### 2. Multicasting
+#### 6.2.3.2. Multicasting
 
 #### 6.2.3.2.1. How do I configure Multicast Servers and Clients?
 
@@ -437,17 +357,17 @@ Multicasting is configured just like broadcasting, but instead of using a broadc
 
 * * *
 
-#### 3. Manycasting
+#### 6.2.3.3. Manycasting
 
-#### 6.2.3.3.1\.** What is Manycasting?
+#### 6.2.3.3.1. What is Manycasting?
 
-This is an explanation by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM): "Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn't make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list." (...) "Only the `*` and `+` tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all."
+This is an explanation by [Professor David L. Mills](mailto:mills@udel.edu): "Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn't make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list." (...) "Only the `*` and `+` tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all."
 
 So basically it's a mechanism to automatically configure servers on a nearby network. Compared to broadcasting and multicasting, manycasting uses the normal `server` keyword, but with a multicast group address (class D) on the client. Manycast servers use the keyword `manycastserver`. As for broadcasts and multicasts, manycast associations on the client may come and go over time.
 
 * * *
 
-#### 6.2.4. PPS Synchronization</a>
+#### 6.2.4. PPS Synchronization
 
 PPS synchronization is an option that is neither necessary nor available for all operating systems. Still it brings many benefits if used, so it's discussed here.
 
@@ -461,24 +381,24 @@ Therefore some means to improve the situation were thought of:
 
 Basically this is what all the PPS discussion is about. So let's add some questions.
 
-1. [Before you start](#before-you-start)  
+6.2.4.1. [Before you start](#before-you-start)  
 6.2.4.1.1. [What are the components required to use PPS synchronization?](#what-are-the-components-required-to-use-pps-synchronization)  
-2. [Verification](#verification)  
+6.2.4.2. [Verification](#verification)  
 6.2.4.2.1. [So I think I have all required components ready, how will I see that everything is working?](#so-i-think-i-have-all-required-components-ready-how-will-i-see-that-everything-is-working)  
-3. [Special Drivers](#special-drivers)  
+6.2.4.3. [Special Drivers](#special-drivers)  
 6.2.4.3.1. [What is that ATOM or PPS peer?](#what-is-that-atom-or-pps-peer)  
 6.2.4.3.2. [How do I use PPS with the Motorola Oncore driver?](#how-do-i-use-pps-with-the-motorola-oncore-driver)  
 6.2.4.3.3. [How do I use PPS with the NMEA driver?](#how-do-i-use-pps-with-the-nmea-driver)  
-4. [Configuration](#configuration)  
+6.2.4.4. [Configuration](#configuration)  
 6.2.4.4.1. [What changes are required in ntp.conf?](#what-changes-are-required-in-ntp.conf)  
-5. [Software Interfaces](#software-interfaces)  
+6.2.4.5. [Software Interfaces](#software-interfaces)  
 6.2.4.5.1. [What is that PPS API<?](#what-is-that-pps-api)  
-6. [Hardware Interfaces](#hardware-interfaces)  
+6.2.4.6. [Hardware Interfaces](#hardware-interfaces)  
 6.2.4.6.1. [What is the shortest Width for a Pulse connected to the DCD Pin of an RS-232 Interface?](#what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface)
 
 * * *
 
-#### 1. Before you start
+#### 6.2.4.1. Before you start
 
 #### 6.2.4.1.1. What are the components required to use PPS synchronization?
 
@@ -487,7 +407,7 @@ The following items are needed in order to use PPS synchronization:
 *   You need a high precision signal that can be connected to the computer running NTP. Usual sources of such PPS signals are quality reference clocks that feature such an output.
 *   Your operating system must support processing of PPS signals. Most operating systems that come with source code (such as Linux and FreeBSD) can be modified to support PPS processing. As a matter of fact someone else probably did it already so you just need to install and configure the software.
 
-    Most operating systems supporting PPS do not only have some programming interface to read timestamps, but they also implement the NTP kernel clock model with special PPS processing options. See also [Q: 5.2.4.3.](NTP-s-algo-kernel.htm#Q-ALGO-KERNEL-HARDPPS).
+    Most operating systems supporting PPS do not only have some programming interface to read timestamps, but they also implement the NTP kernel clock model with special PPS processing options. See also [Q: 5.2.4.3.](/ntpfaq/ntp-s-algo-kernel/#5243-what-does-hardpps-do).
 *   The NTP software must also be configured to recognize and use PPS processing. Usually the software's autoconfigure process will detect the presence of PPS processing capabilities.
 *   Finally you should prepare your configuration file `ntp.conf` to work with PPS.
 
@@ -497,7 +417,7 @@ The following items are needed in order to use PPS synchronization:
 
 #### 6.2.4.2.1. So I think I have all required components ready, how will I see that everything is working?
 
-The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the new [PPS API](NTP-s-config-adv.htm#Q-PPS-API)) may change things in a positive way.
+The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the [PPS API](/ntpfaq/ntp-s-config-adv#62451-what-is-that-pps-api) may change things in a positive way.
 
 Let's start with the easier part using standard tools:
 
@@ -538,7 +458,7 @@ Let's start with the easier part using standard tools:
 
 3.  If you did not find an error so far, your PPS configuration should work! You can inspect some additional performance indicators:
 
-    *   `stability 0.016 ppm` is an averaged value for the last frequency corrections made (actually it's an instability). Basically a small value indicates that both, your operating system's clock, and your external PPS signal are stable. As mentioned before, [temperature changes affect the average PCs a lot](NTP-s-algo.htm#Q-ACCURATE-CLOCK)). The sample above was taken after running the system for about one hour; you should expect a value below `0.1 ppm` for a stable system.
+    *   `stability 0.016 ppm` is an averaged value for the last frequency corrections made (actually it's an instability). Basically a small value indicates that both, your operating system's clock, and your external PPS signal are stable. As mentioned before, [temperature changes affect the average PCs a lot](/ntpfaq/ntp-s-algo#5131-how-accurate-will-my-clock-be)). The sample above was taken after running the system for about one hour; you should expect a value below `0.1 ppm` for a stable system.
 
     *   `jitter 1.378 us` is also an averaged value. It indicates how much the individual pulses vary from second to second (as measured by the operating system's clock). This value will vary due to system load and interrupt latency. A few microseconds are probably fine, but a few milliseconds definitely are not!
 
@@ -558,7 +478,7 @@ This completes the basic checks for PPS configuration. In the case above the NTP
 
 Even when the kernel clock uses PPS signals to calibrate, the NTP daemon will still use the usual offsets of some reference clock. As it is desirable to use the offsets of the PPS pulses, there is a pseudo clock driver to do that. That driver needs to know the interface specific to the platform to get the time stamps of the PPS pulses.
 
-That driver is called `ATOM` or `PPS`, and it can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the `ATOM` driver becomes reachable, and it will eventually be used as primary synchronization source (See also [Why should I have more than one clock?](NTP-s-algo-real.htm#Q-NTP-ALGO)). A PPS peer will be handled specially so that other time offsets are not considered. The command `ntpq -c peer -c as -c rl` will print something like:
+That driver is called `ATOM` or `PPS`, and it can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the `ATOM` driver becomes reachable, and it will eventually be used as primary synchronization source (See also [Why should I have more than one clock?](/ntpfaq/ntp-s-algo-real#532-why-should-i-have-more-than-one-clock)). A PPS peer will be handled specially so that other time offsets are not considered. The command `ntpq -c peer -c as -c rl` will print something like:
 
 <pre>remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
@@ -582,7 +502,7 @@ phase=0.005, frequency=16.984, jitter=0.000, stability=0.043</pre>
 
 #### 6.2.4.3.2. How do I use PPS with the Motorola Oncore driver?
 
-Considering the configuration below, [John Hay](NTP-a-faq.htm#AU-JH) wrote:
+Considering the configuration below, [John Hay](mailto:John.Hay@mikom.csir.co.za) wrote:
 
 (...)The Oncore driver directly manages the PPS stuff, so you only need the first line (`server 127.127.30.0 prefer`) in the config file. The rest is not needed to have a functional Oncore refclock.
 
@@ -595,9 +515,9 @@ server 127.127.22.1                     # ATOM(PPS)
 fudge 127.127.22.1 flag3 1              # enable PPS module
 pps /dev/oncore.pps.0 assert hardpps    # PPS device</pre>
 
-> **Note:** As documented in [PPS Clock Discipline](</archives/drivers/driver8) of ntp-4.1.1a, `flag2` controls the edge of the PPS signal being used. Thus the `pps` keyword seems obsolete by now.
+> **Note:** As documented in [PPS Clock Discipline](/archives/drivers/driver8#fudge-factors), `flag2` controls the edge of the PPS signal being used. Thus the `pps` keyword seems obsolete by now.
 
-Maybe it should also be noted here that a _site survey_ can take significant time to finish. [Terje Mathisen](NTP-a-faq.htm#AU-TM) says: "My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion."
+Maybe it should also be noted here that a _site survey_ can take significant time to finish. [Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com) says: "My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion."
 
 * * *
 
@@ -616,11 +536,13 @@ fudge  flag3 1          # enable kernel PPS discipline</pre>
 
 #### 6.2.4.4.1.What changes are required in ntp.conf?
 
-Unfortunately PPS processing is a little messy (see also [What is that PPS API?](NTP-s-config-adv.htm#Q-PPS-API)). Nevertheless I'll give an example that works.
+Unfortunately PPS processing is a little messy (see also [What is that PPS API?](/ntpfaq-ntp-s-config-adv#62451-what-is-that-pps-api)). Nevertheless I'll give an example that works.
 
 **Example 4. Using a PPS Signal**
 
-This example works for ntp-4.0.99k together with PPSkit-1.0.0 on my Linux PC. I'll only show the significant parts of `/etc/ntp.conf`[<span class="footnote">[4]</span>](NTP-s-config-adv.htm#FTN.AEN3934) .
+This example works for ntp-4.0.99k together with PPSkit-1.0.0 on my Linux PC. I'll only show the significant parts of `/etc/ntp.conf`. 
+
+> **Note:** As documented in [PPS Clock Discipline](/archives/drivers/driver8#fudge-factors), `flag2` controls the edge of the PPS signal being used. Thus the `pps` keyword seems obsolete by now.
 
 <pre>pps /dev/refclock-1 assert hardpps	# PPS device (ntpd-4.0.97 and above)
 
@@ -632,30 +554,24 @@ fudge 127.127.22.1 flag3 1		# enable PPS API</pre>
 
 When starting, the following things happen:
 
-1.  The clock `GENERIC(1)` becomes reachable while PPS is used to update the kernel variables described in [Q: 6.2.4.2.1.](NTP-s-config-adv.htm#Q-CONFIG-ADV-PPS-VERIFY).
-
+1.  The clock `GENERIC(1)` becomes reachable while PPS is used to update the kernel variables described in [Q: 6.2.4.2.1.](/ntpfaq/ntp-s-config-adv#62421-so-i-think-i-have-all-required-compnents-ready-how-will-i-see-that-everything-is-working).
 2.  The configured clock is selected as synchronization source, and `status` changes to `0x2143` after a while. At that time `PPS(1)` also becomes reachable. During that time `status` changes to `0x2107`, and `offset` shows current offsets from PPS.
-
 3.  Eventually `PPS(1)` becomes PPS peer.
 
 * * *
 
-#### 5. Software Interfaces
+#### 6.2.4.5. Software Interfaces
 
 #### 6.2.4.5.1. What is that PPS API?
 
-As seen above, the programming interface specific to the operating system and platform is a messy thing. Therefore some people decided to make a common programming interface named PPS API. In March 2000 that draft was accepted as an informational RFC (See [Table 4](NTP-s-related.htm#TAB-RELATED-RFCS) for related RFCs). The functions of the API include:
+As seen above, the programming interface specific to the operating system and platform is a messy thing. Therefore some people decided to make a common programming interface named PPS API. In March 2000 that draft was accepted as an [RFC 2783](/reflib/rfc/rfc2783.txt). The functions of the API include:
 
 *   Routines to enable capturing of external events on a specified device (if supported).
 *   Routines to query the last captured time stamps and associated event counters.
 *   Routines to change operating parameters like compensating processing delays, select polarity of the PPS signal, etc.
 *   Routines to control automatic processing of detected events by a _kernel consumer_ in the kernel of the operating system.
 
-As the API is still quite new, there are only very few implementations ([RFC 2783]() says: "Several available implementations of this API are listed at http://www.ntp.org/ppsapi/PPSImpList.html. Note that not all of these implementations correspond to the current version of the specification.".[<span class="footnote">[5]</span>](NTP-s-config-adv.htm#FTN.AEN3995)
-
-Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."
- 
-The list of current Internet-Drafts can be accessed at http://www.ietf.org/ietf/1id-abstracts.txt.
+As the API is still quite new, there are only very few implementations. [RFC 2783](/reflib/rfc/rfc2783.txt) says: "Several available implementations of this API are [listed](/ppsapi/PPSImpList). Note that not all of these implementations correspond to the current version of the specification".
 
 * * *
 
@@ -686,9 +602,9 @@ If many systems have to be configured in a similar way, there is a desire to aut
 
 #### 6.2.5.1.1. How can I define the address of an NTP server in a BOOTP reply?
 
-The BOOTP protocol is defined in [RFC 1048]() (obsoleted by [RFC 2132]()). Marc Brett contributed:
+The BOOTP protocol is defined in [RFC 1048](https://www.rfc-editor.org/rfc/rfc1048) (obsoleted by [RFC 2132](https://www.rfc-editor.org/rfc/rfc2132)). Marc Brett contributed:
 
-Time ([RFC 868]()) servers may be specified in the _Vendor Extensions field_, Code `4`.
+Time ([RFC 868](https://www.rfc-editor.org/rfc/rfc868)) servers may be specified in the _Vendor Extensions field_, Code `4`.
 
 Network Time Protocol (NTP) ([RFC 1305](/reflib/rfcs/rfc1305/rfc1305b.pdf)) servers may be specified in the _Application and Service Parameters_, Code `42`.
 
@@ -732,7 +648,7 @@ It is known that the issue is handled sub-optimally, and it's being worked on...
 
 #### 6.2.6.2. Should Access be restricted?
 
-First, well, if you don't want to have clients, don't offer the service. But as you want to offer NTP service to others, you should not be afraid of clients. Let me quote from an article in news://comp.protocols.time.ntp written by [David Dalton](NTP-a-faq.htm#AU-DD) about the subject whether queries with `ntpq` and `ntpdc` should be allowed:
+First, well, if you don't want to have clients, don't offer the service. But as you want to offer NTP service to others, you should not be afraid of clients. Let me quote from an article in news://comp.protocols.time.ntp written by David Dalton about the subject whether queries with `ntpq` and `ntpdc` should be allowed:
 
 I am somewhat new to the security concerns of public timeservers. Only in the past few weeks did I upgrade my public timeserver at 192.6.38.127 to stratum-1 with a Trimble Palisade GPS receiver. It doesn't have a lot of security right now, but the `xntpdc` reconfiguration functions are restricted. I'm soliciting advice about how to protect myself, although I don't depend on that public timeserver in any way.
 
@@ -808,14 +724,14 @@ Here are some results from well configured public timeservers that I have survey
 
 So there are valid arguments for allowing some standard queries from prospective or active NTP clients. On the other hand there are also arguments for restricting access:
 
-*   Configuration changes (see also [How do I use authentication keys?](NTP-s-config.htm#Q-AUTH-KEYS)) should be restricted to machines within the own administrative domain at least.
+*   Configuration changes (see also [How do I use authentication keys?](/ntpfaq/ntp-s-config#6134-how-do-i-use-authentication-keys)) should be restricted to machines within the own administrative domain at least.
 *   You might consider the possibility that a security hole is found in some software, and that that hole could be exploited to do bad things to your server. Therefore you could restrict or enable certain ranges of IP addresses.
 
 * * *
 
 #### 6.2.6.3. What should be done before announcing public NTP service?
 
-As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some monitoring of your server before going public (See [Section 8.1](NTP-s-trouble.htm#S-TRBL-MONITORING)).
+As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some [monitoring](/ntpfaq/ntp-s-trouble#81-monitoring) of your server before going public.
 
 Once you are satisfied with the performance data, you should also consider the following questions:
 
@@ -828,37 +744,3 @@ Once you are satisfied with the performance data, you should also consider the f
 *   Are there plans to continue the service for at least six months?
 
 If you answered any of the preceeding questions with "No", you should re-consider your decision of offering public time service.
-
-* * *
-
-#### Notes
-
-[<span class="footnote">[1]</span>](NTP-s-config-adv.htm#AEN3168)
-
-There is a recent, but not yet completed project to provide a public keys mechanism for NTP.
-
-[<span class="footnote">[2]</span>](NTP-s-config-adv.htm#AEN3228)
-
-Aautokey v2 is expected to use OpenSSL and thus a different protocol instead.
-
-[<span class="footnote">[3]</span>](NTP-s-config-adv.htm#AEN3551)
-
-[Web Form for client IFF keys](https://www.kostecke.net/crypto.php)
-
-[<span class="footnote">[4]</span>](NTP-s-config-adv.htm#AEN3934)
-
-See note for [Q: 6.2.4.3.2.](NTP-s-config-adv.htm#Q-CONFIG-ADV-PPS-DRV-MOTOROLA).
-
-[5]</span>](NTP-s-config-adv.htm#AEN3995)
-
-[Jeffrey Mogul](NTP-a-faq.htm#AU-JM) suggested the following procedure to access the final draft for the PPS API:
-
-The easiest path to finding drafts is http://www.ietf.org/
- 
-* Internet-Drafts
-* Internet Drafts Index
-* Individual Submissions (or whatever working group)
-
-and then wait for a huge file to download, so that you can search it for "PPS", which currently leads to: http://www.ietf.org/internet-drafts/draft-mogul-pps-api-05.txt
-
-[RFC 2783]() is actually based on draft-mogul-pps-api-06.txt.

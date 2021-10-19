@@ -14,7 +14,7 @@ This section discusses how well the theory described before applies to real life
 
 #### 5.3.1. What if I write my own SNTP Server?
 
-There is a quote (with partial omissions) on that subject by [Professor David L. Mills](NTP-a-faq.htm#AU-DLM):
+There is a quote (with partial omissions) on that subject by [Professor David L. Mills](mailto:mills@udel.edu):
 
 (...) The SNTP specification forbids operation as a server unless a primary server connected to a reference clock. (...)
 
@@ -32,7 +32,7 @@ You may suggest there is nothing wrong with a SNTP subnet of clients and servers
 
 NTP likes to estimate the errors of all clocks. Therefore all NTP servers return the time together with an estimate of the current error. When using multiple time servers, NTP also wants these servers to agree on some time, meaning there must be one error interval where the correct time must be.
 
-Reality[<span class="footnote">[2]</span>](NTP-s-def.htm#FTN.FTN-NTP-SURVEY99) suggests that not all NTP servers work as designed in theory. In fact there was a high percentage of stratum-1 servers with a bad time: Over 30% of the active stratum-1 servers had a clock error of over 10 seconds, and a few even had an error of more than a year. The author of the survey says: "Only 28% of the stratum 1 clocks found appear to actually be useful."
+[Reality](/reflib/reports/ntp-survey99-minar.pdf) suggests that not all NTP servers work as designed in theory. In fact there was a high percentage of stratum-1 servers with a bad time: Over 30% of the active stratum-1 servers had a clock error of over 10 seconds, and a few even had an error of more than a year. The author of the survey says: "Only 28% of the stratum 1 clocks found appear to actually be useful."
 
 Time sources that are reachable and have a _dispersion_ smaller than the maximum become _candidates_ for time synchronization, thus contributing an error interval. In [RFC 1305](/reflib/rfc/rfc1305/rfc1305.pdf), section 4.2 the algorithms are treated in greater detail.
 
@@ -52,7 +52,7 @@ From this description, it should be obvious that:
 
 #### 5.3.3. Does the reference time depend on all configured servers, or is it based on which ever responds first?
 
-Neither of these is true. As said in [Q: 5.3.2.](NTP-s-algo-real.htm#Q-NTP-ALGO), multiple time sources will be selected and combined to get an estimate of the time. Some criteria are:
+Neither of these is true since multiple time sources will be selected and combined to get an estimate of the time. Some criteria are:
 
 *   Is the configured server _reachable_, i.e. does it respond to queries?
 *   Do replies of the server satisfy basic sanity checks (delay, offset, jitter (dispersion), stratum)? Basically, lower values are preferred.
@@ -62,7 +62,7 @@ Neither of these is true. As said in [Q: 5.3.2.](NTP-s-algo-real.htm#Q-NTP-ALGO)
 
 #### 5.3.4. What happens during a Leap Second?
 
-The theory of leap seconds in explained in [Q: 2.4.](NTP-s-time.htm#Q-TIME-LEAP-SECOND). In reality there are two cases to consider:
+The theory of leap seconds in explained in [Q: 2.4.](/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second). In reality there are two cases to consider:
 
-*   If the operating system implements the kernel discipline described in [Section 5.2](NTP-s-algo-kernel.htm), `ntpd` will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.
+*   If the operating system implements the [kernel discipline](/ntpfaq/ntp-s-algo-kernel), `ntpd` will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.
 *   If the operating system does not implement the kernel discipline, the clock will show an error of one second relative to NTP's time immediate after the leap second. The situation will be handled just like an unexpected change of time: The operating system will continue with the wrong time for some time, but eventually `ntpd` will _step_ the time. Effectively this will cause the correction for leap seconds to be applied too late.
