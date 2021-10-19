@@ -12,21 +12,16 @@ Last update: 2006-11-21
 #### Table of Contents
 
 1. [About this Document](#1-about-this-document)  
-1.1.1. [Updating the FAQ](#1-updating-the-faq)  
-   1.1.1. [Where can I get a new version of this document?](#111-where-can-i-get-a-new-version-of-this-document)  
-1.1.2. [Naming](#naming)  
-   1.2.1. [Why is this Document named FAQ?](#121-why-is-this-document-named-faq)  
-   1.2.2. [Why is this Document named HOWTO?](#122-why-is-this-document-named-howto)
-1.1.3. [Policies](#policies)  
-   1.3.1. [Why can't I find information about ... in this FAQ?](#131-why-cant-i-find-information-about-in-this-faq)  
-   1.3.2. [Where should a new Entry be put?](#132-where-should-a-new-entry-be-put)
-1.1.4. [Making Contributions](#making-contributions)  
-   1.4.1. [Why should I contribute?](#141-why-should-i-contribute)  
-   1.4.2. [How can I contribute?](#142-how-can-i-contribute)    
-   1.4.3. [I contributed to this FAQ, but my name is not mentioned anywhere. What's wrong?](#145-i-contributed-to-this-faq-but-my-name-is-not-mentioned-anywhere-whats-wrong)  
-1.1.5. [Appearance](#appearance)   
-   1.5.1. [Why are Graphics stored in PNG Format?](#153-why-are-graphics-stored-in-png-format) 
-1.1 [Credits](#11-credits)
+1.1 [Preface](#11-preface)  
+1.2 [Why is this Document named FAQ and HOWTO?](#12-why-is-this-document-named-faq-and-howto)  
+1.3 [Where is the source of this document?](#13-where-is-the-source-of-this-document)  
+1.4 [Why can't I find information about xyz in this FAQ?](#14-why-cant-i-find-information-about-xyz-in-this-faq)  
+1.5 [Where should a new Entry be put?](#15-where-should-a-new-entry-be-put)  
+1.6 [Why should I contribute?](#16-why-should-i-contribute)  
+1.7 [How can I contribute?](#17-how-can-i-contribute)    
+1.8 [I contributed to this FAQ, but my name is not mentioned anywhere. What's wrong?](#18-i-contributed-to-this-faq-but-my-name-is-not-mentioned-anywhere-whats-wrong)  
+1.9 [Why are Graphics stored in PNG Format?](#19-why-are-graphics-stored-in-png-format)  
+1.10 [Credits](#110-credits)
 2. [Time, what Time?](/ntpfaq/ntp-s-time)  
 2.1. [What is Time?](/ntpfaq/ntp-s-time#21-what-is-time)  
 2.2. [What is UTC?](/ntpfaq/ntp-s-time#22-what-is-utc)  
@@ -155,125 +150,107 @@ All we do here is invent games to pass the time.
 
 #### 1. About this Document
 
-Edited by:
+{{% pageinfo %}}
+The NTP FAQ and HOWTO was originally edited by:
 : Ulrich Windl
 : Dale R. Worley
 : David Dalton, Hewlett-Packard  
-: Marc Martinec, Josef Stefan Institute  
-: Jamova 39  
-: SI-1000 Ljubljana,  
-: Slovenia
+: Marc Martinec, Josef Stefan Institute
 
-**Note from the editor:** This document is not as complete as it should be, but I decided to forward it to a wider audience. Any contributions are welcome. Most incomplete sections are marked with `XXX`. 
+with this copyright notice:
 
-Copyright &copy; 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006 Ulrich Windl, et al. (see credits)
+Copyright &copy; 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006 Ulrich Windl, et al. (see [credits](#110-credits))
 
-**Copyright**
+The material in this document is covered by the respective contributor's copyright. &copy; Copyright 1999 - 2005, by the contributors and editors of this document. For details see the list of editors and authors.
 
-The material in this document is covered by the respective contributor's copyright. © Copyright 1999 - 2005, by the contributors and editors of this document. For details see the list of editors and authors.
-
-All editors and contributors (non-exclusively) grant a perpetual, irrevocable, and royalty free license to distribute this document under the terms of the ACRONYM General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+All editors and contributors (non-exclusively) grant a perpetual, irrevocable, and royalty free license to distribute this document under the terms of the General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
 This document is distributed in the hope that it will be useful, but _WITHOUT ANY WARRANTY_; without even the implied warranty of _MERCHANTABILITY_ or _FITNESS FOR A PARTICULAR PURPOSE_. See the GNU General Public License for more details.
 
 If you don't already have the GNU General Public License at hand, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+{{% /pageinfo %}}
+
+It is now maintained by [Network Time Foundation](https://www.nwtime.org). Contributions to update the material are most appreciated and contributors will continue to be added to the credits.
 
 * * *
 
-This section tries to answer questions about the document itself. So we could call it Meta-FAQ. If you like, you can call it preface or foreword as well.
+#### 1.1 Preface
 
-This document is intended for beginners as well as advanced users that are looking for for advice. However, basic skills in system administration are required to enjoy this tour. True experts on the subject will probably prefer the original documentation that comes with the software, or correct me where I'm wrong.
+This section tries to answer questions about the document itself. This document is intended for beginners as well as advanced users that are looking for advice. However, basic skills in system administration are required to enjoy this tour. True experts on the subject will probably prefer the original documentation that comes with the software, or make corrections where it is wrong.
 
-The impatient may want to go directly to [Section 2](#time-what-time) where fundamentals of timekeeping are discussed. The next section, [Section 3](#how-do-computer-clocks-work), introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, ([Section 4](#what-is-ntp).
+The impatient may want to go directly to [Section 2](/ntpfaq/ntp-s-time) where fundamentals of timekeeping are discussed. [Section 3](/ntpfaq/ntp-s-sw-clocks) introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, [Section 4](/ntpfaq/ntp-s-def).
 
-At that point focus is moving from a more theoretical treatment of the subject to practical aspects, starting with [Section 5](#how-does-it-work). Then in [Section 6](#configuration-of-xntpd) we are going into practice, namely configuration of the NTP software. The following section ([Section 7](#reference-clocks) will talk about reference clocks.
+At that point focus moves from a more theoretical treatment of the subject to practical aspects, starting with [Section 5](/ntpfaq/ntp-s-algo). Then [Section 6](/ntpfaq/ntp-s-config) moves into configuration of the NTP software. [Section 7](/ntpfaq/ntp-s-refclk) will talk about reference clocks.
 
-Real life is talked about in [Section 8](#troubleshooting) where procedures, tips and tricks for troubleshooting are presented. For the curious, [Section 9](#background-and-related-information) will provide further information and references to such. Finally, there is a [glossary](#common-terms-and-acronyms) with some terms explained.
-
-* * *
-
-#### 1. Updating the FAQ
-
-#### 1.1.1 Where can I get a new version of this document?
-
-The source files for the FAQ can be found at https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/content/en/ntpfaq. The repository also contains the [HTML files for the FAQ](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/public/ntpfaq) and a [README](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/README.md) for obtaining the source files.
+Real life is talked about in [Section 8](/ntpfaq/ntp-s-trouble) where procedures, tips, and tricks for troubleshooting are presented. For the curious, [Section 9](/ntpfaq/ntp-s-related) provides further information and references. Finally, there is a [glossary](/ntpfaq/ntp-g-all) of terms.
 
 * * *
 
-#### 2. Naming
-
-#### 1.2.1.Why is this Document named FAQ?
+#### 1.2 Why is this Document named FAQ and HOWTO?
 
 This document tries to answer frequently asked questions (FAQs) that can not (at least virtually) be answered easily from the standard documentation.
 
-* * *
+In addition to just answering user questions, this document also tries to give a gentle introduction and guidelines to the newcomer. The authors believe that it's better to use NTP correctly right from the start rather than fixing all the problems after they occur.
 
-#### 1.2.2. Why is this Document named HOWTO?
-
-In addition to just answering questions that users had, this document also tries to give a gentle introduction and guidelines to the newcomer. The authors believe that it's better to use NTP correctly right from the start rather than fixing all the problems after they occur.
-
-"Gentle" in the paragraph above means "not too technical" and "not too theoretical". However some basic, non-trivial understanding of real-life is required at several points, so please accept these deviations from the goal.
+"Gentle" means "not too technical" and "not too theoretical". However, some basic non-trivial understanding of real life is required at several points, so please accept these deviations from the goal.
 
 * * *
 
-#### 3. Policies
+#### 1.3 Where is the source of this document?
 
-#### 1.3.1. Why can't I find information about ... in this FAQ?
+The source files for the FAQ can be found [here](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/content/en/ntpfaq). The repository also contains the [HTML files for the FAQ](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/public/ntpfaq) and a [README](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/README.md) for obtaining the source files.
+
+* * *
+
+#### 1.4 Why can't I find information about xyz in this FAQ?
 
 Unless it simply has not been written yet, there may be other reasons:
 
-1.  The editors don't want to copy documentation that is publicly available already. This is especially true for standards, specifications and manuals. The editors think that referring is better than copying. The intention is to avoid redundancy while saving labour at the same time.
-
-2.  Either the problem or the solution is too vague to document it. This is true for very special configurations that are not at all common. After all, we want to answer _frequently_ asked questions here.
+1.  The editors don't want to copy documentation that is already publicly available. This is especially true for standards, specifications, and manuals. The editors think that referring to is better than copying. The intention is to avoid redundancy while saving labour.
+2.  Either the problem or the solution is too vague to document it. This is true for uncommon configurations. After all, we want to answer _frequently_ asked questions here.
 
 * * *
 
-#### 1.3.2. Where should a new Entry be put?
+#### 1.5 Where should a new Entry be put?
 
 The answer to this question is quite delicate! The guidelines are probably these:
 
 * Try to understand the existing structure of the document.
-* If there are similar entries there already, see where the new one fits best. Usually it's right near the existing one, or in a corresponding section. Possibly it makes sense to create a new section or division.
+* If there are similar entries, see where the new one fits best. Usually it's right near the existing one, or in a corresponding section. Possibly it makes sense to create a new section.
 
 * * *
 
-#### 4. Making Contributions
-
-#### 1.4.1. Why should I contribute?
+#### 1.6 Why should I contribute?
 
 In "the good old times" the Internet was a valuable source of information, and people were happy to share their knowledge. These days, however, people think of E-Commerce, how to make money.
 
-I started writing this FAQ not to make money, but to have a reference to refer to. Thus I hope I'll be able to provide the needed information to more people more quickly. Unfortunately I do not know everything. So if you have solved some problem that may be of interest to other people as well, please share your experience.
+This FAQ was written not to make money, but to have a reference to refer to and to provide information to more people. If you have solved some NTP problem that may be of interest to other people, please share your experience.
 
 * * *
 
-#### 1.4.2. How can I contribute?
+#### 1.7 How can I contribute?
 
-Contributions are very much appreciated. Depending on your possibilities you can:
+Contributions are very much appreciated. You can:
 
-1.  Tell me about some error or incomplete information given. I call it a "minor contribution". If you want to be listed in the hall of fame (also called credits, just tell me when contributing. If you prefer anonymous contributions, they are welcome just the same.
-2.  You can suggest an addition consisting of a question together with its answer. I call this a "major contribution". Major contributions are definitely worth being listed as author in the header of the document if you like. Of course you can downgrade your contribution to plain credits or nothing if you prefer.
-    Contributions are accepted in any format, but I prefer plain US-ASCII or ISO-8859-1. If you can avoid it, don't send files in some text processing format.
-3.  Supplying a valid patch against the source of this document will make the most appreciated contribution. This allows you to be listed as co-author. As before, you can downgrade your contribution as you like.
-
-* * *
-
-#### 1.4.3. I contributed to this FAQ, but my name is not mentioned anywhere. What's wrong?
-
-Probably the fault of the editor. Maybe he thought you don't want to be listed, or he simply forgot. [Section 1.1](#11-credits) shows the names the editor was aware of.
+1.  Correct errors or incomplete information.
+2.  Suggest an addition consisting of a question together with its answer.
+3.  Update examples so they match the current NTP version.
 
 * * *
 
-#### 5. Appearance
+#### 1.8 I contributed to this FAQ, but my name is not mentioned anywhere. What's wrong?
 
+Probably the fault of the editor. Maybe he thought you don't want to be listed, or simply forgot. [Section 1.10](#110-credits) shows the names the editor was aware of.
 
-#### 1.5.1. Why are Graphics stored in PNG Format?
+* * *
+
+#### 1.9 Why are Graphics stored in PNG Format?
 
 The popular GIF format supported by many browsers relies on a compression algorithm that is patented, and the owner of the patent wants to receive money from everyone making GIF files. PNG (Portable Network Graphics) uses a different algorithm for compression and does not require payment.
 
 * * *
 
-#### 1.1. Credits
+#### 1.10 Credits
 
 If you contributed to this FAQ, and you could not find your name elsewhere, this is where it should be.
 
