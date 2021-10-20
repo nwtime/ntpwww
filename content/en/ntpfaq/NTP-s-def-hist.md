@@ -13,7 +13,7 @@ The first complete specification of the protocol and accompanying algorithms for
 
 Version 2 introducing symmetric-key authentication (using DES-CBC) was described in [RFC 1119](/reflib/rfc/rfc1119/rfc1119b.pdf) only about one year later. About the same time another time sychronization protocol named _Digital Time Synchronization Service_ (DTSS) was presented by Digital Equipment Corporation. At that time the software named `xntp` was written by Dennis Fergusson at the University of Toronto. That software evolved to the software distribution that is publically available now.
 
-Combining the good ideas of DTSS with those of NTP produced a new specification for NTP version 3, namely [RFC 1305](/reflib/rfc/rfc1305/rfc1305b.pdf), in 1992. That version introduced formal correctness principles [`esterror` and `maxerror`](/ntpfaq/ntp-s-algo-kernel#5231-what-are-the-individual-monitoring-values-about) and revised algorithms. Furthermore, broadcast mode was added to the protocol.
+Combining the good ideas of DTSS with those of NTP produced a new specification for NTP version 3, namely [RFC 1305](/reflib/rfc/rfc1305/rfc1305b.pdf), in 1992. That version introduced formal correctness principles [`esterror` and `maxerror`](/ntpfaq/ntp-s-algo-kernel#522-monitoring) and revised algorithms. Furthermore, broadcast mode was added to the protocol.
 
 While NTP per se only deals with adjusting the operating system's clock, there was some parallel research on improving time keeping within the operating system's kernel. [RFC 1589 A kernel model for precision timekeeping](/reflib/rfc/rfc1589.txt) described a new implementation and interface in 1994. That implementation could keep time with a precision of up to one microsecond.
 

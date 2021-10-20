@@ -7,8 +7,7 @@ This section discusses implementations of NTP for various platforms.
 
 For platforms and operating systems other than those mentioned here, there may be software available. Maybe there are binary program packages available for your computer system. A good starting point is to search this website. Specific products are presented in [Section 8.3](/ntpfaq/ntp-s-trbl-spec).
 
-4.3.1 [Official Providers](#431-official-providers)  
-4.3.1.1 [Which Protocols are supported by the Reference Implementation?](#4311-which-protocols-are-supported-by-the-reference-implementation)  
+4.3.1 [Official Providers](#431-official-providers)    
 4.3.2 [UNIX Systems](#432-unix-systems)   
 4.3.3 [Microsoft Windows](#433-microsoft-windows)      
 
@@ -21,12 +20,6 @@ Several national time keepers allow reading the time via NTP:
 * [NIST](https://www.nist.gov/time-frequency) (USA)
 * [USNO](https://www.usno.navy.mil/USNO/time) (USA)
 * [PTB](https://www.ptb.de/cms/en/ptb/fachabteilungen/abtq/gruppe-q4/ref-q42/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html) (Germany)
-
-* * *
-
-#### 4.3.1.1 Which Protocols are supported by the Reference Implementation?
-
-The reference implementation supports the NTP protocol on port 123. It does not support the Time Protocol ([RFC 868](https://www.rfc-editor.org/rfc/rfc868)) on port 37. NTP is newer and more precise than the older Time protocol.
 
 * * *
 

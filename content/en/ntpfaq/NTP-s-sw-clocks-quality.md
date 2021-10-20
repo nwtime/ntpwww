@@ -37,23 +37,23 @@ When discussing clocks, the following quality factors are helpful:
 
 #### 3.3.1 Frequency Error
 
-It's not sufficient to correct the clock once. Figure 3.3.1 illustrates the problem. The offset of a precision reference pulse has been measured with the free-running system clock. The figure shows that the system clock gains about 50 milliseconds per hour (red line). Even if the frequency error is taken into account, the error spans a few milliseconds within a few hours (blue line).
+It's not sufficient to correct the clock once. Figure 3.3a illustrates the problem. The offset of a precision reference pulse has been measured with the free-running system clock. The figure shows that the system clock gains about 50 milliseconds per hour (red line). Even if the frequency error is taken into account, the error spans a few milliseconds within a few hours (blue line).
 
-**Figure 3.3.1: Offset for a free-running Clock**
+**Figure 3.3a: Offset for a free-running Clock**
 
 ![](/ntpfaq/clockdrift.png)
 
 Even if the offset seems to drift in a linear way, a closer examination reveals that the drift is not linear.
 
-**Example 3.3.1: Quartz Oscillators in IBM compatible PCs**
+**Example 3.3a: Quartz Oscillators in IBM compatible PCs**
 
 In my experiments with PCs running Linux I found out that the frequency of the oscillator's correction value increases by about 11 PPM after powering up the system. This is quite likely due to the increase of temperature. A typical quartz is expected to drift about 1 PPM per &deg;C.
 
-Even for a system that has been running for several days in a non-air-conditioned office, the correction value changed by more than 1 PPM within a week (see Figure 3.3.2 for a snapshot from that machine). It is possible that a change in supply voltage also changes the drift value of the quartz.
+Even for a system that has been running for several days in a non-air-conditioned office, the correction value changed by more than 1 PPM within a week (see Figure 3.3b for a snapshot from that machine). It is possible that a change in supply voltage also changes the drift value of the quartz.
 
 As a consequence, without continuous adjustments the clock must be expected to drift away at roughly one second per day in the worst case. Even worse, the values quoted above may increase significantly for other circuits, or even more for extreme environmental conditions.
 
-**Figure 3.3.2: Frequency Correction within a Week**
+**Figure 3.3b: Frequency Correction within a Week**
 
 ![](/ntpfaq/f-tick1b.png)
 
