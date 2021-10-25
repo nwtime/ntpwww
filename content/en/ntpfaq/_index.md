@@ -248,8 +248,13 @@ Last update: 2006-11-21
 8.4.1 [When should I report a Problem?](/ntpfaq/ntp-s-trbl-bug-reports/#841-when-should-i-report-a-problem)  
 8.4.2 [What should I report?](/ntpfaq/ntp-s-trbl-bug-reports/#842-what-should-i-report)  
 9. [Background and Related Information](/ntpfaq/ntp-s-related)  
-   9.1. [GPS](#gps)  
-   9.1.1. [Selective Availability revisited](#selective-availability-revisited)
+9.1 [Miscellaneous](/ntpfaq/ntp-s-related/#91-miscellaneous)  
+9.1.1 [What is Mills-speak?](/ntpfaq/ntp-s-related/#911-what-is-mills-speak)  
+9.1.2 [How can I convert a date to NTP format?](/ntpfaq/ntp-s-related/#912-how-can-i-convert-a-date-to-ntp-format)  
+9.1.3 [How can I convert an NTP Timestamp to UNIX Time?](/ntpfaq/ntp-s-related/#913-how-can-i-convert-an-ntp-timestamp-to-unix-time)  
+9.1.4 [Where can I find more Information?](/ntpfaq/ntp-s-related/#914-where-can-i-find-more-information)  
+9.2 [GPS](/ntpfaq/ntp-s-related/#92-gps)  
+9.2.1 [Selective Availability revisited](/ntpfaq/ntp-s-related/#921-selective-availability-revisited)
 10. [Common Terms and Acronyms](/ntpfaq/ntp-g-all)
  
 > This document tries to explain the most basic features of NTP, and to answer many frequently asked questions. The intention is to help the average user to get a quick start with the official implementation of NTP. Technical issues and mathematics are avoided where possible. Instead the most common questions are tried to be answered, enabling everybody to get a working configuration.
