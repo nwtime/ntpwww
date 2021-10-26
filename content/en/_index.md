@@ -1,28 +1,28 @@
 ---
-title: "The NTP Project"
+title: "NTP: The Network Time Protocol"
 type: "home"
 ---
 
 <section class="section pt-0 pb-0">
   <div class="container"> 
 
-<h4 class=text-center>Welcome to the Documentation Library for the Network Time Protocol (NTP) Project.</h4><br />
+<h4 class=text-center>Welcome to the home of the Network Time Protocol (NTP) Project.</h4><br />
 
-<p>NTP is a protocol designed to synchronize the clocks of computers over a network to a common timebase. The NTP Project produces a software reference implementation of the NTP protocol standard, maintains the implementation documentation, and develops the protocol standard that is used to communicate time between systems. The software and protocol specifications produced by the NTP Project keep the clocks right on billions of devices around the world.  And also in space.</p>
+The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase. NTP is what ensures the reliability of billions of devices around the world, under the sea, and even in space. Accurate timekeeping is vital to the many applications which have revolutionized and are essential to our daily lives: satellites, GPS, 5G, financial services, healthcare, and more.
 
-Network Time Foundation provides support for the NTP Project and hosted the mailing lists for the [IETF NTP Working Group](https://datatracker.ietf.org/wg/ntp/about/) for many years. Learn more about the Foundation's work at https://www.nwtime.org.
-<p><br /></p>
-</div>
+The NTP Project produces a [Software Reference Implementation](https://bk.ntp.org/) of the NTP protocol standard, maintains the implementation [Documentation](/archives/4.2.8-series),  and develops the protocol standard that is used to communicate time between systems. Background information about NTP can be found in the [Reference Library](/reflib). 
+
+Network Time Foundation provides support for the NTP Project. Learn more about the Foundation's work at https://www.nwtime.org.
 
   <div class="container-fluid">
     <div class="row">
       <div class="mx-auto">
 	  	<a class="btn btn-lg btn-primary mr-3 mb-4" 
-	    href="http://www.ntp.org/downloads.html">
+	    href="/downloads">
 		Download NTP <i class="bi-download ml-2 "></i></a>
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="http://www.ntp.org/bugs.html">
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="/bugs">
 		Report a Bug <i class="bi-bug ml-2 "></i></a>
       </div>   
     </div>
-  </div>
-</section>  
+  </div>	
+</section> 
