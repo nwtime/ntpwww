@@ -10,7 +10,7 @@
 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and …">
 <meta property="og:title" content="DEC OSF/1 V2.0 Hints" />
 <meta property="og:description" content="Problems with DEC OSF/1 V2.0 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h include files.
- cowbird:/usr/include/sys# diff -c wait.h.orig wait.h *** wait.h.orig Tue Feb 22 02:41:38 1994 --- wait.h Thu Aug 25 14:52:57 1994 *************** *** 298,304 **** #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, id_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ --- 298,304 ---- #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, pid_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ cowbird:/usr/include/sys# diff -c procset." />
+cowbird:/usr/include/sys# diff -c wait.h.orig wait.h*** wait.h.orig Tue Feb 22 02:41:38 1994--- wait.h Thu Aug 25 14:52:57 1994****************** 298,304 ****#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, id_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */--- 298,304 ----#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, pid_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */cowbird:/usr/include/sys# diff -c procset." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/archives/hints/decosf2/" /><meta property="article:section" content="archives" />
 
@@ -67,6 +67,31 @@ Compilation using gcc fails with ntp_config.c. The problem is an apparent error 
           <li class="nav-item py-0">
             <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
           </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">NTP Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">NTP FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
           
           
           <li class="nav-item dropdown py-0">
@@ -146,7 +171,7 @@ Compilation using gcc fails with ntp_config.c. The problem is an apparent error 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/archives/">Docs</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 

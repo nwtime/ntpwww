@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="This section discusses how well the theory applies to real life situations.
+5.3.1 What if I write my own SNTP Server?
+5.3.2 Why should I have more …">
+<meta property="og:title" content="5.3. NTP in real Life" />
+<meta property="og:description" content="This section discusses how well the theory applies to real life situations.
+5.3.1 What if I write my own SNTP Server?
+5.3.2 Why should I have more than one clock?
+5.3.3 Does the reference time depend on all configured servers, or is it based on which ever responds first?
+5.3.4 What happens during a Leap Second?
+ 5.3.1 What if I write my own SNTP Server? There is a quote (with partial omissions) on that subject by Professor David L." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-algo-real/" /><meta property="article:section" content="ntpfaq" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>5.3. NTP in real Life</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NTP Documentation Archive">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+</head>
+<body><!-- navigation -->
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">NTP Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">NTP FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/ntpfaq/ntp-s-algo-real/">5.3. NTP in real Life</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>5.3. NTP in real Life</h1>
+     
+    <p>This section discusses how well the theory applies to real life situations.</p>
+<p>5.3.1 <a href="#531-what-if-i-write-my-own-sntp-server">What if I write my own SNTP Server?</a><br>
+5.3.2 <a href="#532-why-should-i-have-more-than-one-clock">Why should I have more than one clock?</a><br>
+5.3.3 <a href="#533-does-the-reference-time-depend-on-all-configured-servers-or-is-it-based-on-which-ever-responds-first">Does the reference time depend on all configured servers, or is it based on which ever responds first?</a><br>
+5.3.4 <a href="#534-what-happens-during-a-leap-second">What happens during a Leap Second?</a></p>
+<hr>
+<h4 id="531-what-if-i-write-my-own-sntp-server">5.3.1 What if I write my own SNTP Server?</h4>
+<p>There is a quote (with partial omissions) on that subject by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>(&hellip;) The SNTP specification forbids operation as a server unless a primary server connected to a reference clock. (&hellip;)</p>
+<p>Running SNTP as a server is probably the single most serious hazard in the universe. You might not agree with the particular engineering design in my clock mitigation and discipline algorithms and security model but it is absolutely imperative that the correctness assertions be religiously observed. Even so, folks have come to expect a certain level of performance from the &ldquo;standard&rdquo; distribution which the algorithms are designed to achieve. These algorithms have purposely been omitted from the SNTP specification on the understanding that a SNTP server will always have a reference source and a SNTP client will never function as a server to dependent clients.</p>
+<p>I&rsquo;ve had a lotta years thinking about these models. There should be only two models. One, represented by SNTP, is intended for casual PCs and workstations where simplicity and ubiquity is intended. It has similar functionality as <code>date</code> and <code>rdate</code> and is totally stateless. The other, represented by NTP, is a widely understood, thoroughly researched and verified engineering design. The design should include a definitive specification and be rigidly implemented to spec so folks have a high level of confidence it does what the spec requires. I want only one such spec, not a plurality of specs and implementations that are not completely interoperable. The NTP subnet is not a community of distinct servers, but a intimately intertwined real-time coupled oscillators. Get one of these things wrong and large portions of the subnet could become unstable. Heck it happens once in a while, notwithstanding the recent bug.</p>
+<p>Okay, tune for minimum flame. We are obviously not to that degree of rigor now. There are very, very many places where a definitive spec would contain options - should the huff-&lsquo;n-puff filter be required? What I have been working on the last few years is to push the envelope to test as many different ideas as feasible and then decide as a group which should be in the core spec and which should be optional.</p>
+<p>You may suggest there is nothing wrong with a SNTP subnet of clients and servers which is wholly contained and where synchronization is never leaked to the NTP subnet. I have no problem with this should it be practical. Past experience with undisciplined local clocks leaking to the NTP subnet suggests this will happen with SNTP servers. I don&rsquo;t think it is a good idea to provide a SNTP capability that casually invites newbie folks to disregard the spec. If we really do want to provide such a capability, there should be a serious disclaimer published in conspicuous places. How would it be if a stratum-2 SNTP server sneaked in the list of public servers? (&hellip;)</p>
+<hr>
+<h4 id="532-why-should-i-have-more-than-one-clock">5.3.2 Why should I have more than one clock?</h4>
+<p>NTP likes to estimate the errors of all clocks. Therefore all NTP servers return the time together with an estimate of the current error. When using multiple time servers, NTP also wants these servers to agree on some time, meaning there must be one error interval where the correct time must be.</p>
+<p><a href="/reflib/reports/ntp-survey99-minar.pdf">The 1999 survey</a> suggests that not all NTP servers work as designed in theory. In fact there was a high percentage of stratum-1 servers with a bad time. Over 30% of the active stratum-1 servers had a clock error of over 10 seconds, and a few even had an error of more than a year. The author of the survey says: &ldquo;Only 28% of the stratum 1 clocks found appear to actually be useful.&rdquo;</p>
+<p>Time sources that are reachable and have a <em>dispersion</em> smaller than the maximum become <em>candidates</em> for time synchronization, thus contributing an error interval. In <a href="/reflib/rfc/rfc1305/rfc1305.pdf">RFC 1305</a> section 4.2 the algorithms are treated in greater detail.</p>
+<p>If these candidates pass another validation test, they become <em>survivors</em>. Basically all values must lie within the error interval the majority of candidates defines. All other time sources are called <em>falsetickers</em> subsequently.</p>
+<p>Among the survivors those with significant high dispersion are removed and tagged as <em>outlyers</em>.</p>
+<p>The final synchronization source is the survivor with the smallest dispersion.</p>
+<p>From this description:</p>
+<ul>
+<li>Just one time source will always be trusted.</li>
+<li>Two time sources cannot be split into two parties where one has a majority.</li>
+<li>For a three-server configuration a failing server will cause the two-server problem to appear.</li>
+</ul>
+<hr>
+<h4 id="533-does-the-reference-time-depend-on-all-configured-servers-or-is-it-based-on-which-ever-responds-first">5.3.3 Does the reference time depend on all configured servers, or is it based on which ever responds first?</h4>
+<p>Neither of these is true since multiple time sources will be selected and combined to get an estimate of the time. Some criteria are:</p>
+<ul>
+<li>Is the configured server <em>reachable</em> (does it respond to queries)?</li>
+<li>Do replies of the server satisfy basic sanity checks: delay, offset, jitter (dispersion), and stratum? Basically, lower values are preferred.</li>
+<li>If a configured server gets that far, it will be called a candidate. Candidates are ordered by jitter; the one with the lowest jitter will be the new time reference, but all the others will contribute to the estimated time as well.</li>
+</ul>
+<hr>
+<h4 id="534-what-happens-during-a-leap-second">5.3.4 What happens during a Leap Second?</h4>
+<p>The theory of leap seconds in explained in <a href="/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second">Q: 2.4</a>. In reality there are two cases to consider:</p>
+<ul>
+<li>If the operating system implements the <a href="/ntpfaq/ntp-s-algo-kernel">kernel discipline</a>, <code>ntpd</code> will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.</li>
+<li>If the operating system does not implement the kernel discipline, the clock will show an error of one second relative to NTP&rsquo;s time immediately after the leap second. The situation will be handled just like an unexpected change of time: the operating system will continue with the wrong time for some time, but eventually <code>ntpd</code> will <em>step</em> the time. Effectively this will cause the correction for leap seconds to be applied too late.</li>
+</ul>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom py-0">
+  <ul class="mx-auto">
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+        <i class="bi-envelope"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <i class="bi-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <i class="bi-linkedin"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <i class="bi-facebook"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text">
+      <p>&copy; 2021 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+</footer>
+
+</body>
+</html>

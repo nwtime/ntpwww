@@ -74,6 +74,31 @@ Last update: 19:17 UTC Monday, October 10, 2005
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">NTP Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">NTP FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Reference Library
             </a>
             <div class="dropdown-menu">
@@ -149,7 +174,7 @@ Last update: 19:17 UTC Monday, October 10, 2005
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/archives/">Docs</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
@@ -209,7 +234,7 @@ Last update: 19:17 UTC Monday, October 10, 2005
 <p>This release includes support for the <a href="/reflib/software/nanokernel.tar.gz"><em>nanokernel</em></a> precision time kernel support, which is now in stock FreeBSD and optional Linux kernels. If a precision time source such as a GPS timing receiver or cesium clock is available, kernel timekeeping can be improved to the order of one microsecond. The older <em>microtime</em> kernel for Digital/Compaq/HP Tru64, Digital Ultrix, as well as Sun Microsystems SunOS and Solaris, continues to be supported.</p>
 </li>
 <li>
-<p>This release includes support for Autokey public-key cryptography, which is the preferred scheme for authenticating servers to clients. Autokey Version 2 uses NTP header extension fields and protocols as described on the NTP project page linked from <a href="http://www.ntp.org">www.ntp.org</a>. This release includes support for additional message digest and digital signature schemes supported by the OpenSSL software library, as well as new identity schemes based on cryptographic challenge/response algorithms. The new design greatly simplifies key generation and distribution and provides orderly key refreshment. Security procedures and media formats are consistent with industry standard X.509 Version 3 certificates and authority procedures. Specific improvements to the protocol include a reduction in the number of messages required and a method to protect the cookie used in client/server mode against disclosure. Additional information about Autokey cryptography is contained in the <a href="/archives/4.2.2-series/authopt">Authentication Options</a> page and links from there. See also the new <code>cryptostats</code> monitoring statistics file in the <a href="/archives/4.2.2-series/monopt">Monitoring Options</a> page.</p>
+<p>This release includes support for Autokey public-key cryptography, which is the preferred scheme for authenticating servers to clients. Autokey Version 2 uses NTP <a href="/reflib/brief/atirp2/atirp2.pdf">header extension fields and protocols</a>. This release includes support for additional message digest and digital signature schemes supported by the OpenSSL software library, as well as new identity schemes based on cryptographic challenge/response algorithms. The new design greatly simplifies key generation and distribution and provides orderly key refreshment. Security procedures and media formats are consistent with industry standard X.509 Version 3 certificates and authority procedures. Specific improvements to the protocol include a reduction in the number of messages required and a method to protect the cookie used in client/server mode against disclosure. Additional information about Autokey cryptography is contained in the <a href="/archives/4.2.2-series/authopt">Authentication Options</a> page and links from there. See also the new <code>cryptostats</code> monitoring statistics file in the <a href="/archives/4.2.2-series/monopt">Monitoring Options</a> page.</p>
 </li>
 <li>
 <p>This release includes support for a discrete event simulator (DES), which allows the NTP algorithms to be tested in an embedded environment with systematic and pseudorandom network delay and oscillator wander distributions. This has been used to verify correct operation under conditions of extreme error and misconfiguration. See the <a href="/archives/4.2.2-series/ntpdsim"><code>ntpdsim</code> - Network Time Protocol (NTP) simulator</a> page.</p>
@@ -237,7 +262,7 @@ Last update: 19:17 UTC Monday, October 10, 2005
 <p>In NTPv3 a large number of weeds and useless code had grown over the years since the original NTPv1 code was implemented almost twenty years ago. Using a powerful weedwacker, much of the shrubbery has been removed, with effect a substantial reduction in size of almost 40 percent.</p>
 </li>
 <li>
-<p>The entire distribution has been converted to gnu <code>automake</code>, which should greatly ease the task of porting to new and different programming environments, as well as reduce the incidence of bugs due to improper handling of idiosyncratic kernel functions. Version control is provided by <code>Bitkeeper</code> using an online repository at <a href="http://www.ntp.org">www.ntp.org</a>.</p>
+<p>The entire distribution has been converted to gnu <code>automake</code>, which should greatly ease the task of porting to new and different programming environments, as well as reduce the incidence of bugs due to improper handling of idiosyncratic kernel functions. Version control is provided by <a href="https://bk.ntp.org/">Bitkeeper</a>.</p>
 </li>
 <li>
 <p>Several new options have been added for the <code>ntpd</code> command line. For the inveterate knob twiddlers several of the more important performance variables can be changed to fit actual or perceived special conditions. In particular, the tos command can be used to limit the accepted stratum range, specify minimum dispersion increment and maximum selection theshold, and activate orphan mode.</p>

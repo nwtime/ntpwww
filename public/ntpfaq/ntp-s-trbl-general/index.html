@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="This section discusses problems that are independent of a specific operating system.
+8.2.1 Starting, running, querying
+8.2.1.1 How can I check that …">
+<meta property="og:title" content="8.2. General Issues" />
+<meta property="og:description" content="This section discusses problems that are independent of a specific operating system.
+8.2.1 Starting, running, querying
+8.2.1.1 How can I check that ntpd is up and running?
+8.2.1.2 Why does ntpd only run for about 10 to 20 minutes??
+8.2.2 Cabling and Interfacing
+8.2.2.1 Why does my Serial Interface hang when I connect a PPS Signal to DCD?
+8.2.2.2 Why is the PPS API only detecting one Edge?
+8.2.3 Exchanging Time" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/" /><meta property="article:section" content="ntpfaq" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>8.2. General Issues</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NTP Documentation Archive">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+</head>
+<body><!-- navigation -->
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">NTP Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">NTP FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/">8.2. General Issues</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>8.2. General Issues</h1>
+     
+    <p>This section discusses problems that are independent of a specific operating system.</p>
+<p>8.2.1 <a href="#821-starting-running-querying">Starting, running, querying</a><br>
+8.2.1.1 <a href="#8211-how-can-i-check-that-ntpd-is-up-and-running">How can I check that ntpd is up and running?</a><br>
+8.2.1.2 <a href="#8212-why-does-ntpd-only-run-for-about-10-to-20-minutes">Why does ntpd only run for about 10 to 20 minutes??</a><br>
+8.2.2 <a href="#822-cabling-and-interfacing">Cabling and Interfacing</a><br>
+8.2.2.1 <a href="#8221-why-does-my-serial-interface-hang-when-i-connect-a-pps-signal-to-dcd">Why does my Serial Interface hang when I connect a PPS Signal to DCD?</a><br>
+8.2.2.2 <a href="#8222-why-is-the-pps-api-only-detecting-one-edge">Why is the PPS API only detecting one Edge?</a><br>
+8.2.3 <a href="#823-exchanging-time">Exchanging Time</a><br>
+8.2.3.1 <a href="#8231-is-a-remote-server-providing-time">Is a remote server providing time?</a><br>
+8.2.3.2 <a href="#8232-my-server-is-up-and-running-but-it-is-unusable-for-clients">My server is up and running, but it is unusable for clients</a> <br>
+8.2.4 <a href="#824-cryptography">Cryptography</a><br>
+8.2.4.1 <a href="#8241-no-time-received-when-using-autokey">No time received when using autokey</a><br>
+8.2.5 <a href="#825-time-errors">Time Errors</a><br>
+8.2.5.1 <a href="#8251-why-does-my-server-change-time-references-quite-frequently">Why does my server change time references quite frequently?</a><br>
+8.2.5.2 <a href="#8252-my-server-periodically-loses-synchronization">My server periodically loses synchronization</a><br>
+8.2.5.3 <a href="#8253-why-does-my-system-step-several-times-a-day">Why does my system step several times a day?</a><br>
+8.2.6 <a href="#826-other">Other</a><br>
+8.2.6.1 <a href="#8261-how-do-i-set-the-correct-value-for-tick">How do I set the correct value for tick?</a><br>
+8.2.6.2 <a href="#8262-how-do-i-set-the-precision">How do I set the precision?</a><br>
+8.2.6.3 <a href="#8263-ntpd-periodically-opens-a-dial-out-connection-can-i-avoid-that">ntpd periodically opens a dial-out connection. Can I avoid that?</a><br>
+8.2.6.4 <a href="#8264-any-more-hints">Any more Hints?</a><br>
+8.2.7 <a href="#827-errors-and-warnings">Errors and Warnings</a><br>
+8.2.7.1 <a href="#8271-ntpq-read-connection-refused">ntpq: read: connection refused</a><br>
+8.2.7.2 <a href="#8272-127001-timed-out-nothing-received-request-timed-out">127.0.0.1: timed out, nothing received, Request timed out</a><br>
+8.2.7.3 <a href="#8273-ntpdate-no-server-suitable-for-synchronization-found">ntpdate: no server suitable for synchronization found</a><br>
+8.2.7.4 <a href="#8274-configure-keyword-precision-unknown-line-ignored">configure: keyword &ldquo;precision&rdquo; unknown, line ignored</a><br>
+8.2.7.5 <a href="#8275-previous-time-adjustment-didnt-complete">Previous time adjustment didn&rsquo;t complete</a><br>
+8.2.7.6 <a href="#8276-sendto-overlapped-io-operation-is-in-progress">sendto: Overlapped I/O operation is in progress.</a></p>
+<hr>
+<h4 id="821-starting-running-querying">8.2.1 Starting, running, querying</h4>
+<h4 id="8211-how-can-i-check-that-ntpd-is-up-and-running">8.2.1.1 How can I check that ntpd is up and running?</h4>
+<p>The easiest command to verify that <code>ntpd</code> is still running is <code>ntpq -p</code>. This command will contact <code>ntpd</code> on the local host, and it will list all configured servers together with some health status. If <code>ntpd</code> is not running, the typical error message is <code>ntpq: read: Connection refused</code>.</p>
+<p>If your are logged in to a UNIX machine, you can use <code>ps</code> to look for the daemon.</p>
+<hr>
+<h4 id="8212-why-does-ntpd-only-run-for-about-10-to-20-minutes">8.2.1.2 Why does ntpd only run for about 10 to 20 minutes?</h4>
+<p><code>ntpd</code> expects that the system time has been set closely to the real time, for example by using <code>ntpdate</code>. If the <a href="/ntpfaq/ntp-s-algo/#5114-what-happens-if-the-reference-time-changes">reference time is significantly off</a>, <code>ntpd</code> waits up to 20 minutes until it sets the time.</p>
+<p>However, if the time is off by more than some magic amount of roughly 20 minutes, <code>ntpd</code> refuses to set the system time, and it terminates instead. To confirm what is going on, look into <code>syslog</code> or into the logfile you configured.</p>
+<p>Either set your system clock with <code>ntpdate</code> before starting <code>ntpd</code>, or try the <code>-g</code> switch for <code>ntpd</code>. Or just set the time manually.</p>
+<hr>
+<h4 id="822-cabling-and-interfacing">8.2.2 Cabling and Interfacing</h4>
+<h4 id="8221-why-does-my-serial-interface-hang-when-i-connect-a-pps-signal-to-dcd">8.2.2.1 Why does my Serial Interface hang when I connect a PPS Signal to DCD?</h4>
+<p>Sometimes drivers misinterpret the meaning of DCD to be a MODEM status. When using the <code>stty -a</code> command, the port used should have <code>clocal</code> set (preferrably together with <code>-hupcl</code>). When using a standard modem cable, make sure that the DCD pin is not connected to some other output of the reference clock.</p>
+<hr>
+<h4 id="8222-why-is-the-pps-api-only-detecting-one-edge">8.2.2.2 Why is the PPS API only detecting one Edge?</h4>
+<p>First, the PPS API is not required to provide an implementation that can detect both edges of a pulse. See function <code>time_pps_getcap()</code> in the description of the API.</p>
+<p>Second, the hardware <a href="/ntpfaq/ntp-s-config-adv/#6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface">may not be responding fast enough</a> about timing on a serial port.</p>
+<p>Finally, even if the hardware can send an interrupt for the edge being detected first, the CPU may be still busy handling the interrupt when the hardware detects the other edge. That may cause the second interrupt to be missed, or the interrupt handler being called for the first interrupt sees a hardware state that corresponds to the second interrupt condition, thereby reporting the wrong event and ignoring the edge that originally triggered the interrupt.</p>
+<hr>
+<h4 id="823-exchanging-time">8.2.3 Exchanging Time</h4>
+<h4 id="8231-is-a-remote-server-providing-time">8.2.3.1 Is a remote server providing time?</h4>
+<p>The procedure to check a remote server is identical to debugging a local server, but some commands may be restricted. To check a remote server with <code>ntpq</code>, add the desired host name or IP address to the command line.</p>
+<p>There is another command named <code>ntptrace</code> to follow a complete synchronization path from the local or specified server to the reference clock. <a href="/archives/4.2.8-series/ntptrace/">ntptrace</a> provides a usage example and explanation of the trace output.</p>
+<hr>
+<h4 id="8232-my-server-is-up-and-running-but-it-is-unusable-for-clients">8.2.3.2 My server is up and running, but it is unusable for clients</h4>
+<p>Probably you have made no mistakes, but simply have to wait for about five minutes until the server synchronizes to a time reference for the first time. If you changed the <code>minpoll</code> parameter, the wait time may change accordingly.</p>
+<p>If you have waited for more than 20 minutes since starting <code>ntpd</code>, it&rsquo;s time to monitor <code>ntpd</code>. First, verify the daemon is <a href="#8211-how-can-i-check-that-ntpd-is-up-and-running">still running</a>. Check <code>syslog</code> for messages from <code>ntpd</code>. Log messages are influenced by the <code>logconfig</code> statement in <code>/etc/ntp.conf</code> and by<code>/etc/syslog.conf</code>.</p>
+<p>If you still don&rsquo;t know what&rsquo;s going wrong, contact <code>ntpd</code> with <code>ntpq</code> and <code>ntpdc</code>. One of the easiest ways to get a first impression of the daemon&rsquo;s status is:</p>
+<ol>
+<li>Run <code>ntpq -p</code> on the host where <code>ntpd</code> is running, or specify the host name at the end of the command line for a remote host (<code>ntpq -p <em>hostname</em></code>). This command will show the number and status of configured or used time references.</li>
+<li>Run <code>ntpq -c as</code> to see what <code>ntpd</code> thinks of these time references.</li>
+</ol>
+<p>If the above does not explain your problem, use <code>ntpq -p</code> to quickly inspect configured time sources, reachability, delay, and dispersion. Reachability should be <code>377</code> (an octal value) for full reachability. The delay should be positive, but small, depending on your network technology. Dispersion should be below <code>1000</code> (1 second) for at least one server. One of the servers should be marked with a <code>*</code>.</p>
+<p>Here&rsquo;s an example from David Dalton:</p>
+<pre>remote  refid   st t when poll reach   delay   offset    disp
+=========================================================================
+*WWVB_SPEC(1)  .WWVB.  0 l  114   64  377     0.00   37.623   12.77  
+ relay.hp.com    listo 2 u  225  512  377     6.93   34.052   10.79  
+ cosl4.cup.hp.co listo 2 u  226  512  377     4.18   29.385   13.21  
+ paloalto.cns.hp listo 2 u  235  512  377     9.80   33.487   11.61  
+ chelmsford.cns. listo 2 u  233  512  377    88.79   30.462    9.66  
+ atlanta.cns.hp. listo 2 u  231  512  377    67.44   32.909   12.86  
+ colorado.cns.hp listo 2 u  233  512  377    43.70   30.077   18.63  
+ boise.cns.hp.co listo 2 u  224  512  377    33.42   31.682    8.54</pre>
+<hr>
+<h4 id="824-cryptography">8.2.4 Cryptography</h4>
+<h4 id="8241-no-time-received-when-using-autokey">8.2.4.1 No time received when using autokey</h4>
+<p>The first place to check is the system log file or (if configured) <code>ntpd</code>&rsquo;s log file. Here&rsquo;s a sample of successful configuration between <code>ltgpsdemo</code>, an external timeserver (Meinberg LANTIME) synchronized to GPS and PPS, and <code>elf</code>, a client running Linux with no kernel modifications (SUSE Linux 9.2). Right after startup, the client displays a <code>refid</code> of <code>.INIT.</code> like this:</p>
+<pre>ntpq> pe
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+ GENERIC(1)      .GPS.            0 l    4   64    1    0.000   -0.719   0.001
+ PPS(1)          .PPS.           16 l    -   64    0    0.000    0.000 4000.00
+ ltgpsdemo       .INIT.          16 u    3   64    0    0.000    0.000 4000.00
+ntpq></pre>
+<p>The host key should be displayed with <code>rl</code> in <code>ntpq</code>:</p>
+<pre>ntpq> rl
+assID=0 status=c027 sync_alarm, sync_unspec, 2 events, event_clock_excptn,
+version="ntpd 4.2.0a@1.1190-r Fri Apr 29 11:06:00 UTC 2005 (1)"?,
+processor="i686", system="Linux/2.6.8-24.17-default", leap=11,
+stratum=16, precision=-20, rootdelay=0.000, rootdispersion=0.210,
+peer=0, refid=INIT,
+reftime=00000000.00000000  Thu, Feb  7 2036  7:28:16.000, poll=6,
+clock=0xc6ab46c3.01a1016c, state=1, offset=0.000, frequency=100.730,
+noise=0.001, jitter=0.001, stability=0.000, hostname="elf",
+signature="md5WithRSAEncryption", flags=0x80001, hostkey=3333113513,
+cert="elf elf 0x0 3333113513"
+ntpq></pre>
+<p>The details of the encryption status can be seen in the field <code>flash</code> when using the command <code>rl</code> on the desired association:</p>
+<pre>ntpq> rl &3
+assID=41910 status=e000 unreach, conf, auth, no events,
+srcadr=ltgpsdemo, srcport=123, dstadr=10.0.0.2, dstport=123, leap=11,
+stratum=16, precision=-20, rootdelay=0.000, rootdispersion=0.000,
+refid=INIT, reach=000, unreach=1, hmode=3, pmode=0, hpoll=6, ppoll=10,
+flash=400 not_proventic, keyid=817784215, ttl=0, offset=0.000,
+delay=0.000, dispersion=0.000, jitter=4000.000,
+reftime=00000000.00000000  Thu, Feb  7 2036  7:28:16.000,
+org=c6ab46b7.85c91d14  Mon, Aug 15 2005 18:52:07.522,
+rec=c6ab46b7.85e7210b  Mon, Aug 15 2005 18:52:07.523,
+xmt=c6ab46b7.859ae924  Mon, Aug 15 2005 18:52:07.521,
+filtdelay=     0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00,
+filtoffset=    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00,
+filtdisp=   16000.0 16000.0 16000.0 16000.0 16000.0 16000.0 16000.0 16000.0,
+hostname="ltgpsdemo", signature="md5WithRSAEncryption", flags=0x80021,
+identity="ltgpsdemo"
+ntpq></pre>
+<p>If everything works fine, the client should have received the server&rsquo;s certificate after a while. Once again, use the command <code>rl</code> to check:</p>
+<pre>ntpq> rl
+(...)
+signature="md5WithRSAEncryption", flags=0x80001, hostkey=3333113513,
+cert="ltgpsdemo ltgpsdemo 0x3 3333112788",
+cert="elf elf 0x1 3333113513"
+ntpq></pre>
+<p>Again, a little later, the <code>rl</code> should display a <code>flash</code> value of zero:</p>
+<pre>ntpq> rl &3
+assID=41910 status=f014 reach, conf, auth, 1 event, event_reach,
+srcadr=ltgpsdemo, srcport=123, dstadr=10.0.0.2, dstport=123, leap=00,
+stratum=1, precision=-18, rootdelay=0.000, rootdispersion=440.033,
+refid=GPS, reach=001, unreach=3, hmode=3, pmode=4, hpoll=6, ppoll=6,
+flash=00 ok, keyid=2001415940, ttl=0, offset=-0.417, delay=0.624,
+dispersion=7937.503, jitter=0.001,
+reftime=c6ab4708.097efe0c  Mon, Aug 15 2005 18:53:28.037,
+org=c6ab473a.abebe165  Mon, Aug 15 2005 18:54:18.671,
+rec=c6ab473a.ac1ba7fc  Mon, Aug 15 2005 18:54:18.672,
+xmt=c6ab473a.a58b60f2  Mon, Aug 15 2005 18:54:18.646,
+filtdelay=     0.62    0.00    0.00    0.00    0.00    0.00    0.00    0.00,
+filtoffset=   -0.42    0.00    0.00    0.00    0.00    0.00    0.00    0.00,
+filtdisp=      0.01 16000.0 16000.0 16000.0 16000.0 16000.0 16000.0 16000.0,
+hostname="ltgpsdemo", signature="md5WithRSAEncryption",
+valid="3333112795:3364648795", flags=0x80721, identity="ltgpsdemo"
+ntpq></pre>
+<p>Then <code>ntpq</code>&rsquo;s command <code>pe</code> shows the usual <code>refid</code>:</p>
+<pre>ntpq> pe
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+ GENERIC(1)      .GPS.            0 l   38   64    7    0.000   -1.193   0.528
+ PPS(1)          .PPS.           16 l    -   64    0    0.000    0.000 4000.00
+ ltgpsdemo       .GPS.            1 u   33   64    1    0.624   -0.417   0.001
+ntpq></pre>
+<p>Eventually the status displays will look like this:</p>
+<pre>ntpq> rl
+assID=0 status=04b7 leap_none, sync_uhf_clock, 11 events, event_clock_excptn,
+version="ntpd 4.2.0a@1.1190-r Fri Apr 29 11:06:00 UTC 2005 (1)"?,
+processor="i686", system="Linux/2.6.8-24.17-default", leap=00,
+stratum=1, precision=-20, rootdelay=0.000, rootdispersion=3.051,
+peer=41908, refid=GPS,
+reftime=c6ab5610.098298cc  Mon, Aug 15 2005 19:57:36.037, poll=10,
+clock=0xc6ab562d.bc703298, state=4, offset=-0.437, frequency=99.839,
+noise=0.147, jitter=0.203, stability=0.173, hostname="elf",
+signature="md5WithRSAEncryption", flags=0x80001, hostkey=3333113513,
+refresh=3333113784, cert="elf ltgpsdemo 0x3 3333113513",
+cert="ltgpsdemo ltgpsdemo 0x3 3333112788",
+cert="elf elf 0x3 3333113513"
+ntpq> pe
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+*GENERIC(1)      .GPS.            0 l   45   64  377    0.000   -0.437   0.203
+ PPS(1)          .PPS.           16 l    -   64    0    0.000    0.000 4000.00
++ltgpsdemo       .PPS.            1 u  116  512  377    0.500    0.349   0.106
+ntpq> as
+
+ind assID status  conf reach auth condition  last_event cnt
+===========================================================
+  1 41908  9685   yes   yes  none  sys.peer  clock expt  8
+  2 41909  8000   yes   yes  none    reject
+  3 41910  f414   yes   yes   ok   candidat   reachable  1
+ntpq> rl &3
+assID=41910 status=f414 reach, conf, auth, sel_candidat, 1 event, event_reach,
+srcadr=ltgpsdemo, srcport=123, dstadr=10.0.0.2, dstport=123, leap=00,
+stratum=1, precision=-18, rootdelay=0.000, rootdispersion=2.289,
+refid=PPS, reach=377, unreach=0, hmode=3, pmode=4, hpoll=10, ppoll=9,
+flash=00 ok, keyid=3240968593, ttl=0, offset=0.349, delay=0.500,
+dispersion=9.760, jitter=0.106,
+reftime=c6ab55b0.fdf7e803  Mon, Aug 15 2005 19:56:00.992,
+org=c6ab55c9.2f12b1b2  Mon, Aug 15 2005 19:56:25.183,
+rec=c6ab55c9.2f1d4f9c  Mon, Aug 15 2005 19:56:25.184,
+xmt=c6ab55c9.2edd0528  Mon, Aug 15 2005 19:56:25.183,
+filtdelay=     0.55    0.62    0.50    0.54    0.54    0.58    0.54    0.56,
+filtoffset=    0.11    0.26    0.35    0.36    0.38    0.42    0.43    0.40,
+filtdisp=      0.00    3.84    7.71    9.65   11.55   13.46   14.45   15.42,
+hostname="ltgpsdemo", signature="md5WithRSAEncryption",
+valid="3333112795:3364648795", flags=0x83f21, identity="ltgpsdemo"
+ntpq></pre>
+<hr>
+<h4 id="825-time-errors">8.2.5 Time Errors</h4>
+<h4 id="8251-why-does-my-server-change-time-references-quite-frequently">8.2.5.1 Why does my server change time references quite frequently?</h4>
+<p>Ideally, the quality of a time reference is a static feature. In reality, quality can vary over time. In fact this behaviour is so frequent that it has a name of its own: <em>clock hopping</em>.</p>
+<p>Clock hopping can be avoided by deterministic network delays, but usually you can&rsquo;t do anything about that. The other solution is to select a <em>preferred</em> time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to <a href="/archives/4.2.8-series/prefer">Mitigation Rules and the prefer Keyword</a> for more information.</p>
+<hr>
+<h4 id="8252-my-server-periodically-loses-synchronization">8.2.5.2 My server periodically loses synchronization</h4>
+<p>The typical reason is that system time and the time received from a reference disagree. This can be caused when the local clock drifts badly and needs a significant <em>drift correction</em>. It can also occur when the the NTP server cannot decide between random variations in network delay or variations in the time reference itself. This is why it is recommended to configure several independent time references.</p>
+<p>Keep an eye on the <a href="/ntpfaq/ntp-s-trouble/#814-what-does-257-mean-as-value-for-reach"><em>reachability register</em></a>, on <a href="/ntpfaq/ntp-s-trouble/#812-how-do-i-use-peerstats-and-loopstats"><code>delay</code></a>, and on <code>dispersion</code> (<code>jitter</code>).</p>
+<hr>
+<h4 id="8253-why-does-my-system-step-several-times-a-day">8.2.5.3 Why does my system step several times a day?</h4>
+<p>This is an indicator that <code>ntpd</code> has problems controlling the system clock. Most likely the frequency of timer interrupts is either too fast or too slow. Another possibility is a broken interface between <code>ntpd</code> and the operating system. In any case the problem is serious. If you suspect the first problem, you should <a href="#8261-how-do-i-set-the-correct-value-for-tick">adjust the value of <code>tick</code></a> to compensate the error.</p>
+<blockquote>
+<p>As adjustments to <code>tick</code> are not possible for every operating system, it&rsquo;s deprecated in general. The suggested solution is to use suitable hardware for time servers.</p>
+</blockquote>
+<p>If you are using the <a href="/ntpfaq/ntp-s-algo#5161-how-will-ntp-discipline-my-clock">kernel discipline</a> and suspect the second problem, use <code>adjtime()</code> instead.</p>
+<p>Usually <code>ntpd</code> can compensate small and even not-so-small errors, but in this case the clock is too bad to be adjusted by the NTP algorithm. Any clock error of more than one minute per day is definitely too large to be corrected by NTP.</p>
+<p><strong>Example 8.2a: Entries in logfile from ntpd</strong></p>
+<pre> 9 Jun 21:56:53 ntpd[116]: time reset (step) 0.706052 s
+ 9 Jun 23:51:04 ntpd[116]: time reset (step) 0.821992 s
+10 Jun 01:57:31 ntpd[116]: time reset (step) 0.720290 s
+10 Jun 03:47:25 ntpd[116]: time reset (step) 0.855968 s</pre>
+<p>This means that in the period from <code>9 Jun 21:56:53</code> (excluding) to <code>10 Jun 03:47:25</code> (including), that is during 21032 seconds, <code>ntpd</code> added 2.398250 seconds (do <em>not</em> include the amount added during the first time step). Thus in each second 114.0286 microseconds should have been added.</p>
+<p>You get a more accurate calculation when you do <em>not</em> run <code>ntpd</code>. Start the measurement by synchronizing your system to a NTP server using <code>ntpdate -b -s -p 4 -t 0.1 NTPserver</code>. Complete the measurement with the same command after a few hours.</p>
+<p>In your <code>/var/log/messages</code> (<code>syslog</code> file) file you will have 2 lines like:</p>
+<pre>Jun 9 15:00:47 NTPclient ntpdate[334]: step time server 10.0.0.1 offset 0.009416 sec
+Jun 9 21:40:23 NTPclient ntpdate[515]: step time server 10.0.0.1 offset 2.718281 sec</pre>
+<p>Use this information to compute the number of microseconds to add to <code>tick</code>.</p>
+<p>For some operating systems there is a <code>tickadj</code> utility that can be used to change the value of <code>tick</code>. See <a href="/ntpfaq/ntp-s-sw-clocks">Section 3</a> and <a href="#8261-how-do-i-set-the-correct-value-for-tick">Q: 8.2.6.1</a> for a discussion on how to compute the necessary adjustment.</p>
+<hr>
+<h4 id="826-other">8.2.6 Other</h4>
+<h4 id="8261-how-do-i-set-the-correct-value-for-tick">8.2.6.1 How do I set the correct value for tick?</h4>
+<p>Here is a procedure taken from an article by Andrew Hood:</p>
+<ol>
+<li>Watch the value in <code>ntp.drift</code> and when it seems to stabilise continue at the next step.</li>
+<li>Run <code>tickadj</code> without any options to get the value of tick.</li>
+<li>Calculate a new value of <code>tick</code> as <code>newtick = oldtick*(1+drift/2<sup>^</sup>20)</code>.</li>
+<li>Run <code>tickadj</code> with the new value of <code>tick</code>.</li>
+<li>Restart from the beginning.</li>
+</ol>
+<dl>
+<dt><strong>Example 8.2b: Correcting the value of tick</strong></dt>
+<dd>Here are the specific commands for Linux.</dd>
+</dl>
+<pre>cat /etc/ntp.drift
+269.799
+tickadj
+tick = 10000
+echo 'scale=7; t=10000*(1+269.799/2^20)+0.5; scale=0; t/1' | bc
+10003
+tickadj 10003</pre>
+<p>The author points out that it can also be done with one single command:</p>
+<pre>echo "scale=7; `tickadj`; drift=`cat /etc/ntp.drift`; t=tick*(1+(drift)/2^20)+0.5; scale=0;t/1" | bc</kbd>
+10003</pre>
+<p><strong>Example 8.2c: Changing nsec_per_tick</strong></p>
+<p>For the Solaris operating system the variable <code>nsec_per_tick</code> is in nanoseconds and can be modified using <code>adb</code> (thanks to Thomas Tornblom):</p>
+<p>The command <code>echo 'nsec_per_tick/W 0t10000900' |adb -w -k</code> makes the clock faster by 90 PPM, i.e. a drift value of 97 can be reduced to 7.</p>
+<p>For FreeBSD there are two sysctls that you can use, <code>machdep.i8254_freq</code> and <code>machdep.tsc_freq</code>. Use the one that is being used on your machine to tell FreeBSD what the frequency of your clock is. (according to <a href="mailto:John.Hay@mikom.csir.co.za">John Hay</a>)</p>
+<p>Changing the value of <code>tick</code> is considered an obsolete technology by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>, and the <code>tickadj</code> utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of <code>tick</code> to the default value when a PPS signal is detected.</p>
+<p>With this new strategy clock errors of up to 500 PPM can be corrected by the kernel clock machinery. Severely broken machines that really need <code>tickadj</code> should probably not run NTP.</p>
+<hr>
+<h4 id="8262-how-do-i-set-the-precision">8.2.6.2 How do I set the precision?</h4>
+<p>New implementations of NTP determine the precision automatically and do not allow setting it. This is a great benefit as you do not have to determine the value prior to setting it.</p>
+<p>This is valid for the system clock and for reference clock drivers.</p>
+<hr>
+<h4 id="8263-ntpd-periodically-opens-a-dial-out-connection-can-i-avoid-that">8.2.6.3 ntpd periodically opens a dial-out connection. Can I avoid that?</h4>
+<p>Originally NTP has not been designed with dial-up connections in mind. Therefore it does not care very much about when to send out packets.</p>
+<p>If you have defined an external <code>server</code> or <code>peer</code>, <code>ntpd</code> will periodically poll it. The <a href="/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled">polling interval</a> is limited by the <a href="/ntpfaq/ntp-s-algo#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll">settings <code>minpoll</code> and <code>maxpoll</code></a>. The virtual stability of the system clock determines whether the polling interval is reduced or increased.</p>
+<p>However, increasing the polling interval may be a sub-optimal solution: <code>ntpd</code> will take longer for the initial synchronization, and it may become unable to catch up with the clock&rsquo;s drift.</p>
+<p>For some operating systems you may be able to select what types of packets are allowed to open a dial-up connection.</p>
+<p>The following solution for FreeBSD and NetBSD was donated by <a href="mailto:ericx@vineyard.net">Eric W. Bates</a>. As <a href="mailto:chunkeey@web.de">chunkeey</a> pointed out, the solution will also work for Linux, where the preferred directory may be <code>/etc/ppp/ip-up.d</code> and <code>/etc/ppp/ip-down.d</code> as all the scripts found there are executed.</p>
+<p>When using <code>PPP</code> on <code>FreeBSD</code> or <code>NetBSD</code>, I configured my <code>pppd</code> options to ignore traffic on the NTP port (snippet):</p>
+<pre>### demand dialing options
+demand                          # only actually connect ppp on demand
+holdoff         10              # after connection drops, wait 10 seconds before dialing again
+idle            1500            # drop connection after 25 minutes of no traffic
+active-filter   'not port ntp'  # don't regard ntp packets as link activity</pre>
+<p>Then in the scripts <code>ip-up</code> and <code>ip-down</code> I start and stop <code>ntpd</code> (respectively):</p>
+<pre># Start any IP activity here that should only run while the modem is connected
+/usr/sbin/ntpd -p /var/run/ntpd.pid
+
+# During boot, when pppd is first initialized a connection is always
+# made (not clear why -- named?), but when ntpd is started at that
+# time it does not write the PID file (not clear why -- filesystem not
+# writable?); so there is a case where the PID file is not readable.
+
+PIDFILE=/var/run/ntpd.pid
+if [ -r $PIDFILE ]; then
+    kill -TERM $(cat $PIDFILE)
+    rm $PIDFILE
+else
+    # Get the process ID (do the "grep -v" to exclude this search from the result.
+    kill -TERM $(ps ax | grep ntpd | grep -v grep | cut -c 1-5)
+fi</pre>
+<p>This results in a <code>ppp0</code> interface which is configured at boot and dials only when there is demand for IP on its route. Upon dial-up <code>NTP</code> is started and the sync traffic does not prevent the dial-up from timing out, allowing the modem to hang up. Upon hang-up, the NTP daemon is stopped.</p>
+<p>This has worked nicely for me for some years. I recognize that frequent connect/disconnects tend to mess with <code>ntpd</code>&rsquo;s ability to sync, but my work habits are such that once the PPP is up and live, it tends to stay up for long periods. Good enough for a workstation at home.</p>
+<hr>
+<h4 id="8264-any-more-hints">8.2.6.4 Any more Hints?</h4>
+<p>Try the suggestions in <a href="/archives/4.2.8-series/debug/">NTP Debugging Techniques</a>.</p>
+<hr>
+<h4 id="827-errors-and-warnings">8.2.7 Errors and Warnings</h4>
+<p>This section deals with messages that are not too obvious in their meaning.</p>
+<h4 id="8271-ntpq-read-connection-refused">8.2.7.1 ntpq: read: connection refused</h4>
+<p>This message typically indicates that a connection could not be made because the <a href="#8211-how-can-i-check-that-ntpd-is-up-and-running">service is not available</a>.</p>
+<hr>
+<h4 id="8272-127001-timed-out-nothing-received-request-timed-out">8.2.7.2 127.0.0.1: timed out, nothing received, Request timed out</h4>
+<p>No response was received within the timeout interval. Either the network dropped the request or the answer, or it delayed it considerably, or the server did not respond. One reason for the latter would be a configuration line like this:</p>
+<pre>restrict default ignore</pre>
+<hr>
+<h4 id="8273-ntpdate-no-server-suitable-for-synchronization-found">8.2.7.3 ntpdate: no server suitable for synchronization found</h4>
+<p>If you see that message in your log file, the system time was not set by <code>ntpdate</code>. There are several possible reasons:</p>
+<ul>
+<li><code>ntpdate</code> failed to communicate through UDP port 123. This could be caused by some packet filtering or by firewalls. Unfortunately, using option <code>-d</code> to turn on debugging also changes the port <code>ntpdate</code> uses.</li>
+<li>If <code>ntpdate</code> works with option <code>-d</code>, you should try option <code>-u</code> to use an unpriviledged port. In any case you should check your packet filtering.</li>
+</ul>
+<hr>
+<h4 id="8274-configure-keyword-precision-unknown-line-ignored">8.2.7.4 configure: keyword &ldquo;precision&rdquo; unknown, line ignored</h4>
+<p>The <a href="#8262-how-do-i-set-the-precision">keyword <code>precision</code></a> is no longer known by the configuration parser. Most likely you are using a configuration file intended for an old version of NTP.</p>
+<hr>
+<h4 id="8275-previous-time-adjustment-didnt-complete">8.2.7.5 Previous time adjustment didn&rsquo;t complete</h4>
+<p>Using <code>adjtime()</code> your system clock can be corrected by <a href="/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock">some amount of time</a>. Normally <code>ntpd</code> will only use small amounts that can be applied within one second. However, if you disallow time steps, the last correction may be incomplete and <code>ntpd</code> is unable to apply another correction until the last one is finished. This is what the message says.</p>
+<hr>
+<h4 id="8276-sendto-overlapped-io-operation-is-in-progress">8.2.7.6 sendto: Overlapped I/O operation is in progress.</h4>
+<p>The exact cause of this message is not clear, but it seems some non-NTP applications also use port <code>123</code>. The IP address <code>192.0.0.192</code> is a strong indication for this.</p>
+<p>John Hay contributed the output of <code>nslookup 192.0.0.192</code>, namely <code>192.0.0.0-is-used-for-printservices-discovery----illegally.iana.net</code>, and <a href="mailto:mills@udel.edu">Professor David L. Mills</a> stated: &ldquo;Port 123 was assigned well before 1985 as per documented, but was in use probably from 1982.&rdquo; This means the address is not registered officially, and it should not be used. Also it seems some software for printers or printing is using that address together with NTP&rsquo;s port number.</p>
+<p>Despite worrying some system administrator the message indicates no trouble. Specifically no printer is known to need a NTP server to operate, nor do printers and NTP servers harm each other.</p>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom py-0">
+  <ul class="mx-auto">
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+        <i class="bi-envelope"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <i class="bi-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <i class="bi-linkedin"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <i class="bi-facebook"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text">
+      <p>&copy; 2021 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+</footer>
+
+</body>
+</html>

@@ -79,6 +79,31 @@ Last update: 16-Jul-2009 19:36 UTC
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">NTP Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">NTP FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Reference Library
             </a>
             <div class="dropdown-menu">
@@ -154,7 +179,7 @@ Last update: 16-Jul-2009 19:36 UTC
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/archives/">Docs</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
@@ -231,7 +256,7 @@ Last update: 16-Jul-2009 19:36 UTC
 <p>Reliable source authentication requires the use of symmetric key or public key cryptography, as described on the <a href="/archives/4.2.6-series/authopt">Authentication Options</a> page. In symmetric key cryptography servers and clients share session keys contained in a secret key file In public key cryptography, which requires the OpenSSL software library, the server has a private key, never shared, and a public key with unrestricted distribution. The cryptographic media required are produced by the <a href="/archives/4.2.6-series/keygen"><code>ntp-keygen</code></a> program.</p>
 <p>Problems with symmetric key authentication are usually due to mismatched keys or improper use of the <code>trustedkey</code> command. A simple way to check for problems is to use the trace facility, which is enabled using the <code>ntpd -d</code> command line. As each packet is received a trace line is displayed which shows the authentication status in the <code>auth</code> field. A status of 1 indicates the packet was successful authenticated; otherwise it has failed.</p>
 <p>A common misconception is the implication of the <code>auth</code> bit in the <code>enable</code> and <code>disable</code> commands. <strong>This bit does not affect authentication in any way other than to enable or disable mobilization of a new persistent association in broadcast/multicast client, manycast client or symmetric passive modes.</strong> If enabled, which is the default, these associations require authentication; if not, an association is mobilized even if not authenticated. Users are cautioned that running with authentication disabled is very dangerous, since an intruder can easily strike up an association and inject false time values.</p>
-<p>Public key cryptography is supported in NTPv4 using the Autokey protocol, which is described in briefings on the NTP Project page linked from <a href="http://www.ntp.org">www.ntp.org</a>. Development of this protocol is mature and the <code>ntpd</code> implementation is basically complete. Autokey version 2, which is the latest and current version, includes provisions to hike certificate trails, operate as certificate authorities and verify identity using challenge/response identification schemes. Further details of the protocol are on the <a href="/archives/4.2.6-series/authopt">Authentication Options</a> page. Common problems with configuration and key generation are mismatched key files, broken links and missing or broken random seed file.</p>
+<p>Public key cryptography is supported in NTPv4 using the <a href="/reflib/brief/atirp2/atirp2.pdf">Autokey protocol</a>. Development of this protocol is mature and the <code>ntpd</code> implementation is basically complete. Autokey version 2, which is the latest and current version, includes provisions to hike certificate trails, operate as certificate authorities and verify identity using challenge/response identification schemes. Further details of the protocol are on the <a href="/archives/4.2.6-series/authopt">Authentication Options</a> page. Common problems with configuration and key generation are mismatched key files, broken links and missing or broken random seed file.</p>
 <p>As in the symmetric key cryptography case, the trace facility is a good way to verify correct operation. A statistics file <code>cryptostats</code> records protocol transactions and error messages. The daemon requires a random seed file, public/private key file and a valid certificate file; otherwise it exits immediately with a message to the system log. As each file is loaded a trace message appears with its filestamp. There are a number of checks to insure that only consistent data are used and that the certificate is valid. When the protocol is in operation a number of checks are done to verify the server has the expected credentials and its filestamps and timestamps are consistent. Errors found are reported using NTP control and monitoring protocol traps with extended trap codes shown in the Authentication Options page.</p>
 <p>To assist debugging every NTP extension field is displayed in the trace along with the Autokey operation code. Every extension field carrying a verified signature is identified and displayed along with filestamp and timestamp where meaningful. In all except broadcast/multicast client mode, correct operation of the protocol is confirmed by the absence of extension fields and an <code>auth</code> value of one. It is normal in broadcast/multicast client mode that the broadcast server use one extension field to show the host name, status word and association ID.</p>
 <hr>
