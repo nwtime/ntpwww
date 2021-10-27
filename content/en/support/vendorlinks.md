@@ -3,15 +3,13 @@ title: "Vendor Links"
 type: archives
 ---
 
-**ADD INSTRUCTIONS FOR HOW TO SUBMIT/MODIFY VIA BK/GIT**
-
-> ALERT! Inclusion on this list does constitute an endorsement of the vendor, or their products, by anyone associated with the NTP Project or the NTP Public Services Project.
+> Inclusion on this list does constitute an endorsement of the vendor, or their products, by anyone associated with the NTP Project. Contact the [webmaster](mailto:webmaster@ntp.org) to add or edit a vendor description.
 
 * [Arbiter Systems](https://www.arbiter.com/) - A manufacturer of precision GNSS synchronized timing products (NTP, PTP, IRIG-B, and more) and power measurement solutions (PMU, synchrophasor, power, voltage, current, harmonics, and more).
 
 * [ArkTime](https://www.arktime.com/) - Providers of correct time solutions for PCs, network servers, GPS based NTP time servers, and wall clocks.
 
-* [ELPROMA](https://elpromatime.com/) - EU manufacturer of precision NTP time servers and custom build time systems, /incl. monitoring and remote time auditing.
+* [ELPROMA](https://elpromatime.com/) - EU manufacturer of precision NTP time servers and custom build time systems, including monitoring and remote time auditing.
 
 * [EndRun Technologies](https://endruntechnologies.com/) - A manufacturer of precision timing products including [Network Time Servers](https://endruntechnologies.com/products/ntp-time-servers) using either GPS or CDMA as time synchronization sources. Indoor antenna installation is standard with CDMA.
 
@@ -27,7 +25,7 @@ type: archives
 
 * [Microsemi](https://www.microsemi.com/product-directory/3425-timing-synchronization) - a manufacturer of comprehensive network time synchronization solutions that include dedicated network time servers and the necessary synchronization, management and monitoring software to synchronize time on IT devices such as workstations, servers and routers.
 
-* [Orolia](https://www.orolia.com/) - a manufacturer of GPS-based time synchronization devices: secure NTP servers, wired, wireless and ethernet display clocks, master clocks for public safety and precise frequency references.
+* [Orolia](https://www.orolia.com/) - a manufacturer of GPS-based time synchronization devices: secure NTP servers, wired, wireless and Ethernet display clocks, master clocks for public safety and precise frequency references.
 
 * [Oscilloquartz SA](https://www.oscilloquartz.com/) - a manufacturer of network time and frequency solutions as well as [NTP time servers](https://www.oscilloquartz.com/en/products-and-services/ntp-servers) with integrated single or dual GPS receivers to synchronize any networks requiring reliability and security.
 
