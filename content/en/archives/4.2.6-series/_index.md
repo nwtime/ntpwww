@@ -30,7 +30,7 @@ A list of all links is on the [Site Map](/archives/4.2.6-series/sitemap) page.
 
 > Note: The NTP Version 4 software contained in this distribution is available without charge under the conditions set forth in the [Copyright Notice](/archives/4.2.6-series/copyright).
 
-It is very important that readers understand that the NTP document collection began 25 years ago and remains today a work in progress. It has evolved as new features were invented and old features retired. It has been widely copied, cached and morphed to other formats, including man pages, with varying loss of fidelity. However, these HTML pages are the ONLY authoritative and definitive reference. Readers should always use the collection that comes with the distribution they use. A copy of the online collection at www.ntp.org is normally included in the most recent snapshot, but might not agree with an earlier snapshot or release version.
+It is very important that readers understand that the NTP document collection began 25 years ago and remains today a work in progress. It has evolved as new features were invented and old features retired. It has been widely copied, cached and morphed to other formats, including man pages, with varying loss of fidelity. However, these HTML pages are the ONLY authoritative and definitive reference. Readers should always use the collection that comes with the distribution they use. A copy of the online collection is normally included in the most recent snapshot, but might not agree with an earlier snapshot or release version.
 
 This distribution is an implementation of RFC-5905 "Network Time Protocol Version 4: Protocol and Algorithms Specification".  
 
@@ -38,7 +38,7 @@ The Network Time Protocol (NTP) is widely used to synchronize a computer to Inte
 
 NTP time synchronization services are widely available in the public Internet. The public NTP subnet in early 2008 includes several thousand servers in most countries and on every continent of the globe, including Antarctica. These servers support a total population estimated at over 25 million computers in the global Internet. The NTP subnet operates with a hierarchy of levels, where each level is assigned a number called the stratum. Stratum 1 (primary) servers at the lowest level are directly synchronized to national time services. Stratum 2 (secondary) servers at the next higher level are synchronize to stratum 1 servers and so on. Normally, NTP clients and servers with a relatively small number of clients do not synchronize to public primary servers. There are several hundred public secondary servers operating at higher strata and are the preferred choice. 
 
-Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](/reflib/exec) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.6-series/release) page. Background information, bibliography and briefing slides suitable for presentations are on the [Network Time Synchronization Research Project](/reflib/ntp) page. Additional information is at the NTP web site www.ntp.org.
+Background information on computer network time synchronization is on the [Executive Summary - Computer Network Time Synchronization](/reflib/exec) page. Discussion on new features and interoperability with previous NTP versions is on the [NTP Version 4 Release Notes](/archives/4.2.6-series/release) page. Background information, bibliography and briefing slides are in the [Reference Library](/reflib).
 
 * * *
 
@@ -52,7 +52,7 @@ NTP supports Unix, VMS and Windows (Vista, XP, NT4 and 2000) systems. The [Build
 
 NTP is by its very nature a complex distributed network application and can be configured for widely divergent timekeeping scenarios. The documentation on these pages attempts to cover the entire suite of configuration, operation and maintenance features which this distribution supports. However, most applications will need only a few of these features. The [Quick Start](/archives/4.2.6-series/) page may be useful to get a simple workstation on the air with existing servers.
 
-The most important factor in providing accurate, reliable time is the selection of modes and servers in the configuration file. A discussion on the available modes is on the [Association Management](/archives/4.2.6-series/assoc) page. The current public server list is maintained at the www.ntp.org web site. In many cases the configuration can be automated using the schemes described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt) page.
+The most important factor in providing accurate, reliable time is the selection of modes and servers in the configuration file. A discussion on the available modes is on the [Association Management](/archives/4.2.6-series/assoc) page. The current public server list is maintained [here](https://support.ntp.org/bin/view/Servers/WebHome). In many cases the configuration can be automated using the schemes described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt) page.
 
 * * *
 

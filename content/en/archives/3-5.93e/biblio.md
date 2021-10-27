@@ -43,7 +43,7 @@ This software distribution contains a fully compliant implementation of the NTP 
 
 #### Selected Bibliography
 
-A number of articles and reports have been written on the analysis, design, implementation and performance of NTP. A representative sample is included here, along with a short description of each. Additional information on NTP can be found at the web sites for [NTP](http://www.ntp.org) and [David L. Mills](http://www.eecis.udel.edu/~mills).
+A number of articles and reports have been written on the analysis, design, implementation and performance of NTP. A representative sample is included here, along with a short description of each. Additional information is available in the [Reference Library](/reflib).
 
 1.  A subset of NTP has been defined suitable for use where some degradation in accuracy and reliability is acceptable, so that the entire suite of specified algorithms need not be implemented. This subset is defined in:
 

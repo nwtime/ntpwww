@@ -41,7 +41,7 @@ The <code>auth</code> flag controls whether new associations or remote configura
 
 An attractive alternative where multicast support is available is manycast mode, in which clients periodically troll for servers as described in the [Automatic NTP Configuration Options](/archives/4.2.0/manyopt) page. Either symmetric key or public key cryptographic authentication can be used in this mode. The principle advantage of manycast mode is that potential servers need not be configured in advance, since the client finds them during regular operation, and the configuration files for all clients can be identical.
 
-The security model and protocol schemes for both symmetric key and public key cryptography are summarized below; further details are in the briefings, papers and reports at the NTP project page linked from www.ntp.org.
+The security model and protocol schemes for both symmetric key and public key cryptography are summarized below; further details are in the briefings, papers and reports in the [Reference Library](/reflib).
 
 * * *
 

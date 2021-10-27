@@ -16,7 +16,7 @@ In addition to the implementation documentation, the following resources are ava
 
 * **[Reference Library](/reflib)**: Whitepapers, RFCs, and other technical documents written by Professor David L. Mills, inventor of NTP.
 *   **[NTP Wiki](http://support.ntp.org/)**: Community contributed documentation.
-*   **[NTP FAQ](http://www.ntp.org/ntpfaq/NTP-a-faq.htm):** Frequently Asked Questions about the NTP protocol and software distribution.
+*   **[NTP FAQ](/ntpfaq):** Frequently Asked Questions about the NTP protocol and software distribution.
 *   **[Public Time Server Lists](http://support.ntp.org/servers):** Provides an interface to browse or search for a public primary or secondary time server.
 * **[comp.protocols.time.ntp](https://groups.google.com/g/comp.protocols.time.ntp):** Google group. Includes postings from original Usenet newsgroup going back to June, 1990.
 

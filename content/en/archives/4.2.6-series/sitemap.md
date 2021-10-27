@@ -13,7 +13,7 @@ type: archives
 * [Debugging Reference Clock Drivers](/archives/4.2.6-series/rdebug)
 * [<code>ntpd</code> Event Messages and Status Words](/archives/4.2.6-series/decode)
 * [<code>ntpd</code> System Log Messages](/archives/4.2.6-series/msyslog)
-* [NTP Bug Reporting Procedures](/archives/4.2.6-series/bugs)
+* [NTP Bug Reporting Procedures](/bugs)
 
 * * *
 
@@ -85,7 +85,6 @@ type: archives
 #### Other Links
 
 * [Computer Network Time Synchronization - The Network Time Protocol (book)](/reflib/book)
-* [NTP Public Services Project (home page)](http://www.ntp.org/index.html)
 * [NTP Research Project (home page)](/reflib/ntp)
 * [Executive Summary: Computer Network Time Synchronization](/reflib/exec)
 * [The NTP Timescale and Leap Seconds](/reflib/leap)

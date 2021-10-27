@@ -38,7 +38,7 @@ While the algorithms for MD5 symmetric key cryptography are included in the NTPv
 
 Note that according to US law, NTP binaries including OpenSSL library components, including the OpenSSL library itself, cannot be exported outside the US without license from the US Department of Commerce. Builders outside the US are advised to obtain the OpenSSL library directly from OpenSSL, which is outside the US, and build outside the US.
 
-Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> option of the <code>server</code> configuration command, as described in the [Server Options](/archives/4.2.6-series/confopt) page, and the options described on this page. The [ntp-keygen](/archives/4.2.6-series/keygen) page describes the files required for the various authentication schemes. Further details are in the briefings, papers and reports at the NTP project page linked from www.ntp.org.
+Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> option of the <code>server</code> configuration command, as described in the [Server Options](/archives/4.2.6-series/confopt) page, and the options described on this page. The [ntp-keygen](/archives/4.2.6-series/keygen) page describes the files required for the various authentication schemes. Further details are in the briefings, papers and reports in the [Reference Library](/reflib).
 
 * * *
 
