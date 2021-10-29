@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The NTP Project on NTP: Network Time Protocol</title>
+    <title>NTP: The Network Time Protocol on NTP: Network Time Protocol</title>
     <link>https://doc.ntp.org/</link>
-    <description>Recent content in The NTP Project on NTP: Network Time Protocol</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://doc.ntp.org/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in NTP: The Network Time Protocol on NTP: Network Time Protocol</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 26 Oct 2021 01:48:02 +0000</lastBuildDate><atom:link href="https://doc.ntp.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://doc.ntp.org/archives/3-5.93e/toc/</link>
@@ -101,6 +102,299 @@ Click here to read the 4.2.6 version of the docs. Refer to the table below for t
       <guid>https://doc.ntp.org/archives/4.2.8-series/toc/</guid>
       <description>4.2.8p15 is the latest stable and recommended version of NTP. Click here to read the latest version of the docs. Refer to the table below for the release announcement for each patch level in the 4.2.8-series.
    Release Date Release Announcement # of Security Fixes # of Fixes     June 23, 2020 4.2.8p15 1 MEDIUM 13 bugs   March 3, 2020 4.2.8p14 2 MEDIUM 46 bugs   March 7, 2019 4.</description>
+    </item>
+    
+    <item>
+      <title>2. Time, what Time?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-time/</guid>
+      <description>This section discusses general topics related to time and time-keeping.
+  2.1 What is Time? 2.2 What is UTC? 2.3 Is UTC the same as GMT? 2.4 What happens during a Leap Second?   2.1 What is Time? This quote from a fortune cookie from Edition 7: &amp;ldquo;Time has been invented in the universe so that everything would not happen at once.&amp;rdquo;
+There&amp;rsquo;s another interesting relation between time and change: There is no change without the concept of time, and there is no movement without time.</description>
+    </item>
+    
+    <item>
+      <title>3. How do Computer Clocks work?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks/</guid>
+      <description>This section tries to explain the basics of software clocks used in computers. In principle, such clocks just consist of an oscillator and a counter.
+ 3.1 Bits and Registers Computers are good at adding bits. Therefore time is stored in a number of bits, and adding to these bits makes the time go on. The meaning of the value &amp;ldquo;zero&amp;rdquo; has to be defined separately (usually this is called the epoch).</description>
+    </item>
+    
+    <item>
+      <title>3.2 Making Time go on</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/</guid>
+      <description>The number of bits together with a definition of resolution and epoch are used to store time stamps. For a real clock, time must advance automatically.
+A defined resolution of nanoseconds is useless if the value is updated once per minute. If you are still not convinced, consider reading such a clock three times a minute, and compare the time you would get.
+So we want a frequent update of the time bits.</description>
+    </item>
+    
+    <item>
+      <title>3.3 Clock Quality</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/</guid>
+      <description>3.3.1 Frequency Error
+3.3.1.1 How bad is a Frequency Error of 500 PPM?
+3.3.1.2 What is the Frequency Error of a good Clock?
+ When discussing clocks, the following quality factors are helpful:
+  The smallest possible increase of time the clock model allows is called resolution. If a clock increments its value once per second, the resolution is one second.
+  A high resolution does not help if you can&amp;rsquo;t read the clock.</description>
+    </item>
+    
+    <item>
+      <title>4. What is NTP?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-def/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-def/</guid>
+      <description>4.1. Overview This section tries to introduce and explain the most basic features of NTP, the Network Time Protocol. The discussion here will be limited to the more theroretical aspects of NTP, while the next section will go further towards real life.
+4.1.1 What is NTP?
+4.1.2 What is SNTP?
+4.1.3 Why should Time be synchronized?
+4.1.4 What are the basic features of NTP?
+4.1.5 Which Operating Systems are supported?</description>
+    </item>
+    
+    <item>
+      <title>4.2 History</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-def-hist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-def-hist/</guid>
+      <description>This section summarizes the history of NTP in a few words. Most material has been taken from a draft of A Brief History of NTP Time: Confessions of an Internet Timekeeper by Professor David L. Mills.
+ The first NTP implementation started around 1980 with an accuracy of only several hundred milliseconds. That very first implementation was documented in Internet Engineering Note IEN-173. Later the first specification appeared in RFC 778, but it was still named Internet Clock Service.</description>
+    </item>
+    
+    <item>
+      <title>4.3. Implementations and Platforms</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-def-impl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-def-impl/</guid>
+      <description>This section discusses implementations of NTP for various platforms.
+For platforms and operating systems other than those mentioned here, there may be software available. Maybe there are binary program packages available for your computer system. A good starting point is to search this website. Specific products are presented in Section 8.3.
+4.3.1 Official Providers 4.3.2 UNIX Systems
+4.3.3 Microsoft Windows
+ 4.3.1 Official Providers Several national time keepers allow reading the time via NTP:</description>
+    </item>
+    
+    <item>
+      <title>5. How does it work?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo/</guid>
+      <description>This section will try to explain how NTP will construct and maintain a working time synchronization network.
+5.1 Basic Concepts To help understand the details of planning, configuring, and maintaining NTP, some basic concepts are presented here. The focus in this section is on theory.
+5.1.1 Time References
+5.1.1.1 What is a reference clock?
+5.1.1.2 How will NTP use a reference clock?
+5.1.1.3 How will NTP know about Time Sources?</description>
+    </item>
+    
+    <item>
+      <title>5.2. The Kernel Discipline</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/</guid>
+      <description>In addition to the NTP protocol specification, there exists a description for a kernel clock model (RFC 1589) that is discussed here.
+5.2.1 Basic Functionality
+5.2.1.1 What is special about the Kernel Clock?
+5.2.1.2 Does my Operating System have the Kernel Discipline?
+5.2.1.3 How can I verify the Kernel Discipline? 5.2.2 Monitoring
+5.2.3 PPS Processing
+5.2.3.1 What is PPS Processing?
+5.2.3.2 How is PPS Processing related to the Kernel Discipline?</description>
+    </item>
+    
+    <item>
+      <title>5.3. NTP in real Life</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo-real/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-real/</guid>
+      <description>This section discusses how well the theory applies to real life situations.
+5.3.1 What if I write my own SNTP Server?
+5.3.2 Why should I have more than one clock?
+5.3.3 Does the reference time depend on all configured servers, or is it based on which ever responds first?
+5.3.4 What happens during a Leap Second?
+ 5.3.1 What if I write my own SNTP Server? There is a quote (with partial omissions) on that subject by Professor David L.</description>
+    </item>
+    
+    <item>
+      <title>5.4. Encryption</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/</guid>
+      <description>This section discusses the use of encryption and related technology for NTP.
+Providing or enabling the use of encryption in software was considered harmful by the USA. However electronic commerce is only possibly with safe data exchange, so use of encryption has become a bit more allowed. NTP version 4 includes no cryptography, from the viewpoint of government regulations, and introduces MD5 keys.
+As MD5 is heavily used in digital signatures, MD5 is not considered as cryptography, despite the fact that digital signatures actually do use encryption.</description>
+    </item>
+    
+    <item>
+      <title>6. Configuration</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-config/</guid>
+      <description>Configuration is a manual procedure that is necessary to get a running NTP system.
+6.1 Basic Configuration
+6.1.1 Can&amp;rsquo;t I just run ntpdate?
+6.1.2 Recommended Minimum
+6.1.2.1 What is the minimum configuration?
+6.1.2.2 Is the minimum configuration a typical one?
+6.1.2.3 What is the correct Pseudo IP Address for my reference clock?
+6.1.2.4 What is a drift file?
+6.1.2.5 Should I use IP addresses or host names?
+6.1.3 Running an isolated Network</description>
+    </item>
+    
+    <item>
+      <title>6.2. Advanced Configuration</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-config-adv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-config-adv/</guid>
+      <description>This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.
+6.2.1 Server Selection
+6.2.1.1 What is the rule of thumb for number of servers to synchronize to?
+6.2.1.2 Should the servers be a mix of primary and secondary servers?
+6.2.1.3 How should I provide NTP services for a huge network?</description>
+    </item>
+    
+    <item>
+      <title>6.3. Various Tricks</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/</guid>
+      <description>6.3.1 Mixing Time Protocols
+6.3.2 Avoiding Time Steps 6.3.3 Using the Echo Feature in PPS API
+ 6.3.1 Mixing Time Protocols  Note: Mixing different time protocols is generally deprecated, because it can invalidate some assumptions necessary for proper operation of any time protocol.
+ However, sometimes there is a need for NTP to utilize a server that is using a different Time protocol. The short and possibly unpleasant answer is: &amp;ldquo;Run NTP on that server!</description>
+    </item>
+    
+    <item>
+      <title>6.4. Compatibility</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-compat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-compat/</guid>
+      <description>An ideal world has no compatibility issues. This section deals with known incompatibilities.
+6.4.1 The Kernel PLL
+6.4.1.1 How many different kernel models and implementations exist?
+6.4.1.2 What&amp;rsquo;s new in each Version?
+6.4.1.3 Are the individual kernel models compatible?
+6.4.1.4 Is the Linux implementation different?
+ 6.4.1 The Kernel PLL 6.4.1.1 How many different kernel models and implementations exist? There are two major versions for the kernel PLL: the model for NTPv3, and the model for NTPv4.</description>
+    </item>
+    
+    <item>
+      <title>7. Reference Clocks</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-refclk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-refclk/</guid>
+      <description>7.1 What is LCL, the Local Clock?
+7.2 GPS Receivers
+7.2.1 What should I know about various GPS Receivers?
+7.2.2 What are PDOP, TDOP, and GDOP?
+7.2.3 What is NMEA?
+7.2.4 What is TSIP?
+7.3 DCF77 Receivers
+7.3.1 What should I know about DCF77 Receivers?
+7.3.2 What can make my DCF77 Receiver fail?
+7.4 Other Receivers
+7.4.1 What can make my MSF Receiver fail?
+7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?</description>
+    </item>
+    
+    <item>
+      <title>8. Troubleshooting</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trouble/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trouble/</guid>
+      <description>If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP.
+8.1 Monitoring
+8.1.1 How do I confirm my NTP server is working fine?
+8.1.2 How do I use peerstats and loopstats?
+8.1.3 How can I see the Time Difference between Client and Server?
+8.1.4 What does 257 mean as value for reach?</description>
+    </item>
+    
+    <item>
+      <title>8.2. General Issues</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/</guid>
+      <description>This section discusses problems that are independent of a specific operating system.
+8.2.1 Starting, running, querying
+8.2.1.1 How can I check that ntpd is up and running?
+8.2.1.2 Why does ntpd only run for about 10 to 20 minutes??
+8.2.2 Cabling and Interfacing
+8.2.2.1 Why does my Serial Interface hang when I connect a PPS Signal to DCD?
+8.2.2.2 Why is the PPS API only detecting one Edge?
+8.2.3 Exchanging Time</description>
+    </item>
+    
+    <item>
+      <title>8.3. Troubleshooting Specific Products</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/</guid>
+      <description>8.3.1 PC Hardware
+8.3.1.1 How accurate is the CMOS clock?
+8.3.1.2 How can I set the CMOS clock?
+8.3.1.3 How can I read or write the CMOS clock?
+8.3.1.4 How can SMM affect Interrupt Processing?
+8.3.2 Linux
+8.3.2.1 What does set_rtc_mmss: can&amp;rsquo;t update from 54 to 5 mean?
+8.3.2.2 Why does my Linux system lose several milliseconds every once in a while.
+8.3.4 Serial Port
+8.3.4.1 Do Multiport Serial Cards cause Trouble?</description>
+    </item>
+    
+    <item>
+      <title>8.4. Reporting Bugs</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/</guid>
+      <description>8.4.1 When should I report a Problem?
+8.4.2 What should I report?
+ 8.4.1 When should I report a Problem? Before reporting a problem, make sure that it is not a known bug or already requested feature. Also try to make sure that the mistake is not at your side.
+Search the bugs database to see whether the problem has been reported or if there is an existing solution. An Internet search may also help determine if there is a known solution.</description>
+    </item>
+    
+    <item>
+      <title>9. Background and Related Information</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-related/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-related/</guid>
+      <description>This section presents some background information and other related stuff that one may find interesting or entertaining.
+ 9.1 Miscellaneous
+9.1.1 What is Mills-speak?
+9.1.2 How can I convert a date to NTP format?
+9.1.3 How can I convert an NTP Timestamp to UNIX Time?
+9.1.4 Where can I find more Information?
+9.2 GPS
+9.2.1 Selective Availability revisited
+ 9.1 Miscellaneous 9.1.1 What is Mills-speak? Most people using NTP know that it has been invented by Professor David L.</description>
     </item>
     
     <item>
@@ -447,7 +741,7 @@ Last update: 31-Jan-2014 06:54 UTC
       <guid>https://doc.ntp.org/archives/3-5.93e/authcert/</guid>
       <description>Table of Contents  Synopsis Description Files   Synopsis authcert
  Description This program verifies whether the DES encryption algorithm is operating correctly in the particular architecture. The program reads a line from the standard input containing a key, plaintext block and the corresponding encrypted ciphertext block, respectively, as in the following
-0000000000000000 0000000000000000 8CA64DE9C1B123A7FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 7359B2163E4EDC583000000000000000 1000000000000001 958E6E627A05557B1111111111111111 1111111111111111 F40379AB9E0EC5330123456789ABCDEF 1111111111111111 17668DFC7292532D1111111111111111 0123456789ABCDEF 8A5AE1F81AB8F2DD0000000000000000 0000000000000000 8CA64DE9C1B123A7FEDCBA9876543210 0123456789ABCDEF ED39D950FA74BCC47CA110454A1A6E57 01A1D6D039776742 690F5B0D9A26939Band generates output as in the following</description>
+0000000000000000 0000000000000000 8CA64DE9C1B123A7 FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 7359B2163E4EDC58 3000000000000000 1000000000000001 958E6E627A05557B 1111111111111111 1111111111111111 F40379AB9E0EC533 0123456789ABCDEF 1111111111111111 17668DFC7292532D 1111111111111111 0123456789ABCDEF 8A5AE1F81AB8F2DD 0000000000000000 0000000000000000 8CA64DE9C1B123A7 FEDCBA9876543210 0123456789ABCDEF ED39D950FA74BCC4 7CA110454A1A6E57 01A1D6D039776742 690F5B0D9A26939B  and generates output as in the following</description>
     </item>
     
     <item>
@@ -706,6 +1000,18 @@ Last update: 10-Mar-2014 05:04 UTC
     </item>
     
     <item>
+      <title>Available implementations of Pulse Per Second (PPS) API</title>
+      <link>https://doc.ntp.org/ppsapi/ppsimplist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ppsapi/ppsimplist/</guid>
+      <description>This document lists known publicly-available implementations of the Pulse Per Second (PPS) API described in RFC 2783.
+This page was last updated 18 October 1999 at 15:03 by Jeff Mogul.
+  NetBSD Linux FreeBSD   NetBSD A prototype implementation for NetBSD, based on an earlier draft of this specification, using the com serial driver for NS8250, NS16450, and NS16650 UARTS is available in NetBSD-current.
+ Note: This implementation currently corresponds to an earlier version of the API specification, and should NOT be used in production environments.</description>
+    </item>
+    
+    <item>
       <title>Backroom Test Facility</title>
       <link>https://doc.ntp.org/reflib/backroom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -744,6 +1050,16 @@ It isn&amp;rsquo;t clear whether the mushroom is a controlled substance or a foo
       
       <guid>https://doc.ntp.org/archives/hints/bsdi/</guid>
       <description>Author:	Bdale Garbee, bdale@gag.com Last revision:	27Oct94 (Paul Vixie)   Included in this distribution of XNTP is a configuration file suitable for use with BSDI&amp;rsquo;s BSD/OS 1.1 (formerly BSD/386 1.1). On this system, the cc command is GCC 1.4x rather than PCC or GCC 2.x. It is imperative that cc be used since it predefines the symbol _bsdi_; if you want to use another compiler you will need to add -D_bsdi_ to catch the various #ifdef&amp;rsquo;s required for this system.</description>
+    </item>
+    
+    <item>
+      <title>Bug Reporting</title>
+      <link>https://doc.ntp.org/bugs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/bugs/</guid>
+      <description>Security Bugs Software Bugs Documentation Bugs   Security Bugs If you find a security vulnerability in the latest version of NTP, send an email report to security@ntp.org. The NTP Security Officer will respond to your report.
+Please refrain from discussing potential security issues in public, including on the news group, bug tracking system, or any mailing lists. Refer to Security Notices for more information about NTP&amp;rsquo;s security notification policy, security patch policy, instructions for reporting security issues, and a list of recent security vulnerabilities.</description>
     </item>
     
     <item>
@@ -992,6 +1308,15 @@ Last update: 31-Jan-2014 06:54 UTC
     </item>
     
     <item>
+      <title>Common Terms and Acronyms</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-g-all/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-g-all/</guid>
+      <description>anal-retentive programmer Probably the opposite of the famous &amp;ldquo;real programmer&amp;rdquo;, used by Professor David L. Mills. AM Amplitude Modulation. Information is encoded in the strength of the signal. APM Automatic Power Management, a feature found in modern PCs to reduce power consumption if the system is idle. APM consists of hardware and software. DES Data Encryption Standard, defined in Federal Information Processing Standards Publication 46 dated 1977 January 15. DES is an algorithm to encrypt a 64 bit value using a 56 bit key, giving 64 bit.</description>
+    </item>
+    
+    <item>
       <title>Configuration File Definition (Advanced)</title>
       <link>https://doc.ntp.org/archives/4.2.6-series/ntp_conf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1146,6 +1471,15 @@ Last update: 12:56 AM UTC Saturday, March 20, 2004
     </item>
     
     <item>
+      <title>Contributors List</title>
+      <link>https://doc.ntp.org/contributorslist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/contributorslist/</guid>
+      <description>Current NTP Contributors  Andy Shinton - Jupiter Refclock Maintainer Bob Dunlop - ntpdc Maintainer Brad Knowles - Postmaster, Listmaster, &amp;amp; PGP Keymaster Brian Utterback - General Solaris Support &amp;amp; Linux at Oracle Bruce Korb - AutoGen Wizard, GSoC Mentor Claas Hilbrecht - Neoclock Refclock Maintainer Danny Mayer - Network I/O, Windows Port, Code Maintenance David Mills - Research and Development, Documentation, Codebase Fernando Hauscarriaga - Palisade Refclock Maintainer Frank Kardel - PARSE Refclock Maintainer, Code Maintenance Frederick Bruckman - Advocacy, Code Maintenance George DM Ross - Palisade Refclock Maintainer Harlan Stenn - Project Manager, Release Engineer, bug wrangler, auto* dude, GSoC Admin &amp;amp; Mentor Heiko Gerstung - NTPv4 SNMP MIB (GSoC 2008) Johannes Maximilian Kuehn - SNTP (GSoC 2009, GSoC 2010) John Hay - NMEA Refclock Maintainer Juergen Perlinger - Code Maintenance Kapila Bogahapitiya - Documentation Framework (GSoC 2009, GSoC 2010) Linus Karlsson - Q/A (GSoC 2010) Loganaden Velvindron - Sandboxing support (libseccomp) Mark Martinec Martin Burnicki - PARSE Refclock Maintainer Nigel Roles - ARCRON Refclock Maintainer Philip Prindeville - Code Maintenance Poul-Henning Kamp Rahul Kumar - GSoC (Student in 2008, Mentor in 2012, 2013, 2015, OrgAdmin 2015) Rainer Orth - NTP and OpenSolaris Reg Clemens - Oncore Refclock Maintainer Rob Neal - Bancomm Refclock Maintainer Takao Abe - JJY Refclock Maintainer Ulrich Windl - NTP FAQ, PPSkit, Codebase Venu Gopal - NMEA Refclock Maintainer  Anyone who wishes to be added to or has questions about this list should contact the webmaster.</description>
+    </item>
+    
+    <item>
       <title>Copyright Notice</title>
       <link>https://doc.ntp.org/archives/3-5.93e/copyright/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1245,7 +1579,7 @@ Last update: 1-Jan-2011 08:34 UTC
       <description>Clone me, says Dolly sheepishly.
 Last update: 4-Feb-2020 23:47 UTC
  The following copyright notice applies to all files collectively called the Network Time Protocol Version 4 Distribution. Unless specifically declared otherwise in an individual file, this entire notice applies as if the text was explicitly included in the file.
-************************************************************************ ** Copyright (c) University of Delaware 1992-2015 ** ** Permission to use, copy, modify, and distribute this software and ** its documentation for any purpose with or without fee is hereby ** granted, provided that the above copyright notice appears in all ** copies and that both the copyright notice and this permission ** notice appear in supporting documentation, and that the name ** University of Delaware not be used in advertising or publicity ** pertaining to distribution of the software without specific, ** written prior permission.</description>
+*********************************************************************** * * * Copyright (c) University of Delaware 1992-2015 * * * * Permission to use, copy, modify, and distribute this software and * * its documentation for any purpose with or without fee is hereby * * granted, provided that the above copyright notice appears in all * * copies and that both the copyright notice and this permission * * notice appear in supporting documentation, and that the name * * University of Delaware not be used in advertising or publicity * * pertaining to distribution of the software without specific, * * written prior permission.</description>
     </item>
     
     <item>
@@ -2390,6 +2724,16 @@ Last update: 10-Mar-2014 05:10 UTC
     </item>
     
     <item>
+      <title>Links</title>
+      <link>https://doc.ntp.org/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/links/</guid>
+      <description>Table of Contents  Commercial Products Hardware Software Time-Related Websites Online Time Services   Commercial Products Commercial NTP related products are listed on the Vendor Links page.
+ Hardware  A shielded loop antenna for WWVB   Software Perl  Net::NTP Module POE::Component::Client::NTP  Python  NTP library  TCL  NTP plugin for a detachable NMEA GPS source  Windows Binaries  NTP Time Server Monitor - for Windows NT/2000 and later, Windows Server 2003 and later   Time-Related Websites  A summary of the ISO 8601 time notation NIST Internet Time Service (ITS) NIST - Time &amp;amp; Frequency Division   Online Time Services  NIST Official Time U.</description>
+    </item>
+    
+    <item>
       <title>Linux Hints</title>
       <link>https://doc.ntp.org/archives/hints/linux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2957,6 +3301,17 @@ The rabbit toots to make sure you read this.
 Last update: 23-Aug-2014 05:32 UTC
  Security Bug Reporting Procedures If you find or suspect a security related program bug in this distribution, please send a report to security@ntp.org. Please do not contact developers directly.
  Non-Security Bug Reporting Procedures If you find or suspect a non-security related program or documentation bug in this distribution, please send a report to the NTP Public Service Project Bug Tracking System (Bugzilla).</description>
+    </item>
+    
+    <item>
+      <title>NTP Contact Information</title>
+      <link>https://doc.ntp.org/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/contact/</guid>
+      <description>The primary sources of assistance for NTP users are the documentation and information on this website, the Google group, mailing lists, and the FAQ.
+The official NTP IRC channel is #ntp on the Freenode IRC network. When posting configuration files or command output on IRC, please use pastebin.com or a similar service. For general IRC usage information, visit irchelp.org .
+ General Contacts  Security Officer: security issues concerning the NTP software implementation must be reported to the Security Officer.</description>
     </item>
     
     <item>
@@ -5339,7 +5694,7 @@ Last update: 25-Nov-2009 4:46
       
       <guid>https://doc.ntp.org/archives/3-5.93e/driver28/</guid>
       <description>Table of Contents  Synopsis Description Structure of shared memory-segment Operation mode=0 Operation mode=1 Fudge Factors Additional Information   Synopsis  Address: 127.127.28.u Reference ID: SHM Driver ID: SHM   Description This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access for unit 0 and 1, and world access for unit 2 and 3.
- Structure of shared memory-segment struct shmTime {int mode; /* 0 - if valid set* use values, * clear valid* 1 - if valid set * if count before and after read of * values is equal,* use values * clear valid*/int count;time_t clockTimeStampSec; /* external clock */int clockTimeStampUSec; /* external clock */time_t receiveTimeStampSec; /* internal clock, when external value was received */int receiveTimeStampUSec; /* internal clock, when external value was received */int leap;int precision;int nsamples;int valid;int dummy[10]; }; Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:</description>
+ Structure of shared memory-segment  struct shmTime { int mode; /* 0 - if valid set * use values, * clear valid * 1 - if valid set * if count before and after read of * values is equal, * use values * clear valid */ int count; time_t clockTimeStampSec; /* external clock */ int clockTimeStampUSec; /* external clock */ time_t receiveTimeStampSec; /* internal clock, when external value was received */ int receiveTimeStampUSec; /* internal clock, when external value was received */ int leap; int precision; int nsamples; int valid; int dummy[10]; };   Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:</description>
     </item>
     
     <item>
@@ -5358,7 +5713,7 @@ Last update: 25-Nov-2009 4:46
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/archives/4.2.6-series/sitemap/</guid>
-      <description>Build and Install  Building and Installing the Distribution Quick Start Release Notes Build Options NTP Debugging Techniques Debugging Reference Clock Drivers ntpd Event Messages and Status Words ntpd System Log Messages NTP Bug Reporting Procedures   Program Manual Pages  ntpd - Network Time Protocol (NTP) daemon ntpq - standard NTP query program ntpdc - special NTP query program ntpdate - set the date and time via NTP sntp - Simple Network Time Protocol (SNTP) client ntptrace - trace a chain of NTP servers back to the primary source tickadj - set time-related kernel variables ntptime - read and set kernel time variables ntp-keygen - generate public and private keys ntpdsim - Network Time Protocol (NTP) simulator   Configuration Commands and Options  Command Index Server Options Access Control Options Authentication Options Monitoring Options Reference Clock Options Miscellaneous Options Configuration File Definition (Advanced)   Client and Server Configuration  Association Management Rate Management and the Kiss-o&#39;-Death Packet Automatic Server Discovery   Reference Clock Support  Reference Clock Drivers External Clock Discipline and the Local Clock Driver How to Write a Reference Clock Driver How to build new PARSE clocks   Reference Clock Audio Drivers  Reference Clock Audio Drivers Radio CHU Audio Demodulator/Decoder Radio WWV/H Audio Demodulator/Decoder IRIG Audio Decoder   Miscellaneous  Copyright Notice Mitigation Rules and the prefer Keyword Kernel Model for Precision Timekeeping PPSAPI Interface for Precision Time Signals Pulse-per-second (PPS) Signal Interfacing Gadget Box PPS Level Converter and CHU Modem   Other Links  Computer Network Time Synchronization - The Network Time Protocol (book) NTP Public Services Project (home page) NTP Research Project (home page) Executive Summary: Computer Network Time Synchronization The NTP Timescale and Leap Seconds NTP Timestamp Calculations The NTP Era and Era Numbering Timestamp Capture Principles Autonomous Configuration Autonomous Authentication Autokey Protocol Autokey Identity Schemes  </description>
+      <description>Build and Install  Building and Installing the Distribution Quick Start Release Notes Build Options NTP Debugging Techniques Debugging Reference Clock Drivers ntpd Event Messages and Status Words ntpd System Log Messages NTP Bug Reporting Procedures   Program Manual Pages  ntpd - Network Time Protocol (NTP) daemon ntpq - standard NTP query program ntpdc - special NTP query program ntpdate - set the date and time via NTP sntp - Simple Network Time Protocol (SNTP) client ntptrace - trace a chain of NTP servers back to the primary source tickadj - set time-related kernel variables ntptime - read and set kernel time variables ntp-keygen - generate public and private keys ntpdsim - Network Time Protocol (NTP) simulator   Configuration Commands and Options  Command Index Server Options Access Control Options Authentication Options Monitoring Options Reference Clock Options Miscellaneous Options Configuration File Definition (Advanced)   Client and Server Configuration  Association Management Rate Management and the Kiss-o&#39;-Death Packet Automatic Server Discovery   Reference Clock Support  Reference Clock Drivers External Clock Discipline and the Local Clock Driver How to Write a Reference Clock Driver How to build new PARSE clocks   Reference Clock Audio Drivers  Reference Clock Audio Drivers Radio CHU Audio Demodulator/Decoder Radio WWV/H Audio Demodulator/Decoder IRIG Audio Decoder   Miscellaneous  Copyright Notice Mitigation Rules and the prefer Keyword Kernel Model for Precision Timekeeping PPSAPI Interface for Precision Time Signals Pulse-per-second (PPS) Signal Interfacing Gadget Box PPS Level Converter and CHU Modem   Other Links  Computer Network Time Synchronization - The Network Time Protocol (book) NTP Research Project (home page) Executive Summary: Computer Network Time Synchronization The NTP Timescale and Leap Seconds NTP Timestamp Calculations The NTP Era and Era Numbering Timestamp Capture Principles Autonomous Configuration Autonomous Authentication Autokey Protocol Autokey Identity Schemes  </description>
     </item>
     
     <item>
@@ -5367,7 +5722,7 @@ Last update: 25-Nov-2009 4:46
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/archives/4.2.8-series/sitemap/</guid>
-      <description>Build and Install  Building and Installing the Distribution Build Options Debugging Reference Clock Drivers Quick Start NTP Version 4 Release Notes NTP Debugging Techniques NTP Bug Reporting Procedures   Program Manual Pages  ntpd - Network Time Protocol (NTP) daemon ntpq - standard NTP query program ntpdc - special NTP query program ntpdate - set the date and time via NTP sntp - Simple Network Time Protocol (SNTP) client ntptrace - trace a chain of NTP servers back to the primary source tickadj - set time-related kernel variables ntptime - read and set kernel time variables ntp-keygen - generate public and private keys ntpdsim - Network Time Protocol (NTP) simulator ntp-wait -waits until ntpd is in synchronized state ntp_conf - Configuration File Definition (Advanced)   Handbook Pages  NTP Version 4 Release Notes Command Index Access Control Support Association Management Authentication Support Automatic Server Discovery Schemes Timekeeping Rate Management Reference Clock Support   Client and Server Configuration  Association Management Automatic Server Discovery Schemes   Reference Clock Support  External Clock Discipline and the Local Clock Driver How to Write a Reference Clock Driver How to build new PARSE clocks Reference Clock Drivers   Reference Clock Audio Drivers  IRIG Audio Decoder Radio CHU Audio Demodulator/Decoder Radio WWV/H Audio Demodulator/Decoder Reference Clock Audio Drivers   Miscellaneous Pages  Copyright Notice Event Messages and Status Words Kernel Model for Precision Timekeeping ntpd System Log Messages PPSAPI Interface for Precision Time Signals Pulse-per-second (PPS) Signal Interfacing   Special Topics  How NTP Works Mitigation Rules and the prefer Keyword Autokey Public-Key Authentication Orphan Mode NTP Interleaved Modes Huff-n&#39;-Puff Filter Clock Filter Algorithm Clock Select Algorithm Clock Cluster Algorithm Mitigation Rules and the prefer Keyword Clock Discipline Algorithm Poll Process Clock State Machine Leap Second Processing   Other Links  Computer Network Time Synchronization - The Network Time Protocol (book) NTP Public Services Project (home page) NTP Research Project (home page) Executive Summary: Computer Network Time Synchronization The NTP Timescale and Leap Seconds NTP Timestamp Calculations The NTP Era and Era Numbering Timestamp Capture Principles Analysis and Simulation of the NTP On-Wire Protocols Time Synchronization for Space Data Links NTP Security Analysis IEEE 1588 Precision Time Protocol (PTP) Autonomous Configuration Autonomous Authentication Autokey Protocol Autokey Identity Schemes  </description>
+      <description>Build and Install  Building and Installing the Distribution Build Options Debugging Reference Clock Drivers Quick Start NTP Version 4 Release Notes NTP Debugging Techniques NTP Bug Reporting Procedures   Program Manual Pages  ntpd - Network Time Protocol (NTP) daemon ntpq - standard NTP query program ntpdc - special NTP query program ntpdate - set the date and time via NTP sntp - Simple Network Time Protocol (SNTP) client ntptrace - trace a chain of NTP servers back to the primary source tickadj - set time-related kernel variables ntptime - read and set kernel time variables ntp-keygen - generate public and private keys ntpdsim - Network Time Protocol (NTP) simulator ntp-wait -waits until ntpd is in synchronized state ntp_conf - Configuration File Definition (Advanced)   Handbook Pages  NTP Version 4 Release Notes Command Index Access Control Support Association Management Authentication Support Automatic Server Discovery Schemes Timekeeping Rate Management Reference Clock Support   Client and Server Configuration  Association Management Automatic Server Discovery Schemes   Reference Clock Support  External Clock Discipline and the Local Clock Driver How to Write a Reference Clock Driver How to build new PARSE clocks Reference Clock Drivers   Reference Clock Audio Drivers  IRIG Audio Decoder Radio CHU Audio Demodulator/Decoder Radio WWV/H Audio Demodulator/Decoder Reference Clock Audio Drivers   Miscellaneous Pages  Copyright Notice Event Messages and Status Words Kernel Model for Precision Timekeeping ntpd System Log Messages PPSAPI Interface for Precision Time Signals Pulse-per-second (PPS) Signal Interfacing   Special Topics  How NTP Works Mitigation Rules and the prefer Keyword Autokey Public-Key Authentication Orphan Mode NTP Interleaved Modes Huff-n&#39;-Puff Filter Clock Filter Algorithm Clock Select Algorithm Clock Cluster Algorithm Mitigation Rules and the prefer Keyword Clock Discipline Algorithm Poll Process Clock State Machine Leap Second Processing   Other Links  Computer Network Time Synchronization - The Network Time Protocol (book) NTP Research Project (home page) Executive Summary: Computer Network Time Synchronization The NTP Timescale and Leap Seconds NTP Timestamp Calculations The NTP Era and Era Numbering Timestamp Capture Principles Analysis and Simulation of the NTP On-Wire Protocols Time Synchronization for Space Data Links NTP Security Analysis IEEE 1588 Precision Time Protocol (PTP) Autonomous Configuration Autonomous Authentication Autokey Protocol Autokey Identity Schemes  </description>
     </item>
     
     <item>
@@ -5908,6 +6263,17 @@ This driver also supports the Model 320, 330, 331, and 332 decoders in both poll
       <description>Table of Contents  Synopsis Description Fudge Factors   Synopsis  Address: 127.127.24.u Reference ID: USNO Driver ID: ACTS_USNO Serial Port: /dev/cuau; 1200 baud, 8-bits, no parity Requires: /usr/include/sys/termios.h header file with modem control   Description No information available.
  Fudge Factors  time1 time  Specifies the time offset calibration factor, in seconds and fraction, with default 0.0.
  time2 time  Not used by this driver.</description>
+    </item>
+    
+    <item>
+      <title>Vendor Links</title>
+      <link>https://doc.ntp.org/support/vendorlinks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/support/vendorlinks/</guid>
+      <description>Inclusion on this list does constitute an endorsement of the vendor, or their products, by anyone associated with the NTP Project. Contact the webmaster to add or edit a vendor description.
+   Arbiter Systems - A manufacturer of precision GNSS synchronized timing products (NTP, PTP, IRIG-B, and more) and power measurement solutions (PMU, synchrophasor, power, voltage, current, harmonics, and more).
+  ArkTime - Providers of correct time solutions for PCs, network servers, GPS based NTP time servers, and wall clocks.</description>
     </item>
     
     <item>

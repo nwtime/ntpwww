@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Configuration is a manual procedure that is necessary to get a running NTP system.
+6.1 Basic Configuration
+6.1.1 Can&rsquo;t I just run ntpdate?
+6.1.2 …">
+<meta property="og:title" content="6. Configuration" />
+<meta property="og:description" content="Configuration is a manual procedure that is necessary to get a running NTP system.
+6.1 Basic Configuration
+6.1.1 Can&rsquo;t I just run ntpdate?
+6.1.2 Recommended Minimum
+6.1.2.1 What is the minimum configuration?
+6.1.2.2 Is the minimum configuration a typical one?
+6.1.2.3 What is the correct Pseudo IP Address for my reference clock?
+6.1.2.4 What is a drift file?
+6.1.2.5 Should I use IP addresses or host names?
+6.1.3 Running an isolated Network" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-config/" /><meta property="article:section" content="ntpfaq" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>6. Configuration</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NTP Documentation Archive">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+</head>
+<body><!-- navigation -->
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/ntpfaq/ntp-s-config/">6. Configuration</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>6. Configuration</h1>
+     
+    <p>Configuration is a manual procedure that is necessary to get a running NTP system.</p>
+<p>6.1 <a href="#61-basic-configuration">Basic Configuration</a><br>
+6.1.1 <a href="#611-cant-i-just-run-ntpdate">Can&rsquo;t I just run ntpdate?</a><br>
+6.1.2 <a href="#612-recommended-minimum">Recommended Minimum</a><br>
+6.1.2.1 <a href="#6121-what-is-the-minimum-configuration">What is the minimum configuration?</a><br>
+6.1.2.2 <a href="#6122-is-the-minimum-configuration-a-typical-one">Is the minimum configuration a typical one?</a><br>
+6.1.2.3 <a href="#6123-what-is-the-correct-pseudo-ip-address-for-my-reference-clock">What is the correct Pseudo IP Address for my reference clock?</a><br>
+6.1.2.4 <a href="#6124-what-is-a-drift-file">What is a drift file?</a><br>
+6.1.2.5 <a href="#6125-should-i-use-ip-addresses-or-host-names">Should I use IP addresses or host names?</a><br>
+6.1.3 <a href="#613-running-an-isolated-network">Running an isolated Network</a><br>
+6.1.3.1 <a href="#6131-can-i-use-my-system-clock-as-reference-clock">Can I use my system clock as reference clock?</a><br>
+6.1.3.2 <a href="#6132-can-i-avoid-manual-time-adjustments-in-a-network-without-reference-clock">Can I avoid manual time adjustments in a network without reference clock?</a><br>
+6.1.4 <a href="#614-recommended-goodies">Recommended Goodies</a><br>
+6.1.4.1 <a href="#6141-how-can-i-configure-the-amount-of-logging-information">How can I configure the amount of logging information?</a><br>
+6.1.4.2 <a href="#6142-how-can-i-speed-up-initial-synchronization">How can I speed up initial Synchronization?</a><br>
+6.1.4.3 <a href="#6143-how-do-i-configure-remote-administration">How do I configure remote administration?</a><br>
+6.1.4.4 <a href="#6144-how-do-i-use-authentication-keys">How do I use authentication keys?</a><br>
+6.1.4.5 <a href="#6145-what-are-all-the-different-keys-used-for">What are all the different Keys used for?</a><br>
+6.1.4.6 <a href="#6146-how-do-i-use-autokey">How do I use autokey?</a><br>
+6.1.5 <a href="#615-miscellaneous-hints">Miscellaneous Hints</a><br>
+6.1.5.1 <a href="#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server">What is the preferred etiquette when synchronizing to a public server?</a><br>
+6.1.5.2 <a href="#6152-where-can-i-find-public-time-servers">Where can I find public Time Servers?</a></p>
+<hr>
+<h4 id="61-basic-configuration">6.1 Basic Configuration</h4>
+<p>This section discusses basic configuration issues for <code>ntpd</code>, hopefully covering what 90% of users need.</p>
+<hr>
+<h4 id="611-cant-i-just-run-ntpdate">6.1.1 Can&rsquo;t I just run ntpdate?</h4>
+<p><code>ntpdate</code> sets the system clock once and mostly in a brute way. As real clocks drift, you need periodic corrections. You can run <code>ntpdate</code> in a <code>cron</code> job hourly or daily, but your machine won&rsquo;t be an NTP server.</p>
+<p>In contrast, <code>ntpd</code> learns and remembers the clock drift and corrects it autonomously, even if there is no reachable server. Therefore large clock steps can be avoided while the machine is synchronized to some reference clock. In addition <code>ntpd</code> will maintain error estimates and statistics, and can offer NTP service for other machines. Last, but not least, <code>ntpdate</code> cannot query a local reference clock.</p>
+<p>In addition, there are plans to put the functionality of <code>ntpdate</code> into <code>ntpd</code>. Let me quote <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>Our zeal to deprecate <code>ntpdate</code> and friends like that is based entirely on our wish to eliminate redundant maintenance. The <code>ntpdate</code> program was crafted many years ago as a ripoff of <code>xntpd</code> with poorly adapted I/O, outdated algorithms and poor debugging support. If we can satisfy folks that <code>ntpd</code> with appropriate command line switch is the answer to their collective prayers, then we will scrap <code>ntpdate</code> and friend. It is in principle easy to modify <code>ntpd</code> to &ldquo;quickly&rdquo; set the clock; however, please do understand our reluctance to do that for the following reasons.</p>
+<p>Most folks who use <code>ntpdate</code> call it from a <code>cron</code> job at intervals of maybe a day. You would be surprised at how many do this at the stroke of midnight. We have observed little fireballs of congestion when that occurs, especially at the NIST and USNO servers which even in the best of times with polite <code>xntpd/ntpd</code> suffer an aggregate load of well over 40 packets per second. We really don&rsquo;t want clients to create volleys of congestion by transmitting as fast as the network will allow.</p>
+<p>The thrust of recent work on the NTPv4 protocols has not (with emphasis) been to improve accuracy - the nanokernel development is tangential and the only interlocking agenda has been to adapt the PPS interface to a standard acceptable to the kernel-mongers for the Alpha, SPARC and Intel platforms. However, it is indeed fair to characterize the work specific to NTPv4 as concentrating on the error mitigation algorithms to deal with the extraordinary range of network path characteristics encountered today. There also have been many incremental improvements, such as burst mode, that have resulted from various bug reports and suggestions.</p>
+<p>An absolutely vital requirement in our view is to protect against accidental or malicious servers that may result in excessive time errors. The only true defense against falsetickers is to have at least three different servers (a Byzantine defense requires at least four) and an effective mitigation algorithm, such as the one now used in NTP and refined over the last eight years. Note that accuracy is not an issue here, only the separation of the truechimers from the falsetickers.</p>
+<p>Now, the first measurement when the <code>ntpd</code> is first started is almost certainly a terrible one. There are many reasons for this - ARP caching in the routers, flow setup at various points and circuit setup (ISDN). The only real solution for that is to use more than one sample. The measurements made some years ago and revealed in an RFC suggest that a window of eight samples is a good compromise between effectiveness (more samples) and closed-loop transient response (fewer samples).</p>
+<p>So, I think most folks would agree that some number of different servers is necessary and that some number of samples should be collected before the mitigation algorithms do set the clock. You get to select the former in the configuration file (or use manycast to do that automatically). How many samples to wait before the mitigation algorithms actually set the clock depends on the quality of the estimated accuracy. The parameters selected as the result of experience result in about four samples, depending on the network jitter.</p>
+<p>So, let&rsquo;s say that as the result of several years experience and algorithm refinement we agree on four servers and four samples. The question is what is the interval between samples? As delivered from shrinkwrap, the initial interval is 64 s, but does usually increase to 1024 s. That results in about a four minute delay before the clock is set, which might be too long for some, but does protect the many public servers on the net now. So what&rsquo;s the deal? You can reduce that interval to a few seconds using burst mode. While this does provide more snappy response, it increases the aggregate client insult to the server by a factor of eight and should be used sparingly.</p>
+<p>However, this is not the only consideration. When multiple servers are involved, it is not a good idea to poll them at the same time. Therefore, <code>ntpd</code> randomized the initial volley when first coming up. This results in an average delay of about 30 s before anything useful happens. Worse than that, <code>ntpd</code> has to wait until a majority of the configured servers have showed up and with at least four good samples.</p>
+<p>You can see from the above why we believe <code>ntpdate</code> is such a poor network citizen and at least some idea of its vulnerabilities. You can also see where the compromises are and possibly how changing some of the parameters might benefit your cause. We could disable the initial randomization, increase the quality tolerance so fewer samples will set the clock, go into burst mode initially and once the clock is set back off to normal mode, etc., etc. Right now, parameter selection is a black art; I would suspect making them configurable will result in some very bad choices and may result in serious server insult. Once upon a time (with NTPv1) a bug resulted in some servers volleying continuously as fast as the net would allow. The bug was discovered only after the network monitoring center reported that NTP was the single largest source of traffic in the Internet.</p>
+<p>The issues of whether and how to step the clock have been debated more or less continuously for the twenty years of NTP evolution. One clique believes the clock should never be set backward under any circumstances. Their punishment is to suffer up to some hours while the clock torques to acceptable offset at half a millisecond per second, which is the maximum rate most kernels can tolerate and the limiting assumption which is at the very heart of the formal correctness principles supported by the design. During the torque interval network clocks cannot be assumed synchronized, so network makes, archiving, etc., can fail, even if local applications may survive. The <code>-g</code> option was designed to behave this way, but its use is not recommended.</p>
+<p>A complicating fact is that, once an error greater than 125 ms is discovered, the question is whether to believe it. Our experience with radio clocks is that it may take several minutes or more to obtain initial synchronization. This and the fact that very noisy paths to some remote spots on the globe can result in huge spikes from time to time suggest that the clock should not be stepped until a consistent offset has been observed for a sanity interval, currently 15 minutes. Considerable experience suggests this is a good compromise time, but your agenda might be better served using some other value. What should it be?</p>
+<p>In the vast majority of cases, once the clock is reliably set and the frequency stabilizes, the clock does not need to be stepped again, even after reboot and sometimes even when the power is cycled. The current NTP behavior is to step the clock if necessary when <code>ntpd</code> is started and the clock has never been set, then to obey the <code>-g</code> option after that. This was done as the result of suggestions made some time back.</p>
+<p>Obviously, keeping most folks happy with any one set of rules may not be acceptable by other folks. The intent feverishly pursued is to avoid configured little nits in favor of an adaptive approach where the daemon figures things out on its own and without configured appeasement. It may be possible to satisfy more that some folks crave by continued enhancement and re-engineering of intricate behavior, but the above ground rules must be respected.(&hellip;)</p>
+<p>To avoid a biased impression, lets quote <a href="mailto:per@erix.ericsson.se">Per Hedeland</a> as well:</p>
+<p>99.9999% of NTP users don&rsquo;t care one iota whether <code>ntpdate</code> does such a lousy job that the clock ends up just within 50 ms of the correct time instead of 5 or 0.005. On the other hand they care a lot if the boot has to be delayed - for how long? 5 x 64 seconds? - just to allow <code>ntpd</code> to get a good enough fix that it is prepared to step the clock. And they care a lot, though they may not know it, if various applications (which may be many more than &ldquo;some database servers&rdquo;) run into problems because the clock is stepped after they&rsquo;ve started instead of before.</p>
+<hr>
+<h4 id="612-recommended-minimum">6.1.2 Recommended Minimum</h4>
+<h4 id="6121-what-is-the-minimum-configuration">6.1.2.1 What is the minimum configuration?</h4>
+<p>The minimum configuration for <code>ntpd</code> only needs one reference clock. Reference clocks use <em>pseudo IP addresses</em> in <code>ntpd</code>. Thus your configuration file could look like this:</p>
+<pre>server 127.127.8.0 mode 5	# GENERIC DCF77 AM</pre>
+<blockquote>
+<p><strong>Note:</strong> Some reference clock drivers require special device files to be created. These files are used to talk to the reference clock. See the <a href="/archives/4.2.8-series/refclock/#list-of-reference-clock-drivers">corresponding documentation of the driver</a>.</p>
+</blockquote>
+<p>In reality one would add several other configuration items, such as a <a href="#6124-what-is-a-drift-file">drift file</a>, additional servers, remote monitoring and configuration, logging, and access restrictions.</p>
+<hr>
+<h4 id="6122-is-the-minimum-configuration-a-typical-one">6.1.2.2 Is the minimum configuration a typical one?</h4>
+<p>Besides being functional, real configurations differ from the one shown in the <a href="#6121-what-is-the-minimum-configuration">minimum configuration example</a>. Most NTP servers have no reference clocks, but use lower <a href="/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum">stratum</a> servers as time references. Public time servers can be found <a href="https://support.ntp.org/bin/view/Servers/WebHome">here</a>. <a href="#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server">Courtesy</a> suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:</p>
+<pre>server 132.199.176.10	# some NTP server's IP address
+# You might add the EMail address of the contact person</pre>
+<p><a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">Configuring multiple servers</a> improves the quality of the time as it allows NTP to select the best time sources from a set of available ones.</p>
+<hr>
+<h4 id="6123-what-is-the-correct-pseudo-ip-address-for-my-reference-clock">6.1.2.3 What is the correct Pseudo IP Address for my reference clock?</h4>
+<p>The various drivers for reference clocks are selected using IPv4 adresses which consist of four bytes that are separated by a dot. The individual bytes are: <code>127.127.<em>Clock Type.Unit Number</em></code>.</p>
+<p>The supported clock types are listed <a href="/archives/4.2.8-series/refclock/#list-of-reference-clock-drivers">here</a>. Usually it does not make sense, but if you want to connect more than one clock of a type, you can do so by using different unit numbers. The driver maps these unit numbers to one or more device files. The exact name of the device file can be found in the description of the individual reference clock&rsquo;s driver.</p>
+<hr>
+<h4 id="6124-what-is-a-drift-file">6.1.2.4 What is a drift file?</h4>
+<p>When running, <code>ntpd</code> learns about the drift of the system clock relative to the reference clock. To make <code>ntpd</code> remember the drift, you must add the following item to your configuration file (it will be updated every hour):</p>
+<pre>driftfile /etc/ntp.drift        # remember the drift of the local clock</pre>
+<p>When using a drift file, <code>ntpd</code> will use the last written value as initial frequency correction after restart. That way the best correction is set up much faster Without a drift file the initial frequency correction is always zero.</p>
+<p><a href="mailto:mark.martinec@ijs.si">Mark Martinec</a> contributed:</p>
+<p>On a Cisco router running IOS one can save the current frequency offset estimate to a nonvolatile memory with <code>copy running-config startup-config</code>, to make sure router starts up with a good frequency estimate after a reset. Do that manually after a day or two of a stable router operation with its NTP synchronized, and perhaps a few more times per year during seasons changes if router is operating in non-air-conditioned environment. This operation saves the current frequency estimate as a configuration line <code>ntp clock-period <em>xxxx</em></code>.</p>
+<hr>
+<h4 id="6125-should-i-use-ip-addresses-or-host-names">6.1.2.5 Should I use IP addresses or host names?</h4>
+<p>During startup <code>ntpd</code> resolves symbolic addresses to numeric addresses using the resolver service. However there are some differences worth considering:</p>
+<ul>
+<li>If a symbolic name has multiple IP addresses, you may wish to explicitly select one.</li>
+<li>Using numeric addresses does not require a correct configuration of a resolver, and it may avoid making a connection to the Internet.</li>
+<li>Many service providers use <em>aliases</em> or <em>logical host names</em> when providing services. When using names like <code>ntp-1-a</code> for an NTP server, the service provider may map the logical name to a different machine, possibly without informing any clients. So if you use host names in your configuration file, you have to restart or <a href="#6144-how-do-i-use-authentication-keys">reconfigure</a> <code>ntpd</code>.</li>
+</ul>
+<hr>
+<h4 id="613-running-an-isolated-network">6.1.3 Running an isolated Network</h4>
+<p>If you are not permanently connected to the Internet, you may need a different configuration. This is discussed here.</p>
+<h4 id="6131-can-i-use-my-system-clock-as-reference-clock">6.1.3.1 Can I use my system clock as reference clock?</h4>
+<p>In short: you can, <a href="/ntpfaq/ntp-s-refclk/#711-what-is-lcl-the-local-clock">but you should not</a>.</p>
+<blockquote>
+<p><strong>Warning</strong>: Using the free-running system clock means that your NTP server announces that time as reference time to any client, no matter how wrong it is. Especially when connected to the Internet this can cause severe confusion.</p>
+</blockquote>
+<p>A <a href="/reflib/reports/ntp-survey99-minar.pdf">survey</a> discovered that about 95% of bad stratum-1 servers had configured <code>LCL</code>, the local clock, as time reference. So please don&rsquo;t make the same mistake!</p>
+<hr>
+<h4 id="6132-can-i-avoid-manual-time-adjustments-in-a-network-without-reference-clock">6.1.3.2 Can I avoid manual time adjustments in a network without reference clock?</h4>
+<p>If you have a MODEM and you can afford the telephone costs, you can use the following configuration to call NIST (thanks to <a href="mailto:bill.pennock@transquest.com">William R. Pennock</a>):</p>
+<pre># NIST Automated Computer Time Service. This driver calls a special
+# telephone number in Boulder, CO, to fetch the time directly from the
+# NIST cesium farm. The details of the complicated calling program are
+# in html/refclock.htm. The Practical Peripherals 9600SA modem
+# does not work correctly with the ACTS echo-delay scheme for
+# automatically calculating the propagation delay, so the fudge flag2 is
+# set to disable the feature. Instead, we add a fudge time1 of 65.0 ms
+# so that the driver time agrees with th e1-pps signal to within 1 ms.
+# The phone command specifies three alternate telephone numbers,   
+# including AT modem command prefix, which will be tried one after the
+# other at each measurement attempt. In this case, a cron job is used to
+# set fudge flag1, causing a measurement attempt, every six hours.
+server 127.127.18.1
+fudge 127.127.18.1 time1 0.0650 flag2 1
+phone atdt813034944774 atdt813034944785 atdt813034944774</pre>
+<hr>
+<h3 id="614-recommended-goodies">6.1.4 Recommended Goodies</h3>
+<p>The topics discussed here are not strictly needed for a working configuration, but they are quite nice to have.</p>
+<hr>
+<h4 id="6141-how-can-i-configure-the-amount-of-logging-information">6.1.4.1 How can I configure the amount of logging information?</h4>
+<p>When starting to run <code>ntpd</code> you should have a more verbose logging than set up by default. You might start with the following line:</p>
+<pre>logconfig =syncevents +peerevents +sysevents +allclock</pre>
+<p>Or, you might enable full logging to ensure<code>/etc/syslog.conf</code> captures all messages:</p>
+<pre>logconfig =all</pre>
+<hr>
+<h4 id="6142-how-can-i-speed-up-initial-synchronization">6.1.4.2 How can I speed up initial Synchronization?</h4>
+<p><a href="/ntpfaq/ntp-s-algo/#5121-how-is-time-synchronized">Several packet exchanges are needed</a> before time can be corrected. Therefore the obvious trick is to speed up packet exchanges. See <a href="/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled">Q: 5.1.2.4.</a> for a general discussion of the polling algorithm. The <code>iburst</code> keyword can be used to quickly set up the registers of the receive filter when they are empty. Typically this is true for a restart, or when the connection to a server was down for a longer period. When used, the data should be available within 30 seconds.</p>
+<p>If the local clock does not have a good estimate for the current time, using option <code>-g</code> on the command line may also speed up the time until <code>ntpd</code> sets the clock for the first time. Furthermore that option will also allow suspiciously huge initial correction.</p>
+<p>These modifications are intended as a replacement for <code>ntpdate</code> in NTPv4. A script named <code>ntp-wait</code> will wait until <code>ntpd</code> has set the time of the local host for the first time.</p>
+<hr>
+<h4 id="6143-how-do-i-configure-remote-administration">6.1.4.3 How do I configure remote administration?</h4>
+<p>One of the nice features of NTP is remote monitoring and configuration. You can add or remove reference clocks at runtime without having to restart <code>ntpd</code>. Normally this doesn&rsquo;t work until you specify authentication information. Authentication in NTP works with keys. First your configuration needs to specify the location of the keys file and key IDs of the keys to use:</p>
+<pre>### Authentication section ###
+keys /etc/ntp.keys
+trustedkey 1 2 15
+requestkey 15
+controlkey 15</pre>
+<p>This tells <code>ntpd</code> to trust keys <code>1</code> and <code>2</code> when receiving time information. Key <code>15</code> is trusted for queries and configuration changes (<code>requestkey</code> is used by <code>ntpdc</code> while <code>controlkey</code> is used by <code>ntpq</code>).</p>
+<blockquote>
+<p><strong>Note:</strong> Even though <code>controlkey</code> and <code>requestkey</code> are explicitly specified, you still must add the key IDs to <code>trustedkey</code>.</p>
+</blockquote>
+<p>By default, the keys themselves are configured in the file <code>/etc/ntp.keys</code>. Since <code>ntpd</code> runs as a priviledged process, only the priviledged user (root) needs access to this file.</p>
+<blockquote>
+<p><strong>Note:</strong> Password are stored unencrypted in the keyfile. Therefore no other user should have read or write access to that file or write access to its directory.</p>
+</blockquote>
+<p><a href="/archives/4.2.8-series/keygen/#cryptographic-data-files">Cryptographic Data Files</a> provides an example for <code>/etc/ntp.keys</code> and explains the meaning of each column in the file.</p>
+<hr>
+<h4 id="6144-how-do-i-use-authentication-keys">6.1.4.4 How do I use authentication keys?</h4>
+<p>NTP provides <em>dynamic reconfiguration</em>, meaning you can change the configuration of your servers using the protocol itself and the <code>ntpq</code> command. As this works over the network, there&rsquo;s no need to log in or to walk around. Even more, it works the same on all operating systems.</p>
+<p>To prevent everybody from changing the configuration of an NTP server, configuration items are protected by an authentication algorithm.</p>
+<hr>
+<h4 id="6145-what-are-all-the-different-keys-used-for">6.1.4.5 What are all the different Keys used for?</h4>
+<p>In addition to the example given in <a href="#6143-how-do-i-configure-remote-administration">Q: 6.1.4.3</a>, <a href="mailto:mills@udel.edu">Professor David L. Mills</a> states:</p>
+<p>Control keys are for the <code>ntpq</code> program and request keys are for the <code>ntpdc</code> program. The key file(s) define the cryptographic keys, but these must be activated individually using the <code>trustedkey</code> command. That last is so a single key file can be shared among a bunch of servers, but only certain ones used between pairwise symmetric mode servers. You are invited to cut this paragraph and paste it on the refrigerator door if it eases confusion.</p>
+<hr>
+<h4 id="6146-how-do-i-use-autokey">6.1.4.6 How do I use autokey?</h4>
+<p>NTPv4 manages authentication keys using the autokey mechanism. The following procedure had been given by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<ol>
+<li>A broadcast server needs to have a line like <code>broadcast 128.4.2.255 autokey</code>.</li>
+<li>The clients simply have <code>broadcastclient</code>.</li>
+</ol>
+<p>Replace <code>broadcast</code> with <code>multicast</code> and follow <code>autokey</code> with <code>ttl 5</code> or something like that. As for the crypto questions, refer to <a href="/reflib/autokey">Autonomous Authentication</a> and 
+<a href="/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey">Q: 6.2.2.6.</a>.</p>
+<hr>
+<h4 id="615-miscellaneous-hints">6.1.5 Miscellaneous Hints</h4>
+<h4 id="6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server">6.1.5.1 What is the preferred etiquette when synchronizing to a public server?</h4>
+<p>If the <a href="https://support.ntp.org/bin/view/Servers/WebHome">listing</a> says to notify before before using a server, then you should send email and wait until you get an affirmative reply before using that server.</p>
+<p>Some public timeservers are listed as <a href="https://support.ntp.org/bin/view/Servers/OpenAccess">OpenAccess</a> with no notice required.</p>
+<p>You should probably have no more than three of your timeservers using any individual public timeserver. Let all of your internal clients be served by those three or three-groups-of-three.</p>
+<p>The most popular time servers are overloaded, recommending that you should avoid them if possible. The official etiquette is described in <a href="https://support.ntp.org/bin/view/Servers/RulesOfEngagement">Rules of Engagement</a>.</p>
+<hr>
+<h4 id="6152-where-can-i-find-public-time-servers">6.1.5.2 Where can I find public Time Servers?</h4>
+<p>Additionally, NIST (the United States National Instute of Standards and Technology) has a <a href="https://tf.nist.gov/tf-cgi/servers.cgi">list of public time servers</a>. Their policy statement implies that their Internet time servers are open access to everyone.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom py-0">
+  <ul class="mx-auto">
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+        <i class="bi-envelope"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <i class="bi-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <i class="bi-linkedin"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <i class="bi-facebook"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text">
+      <p>&copy; 2021 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+</footer>
+
+</body>
+</html>

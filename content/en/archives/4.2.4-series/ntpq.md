@@ -269,7 +269,7 @@ The <code>status, leap, stratum, precision, rootdelay, rootdispersion, refid, re
 
 <code>**state**</code>
 
-: The state of the clock discipline state machine. The values are described in the architecture briefing on the NTP Project page linked from www.ntp.org.
+: The state of the clock discipline state machine. The values are described in the [architecture briefing](/reflib/brief/clock/clock.pdf).
 
 <code>**peer**</code>
 

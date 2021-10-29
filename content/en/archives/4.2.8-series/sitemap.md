@@ -11,7 +11,7 @@ type: archives
 * [Quick Start](/archives/4.2.8-series/quick)
 * [NTP Version 4 Release Notes](/archives/4.2.8-series/release)
 * [NTP Debugging Techniques](/archives/4.2.8-series/debug)
-* [NTP Bug Reporting Procedures](/archives/4.2.8-series/bugs)
+* [NTP Bug Reporting Procedures](/bugs)
 
 * * *
 
@@ -103,7 +103,6 @@ type: archives
 #### Other Links
 
 * [Computer Network Time Synchronization - The Network Time Protocol (book)](/reflib/book)
-* [NTP Public Services Project (home page)](http://www.ntp.org/index.html)
 * [NTP Research Project (home page)](/reflib/ntp)
 * [Executive Summary: Computer Network Time Synchronization](/reflib/exec)
 * [The NTP Timescale and Leap Seconds](/reflib/leap)

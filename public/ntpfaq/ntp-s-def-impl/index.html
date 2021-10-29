@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="This section discusses implementations of NTP for various platforms.
+For platforms and operating systems other than those mentioned here, there may be …">
+<meta property="og:title" content="4.3. Implementations and Platforms" />
+<meta property="og:description" content="This section discusses implementations of NTP for various platforms.
+For platforms and operating systems other than those mentioned here, there may be software available. Maybe there are binary program packages available for your computer system. A good starting point is to search this website. Specific products are presented in Section 8.3.
+4.3.1 Official Providers 4.3.2 UNIX Systems
+4.3.3 Microsoft Windows
+ 4.3.1 Official Providers Several national time keepers allow reading the time via NTP:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-def-impl/" /><meta property="article:section" content="ntpfaq" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>4.3. Implementations and Platforms</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NTP Documentation Archive">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+</head>
+<body><!-- navigation -->
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/ntpfaq/ntp-s-def-impl/">4.3. Implementations and Platforms</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>4.3. Implementations and Platforms</h1>
+     
+    <p>This section discusses implementations of NTP for various platforms.</p>
+<p>For platforms and operating systems other than those mentioned here, there may be software available. Maybe there are binary program packages available for your computer system. A good starting point is to search this website. Specific products are presented in <a href="/ntpfaq/ntp-s-trbl-spec">Section 8.3</a>.</p>
+<p>4.3.1 <a href="#431-official-providers">Official Providers</a> <br>
+4.3.2 <a href="#432-unix-systems">UNIX Systems</a><br>
+4.3.3 <a href="#433-microsoft-windows">Microsoft Windows</a></p>
+<hr>
+<h4 id="431-official-providers">4.3.1 Official Providers</h4>
+<p>Several national time keepers allow reading the time via NTP:</p>
+<ul>
+<li><a href="https://www.nist.gov/time-frequency">NIST</a> (USA)</li>
+<li><a href="https://www.usno.navy.mil/USNO/time">USNO</a> (USA)</li>
+<li><a href="https://www.ptb.de/cms/en/ptb/fachabteilungen/abtq/gruppe-q4/ref-q42/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html">PTB</a> (Germany)</li>
+</ul>
+<hr>
+<h4 id="432-unix-systems">4.3.2 UNIX Systems</h4>
+<p>The reference implementation of the NTP client and server is <a href="/downloads">available for free</a>. The software is available as C source and it runs on most UNIX-compatible operating systems. The software consists of the following components:</p>
+<dl>
+<dt>ntpd</dt>
+<dd>A daemon process that is both client and server.</dd>
+<dt>ntpdate</dt>
+<dd>A utility to set the time once, similar to the popular <code>rdate</code> command.</dd>
+<dt>ntpq, ntpdc</dt>
+<dd>Monitoring and control programs that communicate via UDP with <code>ntpd</code>.</dd>
+<dt>ntptrace</dt>
+<dd>A utility to back-trace the current system time, starting from the local server.</dd>
+<dt>documentation</dt>
+<dd>The <a href="/archives/4.2.8-series">documentation</a> for the software is definitely worth reading.</dd>
+<dt>scripts</dt>
+<dd>There are also several scripts that might be useful or at least a source of ideas if you want to run and monitor NTP.</dd>
+</dl>
+<hr>
+<h4 id="433-microsoft-windows">4.3.3 Microsoft Windows</h4>
+<p>NTP is the default time synchronization protocol used by the Windows Time service in Windows Server 2012 and higher, Windows 10 or later, and Azure Stack HCI. In addition, SNTP support is included for backwards compatibility with older clients. Refer to <a href="https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/how-the-windows-time-service-works">How the Windows Time Service Works</a> for more information.</p>
+<p>Meinberg provides a <a href="https://www.meinbergglobal.com/english/sw/ntp.htm#ntp_stable">GUI installer</a> of the latest NTP version for Window XP and later.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom py-0">
+  <ul class="mx-auto">
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+        <i class="bi-envelope"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <i class="bi-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <i class="bi-linkedin"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <i class="bi-facebook"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text">
+      <p>&copy; 2021 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+</footer>
+
+</body>
+</html>

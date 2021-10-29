@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="3.3.1 Frequency Error
+3.3.1.1 How bad is a Frequency Error of 500 PPM?
+3.3.1.2 What is the Frequency Error of a good Clock?
+
+When discussing clocks, …">
+<meta property="og:title" content="3.3 Clock Quality" />
+<meta property="og:description" content="3.3.1 Frequency Error
+3.3.1.1 How bad is a Frequency Error of 500 PPM?
+3.3.1.2 What is the Frequency Error of a good Clock?
+ When discussing clocks, the following quality factors are helpful:
+  The smallest possible increase of time the clock model allows is called resolution. If a clock increments its value once per second, the resolution is one second.
+  A high resolution does not help if you can&rsquo;t read the clock." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/" /><meta property="article:section" content="ntpfaq" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>3.3 Clock Quality</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NTP Documentation Archive">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+</head>
+<body><!-- navigation -->
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series/toc">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series/toc">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series/toc">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series/toc">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0/toc">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2/toc">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1/toc">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0/toc">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e/toc">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/">3.3 Clock Quality</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>3.3 Clock Quality</h1>
+     
+    <p>3.3.1 <a href="#331-frequency-error">Frequency Error</a><br>
+3.3.1.1 <a href="#3311-how-bad-is-a-frequency-error-of-500-ppm">How bad is a Frequency Error of 500 PPM?</a><br>
+3.3.1.2 <a href="#3312-what-is-the-frequency-error-of-a-good-clock">What is the Frequency Error of a good Clock?</a></p>
+<hr>
+<p>When discussing clocks, the following quality factors are helpful:</p>
+<ul>
+<li>
+<p>The smallest possible increase of time the clock model allows is called <em>resolution</em>. If a clock increments its value once per second, the resolution is one second.</p>
+</li>
+<li>
+<p>A high resolution does not help if you can&rsquo;t read the clock. Therefore the smallest possible increase of time that can be experienced by a program is called <em>precision</em>.</p>
+<p>In NTP precision is determined automatically, and is measured as a power of two. For example when <code>ntpq -c rl</code> prints <code>precision=-16</code>, the precision is about 15 microseconds (2<sup>^</sup>-16 s).</p>
+<p>If you like formal definitions, consider this one: &ldquo;Precision is the random uncertainty of a measured value, expressed by the standard deviation or by a multiple of the standard deviation.&rdquo;</p>
+</li>
+<li>
+<p>When repeatedly reading the time, the difference may vary almost randomly. The difference of these differences (second derivation) is called <em>jitter</em>.</p>
+</li>
+<li>
+<p>A clock not only needs to be read, it must be set. The <em>accuracy</em> determines how close the clock is to an official time reference like UTC.</p>
+<p>Again, if you prefer a formal definition: &ldquo;Accuracy is the closeness of the agreement between the result of a measurement and a true value of the measurand.&rdquo;</p>
+</li>
+<li>
+<p>Unfortunately, common clock hardware is not very accurate. This is because the frequency that makes time increase is never exactly right. Even an error of only 0.001% would make a clock be off by almost one second per day. This is why discussing clock problems uses very fine measures: One PPM (Part Per Million) is 0.0001% (1E-6).</p>
+<p>Real clocks have a <em>frequency error</em> of several PPM quite frequently. Some of the best clocks available still have errors of about 1E-8 PPM. For example, one of the clocks that is behind the German DCF77 has a stability of 1.5 ns/day (1.7E-8 PPM)</p>
+</li>
+<li>
+<p>Even if the systematic error of a clock model is known, the clock will never be perfect. This is because the frequency varies over time, mostly influenced by temperature, but it could be due to other factors such as air pressure or magnetic fields. <em>Reliability</em> determines how long a clock can keep time within a specified accuracy.</p>
+</li>
+<li>
+<p>For long-term observation one may also notice variations in the clock frequency. The difference of the frequency is called <em>wander</em>. Therefore there can be clocks with poor short-term stability, but with good long-term stability, and vice versa.</p>
+</li>
+</ul>
+<hr>
+<h4 id="331-frequency-error">3.3.1 Frequency Error</h4>
+<p>It&rsquo;s not sufficient to correct the clock once. Figure 3.3a illustrates the problem. The offset of a precision reference pulse has been measured with the free-running system clock. The figure shows that the system clock gains about 50 milliseconds per hour (red line). Even if the frequency error is taken into account, the error spans a few milliseconds within a few hours (blue line).</p>
+<p><strong>Figure 3.3a: Offset for a free-running Clock</strong></p>
+<p><img src="/ntpfaq/clockdrift.png" alt=""></p>
+<p>Even if the offset seems to drift in a linear way, a closer examination reveals that the drift is not linear.</p>
+<p><strong>Example 3.3a: Quartz Oscillators in IBM compatible PCs</strong></p>
+<p>In my experiments with PCs running Linux I found out that the frequency of the oscillator&rsquo;s correction value increases by about 11 PPM after powering up the system. This is quite likely due to the increase of temperature. A typical quartz is expected to drift about 1 PPM per °C.</p>
+<p>Even for a system that has been running for several days in a non-air-conditioned office, the correction value changed by more than 1 PPM within a week (see Figure 3.3b for a snapshot from that machine). It is possible that a change in supply voltage also changes the drift value of the quartz.</p>
+<p>As a consequence, without continuous adjustments the clock must be expected to drift away at roughly one second per day in the worst case. Even worse, the values quoted above may increase significantly for other circuits, or even more for extreme environmental conditions.</p>
+<p><strong>Figure 3.3b: Frequency Correction within a Week</strong></p>
+<p><img src="/ntpfaq/f-tick1b.png" alt=""></p>
+<p>Some spikes may be due to the fact that the DCF77 signal failed several times during the observation, causing the receiver to resynchronize with an unknown phase.</p>
+<hr>
+<h4 id="3311-how-bad-is-a-frequency-error-of-500-ppm">3.3.1.1 How bad is a Frequency Error of 500 PPM?</h4>
+<p>As most people have some trouble with that abstract PPM (parts per million, 0.0001%), I&rsquo;ll simply state that 12 PPM correspond to one second per day roughly. So 500 PPM means the clock is off by about 43 seconds per day. Only poor old mechanical wristwatches are worse.</p>
+<hr>
+<h4 id="3312-what-is-the-frequency-error-of-a-good-clock">3.3.1.2 What is the Frequency Error of a good Clock?</h4>
+<p>I&rsquo;m not sure, but but I think a chronometer is allowed to drift mostly by six seconds a day when the temperature doesn&rsquo;t change by more than 15° Celsius from room temperature. That corresponds to a frequency error of 69 PPM.</p>
+<p>I read about a temperature compensated quartz that should guarantee a clock error of less than 15 seconds per year, but I think they were actually talking about the frequency variation instead of absolute frequency error. In any case that would be 0.47 PPM. As I actually own a wrist watch that should include that quartz, I can state that the absolute frequency error is about 2.78 PPM, or 6 seconds in 25 days.</p>
+<p>For the Meinberg GPS 167 the frequency error of the free running oven-controlled quartz is specified as 0.5 PPM after one year, or 43 milliseconds per day (roughly 16 seconds per year). See the examples in <a href="/ntpfaq/ntp-s-related#91-what-is-mills-speak">Mills-speak</a>.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom py-0">
+  <ul class="mx-auto">
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+        <i class="bi-envelope"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <i class="bi-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <i class="bi-linkedin"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <i class="bi-facebook"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text">
+      <p>&copy; 2021 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+</footer>
+
+</body>
+</html>

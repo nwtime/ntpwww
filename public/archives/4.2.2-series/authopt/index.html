@@ -85,6 +85,31 @@ if (!doNotTrack) {
           
           <li class="nav-item dropdown py-0">
             <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Main/SecurityNotice">Security Notices</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Reference Library
             </a>
             <div class="dropdown-menu">
@@ -160,7 +185,7 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/archives/">Docs</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
@@ -210,7 +235,7 @@ if (!doNotTrack) {
 <p>Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> subcommand on the <code>peer</code>, <code>server</code>, <code>broadcast</code> and <code>manycastclient</code> configuration commands as described in the <a href="/archives/4.2.2-series/confopt">Configuration Options</a> page. The authentication options described below specify the locations of the key files, if other than default, which symmetric keys are trusted and the interval between various operations, if other than default.</p>
 <p>Authentication is always enabled, although ineffective if not configured as described below. If a NTP packet arrives including a message authentication code (MAC), it is accepted only if it passes all cryptographic checks. The checks require correct key ID, key value and message digest. If the packet has been modified in any way or replayed by an intruder, it will fail one or more of these checks and be discarded. Furthermore, the Autokey scheme requires a preliminary protocol exchange to obtain the server certificate, verify its credentials and initialize the protocol</p>
 <p>The <code>auth</code> flag controls whether new associations or remote configuration commands require cryptographic authentication. This flag can be set or reset by the <code>enable</code> and <code>disable</code> commands and also by remote configuration commands sent by a <code>ntpdc</code> program running on another machine. If this flag is enabled, which is the default case, new broadcast/manycast client and symmetric passive associations and remote configuration commands must be cryptographically authenticated using either symmetric key or public key cryptography. If this flag is disabled, these operations are effective even if not cryptographic authenticated. It should be understood that operating with the <code>auth</code> flag disabled invites a significant vulnerability where a rogue hacker can masquerade as a truechimer and seriously disrupt system timekeeping. It is important to note that this flag has no purpose other than to allow or disallow a new association in response to new broadcast and symmetric active messages and remote configuration commands and, in particular, the flag has no effect on the authentication process itself.</p>
-<p>The security model and protocol schemes for both symmetric key and public key cryptography are summarized below; further details are in the briefings, papers and reports at the NTP project page linked from <a href="http://www.ntp.org">www.ntp.org</a>.</p>
+<p>The security model and protocol schemes for both symmetric key and public key cryptography are summarized below; further details are in the briefings, papers and reports in the <a href="/reflib">Reference Library</a>.</p>
 <hr>
 <h4 id="symmetric-key-cryptography">Symmetric Key Cryptography</h4>
 <p>The original RFC-1305 specification allows any one of possibly 65,534 keys, each distinguished by a 32-bit key identifier, to authenticate an association. The servers and clients involved must agree on the key and key identifier to authenticate NTP packets. Keys and related information are specified in a key file, usually called <code>ntp.keys</code>, which must be distributed and stored using secure means beyond the scope of the NTP protocol itself. Besides the keys used for ordinary NTP associations, additional keys can be used as passwords for the <a href="/archives/4.2.2-series/ntpq">ntpq</a> and <a href="/archives/4.2.2-series/ntpdc">ntpdc</a> utility programs. Ordinarily, the <code>ntp.keys</code> file is generated by the <a href="/archives/4.2.2-series/keygen">ntp-keygen</a> program.</p>

@@ -1,5 +1,4 @@
-[Network Time Foundation](https://www.nwtime.org/) is converting the official NTP documentation websites to Hugo and Markdown. Anyone can download the documentation source and generate their own HTML copy of the documentation. Users with a github account can also edit the documentation and generate git pull requests for their edits to be reviewed. This README contains instructions for getting the NTP documentation source, generating a copy of the
-documentation, and issuing a git pull request.
+[Network Time Foundation](https://www.nwtime.org/) is converting the official NTP documentation websites to Hugo and Markdown. Anyone can download the documentation source and generate their own HTML copy of the documentation. Users with a github account can also edit the documentation and generate git pull requests for their edits to be reviewed. This README contains instructions for getting the NTP documentation source, generating a copy of the documentation, and issuing a git pull request.
 
 ## Requirements
 
@@ -16,22 +15,22 @@ npm install -D postcss-cli
 npm install -D postcss
 ```
 
-Grab the [ntpdoc repository](https://github.com/nwtime/ntpdoc/):
+Grab the [ntpwww repository](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww):
 
 ```
-git clone https://github.com/nwtime/ntpdoc
+git clone https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww
 
 ```
 
 ## Building the Documentation
 
-Once you've installed the requirements, start Hugo from the `ntpdoc` directory:
+Once you've installed the requirements, start Hugo from the `ntpwww` directory:
 
 ```
 hugo server
 ```
 
-This message indicates success and you can view the ntpdoc website by opening the specified URL in a web browser:
+This message indicates success and you can view the ntpwww website by opening the specified URL in a web browser:
 
 ```
 Web Server is available at //localhost:1313/ (bind address 127.0.0.1)
@@ -48,7 +47,6 @@ you have not installed the extended version of Hugo.
 
 ## Editing the Documentation
 
-If Hugo is running as you save edits to an ntpdoc file, it should automatically display the changes--occasionally you will need to refresh your browser to see the changes.
+If Hugo is running as you save edits to an ntpwww file, it should automatically display the changes--occasionally you will need to refresh your browser to see the changes.
 
-To issue a git pull request for your edits, use the instructions at
-https://help.github.com/articles/using-pull-requests.
+To issue a git pull request for your edits, use [these instructions](https://support.atlassian.com/bitbucket-cloud/docs/tutorial-learn-about-bitbucket-pull-requests/).

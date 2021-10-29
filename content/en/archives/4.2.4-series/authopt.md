@@ -40,7 +40,7 @@ Authentication is always enabled, although ineffective if not configured as desc
 
 The <code>auth</code> flag controls whether new associations or remote configuration commands require cryptographic authentication. This flag can be set or reset by the <code>enable</code> and <code>disable</code> commands and also by remote configuration commands sent by a <code>ntpdc</code> program running on another machine. If this flag is enabled, which is the default case, new broadcast/manycast client and symmetric passive associations and remote configuration commands must be cryptographically authenticated using either symmetric key or public key cryptography. If this flag is disabled, these operations are effective even if not cryptographic authenticated. It should be understood that operating with the <code>auth</code> flag disabled invites a significant vulnerability where a rogue hacker can masquerade as a truechimer and seriously disrupt system timekeeping. It is important to note that this flag has no purpose other than to allow or disallow a new association in response to new broadcast and symmetric active messages and remote configuration commands and, in particular, the flag has no effect on the authentication process itself.
 
-The security model and protocol schemes for both symmetric key and public key cryptography are summarized below; further details are in the briefings, papers and reports at the NTP project page linked from www.ntp.org.
+The security model and protocol schemes for both symmetric key and public key cryptography are summarized below; further details are in the briefings, papers and reports in the [Reference Library](/reflib).
 
 * * *
 
