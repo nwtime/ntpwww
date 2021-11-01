@@ -336,7 +336,7 @@ Last update: 14-Apr-2010 20:49 UTC
 <h4 id="examples">Examples</h4>
 <p>Consider a scenario involving three secure groups RED, GREEN and BLUE. RED and BLUE are typical of national laboratories providing certified time to the Internet at large. As shown ion the figure, RED TH mort and BLUE TH macabre run NTP symmetric mode with each other for monitoring or backup. For the purpose of illustration, assume both THs are primary servers. GREEN is typical of a large university providing certified time to the campus community. GREEN TH howland is a broadcast client of both RED and BLUE. BLUE uses the IFF scheme, while both RED and GREEN use the GQ scheme, but with different keys. YELLOW is a client of GREEN and for purposes of illustration a TH for YELLOW.</p>
 <p>The BLUE TH macabre uses configuration commands</p>
-<p><code>crypto pw qqsv ident blue</code>
+<p><code>crypto pw qqsv ident blue</code> 
 <code>peer mort autokey</code><br>
 <code>broadcast <em>address</em> autokey</code></p>
 <p>where <code>qqsv</code> is the password for macabre files and <code><em>address</em></code> is the broadcast address for the local LAN. It generates BLUE files using the commands</p>
@@ -344,7 +344,7 @@ Last update: 14-Apr-2010 20:49 UTC
 <code>ntp-keygen -p qqsv -e &gt;ntpkey_gqpar_blue</code></p>
 <p>The first line generates the host, trusted certificate and private GQ server keys file. The second generates the public GQ client parameters file, which can have any nonconflicting mnemonic name.</p>
 <p>The RED TH mort uses configuration commands</p>
-<p><code>crypto pw xxx ident red</code>
+<p><code>crypto pw xxx ident red</code> 
 <code>peer macabre autokey</code><br>
 <code>broadcast <em>address</em> autokey</code></p>
 <p>where <code>xxx</code> is the password for mort files. It generates RED files using the commands</p>
