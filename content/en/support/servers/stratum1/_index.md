@@ -270,7 +270,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [US DE](/support/servers/publictimeserver000288) | PEPCO Holdings Inc., 500 N Wakefield Dr., Newark DE | | AT&T and QWEST | [open](/support/servers/openaccess) | No | 2009-03-27 |
 | [US FL](/support/servers/publictimeserver001446) | Homestead, FL | Ryan A. Krenzischek | Global | [open](/support/servers/openaccess) | No | 2020-08-11 |
 | [US FL](/support/servers/publictimeserver001415) | Homestead, FL | Ryan A. Krenzischek | Global | [open](/support/servers/openaccess) | No | 2020-08-11 |
-| [US FL](/support/servers/publictimeserver001744) | Orlando Florida FL | Marc Compere | Eastern Time Zone USA | [open](/support/servers/openaccess) | No | 2021-06-03 |
+| [US FL](/support/servers/publictimeserver001744) | Orlando, FL | Marc Compere | Eastern Time Zone USA | [open](/support/servers/openaccess) | No | 2021-06-03 |
 | [US FL](/support/servers/publictimeserver000291) | University of Florida, Gainesville, FL | | Eastern time zone US | [restricted](/support/servers/restrictedaccess) | No | 2015-10-23 |
 | [US GA](/support/servers/publictimeserver000292) | Georgia Institute of Technology, Atlanta, GA | | USA Eastern timezone, others by arrangement | [restricted](/support/servers/restrictedaccess) | No | 2015-10-23 |
 | [US GA](/support/servers/publictimeserver001489) | Georgia Institute of Technology, Atlanta, GA | | USA Eastern timezone, others by arrangement | [open](/support/servers/openaccess) | No | 2018-08-06 |
