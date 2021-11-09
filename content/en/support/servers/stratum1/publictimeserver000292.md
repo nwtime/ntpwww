@@ -22,7 +22,7 @@ aliases:
 | [ Geographic Coordinates](/support/servers/geographiccoordinates) |  84 23 40.9W 33 46 30.0N WGS84 |
 | [Server Synchronization](/support/servers/serversynchronization) |  NTP V4 primary (GPS clock)  |
 | [Service Area](/support/servers/servicearea) |  USA Eastern timezone, others by arrangement |
-| [Access Policy](/support/servers/accesspolicy) | [Restricted Access](/support/servers/restrictedaccess) |
+| [Access Policy](/support/servers/accesspolicy) | [Open Access](/support/servers/openaccess) |
 | [Access Details](/support/servers/accessdetails) |  Open access for stratum 2 servers  |
 | [Notification Message](/support/servers/notificationmessage) | No |
 | [Autokey](/support/servers/autokey) |  |

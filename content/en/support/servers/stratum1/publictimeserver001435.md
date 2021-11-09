@@ -15,10 +15,10 @@ aliases:
 | [Use DNS](/support/servers/usedns) | Yes |
 | [Pool Member](/support/servers/poolmember) | Yes |
 | [Server Location](/support/servers/serverlocation) |  Krakow/Poland  |
-| [Host Organization](/support/servers/hostorganization) | |
+| [Host Organization](/support/servers/hostorganization) | rflab.pl |
 | [ Geographic Coordinates](/support/servers/geographiccoordinates) | |
-| [Server Synchronization](/support/servers/serversynchronization) |  |
-| [Service Area](/support/servers/servicearea) |  rflab.pl  |
+| [Server Synchronization](/support/servers/serversynchronization) | GPS LeoNTP |
+| [Service Area](/support/servers/servicearea) |  Public  |
 | [Access Policy](/support/servers/accesspolicy) | [Open Access](/support/servers/openaccess) |
 | [Access Details](/support/servers/accessdetails) |  |
 | [Notification Message](/support/servers/notificationmessage) | Yes |
@@ -27,4 +27,4 @@ aliases:
 | [Symmetric Key](/support/servers/symmetrickey) |  |
 | [Symmetric Key Type](/support/servers/symmetrickeytype) | |
 | [Symmetric Key URL](/support/servers/symmetrickeyurl) | |
-| [Server Contact](/support/servers/servercontact) | [email](mailto:maxbit.allegro@gmail.com) |
+| [Server Contact](/support/servers/servercontact) | [email](mailto:maxbit.allegro@gmail.com), [Marcin Trzaska](mailto:marcin@rflab.pl) |

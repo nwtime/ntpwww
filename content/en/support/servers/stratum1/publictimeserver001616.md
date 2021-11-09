@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US MN|
 | Hostname |  ntp2.wiktel.com |
 | IP Address |  69.89.207.199 |
 | IPv6 Address |  2600:2600::199 |

@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US OH |
 | Hostname |  ntp1a.versadns.com |
 | IP Address |  71.66.197.233 |
 | IPv6 Address | |

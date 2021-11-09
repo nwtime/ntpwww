@@ -16,7 +16,7 @@ aliases:
 | [Pool Member](/support/servers/poolmember) | Yes |
 | [Server Location](/support/servers/serverlocation) |  Jackson NJ |
 | [Host Organization](/support/servers/hostorganization) | |
-| [ Geographic Coordinates](/support/servers/geographiccoordinates) |  40° 2'43.38"N 74°19'7.26"W |
+| [ Geographic Coordinates](/support/servers/geographiccoordinates) | Lon 74.3186W Lat 40.0454N |
 | [Server Synchronization](/support/servers/serversynchronization) | GPS |
 | [Service Area](/support/servers/servicearea) |  North and South America  |
 | [Access Policy](/support/servers/accesspolicy) | [Open Access](/support/servers/openaccess) |
@@ -27,4 +27,4 @@ aliases:
 | [Symmetric Key](/support/servers/symmetrickey) | No |
 | [Symmetric Key Type](/support/servers/symmetrickeytype) | |
 | [Symmetric Key URL](/support/servers/symmetrickeyurl) | |
-| [Server Contact](/support/servers/servercontact) | [email](mailto:oilpan@optonline.net) |
+| [Server Contact](/support/servers/servercontact) | [email](mailto:mikegee63@gmail.com) |

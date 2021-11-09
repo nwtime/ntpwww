@@ -9,11 +9,11 @@ aliases:
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
 | [Country Code](/support/servers/countrycode) | HR |
-| Hostname | ntp.hr |
+| Hostname | time1.ntp.hr |
 | IP Address |  161.53.78.71 |
 | IPv6 Address | |
-| [Use DNS](/support/servers/usedns) | Yes |
-| [Pool Member](/support/servers/poolmember) | Yes |
+| [Use DNS](/support/servers/usedns) | No |
+| [Pool Member](/support/servers/poolmember) | No |
 | [Server Location](/support/servers/serverlocation) |  Zagreb, Croatia  |
 | [Host Organization](/support/servers/hostorganization) |  LDM/REM Lab - Remote Metrology Laboratory, University of Zagreb, Faculty of Electrical Engineering and Computing |
 | [ Geographic Coordinates](/support/servers/geographiccoordinates) |  45°48'05.5"N, 15°58'16.0"E |

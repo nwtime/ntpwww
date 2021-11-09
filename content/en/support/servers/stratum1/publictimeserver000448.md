@@ -27,4 +27,4 @@ aliases:
 | [Symmetric Key](/support/servers/symmetrickey) |  |
 | [Symmetric Key Type](/support/servers/symmetrickeytype) | |
 | [Symmetric Key URL](/support/servers/symmetrickeyurl) | |
-| [Server Contact](/support/servers/servercontact) | [Giuseppe Vizio](mailto:ntp.info@inrim.it) |
+| [Server Contact](/support/servers/servercontact) | [Giuseppe Vizio](mailto:ntp.info@inrim.it), [alternate](mailto:fabiagherrero@libero.it)|

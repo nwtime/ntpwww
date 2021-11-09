@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
-| [Country Code](/support/servers/countrycode) | GB |
+| [Country Code](/support/servers/countrycode) | UK |
 | Hostname |  ntp1.speedwelshpool.com |
 | IP Address |  87.242.168.84 |
 | IPv6 Address | |

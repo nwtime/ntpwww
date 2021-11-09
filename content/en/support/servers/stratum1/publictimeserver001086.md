@@ -1,30 +1,30 @@
 ---
-title: "Server 1086"
+title: "Server 766"
 type: archives
 aliases:
-    - /support/servers/publictimeserver001086
+    - /support/servers/publictimeserver000766
 ---
 
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
 | [Country Code](/support/servers/countrycode) | RU |
-| Hostname | |
-| IP Address | |
-| IPv6 Address | |
-| [Use DNS](/support/servers/usedns) |  |
-| [Pool Member](/support/servers/poolmember) |  |
-| [Server Location](/support/servers/serverlocation) |  |
-| [Host Organization](/support/servers/hostorganization) | |
-| [ Geographic Coordinates](/support/servers/geographiccoordinates) | |
-| [Server Synchronization](/support/servers/serversynchronization) |  |
-| [Service Area](/support/servers/servicearea) |  |
-| [Access Policy](/support/servers/accesspolicy) | [Access](/support/servers/access) |
+| Hostname |  ntp.ix.ru |
+| IP Address |  194.190.168.1 |
+| IPv6 Address |  2001:6d0:ffd4::1 |
+| [Use DNS](/support/servers/usedns) | Yes |
+| [Pool Member](/support/servers/poolmember) | Yes |
+| [Server Location](/support/servers/serverlocation) | Novosibirsk |
+| [Host Organization](/support/servers/hostorganization) |  MSK-IX |
+| [ Geographic Coordinates](/support/servers/geographiccoordinates) |   55°1′N 82°55′E |
+| [Server Synchronization](/support/servers/serversynchronization) |  GLONASS / GPS  |
+| [Service Area](/support/servers/servicearea) |  Any, anycast cluster used  |
+| [Access Policy](/support/servers/accesspolicy) | [Open Access](/support/servers/openaccess) |
 | [Access Details](/support/servers/accessdetails) |  |
-| [Notification Message](/support/servers/notificationmessage) |  |
+| [Notification Message](/support/servers/notificationmessage) | No |
 | [Autokey](/support/servers/autokey) |  |
 | [Autokey URL](/support/servers/autokeyurl) | |
 | [Symmetric Key](/support/servers/symmetrickey) |  |
 | [Symmetric Key Type](/support/servers/symmetrickeytype) | |
 | [Symmetric Key URL](/support/servers/symmetrickeyurl) | |
-| [Server Contact](/support/servers/servercontact) | [email](mailto:) |
+| [Server Contact](/support/servers/servercontact) | [MSK-IX](https://www.msk-ix.ru), [email](mailto:noc@ix.ru) |

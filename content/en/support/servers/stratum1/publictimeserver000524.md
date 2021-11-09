@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
-| [Country Code](/support/servers/countrycode) | US CA |
+| [Country Code](/support/servers/countrycode) | US CO |
 | Hostname |  utcnist2.colorado.edu |
 | IP Address |  128.138.188.172 |
 | IPv6 Address | |

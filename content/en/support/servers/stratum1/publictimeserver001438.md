@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
-| [Country Code](/support/servers/countrycode) | GB |
+| [Country Code](/support/servers/countrycode) | UK |
 | Hostname |  ntp0.uos.ac.uk |
 | IP Address |  194.80.204.184 |
 | IPv6 Address | |

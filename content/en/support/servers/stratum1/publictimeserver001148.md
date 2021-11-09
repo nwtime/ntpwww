@@ -11,14 +11,14 @@ aliases:
 | [Country Code](/support/servers/countrycode) | KZ |
 | Hostname |  ntp.nic.kz |
 | IP Address |  80.241.0.72 |
-| IPv6 Address | |
-| [Use DNS](/support/servers/usedns) | Yes |
+| IPv6 Address | 2a01:7640::72|
+| [Use DNS](/support/servers/usedns) | No |
 | [Pool Member](/support/servers/poolmember) | Yes |
 | [Server Location](/support/servers/serverlocation) |  Semey, Kazakhstan  |
 | [Host Organization](/support/servers/hostorganization) |  KazNIC Organization |
 | [ Geographic Coordinates](/support/servers/geographiccoordinates) | |
-| [Server Synchronization](/support/servers/serversynchronization) | GPS |
-| [Service Area](/support/servers/servicearea) |  Kazakhstan  |
+| [Server Synchronization](/support/servers/serversynchronization) | GPS / Meinberg SyncFire |
+| [Service Area](/support/servers/servicearea) |  Europe, Asia  |
 | [Access Policy](/support/servers/accesspolicy) | [Open Access](/support/servers/openaccess) |
 | [Access Details](/support/servers/accessdetails) |  |
 | [Notification Message](/support/servers/notificationmessage) | Yes |

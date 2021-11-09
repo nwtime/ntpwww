@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US CA |
 | Hostname |  ntp2.kfu.com |
 | IP Address | |
 | IPv6 Address |  2601:647:4600:dea4:dbe:13ec:a024:acc7 |

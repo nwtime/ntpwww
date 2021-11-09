@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
-| [Country Code](/support/servers/countrycode) | CHE |
+| [Country Code](/support/servers/countrycode) | CH |
 | Hostname |  tick.ntp.infomaniak.ch |
 | IP Address |   84.16.73.33 |
 | IPv6 Address |   2001:1600:4:1::123 |
