@@ -276,7 +276,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [US GA](/support/servers/publictimeserver001489) | Georgia Institute of Technology, Atlanta, GA | | USA Eastern timezone, others by arrangement | [open](/support/servers/openaccess) | No | 2018-08-06 |
 | [US HI](/support/servers/publictimeserver000294) | Maui High Performance Computing Center | | Hawaii, others on request | [restricted](/support/servers/restrictedaccess) | Yes | 2014-03-14 |
 | [US IA](/support/servers/publictimeserver001108) | Monticello, Iowa | USSHC | Planetary | [open](/support/servers/openaccess) | No | 2019-12-20 |
-| [US IA](/support/servers/publictimeserver001089) | United States Secure Hosting and Colocation, Monticello Iowa | | Planetary | [open](/support/servers/openaccess) | No | 2014-07-30 |
+| [US IA](/support/servers/publictimeserver001089) | Monticello Iowa | United States Secure Hosting and Colocation | Planetary | [open](/support/servers/openaccess) | No | 2014-07-30 |
 | [US IL](/support/servers/publictimeserver001645) | Chicago, IL | | North America | [open](/support/servers/openaccess) | No | 2020-02-01 |
 | [US IL](/support/servers/publictimeserver000295) | University of Illinois, Urbana-Champaign, IL | | CICNET, Midwest, NCSA region | [closed](/support/servers/closedaccess) | Yes | 2020-07-24 |
 | [US IL](/support/servers/publictimeserver001366) | Galesburg, IL | Jet Air, Inc. | North America | [open](/support/servers/openaccess) | No | 2017-05-11 |
@@ -299,10 +299,10 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [US NJ](/support/servers/publictimeserver000398) | Jensen Research Corporation, Ramsey NJ | | Eastern US | [restricted](/support/servers/restrictedaccess) | Yes | 2011-12-02 |
 | [US NJ](/support/servers/publictimeserver001538) | Jackson NJ USA | N/A | North and South America | [open](/support/servers/openaccess) | No | 2021-03-24 |
 | [US NY](/support/servers/publictimeserver000162) | [Hurricane Electric](https://www.he.net/), New York City, New York | | all areas | [open](/support/servers/openaccess) | No | 2019-12-20 |
-| [US NY](/support/servers/publictimeserver000358) | Long Island, New York, USA, Earth | ZiaSpace | Northeastern United States | [open](/support/servers/openaccess) | Yes | 2020-05-27 |
+| [US NY](/support/servers/publictimeserver000358) | Long Island, NY | ZiaSpace | Northeastern United States | [open](/support/servers/openaccess) | Yes | 2020-05-27 |
 | [US NY](/support/servers/publictimeserver000708) | Morningside Campus, Columbia University, New York, NY | | NYSERnet | [restricted](/support/servers/restrictedaccess) | No | 2015-10-13 |
 | [US NY](/support/servers/publictimeserver001287) | Syracuse, NY | | NE United States | [open](/support/servers/openaccess) | Yes | 2016-06-03 |
-| [US OH](/support/servers/publictimeserver001140) | East Main Technology Inc. in Troy, Ohio | East Main Technology Inc. | North America | [open](/support/servers/openaccess) | Yes | 2019-09-08 |
+| [US OH](/support/servers/publictimeserver001140) | Troy, Ohio | East Main Technology Inc. | North America | [open](/support/servers/openaccess) | Yes | 2019-09-08 |
 | [US OK](/support/servers/publictimeserver000309) | Oklahoma State University, Stillwater, OK | | Central Time Zone, others by arrangement | [restricted](/support/servers/restrictedaccess) | No | 2017-06-03 |
 | [US OK](/support/servers/publictimeserver001037) | Edmond, Oklahoma | | Any | [open](/support/servers/openaccess) | No | 2020-03-10 |
 | [US PA](/support/servers/publictimeserver000310) | Penn State University, University Park, PA | | Internet, [Internet2](https://www.internet2.edu/), [3ROX](https://www.3rox.net/) | [closed](/support/servers/closedaccess) | Yes | 2017-06-03 |
