@@ -26,7 +26,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [AU](/support/servers/publictimeserver000344) | Sydney, New South Wales, Australia | [TPG Internet](https://www.tpg.com.au) | Australia only (Australian ISP) | [open](/support/servers/openaccess) | No | 2016-03-31 |
 | [BE](/support/servers/publictimeserver001394) | Gravelines | |  Europe | [open](/support/servers/openaccess) | Yes | 2017-08-12 |
 | [BE](/support/servers/publictimeserver001706) | Multiple servers, we have a DNS-pool of 4 servers | Heppen.be - Online Websdr | European Union | [open](/support/servers/openaccess) | No | 2020-10-28 |
-| [BE](/support/servers/publictimeserver001584) BE | Steenbergen, NL |Devrandom.be Comm. V |  BE, NL, LU, DE | [open](/support/servers/openaccess) | No | 2019-12-20 |
+| [BE](/support/servers/publictimeserver001584) | Steenbergen, NL |Devrandom.be Comm. V |  BE, NL, LU, DE | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [BE](/support/servers/publictimeserver000784) | Rumst, Belgium | Pratobornum bv | Western Europe | [open](/support/servers/openaccess) | No | 2020-11-27T10:23:3 |
 | [BE](/support/servers/publictimeserver000014) | Brussels, Belgium | |  European Union | [open](/support/servers/openaccess) | No | 2004-09-24T02:34:3 |
 | [BE](/support/servers/publictimeserver001217) | Leuven, Belgium | Team Belgium | Europe | [open](/support/servers/openaccess) | Yes | 2019-12-05 |
@@ -40,19 +40,16 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [BR](/support/servers/publictimeserver000511) | Sao Paulo, Brazil | | Brazil | [open](/support/servers/openaccess) | No | 2010-04-16 |
 | [BR](/support/servers/publictimeserver000727) | Jundiai - Sao Paulo - Brasil | |  Southwest Brasil | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [BR](/support/servers/publictimeserver000030) | Laboratory for the Processing of Analog and Digital Signals (PADS), Federal University of Rio de Janeiro (UFRJ), Rio de Janeiro, Brazil | PADS/PEE - COPPE - UFRJ | Brazil | [open](/support/servers/openaccess) | No | 2019-02-07 |
-| [BR](/support/servers/publictimeserver000016) | RNP - Brazilian Research Network/Rede Nacional de Pesquisa | |  Brazil
-| [open](/support/servers/openaccess) | Yes | 2004-09-24 |
+| [BR](/support/servers/publictimeserver000016) | RNP - Brazilian Research Network/Rede Nacional de Pesquisa | |  Brazil | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
 | [CA](/support/servers/publictimeserver000041) | Ottawa, Ontario, Canada | National Research Council of Canada | Canada | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
-| [CA](/support/servers/publictimeserver001030) | T01B32, OVH BHS1, Beauharnois,Quebec, J6N 1W5, Canada | ntp.fangfufu.co.uk |  Worldwide | [open](/support/servers/openaccess) | Yes | 2020-10-02 |
+| [CA](/support/servers/publictimeserver001030) | Rack: T01B32, OVH BHS1, Beauharnois,Quebec, J6N 1W5, Canada | ntp.fangfufu.co.uk |  Worldwide | [open](/support/servers/openaccess) | Yes | 2020-10-02 |
 | [CA](/support/servers/publictimeserver000714) | Hamilton, Ontario, Canada | Digibase Operations | North America, preference for Eastern Canada and North-Eastern US | [open](/support/servers/openaccess) | Yes | 2016-08-25 |
 | [CA](/support/servers/publictimeserver000021) | University of Calgary | |  Canada | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
-| [CA](/support/servers/publictimeserver000039) | [Canadian Meteorological Centre](https://www.cmc.ec.gc.ca/) | | Eastern Canada
-| [open](/support/servers/openaccess) | No | 2004-09-24 |
+| [CA](/support/servers/publictimeserver000039) | Canadian Meteorological Centre | | Eastern Canada | [open](/support/servers/openaccess) | No | 2004-09-24 |
 | [CA](/support/servers/publictimeserver001587) | Toronto, Ontario, Canada | [AS14061](https://bgp.he.net/AS14061) DigitalOcean  |  Worldwide | [open](/support/servers/openaccess) | No | 2021-08-08 |
 | [CA](/support/servers/publictimeserver000903) | Beauharnois, Qu&eacute;bec, Canada | | Any | [open](/support/servers/openaccess) | No | 2018-09-20 |
-| [CA](/support/servers/publictimeserver000042) | Ottawa, Ontario, Canada | [National Research Council of Canada](https://www.nrc.ca/inms/) |  Canada | [open](/support/servers/openaccess) | No | 2005-11-30 |
-| [CA](/support/servers/publictimeserver000038) | Dorval, Qu&eacute;bec, Canada
-|  [Canadian Meteorological Centre](https://www.cmc.ec.gc.ca/) | Eastern Canada | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
+| [CA](/support/servers/publictimeserver000042) | Ottawa, Ontario, Canada | [National Research Council of Canada](https://nrc.canada.ca/en) |  Canada | [open](/support/servers/openaccess) | No | 2005-11-30 |
+| [CA](/support/servers/publictimeserver000038) | Dorval, Qu&eacute;bec, Canada | Canadian Meteorological Centre | Eastern Canada | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
 | [CA](/support/servers/publictimeserver000788) | Oakville, Ontario, Canada | Servman.ca |  Eastern Canada and US | [open](/support/servers/openaccess) | Yes | 2013-06-20 |
 | [CA](/support/servers/publictimeserver001263) | Winnipeg, Manitoba, Canada | Manitoba Internet Exchange | North America | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [CA](/support/servers/publictimeserver000872) | Vancouver, BC | [Tech Futures Interactive Inc. - CloudSingularity Network](https://www.techfutures.co) |  North America | [open](/support/servers/openaccess) | No | 2019-07-17 |
@@ -61,8 +58,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [CA](/support/servers/publictimeserver001678) | Edmonton, Alberta, Canada | EPL | Western Canada, Canada | [open](/support/servers/openaccess) | No | 2020-07-02 |
 | [CA](/support/servers/publictimeserver000043) | Regina, Saskatchewan, Canada | University of Regina |  SASK#net, CA*net, Canada | [open](/support/servers/openaccess) | No | 2004-09-24 |
 | [CA](/support/servers/publictimeserver001341) | Toronto | [Atlantic.Net](https://www.atlantic.net/) | Canada | [open](/support/servers/openaccess) | Yes | 2017-02-06 |
-| [CA](/support/servers/publictimeserver000044) | Toronto, Ontario, Canada | University of Toronto |  Eastern Canada
-| [restricted](/support/servers/restrictedaccess) | Yes | 2019-12-20 |
+| [CA](/support/servers/publictimeserver000044) | Toronto, Ontario, Canada | University of Toronto |  Eastern Canada | [restricted](/support/servers/restrictedaccess) | Yes | 2019-12-20 |
 | [CH](/support/servers/publictimeserver001570) | Geneva, Switzerland | | Worldwide | [open](/support/servers/openaccess) | No | 2020-04-14 |
 | [CH](/support/servers/publictimeserver000350) | Zurich, Switzerland | |  Switzerland/Europe | [open](/support/servers/openaccess) | Yes | 2008-02-11 |
 | [CH](/support/servers/publictimeserver001142) | Exion, Manno, Switzerland - Multihomed COLT &amp; Swisscom uplink | Martino Dell'Ambrogio private services | Switzerland/Europe | [open](/support/servers/openaccess) | No | 2019-12-07 |
