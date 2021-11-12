@@ -83,7 +83,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DE](/support/servers/publictimeserver000520) | Germany | dianacht.de |  any | [open](/support/servers/openaccess) | No | 2020-04-09 |
 | [DE](/support/servers/publictimeserver001434) | Duesseldorf | FanLin Freifunk M&uuml;nster | DE | [open](/support/servers/openaccess) | No | 2017-12-14 |
 | [DE](/support/servers/publictimeserver001397) | Karlsruhe, Baden-W&uuml;rttemberg, Germany | www.Server24-7.eu |  Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-15 |
-| [DE](/support/servers/publictimeserver001410) | Germany, Wag&auml;usel | WIRCON GmbH | Germany | [open](/support/servers/openaccess) open | Yes | 2019-12-20 |
+| [DE](/support/servers/publictimeserver001410) | Germany, Wag&auml;usel | WIRCON GmbH | Germany | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [DE](/support/servers/publictimeserver000612) | Germany | Faculty of Technology, Bielefeld University |  Germany, Europe | [open](/support/servers/openaccess) | Yes | 2013-02-18 |
 | [DE](/support/servers/publictimeserver000665) | Bochum | | UK / Europe | [restricted](/support/servers/restrictedaccess) | Yes | 2017-07-15 |
 | [DE](/support/servers/publictimeserver001494) | Bremen, Germany | PLUTEX |  Europe | [open](/support/servers/openaccess) | No | 2018-09-12 |
@@ -126,7 +126,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DE](/support/servers/publictimeserver000052) | Augsburg, Bavaria, Germany | University of Applied Sciences (FH) | Germany, Europe, European academic community | [restricted](/support/servers/restrictedaccess) | Yes | 2015-05-21 |
 | [DE](/support/servers/publictimeserver000721) | Nuremberg, Germany | |  Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver001497) | J&uuml;lich, Germany | Intrabit GmbH  | Germany, Europe | [open](/support/servers/openaccess) | No | 2018-09-17 |
-| [DE](/support/servers/publictimeserver001638) | D&uuml;sseldorf | UIT Services GmbH  |  Germany | [open](/support/servers/openaccess) open | Yes | 2020-01-10 |
+| [DE](/support/servers/publictimeserver001638) | D&uuml;sseldorf | UIT Services GmbH  |  Germany | [open](/support/servers/openaccess) | Yes | 2020-01-10 |
 | [DE](/support/servers/publictimeserver000836) | Munich, Germany | | Germany and Europe | [open](/support/servers/openaccess) | No | 2012-08-11 |
 | [DK](/support/servers/publictimeserver000900) | Denmark | |  Worldwide | [open](/support/servers/openaccess) | No | 2018-03-22 |
 | [DK](/support/servers/publictimeserver001687) | Odense, Denmark | Safe-Con ApS  | Denmark (Especially Funen), Europe | [open](/support/servers/openaccess) | No | 2021-05-17 |
