@@ -137,7 +137,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DK](/support/servers/publictimeserver000901) | Denmark | |  Worldwide | [open](/support/servers/openaccess) open | No | 2018-03-22 |
 | [DK](/support/servers/publictimeserver000444) | Fredericia, Denmark | | Europe | [restricted](/support/servers/restrictedaccess) | No | 2017-01-25 |
 | [ES](/support/servers/publictimeserver000053) | Madrid (Spain) | |  Spain | [open](/support/servers/openaccess) | Yes | 2009-01-16 |
-| [EU](/support/servers/publictimeserver001717) EU | Europe | NTP server system ON5HB  | European Union | [open](/support/servers/openaccess) | No | 2021-01-07 |
+| [EU](/support/servers/publictimeserver001717) | Europe | NTP server system ON5HB  | European Union | [open](/support/servers/openaccess) | No | 2021-01-07 |
 | [FI](/support/servers/publictimeserver001693) | Helsinki | SineQuaNon  |  World | [open](/support/servers/openaccess) | No | 2020-08-23 |
 | [FI](/support/servers/publictimeserver001551) | Helsinki | Ghosh Pro Solutions | Worldwide | [open](/support/servers/openaccess) | Yes | 2019-03-25 |
 | [FR](/support/servers/publictimeserver000501) | Paris, France | |  France | [open](/support/servers/openaccess) | No | 2019-12-20 |
@@ -149,7 +149,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [FR](/support/servers/publictimeserver001644) | Gravelines/Nord/France| [Apio systems](https://apio.systems) |  @ europe fr | [open](/support/servers/openaccess) | Yes | 2020-02-02 |
 | [FR](/support/servers/publictimeserver001440) | Paris 75013, France, AS12322 | Hubert Viarouge | France, Europe, World | [open](/support/servers/openaccess) | No | 2021-02-0 |
 | [FR](/support/servers/publictimeserver000834) | Montpellier, France | |  France | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
-| | [FR](/support/servers/publictimeserver001131) | Roubaix, France | Firas Kraiem | Europe/France | [open](/support/servers/openaccess) | No | 2014-10-04 |
+| [FR](/support/servers/publictimeserver001131) | Roubaix, France | Firas Kraiem | Europe/France | [open](/support/servers/openaccess) | No | 2014-10-04 |
 | [FR](/support/servers/publictimeserver001649) | Roubaix, France | SeedHost  |  Europe | [open](/support/servers/openaccess) | No | 2020-02-17 |
 | [FR](/support/servers/publictimeserver000645) | Telecity datacenter (Equinix), Aubervilliers, Paris, France | [DuckCorp](https://www.duckcorp.org/) | anywhere | [open](/support/servers/openaccess) | No | 2019-03-07 |
 | [FR](/support/servers/publictimeserver001167) | Roubaix, France | [The Xipalia Group](https://xipalia.com) |  @, Europe, France | [open](/support/servers/openaccess) | No | 2015-02-19 |
@@ -158,8 +158,8 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [FR](/support/servers/publictimeserver001371) | Gravelines | omgomg.eu | Global | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [FR](/support/servers/publictimeserver000579) | Courbevoie / France | |  France | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [FR](/support/servers/publictimeserver001699) | G102B21  , OVH GRA 1, Gravelines, Nord-Pas-de-Calais-Picardie 59820, France | ntp.fangfufu.co.uk | Worldwide | [open](/support/servers/openaccess) | Yes | 2020-10-08 |
-| [FR](/support/servers/publictimeserver000756) FR | Roubaix, France | [sceen.net](https://www.sceen.net/) |  Anywhere | [open](/support/servers/openaccess) | No | 2019-11-05 |
-| [GB](/support/servers/publictimeserver000963) | Aldershot, UK | [CatN Hosting](https://catn.com/) | UK, Western Europe | [open](/support/servers/openaccess) | No | 2013-06-18 |
+| [FR](/support/servers/publictimeserver000756) | Roubaix, France | [sceen.net](https://www.sceen.net/) |  Anywhere | [open](/support/servers/openaccess) | No | 2019-11-05 |
+| [GB](/support/servers/publictimeserver000963) | Aldershot, UK | CatN Hosting | UK, Western Europe | [open](/support/servers/openaccess) | No | 2013-06-18 |
 | [GB](/support/servers/publictimeserver001702) | Oxford, England | |  Great Britain | [open](/support/servers/openaccess) | Yes | 2020-10-13 |
 | [GB](/support/servers/publictimeserver001425) | London UK | Speed Welshpool Ltd | UK &amp; Europe | [open](/support/servers/openaccess) | Yes | 2017-11-12 |
 | [GB](/support/servers/publictimeserver001528) | London, UK | [NetWeaver](https://www.netweaver.uk/) |  UK, Europe | [open](/support/servers/openaccess) | No | 2021-06-06 |
