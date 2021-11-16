@@ -184,7 +184,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [IE](/support/servers/publictimeserver000073) | Dublin, Ireland. | School of Mathematics, Trinity College | Ireland, UK | [open](/support/servers/openaccess) | Yes | 2005-01-26 |
 | [IQ](/support/servers/publictimeserver000797) | Iraq - Sulaimaniyah | |  Iraq | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [IT](/support/servers/publictimeserver001239) | Milan | IRH.it/Prometeus.com | Worldwide | [open](/support/servers/openaccess) | Yes | 2020-05-21 |
-| [JO](/support/servers/publictimeserver001211) | JO | | JORDAN | [open](/support/servers/openaccess) | Yes | 2015-10-08 |
+| [JO](/support/servers/publictimeserver001211) | JO | | Jordan | [open](/support/servers/openaccess) | Yes | 2015-10-08 |
 | [JP](/support/servers/publictimeserver001640) | Habikino-shi, Osaka-fu, JP | OX. &#31038;&#20250;&#31119;&#31049;&#37096;/&#31038;&#26371;&#20844;&#30410;&#20107;&#26989;&#37096; | Worldwide | [open](/support/servers/openaccess) | No | 2020-01-17 |
 | [JP](/support/servers/publictimeserver001746) | Tokyo, Japan | |  Anywhere | [open](/support/servers/openaccess) | No | 2021-08-01 |
 | [KR](/support/servers/publictimeserver000950) | Incheoun NamDonggu MansuDong | | Korea | [open](/support/servers/openaccess) | Yes | 2017-02-07 |
@@ -192,12 +192,12 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [MA](/support/servers/publictimeserver001362) | Rabat | MARWAN | Morocco - Africa | [open](/support/servers/openaccess) | Yes | 2020-09-21 |
 | [MA](/support/servers/publictimeserver001697) | Rabat | MARWAN |  Morocco - Africa | [open](/support/servers/openaccess) | Yes | 2020-09-21 |
 | [MD](/support/servers/publictimeserver000944) | Chisinau, Moldova | [trabia network](https://www.trabia.com) | Global | [open](/support/servers/openaccess) | No | 2019-12-19 |
-| [MK](/support/servers/publictimeserver001556) | Gostivar, Republic of North Macedonia, Europe | NTPMK |  Republic of North Macedonia rest of Europe | [open](/support/servers/openaccess) | No | 2019-05-20 |
+| [MK](/support/servers/publictimeserver001556) | Gostivar, Republic of North Macedonia, Europe | NTPMK |  Republic of North Macedonia, rest of Europe | [open](/support/servers/openaccess) | No | 2019-05-20 |
 | [MV](/support/servers/publictimeserver000882) | Male', Maldives | | | [open](/support/servers/openaccess) | No | 2012-12-13 |
 | [MV](/support/servers/publictimeserver000881) | Male', Maldives | | | [open](/support/servers/openaccess) | No | 2012-12-13 |
 | [MV](/support/servers/publictimeserver000880) | Male', Maldives | | | [open](/support/servers/openaccess) | No | 2012-12-13 |
 | [MV](/support/servers/publictimeserver000883) | Male', Maldives | | | [open](/support/servers/openaccess) | No | 2012-12-13 |
-| [MX](/support/servers/publictimeserver001344) | NY,CA,DE,FR | | Worldwide | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
+| [MX](/support/servers/publictimeserver001344) | NY, CA, DE, FR | | Worldwide | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [NL](/support/servers/publictimeserver001181) | Amsterdam | |  Europe | [open](/support/servers/openaccess) | Yes | 2015-04-23 |
 | [NL](/support/servers/publictimeserver000904) | Rotterdam | | NL | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [NL](/support/servers/publictimeserver001609) | Haarlem, Netherlands | Gravitywave |  Worldwide | [open](/support/servers/openaccess) | Yes | 2019-10-15 |
@@ -244,7 +244,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [RU](/support/servers/publictimeserver001736) | Ust-Ilimsk, Irkutsk area | | Russia/Europe | [open](/support/servers/openaccess) | Yes | 2021-04-12 |
 | [RU](/support/servers/publictimeserver001663) | Moscow | Finenumbers LLC |  Worldwide | [open](/support/servers/openaccess) | Yes | 2020-05-28 |
 | [RU](/support/servers/publictimeserver001209) | Moscow | ForstWoof | Worldwide | [open](/support/servers/openaccess) | No | 2017-10-30 |
-| [RU](/support/servers/publictimeserver001476) RU | Tyumen, Russia | Delta Telesystems Ltd. |  Russia/Europe | [open](/support/servers/openaccess)  | No | 2018-06-20 |
+| [RU](/support/servers/publictimeserver001476) | Tyumen, Russia | Delta Telesystems Ltd. |  Russia/Europe | [open](/support/servers/openaccess)  | No | 2018-06-20 |
 | [RU](/support/servers/publictimeserver001216) | Murmansk | HWS | RU | [closed](/support/servers/closedaccess) | Yes | 2015-10-2 |
 | [RU](/support/servers/publictimeserver000689) | Saratov | Information Networks Ltd. |  All areas | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [RU](/support/servers/publictimeserver001718) | Nizhny Novgorod, Russia | [Dmitry Shishkin](https://shishkin.us) | Worldwide | [open](/support/servers/openaccess) | No | 2021-01-09 |
@@ -260,13 +260,13 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [SE](/support/servers/publictimeserver000648) | Bjuv, Sweden | | Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [SE](/support/servers/publictimeserver001690) | Mariestad | |  Global | [open](/support/servers/openaccess) | No | 2020-07-24 |
 | [SE](/support/servers/publictimeserver000627) | Vanersborg, Sweden | | Europe | [open](/support/servers/openaccess) | No | 2019-12-17 |
-| [SE](/support/servers/publictimeserver000097) | [flygplats.net](https://www.flygplats.net/), Sigtuna, Sweden | |  Europe | [open](/support/servers/openaccess) | No | 2005-04-13 |
+| [SE](/support/servers/publictimeserver000097) | Sigtuna, Sweden | |  Europe | [open](/support/servers/openaccess) | No | 2005-04-13 |
 | [SE](/support/servers/publictimeserver001731) | Skene | Infania Networks | Europe | [open](/support/servers/openaccess) | No | 2021-03-17 |
 | [SE](/support/servers/publictimeserver001732) | Skene | Infania Networks |  Europe | [open](/support/servers/openaccess) | No | 2021-03-17 |
 | [SG](/support/servers/publictimeserver001479) | Singapore | | Singapore and Asia | [restricted](/support/servers/restrictedaccess) | Yes | 2018-09-29 |
-| [SI](/support/servers/publictimeserver000100) SI | [ARNES (Academic and Research Network of Slovenia)](https://www.arnes.si/), Ljubljana, Slovenia | |  Slovenia/Europe | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
-| [SI](/support/servers/publictimeserver000101) SI | [ARNES (Academic and Research Network of Slovenia)](https://www.arnes.si/), Ljubljana, Slovenia | | Slovenia/Europe | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
-| [SI](/support/servers/publictimeserver000102) SI | [&#34;J. Stefan&#34; Institute](https://www.ijs.si/ijs.html), [Ljubljana](https://www.ijs.si/slo/ljubljana/), [Slovenia](https://www.matkurja.com/) | |  Slovenia, Europe, others by arrangement | [restricted](/support/servers/restrictedaccess) | Yes | 2005-03-04 |
+| [SI](/support/servers/publictimeserver000100) | [ARNES (Academic and Research Network of Slovenia)](https://www.arnes.si/), Ljubljana, Slovenia | |  Slovenia/Europe | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
+| [SI](/support/servers/publictimeserver000101) | [ARNES (Academic and Research Network of Slovenia)](https://www.arnes.si/), Ljubljana, Slovenia | | Slovenia/Europe | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
+| [SI](/support/servers/publictimeserver000102) | [&#34;J. Stefan&#34; Institute](https://www.ijs.si/ijs.html), [Ljubljana](https://www.ijs.si/slo/ljubljana/), [Slovenia](https://www.matkurja.com/) | |  Slovenia, Europe, others by arrangement | [restricted](/support/servers/restrictedaccess) | Yes | 2005-03-04 |
 | [SK](/support/servers/publictimeserver001220) | Bratislava, Slovakia | THR Systems, a.s. | Slovakia, Czech Republic, Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [SK](/support/servers/publictimeserver000814) | Presov | |  Slovakia | [open](/support/servers/openaccess) | No | 2019-12-07 |
 | [TH](/support/servers/publictimeserver001665) | Thailand | ShawIT  | Thailand, Asia | [closed](/support/servers/closedaccess) | Yes | 2020-04-27 |
