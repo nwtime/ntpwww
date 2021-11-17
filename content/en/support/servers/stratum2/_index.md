@@ -286,7 +286,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [UK](/support/servers/publictimeserver000775) | Lancaster, UK | | UK | [open](/support/servers/openaccess) | No | 2012-02-02 |
 | [UK](/support/servers/publictimeserver000110) | University of Manchester, Manchester, England | |  UK | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
 | [UK](/support/servers/publictimeserver001413) | London, UK | Eria Group/ Eria Hosting | UK, Europe | [open](/support/servers/openaccess) | No | 2017-11-02 |
-| [UK](/support/servers/publictimeserver000106) | ExNet Ltd, London, UK | |  UK/Europe/any | [open](/support/servers/openaccess) open | Yes | 2004-09-24 |
+| [UK](/support/servers/publictimeserver000106) | ExNet Ltd, London, UK | |  UK/Europe/any | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
 | [UK](/support/servers/publictimeserver001070) | Cambridge, UK | Private | UK/EU | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [UK](/support/servers/publictimeserver001253) | North Thatcham, Berkshire, England | |  UK, Europe | [open](/support/servers/openaccess) | Yes | 2016-03-23 |
 | [UK](/support/servers/publictimeserver001255) | South Thatcham, Berkshire, England | | UK, Europe | [open](/support/servers/openaccess) | Yes | 2016-02-29 |
@@ -295,10 +295,10 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [UK](/support/servers/publictimeserver000115) | Cambridge, UK | |  UUNET (formerly known in the UK as PIPEX); UK | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [UK](/support/servers/publictimeserver000774) | Lancaster, UK | | UK | [open](/support/servers/openaccess) | No | 2012-10-08 |
 | [UK](/support/servers/publictimeserver000640) | Lancashire, UK | |  United Kingdom | [open](/support/servers/openaccess) | No | 2015-04-23 |
-| [UK](/support/servers/publictimeserver001727) UK| Bournemouth | [Xentex IT Solutions (Xentex Ltd)](https://www.xentex.uk) | UK, Europe | [open](/support/servers/openaccess) | Yes | 2021-02-24 |
+| [UK](/support/servers/publictimeserver001727) | Bournemouth | [Xentex IT Solutions (Xentex Ltd)](https://www.xentex.uk) | UK, Europe | [open](/support/servers/openaccess) | Yes | 2021-02-24 |
 | [UK](/support/servers/publictimeserver000409) | School of Informatics, University of Edinburgh, Scotland, UK | |  UK; associates of Edinburgh University worldwide | [open](/support/servers/openaccess) | Yes | 2006-03-27 |
 | [UK](/support/servers/publictimeserver001726) | Bournemouth | [Xentex IT Solutions (Xentex Ltd)](https://www.xentex.uk) | Worldwide | [open](/support/servers/openaccess) | Yes | 2021-02-24 |
-| [UK](/support/servers/publictimeserver001468) UK | London | |  Europe | [open](/support/servers/openaccess) | No | 2018-05-09 |
+| [UK](/support/servers/publictimeserver001468) | London | |  Europe | [open](/support/servers/openaccess) | No | 2018-05-09 |
 | [US](/support/servers/publictimeserver001596) | Red Springs North Carolina | | United States | [open](/support/servers/openaccess)  | Yes | 2019-08-16 |
 | [US](/support/servers/publictimeserver001478) | Piscataway. NJ USA | |  Northeast USA | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [US](/support/servers/publictimeserver000707) | California | | US | [restricted](/support/servers/restrictedaccess) | Yes | 2017-07-15 |
@@ -320,7 +320,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [US CA](/support/servers/publictimeserver000392) | www.sonic.net, Santa Rosa, CA, USA | | Northern California | [open](/support/servers/openaccess) | No | 2005-11-17 |
 | [US CA](/support/servers/publictimeserver001407) | US CA | ntp.jbkglimited.com |  Worldwide | [open](/support/servers/openaccess) | No | 2017-10-27 |
 | [US CA](/support/servers/publictimeserver000772) | Fremont, CA, US | Linode | any | [open](/support/servers/openaccess) | No | 2019-11-09 |
-| US CA](/support/servers/publictimeserver000339) | Oakland, CA | |  US | [restricted](/support/servers/restrictedaccess) | Yes | 2017-06-03 |
+| [US CA](/support/servers/publictimeserver000339) | Oakland, CA | |  US | [restricted](/support/servers/restrictedaccess) | Yes | 2017-06-03 |
 | [US CA](/support/servers/publictimeserver000684) | Fremont, CA, USA | | RTT &lt; 50ms | [open](/support/servers/openaccess) | Yes | 2010-12-28 |
 | [US CA](/support/servers/publictimeserver000128) | Lake Arrowhead, CA, USA | |  within 100ms of Digilink.net | [restricted](/support/servers/restrictedaccess) | Yes | 2007-03-02 |
 | [US CA](/support/servers/publictimeserver000786) | Los Angeles, CA | The RC Archdiocese of Los Angeles | US | [open](/support/servers/openaccess)  | No | 2019-12-08 |
