@@ -406,7 +406,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [US WA](/support/servers/publictimeserver001712) | Washington State | | Washington State | [open](/support/servers/openaccess) | Yes | 2020-11-28 |
 | [US WA](/support/servers/publictimeserver001470) | WA D.C. | radio-sunshine.org |  North America, United States | [restricted](/support/servers/restrictedaccess) | No | 2021-01-02 |
 | [US WA](/support/servers/publictimeserver001711) | Washington State | | Washington State | [open](/support/servers/openaccess) | Yes | 2020-11-28 |
-| [US WA](/support/servers/publictimeserver001675) | Spokane, WA | [BORGNET dot US](https://time-clock.borgnet.us) |  North America | [open](/support/servers/openaccess) | No | 2021-08-13 |
+| [US WA](/support/servers/publictimeserver001675) | Spokane, WA | BORGNET dot US |  North America | [open](/support/servers/openaccess) | No | 2021-08-13 |
 | [US WI](/support/servers/publictimeserver000190) | [Computer Science Department, University of Wisconsin-Madison](https://www.cs.wisc.edu/) | | US/any | [open](/support/servers/openaccess) | No | 2004-09-24 |
 | [US WI](/support/servers/publictimeserver001325) | Netwrx Consulting | |  Global | [open](/support/servers/openaccess) | Yes | 2021-02-09 |
 | [US WI](/support/servers/publictimeserver000189) | [Computer Science Department, University of Wisconsin-Madison](https://www.cs.wisc.edu/) | | US/any | [open](/support/servers/openaccess) | No | 2004-09-24 |
