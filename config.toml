@@ -1,53 +1,59 @@
 baseURL = "https://doc.ntp.org/"
-title = "NTP: Network Time Protocol"
-
+title = "NTP: Network Time Protocol"
   # CSS Plugins
   [[params.plugins.css]]
   link = "https://necolas.github.io/normalize.css/latest/normalize.css"
   [[params.plugins.css]]
-  link = "plugins/bootstrap/bootstrap.min.css"
-
+  link = "plugins/bootstrap/bootstrap.min.css"
   # JS Plugins
   [[params.plugins.js]]
   link = "plugins/jQuery/jquery.min.js"
   [[params.plugins.js]]
   link = "plugins/bootstrap/bootstrap.min.js"
-  
+ 
 # Preloader
   [params.preloader]
-  preloader = "" # use .png , .svg or .gif format
-
+  preloader = "" # use .png , .svg or .gif format
 # Language settings
 contentDir = "content/en"
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
-
+defaultContentLanguageInSubdir = false
 # Highlighting config
 pygmentsCodeFences = true
 pygmentsUseClasses = false
 pygmentsUseClassic = false
-pygmentsStyle = "tango"
-
+pygmentsStyle = "tango"
 [blackfriday]
 plainIDAnchors = true
 hrefTargetBlank = true
 angledQuotes = false
-latexDashes = true
-
+latexDashes = true
 [imaging]
 resampleFilter = "CatmullRom"
 quality = 75
-anchor = "smart"
-
+anchor = "smart"
 [languages]
 [languages.en]
 contentDir = "content/en"
 title = "NTP: Network Time Protocol"
-description = "NTP Documentation Archive"
+description = ""
 languageName ="English"
 # Weight used for sorting.
-weight = 1
-
+weight = 1
+[languages.de]
+contentDir = "content/de"
+title = "NTP: Netzwerkzeitprotokoll "
+description = ""
+languageName ="Deutsch"
+# Weight used for sorting.
+weight = 2
+[languages.ja]
+contentDir = "content/ja"
+title = "NTP: ネットワークタイムプロトコル "
+description = ""
+languageName ="日本語"
+# Weight used for sorting.
+weight = 3
 [markup]
   [markup.goldmark]
   [markup.goldmark.renderer]
@@ -56,152 +62,395 @@ weight = 1
       # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
       style = "tango"
       # Uncomment if you want your chosen highlight style used for code blocks without a specified language
-      # guessSyntax = "true"
-
+      # guessSyntax = "true"
 [params]
 copyright = "Network Time Foundation"
 logo1 = "images/ntp_logo.jpg"
-logo2 = "images/logo.png"
-
-[[menu.main]]
+logo2 = "images/logo.png"
+[[languages.en.menu.main]]
     name = "Support"
     url = "/support"
     weight = 10
     hasChildren = true
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Support"
 	  name = "Support Wiki"
 	  URL = "https://support.ntp.org/"
 	  weight = 1
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Support"
 	  name = "Time Servers"
-	  URL = "https://support.ntp.org/bin/view/Servers/WebHome"
+	  URL = "/support/servers"
 	  weight = 2
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Support"
 	  name = "Security Notices"
 	  URL = "https://support.ntp.org/bin/view/Main/SecurityNotice"
 	  weight = 3
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Support"
 	  name = "FAQ"
 	  URL = "/ntpfaq"
 	  weight = 4
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Support"
 	  name = "Developer Resources"
 	  URL = "https://support.ntp.org/bin/view/Dev/WebHome"
 	  weight = 5
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Support"
 	  name = "Contributors List"
 	  URL = "/contributorslist"
 	  weight = 6
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Support"
 	  name = "Contacts"
 	  URL = "/contact"
-	  weight = 7
-
-[[menu.main]]
+	  weight = 7
+[[languages.en.menu.main]]
     name = "Reference Library"
     url = "/reflib"
     weight = 20
     hasChildren = true
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Reference Library"
 	  name = "Briefs"
 	  URL = "/reflib/brief"
 	  weight = 1
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Reference Library"
 	  name = "Memos"
 	  URL = "/reflib/memos"
 	  weight = 2
-	  	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Reference Library"
 	  name = "Reports"
 	  URL = "/reflib/reports"
 	  weight = 3
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Reference Library"
 	  name = "RFCs"
 	  URL = "/reflib/rfc"
 	  weight = 4
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Reference Library"
 	  name = "Software"
 	  URL = "/reflib/software"
 	  weight = 5
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Reference Library"
 	  name = "White Papers"
 	  URL = "/reflib/papers"
 	  weight = 6
-
-[[menu.main]]
+[[languages.en.menu.main]]
     name = "Documentation"
     url = "/archives"
     weight = 30
     hasChildren = true
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.2.8-series"
 	  URL = "/archives/4.2.8-series/toc"
 	  weight = 1
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.2.6-series"
 	  URL = "/archives/4.2.6-series/toc"
 	  weight = 2
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.2.4-series"
 	  URL = "/archives/4.2.4-series/toc"
 	  weight = 3
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.2.2-series"
 	  URL = "/archives/4.2.2-series/toc"
 	  weight = 4
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.2.0"
 	  URL = "/archives/4.2.0/toc"
 	  weight = 5
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.1.2"
 	  URL = "/archives/4.1.2/toc"
 	  weight = 6
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.1.1"
 	  URL = "/archives/4.1.1/toc"
 	  weight = 7
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "4.1.0"
 	  URL = "/archives/4.1.0/toc"
 	  weight = 8
-	  [[menu.main]] 
+	  [[languages.en.menu.main]]
 	  parent = "Documentation"
 	  name = "3-5.93e"
 	  URL = "/archives/3-5.93e/toc"
 	  weight = 9
-
+[[languages.de.menu.main]]
+	  name = "Unterstützung"
+      url = "/support"
+      weight = 10
+	[[languages.de.menu.main]]
+    hasChildren = true
+	  parent = "Unterstützung"
+	  name = "Unterstützung Wiki"
+	  URL = "https://support.ntp.org/"
+	  weight = 1
+	  [[languages.de.menu.main]] 	
+	  parent = "Unterstützung"
+	  name = "Zeitserver"
+	  URL = "/support/servers"
+	  weight = 2
+	  [[languages.de.menu.main]]
+	  parent = "Unterstützung"
+	  name = "Sicherheitshinweise"
+	  URL = "https://support.ntp.org/bin/view/Main/SecurityNotice"
+	  weight = 3
+	  [[languages.de.menu.main]]
+	  parent = "Unterstützung"
+	  name = "FAQ"
+	  URL = "/ntpfaq"
+	  weight = 4
+ 	  [[languages.de.menu.main]]
+	  parent = "Unterstützung"
+	  name = "Entwicklerressourcen"
+	  URL = "https://support.ntp.org/bin/view/Dev/WebHome"
+	  weight = 5
+	  [[languages.de.menu.main]]
+	  parent = "Unterstützung"
+	  name = "Liste der Mitwirkenden"
+	  URL = "/contributorslist"
+	  weight = 6
+	  [[languages.de.menu.main]]
+	  parent = "Unterstützung"
+	  name = "Kontakte"
+	  URL = "/contact"
+	  weight = 7	
+[[languages.de.menu.main]]
+    name = "Präsenzbibliothek"
+    url = "/reflib"
+    weight = 20	
+    hasChildren = true
+	  [[languages.de.menu.main]]
+	  parent = "Präsenzbibliothek"
+	  name = "Unterlagen"
+	  URL = "/reflib/brief"
+	  weight = 1
+	  [[languages.de.menu.main]]
+	  parent = "Präsenzbibliothek"
+	  name = "Notizen"
+	  URL = "/reflib/memos"
+	  weight = 2
+	  [[languages.de.menu.main]]
+	  parent = "Präsenzbibliothek"
+	  name = "Berichte "
+	  URL = "/reflib/reports"
+	  weight = 3
+	  [[languages.de.menu.main]]
+	  parent = "Präsenzbibliothek"
+	  name = "RFCs"
+	  URL = "/reflib/rfc"
+	  weight = 4
+	  [[languages.de.menu.main]]
+	  parent = "Präsenzbibliothek"
+	  name = "Software"
+	  URL = "/reflib/software"
+	  weight = 5
+	  [[languages.de.menu.main]]
+	  parent = "Präsenzbibliothek"
+	  name = "Weiße Papiere"
+	  URL = "/reflib/papers"
+	  weight = 6	
+[[languages.de.menu.main]]
+    name = "Dokumentation"
+    url = "/archives"
+    weight = 30	
+    hasChildren = true
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.2.8-series"
+	  URL = "/archives/4.2.8-series/toc"
+	  weight = 1
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.2.6-series"
+	  URL = "/archives/4.2.6-series/toc"
+	  weight = 2
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.2.4-series"
+	  URL = "/archives/4.2.4-series/toc"
+	  weight = 3
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.2.2-series"
+	  URL = "/archives/4.2.2-series/toc"
+	  weight = 4
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.2.0"
+	  URL = "/archives/4.2.0/toc"
+	  weight = 5
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.1.2"
+	  URL = "/archives/4.1.2/toc"
+	  weight = 6
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.1.1"
+	  URL = "/archives/4.1.1/toc"
+	  weight = 7
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "4.1.0"
+	  URL = "/archives/4.1.0/toc"
+	  weight = 8
+	  [[languages.de.menu.main]]
+	  parent = "Dokumentation"
+	  name = "3-5.93e"
+	  URL = "/archives/3-5.93e/toc"
+	  weight = 9
+[[languages.ja.menu.main]]
+    name = "サポート"
+    url = "/support"
+    weight = 10
+    hasChildren = true
+	  [[languages.ja.menu.main]]
+	  parent = "サポート"
+	  name = "サポート Wiki"
+	  URL = "https://support.ntp.org/"
+	  weight = 1
+	  [[languages.ja.menu.main]]
+	  parent = "サポート"
+	  name = "タイムサーバー "
+	  URL = "/support/servers"
+	  weight = 2
+	  [[languages.ja.menu.main]]
+	  parent = "サポート"
+	  name = "セキュリティに関するお知らせ"
+	  URL = "https://support.ntp.org/bin/view/Main/SecurityNotice"
+	  weight = 3
+	  [[languages.ja.menu.main]]
+	  parent = "サポート"
+	  name = "FAQ"
+	  URL = "/ntpfaq"
+	  weight = 4
+	  [[languages.ja.menu.main]]
+	  parent = "サポート"
+	  name = "開発者向けリソース"
+	  URL = "https://support.ntp.org/bin/view/Dev/WebHome"
+	  weight = 5
+	  [[languages.ja.menu.main]]
+	  parent = "サポート"
+	  name = "寄稿者リスト"
+	  URL = "/contributorslist"
+	  weight = 6
+	  [[languages.ja.menu.main]]
+	  parent = "サポート"
+	  name = "連絡先 "
+	  URL = "/contact"
+	  weight = 7
+[[languages.ja.menu.main]]
+    name = "リファレンスライブラリ"
+    url = "/reflib"
+    weight = 20
+    hasChildren = true
+	  [[languages.ja.menu.main]]
+	  parent = "リファレンスライブラリ"
+	  name = "梗概"
+	  URL = "/reflib/brief"
+	  weight = 1
+	  [[languages.ja.menu.main]]
+	  parent = "リファレンスライブラリ"
+	  name = "メモ"
+	  URL = "/reflib/memos"
+	  weight = 2
+	  	  [[languages.ja.menu.main]]
+	  parent = "リファレンスライブラリ"
+	  name = "レポート"
+	  URL = "/reflib/reports"
+	  weight = 3
+	  [[languages.ja.menu.main]]
+	  parent = "リファレンスライブラリ"
+	  name = "RFCs"
+	  URL = "/reflib/rfc"
+	  weight = 4
+	  [[languages.ja.menu.main]]
+	  parent = "リファレンスライブラリ"
+	  name = "ソフトウェア"
+	  URL = "/reflib/software"
+	  weight = 5
+	  [[languages.ja.menu.main]]
+	  parent = "リファレンスライブラリ"
+	  name = "白い紙"
+	  URL = "/reflib/papers"
+	  weight = 6
+[[languages.ja.menu.main]]
+    name = "ドキュメンテーション"
+    url = "/archives"
+    weight = 30
+    hasChildren = true
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.2.8-series"
+	  URL = "/archives/4.2.8-series/toc"
+	  weight = 1
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.2.6-series"
+	  URL = "/archives/4.2.6-series/toc"
+	  weight = 2
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.2.4-series"
+	  URL = "/archives/4.2.4-series/toc"
+	  weight = 3
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.2.2-series"
+	  URL = "/archives/4.2.2-series/toc"
+	  weight = 4
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.2.0"
+	  URL = "/archives/4.2.0/toc"
+	  weight = 5
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.1.2"
+	  URL = "/archives/4.1.2/toc"
+	  weight = 6
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.1.1"
+	  URL = "/archives/4.1.1/toc"
+	  weight = 7
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "4.1.0"
+	  URL = "/archives/4.1.0/toc"
+	  weight = 8
+	  [[languages.ja.menu.main]]
+	  parent = "ドキュメンテーション"
+	  name = "3-5.93e"
+	  URL = "/archives/3-5.93e/toc"
+	  weight = 9
+	 
 github_repo = "https://github.com/ntp-project/ntp"
-prism_syntax_highlighting = false
-
+prism_syntax_highlighting = false
 [params.ui]
 breadcrumb_disable = false
 #  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
-sidebar_search_disable = false
-
+sidebar_search_disable = false
 # Set to true to disable the About link in the site footer
-footer_about_disable = true
-
+footer_about_disable = true
 # Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
 # This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
 # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
@@ -210,8 +459,7 @@ footer_about_disable = true
 enable = true
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
 yes = 'Glad to hear it!</a>'
-no = 'Sorry to hear that.</a>'
-
+no = 'Sorry to hear that.</a>'
 [params.links]
 [[params.links.user]]
 	name = "Mailing lists"
@@ -232,4 +480,4 @@ no = 'Sorry to hear that.</a>'
 	name = "Facebook"
 	url = "https://www.facebook.com/networktimeprotocol"
 	icon = "bi-facebook"
-        desc = "Follow us on Facebook"
+        desc = "Follow us on Facebook"
