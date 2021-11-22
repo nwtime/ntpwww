@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | GB |
+| [Country Code](/support/servers/countrycode) | UK |
 | Hostname |  time.netweaver.uk  |
 | IP Address |  185.125.206.71  |
 | IPv6 Address |  2a01:4020:6::71 |

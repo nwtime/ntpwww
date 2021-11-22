@@ -18,13 +18,13 @@ aliases:
 | IPv6 Address | |
 | [Use DNS](/support/servers/usedns) | Yes |
 | [Pool Member](/support/servers/poolmember) | No |
-| [Server Location](/support/servers/serverlocation) |  Multiple servers, we have a DNS-pool of 4 servers |
-| [Host Organization](/support/servers/hostorganization) |  Heppen.be - Online Websdr |
+| [Server Location](/support/servers/serverlocation) |  Europe |
+| [Host Organization](/support/servers/hostorganization) |   NTP server system ON5HB  |
 | [ Geographic Coordinates](/support/servers/geographiccoordinates) | |
 | [Server Synchronization](/support/servers/serversynchronization) |  PPS - GPS - other servers  |
 | [Service Area](/support/servers/servicearea) |  European Union |
 | [Access Policy](/support/servers/accesspolicy) | [Open Access](/support/servers/openaccess) |
-| [Access Details](/support/servers/accessdetails) |  Use ntp.heppen.be not the IP address.  |
+| [Access Details](/support/servers/accessdetails) |  |
 | [Notification Message](/support/servers/notificationmessage) | No |
 | [Autokey](/support/servers/autokey) | No |
 | [Autokey URL](/support/servers/autokeyurl) | |

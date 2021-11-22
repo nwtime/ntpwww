@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US NJ |
 | Hostname |  tick.nj.logiplex.net  |
 | IP Address |  149.28.37.246  |
 | IPv6 Address |  2001:470:88f6:: |

@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US WA |
+| [Country Code](/support/servers/countrycode) | US DC |
 | Hostname |  ntp2.radio-sunshine.org  |
 | IP Address |  |
 | IPv6 Address | |

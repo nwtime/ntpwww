@@ -10,7 +10,7 @@ aliases:
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
 | [Country Code](/support/servers/countrycode) | US WI |
 | Hostname |  ntp4.netwrx1.com  |
-| IP Address |  64.250.105.233  |
+| IP Address |  64.250.105.233<br> 24.196.87.73  |
 | IPv6 Address | |
 | [Use DNS](/support/servers/usedns) | Yes |
 | [Pool Member](/support/servers/poolmember) | Yes |

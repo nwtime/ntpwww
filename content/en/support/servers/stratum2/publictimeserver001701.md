@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US NY |
 | Hostname |  ntp.ny1.neptunenetworks.org  |
 | IP Address |  23.157.160.168  |
 | IPv6 Address |  2602:fe2e:3:d:f9:c7ff:fef5:379c |

@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US TX |
 | Hostname |  NTP.Shaner.Net  |
 | IP Address |  52.144.109.182  |
 | IPv6 Address | |

@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US NC |
 | Hostname |  prodvana.com  |
 | IP Address |  24.172.102.138  |
 | IPv6 Address | |

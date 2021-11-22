@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | GB |
+| [Country Code](/support/servers/countrycode) | UK |
 | Hostname |  ntp0.catn.com  |
 | IP Address |  87.124.126.49  |
 | IPv6 Address | |

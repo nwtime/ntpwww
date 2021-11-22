@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US NY |
 | Hostname |  node2.ardoin.me  |
 | IP Address | 199.127.61.190 |
 | IPv6 Address | |
