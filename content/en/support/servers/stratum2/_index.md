@@ -69,6 +69,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [CH](/support/servers/publictimeserver001601) | Switzerland | |  Switzerland | [closed](/support/servers/closedaccess) | No | 2019-09-15 |
 | [CN](/support/servers/publictimeserver001237) | Dalian, Liaoning | Dalian Neusoft University of Information (&#22823;&#36830;&#19996;&#36719;&#20449;&#24687;&#23398;&#38498;) |  China | [open](/support/servers/openaccess) | No | 2020-12-06 |
 | [CN](/support/servers/publictimeserver000782) | Shenyang Liaoning China | Northeastern University | China | [open](/support/servers/openaccess) | No | 2012-12-23 |
+| [CN](/support/servers/publictimeserver001635) | Global | Wuhan LSHIY Network Technology Co., Ltd. | | Global | Yes | 2019-12-23 |
 | [CZ](/support/servers/publictimeserver000045) | Prague, The Czech Republic | |  Czech Republic | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
 | [CZ](/support/servers/publictimeserver000397) | Rez near Prague, Czech Republic | | Europe | [open](/support/servers/openaccess) | No | 2006-01-13 |
 | [DE](/support/servers/publictimeserver000051) | Augsburg, Bavaria, Germany | University of Applied Sciences (FH) | Germany, Europe, European academic community | [restricted](/support/servers/restrictedaccess) | Yes | 2015-05-21 |
