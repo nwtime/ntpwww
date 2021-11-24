@@ -46,7 +46,7 @@ The _complete_ lists are available from the following links. For detailed inform
 * [Servers synchronized by CDMA](/support/servers/serverssynchronizedbycdma)
 * [Servers synchronized by GPS](/support/servers/serverssynchronizedbygps)
 * [Servers authenticated with Autokey](/support/servers/serversauthenticatedwithautokey)
-* Servers authenticated with MD5
+* [Servers authenticated with MD5](/support/servers/serversauthenticatedwithmd5)
 * Servers authenticated with DES
 
 * * *
