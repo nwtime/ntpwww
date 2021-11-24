@@ -44,7 +44,7 @@ The _complete_ lists are available from the following links. For detailed inform
 
 * [Time Servers supporting IPv6](/support/servers/publictimeserver000638)
 * [Servers synchronized by CDMA](/support/servers/serverssynchronizedbycdma)
-* Servers synchronized by GPS
+* [Servers synchronized by GPS](/support/servers/serverssynchronizedbygps)
 * Servers synchronized by WWV, WWVB, or WWVH
 * Servers authenticated with Autokey
 * Servers authenticated with MD5
