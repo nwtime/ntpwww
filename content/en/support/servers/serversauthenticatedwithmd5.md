@@ -1,5 +1,5 @@
 ---
-title: "Servers Synchronized With MD5"
+title: "Servers Authenticated With MD5"
 type: archives
 ---
 

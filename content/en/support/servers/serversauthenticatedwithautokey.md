@@ -1,5 +1,5 @@
 ---
-title: "Servers Synchronized With Autokey"
+title: "Servers Authenticated With Autokey"
 type: archives
 ---
 
