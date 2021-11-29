@@ -164,7 +164,7 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/support/">Support</a>
+	<a href="https://test.doc.ntp.org/support/">NTP Public Time Servers</a>
 </li>
 
 
@@ -183,48 +183,154 @@
         
 	<p>This section provides lists of Network Time Protocol (NTP) public time servers. <strong>Please read the <a href="/support/servers/rulesofengagement">Rules Of Engagement</a> before using servers from these lists.</strong></p>
 <blockquote>
-<p><strong>ALERT</strong> These lists are updated frequently and should not be cached or scraped. To add a time server or to edit your current time server entry, email <a href="">these details</a> to the <a href="mailto:webmaster@nwtime.org">webmaster</a>.</p>
+<p><strong>ALERT</strong> These lists are updated frequently and should not be cached or scraped.</p>
 </blockquote>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="#about-the-public-ntp-time-server-lists">About the Public NTP Time Server Lists</a></li>
 <li><a href="#finding-a-time-server">Finding A Time Server</a></li>
-<li><a href="#searching-for-a-time-server">Searching for A Time Server</a></li>
-<li><a href="#adding-your-server-to-the-lists">Adding your Server to the Lists</a></li>
-<li><a href="#removing-your-server-from-the-lists">Removing your Server from the Lists</a></li>
+<li><a href="#finding-a-time-server-by-feature">Finding A Time Server by Feature</a></li>
+<li><a href="#adding-modifying-or-deleting-your-server-entry">Adding, Modifying, or Deleting your Server Entry</a></li>
 <li><a href="#reporting-broken-time-servers">Reporting Broken Time Servers</a></li>
 </ul>
 <hr>
 <h4 id="about-the-public-ntp-time-server-lists">About the Public NTP Time Server Lists</h4>
 <p>The lists are provided for information purposes only and represent the best information available at the current date. The operators of the servers listed do not commit to provide time service other than on a volunteer basis and with no guarantee of accuracy or availability.</p>
-<p>The list of primary (<a href="/support/servers/stratumonetimeservers">stratum 1</a>) and secondary (<a href="/support/servers/stratumtwo">stratum 2</a>) designates the NTP time servers available for public access under stated restrictions. Each entry gives the country code, state (US only), host name, Internet address, approximate location and geographic coordinates (if available), synchronization source (stratum, type of radio or satellite receiver and host type), suggested service area, access policy (as notified) and responsible person name and e-mail address. Most servers indicate the NTP version as well. It is always wise to consult the DNS to verify host addresses, which are changed from time to time. When more than one address is given, preference should given to each in order.</p>
+<p>The list of primary (<a href="/support/servers/stratumonetimeservers">stratum 1</a>) and secondary (<a href="/support/servers/stratumtwotimeservers">stratum 2</a>) designates the NTP time servers available for public access under stated restrictions. Each entry gives the country code, state (US only), host name, Internet address, approximate location and geographic coordinates (if available), synchronization source (stratum, type of radio or satellite receiver and host type), suggested service area, access policy (as notified) and responsible person name and e-mail address. Most servers indicate the NTP version as well. It is always wise to consult the DNS to verify host addresses, which are changed from time to time. When more than one address is given, preference should given to each in order.</p>
 <p>Please respect the access policy as stated by the responsible person. It is very important that potential clients avoid use of servers not listed as open access, unless approved first by the responsible person. This especially includes indiscriminate use of servers not listed in the list, since this can be disruptive. The responsible person should always be notified upon establishment of regular operations with servers listed as open access. Servers listed as closed access should NOT be used without prior permission, since this may disrupt ongoing activities in which these servers are involved.</p>
 <p>All primary and secondary servers listed have no access restrictions, so that service is available for any client with a valid IP address. Where noted, some servers enforce a limit on the number of clients from any one network other than the server network itself. Where noted, some servers provide a cryptographic authentication service. Contact the site operators for further details.</p>
 <hr>
 <h4 id="finding-a-time-server">Finding A Time Server</h4>
 <p>The <em>complete</em> lists are available from the following links. For detailed information about a server click the hostname in the list.</p>
 <ul>
-<li><a href="/support/servers/NTPPoolServers">Public NTP Pool Time Servers</a></li>
-<li><a href="/support/servers/StratumTwoTimeServers">Public NTP Secondary (stratum 2) Time Servers</a></li>
+<li><a href="/support/servers/ntppoolservers">Public NTP Pool Time Servers</a></li>
+<li><a href="/support/servers/stratumtwotimeservers">Public NTP Secondary (stratum 2) Time Servers</a></li>
 <li><a href="/support/servers/stratumonetimeservers">Public NTP Primary (stratum 1) Time Servers</a></li>
 </ul>
 <hr>
-<h4 id="searching-for-a-time-server">Searching for A Time Server</h4>
-<p>Use <a href="/support/WebSearch">this page</a> to search the Time Server Lists based on various criteria.</p>
-<p>You may also search for your List entry by entering a portion of your host name (e.g. the domain) as <em>lower case</em> text in the <strong>Search</strong> box at the top of any page.</p>
+<h4 id="finding-a-time-server-by-feature">Finding A Time Server by Feature</h4>
+<ul>
+<li><a href="/support/servers/publictimeserver000638">Time Servers supporting IPv6</a></li>
+<li><a href="/support/servers/serverssynchronizedbycdma">Servers synchronized by CDMA</a></li>
+<li><a href="/support/servers/serverssynchronizedbygps">Servers synchronized by GPS</a></li>
+<li><a href="/support/servers/serversauthenticatedwithautokey">Servers authenticated with Autokey</a></li>
+<li><a href="/support/servers/serversauthenticatedwithmd5">Servers authenticated with MD5</a></li>
+</ul>
 <hr>
-<h4 id="adding-your-server-to-the-lists">Adding your Server to the Lists</h4>
-<p>Time Server operators may add, and maintain, their own List entries. <strong>This is the recommended means of managing your List entries.</strong> Please read <a href="/support/ManagingYourListEntries">ManagingYourListEntries</a> for more information.</p>
-<p>Time Server operators may choose to submit their List entries via e-mail to <a href="mailto:webmaster@nwtime.org">webmaster</a>. List entries submitted in this fashion will be entered by a volunteer when time permits. Please read <a href="/support/SubmittingYourListEntriesViaEmail">SubmittingYourListEntriesViaEmail</a> for more information.</p>
-<hr>
-<h4 id="removing-your-server-from-the-lists">Removing your Server from the Lists</h4>
-<p>Time Server operators who wish to remove their servers from the list may to so by editing their List entries and changing the <a href="/support/ServerStratum">ServerStratum</a> to <em>Inactive</em>.</p>
-<p>Time Server operators may choose submit a removal request via e-mail to <a href="mailto:webmaster@nwtime.org">webmaster</a>. Removal requests submitted in this fashion will be processed by a volunteer when time permits.</p>
+<h4 id="adding-modifying-or-deleting-your-server-entry">Adding, Modifying, or Deleting your Server Entry</h4>
+<p>To add a time server, modify, or delete an existing time server entry, email the following details to the <a href="mailto:webmaster@nwtime.org">webmaster</a>. Click an Item entry for a full description.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/support/servers/serverstratum">Server Stratum</a></td>
+<td>Indicate if the server is <a href="/support/servers/stratumonetimeservers">Stratum One</a>, <a href="/support/servers/stratumtwotimeservers">Stratum Two</a>, or Inactive</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><a href="/support/servers/countrycode">Country Code</a></td>
+<td>2 digit country code; for US, indicate 2 digit state code</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Hostname, IP Address, IPv6 Address</td>
+<td></td>
+<td>At least one is required</td>
+</tr>
+<tr>
+<td><a href="/support/servers/usedns">Use DNS</a></td>
+<td>Yes or No</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><a href="/support/servers/poolmember">Pool Member</a></td>
+<td>Yes or No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/serverlocation">Server Location</a></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/hostorganization">Host Organization</a></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/geographiccoordinates"> Geographic Coordinates</a></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/serversynchronization">Server Synchronization</a></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/servicearea">Service Area</a></td>
+<td></td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><a href="/support/servers/accesspolicy">Access Policy</a></td>
+<td>One of <a href="/support/servers/openaccess">Open</a>, <a href="/support/servers/closedaccess">Closed</a>, or <a href="/support/servers/restrictedaccess">Restricted</a></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><a href="/support/servers/accessdetails">Access Details</a></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/notificationmessage">Notification Message</a></td>
+<td>Yes or No</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><a href="/support/servers/autokey">Autokey</a></td>
+<td>Yes or No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/autokeyurl">Autokey URL</a></td>
+<td>Yes or No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/symmetrickey">Symmetric Key</a></td>
+<td>Yes or No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/symmetrickeytype">Symmetric Key Type</a></td>
+<td>Yes or No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/symmetrickeyurl">Symmetric Key URL</a></td>
+<td>Yes or No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="/support/servers/servercontact">Server Contact</a></td>
+<td></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<p>Please also indicate if the server entry should appear in any of the <a href="#finding-a-time-server-by-feature">Server Feature lists</a>.</p>
 <hr>
 <h4 id="reporting-broken-time-servers">Reporting Broken Time Servers</h4>
-<p>Anyone discovering <a href="/support/TimeServer">TimeServers</a> that are broken (e.g. non-functional, incorrect stratum, etc.) for an extended period of time should contact <a href="mailto:webmaster@nwtime.org">webmaster</a> only after attempting to contact the server operator.</p>
-<p>Problems with the <a href="/support/NTPPoolServers">NTP Pool</a> must be reported to the <a href="mailto:ask@ntp.org">NTP Pool Manager</a>.</p>
+<p>Anyone discovering <a href="/support/servers/timeserver">Time Servers</a> that are broken (e.g. non-functional, incorrect stratum, etc.) for an extended period of time should contact <a href="mailto:webmaster@nwtime.org">webmaster</a> only after attempting to contact the server operator.</p>
+<p>Problems with the <a href="/support/servers/ntppoolservers">NTP Pool</a> must be reported to the <a href="mailto:ask@ntp.org">NTP Pool Manager</a>.</p>
 
 	
 </div>
