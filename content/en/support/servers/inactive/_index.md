@@ -68,7 +68,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | | xfiles-jr.esa.lanl.gov |
 | | xfiles.esa.lanl.gov |
 | | HanwhaLife | 2017-02-08 |
-| AE | ntp1.recro.ae | 2019-04-29 |
 | AL | ntp.rash.al | 2017-06-03 |
 | AM | time.markosyan.info | 2017-05-29 |
 | AR | hora.tucumania.com | 2017-05-29 |
@@ -358,7 +357,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | GR | ntp2.xe.gr | 2021-11-02 |
 | HK | hkdc01 | 2018-07-17 |
 | HK | ntp.cuhk.edu.hk | 2016-04-19 |
-| HK | stdtime.gov.hk | 2016-09-01 |
 | HK | 214-229-253-113-on-nets.com | 2021-11-19 |
 | HU | domser.atomki.mta.hu | 2019-12-07 |
 | HU | ntp.atomki.mta.hu | 2019-12-07 |
@@ -401,7 +399,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | IT | ntp.spadhausen.com | 2017-02-22 |
 | IT | ntp1.ien.it | 2007-01-24 |
 | IT | ntp2.ien.it | 2007-01-24 |
-| IT | ntp2.inrim.it | 2019-12-20 |
 | IT | ntps.net4u.it | 2012-09-26 |
 | IT | quassia.associazione-tp.it | 2017-02-21 |
 | IT | stratum.ga | 2019-12-07 |
@@ -523,11 +520,9 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | PR | nist1.uccaribe.edu | 2012-09-26 |
 | PT | bug.fe.up.pt | 2017-06-03 |
 | PT | mbakonyi.ddns.net | 2020-07-24 |
-| PT | ntp2.insilicolabs.pt | 2019-12-07 |
 | RO | ntp.gazduire.ro | 2017-02-08 |
 | RO | ntp0.alterox.ro | 2017-02-08 |
 | RO | ntp1.bluepink.ro | 2017-10-27 |
-| RO | ntp2.upcbiz.ro | 2017-02-26 |
 | RO | ntp4.bluepink.ro | 2017-02-08 |
 | RO | ntp5.bluepink.ro | 2019-12-07 |
 | RS | certic.info | 2019-12-07 |
@@ -536,7 +531,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | RU | kurgan-telecom.ru | 2017-10-27 |
 | RU | ns2.firmacem.ru | 2008-11-24 |
 | RU | ntp.deman.ru | 2019-12-07 |
-| RU | ntp.ix.ru | 2019-12-20 |
 | RU | ntp.letinet.ru | 2019-12-07 |
 | RU | ntp.mobatime.ru | 2019-12-07 |
 | RU | ntp.ru | 2010-03-03 |
@@ -574,12 +568,10 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | TH | ntp.thaidns.co.th | 2017-10-27 |
 | TR | ntp.canakkalefirewall.com | 2017-02-23 |
 | TR | ntp.ramtek.net.tr | 2017-05-29 |
-| TR | ntp1.sibernet.com.tr | 2019-12-07 |
 | TR | ntp2.sibernet.com.tr | 2019-12-07 |
 | TR | r10.net | 2017-02-23 |
 | TR | time.deu.edu.tr | 2017-02-23 |
 | TR | time.olay.com.tr | 2019-12-07 |
-| TW | time.stdtime.gov.tw | 2019-12-18 |
 | UA | kyivstar.com | 2020-07-08 |
 | UA | megazloj.no-ip.org | 2016-11-10 |
 | UA | ntp.gyrus.kiev.ua | 2009-04-02 |
@@ -591,7 +583,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | UA | ntp0.mao.kiev.ua | 2017-05-29 |
 | UA | ntp1.metrology.kharkov.ua | 2019-12-07 |
 | UA | ntp2.gyrus.kiev.ua | 2009-04-02 |
-| UA | pool1.ntp.od.ua | 2017-05-29 |
 | UK | bear.zoo.bt.co.uk | 2008-01-17 |
 | UK | certic.info | 2019-12-07 |
 | UK | chameleon.forstwoof.ru | 2019-12-18 |
@@ -651,7 +642,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | US AZ | not-decimal.lib.ci.phoenix.az.us | 2016-08-31 |
 | US AZ | not-ntp1.phoenixpubliclibrary.org | 2016-08-31 |
 | US AZ | not-ntp2.phoenixpubliclibrary.org | 2016-08-31 |
-| US AZ | time.airgapped.io | 2019-12-07 |
 | US AZ | time.heypete.com | 2011-04-07 |
 | US CA | bolt.brockhurst.co.nz | 2019-12-07 |
 | US CA | charles.fehmuhnist.net | 2011-03-30 |
@@ -674,7 +664,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | US CA | ntp.miknight.com | 2017-02-08 |
 | US CA | ntp.nasa.gov | 2017-06-02 |
 | US CA | ntp.qays.net | 2017-02-08 |
-| US CA | ntp.silvertree.org | 2020-01-31 |
 | US CA | ntp.ucsd.edu | 2017-02-08 |
 | US CA | ntp1.barkerjr.net | 2010-01-31 |
 | US CA | ntp1.linuxhosted.ca | 2016-03-15 |
@@ -770,7 +759,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | US IN | ntp1.indylib.org | 2017-06-03 |
 | US IN | regnarptime | 2013-08-23 |
 | US IN | time.slackadelic.com | 2017-02-23 |
-| US IN | tock.cerias.purdue.edu | 2017-06-07 |
 | US KS | ntp.strifler.name | 2017-02-23 |
 | US KS | ntp1.kansas.net | 2017-02-23 |
 | US KS | time.seidkr.com | 2009-07-10 |

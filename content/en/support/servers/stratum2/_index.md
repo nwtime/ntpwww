@@ -41,7 +41,6 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [BR](/support/servers/publictimeserver000511) | Sao Paulo, Brazil | | Brazil | [open](/support/servers/openaccess) | No | 2010-04-16 |
 | [BR](/support/servers/publictimeserver000727) | Jundiai - Sao Paulo - Brasil | |  Southwest Brasil | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [BR](/support/servers/publictimeserver000016) | RNP - Brazilian Research Network/Rede Nacional de Pesquisa | |  Brazil | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
-| [CA](/support/servers/publictimeserver000903) | Beauharnois, Qu&eacute;bec, Canada | | Any | [open](/support/servers/openaccess) | No | 2018-09-20 |
 | [CA](/support/servers/publictimeserver001030) | Rack: T01B32, OVH BHS1, Beauharnois,Quebec, J6N 1W5, Canada | ntp.fangfufu.co.uk |  Worldwide | [open](/support/servers/openaccess) | Yes | 2020-10-02 |
 | [CA](/support/servers/publictimeserver000021) | University of Calgary | |  Canada | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [CA](/support/servers/publictimeserver000038) | Dorval, Qu&eacute;bec, Canada | Canadian Meteorological Centre | Eastern Canada | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
@@ -71,11 +70,9 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [CN](/support/servers/publictimeserver000782) | Shenyang Liaoning China | Northeastern University | China | [open](/support/servers/openaccess) | No | 2012-12-23 |
 | [CN](/support/servers/publictimeserver001635) | Global | Wuhan LSHIY Network Technology Co., Ltd. | | Global | Yes | 2019-12-23 |
 | [CZ](/support/servers/publictimeserver000045) | Prague, The Czech Republic | |  Czech Republic | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
-| [CZ](/support/servers/publictimeserver000397) | Rez near Prague, Czech Republic | | Europe | [open](/support/servers/openaccess) | No | 2006-01-13 |
 | [DE](/support/servers/publictimeserver000051) | Augsburg, Bavaria, Germany | University of Applied Sciences (FH) | Germany, Europe, European academic community | [restricted](/support/servers/restrictedaccess) | Yes | 2015-05-21 |
 | [DE](/support/servers/publictimeserver000052) | Augsburg, Bavaria, Germany | University of Applied Sciences (FH) | Germany, Europe, European academic community | [restricted](/support/servers/restrictedaccess) | Yes | 2015-05-21 |
 | [DE](/support/servers/publictimeserver000050) | Augsburg, Bavaria, Germany | University of Applied Sciences (FH) |  Germany, Europe, European academic community | [restricted](/support/servers/restrictedaccess) | Yes | 2015-05-21 |
-| [DE](/support/servers/publictimeserver001705) | Baden-W&uuml;rttemberg, Germany | | Germany, Europe | [open](/support/servers/openaccess) | No | 2020-11-29 |
 | [DE](/support/servers/publictimeserver001641) | Baden-W&uuml;rttemberg | |  Germany | [closed](/support/servers/closedaccess) | No | 2020-01-18 |
 | [DE](/support/servers/publictimeserver000416) | Berlin | |  Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver000612) | Germany | Faculty of Technology, Bielefeld University |  Germany, Europe | [open](/support/servers/openaccess) | Yes | 2013-02-18 |
@@ -93,14 +90,11 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DE](/support/servers/publictimeserver001342) | Falkenstein/Vogtland | [Hetzner](https://www.hetzner.de) | Germany/Europe | [open](/support/servers/openaccess) | Yes | 2017-02-06 |
 | [DE](/support/servers/publictimeserver001723) | Falkenstein - Germany | Weingaertner IT Services |  Europe | [open](/support/servers/openaccess) | No | 2021-05-07 |
 | [DE](/support/servers/publictimeserver000388) | Frankfurt, Germany | |  Worldwide | [open](/support/servers/openaccess) | No | 2019-12-20 |
-| [DE](/support/servers/publictimeserver001455) | Frankfurt, Germany | kaputts.net | Worldwide | [open](/support/servers/openaccess) | No | 2018-04-19 |
-| [DE](/support/servers/publictimeserver001183) | Frankfurt, DE | stygium.net | worldwide | [open](/support/servers/openaccess) | No | 2017-03-29 |
 | [DE](/support/servers/publictimeserver001469) | Frankfurt am Main | radio-sunshine.org | CH DE EU | [restricted](/support/servers/restrictedaccess) | No | 2021-01-02 |
 | [DE](/support/servers/publictimeserver000027) | Hetzner RZ13, Falkenstein/Vogtl., Germany (AS24940) | |  Germany, Europe | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [DE](/support/servers/publictimeserver001473) | H&ouml;st/NRW | | EU | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver001048) | Ismaning, Munich, Germany | freiwuppertal.de |  worldwide | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver001497) | J&uuml;lich, Germany | Intrabit GmbH  | Germany, Europe | [open](/support/servers/openaccess) | No | 2018-09-17 |
-| [DE](/support/servers/publictimeserver001397) | Karlsruhe, Baden-W&uuml;rttemberg, Germany | www.Server24-7.eu |  Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-15 |
 | [DE](/support/servers/publictimeserver001648) | Karlsruhe, Germany | | global | [open](/support/servers/openaccess) | Yes | 2020-02-10 |
 | [DE](/support/servers/publictimeserver000592) | Limburg, Germany | IT &amp; EDV-Service Froehlich | Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver000836) | Munich, Germany | | Germany and Europe | [open](/support/servers/openaccess) | No | 2012-08-11 |
@@ -109,21 +103,17 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DE](/support/servers/publictimeserver001696) | Nuremberg, Germany | | Europe | [open](/support/servers/openaccess) | No | 2020-09-10 |
 | [DE](/support/servers/publictimeserver000607) | Nuremberg, Germany | |  Germany, Europe | [open](/support/servers/openaccess) | No | 2019-04-15 |
 | [DE](/support/servers/publictimeserver000721) | Nuremberg, Germany | |  Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
-| [DE](/support/servers/publictimeserver001673) | Nuremberg, Bavaria, Germany | [Arrow-Systems](https://www.arrow-systems.de) | Germany, Europe | [open](/support/servers/openaccess) | No | 2020-07-05 |
 | [DE](/support/servers/publictimeserver001553) | Nuremberg, Germany | netcup (AS197540) |  Germany, Europe | [open](/support/servers/openaccess) | Yes | 2020-10-26 |
 | [DE](/support/servers/publictimeserver001122) | N&uuml;rnberg | | Worldwide | [open](/support/servers/openaccess) | Yes | 2016-08-23 |
 | [DE](/support/servers/publictimeserver000716) | N&uuml;rnberg, Germany | |  Germany | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver000545) | Stuttgart, Germany | |  Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver000546) | Stuttgart, Germany | | Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
 |[DE](/support/servers/publictimeserver000547) | Stuttgart, Germany | |  Germany, Europe | [open](/support/servers/openaccess) | No | 2019-12-20 |
-| [DE](/support/servers/publictimeserver001410) | Germany, Wag&auml;usel | WIRCON GmbH | Germany | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [DE](/support/servers/publictimeserver000840) | Wuppertal, Germany | |  Germany and Europe | [open](/support/servers/openaccess) | No | 2013-09-06 |
 | [DE](/support/servers/publictimeserver001704) | DSSD | radio-sunshine.org | @ DE EU | [restricted](/support/servers/restrictedaccess) | No | 2021-01-02 |
 | [DE](/support/servers/publictimeserver000763) | Germany | |  Germany | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DE](/support/servers/publictimeserver000520) | Germany | dianacht.de |  any | [open](/support/servers/openaccess) | No | 2020-04-09 |
 | [DE](/support/servers/publictimeserver001339) | Germany | [domainfactory](https://www.df.eu/) | Germany/Europe | [open](/support/servers/openaccess) | Yes | 2017-02-06 |
-| [DE](/support/servers/publictimeserver001593) | Germany | Guido Haase | Europe | [open](/support/servers/openaccess) | No | 2019-07-31 |
-| [DE](/support/servers/publictimeserver001530) | Germany | The Network Nerds | Global | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [DK](/support/servers/publictimeserver000900) | Denmark | |  Worldwide | [open](/support/servers/openaccess) | No | 2018-03-22 |
 | [DK](/support/servers/publictimeserver000901) | Denmark | |  Worldwide | [open](/support/servers/openaccess) open | No | 2018-03-22 |
 | [DK](/support/servers/publictimeserver001594) | Albertslund, Denmark | RXTX DK |  Europe | [open](/support/servers/openaccess) | No | 2021-03-24 |
@@ -133,25 +123,17 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DK](/support/servers/publictimeserver001687) | Odense, Denmark | Safe-Con ApS  | Denmark (Especially Funen), Europe | [open](/support/servers/openaccess) | No | 2021-05-17 |
 | [DK](/support/servers/publictimeserver000438) | Vordingborg, Denmark | |  All | [open](/support/servers/openaccess) | No | 2019-12-21 |
 | [ES](/support/servers/publictimeserver000053) | Madrid (Spain) | |  Spain | [open](/support/servers/openaccess) | Yes | 2009-01-16 |
-| [FI](/support/servers/publictimeserver001551) | Helsinki | Ghosh Pro Solutions | Worldwide | [open](/support/servers/openaccess) | Yes | 2019-03-25 |
-| [FI](/support/servers/publictimeserver001693) | Helsinki | SineQuaNon  |  World | [open](/support/servers/openaccess) | No | 2020-08-23 |
 | [FR](/support/servers/publictimeserver000506) | | | France/Europe | [open](/support/servers/openaccess) | Yes | 2007-12-28 |
 | [FR](/support/servers/publictimeserver000579) | Courbevoie / France | |  France | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [FR](/support/servers/publictimeserver001644) | Gravelines/Nord/France| [Apio systems](https://apio.systems) |  @ europe fr | [open](/support/servers/openaccess) | Yes | 2020-02-02 |
 | [FR](/support/servers/publictimeserver001699) | G102B21  , OVH GRA 1, Gravelines, Nord-Pas-de-Calais-Picardie 59820, France | ntp.fangfufu.co.uk | Worldwide | [open](/support/servers/openaccess) | Yes | 2020-10-08 |
-| [FR](/support/servers/publictimeserver001371) | Gravelines | omgomg.eu | Global | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [FR](/support/servers/publictimeserver001125) | N&eacute;el Institute, Trappes, Ile de France, France | | France, Europe | [open](/support/servers/openaccess) | Yes | 2014-09-09 |
 | [FR](/support/servers/publictimeserver000834) | Montpellier, France | |  France | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
-| [FR](/support/servers/publictimeserver000501) | Paris, France | |  France | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [FR](/support/servers/publictimeserver001440) | Paris 75013, France, AS12322 | Hubert Viarouge | France, Europe, World | [open](/support/servers/openaccess) | No | 2021-02-0 |
 | [FR](/support/servers/publictimeserver000058) | Paris, France | SYRTE, Observatoire de Paris |  France/Europe | [open](/support/servers/openaccess) | Yes | 2016-01-28 |
-| [FR](/support/servers/publictimeserver000654) | Paris Saint-Denis IBX Center | | Anywhere | [open](/support/servers/openaccess) | No | 2019-03-07 |
 | [FR](/support/servers/publictimeserver000645) | Telecity datacenter (Equinix), Aubervilliers, Paris, France | [DuckCorp](https://www.duckcorp.org/) | anywhere | [open](/support/servers/openaccess) | No | 2019-03-07 |
-| [FR](/support/servers/publictimeserver000996) | Roubaix RBX4 | OVH |  France | [open](/support/servers/openaccess) | No | 2020-05-11 |
 | [FR](/support/servers/publictimeserver000756) | Roubaix, France | [sceen.net](https://www.sceen.net/) |  Anywhere | [open](/support/servers/openaccess) | No | 2019-11-05 |
 | [FR](/support/servers/publictimeserver001649) | Roubaix, France | SeedHost  |  Europe | [open](/support/servers/openaccess) | No | 2020-02-17 |
-| [FR](/support/servers/publictimeserver001167) | Roubaix, France | [The Xipalia Group](https://xipalia.com) |  @, Europe, France | [open](/support/servers/openaccess) | No | 2015-02-19 |
-| [FR](/support/servers/publictimeserver001488) | Villeurbanne | [LASOTEL](https://www.lasotel.fr) |  Europe | [open](/support/servers/openaccess) | No | 2018-08-05 |
 | [FR](/support/servers/publictimeserver000593) | Vitry / DC2 | [Online](https://www.online.net/) | Europe | [open](/support/servers/openaccess) | Yes | 2019-12-20|
 | [GR](/support/servers/publictimeserver000064) | Athens, GR | |  Greece | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [GR](/support/servers/publictimeserver000660) | Athens, Greece | ASDA | Worldwide | [open](/support/servers/openaccess) | No | 2020-10-09 |
@@ -175,7 +157,6 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [IQ](/support/servers/publictimeserver000797) | Iraq - Sulaimaniyah | |  Iraq | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [IT](/support/servers/publictimeserver001239) | Milan | IRH.it/Prometeus.com | Worldwide | [open](/support/servers/openaccess) | Yes | 2020-05-21 |
 | [JO](/support/servers/publictimeserver001211) | JO | | Jordan | [open](/support/servers/openaccess) | Yes | 2015-10-08 |
-| [JP](/support/servers/publictimeserver001640) | Habikino-shi, Osaka-fu, JP | OX. &#31038;&#20250;&#31119;&#31049;&#37096;/&#31038;&#26371;&#20844;&#30410;&#20107;&#26989;&#37096; | Worldwide | [open](/support/servers/openaccess) | No | 2020-01-17 |
 | [JP](/support/servers/publictimeserver001746) | Tokyo, Japan | |  Anywhere | [open](/support/servers/openaccess) | No | 2021-08-01 |
 | [KR](/support/servers/publictimeserver000075) | Bundang, Korea | [KT-IDC](https://www.kt-idc.com/) |  Korea | [restricted](/support/servers/restrictedaccess) | Yes | 2017-06-03 |
 | [KR](/support/servers/publictimeserver000950) | Incheoun NamDonggu MansuDong | | Korea | [open](/support/servers/openaccess) | Yes | 2017-02-07 |
@@ -270,7 +251,6 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [UA](/support/servers/publictimeserver000412) | Rivne, Ukraine | Campus Networks | UA, RU, PL | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [UA](/support/servers/publictimeserver000945) | Rivne, Ukraine | Campus Networks |  UA, RU, PL | [open](/support/servers/openaccess) | No | 2019-12-20 |
 | [UA](/support/servers/publictimeserver001547) | Vinnytsia | [IP-Connect LLC](https://ip-connect.vn.ua) | Worldwide | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
-| [UK](/support/servers/publictimeserver000963) | Aldershot, UK | CatN Hosting | UK, Western Europe | [open](/support/servers/openaccess) | No | 2013-06-18 |
 | [UK](/support/servers/publictimeserver001726) | Bournemouth | [Xentex IT Solutions (Xentex Ltd)](https://www.xentex.uk) | Worldwide | [open](/support/servers/openaccess) | Yes | 2021-02-24 |
 | [UK](/support/servers/publictimeserver001727) | Bournemouth | [Xentex IT Solutions (Xentex Ltd)](https://www.xentex.uk) | UK, Europe | [open](/support/servers/openaccess) | Yes | 2021-02-24 |
 | [UK](/support/servers/publictimeserver001070) | Cambridge, UK | Private | UK/EU | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
@@ -283,7 +263,6 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [UK](/support/servers/publictimeserver001413) | London, UK | Eria Group/ Eria Hosting | UK, Europe | [open](/support/servers/openaccess) | No | 2017-11-02 |
 | [UK](/support/servers/publictimeserver000106) | ExNet Ltd, London, UK | |  UK/Europe/any | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
 | [UK](/support/servers/publictimeserver001528) | London, UK | [NetWeaver](https://www.netweaver.uk/) |  UK, Europe | [open](/support/servers/openaccess) | No | 2021-06-06 |
-| [UK](/support/servers/publictimeserver001425) | London UK | Speed Welshpool Ltd | UK &amp; Europe | [open](/support/servers/openaccess) | Yes | 2017-11-12 |
 | [UK](/support/servers/publictimeserver000110) | University of Manchester, Manchester, England | |  UK | [open](/support/servers/openaccess) | Yes | 2004-09-24 |
 | [UK](/support/servers/publictimeserver000590) | Markyate, Hertfordshire, England | The Creative Organisation |  UK, Europe | [open](/support/servers/openaccess) | Yes | 2014-04-22 |
 | [UK](/support/servers/publictimeserver001253) | North Thatcham, Berkshire, England | |  UK, Europe | [open](/support/servers/openaccess) | Yes | 2016-03-23 |

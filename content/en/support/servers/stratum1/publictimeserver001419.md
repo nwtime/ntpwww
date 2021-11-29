@@ -2,7 +2,7 @@
 title: "Server 1410"
 type: archives
 aliases:
-    - /support/servers/publictimeserver001419
+    - /support/servers/publictimeserver001410
 ---
 
 **Notes:**
