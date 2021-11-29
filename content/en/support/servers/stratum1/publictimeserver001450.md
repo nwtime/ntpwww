@@ -10,7 +10,7 @@ aliases:
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
 | [Country Code](/support/servers/countrycode) | DK |
 | Hostname |  ntp1.itcompliance.dk |
-| IP Address |  5.103.128.88 |
+| IP Address |  80.209.68.117 |
 | IPv6 Address | |
 | [Use DNS](/support/servers/usedns) | Yes |
 | [Pool Member](/support/servers/poolmember) | Yes |

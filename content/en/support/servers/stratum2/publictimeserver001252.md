@@ -10,7 +10,7 @@ aliases:
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
 | [Country Code](/support/servers/countrycode) | NL |
 | Hostname |  ntp.looney.network |
-| IP Address |  80.100.91.129 |
+| IP Address |  45.83.234.123 |
 | IPv6 Address | |
 | [Use DNS](/support/servers/usedns) | Yes |
 | [Pool Member](/support/servers/poolmember) | Yes |
