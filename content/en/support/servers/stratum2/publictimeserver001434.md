@@ -15,10 +15,10 @@ aliases:
 | [Use DNS](/support/servers/usedns) | Yes |
 | [Pool Member](/support/servers/poolmember) | Yes |
 | [Server Location](/support/servers/serverlocation) | Duesseldorf |
-| [Host Organization](/support/servers/hostorganization) |  FanLin Freifunk Münster |
-| [ Geographic Coordinates](/support/servers/geographiccoordinates) | |
-| [Server Synchronization](/support/servers/serversynchronization) |  |
-| [Service Area](/support/servers/servicearea) | DE |
+| [Host Organization](/support/servers/hostorganization) |  private |
+| [ Geographic Coordinates](/support/servers/geographiccoordinates) |  N51.2671954 E6.8178284 |
+| [Server Synchronization](/support/servers/serversynchronization) |   NTP StratumOne |
+| [Service Area](/support/servers/servicearea) | worldwide |
 | [Access Policy](/support/servers/accesspolicy) | [Open Access](/support/servers/openaccess) |
 | [Access Details](/support/servers/accessdetails) |  |
 | [Notification Message](/support/servers/notificationmessage) | No |
@@ -27,4 +27,4 @@ aliases:
 | [Symmetric Key](/support/servers/symmetrickey) | No |
 | [Symmetric Key Type](/support/servers/symmetrickeytype) | |
 | [Symmetric Key URL](/support/servers/symmetrickeyurl) | |
-| [Server Contact](/support/servers/servercontact) | [email](mailto:ntp@fanlin.de) |
+| [Server Contact](/support/servers/servercontact) | [email](mailto:ntp@faryn.de) |

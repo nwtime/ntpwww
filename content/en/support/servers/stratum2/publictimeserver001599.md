@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US OH |
 | Hostname |  ntp2c.versadns.com  |
 | IP Address |  147.75.64.18  |
 | IPv6 Address |  2604:1380:0:d800::1 |

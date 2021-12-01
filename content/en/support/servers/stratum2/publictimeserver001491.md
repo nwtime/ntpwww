@@ -8,7 +8,7 @@ aliases:
 | Item | Value |
 | ----- | ----- |
 | [Server Stratum](/support/servers/serverstratum) | [Stratum Two](/support/servers/stratumtwotimeservers) |
-| [Country Code](/support/servers/countrycode) | US |
+| [Country Code](/support/servers/countrycode) | US CA |
 | Hostname |  ntp.xtom.com  |
 | IP Address |  142.147.92.5  |
 | IPv6 Address |  2604:e8c0:3::5 |

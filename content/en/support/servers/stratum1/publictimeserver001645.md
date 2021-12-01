@@ -27,4 +27,4 @@ aliases:
 | [Symmetric Key](/support/servers/symmetrickey) |  |
 | [Symmetric Key Type](/support/servers/symmetrickeytype) | |
 | [Symmetric Key URL](/support/servers/symmetrickeyurl) | |
-| [Server Contact](/support/servers/servercontact) | [email](noc@your.org) |
+| [Server Contact](/support/servers/servercontact) | [email](mailto:noc@your.org) |

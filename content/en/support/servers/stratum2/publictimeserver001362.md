@@ -27,4 +27,4 @@ aliases:
 | [Symmetric Key](/support/servers/symmetrickey) | No |
 | [Symmetric Key Type](/support/servers/symmetrickeytype) | |
 | [Symmetric Key URL](/support/servers/symmetrickeyurl) | |
-| [Server Contact](/support/servers/servercontact) | [email](mailto:sami@cnrst.ma) |
+| [Server Contact](/support/servers/servercontact) | [email](mailto:sami@cnrst.ma), [alternate](mailto:sami@marwan.ma) |

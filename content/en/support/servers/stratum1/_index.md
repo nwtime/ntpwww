@@ -89,7 +89,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DE](/support/servers/publictimeserver000217) | Computer Center University of Stuttgart, D-70550 Stuttgart, Germany | | Germany/Europe | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [DK](/support/servers/publictimeserver001660) | Aabenraa, Denmark | | Europe | [open](/support/servers/openaccess) | Yes | 2020-04-06 |
 | [DK](/support/servers/publictimeserver001555) | Aarhus, Denmark | | Denmark / Europe | [restricted](/support/servers/restrictedaccess) | No | 2019-08-15 |
-| [DK](/support/servers/publictimeserver001450) | Holbaek, Denmark | ITCompliance.dk (NTP1) | World | [open](/support/servers/openaccess) | Yes | 2019-07-05 |
+| [DK](/support/servers/publictimeserver001450) | Holbaek, Denmark | ITCompliance.dk (NTP1) | World | [open](/support/servers/openaccess) | Yes | 2021-11-26 |
 | [DK](/support/servers/publictimeserver001365) | Kokkedal, Denmark | Algon IVS | Denmark / Europe | [open](/support/servers/openaccess) | Yes | 2017-05-03 |
 | [DK](/support/servers/publictimeserver000219) | Lyngby, Denmark | | Networks BGP-announced on the DIX | [restricted](/support/servers/restrictedaccess) | No | 2004-09-25 |
 | [DK](/support/servers/publictimeserver000691) | Sonnerup, Denmark | SonnIT / SonnMedia | Denmark/Europe | [restricted](/support/servers/restrictedaccess) | Yes | 2019-12-10 |
@@ -131,7 +131,6 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [MX](/support/servers/publictimeserver000631) | Direcci&oacute;n de Planeaci&oacute;n Institucional, Universidad Michoacana de San Nicol&aacute;s de Hidalgo, Morelia, M&eacute;xico | Universidad Michoacana de San Nicol&aacute;s de Hidalgo | Mexico, North America, Latin America and Caribbean | [open](/support/servers/openaccess) | Yes | 2019-04-11 |
 | [NL](/support/servers/publictimeserver000236) | Verizon, Amsterdam, The Netherlands | | The Netherlands/Europe | [open](/support/servers/openaccess) | No |2017-06-26 |
 | [NL](/support/servers/publictimeserver001582) | Arnhem, the Netherlands | SIDN | Netherlands (NL) and surrounding countries (EU) | [open](/support/servers/openaccess) | No | 2019-07-19 || [NL](/support/servers/publictimeserver001582) | Arnhem, the Netherlands | SIDN | Netherlands (NL) and surrounding countries (EU) | [open](/support/servers/openaccess) | No | 2019-07-19 |
-| [NL](/support/servers/publictimeserver001252) | Gemert, Noord-Brabant, NL | looney | Worldwide | [open](/support/servers/openaccess) | No | 2021-03-18 |
 | [NL](/support/servers/publictimeserver001546) | Marken, Netherlands | Harm ten Napel | The Netherlands/Europe | [restricted](/support/servers/restrictedaccess) | Yes | 2019-03-30 |
 | [NL](/support/servers/publictimeserver001260) | Nijmegen, Gelderland, The Netherlands | |Europe | [open](/support/servers/openaccess) | No | 2016-06-10 |
 | [NL](/support/servers/publictimeserver001317) | Noordwijk, the Netherlands | European Space Agency | Central Europe | [open](/support/servers/openaccess) |Yes | 2020-08-04 |
@@ -207,7 +206,6 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [UA](/support/servers/publictimeserver001180) | Odessa, Ukraine | | Ukraine | [open](/support/servers/openaccess) | No | 2016-03-17 |
 | [UA](/support/servers/publictimeserver001204) | Odessa, Ukraine | | Central and Easten Europe | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [UA](/support/servers/publictimeserver001203) | Odessa, Ukraine | | Central and Easten Europe | [open](/support/servers/openaccess) | Yes | 2015-09-14 |
-| [UK](/support/servers/publictimeserver001728) | Bournemouth | [Xentex IT Solutions (Xentex Ltd)](https://www.xentex.uk) | UK, Europe | [open](/support/servers/openaccess) | Yes | 2021-02-28 |
 | [UK](/support/servers/publictimeserver001658) | Godalming, Surrey | | UK | [open](/support/servers/openaccess) | No | 2020-04-05 |
 | [UK](/support/servers/publictimeserver000659) | High Wycombe | | UK / Europe | [restricted](/support/servers/restrictedaccess) | Yes | 2020-07-30 |
 | [UK](/support/servers/publictimeserver000705) | Leatherhead, Surrey, England, UK | | World Wide | [restricted](/support/servers/restrictedaccess) | Yes | 2016-10-08 |
@@ -296,10 +294,9 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [US TX](/support/servers/publictimeserver001747) | Houston, TX | | US | [open](/support/servers/openaccess) | No | 2021-06-05 |
 | [US TX](/support/servers/publictimeserver001748) | Houston, TX | INTT.ORG | US | [open](/support/servers/openaccess) | Yes | 2021-06-17 |
 | [US TX](/support/servers/publictimeserver000313) | University of Houston, Houston, TX | | US Central time zone, others on request | [restricted](/support/servers/restrictedaccess) | No | 2015-10-23 |
-| [US UT](/support/servers/publictimeserver000314) | XMission Internet, Salt Lake City, Utah | | Western US | [open](/support/servers/openaccess) | No | 2012-11-25 |
 |[US UT](/support/servers/publictimeserver001274) | Syracuse Utah | NG7M Funded NTP Stratum 1 Servers | Utah / Western US | [open](/support/servers/openaccess) | Yes | 2021-05-15 |
 | [US WA](/support/servers/publictimeserver000456) | Seattle, WA | MROW | United States | [open](/support/servers/openaccess) | Yes | 2019-06-12 |
-| [US WA](/support/servers/publictimeserver001698) | Spokane, WA | [BORGNET dot US](http://clock.borgnet.us) | North America | [closed](/support/servers/closedaccess) | Yes | 2021-10-24 |
+| [US WA](/support/servers/publictimeserver001698) | Spokane, WA | [BORGNET dot US](http://clock.borgnet.us) | North America | [closed](/support/servers/closedaccess) | Yes | 2021-11-04 |
 | [US WI](/support/servers/publictimeserver000560) | Netwrx Consulting | | Global | [open](/support/servers/openaccess) | Yes | 2021-02-09 |
 | [US WI](/support/servers/publictimeserver000561) | Netwrx Consulting | | Global | [open](/support/servers/openaccess) | Yes | 2021-02-09 |
 | [US WI](/support/servers/publictimeserver000562) | Netwrx Consulting | | Global | [open](/support/servers/openaccess) | Yes | 2021-02-09 |
