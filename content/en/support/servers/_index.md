@@ -57,7 +57,7 @@ To add a time server, modify, or delete an existing time server entry, email the
 
 | Item | Value | Required |
 | ----- | ----- | ----- |
-| [Server Stratum](/support/servers/serverstratum) | Indicate if the server is [Stratum One](/support/servers/stratumonetimeservers), [Stratum Two](/support/servers/stratumtwotimeservers), or Inactive | Required |
+| [Server Stratum](/support/servers/serverstratum) | Indicate if the server is [Stratum One](/support/servers/stratumonetimeservers), [Stratum Two](/support/servers/stratumtwotimeservers), or [Inactive](/support/servers/inactivetimeservers) | Required |
 | [Country Code](/support/servers/countrycode) | 2 digit country code; for US, indicate 2 digit state code | Required |
 | Hostname, IP Address, IPv6 Address | | At least one is required |
 | [Use DNS](/support/servers/usedns) | Yes or No | Required |
