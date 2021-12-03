@@ -3,6 +3,6 @@ title: "Symmetric Key"
 type: archives
 ---
 
-If this option is set to yes this server supports NTP Authentication using a Symmetric Key (e.g. a shared secret).
+If this option is set to `yes` this Time Server supports NTP authentication using a symmetric key (shared secret).
 
-See the [Symmetric Key URL](/support/servers/symmetrickeyurl) field and/or the `Notes` in the time server list entry for information about obtaining the Symmetric Key for this time server. 
+See the [Symmetric Key URL](/support/servers/symmetrickeyurl) field and the `Notes` in the Time Server's list entry for information about obtaining the Symmetric Key. 
