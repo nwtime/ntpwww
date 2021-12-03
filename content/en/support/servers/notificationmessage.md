@@ -3,9 +3,7 @@ title: "Notification Message"
 type: archives
 ---
 
-An e-mail message to a [Time Server](/support/servers/timeserver) admin announcing your intent to use their server.
+Time Server operators which **require** a client to send a Notification Message prior to use must set the [Access Policy](/support/servers/accesspolicy) to [Restricted Access](/support/servers/restrictedaccess).
 
-If you require a Notification Message you must set your [Access Policy](/support/servers/accesspolicy) to [Restricted Access](/support/servers/restrictedaccess).
-
-You should send a Notification Message to the [Time Server](/support/servers/timeserver) admin if this option is set to `Yes` in that Time Server's list entry. 
+When this option is set to `Yes` in a Time Server's list entry, clients should send an email to the Server Contact announcing their intent to use the Time Server. 
 

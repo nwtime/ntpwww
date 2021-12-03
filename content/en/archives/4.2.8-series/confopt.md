@@ -61,7 +61,7 @@ Unless noted otherwise, further information about these commands is on the [Asso
 
 <code>**pool**</code>
 
-: For type `s` addresses (only) this command mobilizes a preemptable pool client mode association for the DNS name specified. The DNS name must resolve to one or more IPv4 or IPv6 addresses. Additional information about this command is on the [Automatic Server Discovery](/archives/4.2.8-series/discover/#pool) page. The [www.pool.ntp.org](http://www.pool.ntp.org/) page describes a compatible pool of public NTP servers.
+: For type `s` addresses (only) this command mobilizes a preemptable pool client mode association for the DNS name specified. The DNS name must resolve to one or more IPv4 or IPv6 addresses. Additional information about this command is on the [Automatic Server Discovery](/archives/4.2.8-series/discover/#pool) page. The [NTP Pool Project](https://www.ntppool.org) describes a compatible pool of public NTP servers.
 
 <code>**unpeer**</code>
 
