@@ -6,10 +6,10 @@
   
 
   
-  <meta name="description" content="pool.ntp.org uses DNS round robin to make a random selection from a pool of time servers who have volunteered to be in the pool. This is usually good …">
+  <meta name="description" content="The NTP Pool Project uses DNS round robin to make a random selection from a pool of time servers who have volunteered to be in the pool. This is …">
 <meta property="og:title" content="NTP Pool Time Servers" />
-<meta property="og:description" content="pool.ntp.org uses DNS round robin to make a random selection from a pool of time servers who have volunteered to be in the pool. This is usually good enough for end-users. The minimal ntpd configuration file (e.g. /etc/ntpd.conf) for using pool.ntp.org is:
-driftfile /var/lib/ntp/ntp.driftserver 0.pool.ntp.orgserver 1.pool.ntp.orgserver 2.pool.ntp.orgserver 3.pool.ntp.org ALERT! Any questions about the pool.ntp.org server pool should be directed either to the pool mailing list or to the comp." />
+<meta property="og:description" content="The NTP Pool Project uses DNS round robin to make a random selection from a pool of time servers who have volunteered to be in the pool. This is usually good enough for end-users. The minimal ntpd configuration file (e.g. /etc/ntpd.conf) for using NTP Pool Project is:
+driftfile /var/lib/ntp/ntp.driftserver 0.pool.ntp.orgserver 1.pool.ntp.orgserver 2.pool.ntp.orgserver 3.pool.ntp.org Questions about the NTP Pool Project server pool should be directed to the NTP Pool Project mailing lists." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/support/servers/ntppoolservers/" /><meta property="article:section" content="support" />
 
@@ -206,7 +206,7 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>NTP Pool Time Servers</h1>
      
-    <p><a href="https://www.pool.ntp.org/">pool.ntp.org</a> uses DNS round robin to make a random selection from a pool of time servers who have <a href="https://www.pool.ntp.org/join.html">volunteered</a> to be in the pool. This is usually good enough for end-users. The minimal <code>ntpd</code> configuration file (e.g. <code>/etc/ntpd.conf</code>) for using <a href="https://www.pool.ntp.org/">pool.ntp.org</a> is:</p>
+    <p>The <a href="https://www.ntppool.org/">NTP Pool Project</a> uses DNS round robin to make a random selection from a pool of time servers who have <a href="https://www.ntppool.org/en/join.html">volunteered</a> to be in the pool. This is usually good enough for end-users. The minimal <code>ntpd</code> configuration file (e.g. <code>/etc/ntpd.conf</code>) for using <a href="https://www.ntppool.org">NTP Pool Project</a> is:</p>
 <pre>
 driftfile /var/lib/ntp/ntp.drift
 server 0.pool.ntp.org
@@ -215,10 +215,10 @@ server 2.pool.ntp.org
 server 3.pool.ntp.org
 </pre>
 <blockquote>
-<p>ALERT! Any questions about the pool.ntp.org server pool should be directed either to the <a href="https://www.pool.ntp.org/mailinglists.html">pool mailing list</a> or to the <a href="https://groups.google.com/g/comp.protocols.time.ntp">comp.protocols.time.ntp Google group</a>.</p>
+<p>Questions about the NTP Pool Project server pool should be directed to the <a href="https://www.ntppool.org/en/mailinglists.html">NTP Pool Project mailing lists</a>.</p>
 </blockquote>
-<p>Time server operators are encouraged to visit the <a href="https://www.pool.ntp.org/join.html">NTP Pool website</a> to find out how they can join the NTP pool.</p>
-<p>The NTP Pool DNS system automatically picks time servers which are geographically close for you, but if you want to choose explicitly, there are sub-zones of pool.ntp.org. The &ldquo;continent&rdquo; ones are:</p>
+<p>Time server operators are encouraged to <a href="https://www.ntppool.org/en/join.html">join the NTP Pool Project</a>.</p>
+<p>The NTP Pool Project&rsquo;s DNS system automatically selects geographically close time servers, but if you want to choose explicitly, sub-zones are available. The &ldquo;continent&rdquo; ones are:</p>
 <table>
 <thead>
 <tr>
@@ -229,32 +229,32 @@ server 3.pool.ntp.org
 <tbody>
 <tr>
 <td>Worldwide</td>
-<td><a href="https://www.pool.ntp.org/zone/@">pool.ntp.org</a></td>
+<td><a href="https://www.ntppool.org/zone/@">pool.ntp.org</a></td>
 </tr>
 <tr>
 <td>Asia</td>
-<td><a href="https://www.pool.ntp.org/zone/asia">asia.pool.ntp.org</a></td>
+<td><a href="https://www.ntppool.org/zone/asia">asia.pool.ntp.org</a></td>
 </tr>
 <tr>
 <td>Europe</td>
-<td><a href="https://www.pool.ntp.org/zone/europe">europe.pool.ntp.org</a></td>
+<td><a href="https://www.ntppool.org/zone/europe">europe.pool.ntp.org</a></td>
 </tr>
 <tr>
 <td>North America</td>
-<td><a href="https://www.pool.ntp.org/zone/north-america">north-america.pool.ntp.org</a></td>
+<td><a href="https://www.ntppool.org/zone/north-america">north-america.pool.ntp.org</a></td>
 </tr>
 <tr>
 <td>Oceania</td>
-<td><a href="https://www.pool.ntp.org/zone/oceania">oceania.pool.ntp.org</a></td>
+<td><a href="https://www.ntppool.org/zone/oceania">oceania.pool.ntp.org</a></td>
 </tr>
 <tr>
 <td>South America</td>
-<td><a href="https://www.pool.ntp.org/zone/south-america">south-america.pool.ntp.org</a></td>
+<td><a href="https://www.ntppool.org/zone/south-america">south-america.pool.ntp.org</a></td>
 </tr>
 </tbody>
 </table>
-<p>There are also sub-zones for many countries. Click on your continent to see which country-zones are available there.</p>
-<p>When using the by-country zones, be careful: some of them currently contain only one or two servers, so you are probably better off using either the zone of a nearby country, or using the continent or global zone (This is sometimes also valid if you live in a big country). In general though, just use the &ldquo;global&rdquo; zone as in the suggested configuration near the top of the page and let the system sort it out for you.</p>
+<p>There are also sub-zones for many countries. Click a continent to see its country zones.</p>
+<p>When using the by-country zones, be careful: some of them currently contain only one or two servers, so you are probably better off using either the zone of a nearby country, or using the continent or global zone (This is sometimes also valid if you live in a big country). In general, just use the &ldquo;global&rdquo; zone in the above suggested configuration and let the system sort it out for you.</p>
 
 	  
 	  <style>

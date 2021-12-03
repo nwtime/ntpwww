@@ -569,7 +569,7 @@ Last update: 26-Jul-2017 20:10 UTC
       
       <guid>https://doc.ntp.org/support/servers/accesspolicy/</guid>
       <description>The general access policy of a Time Server. The following choices are available:
- Open Access - This TimeServer is open to any client complying with usage guidelines listed below. Restricted Access - This TimeServer has some access restrictions in addition to the usage guidelines listed below. Closed Access - This TimeServer is closed or requires prior arrangement for use.  Usage Guidelines The following usage guidelines apply to all time servers unless modified by the time server operator:</description>
+ Open Access - This Time Server is open to any client complying with the Usage Guidelines. Restricted Access - This Time Server has some access restrictions in addition to the Usage Guidelines. Closed Access - This Time Server is closed or requires prior arrangement for use.  Usage Guidelines The following usage guidelines apply to all Time Servers unless modified by the Time Server operator:</description>
     </item>
     
     <item>
@@ -895,8 +895,8 @@ Last update: 24-Jul-2018 09:12 UTC
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/autokey/</guid>
-      <description>If this option is set to yes this server supports NTP Authentication using the Autokey protocol.
-See the AutoKey URL field and/or the Notes in the time server list entry for information about obtaining the Autokey parameters for this time server.</description>
+      <description>If this option is set to yes this Time Server supports NTP Authentication using the Autokey protocol.
+See the AutoKey URL field and/or the Notes in the Time Server list entry for information about obtaining the Autokey parameters.</description>
     </item>
     
     <item>
@@ -935,8 +935,7 @@ Table of Contents  Briefing Slides Related Pages Introduction Private Certificat
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/autokeyurl/</guid>
-      <description>A URL (or e-mail address) to be used to request the Autokey parameters for this time server.
-Use the Notes in the time server list entry for extended information that will not fit in this field.</description>
+      <description>URL or email address for requesting the Autokey parameters for a Time Server.</description>
     </item>
     
     <item>
@@ -1318,9 +1317,9 @@ Figure 1 shows a typical wedge scattergram plotting sample points of offset vers
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/closedaccess/</guid>
-      <description>Closed access time servers may not be used without prior arrangement.
-Usage Guidelines The following usage guidelines apply to all time servers unless modified by the time server operator:
- iburst may be used. burst may not be used. minpoll/maxpoll may not be changed below the defaults of 64 seconds and 1024 seconds respectively. Clients should honor the KOD message. Time Server IP addresses and/or hostnames may not be hard-coded in any hardware, firmware, or software without advance explicit written permission from the time server operator.</description>
+      <description>Closed access Time Servers may not be used without prior arrangement.
+Usage Guidelines The following usage guidelines apply to all Time Servers unless modified by the Time Server operator:
+ iburst may be used. burst may not be used. minpoll/maxpoll may not be changed below the defaults of 64 seconds and 1024 seconds, respectively. Clients should honor the KOD message. Time Server IP addresses and/or hostnames may not be hard-coded in any hardware, firmware, or software without advance explicit written permission from the Time Server operator.</description>
     </item>
     
     <item>
@@ -1638,8 +1637,8 @@ Last update: 4-Feb-2020 23:47 UTC
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/countrycode/</guid>
-      <description>The country name (official short name in English), as specified on the ISO 3166-1-alpha-2 code list, where this Time Server is located.
-Time servers located in the United States should use US NN where NN is the 2 letter abbreviation of the State.</description>
+      <description>The country name, as specified in the ISO 3166-1-alpha-2 code list, where this Time Server is located.
+Time Servers located in the United States should use US NN where NN is the 2 letter abbreviation of the state.</description>
     </item>
     
     <item>
@@ -2287,7 +2286,7 @@ Additional software and information about the software drivers as well as the la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/hostorganization/</guid>
-      <description>The sponsoring organization or owner or hosting provider of this Time Server.</description>
+      <description>The sponsoring organization, owner, or hosting provider of this Time Server.</description>
     </item>
     
     <item>
@@ -2852,15 +2851,6 @@ Last update: 13-Oct-2010 00:33 UTC
     </item>
     
     <item>
-      <title>Managing Your List Entries</title>
-      <link>https://doc.ntp.org/support/servers/managingyourlistentries/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://doc.ntp.org/support/servers/managingyourlistentries/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>md5 - generate message digest</title>
       <link>https://doc.ntp.org/archives/3-5.93e/md5cert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -3370,9 +3360,8 @@ Philip.Gladstone@mail.citicorp.com
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/notificationmessage/</guid>
-      <description>An e-mail message to a Time Server admin announcing your intent to use their server.
-If you require a Notification Message you must set your Access Policy to Restricted Access.
-You should send a Notification Message to the Time Server admin if this option is set to Yes in that Time Server&amp;rsquo;s list entry.</description>
+      <description>Time Server operators which require a client to send a Notification Message prior to use must set the Access Policy to Restricted Access.
+When this option is set to Yes in a Time Server&amp;rsquo;s list entry, clients should send an email to the Server Contact announcing their intent to use the Time Server.</description>
     </item>
     
     <item>
@@ -3647,8 +3636,8 @@ Last update: 21-Oct-2010 23:44 UTC
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/ntppoolservers/</guid>
-      <description>pool.ntp.org uses DNS round robin to make a random selection from a pool of time servers who have volunteered to be in the pool. This is usually good enough for end-users. The minimal ntpd configuration file (e.g. /etc/ntpd.conf) for using pool.ntp.org is:
-driftfile /var/lib/ntp/ntp.driftserver 0.pool.ntp.orgserver 1.pool.ntp.orgserver 2.pool.ntp.orgserver 3.pool.ntp.org ALERT! Any questions about the pool.ntp.org server pool should be directed either to the pool mailing list or to the comp.</description>
+      <description>The NTP Pool Project uses DNS round robin to make a random selection from a pool of time servers who have volunteered to be in the pool. This is usually good enough for end-users. The minimal ntpd configuration file (e.g. /etc/ntpd.conf) for using NTP Pool Project is:
+driftfile /var/lib/ntp/ntp.driftserver 0.pool.ntp.orgserver 1.pool.ntp.orgserver 2.pool.ntp.orgserver 3.pool.ntp.org Questions about the NTP Pool Project server pool should be directed to the NTP Pool Project mailing lists.</description>
     </item>
     
     <item>
@@ -4738,10 +4727,10 @@ Last update: 31-Jan-2014 06:54 UTC
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/openaccess/</guid>
-      <description>An open access time server may be polled by any client complying with the usage guidelines listed below.
+      <description>An open access Time Server may be polled by any client complying with the Usage Guidelines.
 Clients should respect any declared Service Area, but are not required to do so.
-Operators of open access time servers may request, but may not require, a Notification Message prior to use.
-Usage Guidelines The following usage guidelines apply to all time servers unless modified by the time server operator:
+Operators of open access Time Servers may request, but may not require, a Notification Message prior to use.
+Usage Guidelines The following usage guidelines apply to all Time Servers unless modified by the Time Server operator:
  iburst may be used.</description>
     </item>
     
@@ -4887,7 +4876,7 @@ My hobbies include hiking, amateur radio and photography, although I haven&amp;r
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/poolmember/</guid>
-      <description>This Time Server is included in the pool.ntp.org time server pool if this option to Yes.</description>
+      <description>This Time Server is included in the NTP Pool Project if this option is set to Yes.</description>
     </item>
     
     <item>
@@ -5600,8 +5589,8 @@ Last update: 10-Mar-2014 05:20 UTC
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/restrictedaccess/</guid>
-      <description>A restricted access time server does not require prior arrangements before use but has some restrictions on its use in addition to the usage guidlines listed below. These restrictions include, but are not limited to:
- Notification Message Service only to clients within a specified Service Area Service only to certain types of institutions Maximum number of clients Minimum poll interval  Users are reponsible for reviewing the list entry for a Restricted Access server prior to using it.</description>
+      <description>A restricted access Time Server does not require a prior arrangement before use but has some usage restrictions in addition to the Usage Guidlines. These restrictions include, but are not limited to:
+ Requiring a Notification Message prior to use Service only to clients within a specified Service Area Service only to certain types of institutions Maximum number of clients Minimum poll interval  Users are reponsible for reviewing and following the information in the Time Server&amp;rsquo;s list entry prior to use.</description>
     </item>
     
     <item>
@@ -12084,7 +12073,7 @@ Last update: 13-Feb-2020 10:08 UTC
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/servercontact/</guid>
-      <description>The e-mail address to be used for contacting the time server operator. Inclusion of the operator&amp;rsquo;s name or other information (e.g. telephone number) is optional.</description>
+      <description>The email address for contacting the Time Server operator. Inclusion of the operator&amp;rsquo;s name or telephone number is optional.</description>
     </item>
     
     <item>
@@ -12093,7 +12082,7 @@ Last update: 13-Feb-2020 10:08 UTC
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/serverlocation/</guid>
-      <description>The physical location (e.g. City, State/Province) of this Time Server.</description>
+      <description>The physical location, such as city, state, or province, of this Time Server.</description>
     </item>
     
     <item>
@@ -12150,10 +12139,10 @@ Last update: 25-Nov-2009 4:46
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/serverstratum/</guid>
-      <description>The time server stratum is the position at which a time server operates in the NTP hierarchy.
-A stratum 1 time is directly connected to a reference clock and is at the top of the time server hierarchy.
-A stratum 2 time server receives the time from one, or more, stratum 1 time servers. Stratum 2 time servers are not significantly less accurate than stratum 1 time servers.
- Use the Inactive option of Server Stratum to mark a Time Server as Inactive.</description>
+      <description>The Time Server stratum is the position at which a Time Server operates in the NTP hierarchy.
+A Stratum One Time Server is directly connected to a reference clock and is at the top of the Time Server hierarchy.
+A Stratum Two Time Server receives the time from one or more Stratum One Time Servers. Stratum Two Time Servers are not significantly less accurate than Stratum One Time Servers.
+ Use the Inactive option of Server Stratum to mark a Time Server as inactive.</description>
     </item>
     
     <item>
@@ -12226,7 +12215,7 @@ Some operators include information about the server hardware, operating system, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/servicearea/</guid>
-      <description>The geographic and/or network area this Time Server is intended to serve.</description>
+      <description>The geographic or network area this Time Server is intended to serve.</description>
     </item>
     
     <item>
@@ -12447,8 +12436,8 @@ Here is a uuencoded, compressed tar file. The only file I&amp;rsquo;ve changed i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/symmetrickey/</guid>
-      <description>If this option is set to yes this server supports NTP Authentication using a Symmetric Key (e.g. a shared secret).
-See the Symmetric Key URL field and/or the Notes in the time server list entry for information about obtaining the Symmetric Key for this time server.</description>
+      <description>If this option is set to yes this Time Server supports NTP authentication using a symmetric key (shared secret).
+See the Symmetric Key URL field and the Notes in the Time Server&amp;rsquo;s list entry for information about obtaining the Symmetric Key.</description>
     </item>
     
     <item>
@@ -12466,8 +12455,7 @@ See the Symmetric Key URL field and/or the Notes in the time server list entry f
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/symmetrickeyurl/</guid>
-      <description>A URL (or e-mail address) to be used to request a Symmetric Key for this time server.
-Use the Notes in the time server list entry for extended information that will not fit in this field.</description>
+      <description>URL or email address for requesting a Time Server&amp;rsquo;s Symmetric Key.</description>
     </item>
     
     <item>
@@ -12729,7 +12717,7 @@ In most experiments in which time is involved, it is necessary to develop estima
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://doc.ntp.org/support/servers/timeserver/</guid>
-      <description>A time server is a system which acquires the correct time from a local reference clock and/or remote time servers and will answer time requests from other systems.</description>
+      <description>A Time Server is a system which acquires the correct time from a local reference clock or remote time servers and will answer time requests from other systems.</description>
     </item>
     
     <item>
