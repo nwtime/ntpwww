@@ -16,6 +16,8 @@ and provides 13 bugfixes.
 
 ENotification of these issues were delivered to our Institutional members on a rolling basis as they were reported and as progress was made.
 
+* * *
+
 **Timeline:**
 
 * 2020 Jun 23: Public release

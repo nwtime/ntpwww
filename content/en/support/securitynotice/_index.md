@@ -41,28 +41,32 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### Recent Vulnerabilities
 
+Click the hyperlink of a Security Issue for more details about the vulnerability.
+
 | Security Issue | Severity |  Fixed In | Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------- | -------------------- | --------------- | -------------- |
 | [3661: Memory leak with CMAC keys](/support/securitynotice/ntpbug3661) | <span style="color:orange">MEDIUM</span> | [4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement) | 2020<br> Apr 07 | 2020<br> Apr 12 | 2020<br> Jun 23 |
 | [3610:  <code>process_control()</code> should bail earlier on short packets ](/support/securitynotice/ntpbug3610) | <span style="color:green">NONE</span> | [4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement) | 2019<br> Jun 05 | 2020<br> Feb 17 | 2020<br> Mar 03 |
 | [3596: Unauthenticated and unmonitored <code>ntpd</code> may be susceptible to IPv4 attack from highly predictable transmit timestamps ](/support/securitynotice/ntpbug3596) | <span style="color:orange">MEDIUM</span> | [4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement) | 2019<br> Jun 05 | 2020<br> Feb 17 | 2020<br> Mar 03 |
 | [3592: DoS Attack on Unauthenticated Client](/support/securitynotice/ntpbug3592) | <span style="color:orange">MEDIUM</span> | [4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement) | 2019<br> Jun 05 | 2020<br> Feb 17 | 2020<br> Mar 03 |
-| [3565:  Crafted null dereference attack from a trusted source with an authenticated mode 6 packet ](/support/securitynotice/ntpbug3565) | <span style="color:orange">MEDIUM</span> | [4.2.8p13](/support/securitynotice/4_2_8p13-release-announcement) | 2019<br> Jan 16 | 2019<br> Feb 20 | 2019 Mar 07 |
-| [3012:  Sybil vulnerability: ephemeral association attack ](/support/securitynotice/ntpbug3012p12)<br> [CVE-2016-1549](http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-1549) <br>[CVE-2018-7170](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7170) | <span style="color:orange">LOW/MEDIUM</span> | [4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | | 2018<br> Jul 25 | 2018<br> Aug 14 |
-| [3505:  NTPQ/NTPDC: Buffer Overflow in <code>openhost()</code> ](/support/securitynotice/ntpbug3505)<br> [CVE-2018-12327](http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-12327)<br> | <span style="color:green">NONE</span> | [4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | | 2018<br> Jul 25 | 2018<br> Aug 14 |
-| [3012:  Sybil vulnerability: ephemeral association attack ](/support/securitynotice/ntpbug3012)<br> [CVE-2016-1549](http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-1549) <br>[VU#961909](http://www.kb.cert.org/vuls/id/961909) | <span style="color:orange">LOW/MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 2018<br> Jan 23 | 2018<br> Feb 27 |
-| [3412: <code>ctl_getitem()</code>: buffer read overrun leads to undefined behavior and information leak](/support/securitynotice/ntpbug3412)<br> [CVE-2018-7182](http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-7182)<br> [VU#961909](http://www.kb.cert.org/vuls/id/961909) | <span style="color:orange">INFO/MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 2018<br> Jan 23 | 2018<br> Feb 27 |
-| [3415:  Provide a way to prevent authenticated symmetric passive peering ](/support/securitynotice/ntpbug3415)<br> [CVE-2018-7170](http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-7170)<br> [VU#961909](http://www.kb.cert.org/vuls/id/961909) | <span style="color:green">LOW</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 2018<br> Jan 23 | 2018<br> Feb 27 |
-| [3453:  Interleaved symmetric mode cannot recover from bad state ](/support/securitynotice/ntpbug3453)<br> [CVD-2018-7184]()<br> [VU#961909](http://www.kb.cert.org/vuls/id/961909) | <span style="color:green">LOW</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 2018<br> Jan 23 | 2018<br> Feb 27 |
-| [3454:  Unauthenticated packet can reset authenticated interleaved association ](/support/securitynotice/ntpbug3454)<br> [CVE-2018-7185](http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2018-7185)<br> [VU#961909](http://www.kb.cert.org/vuls/id/961909) | <span style="color:orange">LOW/MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 2018<br> Jan 23 | 2018<br> Feb 27 |
+| [3565:  Crafted null dereference attack from a trusted source with an authenticated mode 6 packet ](/support/securitynotice/ntpbug3565) | <span style="color:orange">MEDIUM</span> | [4.2.8p13](/support/securitynotice/4_2_8p13-release-announcement) | 2019<br> Jan 17 | 2019<br> Feb 19 | 2019 Mar 07 |
+| [3012:  Sybil vulnerability: ephemeral association attack ](/support/securitynotice/ntpbug3012p12) | <span style="color:orange">LOW/MEDIUM</span> | [4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | | 2018<br> Jul 25 | 2018<br> Aug 14 |
+| [3505:  NTPQ/NTPDC: Buffer Overflow in <code>openhost()</code> ](/support/securitynotice/ntpbug3505) | <span style="color:green">NONE</span> | [4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | | 2018<br> Jul 25 | 2018<br> Aug 14 |
+| [3012:  Sybil vulnerability: ephemeral association attack ](/support/securitynotice/ntpbug3012) | <span style="color:orange">LOW/MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | 2018<br> Jan 23 | 2018<br> Feb 12 | 2018<br> Feb 27 |
+| [3412: <code>ctl_getitem()</code>: buffer read overrun leads to undefined behavior and information leak](/support/securitynotice/ntpbug3412) | <span style="color:orange">INFO/MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | 2018<br> Jan 23 | 2018<br> Feb 12 | 2018<br> Feb 27 |
+| [3415:  Provide a way to prevent authenticated symmetric passive peering ](/support/securitynotice/ntpbug3415) | <span style="color:green">LOW</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | 2018<br> Jan 23 | 2018<br> Feb 12 | 2018<br> Feb 27 |
+| [3453:  Interleaved symmetric mode cannot recover from bad state ](/support/securitynotice/ntpbug3453) | <span style="color:green">LOW</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | 2018<br> Jan 23 | 2018<br> Feb 12 | 2018<br> Feb 27 |
+| [3454:  Unauthenticated packet can reset authenticated interleaved association ](/support/securitynotice/ntpbug3454) | <span style="color:orange">LOW/MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | 2018<br> Jan 23 | 2018<br> Feb 12 | 2018<br> Feb 27 |
+| [3414: <code>ntpq: decodearr()</code> can write beyond its 'buf' limits](/support/securitynotice/ntpbug3414) | <span style="color:orange">MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | 2018<br> Jan 23 | 2018<br> Feb 12 | 2018<br> Feb 27 |
 
 * * *
 
 #### Older Resolved Issues
 
+Click the hyperlink of a Security Issue for more details about the vulnerability.
+
 | Security Issue | Severity | Fixed In | Public Release |
 | -------------- | -------- | -------- | -------------- |
-| [3414: <code>ntpq: decodearr()</code> can write beyond its 'buf' limits](/support/securitynotice/ntpbug3414) | <span style="color:orange">MEDIUM</span> | [4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | 2018 Feb 27|
 | [3389: Denial of Service via Malformed Config](/support/securitynotice/ntpbug3389) |<span style="color:orange">MEDIUM</span> | [4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | 2017 Mar 21|
 | [3388: Buffer Overflow in DPTS Clock](/support/securitynotice/ntpbug3388) | <span style="color:green">LOW</span> | [4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | 2017 Mar 21|
 | [3387: Authenticated DoS via Malicious Config Option](/support/securitynotice/ntpbug3387) | <span style="color:orange">MEDIUM</span>| [4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | 2017 Mar 21|
@@ -77,7 +81,6 @@ Please refrain from discussing potential security issues in public fora such as 
 | [3378: Improper use of <code>snprintf()</code> in <code>mx4200_send()</code>](/support/securitynotice/ntpbug3378) | <span style="color:green">LOW</span> | [4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | 2017 Mar 21|
 | [3377: Buffer Overflow in <code>ntpq</code> when fetching <code>reslist</code> from a malicious <code>ntpd</code>](/support/securitynotice/ntpbug3377) | <span style="color:orange">MEDIUM</span>| [4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | 2017 Mar 21|
 | [3376: <code>Makefile</code> does not enforce Security Flags](/support/securitynotice/ntpbug3376) | <span style="color:green">INFO</span> | [4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | 2017 Mar 21|
-| [3379: NTP: Potential Overflows in <code>ctl_put()</code> functions]
 | [3361: 0rigin DoS](/support/securitynotice/ntpbug3361) | <span style="color:orange">MEDIUM</span>| [4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | 2017 Mar 21|
 | [3119: Mode 6 unauthenticated trap information disclosure and DDoS vector](/support/securitynotice/ntpbug3119) | <span style="color:orange">MEDIUM</span>| [4.2.8p9](/support/securitynotice/4_2_8p9-release-announcement) | 2016 Nov 21|
 | [3118:  Mode 6 unauthenticated trap information disclosure and DDoS vector ](/support/securitynotice/ntpbug3118) | <span style="color:orange">MEDIUM</span>| [4.2.8p9](/support/securitynotice/4_2_8p9-release-announcement) | 2016 Nov 21|

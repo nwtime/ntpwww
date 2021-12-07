@@ -1,7 +1,7 @@
 ---
 title: "NTP BUG 3661: Memory leak with CMAC keys"
 type: archives
-date: "2020-04-28"
+date: "2020-06-23"
 ---
 
 * * *
@@ -12,7 +12,7 @@ date: "2020-04-28"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td>Stable (4.2.8p15)<br> Development (4.3.101)</td>
+		<td><a href="/support/securitynotice/4_2_8p15-release-announcement">4.2.8p15</a><br> Development (4.3.101)</td>
 		<td>28 Apr 2020</td>
 	</tr>
 	<tr>

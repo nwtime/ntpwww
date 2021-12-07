@@ -12,7 +12,7 @@ date: "20YY-MM-DD"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td>RELEASENAME</td>
+		<td><a href="/support/securitynotice/4_2_8pXX-release-announcement">RELEASE</a></td>
 		<td>DATE</td>
 	</tr>
 	<tr>
@@ -31,9 +31,9 @@ date: "20YY-MM-DD"
 		<td><a href="">AV:XXXX</a></td>
 	</tr>
 	<tr>
-		<th><b>CVSS3.1 Score<b></th>
+		<th><b>CVSS3 Score<b></th>
 		<td>X.X</td>
-		<td><a href="">CVSS:3.1/AV:XXXX</a></td>
+		<td><a href="">CVSS:3.0/AV:XXXX</a></td>
 	</tr>	
   </tbody>	
 </table>
