@@ -58,7 +58,7 @@ PPS_KC_HARDPPS
 </pre>
 
 Information valid as of: 10 October 1999
-: Contact: [Ulrich Windl](Ulrich.Windl@rz.uni-regensburg.de)
+: Contact: [Ulrich Windl](mailto:Ulrich.Windl@rz.uni-regensburg.de)
 
 * * *
 

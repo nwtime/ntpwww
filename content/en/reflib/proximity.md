@@ -92,7 +92,7 @@ Timestamp SPDUs are exchanged over the link several times each pass for redundan
 
 #### PITS Protocol Operations
 
-The PITS state machine is very similar to the NTP interleaved symmetric mode state machine as described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire). Pseudo-code is contained in a companion S briefing document [NTP Interleaved Protocol for LANs and Space Data Links](reflib/brief/onwire/onwire.ppt). While NTP supports an interleaved broadcast mode, this mode is not appropriate for the current Mars space fleet configuration, but could be considered in a future study.
+The PITS state machine is very similar to the NTP interleaved symmetric mode state machine as described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire). Pseudo-code is contained in a companion S briefing document [NTP Interleaved Protocol for LANs and Space Data Links](/reflib/brief/onwire/onwire.ppt). While NTP supports an interleaved broadcast mode, this mode is not appropriate for the current Mars space fleet configuration, but could be considered in a future study.
 
 The basic idea is that the PITS primary servers synchronize to Earth by some means and in the process determines the coordinate time <code>_t_<sub>0</sub></code> and the offset <code>_T_ = _t_<sub>0</sub> - _S_</code>, where <code>_S_</code> is the SCLK time at <code>_t_<sub>0</sub></code>. Each time the SCLK is read, <code>_T_</code> is added to its value <code>_S_</code> to determine the coordinate time <code>_t_</code>. If necessary, the SCLK rate can be disciplined as in NTP. Coordinate time values are used in Timestamp SPDU fields, so operation continues as in NTP.
 

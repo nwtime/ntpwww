@@ -194,7 +194,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [PL](/support/servers/publictimeserver000915) | Warsaw | e-utp.net | Europe | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [PL](/support/servers/publictimeserver001549) | 04-870 Warszawa, Polska (JAK Sp. z o.o. HQ, Vectra/VirtuaOperator fiber network). | JAK Sp. z o.o.|  Poland/Europe | [open](/support/servers/openaccess) | No | 2019-03-24 |
 | [PL](/support/servers/publictimeserver000574) | Wegrzce, near Cracow; Poland | |  Poland | [open](/support/servers/openaccess) | No | 2019-12-20 |
-| [PT](/support/servers/publictimeserver001679) | Lisboa, Portugal | [INSILICO LABS](www.insilicolabs.pt) |  Portugal/Europe | [open](/support/servers/openaccess) | Yes | 2020-07-04 |
+| [PT](/support/servers/publictimeserver001679) | Lisboa, Portugal | [INSILICO LABS](https://www.insilicolabs.pt/) |  Portugal/Europe | [open](/support/servers/openaccess) | Yes | 2020-07-04 |
 | [PT](/support/servers/publictimeserver000405) | Lisboa, Portugal | [Observat&oacute;rio Astron&oacute;mico de Lisboa](https://www.oal.ul.pt/) | Portugal/Europe | [open](/support/servers/openaccess) | No | 2006-02-12 |
 | [PY](/support/servers/publictimeserver001176) | Asunci&oacute;n | COPACO S.A. | Paraguay | [open](/support/servers/openaccess) | No | 2017-10-27 |
 | [RO](/support/servers/publictimeserver001626) | Bucharest, Aviatiei | Private |  Europe | [open](/support/servers/openaccess) | Yes | 2019-12-05 |
