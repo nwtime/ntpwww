@@ -24,9 +24,9 @@ toc_hide: true
 
 #### Briefing Slides
 
-*   NTP Security Model [PostScript](/reflib/brief/autokey/autokey.ps) | [PowerPoint](/reflib/brief/autokey/autokey.ppt) | [PDF](/reflib/brief/autokey/autokey.pdf)
-*   NTP Security Algorithms [PostScript](/reflib/brief/secalgor/secalgor.ps) | [PowerPoint](/reflib/brief/secalgor/secalgor.ppt) | [PDF](/reflib/brief/secalgor/secalgor.pdf)
-*   NTP Security Protocol [PostScript](/reflib/brief/secproto/secproto.ps) | [PowerPoint](/reflib/brief/secproto/secproto.ppt) | [PDF](/reflib/brief/secproto/secproto.pdf)
+*   NTP Security Model ([PDF](/reflib/brief/autokey/autokey.pdf))
+*   NTP Security Algorithms ([PDF](/reflib/brief/secalgor/secalgor.pdf))
+*   NTP Security Protocol ([PDF](/reflib/brief/secproto/secproto.pdf))
 
 * * *
 
