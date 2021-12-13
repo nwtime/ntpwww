@@ -115,7 +115,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 3**
 
-    : [ELV](http://www.elv.de) DCF7000 (sloppy AM demodulation / 50ms)
+    : [ELV](https://de.elv.com/) DCF7000 (sloppy AM demodulation / 50ms)
 
 *   **server 127.127.8.0-3 mode 4**
 

@@ -5,6 +5,6 @@ type: archives
 
 You should use `-DSETTIMEOFDAY_BROKEN`.
 
-Philip.Gladstone@mail.citicorp.com
+Philip Gladstone
 
 (XXX But there is no checking for `SETTIMEOFDAY_BROKEN` in the code)

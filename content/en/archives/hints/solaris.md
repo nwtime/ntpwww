@@ -131,4 +131,4 @@ I tried running with a `tickadj` of 5 microseconds with out much success. 200 mi
 
 Prior versions of this file had major text contributed by:
 
-*   Denny Gentry <denny@eng.sun.com>
+*   Denny Gentry

@@ -7,8 +7,6 @@ aliases:
 
 > **Please read the [Rules Of Engagement](/support/servers/rulesofengagement) before using these lists. These lists are updated frequently and should not be cached.**
 
-Read [Managing Your List Entries](/support/managingyourlistentries) before adding or editing your Time Server.
-
 Click the ISO Country Code to view complete details about a server. See [Inactive Time Servers](/support/servers/inactivetimeservers) for previously listed servers that are no longer in service.
 
 | ISO | Location | Host / Sponsor | Service Area | Access Policy | Notify | Last Modified |
