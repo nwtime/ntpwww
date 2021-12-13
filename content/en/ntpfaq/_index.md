@@ -379,10 +379,10 @@ This is an alphabetical list of contributors:
 * [Eric W. Bates](mailto:ericx@vineyard.net)
 * [Brian Bergstrand](mailto:brianb@mac.com)
 * [Peter Boettcher](mailto:boettcher@ll.mit.edu)
-* [Marc Brett](mailto:Marc.Brett@westgeo.com)
-* [Bill Broadley](mailto:bill@sphere.math.ucdavis.edu)
+* Marc Brett
+* Bill Broadley
 * [Martin Burnicki](mailto:martin.burnicki@meinberg.de)
-* [Jonathan A. Buzzard](mailto:jonathan@buzzard.org.uk)
+* Jonathan A. Buzzard
 * [chunkeey](mailto:chunkeey@web.de)
 * James Clark
 * [David Craggs](mailto:dcraggs@gotadsl.co.uk)
@@ -399,14 +399,14 @@ This is an alphabetical list of contributors:
 * [Benjamin Greenwald](mailto:beng@lcs.mit.edu)
 * [James & Charlotte Griffin](mailto:agriffin@cpcug.org)
 * [Richard M. Hambly](mailto:rick@cnssys.com)
-* [John Hay](mailto:John.Hay@mikom.csir.co.za)
+* John Hay
 * [Per Hedeland ](mailto:per@erix.ericsson.se)
 * [Kees Hendrikse](mailto:kees@echelon.nl)
-* [Martin Herbener](mailto:mherbene@kde.state.ky.us)
+* Martin Herbener
 * [Doug Hogarth](mailto:DougHo@niceties.com)
 * Andrew Hood
 * [Theo Jakobus](mailto:jakobus@iaf.fhg.de)
-* [Nicholas Jenkins](mailto:njenkins@mad.scientist.com)
+* Nicholas Jenkins
 * [Poul-Henning Kamp](mailto:phk@freebsd.dk)
 * [James Kirkpatrick](mailto:jimkirk@uwyo.edu)
 * Wolfgang Klische
@@ -419,15 +419,15 @@ This is an alphabetical list of contributors:
 * [Frank Mayhar](mailto:frank@exit.com)
 * [Professor David L. Mills](mailto:mills@udel.edu)
 * [Nelson Minar](mailto:nelson@media.mit.edu)
-* [Jeffrey Mogul](mailto:mogul@pa.dec.com)
-* [Hal Murray](mailto:hmurray@suespammers.org)
+* Jeffrey Mogul
+* Hal Murray
 * [Dirk A. Niggemann](mailto:dirk-n@dircon.co.uk)
-* [Mike Nolan](mailto:mikeynolan@my-deja.com)
-* [Johan Fredrik Øhman](mailto:johanfo@essay.org)
+* Mike Nolan
+* Johan Fredrik &Oslash;hman
 * [Rainer Orth](mailto:ro@TechFak.Uni-Bielefeld.DE)
 * Don Payette
 * [William R. Pennock](mailto:bill.pennock@transquest.com)
-* [Bruce M. Penrod](mailto:bpenrod@nbn.com)
+* Bruce M. Penrod
 * [Nicolai E M Plum](mailto:nicolai@esperi.org)
 * [John Sager](mailto:jcs@zoo.bt.co.uk)
 * Hans P. Reiser
@@ -440,9 +440,9 @@ This is an alphabetical list of contributors:
 * [David J. Taylor](mailto:david-taylor@blueyonder.co.uk)
 * [George Terrone](mailto:gterrone@itsco.com)
 * Thomas Tornblom
-* [Scott Tuttle](mailto:scott@crampinhand.com)
-* [Brian Utterback](mailto:Brian.Utterback@East.Sun.COM)
+* Scott Tuttle
+* Brian Utterback
 * Gilles Vollant
 * [Norman Walsh](mailto:ndw@nwalsh.com)
-* [David Woolley](mailto:david@djwhome.demon.co.uk)
+* David Woolley
 * [Dale R. Worley](mailto:worley@shell01.TheWorld.com)

@@ -51,7 +51,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 17.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux port
 18.  [Dennis Ferguson](mailto:dennis@mrbill.canet.ca) foundation code for NTP Version 2 as specified in RFC-1119
 19.  [John Hay](mailto:jhay@icomtek.csir.co.za) IPv6 support and testing
-20.  [Dave Hart](mailto:davehart@davehart.com) General maintenance, Windows port interpolation rewrite
+20.  Dave Hart: General maintenance, Windows port interpolation rewrite
 21.  [Claas Hilbrecht](mailto:neoclock4x@linum.com) NeoClock4X clock driver
 22.  [Glenn Hollinger](mailto:glenn@herald.usask.ca) GOES clock driver
 23.  [Mike Iglesias](mailto:iglesias@uci.edu) DEC Alpha port

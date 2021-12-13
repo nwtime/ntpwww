@@ -30,7 +30,7 @@ The following copyright notice applies to all files collectively called the Netw
 
 The following individuals contributed in part to the Network Time Protocol Distribution Version 4 and are acknowledged as authors of this work.
 
-1.  [Mark Andrews](mailto:marka@syd.dms.csiro.au) Leitch atomic clock controller
+1.  Mark Andrews: Leitch atomic clock controller
 2.  [Bernd Altmeier <altmeier@atlsoft.de>](mailto:altmeier@atlsoft.de) hopf Elektronik serial line and PCI-bus devices
 3.  [Viraj Bais](mailto:vbais@mailman1.intel.co) and [Clayton Kirkwood](mailto:kirkwood@striderfm.intel.com) port to WindowsNT 3.5
 4.  [Michael Barone](mailto:michael.barone@lmco.com) GPSVME fixes
