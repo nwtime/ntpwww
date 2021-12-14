@@ -2,6 +2,7 @@
 title: "NTP BUG ####: DESCRIPTION"
 type: archives
 date: "20YY-MM-DD"
+sitemap_exclude: true
 ---
 
 * * *
