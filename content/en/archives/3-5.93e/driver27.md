@@ -33,7 +33,7 @@ This code has been significantly slimmed down since the V1.0 version, roughly ha
 
 This driver is designed to allow the unit to run from batteries as designed, for something approaching the 2.5 years expected in the usual stand-alone mode, but no battery-life measurements have been taken.
 
-Much of this code is originally from the other refclock driver files with thanks. The code was originally made to work with the clock by [Derek Mulcahy](mailto:derek@toybox.demon.co.uk), with modifications by [Damon Hart-Davis](mailto:d@hd.org). Thanks also to [Lyndon David](mailto:lyndond@sentinet.co.uk) for some of the specifications of the clock. 
+Much of this code is originally from the other refclock driver files with thanks. The code was originally made to work with the clock by Derek Mulcahy, with modifications by [Damon Hart-Davis](mailto:d@hd.org). Thanks also to [Lyndon David](mailto:lyndond@sentinet.co.uk) for some of the specifications of the clock. 
 
 There is support for a Tcl/Tk monitor written by Derek Mulcahy that examines the output stats; see the [ARC Rugby MSF Receiver](http://www2.exnet.com/NTP/ARC/ARC.html) page for more details and the code. 
 

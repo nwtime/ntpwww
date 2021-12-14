@@ -29,7 +29,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 
 1.  Mark Andrews: Leitch atomic clock controller  
 2.  Viraj Bais and Clayton Kirkwood: port to WindowsNT 3.5  
-3.  [Karl Berry](mailto:karl@owl.HQ.ileaf.com) syslog to file option  
+3.  Karl Berry: syslog to file option  
 4.  [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support  
 5.  Steve Clift: OMEGA clock driver  
 6.  [Casey Crellin](mailto:casey@csc.co.za) vxWorks (Tornado) port and help with target configuration  

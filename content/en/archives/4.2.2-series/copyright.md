@@ -37,7 +37,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 3.  Viraj Bais and Clayton Kirkwood: port to WindowsNT 3.5
 4.  [Michael Barone](mailto:michael.barone@lmco.com) GPSVME fixes
 5.  Jean-Francois Boudreault: IPv6 support
-6.  [Karl Berry](mailto:karl@owl.HQ.ileaf.com) syslog to file option
+6.  Karl Berry: syslog to file option
 7.  [Greg Brackley ](mailto:greg.brackley@bigfoot.com) Major rework of WINNT port. Clean up recvbuf and iosignal code into separate modules.
 8.  Marc Brett: Magnavox GPS clock driver
 9.  [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support

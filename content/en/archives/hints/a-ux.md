@@ -125,6 +125,6 @@ The original kernel patch (which patched `time_fix_timeout`) was from Richard To
 Good luck!  If you have problems under A/UX feel free to contact me (e-mail is preferred).
 
     Jim Jagielski               |  "That is no ordinary rabbit... 'tis the
-    jim@jagubox.gsfc.nasa.gov   |   most foul, cruel and bad-tempered
+								|   most foul, cruel and bad-tempered
     NASA/GSFC, Code 734.4       |   rodent you ever set eyes on"
     Greenbelt, MD 20771         |                   Tim the Enchanter

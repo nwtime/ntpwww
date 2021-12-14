@@ -34,7 +34,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 2.  [Bernd Altmeier](mailto:altmeier@atlsoft.de) hopf Elektronik serial line and PCI-bus devices
 3.  Viraj Bais and Clayton Kirkwood: port to WindowsNT 3.5
 4.  [Michael Barone](mailto:michael.barone@lmco.com) GPSVME fixes
-5.  [Karl Berry](mailto:karl@owl.HQ.ileaf.com) syslog to file option
+5.  Karl Berry: syslog to file option
 6.  [Greg Brackley](mailto:greg.brackley@bigfoot.com) Major rework of WINNT port. Clean up recvbuf and iosignal code into separate modules.
 7.  Marc Brett: Magnavox GPS clock driver
 8.  [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support
@@ -49,7 +49,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 17.  [Mike Iglesias](mailto:iglesias@uci.edu) DEC Alpha port
 18.  Jim Jagielski: A/UX port
 19.  [Jeff Johnson](mailto:jbj@chatham.usdesign.com) massive prototyping overhaul
-20.  [Hans Lambermont](mailto:Hans.Lambermont@nl.origin-it.com) or [<H.Lambermont@chello.nl>](mailto:H.Lambermont@chello.nl) ntpsweep
+20.  [Hans Lambermont](mailto:H.Lambermont@chello.nl) ntpsweep
 21.  [Poul-Henning Kamp](mailto:phk@FreeBSD.ORG) Oncore driver (Original author)
 22.  [Frank Kardel](http://www4.informatik.uni-erlangen.de/~kardel) [email](mailto:Frank.Kardel@informatik.uni-erlangen.de) PARSE <GENERIC> driver (14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup
 23.  William L. Jones: RS/6000 AIX modifications, HPUX modifications
