@@ -15,7 +15,7 @@ type: "archives"
 
 However, sometimes there is a need for NTP to utilize a server that is using a different Time protocol. The short and possibly unpleasant answer is: "Run NTP on that server!".
 
-Alternately, you need a modified configuration to prevent clock adjustments originating from NTP. This example is thanks to [Marc Brett](mailto:Marc.Brett@westgeo.com):
+Alternately, you need a modified configuration to prevent clock adjustments originating from NTP. This example is thanks to Marc Brett:
 
 **Example 6.3a: Using TimeServ and NTP on Windows NT**
 
@@ -32,7 +32,7 @@ disable ntp</pre>
 
 #### 6.3.2 Avoiding Time Steps
 
-(Answer by [Marc Brett](mailto:Marc.Brett@westgeo.com)) NTP works with up to 1000 seconds of offset, but when the error is "big", where big is defined as 128 ms (!), it will by default step the clock.
+(Answer by Marc Brett) NTP works with up to 1000 seconds of offset, but when the error is "big", where big is defined as 128 ms (!), it will by default step the clock.
 
 It is possible to tell it to always slew the clock though. The solution given refers to the following description: "The clock is ahead by over 20 minutes and it seems to drift forward 6 seconds a week. I would like to bring it back about 30 seconds a week until it's synchronized."
 

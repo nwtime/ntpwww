@@ -5,7 +5,7 @@ type: "archives"
 
 This document lists known publicly-available implementations of the Pulse Per Second (PPS) API described in [RFC 2783](/reflib/rfc/rfc2783.txt).
 
-This page was last updated 18 October 1999 at 15:03 by [Jeff Mogul](mailto:mogul@pa.dec.com).
+This page was last updated 18 October 1999 at 15:03 by Jeff Mogul.
 
 * * *
 

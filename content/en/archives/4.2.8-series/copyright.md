@@ -83,7 +83,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 16.  John A. Dundas III: Apple A/UX port
 17.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux port
 18.  Dennis Ferguson: foundation code for NTP Version 2 as specified in RFC-1119
-19.  [John Hay](mailto:jhay@icomtek.csir.co.za) IPv6 support and testing
+19.  John Hay: IPv6 support and testing
 20.  Dave Hart: General maintenance, Windows port interpolation rewrite
 21.  [Claas Hilbrecht](mailto:neoclock4x@linum.com) NeoClock4X clock driver
 22.  Glenn Hollinger: GOES clock driver
@@ -118,7 +118,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 51.  Jeff Steinman: Datum PTS clock driver
 52.  [Harlan Stenn](mailto:harlan@pfcs.com) GNU automake/autoconfigure makeover, various other bits (see the ChangeLog)
 53.  [Kenneth Stone](mailto:ken@sdd.hp.com) HP-UX port
-54.  [Ajit Thyagarajan](mailto:ajit@ee.udel.edu)IP multicast/anycast support
+54.  [Ajit Thyagarajan](mailto:ajit@ee.udel.edu) IP multicast/anycast support
 55.  Tomoaki TSURUOKA: TRAK clock driver
 56.  [Brian Utterback](mailto:brian.utterback@oracle.com) General codebase, Solaris issues
 57.  [Loganaden Velvindron](mailto:loganaden@gmail.com) Sandboxing (libseccomp) support

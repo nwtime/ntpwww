@@ -39,7 +39,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 5.  Jean-Francois Boudreault: IPv6 support
 6.  [Karl Berry](mailto:karl@owl.HQ.ileaf.com) syslog to file option
 7.  [Greg Brackley](mailto:greg.brackley@bigfoot.com) Major rework of WINNT port. Clean up recvbuf and iosignal code into separate modules.
-8.  [Marc Brett](mailto:Marc.Brett@westgeo.com) Magnavox GPS clock driver
+8.  Marc Brett: Magnavox GPS clock driver
 9.  [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support
 10.  [Reg Clemens](mailto:reg@dwf.com) Oncore driver (Current maintainer)
 11.  Steve Clift: OMEGA clock driver
@@ -48,7 +48,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 14.  John A. Dundas III: Apple A/UX port
 15.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux port
 16.  Dennis Ferguson: foundation code for NTP Version 2 as specified in RFC-1119
-17.  [John Hay](mailto:jhay@icomtek.csir.co.za) IPv6 support and testing
+17.  John Hay: IPv6 support and testing
 18.  Glenn Hollinger: GOES clock driver
 19.  [Mike Iglesias](mailto:iglesias@uci.edu) DEC Alpha port
 20.  Jim Jagielski: A/UX port
@@ -65,7 +65,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 31.  [Danny Mayer](mailto:mayer@ntp.org)Network I/O, Windows Port, Code Maintenance
 32.  [David L. Mills](mailto:mills@udel.edu) Version 4 foundation: clock discipline, authentication, precision kernel; clock drivers: Spectracom, Austron, Arbiter, Heath, ATOM, ACTS, KSI/Odetics; audio clock drivers: CHU, WWV/H, IRIG
 33.  Wolfgang Moeller: VMS port
-34.  [Jeffrey Mogul](mailto:mogul@pa.dec.com) ntptrace utility
+34.  Jeffrey Mogul: ntptrace utility
 35.  Tom Moore: i386 svr4 port
 36.  [Kamal A Mostafa](mailto:kamal@whence.com) SCO OpenServer port
 37.  Derek Mulcahy and [Damon Hart-Davis](mailto:d@hd.org) ARCRON MSF clock driver
@@ -79,7 +79,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 45.  Jeff Steinman: Datum PTS clock driver
 46.  [Harlan Stenn](mailto:harlan@pfcs.com) GNU automake/autoconfigure makeover, various other bits (see the ChangeLog)
 47.  [Kenneth Stone](mailto:ken@sdd.hp.com) HP-UX port
-48.  [Ajit Thyagarajan](mailto:ajit@ee.udel.edu)IP multicast/anycast support
+48.  [Ajit Thyagarajan](mailto:ajit@ee.udel.edu) IP multicast/anycast support
 49.  Tomoaki TSURUOKA: TRAK clock driver
 50.  [Paul A Vixie](mailto:vixie@vix.com) TrueTime GPS driver, generic TrueTime clock driver
 51.  [Ulrich Windl](mailto:Ulrich.Windl@rz.uni-regensburg.de) corrected and validated HTML documents according to the HTML DTD
