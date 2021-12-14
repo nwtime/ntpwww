@@ -283,7 +283,6 @@ Time Server operators who wish to reactivate an inactive time server entry shoul
 | DK | ntp.snotboble.net | 2017-02-11 |
 | DK | ntp.voje.dk | 2017-06-03 |
 | DK | ntp.zsuatt.com | 2017-02-22 |
-| DK | ntp2.itcompliance.dk | 2021-06-14 |
 | DK | ntp2v6.unixnet.dk | 2019-12-07 |
 | DK | ntp3.innolan.net | 2018-03-22 |
 | DK | ScanbitNTP.scanbit-data.dk | 2017-02-22 |

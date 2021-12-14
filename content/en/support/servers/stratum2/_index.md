@@ -129,7 +129,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [FR](/support/servers/publictimeserver000834) | Montpellier, France | |  France | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [FR](/support/servers/publictimeserver001440) | Paris 75013, France, AS12322 | Hubert Viarouge | France, Europe, World | [open](/support/servers/openaccess) | No | 2021-02-0 |
 | [FR](/support/servers/publictimeserver000058) | Paris, France | SYRTE, Observatoire de Paris |  France/Europe | [open](/support/servers/openaccess) | Yes | 2016-01-28 |
-| [FR](/support/servers/publictimeserver000645) | Telecity datacenter (Equinix), Aubervilliers, Paris, France | [DuckCorp](https://www.duckcorp.org/) | anywhere | [open](/support/servers/openaccess) | No | 2019-03-07 |
+| [FR](/support/servers/publictimeserver000645) | Telecity datacenter (Equinix), Aubervilliers, Paris, France | [DuckCorp](https://www.duckcorp.org/) | anywhere | [open](/support/servers/openaccess) | No | 2021-11-30 |
 | [FR](/support/servers/publictimeserver000756) | Roubaix, France | [sceen.net](https://www.sceen.net/) |  Anywhere | [open](/support/servers/openaccess) | No | 2019-11-05 |
 | [FR](/support/servers/publictimeserver001649) | Roubaix, France | SeedHost  |  Europe | [open](/support/servers/openaccess) | No | 2020-02-17 |
 | [FR](/support/servers/publictimeserver000593) | Vitry / DC2 | [Online](https://www.online.net/) | Europe | [open](/support/servers/openaccess) | Yes | 2019-12-20|
