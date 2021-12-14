@@ -10,7 +10,7 @@ aliases:
 | [Server Stratum](/support/servers/serverstratum) | [Stratum One](/support/servers/stratumonetimeservers) |
 | [Country Code](/support/servers/countrycode) | US CA |
 | Hostname |  time.linquist.com |
-| IP Address |  73.158.5.1 |
+| IP Address |  24.5.152.24 |
 | IPv6 Address | |
 | [Use DNS](/support/servers/usedns) | Yes |
 | [Pool Member](/support/servers/poolmember) | Yes |

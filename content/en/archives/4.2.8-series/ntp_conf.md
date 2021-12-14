@@ -186,7 +186,7 @@ If Bison reports shift-reduce errors or reduce-reduce errors, it means that the 
 
 `bison -v ntp_config.y`
 
-For more information, refer to the [Bison manual](http://www.gnu.org/software/bison/manual/html_mono/bison.html).
+For more information, refer to the [Bison manual](https://www.gnu.org/software/bison/manual/bison.html).
 
 <code>**ntp_config.c**</code>
 

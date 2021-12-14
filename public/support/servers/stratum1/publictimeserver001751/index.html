@@ -6,20 +6,40 @@
   
 
   
-  <meta name="description" content="6.3.1 Mixing Time Protocols
-6.3.2 Avoiding Time Steps 
-6.3.3 Using the Echo Feature in PPS API
+  <meta name="description" content="
 
-6.3.1 Mixing Time Protocols
 
-Note: Mixing different …">
-<meta property="og:title" content="6.3. Various Tricks" />
-<meta property="og:description" content="6.3.1 Mixing Time Protocols
-6.3.2 Avoiding Time Steps 6.3.3 Using the Echo Feature in PPS API
- 6.3.1 Mixing Time Protocols  Note: Mixing different time protocols is generally deprecated, because it can invalidate some assumptions necessary for proper operation of any time protocol.
- However, sometimes there is a need for NTP to utilize a server that is using a different Time protocol. The short and possibly unpleasant answer is: &ldquo;Run NTP on that server!" />
+Item
+Value
+
+
+
+
+Server Stratum
+Stratum One
+
+
+Country Code
+DK
+
+
+Hostname
+ntp2.itcompliance.dk
+
+
+IP Address
+185.181.223.169
+
+
+IPv6 Address
+
+
+
+Use DNS …">
+<meta property="og:title" content="Server 1751" />
+<meta property="og:description" content="   Item Value     Server Stratum Stratum One   Country Code DK   Hostname ntp2.itcompliance.dk   IP Address 185.181.223.169   IPv6 Address    Use DNS Yes   Pool Member No   Server Location Holbaek, Denmark   Host Organization ntp2.itcompliance.dk   Geographic Coordinates    Server Synchronization GPS   Service Area Global   Access Policy Restricted Access   Access Details Email server contact if you hardcode IP and/or hostname in your configuration   Notification Message Yes   Autokey No   Autokey URL    Symmetric Key No   Symmetric Key Type    Symmetric Key URL    Server Contact email    " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/" /><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://doc.ntp.org/support/servers/stratum1/publictimeserver001751/" /><meta property="article:section" content="support" />
 
 <meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -37,7 +57,7 @@ if (!doNotTrack) {
 </script>
 
   
-  <title>6.3. Various Tricks</title>
+  <title>Server 1751</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -185,15 +205,35 @@ if (!doNotTrack) {
 
 
 
+
+
+
+
+
+
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+	<a href="https://doc.ntp.org/support/">NTP Public Time Servers</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/support/servers/">NTP Public Time Servers</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/support/servers/stratum1/">Stratum One</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/">6.3. Various Tricks</a>
+	<a href="https://doc.ntp.org/support/servers/stratum1/publictimeserver001751/">Server 1751</a>
 </li>
 
 	</ol>
@@ -202,84 +242,102 @@ if (!doNotTrack) {
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>6.3. Various Tricks</h1>
+  	<h1>Server 1751</h1>
      
-    <p>6.3.1 <a href="#631-mixing-time-protocols">Mixing Time Protocols</a><br>
-6.3.2 <a href="#632-avoiding-time-steps">Avoiding Time Steps</a> <br>
-6.3.3 <a href="#633-using-the-echo-feature-in-pps-api">Using the Echo Feature in PPS API</a></p>
-<hr>
-<h4 id="631-mixing-time-protocols">6.3.1 Mixing Time Protocols</h4>
-<blockquote>
-<p><strong>Note:</strong> Mixing different time protocols is generally deprecated, because it can invalidate some assumptions necessary for proper operation of any time protocol.</p>
-</blockquote>
-<p>However, sometimes there is a need for NTP to utilize a server that is using a different Time protocol. The short and possibly unpleasant answer is: &ldquo;Run NTP on that server!&rdquo;.</p>
-<p>Alternately, you need a modified configuration to prevent clock adjustments originating from NTP. This example is thanks to Marc Brett:</p>
-<p><strong>Example 6.3a: Using TimeServ and NTP on Windows NT</strong></p>
-<p>In this example, an old Windows NT server is using TimeServ for clock synchronization, and checks the USNO clock via modem. I also want to synchronize some UNIX servers, but NTP via Internet is not possible.</p>
-<p>Disable NTP from adjusting the local clock on the Windows NT server using:</p>
-<pre>server 127.127.1.0
-fudge  127.127.1.0 stratum 4
-driftfile %windir%\ntp.drift
-disable ntp</pre>
-<hr>
-<h4 id="632-avoiding-time-steps">6.3.2 Avoiding Time Steps</h4>
-<p>(Answer by Marc Brett) NTP works with up to 1000 seconds of offset, but when the error is &ldquo;big&rdquo;, where big is defined as 128 ms (!), it will by default step the clock.</p>
-<p>It is possible to tell it to always slew the clock though. The solution given refers to the following description: &ldquo;The clock is ahead by over 20 minutes and it seems to drift forward 6 seconds a week. I would like to bring it back about 30 seconds a week until it&rsquo;s synchronized.&rdquo;</p>
-<ol>
-<li>
-<p>Install <code>ntpd</code> with no reference clocks except the local clock (<code>127.127.0.1</code>), fudge stratum to 10 or something like that.</p>
-</li>
-<li>
-<p>Make a fake <code>ntp.drift</code> file containing a value which would correct for your drift rate (about <code>-10.0</code>), plus a value big enough to bring it back in line within a week: <code>-(20 * 60) * 1e6 / (86400 * 7) = -1984</code>.</p>
-<p>Since this number is too large (greater than <code>500 ppm</code>), I suspect that you&rsquo;ll have to settle for using <code>-500</code> in <code>ntp.drift</code>, and allow up to four weeks for your clock to be approximately correct of slightly slow.</p>
-<p>(I believe a negative number in <code>ntp.drift</code> will indeed slow the clock down, can anyone verify this?)</p>
-</li>
-<li>
-<p>At that time you can insert a proper NTP server in your <code>ntp.conf</code> file and restart the daemon.</p>
-</li>
-</ol>
-<p>An alternative solution suggests (I assume that there is a chance of simply taking the server offline for 30 minutes sometime during the next few weeks):</p>
-<ol>
-<li>Shutdown</li>
-<li>Set the BIOS clock</li>
-<li>Restart</li>
-</ol>
-<hr>
-<h4 id="633-using-the-echo-feature-in-pps-api">6.3.3 Using the Echo Feature in PPS API</h4>
-<p>This answer provided by <a href="mailto:vs@cesnet.cz">Vladimir Smotlacha</a> was rephrased by the editor.</p>
-<p>The Linux implementation of the PPS API contains the echo feature for the serial ports. The principle is quite simple: an event on the DCD line causes the interrupt routine to generate an event also on the RTS line after getting the event&rsquo;s timestamp. With some external device like a two channel oscilloscope or counter one can measure the difference between the original signal and its echo. About half of the time is the delay between creation of the event and getting its timestamp. That way one can estimate the delay and jitter between real PPS signal and its timestamps.</p>
-<p>An utility named <code>ppsctl</code> (formerly named <code>enable_pps</code>) can be used to activate echo on a port by additionally specifying <code>-e<em>X</em></code>, where <code><em>X</em></code> is either <code>a</code> (assert) or <code>c</code> (clear). The utility just sets the flags as described in <a href="/reflib/rfc/rfc2783.txt">RFC 2783</a>. The Linux implementation will always clear the RTS bit in the UART if an event becomes active, and it will clear the bit when the DCD line changes back to the inactive state. Therefore you cannot have an echo for both events.</p>
-<p><strong>Example 6.3b: Measurements and Statistics of PPS Echo Delay</strong></p>
-<p>The following graphs are the result of PPS echo delay measurement during normal operation of an NTP server (about 120 clients). The first PC is a standard Pentium 150MHz (UDMA disk, kernel 2.2.17, NTP 4.0.99k), the second is DELL 1400 (Pentium III 860MHz, SCSI disk, kernel 2.2.18, NTP 4.0.99k36). Source of PPS signal was a Garmin GPS35, and a universal counter SR 620 (Stanford Research Systems) was used for measurements. Root Allan variance of PPS signal derived from GPS is 43 nanoseconds.</p>
-<table>
+    <table>
 <thead>
 <tr>
-<th>Machine</th>
-<th>Mean</th>
-<th>Root Allan Variance</th>
-<th>Standard Deviation</th>
+<th>Item</th>
+<th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>P150</td>
-<td>11.02</td>
-<td>0.83</td>
-<td>0.95</td>
+<td><a href="/support/servers/serverstratum">Server Stratum</a></td>
+<td><a href="/support/servers/stratumonetimeservers">Stratum One</a></td>
 </tr>
 <tr>
-<td>P850</td>
-<td>8.31</td>
-<td>0.34</td>
-<td>0.36</td>
+<td><a href="/support/servers/countrycode">Country Code</a></td>
+<td>DK</td>
+</tr>
+<tr>
+<td>Hostname</td>
+<td>ntp2.itcompliance.dk</td>
+</tr>
+<tr>
+<td>IP Address</td>
+<td>185.181.223.169</td>
+</tr>
+<tr>
+<td>IPv6 Address</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/support/servers/usedns">Use DNS</a></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="/support/servers/poolmember">Pool Member</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><a href="/support/servers/serverlocation">Server Location</a></td>
+<td>Holbaek, Denmark</td>
+</tr>
+<tr>
+<td><a href="/support/servers/hostorganization">Host Organization</a></td>
+<td>ntp2.itcompliance.dk</td>
+</tr>
+<tr>
+<td><a href="/support/servers/geographiccoordinates"> Geographic Coordinates</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/support/servers/serversynchronization">Server Synchronization</a></td>
+<td>GPS</td>
+</tr>
+<tr>
+<td><a href="/support/servers/servicearea">Service Area</a></td>
+<td>Global</td>
+</tr>
+<tr>
+<td><a href="/support/servers/accesspolicy">Access Policy</a></td>
+<td><a href="/support/servers/restrictedaccess">Restricted Access</a></td>
+</tr>
+<tr>
+<td><a href="/support/servers/accessdetails">Access Details</a></td>
+<td>Email server contact if you hardcode IP and/or hostname in your configuration</td>
+</tr>
+<tr>
+<td><a href="/support/servers/notificationmessage">Notification Message</a></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="/support/servers/autokey">Autokey</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><a href="/support/servers/autokeyurl">Autokey URL</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/support/servers/symmetrickey">Symmetric Key</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td><a href="/support/servers/symmetrickeytype">Symmetric Key Type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/support/servers/symmetrickeyurl">Symmetric Key URL</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/support/servers/servercontact">Server Contact</a></td>
+<td><a href="mailto:thomas@itcompliance.dk">email</a></td>
 </tr>
 </tbody>
 </table>
-<p><img src="/ntpfaq/pps-delay.png" alt=""></p>
-<p><strong>The graph shows the raw measurements for the delay round-trip time.</strong></p>
-<p><img src="/ntpfaq/pps-distrib.png" alt=""></p>
-<p><strong>The graph shows the distribution of the delay samples.</strong></p>
-<p>When varying the system load for the P150 with a kernel compilation (varying I/O and CPU load), the delay increased by roughly 15 microseconds. Plain CPU load (simple loop) only adds an extra delay of 7μs, while disk I/O adds up to 30μs. IDE disks without using DMA add up to 100μs of extra delay.</p>
 
 	  
 	  <style>

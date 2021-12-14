@@ -18,7 +18,7 @@ npm install -D postcss
 Grab the [ntpwww repository](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww):
 
 ```
-git clone https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww
+git clone https://bitbucket.nwtime.org/scm/websites/ntpwww.git
 
 ```
 

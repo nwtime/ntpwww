@@ -331,7 +331,7 @@ For the Solaris operating system the variable `nsec_per_tick` is in nanoseconds 
 
 The command `echo 'nsec_per_tick/W 0t10000900' |adb -w -k` makes the clock faster by 90 PPM, i.e. a drift value of 97 can be reduced to 7.
 
-For FreeBSD there are two sysctls that you can use, `machdep.i8254_freq` and `machdep.tsc_freq`. Use the one that is being used on your machine to tell FreeBSD what the frequency of your clock is. (according to [John Hay](mailto:John.Hay@mikom.csir.co.za))
+For FreeBSD there are two sysctls that you can use, `machdep.i8254_freq` and `machdep.tsc_freq`. Use the one that is being used on your machine to tell FreeBSD what the frequency of your clock is. (according to John Hay)
 
 Changing the value of `tick` is considered an obsolete technology by [Professor David L. Mills](mailto:mills@udel.edu), and the `tickadj` utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of `tick` to the default value when a PPS signal is detected.
 

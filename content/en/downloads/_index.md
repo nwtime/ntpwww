@@ -17,7 +17,6 @@ The current release of NTP is [4.2.8p15](http://support.ntp.org/bin/view/Main/Se
 | OpenSusE, Fedora, Mageia, OpenMandriva | [rpm](https://rpmfind.net/linux/rpm2html/search.php?query=ntp) |
 | FreeBSD | [port](https://www.freshports.org/net/ntp) |
 | NetBSD | [pkgsrc](https://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/net/ntp4/index.html) |
-| HP-UX | [link](https://myenterpriselicense.hpe.com/cwp-ui/free-software/HPUX-NTP) |
 
 
 <div><span style="width: 100%;text-align: center">

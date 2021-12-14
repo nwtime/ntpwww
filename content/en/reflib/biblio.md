@@ -19,32 +19,32 @@ It isn't clear whether the mushroom is a controlled substance or a food item.
 
 * * *
 
-The following citations have at least some relevance to the field of computer network time synchronization. Where multiple citations to the same work occur, only the latest should be used; earlier ones are included only for record. Those documents available online are indicated following the citation. Send additions or corrections to Dave Mills (mills@udel.edu).
+The following citations have at least some relevance to the field of computer network time synchronization. Where multiple citations to the same work occur, only the latest should be used; earlier ones are included only for record. Those documents available online are indicated following the citation. Send additions or corrections to [Dave Mills](mailto:mills@udel.edu).
 
 * * *
 
 #### Contributors
 
-Abali, B. (abali@watson.ibm.com)
-: Ahamad, Mustaq (mustaq%bay@gatech.edu)
-: Bubenik, Rick (rick@wucs1.wustl.edu)
-: Downing, Alan (downing@erg.sri.com)
-: Dunigan, Tom (dunigan@cs.utk.edu)
-: Graham, P. (pgraham@gold.cs.UManitoba.CA)
-: Malczewski, Frank D. (fdm@WLV.IMSD.CONTEL.COM)
-: Marzullo, Keith (marzullo@cs.cornell.edu)
-: Mattern, Friedemann (mattern@uklirb.informatik.uni-kl.de)
-: McCallum, Doug (dougm@ico.isc.com)
-: Mills, Dave (mills@udel.edu)
-: Neiger, Gil (gil@cc.gatech.edu)
-: Partridge. Craig (craig@sics.se)
-: Plumb, Colin (ccplumb@rose.waterloo.edu)
-: Rajsbaum, Sergio (rajsbaum@crl.dec.com)
-: Reiher, Peter (reiher@onyx.Jpl.Nasa.Gov)
-: Strom, Rob (STROM@IBM.COM)
-: Vera, M (vera%chook.adelaide.edu.au@augean.ua.OZ.AU)
-: Vielmetti, Ed (emv@ox.com)
-: Yih, Benny (yih%albion@cs.utah.edu)
+Abali, B.
+: [Ahamad, Mustaq](mailto:mustaq%bay@gatech.edu)
+: Bubenik, Rick
+: Downing, Alan
+: [Dunigan, Tom](mailto:dunigan@cs.utk.edu)
+: Graham, P.
+: Malczewski, Frank D.
+: [Marzullo, Keith](mailto:marzullo@cs.cornell.edu)
+: Mattern, Friedemann
+: McCallum, Doug
+: [Mills, Dave](mailto:mills@udel.edu)
+: [Neiger, Gil](mailto:gil@cc.gatech.edu)
+: [Partridge. Craig](mailto:craig@sics.se)
+: Plumb, Colin
+: Rajsbaum, Sergio
+: Reiher, Peter
+: [Strom, Rob](mailto:STROM@IBM.COM)
+: [Vera, M](mailto:vera%chook.adelaide.edu.au@augean.ua.OZ.AU)
+: [Vielmetti, Ed](mailto:emv@ox.com)
+: [Yih, Benny](mailto:yih%albion@cs.utah.edu)
 
 * * *
 

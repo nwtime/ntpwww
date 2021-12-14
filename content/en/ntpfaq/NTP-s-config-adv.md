@@ -343,7 +343,7 @@ phase=0.005, frequency=16.984, jitter=0.000, stability=0.043</pre>
 
 #### 6.2.4.4.2 How do I use PPS with the Motorola Oncore driver?
 
-Considering the configuration below, [John Hay](mailto:John.Hay@mikom.csir.co.za) wrote:
+Considering the configuration below, John Hay wrote:
 
 (...)The Oncore driver directly manages the PPS stuff, so you only need the first line (`server 127.127.30.0 prefer`) in the config file. The rest is not needed to have a functional Oncore refclock.
 

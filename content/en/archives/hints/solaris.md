@@ -99,7 +99,7 @@ Solaris 2.2 and later contain completely re-written clock code to provide high r
 
 ### Solaris 2.1
 
-(This originally written by William L. Jones <jones@chpc.utexas.edu>)
+(This originally written by William L. Jones)
 
 Solaris 2.1 contains fairly traditional clock code, with `tick` and `tickadj`.
 
@@ -131,4 +131,4 @@ I tried running with a `tickadj` of 5 microseconds with out much success. 200 mi
 
 Prior versions of this file had major text contributed by:
 
-*   Denny Gentry <denny@eng.sun.com>
+*   Denny Gentry

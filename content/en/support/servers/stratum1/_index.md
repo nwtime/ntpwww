@@ -7,8 +7,6 @@ aliases:
 
 > **Please read the [Rules Of Engagement](/support/servers/rulesofengagement) before using these lists. These lists are updated frequently and should not be cached.**
 
-Read [Managing Your List Entries](/support/managingyourlistentries) before adding or editing your Time Server.
-
 Click the ISO Country Code to view complete details about a server. See [Inactive Time Servers](/support/servers/inactivetimeservers) for previously listed servers that are no longer in service.
 
 | ISO | Location | Host / Sponsor | Service Area | Access Policy | Notify | Last Modified |
@@ -89,7 +87,8 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [DE](/support/servers/publictimeserver000217) | Computer Center University of Stuttgart, D-70550 Stuttgart, Germany | | Germany/Europe | [open](/support/servers/openaccess) | Yes | 2019-12-20 |
 | [DK](/support/servers/publictimeserver001660) | Aabenraa, Denmark | | Europe | [open](/support/servers/openaccess) | Yes | 2020-04-06 |
 | [DK](/support/servers/publictimeserver001555) | Aarhus, Denmark | | Denmark / Europe | [restricted](/support/servers/restrictedaccess) | No | 2019-08-15 |
-| [DK](/support/servers/publictimeserver001450) | Holbaek, Denmark | ITCompliance.dk (NTP1) | World | [open](/support/servers/openaccess) | Yes | 2021-11-26 |
+| [DK](/support/servers/publictimeserver001450) | Holbaek, Denmark | ntp1.itcompliance.dk  | Global | [restricted](/support/servers/restrictedaccess) | Yes | 2021-12-08 |
+| [DK](/support/servers/publictimeserver001751) | Holbaek, Denmark | ntp2.itcompliance.dk | Global | [restricted](/support/servers/restrictedaccess) | Yes | 2021-12-08 |
 | [DK](/support/servers/publictimeserver001365) | Kokkedal, Denmark | Algon IVS | Denmark / Europe | [open](/support/servers/openaccess) | Yes | 2017-05-03 |
 | [DK](/support/servers/publictimeserver000219) | Lyngby, Denmark | | Networks BGP-announced on the DIX | [restricted](/support/servers/restrictedaccess) | No | 2004-09-25 |
 | [DK](/support/servers/publictimeserver000691) | Sonnerup, Denmark | SonnIT / SonnMedia | Denmark/Europe | [restricted](/support/servers/restrictedaccess) | Yes | 2019-12-10 |
@@ -217,7 +216,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [UK](/support/servers/publictimeserver001335) | Milton Keynes, UK | Leo Bodnar Electronics | Worldwide | [open](/support/servers/openaccess) | No | 2017-01-28 |
 | [UK](/support/servers/publictimeserver001336) | Milton Keynes, UK | Leo Bodnar Electronics | Worldwide | [open](/support/servers/openaccess) | No | 2017-01-28 |
 | [UK](/support/servers/publictimeserver001618) | Newcastle, UK | | Worldwide | [restricted](/support/servers/restrictedaccess) | Yes | 2019-11-21 |
-| [UK](/support/servers/publictimeserver001353) | Poole, UK | [Web Wiz](https://www.webwiz.net) | UK, Europe | [open](/support/servers/openaccess) | Yes | 2021-07-30 |
+| [UK](/support/servers/publictimeserver001353) | Poole, UK | [Web Wiz](https://www.webwiz.net) | UK, Europe | [open](/support/servers/openaccess) | Yes | 2021-12-06 |
 | [UK](/support/servers/publictimeserver001438) | Suffolk, United Kingdom | University of Suffolk | Europe | [open](/support/servers/openaccess) | No | 2018-01-10 |
 | [UK](/support/servers/publictimeserver001424) | Welshpool | Speed Welshpool Ltd | UK / Europe | [open](/support/servers/openaccess) | Yes | 2017-11-12 |
 | [UK](/support/servers/publictimeserver001651) | Wrexham, UK | | Worldwide | [open](/support/servers/openaccess) | Yes | 2021-06-22 |
@@ -233,7 +232,7 @@ Click the ISO Country Code to view complete details about a server. See [Inactiv
 | [US CA](/support/servers/publictimeserver000120) | [Hurricane Electric](https://www.he.net/), San Jose, California | | all areas | [open](/support/servers/openaccess) | No | 2019-12-07 |
 | [US CA](/support/servers/publictimeserver001463) | Santa Clara, CA | | World | [open](/support/servers/openaccess) | No | 2019-12-15 |
 | [US CA](/support/servers/publictimeserver001464) | Santa Clara, CA | | World | [open](/support/servers/openaccess) | No | 2019-12-16 |
-| [US CA](/support/servers/publictimeserver001659) | Santa Clara, CA | | US | [open](/support/servers/openaccess) | No | 2020-04-10 |
+| [US CA](/support/servers/publictimeserver001659) | Santa Clara, CA | | US | [open](/support/servers/openaccess) | No | 2021-12-02 |
 | [US CA](/support/servers/publictimeserver001573) | Suisun City, CA | Silvertree Communications | Global | [open](/support/servers/openaccess) | No | 2020-01-31 |
 | [US CO](/support/servers/publictimeserver000519) | NIST Laboratory, Boulder, Colorado | | Open | [restricted](/support/servers/restrictedaccess) | Yes | 2008-03-01 |
 | [US CO](/support/servers/publictimeserver000279) | NIST Boulder Laboratories, Boulder, Colorado | | NSFnet, WESTnet | [open](/support/servers/openaccess) | No | 2019-12-07 |

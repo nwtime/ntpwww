@@ -266,7 +266,7 @@ if (!doNotTrack) {
 <p>Solaris 2.2 and later contain completely re-written clock code to provide high resolution microsecond timers. A benefit of the re-written clock code is that adjtime does not round off its adjustments, so ntp does not have to compensate for this rounding. Under Solaris 2.2 and later, ntp <code>#define</code>&rsquo;s <code>ADJTIME_IS_ACCURATE</code>, and does not look for the <code>tickadj</code> kernel variable.</p>
 <hr>
 <h3 id="solaris-21">Solaris 2.1</h3>
-<p>(This originally written by William L. Jones <a href="mailto:jones@chpc.utexas.edu">jones@chpc.utexas.edu</a>)</p>
+<p>(This originally written by William L. Jones)</p>
 <p>Solaris 2.1 contains fairly traditional clock code, with <code>tick</code> and <code>tickadj</code>.</p>
 <p>Since <code>settimeofday</code> under Solaris 2.1 only sets the seconds part of <code>timeval</code>, care must be used in starting <code>xntpd</code>. I suggest the following start up script:</p>
 <pre>tickadj -s -a 1000
@@ -286,7 +286,7 @@ xntpd</pre>
 <hr>
 <p>Prior versions of this file had major text contributed by:</p>
 <ul>
-<li>Denny Gentry <a href="mailto:denny@eng.sun.com">denny@eng.sun.com</a></li>
+<li>Denny Gentry</li>
 </ul>
 
 	  
