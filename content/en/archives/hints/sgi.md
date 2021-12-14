@@ -47,4 +47,4 @@ Irix has a kernel variable called `timetrim` which adjusts the system time incre
 If you use a local clock on an RS-232 line, look into the kernel configuration stuff with regard to improving the input latency (check out `/usr/sysgen/master.d/[sduart|cdsio]`).  I have a Kinemetrics OM-DC
 hooked onto `/dev/ttyd2` (the second CPU board RS-232 port) on an SGI Crimson, and setting the `duart_rsrv_duration` flag to 0 improves things a bit.
 
-Steve Clift, CSIRO Marine Labs, Hobart, Australia (clift@ml.csiro.au)
+Steve Clift, CSIRO Marine Labs, Hobart, Australia
