@@ -202,7 +202,7 @@ Note: Mixing different …">
 <p><strong>Note:</strong> Mixing different time protocols is generally deprecated, because it can invalidate some assumptions necessary for proper operation of any time protocol.</p>
 </blockquote>
 <p>However, sometimes there is a need for NTP to utilize a server that is using a different Time protocol. The short and possibly unpleasant answer is: &ldquo;Run NTP on that server!&rdquo;.</p>
-<p>Alternately, you need a modified configuration to prevent clock adjustments originating from NTP. This example is thanks to <a href="mailto:Marc.Brett@westgeo.com">Marc Brett</a>:</p>
+<p>Alternately, you need a modified configuration to prevent clock adjustments originating from NTP. This example is thanks to Marc Brett:</p>
 <p><strong>Example 6.3a: Using TimeServ and NTP on Windows NT</strong></p>
 <p>In this example, an old Windows NT server is using TimeServ for clock synchronization, and checks the USNO clock via modem. I also want to synchronize some UNIX servers, but NTP via Internet is not possible.</p>
 <p>Disable NTP from adjusting the local clock on the Windows NT server using:</p>
@@ -212,7 +212,7 @@ driftfile %windir%\ntp.drift
 disable ntp</pre>
 <hr>
 <h4 id="632-avoiding-time-steps">6.3.2 Avoiding Time Steps</h4>
-<p>(Answer by <a href="mailto:Marc.Brett@westgeo.com">Marc Brett</a>) NTP works with up to 1000 seconds of offset, but when the error is &ldquo;big&rdquo;, where big is defined as 128 ms (!), it will by default step the clock.</p>
+<p>(Answer by Marc Brett) NTP works with up to 1000 seconds of offset, but when the error is &ldquo;big&rdquo;, where big is defined as 128 ms (!), it will by default step the clock.</p>
 <p>It is possible to tell it to always slew the clock though. The solution given refers to the following description: &ldquo;The clock is ahead by over 20 minutes and it seems to drift forward 6 seconds a week. I would like to bring it back about 30 seconds a week until it&rsquo;s synchronized.&rdquo;</p>
 <ol>
 <li>
