@@ -13,7 +13,7 @@ date: "2020-06-23"
 	<tr>
 		<th><b>Resolved</b></th>
 		<td><a href="/support/securitynotice/4_2_8p15-release-announcement">4.2.8p15</a><br> Development (4.3.101)</td>
-		<td>28 Apr 2020</td>
+		<td>23 Jun 2020</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
@@ -48,9 +48,8 @@ Systems that use a CMAC algorithm in `ntp.keys` will not release a bit of memory
     
 #### Mitigation
 
-If you are using ntp-4.2.8p11 through ntp-4.2.8p14 or ntp-4.3.97 through ntp-4.3.100, either don't use CMAC keys, or make sure you have a way to restart `ntpd` if/when it crashes.
-
-Upgrade to [4.2.8p15 or later](/downloads).
+* If you are using ntp-4.2.8p11 through ntp-4.2.8p14 or ntp-4.3.97 through ntp-4.3.100, either don't use CMAC keys, or make sure you have a way to restart `ntpd` if/when it crashes.
+* Upgrade to [4.2.8p15 or later](/downloads).
 
 * * *
 

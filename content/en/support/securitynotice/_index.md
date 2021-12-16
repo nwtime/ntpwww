@@ -10,6 +10,8 @@ type: archives
 * [Reporting Security Issues](#reporting-security-issues)
 * [Known Vulnerabilities by Release Version](#known-vulnerabilities-by-release-version)
 
+* * *
+
 #### Notification Policy
 
 When we discover a security vulnerability in NTP we follow our Phased Vulnerability Process which includes first notifying Institutional members of the [NTP Consortium at Network Time Foundation](https://www.nwtime.org/membership/), then [CERT](https://www.sei.cmu.edu/about/divisions/cert/index.cfm), and finally making a public announcement.
@@ -40,6 +42,13 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### Known Vulnerabilities by Release Version
 
+The following releases provided fixes for at least one security vulnerability. The table for each release provides an entry for each security issue (click its hyperlink to read the details for the vulnerability), indicates the issue's severity, and provides the dates of advance notification to institutional members, advance release to premier and partner institutional members, and public release.
+
+Refer to the [Release Timeline](/dev/releasetimeline) for a complete list of all releases, their public release dates, release announcements, and changelogs.
+
+<details open>
+<summary><b>Click to hide release list</b></summary>
+
 * [4.2.8p15](#428p15)
 * [4.2.8p14](#428p14)
 * [4.2.8p13](#428p13)
@@ -56,18 +65,18 @@ Please refrain from discussing potential security issues in public fora such as 
 * [4.2.8p2](#428p2)
 * [4.2.8p1](#428p1)
 * [4.2.8](#428)
-* [4.2.7p230](427p230)
-* [4.2.7p26](427p26)
-* [4.2.7p11](427p11)
-* [4.2.6](426)
-* [4.2.4p7](424p7)
-* [4.2.4p5](424p5)
+* [4.2.7p230](#427p230)
+* [4.2.7p26](#427p26)
+* [4.2.7p11](#427p11)
+* [4.2.6](#426)
+* [4.2.4p7](#424p7)
+* [4.2.4p5](#424p5)
+
+</details>
 
 * * *
 
 #### 4.2.8p15
-
-[4.2.8p15 Release Announcement](/support/securitynotice/4_2_8p15-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
@@ -77,41 +86,34 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### 4.2.8p14
 
-[4.2.8p14 Release Announcement](/support/securitynotice/4_2_8p14-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
 | [3610:  <code>process_control()</code> should bail earlier on short packets ](/support/securitynotice/ntpbug3610) | <span style="color:green">NONE</span> | 2019 Jun 05 | 2020 Feb 17 | 2020 Mar 03 |
-| [3596: Unauthenticated and unmonitored <code>ntpd</code> may be susceptible to IPv4 attack from highly predictable transmit timestamps ](/support/securitynotice/ntpbug3596) | <span style="color:orange">MEDIUM</span> | | | |
-| [3592: DoS Attack on Unauthenticated Client](/support/securitynotice/ntpbug3592) | <span style="color:orange">MEDIUM</span> | | | |
+| [3596: Unauthenticated and unmonitored <code>ntpd</code> may be susceptible to IPv4 attack from highly predictable transmit timestamps ](/support/securitynotice/ntpbug3596) | <span style="color:orange">MEDIUM</span> |
+| [3592: DoS Attack on Unauthenticated Client](/support/securitynotice/ntpbug3592) | <span style="color:orange">MEDIUM</span> |
 
 * * *
 
 #### 4.2.8p13
 
-[4.2.8p13 Release Announcement](/support/securitynotice/4_2_8p13-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
-| [3565:  Crafted null dereference attack from a trusted source with an authenticated mode 6 packet ](/support/securitynotice/ntpbug3565) | <span style="color:orange">MEDIUM</span> | 2019 Jan 17 | 2019 Feb 19 | 2019 Mar 07 |
+| [3565:  Crafted null dereference attack from a trusted source with an authenticated mode 6 packet ](/support/securitynotice/ntpbug3565) | <span style="color:orange">MEDIUM</span> | 2019 Jan 16 | 2019 Feb 20 | 2019 Mar 07 |
 
 * * *
 
 #### 4.2.8p12
 
-[4.2.8p12 Release Announcement](/support/securitynotice/4_2_8p12-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
-| [3505:  NTPQ/NTPDC: Buffer Overflow in <code>openhost()</code> ](/support/securitynotice/ntpbug3505) | <span style="color:green">NONE</span> | | 2018 Jul 25 | 2018 Aug 14 | |
+| [3505:  NTPQ/NTPDC: Buffer Overflow in <code>openhost()</code> ](/support/securitynotice/ntpbug3505) | <span style="color:green">LOW</span> | | 2018 Jul 25 | 2018 Aug 14 | |
 | [3012:  Sybil vulnerability: ephemeral association attack ](/support/securitynotice/ntpbug3012p12) | <span style="color:orange">LOW/MEDIUM</span> | | | |
 
 
 * * *
 
 #### 4.2.8p11
-
-[4.2.8p11 Release Announcement](/support/securitynotice/4_2_8p11-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
@@ -125,8 +127,6 @@ Please refrain from discussing potential security issues in public fora such as 
 * * *
 
 #### 4.2.8p10
-
-[4.2.8p10 Release Announcement](/support/securitynotice/4_2_8p10-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
@@ -150,8 +150,6 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### 4.2.8p9
 
-[4.2.8p9 Release Announcement](/support/securitynotice/4_2_8p9-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
 | [3119: Mode 6 unauthenticated trap information disclosure and DDoS vector](/support/securitynotice/ntpbug3119) | <span style="color:orange">MEDIUM</span>| | | 2016 Nov 21|
@@ -169,8 +167,6 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### 4.2.8p8
 
-[4.2.8p8 Release Announcement](/support/securitynotice/4_2_8p8-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
 | [3046:  <code>CRYPTO_NAK</code> crash ](/support/securitynotice/ntpbug3046) |<span style="color:red">HIGH</span>| | | 2016 Jun 02|
@@ -182,8 +178,6 @@ Please refrain from discussing potential security issues in public fora such as 
 * * *
 
 #### 4.2.8p7
-
-[4.2.8p7 Release Announcement](/support/securitynotice/4_2_8p7-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
@@ -202,8 +196,6 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### 4.2.8p6
 
-[4.2.8p6 Release Announcement](/support/securitynotice/4_2_8p6-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
 | [2948: Potential Infinite Loop in <code>ntpq</code>](/support/securitynotice/ntpbug2948) |<span style="color:orange">MEDIUM</span>| | | 2016 Jan 19|
@@ -221,8 +213,6 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### 4.2.8p5
 
-[4.2.8p5 Release Announcement](/support/securitynotice/4_2_8p5-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
 | [2956: Small-step/big-step](/support/securitynotice/ntpbug2956) |<span style="color:orange">MEDIUM</span>| | | 2016 Jan 07|
@@ -230,8 +220,6 @@ Please refrain from discussing potential security issues in public fora such as 
 * * *
 
 #### 4.2.8p4
-
-[4.2.8p4 Release Announcement](/support/securitynotice/4_2_8p4-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
@@ -253,8 +241,6 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### 4.2.8p3
 
-[4.2.8p3 Release Announcement](/support/securitynotice/4_2_8p3-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
 | [2853: ntpd control message crash: Crafted NUL-byte in configuration directive](/support/securitynotice/ntpbug2853) | | 2015 Jun 22 | 2015 Jun 24 | 2015 Jun 29|
@@ -262,8 +248,6 @@ Please refrain from discussing potential security issues in public fora such as 
 * * *
 
 #### 4.2.8p2
-
-[4.2.8p2 Release Announcement](/support/securitynotice/4_2_8p2-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
@@ -274,8 +258,6 @@ Please refrain from discussing potential security issues in public fora such as 
 
 #### 4.2.8p1
 
-[4.2.8p1 Release Announcement](/support/securitynotice/4_2_8p1-release-announcement)
-
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
 | [2672: ::1 can be spoofed on some OSes, so ACLs based on IPv6 ::1 addresses can be bypassed](/support/securitynotice/ntpbug2672) | | | | 2015 Feb 04|
@@ -284,8 +266,6 @@ Please refrain from discussing potential security issues in public fora such as 
 * * *
 
 #### 4.2.8
-
-[4.2.8 Release Announcement](/support/securitynotice/4_2_8-release-announcement)
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |

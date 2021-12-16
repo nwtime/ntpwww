@@ -62,5 +62,3 @@ Reported by Fakhri Zulkifli.
 
 * 2018 Aug 14: Public release
 * 2018 Jul 25: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
-* : Notification from reporter 
