@@ -3,47 +3,50 @@ title: NTP Release Timeline
 type: archives
 ---
 
-* [4.2.8-series](428-series)
-* [4.2.6-series](426-series)
-* [4.2.4-series](424-series)
+* [4.2.8-series](#428-series)
+* [4.2.6-series](#426-series)
+* [4.2.4-series](#424-series)
+* [4.2.2-series](#422-series)
+* [Older Releases](#older-releases)
 
 * * *
 
 #### 4.2.8-series
 
-No more releases are planned for the 4.2.8-series, but if more are needed we will make them.
-
-ntp-4.2.8 will go EOL when ntp-4.4.0 is released. At that time, support for ntp-4.2.8 will be available under contract.
-
 {{% pageinfo %}}
-4.2.8p15 is the latest stable and recommended version of NTP. Click [here](/archives/4.2.8-series) to read the latest version of the docs. Refer to the table below for the release announcement for each patch level in the 4.2.8-series.
+4.2.8p15 is the latest stable and recommended version of NTP.
+
+No more releases are planned for the 4.2.8-series, unless a new security vulnerability is discovered.
+
+The 4.2.8-series will go EoL when 4.4.0 is released. At that time, support for 4.2.8 will be available under contract.
+
 {{% /pageinfo %}}
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
 | ----- | ----- | ----- | ----- | ----- |
-| 2020 Jun 23 |[4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement) | | 1 MEDIUM | 13 bugs |
-| 2020 Mar 3|[4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement) | | 2 MEDIUM | 46 bugs |
-| 2019 Mar 7|[4.2.8p13](/support/securitynotice/4_2_8p13-release-announcement) | | 1 MEDIUM | 17 bugs<br> 1 improvement |
-| 2018 Aug 14|[4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | | 1 MEDIUM<br> 1 LOW | 27 bugs<br> 4 improvements|
-| 2018 Feb 27|[4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 4 MEDIUM<br> 2 LOW | 33 bugs<br> 32 improvements |
-| 2017 Mar 21|[4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | | 6 MEDIUM<br> 5 LOW<br> 4 INF | 15 |
-| 2016 Nov 21|[4.2.8p9](/support/securitynotice/4_2_8p9-release-announcement) | | 1 HIGH<br> 4 MEDIUM<br> 5 LOW | 28 |
+| 2020 Jun 23 |[4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement) | [4.2.8p15](/support/changelogs/4_2_8p15-changelog)| 1 <span style="color:orange">MEDIUM</span> | 13 bugs |
+| 2020 Mar 3|[4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement) | | 2 <span style="color:orange">MEDIUM</span> | 46 bugs |
+| 2019 Mar 7|[4.2.8p13](/support/securitynotice/4_2_8p13-release-announcement) | | 1 <span style="color:orange">MEDIUM</span> | 17 bugs<br> 1 improvement |
+| 2018 Aug 14|[4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | | 1 <span style="color:orange">MEDIUM</span><br> 1 LOW | 27 bugs<br> 4 improvements|
+| 2018 Feb 27|[4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 4 <span style="color:orange">MEDIUM</span><br> 2 LOW | 33 bugs<br> 32 improvements |
+| 2017 Mar 21|[4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | | 6 <span style="color:orange">MEDIUM</span><br> 5 LOW<br> 4 INF | 15 |
+| 2016 Nov 21|[4.2.8p9](/support/securitynotice/4_2_8p9-release-announcement) | | 1 HIGH<br> 4 <span style="color:orange">MEDIUM</span><br> 5 LOW | 28 |
 | 2016 Jun 2|[4.2.8p8](/support/securitynotice/4_2_8p8-release-announcement) | | 1 HIGH<br> 4 LOW | |
-| 2016 Apr 26|[4.2.8p7](/support/securitynotice/4_2_8p7-release-announcement) | | 7 MEDIUM<br> 4 LOW | |
+| 2016 Apr 26|[4.2.8p7](/support/securitynotice/4_2_8p7-release-announcement) | | 7 <span style="color:orange">MEDIUM</span><br> 4 LOW | |
 | 2016 Jan 20|[4.2.8p6](/support/securitynotice/4_2_8p6-release-announcement) | | 11 MEDIUM/LOW | |
-| 2016 Jan 7|[4.2.8p5](/support/securitynotice/4_2_8p5-release-announcement) | | 1 MEDIUM | 14 bugs |
+| 2016 Jan 7|[4.2.8p5](/support/securitynotice/4_2_8p5-release-announcement) | | 1 <span style="color:orange">MEDIUM</span> | 14 bugs |
 | 2015 Oct 21|[4.2.8p4](/support/securitynotice/4_2_8p4-release-announcement) | | 13 MEDIUM/LOW | 3 bugs |
 | 2015 Jun 27|[4.2.8p3](/support/securitynotice/4_2_8p3-release-announcement) | | 1 LOW | |
 | 2015 Apr 7|[4.2.8p2](/support/securitynotice/4_2_8p2-release-announcement) | | 2 | |
 | 2015 Feb 4|[4.2.8p1](/support/securitynotice/4_2_8p1-release-announcement) | | 8 | |
 | 2014 Dec 19|[4.2.8](/support/securitynotice/4_2_8-release-announcement) | | 6 HIGH | 1100+ |
 
+* * *
+
 #### 4.2.6-series
 
 {{% pageinfo %}}
-4.2.8p15 is the latest stable and recommended version of NTP.
-
-Click [here](/archives/4.2.6-series) to read the 4.2.6 version of the docs. Refer to the table below for the release announcement for each patch level in the 4.2.6-series.
+4.2.6 is a legacy version released in December, 2009. 5 patch levels were released over the lifetime of the 4.2.6-series, ending in December 2011.  
 {{% /pageinfo %}}
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
@@ -54,3 +57,55 @@ Click [here](/archives/4.2.6-series) to read the 4.2.6 version of the docs. Refe
 | 2010 Jul 9|[4.2.6p2](/support/securitynotice/4_2_6p2-release-announcement) | | | 10 |
 | 2010 Apr 9|[4.2.6p1](/support/securitynotice/4_2_6p1-release-announcement) | | | 5 |
 | 2009 Dec 9|[4.2.6](/support/securitynotice/4_2_6-release-announcement) | | 1 HIGH | |
+
+* * *
+
+#### 4.2.4-series
+
+{{% pageinfo %}}
+4.2.4 is a legacy version released in December, 2006. 8 patch levels were released over the lifetime of the 4.2.4-series, ending in December 2009.  
+{{% /pageinfo %}}
+
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| ----- | ----- | ----- | ----- | ----- |
+| 2009 Dec 8 | 4.2.4p8 | | 1 HIGH | |
+| 2009 May 18 | [4.2.4p7](/support/securitynotice/4_2_4p7-release-announcement) | | 3 | 5 |
+| 2009 Jan 8 | [4.2.4p6](/support/securitynotice/4_2_4p6-release-announcement) | | 1 | 1 (bug)<br> 1 (improvement) |
+| 2008 Aug 17 | [4.2.4p5](/support/securitynotice/4_2_4p5-release-announcement) | | | 94 (bugs)<br> 102 (improvements) |
+| 2007 Aug 28 | 4.2.4p4 | | | 8 (bugs)<br> 2 (improvements) |
+| 2007 Jun 29 |[ 4.2.4p3](/support/securitynotice/4_2_4p3-release-announcement) | | | 1 bug |
+| 2007 Jun 20 | [4.2.4p2](/support/securitynotice/4_2_4p2-release-announcement) | | | 10 (bugs)<br> 2 (improvements) |
+| 2007 Mar 7 | [4.2.4p0](/support/securitynotice/4_2_4p0-release-announcement) | | | 8 (bugs(<br> 2 (improvements)|
+| 2006 Dec 18 | [4.2.4](/support/securitynotice/4_2_4-release-announcement) | | | 57 (bugs)<br> 8 (improvements)|
+
+* * *
+
+#### 4.2.2-series
+
+{{% pageinfo %}}
+4.2.2 is a legacy version released in June, 2006. 4 patch levels were released over the lifetime of the 4.2.2-series, ending in October 2006.  
+{{% /pageinfo %}}
+
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| ----- | ----- | ----- | ----- | ----- |
+| 2006 Oct 15 | [4.2.2p4](/support/securitynotice/4_2_2p4-release-announcement) | |  | 2 (bugs) |
+| 2006 Aug 5 | [4.2.2p3](/support/securitynotice/4_2_2p3-release-announcement) | | | 2 (bugs)<br> 4 improvements)|
+| 2006 Jul 9 | [4.2.2p2](/support/securitynotice/4_2_2p2-release-announcement) | | | 1 |
+| 2006 Jul 9 | [4.2.2p1](/support/securitynotice/4_2_2p1-release-announcement) | | | 6 (bugs)<br> 6 (improvements) |
+| 2006 Jun 8 | [4.2.2](/support/securitynotice/4_2_2-release-announcement) |  || 2 (bugs)<br> 7 (improvements) |
+
+* * *
+
+#### Older Releases
+
+{{% pageinfo %}}
+These historical releases span 1998 to 2003.  
+{{% /pageinfo %}}
+
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| ----- | ----- | ----- | ----- | ----- |
+| 2003 Oct 15 | 4.2.0 | | | |
+| 2003 Jul 17 | 4.1.2 | | | |
+| 2002 Feb 27 | 4.1.1 | | | |
+| 2001 Aug | 4.1.0 | | | |
+| 1998 Nov | 3-5.93e | | | |
