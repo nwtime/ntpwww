@@ -22,24 +22,24 @@ The 4.2.8-series will go EoL when 4.4.0 is released. At that time, support for 4
 
 {{% /pageinfo %}}
 
-| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
-| 2020 Jun 23 |[4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement) | [4.2.8p15](/support/changelogs/4_2_8p15-changelog)| 1 <span style="color:orange">MEDIUM</span> | 13 bugs |
-| 2020 Mar 3|[4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement) | | 2 <span style="color:orange">MEDIUM</span> | 46 bugs |
-| 2019 Mar 7|[4.2.8p13](/support/securitynotice/4_2_8p13-release-announcement) | | 1 <span style="color:orange">MEDIUM</span> | 17 bugs<br> 1 improvement |
-| 2018 Aug 14|[4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | | 1 <span style="color:orange">MEDIUM</span><br> 1 LOW | 27 bugs<br> 4 improvements|
-| 2018 Feb 27|[4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | | 4 <span style="color:orange">MEDIUM</span><br> 2 LOW | 33 bugs<br> 32 improvements |
-| 2017 Mar 21|[4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | | 6 <span style="color:orange">MEDIUM</span><br> 5 LOW<br> 4 INF | 15 |
-| 2016 Nov 21|[4.2.8p9](/support/securitynotice/4_2_8p9-release-announcement) | | 1 HIGH<br> 4 <span style="color:orange">MEDIUM</span><br> 5 LOW | 28 |
-| 2016 Jun 2|[4.2.8p8](/support/securitynotice/4_2_8p8-release-announcement) | | 1 HIGH<br> 4 LOW | |
-| 2016 Apr 26|[4.2.8p7](/support/securitynotice/4_2_8p7-release-announcement) | | 7 <span style="color:orange">MEDIUM</span><br> 4 LOW | |
-| 2016 Jan 20|[4.2.8p6](/support/securitynotice/4_2_8p6-release-announcement) | | 11 MEDIUM/LOW | |
-| 2016 Jan 7|[4.2.8p5](/support/securitynotice/4_2_8p5-release-announcement) | | 1 <span style="color:orange">MEDIUM</span> | 14 bugs |
-| 2015 Oct 21|[4.2.8p4](/support/securitynotice/4_2_8p4-release-announcement) | | 13 MEDIUM/LOW | 3 bugs |
-| 2015 Jun 27|[4.2.8p3](/support/securitynotice/4_2_8p3-release-announcement) | | 1 LOW | |
-| 2015 Apr 7|[4.2.8p2](/support/securitynotice/4_2_8p2-release-announcement) | | 2 | |
-| 2015 Feb 4|[4.2.8p1](/support/securitynotice/4_2_8p1-release-announcement) | | 8 | |
-| 2014 Dec 19|[4.2.8](/support/securitynotice/4_2_8-release-announcement) | | 6 HIGH | 1100+ |
+| 2020 Jun 23 |[4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement) | [4.2.8p15](/support/securitynotice/4_2_8-series-changelog/#428p15) | 1 <span style="color:orange">MEDIUM</span> | 13 bugs |
+| 2020 Mar 3|[4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement) | [4.2.8p14](/support/securitynotice/4_2_8-series-changelog/#428p14) | 2 <span style="color:orange">MEDIUM</span><br> 1 <span style="color:green">NONE</span> | 46 bugs<br> 5 improvements |
+| 2019 Mar 7|[4.2.8p13](/support/securitynotice/4_2_8p13-release-announcement) | [4.2.8p13](/support/securitynotice/4_2_8-series-changelog/#428p13) | 1 <span style="color:orange">MEDIUM</span> | 17 bugs<br> 1 improvement |
+| 2018 Aug 14|[4.2.8p12](/support/securitynotice/4_2_8p12-release-announcement) | [4.2.8p12](/support/securitynotice/4_2_8-series-changelog/#428p12) | 1 <span style="color:orange">MEDIUM</span><br> 1 <span style="color:green">LOW</span> | 27 bugs<br> 4 improvements|
+| 2018 Feb 27|[4.2.8p11](/support/securitynotice/4_2_8p11-release-announcement) | [4.2.8p11](/support/securitynotice/4_2_8-series-changelog/#428p11) | 4 <span style="color:orange">MEDIUM</span><br> 2 <span style="color:green">LOW</span> | 33 bugs<br> 34 improvements |
+| 2017 Mar 21|[4.2.8p10](/support/securitynotice/4_2_8p10-release-announcement) | [4.2.8p10](/support/securitynotice/4_2_8-series-changelog/#428p10) | 6 <span style="color:orange">MEDIUM</span><br> 5 <span style="color:green">LOW</span><br> 4 <span style="color:green">INF</span> | 15 |
+| 2016 Nov 21|[4.2.8p9](/support/securitynotice/4_2_8p9-release-announcement) | [4.2.8p9](/support/securitynotice/4_2_8-series-changelog/#428p9) | 1<span style="color:red">HIGH</span><br> 4 <span style="color:orange">MEDIUM</span><br> 5 <span style="color:green">LOW</span> | 28 |
+| 2016 Jun 2|[4.2.8p8](/support/securitynotice/4_2_8p8-release-announcement) | [4.2.8p8](/support/securitynotice/4_2_8-series-changelog/#428p8) | 1 <span style="color:red">HIGH</span><br> 4 <span style="color:green">LOW</span> | |
+| 2016 Apr 26|[4.2.8p7](/support/securitynotice/4_2_8p7-release-announcement) | [4.2.8p7](/support/securitynotice/4_2_8-series-changelog/#428p7) | 7 <span style="color:orange">MEDIUM</span><br> 4 <span style="color:green">LOW</span> | |
+| 2016 Jan 20|[4.2.8p6](/support/securitynotice/4_2_8p6-release-announcement) | [4.2.8p6](/support/securitynotice/4_2_8-series-changelog/#428p6) | 11 <span style="color:orange">LOW/MEDIUM</span> | |
+| 2016 Jan 7|[4.2.8p5](/support/securitynotice/4_2_8p5-release-announcement) | [4.2.8p5](/support/securitynotice/4_2_8-series-changelog/#428p5) | 1 <span style="color:orange">MEDIUM</span> | 14 bugs |
+| 2015 Oct 21|[4.2.8p4](/support/securitynotice/4_2_8p4-release-announcement) | [4.2.8p4](/support/securitynotice/4_2_8-series-changelog/#428p4) | 13 <span style="color:orange">LOW/MEDIUM</span> | 3 bugs |
+| 2015 Jun 27|[4.2.8p3](/support/securitynotice/4_2_8p3-release-announcement) | [4.2.8p3](/support/securitynotice/4_2_8-series-changelog/#428p3) | 1 <span style="color:green">LOW</span> | |
+| 2015 Apr 7|[4.2.8p2](/support/securitynotice/4_2_8p2-release-announcement) | [4.2.8p2](/support/securitynotice/4_2_8-series-changelog/#428p2) | 2 | |
+| 2015 Feb 4|[4.2.8p1](/support/securitynotice/4_2_8p1-release-announcement) | [4.2.8p1](/support/securitynotice/4_2_8-series-changelog/#428p1) | 8 | |
+| 2014 Dec 19|[4.2.8](/support/securitynotice/4_2_8-release-announcement) | [4.2.8](/support/securitynotice/4_2_8-series-changelog/#428) | 6 <span style="color:red">HIGH</span> | 1100+ |
 
 * * *
 
@@ -49,7 +49,7 @@ The 4.2.8-series will go EoL when 4.4.0 is released. At that time, support for 4
 4.2.6 is a legacy version released in December, 2009. 5 patch levels were released over the lifetime of the 4.2.6-series, ending in December 2011.  
 {{% /pageinfo %}}
 
-| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
 | 2011 Dec 24 | 4.2.6p5 | | | 12 |
 | 2011 Sep 22|[4.2.6p4](/support/securitynotice/4_2_6p4-release-announcement) | | | 23 |
@@ -66,7 +66,7 @@ The 4.2.8-series will go EoL when 4.4.0 is released. At that time, support for 4
 4.2.4 is a legacy version released in December, 2006. 8 patch levels were released over the lifetime of the 4.2.4-series, ending in December 2009.  
 {{% /pageinfo %}}
 
-| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
 | 2009 Dec 8 | 4.2.4p8 | | 1 HIGH | |
 | 2009 May 18 | [4.2.4p7](/support/securitynotice/4_2_4p7-release-announcement) | | 3 | 5 |
@@ -86,7 +86,7 @@ The 4.2.8-series will go EoL when 4.4.0 is released. At that time, support for 4
 4.2.2 is a legacy version released in June, 2006. 4 patch levels were released over the lifetime of the 4.2.2-series, ending in October 2006.  
 {{% /pageinfo %}}
 
-| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
 | 2006 Oct 15 | [4.2.2p4](/support/securitynotice/4_2_2p4-release-announcement) | |  | 2 (bugs) |
 | 2006 Aug 5 | [4.2.2p3](/support/securitynotice/4_2_2p3-release-announcement) | | | 2 (bugs)<br> 4 improvements)|
@@ -102,7 +102,7 @@ The 4.2.8-series will go EoL when 4.4.0 is released. At that time, support for 4
 These historical releases span 1998 to 2003.  
 {{% /pageinfo %}}
 
-| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Fixes |
+| Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
 | 2003 Oct 15 | 4.2.0 | | | |
 | 2003 Jul 17 | 4.1.2 | | | |
