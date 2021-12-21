@@ -47,7 +47,7 @@ type: archives
 | 2015 Jan 2 | 4.2.8p1-beta3 | [4.2.8p1-beta3](/support/securitynotice/4_2_8-series-changelog/#428p1-beta3) |  | 8 bugs |
 | 2014 Dec 27 | 4.2.8p1-beta2 | [4.2.8p1-beta2](/support/securitynotice/4_2_8-series-changelog/#428p1-beta2) |  | 4 bugs |
 | 2014 Dec 23 | 4.2.8p1-beta1 | [4.2.8p1-beta1](/support/securitynotice/4_2_8-series-changelog/#428p1-beta1) | 1 | 3 bugs |
-| 2014 Dec 19|[4.2.8](/support/securitynotice/4_2_8-release-announcement) | [4.2.8](/support/securitynotice/4_2_8-series-changelog/#428) | 6 <span style="color:red">HIGH</span> | 1100+ |
+| 2014 Dec 19|[4.2.8](/support/securitynotice/4_2_8-release-announcement) | [4.2.8](/support/securitynotice/4_2_8-series-changelog/#428) | 6 <span style="color:red">HIGH</span> | 500 bugs<br>  improvements |
 
 * * *
 
