@@ -1062,17 +1062,17 @@ type: archives
 
 **Release Date:** 2014 Dec 19
 
-* [Sec 730: Increase RSA_generate_key modulus](/support/securitynotice/ntpbug730)
+* [Sec 730: Increase `RSA_generate_key` modulus](/support/securitynotice/ntpbug730)
 * [Sec 2666: Use cryptographic random numbers for md5 key generation](/support/securitynotice/ntpbug2666)
-* [Sec 2667: buffer overflow in crypto_recv()](/support/securitynotice/ntpbug2667)
-* [Sec 2668: buffer overflow in ctl_putdata()](/support/securitynotice/ntpbug2668)
-* [Sec 2669: buffer overflow in configure()](/support/securitynotice/ntpbug2669)
+* [Sec 2667: buffer overflow in `crypto_recv()`](/support/securitynotice/ntpbug2667)
+* [Sec 2668: buffer overflow in `ctl_putdata()`](/support/securitynotice/ntpbug2668)
+* [Sec 2669: buffer overflow in `configure()`](/support/securitynotice/ntpbug2669)
 * [Sec 2670: Missing return; from error clause](/support/securitynotice/ntpbug2670)
-* [Sec 2671: vallen in extension fields are not validated](/support/securitynotice/ntpbug2671)
+* [Sec 2671: `vallen` in extension fields are not validated](/support/securitynotice/ntpbug2671)
 * [Sec 2672: On some OSes ::1 can be spoofed, bypassing source IP ACLs](/support/securitynotice/ntpbug2672)
-* [Sec 2630: buffer overrun in ntpq tokenize()](/support/securitynotice/ntpbug2630)
+* [Sec 2630: buffer overrun in `ntpq tokenize()`](/support/securitynotice/ntpbug2630)
   - Limit the `ntpq` command buffer to 512 bytes.
-* [Sec 2542: Strengthen the mrulist nonce](/support/securitynotice/ntpbug2542)
+* [Sec 2542: Strengthen the `mrulist` nonce](/support/securitynotice/ntpbug2542)
 
 * * *
 
@@ -1128,19 +1128,19 @@ type: archives
 * [Bug 2661: `ntpq` crashes with `mreadvar`](https://bugs.ntp.org/show_bug.cgi?id=2661)
 * [Bug 2657: Document that `restrict nopeer` intereferes with `pool`](https://bugs.ntp.org/show_bug.cgi?id=2657)
 * [Bug 2503: SHT utility outdated](https://bugs.ntp.org/show_bug.cgi?id=2503)
-* [Bug 2654: refclock_true.c doesn't identify the Mk III](https://bugs.ntp.org/show_bug.cgi?id=2654)
-* [Bug 2536: ntpd sandboxing support (libseccomp2) and cleanup](https://bugs.ntp.org/show_bug.cgi?id=2536)
+* [Bug 2654: `refclock_true.c` doesn't identify the Mk III](https://bugs.ntp.org/show_bug.cgi?id=2654)
+* [Bug 2536: `ntpd` sandboxing support (`libseccomp2`) and cleanup](https://bugs.ntp.org/show_bug.cgi?id=2536)
 * [Bug 2649: Clean up html/ page installation](https://bugs.ntp.org/show_bug.cgi?id=2649)
   - Fix `make install` leaves wrong owner for files in html/.
-* [Bug 2556: mrulist is missing from the generated ntpq man page](https://bugs.ntp.org/show_bug.cgi?id=2556)
+* [Bug 2556: `mrulist` is missing from the generated `ntpq` man page](https://bugs.ntp.org/show_bug.cgi?id=2556)
   - `ntpq` man page cleanup.
-* [Bug 2652: Windows hates directory names that contain a :](https://bugs.ntp.org/show_bug.cgi?id=2652)
+* [Bug 2652: Windows hates directory names that contain a `:`](https://bugs.ntp.org/show_bug.cgi?id=2652)
 * [Bug 2502: Autogen text replacement errors.](https://bugs.ntp.org/show_bug.cgi?id=2502)
-* [Bug 2640: STA_NANO can result in invalid ntv.constant](https://bugs.ntp.org/show_bug.cgi?id=2640)
+* [Bug 2640: `STA_NANO` can result in invalid `ntv.constant`](https://bugs.ntp.org/show_bug.cgi?id=2640)
 * [Bug 2538: NTP programs print exit code in help/usage text](https://bugs.ntp.org/show_bug.cgi?id=2538)
-* [Bug 2595: Man page quirks: ntpdate references in ntpd](https://bugs.ntp.org/show_bug.cgi?id=2595)
+* [Bug 2595: Man page quirks: `ntpdate` references in `ntpd`](https://bugs.ntp.org/show_bug.cgi?id=2595)
 * [Bug 2613: www.ntp.org/bugs.html tells folks to email doc bugs to DLM](https://bugs.ntp.org/show_bug.cgi?id=2613)
-* [Bug 2636: Clutter in syslog if gpsd not running](https://bugs.ntp.org/show_bug.cgi?id=2636)
+* [Bug 2636: Clutter in `syslog` if `gpsd` not running](https://bugs.ntp.org/show_bug.cgi?id=2636)
    - found (hopefully) last cause for clutter in protocol version
    - log GPSD revision and release numbers with protocol version
    - Fix coverity warning from previous patch.
@@ -1150,10 +1150,10 @@ type: archives
 * [Bug 2622: Synchronisation problem using SHM when time difference is more than four hours](https://bugs.ntp.org/show_bug.cgi?id=2622)
   - Add `control` function -- `fudge` values not available during start.
   - Change SHM driver so TOY restricted API is not used any more. (Plus some minor cleanup in logic and flow control)
-* [Bug 1128: ntpq truncates "remote" host information](https://bugs.ntp.org/show_bug.cgi?id=1128)
-* [Bug 2633: Provide stdnoreturn.h for windows port](https://bugs.ntp.org/show_bug.cgi?id=2633)
-* [Bug 2565: ntpd sometimes logs unexpected getifaddrs() errors](https://bugs.ntp.org/show_bug.cgi?id=2565)
-  -* Handle EINTR on getifaddrs().
+* [Bug 1128: `ntp` truncates `remote` host information](https://bugs.ntp.org/show_bug.cgi?id=1128)
+* [Bug 2633: Provide `stdnoreturn.h` for windows port](https://bugs.ntp.org/show_bug.cgi?id=2633)
+* [Bug 2565: `ntpd` sometimes logs unexpected `getifaddrs()` errors](https://bugs.ntp.org/show_bug.cgi?id=2565)
+  -* Handle `EINTR` on `getifaddrs()`.
 * [Bug 2628: `mon_getmoremem()` relies on undefined behaviour](https://bugs.ntp.org/show_bug.cgi?id=2628)
 * [Bug 2597: leap file processing loose ends](https://bugs.ntp.org/show_bug.cgi?id=2597)
   - uniform expiration check messages for config and timer triggered leap file loads
@@ -1162,551 +1162,540 @@ type: archives
   - log daily warning when leap info less than 28 days to expiration or already expired; nag hourly on last day before expiration; log when leapfile name is invalid
 * [Bug 2547: Automate update of "Last Update" datestamps in .html files](https://bugs.ntp.org/show_bug.cgi?id=2547)
   - Distribute the scripts needed for the fix
-* [Bug 2623: Missing {} in refclock_oncore.c](https://bugs.ntp.org/show_bug.cgi?id=2623)
+* [Bug 2623: Missing `{}` in `refclock_oncore.c`](https://bugs.ntp.org/show_bug.cgi?id=2623)
 * [Bug 2621: Avoid use of indeterminate address after `free()`](https://bugs.ntp.org/show_bug.cgi?id=2621)
   - (minor C standard conformance issue)
-* [Bug 2620: Use version.pm for checking version numbers in NTP::Util](https://bugs.ntp.org/show_bug.cgi?id=2620)
+* [Bug 2620: Use `version.pm` for checking version numbers in `NTP::Util`](https://bugs.ntp.org/show_bug.cgi?id=2620)
 * [Bug 2624: Fix signed compare on `l_fp`](https://bugs.ntp.org/show_bug.cgi?id=2624)
-* [Bug 2614: use 'unsigned long' consistently in ntp_random.c to avoid possibly undefined behaviour in signed int overflow](https://bugs.ntp.org/show_bug.cgi?id=2614)
-* [Bug 2619: Save a signed int copy of the return value of i2d_DSA_SIG()](https://bugs.ntp.org/show_bug.cgi?id=2619)
+* [Bug 2614: use `unsigned long` consistently in `ntp_random.c` to avoid possibly undefined behaviour in signed int overflow](https://bugs.ntp.org/show_bug.cgi?id=2614)
+* [Bug 2619: Save a signed int copy of the return value of `i2d_DSA_SIG()`](https://bugs.ntp.org/show_bug.cgi?id=2619)
   - Provide missing `msyslog()` message in `crypto_alice()`.
-* [Bug 2594: Update the year in sntp/include/copyright.def](https://bugs.ntp.org/show_bug.cgi?id=2594)
-* [Bug 2589: Update VS2013 project files for libntp](https://bugs.ntp.org/show_bug.cgi?id=2589)
+* [Bug 2594: Update the year in `sntp/include/copyright.def`](https://bugs.ntp.org/show_bug.cgi?id=2594)
+* [Bug 2589: Update VS2013 project files for `libntp`](https://bugs.ntp.org/show_bug.cgi?id=2589)
   - fix VS2009 compile problem.
 * [Bug 2600: Fix "Undisicplined Local Clock" driver1.html page](https://bugs.ntp.org/show_bug.cgi?id=2600)
 * [Bug 2570: cleanup: fix log format for successful leapfile load](https://bugs.ntp.org/show_bug.cgi?id=2570)
-  - reduced logging noise, moved some functions into libntp.
-  -refuse to load leapsec file with bad/missing SHA1 hash
+  - reduced logging noise, moved some functions into `libntp`.
+  -refuse to load `leapsec` file with bad/missing SHA1 hash.
   - change reading the hash line code: NIST omits leading zeros.
 * [Bug 2546: Windows build documentation updates](https://bugs.ntp.org/show_bug.cgi?id=2546)
-* [Bug 2537: ntpd truncates symmetric keys to 20 bytes](https://bugs.ntp.org/show_bug.cgi?id=2537)
-* [Bug 2311: Add more tags to mdoc2xxx](https://bugs.ntp.org/show_bug.cgi?id=2311)
+* [Bug 2537: `ntpd` truncates symmetric keys to 20 bytes](https://bugs.ntp.org/show_bug.cgi?id=2537)
+* [Bug 2311: Add more tags to `mdoc2xxx`](https://bugs.ntp.org/show_bug.cgi?id=2311)
 * [Bug 2577: Update VS2013 solution and project files](https://bugs.ntp.org/show_bug.cgi?id=2577)
-* [Bug 2572: cross-compiling fails for --with-yielding-select](https://bugs.ntp.org/show_bug.cgi?id=2572)
-* [Bug 2170: Use AC_PREPROC_IFELSE instead of AC_EGREP_CPP](https://bugs.ntp.org/show_bug.cgi?id=2170)
-* [Bug 2540: bootstrap script needs to 'touch' files in finer-grained groups](https://bugs.ntp.org/show_bug.cgi?id=2540)
-* [Bug 2576: refclock_gpsdjson.c doesn't compile if CLOCK_GPSDJSON is not enabled at configure time](https://bugs.ntp.org/show_bug.cgi?id=2576)
-* [Bug 2562: Distribute the code in libjsmn/](https://bugs.ntp.org/show_bug.cgi?id=2562)
+* [Bug 2572: cross-compiling fails for `--with-yielding-select`](https://bugs.ntp.org/show_bug.cgi?id=2572)
+* [Bug 2170: Use `AC_PREPROC_IFELSE` instead of `AC_EGREP_CPP`](https://bugs.ntp.org/show_bug.cgi?id=2170)
+* [Bug 2540: bootstrap script needs to `touch` files in finer-grained groups](https://bugs.ntp.org/show_bug.cgi?id=2540)
+* [Bug 2576: `refclock_gpsdjson.c` doesn't compile if `CLOCK_GPSDJSON` is not enabled at `configure` time](https://bugs.ntp.org/show_bug.cgi?id=2576)
+* [Bug 2562: Distribute the code in `libjsmn/`](https://bugs.ntp.org/show_bug.cgi?id=2562)
   - `GPSD_JSON`: fix solaris issues (`asprintf(), isfinite()`)
   - first release of the GPSD client clock (type 46)
-* [Bug 2113: Warn about ignored extra args in ntpq](https://bugs.ntp.org/show_bug.cgi?id=2113)
+* [Bug 2113: Warn about ignored extra args in `ntpq`](https://bugs.ntp.org/show_bug.cgi?id=2113)
 * [Bug 2561: Allow wildcards in the target of the `interface` command](https://bugs.ntp.org/show_bug.cgi?id=2561)
-* [Bug 2541: ntpd terminates itself with SIGHUP unexpectedly](https://bugs.ntp.org/show_bug.cgi?id=2541)
+* [Bug 2541: `ntpd` terminates itself with `SIGHUP` unexpectedly](https://bugs.ntp.org/show_bug.cgi?id=2541)
 * [Bug 898: More documentation fixes](https://bugs.ntp.org/show_bug.cgi?id=898)
-* [Bug 2555: Autogen mdoc man pages all stamped with SunOS 5.10](https://bugs.ntp.org/show_bug.cgi?id=2555)
-* [Bug 492: Clearly document ntpdate's pending deprecation](https://bugs.ntp.org/show_bug.cgi?id=492)
-* [Bug 1186: ntpd fails with link local IPv6 addresses](https://bugs.ntp.org/show_bug.cgi?id=1186)
+* [Bug 2555: Autogen `mdoc` man pages all stamped with SunOS 5.10](https://bugs.ntp.org/show_bug.cgi?id=2555)
+* [Bug 492: Clearly document `ntpdate`'s pending deprecation](https://bugs.ntp.org/show_bug.cgi?id=492)
+* [Bug 1186: `ntpd` fails with link local IPv6 addresses](https://bugs.ntp.org/show_bug.cgi?id=1186)
 * [Bug 2466: Wrap NMEA timestamps in 1024 week cycles](https://bugs.ntp.org/show_bug.cgi?id=2466)
-* [Bug 2551: --disable-local-libevent breaks the build](https://bugs.ntp.org/show_bug.cgi?id=2551)
+* [Bug 2551: `--disable-local-libevent` breaks the build](https://bugs.ntp.org/show_bug.cgi?id=2551)
 * [Bug 2539: doc and code tweaks for NMEA driver](https://bugs.ntp.org/show_bug.cgi?id=2539)
 * [Bug 2332: Be more careful about when we use `libgcc_s`](https://bugs.ntp.org/show_bug.cgi?id=2332)
-  - Force reference to 'libgcc_s' when using GCC, because threading+restricted user+locked memory otherwise fails on Linux.
+  - Force reference to `libgcc_s` when using GCC, because threading+restricted user+locked memory otherwise fails on Linux.
 * [Bug 792: TrueTime TL-3 WWV refclock support](https://bugs.ntp.org/show_bug.cgi?id=792)
-* [Bug 930: ntpdc docs refer to `clockinfo`, but mean `clockstat`](https://bugs.ntp.org/show_bug.cgi?id=930)
-* [Bug 1002: ntp-keygen option and documentation updates](https://bugs.ntp.org/show_bug.cgi?id=1002)
+* [Bug 930: `ntpdc` docs refer to `clockinfo`, but mean `clockstat`](https://bugs.ntp.org/show_bug.cgi?id=930)
+* [Bug 1002: `ntp-keygen` option and documentation updates](https://bugs.ntp.org/show_bug.cgi?id=1002)
   - `-p/--pvt-passwd` is now `-p/--password`, and `-q/--get-pvt-passwd` is now `-q/--export-passwd`.
-* [Bug 1349: statistics command not documented in HTML documentation](https://bugs.ntp.org/show_bug.cgi?id=1349)
+* [Bug 1349: `statistics` command not documented in HTML documentation](https://bugs.ntp.org/show_bug.cgi?id=1349)
   - In `html/monopt.html`, add statistics id, definition, description, and correct typo.
   - In `html/scripts/monopt.txt`, add statistics item, href, and comment.
   - In `ntpd/ntp.conf.def`, under statistics correct four to eight kinds.
   - In `ntpd/complete.conf.in`, add all eight kinds to statistics.
   - In `html/comdex.html`, remove duplicate footer.
-* [Bug 1734: Include man page for ntp.conf](https://bugs.ntp.org/show_bug.cgi?id=1734)
-* [Bug 2049: Clarify ntpdate's -d option behavior](https://bugs.ntp.org/show_bug.cgi?id=2049)
-* [Bug 2366: ntpdc.html: burst/iburst only work on servers](https://bugs.ntp.org/show_bug.cgi?id=2366)
-* [Bug 2493: ntptrace needs a man page](https://bugs.ntp.org/show_bug.cgi?id=2493)
-* [Bug 2545: Cleanup of scripts/monitoring/ntptrap](https://bugs.ntp.org/show_bug.cgi?id=2545)
-* [Bug 2532: Note in ntpdc docs that `enable pps` only works on older ntpd](https://bugs.ntp.org/show_bug.cgi?id=2532)
+* [Bug 1734: Include man page for `ntp.conf`](https://bugs.ntp.org/show_bug.cgi?id=1734)
+* [Bug 2049: Clarify `ntpdate`'s `-d` option behavior](https://bugs.ntp.org/show_bug.cgi?id=2049)
+* [Bug 2366: ntpdc.html: `burst/iburst` only work on servers](https://bugs.ntp.org/show_bug.cgi?id=2366)
+* [Bug 2493: `ntptrace` needs a man page](https://bugs.ntp.org/show_bug.cgi?id=2493)
+* [Bug 2545: Cleanup of `scripts/monitoring/ntptrap`](https://bugs.ntp.org/show_bug.cgi?id=2545)
+* [Bug 2532: Note in `ntpdc` docs that `enable pps` only works on older `ntpd`](https://bugs.ntp.org/show_bug.cgi?id=2532)
 * [Bug 2530: Fix documentation for enable/disable mode7 and pps](https://bugs.ntp.org/show_bug.cgi?id=2530)
 * [Bug 2060: Warn about restrictions with `kod` but not `limited`](https://bugs.ntp.org/show_bug.cgi?id=2060)
 * [Bug 2187: Update version number generation scripts](https://bugs.ntp.org/show_bug.cgi?id=2187)
-* [Bug 2519: mktime.c does not compile on 64-bit Solaris but we do not need timegm() and the Solaris provides mktime()](https://bugs.ntp.org/show_bug.cgi?id=2519)
+* [Bug 2519: `mktime.c` does not compile on 64-bit Solaris but we do not need `timegm()` and the Solaris provides `mktime()`](https://bugs.ntp.org/show_bug.cgi?id=2519)
 * [Bug 2522: Revert Bug 2513 fix - it breaks backward compatibility](https://bugs.ntp.org/show_bug.cgi?id=2522)
-* [Bug 2521: VPATH tweaks for perl -opts files](https://bugs.ntp.org/show_bug.cgi?id=2521)
-  - bootstrap script needs a tweak for perl -opts files.
-* [Bug 2524: Add ntpsweep to sntp/loc/* files](https://bugs.ntp.org/show_bug.cgi?id=2524)
-* [Bug 2526: Add `noinst` support to the sntp/loc/ framework](https://bugs.ntp.org/show_bug.cgi?id=2526)
+* [Bug 2521: `VPATH` tweaks for `perl -opts` files](https://bugs.ntp.org/show_bug.cgi?id=2521)
+  - bootstrap script needs a tweak for `perl -opts` files.
+* [Bug 2524: Add `ntpsweep` to `sntp/loc/*` files](https://bugs.ntp.org/show_bug.cgi?id=2524)
+* [Bug 2526: Add `noinst` support to the `sntp/loc/` framework](https://bugs.ntp.org/show_bug.cgi?id=2526)
 * [Bug 135: AIX5: "Address already in use" for IPv6 wildcard](https://bugs.ntp.org/show_bug.cgi?id=135)
-* [Bug 2513: Remove any PIDFILE in finish()](https://bugs.ntp.org/show_bug.cgi?id=2513)
-* [Bug 2516: Enable clock_gettime() support for AIX 5+](https://bugs.ntp.org/show_bug.cgi?id=2516)
+* [Bug 2513: Remove any PIDFILE in `finish()`](https://bugs.ntp.org/show_bug.cgi?id=2513)
+* [Bug 2516: Enable `clock_gettime()` support for AIX 5+](https://bugs.ntp.org/show_bug.cgi?id=2516)
 * [Bug 2517: Fix peer status errors in decode.html](https://bugs.ntp.org/show_bug.cgi?id=2517)
 * [Bug 2491: VS20xx compile fixes](https://bugs.ntp.org/show_bug.cgi?id=2491)
   - VS2013 project files.
 * [Bug 2326: More leapsecond file notification cleanup](https://bugs.ntp.org/show_bug.cgi?id=2326)
   - Improve stale leapsecond notifications.
-  -Check hourly for a new leapfile if the old one expired.
+  - Check hourly for a new leapfile if the old one expired.
   - Notice when a new leapfile has been installed.
 * [Bug 2506: make sure routing updates are always tracked](https://bugs.ntp.org/show_bug.cgi?id=2506)
-* [Bug 2514: secs/* #define usage cleanup](https://bugs.ntp.org/show_bug.cgi?id=2514)
+* [Bug 2514: `secs/* #define` usage cleanup](https://bugs.ntp.org/show_bug.cgi?id=2514)
 * [Bug 1050: Change ONCORE log message for leap second announcement to avoid misunderstandings](https://bugs.ntp.org/show_bug.cgi?id=1050)
 * [Bug 2499: Win32 user-space/loopback ppsapi provider drops samples](https://bugs.ntp.org/show_bug.cgi?id=2499)
-* [Bug 2256: Improve configure's function searches in libraries](https://bugs.ntp.org/show_bug.cgi?id=2256)
-* [Bug 2272: Use C99 integer types. ntp_calendar.h and ntp_types.h](https://bugs.ntp.org/show_bug.cgi?id=2272)
+* [Bug 2256: Improve `configure`'s function searches in libraries](https://bugs.ntp.org/show_bug.cgi?id=2256)
+* [Bug 2272: Use C99 integer types. `ntp_calendar.h` and `ntp_types.h`](https://bugs.ntp.org/show_bug.cgi?id=2272)
 * [Bug 2375: Improve AIX compatibility](https://bugs.ntp.org/show_bug.cgi?id=2375)
-  - AIX 7 doesn't like a libevent validation check.
+  - AIX 7 doesn't like a `libevent` validation check.
 * [Bug 2490: Fixed non-const initializer coming from Bug 2250 fix](https://bugs.ntp.org/show_bug.cgi?id=2490)
 * [Bug 2250: Rework of leap second handling machine](https://bugs.ntp.org/show_bug.cgi?id=2250)
 * [Bug 2419: (rc-nmea) Improve clockstats reporting when receiver sends data without valid GPS fix](https://bugs.ntp.org/show_bug.cgi?id=2419)
 * [Bug 2482: Add and cleanup of droproot and jail support for Solaris](https://bugs.ntp.org/show_bug.cgi?id=2482)
 * [Bug 2473: NTPD exits after clock is stepped backwards externally](https://bugs.ntp.org/show_bug.cgi?id=2473)
   - Avoid possible unsigned underrun for startup condition when testing for clock backstep.
-* [Bug 2481: ntpd aborts when both user and group are specified with -u](https://bugs.ntp.org/show_bug.cgi?id=2481)
-* [Bug 1642: ntpdsim can't find simnulate block in config file](https://bugs.ntp.org/show_bug.cgi?id=1642)
-* [Bug 2472: (WinXP) Avoid self-termination of IO thread during exit()](https://bugs.ntp.org/show_bug.cgi?id=2472)
+* [Bug 2481: `ntpd` aborts when both user and group are specified with `-u`](https://bugs.ntp.org/show_bug.cgi?id=2481)
+* [Bug 1642: `ntpdsim` can't find simnulate block in config file](https://bugs.ntp.org/show_bug.cgi?id=1642)
+* [Bug 2472: (WinXP) Avoid self-termination of IO thread during `exit()`](https://bugs.ntp.org/show_bug.cgi?id=2472)
 * [Bug 2085: Fix root distance and root dispersion calculations](https://bugs.ntp.org/show_bug.cgi?id=2085)
-  - clock_update() sys_rootdisp calculation omits root delay.
-* [Bug 2426: Possibly uninitialized data in crypto_send() - CID 975596](https://bugs.ntp.org/show_bug.cgi?id=2426)
-* [Bug 2450: --version has bogus short option](https://bugs.ntp.org/show_bug.cgi?id=2450)
+  - `clock_update() sys_rootdisp` calculation omits root delay.
+* [Bug 2426: Possibly uninitialized data in `crypto_send()` - CID 975596](https://bugs.ntp.org/show_bug.cgi?id=2426)
+* [Bug 2450: `--version` has bogus short option](https://bugs.ntp.org/show_bug.cgi?id=2450)
 * [Bug 2454: Need way to set file descriptor limit](https://bugs.ntp.org/show_bug.cgi?id=2454)
-* [Bug 2451: rlimit command is missing from the table of contents in miscopt.html](https://bugs.ntp.org/show_bug.cgi?id=2451)
-* [Bug 2452: provide io_handler/input_handler only on non HAVE_IO_COMPLETION_PORT platforms](https://bugs.ntp.org/show_bug.cgi?id=2452)
-* [Bug 2453: Need a way to avoid calling mlockall](https://bugs.ntp.org/show_bug.cgi?id=2453)
-* [Bug 2458: AM_CONFIG_HEADER is obsolete](https://bugs.ntp.org/show_bug.cgi?id=2458)
-* [Bug 2425: compile io_handler() in ntp_io.c unconditionally](https://bugs.ntp.org/show_bug.cgi?id=2425)
+* [Bug 2451: `rlimit` command is missing from the table of contents in miscopt.html](https://bugs.ntp.org/show_bug.cgi?id=2451)
+* [Bug 2452: provide `io_handler/input_handler` only on non `HAVE_IO_COMPLETION_PORT` platforms](https://bugs.ntp.org/show_bug.cgi?id=2452)
+* [Bug 2453: Need a way to avoid calling `mlockall`](https://bugs.ntp.org/show_bug.cgi?id=2453)
+* [Bug 2458: `AM_CONFIG_HEADER` is obsolete](https://bugs.ntp.org/show_bug.cgi?id=2458)
+* [Bug 2425: compile `io_handler()` in `ntp_io.c` unconditionally](https://bugs.ntp.org/show_bug.cgi?id=2425)
   - move part of input handler code from `ntpd.c` to `ntp_io.c` and fix `select()`-only platforms calling input_handler directly.
   - setup `SIGIO/SIGPOLL` for `asyncio` on the read side of a socketpair for the worker thread.
-* [Bug 2448: Fix checks for configure --with-stack-limit and --with-memlock values](https://bugs.ntp.org/show_bug.cgi?id=2448)
+* [Bug 2448: Fix checks for `configure --with-stack-limit` and `--with-memlock` values](https://bugs.ntp.org/show_bug.cgi?id=2448)
 * [Bug 2446: Quiet warnings from Oracle's Studio compiler](https://bugs.ntp.org/show_bug.cgi?id=2446)
 * [Bug 2397: License/copyright cleanup](https://bugs.ntp.org/show_bug.cgi?id=2397)
-* [Bug 2439: Fix check of EscapeCommFunction() in ports/winnt/libntp/termios.c](https://bugs.ntp.org/show_bug.cgi?id=2439)
+* [Bug 2439: Fix check of `EscapeCommFunction()` in `ports/winnt/libntp/termios.c`](https://bugs.ntp.org/show_bug.cgi?id=2439)
 * [Bug 2322: Oncore driver should send 0 PPS offset to GPS](https://bugs.ntp.org/show_bug.cgi?id=2322)
-* [Bug 883: log warning arguments swapped in refclock_gpsvme.c](https://bugs.ntp.org/show_bug.cgi?id=883)
+* [Bug 883: log warning arguments swapped in `refclock_gpsvme.c`](https://bugs.ntp.org/show_bug.cgi?id=883)
 * [Bug 2413: Fix `make check` with automake >= 1.13](https://bugs.ntp.org/show_bug.cgi?id=2413)
 * [Bug 2434: Line-buffer (v. block-buffer) stdout](https://bugs.ntp.org/show_bug.cgi?id=2434)
-* [Bug 2368: make check troubles in libevent](https://bugs.ntp.org/show_bug.cgi?id=2368)
-* [Bug 2427: configure fails to detect recvmsg() on Solaris](https://bugs.ntp.org/show_bug.cgi?id=2427)
-* [Bug 1466: Oncore should set FLAG_PPS](https://bugs.ntp.org/show_bug.cgi?id=1466)
-* [Bug 2423: Log command-line args at LOG_INFO](https://bugs.ntp.org/show_bug.cgi?id=2423)
-* [Bug 2428: do_unconf() should reset 'items' before the 2nd loop](https://bugs.ntp.org/show_bug.cgi?id=2428)
-* [Bug 2415: RES_LIMITED flags check should use &, not &&](https://bugs.ntp.org/show_bug.cgi?id=2415)
-* [Bug 2145: ntpq dumps core when displaying sys_var_list and more](https://bugs.ntp.org/show_bug.cgi?id=2145)
-* [Bug 1485: Sometimes ntpd crashes](https://bugs.ntp.org/show_bug.cgi?id=1485)
-* [Bug 2382: Implement LOGTOD using ldexp() instead of shifting](https://bugs.ntp.org/show_bug.cgi?id=2382)
-* [Bug 1866: Disable some debugging output in refclock_oncore](https://bugs.ntp.org/show_bug.cgi?id=1866)
-* [Bug 2149: Log an error message if /proc/net/if_inet6 cannot be opened](https://bugs.ntp.org/show_bug.cgi?id=2149)
-* [Bug 2357: sntp/libopts/usage.c sometimes needs -lintl](https://bugs.ntp.org/show_bug.cgi?id=2357)
+* [Bug 2368: make check troubles in `libevent`](https://bugs.ntp.org/show_bug.cgi?id=2368)
+* [Bug 2427: `configure` fails to detect `recvmsg()` on Solaris](https://bugs.ntp.org/show_bug.cgi?id=2427)
+* [Bug 1466: Oncore should set `FLAG_PPS`](https://bugs.ntp.org/show_bug.cgi?id=1466)
+* [Bug 2423: Log command-line args at `LOG_INFO`](https://bugs.ntp.org/show_bug.cgi?id=2423)
+* [Bug 2428: `do_unconf()` should reset `items` before the 2nd loop](https://bugs.ntp.org/show_bug.cgi?id=2428)
+* [Bug 2415: `RES_LIMITED` flags check should use `&`, not `&&`](https://bugs.ntp.org/show_bug.cgi?id=2415)
+* [Bug 2145: `ntpq` dumps core when displaying `sys_var_list` and more](https://bugs.ntp.org/show_bug.cgi?id=2145)
+* [Bug 1485: Sometimes `ntpd` crashes](https://bugs.ntp.org/show_bug.cgi?id=1485)
+* [Bug 2382: Implement `LOGTOD` using `ldexp()` instead of shifting](https://bugs.ntp.org/show_bug.cgi?id=2382)
+* [Bug 1866: Disable some debugging output in `refclock_oncore`](https://bugs.ntp.org/show_bug.cgi?id=1866)
+* [Bug 2149: Log an error message if `/proc/net/if_inet6` cannot be opened](https://bugs.ntp.org/show_bug.cgi?id=2149)
+* [Bug 2357: `sntp/libopts/usage.c` sometimes needs `-lintl`](https://bugs.ntp.org/show_bug.cgi?id=2357)
 * [Bug 2364: `sed -i` is not portable](https://bugs.ntp.org/show_bug.cgi?id=2364)
-* [Bug 2365: `make check` fails in libevent](https://bugs.ntp.org/show_bug.cgi?id=2365)
-* [Bug 2359: Fix send_via_ntp_signd() prototype](https://bugs.ntp.org/show_bug.cgi?id=2359)
+* [Bug 2365: `make check` fails in `libevent`](https://bugs.ntp.org/show_bug.cgi?id=2365)
+* [Bug 2359: Fix `send_via_ntp_signd()` prototype](https://bugs.ntp.org/show_bug.cgi?id=2359)
 * [Bug 2328: Don't apply small time adjustments on Windows versions which don't support this](https://bugs.ntp.org/show_bug.cgi?id=2328)
-* [Bug 2321: Fixed Windows build, but autogen update still required](https://bugs.ntp.org/show_bug.cgi?id=2321)
-* [Bug 2327: Rename sntp/ag-tpl/:Old to sntp/ag-tpl/Old](https://bugs.ntp.org/show_bug.cgi?id=2327)
-* [Bug 2325: Re-enable mlockall() check under Linux post-1223 fix](https://bugs.ntp.org/show_bug.cgi?id=2325)
-* [Bug 1223: reorganize inclusion of sys/resource.h](https://bugs.ntp.org/show_bug.cgi?id=1223)
-  - Final cleanup for rlimit changes.
-  - Allow configurable values for RLIMIT_STACK and RLIMIT_MEMLOCK.
-* [Bug 2081 - Backward Incompatible: rawstats now logs everything](https://bugs.ntp.org/show_bug.cgi?id=2081)
-* [Bug 2114: Update tests for sntp's synch distance](https://bugs.ntp.org/show_bug.cgi?id=2114)
-  - Correctly calculate sntp's synch distance.
-* [Bug 2278: ACTS flag3 mismatch between code and driver18.html](https://bugs.ntp.org/show_bug.cgi?id=2278)
+* [Bug 2321: Fixed Windows build, but `autogen` update still required](https://bugs.ntp.org/show_bug.cgi?id=2321)
+* [Bug 2327: Rename `sntp/ag-tpl/:Old` to `sntp/ag-tpl/Old`](https://bugs.ntp.org/show_bug.cgi?id=2327)
+* [Bug 2325: Re-enable `mlockall()` check under Linux post-1223 fix](https://bugs.ntp.org/show_bug.cgi?id=2325)
+* [Bug 1223: reorganize inclusion of `sys/resource.h`](https://bugs.ntp.org/show_bug.cgi?id=1223)
+  - Final cleanup for `rlimit` changes.
+  - Allow configurable values for `RLIMIT_STACK` and `RLIMIT_MEMLOCK`.
+* [Bug 2081 - **Backward Incompatible**: `rawstats` now logs everything](https://bugs.ntp.org/show_bug.cgi?id=2081)
+* [Bug 2114: Update tests for `sntp`'s synch distance](https://bugs.ntp.org/show_bug.cgi?id=2114)
+  - Correctly calculate `sntp`'s synch distance.
+* [Bug 2278: ACTS `flag3` mismatch between code and driver18.html](https://bugs.ntp.org/show_bug.cgi?id=2278)
 * [Bug 2024: Identify Events in the system status word in decode.html](https://bugs.ntp.org/show_bug.cgi?id=2024)
-  - Remove unused system event code EVNT_CLKHOP.
+  - Remove unused system event code `EVNT_CLKHOP`.
 * [Bug 2040: Provide a command-line option for the identity key bits](https://bugs.ntp.org/show_bug.cgi?id=2040)
-* [Bug 1214: `proto: precision = ...` should be at INFO, not NOTICE](https://bugs.ntp.org/show_bug.cgi?id=1214)
-* [Bug 2246: Clear sys_leap when voting says to disarm the leap](https://bugs.ntp.org/show_bug.cgi?id=2246)
-* [Bug 2202: ntpq.html: there is no "acv" billboard](https://bugs.ntp.org/show_bug.cgi?id=2202)
+* [Bug 1214: `proto: precision = ...` should be at `INFO`, not `NOTICE`](https://bugs.ntp.org/show_bug.cgi?id=1214)
+* [Bug 2246: Clear `sys_leap` when voting says to disarm the leap](https://bugs.ntp.org/show_bug.cgi?id=2246)
+* [Bug 2202: ntpq.html: there is no `acv` billboard](https://bugs.ntp.org/show_bug.cgi?id=2202)
 * [Bug 2306: keep pps hack for Win32 even if user-mode/loopback](https://bugs.ntp.org/show_bug.cgi?id=2306)
   - PPS API is activated on a serial line.
   - Added user-mode/loop-back PPS API provider for Win32
 * [Bug 2098: Install DLM's HTML documentation](https://bugs.ntp.org/show_bug.cgi?id=2098)
-* [Bug 1320: Log ntpd's initial command-line parameters](https://bugs.ntp.org/show_bug.cgi?id=1320)
-* [Bug 2120: no sysexits.h under QNX](https://bugs.ntp.org/show_bug.cgi?id=2120)
+* [Bug 1320: Log `ntpd`'s initial command-line parameters](https://bugs.ntp.org/show_bug.cgi?id=1320)
+* [Bug 2120: no `sysexits.h` under QNX](https://bugs.ntp.org/show_bug.cgi?id=2120)
 * [Bug 2123: cleanup to html/leap.html](https://bugs.ntp.org/show_bug.cgi?id=2123)
-* [Bug 969: Clarify ntpdate.html documentation about -u and ntpd](https://bugs.ntp.org/show_bug.cgi?id=969)
-* [Bug 1217: libisc/ifiter_sysctl.c:internal_current(): Ignore RTM messages with wrong version](https://bugs.ntp.org/show_bug.cgi?id=1217)
+* [Bug 969: Clarify ntpdate.html documentation about `-u` and `ntpd`](https://bugs.ntp.org/show_bug.cgi?id=969)
+* [Bug 1217: `libisc/ifiter_sysctl.c:internal_current()`: Ignore RTM messages with wrong version](https://bugs.ntp.org/show_bug.cgi?id=1217)
 * [Bug 2296: Fix compile problem with building with old OpenSSL](https://bugs.ntp.org/show_bug.cgi?id=2296)
-  - Update fix for Bug 2294 to handle --without-crypto.
-* [Bug 2301: Remove spurious debug output from ntpq](https://bugs.ntp.org/show_bug.cgi?id=2301)
-* [Bug 922: Allow interspersed -4 and -6 flags on the ntpq command line](https://bugs.ntp.org/show_bug.cgi?id=922)
-* [Bug 2294: ntpd crashes in FIPS mode](https://bugs.ntp.org/show_bug.cgi?id=2294)
-* [Bug 2291: sntp should report why it cannot open file.kod](https://bugs.ntp.org/show_bug.cgi?id=2291)
-* [Bug 2293: add support for SO_BINTIME, refine support for SO_TIMESTAMPNS](https://bugs.ntp.org/show_bug.cgi?id=2293)
-* [Bug 938: The argument to the -D flag takes a number, not a string](https://bugs.ntp.org/show_bug.cgi?id=938)
-* [Bug 1013: ntpdate's HTML page claims wrong default version](https://bugs.ntp.org/show_bug.cgi?id=1013)
-* [Bug 1374: Support SO_TIMESTAMPNS](https://bugs.ntp.org/show_bug.cgi?id=1374)
-* [Bug 2266: Remove deprecated refclock_trak.c from Windows Makefile equivalents](https://bugs.ntp.org/show_bug.cgi?id=2266)
+  - Update fix for Bug 2294 to handle `--without-crypto`.
+* [Bug 2301: Remove spurious debug output from `ntpq`](https://bugs.ntp.org/show_bug.cgi?id=2301)
+* [Bug 922: Allow interspersed `-4` and `-6` flags on the `ntpq` command line](https://bugs.ntp.org/show_bug.cgi?id=922)
+* [Bug 2294: `ntpd` crashes in FIPS mode](https://bugs.ntp.org/show_bug.cgi?id=2294)
+* [Bug 2291: `sntp` should report why it cannot open `file.kod`](https://bugs.ntp.org/show_bug.cgi?id=2291)
+* [Bug 2293: add support for `SO_BINTIME`, refine support for `SO_TIMESTAMPNS`](https://bugs.ntp.org/show_bug.cgi?id=2293)
+* [Bug 938: The argument to the `-D` flag takes a number, not a string](https://bugs.ntp.org/show_bug.cgi?id=938)
+* [Bug 1013: `ntpdate`'s HTML page claims wrong default version](https://bugs.ntp.org/show_bug.cgi?id=1013)
+* [Bug 1374: Support `SO_TIMESTAMPNS`](https://bugs.ntp.org/show_bug.cgi?id=1374)
+* [Bug 2266: Remove deprecated `refclock_trak.c` from Windows Makefile equivalents](https://bugs.ntp.org/show_bug.cgi?id=2266)
 * [Bug 2274: Bring libopts/enum.c back to (old) ANSI C compliance](https://bugs.ntp.org/show_bug.cgi?id=2274)
-* [Bug 2287: ntpdate returns 0 even if adjtime() call fails](https://bugs.ntp.org/show_bug.cgi?id=2287)
-* [Bug 1997: Fix sntp broadcast timeouts](https://bugs.ntp.org/show_bug.cgi?id=1997)
-* [Bug 2234: Fix incorrect ntptrace html documentation](https://bugs.ntp.org/show_bug.cgi?id=2234)
-* [Bug 2262: Install html docs in $htmldir](https://bugs.ntp.org/show_bug.cgi?id=2262)
+* [Bug 2287: `ntpdate` returns 0 even if `adjtime()` call fails](https://bugs.ntp.org/show_bug.cgi?id=2287)
+* [Bug 1997: Fix `sntp` broadcast timeouts](https://bugs.ntp.org/show_bug.cgi?id=1997)
+* [Bug 2234: Fix incorrect `ntptrace` html documentation](https://bugs.ntp.org/show_bug.cgi?id=2234)
+* [Bug 2262: Install html docs in `$htmldir`](https://bugs.ntp.org/show_bug.cgi?id=2262)
   - Install sntp.html into htmldir.
 * [Bug 752: ToS cleanup from Mike Tatarinov](https://bugs.ntp.org/show_bug.cgi?id=752)
   - Use proper ToS network packet markings for IPv4 and IPv6.
 * [Bug 1232: Convert SHM refclock to use struct timespec](https://bugs.ntp.org/show_bug.cgi?id=1232)
   - Add nanosecond support to SHM driver.
-* [Bug 2258: Add syslog message about leap insertion](https://bugs.ntp.org/show_bug.cgi?id=2258)
-* [Bug 2263: broadcast server doesn't work for host with OS_MISSES_SPECIFIC_ROUTE_UPDATES](https://bugs.ntp.org/show_bug.cgi?id=2263)
-* [Bug 2271: Decode refclock types when built with --disable-all-clocks](https://bugs.ntp.org/show_bug.cgi?id=2271)
-* [Bug 2276: clk_sel240x.c #define's _XOPEN_SOURCE, breaking QNX6](https://bugs.ntp.org/show_bug.cgi?id=2276)
+* [Bug 2258: Add `syslog` message about leap insertion](https://bugs.ntp.org/show_bug.cgi?id=2258)
+* [Bug 2263: broadcast server doesn't work for host with `OS_MISSES_SPECIFIC_ROUTE_UPDATES`](https://bugs.ntp.org/show_bug.cgi?id=2263)
+* [Bug 2271: Decode refclock types when built with `--disable-all-clocks`](https://bugs.ntp.org/show_bug.cgi?id=2271)
+* [Bug 2276: `clk_sel240x.c #define`'s `_XOPEN_SOURCE`, breaking QNX6](https://bugs.ntp.org/show_bug.cgi?id=2276)
 * [Bug 2264: Cleanup SEL240X Refclock](https://bugs.ntp.org/show_bug.cgi?id=2264)
 * [Bug 2160: Log warning about expired leapseconds file](https://bugs.ntp.org/show_bug.cgi?id=2160)
-  - Note if leapseconds file is past its prime.
-* [Bug 2164: Greater precision needed for ntpq offset report](https://bugs.ntp.org/show_bug.cgi?id=2164)
+* [Bug 2164: Greater precision needed for `ntpq` offset report](https://bugs.ntp.org/show_bug.cgi?id=2164)
 * [Bug 2270: Install fails due to repeated man5 page names](https://bugs.ntp.org/show_bug.cgi?id=2270)
-* [Bug 2242: configure fails to detect getifaddrs function on Solaris](https://bugs.ntp.org/show_bug.cgi?id=2242)
-* [Bug 2249: Bad operator for `test` in `make check` of libevent](https://bugs.ntp.org/show_bug.cgi?id=2249)
+* [Bug 2242: `configure` fails to detect `getifaddrs` function on Solaris](https://bugs.ntp.org/show_bug.cgi?id=2242)
+* [Bug 2249: Bad operator for `test` in `make check` of `libevent`](https://bugs.ntp.org/show_bug.cgi?id=2249)
 * [Bug 2252: palisade: formats nanosecs to a 6-char field](https://bugs.ntp.org/show_bug.cgi?id=2252)
 * [Bug 2247: Get rid of the TRAK refclock - deprecated since 2006](https://bugs.ntp.org/show_bug.cgi?id=2247)
 * [Bug 1545: Note why we are logging the Version string](https://bugs.ntp.org/show_bug.cgi?id=1545)
-* [Bug 1872: Remove legacy ppsclock fdpps, #ifdef PPS](https://bugs.ntp.org/show_bug.cgi?id=1872)
-* [Bug 2075: Fix spelling of 'incompatible'](https://bugs.ntp.org/show_bug.cgi?id=2075)
+* [Bug 1872: Remove legacy ppsclock fdpps, `#ifdef PPS`](https://bugs.ntp.org/show_bug.cgi?id=1872)
+* [Bug 2075: Fix spelling of "incompatible"](https://bugs.ntp.org/show_bug.cgi?id=2075)
 * [Bug 2241: MDNS registration should only happen if requested](https://bugs.ntp.org/show_bug.cgi?id=2241)
 * [Bug 1454: Add parse clock support for the SEL-240x GPS products](https://bugs.ntp.org/show_bug.cgi?id=1454)
-* [Bug 2227: Enable mrulist access control via `restrict ... nomrulist`](https://bugs.ntp.org/show_bug.cgi?id=2227)
-* [Bug 2225: libevent configure hangs](https://bugs.ntp.org/show_bug.cgi?id=2225)
+* [Bug 2227: Enable `mrulist` access control via `restrict ... nomrulist`](https://bugs.ntp.org/show_bug.cgi?id=2227)
+* [Bug 2225: `libevent` configure hangs](https://bugs.ntp.org/show_bug.cgi?id=2225)
 * [Bug 2224: Use-after-free in routing socket code after dropping root](https://bugs.ntp.org/show_bug.cgi?id=2224)
-* [Bug 2211: findbcastinter(): possibly undefined variable iface used](https://bugs.ntp.org/show_bug.cgi?id=2211)
-* [Bug 2220: Incorrect check for maximum association id in ntpq](https://bugs.ntp.org/show_bug.cgi?id=2220)
-* [Bug 2204: Build with --enable-getifaddrs=glibc fails](https://bugs.ntp.org/show_bug.cgi?id=2204)
-* [Bug 2178: refclock_tsyncpci.c reach register fails to shift](https://bugs.ntp.org/show_bug.cgi?id=2178)
-* [Bug 2191: dcfd -Y y2kcheck on CentOS 6.2 x86_64 breaks make check](https://bugs.ntp.org/show_bug.cgi?id=2191)
+* [Bug 2211: `findbcastinter()`: possibly undefined variable `iface` used](https://bugs.ntp.org/show_bug.cgi?id=2211)
+* [Bug 2220: Incorrect check for maximum association id in `ntpq`](https://bugs.ntp.org/show_bug.cgi?id=2220)
+* [Bug 2204: Build with `--enable-getifaddrs=glibc` fails](https://bugs.ntp.org/show_bug.cgi?id=2204)
+* [Bug 2178: `refclock_tsyncpci.c` reach register fails to shift](https://bugs.ntp.org/show_bug.cgi?id=2178)
+* [Bug 2191: `dcfd -Y y2kcheck` on CentOS 6.2 x86_64 breaks `make check`](https://bugs.ntp.org/show_bug.cgi?id=2191)
 * [Bug 2193: Building timestruct tests with Clang 3.1 fails](https://bugs.ntp.org/show_bug.cgi?id=2193)
-* [Bug 2179: Remove sntp/header.h](https://bugs.ntp.org/show_bug.cgi?id=2179)
-* [Bug 1744: Remove obsolete ntpdate/ntptime* items](https://bugs.ntp.org/show_bug.cgi?id=1744)
-* [Bug 2174: ntpd rejects source UDP ports less than 123 as bogus](https://bugs.ntp.org/show_bug.cgi?id=2174)
-* [Bug 2141: handle_sigio() calls get_systime(), which must be reentrant when SIGIO is used.
-  - Sanity checks relative to the prior get_systime() are disabled in ntpd on systems with signaled I/O, but active in sntp and ntpdate.
-* [Bug 1122: openssl detection via pkg-config fails when no additional -Idir flags are needed](https://bugs.ntp.org/show_bug.cgi?id=1122)
+* [Bug 2179: Remove `sntp/header.h`](https://bugs.ntp.org/show_bug.cgi?id=2179)
+* [Bug 1744: Remove obsolete `ntpdate/ntptime*` items](https://bugs.ntp.org/show_bug.cgi?id=1744)
+* [Bug 2174: `ntpd` rejects source UDP ports less than 123 as bogus](https://bugs.ntp.org/show_bug.cgi?id=2174)
+* [Bug 2141: `handle_sigio()` calls get_`systime()`, which must be reentrant when `SIGIO` is used.
+  - Sanity checks relative to the `prior get_systime()` are disabled in `ntpd` on systems with signaled I/O, but active in `sntp` and `ntpdate`.
+* [Bug 1122: openssl detection via `pkg-config` fails when no additional `-Idir` flags are needed](https://bugs.ntp.org/show_bug.cgi?id=1122)
 * [Bug 2156: clock instability with LOCAL driver, from Miroslav Lichvar](https://bugs.ntp.org/show_bug.cgi?id=2156)
-* [Bug 2159: Windows ntpd using leapfile erroneous leap second 20120401](https://bugs.ntp.org/show_bug.cgi?id=2159)
+* [Bug 2159: Windows `ntpd` using leapfile erroneous leap second 20120401](https://bugs.ntp.org/show_bug.cgi?id=2159)
 * [Bug 2048: add the clock variable timecode to SHM refclock](https://bugs.ntp.org/show_bug.cgi?id=2048)
-* [Bug 2148: ntpd 4.2.7p258 segfault with 0x0100000 bit in NMEA mode](https://bugs.ntp.org/show_bug.cgi?id=2148)
+* [Bug 2148: `ntpd` 4.2.7p258 segfault with 0x0100000 bit in NMEA mode](https://bugs.ntp.org/show_bug.cgi?id=2148)
 * [Bug 2140: Rework of Windows I/O completion port handling to avoid garbling serial input in UNIX line discipline emulation](https://bugs.ntp.org/show_bug.cgi?id=2140)
-* [Bug 2143: NMEA driver: discard data if quality indication not good, add statistic counters (mode bit enabled) to clockstats file](https://bugs.ntp.org/show_bug.cgi?id=2143)
-* [Bug 2135: defer calls to 'io_input' to main thread under Windows](https://bugs.ntp.org/show_bug.cgi?id=2135)
-* [Bug 2131: Set the system variable settimeofday only after clock step](https://bugs.ntp.org/show_bug.cgi?id=2131)
-* [Bug 2134: --enable-C99-snprintf does not force rpl_snprintf use](https://bugs.ntp.org/show_bug.cgi?id=2134)
-* [Bug 603: Only link with nlist()-related libraries when needed](https://bugs.ntp.org/show_bug.cgi?id=603)
-* [Bug 2126: Compile error on Windows with libopts from Autogen 5.14](https://bugs.ntp.org/show_bug.cgi?id=2126)
-* [Bug 2115: ntptrace should accept both rootdispersion and rootdisp](https://bugs.ntp.org/show_bug.cgi?id=2115)
-* [Bug 2111: Remove minpoll delay before iburst for pool and manycastclient](https://bugs.ntp.org/show_bug.cgi?id=2111)
-* [Bug 2109: `make clean check` is broken with gtest available](https://bugs.ntp.org/show_bug.cgi?id=2109)
-* [Bug 2110: systime.c typo breaks build on microsecond clocks](https://bugs.ntp.org/show_bug.cgi?id=2110)
-* [Bug 2104: ntpdc fault with oversize -c command](https://bugs.ntp.org/show_bug.cgi?id=2104)
-* [Bug 2106: Fix warnings when using -Wformat-security](https://bugs.ntp.org/show_bug.cgi?id=2106)
-* [Bug 2100: conversion problem with timespec/timeval <--> l_fp fixed; added tests to expose the bug](https://bugs.ntp.org/show_bug.cgi?id=2100)
-* [Bug 2095: ntptrace now needs `rv` instead of `pstat`](https://bugs.ntp.org/show_bug.cgi?id=2095)
+* [Bug 2143: NMEA driver: discard data if quality indication not good, add statistic counters (mode bit enabled) to `clockstats` file](https://bugs.ntp.org/show_bug.cgi?id=2143)
+* [Bug 2135: defer calls to `io_input` to main thread under Windows](https://bugs.ntp.org/show_bug.cgi?id=2135)
+* [Bug 2131: Set the system variable `settimeofday` only after clock step](https://bugs.ntp.org/show_bug.cgi?id=2131)
+* [Bug 2134: `--enable-C99-snprintf` does not force `rpl_snprintf` use](https://bugs.ntp.org/show_bug.cgi?id=2134)
+* [Bug 603: Only link with `nlist()`-related libraries when needed](https://bugs.ntp.org/show_bug.cgi?id=603)
+* [Bug 2126: Compile error on Windows with `libopts` from Autogen 5.14](https://bugs.ntp.org/show_bug.cgi?id=2126)
+* [Bug 2115: `ntptrace` should accept both `rootdispersion` and `rootdisp`](https://bugs.ntp.org/show_bug.cgi?id=2115)
+* [Bug 2111: Remove `minpoll` delay before `iburst` for pool and manycastclient](https://bugs.ntp.org/show_bug.cgi?id=2111)
+* [Bug 2109: `make clean check` is broken with `gtest` available](https://bugs.ntp.org/show_bug.cgi?id=2109)
+* [Bug 2110: `systime.c` typo breaks build on microsecond clocks](https://bugs.ntp.org/show_bug.cgi?id=2110)
+* [Bug 2104: `ntpdc` fault with oversize `-c` command](https://bugs.ntp.org/show_bug.cgi?id=2104)
+* [Bug 2106: Fix warnings when using `-Wformat-security`](https://bugs.ntp.org/show_bug.cgi?id=2106)
+* [Bug 2100: conversion problem with `timespec/timeval <--> l_fp` fixed; added tests to expose the bug](https://bugs.ntp.org/show_bug.cgi?id=2100)
+* [Bug 2095: `ntptrace` now needs `rv` instead of `pstat`](https://bugs.ntp.org/show_bug.cgi?id=2095)
   - reported by Michael Tatarinov.
-* [Bug 2015: Overriding sys_tick should recalculate sys_precision](https://bugs.ntp.org/show_bug.cgi?id=2015)
+* [Bug 2015: Overriding `sys_tick` should recalculate `sys_precision`](https://bugs.ntp.org/show_bug.cgi?id=2015)
 * [Bug 2037: Fuzzed non-interpolated clock may decrease](https://bugs.ntp.org/show_bug.cgi?id=2037)
-* [Bug 2068: "tos ceiling" default and cap changed to 15](https://bugs.ntp.org/show_bug.cgi?id=2068)
-  - from 4.2.6p5-RC2: ntpd sends nonprintable stratum 16 refid to ntpq.
-* [Bug 2092: clock_select() selection jitter miscalculated](https://bugs.ntp.org/show_bug.cgi?id=2092)
+* [Bug 2068: `tos ceiling` default and cap changed to 15](https://bugs.ntp.org/show_bug.cgi?id=2068)
+  - from 4.2.6p5-RC2: `ntpd` sends nonprintable stratum 16 refid to `ntpq`.
+* [Bug 2092: `clock_select()` selection jitter miscalculated](https://bugs.ntp.org/show_bug.cgi?id=2092)
 * [Bug 2093: Reintroduce smaller stratum factor to system peer metric](https://bugs.ntp.org/show_bug.cgi?id=2093)
-* [Bug 2082: from 4.2.6p5-RC3: 3-char refid sent by ntpd 4.2.6p5-RC2 ends with extra dot](https://bugs.ntp.org/show_bug.cgi?id=2082)
-* [Bug 2086: from 4.2.6p5-RC3: get_systime() should not offset by sys_residual](https://bugs.ntp.org/show_bug.cgi?id=2086)
-* [Bug 2087: from 4.2.6p5-RC3: sys_jitter calculation overweights sys.peer jitter](https://bugs.ntp.org/show_bug.cgi?id=2087)
+* [Bug 2082: from 4.2.6p5-RC3: 3-char refid sent by `ntpd` 4.2.6p5-RC2 ends with extra dot](https://bugs.ntp.org/show_bug.cgi?id=2082)
+* [Bug 2086: from 4.2.6p5-RC3: `get_systime()` should not offset by `sys_residual`](https://bugs.ntp.org/show_bug.cgi?id=2086)
+* [Bug 2087: from 4.2.6p5-RC3: `sys_jitter` calculation overweights `sys.peer` jitter](https://bugs.ntp.org/show_bug.cgi?id=2087)
 * [Bug 2050: from 4.2.6p5-RC2: Orphan mode stratum counting to infinity](https://bugs.ntp.org/show_bug.cgi?id=2050)
-* [Bug 2059: from 4.2.6p5-RC2: optional billboard column `server` does not honor -n](https://bugs.ntp.org/show_bug.cgi?id=2059)
-* [Bug 2066: from 4.2.6p5-RC2: ntpq lopeers ipv6 `local` column overrun](https://bugs.ntp.org/show_bug.cgi?id=2066)
+* [Bug 2059: from 4.2.6p5-RC2: optional billboard column `server` does not honor `-n`](https://bugs.ntp.org/show_bug.cgi?id=2059)
+* [Bug 2066: from 4.2.6p5-RC2: `ntpq lopeers ipv6 local` column overrun](https://bugs.ntp.org/show_bug.cgi?id=2066)
 * [Bug 2069: from 4.2.6p5-RC2: broadcastclient, multicastclient spin up duplicate ephemeral associations without broadcastdelay](https://bugs.ntp.org/show_bug.cgi?id=2069)
-* [Bug 2072: from 4.2.6p5-RC2: Orphan parent selection metric needs ntohl()](https://bugs.ntp.org/show_bug.cgi?id=2072)
-* [Bug 2073: Correct ntpq billboard's MODE_PASSIVE t from `u` to `S`](https://bugs.ntp.org/show_bug.cgi?id=2073)
-* [Bug 2052: Autokey CRYPTO_ASSOC host@group vallen needs checking](https://bugs.ntp.org/show_bug.cgi?id=2052)
+* [Bug 2072: from 4.2.6p5-RC2: Orphan parent selection metric needs `ntohl()`](https://bugs.ntp.org/show_bug.cgi?id=2072)
+* [Bug 2073: Correct `ntpq` billboard's `MODE_PASSIVE t` from `u` to `S`](https://bugs.ntp.org/show_bug.cgi?id=2073)
+* [Bug 2052: Autokey `CRYPTO_ASSOC host@group vallen` needs checking](https://bugs.ntp.org/show_bug.cgi?id=2052)
 * [Bug 1940: ignore auth key if hex decoding fails](https://bugs.ntp.org/show_bug.cgi?id=1940)
-* [Bug 1995: fix wrong use of ZERO() macro in `ntp_calendar.c`](https://bugs.ntp.org/show_bug.cgi?id=1995)
+* [Bug 1995: fix wrong use of `ZERO()` macro in `ntp_calendar.c`](https://bugs.ntp.org/show_bug.cgi?id=1995)
   - add compile time stamp based era unfolding for `step_systime()` and necessary support to 'ntp-calendar.c'.
-* [Bug 2036: gcc 2.95.3 preprocessor can't nest #ifdef in macro args](https://bugs.ntp.org/show_bug.cgi?id=2036)
-* [Bug 2035: ntpq -c mrulist sleeps 1 sec between queries, not 5 msec](https://bugs.ntp.org/show_bug.cgi?id=2035)
-* [Bug 2029: `make check` clutters syslog](https://bugs.ntp.org/show_bug.cgi?id=2029)
+* [Bug 2036: `gcc` 2.95.3 preprocessor can't nest `#ifdef` in macro args](https://bugs.ntp.org/show_bug.cgi?id=2036)
+* [Bug 2035: `ntpq -c mrulist` sleeps 1 sec between queries, not 5 msec](https://bugs.ntp.org/show_bug.cgi?id=2035)
+* [Bug 2029: `make check` clutters `syslog`](https://bugs.ntp.org/show_bug.cgi?id=2029)
 * [Bug 2025: Switching between daemon and kernel loops can doubly-correct drift](https://bugs.ntp.org/show_bug.cgi?id=2025)
-* [Bug 2028: ntpd -n (nofork) redirects logging to stderr](https://bugs.ntp.org/show_bug.cgi?id=2028)
-* [Bug 1945: mbg_gps166.h use of _TM_DEFINED conflicts with MS VC](https://bugs.ntp.org/show_bug.cgi?id=1945)
-* [Bug 1946: parse_start uses open; does not work on Windows](https://bugs.ntp.org/show_bug.cgi?id=1946)
+* [Bug 2028: `ntpd -n` (nofork) redirects logging to `stderr`](https://bugs.ntp.org/show_bug.cgi?id=2028)
+* [Bug 1945: `mbg_gps166.h` use of `_TM_DEFINED` conflicts with MS VC](https://bugs.ntp.org/show_bug.cgi?id=1945)
+* [Bug 1946: `parse_start` uses open; does not work on Windows](https://bugs.ntp.org/show_bug.cgi?id=1946)
 * [Bug 1947: Porting parse-based Wharton refclock driver to Windows](https://bugs.ntp.org/show_bug.cgi?id=1947)
 * [Bug 2019: Allow selection of cipher for private key files](https://bugs.ntp.org/show_bug.cgi?id=2019)
-* [Bug 2020: ntp-keygen -s no longer sets host in cert file name](https://bugs.ntp.org/show_bug.cgi?id=2020)
+* [Bug 2020: `ntp-keygen -s` no longer sets host in cert file name](https://bugs.ntp.org/show_bug.cgi?id=2020)
 * [Bug 1981: Initial offset convergence applies frequency correction 2x with kernel discipline](https://bugs.ntp.org/show_bug.cgi?id=1981)
-* [Bug 2008: Initial offset convergence degraded with 500 PPM adjtime()](https://bugs.ntp.org/show_bug.cgi?id=2008)
-* [Bug 2009: EVNT_NSET adj_systime() mishandled by Windows ntpd](https://bugs.ntp.org/show_bug.cgi?id=2009)
-* [Bug 1999: NMEA does not send PMOTG messages any more](https://bugs.ntp.org/show_bug.cgi?id=1999)
-* [Bug 2003: from 4.2.6p4-RC3: ntpq_read_assoc_peervars() broken](https://bugs.ntp.org/show_bug.cgi?id=2003)
-* [Bug 2000: ntpd worker threads must block signals expected in main thread](https://bugs.ntp.org/show_bug.cgi?id=2000)
-  - Require -D4 or higher for ntpd SIGALRM debug trace
-* [Bug 2001: add ntpq -c timerstats like ntpdc -c timerstats](https://bugs.ntp.org/show_bug.cgi?id=2001)
-  - from 4.2.6p4-RC3: ntpdc timerstats reports overruns as handled.
-* [Bug 1993: ntpd Windows port adj_systime() broken in 4.2.7p203](https://bugs.ntp.org/show_bug.cgi?id=1993)
-* [Bug 1992: util/tg2 doesn't compile, needs libntp](https://bugs.ntp.org/show_bug.cgi?id=1992)
-* [Bug 1988: Better sntp send failed error message needed](https://bugs.ntp.org/show_bug.cgi?id=1988)
-* [Bug 1989: sntp manual page sometimes refers to SNTP as a program](https://bugs.ntp.org/show_bug.cgi?id=1989)
-* [Bug 1990: sntp output should include stratum](https://bugs.ntp.org/show_bug.cgi?id=1990)
+* [Bug 2008: Initial offset convergence degraded with 500 PPM `adjtime()`](https://bugs.ntp.org/show_bug.cgi?id=2008)
+* [Bug 2009: `EVNT_NSET adj_systime()` mishandled by Windows `ntpd`](https://bugs.ntp.org/show_bug.cgi?id=2009)
+* [Bug 1999: NMEA does not send `PMOTG` messages any more](https://bugs.ntp.org/show_bug.cgi?id=1999)
+* [Bug 2003: from 4.2.6p4-RC3: `ntpq_read_assoc_peervars()` broken](https://bugs.ntp.org/show_bug.cgi?id=2003)
+* [Bug 2000: `ntpd` worker threads must block signals expected in main thread](https://bugs.ntp.org/show_bug.cgi?id=2000)
+  - Require `-D4` or higher for `ntpd SIGALRM` debug trace
+* [Bug 2001: add `ntpq -c` timerstats like `ntpdc -c` timerstats](https://bugs.ntp.org/show_bug.cgi?id=2001)
+  - from 4.2.6p4-RC3: `ntpdc` timerstats reports overruns as handled.
+* [Bug 1993: `ntpd` Windows port `adj_systime()` broken in 4.2.7p203](https://bugs.ntp.org/show_bug.cgi?id=1993)
+* [Bug 1992: `util/tg2` doesn't compile, needs `libntp`](https://bugs.ntp.org/show_bug.cgi?id=1992)
+* [Bug 1988: Better `sntp` send failed error message needed](https://bugs.ntp.org/show_bug.cgi?id=1988)
+* [Bug 1989: `sntp` manual page sometimes refers to SNTP as a program](https://bugs.ntp.org/show_bug.cgi?id=1989)
+* [Bug 1990: `sntp` output should include stratum](https://bugs.ntp.org/show_bug.cgi?id=1990)
 * [Bug 1986: Require Visual C++ 2005 or later compilers in Windows port](https://bugs.ntp.org/show_bug.cgi?id=1986)
-* [Bug 1983: --without-sntp build breaks in sntp subdir](https://bugs.ntp.org/show_bug.cgi?id=1983)
-* [Bug 1984: from 4.2.6p4-RC3: ntp/libisc fails to compile on OS X 10.7](https://bugs.ntp.org/show_bug.cgi?id=1984)
+* [Bug 1983: `--without-sntp` build breaks in `sntp` subdir](https://bugs.ntp.org/show_bug.cgi?id=1983)
+* [Bug 1984: from 4.2.6p4-RC3: `ntp/libisc` fails to compile on OS X 10.7](https://bugs.ntp.org/show_bug.cgi?id=1984)
 * [Bug 1985: from 4.2.6p4-RC3: `logconfig =allall` rejected](https://bugs.ntp.org/show_bug.cgi?id=1985)
-* [Bug 1975: from 4.2.6p4-RC2: libntp/mktime.c won't work with 64-bit time_t](https://bugs.ntp.org/show_bug.cgi?id=1975)
-* [Bug 1976: genLocInfo writes to srcdir break `make distcheck`](https://bugs.ntp.org/show_bug.cgi?id=1976)
-* [Bug 1977: Fix flag/description mismatches in ntp-keygen-opts.def](https://bugs.ntp.org/show_bug.cgi?id=1977)
-* [Bug 1972: from 4.2.6p4-RC2: checking for struct rtattr fails](https://bugs.ntp.org/show_bug.cgi?id=1972)
+* [Bug 1975: from 4.2.6p4-RC2: `libntp/mktime.c` won't work with 64-bit `time_t`](https://bugs.ntp.org/show_bug.cgi?id=1975)
+* [Bug 1976: `genLocInfo` writes to srcdir break `make distcheck`](https://bugs.ntp.org/show_bug.cgi?id=1976)
+* [Bug 1977: Fix flag/description mismatches in `ntp-keygen-opts.def`](https://bugs.ntp.org/show_bug.cgi?id=1977)
+* [Bug 1972: from 4.2.6p4-RC2: checking for `struct rtattr` fails](https://bugs.ntp.org/show_bug.cgi?id=1972)
 * [Bug 1973: Widen reference clock mode from 8 to 32 bits](https://bugs.ntp.org/show_bug.cgi?id=1973)
-* [Bug 1608: from 4.2.6p4-RC2: Parse Refclock driver should honor trusttime](https://bugs.ntp.org/show_bug.cgi?id=1608)
-* [Bug 1970: from 4.2.6p4-RC2: UNLINK_EXPR_SLIST() causes crash if list is empty](https://bugs.ntp.org/show_bug.cgi?id=1970)
-* [Bug 1966: Broken FILES section for ntp.keys.def](https://bugs.ntp.org/show_bug.cgi?id=1966)
+* [Bug 1608: from 4.2.6p4-RC2: Parse Refclock driver should honor `trusttime`](https://bugs.ntp.org/show_bug.cgi?id=1608)
+* [Bug 1970: from 4.2.6p4-RC2: `UNLINK_EXPR_SLIST()` causes crash if list is empty](https://bugs.ntp.org/show_bug.cgi?id=1970)
+* [Bug 1966: Broken `FILES` section for `ntp.keys.def`](https://bugs.ntp.org/show_bug.cgi?id=1966)
 * [Bug 1948: Update man page section layout](https://bugs.ntp.org/show_bug.cgi?id=1948)
-* [Bug 1963: add reset command for ntpq :config, similar to ntpdc's](https://bugs.ntp.org/show_bug.cgi?id=1963)
-* [Bug 1964: --without-sntp should not build sntp](https://bugs.ntp.org/show_bug.cgi?id=1964)
-* [Bug 1961: from 4.2.6p4: html2man update: distribute ntp-wait.html](https://bugs.ntp.org/show_bug.cgi?id=1961)
-* [Bug 1134: from 4.2.6p4-RC1: ntpd fails binding to tentative IPv6 addresses](https://bugs.ntp.org/show_bug.cgi?id=1134)
-* [Bug 1790: from 4.2.6p4-RC1: Update config.guess and config.sub to detect AIX6](https://bugs.ntp.org/show_bug.cgi?id=1790)
-* [Bug 1958: genLocInfo must export PATH](https://bugs.ntp.org/show_bug.cgi?id=1958)
-* [Bug 1954: Fix typos in [s]bin_PROGRAMS in ntpd/Makefile.am:(https://bugs.ntp.org/show_bug.cgi?id=1954)
-* [Bug 1950: Control installation of event_rpcgen.py](https://bugs.ntp.org/show_bug.cgi?id=1950)
+* [Bug 1963: add reset command for `ntpq :config`, similar to `ntpdc`'s](https://bugs.ntp.org/show_bug.cgi?id=1963)
+* [Bug 1964: `--without-sntp` should not build `sntp`](https://bugs.ntp.org/show_bug.cgi?id=1964)
+* [Bug 1961: from 4.2.6p4: `html2man` update: distribute `ntp-wait.html`](https://bugs.ntp.org/show_bug.cgi?id=1961)
+* [Bug 1134: from 4.2.6p4-RC1: `ntpd` fails binding to tentative IPv6 addresses](https://bugs.ntp.org/show_bug.cgi?id=1134)
+* [Bug 1790: from 4.2.6p4-RC1: Update `config.guess` and `config.sub` to detect AIX6](https://bugs.ntp.org/show_bug.cgi?id=1790)
+* [Bug 1958: `genLocInfo` must export `PATH`](https://bugs.ntp.org/show_bug.cgi?id=1958)
+* [Bug 1954: Fix typos in `[s]bin_PROGRAMS` in `ntpd/Makefile.am`](https://bugs.ntp.org/show_bug.cgi?id=1954)
+* [Bug 1950: Control installation of `event_rpcgen.py`](https://bugs.ntp.org/show_bug.cgi?id=1950)
 * [Bug 1304: Update sntp.html to reflect new implementation](https://bugs.ntp.org/show_bug.cgi?id=1304)
-* [Bug 1938: addr_eqprefix() doesn't clear enough storage](https://bugs.ntp.org/show_bug.cgi?id=1938)
-* [Bug 1936: Correctly set IPV6_MULTICAST_LOOP](https://bugs.ntp.org/show_bug.cgi?id=1936)
-* [Bug 1932: libevent/util_internal.h builtin_expect compile error with gcc 2.95](https://bugs.ntp.org/show_bug.cgi?id=1932)
-* [Bug 1933: WWVB/Spectracom driver timestamps LFs, not CRs](https://bugs.ntp.org/show_bug.cgi?id=1933)
-* [Bug 1927: io_closeclock() should purge pending recvbufs](https://bugs.ntp.org/show_bug.cgi?id=1927)
-* [Bug 1931: cv always includes fudgetime1, never fudgetime2](https://bugs.ntp.org/show_bug.cgi?id=1931)
-* [Bug 988: Local clock eats up -g option, so ntpd stops with large initial time offset](https://bugs.ntp.org/show_bug.cgi?id=988)
-* [Bug 1921: LOCAL, ACTS drivers with "prefer" excluded from initial candidate list](https://bugs.ntp.org/show_bug.cgi?id=1921)
-* [Bug 1922: "tos orphanwait" applied incorrectly at startup](https://bugs.ntp.org/show_bug.cgi?id=1922)
+* [Bug 1938: `addr_eqprefix()` doesn't clear enough storage](https://bugs.ntp.org/show_bug.cgi?id=1938)
+* [Bug 1936: Correctly set `IPV6_MULTICAST_LOOP`](https://bugs.ntp.org/show_bug.cgi?id=1936)
+* [Bug 1932: `libevent/util_internal.h builtin_expect` compile error with `gcc` 2.95](https://bugs.ntp.org/show_bug.cgi?id=1932)
+* [Bug 1933: WWVB/Spectracom driver timestamps `LF`s, not `CR`s](https://bugs.ntp.org/show_bug.cgi?id=1933)
+* [Bug 1927: `io_closeclock()` should purge pending `recvbufs`](https://bugs.ntp.org/show_bug.cgi?id=1927)
+* [Bug 1931: `cv` always includes `fudgetime1`, never `fudgetime2`](https://bugs.ntp.org/show_bug.cgi?id=1931)
+* [Bug 988: Local clock eats up `-g` option, so `ntpd` stops with large initial time offset](https://bugs.ntp.org/show_bug.cgi?id=988)
+* [Bug 1921: LOCAL, ACTS drivers with `prefer` excluded from initial candidate list](https://bugs.ntp.org/show_bug.cgi?id=1921)
+* [Bug 1922: `tos orphanwait` applied incorrectly at startup](https://bugs.ntp.org/show_bug.cgi?id=1922)
 * [Bug 1923: orphan parent favored over LOCAL, ACTS drivers](https://bugs.ntp.org/show_bug.cgi?id=1923)
 * [Bug 1924: Billboard tally codes sometimes do not match operation, variables](https://bugs.ntp.org/show_bug.cgi?id=1924)
-* [Bug 1911: missing curly brace in libntp/ntp_rfc2553.c](https://bugs.ntp.org/show_bug.cgi?id=1911)
+* [Bug 1911: missing curly brace in `libntp/ntp_rfc2553.c`](https://bugs.ntp.org/show_bug.cgi?id=1911)
 * [Bug 1910: Support the Tristate Ltd. TS-GPSclock-01](https://bugs.ntp.org/show_bug.cgi?id=1910)
-* [Bug 1904: 4.2.7p160 Windows build broken (POSIX_SHELL)](https://bugs.ntp.org/show_bug.cgi?id=1904)
-* [Bug 1906: 4.2.7p160 - libtool: compile: cannot determine name of library object in ./libevent](https://bugs.ntp.org/show_bug.cgi?id=1906)
-* [Bug 1901: Simulator does not set progname](https://bugs.ntp.org/show_bug.cgi?id=1901)
-* [Bug 1890: 4.2.7p156 segfault in duplicate freeaddrinfo()](https://bugs.ntp.org/show_bug.cgi?id=1890)
-* [Bug 1851: freeaddrinfo() called after getaddrinfo() fails](https://bugs.ntp.org/show_bug.cgi?id=1851)
+* [Bug 1904: 4.2.7p160 Windows build broken (`POSIX_SHELL`)](https://bugs.ntp.org/show_bug.cgi?id=1904)
+* [Bug 1906: 4.2.7p160 - `libtool`: compile: cannot determine name of library object in `./libevent`](https://bugs.ntp.org/show_bug.cgi?id=1906)
+* [Bug 1901: Simulator does not set `progname`](https://bugs.ntp.org/show_bug.cgi?id=1901)
+* [Bug 1890: 4.2.7p156 segfault in duplicate `freeaddrinfo()`](https://bugs.ntp.org/show_bug.cgi?id=1890)
+* [Bug 1851: `freeaddrinfo()` called after `getaddrinfo()` fails](https://bugs.ntp.org/show_bug.cgi?id=1851)
 * [Bug 1887: DNS fails on 4.2.7p153 using threads](https://bugs.ntp.org/show_bug.cgi?id=1887)
-* [Bug 1881: describe the {+,-,s} characters in configure --help output](https://bugs.ntp.org/show_bug.cgi?id=1881)
-* [Bug 1875: 'asn2ntp()' rewritten with 'caltontp()'; 'timegm()' substitute likely to crash with 64bit time_t](https://bugs.ntp.org/show_bug.cgi?id=1875)
-* [Bug 1840: ntp_lists.h FIFO macros buggy](https://bugs.ntp.org/show_bug.cgi?id=1840)
-* [Bug 1874: ntpq -c "rv 0 sys_var_list" empty](https://bugs.ntp.org/show_bug.cgi?id=1874)
-* [Bug 1732: ntpd ties up CPU on disconnected USB refclock/device](https://bugs.ntp.org/show_bug.cgi?id=1732)
-* [Bug 1861: tickadj build failure using uClibc](https://bugs.ntp.org/show_bug.cgi?id=1861)
-* [Bug 1862: in6addr_any test in configure fooled by arm gcc 4.1.3 -O2](https://bugs.ntp.org/show_bug.cgi?id=1862)
-* [Bug 1844: ntpd 4.2.7p131 NetBSD, --gc-sections links bad executable](https://bugs.ntp.org/show_bug.cgi?id=1844)
-* [Bug 1848: ntpd 4.2.7p139 --disable-thread-support does not compile](https://bugs.ntp.org/show_bug.cgi?id=1848)
-  - make check ntpd --saveconfigquit clutters syslog.
-* [Bug 1846: MacOSX: debug symbol not found by propdelay or tickadj](https://bugs.ntp.org/show_bug.cgi?id=1846)
-* [Bug 1839: 4.2.7p135 still installs libevent ev*.h headers](https://bugs.ntp.org/show_bug.cgi?id=1839)
-* [Bug 1837: Build fails on Win7 due to regedit requiring privilege](https://bugs.ntp.org/show_bug.cgi?id=1837)
-* [Bug 1834: ntpdate 4.2.7p131 aborts with assertion failure](https://bugs.ntp.org/show_bug.cgi?id=1834)
-* [Bug 1832: ntpdate doesn't allow timeout > 2s](https://bugs.ntp.org/show_bug.cgi?id=1832)
-* [Bug 1833: The checking sem_timedwait() fails without -pthread](https://bugs.ntp.org/show_bug.cgi?id=1833)
-* [Bug 1087: -v/--normalverbose conflicts with -v/--version in sntp](https://bugs.ntp.org/show_bug.cgi?id=1087)
-* [Bug 1088: sntp should (only) report the time difference without -s/-a](https://bugs.ntp.org/show_bug.cgi?id=1088)
-* [Bug 1811: Update the download location in WHERE-TO-START](https://bugs.ntp.org/show_bug.cgi?id=1811)
-* [Bug 1799: ntpq mrv crash](https://bugs.ntp.org/show_bug.cgi?id=1799)
-* [Bug 1801: ntpq mreadvar requires prior association caching](https://bugs.ntp.org/show_bug.cgi?id=1801)
-* [Bug 1797: Restore stale timestamp check from the RANGEGATE cleanup](https://bugs.ntp.org/show_bug.cgi?id=1797)
-* [Bug 1794: ntpq -c rv missing clk_wander information](https://bugs.ntp.org/show_bug.cgi?id=1794)
-* [Bug 1795: ntpq readvar does not display last variable](https://bugs.ntp.org/show_bug.cgi?id=1795)
-* [Bug 1788: tvtots.c tables inaccurate](https://bugs.ntp.org/show_bug.cgi?id=1788)
-* [Bug 1786: Remove extra semicolon from ntp_proto.c](https://bugs.ntp.org/show_bug.cgi?id=1786)
-* [Bug 1780: Windows ntpd 4.2.7p114 crashes in ioctl()](https://bugs.ntp.org/show_bug.cgi?id=1780)
-* [Bug 1781: longlong undefined in sntp handle_pkt() on Debian amd64](https://bugs.ntp.org/show_bug.cgi?id=1781)
-* [Bug 1776: sntp mishandles -t/--timeout and -a/--authentication](https://bugs.ntp.org/show_bug.cgi?id=1776)
-* [Bug 1773: openssl not detected during ./configure](https://bugs.ntp.org/show_bug.cgi?id=1773)
-* [Bug 1774: Segfaults if cryptostats enabled and built without OpenSSL](https://bugs.ntp.org/show_bug.cgi?id=1774)
-* [Bug 1772: refclock_open() return value check wrong for ACTS](https://bugs.ntp.org/show_bug.cgi?id=1772)
-* [Bug 1771: algorithmic error in ``clocktime()` fixed](https://bugs.ntp.org/show_bug.cgi?id=1771)
-* [Bug 1764: Move Palisade modem control logic to configure.ac](https://bugs.ntp.org/show_bug.cgi?id=1764)
+* [Bug 1881: describe the `{+,-,s}` characters in `configure --help` output](https://bugs.ntp.org/show_bug.cgi?id=1881)
+* [Bug 1875: `asn2ntp()` rewritten with `caltontp()`; `timegm()` substitute likely to crash with 64bit `time_t`](https://bugs.ntp.org/show_bug.cgi?id=1875)
+* [Bug 1840: `ntp_lists.h FIFO` macros buggy](https://bugs.ntp.org/show_bug.cgi?id=1840)
+* [Bug 1874: `ntpq -c rv 0 sys_var_list` empty](https://bugs.ntp.org/show_bug.cgi?id=1874)
+* [Bug 1732: `ntpd` ties up CPU on disconnected USB refclock/device](https://bugs.ntp.org/show_bug.cgi?id=1732)
+* [Bug 1861: `tickadj` build failure using `uClibc`](https://bugs.ntp.org/show_bug.cgi?id=1861)
+* [Bug 1862: `in6addr_any` test in `configure` fooled by arm gcc 4.1.3 `-O2`](https://bugs.ntp.org/show_bug.cgi?id=1862)
+* [Bug 1844: `ntpd` 4.2.7p131 NetBSD, `--gc-sections` links bad executable](https://bugs.ntp.org/show_bug.cgi?id=1844)
+* [Bug 1848: `ntpd` 4.2.7p139 `--disable-thread-support` does not compile](https://bugs.ntp.org/show_bug.cgi?id=1848)
+  - `make check ntpd --saveconfigquit` clutters `syslog`.
+* [Bug 1846: MacOSX: debug symbol not found by `propdelay` or `tickadj`](https://bugs.ntp.org/show_bug.cgi?id=1846)
+* [Bug 1839: 4.2.7p135 still installs `libevent ev*.h` headers](https://bugs.ntp.org/show_bug.cgi?id=1839)
+* [Bug 1837: Build fails on Win7 due to `regedit` requiring privilege](https://bugs.ntp.org/show_bug.cgi?id=1837)
+* [Bug 1834: `ntpdate` 4.2.7p131 aborts with assertion failure](https://bugs.ntp.org/show_bug.cgi?id=1834)
+* [Bug 1832: `ntpdate` doesn't allow timeout > 2s](https://bugs.ntp.org/show_bug.cgi?id=1832)
+* [Bug 1833: The checking `sem_timedwait()` fails without `-pthread`](https://bugs.ntp.org/show_bug.cgi?id=1833)
+* [Bug 1087: `-v/--normalverbose` conflicts with `-v/--version` in `sntp`](https://bugs.ntp.org/show_bug.cgi?id=1087)
+* [Bug 1088: `sntp` should (only) report the time difference without `-s/-a`](https://bugs.ntp.org/show_bug.cgi?id=1088)
+* [Bug 1811: Update the download location in `WHERE-TO-START`](https://bugs.ntp.org/show_bug.cgi?id=1811)
+* [Bug 1799: `ntpq mrv` crash](https://bugs.ntp.org/show_bug.cgi?id=1799)
+* [Bug 1801: `ntpq mreadvar` requires prior association caching](https://bugs.ntp.org/show_bug.cgi?id=1801)
+* [Bug 1797: Restore stale timestamp check from the `RANGEGATE` cleanup](https://bugs.ntp.org/show_bug.cgi?id=1797)
+* [Bug 1794: `ntpq -c rv` missing `clk_wander` information](https://bugs.ntp.org/show_bug.cgi?id=1794)
+* [Bug 1795: `ntpq readvar` does not display last variable](https://bugs.ntp.org/show_bug.cgi?id=1795)
+* [Bug 1788: `tvtots.c` tables inaccurate](https://bugs.ntp.org/show_bug.cgi?id=1788)
+* [Bug 1786: Remove extra semicolon from `ntp_proto.c`](https://bugs.ntp.org/show_bug.cgi?id=1786)
+* [Bug 1780: Windows `ntpd` 4.2.7p114 crashes in `ioctl()`](https://bugs.ntp.org/show_bug.cgi?id=1780)
+* [Bug 1781: `longlong` undefined in `sntp handle_pkt()` on Debian amd64](https://bugs.ntp.org/show_bug.cgi?id=1781)
+* [Bug 1776: `sntp` mishandles `-t/--timeout` and `-a/--authentication`](https://bugs.ntp.org/show_bug.cgi?id=1776)
+* [Bug 1773: openssl not detected during `./configure`](https://bugs.ntp.org/show_bug.cgi?id=1773)
+* [Bug 1774: Segfaults if `cryptostats` enabled and built without OpenSSL](https://bugs.ntp.org/show_bug.cgi?id=1774)
+* [Bug 1772: `refclock_open()` return value check wrong for ACTS](https://bugs.ntp.org/show_bug.cgi?id=1772)
+* [Bug 1771: algorithmic error in `clocktime()` fixed](https://bugs.ntp.org/show_bug.cgi?id=1771)
+* [Bug 1764: Move Palisade modem control logic to `configure.ac`](https://bugs.ntp.org/show_bug.cgi?id=1764)
   - Palisade driver doesn't build on Linux.
-* [Bug 1768: TIOCFLUSH undefined in linux for refclock_acts](https://bugs.ntp.org/show_bug.cgi?id=1768)
+* [Bug 1768: `TIOCFLUSH` undefined in linux for `refclock_acts`](https://bugs.ntp.org/show_bug.cgi?id=1768)
 * [Bug 1766: Oncore clock has offset/high jitter at startup](https://bugs.ntp.org/show_bug.cgi?id=1766)
-* [Bug 1761: clockstuff/clktest-opts.h omitted from tarball](https://bugs.ntp.org/show_bug.cgi?id=1761)
+* [Bug 1761: `clockstuff/clktest-opts.h` omitted from tarball](https://bugs.ntp.org/show_bug.cgi?id=1761)
 * [Bug 1762: from 4.2.6p3-RC12: manycastclient responses interfere](https://bugs.ntp.org/show_bug.cgi?id=1762)
 * [Bug 1458: from 4.2.6p3-RC12: Can not compile NTP on FreeBSD 4.7](https://bugs.ntp.org/show_bug.cgi?id=1458)
-* [Bug 1760: from 4.2.6p3-RC12: ntpd Windows interpolation cannot be disabled](https://bugs.ntp.org/show_bug.cgi?id=1760)
-* [Bug 1758: from 4.2.6p3-RC12: setsockopt IPV6_MULTICAST_IF with wrong ifindex](https://bugs.ntp.org/show_bug.cgi?id=1758)
-* [Bug 1753: 4.2.7p94 faults on startup in newpeer(), strdup(NULL)](https://bugs.ntp.org/show_bug.cgi?id=1753)
-* [Bug 1754: from 4.2.6p3-RC12: --version output should be more verbose](https://bugs.ntp.org/show_bug.cgi?id=1754)
-* [Bug 1757: from 4.2.6p3-RC12: oncore snprintf("%m") doesn't expand %m](https://bugs.ntp.org/show_bug.cgi?id=1757)
+* [Bug 1760: from 4.2.6p3-RC12: `ntpd` Windows interpolation cannot be disabled](https://bugs.ntp.org/show_bug.cgi?id=1760)
+* [Bug 1758: from 4.2.6p3-RC12: `setsockopt IPV6_MULTICAST_IF` with wrong `ifindex`](https://bugs.ntp.org/show_bug.cgi?id=1758)
+* [Bug 1753: 4.2.7p94 faults on startup in `newpeer(), strdup(NULL)`](https://bugs.ntp.org/show_bug.cgi?id=1753)
+* [Bug 1754: from 4.2.6p3-RC12: `--version` output should be more verbose](https://bugs.ntp.org/show_bug.cgi?id=1754)
+* [Bug 1757: from 4.2.6p3-RC12: oncore `snprintf("%m")` doesn't expand `%m`](https://bugs.ntp.org/show_bug.cgi?id=1757)
 * [Bug 1751: from 4.2.6p3-RC12: Support for Atari FreeMiNT OS](https://bugs.ntp.org/show_bug.cgi?id=1751)
 * [Bug 1510: from 4.2.6p3-RC12: Add modes 20/21 for driver 8 to support RAWDCF @ 75 baud](https://bugs.ntp.org/show_bug.cgi?id=1510)
 * [Bug 1741: from 4.2.6p3-RC12: Enable multicast reception on each address (Windows)](https://bugs.ntp.org/show_bug.cgi?id=1741)
-* [Bug 1743: from 4.2.6p3-RC12: Display timezone offset when showing time for sntp in the local timezone](https://bugs.ntp.org/show_bug.cgi?id=1743)
-  - Documentation updates.
-* [Bug 1742: form 4.2.6p3-RC12: Fix a typo in an error message in the "build" script](https://bugs.ntp.org/show_bug.cgi?id=1742)
-* [Bug 1738: Windows ntpd has wrong net adapter name](https://bugs.ntp.org/show_bug.cgi?id=1738)
-* [Bug 1740: ntpdc -c reslist packet count wrongly treated as signed](https://bugs.ntp.org/show_bug.cgi?id=1740)
-* [Bug 1736: tos int, bool options broken in 4.2.7p66](https://bugs.ntp.org/show_bug.cgi?id=1736)
-* [Bug 1735: 'clocktime()' aborts ntpd on bogus input](https://bugs.ntp.org/show_bug.cgi?id=1735)
-* [Bug 1618: Unreachable code in jjy_start()](https://bugs.ntp.org/show_bug.cgi?id=1618)
-* [Bug 1725: from 4.2.6p3-RC11: ntpd sends multicast from only one address](https://bugs.ntp.org/show_bug.cgi?id=1725)
-* [Bug 1727: ntp-keygen PLEN, ILEN undeclared --without-crypto](https://bugs.ntp.org/show_bug.cgi?id=1727)
-* [Bug 1728: from 4.2.6p3-RC11: In ntp_openssl.m4, don't add -I/usr/include or -L/usr/lib to CPPFLAGS or LDFLAGS](https://bugs.ntp.org/show_bug.cgi?id=1728)
-* [Bug 1681: sntp logging cleanup](https://bugs.ntp.org/show_bug.cgi?id=1681)
+* [Bug 1743: from 4.2.6p3-RC12: Display timezone offset when showing time for `sntp` in the local timezone](https://bugs.ntp.org/show_bug.cgi?id=1743)
+* [Bug 1742: form 4.2.6p3-RC12: Fix a typo in an error message in the `build` script](https://bugs.ntp.org/show_bug.cgi?id=1742)
+* [Bug 1738: Windows `ntpd` has wrong net adapter name](https://bugs.ntp.org/show_bug.cgi?id=1738)
+* [Bug 1740: `ntpdc -c reslist` packet count wrongly treated as signed](https://bugs.ntp.org/show_bug.cgi?id=1740)
+* [Bug 1736: `tos` int, bool options broken in 4.2.7p66](https://bugs.ntp.org/show_bug.cgi?id=1736)
+* [Bug 1735: `clocktime()` aborts`ntp` on bogus input](https://bugs.ntp.org/show_bug.cgi?id=1735)
+* [Bug 1618: Unreachable code in `jjy_start()`](https://bugs.ntp.org/show_bug.cgi?id=1618)
+* [Bug 1725: from 4.2.6p3-RC11: `ntpd` sends multicast from only one address](https://bugs.ntp.org/show_bug.cgi?id=1725)
+* [Bug 1727: `ntp-keygen PLEN, ILEN` undeclared `--without-crypto`](https://bugs.ntp.org/show_bug.cgi?id=1727)
+* [Bug 1728: from 4.2.6p3-RC11: In `ntp_openssl.m4`, don't add `-I/usr/include` or `-L/usr/lib` to `CPPFLAGS` or `LDFLAGS`](https://bugs.ntp.org/show_bug.cgi?id=1728)
+* [Bug 1681: `sntp` logging cleanup](https://bugs.ntp.org/show_bug.cgi?id=1681)
 * [Bug 1683: from 4.2.6p3-RC10: Non-localhost on loopback exempted from nic rules](https://bugs.ntp.org/show_bug.cgi?id=1683)
   - from 4.2.6p3-RC9: Interface binding does not seem to work as intended.
-* [Bug 1719: Cleanup for ntp-keygen and fix -V crash, from Dave Mills](https://bugs.ntp.org/show_bug.cgi?id=1719)
-* [Bug 1574: from 4.2.6p3-RC9: sntp doesn't set tv_usec correctly](https://bugs.ntp.org/show_bug.cgi?id=1574)
-* [Bug 1708: make check fails with googletest 1.4.0](https://bugs.ntp.org/show_bug.cgi?id=1708)
-* [Bug 1709: from 4.2.6p3-RC9: ntpdate ignores replies with equal receive and transmit timestamps](https://bugs.ntp.org/show_bug.cgi?id=1709)
-* [Bug 1715: sntp utilitiesTest.IPv6Address failed](https://bugs.ntp.org/show_bug.cgi?id=1715)
-* [Bug 1718: Improve gtest checks in configure.ac](https://bugs.ntp.org/show_bug.cgi?id=1718)
-* [Bug 1697: filegen implementation should be improved](https://bugs.ntp.org/show_bug.cgi?id=1697)
-* [Bug 1692: packageinfo.sh needs to be "sourced" using ./](https://bugs.ntp.org/show_bug.cgi?id=1692)
-* [Bug 1695: ntpdate takes longer than necessary](https://bugs.ntp.org/show_bug.cgi?id=1695)
+* [Bug 1719: Cleanup for `ntp-keygen` and fix `-V` crash, from Dave Mills](https://bugs.ntp.org/show_bug.cgi?id=1719)
+* [Bug 1574: from 4.2.6p3-RC9: `sntp` doesn't set `tv_usec` correctly](https://bugs.ntp.org/show_bug.cgi?id=1574)
+* [Bug 1708: `make check` fails with googletest 1.4.0](https://bugs.ntp.org/show_bug.cgi?id=1708)
+* [Bug 1709: from 4.2.6p3-RC9: `ntpdate` ignores replies with equal receive and transmit timestamps](https://bugs.ntp.org/show_bug.cgi?id=1709)
+* [Bug 1715: `sntp utilitiesTest.IPv6Address` failed](https://bugs.ntp.org/show_bug.cgi?id=1715)
+* [Bug 1718: Improve `gtest` checks in `configure.ac`](https://bugs.ntp.org/show_bug.cgi?id=1718)
+* [Bug 1697: `filegen` implementation should be improved](https://bugs.ntp.org/show_bug.cgi?id=1697)
+* [Bug 1692: `packageinfo.sh` needs to be "sourced" using `./`](https://bugs.ntp.org/show_bug.cgi?id=1692)
+* [Bug 1695: `ntpdate` takes longer than necessary](https://bugs.ntp.org/show_bug.cgi?id=1695)
 * [Bug 1690: Unit tests fails to build on some systems](https://bugs.ntp.org/show_bug.cgi?id=1690)
 * [Bug 1691: Use first NMEA sentence each second](https://bugs.ntp.org/show_bug.cgi?id=1691)
 * [Bug 1685: from 4.2.6p3-RC8: NMEA driver mode byte confusion](https://bugs.ntp.org/show_bug.cgi?id=1685)
-* [Bug 1680: Fix alignment of clock_select() arrays](https://bugs.ntp.org/show_bug.cgi?id=1680)
-* [Bug 1679: Fix test for -lsocket](https://bugs.ntp.org/show_bug.cgi?id=1679)
-* [Bug 1676: from 4.2.6p3-RC7: NMEA: $GPGLL did not work after fix for Bug 1571](https://bugs.ntp.org/show_bug.cgi?id=1676)
-* [Bug 1678: "restrict source" treated as `restrict default`](https://bugs.ntp.org/show_bug.cgi?id=1678)
+* [Bug 1680: Fix alignment of `clock_select()` arrays](https://bugs.ntp.org/show_bug.cgi?id=1680)
+* [Bug 1679: Fix test for `-lsocket`](https://bugs.ntp.org/show_bug.cgi?id=1679)
+* [Bug 1676: from 4.2.6p3-RC7: NMEA: `$GPGLL` did not work after fix for Bug 1571](https://bugs.ntp.org/show_bug.cgi?id=1676)
+* [Bug 1678: `restrict source` treated as `restrict default`](https://bugs.ntp.org/show_bug.cgi?id=1678)
 * [Bug 1571: from 4.2.6p3-RC6: NMEA does not relate data to PPS edge](https://bugs.ntp.org/show_bug.cgi?id=1571)
-* [Bug 1572: from 4.2.p63-RC6: NMEA time adjustment for GPZDG buggy](https://bugs.ntp.org/show_bug.cgi?id=1572)
-* [Bug 1675: from 4.2.6p3-RC6: Prohibit includefile remote config](https://bugs.ntp.org/show_bug.cgi?id=1675)
+* [Bug 1572: from 4.2.p63-RC6: NMEA time adjustment for `GPZDG` buggy](https://bugs.ntp.org/show_bug.cgi?id=1572)
+* [Bug 1675: from 4.2.6p3-RC6: Prohibit `includefile` remote config](https://bugs.ntp.org/show_bug.cgi?id=1675)
 * [Bug 1671: Automatic delay calibration is sometimes inaccurate](https://bugs.ntp.org/show_bug.cgi?id=1671)
 * [Bug 1669: from 4.2.6p3-RC5: NTP fails to compile on IBM AIX 5.3](https://bugs.ntp.org/show_bug.cgi?id=1669)
 * [Bug 1670: Fix peer->bias and broadcastdelay](https://bugs.ntp.org/show_bug.cgi?id=1670)
-* [Bug 1649: from 4.2.6p3-RC5: Require NMEA checksum if $GPRMC or previously seen](https://bugs.ntp.org/show_bug.cgi?id=1649)
+* [Bug 1649: from 4.2.6p3-RC5: Require NMEA checksum if `$GPRMC` or previously seen](https://bugs.ntp.org/show_bug.cgi?id=1649)
 * [Bug 1277: Provide and use O(1) FIFOs, esp. in the config tree code](https://bugs.ntp.org/show_bug.cgi?id=1277)
 * [Bug 1584: from 4.2.6p3-RC4: wrong SNMP type for precision, resolution](https://bugs.ntp.org/show_bug.cgi?id=1584)
-  - from 4.2.6p3-RC3: ntpsnmpd OID must be mib-2.197.
-* [Bug 1659: from 4.2.6p3-RC4: Need CLOCK_TRUETIME not CLOCK_TRUE](https://bugs.ntp.org/show_bug.cgi?id=16590
+  - from 4.2.6p3-RC3: `ntpsnmpd` OID must be mib-2.197.
+* [Bug 1659: from 4.2.6p3-RC4: Need `CLOCK_TRUETIME` not `CLOCK_TRUE`](https://bugs.ntp.org/show_bug.cgi?id=16590)
   - from 4.2.6p3-RC3: Support Truetime Satellite Clocks on Windows.
-* [Bug 1663: ntpdsim should not open net sockets](https://bugs.ntp.org/show_bug.cgi?id=1663)
-* [Bug 1665: from 4.2.6p3-RC4: is_anycast() u_int32_t should be u_int32](https://bugs.ntp.org/show_bug.cgi?id=1665)
-* [Bug 1080: from 4.2.6p3-RC3: ntpd on ipv6 routers very chatty](https://bugs.ntp.org/show_bug.cgi?id=1080)
+* [Bug 1663: `ntpdsim` should not open net sockets](https://bugs.ntp.org/show_bug.cgi?id=1663)
+* [Bug 1665: from 4.2.6p3-RC4: `is_anycast() u_int32_t` should be `u_int32`](https://bugs.ntp.org/show_bug.cgi?id=1665)
+* [Bug 1080: from 4.2.6p3-RC3: `ntpd` on ipv6 routers very chatty](https://bugs.ntp.org/show_bug.cgi?id=1080)
 * [Bug 750: from 4.2.6p3-RC3: Non-existing device causes coredump with RIPE-NCC driver](https://bugs.ntp.org/show_bug.cgi?id=750)
 * [Bug 1567: from 4.2.6p3-RC3: Support Arbiter 1093C Satellite Clock on Windows](https://bugs.ntp.org/show_bug.cgi?id=1567)
-* [Bug 1581: from 4.2.6p3-RC3: printf format string mismatch](https://bugs.ntp.org/show_bug.cgi?id=1581)
-  - from 4.2.6p3-beta1: ntp_intres.c size_t printf format string mismatch.
+* [Bug 1581: from 4.2.6p3-RC3: `printf` format string mismatch](https://bugs.ntp.org/show_bug.cgi?id=1581)
+  - from 4.2.6p3-beta1: `ntp_intres.c size_t printf` format string mismatch.
   - from 4.2.6p2: IRIG string buffers undersized.
-* [Bug 1660: from 4.2.6p3-RC3: On some systems, test is in /usr/bin, not /bin](https://bugs.ntp.org/show_bug.cgi?id=1660)
-* [Bug 1661: from 4.2.6p3-RC3: Re-indent refclock_ripencc.c](https://bugs.ntp.org/show_bug.cgi?id=1661)
-* [Bug 1657: darwin needs res_9_init, not res_init](https://bugs.ntp.org/show_bug.cgi?id=1657)
+* [Bug 1660: from 4.2.6p3-RC3: On some systems, test is in `/usr/bin`, not `/bin`](https://bugs.ntp.org/show_bug.cgi?id=1660)
+* [Bug 1661: from 4.2.6p3-RC3: Re-indent `refclock_ripencc.c`](https://bugs.ntp.org/show_bug.cgi?id=1661)
+* [Bug 1657: darwin needs `res_9_init`, not `res_init`](https://bugs.ntp.org/show_bug.cgi?id=1657)
 * [Bug 1554: peer may stay selected as system peer after becoming unreachable](https://bugs.ntp.org/show_bug.cgi?id=1554)
-* [Bug 1644: from 4.2.6p3-RC3: cvo.sh should use lsb_release to identify linux distros](https://bugs.ntp.org/show_bug.cgi?id=1644)
-* [Bug 1646: ntpd crashes with relative path to logfile](https://bugs.ntp.org/show_bug.cgi?id=1646)
+* [Bug 1644: from 4.2.6p3-RC3: `cvo.sh` should use `lsb_release` to identify linux distros](https://bugs.ntp.org/show_bug.cgi?id=1644)
+* [Bug 1646: `ntpd` crashes with relative path to logfile](https://bugs.ntp.org/show_bug.cgi?id=1646)
 * [Bug 1643: from 4.2.6p3-RC3: Range-check the decoding of the RIPE-NCC status codes](https://bugs.ntp.org/show_bug.cgi?id=1643)
 * [Bug 1636: from 4.2.6p3-RC2: segfault after denied remote config](https://bugs.ntp.org/show_bug.cgi?id=1636)
-* [Bug 1635: from 4.2.6p3-RC2: "filegen ... enable" is not default](https://bugs.ntp.org/show_bug.cgi?id=1635)
-* [Bug 1344: from 4.2.6p3-RC1: ntpd on Windows exits without logging cause](https://bugs.ntp.org/show_bug.cgi?id=1344)
-* [Bug 1629: 4.2.7p50 configure.ac changes invalidate config.cache](https://bugs.ntp.org/show_bug.cgi?id=1629)
+* [Bug 1635: from 4.2.6p3-RC2: `filegen ... enable` is not default](https://bugs.ntp.org/show_bug.cgi?id=1635)
+* [Bug 1344: from 4.2.6p3-RC1: `ntpd` on Windows exits without logging cause](https://bugs.ntp.org/show_bug.cgi?id=1344)
+* [Bug 1629: 4.2.7p50 `configure.ac` changes invalidate `config.cache`](https://bugs.ntp.org/show_bug.cgi?id=1629)
 * [Bug 1630: 4.2.7p50 cannot bootstrap on Autoconf 2.61](https://bugs.ntp.org/show_bug.cgi?id=1630)
-* [Bug 1628: Clean up -lxnet/-lsocket usage for (open)solaris](https://bugs.ntp.org/show_bug.cgi?id=1628)
-* [Bug 1588: finish configure --disable-autokey implementation](https://bugs.ntp.org/show_bug.cgi?id=1588)
-* [Bug 1616: refclock_acts.c: if (pp->leap == 2) is always false](https://bugs.ntp.org/show_bug.cgi?id=1616)
-* [Bug 1620: [Backward Incompatible] "discard minimum" value should be in seconds, not log2 seconds:(https://bugs.ntp.org/show_bug.cgi?id=1620)
-* [Bug 1578: Consistently use -lm when needed](https://bugs.ntp.org/show_bug.cgi?id=1578)
-* [Bug 1573: from 4.2.6p3-beta1: Miscalculation of offset in sntp](https://bugs.ntp.org/show_bug.cgi?id=1573)
-* [Bug 1602: Refactor some of the sntp/ directory to facililtate testing](https://bugs.ntp.org/show_bug.cgi?id=1602)
-* [Bug 1593: ntpd abort in free() with logconfig syntax error](https://bugs.ntp.org/show_bug.cgi?id=1593)
+* [Bug 1628: Clean up `-lxnet/-lsocket` usage for (open)solaris](https://bugs.ntp.org/show_bug.cgi?id=1628)
+* [Bug 1588: finish `configure --disable-autokey` implementation](https://bugs.ntp.org/show_bug.cgi?id=1588)
+* [Bug 1616: `refclock_acts.c`: `if (pp->leap == 2)` is always false](https://bugs.ntp.org/show_bug.cgi?id=1616)
+* [Bug 1620: **Backward Incompatible** `discard minimum` value should be in seconds, not log2 seconds](https://bugs.ntp.org/show_bug.cgi?id=1620)
+* [Bug 1578: Consistently use `-lm` when needed](https://bugs.ntp.org/show_bug.cgi?id=1578)
+* [Bug 1573: from 4.2.6p3-beta1: Miscalculation of offset in `sntp`](https://bugs.ntp.org/show_bug.cgi?id=1573)
+* [Bug 1602: Refactor some of the `sntp/` directory to facililtate testing](https://bugs.ntp.org/show_bug.cgi?id=1602)
+* [Bug 1593: `ntpd` abort in `free()` with `logconfig` syntax error](https://bugs.ntp.org/show_bug.cgi?id=1593)
 * [Bug 1595: from 4.2.6p3-beta1: empty last line in key file causes duplicate key to be added](https://bugs.ntp.org/show_bug.cgi?id=1595)
-* [Bug 1597: from 4.2.6p3-beta1: packet processing ignores RATE KoD packets, because of a bug in string comparison](https://bugs.ntp.org/show_bug.cgi?id=1597)
-* [Bug 1586: ntpd 4.2.7p40 doesn't write to syslog after fork on QNX](https://bugs.ntp.org/show_bug.cgi?id=1586)
-* [Bug 1395: ease ntpdate elimination with ntpd -w/--wait-sync](https://bugs.ntp.org/show_bug.cgi?id=1395)
-* [Bug 1396: allow servers on ntpd command line like ntpdate](https://bugs.ntp.org/show_bug.cgi?id=1396)
+* [Bug 1597: from 4.2.6p3-beta1: packet processing ignores `RATE` KoD packets, because of a bug in string comparison](https://bugs.ntp.org/show_bug.cgi?id=1597)
+* [Bug 1586: `ntpd` 4.2.7p40 doesn't write to `syslog` after fork on QNX](https://bugs.ntp.org/show_bug.cgi?id=1586)
+* [Bug 1395: ease `ntpdate` elimination with `ntpd -w/--wait-sync`](https://bugs.ntp.org/show_bug.cgi?id=1395)
+* [Bug 1396: allow servers on `ntpd` command line like `ntpdate`](https://bugs.ntp.org/show_bug.cgi?id=1396)
 * [Bug 1570: serial clock drivers get outdated input from kernel tty line buffer after startup](https://bugs.ntp.org/show_bug.cgi?id=1570)
-* [Bug 1575: from 4.2.6p2-RC7: use 'snprintf' with LIB_BUFLENGTH in inttoa.c, tvtoa.c and utvtoa.c](https://bugs.ntp.org/show_bug.cgi?id=1575)
-* [Bug 1576: sys/sysctl.h depends on sys/param.h on OpenBSD](https://bugs.ntp.org/show_bug.cgi?id=1576)
+* [Bug 1575: from 4.2.6p2-RC7: use `snprintf` with `LIB_BUFLENGTH` in `inttoa.c, tvtoa.c` and `utvtoa.c`](https://bugs.ntp.org/show_bug.cgi?id=1575)
+* [Bug 1576: `sys/sysctl.h` depends on `sys/param.h` on OpenBSD](https://bugs.ntp.org/show_bug.cgi?id=1576)
 * [Bug 1560: Initial support for orphanwait, from Dave Mills](https://bugs.ntp.org/show_bug.cgi?id=1560)
-* [Bug 715: from 4.2.6p2-RC6: libisc Linux IPv6 interface iteration drops multicast flags](https://bugs.ntp.org/show_bug.cgi?id=715)
-* [Bug 1561: from 4.2.6p2-RC5: ntpq, ntpdc "passwd" prompts for MD5 password w/SHA1](https://bugs.ntp.org/show_bug.cgi?id=1561)
-* [Bug 1565: from 4.2.6p2-RC5: sntp/crypto.c compile fails on MacOS over vsnprintf()](https://bugs.ntp.org/show_bug.cgi?id=1565)
-* [Bug 1555: from 4.2.6p2-RC4: sntp illegal C (mixed code and declarations)](https://bugs.ntp.org/show_bug.cgi?id=1555)
+* [Bug 715: from 4.2.6p2-RC6: `libisc` Linux IPv6 interface iteration drops multicast flags](https://bugs.ntp.org/show_bug.cgi?id=715)
+* [Bug 1561: from 4.2.6p2-RC5: `ntpq, ntpdc passwd` prompts for MD5 password w/SHA1](https://bugs.ntp.org/show_bug.cgi?id=1561)
+* [Bug 1565: from 4.2.6p2-RC5: `sntp/crypto.c` compile fails on MacOS over `vsnprintf()`](https://bugs.ntp.org/show_bug.cgi?id=1565)
+* [Bug 1555: from 4.2.6p2-RC4: `sntp` illegal C (mixed code and declarations)](https://bugs.ntp.org/show_bug.cgi?id=1555)
 * [Bug 1558: pool prototype associations have 0.0.0.0 for remote addr](https://bugs.ntp.org/show_bug.cgi?id=1558)
-* [Bug 1325: from 4.2.6p2-RC3: unreachable code sntp recv_bcst_data()](https://bugs.ntp.org/show_bug.cgi?id=1325)
-* [Bug 1459: from 4.2.6p2-RC3: sntp MD5 authentication does not work with ntpd](https://bugs.ntp.org/show_bug.cgi?id=1459)
-* [Bug 1552: from 4.2.6p2-RC3: update and complete broadcast and crypto features in sntp](https://bugs.ntp.org/show_bug.cgi?id=1552)
-* [Bug 1553: from 4.2.6p2-RC3: sntp/configure.ac OpenSSL support](https://bugs.ntp.org/show_bug.cgi?id=1553)
-* [Bug 1526: ntpd DNS pipe read EINTR with no network at startup](https://bugs.ntp.org/show_bug.cgi?id=1526)
-* [Bug 1542: ntpd mrulist response may have incorrect last.older](https://bugs.ntp.org/show_bug.cgi?id=1542)
-* [Bug 1543: ntpq mrulist must refresh nonce when retrying](https://bugs.ntp.org/show_bug.cgi?id=1543)
-* [Bug 1544: ntpq mrulist sscanf timestamp format mismatch on 64-bit](https://bugs.ntp.org/show_bug.cgi?id=1544)
-* [Bug 1512: from 4.2.6p2-RC3: ntpsnmpd should connect to net-snmpd via a unix-domain socket by default](https://bugs.ntp.org/show_bug.cgi?id=1512)
+* [Bug 1325: from 4.2.6p2-RC3: unreachable code `sntp recv_bcst_data()`](https://bugs.ntp.org/show_bug.cgi?id=1325)
+* [Bug 1459: from 4.2.6p2-RC3: `sntp` MD5 authentication does not work with `ntpd`](https://bugs.ntp.org/show_bug.cgi?id=1459)
+* [Bug 1552: from 4.2.6p2-RC3: update and complete broadcast and crypto features in `sntp`](https://bugs.ntp.org/show_bug.cgi?id=1552)
+* [Bug 1553: from 4.2.6p2-RC3: `sntp/configure.ac` OpenSSL support](https://bugs.ntp.org/show_bug.cgi?id=1553)
+* [Bug 1526: `ntpd` DNS pipe read EINTR with no network at startup](https://bugs.ntp.org/show_bug.cgi?id=1526)
+* [Bug 1542: `ntpd mrulist` response may have incorrect `last.older`](https://bugs.ntp.org/show_bug.cgi?id=1542)
+* [Bug 1543: `ntpq mrulist` must refresh nonce when retrying](https://bugs.ntp.org/show_bug.cgi?id=1543)
+* [Bug 1544: `ntpq mrulist sscanf` timestamp format mismatch on 64-bit](https://bugs.ntp.org/show_bug.cgi?id=1544)
+* [Bug 1512: from 4.2.6p2-RC3: `ntpsnmpd` should connect to `net-snmpd` via a unix-domain socket by default](https://bugs.ntp.org/show_bug.cgi?id=1512)
   - Provide a command-line `socket name` option.
-* [Bug 1538: from 4.2.6p2-RC3: update refclock_nmea.c's call to getprotobyname()](https://bugs.ntp.org/show_bug.cgi?id=1538)
+* [Bug 1538: from 4.2.6p2-RC3: update `refclock_nmea.c`'s call to `getprotobyname()`](https://bugs.ntp.org/show_bug.cgi?id=1538)
 * [Bug 1541: from 4.2.6p2-RC3: Fix wrong keyword for `maxclock`](https://bugs.ntp.org/show_bug.cgi?id=1541)
 * [Bug 1465: Make sure time from TS2100 is not invalid](https://bugs.ntp.org/show_bug.cgi?id=1465)
-* [Bug 1528: from 4.2.6p2-RC2: Fix EDITLINE_LIBS link order for ntpq and ntpdc.](https://bugs.ntp.org/show_bug.cgi?id=1528)
-  - from 4.2.6p2-RC2: Remove --with-arlib from br-flock.
-* [Bug 1531: Require nonce with mrulist requests](https://bugs.ntp.org/show_bug.cgi?id=1531)
-* [Bug 1532: Remove ntpd support for ntpdc's monlist in favor of ntpq's mrulist](https://bugs.ntp.org/show_bug.cgi?id=1532)
-* [Bug 1534: from 4.2.6p2-RC2: conflicts with VC++ 2010 errno.h](https://bugs.ntp.org/show_bug.cgi?id=1534)
+* [Bug 1528: from 4.2.6p2-RC2: Fix `EDITLINE_LIBS` link order for `ntpq` and `ntpdc`.](https://bugs.ntp.org/show_bug.cgi?id=1528)
+  - from 4.2.6p2-RC2: Remove `--with-arlib` from `br-flock`.
+* [Bug 1531: Require nonce with `mrulist` requests](https://bugs.ntp.org/show_bug.cgi?id=1531)
+* [Bug 1532: Remove `ntpd` support for `ntpdc`'s `monlist` in favor of `ntpq`'s `mrulist`](https://bugs.ntp.org/show_bug.cgi?id=1532)
+* [Bug 1534: from 4.2.6p2-RC2: conflicts with VC++ 2010 `errno.h`](https://bugs.ntp.org/show_bug.cgi?id=1534)
 * [Bug 1535: from 4.2.6p2-RC2: `restrict -4 default` and `restrict -6 default` ignored](https://bugs.ntp.org/show_bug.cgi?id=1535)
 * [Bug 1390: Control PPS on the Oncore M12](https://bugs.ntp.org/show_bug.cgi?id=1390)
-* [Bug 1518: Windows ntpd should lock to one processor more conservatively](https://bugs.ntp.org/show_bug.cgi?id=1518)
-* [Bug 1520: '%u' formats for size_t gives warnings with 64-bit builds](https://bugs.ntp.org/show_bug.cgi?id=1520)
+* [Bug 1518: Windows `ntpd` should lock to one processor more conservatively](https://bugs.ntp.org/show_bug.cgi?id=1518)
+* [Bug 1520: `%u` formats for `size_t` gives warnings with 64-bit builds](https://bugs.ntp.org/show_bug.cgi?id=1520)
 * [Bug 1522: Enable range syntax `trustedkey (301 ... 399)`](https://bugs.ntp.org/show_bug.cgi?id=1522)
 * [Bug 1516: unpeer by IP address fails, DNS name works](https://bugs.ntp.org/show_bug.cgi?id=1516)
-* [Bug 1517: ntpq and ntpdc should verify reverse DNS before use](https://bugs.ntp.org/show_bug.cgi?id=1517)
-  - ntpq and ntpdc now use the following format for showing purported DNS names from IP address "reverse" DNS lookups when the DNS name does not exist or does not include the original IP address among the results: "192.168.1.2 (fake.dns.local)".
+* [Bug 1517: `ntpq` and `ntpdc` should verify reverse DNS before use](https://bugs.ntp.org/show_bug.cgi?id=1517)
+  - `ntpq` and `ntpdc` now use the following format for showing purported DNS names from IP address "reverse" DNS lookups when the DNS name does not exist or does not include the original IP address among the results: `192.168.1.2 (fake.dns.local)`.
 * [Bug 1432: Don't set inheritable flag for linux capabilities](https://bugs.ntp.org/show_bug.cgi?id=1432)
-* [Bug 1483: AI_NUMERICSERV undefined in 4.2.7p20](https://bugs.ntp.org/show_bug.cgi?id=1483)
-  - hostname in ntp.conf "restrict" parameter rejected.
-* [Bug 1497: fudge is broken by getnetnum() change](https://bugs.ntp.org/show_bug.cgi?id=1497)
+* [Bug 1483: `AI_NUMERICSERV` undefined in 4.2.7p20](https://bugs.ntp.org/show_bug.cgi?id=1483)
+  - hostname in `ntp.conf restrict` parameter rejected.
+* [Bug 1497: `fudge` is broken by `getnetnum()` change](https://bugs.ntp.org/show_bug.cgi?id=1497)
 * [Bug 1503: Auto-enabling of monitor for `restrict ... limited` wrong](https://bugs.ntp.org/show_bug.cgi?id=1503)
-* [Bug 1504: ntpdate tickles ntpd `discard minimum 1` rate limit if `restrict ... limited` is used](https://bugs.ntp.org/show_bug.cgi?id=1504)
-* [Bug 2399: Reset sys_kodsent in proto_clr_stats()](https://bugs.ntp.org/show_bug.cgi?id=2399)
-* [Bug 1514: from 4.2.6p1-RC6: Typo in ntp_proto.c: fabs(foo < .4) should be fabs(foo) < .4](https://bugs.ntp.org/show_bug.cgi?id=1514)
+* [Bug 1504: `ntpdate` tickles `ntpd discard minimum 1` rate limit if `restrict ... limited` is used](https://bugs.ntp.org/show_bug.cgi?id=1504)
+* [Bug 2399: Reset `sys_kodsent` in `proto_clr_stats()`](https://bugs.ntp.org/show_bug.cgi?id=2399)
+* [Bug 1514: from 4.2.6p1-RC6: Typo in `ntp_proto.c`: fabs(foo < .4) should be fabs(foo) < .4](https://bugs.ntp.org/show_bug.cgi?id=1514)
 * [Bug 1464: from 4.2.6p1-RC6: synchronization source wrong for refclocks ARCRON_MSF (27) and SHM (28)](https://bugs.ntp.org/show_bug.cgi?id=1464)
-* [Bug 1306: constant conditionals in audio_gain()](https://bugs.ntp.org/show_bug.cgi?id=1306)
+* [Bug 1306: constant conditionals in `audio_gain()`](https://bugs.ntp.org/show_bug.cgi?id=1306)
 * [Bug 1338: Update the association type codes in ntpq.html](https://bugs.ntp.org/show_bug.cgi?id=1338)
-  - ntpq displays incorrect association type codes.
-* [Bug 1478: from 4.2.6p1-RC5: linking fails: EVP_MD_pkey_type](https://bugs.ntp.org/show_bug.cgi?id=1478)
+  - `ntpq` displays incorrect association type codes.
+* [Bug 1478: from 4.2.6p1-RC5: linking fails: `EVP_MD_pkey_type`](https://bugs.ntp.org/show_bug.cgi?id=1478)
 * [Bug 1479: from 4.2.6p1-RC5: not finding readline headers](https://bugs.ntp.org/show_bug.cgi?id=1479)
-* [Bug 1484: from 4.2.6p1-RC5: ushort is not defined in QNX6](https://bugs.ntp.org/show_bug.cgi?id=1484)
-* [Bug 1480: from 4.2.6p1-RC5: snprintf() cleanup caused unterminated refclock IDs](https://bugs.ntp.org/show_bug.cgi?id=1480)
-* [Bug 1477: from 4.2.6p1-RC5: First non-gmake make in clone w/VPATH can't make COPYRIGHT](https://bugs.ntp.org/show_bug.cgi?id=1477)
-* [Bug 1474: from 4.2.6p1-RC4: ntp_keygen LCRYPTO after libntp.a](https://bugs.ntp.org/show_bug.cgi?id=1474)
-* [Bug 1455: from 4.2.6p1: ntpd does not try /etc/ntp.audio](https://bugs.ntp.org/show_bug.cgi?id=1455)
-* [Bug 1469: u_int32, int32 changes broke HP-UX 10.20 build](https://bugs.ntp.org/show_bug.cgi?id=1469)
-* [Bug 1470: from 4.2.6p1: "make distdir" compiles keyword-gen](https://bugs.ntp.org/show_bug.cgi?id=1470)
-* [Bug 1471: CID 120 CID 121 CID 122 is_ip_address() uninit family](https://bugs.ntp.org/show_bug.cgi?id=1471)
+* [Bug 1484: from 4.2.6p1-RC5: `ushort` is not defined in QNX6](https://bugs.ntp.org/show_bug.cgi?id=1484)
+* [Bug 1480: from 4.2.6p1-RC5: `snprintf()` cleanup caused unterminated refclock IDs](https://bugs.ntp.org/show_bug.cgi?id=1480)
+* [Bug 1477: from 4.2.6p1-RC5: First non-gmake `make` in clone w/VPATH can't make COPYRIGHT](https://bugs.ntp.org/show_bug.cgi?id=1477)
+* [Bug 1474: from 4.2.6p1-RC4: `ntp_keygen LCRYPTO` after `libntp.a`](https://bugs.ntp.org/show_bug.cgi?id=1474)
+* [Bug 1455: from 4.2.6p1: `ntpd` does not try `/etc/ntp.audio`](https://bugs.ntp.org/show_bug.cgi?id=1455)
+* [Bug 1469: `u_int32, int32` changes broke HP-UX 10.20 build](https://bugs.ntp.org/show_bug.cgi?id=1469)
+* [Bug 1470: from 4.2.6p1: `make distdir` compiles `keyword-gen`](https://bugs.ntp.org/show_bug.cgi?id=1470)
+* [Bug 1471: CID 120 CID 121 CID 122 `is_ip_address() uninit` family](https://bugs.ntp.org/show_bug.cgi?id=1471)
 * [Bug 1472: CID 116 CID 117 minor warnings in new DNS code](https://bugs.ntp.org/show_bug.cgi?id=1472)
-* [Bug 1473: from 4.2.6p1: "make distcheck" version.m4 error](https://bugs.ntp.org/show_bug.cgi?id=1473)
-* [Bug 1467: from 4.2.6p1: Fix bogus rebuild of sntp/sntp.html](https://bugs.ntp.org/show_bug.cgi?id=1467)
-* [Bug 1468: 'make install' broken for root on default NFS mount](https://bugs.ntp.org/show_bug.cgi?id=1468(
+* [Bug 1473: from 4.2.6p1: `make distcheck version.m4` error](https://bugs.ntp.org/show_bug.cgi?id=1473)
+* [Bug 1467: from 4.2.6p1: Fix bogus rebuild of `sntp/sntp.html`](https://bugs.ntp.org/show_bug.cgi?id=1467)
+* [Bug 1468: `make install` broken for root on default NFS mount](https://bugs.ntp.org/show_bug.cgi?id=1468)
 * [Bug 47: Debugging and logging do not work after a fork](https://bugs.ntp.org/show_bug.cgi?id=47)
-* [Bug 1010: getaddrinfo() could block and thus should not be called by the main thread/process](https://bugs.ntp.org/show_bug.cgi?id=1010)
+* [Bug 1010: `getaddrinfo()` could block and thus should not be called by the main thread/process](https://bugs.ntp.org/show_bug.cgi?id=1010)
 * [Bug 1140: from 4.2.6p1-RC5: Clean up debug.html, decode.html, and ntpq.html](https://bugs.ntp.org/show_bug.cgi?id=1140)
 * [Bug 1448: from 4.2.6p1-RC3: Some macros not correctly conditionally or absolutely defined on Windows](https://bugs.ntp.org/show_bug.cgi?id=1448)
-* [Bug 1449: from 4.2.6p1-RC3: ntpsim.h in ntp_config.c should be used conditionally](https://bugs.ntp.org/show_bug.cgi?id=1449)
+* [Bug 1449: from 4.2.6p1-RC3: `ntpsim.h` in `ntp_config.c` should be used conditionally](https://bugs.ntp.org/show_bug.cgi?id=1449)
 * [Bug 1450: from 4.2.6p1-RC3: Option to exclude warnings not unconditionally defined on Windows](https://bugs.ntp.org/show_bug.cgi?id=1450)
-* [Bug 702: ntpd service logic should use libopts to examine cmdline](https://bugs.ntp.org/show_bug.cgi?id=702)
-* [Bug 1451: from 4.2.6p1-RC3: sntp leaks KoD entry updating](https://bugs.ntp.org/show_bug.cgi?id=1451)
-* [Bug 1453: from 4.2.6p1-RC3: Use $CC in config.cache filename](https://bugs.ntp.org/show_bug.cgi?id=1453)
-* [Bug 620: ntpdc getresponse() esize != *rsize s/b size != *rsize](https://bugs.ntp.org/show_bug.cgi?id=620)
-* [Bug 1446: 4.2.7p6 requires autogen, missing ntpd.1, *.texi, *.menu](https://bugs.ntp.org/show_bug.cgi?id=1446)
-* [Bug 1443: Remove unnecessary dependencies on ntp_io.h](https://bugs.ntp.org/show_bug.cgi?id=1443)
-* [Bug 1442: Move Windows functions into libntp files](https://bugs.ntp.org/show_bug.cgi?id=1442)
-* [Bug 1127: from 4.2.6p1-RC3: Check the return of X590_verify()](https://bugs.ntp.org/show_bug.cgi?id=1127)
-* [Bug 1439: from 4.2.6p1-RC3: .texi gen after binary is linked](https://bugs.ntp.org/show_bug.cgi?id=1439)
-* [Bug 1440: from 4.2.6p1-RC3: Update configure.ac to support kfreebsd](https://bugs.ntp.org/show_bug.cgi?id=1440)
-* [Bug 1445: from 4.2.6p1-RC3: IRIX does not have -lcap or support linux capabilities](https://bugs.ntp.org/show_bug.cgi?id=1445)
-* [Bug 1429: ntpd -4 option does not reliably force IPv4 resolution](https://bugs.ntp.org/show_bug.cgi?id=1429)
-* [Bug 1431: System headers must come before ntp headers in ntp_intres.c](https://bugs.ntp.org/show_bug.cgi?id=1431)
-* [Bug 1426: scripts/VersionName needs . on the search path](https://bugs.ntp.org/show_bug.cgi?id=1426)
-* [Bug 1427: quote missing in ./build - shows up on NetBSD](https://bugs.ntp.org/show_bug.cgi?id=1427)
-* [Bug 1428: Use AC_HEADER_RESOLV to fix breaks from resolv.h](https://bugs.ntp.org/show_bug.cgi?id=1428)
-* [Bug 1419: ntpdate, ntpdc, sntp, ntpd ignore configure --bindir](https://bugs.ntp.org/show_bug.cgi?id=1419)
-* [Bug 1421: add util/tg2, a clone of tg that works on Linux, NetBSD, and FreeBSD](https://bugs.ntp.org/show_bug.cgi?id=1421)
-* [Bug 1348: ntpd Windows port should wait for sendto() completion](https://bugs.ntp.org/show_bug.cgi?id=1348)
-* [Bug 1413: test OpenSSL headers regarding -Wno-strict-prototypes](https://bugs.ntp.org/show_bug.cgi?id=1413)
-* [Bug 1418: building ntpd/ntpdc/ntpq statically with ssl fails](https://bugs.ntp.org/show_bug.cgi?id=1418)
-* [Bug 1412: m4/os_cflags.m4 caches results that depend on $CC](https://bugs.ntp.org/show_bug.cgi?id=1412)
-* [Bug 1414: Enable "make distcheck" success with BSD make](https://bugs.ntp.org/show_bug.cgi?id=1414)
-* [Bug 1407: configure.ac: recent GNU Make -v does not include `version`](https://bugs.ntp.org/show_bug.cgi?id=1407)
+* [Bug 702: `ntpd` service logic should use `libopts` to examine `cmdline`](https://bugs.ntp.org/show_bug.cgi?id=702)
+* [Bug 1451: from 4.2.6p1-RC3: `sntp` leaks KoD entry updating](https://bugs.ntp.org/show_bug.cgi?id=1451)
+* [Bug 1453: from 4.2.6p1-RC3: Use `$CC` in `config.cache` filename](https://bugs.ntp.org/show_bug.cgi?id=1453)
+* [Bug 620: `ntpdc getresponse() esize != *rsize s/b size != *rsize`](https://bugs.ntp.org/show_bug.cgi?id=620)
+* [Bug 1446: 4.2.7p6 requires `autogen`, missing `ntpd.1, *.texi, *.menu`](https://bugs.ntp.org/show_bug.cgi?id=1446)
+* [Bug 1443: Remove unnecessary dependencies on `ntp_io.h`](https://bugs.ntp.org/show_bug.cgi?id=1443)
+* [Bug 1442: Move Windows functions into `libntp` files](https://bugs.ntp.org/show_bug.cgi?id=1442)
+* [Bug 1127: from 4.2.6p1-RC3: Check the return of `X590_verify()`](https://bugs.ntp.org/show_bug.cgi?id=1127)
+* [Bug 1439: from 4.2.6p1-RC3: `.texi` gen after binary is linked](https://bugs.ntp.org/show_bug.cgi?id=1439)
+* [Bug 1440: from 4.2.6p1-RC3: Update `configure.ac` to support `kfreebsd`](https://bugs.ntp.org/show_bug.cgi?id=1440)
+* [Bug 1445: from 4.2.6p1-RC3: IRIX does not have `-lcap` or support linux capabilities](https://bugs.ntp.org/show_bug.cgi?id=1445)
+* [Bug 1429: `ntpd -4` option does not reliably force IPv4 resolution](https://bugs.ntp.org/show_bug.cgi?id=1429)
+* [Bug 1431: System headers must come before ntp headers in `ntp_intres.c`](https://bugs.ntp.org/show_bug.cgi?id=1431)
+* [Bug 1426: `scripts/VersionName` needs `.` on the search path](https://bugs.ntp.org/show_bug.cgi?id=1426)
+* [Bug 1427: quote missing in `./build` - shows up on NetBSD](https://bugs.ntp.org/show_bug.cgi?id=1427)
+* [Bug 1428: Use `AC_HEADER_RESOLV` to fix breaks from `resolv.h`](https://bugs.ntp.org/show_bug.cgi?id=1428)
+* [Bug 1419: `ntpdate, ntpdc, sntp, ntpd` ignore `configure --bindir`](https://bugs.ntp.org/show_bug.cgi?id=1419)
+* [Bug 1421: add `util/tg2`, a clone of `tg` that works on Linux, NetBSD, and FreeBSD](https://bugs.ntp.org/show_bug.cgi?id=1421)
+* [Bug 1348: `ntpd` Windows port should wait for `sendto()` completion](https://bugs.ntp.org/show_bug.cgi?id=1348)
+* [Bug 1413: test OpenSSL headers regarding `-Wno-strict-prototypes`](https://bugs.ntp.org/show_bug.cgi?id=1413)
+* [Bug 1418: building `ntpd/ntpdc/ntpq` statically with ssl fails](https://bugs.ntp.org/show_bug.cgi?id=1418)
+* [Bug 1412: `m4/os_cflags.m4` caches results that depend on `$CC`](https://bugs.ntp.org/show_bug.cgi?id=1412)
+* [Bug 1414: Enable `make distcheck` success with BSD make](https://bugs.ntp.org/show_bug.cgi?id=1414)
+* [Bug 1407: `configure.ac`: recent GNU Make `-v` does not include `version`](https://bugs.ntp.org/show_bug.cgi?id=1407)
 
 * * *
 
-* Upgrade to autogen-5.18.5pre1
-* from 4.2.6p3-RC11: Bump minimum Automake version to 1.11, required for AM_COND_IF use in LIBOPTS_CHECK.
-* Automake-1.12 wants us to use AM_PROG_AR.
-* Use a single set of Automake options for each package in configure.ac AM_INIT, remove Makefile.am AUTOMAKE_OPTIONS= lines.
-* Enable all relevant automake warnings.
-* from 4.2.6p3-RC12: Relax minimum Automake version to 1.10 with updated libopts.m4.
-* Try bison-3.0.2 instead of bison-2.5.
-* Upgrade to libevent-2.1.3-alpha-dev.
-* Correct event_base_gettimeofday_cached() workaround code in sntp to work with corrected libevent.
-* Allow for version suffix in libevent in ntp_libevent.m4.
-* Fix make distcheck with --enable-libevent-regress problem with unwritable $srcdir.
-* Don't build libevent with openssl support.  Right now, libevent doesn't use pkg-config to find openssl's installation location.
-* Add missing --enable-local-libevent help to top-level configure.
-* Update libevent --disable-libevent-regress handling to work when building libevent using mingw.
-* Fix "make distcheck" break in libevent/sample caused by typo.
-* libevent: When building on systems with CLOCK_MONOTONIC available, separate the internal timeline (possibly counting since system boot) from the gettimeofday() timeline in event_base cached timevals.  Adds new event_base_tv_cached() to retrieve cached callback round start time on the internal timeline, and changes event_based_gettimeofday_cached() to always return times using the namesake timeline.  This preserves the benefit of using the never-stepped monotonic clock for event timeouts while providing clients with times consistently using gettimeofday().
-* Update to libopts-40.2.15.
-* From 4.2.6p4: libopts/file.c fix from Bruce Korb (arg-type=file).
+* Updates from 4.2.6p5.
+* Sync with ntp-4.2.6p4 (a no-op).
+* Sync with 4.2.6p4-RC2.
+* Include 4.2.6p1-RC4: Remove `arlib`.
+* Include 4.2.6p1-RC2
+
+* * *
+
+**Docs**
 
 * html/ updates from Dave Mills.
 * html doc reconciliation with DLM's copy.
@@ -1718,9 +1707,9 @@ type: archives
 * Make all of the html/ .html files use the same format for "Last update".
 * Clean up last-update timestamps of html/*.html files.
 * Fix the "Last update" entries in the html/ subtree.
-* Tweak the 'Modified' line on appropriate html pages.
+* Tweak the "Modified" line on appropriate html pages.
 * Update documentation templates and definitions.
-* Include missing html/icons/sitemap.png, reported by Michael Tatarinov.
+* Include missing `html/icons/sitemap.png`, reported by Michael Tatarinov.
 * Documentation updates for 4.2.7p22 changes and additions, updating ntpdc.html, ntpq.html, accopt.html, confopt.html, manyopt.html, miscopt.html, and miscopt.txt.
 * accopt.html: non-ntpport doc changes from Dave Mills.
 * Reinstate doc fix to authentic.html from Mike T.
@@ -1731,213 +1720,313 @@ type: archives
 * Fix typo in driver28.html.
 * Update driver45.html page.
 * Initial cut at a basic driver45.html page.
-* ntp-wait, ntpd, ntpdc, ntpq, ntpsnmpd autogen documentation updates.
-* Add a reference to RFC5907 in the ntpsnmpd documentation.
-* orphanwait documentation updates.
+* `ntp-wait, ntpd, ntpdc, ntpq, ntpsnmpd autogen` documentation updates.
+* Add a reference to RFC5907 in the `ntpsnmpd `documentation.
+* `orphanwait` documentation updates.
 * Fix typo in html/select.html.
-* sntp documentation and documentation tag cleanup.
-* calc_tickadj/Makefile.am man/mdoc page build cleanup.
-* Fix the man page installation for the scripts/ files.
-* Clean the man5_MANS in ntpd/.
-* Prepare for ntp.keys.5.
-* More sntp.1 cleanups.
-* Fix mdoc2man.
-* mdoc2man improvements.
-* Use patched mdoc2man script, from Eric Feng.
-* Refactor and enhance mdoc2texi.
-* mdoc2texi fixes: trailing punctuation.
-* mdoc2texi fixes: parseQuote, closing of list item tables.
-* mdoc2texi fixes: Handle_ArCmFlIc, Handle_Fn, HandleQ.
-* from 4.2.6p3: Create and use scripts/check--help when generating .texi files.
+* `sntp` documentation and documentation tag cleanup.
+* `calc_tickadj/Makefile.am man/mdoc` page build cleanup.
+* Fix the man page installation for the ``scripts/ files.
+* Clean the `man5_MANS` in `ntpd/`.
+* Prepare for `ntp.keys.5`.
+* More `sntp.1` cleanups.
+* Fix `mdoc2man`.
+* `mdoc2man` improvements.
+* Use patched `mdoc2man` script, from Eric Feng.
+* Refactor and enhance `mdoc2texi`.
+* `mdoc2texi` fixes: trailing punctuation.
+* `mdoc2texi` fixes: `parseQuote`, closing of list item tables.
+* `mdoc2texi` fixes: `Handle_ArCmFlIc, Handle_Fn, HandleQ`.
+* from 4.2.6p3: Create and use `scripts/check--help` when generating `.texi` files.
 * Autogen documentation cleanup.
-* Require a version string for perl scripts that use autogen.
-* Update several .def files to use autogen-5.17 feature set.
-* Begin support for autogen maintaining ntp.conf and ntp.keys docs.
-* Update the autogen include list for scripts/Makefile.am.
-* Update ntp-wait autogen docs.
-* Update the ntpd autogen docs.
-* Update the ntpsnmpd autogen docs.
-* Use autogen to produce ntp-keygen docs.
-* Add "license name" to ntp.lic for autogen-5.11.10.
-* Update cmd-doc.tlib to autogen-5.11.10pre5.
-* cmd-doc.tlib cleanup from Bruce Korb.
-* Use the latest autogen's new copyright template code.
-* autogen documentation template cleanup.
-* If we have local overrides for autogen template files, use them.
-* Convert snmp docs to mdoc format, which requires autogen 5.11.9.
-* Build infrastructure cleanup:
-  - Move m4 directory to sntp/m4.
-  - Share a single set of genver output between sntp and the top level.
-  - Share a single set of autogen included .defs in sntp/include.
-  - Share a single set of build-aux scripts (e.g. config.guess, missing).
-  - Add ntp_libntp.m4 and ntp_ipv6.m4 to reduce configure.ac duplication.
-  - Warn and exit build/flock-build if bootstrap needs to be run.
-* Added loc/debian.
-* Create loc/darwin for Mac OSX.
-* Added loc/redhat.
-* Added loc/solaris.
-* Move loc/ to sntp/loc/.
-* Update sntp/loc/solaris to conform to stock locations.
-* Added sntp/loc/netbsd based on info from Christos Zoulas.
-* If no "more specific" loc file is found for redhat* or fedora*, look for a loc/redhat file.
-* If no "more specific" loc file is found and uname says this is Linux, look for a loc/linux file.
-* Implement --with-locfile=filename configure argument.  If filename is empty we'll look under loc/ for a good fit.  If the filename contains a / character, it will be treated as a "normal" pathname.  Otherwise, that explicit file will be searched for under loc/ .
+* Require a version string for `perl` scripts that use `autogen`.
+* Update several `.def` files to use autogen-5.17 feature set.
+* Begin support for `autogen` maintaining `ntp.conf` and `ntp.keys` docs.
+* Use `autogen` to produce `ntp-keygen` docs.
+* Update the `autogen` include list for `scripts/Makefile.am`.
+* Update `ntp-wait autogen` docs.
+* Update the `ntpd autogen` docs.
+* Update the `ntpsnmpd autogen` docs.
+* Add "`icense name` to `ntp.lic` for autogen-5.11.10.
+* Update `cmd-doc.tlib` to autogen-5.11.10pre5.
+* `cmd-doc.tlib` cleanup from Bruce Korb.
+* Use the latest `autogen`'s new copyright template code.
+* `autogen` documentation template cleanup.
+* If we have local overrides for `autogen` template files, use them.
+* Convert `snmp` docs to `mdoc` format, which requires `autogen` 5.11.9.
+
+* * *
+
+**Builds**
+
+* Upgrade to autogen-5.18.5pre1
+* from 4.2.6p3-RC11: Bump minimum Automake version to 1.11, required for `AM_COND_IF` use in `LIBOPTS_CHECK`.
+* Automake-1.12 wants us to use `AM_PROG_AR`.
+* Use a single set of Automake options for each package in `configure.ac AM_INIT`, remove `Makefile.am AUTOMAKE_OPTIONS=` lines.
+* Enable all relevant `automake` warnings.
+* from 4.2.6p3-RC12: Relax minimum Automake version to 1.10 with updated `libopts.m4`.
+* Try bison-3.0.2 instead of bison-2.5.
+* Upgrade to libevent-2.1.3-alpha-dev.
+* Correct `event_base_gettimeofday_cached()` workaround code in `sntp` to work with corrected `libevent`.
+* Allow for version suffix in `libevent` in `ntp_libevent.m4`.
+* Fix `make distcheck` with `--enable-libevent-regress` problem with unwritable `$srcdir`.
+* Don't build `libevent` with openssl support.  Right now, `libevent` doesn't use `pkg-config` to find openssl's installation location.
+* Add missing `--enable-local-libevent` help to top-level configure.
+* Update `libevent --disable-libevent-regress` handling to work when building `libevent` using `mingw`.
+* Fix `make distcheck` break in `libevent/sample` caused by typo.
+* `libevent`: When building on systems with `CLOCK_MONOTONIC` available, separate the internal timeline (possibly counting since system boot) from the `gettimeofday()` timeline in `event_base` cached timevals.  Adds new `event_base_tv_cached()` to retrieve cached callback round start time on the internal timeline, and changes `event_based_gettimeofday_cached()` to always return times using the namesake timeline.  This preserves the benefit of using the never-stepped monotonic clock for event timeouts while providing clients with times consistently using `gettimeofday()`.
+* Update to libopts-40.2.15.
+* From 4.2.6p4: `libopts/file.c` fix from Bruce Korb (`arg-type=file`).
+* Move `m4` directory to `sntp/m4`.
+* Share a single set of `genver` output between `sntp` and the top level.
+* Share a single set of `autogen` included `.defs` in `sntp/include`.
+* Share a single set of `build-aux` scripts (e.g. `config.guess, missing`).
+* Add `ntp_libntp.m4` and `ntp_ipv6.m4` to reduce `configure.ac` duplication.
+* Warn and exit `build/flock-build` if bootstrap needs to be run.
+* Update the building of OS-specific programs.
+* Add `--enable-c99-sprintf` to configure args for `-noopenssl` variety of `flock-build` to avoid regressions in `(v)snprintf()` replacement.
+* Add `--disable-thread-support` to one `flock-build` variation.
+* Avoid invoking `config.status` twice in a row in build script.
+* Correct `msyslog.c` build break on Solaris 2.9 from `#ifdef/#if` mixup.
+* Correct `./build` on systems without `gtest` available.
+* Use `make V=0` in build script to increase signal/noise ratio.
+* Avoid race with parallel builds using same source directory in `scripts/genver` by using build directory for temporary files.
+* From 4.2.6p1-RC6: Correct `SIMUL=4 ./flock-build -1` to prioritize `-1/--one`.
+* Fix warnings seen on FreeBSD 9.
+* Fix check for `-lipv6` on HP-UX 11.
+* Fix for openssl `pkg-config` detection eval failure.
+* `make V=0` and `configure --enable-silent-rules` supported.
+* Default to silent `make` rules, override with `make V=1` or `./configure --disable-silent-rules`.
+* Correct `--with-openssl-incdir` defaulting with `pkg-config`.
+* Default `--with-openssl-libdir` and `--with-openssl-incdir` to the values from `pkg-config`, falling back on our usual search paths if `pkg-config` is not available or does not have `openssl.pc` on `PKG_CONFIG_PATH`.
+* Avoid overwriting user variable `LDFLAGS` with OpenSSL flags, instead they are added to `LDFLAGS_NTP`.
+* Cleanup to the new `scripts/*/Makefile.am` files.
+* Fix the `check-scm-rev` invocation in several `Makefile.am`s.
+* Incorporate Oliver Kindernay's GSoC 2013 `scripts/` cleanup.
+* from 4.2.6p3-RC8: First cut at using `scripts/checkChangeLog`.
+* from 4.2.6p3-RC7: Added `scripts/checkChangeLog`.
+* More cleanup to the bootstrap script.
+* Handle additional man page sections in the bootstrap script.
+* For the bootstrap script, touch `.html` files last.
+* Add `make check` test case that would have caught [Bug 1678](https://bugs.ntp.org/show_bug.cgi?id=1678).
+* A number of compiler warnings eliminated.
+* FlexeLint cleanups.
+* Remove extra `nlist` check from `configure.ac`.
+* Clean up `configure.ac`.
+* Cleanup `configure.ac`'s `TSYNC PCI` section.
+* from 4.2.6p3-RC12: Clean up `m4` quoting in `configure.ac, *.m4` files, resolving intermittent `AC_LANG_PROGRAM` possibly undefined errors.
+* Clean up missing `;;` entries in `configure.ac`.
+* `configure.ac`: add `--disable-autokey, #define AUTOKEY` to enable future support for building without Autokey, but with OpenSSL for its digest
+  algorithms (hash functions).  Code must be modified to use `#ifdef AUTOKEY` instead of `#ifdef OPENSSL` where appropriate to complete this.
+
+* * *
 
 **sntp**
-* Improve sntp KoD data file fopen() error message.
-* Fix ntpsweep to use sntp instead of ntpdate, from Oliver Kindernay.
-* Bump sntp/include/autogen-version.def.
-* EEXIST is OK for mkdir() in sntp/kod_management.c.
-* Document a tricky malloc() of dns_ctx in sntp.
-* Clean up testing/debugging of fix for [Bug 938] from sntp/main.c.
-* In sntp/m4/ntp_openssl.m4, Support multiple package names for the crypto library.  Add legacy support for -Wl,-rpath.
-* Change the link order for ntpsntpd.
-* Update sntp tests to track the change of root dispersion to synchronization distance.
-* Restore the original CLOCK_MONOTONIC output format in sntp.
-* sntp documentation and behavior improvements suggested by Steven Sommars.
-* Have sntp report synchronization distance instead of root dispersion.
-* sntp: change -h/--headspace to -g/--gap, and change the default gap from 10 to 50ms
-* [Backward Incompatible] from 4.2.6p4: sntp: -l/--filelog -> -l/--logfile, to be consistent with ntpd.
-* remove old binsubdir stuff from SNTP, as NTP_LOCINFO does that now.
-* Fix warnings in ntp_request.c ([Bug 1973] oversight) and sntp/main.c
+* Improve `sntp` KoD data file `fopen()` error message.
+* Fix `ntpsweep` to use `sntp` instead of `ntpdate`, from Oliver Kindernay.
+* Bump `sntp/include/autogen-version.def`.
+* `EEXIST` is OK for `mkdir()` in `sntp/kod_management.c`.
+* Document a tricky `malloc()` of `dns_ctx` in `sntp`.
+* Clean up testing/debugging of fix for [Bug 938](https://bugs.ntp.org/show_bug.cgi?id=938)) from `sntp/main.c`.
+* In `sntp/m4/ntp_openssl.m4`, Support multiple package names for the crypto library.  Add legacy support for `-Wl,-rpath`.
+* Change the link order for `ntpsntpd`.
+* Update `sntp` tests to track the change of root dispersion to synchronization distance.
+* Restore the original `CLOCK_MONOTONIC` output format in `sntp`.
+* `sntp` documentation and behavior improvements suggested by Steven Sommars.
+* Have `sntp` report synchronization distance instead of root dispersion.
+* `sntp`: change `-h/--headspace` to `-g/--gap`, and change the default gap from 10 to 50ms
+* **Backward Incompatible** from 4.2.6p4: `sntp: -l/--filelog` -> `-l/--logfile`, to be consistent with `ntpd`.
+* remove old `binsubdir` stuff from SNTP, as `NTP_LOCINFO` does that now.
+* Fix warnings in `ntp_request.c` [Bug 1973](https://bugs.ntp.org/show_bug.cgi?id=1973) oversight and `sntp/main.c`.
   - (CID 159, apparent overrun due to union, actually correct).
-* Removed sntp/m4/ntp_bindir.m4 - no longer needed.
-* Move scripts/cvo.sh to sntp/scripts/cvo.sh .
-* Move scripts/genLocInfo to sntp/scripts/genLocInfo .
-* Remove hacks to get NTP_LOCINFO-related data to sntp/ .
-* Remove sntp l_fp_output() test now that it uses prettydate().
-* Rename file containing 1.xxxx ChangeSet revision from version to scm-rev to avoid invoking GNU make implicit rules attempting to compile version.c into version.  Problem was with sntp/version.o during make distcheck after fix for spurious sntp rebuilds.
-* Move sntp last in top-level Makefile.am SUBDIRS so that the libevent tearoff (if required) and sntp are compiled after the rest.
-* Correct spurious sntp rebuilds triggered by a make misperception sntp/version was out-of-date relative to phony target FRC.version.
-* Remove libevent-cfg from sntp/Makefile.am.
-* Avoid relying on remake rules for routine build/flock-build for libevent as for the top-level and sntp subproject.
-* Move "can't write KoD file" warning from sntp shutdown to startup.
-* Convert sntp to libevent event-driven socket programming.  Instead of blocking name resolution and querying one NTP server at a time, resolve server names and send NTP queries without blocking.  Add sntp command-line options to adjust timing and optionally wait for all servers to respond instead of exiting after the first.
-* Move init_logging(), change_logfile(), and setup_logfile() from ntpd to libntp, use them in sntp.
-* Test --without-sntp in flock-build script's -no-refclocks variety.
-* sntp/Makefile.am needs any passed-in CFLAGS.
-* Simplify the built-sources stuff in sntp/ .
-* Add configure --without-sntp option to disable building sntp and sntp/tests.  withsntp=no in the environment changes the default.
-* Remove top-level libopts, use sntp/libopts.
-* from 4.2.6p3-RC11: Remove log_msg() and debug_msg() from sntp in favor of msyslog().
-* Put the sntp tests under sntp/ ... and only build/run them if we have gtest.
-* from 4.2.6p2-RC3: Do not depend on ASCII in sntp.
-* Move sntp/include/mansec2subst.sed to sntp/scripts/mansec2subst.sed .
-* Convert more of the sntp-opt.def documentation from man to mdoc.
-* Share a single sntp/libevent/build-aux directory between all three configure scripts.
+* Rename file containing 1.xxxx ChangeSet revision from version to scm-rev to avoid invoking GNU make implicit rules attempting to compile `version.c` into version.  Problem was with `sntp/version.o` during `make distcheck` after fix for spurious `sntp` rebuilds.
+* Move `sntp` last in top-level `Makefile.am SUBDIRS` so that the `libevent` tearoff (if required) and `sntp` are compiled after the rest.
+* Correct spurious `sntp` rebuilds triggered by a `make` misperception `sntp/version` was out-of-date relative to phony target `FRC.version`.
+* Remove `libevent-cfg` from `sntp/Makefile.am`.
+* Avoid relying on remake rules for routine `build/flock-build` for `libevent` as for the top-level and `sntp` subproject.
+* Move "can't write KoD file" warning from `sntp` shutdown to startup.
+* Convert `sntp` to `libevent` event-driven socket programming.  Instead of blocking name resolution and querying one NTP server at a time, resolve server names and send NTP queries without blocking.  Add `sntp` command-line options to adjust timing and optionally wait for all servers to respond instead of exiting after the first.
+* Move `init_logging(), change_logfile()`, and `setup_logfile()` from `ntpd` to `libntp`, use them in `sntp`.
+* Test `--without-sntp` in `flock-build` script's `-no-refclocks` variety.
+* `sntp/Makefile.am` needs any passed-in `CFLAGS`.
+* Simplify the built-sources stuff in `sntp/`.
+* Add `configure --without-sntp` option to disable building `sntp` and `sntp/tests`.  `withsntp=no` in the environment changes the default.
+* Remove top-level `libopts`, use `sntp/libopts`.
+* from 4.2.6p3-RC11: Remove `log_msg()` and `debug_msg()` from `sntp` in favor of `msyslog()`.
+* Put the `sntp` tests under `sntp/` ... and only build/run them if we have `gtest`.
+* from 4.2.6p2-RC3: Do not depend on ASCII in `sntp`.
+* Move `sntp/include/mansec2subst.sed` to `sntp/scripts/mansec2subst.sed`.
+* Convert more of the `sntp-opt.def` documentation from `man` to `mdoc`.
+* Share a single `sntp/libevent/build-aux` directory between all three `configure` scripts.
+* Finish conversion to `genLocInfo`.
+* validate `MANTAGFMT` in `genLocInfo`.
+* `ntp_locs.m4`: handle the case where . is not in the `PATH`.
+* More `genLocInfo` improvements and cleanup.
+* Added `ntp_locs.m4`.
+* Add the man page tag "flavor" to the `loc.*` files.
+* Add/distribute `genLocInfo`.
+* Create `loc/darwin` for Mac OSX.
+* Added `loc/debian`.
+* Added `loc.freebsd` (and distribute it).
+* Added `loc.legacy` (and distribute it).
+* Added `loc/redhat`.
+* Added `loc/solaris`.
+* Move `loc/` to `sntp/loc/`.
+* Added `sntp/loc/netbsd` based on info from Christos Zoulas.
+* Update `sntp/loc/solaris` to conform to stock locations.
+* If no "more specific" `loc` file is found for redhat* or fedora*, look for a `loc/redhat` file.
+* If no "more specific" `loc` file is found and `uname` says this is Linux, look for a `loc/linux` file.
+* Implement `--with-locfile=filename configure` argument.  If filename is empty we'll look under `loc/` for a good fit.  If the filename contains a `/` character, it will be treated as a "normal" pathname.  Otherwise, that explicit file will be searched for under `loc/`.
+* Removed `sntp/m4/ntp_bindir.m4` - no longer needed.
+* Move `scripts/cvo.sh` to `sntp/scripts/cvo.sh`.
+* Move `scripts/genLocInfo` to `sntp/scripts/genLocInfo`.
+* Remove hacks to get `NTP_LOCINFO`-related data to `sntp/`.
+* Remove `sntp l_fp_output()` test now that it uses `prettydate()`.
+* Do not force "legacy" when `--with-locfile` is not given, `genLocInfo` will find the correct default for the system.
+* **DEFAULT INSTALLATION DIRECTORY CHANGES ON SOME OSes:** to get the old behavior, pass `--with-locfile=legacy` to `configure`
+* Give `NTP_LOCINFO` an optional `path-to` argument.
+* Improve the help text: `--with-locfile=XXX`.
+* work around solaris `/bin/sh` issues for `genLocInfo`.
+
+* * *
 
 **refclocks**
-* Move refclock-specific scheduled timer code under #ifdef REFCLOCK and move "action" and "nextaction" data for same from struct peer to
-  struct refclockproc.  These provide a way to schedule a callback some seconds in the future.
+
+* `refclock_acts.c` updates and cleanup from Dave Mills.
+* Move refclock-specific scheduled timer code under `#ifdef REFCLOCK` and move "action" and "nextaction" data for same from struct `peer` to
+  struct `refclockproc`.  These provide a way to schedule a callback some seconds in the future.
 * ACTS refclock cleanup from Dave Mills.
 * Use an enum for the ACTS state table.
-* Apply "tos orphanwait" (def. 300 seconds) to LOCAL and ACTS reference clock drivers, in addition to orphan parent operation.  LOCAL and ACTS are not selectable during the orphanwait delay at startup and after each no_sys_peer event.  This prevents a particular form of clock-hopping, such as using LOCAL briefly at startup before remote peers are selectable.  This fixes the issue reported in [Bug 988].
-* setvar modemsetup = ATE0... overrides ACTS driver default.
-* Preserve last timecode in ACTS driver (ntpq -ccv).
+* Apply `tos orphanwait` (def. 300 seconds) to LOCAL and ACTS reference clock drivers, in addition to orphan parent operation.  LOCAL and ACTS are not selectable during the `orphanwait` delay at startup and after each `no_sys_peer` event.  This prevents a particular form of clock-hopping, such as using LOCAL briefly at startup before remote peers are selectable.  This fixes the issue reported in [Bug 988](https://bugs.ntp.org/show_bug.cgi?id=988).
+* `setvar modemsetup = ATE0...` overrides ACTS driver default.
+* Preserve last timecode in ACTS driver (`ntpq -ccv`).
 * Tolerate previous ATE1 state when sending ACTS setup.
 * Enable ACTS and CHU reference clock drivers on Windows.
-* refclock_nmea.c merge cleanup thanks to Juergen Perlinger.
-* refclock_nmea.c refactoring by Juergen Perlinger.
-* Conditionalize NMEA serial open message under clockevent.
-* Change some error logging to syslog to ignore logconfig mask, such as reporting PPSAPI failure in NMEA and WWVB refclocks.
-* Added support for Garmin's $PGRMF sentence to NMEA driver.
+* Use `acts_close()` in `acts_shutdown()` to avoid leaving a stale lockfile if unpeered via runtime configuration while the modem is open.
+* Correct `acts_close()` test of pp->io.fd to see if it is open.
+* `refclock_nmea.c` merge cleanup thanks to Juergen Perlinger.
+* `refclock_nmea.c` refactoring by Juergen Perlinger.
+* Conditionalize NMEA serial open message under `clockevent`.
+* Change some error logging to `syslog` to ignore `logconfig` mask, such as reporting PPSAPI failure in NMEA and WWVB refclocks.
+* Added support for Garmin's `$PGRMF` sentence to NMEA driver.
 * NMEA driver documentation update from Juergen Perlinger.
-* Initialize refclockproc.rio.fd to -1, harmonize refclock shutdown entrypoints to avoid crashing, particularly if refclock_open() fails.
+* From 4.2.6p1-RC6: Correct CHU, dumbclock, and WWVB drivers to check for 0 returned from `refclock_open()` on failure.
+* Initialize `refclockproc.rio.fd` to -1, harmonize refclock shutdown entrypoints to avoid crashing, particularly if `refclock_open()` fails.
 * Include 4.2.6p1: Fix widely cut-n-pasted bug in refclock shutdown after failed start.
-* In refclock_wwv.c rename SECOND to WWV_SEC and MINUTE to WWV_MIN.
-* Attempt to resolve strict-aliasing violation in refclock_tsyncpci.c.
-* Add refclock_tsyncpci.c (driver 45) supporting Spectracom TSYNC timing boards.
+* In `refclock_wwv.c` rename `SECOND` to `WWV_SEC` and `MINUTE` to `WWV_MIN`.
+* Attempt to resolve strict-aliasing violation in `refclock_tsyncpci.c`.
+* Add `refclock_tsyncpci.c` (driver 45) supporting Spectracom TSYNC timing boards.
+* Fix && -> & typo in `refclock_palisade.c` debug statements.
+* Log failure to fetch time from HOPF_P hardware.
+* Check `HOPF_S sscanf()` conversion count before converted values.
+* JJY driver improvements for Tristate JJY01/02, including changes to its clockstats format.
+* Remove never-used, incomplete `ports/winnt/ntpd/refclock_trimbledc`.[ch]
+* Remove kernel line discipline driver code for clk and chu, deprecate related `LDISC_ flags`, and remove associated `ntpd` code to decode the timestamps, remove `clktest` line discipline test program.
+* Compare entire timestamp to reject duplicates in `refclock_pps()`.
+* Change `refclock_open()` to return -1 on failure like `open()`.
+* Update all `refclock_open()` callers to check for fd <= 0 indicating failure, so they work with older and newer `refclock_open()` and can easily backport.
+
+* * *
 
 **ntpq**
-* Add ntpq reslist command to query access restrictions, similar to ntpdc's reslist.
-* Disable mode 7 (ntpdc) query processing in ntpd by default.  ntpq is believed to provide all functionality ntpdc did, and uses a less-fragile protocol that's safer and easier to maintain.  If you do find some management via ntpdc is needed, you can use "enable mode7" in the ntpd configuration.
-* ntpq mrulist shows intermediate counts every five seconds while retrieving list, and allows Ctrl-C interruption of the retrieval, showing the incomplete list as retrieved.  Reduce delay between successive mrulist retrieval queries from 30 to 5 msec.  Do not give up mrulist retrieval when a single query times out.
-* Add missing "break;" to ntp_control.c ctl_putsys() for caliberrs, used by ntpq -c kerninfo introduced in 4.2.7p104.
-* Move ntp_control.h variable IDs to ntp_control.c, remove their use by ntpq.  They are implementation details private to ntpd.  [Bug 597] was caused by ntpq's reliance on these IDs it need not know about.
-* Add ntpq kerninfo, authinfo, and sysinfo commands similar to ntpdc's.
-* Add ntpq pstats command similar to ntpdc's.
-* Remove ntpq pstatus command, rv/readvar does the same and more.
-* Allow ntpq &1 associd use without preceding association-fetching.
-* from 4.2.6p2-RC3: Escape unprintable characters in a refid in ntpq -p billboard.
-* Add "ntpq -c iostats" similar to "ntpdc -c iostats".
-* Add "ntpq -c ifstats" similar to "ntpdc -c ifstats".
-* Add "ntpq -c sysstats" similar to "ntpdc -c sysstats".
-* Add "ntpq -c monstats" to show monlist knobs and stats.
-* Add "ntpq -c mrulist" similar to "ntpdc -c monlist" but not limited to 600 rows, and with filtering and sorting options:
-  - ntpq -c "mrulist mincount=2 laddr=192.168.1.2 sort=-avgint"
-  - ntpq -c "mrulist sort=addr"
-  - ntpq -c "mrulist mincount=2 sort=count"
-  - ntpq -c "mrulist sort=-lstint"
-* ntpq: increase response reassembly limit from 24 to 32 packets, add discussion in comment regarding results with even larger MAXFRAGS.
-* ntpq: handle "passwd MYPASSWORD" (without prompting) as with ntpdc.
-* Extend ntpq readvar (alias rv) to allow fetching up to three named variables in one operation:  ntpq -c "rv 0 version offset frequency".
-* ntpq: use srchost variable to show .POOL. prototype associations' hostname instead of address 0.0.0.0.
-* Clean up an exit status in ntpq.c.
-* Remove 1024 associations-per-server limit from ntpq.
-* Remove blank line between ntpq mreadvar associations.
-* ntpq autogen docs.
-* Produce ntpq.1 with the new autogen macros.
-* Fix nits in the ntpq man page.
-* Cleanup to ntpq.texi.
 
-**Windows**
-* Treat zero counter as indication of precise system time in Windows PPSAPI helper function pps_ntp_timestamp_from_counter(), enabling PPSAPI providers to use the Windows 8 precise clock directly.
-* Use GetSystemTimePreciseAsFileTime() on Windows 8.
-* ntp-keygen on Windows XP and later systems will now create links expected by ntpd.  They are hardlinks on Windows, soft on POSIX.
-* Force .exe minimum Windows version to 0x0400 to allow NT4 in vs2005/*.vcproj files.
-* Use _mkgmtime() as timegm() in the Windows port, rather than libntp/mktime.c's timegm().  Fixed [Bug 1875] on Windows using the old asn2ntp() code from before 4.2.7p147.
-* Provide fallback definitions for GetAdaptersAddresses() for Windows build environments lacking iphlpapi.h.
-* Enable tickadj-like taming of wildly off-spec Windows clock using NTPD_TICKADJ_PPM env. var. specifying baseline slew.
-* Enable raw tty line discipline in Windows port.
-* Allow tty open/close/open to succeed on Windows port.
-* Enable generating ntpd/ntp_keyword.h after keyword-gen.c changes on Windows as well as POSIX platforms.
-* from 4.2.6p2-RC5: Windows port: do not exit in ntp_timestamp_from_counter() without first logging the reason.
-* From 4.2.6p1-RC6: Correct Windows port's refclock_open() to return 0 on failure not -1.
-* Windows compiling hints/winnt.html update from G. Sunil Tej.
+* Add `ntpq reslist` command to query access restrictions, similar to `ntpdc`'s `reslist`.
+* Disable mode 7 (`ntpdc`) query processing in `ntpd` by default.  `ntpq` is believed to provide all functionality `ntpdc` did, and uses a less-fragile protocol that's safer and easier to maintain.  If you do find some management via `ntpdc` is needed, you can use `enable mode7` in the `ntpd` configuration.
+* `ntpq mrulist` shows intermediate counts every five seconds while retrieving list, and allows <kbd>Ctrl-C</kbd> interruption of the retrieval, showing the incomplete list as retrieved.  Reduce delay between successive mrulist retrieval queries from 30 to 5 msec.  Do not give up mrulist retrieval when a single query times out.
+* Add missing `break;` to `ntp_control.c ctl_putsys()` for caliberrs, used by `ntpq -c kerninfo` introduced in 4.2.7p104.
+* Move `ntp_control.h` variable IDs to `ntp_control.c`, remove their use by `ntpq`.  They are implementation details private to `ntpd`.  [Bug 597](https://bugs.ntp.org/show_bug.cgi?id=597) was caused by `ntpq`'s reliance on these IDs it need not know about.
+* Add `ntpq kerninfo, authinfo`, and `sysinfo` commands similar to `ntpdc`'s.
+* Add `ntpq pstats` command similar to `ntpdc`'s.
+* Remove `ntpq pstatus` command, `rv/readvar` does the same and more.
+* Allow `ntpq &1 associd` use without preceding association-fetching.
+* from 4.2.6p2-RC3: Escape unprintable characters in a refid in `ntpq -p` billboard.
+* Add `ntpq -c iostats` similar to `ntpdc -c iostats`.
+* Add `ntpq -c ifstats` similar to `ntpdc -c ifstats`.
+* Add `ntpq -c sysstats` similar to `ntpdc -c sysstats`.
+* Add `ntpq -c monstats` to show `monlist` knobs and stats.
+* Add `ntpq -c mrulist` similar to `ntpdc -c monlist` but not limited to 600 rows, and with filtering and sorting options:
+  - `ntpq -c "mrulist mincount=2 laddr=192.168.1.2 sort=-avgint"`
+  - `ntpq -c "mrulist sort=addr"`
+  - `ntpq -c "mrulist mincount=2 sort=count"`
+  - `ntpq -c "mrulist sort=-lstint"`
+* `ntpq`: increase response reassembly limit from 24 to 32 packets, add discussion in comment regarding results with even larger `MAXFRAGS`.
+* `ntpq`: handle `passwd MYPASSWORD` (without prompting) as with `ntpdc`.
+* Extend `ntpq readvar` (alias `rv`) to allow fetching up to three named variables in one operation:  `ntpq -c "rv 0 version offset frequency"`.
+* `ntpq`: use `srchost` variable to show .POOL. prototype associations' hostname instead of address 0.0.0.0.
+* Clean up an exit status in `ntpq.c`.
+* Remove 1024 associations-per-server limit from `ntpq`.
+* Remove blank line between `ntpq mreadvar` associations.
+* `ntpq autogen` docs.
+* Produce `ntpq.1` with the new `autogen` macros.
+* Fix nits in the `ntpq` man page.
+* Cleanup to `ntpq.texi`.
 
-**Linux**
-* Eliminate warnings about shadowing global "basename" on Linux.
-* Remove "signal_no_reset: signal 17 had flags 4000000" logging, as it indicates no problem and is interpreted as an error.  Previously some bits had been ignored one-by-one, but Linux SA_RESTORER definition is unavailable to user headers.
+* * *
 
 **ntpdc**
-* Remove the deprecated "detail" stanza from ntpdc-opts.def.
-* Remove use of MAXFILENAME in mode 7 (ntpdc) on-wire structs.
-* Limit "ntpdc -c monlist" response in ntpd to 600 entries, the previous overall limit on the MRU list depth which was driven by the monlist implementation limit of one request with a single multipacket response.
-* ntpdc: do not examine argument to "passwd" if not supplied.
-* ntpdc documentation fixes and cleanup.
-* Note in the deprecation of ntpdc in its documentation.
+
+* Remove the deprecated `detail` stanza from `ntpdc-opts.def`.
+* Remove use of `MAXFILENAME` in mode 7 (`ntpdc`) on-wire structs.
+* Limit `ntpdc -c monlist` response in `ntpd` to 600 entries, the previous overall limit on the MRU list depth which was driven by the monlist implementation limit of one request with a single multipacket response.
+* `ntpdc`: do not examine argument to `passwd` if not supplied.
+* `ntpdc` documentation fixes and cleanup.
+* Note the deprecation of `ntpdc` in its documentation.
+
+* * *
 
 **ntp-keygen**
-* ntp-keygen private key cipher default now triple-key triple DES CBC.
-* ntp-keygen -M is intended to ignore all other defaults and options, so do not attempt to open existing Autokey host certificate before generating symmetric keys and terminating.
-* Restore IFF, MV, and GQ identity parameter filename convention to ntpkey_<scheme>par_<group/host> in ntpd, matching ntp-keygen.
-* [Backward Incompatible] ntp-keygen -i option long name changed from misleading --issuer-name to --ident.
-* Change ntpd MAXFILENAME from 128 to 256 to match ntp-keygen.
-* from 4.2.6p3-RC12: Suppress ntp-keygen OpenSSL version display for --help, --version, display both build and runtime OpenSSL versions when they differ.
-* Add ntp-keygen -l/--lifetime to control certificate expiry.
-* Create ntp-keygen.{html,texi}.
-* ntp-keygen autogen documentation updates.
+
+* `ntp-keygen` private key cipher default now triple-key triple DES CBC.
+* `ntp-keygen -M` is intended to ignore all other defaults and options, so do not attempt to open existing Autokey host certificate before generating symmetric keys and terminating.
+* Restore IFF, MV, and GQ identity parameter filename convention to `ntpkey_<scheme>par_<group/host>` in `ntpd`, matching `ntp-keygen`.
+* **Backward Incompatible** `ntp-keygen -i` option long name changed from misleading `--issuer-name` to `--ident`.
+* Change `ntpd MAXFILENAME` from 128 to 256 to match `ntp-keygen`.
+* from 4.2.6p3-RC12: Suppress `ntp-keygen` OpenSSL version display for `--help, --version`, display both build and runtime OpenSSL versions when they differ.
+* Add `ntp-keygen -l/--lifetime` to control certificate expiry.
+* Create `ntp-keygen.{html,texi}`.
+* `ntp-keygen autogen` documentation updates.
+
+* * *
+
+**Windows**
+
+* Treat zero counter as indication of precise system time in Windows PPSAPI helper function `pps_ntp_timestamp_from_counter()`, enabling PPSAPI providers to use the Windows 8 precise clock directly.
+* Use `GetSystemTimePreciseAsFileTime()` on Windows 8.
+* `ntp-keygen` on Windows XP and later systems will now create links expected by `ntpd`.  They are hardlinks on Windows, soft on POSIX.
+* Force `.exe` minimum Windows version to 0x0400 to allow NT4 in `vs2005/*.vcproj` files.
+* Use `_mkgmtime()` as `timegm()` in the Windows port, rather than `libntp/mktime.c`'s `timegm()`.  Fixed [Bug 1875](https://bugs.ntp.org/show_bug.cgi?id=1875) on Windows using the old `asn2ntp()` code from before 4.2.7p147.
+* Provide fallback definitions for `GetAdaptersAddresses()` for Windows build environments lacking `iphlpapi.h`.
+* Enable `tickadj`-like taming of wildly off-spec Windows clock using `NTPD_TICKADJ_PPM` env. var. specifying baseline slew.
+* Enable raw `tty` line discipline in Windows port.
+* Allow `tty` open/close/open to succeed on Windows port.
+* Enable generating `ntpd/ntp_keyword.h` after `keyword-gen.c` changes on Windows as well as POSIX platforms.
+* from 4.2.6p2-RC5: Windows port: do not exit in `ntp_timestamp_from_counter()` without first logging the reason.
+* From 4.2.6p1-RC6: Correct Windows port's `refclock_open()` to return 0 on failure not -1.
+* Windows compiling `hints/winnt.html` update from G. Sunil Tej.
+
+* * *
+
+**Linux**
+
+* Eliminate warnings about shadowing global "basename" on Linux.
+* Remove "signal_no_reset: signal 17 had flags 4000000" logging, as it indicates no problem and is interpreted as an error.  Previously some bits had been ignored one-by-one, but Linux `SA_RESTORER` definition is unavailable to user headers.
+
+* * *
 
 **unit tests**
-* Add unit tests for msnprintf().
-* Add more unit tests for timeval_tostr() and timespec_tostr().
-* Fix tvalops.cpp unit test failures for 32-bit builds.
+
+* Add unit tests for `msnprintf()`.
+* Add more unit tests for `timeval_tostr()` and `timespec_tostr()`.
+* Fix `tvalops.cpp` unit test failures for 32-bit builds.
 * Unit tests extended for hard-coded system time.
 
-**configure.ac**
-* Remove extra 'nlist' check from configure.ac.
-* Clean up configure.ac.
-* Cleanup configure.ac's TSYNC PCI section.
-* from 4.2.6p3-RC12: Clean up m4 quoting in configure.ac, *.m4 files, resolving intermittent AC_LANG_PROGRAM possibly undefined errors.
+* * *
 
 * Pass the configuration source into the parser as argument rather than through a global variable.
 * Quiet warnings from ntp_calendar.h: avoid using argument names.
 * Fix a variable lifetime issue.
-* FlexeLint cleanups.
 * In ntp_dir_sep.m4, we care about $host_os, not $target_os.
 * Add check for enable stats to ntpd/complete.conf.in
-* Cleanup to the new scripts/*/Makefile.am files.
-* Incorporate Oliver Kindernay's GSoC 2013 scripts/ cleanup.
 * Remove \n's from syslog output strings.
 * Have NTP_LIBNTP check for time.h and clock_getres().
 * Cleanup to ntpsnmpd-opts.def.
@@ -1947,14 +2036,11 @@ type: archives
 * Cleanup to ntp.conf.def.
 * Update the copyright year.
 * Create agtexi-file.tpl.
-* More cleanup to the bootstrap script.
-* Handle additional man page sections in the bootstrap script.
 * Remove extraneous parens.
 * Add a missing "%s" syslog format string.
 * Distribute ntp.conf.def and ntp.keys.def.
 * Potential bugfix for agtexi-cmd.tpl.
 * Look for syslog's facilitynames[].
-* Fix && -> & typo in refclock_palisade.c debug statements.
 * Cleanup kclk_sel240x.o rules in libparse/Makefile.am.
 * Conditionalize msyslog messages about rejected mode 6 requests due to nomodify and nomrulist restrictions under "logconfig +sysinfo".
 * Increment sys_restricted in a few rejection paths due to nomodify restrictions where previosuly overlooked.
@@ -1963,13 +2049,10 @@ type: archives
 * When linking, ntp_keygen and tickadj need $(LIBM).
 * Correct authnumfreekeys accounting broken in 4.2.7p262.
 * LCRYPTO is gone - replace with VER_SUFFIX.
-* Avoid overwriting user variable LDFLAGS with OpenSSL flags, instead they are added to LDFLAGS_NTP.
 * Improve ntpd scalability for servers with many trusted keys.
-* Fix the check-scm-rev invocation in several Makefile.am's.
 * Update one of the license URLs.
 * Fix build break triggered by updating deps-ver and libntp/systime.c at the same time by explicitly depending systime_s.c on systime.c.
 * Refactor timespecops.h and timevalops.h into inline functions.
-* Updates from 4.2.6p5.
 * Floor peer delay using system precision, as with jitter, reflecting inability to measure shorter intervals.
 * from 4.2.6p5-RC3: Ensure NULL peer->dstadr is not accessed in orphan parent selection.
 * from 4.2.6p5-RC2: Exclude not-yet-determined sys_refid from use in loopback TEST12 (from Dave Mills).
@@ -1981,35 +2064,16 @@ type: archives
 * Update the NEWS file so we note the default disable of mode 7 requests.
 * Clean up some bitrotted code in libntp/socket.c.
 * Directly limit the number of datagrams in a mrulist response, rather than limiting the number of entries returned to indirectly limit the datagram count.
-* A number of compiler warnings eliminated.
 * Log signal description along with number on ntpd exit.
 * Send all peer variables to trappers in report_event().
-* Sync with ntp-4.2.6p4 (a no-op).
 * Fix the CLOCK_MONOTONIC TRACE() message.
 * Cleanups for ntp-wait-opts.def and ntp.keys.def.
 * Actually use long long for (u_)int64 by correcting spelling of SIZEOF_LONG_LONG in ntp_types.h.
 * Correct init_logging()'s def_syslogmask type to u_int32 following change of ntp_syslogmask from u_long to u_int32 in p202.
-* Sync with 4.2.6p4-RC2.
-* Do not force "legacy" when --with-locfile is not given, genLocInfo will find the correct default for the system.
-* DEFAULT INSTALLATION DIRECTORY CHANGES ON SOME OSes: to get the old behavior, pass --with-locfile=legacy to 'configure'
-* Give NTP_LOCINFO an optional path-to argument.
-* Improve the help text: --with-locfile=XXX .
-* work around solaris /bin/sh issues for genLocInfo.
 * Add support for installing programs and scripts to libexec.
 * Match addr_eqprefix() sizeof and memcpy destination to make it clear to static analysis that there is no buffer overrun (CID 402).
 * ntp-wait: some versions of ntpd spell "associd" differently.
 * Update .point-changed-filelist for the new man pages.
-* Update the building of OS-specific programs.
-* Finish conversion to genLocInfo.
-* validate MANTAGFMT in genLocInfo.
-* ntp_locs.m4: handle the case where . is not in the PATH.
-* More genLocInfo cleanup.
-* Added ntp_locs.m4.
-* genLocInfo improvements.
-* Add the man page tag "flavor" to the loc.* files.
-* Add/distribute genLocInfo.
-* Added loc.freebsd (and distribute it).
-* Added loc.legacy (and distribute it).
 * Update .point-changed-filelist .
 * Upgrade local autoopts templates to 5.11.10pre5.
 * Update the std_def_list to include the ntp.lic file.
@@ -2025,8 +2089,6 @@ type: archives
 * Repair a few simulator problems (more remain).
 * Use 64-bit scalars in LFPTOD() and DTOLFP() on more platforms by conditionalizing on HAVE_U_INT64 rather than UINT64_MAX.
 * Convert receive buffer queue from doubly-linked list to FIFO.
-* Use acts_close() in acts_shutdown() to avoid leaving a stale lockfile if unpeered via runtime configuration while the modem is open.
-* Correct acts_close() test of pp->io.fd to see if it is open.
 * 4.2.7p164 documentation updates re: 'tos orphanwait' expanded scope.
 * Change "pool DNS" messages from msyslog to debug trace output.
 * Remove unused FLAG_SYSPEER from peer->status.
@@ -2036,10 +2098,6 @@ type: archives
 * Fix leak in refclock_datum.c start failure path.
 Coverity Scan cleanups and error checking fixes.
 * Detect vsnprintf() support for "%m" and disable our "%m" expansion.
-* Add --enable-c99-sprintf to configure args for -noopenssl variety of flock-build to avoid regressions in (v)snprintf() replacement.
-* Log failure to fetch time from HOPF_P hardware.
-* Check HOPF_S sscanf() conversion count before converted values.
-* Remove never-used, incomplete ports/winnt/ntpd/refclock_trimbledc.[ch]
 * On systems without C99-compliant (v)snprintf(), use C99-snprintf replacements (http://www.jhweiss.de/software/snprintf.html)
 * Remove remaining sprintf() calls except refclock_ripencc.c (which is kept out of --enable-all-clocks as a result), upstream libs which use sprintf() only after careful buffer sizing.
 * ntp_crypto.c string buffer safety.
@@ -2047,9 +2105,6 @@ Coverity Scan cleanups and error checking fixes.
 * String buffer safety cleanup, converting to strlcpy() and strlcat().
 * Use utmpname() before pututline() so repeated steps do not accidentally record into wtmp where utmp was intended.
 * Use setutent() before each pututline() including first.
-* Remove kernel line discipline driver code for clk and chu, deprecate related LDISC_ flags, and remove associated ntpd code to decode the timestamps, remove clktest line discipline test program.
-* Compare entire timestamp to reject duplicates in refclock_pps().
-* Add --disable-thread-support to one flock-build variation.
 * One more lock-while-init in lib/isc/task.c to quiet lock analysis.
 * Use TRACE() instead of DPRINTF() for libntp and utilities, which use the "debug" variable regardless of #ifdef DEBUG.
 * Declare debug in libntp instead of each program.  Expose extern declaration to utilities, libntp, and DEBUG ntpd.
@@ -2061,10 +2116,8 @@ Coverity Scan cleanups and error checking fixes.
 * Correct Solaris 2.1x PTHREAD_ONCE_INIT extra braces test to avoid triggering warnings due to excess braces.
 * Provide bug report and URL options to Autoconf.
 * older autoconf sometimes dislikes [].
-* refclock_acts.c cleanup from Dave Mills.
 * Move blocking worker and resolver to libntp from ntpd.
 * Use threads rather than forked child processes for blocking worker when possible.  Override with configure --disable-thread-support.
-* Avoid invoking config.status twice in a row in build script.
 * Move more m4sh tests needed by libntp to shared .m4 files.
 * Split up ntp_libntp.m4 into smaller, more specific subsets.
 * Enable gcc -Wcast-align, fix many instances of warnings when casting a pointer to a more-strictly-aligned underlying type.
@@ -2076,27 +2129,14 @@ Coverity Scan cleanups and error checking fixes.
 * Grow ntpd/work_thread.c arrays as needed.
 * Add DEBUG_* variants of ntp_assert.h macros which compile away using ./configure --disable-debugging.
 * Return to a single autoreconf invocation in ./bootstrap script.
-* Fix warnings seen on FreeBSD 9.
 * crypto group changes from Dave Mills.
 * Lose the RANGEGATE check in PPS, from Dave Mills.
 * added timespecops.{c,h} and tievalops.{c.h} to libntp and include added tspecops.cpp to tests/libntp
-* Correct msyslog.c build break on Solaris 2.9 from #ifdef/#if mixup.
-* Fix check for -lipv6 on HP-UX 11.
-* Fix for openssl pkg-config detection eval failure.
 * Add erealloc_zero(), refactor estrdup(), emalloc(), emalloc_zero() to separate tracking callsite file/line from using debug MS C runtime, and to reduce code duplication.
-* Default to silent make rules, override with make V=1 or ./configure --disable-silent-rules.
-* Correct --with-openssl-incdir defaulting with pkg-config.
-* Correct ./build on systems without gtest available.
 * Begin moving some of the low-level socket stuff to libntp.
-* Use make V=0 in build script to increase signal/noise ratio.
-* Default --with-openssl-libdir and --with-openssl-incdir to the values from pkg-config, falling back on our usual search paths if pkg-config is not available or does not have openssl.pc on PKG_CONFIG_PATH.
-* Change refclock_open() to return -1 on failure like open().
-* Update all refclock_open() callers to check for fd <= 0 indicating failure, so they work with older and newer refclock_open() and can easily backport.
-* make V=0 and configure --enable-silent-rules supported.
 * Remove nearly all strcpy() and most strcat() from NTP distribution.
   - One major pocket remains in ntp_crypto.c.  libopts & libisc also have (safe) uses of strcpy() and strcat() remaining.
 * Autokey multiple identity group improvements from Dave Mills.
-* refclock_acts.c updates from Dave Mills.
 * from 4.2.6p3: Update genCommitLog for the bk-5 release.
 * from 4.2.6p3: Update bk triggers for the bk-5 release.
 * Support for multiple Autokey identity groups from Dave Mills.
@@ -2107,17 +2147,11 @@ Coverity Scan cleanups and error checking fixes.
   - Use setsockopt(IP[V6]_MULTICAST_IF) before each send to multicast to select the local source address, using the correct socket is not enough.
 * "server ... ident <groupname>" changes from Dave Mills.
 * An almost complete rebuild of the initial loopfilter configuration process, including the code that determines the interval between frequency file updates, from Dave Mills.
-* JJY driver improvements for Tristate JJY01/02, including changes to its clockstats format.
 * Add "nonvolatile" ntp.conf directive to control how often the driftfile is written.
 * Correct frequency estimate with no drift file, from David Mills.
 * Refactor calendar functions in terms of new common code.
 * Include Linus Karlsson's GSoC 2010 testing code.
-* from 4.2.6p3-RC8: First cut at using scripts/checkChangeLog.
 * refinements to new startup behavior from David Mills.
-* For the bootstrap script, touch .html files last.
-* Add 'make check' test case that would have caught [Bug 1678].
-* Clean up missing ;; entries in configure.ac.
-* from 4.2.6p3-RC7: Added scripts/checkChangeLog.
 * Fix from Dave Mills for a rare singularity in clock_combine().
 * Remove unused 'bias' configuration keyword.
 * Remove 'calldelay' and 'sign' remnants from parser, ntp_config.c.
@@ -2130,12 +2164,9 @@ Coverity Scan cleanups and error checking fixes.
 * More Initial convergence improvements from Dave Mills.
 * Cleanup NTP_LIB_M.
 * Use AC_SEARCH_LIBS instead of AC_CHECK_LIB for NTP_LIB_M.
-* Avoid race with parallel builds using same source directory in scripts/genver by using build directory for temporary files.
 * Typo fix in a comment in ntp_proto.c.
 * clock_filter()/reachability fixes from Dave Mills.
 * Rewrite of multiprecision macros in 'ntp_fp.h' from J. Perlinger
-* configure.ac: add --disable-autokey, #define AUTOKEY to enable future support for building without Autokey, but with OpenSSL for its digest
-  algorithms (hash functions).  Code must be modified to use #ifdef AUTOKEY instead of #ifdef OPENSSL where appropriate to complete this.
 * include/ntp_crypto.h: make assumption AUTOKEY implies OPENSSL explicit.
 * from 4.2.6p2-RC3: Simplify hash client code by providing OpenSSL EVP_*() API when built without OpenSSL.  (already in 4.2.7)
 * Update the ChangeLog entries when merging items from -stable.
@@ -2165,16 +2196,12 @@ Coverity Scan cleanups and error checking fixes.
 * Move ntp_restrict.c MRU doubly-linked list maintenance code into ntp_lists.h macros, allowing more duplicated source excision.
 * Repair ntpdate.c to no longer test HAVE_TIMER_SETTIME.
 * Do not reference peer_node/unpeer_node after freeing when built with --disable-saveconfig and using DNS.
-* From 4.2.6p1-RC6: Correct CHU, dumbclock, and WWVB drivers to check for 0 returned from refclock_open() on failure.
-* From 4.2.6p1-RC6: Correct "SIMUL=4 ./flock-build -1" to prioritize -1/--one.
 * Use all addresses for each restrict by hostname.
 * Use async DNS to resolve trap directive hostnames.
 * Stop using getaddrinfo() to convert numeric address strings to on-wire addresses in favor of is_ip_address() alone.
 * Attempts to cure CID 108 CID 118 CID 119 TAINTED_SCALAR warnings.
 * Broaden ylwrap workaround VPATH_HACK to all non-GNU make.
-* Include 4.2.6p1-RC4: Remove arlib.
 * Include 4.2.6p1: Convert many sprintf() calls to snprintf(), also strcpy(), strcat().
 * Include 4.2.6p1: Remove some dead code checking for emalloc() returning NULL.
 * New async DNS resolver in ntpd allows nonblocking queries anytime, instead of only once at startup.
 * Include 4.2.6p1-RC3: Use TZ=UTC instead of TZ= when calling date in scripts/mkver.in .
-* Include 4.2.6p1-RC2
