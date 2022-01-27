@@ -8,7 +8,7 @@ The NTP Project at Network Time Foundation publicly released ntp-4.2.8p13 on Tue
 
 This release improves on one security issue in `ntpd`:
 
-* **LOW/MEDIUM: [3012: Sybil vulnerability: ephemeral association attack](/support/securitynotice/ntpbug3012)**
+* **LOW/MEDIUM: [3012: Sybil vulnerability: ephemeral association attack](/support/securitynotice/ntpbug3012p12)**
   * While fixed in ntp-4.2.8p7 and with significant additional protections for this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in the new noepeer support.
   * Originally reported by Matt Van Gundy of Cisco. Edge-case hole reported by Martin Burnicki of Meinberg. 
 
@@ -27,5 +27,3 @@ ENotification of these issues were delivered to our Institutional members on a r
 
 * 2018 Aug 14: Public release
 * 2018 Jul 25: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
-* : Notification from reporter 

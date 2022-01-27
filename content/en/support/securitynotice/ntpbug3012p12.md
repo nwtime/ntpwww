@@ -18,7 +18,7 @@ date: "2018-08-14"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3012">Bug 3012</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170">CVE-2018-7170</a><br> While fixed in ntp-4.2.8p7 and with significant additional protections for this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in the new noepeer support. Refer to <a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-1549">CVE-2016-1549</a> / <a href="https://www.kb.cert.org/vuls/id/718152">VU#718152</a> for additional info. </td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170">CVE-2018-7170</a><br> While fixed in ntp-4.2.8p7 and with significant additional protections for this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in the new <code>noepeer</code> support. Refer to <a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-1549">CVE-2016-1549</a> for additional info. </td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -67,5 +67,3 @@ This weakness was originally discovered by Matthew Van Gundy of Cisco ASIG. The 
 
 * 2018 Aug 14: Public release
 * 2018 Jul 25: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
-* : Notification from reporter

@@ -38,5 +38,3 @@ ENotification of these issues were delivered to our Institutional members on a r
 * 2018 Feb 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
 * 2018 Feb 07: Regressions reported for FIPS and multicast mode.
 * 2018 Feb 05: Bugs [3453](/support/securitynotice/ntpbug3453) and [3454](/support/securitynotice/ntpbug3454) reported.
-* 2018 Jan 23: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
-* : Notification from reporter 
