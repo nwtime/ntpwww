@@ -47,7 +47,7 @@ type: archives
 | 2015 Jan 2 | 4.2.8p1-beta3 | [4.2.8p1-beta3](/support/securitynotice/4_2_8-series-changelog/#428p1-beta3) |  | 8 bugs |
 | 2014 Dec 27 | 4.2.8p1-beta2 | [4.2.8p1-beta2](/support/securitynotice/4_2_8-series-changelog/#428p1-beta2) |  | 4 bugs |
 | 2014 Dec 23 | 4.2.8p1-beta1 | [4.2.8p1-beta1](/support/securitynotice/4_2_8-series-changelog/#428p1-beta1) | 1 | 3 bugs |
-| 2014 Dec 19|[4.2.8](/support/securitynotice/4_2_8-release-announcement) | [4.2.8](/support/securitynotice/4_2_8-series-changelog/#428) | 6 <span style="color:red">HIGH</span> | 500 bugs<br>  improvements |
+| 2014 Dec 19|[4.2.8](/support/securitynotice/4_2_8-release-announcement) | [4.2.8](/support/securitynotice/4_2_8-series-changelog/#428) | 6 <span style="color:red">HIGH</span> | 500 bugs<br> 466 improvements |
 
 * * *
 
@@ -59,12 +59,12 @@ type: archives
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
-| 2011 Dec 24 | 4.2.6p5 | | | 12 |
-| 2011 Sep 22|[4.2.6p4](/support/securitynotice/4_2_6p4-release-announcement) | | | 23 |
-| 2011 Jan 3|[4.2.6p3](/support/securitynotice/4_2_6p3-release-announcement) | | | 40 |
-| 2010 Jul 9|[4.2.6p2](/support/securitynotice/4_2_6p2-release-announcement) | | | 10 |
-| 2010 Apr 9|[4.2.6p1](/support/securitynotice/4_2_6p1-release-announcement) | | | 5 |
-| 2009 Dec 9|[4.2.6](/support/securitynotice/4_2_6-release-announcement) | | 1 HIGH | |
+| 2011 Dec 24 | 4.2.6p5 | [4.2.6p5](/support/securitynotice/4_2_6-series-changelog/#426p5) | | 11 bugs<br> 3 improvements |
+| 2011 Sep 22|[4.2.6p4](/support/securitynotice/4_2_6p4-release-announcement) | [4.2.6p4](/support/securitynotice/4_2_6-series-changelog/#426p4) | | 20 bugs<br> 9 improvements |
+| 2011 Jan 3|[4.2.6p3](/support/securitynotice/4_2_6p3-release-announcement) | [4.2.6p3](/support/securitynotice/4_2_6-series-changelog/#426p3) | | 53 bugs<br> 19 improvements |
+| 2010 Jul 9|[4.2.6p2](/support/securitynotice/4_2_6p2-release-announcement) | [4.2.6p2](/support/securitynotice/4_2_6-series-changelog/#426p2) | | 23 bugs<br> 8 improvements |
+| 2010 Apr 9|[4.2.6p1](/support/securitynotice/4_2_6p1-release-announcement) | [4.2.6p1](/support/securitynotice/4_2_6-series-changelog/#426p1) | | 41 bugs<br> 10 improvements |
+| 2009 Dec 9|[4.2.6](/support/securitynotice/4_2_6-release-announcement) | [4.2.6](/support/securitynotice/4_2_6-series-changelog/#426) | 1 <span style="color:red">HIGH</span> | 194 bugs<br> 167 improvements|
 
 * * *
 
