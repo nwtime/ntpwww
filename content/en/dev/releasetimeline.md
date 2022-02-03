@@ -83,7 +83,7 @@ type: archives
 | 2007 Aug 28 | 4.2.4p4 | [4.2.4p4](/support/securitynotice/4_2_4-series-changelog/#424p4)| | 8 bugs<br> 2 improvements |
 | 2007 Jun 29 |[ 4.2.4p3](/support/securitynotice/4_2_4p3-release-announcement) | [4.2.4p3](/support/securitynotice/4_2_4-series-changelog/#424p3)| | 1 bug |
 | 2007 Jun 20 | [4.2.4p2](/support/securitynotice/4_2_4p2-release-announcement) | [4.2.4p2](/support/securitynotice/4_2_4-series-changelog/#424p2)| | 10 bugs<br> 2 improvements |
-| 2007 Mar 7 | [4.2.4p0](/support/securitynotice/4_2_4p0-release-announcement) | [4.2.4p0](/support/securitynotice/4_2_4-series-changelog/#424p9)| | 8 bugs<br> 2 improvements|
+| 2007 Mar 7 | [4.2.4p0](/support/securitynotice/4_2_4p0-release-announcement) | [4.2.4p0](/support/securitynotice/4_2_4-series-changelog/#424p0)| | 8 bugs<br> 2 improvements|
 | 2006 Dec 18 | [4.2.4](/support/securitynotice/4_2_4-release-announcement) | [4.2.4](/support/securitynotice/4_2_4-series-changelog/#424)| | 57 bugs<br> 8 improvements|
 
 * * *
@@ -96,11 +96,11 @@ type: archives
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
-| 2006 Oct 15 | [4.2.2p4](/support/securitynotice/4_2_2p4-release-announcement) | |  | 2 (bugs) |
-| 2006 Aug 5 | [4.2.2p3](/support/securitynotice/4_2_2p3-release-announcement) | | | 2 (bugs)<br> 4 improvements)|
-| 2006 Jul 9 | [4.2.2p2](/support/securitynotice/4_2_2p2-release-announcement) | | | 1 |
-| 2006 Jul 9 | [4.2.2p1](/support/securitynotice/4_2_2p1-release-announcement) | | | 6 (bugs)<br> 6 (improvements) |
-| 2006 Jun 8 | [4.2.2](/support/securitynotice/4_2_2-release-announcement) |  || 2 (bugs)<br> 7 (improvements) |
+| 2006 Oct 15 | [4.2.2p4](/support/securitynotice/4_2_2p4-release-announcement) |[4.2.2p4](/support/securitynotice/4_2_2-series-changelog/#422p4)|  | 2 bugs |
+| 2006 Aug 5 | [4.2.2p3](/support/securitynotice/4_2_2p3-release-announcement) | [4.2.2p3](/support/securitynotice/4_2_2-series-changelog/#422p3)| | 2 bugs<br> 4 improvements|
+| 2006 Jul 9 | [4.2.2p2](/support/securitynotice/4_2_2p2-release-announcement) | [4.2.2p2](/support/securitynotice/4_2_2-series-changelog/#422p2)| | 1 improvement |
+| 2006 Jul 9 | [4.2.2p1](/support/securitynotice/4_2_2p1-release-announcement) | [4.2.2p1](/support/securitynotice/4_2_2-series-changelog/#422p1)| | 6 bugs<br> 6 improvements |
+| 2006 Jun 8 | [4.2.2](/support/securitynotice/4_2_2-release-announcement) | [4.2.2](/support/securitynotice/4_2_2-series-changelog/#422) || 2 bugs<br> 7 improvements |
 
 * * *
 
