@@ -581,7 +581,7 @@ type: archives
 * [Sec 2938: ntpq saveconfig command allows dangerous characters in filenames](/support/securitynotice/ntpbug2938)
 * [Sec 2939: reslist NULL pointer dereference](/support/securitynotice/ntpbug2939)
 * [Sec 2940: Stack exhaustion in recursive traversal of restriction list](/support/securitynotice/ntpbug2940)
-* [Sec 2942:: Off-path DoS attack on auth broadcast mode](/support/securitynotice/ntpbug2942)
+* [Sec 2942: Off-path DoS attack on auth broadcast mode](/support/securitynotice/ntpbug2942)
 * [Sec 2945: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug2945)
 * [Sec 2948: Potential Infinite Loop in ntpq ( and ntpdc)](/support/securitynotice/ntpbug2948)
 * [Bug 2772: adj_systime overflows tv_usec](https://bugs.ntp.org/show_bug.cgi?id=2772)
@@ -668,6 +668,7 @@ type: archives
 
 **Release Date:** 2015 Oct 21
 
+* [Sec 1918: TALOS-CAN-0062: prevent directory traversal for VMS, too, when using `saveconfig` command](/support/securitynotice/ntpbug2918)
 * [Sec 2899: CVE-2014-9297](/support/securitynotice/ntpbug2899)
 * [Sec 2901: Drop invalid packet before checking KoD. Check for all KoDs](/support/securitynotice/ntpbug2901)
   - Log incoming packets that fail TEST2.
@@ -676,9 +677,8 @@ type: archives
 * [Sec 2913: TALOS-CAN-0052: crash by loop counter underrun](/support/securitynotice/ntpbug2913)
 * [Sec 2916: TALOS-CAN-0054: memory corruption in password store](/support/securitynotice/ntpbug2916)
 * [Sec 2917: TALOS-CAN-0055: Infinite loop if extended logging enabled and the logfile and keyfile are the same](/support/securitynotice/ntpbug2917)
-* [Sec 1918: TALOS-CAN-0062: prevent directory traversal for VMS, too, when using `saveconfig` command](/support/securitynotice/ntpbug2918)
-* [Bug 2919: TALOS-CAN-0063: avoid buffer overrun in ntpq](/support/securitynotice/ntpbug2919)
-* [Sec 2020: TALOS-CAN-0064: signed/unsiged clash could lead to buffer overun and memory corruption](/support/securitynotice/ntpbug2020)
+* [Sec 2919: TALOS-CAN-0063: avoid buffer overrun in ntpq](/support/securitynotice/ntpbug2919)
+* [Sec 2920: TALOS-CAN-0064: signed/unsiged clash could lead to buffer overun and memory corruption](/support/securitynotice/ntpbug2920)
 * [Sec 2921: TALOS-CAN-0065: password length memory corruption](/support/securitynotice/ntpbug2921)
 * [Sec 2922: decodenetnum() will ASSERT botch instead of returning FAIL on some bogus values](/support/securitynotice/ntpbug2922)
 * [Sec 2941: NAK to the Future: Symmetric association authentication bypass via crypto-NAK](/support/securitynotice/ntpbug2941)
@@ -1062,7 +1062,7 @@ type: archives
 
 **Release Date:** 2014 Dec 19
 
-* [Sec 730: Increase `RSA_generate_key` modulus](/support/securitynotice/ntpbug730)
+* [Sec 730: Increase `RSA_generate_key` modulus](https://bugs.ntp.org/show_bug.cgi?id=730) / [CVE-2006-4339](https://nvd.nist.gov/vuln/detail/CVE-2006-4339)
 * [Sec 2666: Use cryptographic random numbers for md5 key generation](/support/securitynotice/ntpbug2666)
 * [Sec 2667: buffer overflow in `crypto_recv()`](/support/securitynotice/ntpbug2667)
 * [Sec 2668: buffer overflow in `ctl_putdata()`](/support/securitynotice/ntpbug2668)
@@ -1070,9 +1070,9 @@ type: archives
 * [Sec 2670: Missing return; from error clause](/support/securitynotice/ntpbug2670)
 * [Sec 2671: `vallen` in extension fields are not validated](/support/securitynotice/ntpbug2671)
 * [Sec 2672: On some OSes ::1 can be spoofed, bypassing source IP ACLs](/support/securitynotice/ntpbug2672)
-* [Sec 2630: buffer overrun in `ntpq tokenize()`](/support/securitynotice/ntpbug2630)
+* [Sec 2630: buffer overrun in `ntpq tokenize()`](https://bugs.ntp.org/show_bug.cgi?id=2630)
   - Limit the `ntpq` command buffer to 512 bytes.
-* [Sec 2542: Strengthen the `mrulist` nonce](/support/securitynotice/ntpbug2542)
+* [Sec 2542: Strengthen the `mrulist` nonce](https://bugs.ntp.org/show_bug.cgi?id=2542)
 
 * * *
 
