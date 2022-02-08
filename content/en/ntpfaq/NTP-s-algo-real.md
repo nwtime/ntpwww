@@ -34,7 +34,7 @@ NTP likes to estimate the errors of all clocks. Therefore all NTP servers return
 
 [The 1999 survey](/reflib/reports/ntp-survey99-minar.pdf) suggests that not all NTP servers work as designed in theory. In fact there was a high percentage of stratum-1 servers with a bad time. Over 30% of the active stratum-1 servers had a clock error of over 10 seconds, and a few even had an error of more than a year. The author of the survey says: "Only 28% of the stratum 1 clocks found appear to actually be useful."
 
-Time sources that are reachable and have a _dispersion_ smaller than the maximum become _candidates_ for time synchronization, thus contributing an error interval. In [RFC 1305](/reflib/rfc/rfc1305/rfc1305.pdf) section 4.2 the algorithms are treated in greater detail.
+Time sources that are reachable and have a _dispersion_ smaller than the maximum become _candidates_ for time synchronization, thus contributing an error interval. In [RFC 1305](/reflib/rfc/rfc1305/rfc1305b.pdf) section 4.2 the algorithms are treated in greater detail.
 
 If these candidates pass another validation test, they become _survivors_. Basically all values must lie within the error interval the majority of candidates defines. All other time sources are called _falsetickers_ subsequently.
 

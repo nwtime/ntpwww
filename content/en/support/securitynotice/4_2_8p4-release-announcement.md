@@ -10,7 +10,7 @@ NTF's NTP Project has been notified of the following 13 low- and medium-severity
 * [2922: decodenetnum() will ASSERT botch instead of returning FAIL on some bogus values](/support/securitynotice/ntpbug2922) / [CVE-2015-7855](https://nvd.nist.gov/vuln/detail/CVE-2015-7855) (IDA)
 * [2921: Password Length Memory Corruption Vulnerability](/support/securitynotice/ntpbug2921) / [CVE-2015-7854](https://nvd.nist.gov/vuln/detail/CVE-2015-7854) (Cisco TALOS)
 * [2920: Invalid length data provided by a custom refclock driver could cause a buffer overflow](/support/securitynotice/ntpbug2920) / [CVE-2015-7853](https://nvd.nist.gov/vuln/detail/CVE-2015-7853) (Cisco TALOS)
-* [2919: ntpq atoascii() Memory Corruption Vulnerability](/support/securitynotice/ntpbug) / [CVE-2015-7852](https://nvd.nist.gov/vuln/detail/CVE-2015-7852) (Cisco TALOS)
+* [2919: ntpq atoascii() Memory Corruption Vulnerability](/support/securitynotice/ntpbug2919) / [CVE-2015-7852](https://nvd.nist.gov/vuln/detail/CVE-2015-7852) (Cisco TALOS)
 * [2918: saveconfig Directory Traversal Vulnerability](/support/securitynotice/ntpbug2918) / [CVE-2015-7851](https://nvd.nist.gov/vuln/detail/CVE-2015-7851) (OpenVMS) (Cisco TALOS)
 * [2917: remote config logfile-keyfile](/support/securitynotice/ntpbug2917) / [CVE-2015-7850](https://nvd.nist.gov/vuln/detail/CVE-2015-7850) (Cisco TALOS)
 * [2916: trusted key use-after-free](/support/securitynotice/ntpbug2916) / [CVE-2015-7849](https://nvd.nist.gov/vuln/detail/CVE-2015-7849) (Cisco TALOS)
@@ -41,6 +41,6 @@ Additionally, three bugs that have already been fixed in ntp-4.2.8 but were not 
 * 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
 * 2015 Aug 26: Initial notification of [2909](/support/securitynotice/ntpbug2909); analysis begins
 * 2015 Aug 26: CVE number clarification requested from Mitre
-* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits) for [1593](/support/securitynotice/ntpbug1593), [1774](/support/securitynotice/ntpbug1774), [2382](/support/securitynotice/ntpbug2382), [2899](/support/securitynotice/ntpbug2899), and [2902](/support/securitynotice/ntpbug2902)
+* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899), and [2902](/support/securitynotice/ntpbug2902)
 * 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902); analysis begins
 * 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899); analysis begins
