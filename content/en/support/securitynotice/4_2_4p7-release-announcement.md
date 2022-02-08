@@ -11,9 +11,9 @@ NTP Project, is now available.
 
 #### Security Updates
 
-* [1144: limited (two byte) buffer overflow in ntpq](/support/securitynotice/ntpbug1144) / [CVE-2009-0159](https://nvd.nist.gov/vuln/detail/CVE-2009-0159)
+* [1144: limited (two byte) buffer overflow in ntpq](https://bugs.ntp.org/show_bug.cgi?id=1144) / [CVE-2009-0159](https://nvd.nist.gov/vuln/detail/CVE-2009-0159)
   Credit for finding this vulnerability goes to Geoff Keating of Apple.
-* [1149: use SO_EXCLUSIVEADDRUSE on Windows](/support/securitynotice/ntpbug1149)
+* [1149: use SO_EXCLUSIVEADDRUSE on Windows](https://bugs.ntp.org/show_bug.cgi?id=1149)
   Credit for finding this issue goes to Dave Hart.
 * [1151: Remote exploit if autokey is enabled](/support/securitynotice/ntpbug1151) / [CVE-2009-1252](https://nvd.nist.gov/vuln/detail/CVE-2009-1252)
 

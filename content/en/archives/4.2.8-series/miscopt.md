@@ -97,7 +97,7 @@ While not strictly a security function, the Autokey protocol provides means to s
 
 <code>**leapsmearinterval _seconds_**</code>
 
-: This EXPERIMENTAL option is only available if <code>ntpd</code> was built with the <code>-\-enable-leap-smear</code> option to the <code>configure</code> script. It specifies the interval over which a leap second correction will be applied. Recommended values for this option are between 7200 (2 hours) and 86400 (24 hours). **DO NOT USE THIS OPTION ON PUBLIC-ACCESS SERVERS!** See http://bugs.ntp.org/2855 for more information.
+: This EXPERIMENTAL option is only available if <code>ntpd</code> was built with the <code>-\-enable-leap-smear</code> option to the <code>configure</code> script. It specifies the interval over which a leap second correction will be applied. Recommended values for this option are between 7200 (2 hours) and 86400 (24 hours). **DO NOT USE THIS OPTION ON PUBLIC-ACCESS SERVERS!** See [Bug 2855](https://bugs.ntp.org/show_bug.cgi?id=2855) for more information.
 
 <code>**logconfig _configkeyword_**</code>
 
