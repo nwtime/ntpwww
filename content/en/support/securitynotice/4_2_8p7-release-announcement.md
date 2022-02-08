@@ -24,7 +24,7 @@ NTF's NTP Project has been notified of the following 4 low- and 7 medium-severit
   * Reported  by Miroslav Lichvar of RedHat and separately by Jonathan Gardner of Cisco ASIG 
 * [2952: KoD fix: peer associations were broken by the fix for 2901](/support/securitynotice/ntpbug2952) / [CVE-2015-7704](https://nvd.nist.gov/vuln/detail/CVE-2015-7704) AKA: Symmetric active/passive mode is broken
   * Reported  by Michael Tatarinov, NTP Project Developer Volunteer 
-* [2945](/support/securitynotice/ntpbug) / [2901: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug2945) / [CVE-2015-8138](https://nvd.nist.gov/vuln/detail/CVE-2015-8138) AKA: Additional KoD Checks
+* [2945](/support/securitynotice/ntpbug2945) / [2901: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug2901) / [CVE-2015-8138](https://nvd.nist.gov/vuln/detail/CVE-2015-8138) AKA: Additional KoD Checks
   * Reported  by Jonathan Gardner of Cisco ASIG 
 * [2879: Improve NTP security against buffer comparison timing attacks, authdecrypt-timing](/support/securitynotice/ntpbug2879) / [CVE-2016-1550](https://nvd.nist.gov/vuln/detail/CVE-2016-1550) AKA: authdecrypt-timing
   * Reported  independently by Loganaden Velvindron, and Matthew Van Gundy and Stephen Gray of Cisco ASIG. 

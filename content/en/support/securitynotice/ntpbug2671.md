@@ -18,7 +18,7 @@ date: "2015-02-04"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2671">Bug 2671</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2014-9297">CVE-2014-9297</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2014-9750">CVE-2014-9750</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

@@ -24,7 +24,7 @@ To help understand the details of planning, configuring, and maintaining NTP, so
    5.1.3.1 [How accurate will my Clock be?](#5131-how-accurate-will-my-clock-be)  
    5.1.3.2 [How frequently will the System Clock be updated?](#5132-how-frequently-will-the-system-clock-be-updated)  
    5.1.3.3 [How frequently are Correction Values updated?](#5133-how-frequently-are-correction-values-updated)  
-   5.1.3.4 [What is the Limit for the Number of Clients?](#5135-what-is-the-limit-for-the-number-of-clients)  
+   5.1.3.4 [What is the Limit for the Number of Clients?](#5134-what-is-the-limit-for-the-number-of-clients)  
 5.1.4 [Robustness](#514-robustness)  
    5.1.4.1 [What is the stratum?](#5141-what-is-the-stratum)  
    5.1.4.2 [How are Synchronization Loops avoided?](#5142-how-are-synchronization-loops-avoided)  

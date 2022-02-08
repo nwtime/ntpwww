@@ -53,7 +53,7 @@ If an NTP network is configured for broadcast operations, then either a man-in-t
 
 #### Credit
 
-This weakness was discovered by [Aanchal Malhotra](aanchal4@bu.edu>) of Boston University.
+This weakness was discovered by [Aanchal Malhotra](mailto:aanchal4@bu.edu) of Boston University.
 
 * * *
 

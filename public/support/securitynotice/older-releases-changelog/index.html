@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
+4.2.0
+4.1.2
+4.1.1
+4.1.0
+4.0.99
+4.0.98
+4.0.97
+4.0.96
+4.0.95
+4.0.94
+4.0.93
+4.0.92
+4.0.91
+4.0.90
+4.0.73
+4.0.72f
+
+
+4.2.0
+Release Date: 2003 Oct 15
+
+Bug …">
+<meta property="og:title" content="Older Releases Changelog" />
+<meta property="og:description" content="4.2.0 4.1.2 4.1.1 4.1.0 4.0.99 4.0.98 4.0.97 4.0.96 4.0.95 4.0.94 4.0.93 4.0.92 4.0.91 4.0.90 4.0.73 4.0.72f   4.2.0 Release Date: 2003 Oct 15
+ Bug 213: Fix Bug 207: ntpdc crashes in monlinst with pre-IPv6 ntpd Bug 205: Prevent a NULL dereference Bug 197: Only check-kayout if we have PATH_PERL Bug 185: Fix compilation error on Tru64 UNIX V4.0F with cc. Bug 182: Clean up Solaris version checks Bug 180: Verify mode 7 packet layout at build time." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/support/securitynotice/older-releases-changelog/" /><meta property="article:section" content="support" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>Older Releases Changelog</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://doc.ntp.org/images/favicon.png " type="image/x-icon">
+</head>
+<body><!-- navigation -->
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/servers">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/support/">NTP Public Time Servers</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/support/securitynotice/">Security</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/support/securitynotice/older-releases-changelog/">Older Releases Changelog</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Older Releases Changelog</h1>
+     
+    <ul>
+<li><a href="#420">4.2.0</a></li>
+<li><a href="#412">4.1.2</a></li>
+<li><a href="#411">4.1.1</a></li>
+<li><a href="#410">4.1.0</a></li>
+<li><a href="#4099">4.0.99</a></li>
+<li><a href="#4098">4.0.98</a></li>
+<li><a href="#4097">4.0.97</a></li>
+<li><a href="#4096">4.0.96</a></li>
+<li><a href="#4095">4.0.95</a></li>
+<li><a href="#4094">4.0.94</a></li>
+<li><a href="#4093">4.0.93</a></li>
+<li><a href="#4092">4.0.92</a></li>
+<li><a href="#4091">4.0.91</a></li>
+<li><a href="#4090">4.0.90</a></li>
+<li><a href="#4073">4.0.73</a></li>
+<li><a href="#4072f">4.0.72f</a></li>
+</ul>
+<hr>
+<h4 id="420">4.2.0</h4>
+<p><strong>Release Date:</strong> 2003 Oct 15</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=213">Bug 213: Fix</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=207">Bug 207: ntpdc crashes in monlinst with pre-IPv6 ntpd</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=205">Bug 205: Prevent a NULL dereference</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=197">Bug 197: Only check-kayout if we have PATH_PERL</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=185">Bug 185: Fix compilation error on Tru64 UNIX V4.0F with cc.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=182">Bug 182: Clean up Solaris version checks</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=180">Bug 180: Verify mode 7 packet layout at build time.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=174">Bug 174: Use Dave&rsquo;s fix.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=168">Bug 168: Rainer Orth: Fix world-writable files</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=164">Bug 164, 165: Make sure NTP mode 7 request and response packets are layed out identically irrespective of 32 vs. 64-bit systems or struct in6_addr
+alignment requirements.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=162">Bug 162: Only link programs with libreadline that use it (ntpdc and ntpq), From Rainer Orth.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=161">Bug 161: Lose -pipe for gcc</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=136">Bug 136: PPS fixes for refclock_jupiter, from pe&hellip;@sectra.se (Peter Ekberg)</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=134">Bug 134: Log when we sync to a new source.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=133">Bug 133: From fr&hellip;@tautology.immanent.net: Handle nonstandard EIA_NODATA return from getaddrinfo()</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=129">Bug 129: Improve and normalize some error messages.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=128">Bug 128: ntpq coredump with IPv6</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=125">Bug 125: Add a missing newline from an fprintf</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=123">Bug 123: Fix build on NetBSD and more portable MD5 conditionalization</a>
+<ul>
+<li>Clean up the includes in <code>a_md5encrypt.c</code>.</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=47">Bug 47: kill_asyncio() now takes 1 parameter - the lowest fd to close.</a></li>
+<li>More stuff than I have time to document</li>
+<li>IPv6 support</li>
+<li>Bugfixes</li>
+<li>call-gap filtering</li>
+<li>wwv and chu refclock improvements</li>
+<li>OpenSSL integration</li>
+<li>Make this build on NetBSD.</li>
+<li>Note that <code>ntp_resolver.c</code> is currently unused in the file.</li>
+<li>Broader support for IPv6 hostnames by <code>ntpdc</code> and <code>ntpq</code>. On NetBSD from NetBSD 1.5 to NetBSD 1.6.1, <code>getaddrinfo()</code> returned <code>EAI_NODATA</code> in some cases where <a href="https://www.rfc-editor.org/rfc/rfc2553">RFC 2553</a> (and now <a href="https://www.rfc-editor.org/rfc/rfc3493">RFC 3493</a>) required <code>EAI_NONAME</code>. Allow for that. The (mis-)interpretation was from the Kame project, so other platforms may be affected as well.</li>
+<li>Cuddle a comment.</li>
+<li>We log the initial state of the kernel discipline, and we log when we lose sync. So to restore parallelism, log when we reacquire sync, too.</li>
+<li>Fix merge botch.</li>
+<li>Simplify (re-enabled -&gt; enabled).</li>
+<li>Move the &ldquo;patching&rdquo; info from <code>README.hackers</code> to <code>README.patches</code>.</li>
+<li>Have <code>README.hackers</code> and <code>README.patches</code> refer to each other.</li>
+<li>Add Win32 support for <code>ntp-keygen</code> and upgrade OpenSSL to 0.9.7b.</li>
+<li><code>kill_asyncio</code> was changed for Unix but not Windows</li>
+<li>Initialize <code>.rnd</code> file if it doesn&rsquo;t exist.</li>
+<li>More cleanup to the <code>refclock_jupiter</code> clock.</li>
+<li>Remove references to IPv6 broadcast</li>
+<li>Replace debug notice - if we squeal when we lose kernel sync, we should also note when it is recovered.</li>
+<li>For BSDs, use <code>setrlimit()</code> to limit the stacksize to something considerably smaller than the default, similarly to what&rsquo;s done on AIX. This was culled from the NetBSD sources. Christos Zoulas gave credit for the patch, in the commit log, to Witold J. Wnuk (against ntp-4.0.99i, 2002-04-18). I&rsquo;ve added a configure-time check for <code>setrlimit()</code>, and I had to up the pages from &ldquo;8&rdquo; to &ldquo;20&rdquo; to keep from dumping core in the resolver. (Apparently, the resolver now uses &ldquo;a lot&rdquo; of stack space to initialize, relatively speaking: the default is something like &ldquo;512&rdquo;, but <code>p_vm_ssize</code> is only about &ldquo;5&rdquo; with the running program at any moment I look at it on both of the hosts I tested.) The bottom line is that it reduces the resident set size by about 2 Mb, from 4.5 Mb, or by about 44%.</li>
+<li>Make this build with pre-C99 compilers, too (which is, most of them!).</li>
+<li>Fix spelling, typos, usage. Mined from NetBSD CVS.</li>
+<li>Miscellaneous changes for Winnt support</li>
+<li>Correct usage, spelling of &ldquo;lose&rdquo;, &ldquo;loses&rdquo;, and &ldquo;losing&rdquo; where appropriate.</li>
+<li>Typo, reported by Michael Rios</li>
+<li>Try again to merge spelling fixes from ntp-stable.</li>
+<li>Corect a couple more misspelings of &ldquo;occurred&rdquo;.</li>
+<li><code>refclock_neoclock4x.c</code>: fix status reporting, update driver to v1.13</li>
+<li>Fix a warning compiling <code>refclock_arc.c</code>.</li>
+<li>Fix Multicast to not set the flag until used. Remove the unnecessary socket-querying code in <code>findinterface</code> and just look up the interface.</li>
+<li>Cleanup from Dave Mills.</li>
+<li>The order of the arguments were wrong.</li>
+<li>Avoid <code>gcc</code> warning, &ldquo;cast discards qualifiers from pointer target type&rdquo;. (Frederick Bruckman)</li>
+<li>Add Danny Mayer to the contributor&rsquo;s list and fix Mark Andrew&rsquo;s address.</li>
+<li><code>driver44.html</code>: Update the URL for the NeoClock4X website</li>
+<li>Autodetect <code>refclock_shm</code> prerequisites. Fix the defaults for the non-parse refclocks.</li>
+<li>assert edge typo fix from Peter Ekberg</li>
+<li>Typo fixes from Martin Burnicki</li>
+<li>Back out the last change but test the local addresses first.</li>
+<li>Fix missing conditional code around check for socket error</li>
+<li>Dave Mills: Fix an old bug, according to spec.</li>
+<li>While I don&rsquo;t know the original reason for using <code>-std1</code> for OSF, <code>-std1</code> is now a lose on 4.0d with a c99 compiler, and <code>AC_PROG_CC_STDC</code> can check for this.</li>
+<li>Call to <code>getaddrinfo</code> in <code>getnetnum</code> was wrong</li>
+<li><code>ntp_crypto.c</code>: In <code>crypto_update()</code> in the loop when an expired certificate has been freed, its cp-&gt;link is still used in the next itteration of the loop. This is bad. :-) FreeBSD-current does not like that at all. This patch is my attempt to fix the problem.</li>
+<li>Clean up some <code>Makefile.am</code> fun.</li>
+<li>Add <code>ss_family</code> support</li>
+<li><code>syslog</code> does <code>%m</code>, not <code>printf</code>.</li>
+<li><code>chu_newchan()</code> is static.</li>
+<li>Clean up some type mismatches.</li>
+<li><code>neol_atoi_len()</code> is static. Clean up some <code>fn</code> definitions.</li>
+<li>Undo <code>findinterface</code> changes</li>
+<li>Update <code>config</code> to check for IP version</li>
+<li>Put back the <code>SOCK_DGRAM</code> hints and the <code>ntp</code> service into <code>getaddrinfo</code>. Remove the <code>freeaddrinfo()</code> when <code>getaddrinfo</code> fails.</li>
+<li>Make the jupiter refclock aware of the year. I.e. don&rsquo;t trust the system clock to have the correct year.</li>
+<li>Default to <code>-4</code> if <code>isc_net_probeipv6()</code> fails.</li>
+<li>Problem deleting keys when rereading them from file.
+<ul>
+<li>Don&rsquo;t crash on odd number of keys in one hash.</li>
+<li>Delete all keys, not just every other key.</li>
+</ul>
+</li>
+<li>Remember all trusted keys in a hash bucket when deleting keys.</li>
+<li><code>auto*</code> magic for <code>ntpdc-layout</code></li>
+<li>Use the <code>Win32InitSockets</code> code now in <code>port/winnt/libisc/net.c</code> so we use common code. Need to force the isc headers to not include the <code>isc/ipv6.h</code> code.</li>
+<li>Use our <code>md5.h</code> header under RedHat. Reported by Reg Clemens.</li>
+<li>Clean up includes</li>
+<li>clean up <code>keyid</code> mess in <code>ntpq</code>.</li>
+<li>Move <code>-lcrypto</code> to its own variable and out of <code>LIBS</code>.</li>
+<li>Correctly remove trailing space from arguments of incoming request variables.</li>
+<li>Fix some problems in <code>layout.std</code> verification.</li>
+<li>Invoke the layout generation script using <code>./nl.pl</code></li>
+<li>Also use <code>CPPFLAGS</code> for <code>nl.c</code>.</li>
+<li>Do <code>readline</code> on NetBSD.</li>
+<li>Another fix for <code>.</code> not in <code>$PATH</code>.</li>
+<li><code>automake</code> subtlety, to permit the bootstrapped sources to build and install with BSD <code>make</code>.</li>
+<li><code>configure.in</code>: Some HP-UX 11.11 systems don&rsquo;t have <code>sockaddr_storage</code> so we can&rsquo;t allow the native IPv6 headers to be used.</li>
+<li>Remove the old <code>ntptrace/</code> code.</li>
+<li>Don&rsquo;t try to create <code>ntptrace/Makefile</code>, now that <code>ntptrace</code> is gone.</li>
+<li><code>peer_unfit()</code> needs to test for <code>FLAG_NOSELECT</code>. From Dave Mills.</li>
+<li>Remove the old <code>ntptrace/Makefile</code> from <code>configure.in</code></li>
+<li><code>ignore</code>: Added <code>firefly.sh include/ntp.patch include/ntp_control.patch include/ntp_request.patch jedi.sh ntpd/ntp_control.patch ntpd/ntp_peer.patch ntpd/ntp_proto.patch ntpd/ntp_request.patch ntpq/ntpq.patch</code> to the <code>ignore</code> list.</li>
+<li><code>ntp_proto.c, ntp_peer.c, ntp_control.c, ntp_control.h, ntp.h</code>: Add rank counter for each peer. This is incremented each time a peer reaches candidate status, or is actually selected as the system peer. By this method, peers that contribute most often to the system time will have a higher count.</li>
+<li><code>ntp_timer.c, ntp_loopfilter.c, ntpd.h</code>: Reinitialize the interval timer after stepping the clock. The behavior of the timer after a clock step is not addressed by POSIX and is undefined, so the safest course is to reintitialize it when we step the clock. Solaris, for one, is known to stop triggering the timer after a step backward until the system clock &ldquo;catches up&rdquo;.</li>
+<li>Add linked list to track remote addresses.</li>
+<li>Fix <code>add_addr_to_list</code> call</li>
+<li>Add debug to <code>address_okay</code></li>
+<li>Comment out check for <code>Up</code> flag in A<code>ddress_Okay</code></li>
+<li><code>ntpq.c</code>: If <code>assoc_cache</code> is loaded, clamp association ids using &amp; notation to allow specifying all associations without knowing how many there are.</li>
+<li><code>ntpq.html</code>: Fix typos</li>
+<li>Fix for NetBSD 1.6.1.</li>
+<li>Changed <code>vaddr</code> to <code>remaddr</code> to avoid namespace collisions during build with NetBSD</li>
+<li>Also call <code>findbcastinter()</code> for <code>MDF_ACAST</code> | <code>MDF_MCAST</code> | <code>MDF_BCAST</code>. From Dave Mills.</li>
+<li>Add <code>HAVE_VSNPRINTF</code> macro to prevent extra declarations if already defined by the OS.</li>
+<li><code>ntp_timer.c</code>: Double check that value isn&rsquo;t zero and thus disarm the timer.</li>
+<li>Some timers tweaks, including one build fix.</li>
+<li>Initialize the value of <code>v6_flag</code> in all cases in <code>sys_info()</code>, so that <code>ntpdc -c sysinfo</code> won&rsquo;t display the random, uninitialized value of peer6 for the system peer in the no syspeer case on IPv6-capable hosts. Problem noted and solution provided by Matthias Drochner, with a minor optimization by myself.</li>
+<li>Fixes for various and sundry compiler warnings, from NetBSD.</li>
+<li>Distribution directory cleanup</li>
+<li>Fix a couple more <code>gcc</code> warnings that are only seen on non-typical platforms.</li>
+<li>Changes from Dave Mills - <code>monitor</code> stuff, mostly.</li>
+<li>Check return value of localtime call to prevent NULL dereference.</li>
+<li>Cleanup from Dave Mills</li>
+</ul>
+<hr>
+<h4 id="412">4.1.2</h4>
+<p><strong>Release Date:</strong> 2003 Jul 17</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=136">Bug 136: PPS fixes for refclock_jupiter</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=129">Bug 129: Improve and normalize some error messages.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=125">Bug 125: Add a missing newline from an fprintf</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=110">Bug 110: Don&rsquo;t log EINTR return from select()</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=47">Bug 47: kill_asyncio() now takes 1 parameter - the lowest fd to close.</a></li>
+<li>clock state machine bugfix</li>
+<li>Note that <code>ntp_resolver.c</code> is currently unused in the file.</li>
+<li>Cuddle a comment.</li>
+<li>Move the &ldquo;patching&rdquo; info from <code>README.hackers</code> to <code>README.patches</code>.</li>
+<li>Have <code>README.hackers</code> and <code>README.patches</code> refer to each other.</li>
+<li>Fix spelling, typos, usage. Mined from NetBSD CVS.</li>
+<li>Correct usage, spelling of &ldquo;lose&rdquo;, &ldquo;loses&rdquo;, and &ldquo;losing&rdquo; where appropriate.</li>
+<li><code>refclock_neoclock4x.c</code>: fix status reporting, update driver to v1.13</li>
+<li>Fix a warning compiling <code>refclock_arc.c</code>.</li>
+</ul>
+<hr>
+<h4 id="411">4.1.1</h4>
+<p><strong>Release Date:</strong> 2002 Feb 26</p>
+<ul>
+<li>Lose the source port check on incoming packets</li>
+<li><code>(x)ntpdc</code> compatibility patch</li>
+<li>Virtual IP improvements</li>
+<li><code>ntp_loopfilter</code> fixes and improvements</li>
+<li><code>ntpdc</code> improvements</li>
+<li>GOES refclock fix</li>
+<li>JJY driver</li>
+<li>BSDi port fixes</li>
+<li>HP MPE/iX port</li>
+<li>Win/NT port upgrade</li>
+<li>Dynix PTX port fixes</li>
+<li>Document conversion from CVS to BK</li>
+<li><code>readline</code> support for <code>ntpq</code></li>
+<li>Disable the delta-changelog and related scripts.</li>
+<li>Lint cleanup from Marc.</li>
+<li>Lose the source port check. Too many folks are going thru Port and Address Translators, and present wisdom says that one should not trust source ports anyway.</li>
+<li>mu can be 0, and the (old) debug info would divide <code>sys_jitter</code> by mu. Lose the division.</li>
+<li><code>ntp_adjtime()</code> call cleanup.</li>
+<li>Trigger improvements.</li>
+<li><code>LEAP_DELSECOND</code> support for CHU.</li>
+</ul>
+<hr>
+<h4 id="410">4.1.0</h4>
+<p><strong>Release Date:</strong> 2001 Aug 1</p>
+<ul>
+<li>CERT problem fixed (99k23)</li>
+<li>Huff-n-Puff filter</li>
+<li>Preparation for OpenSSL support</li>
+<li>Resolver changes/improvements are not backward compatible with mode 7 requests (which are implementation-specific anyway)</li>
+<li>leap second stuff</li>
+<li>manycast should work now</li>
+<li><code>ntp-genkeys</code> does new good things.</li>
+<li><code>scripts/ntp-close</code></li>
+<li>PPS cleanup and improvements</li>
+<li><code>readline</code> support for <code>ntpdc</code></li>
+<li>Crypto/authentication rewrite</li>
+<li>WINNT builds with MD5 by default</li>
+<li>WINNT no longer requires Perl for building with Visual C++ 6.0</li>
+<li>algorithmic improvements, bugfixes</li>
+<li>Solaris <code>dosynctodr</code> info update</li>
+<li><code>html/pic/*</code> is lots smaller</li>
+<li>New/updated drivers: Forum Graphic GPS, WWV/H, Heath GC-100 II, HOPF serial and PCI, ONCORE, ulink331</li>
+<li>Rewrite of the audio drivers
+<ul>
+<li><code>ntpd/refclock_oncore.c</code> (<code>oncore_start</code>): Set <code>pps_enable=1</code>, just like the atom driver does.</li>
+<li><code>ntpd/refclock_nmea.c</code> (<code>nmea_ppsapi</code>): Set <code>pps_enable=1</code>, just like the atom driver does.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_config.c</code> (<code>getconfig</code>): <code>CONF_CLOCK_PANIC</code> was using the wrong <code>config</code> flag.</li>
+</ul>
+<hr>
+<h4 id="4099">4.0.99</h4>
+<p><strong>Release Date:</strong> 2000 Jan 12</p>
+<ul>
+<li>Driver updates: CHU, DCF, GPS/VME, Oncore, PCF, Ulink, WWVB, burst
+<ul>
+<li>If you use the ONCORE driver with a HARDPPS kernel module, you <em>must</em> have a properly specified <code>pps &lt;filename&gt; [assert/clear] [hardpps]</code> line in the <code>/etc/ntp.conf</code> file.</li>
+</ul>
+</li>
+<li>PARSE cleanup</li>
+<li>PPS cleanup</li>
+<li><code>ntpd, ntpq, ntpdate</code> cleanup and fixes</li>
+<li>NT port improvements</li>
+<li>AIX, BSDI, DEC OSF, FreeBSD, NetBSD, Reliant, SCO, Solaris port improvements</li>
+<li><code>html/driver36.htm</code>: Cleanup</li>
+<li>`html/monopt.htm: Ditto</li>
+<li>ntpd/ntp_intres.c<code> (</code>ntp_intres<code>): Put </code>NTP_INTRES running` at a higher debug level</li>
+<li><code>ntpd/refclock_wwv.c</code>: More improvements</li>
+<li><code>ntpd/refclock_wwv.c</code>: Bugfixes/improvements</li>
+<li><code>configure.in</code>: Get the quoting right on the <code>sys_errlist</code> check.</li>
+<li><code>configure.in</code>: <code>&lt;netinet/ip.h&gt;</code> cannot be detected&hellip;</li>
+<li><code>ntpd/ntp_io.h</code>: &hellip;but every OS has it</li>
+<li><code>ntpd/refclock_oncore.c</code>: Lint removal</li>
+<li><code>ntpq/ntpq_ops.c</code>: Lint removal</li>
+<li><code>ntpq/refclock_chu.c</code>: <code>chu_major()</code> is not an audio routine, lint</li>
+<li><code>libntp/icom.c</code>: AIX doesn&rsquo;t have <code>&lt;sys/termios.h&gt;</code></li>
+<li><code>ntpd/refclock_chu.c</code>: NetBSD needs <code>sys/ioctl.h</code>
+<ul>
+<li>(<code>chu_debug</code>): NetBSD-specific debug output.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="4098">4.0.98</h4>
+<p><strong>Release Date:</strong> 1999 Sep 17</p>
+<ul>
+<li>Solaris kernel FLL bug is fixed in 106541-07</li>
+<li>Bug/lint cleanup</li>
+<li>PPS cleanup</li>
+<li>ReliantUNIX patches</li>
+<li>NetInfo support
+<ul>
+<li>Add to Mac OS (versions 10 and up).
+<ul>
+<li><code>config.guess</code> and <code>config.sub</code></li>
+</ul>
+</li>
+<li>Check for NetInfo API; add <code>HAVE_NETINFO</code> macro and friends.
+<ul>
+<li><code>acconfig.h</code>, <code>config.h.in</code>, and  <code>configure.in</code></li>
+</ul>
+</li>
+<li>Add support for reading configuration from NetInfo.
+<ul>
+<li><code>include/ntp.h</code>, <code>ntpd/ntp_config.c</code>, and <code>ntpdate/ntpdate.c</code></li>
+</ul>
+</li>
+<li>Get rid of unnecessary <code>eol</code> variable in tokenizer.
+<ul>
+<li><code>ntpd/ntp_config.c</code></li>
+</ul>
+</li>
+<li>Document NetInfo functionality.
+<ul>
+<li><code>html/notes.htm</code>, <code>html/ntpd.htm</code>, and <code>html/ntpdate.htm</code></li>
+</ul>
+</li>
+<li>Use <code>HAVE_KVM_OPEN</code> conditional around <code>kvm.h</code> include.
+<ul>
+<li><code>util/tickadj.c</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ultralink driver: <code>acconfig.h, config.h.in, configure.in, html/driver34.htm, html/refclock.htm, include/ntp.h, libntp/clocktypes.c, ntpd/Makefile.am, ntpd/ntp_control.c, ntpd/refclock_conf.c</code>, and <code>ntpd/refclock_ulink.c</code>.</li>
+<li>Trimble OEM Ace-II support</li>
+<li>DCF77 power choices</li>
+<li>Oncore improvements</li>
+<li><code>ntpd/refclock_atom.c</code>: PPS cleanup</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_ioctl</code>): PPS cleanup</li>
+<li><code>ntptrace/ntptrace.c</code> (<code>ReceiveBuf</code>): <code>addserver()</code> can return NIL.</li>
+<li>Lint cleanup: <code>libntp/ieee754io.c</code>, ntpd/ntp_proto.c<code>, and </code>ntpd/ntp_refclock.c`.</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_ioctl</code>): Declaration cleanup.</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>init_proto</code>): <code>msyslog kern_enable</code> at <code>LOG_DEBUG</code>.</li>
+<li><code>ntpd/refclock_atom.c</code>: Add missing declaration.</li>
+<li><code>configure.in</code> (<code>ac_cv_make_ntptime</code>): Just look for struct <code>ntptimeval</code>, not <code>timespec</code> or <code>nsec</code> (Solaris 2.7 should get <code>ntptime</code> and it uses <code>msec</code>).
+<ul>
+<li>(<code>ac_cv_var_oncore_ok</code>): Reorder so it&rsquo;s a &ldquo;normal&rdquo; clock</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="4097">4.0.97</h4>
+<p><strong>Release Date:</strong> 1999 Aug 19</p>
+<ul>
+<li>NT patches</li>
+<li>AIX, SunOS, IRIX portability</li>
+<li>NeXT portability</li>
+<li><code>ntptimeset</code> utility added</li>
+<li>cygwin portability patches: <code>libntp/systime.c, ntpd/ntp_loopfilter.c, ntpd/ntpd.c</code>, and <code>ports/winnt/libntp/nt_clockstuff.c</code>.</li>
+<li><code>README.cvs</code>: Updated.</li>
+<li>Irix, SunOS, AIX, lint patches: <code>configure.in, include/ntp_machine.h, libntp/mexit.c, ntpd/ntp_config.c, ntpd/ntp_peer.c, ntpd/ntp_restrict.c, ntpd/refclock_arc.c</code>, and <code>ntpdate/ntpdate.c</code>.</li>
+<li><code>util/ansi2knr.c</code>: New release (fix for bug reported by Marc Brett)</li>
+<li><code>include/ntp_stdlib.h</code>: NeXT portability patch</li>
+<li>ntptimeset patches: <code>configure.in, dot.emacs</code> (cleanup), <code>ntpdate/Makefile.am, ntpdate/ntpdate.h, ntpdate/ntptime_config.c</code>, and <code>ntpdate/ntptimeset.c</code>.</li>
+<li><code>ntpd/refclock_parse.c</code> (local_input): <code>ts.l_ui</code> -&gt; <code>ts.fp.l_ui</code></li>
+</ul>
+<hr>
+<h4 id="4096">4.0.96</h4>
+<p><strong>Release Date:</strong> 1999 Aug 9</p>
+<ul>
+<li><code>-lnsl, -lsocket, -lgen</code> configuration patches</li>
+<li>Y2K patches from AT&amp;T
+<ul>
+<li><code>Makefile.am</code> (<code>EXTRA_DIST</code>): Add in the y2k notes</li>
+<li><code>parseutil/dcfd.c</code>: Renamed <code>drift_comp</code> to <code>accum_drift</code></li>
+<li><code>configure.in</code>: Added <code>MAKE_CHECK_Y2K</code> support; <code>check_y2k</code> needs <code>libparse</code>.</li>
+<li><code>ntpd/Makefile.am</code> (<code>check_PROGRAMS</code>): Use <code>MAKE_CHECK_Y2K</code></li>
+<li><code>ntpd/Makefile.am</code> (<code>check-local</code>): Added.</li>
+<li><code>parseutil/Makefile.am</code> (<code>check-local</code>): Added.</li>
+<li><code>include/ntp.h</code>: Y2K Fixes</li>
+<li><code>libparse/parse.c</code>: Ditto</li>
+<li><code>ntpd/Makefile.am</code> (<code>check_PROGRAMS</code>): Ditto</li>
+<li><code>ntpd/refclock_acts.c</code>: Ditto</li>
+<li><code>ntpd/refclock_arc.c</code> (<code>arc_receive</code>): Ditto</li>
+<li><code>ntpd/refclock_heath.c</code>: Ditto</li>
+<li><code>ntpd/refclock_hpgps.c</code>: Ditto</li>
+<li><code>parseutil/Makefile.am</code> (<code>check-local</code>): Ditto</li>
+<li><code>parseutil/dcfd.c</code> (<code>check_y2k</code>): Ditto</li>
+<li><code>NOTES.y2kfixes</code>: Ditto</li>
+<li><code>readme.y2kfixes</code>: Ditto</li>
+<li><code>results.y2kfixes</code>: Ditto</li>
+<li><code>ntpd/check_y2k.c</code>: Ditto</li>
+</ul>
+</li>
+<li>Linux portability cruft</li>
+<li><code>parseutil/dcfd.c</code> (<code>main</code>): Replace <code>SA_ONSTACK</code> and <code>SV_ONSTACK</code> with <code>HAVE_SIGACTION</code> and <code>HAVE_SIGVEC</code>, respectively. HP-UX provides both of the former but only one of the latter.</li>
+<li><code>configure.in</code>: Better tests for <code>-lnsl</code> and <code>-lsocket</code>. Handle <code>openlog()</code> and <code>-lgen</code> the same way.</li>
+<li><code>configure.in</code>: Look for <code>sys/ppstime.h</code>.</li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Typo.</li>
+<li><code>configure.in</code> (<code>ac_cv_struct_ntptimeval</code>): Explicitly look for struct <code>ntptimeval</code>.
+<ul>
+<li>(<code>ac_cv_var_kernel_pll</code>): Require struct <code>ntptimeval</code>.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="4095">4.0.95</h4>
+<p><strong>Release Date:</strong> 1999 Jul 28</p>
+<ul>
+<li>NT port cleanup/replacement</li>
+<li>a few portability fixes</li>
+<li>VARITEXT Parse clock added</li>
+<li><code>ports/winnt</code>: New release</li>
+<li><code>libntp/machines.c</code> (<code>ntp_set_tod</code>): Bugfix</li>
+</ul>
+<hr>
+<h4 id="4094">4.0.94</h4>
+<p><strong>Release Date:</strong> 1999 Jul 21</p>
+<ul>
+<li>PPS updates (including <code>ntp.config</code> options)</li>
+<li>Lose the old DES stuff in favor of the (optional) RSAREF stuff</li>
+<li>html cleanup/updates</li>
+<li>numerous drivers cleaned up</li>
+<li>numerous portability patches and code cleanup</li>
+<li><code>Makefile.am</code> (<code>SUBDIRS)</code>: <code>librsaref</code> (<code>dist-hook</code>): Lose CVS subdirs in the distribution tarball</li>
+<li><code>include/Makefile.am</code> (<code>noinst_HEADERS</code>): Added <code>iosignal.h, recvbuff.h</code></li>
+<li><code>Makefile.am</code> (<code>dist-hook</code>): Don&rsquo;t call <code>dos2unix</code> anymore</li>
+<li><code>acconfig.h</code>:</li>
+<li><code>util/ntptime.c</code>: FreeBSD nano patches</li>
+<li>Cleanup <code>include/ntp.h: include/ntp_fp.h, include/ntp_io.h, include/ntp_machine.h, include/ntp_refclock.h, include/ntp_stdlib.h, include/ntpd.h, libntp/Makefile.am, libntp/emalloc.c, libntp/machines.c, libntp/mexit.c, libntp/msyslog.c, libntp/statestr.c, libntp/syssignal.c, libntp/systime.c, libparse/parse.c, libparse/parse_conf.c, ntpd/ntp_control.c, ntpd/ntp_intres.c, ntpd/ntp_io.c, ntpd/ntp_proto.c, ntpd/ntp_refclock.c, ntpd/ntp_request.c, ntpd/ntp_timer.c, ntpd/ntp_util.c, ntpd/ntpd.c, ntpd/refclock_nmea.c, ntpd/refclock_palisade.c, ntpd/refclock_palisade.h, ntpd/refclock_shm.c, ntpdate/ntpdate.c</code>, and <code>ntptrace/ntptrace.c</code>.</li>
+<li>Added to <code>libntp/recvbuff.c: libntp/iosignal.c, include/iosignal.h</code>, and <code>include/recvbuff.h</code>.</li>
+<li><code>README</code>: Add <code>README.cvs</code></li>
+<li><code>configure.in</code> (<code>ac_cv_var_struct_ntptime_val_timespec</code>): Typo.</li>
+<li><code>Makefile.am</code> (<code>EXTRA_DIST</code>): Lose <code>ntpmak</code>; <code>build</code> does a better job.</li>
+<li><code>ntpq/Makefile.am</code> (<code>version.o</code>): Use <code>mkver</code></li>
+<li><code>ntptrace/Makefile.am</code> (<code>version.o</code>): Ditto</li>
+<li><code>ntpdate/Makefile.am</code> (<code>version.o</code>): Ditto</li>
+<li><code>ntpd/Makefile.am</code> (<code>version.o</code>): Ditto</li>
+<li><code>ntpdc/Makefile.am</code> (<code>version.o</code>): Ditto</li>
+<li><code>configure.in</code> (<code>AC_OUTPUT</code>): <code>scripts/mkver</code></li>
+<li><code>scripts/mkver.in:</code> Created. Note RSAREF in the version string</li>
+<li><code>README.des</code>: Updated.</li>
+<li><code>ntpq/Makefile.am</code> (<code>LDADD</code>): Add <code>LIBRSAREF</code></li>
+<li><code>ntpdc/Makefile.am</code> (<code>LDADD</code>): Add <code>LIBRSAREF</code></li>
+<li><code>ntpdate/Makefile.am</code> (<code>LDADD</code>): Add <code>LIBRSAREF</code></li>
+<li><code>ntpd/Makefile.am</code> (<code>LDADD</code>): Add <code>LIBRSAREF</code></li>
+<li><code>configure.in</code> (<code>AC_OUTPUT</code>): Added <code>librsaref/Makefile</code>. Added tests for making/using <code>librsaref.a</code>. Lose old DES stuff; <code>AC_DEFINE(DES)</code> if we find the <code>rsaref</code> stuff.</li>
+<li><code>ntpd/refclock_trak.c</code> (<code>trak_receive</code>): disambiguate expression. At least now it is unambiguous. It may even still be correct.</li>
+<li><code>ntp_update</code> (<code>UPDATE_OPTIONS</code>): Typo.</li>
+<li><code>ntp_update</code>: Check out <code>copyright.htm</code> before <code>COPYRIGHT</code></li>
+<li><code>ntpd/ntp_config.c</code>: Support for PPS <code>assert/clear/hardpps</code></li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_ioctl</code>): Ditto
+<ul>
+<li>(<code>refclock_gtlin</code>): Ditto</li>
+</ul>
+</li>
+<li><code>html/clockopt.htm</code>: Document.</li>
+<li><code>html/monopt.htm</code>: We have four types of files now</li>
+<li><code>ntpd/refclock_oncore.c</code>: If debug is on, tell when we are waiting for a valid almanac</li>
+<li><code>include/ntp_machine.h</code> (<code>HAVE_TERMIOS</code>): <code>STREAMS</code> does not imply <code>HAVE_TERMIOS</code>!</li>
+<li><code>include/parse.h</code> (<code>timercmp</code>): Macro defined if needed.</li>
+<li><code>ntpd/ntp_config.c</code> (<code>SIGCHLD</code>): Macro defined as <code>SIGCLD</code> if needed.
+<ul>
+<li>(<code>sys/wait.h</code>): File included only if <code>HAVE_SYS_WAIT_H</code>.</li>
+</ul>
+</li>
+<li><code>configure.in</code> (<code>sys/wait.h)</code>: File added to <code>AC_CHECK_HEADERS</code> list.</li>
+<li><code>ntpd/refclock_irig.c</code> (<code>irig_debug</code>): NetBSD patches</li>
+<li><code>util/ntptime.c</code> (<code>main</code>): <code>ntx.freq</code> bugfix (<code>-f</code> option)</li>
+<li><code>configure.in</code>: Fix typo with <code>DECL_H_ERRNO</code> test</li>
+<li><code>ntpd/ntp_loopfilter.c</code>: Lose <code>syscall</code> decl, it&rsquo;s handled in <code>l_stdlib.h</code> now.</li>
+<li><code>ntpd/ntp_request.c</code>: Ditto</li>
+<li><code>util/ntptime.c</code>: Ditto</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>proto_config</code>): Don&rsquo;t set <code>sys_bclient</code> on <code>PROTO_MULTICAST_ADD</code>, only caller can decide; remove wrong set on <code>PROTO_MULTICAST_DEL</code>.</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>stream_receive</code>): Cast <code>size_t</code> to <code>int</code> to match format.
+<ul>
+<li>(<code>local_receive</code>): Likewise.</li>
+<li>(<code>trimbletaip_event</code>): Likewise.</li>
+<li>(<code>stream_receive</code>): Cast struct timeval members to long to match format.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_util.c</code> (<code>stats_config</code>): Cast <code>size_t</code> to <code>int</code> to match format.</li>
+<li>libparse/clk_rawdcf.c (cvt_rawdcf): Cast ptr difference to int to match format.</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>gps16x_poll</code>): Likewise.</li>
+<li><code>ntpd/ntp_filegen.c</code> (<code>filegen_open</code>): Use long format, cast arg to match.</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>list_err</code>): Use long format to match arg.
+<ul>
+<li>(<code>parse_statistics</code>): Likewise.</li>
+<li>(<code>gps16x_message</code>): Likewise.</li>
+<li>(<code>cvt_ts</code>): Use long format, cast args to match.</li>
+<li>(<code>parse_start</code>): Add missing arg.</li>
+<li>(<code>gps16x_message</code>): Swap args to match format.</li>
+</ul>
+</li>
+<li><code>ntpd/ntpd.c</code> (<code>ntpdmain</code>): Cast <code>uid</code> to long, adapt format.</li>
+<li><code>ntpd/ntp_intres.c</code> (<code>readconf</code>): Use long format to match arg.</li>
+<li><code>ntpd/ntp_io.c</code> (<code>getrecvbufs</code>): Likewise.</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>default_get_precision</code>): Likewise.</li>
+<li><code>ntpd/ntp_loopfilter.c</code> (<code>local_clock</code>): Cast <code>clock_panic</code> to int to match format.</li>
+<li><code>ntpd/ntp_io.c</code> (<code>io_multicast_add</code>): Print <code>s_addr member</code>, not struct <code>in_addr</code>, to match format.</li>
+<li><code>include/ntp_stdlib.h</code>: Declare <code>msyslog()</code> as <code>printf</code>-like for <code>gcc</code> format checking.</li>
+<li><code>ntpdc/ntpdc_ops.c</code> (<code>iostats</code>): Align <code>timereset</code> line.</li>
+<li><code>ntpq/ntpq_ops.c</code> (<code>doopeers</code>): Properly align header.</li>
+<li><code>ntpdc/ntpdc_ops.c</code> (<code>debug</code>): Removed declaration, already in <code>ntp_stdlib.h</code>.</li>
+<li><code>ntpq/ntpq_ops.c</code>: Likewise.</li>
+<li><code>ntpdate/ntpdate.c</code> (<code>debug</code>): Declare volatile to match <code>ntp_stdlib.h</code>.</li>
+<li><code>ntpdc/ntpdc.c, ntpq/ntpq.c, ntptrace/ntptrace.c, util/tickadj.c, util/ntptime.c</code>: Likewise.</li>
+<li><code>include/parse.h</code> (<code>debug</code>): Don&rsquo;t declare to avoid clash with <code>ntp_stdlib.h</code>.</li>
+<li><code>include/Makefile.am</code> (<code>noinst_HEADERS</code>): Add new <code>ntp_syscall.h</code>.</li>
+<li><code>configure.in</code>: Also check for <code>-lrt</code> for POSIX.1c functions.</li>
+<li><code>configure.in</code>: Removed <code>-Wwrite-strings</code> from <code>CFLAGS</code>.</li>
+<li><code>ntpdc/ntpdc.c</code> (<code>help</code>): Remove superfluous cast.</li>
+<li><code>ntpq/ntpq.c</code> (<code>help</code>): Likewise.</li>
+<li><code>ntpq/ntpq_ops.c</code> (<code>struct varlist</code>): <code>name</code> cannot be const char <code>*</code> since it may be <code>malloc</code>&lsquo;ed.</li>
+<li><code>ntpdc/ntpdc.c</code> (<code>sendrequest</code>): Declare <code>pass</code> as const char <code>*</code>, don&rsquo;t loose const in cast.</li>
+<li><code>ntpq/ntpq.c</code> (<code>sendrequest</code>): Likewise.</li>
+<li><code>ntpd/ntp_control.c</code> (<code>ctl_getitem</code>): Remove superfluous cast.</li>
+<li><code>include/ntpd.h</code> (<code>struct ctl_var</code>): <code>text</code> cannot be const char <code>*</code> since it&rsquo;s <code>malloc</code>&lsquo;ed.</li>
+<li><code>include/l_stdlib.h</code>: Don&rsquo;t include <code>&lt;netinet/in.h&gt;</code>, add forward declaration of struct <code>in_addr</code> instead.</li>
+<li><code>include/l_stdlib.h</code>: Fixed <code>syscall()</code> declaration.</li>
+<li><code>configure.in</code>: Updated test to match.</li>
+<li><code>configure.in</code>: Check if we need to declare <code>errno</code> and <code>h_errno</code>. Check for <code>&lt;resolv.h&gt;</code> which may provide a <code>h_errno</code> declaration and
+<code>&lt;arpa/nameserv.h&gt;</code> which the latter needs.</li>
+<li><code>acconfig.h</code>: Provide the necessary templates.</li>
+<li><code>include/ntp_syscall.h</code>: New file, hides various implementations of <code>ntp_adjtime()</code> and <code>ntp_gettime()</code> syscalls.</li>
+<li><code>ntpd/ntp_loopfilter.c</code>: Use it.</li>
+<li><code>ntpd/ntp_request.c</code>: Likewise.</li>
+<li><code>ntpd/refclock_local.c</code>: Likewise.</li>
+<li><code>util/ntptime.c</code>: Likewise.</li>
+<li><code>include/l_stdlib.h</code>: Include <code>&lt;netinet/in.h&gt;</code>, declare <code>inet_ntoa</code> if necessary. Moved <code>syscall()</code> declaration here.</li>
+<li><code>kernel/sys/parsestreams.h</code>: Include <code>&lt;sys/termios.h&gt;</code> for its definition of struct <code>ppsclockev</code>. Include <code>&lt;sys/ppsclock.h&gt;</code> unconditionally for definition of <code>CIOGETEV</code> via <code>TIOCGPPSEV</code>.</li>
+<li><code>kernel/sys/ppsclock.h</code>: Protect struct <code>ppsclockev</code> from redefinition.</li>
+<li><code>include/ntp_refclock.h</code>: Protect it from multiple inclusion.</li>
+<li><code>include/ntp_fp.h</code>: Likewise.</li>
+<li><code>include/ntp.h</code>: Likewise.</li>
+<li><code>include/ntpd.h</code>: Include <code>ntp_refclock.h</code> for <code>MAXDIAL</code> declaration.</li>
+<li><code>libntp/authkeys.c</code>: Include <code>ntpd.h</code> for <code>current_time</code> declaration.</li>
+<li><code>include/ntpd.h</code> (<code>getauthkeys, auth_agekeys, rereadkeys</code>): Moved prototypes to <code>ntp_stdlib.h</code></li>
+<li><code>include/ntp_stdlib.h</code>: Declare variables exported by <code>libntp</code>.</li>
+<li><code>include/ntpd.h</code>: Likewise for <code>ntpd</code>.</li>
+<li><code>libntp/authkeys.c</code> (<code>key_hash, authnokey, authfreekeys, cache_flags</code>): Made static.</li>
+<li><code>libntp/systime.c</code> (<code>tvu_maxslew, tsf_maxslew, sys_clock_offset, sys_residual</code>): Likewise.</li>
+<li><code>ntpd/ntp_intres.c</code> (<code>confentries</code>): Likewise.</li>
+<li><code>ntpd/ntp_loopfilter.c</code> (<code>clock_offset, clock_panic</code>): Likewise.
+<ul>
+<li>(<code>pll_nano</code>): Likewise. Removed duplicate definition.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_peer.c</code> (<code>peer_free, current_association_ID, assocpeer_calls, init_peer_starttime</code>): Likewise.</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>sys_offset, sys_authdly</code>): Likewise.</li>
+<li><code>ntpd/ntp_request.c</code> (<code>numrequests, numresppkts, errorcounter</code>): Likewise.</li>
+<li><code>ntpd/ntp_restrict.c</code> (<code>res_calls, res_found, res_not_found, res_timereset, res_limited_refcnt</code>): Likewise.</li>
+<li><code>ntpd/ntpd.c</code> (<code>was_alarmed, worker_thread</code>): Likewise.</li>
+<li>ntpq/ntpq_ops.c: Moved declaration of external variable from ntpq.c to file scope.</li>
+<li><code>adjtimed/adjtimed.c</code>: Moved declarations of external variables to <code>ntpd.h</code> and <code>ntp_stdlib.h</code>.</li>
+<li><code>clockstuff/propdelay.c</code>: Likewise.</li>
+<li><code>libntp/a_md5encrypt.c, libntp/authencrypt.c, libntp/authkeys.c, libntp/mfp_mul.c, libntp/msyslog.c, libntp/systime.c</code>: Likewise.</li>
+<li><code>ntpd/ntp_config.c, ntpd/ntp_control.c, ntpd/ntp_filegen.c, ntpd/ntp_intres.c, ntpd/ntp_io.c, ntpd/ntp_loopfilter.c, ntpd/ntp_monitor.c, ntpd/ntp_peer.c, ntpd/ntp_proto.c, ntpd/ntp_refclock.c, ntpd/ntp_request.c, ntpd/ntp_restrict.c, ntpd/ntp_timer.c, ntpd/ntp_util.c, ntpd/ntpd.c, ntpd/refclock_acts.c, ntpd/refclock_arbiter.c, ntpd/refclock_arc.c, ntpd/refclock_as2201.c, ntpd/refclock_atom.c, ntpd/refclock_bancomm.c, ntpd/refclock_chronolog.c, ntpd/refclock_chu.c, ntpd/refclock_datum.c, ntpd/refclock_dumbclock.c, ntpd/refclock_gpsvme.c, ntpd/refclock_heath.c, ntpd/refclock_hpgps.c, ntpd/refclock_irig.c, ntpd/refclock_jupiter.c, ntpd/refclock_leitch.c, ntpd/refclock_local.c, ntpd/refclock_msfees.c, ntpd/refclock_mx4200.c, ntpd/refclock_nmea.c, ntpd/refclock_oncore.c, ntpd/refclock_palisade.h, ntpd/refclock_parse.c, ntpd/refclock_pst.c, ntpd/refclock_shm.c, ntpd/refclock_tpro.c, ntpd/refclock_trak.c, ntpd/refclock_true.c, ntpd/refclock_usno.c, ntpd/refclock_wwvb.c</code>: Likewise.</li>
+<li><code>ntpdate/ntpdate.c</code>: Likewise.</li>
+<li><code>ntpdc/ntpdc.c, ntpdc/ntpdc_ops.c</code>: Likewise.</li>
+<li><code>ntpq/ntpq.c</code>: Likewise.</li>
+<li><code>ntptrace/ntptrace.c</code>: Likewise.</li>
+<li><code>util/ntptime.c, til/tickadj.c:</code> Likewise.</li>
+<li><code>include/ntp_machine.h</code>: Removed superfluous <code>yy/mm/dd</code> comments.</li>
+<li><code>include/ntpd.h</code>: Likewise.</li>
+<li><code>libntp/authencrypt.c</code>: Likewise.</li>
+<li><code>libntp/a_md5encrypt.c</code>: Likewise.</li>
+<li><code>libntp/caljulian.c</code>: Likewise.</li>
+<li><code>libntp/ymd2yd.c</code>: Likewise.</li>
+<li><code>libntp/syssignal.c</code>: Likewise.</li>
+<li><code>libntp/ymd2yd.c</code>: Likewise.</li>
+<li><code>ntpd/ntp_control.c</code>: Likewise.</li>
+<li><code>ntpd/ntp_io.c</code>: Likewise.</li>
+<li><code>ntpd/ntp_timer.c</code>: Likewise.</li>
+<li><code>ntpdate/ntpdate.c</code>: Likewise.</li>
+<li><code>ntpq/ntpq_ops.c</code>: Likewise.</li>
+<li><code>ntpd/ntp_peer.c</code> (<code>findpeer</code>): Wrap debug output in <code>DEBUG/debug</code>.</li>
+<li><code>dot.emacs</code>: Removed wrong indentation of substatements. Wrap in c-style.</li>
+<li><code>ntpd/refclock_palisade.c</code>: Patches from Marc Brett</li>
+<li><code>ntpd/refclock_palisade.h</code>: Ditto.</li>
+<li><code>util/hist.c</code>: Ditto.</li>
+<li><code>build: mips-dec-ultrix4.4</code> hates <code>set -e</code></li>
+<li><code>flock-build</code>: Created</li>
+<li><code>build</code>: added <code>-l</code> option</li>
+<li><code>README</code>: Removed <code>auto{make,conf}.patch</code> files</li>
+<li><code>Makefile.am</code> (<code>$(srcdir)/COPYRIGHT</code>): Added (<code>EXTRA_DIST</code>): Remove <code>auto*.patches</code></li>
+<li><code>Makefile.am</code> (<code>dist-hook</code>): Call <code>dos2unix</code> on the <code>.htm</code> files</li>
+<li><code>ntpd/refclock_palisade.h</code>: Clean up declarations.</li>
+<li><code>configure.in</code> (<code>ac_cv_struct_ntptimeval_timespec</code>): Added.
+<ul>
+<li>(<code>ac_cv_make_ntptime</code>): Only if <code>ntptimeval</code> does not use <code>timespec</code>.</li>
+</ul>
+</li>
+<li><code>util/tickadj.c</code>: Linux Patches</li>
+<li><code>configure.in</code>: 4.0.93a</li>
+<li><code>ntpd/refclock_palisade.h</code>: Restore some lost patches</li>
+<li><code>libparse/clk_wharton.c</code> (<code>cvt_wharton_400a, inp_wharton_400a</code>): Expect serial output format number 1, not 5.
+<ul>
+<li>(<code>clock_wharton_400a</code>) : Likewise.</li>
+</ul>
+</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>parse_clockinfo</code>): For Wharton 400a clock, do not poll, but expect a message every second.</li>
+<li><code>html/parsedata.htm</code>: Entry added for Wharton 400a clock.</li>
+<li><code>html/driver8.htm</code>: Entry fixed for Wharton 400a clock.</li>
+</ul>
+<hr>
+<h4 id="4093">4.0.93</h4>
+<p><strong>Release Date:</strong> 1999 May 16</p>
+<ul>
+<li>Oncore refclock needs PPS or one of two ioctls.</li>
+<li>Don&rsquo;t make <code>ntptime</code> under Linux.  It doesn&rsquo;t compile for too many folks.</li>
+<li>Autokey cleanup</li>
+<li>ReliantUnix patches</li>
+<li>html cleanup</li>
+<li><code>tickadj</code> cleanup</li>
+<li>PARSE cleanup</li>
+<li>IRIX <code>-n32</code> cleanup</li>
+<li>byte order cleanup</li>
+<li><code>ntptrace</code> improvements and patches</li>
+<li><code>ntpdc</code> improvements and patches</li>
+<li>PPS cleanup</li>
+<li>mx4200 cleanup</li>
+<li>New clock state machine</li>
+<li>SCO cleanup</li>
+<li>Skip alias interfaces</li>
+<li><code>configure.in</code> (<code>ntp_refclock</code>): ONCORE requires <code>PPSAPI, CIOGETEV</code>, or <code>TIOCGPPSEV</code>.</li>
+<li><code>configure.in</code>: 4.0.92h2</li>
+<li><code>configure.in</code> (<code>ac_cv_make_ntptime</code>): Not under Linux. Yes, it works for some people. We&rsquo;re tired of the complaints from the others.</li>
+<li><code>libntp/authreadkeys.c</code> (<code>authreadkeys</code>): Reject autokey keys. Include <code>ntp.h</code> for <code>NTP_MAXKEY</code> definition, <code>ntp_fp.h</code> for types used in <code>ntp.h</code>.</li>
+<li><code>libntp/authkeys.c</code> (<code>auth_delkeys</code>): Don&rsquo;t remove autokey keys, leave info on <code>KEY_TRUSTED</code> flag alone. Include <code>ntp.h</code> for <code>NTP_MAXKEY</code> definition.</li>
+<li><code>configure.in</code>: 4.0.92h1</li>
+<li><code>ntpd/refclock_oncore.c</code>: Patches</li>
+<li><code>html/*.htm</code>: Remove unnecessary <code>&amp;nbsp;</code>. Cleanup <code>&lt;pre&gt;&lt;/pre&gt;</code> sections.</li>
+<li><code>configure.in</code>: Properly align <code>configure --help</code> output.</li>
+<li><code>html/config.htm</code>: Include this version, removing Netscape <code>&amp;nbsp;</code> cruft.</li>
+<li><code>kernel/sys/parsestreams.h</code>: Only include <code>&lt;sys/ppsclock.h&gt;</code> if struct <code>ppsclockev</code> is missing from system headers.</li>
+<li><code>util/tickadj.c</code> (<code>getoffsets</code>): Define <code>kernels[]</code> only if used.
+<ul>
+<li>(<code>openfile</code>): Rename <code>fd</code> to avoid shadowing global <code>fd</code>.</li>
+<li>(<code>writevar</code>): Likewise.</li>
+<li>(<code>readvar</code>): Likewise.</li>
+</ul>
+</li>
+<li><code>parseutil/dcfd.c</code> (<code>read_drift</code>): <code>drift_file</code> is const char <code>*</code>.
+<ul>
+<li>(<code>update_drift</code>): Likewise.</li>
+<li>(adjust_clock): Likewise.</li>
+<li>(<code>main</code>): Likewise.</li>
+</ul>
+</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>gps16x_poll</code>): Adapt format to match <code>parse</code>-&gt;<code>localstate</code> type.</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_gtlin</code>): Only define <code>gotit</code> label if used.</li>
+<li><code>include/l_stdlib.h</code> (<code>openlog, syslog</code>): char <code>*</code> args are const.</li>
+<li><code>configure.in</code> (<code>*-*-osf4*</code>): Enable declaration of <code>stime()</code>.</li>
+<li><code>ntpd/refclock_oncore.c</code> (<code>oncore_msg_any</code>): Cast args to long to match prototype.
+<ul>
+<li>(<code>oncore_msg_En</code>): Likewise.</li>
+</ul>
+</li>
+<li><code>include/ntp_refclock.h</code> (<code>struct refclockstat</code>): Declare <code>p_lastcode</code> as const char <code>*</code>.</li>
+<li><code>ntpq/ntpq_ops.c</code> (<code>struct varlist</code>): Define name as const.</li>
+<li><code>ntpdc/ntpdc.c</code> (<code>tokenize</code>): Define <code>cp</code> as const char <code>*</code>, remove wrong cast instead.</li>
+<li><code>ntpd/ntp_util.c</code> (<code>record_clock_stats</code>): Make <code>text</code> arg const.</li>
+<li><code>include/ntpd.h</code> (<code>record_clock_stats</code>): Adapt declaration.</li>
+<li>Removed superfluous casts: <code>ntpd/refclock_oncore.c</code> (<code>oncore_start</code>), (<code>oncore_msg_Cf</code>), (<code>oncore_msg_Fa</code>), (<code>oncore_msg_Cj</code>), (<code>oncore_msg_Ea</code>), and (<code>oncore_msg_Bj</code>).</li>
+<li><code>configure.in</code> (<code>*-*-solaris2.4</code>): Enable declarations of <code>gettimeofday()</code>, <code>settimeofday()</code>; they are &lsquo;protected&rsquo; by <code>__cplusplus</code> in <code>&lt;sys/time.h&gt;</code>.</li>
+<li><code>scripts/summary.pl</code>: Use <code>.</code> as default <code>statsdir</code>.
+<ul>
+<li>(<code>do_loop</code>): Accept new <code>loopstats</code> format with additional <code>sys_error</code> and <code>clock_stability</code> fields.</li>
+<li>(<code>do_peer</code>): Accept new <code>peerstats</code> format with additional <code>skew</code> field.</li>
+</ul>
+</li>
+<li>Upgraded <code>automake</code> (1.4a) and <code>autoconf</code> (2.14.1)</li>
+<li><code>configure.in</code> (<code>ac_refclock_irig</code>): We no longer need <code>stropts.h</code>.</li>
+<li><code>ntpd/refclock_irig.c</code>: Ditto</li>
+<li><code>configure.in</code> (<code>*-*-irix6*</code>): Don&rsquo;t pass MIPSpro cc-only flag <code>-n32</code> to <code>gcc</code>.</li>
+<li><code>ntpd/ntp_config.c</code> (<code>getconfig</code>): I<code>N_CLASSD()</code> expects address in host byte order, but struct <code>sockaddr_in.s_addr</code> is in network byte order.</li>
+<li><code>ntpd/ntp_io.c</code> (<code>io_multicast_del</code>): Likewise.</li>
+<li><code>configure.in</code>: 4.0.92h</li>
+<li><code>ntptrace/ntptrace.c</code>: <code>-m maxhost</code> patch</li>
+<li><code>util/ntptime.c</code>: Patches.</li>
+<li><code>html/accopt.htm, html/assoc.htm, html/authopt.htm, html/biblio.htm, html/build.htm, html/clockopt.htm, html/confopt.htm, html/copyright.htm, html/debug.htm, html/exec.htm, html/extern.htm, html/hints.htm, html/index.htm, html/kern.htm, html/miscopt.htm, html/monopt.htm, html/notes.htm, html/ntpd.htm, html/ntpdate.htm, html/ntpdc.htm, html/ntpq.htm, html/ntptime.htm, html/ntptrace.htm, html/patches.htm, html/porting.htm, html/pps.htm, html/rdebug.htm, html/refclock.htm, html/release.htm, html/tickadj.htm, html/hints/solaris.html</code>: Fixed many typos and problems.</li>
+<li><code>acconfig.h</code> (<code>DECL_CFSETISPEED_0, DECL_MRAND48_0, DECL_NLIST_0, DECL_SRAND48_0, DECL_STIME_0</code>): New templates.</li>
+<li><code>include/l_stdlib.h</code>: Include <code>termios.h</code> to get definition of <code>speed_t</code>.
+<ul>
+<li>(<code>cfsetispeed, cfsetospeed, mrand48, nlist, srand48, stime</code>): New declarations.</li>
+<li>(<code>openlog</code>): Declare 2- or 3-argument form.</li>
+</ul>
+</li>
+<li><code>configure.in</code>: Enable declarations of functions missing from Ultrix V4.3 system headers.</li>
+<li><code>ntpd/refclock_oncore.c</code>: Include <code>&lt;sys/types.h&gt;</code>, Ultrix V4.3 <code>&lt;sys/stat.h&gt;</code> needs it for <code>dev_t</code>.</li>
+<li><code>ntpdc/ntpdc_ops.c</code>: Reality checks.</li>
+<li><code>configure.in</code>: NetBSD has stubs for the <code>timer_*</code> stuff and doesn&rsquo;t support PPSAPI. IRIG requires <code>&lt;stropts.h&gt;</code>.</li>
+<li><code>ntpdc/ntpdc_ops.c</code>: (<code>kerninfo</code>) Report in seconds regardless of kernel precision. Report kernel flags as text.</li>
+<li><code>configure.in</code>: 4.0.92g</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_ioctl</code>): We don&rsquo;t want <code>PPS_HARDPPSONASSERT</code> by default.</li>
+<li><code>ntpd/refclock_oncore.c</code>: Prefer <code>timepps.h</code> over <code>sys/timepps.h</code></li>
+<li><code>configure.in</code>: 4.0.92f</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_open</code>): <code>VMIN</code> should be 1, not 0</li>
+<li><code>ntpd/refclock_mx4200.c</code>: Patches/improvements</li>
+<li><code>ntpd/ntpd.c</code> (<code>set_process_priority</code>): Lint</li>
+<li><code>util/ntptime.c</code>: Lint, bit definition cleanup</li>
+<li><code>ntpd/refclock_oncore.c</code>: Use <code>timepps.h</code> or <code>sys/timepps.h</code></li>
+<li><code>configure.in</code>: Look for either <code>timepps.h</code> or <code>sys/timepps.h</code></li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Don&rsquo;t warn about <code>ENXIO</code>. (Several places)</li>
+<li><code>libntp/mfp_mul.c</code> (<code>mfp_mul</code>): Lint.</li>
+<li><code>configure.in</code>: 4.0.92e: Dave redesigned the clock state machine.</li>
+<li><code>parseutil/dcfd.c</code>: added DCF77 module powersetup</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>parse_control</code>): using <code>gmprettydate</code> instead of <code>prettydate()</code>
+<ul>
+<li>(<code>mk_utcinfo</code>): new function for formatting GPS derived UTC information</li>
+<li>(<code>gps16x_message</code>): changed to use <code>mk_utcinfo()</code></li>
+<li>(<code>trimbletsip_message</code>): changed to use <code>mk_utcinfo()</code> ignoring position information in unsynchronized mode</li>
+<li>(<code>parse_start</code>): augument linux support for optional <code>ASYNC_LOW_LATENCY</code></li>
+</ul>
+</li>
+<li><code>ntpd/ntp_control.c</code> (<code>ctl_putclock</code>): cleanup of end of buffer handling</li>
+<li><code>libparse/parse.c</code> (<code>timepacket</code>): removed unnecessary code</li>
+<li><code>libparse/clk_trimtsip.c</code> (<code>struct trimble</code>): new member <code>t_utcknown</code>
+<ul>
+<li>(<code>cvt_trimtsip</code>): fixed status monitoring, bad receiver states are now recognized</li>
+</ul>
+</li>
+<li><code>libntp/prettydate.c</code> (<code>gmprettydate</code>): new function for format date and time with respect to UTC</li>
+<li><code>libntp/gpstolfp.c</code> (<code>GPSWRAP</code>): update GPS rollover to 990 weeks</li>
+<li><code>include/trimble.h</code> (<code>CMD_RUTCPARAM</code>): control variable name unification</li>
+<li><code>include/ntp_fp.h</code>: added prototype for <code>gmprettydate()</code></li>
+<li><code>libntp/systime.c</code>: definition</li>
+<li><code>ntpd/ntp_proto.c</code>: sco5_oldclock declaration</li>
+<li><code>configure.in</code>: <code>SCO5_CLOCK</code> for <code>*-*-sco3.2v5*</code></li>
+<li><code>util/tickadj.c</code> (<code>main</code>): <code>SCO5_OLDCLOCK</code> -&gt; <code>SCO5_CLOCK</code></li>
+<li><code>ntpd/ntp_config.c</code> (<code>getconfig</code>): Indentation cleanup. Deal with <code>P</code> case better</li>
+<li><code>ntpd/ntpd.c</code>: Declare <code>set_process_priority()</code></li>
+<li><code>ntpd/refclock_dumbclock.c</code>: Lint cleanup</li>
+<li><code>configure.in</code>: 4.0.92d</li>
+<li><code>configure.in</code>: Dave says we can&rsquo;t enable PARSE clocks by default. Also, Solaris 2.7 still has its kernel bug - disable kernel FLL there.</li>
+<li><code>libparse/Makefile.am</code> (<code>parsesolaris.o</code>): Devious hack to deal with bug in <code>sys/systm.h</code>.</li>
+<li><code>ntpd/refclock_parse.c</code>: fixed <code>#endifs</code>
+<ul>
+<li>(<code>stream_receive</code>): fixed formats</li>
+</ul>
+</li>
+<li><code>configure.in</code>: 4.0.92c</li>
+<li>Lint: <code>ntpd/refclock_chronolog.c</code>, <code>ntpd/refclock_dumbclock.c</code>, and <code>ntpd/refclock_oncore.c</code>.</li>
+<li><code>ntpd/refclock_oncore.c</code> (<code>oncore_msg_any</code>): Call <code>GETTIMEOFDAY</code>, not <code>gettimeofday()</code>.</li>
+<li><code>configure.in</code> (<code>MCAST</code>): Not in <code>i386-sequent-sysv4</code></li>
+<li><code>util/ntptime.c</code>: Linux cleanup.</li>
+<li><code>configure.in</code>: Rename <code>SCO5_OLDCLOCK</code> to <code>SCO5_CLOCK</code></li>
+<li><code>acconfig.h</code>: Ditto</li>
+<li><code>ntpd/ntp_proto.c</code>: <code>SCO5_CLOCK</code> stuff
+<ul>
+<li>(<code>init_proto</code>): Use the <code>SCO5_CLOCK</code> stuff</li>
+</ul>
+</li>
+<li><code>libntp/systime.c</code>: <code>SCO5_CLOCK</code> stuff
+<ul>
+<li>(<code>get_systime</code>): Use the <code>SCO5_CLOCK</code> stuff</li>
+<li>(<code>adj_systime</code>): Use the <code>SCO5_CLOCK</code> stuff</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_config.c</code>: Added <code>-P</code> option and associated baggage.
+<ul>
+<li>(<code>getstartup</code>): Update <code>help</code> text</li>
+<li>(<code>getconfig</code>): Process <code>-P</code> option</li>
+<li>(<code>getconfig</code>): Update <code>help</code> text</li>
+</ul>
+</li>
+<li><code>ntpd/ntpd.c</code> (<code>set_process_priority</code>): Created.
+<ul>
+<li>(<code>service_main</code>): remove process priority stuff - we want to do at after we start up the resolver, so call <code>set_process_priority()</code> after <code>getconfig()</code>.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_util.c</code> (<code>hourly_stats</code>): removed unused variable</li>
+<li><code>libntp/ieee754io.c</code>: renamed <code>index</code> to <code>fieldindex</code> to avoid <code>index()</code> name clash</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>parse_start</code>): add initialization for Linux PPSkit</li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Skip interfaces that are really just aliases.</li>
+<li><code>configure.in</code>: 4.0.92b</li>
+<li><code>ntpd/ntpd.c</code> (<code>service_main</code>): Check for an error return from <code>sched_get_priority_max()</code>.</li>
+<li><code>configure.in</code>: 4.0.92a</li>
+<li><code>configure.in</code>: <code>configure.in</code> requires <code>autoconf</code> 2.13 or later.</li>
+<li><code>acconfig.h: TERMIOS_NEEDS__SVID3</code></li>
+<li><code>configure.in</code>: Ditto</li>
+<li><code>ntpd/refclock_palisade.h</code>: Ditto</li>
+<li><code>include/ntp_refclock.h</code>: Ditto</li>
+<li><code>ntpd/ntpd.c</code> (<code>service_main</code>): We want <code>sched_get_priority_max()</code>.</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_open</code>): Zero the entire <code>c_cc[]</code> array.</li>
+<li>Updated <code>ansi2knr</code></li>
+</ul>
+<hr>
+<h4 id="4092">4.0.92</h4>
+<p><strong>Release Date:</strong> 1999 Feb 15</p>
+<ul>
+<li>chronolog and dumbclock refclocks</li>
+<li>SCO updates</li>
+<li>Cleanup/bugfixes</li>
+<li>Y2K patches</li>
+<li>Updated palisade driver</li>
+<li>Plug memory leak</li>
+<li>wharton kernel clock</li>
+<li>Oncore clock upgrades</li>
+<li>NMEA clock improvements</li>
+<li>PPS improvements</li>
+<li>AIX portability patches</li>
+<li><code>ntpd/ntp_refclock.c</code>: Added <code>refclock_chronolog</code> and <code>refclock_dumbclock</code>.</li>
+<li>dropped SCO3 support <code>#defines</code>.</li>
+<li>changed <code>SCO5_TICKADJ #define</code> to <code>SCO5_OLDCLOCK</code></li>
+<li>Added code in <code>libntp/systime.c</code> to accumulate changes until a whole tick can be added or dropped. Adjusted <code>gettimeofday()</code> output to include the contents of the accumulator.</li>
+<li>cleaned up <code>util/tickadj.c</code>; <code>tickadj -As</code> now does the right thing.</li>
+<li><code>ntpq/ntpq.c</code>: Rename <code>delay()</code> to <code>auth_delay()</code></li>
+<li><code>ntpd/refclock_palisade.h</code>: Cleanup.</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_ioctl</code>): Typo.</li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Only bind a given network once.</li>
+<li><code>configure.in</code>: 4.0.91f</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>CLK_REALTYPE</code>): We really want <code>ttl</code>, not <code>hmode</code>.</li>
+<li><code>ntpd/ntp_config.c</code> (<code>getconfig</code>): <code>mode</code> really should update the <code>ttl</code> member, not the <code>hmode</code> member.</li>
+<li><code>ntpd/refclock_local.c</code>: More offset cleanup from Dave.</li>
+<li><code>configure.in</code>: 4.0.91e</li>
+<li><code>ntpd/refclock_local.c</code>: Bugfix.</li>
+<li><code>ntpd/refclock_palisade.c</code>: Lint/IRIX portability cleanup</li>
+<li><code>ntpd/refclock_palisade.h</code>: Re-enable the declaration of <code>float()</code></li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Initialize size to 0</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>CLK_REALTYPE</code>): Use <code>hmode</code>, not <code>ttl</code>.</li>
+<li><code>configure.in</code> (<code>ac_cv_var_no_parenb_ignpar</code>): Not under Linux.</li>
+<li><code>ntpdc/ntpdc.c</code> (<code>my_delay</code>): Renamed, from <code>delay</code>.</li>
+<li><code>configure.in</code>: 4.0.91d</li>
+<li><code>ntpq/ntpq.c</code>: Y2K patches</li>
+<li><code>html/driver29.htm</code>: New version</li>
+<li><code>ntpd/refclock_palisade.c</code>: Ditto</li>
+<li><code>ntpd/refclock_palisade.h</code>: Ditto</li>
+<li>upgrade <code>ansi2knr.c</code></li>
+<li>Some stuff that Dave did.</li>
+<li><code>configure.in</code>: 4.0.91c</li>
+<li><code>ntpd/refclock_oncore.c</code>: Prototype cleanup. Enum cleanup.</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>clock_select</code>): Fix memory leak.</li>
+<li><code>configure.in</code> (<code>ac_cv_struct_ppsclockev</code>): Might need <code>sys/time.h</code> to check for struct <code>clockppsev</code>. Return <code>pce</code>-&gt;<code>serial</code>, not <code>0;</code></li>
+<li><code>ntpd/refclock_oncore.c</code> (<code>oncore_msg_En</code>): Clean up.</li>
+<li><code>ntpd/ntp_config.c</code> (<code>do_resolve_internal</code>): Missing <code>#ifdef DEBUG</code></li>
+<li><code>Makefile.am</code> (<code>SUBDIRS</code>): Lose authstuff</li>
+<li><code>configure.in</code>: Ditto</li>
+<li><code>configure.in</code>: 4.0.91b</li>
+<li><code>ntpd/refclock_oncore.c</code>: use <code>HAVE_STRUCT_PPSCLOCKEV</code></li>
+<li><code>acconfig.h</code>: <code>HAVE_STRUCT_PPSCLOCKEV</code></li>
+<li><code>configure.in</code> (<code>ac_cv_struct_ppsclockev</code>): Added test</li>
+<li><code>configure.in</code>: 4.0.91a</li>
+<li><code>ntpd/refclock_nmea.c</code> (<code>nmea_receive</code>): Call <code>refclock_process()</code> every second (or each time a <code>nmea</code> string is received).</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_ioctl</code>): Use <code>TIOCPPS</code> if we have it.
+<ul>
+<li>(refclock_ioctl): Use LDISC_CLKPPS, not LDISC_PPS when deciding how to set str.</li>
+</ul>
+</li>
+<li>Lose unused <code>ntp_gettime()</code> stuff: <code>ntpd/ntp_loopfilter.c</code>, <code>ntpd/ntp_request.c</code>, <code>ntpd/refclock_local.c</code>.</li>
+<li><code>ntpd/refclock_shm.c</code> (<code>shm_poll</code>): Fix the <code>refclock_process()</code> call.</li>
+<li><code>ntpd/refclock_oncore.c</code>: patches and cleanup</li>
+<li><code>configure.in</code>: ioctl/PPS checks, ONCORE cleanup</li>
+<li><code>acconfig.h</code>: ONCORE cleanup</li>
+<li><code>configure.in</code> (<code>CFLAGS</code>): <code>cc</code> on Sequent wants <code>-Wc,+abi-socket</code>. We also need to figure out why <code>-lsocket</code> isn&rsquo;t being detected; <code>-lsocket</code> is needed.</li>
+<li>AIX portability patches, header cleanup. <code>include/ntp_stdlib.h</code>, <code>ntptrace/ntptrace.c</code>, <code>ntpdate/ntpdate.c</code>, <code>ntpd/refclock_true.c</code>, <code>ntpd/refclock_mx4200.c</code>, <code>ntpd/refclock_jupiter.c</code>, <code>libntp/msyslog.c</code>.</li>
+</ul>
+<hr>
+<h4 id="4091">4.0.91</h4>
+<p><strong>Release Date:</strong> 1999 Jan 10</p>
+<ul>
+<li>New ONCORE driver</li>
+<li>New MX4200 driver</li>
+<li>Palisade improvements</li>
+<li><code>config</code> file bugfixes and problem reporting</li>
+<li><code>autoconf</code> upgrade and cleanup</li>
+<li>HP-UX, IRIX lint cleanup</li>
+<li>AIX portability patches</li>
+<li>NT cleanup</li>
+<li><code>include/ntp_stdlib.h: msyslog()</code> is declared differently if we&rsquo;re not <code>__STDC__</code>.</li>
+<li><code>include/ntp_types.h</code>: It&rsquo;s <code>HAVE_PROTOTYPES</code>, not <code>USE_PROTOTYPES</code>.</li>
+<li><code>include/ntp_machine.h</code>: Ditto.</li>
+<li><code>configure.in</code>: Upgrade to autoconf-2.13. Do the prototypes check much earlier, as it might alter <code>CFLAGS</code> and things which will affect other tests.</li>
+<li><code>ntpd/ntp_request.c</code> (<code>do_conf</code>): The problem was with a template for <code>version</code> on an IRIX C compiler.</li>
+<li><code>libntp/authkeys.c: #include config.h</code> first.</li>
+<li><code>util/tickadj.c</code> (<code>main</code>): <code>return()</code> instead of <code>exit()</code>.</li>
+<li><code>ntpd/ntp_request.c</code> (<code>do_conf</code>): Disambiguate <code>||</code>.</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>clock_select</code>): Initialize variables.</li>
+<li><code>scripts/ntpver.in</code>: Use <code>PATH_SH</code></li>
+<li><code>configure.in</code> (<code>PATH_SH</code>): Added.</li>
+<li><code>configure.in</code>: 4.0.90h</li>
+<li><code>html/driver30.htm</code>: Updated.</li>
+<li><code>html/refclock.htm</code>: Refer to driver30</li>
+<li><code>ntpd/refclock_oncore.c</code>: Vastly improve and make less FreeBSD centric.</li>
+<li><code>include/ntp.h</code>: Portability/<code>lint</code> patches</li>
+<li><code>libntp/binio.c</code>, <code>libntp/caljulian.c</code>, <code>libntp/caltontp.c</code>, <code>libntp/ieee754io.c</code>, <code>libntp/md5c.c</code>, <code>libntp/mfp_mul.c</code>, <code>libntp/msyslog.c</code>, <code>libntp/statestr.c</code>, <code>libntp/systime.c</code>, <code>libparse/clk_trimtsip.c</code>, <code>libparse/data_mbg.c</code>, <code>libparse/parse.c</code>, <code>ntpd/ntp_control.c</code>, <code>ntpd/ntp_filegen.c</code>, <code>ntpd/ntp_intres.c</code>, <code>ntpd/ntp_io.c</code>, <code>ntpd/ntp_peer.c</code>, <code>ntpd/ntp_proto.c</code>, <code>ntpd/ntp_util.c</code>, <code>ntpd/ntpd.c</code>, <code>ntpd/refclock_arc.c</code>, <code>ntpd/refclock_chu.c</code>, <code>ntpd/refclock_datum.c</code>, <code>ntpd/refclock_leitch.c</code>, <code>ntpd/refclock_parse.c</code>, <code>ntpd/refclock_usno.c</code>, <code>ntpq/ntpq.c</code>, <code>util/tickadj.c</code>: Ditto.</li>
+<li><code>configure.in</code>: 4.0.90g</li>
+<li><code>ntpd/ntp_config.c</code> (<code>getconfig</code>): <code>MODE</code> was setting <code>ttl</code>, not <code>hmode</code>.</li>
+<li><code>configure.in</code>: 4.0.90f</li>
+<li><code>ntpd/refclock_mx4200.c</code>: New version</li>
+<li><code>ntpd/ntp_config.c</code> (<code>do_resolve_internal</code>): If fork fails, say why.</li>
+<li><code>ntpd/ntpd.c</code> (<code>ntpdmain</code>): <code>fork()</code> can return a <code>-1</code>. Someday we&rsquo;ll report this condition.</li>
+<li><code>configure.in</code>: 4.0.90e</li>
+<li><code>ntpd/refclock_palisade.c</code>: Reformat code so <code>ansi2knr</code> will work</li>
+<li><code>ntpd/refclock_palisade.h</code>: Ditto</li>
+<li><code>configure.in</code>: 4.0.90d</li>
+<li><code>configure.in</code> (<code>CFLAGS</code>): Use <code>-O2 -g3 -n32</code> by default for Irix6.2 and later.</li>
+<li><code>configure.in</code>: 4.0.90c</li>
+<li><code>ntpd/refclock_oncore.c</code> (<code>oncore_msg_En</code>): Convert to nano</li>
+<li><code>include/ntp_request.h</code> (<code>RM_VN_MODE</code>): Add version parameter, so <code>xntpdc</code> will work across v3 and v4.</li>
+<li><code>ntpd/ntp_request.c</code>: Track requested version
+<ul>
+<li>Use requested version in <code>RM_VN_MODE</code>: (<code>req_ack</code>), (<code>more_pkt</code>), (<code>flush_pkt</code>)</li>
+<li>(<code>process_private</code>): Get requested version</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_intres.c</code> (<code>request</code>): Use default version</li>
+<li><code>ntpdc/ntpdc.c</code> (<code>sendrequest</code>): Ditto</li>
+<li><code>ntpd/refclock_palisade.c</code>: Lint cleanup</li>
+<li><code>ntpd/refclock_palisade.h</code>: Ditto.</li>
+<li><code>configure.in</code>: 4.0.90b</li>
+<li>New code and cleanup for the NT stuff</li>
+<li><code>configure.in</code>: 4.0.90a</li>
+<li><code>libntp/systime.c</code> (<code>step_systime</code>): <code>net_set_tod</code> calls <code>clock_settime</code>.</li>
+<li><code>libntp/machines.c</code> (<code>ntp_set_tod</code>): Take a 2nd arg for NT.</li>
+<li><code>include/ntp_machine.h</code>: <code>ntp_set_tod()</code> has 2 args always.</li>
+<li><code>ports/winnt/bldrel.bat</code>: Typo.</li>
+<li><code>ntpd/ntp_intres.c</code> (<code>findhostaddr</code>): <code>h_errno</code> is a <code>#define</code> under AIX.</li>
+<li><code>configure.in</code>: <code>clock_settime</code> is a stub in AIX4.</li>
+<li>Lose <code>libntp.mak</code>: <code>libntp/Makefile.am</code> (<code>EXTRA_DIST</code>), <code>ntpd/Makefile.am</code> (<code>EXTRA_DIST</code>), <code>ntpdate/Makefile.am</code> (<code>EXTRA_DIST</code>), <code>ntpdc/Makefile.am</code> (<code>EXTRA_DIST</code>), <code>ntpq/Makefile.am</code> (<code>EXTRA_DIST</code>).</li>
+</ul>
+<hr>
+<h4 id="4090">4.0.90</h4>
+<p><strong>Release Date:</strong> 1998 Nov 21</p>
+<ul>
+<li>Nanoseconds</li>
+<li>New palisade driver</li>
+<li>New Oncore driver</li>
+<li>Nano changes from Dave Mills.</li>
+<li><code>include/ntp_machine.h</code>: <code>STREAM</code> also needs <code>HAVE_SYS_STREAM_H</code></li>
+<li><code>configure.in</code>: 4.0.73e14</li>
+<li><code>util/ntptime.c</code> (<code>main</code>): Protect <code>STA_NANO</code></li>
+<li><code>ntpd/refclock_oncore.c</code>: General overhaul and simplifications. The new manual clarifies a lot of fine points, and the driver has been suitably simplified. Uses Site Survey if possible, otherwise does it by hand. Should also work with non-UT models, as long as they talk the Motorola Binary Protocol. The driver doesn&rsquo;t (need to) know where the author lives anymore.</li>
+<li><code>ntpd/refclock_palisade.h</code>: New version.</li>
+<li><code>ntpd/refclock_palisade.c</code>: New version.</li>
+<li><code>configure.in</code>: 4.0.83e13</li>
+<li><code>ntpdc/ntpdc_ops.c</code> (<code>clkbug</code>): Patches</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_buginfo</code>): Patches</li>
+<li><code>configure.in</code>: 4.0.83e12</li>
+<li><code>ntpd/ntp_util.c</code> (<code>hourly_stats</code>): Added <code>prio_set</code> stuff.</li>
+<li><code>ntpd/ntpd.c</code> (<code>ntpdmain</code>): <code>HAVE_SETPGRP_0</code> typo.</li>
+<li><code>parseutil/dcfd.c</code> (<code>detach</code>): Ditto.</li>
+<li><code>ntpd/ntp_control.c</code> (<code>ctl_putpeer</code>): Sometimes, peer-&gt;dstadr is NIL.</li>
+<li><code>ntpd/ntpd.c</code>: Some systems use <code>sys/sched.h</code>, not <code>sched.h</code> (Irix)</li>
+<li><code>configure.in</code> (<code>CFLAGS</code>): <code>nextstep</code> needs <code>-posix</code>.</li>
+<li><code>configure.in</code>: 4.0.83e11</li>
+<li><code>configure.in</code> (<code>ac_refclock_palisade</code>): Needs <code>termios</code>.</li>
+<li><code>libntp/mktime.c</code>: Some systems need <code>sys/types.h</code></li>
+<li><code>configure.in</code>: Added <code>AC_TYPE_SIZE_T</code> and <code>AC_CHECK_TYPE(time_t, long)</code>. The <code>time_t</code> stuff should only be needed on Older machines, so the fact that I&rsquo;m using a long shouldn&rsquo;t be a problem (hollow laugh).</li>
+<li><code>include/l_stdlib.h</code>: Sometimes we need to <code>#include &lt;sys/types.h&gt;</code></li>
+<li><code>libntp/Makefile.am (../include/des.h)</code>: Typo.</li>
+<li><code>ntpd/ntp_intres.c</code> (<code>request</code>): Accept responses back thru V2.</li>
+<li><code>configure.in</code>: 4.0.83e9</li>
+<li><code>ntpd/ntpd.c</code> (<code>catch_danger</code>): Added.
+<ul>
+<li>(<code>ntpdmain</code>): AIX <code>SIGDANGER</code> stuff</li>
+</ul>
+</li>
+<li>Here are some patches to suppress warnings from various compilers (IRIX 5.3, MipsPro C 7.1 on IRIX 6.4, AIX 4.1) and loaders (IRIX 5.3, IRIX 6.4). Shouldn&rsquo;t affect functionality at all: <code>configure.in, include/ntp_machine.h, include/ntp_string.h, libntp/machines.c, libparse/clk_hopf6021.c, libparse/clk_trimtsip.c, ntpd/refclock_leitch.c, ntpd/refclock_palisade.c, ntpd/refclock_parse.c</code>.</li>
+<li><code>configure.in</code>: 4.073e8</li>
+<li><code>configure.in</code>: AIX4 stubs the POSIX <code>timer_</code> stuff, <code>sched_setscheduler</code>, and <code>mlockall</code>.</li>
+<li><code>configure.in</code>: OpenBSD stubs the POSIX <code>timer_</code> stuff.</li>
+<li><code>configure.in</code>: 4.0.73e7</li>
+<li><code>ntpd/refclock_parse.c</code>: Missing declaration</li>
+<li><code>include/README</code>: Remove old <code>MCAST</code> descriptions</li>
+<li><code>include/Makefile.am</code> (<code>noinst_HEADERS</code>): Lose <code>sun-in.h</code>.</li>
+<li><code>ntpdate/ntpdate.c</code> (<code>timer</code>): Properly format the definition.</li>
+<li><code>configure.in</code>: 4.0.73e6</li>
+<li><code>include/Makefile.am</code> (<code>noinst_HEADERS</code>): Renamed <code>in.h</code> to <code>sun-in.h</code></li>
+<li><code>configure.in</code>: 4.0.73e5</li>
+<li><code>ntpd/refclock_palisade.c</code>: SCO patch</li>
+<li><code>libparse/clk_trimtsip.c</code> (<code>cvt_trimtsip</code>): Fix rollover bug.</li>
+<li>Typos, cleanup, and bugfixes: <code>libntp/authencrypt.c, libntp/systime.c, ntpd/refclock_acts.c, ntpd/refclock_arbiter.c, ntpd/refclock_arc.c, ntpd/refclock_as2201.c, ntpd/refclock_atom.c, ntpd/refclock_chu.c, ntpd/refclock_conf.c, ntpd/refclock_datum.c, ntpd/refclock_heath.c, ntpd/refclock_hpgps.c, ntpd/refclock_irig.c, ntpd/refclock_leitch.c, ntpd/refclock_nmea.c, ntpd/refclock_palisade.c, ntpd/refclock_parse.c, ntpd/refclock_pst.c, ntpd/refclock_trak.c, ntpd/refclock_true.c, ntpd/refclock_usno.c, ntpd/refclock_wwvb.c</code>.</li>
+<li><code>ntpd/ntp_timer.c</code> (<code>timer</code>): Typo.</li>
+<li><code>include/ntp_refclock.h</code>: in <code>refclockstat, clockdesc</code> should be const.</li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Typo.</li>
+<li><code>ntpd/ntp_control.c</code> (<code>free_varlist</code>): Use the appropriate cast when calling <code>free()</code>.
+<ul>
+<li>(<code>set_var</code>): Use char <code>*td</code> for non-const char data.</li>
+<li>(<code>ctl_getitem</code>): Use char <code>*</code> for non-const data.</li>
+</ul>
+</li>
+<li><code>ntpd/ntpd.c</code>: Added <code>nofork</code> declaration.
+<ul>
+<li>(<code>ntpdmain</code>): Initialize it.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_config.c</code>: added <code>nofork</code>.</li>
+<li>Updated <code>ntp_options</code>.
+<ul>
+<li>(<code>getstartup</code>): Updated <code>usage</code> string. Deal with <code>-n</code> flag.</li>
+<li>(<code>getconfig</code>): Ditto.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_io.c</code> (<code>open_socket</code>): Use <code>ntoa()</code> to print out the address when <code>bind()</code> fails. (in 2 places)</li>
+<li>Only soft-fail if an interface is unavailable.
+<ul>
+<li>(<code>create_sockets</code>): Don&rsquo;t <code>SO_REUSEADDR</code> if the interface is unavailable.</li>
+</ul>
+</li>
+<li><code>configure.in</code>: If we <code>--disable-all-clocks</code>, then don&rsquo;t enable parse clocks by default.</li>
+<li><code>ntpd/refclock_acts.c</code>: Patch cleanup</li>
+<li><code>ntpd/ntp_refclock.c</code>: Patch cleanup</li>
+<li><code>ntpd/ntp_timer.c</code>: Patch cleanup</li>
+<li><code>libntp/machines.c</code>: IRIX needs <code>time.h</code></li>
+<li><code>ntpd/ntpd.c</code> (<code>service_main</code>): Better <code>AIX PROCLOCK</code> fix.</li>
+<li><code>include/ntpd.h</code> (<code>MAXINTERFACES</code>): Moved here&hellip;</li>
+<li><code>ntpd/ntp_io.c</code>: From here&hellip;
+<ul>
+<li>(<code>create_sockets</code>): Only deal with <code>MAXINTERFACES</code>.</li>
+<li>(<code>create_sockets</code>): Only deal with specified interfaces.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_config.c</code> (<code>CONFIG_LISTEN</code>): Added</li>
+<li>Added <code>ifnum</code> and <code>listenaddrs[]</code>
+<ul>
+<li>(<code>getconfig</code>): Added defn for <code>addr</code></li>
+<li>(<code>getconfig</code>): Initialize <code>ifnum</code>.</li>
+</ul>
+</li>
+<li><code>ntpd/ntpd.c</code> (<code>service_main</code>): call <code>init_io</code> after <code>getconfig</code></li>
+<li><code>ntpd/refclock_palisade.c</code>: Use <code>NEED_HPUX9_TIOCM_STUFF</code></li>
+<li><code>acconfig.h</code> (<code>NEED_HPUX9_TIOCM_STUFF</code>): Added.</li>
+<li><code>configure.in</code> (<code>REFCLOCK_PALISADE</code>): Needs <code>termio*.h</code>
+<ul>
+<li>(<code>NEED_HPUX9_TIOCM_STUFF</code>): Added.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Use <code>strchr</code> instead of <code>strstr</code>.</li>
+<li><code>libntp/mktime.c: #include &lt;sys/types.h&gt;</code></li>
+<li><code>libntp/ieee754io.c: #include &lt;sys/types.h&gt;</code></li>
+<li><code>ntpd/refclock_acts.c</code> (<code>ACTS_MAXPOLL</code>): 14 -&gt; 18.</li>
+<li>Import <code>current_nextdate</code>
+<ul>
+<li>(<code>acts_receive</code>): Update peer-&gt;nextdate with <code>current_nextdate</code></li>
+<li>(<code>acts_poll</code>): Call <code>acts_timeout()</code> (debugging)</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_refclock.c</code>: Export <code>current_nextdate</code>.
+<ul>
+<li>(<code>refclock_transmit</code>): Check peer-&gt;valid &gt;= <code>NTP_SHIFT - 2</code>, not <code>&gt;</code>.</li>
+<li>(<code>refclock_transmit</code>): <code>hpoll wiggles</code>, update <code>current_nextdate</code></li>
+</ul>
+</li>
+<li><code>ntpd/ntp_timer.c: #include ntp_refclock.h</code>
+<ul>
+<li>(<code>MODE_MANUAL</code>): Added.</li>
+<li>(<code>timer</code>): <code>MODE_MANUAL </code>stuff</li>
+</ul>
+</li>
+<li><code>configure.in</code>: Check for <code>inet_ntoa</code> in <code>-lbind</code>.</li>
+<li><code>ntpd/ntpd.c: #undef PROCLOCK</code> for AIX.</li>
+<li><code>configure.in</code> (<code>AC_TYPE_SIZE_T</code>): Added.</li>
+<li><code>configure.in</code>: 4.0.73e</li>
+<li>p<code>orts/winnt/</code>: Replaced with new code (no <code>SHM</code> or <code>PALISADE</code>)</li>
+<li><code>configure.in</code>: 4.0.73d</li>
+<li><code>include/ntp_machine.h</code> (<code>HAVE_SRANDOM</code>): VxWorks patches
+<ul>
+<li>(<code>HAVE_RANDOM</code>): Ditto.</li>
+<li>(<code>CALL</code>): Ditto.</li>
+</ul>
+</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>local_input</code>): Typo.</li>
+<li><code>configure.in</code>: 4.0.73c</li>
+<li>PARSE patches from Frank Kardel</li>
+<li><code>libntp/machines.c</code> (<code>ntp_set_tod</code>): Get it right.</li>
+<li><code>configure.in</code>: 4.0.73a</li>
+<li><code>kernel/sys/timex.h</code> (<code>MOD_CANSCALE</code>): Add rest of patch to handle scaling.</li>
+</ul>
+<hr>
+<h4 id="4073">4.0.73</h4>
+<p><strong>Release Date:</strong></p>
+<ul>
+<li><code>README.hackers</code> added</li>
+<li>PARSE driver is working again</li>
+<li>Solaris 2.6 has nasty kernel bugs.  DO NOT enable <code>pll</code>!</li>
+<li>DES is out of the distribution.</li>
+<li><code>ntpd/ntp_loopfilter.c</code> (<code>local_clock</code>): <code>MOD_CANSCALE</code> patches, and be careful with the integration if we&rsquo;re nearly perfect.</li>
+<li><code>util/tickadj.c</code> (<code>main</code>): Typo fix.</li>
+<li><code>ntpd/ntp_io.c</code> (<code>create_sockets</code>): Attempt to ignore alias interfaces.</li>
+<li><code>ntpd/ntp_refclock.c</code>: PPS fixes</li>
+<li><code>ntpd/refclock_msfees.c</code> (<code>msfees_start</code>): Portability fixes and PPS/STREAM enhancements</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_gtlin</code>): Patch.</li>
+<li><code>libntp/buftvtots.c</code> (<code>buftvtots</code>): using <code>WORD_BIGENDIAN</code> instead of <code>XNTP_BIG_ENDIAN</code></li>
+<li><code>libparse/clk_trimtsip.c</code> (<code>getflt</code>): fixed <code>ENDIAN</code> issue
+<ul>
+<li>(<code>getdbl</code>): fixed <code>ENDIAN</code> issue</li>
+<li>(<code>getint</code>): use <code>get_msb_short()</code></li>
+<li>(<code>cvt_trimtsip</code>): use <code>gpstolfp()</code> for conversion</li>
+</ul>
+</li>
+<li><code>libntp/Makefile.am</code> (<code>libntp_a_SOURCES</code>): added <code>gpstolfp.c</code> source</li>
+<li><code>libntp/binio.c</code>: added <code>{get,put}_msb_{short,long}()</code> functions</li>
+<li><code>include/ntp_fp.h</code>: added <code>gpstolfp()</code> prototype</li>
+<li><code>include/binio.h</code>: added <code>binio MSB</code> prototypes</li>
+<li><code>parseutil/testdcf.c</code>: signed/unsigned SYSV clock name clash fixed</li>
+<li><code>parseutil/dcfd.c</code>: signed/unsigned SYSV clock name clash fixed
+<ul>
+<li>year wrapping at 1998</li>
+<li>ctype macros take ints as args</li>
+</ul>
+</li>
+<li><code>ntptrace/ntptrace.c</code> (<code>decodeipaddr</code>): ctype macros take ints as args</li>
+<li><code>ntpq/ntpq_ops.c</code> (<code>doprintpeers</code>): signed/unsigned</li>
+<li><code>ntpq/ntpq.c</code>: ctype macros take ints as args signed/unsigned</li>
+<li>signed/unsigned: <code>ntpdc/ntpdc.c</code>, <code>ntpd/refclock_usno.c</code></li>
+<li><code>ntpd/refclock_true.c</code> (<code>true_send</code>): signed/unsigned, name clashes</li>
+<li><code>ntpd/refclock_parse.c</code>: signed/unsigned, name clashes</li>
+<li><code>ntpd/refclock_nmea.c</code> (<code>nmea_receive</code>): ctype macros take ints as args</li>
+<li><code>ntpd/refclock_heath.c</code> (<code>heath_receive</code>): prototypes (signed/unsigned issues)</li>
+<li>signed/unsigned issues: <code>ntpd/refclock_arc.c</code>: prototypes, <code>ntpd/refclock_acts.c</code>: prototypes, <code>ntpd/ntpd.c: prototypes</code></li>
+<li>prototypes (signed/unsigned issues) fix SYSV clock name clash: <code>ntpd/ntp_util.c</code> (<code>getauthkeys</code>), <code>ntpd/ntp_request.c</code></li>
+<li><code>ntpd/ntp_io.c</code> (<code>input_handler</code>): variable naming, signed/unsigned</li>
+<li><code>ntpd/ntp_intres.c</code> (<code>readconf</code>): signed/unsigned issues</li>
+<li><code>ntpd/ntp_control.c</code>: prototypes (signed/unsigned issues) fix SYSV clock name clash</li>
+<li><code>ntpd/ntp_config.c</code>: fix SYSV clock name clash. ctype macros take ints as args</li>
+<li><code>libparse/parsestreams.c</code>: dirt (debug) removed</li>
+<li><code>libparse/parsesolaris.c</code>: more prototypes, fix name clashes, allow for <code>ansi2knr</code></li>
+<li><code>libparse/parse.c: bcopy/memcpy</code> cleanup, fix SYSV clock name clash</li>
+<li>fix SYSV clock name clash: <code>libparse/clk_trimtsip.c</code> (<code>cvt_trimtsip</code>), <code>libparse/clk_trimtaip.c</code> (<code>cvt_trimtaip</code>), <code>libparse/clk_schmid.c</code> (<code>cvt_schmid</code>), <code>libparse/clk_rcc8000.c</code> (<code>cvt_rcc8000</code>), <code>libparse/clk_rawdcf.c</code> (<code>cvt_rawdcf</code>), <code>libparse/clk_hopf6021.c</code> (<code>cvt_hopf6021</code>), <code>libparse/clk_dcf7000.c</code> (<code>cvt_dcf7000</code>), <code>libparse/clk_computime.c</code></li>
+<li>ctype macros take ints as args: <code>libntp/octtoint.c</code> (<code>octtoint)</code>, <code>libntp/mstolfp.c</code> (<code>mstolfp</code>), <code>libntp/hextolfp.c</code> (<code>hextolfp</code>), <code>libntp/hextoint.c</code> (<code>hextoint</code>), <code>libntp/decodenetnum.c</code> (<code>decodenetnum</code>), <code>libntp/atouint.c</code> (<code>atouint</code>), <code>libntp/atolfp.c</code> (<code>atolfp</code>), <code>libntp/atoint.c</code> (<code>atoint</code>)</li>
+<li>STREAM<code>macro gone in favor of</code>HAVE_SYS_STREAM_H<code>: </code>kernel/sys/parsestreams.h, <code>include/parse.h: STREAM</code></li>
+<li><code>ntpd/ntp_timer.c</code>: prototype fixes (<code>ansi2knr/knr</code> compiler)</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>make_keylist</code>): type cast for <code>e(!!!)malloc()</code></li>
+<li><code>libparse/Makefile.am</code>: adjust for <code>ansi2knr</code></li>
+<li><code>libntp/ieee754io.c: ansi2knr</code> compatibility</li>
+<li><code>include/ntp_refclock.h</code>: added <code>pps_sample()</code> extern declaration and added <code>refclock_process_offset()</code> extern declaration</li>
+<li><code>include/ntp.h</code>: fixed function <code>*</code> prototypes</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>bind</code>): added input routine
+<ul>
+<li>(<code>local_input</code>): added input routine</li>
+</ul>
+</li>
+<li>`ntpd/ntp_io.c (input_handler): direct input processing for refclocks to save input recv buffers</li>
+<li>include/ntp_refclock.h`: added int <code>io_input(struct recvbuf *)</code> pointer to allow direct processing of read refclock data in order to save many bug recv buffers on single character input (problem with &ldquo;fast&rdquo; machines)</li>
+<li><code>parse_conf.c</code>: conditional compile macros fixed</li>
+<li>Conditional compile macros fixed <code>printf</code> prototype: <code>parse.c, clk_trimtaip.c, clk_schmid.c:, clk_rcc8000.c, clk_hopf6021.c, clk_dcf7000.c, clk_computime.c</code>.</li>
+<li><code>ntpd/refclock_palisade.c</code>: fixed <code>termio.h</code> / <code>termios.h</code> inclusion</li>
+<li><code>include/ntp_refclock.h</code>: made <code>refclockproc/clockdesc</code> const</li>
+<li><code>ntpd/ntp_control.c</code> (<code>ctl_putpeer</code>): avoided ambigous <code>else</code> (<code>gcc</code>)</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>parse_start</code>): added <code>BURST</code> mode initialisation</li>
+<li><code>scripts/stats/summary.sh</code> (<code>CLOCK</code>): allow for Y2K log files</li>
+<li><code>libparse/clk_rawdcf.c</code>: simplified condidional compile expression</li>
+<li><code>include/Makefile.am</code> (<code>noinst_HEADERS</code>): added new header files <code>mbg_gps166.h, binio.h, ascii.h, ieee754io.h</code></li>
+<li><code>ntpdc/ntpdc.c</code> (<code>sendrequest</code>): fixed <code>info_auth_keyid</code> setting; it got accidentally trashed every other round</li>
+<li><code>configure.in</code>: PARSE clocks are enabled by default whenever possible (<code>termio.h</code> or <code>termios.h</code> present) and removed <code>RAWDCF_SETDTR</code> feature</li>
+<li><code>acconfig.h</code>: removed <code>RAWDCF_SETDTR</code> option (now implicit by compilation and run time configuration)</li>
+<li><code>ntpd/refclock_parse.c</code> (<code>rawdcf_init</code>): offer a RAWDCF clock (type 14) that attempts to set the DTR modem line for receiver power</li>
+<li><code>libparse/clk_meinberg.c</code> (<code>cvt_meinberg</code>): support current standard Meinberg data formats</li>
+<li><code>libparse/clk_rawdcf.c</code> (<code>pps_rawdcf</code>): trigger pps on zero going edge - that is simpler wiring (Rx-&gt;DCD).</li>
+<li><code>parseutil/testdcf.c</code> (<code>wday</code>): const keyword</li>
+<li><code>parseutil/dcfd.c</code> (<code>cvt_rawdcf</code>): sign issues and calling interfaces</li>
+<li><code>ntpq/ntpq.c</code> (<code>MAXVARLEN</code>): adjusted internal buffer length for variable values</li>
+<li><code>ntpd/refclock_parse.c</code>: adjust to new io handling (fixed formats only)
+<ul>
+<li>(<code>mkreadable</code>): don&rsquo;t include <code>&gt;&quot;&lt; </code>in readable ASCII output (-&gt; <code>ntpq</code> parsing)</li>
+<li>output debug messages to <code>stdout</code> instead of <code>msyslog()</code></li>
+<li>fixed version information string</li>
+</ul>
+</li>
+<li><code>ntpd/refclock_atom.c</code> (<code>pps_sample</code>): new auxiliary pps interface</li>
+<li><code>libparse/parsestreams.c</code> (<code>parserput</code>): get event status consistent with direct calls
+<ul>
+<li>(<code>zs_xsisr</code>): simulate CARRIER status to avoid unnecessary <code>M_xHANGUP</code> events</li>
+</ul>
+</li>
+<li><code>libparse/parsesolaris.c</code> (<code>parserput</code>): get event status consistent with direct calls
+<ul>
+<li>(<code>zs_xsisr</code>): simulate CARRIER status to avoid unnecessary <code>M_xHANGUP</code> events</li>
+</ul>
+</li>
+<li><code>libparse/parse.c</code>: removed old input cruft
+<ul>
+<li>new generic input help function: (<code>parse_restart</code>), (<code>parse_addchar</code>), (<code>parse_end</code>)</li>
+<li>new generic pps help function: (<code>pps_one</code>), (<code>pps_zero</code>)</li>
+</ul>
+</li>
+<li><code>libparse/clk_trimtsip.c</code> (<code>clock_trimtsip =</code>): new input handling</li>
+<li><code>libparse/clk_trimtaip.c</code> (<code>clock_trimtaip =</code>): new input handling
+<ul>
+<li>(<code>inp_trimtaip</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/clk_schmid.c</code> (<code>clock_schmid =</code>): new input handling
+<ul>
+<li>(<code>inp_schmid</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/clk_rcc8000.c</code> (<code>clock_rcc8000 =</code>): new input handling
+<ul>
+<li>(<code>inp_rcc8000</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/clk_rawdcf.c</code> (<code>clock_rawdcf =</code>): new input handling
+<ul>
+<li>(<code>snt_rawdcf</code>): adjusted to new input handling</li>
+<li>(<code>inp_rawdcf</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/clk_meinberg.c</code> (<code>clock_meinberg</code>): new input handling
+<ul>
+<li>(<code>gps_input</code>): new input handler</li>
+<li>(<code>mbg_input</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/clk_hopf6021.c</code> (<code>clock_hopf6021 =</code>): new input handling
+<ul>
+<li>(<code>inp_hopf6021</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/clk_dcf7000.c</code> (<code>clock_dcf7000 =</code>): new input handling
+<ul>
+<li>(<code>inp_dcf7000</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/clk_computime.c</code> (<code>clock_computime =</code>): new input handling
+<ul>
+<li>(<code>inp_computime</code>): new input handler</li>
+</ul>
+</li>
+<li><code>libparse/Makefile.am</code>: link kernel module with <code>libntp.a</code></li>
+<li><code>include/parse.h</code> (<code>struct parse</code>): removed old data structure cruft
+<ul>
+<li>(<code>new input model</code>) new <code>PARSE_INP*</code> macros for input handling, removed old <code>SYNC_*</code> macros from old input model</li>
+<li>(<code>struct clockformat</code>): removed old parse functions in favor of the new input model</li>
+<li>updated prototypes</li>
+</ul>
+</li>
+<li><code>include/ntp_refclock.h</code>: prototype for <code>refclock_atom pps_sample()</code> interface</li>
+<li><code>acconfig.h</code>: added <code>PPS_SAMPLE</code> define</li>
+<li><code>configure.in</code> (<code>LIBPARSE</code>): added <code>PPS_SAMPLE</code> configuration <code>&lt;refclock_atom aux interface&gt;</code></li>
+<li><code>libntp/systime.c</code> (<code>adj_systime</code>): debug output (&gt; level 6) for <code>adjtime</code> results</li>
+<li><code>libntp/mfp_mul.c</code> (<code>mfp_mul</code>): controlled debug output</li>
+<li><code>libntp/ieee754io.c</code> (<code>get_byte</code>): controlled debug output
+<ul>
+<li>(<code>fetch_ieee754</code>): ditto</li>
+<li>(<code>put_ieee754</code>): ditto</li>
+</ul>
+</li>
+<li><code>configure.in</code>: document DES is not usually present.</li>
+<li><code>configure.in</code>: 4.0.72h</li>
+<li><code>authstuff/Makefile.am</code> (<code>check-local-rsn</code>): <code>check-local</code> doesn&rsquo;t work with <code>RSAREF</code>.</li>
+<li><code>libntp/machines.c</code>: the <code>settime()</code> choices were ordered badly.</li>
+<li><code>configure.in</code> (<code>ac_cv_var_no_parenb_ignpar</code>): Undo the kernel PLL block I just installed - Dave wants to control this via <code>KERNEL_FLL_BUG</code>.</li>
+<li><code>libntp/Makefile.am</code> (<code>libntp_a_DEPENDENCIES</code>): Set per <code>libntp_a_LIBADD</code></li>
+<li><code>configure.in</code>: Do a better job of blocking kernel PLL under solaris2.6.</li>
+<li><code>configure.in</code>: 4.0.72f
+<ul>
+<li>(<code>ac_cv_struct_nlist_n_un</code>): Don&rsquo;t look for <code>ntp_adjtime</code> or <code>ntp_gettime</code> under solaris2.6.</li>
+</ul>
+</li>
+<li><code>ntpd/ntp_proto.c</code> (<code>process_packet</code>): Give verbose error messages</li>
+<li><code>include/global.h</code> (<code>PROTOTYPES</code>): Drive via <code>HAVE_PROTOTYPES</code>.</li>
+<li><code>configure.in</code> (<code>ac_cv_var_use_des</code>): Added. 4.0.72e.</li>
+<li><code>libntp/Makefile.am</code> (<code>libntp_a_LIBADD</code>): Added <code>DESOBJS</code></li>
+<li><code>ntpd/refclock_arc.c</code> (<code>arc_receive</code>): Typo.</li>
+<li><code>configure.in</code> (<code>ac_refclock_chu</code>): <code>AUDIO_CHU</code> support. Disabled by default, and currently only supported on SunOS and Solaris.</li>
+<li><code>acconfig.h: AUDIO_CHU</code></li>
+<li><code>libntp/Makefile.am</code> (<code>EXTRA_DIST</code>): Added <code>mktime.c</code></li>
+<li><code>configure.in: AC_REPLACE_FUNCS(mktime)</code>.
+<ul>
+<li>(<code>--enable-dst-minutes=60</code>): Added, for (missing) <code>mktime()</code>.</li>
+</ul>
+</li>
+<li><code>ntpd/refclock_heath.c</code> (<code>heath_receive</code>): Use <code>mktime()</code> instead of the old hack.</li>
+<li><code>configure.in</code> (<code>LIBOBJS</code>): Hack it before <code>AC_OUTPUT</code> to deal with <code>ANSI2KNR</code>-filtering rules.</li>
+<li><code>libntp/strerror.c</code>: ANSIfy <code>strerror</code>&rsquo;s definition.</li>
+<li><code>libntp/statestr.c</code>: Only <code>#include &lt;config.h&gt;</code> if <code>HAVE_CONFIG_H</code> is <code>#define</code>&rsquo;d.</li>
+<li><code>configure.in</code>: Cygwin needs to check for the <code>advapi32</code> library. NT doesn&rsquo;t support a <code>root</code> user, so don&rsquo;t bother with <code>getuid()</code>. Also, don&rsquo;t bother with <code>umask()</code>.</li>
+<li>cygwin32 patches: <code>ntpd/ntp_io.c, ntpd/ntp_proto.c, ntpd/ntpd.c, ntpd/ntp_timer.c, ntpdate/ntpdate.c, libntp/machines.c, libntp/systime.c, include/ntp_machine.h, include/ntp_unixtime.h</code>.</li>
+<li><code>configure.in</code> (<code>ac_cv_make_tickadj</code>): Added. Now that <code>tickadj</code> is the only(?) utility that cares about <code>tick</code> and <code>tickadj</code>, we don&rsquo;t need to have <code>NOKMEM</code> and no <code>PRESET_*</code> be fatal.</li>
+<li><code>ntpd/ntp_loopfilter.c</code> (<code>local_clock</code>): Patch <code>STA_FLL</code> check</li>
+<li>various: Renamed <code>ACTS</code> to <code>CLOCK_ACTS, ARBITER</code> to <code>CLOCK_ARBITER, ARCRON_MSF</code> to <code>CLOCK_ARCRON_MSF, AS2201</code> to <code>CLOCK_AS2201, BANC</code> to <code>CLOCK_BANC, DATUM</code> to <code>CLOCK_DATUM, GPSVME</code> to <code>CLOCK_GPSVME, HEATH</code> to <code>CLOCK_HEATH, HPGPS</code> to <code>CLOCK_HPGPS, IRIG</code> to <code>CLOCK_IRIG, JUPITER</code> to <code>CLOCK_JUPITER, LEITCH</code> to <code>CLOCK_LEITCH, MSFEES</code> to <code>CLOCK_MSFEES, MX4200</code> to <code>CLOCK_MX4200, NMEA</code> to <code>CLOCK_NMEA, PALISADE</code> to <code>CLOCK_PALISADE, PARSE</code> to <code>CLOCK_PARSE, PPS720</code> to <code>CLOCK_PPS720, PST</code> to <code>CLOCK_PST, PTBACTS</code> to <code>CLOCK_PTBACTS, SHM_CLOCK</code> to <code>CLOCK_SHM, ONCORE</code> to <code>CLOCK_ONCORE, TPRO</code> to <code>CLOCK_TPRO, TRAK</code> to <code>CLOCK_TRAK, TRUETIME</code> to <code>CLOCK_TRUETIME, USNO</code> to <code>CLOCK_USNO, WWVB</code> to <code>CLOCK_WWVB</code>.</li>
+<li><code>Makefile.am</code> (<code>ETAGS_ARGS</code>): Added <code>acconfig.h</code></li>
+<li>various: Renamed <code>LOCAL_CLOCK</code> to <code>CLOCK_LOCAL</code>.</li>
+<li><code>configure.in</code>: First cut at <code>*-pc-cygwin32</code> support</li>
+<li><code>configure.in</code>: gdt-surveying code is gone. Sigh.</li>
+<li>many places: Renamed <code>ATOM</code> to <code>CLOCK_ATOM</code></li>
+<li><code>ntpd/ntp_timer.c</code> (<code>timer</code>): Only call <code>refclock_transmit</code> if <code>REFCLOCK</code> is <code>#define</code>&rsquo;d.</li>
+<li><code>configure.in (ntp_refclock)</code>: Use <code>CLOCK_CHU</code>, which no longer needs any special headers.</li>
+<li><code>ntpd/refclock_chu.c</code>: Call it <code>CLOCK_CHU</code>
+<ul>
+<li>(<code>chu_receive</code>): Define it correctly.</li>
+</ul>
+</li>
+<li><code>include/winnt/sys/time.h</code> (<code>gettimeofday</code>): Prototypes are OK.
+<ul>
+<li>(<code>settimeofday</code>): Prototypes are OK.</li>
+</ul>
+</li>
+<li><code>ntpq/ntpq_ops.c</code>: <code>varlist</code> name and value aren&rsquo;t const.</li>
+<li><code>ntpdc/ntpdc_ops.c</code> (<code>fudge</code>): The flags are <code>u_val</code>, not <code>val</code>.</li>
+<li><code>ntpdc/ntpdc.c</code>: const cleanup, exit cleanup.</li>
+<li><code>ntpd/refclock_wwvb.c</code> (<code>wwvb_receive</code>): Move the definition of <code>tz</code> somewhere more normal.</li>
+<li><code>ntpd/ntp_request.c</code> (<code>do_trustkey</code>): <code>kp</code> gets <code>u_long</code> data, not <code>u_int32</code> (but Harlan thinks this patch may be wrong).</li>
+<li><code>ntpd/ntp_refclock.c</code> (<code>refclock_process</code>): <code>clocktime</code> needs <code>offset.l_ui</code>, not <code>offset.l_i</code>.</li>
+<li><code>ntpd/ntp_control.c</code> (<code>set_var</code>): <code>t</code> isn&rsquo;t const.</li>
+<li><code>libntp/a_md5encrypt.c</code> (<code>session_key</code>): Cast 2nd arg to <code>MD5auth_setkey</code>.</li>
+<li><code>include/ntpd.h: ctl_var</code>&rsquo;s text field isn&rsquo;t const.</li>
+<li><code>include/ntp_refclock.h: clockdesc</code> isn&rsquo;t const.</li>
+<li><code>ntpd/ntp_loopfilter.c</code> (<code>local_clock</code>): Limit <code>ntv.constant</code> to <code>MAXTC</code>, and log error returns from <code>ntp_adjtime</code>.</li>
+<li><code>configure.in</code> (<code>ac_cv_var_kernel_fll_bug</code>): <code>KERNEL_FLL_BUG</code></li>
+<li><code>acconfig.h: KERNEL_FLL_BUG</code>: added.</li>
+<li><code>ntpd/ntp_loopfilter.c</code> (<code>local_clock</code>): Only avoid <code>STA_FLL</code> if <code>KERNEL_FLL_BUG</code> is <code>#define</code>&rsquo;d (Solaris2.6)</li>
+<li><code>automake-1.2d.patches</code>: Added <code>ansi2knr.o</code> rules.</li>
+<li><code>ntpd/refclock_tpro.c: P()</code> stuff</li>
+<li><code>configure.in</code>: Improve the <code>${CC} -pipe</code> test (cygwin-32&rsquo;s <code>gcc -pipe</code> silently does nothing).</li>
+</ul>
+<hr>
+<h4 id="4072">4.0.72</h4>
+<p><strong>Release Date:</strong> 1998 Feb 18</p>
+<ul>
+<li>K&amp;R C compiling should work again.</li>
+<li>IRIG patches.</li>
+<li>MX4200 driver patches.</li>
+<li>Jupiter driver added.</li>
+<li>Palisade driver added.  Needs work (ANSI, <code>ntoh/hton, sizeof</code> double, ???)</li>
+<li><code>configure.in: AC_REPLACE_FUNCS(strerror)</code>, check for <code>poll.h</code>, and deal with the <code>--enable-JUPITER</code> stuff.</li>
+<li><code>libntp/Makefile.am</code> (<code>libntp_a_LIBADD</code>): Added (for <code>strerror</code> support).</li>
+<li><code>libntp/clocktypes.c</code>: Added <code>REFCLK_GPS_JUPITER</code>.</li>
+<li><code>ntpdate/ntpdate.c</code>: <code>poll()</code> support</li>
+<li><code>ntpd/Makefile.am</code>: Add <code>refclock_jupiter.c</code></li>
+<li><code>ntpd/refclock_conf.c</code>: Added <code>refclock_jupiter</code></li>
+<li><code>ntpd/refclock_mx4200.c</code> (<code>mx4200_pps</code>): Bugfixes.</li>
+<li><code>include/ntp.h</code> (<code>REFCLK_GPS_JUPITER</code>): Added, and bumped <code>REFCLK_MAX</code>.</li>
+<li><code>ntpd/ntp_proto.c: P()</code></li>
+<li><code>include/ntp_types.h</code>: Added <code>P()</code> prototyping hack back in.</li>
+<li>Ditto: <code>include/parse.h, include/ntpd.h, include/ntp_unixtime.h, include/ntp_stdlib.h, include/ntp_select.h, include/ntp_refclock.h, include/ntp_fp.h, include/md5.h, include/ntp_filegen.h, include/ntp_calendar.h, include/l_stdlib.h</code>.</li>
+<li>Sometimes, <code>TIOCMBIS</code> is in <code>sys/ioctl.h</code>: <code>configure.in</code> (<code>ACTS</code>), <code>configure.in (HEATH)</code>, <code>configure.in (PTBACTS)</code>, <code>configure.in (USNO)</code>.</li>
+<li><code>ntpd/refclock_irig.c (irig_rf)</code>: Rename <code>sincos[]</code> to <code>sin_cos[]</code>.</li>
+<li>Use <code>random</code> or <code>mrand48</code>: <code>include/ntp.h (RANDPOLL)</code>,  <code>ntpd/ntp_config.c (do_resolve_internal)</code>, <code>ntpd/ntp_peer.c (unpeer)</code>, <code>ntpd/ntp_proto.c (make_keylist)</code>.</li>
+<li><code>ntpd/ntpd.c (xntpdmain)</code>: Use <code>srandom</code> or <code>srand48</code>.</li>
+<li><code>configure.in</code>: Look for <code>{s,}random()</code> and <code>[ms]rand48()</code>.</li>
+<li>Renamed <code>restrict()</code>: <code>ntpd/ntp_restrict.c (hack_restrict)</code>, <code>include/ntpd.h</code>, <code>ntpd/ntp_request.c (do_restrict)</code>, <code>ntpd/ntp_config.c (getconfig)</code>, <code>ntpd/ntp_io.c (create_sockets)</code>.</li>
+<li><code>ntpd/refclock_irig.c</code>: Allow either <code>&lt;sun/audioio.h&gt;</code> or <code>&lt;sys/audioio.h&gt;</code>. From Dave Mills.</li>
+<li><code>configure.in</code>: Under SunOS, it&rsquo;s <code>sun/audioio.h</code>.</li>
+<li>Updated header file info: <code>html/driver6.html</code>,  <code>html/irig.html</code>.</li>
+<li><code>configure.in: sys/bsd_audioirig.h</code> replaced with <code>sys/audioio.h</code> for new irig driver that Dave installed.</li>
+<li>Many places: Lose the <code>P(())</code> prototype stuff</li>
+<li><code>util/tickadj.c (writevar)</code>: Make offset an <code>off_t</code>
+<ul>
+<li>(<code>readvar</code>): Ditto</li>
+<li>(<code>getoffsets</code>): Make offsets <code>off_t</code></li>
+</ul>
+</li>
+<li><code>adjtimed/adjtimed.c (GetClockRate)</code>: Fix <code>lseek</code> arg 2.
+<ul>
+<li>(<code>SetClockRate</code>): Ditto</li>
+</ul>
+</li>
+<li>Many things in many places from many people.</li>
+<li><code>configure.in</code>: Added <code>AC_TYPE_OFF_T</code></li>
+<li><code>ntpd/refclock_palisade.c</code>: ANSIfied.</li>
+<li><code>configure.in (AM_C_PROTOTYPES)</code>: Added.</li>
+<li><code>Makefile.am (AUTOMAKE_OPTIONS)</code>: Added <code>ansi2knr</code>.</li>
+</ul>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom py-0">
+  <ul class="mx-auto">
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
+        <i class="bi-envelope"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <i class="bi-twitter"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <i class="bi-linkedin"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <i class="bi-facebook"></i>
+      </a>
+    </li>
+    
+    <li class="navbar-text">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+</footer>
+
+</body>
+</html>

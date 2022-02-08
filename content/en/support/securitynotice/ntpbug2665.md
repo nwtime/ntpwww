@@ -12,7 +12,7 @@ date: "2010-01-28"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_7p11-release-announcement">4.2.7p11</a></td>
+		<td><a href="/support/securitynotice/#427p11">4.2.7p11</a></td>
 		<td>28 Jan 2010</td>
 	</tr>
 	<tr>

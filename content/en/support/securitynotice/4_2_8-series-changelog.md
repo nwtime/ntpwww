@@ -12,7 +12,7 @@ type: archives
 * [4.2.8p12](#428p12)
 * [4.2.8p11](#428p11)
 * [4.2.8p10](#428p10)
-* [4.2.8p9-win](#4.2.8p9-win)
+* [4.2.8p9-win](#428p9-win)
 * [4.2.8p9](#428p9)
 * [4.2.8p8](#428p8)
 * [4.2.8p7](#428p7)
@@ -20,7 +20,7 @@ type: archives
 * [4.2.8p5](#428p5)
 * [4.2.8p4](#428p4)
 * [4.2.8p3](#428p3)
-* [4.2.8p3-RC3](#4.2.8p3-rc3)
+* [4.2.8p3-RC3](#428p3-rc3)
 * [4.2.8p2](#428p2)
 * [4.2.8p1](#428p1)
 * [4.2.8](#428)
@@ -34,7 +34,7 @@ type: archives
 **Release Date:** 2020 Jun 23
 
 * [Sec 3661: memory leak with AES128CMAC keys](/support/securitynotice/ntpbug3661)
-* [Bug3670: Regression from bad merge of 3592 and 3596](https://bugs.ntp.org/show_bug.cgi?id=3670)
+* [Bug 3670: Regression from bad merge of 3592 and 3596](https://bugs.ntp.org/show_bug.cgi?id=3670)
   - fixed a bad merge that happened before 4.2.8-p14
 * [Bug 3667: decodenetnum fails with numeric port](https://bugs.ntp.org/show_bug.cgi?id=3667)
   - rewrite `decodenetnum()` in terms of `inet_pton`
@@ -581,7 +581,7 @@ type: archives
 * [Sec 2938: ntpq saveconfig command allows dangerous characters in filenames](/support/securitynotice/ntpbug2938)
 * [Sec 2939: reslist NULL pointer dereference](/support/securitynotice/ntpbug2939)
 * [Sec 2940: Stack exhaustion in recursive traversal of restriction list](/support/securitynotice/ntpbug2940)
-* [Sec 2942:: Off-path DoS attack on auth broadcast mode](/support/securitynotice/ntpbug2942)
+* [Sec 2942: Off-path DoS attack on auth broadcast mode](/support/securitynotice/ntpbug2942)
 * [Sec 2945: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug2945)
 * [Sec 2948: Potential Infinite Loop in ntpq ( and ntpdc)](/support/securitynotice/ntpbug2948)
 * [Bug 2772: adj_systime overflows tv_usec](https://bugs.ntp.org/show_bug.cgi?id=2772)
@@ -668,6 +668,7 @@ type: archives
 
 **Release Date:** 2015 Oct 21
 
+* [Sec 1918: TALOS-CAN-0062: prevent directory traversal for VMS, too, when using `saveconfig` command](/support/securitynotice/ntpbug2918)
 * [Sec 2899: CVE-2014-9297](/support/securitynotice/ntpbug2899)
 * [Sec 2901: Drop invalid packet before checking KoD. Check for all KoDs](/support/securitynotice/ntpbug2901)
   - Log incoming packets that fail TEST2.
@@ -676,9 +677,8 @@ type: archives
 * [Sec 2913: TALOS-CAN-0052: crash by loop counter underrun](/support/securitynotice/ntpbug2913)
 * [Sec 2916: TALOS-CAN-0054: memory corruption in password store](/support/securitynotice/ntpbug2916)
 * [Sec 2917: TALOS-CAN-0055: Infinite loop if extended logging enabled and the logfile and keyfile are the same](/support/securitynotice/ntpbug2917)
-* [Sec 1918: TALOS-CAN-0062: prevent directory traversal for VMS, too, when using `saveconfig` command](/support/securitynotice/ntpbug2918)
-* [Bug 2919: TALOS-CAN-0063: avoid buffer overrun in ntpq](/support/securitynotice/ntpbug2919)
-* [Sec 2020: TALOS-CAN-0064: signed/unsiged clash could lead to buffer overun and memory corruption](/support/securitynotice/ntpbug2020)
+* [Sec 2919: TALOS-CAN-0063: avoid buffer overrun in ntpq](/support/securitynotice/ntpbug2919)
+* [Sec 2920: TALOS-CAN-0064: signed/unsiged clash could lead to buffer overun and memory corruption](/support/securitynotice/ntpbug2920)
 * [Sec 2921: TALOS-CAN-0065: password length memory corruption](/support/securitynotice/ntpbug2921)
 * [Sec 2922: decodenetnum() will ASSERT botch instead of returning FAIL on some bogus values](/support/securitynotice/ntpbug2922)
 * [Sec 2941: NAK to the Future: Symmetric association authentication bypass via crypto-NAK](/support/securitynotice/ntpbug2941)
@@ -1062,7 +1062,7 @@ type: archives
 
 **Release Date:** 2014 Dec 19
 
-* [Sec 730: Increase `RSA_generate_key` modulus](/support/securitynotice/ntpbug730)
+* [Sec 730: Increase `RSA_generate_key` modulus](https://bugs.ntp.org/show_bug.cgi?id=730) / [CVE-2006-4339](https://nvd.nist.gov/vuln/detail/CVE-2006-4339)
 * [Sec 2666: Use cryptographic random numbers for md5 key generation](/support/securitynotice/ntpbug2666)
 * [Sec 2667: buffer overflow in `crypto_recv()`](/support/securitynotice/ntpbug2667)
 * [Sec 2668: buffer overflow in `ctl_putdata()`](/support/securitynotice/ntpbug2668)
@@ -1070,9 +1070,9 @@ type: archives
 * [Sec 2670: Missing return; from error clause](/support/securitynotice/ntpbug2670)
 * [Sec 2671: `vallen` in extension fields are not validated](/support/securitynotice/ntpbug2671)
 * [Sec 2672: On some OSes ::1 can be spoofed, bypassing source IP ACLs](/support/securitynotice/ntpbug2672)
-* [Sec 2630: buffer overrun in `ntpq tokenize()`](/support/securitynotice/ntpbug2630)
+* [Sec 2630: buffer overrun in `ntpq tokenize()`](https://bugs.ntp.org/show_bug.cgi?id=2630)
   - Limit the `ntpq` command buffer to 512 bytes.
-* [Sec 2542: Strengthen the `mrulist` nonce](/support/securitynotice/ntpbug2542)
+* [Sec 2542: Strengthen the `mrulist` nonce](https://bugs.ntp.org/show_bug.cgi?id=2542)
 
 * * *
 
@@ -1687,43 +1687,43 @@ type: archives
 
 * * *
 
-* Updates from 4.2.6p5.
-* Sync with ntp-4.2.6p4 (a no-op).
-* Sync with 4.2.6p4-RC2.
-* Include 4.2.6p1-RC4: Remove `arlib`.
-* Include 4.2.6p1-RC2
+* Updates from [4.2.6p5](/support/securitynotice/4_2_6-series-changelog/#426p5).
+* Sync with [ntp-4.2.6p4](/support/securitynotice/4_2_6-series-changelog/#426p4) (a no-op).
+* Sync with [4.2.6p4-RC2](/support/securitynotice/4_2_6-series-changelog/#426p4-rc2).
+* Include [4.2.6p1-RC4](/support/securitynotice/4_2_6-series-changelog/#426p1-rc4): Remove `arlib`.
+* Include [4.2.6p1-RC2](/support/securitynotice/4_2_6-series-changelog/#426p1-rc2)
 
 * * *
 
 **Docs**
 
-* html/ updates from Dave Mills.
+* `html/` updates from Dave Mills.
 * html doc reconciliation with DLM's copy.
-* html/ cleanups from Hal Murray.
+* `html/` cleanups from Hal Murray.
 * Documentation cleanup from Mike T.
 * Documentation EOL cleanup.
 * Documentation nit cleanup.
-* Documentation and code cleanup from Dave Mills. No more NTP_MAXASSOC.
-* Make all of the html/ .html files use the same format for "Last update".
-* Clean up last-update timestamps of html/*.html files.
-* Fix the "Last update" entries in the html/ subtree.
+* Documentation and code cleanup from Dave Mills. No more `NTP_MAXASSOC`.
+* Make all of the `html/ .html` files use the same format for "Last update".
+* Clean up last-update timestamps of `html/*.html` files.
+* Fix the "Last update" entries in the `html/` subtree.
 * Tweak the "Modified" line on appropriate html pages.
 * Update documentation templates and definitions.
 * Include missing `html/icons/sitemap.png`, reported by Michael Tatarinov.
-* Documentation updates for 4.2.7p22 changes and additions, updating ntpdc.html, ntpq.html, accopt.html, confopt.html, manyopt.html, miscopt.html, and miscopt.txt.
-* accopt.html: non-ntpport doc changes from Dave Mills.
-* Reinstate doc fix to authentic.html from Mike T.
+* Documentation updates for 4.2.7p22 changes and additions, updating `ntpdc.html, ntpq.html, accopt.html, confopt.html, manyopt.html, miscopt.html`, and `miscopt.txt`.
+* `accopt.html`: non-ntpport doc changes from Dave Mills.
+* Reinstate doc fix to `authentic.html` from Mike T.
 * Copyright file cleanup from Dave Mills.
-* Fix typo in html/confopt.html
-* Fix typos in decode.html and debug.html.
-* Updates to driver28.html.
-* Fix typo in driver28.html.
-* Update driver45.html page.
-* Initial cut at a basic driver45.html page.
+* Fix typo in `html/confopt.html`
+* Fix typos in `decode.html` and `debug.html`.
+* Updates to `driver28.html`.
+* Fix typo in `driver28.html`.
+* Update `driver45.html` page.
+* Initial cut at a basic `driver45.html` page.
 * `ntp-wait, ntpd, ntpdc, ntpq, ntpsnmpd autogen` documentation updates.
-* Add a reference to RFC5907 in the `ntpsnmpd `documentation.
+* Add a reference to RFC 5907 in the `ntpsnmpd `documentation.
 * `orphanwait` documentation updates.
-* Fix typo in html/select.html.
+* Fix typo in `html/select.html`.
 * `sntp` documentation and documentation tag cleanup.
 * `calc_tickadj/Makefile.am man/mdoc` page build cleanup.
 * Fix the man page installation for the ``scripts/ files.
@@ -1747,13 +1747,14 @@ type: archives
 * Update `ntp-wait autogen` docs.
 * Update the `ntpd autogen` docs.
 * Update the `ntpsnmpd autogen` docs.
-* Add "`icense name` to `ntp.lic` for autogen-5.11.10.
+* Add "license name` to `ntp.lic` for autogen-5.11.10.
 * Update `cmd-doc.tlib` to autogen-5.11.10pre5.
 * `cmd-doc.tlib` cleanup from Bruce Korb.
 * Use the latest `autogen`'s new copyright template code.
 * `autogen` documentation template cleanup.
 * If we have local overrides for `autogen` template files, use them.
 * Convert `snmp` docs to `mdoc` format, which requires `autogen` 5.11.9.
+* 4.2.7p164 documentation updates re: `tos orphanwait` expanded scope.
 
 * * *
 
@@ -1827,7 +1828,7 @@ type: archives
 * Bump `sntp/include/autogen-version.def`.
 * `EEXIST` is OK for `mkdir()` in `sntp/kod_management.c`.
 * Document a tricky `malloc()` of `dns_ctx` in `sntp`.
-* Clean up testing/debugging of fix for [Bug 938](https://bugs.ntp.org/show_bug.cgi?id=938)) from `sntp/main.c`.
+* Clean up testing/debugging of fix for [Bug 938](https://bugs.ntp.org/show_bug.cgi?id=938) from `sntp/main.c`.
 * In `sntp/m4/ntp_openssl.m4`, Support multiple package names for the crypto library.  Add legacy support for `-Wl,-rpath`.
 * Change the link order for `ntpsntpd`.
 * Update `sntp` tests to track the change of root dispersion to synchronization distance.
@@ -2009,7 +2010,7 @@ type: archives
 **Linux**
 
 * Eliminate warnings about shadowing global "basename" on Linux.
-* Remove "signal_no_reset: signal 17 had flags 4000000" logging, as it indicates no problem and is interpreted as an error.  Previously some bits had been ignored one-by-one, but Linux `SA_RESTORER` definition is unavailable to user headers.
+* Remove `signal_no_reset: signal 17 had flags 4000000` logging, as it indicates no problem and is interpreted as an error.  Previously some bits had been ignored one-by-one, but Linux `SA_RESTORER` definition is unavailable to user headers.
 
 * * *
 
@@ -2023,185 +2024,184 @@ type: archives
 * * *
 
 * Pass the configuration source into the parser as argument rather than through a global variable.
-* Quiet warnings from ntp_calendar.h: avoid using argument names.
+* Quiet warnings from `ntp_calendar.h`: avoid using argument names.
 * Fix a variable lifetime issue.
-* In ntp_dir_sep.m4, we care about $host_os, not $target_os.
-* Add check for enable stats to ntpd/complete.conf.in
-* Remove \n's from syslog output strings.
-* Have NTP_LIBNTP check for time.h and clock_getres().
-* Cleanup to ntpsnmpd-opts.def.
-* Documentation cleanup to the ntpd, ntpdc, ntpq and ntp-wait .def files.
-* In ntp.conf.def, cleanup SEE ALSO, document 'rlimit' options.
-* Make sure agtexi-file.tpl defines label-str.
-* Cleanup to ntp.conf.def.
+* In `ntp_dir_sep.m4`, we care about `$host_os`, not `$target_os`.
+* Add check for enable stats to `ntpd/complete.conf.in`
+* Remove `\n`'s from `syslog` output strings.
+* Have `NTP_LIBNTP` check for `time.h` and `clock_getres()`.
+* Cleanup to `ntpsnmpd-opts.def`.
+* Documentation cleanup to the `ntpd, ntpdc, ntpq` and `ntp-wait .def` files.
+* In `ntp.conf.def`, cleanup SEE ALSO, document `rlimit` options.
+* Make sure `agtexi-file.tpl` defines `label-str`.
+* Cleanup to `ntp.conf.def`.
 * Update the copyright year.
-* Create agtexi-file.tpl.
+* Create `agtexi-file.tpl`.
 * Remove extraneous parens.
-* Add a missing "%s" syslog format string.
-* Distribute ntp.conf.def and ntp.keys.def.
-* Potential bugfix for agtexi-cmd.tpl.
-* Look for syslog's facilitynames[].
-* Cleanup kclk_sel240x.o rules in libparse/Makefile.am.
-* Conditionalize msyslog messages about rejected mode 6 requests due to nomodify and nomrulist restrictions under "logconfig +sysinfo".
-* Increment sys_restricted in a few rejection paths due to nomodify restrictions where previosuly overlooked.
-* tickadj may need to be linked with PTHREAD_LIBS.
-* U_INT32_MAX cleanup in include/ntp_types.h .
-* When linking, ntp_keygen and tickadj need $(LIBM).
-* Correct authnumfreekeys accounting broken in 4.2.7p262.
-* LCRYPTO is gone - replace with VER_SUFFIX.
-* Improve ntpd scalability for servers with many trusted keys.
+* Add a missing `%s syslog` format string.
+* Distribute `ntp.conf.def` and `ntp.keys.def`.
+* Potential bugfix for `agtexi-cmd.tpl`.
+* Look for `syslog`'s `facilitynames[]`.
+* Cleanup `kclk_sel240x.o` rules in `libparse/Makefile.am`.
+* Conditionalize `msyslog` messages about rejected mode 6 requests due to `nomodify` and `nomrulist` restrictions under `logconfig +sysinfo`.
+* Increment `sys_restricted` in a few rejection paths due to `nomodify` restrictions where previosuly overlooked.
+* `tickadj` may need to be linked with `PTHREAD_LIBS`.
+* `U_INT32_MAX` cleanup in `include/ntp_types.h`.
+* When linking, `ntp_keygen` and `tickadj` need `$(LIBM)`.
+* Correct `authnumfreekeys` accounting broken in 4.2.7p262.
+* `LCRYPTO` is gone - replace with `VER_SUFFIX`.
+* Improve `ntpd` scalability for servers with many trusted keys.
 * Update one of the license URLs.
-* Fix build break triggered by updating deps-ver and libntp/systime.c at the same time by explicitly depending systime_s.c on systime.c.
-* Refactor timespecops.h and timevalops.h into inline functions.
+* Fix build break triggered by updating `deps-ver` and `libntp/systime.c` at the same time by explicitly depending `systime_s.c` on `systime.c`.
+* Refactor `timespecops.h` and `timevalops.h` into inline functions.
 * Floor peer delay using system precision, as with jitter, reflecting inability to measure shorter intervals.
 * from 4.2.6p5-RC3: Ensure NULL peer->dstadr is not accessed in orphan parent selection.
-* from 4.2.6p5-RC2: Exclude not-yet-determined sys_refid from use in loopback TEST12 (from Dave Mills).
-* from 4.2.6p5-RC2: Never send KoD rate limiting response to MODE_SERVER.
-* Floor calculation of sys_rootdisp at sys_mindisp in clock_update (from Dave Mills).
-* Restore 4.2.6 clock_combine() weighting to ntp-dev, reverting to pre-4.2.7p70 method while also avoiding divide-by-zero (from Dave Mills).
-* Round l_fp traffic interval when converting to integer in rate limit and KoD calculation.
-* Clean up -libm entries regarding libntp.a
-* Update the NEWS file so we note the default disable of mode 7 requests.
+* from 4.2.6p5-RC2: Exclude not-yet-determined `sys_refid` from use in loopback TEST12 (from Dave Mills).
+* from 4.2.6p5-RC2: Never send KoD rate limiting response to `MODE_SERVER`.
+* Floor calculation of `sys_rootdisp` at `sys_mindisp` in `clock_update` (from Dave Mills).
+* Restore 4.2.6 `clock_combine()` weighting to ntp-dev, reverting to pre-4.2.7p70 method while also avoiding divide-by-zero (from Dave Mills).
+* Round `l_fp` traffic interval when converting to integer in rate limit and KoD calculation.
+* Clean up `-libm` entries regarding `libntp.a`
+* Update the `NEWS` file so we note the default disable of mode 7 requests.
 * Clean up some bitrotted code in libntp/socket.c.
-* Directly limit the number of datagrams in a mrulist response, rather than limiting the number of entries returned to indirectly limit the datagram count.
-* Log signal description along with number on ntpd exit.
-* Send all peer variables to trappers in report_event().
-* Fix the CLOCK_MONOTONIC TRACE() message.
-* Cleanups for ntp-wait-opts.def and ntp.keys.def.
-* Actually use long long for (u_)int64 by correcting spelling of SIZEOF_LONG_LONG in ntp_types.h.
-* Correct init_logging()'s def_syslogmask type to u_int32 following change of ntp_syslogmask from u_long to u_int32 in p202.
-* Add support for installing programs and scripts to libexec.
-* Match addr_eqprefix() sizeof and memcpy destination to make it clear to static analysis that there is no buffer overrun (CID 402).
-* ntp-wait: some versions of ntpd spell "associd" differently.
-* Update .point-changed-filelist for the new man pages.
-* Update .point-changed-filelist .
-* Upgrade local autoopts templates to 5.11.10pre5.
-* Update the std_def_list to include the ntp.lic file.
-* Distribute the ntp.lic file.
-* Add http://ntp.org/license to the ntp.lic file.
-* Clean up the ntp.lic file.
-* Typo in emalloc.c hides file and line number from emalloc() error msg.
-* parsesolaris.c compile fails on SPARC Solaris with conflicting printf.
-* ntp_util.c compile fails on AIX and OSF with conflicting statsdir.
-* Remove hardcoded 1/960 s. fudge for <CR> transmission time at 9600 8n1 from WWVB/Spectracom driver introduced in 4.2.7p169.
-* Use filegen_config() consistently when changing filegen options.
-* mprintf() should go to stdout, not stderr.  DPRINTF() uses mprintf().
+* Directly limit the number of datagrams in a `mrulist` response, rather than limiting the number of entries returned to indirectly limit the datagram count.
+* Log signal description along with number on `ntpd` exit.
+* Send all peer variables to trappers in `report_event()`.
+* Fix the `CLOCK_MONOTONIC TRACE()` message.
+* Cleanups for `ntp-wait-opts.def` and `ntp.keys.def`.
+* Actually use long long for `(u_)int64` by correcting spelling of `SIZEOF_LONG_LONG` in `ntp_types.h`.
+* Correct `init_logging()`'s `def_syslogmask` type to `u_int32` following change of `ntp_syslogmask` from `u_long` to `u_int32` in p202.
+* Add support for installing programs and scripts to `libexec`.
+* Match `addr_eqprefix() sizeof` and `memcpy` destination to make it clear to static analysis that there is no buffer overrun (CID 402).
+* `ntp-wait`: some versions of `ntpd` spell `associd` differently.
+* Update `.point-changed-filelist` for the new man pages.
+* Update `.point-changed-filelist`.
+* Upgrade local `autoopts` templates to 5.11.10pre5.
+* Update the `std_def_list` to include the `ntp.lic` file.
+* Distribute the `ntp.lic` file.
+* Add ntp.org/license to the `ntp.lic` file.
+* Clean up the `ntp.lic` file.
+* Typo in `emalloc.c` hides file and line number from `emalloc()` error msg.
+* `parsesolaris.c` compile fails on SPARC Solaris with conflicting `printf`.
+* `ntp_util.c` compile fails on AIX and OSF with conflicting `statsdir`.
+* Remove hardcoded 1/960 s. fudge for `<CR>` transmission time at 9600 8n1 from WWVB/Spectracom driver introduced in 4.2.7p169.
+* Use `filegen_config()` consistently when changing `filegen` options.
+* `mprintf()` should go to `stdout`, not `stderr.  DPRINTF()` uses `mprintf()`.
 * Repair a few simulator problems (more remain).
-* Use 64-bit scalars in LFPTOD() and DTOLFP() on more platforms by conditionalizing on HAVE_U_INT64 rather than UINT64_MAX.
+* Use 64-bit scalars in `LFPTOD()` and `DTOLFP()` on more platforms by conditionalizing on `HAVE_U_INT64` rather than `UINT64_MAX`.
 * Convert receive buffer queue from doubly-linked list to FIFO.
-* 4.2.7p164 documentation updates re: 'tos orphanwait' expanded scope.
-* Change "pool DNS" messages from msyslog to debug trace output.
-* Remove unused FLAG_SYSPEER from peer->status.
-* Respect "tos orphanwait" at startup.  Previously there was an unconditional 300 s. startup orphanwait, though other values were respected for subsequent orphan wait periods after no_sys_peer events.
+* Change `pool DNS` messages from `msyslog` to debug trace output.
+* Remove unused `FLAG_SYSPEER` from peer->status.
+* Respect `tos orphanwait` at startup.  Previously there was an unconditional 300 s. startup `orphanwait`, though other values were respected for subsequent orphan wait periods after `no_sys_peer` events.
 * Fix a couple of unused variable warnings.
-* cleanup in timespecops.c / timevalops.c
-* Fix leak in refclock_datum.c start failure path.
-Coverity Scan cleanups and error checking fixes.
-* Detect vsnprintf() support for "%m" and disable our "%m" expansion.
-* On systems without C99-compliant (v)snprintf(), use C99-snprintf replacements (http://www.jhweiss.de/software/snprintf.html)
-* Remove remaining sprintf() calls except refclock_ripencc.c (which is kept out of --enable-all-clocks as a result), upstream libs which use sprintf() only after careful buffer sizing.
-* ntp_crypto.c string buffer safety.
+* cleanup in `timespecops.c / timevalops.c`
+* Fix leak in `refclock_datum.c` start failure path.
+* Coverity Scan cleanups and error checking fixes.
+* Detect `vsnprintf()` support for `%m` and disable our `%m` expansion.
+* On systems without C99-compliant `(v)snprintf()`, use `C99-snprintf` [replacements](http://www.jhweiss.de/software/snprintf.html)
+* Remove remaining `sprintf()` calls except `refclock_ripencc.c` (which is kept out of `--enable-all-clocks` as a result), upstream libs which use `sprintf()` only after careful buffer sizing.
+* `ntp_crypto.c` string buffer safety.
 * Buffer safety and sign extension fixes (thanks Coverity Scan).
-* String buffer safety cleanup, converting to strlcpy() and strlcat().
-* Use utmpname() before pututline() so repeated steps do not accidentally record into wtmp where utmp was intended.
-* Use setutent() before each pututline() including first.
-* One more lock-while-init in lib/isc/task.c to quiet lock analysis.
-* Use TRACE() instead of DPRINTF() for libntp and utilities, which use the "debug" variable regardless of #ifdef DEBUG.
-* Declare debug in libntp instead of each program.  Expose extern declaration to utilities, libntp, and DEBUG ntpd.
+* String buffer safety cleanup, converting to `strlcpy()` and `strlcat()`.
+* Use `utmpname()` before `pututline()` so repeated steps do not accidentally record into `wtmp` where `utmp` was intended.
+* Use `setutent()` before each `pututline()` including first.
+* One more lock-while-init in `lib/isc/task.c` to quiet lock analysis.
+* Use `TRACE()` instead of `DPRINTF()` for `libntp` and utilities, which use the `debug` variable regardless of `#ifdef DEBUG`.
+* Declare `debug` in `libntp` instead of each program.  Expose extern declaration to utilities, `libntp`, and `DEBUG ntpd`.
 * Lock under-construction task, taskmgr objects to satisfy Coverity's mostly-correct assumptions about which variables are protected by which locks.
-* Ensure CONFIG_SHELL is not empty before relying on it for #! scripts.
-* Add INC_ALIGNED_PTR() macro to align pointers like malloc().
-* Do not cache paths to perl, test, or pkg-config, searching the PATH at configure time is worth it to pick up tool updates.
-* ElectricFence was suffering bitrot - remove it.  valgrind works well.
-* Correct Solaris 2.1x PTHREAD_ONCE_INIT extra braces test to avoid triggering warnings due to excess braces.
+* Ensure `CONFIG_SHELL` is not empty before relying on it for `#!` scripts.
+* Add `INC_ALIGNED_PTR()` macro to align pointers like `malloc()`.
+* Do not cache paths to `perl, test`, or `pkg-config`, searching the `PATH` at configure time is worth it to pick up tool updates.
+* ElectricFence was suffering bitrot - remove it.  `valgrind` works well.
+* Correct Solaris 2.1x `PTHREAD_ONCE_INIT` extra braces test to avoid triggering warnings due to excess braces.
 * Provide bug report and URL options to Autoconf.
-* older autoconf sometimes dislikes [].
-* Move blocking worker and resolver to libntp from ntpd.
-* Use threads rather than forked child processes for blocking worker when possible.  Override with configure --disable-thread-support.
-* Move more m4sh tests needed by libntp to shared .m4 files.
-* Split up ntp_libntp.m4 into smaller, more specific subsets.
-* Enable gcc -Wcast-align, fix many instances of warnings when casting a pointer to a more-strictly-aligned underlying type.
-* Fix leak in ntp_control.c read_mru_list().
-* Fix unexposed fencepost error in format_time_fraction().
-* Avoid shadowing the "group" global variable.
-* Change new timeval and timespec to string routines to use snprintf() rather than hand-crafted conversion, avoid signed int overflow there.
-* Add configure support for SIZEOF_LONG_LONG to enable portable use of snprintf() with time_t.
-* Grow ntpd/work_thread.c arrays as needed.
-* Add DEBUG_* variants of ntp_assert.h macros which compile away using ./configure --disable-debugging.
-* Return to a single autoreconf invocation in ./bootstrap script.
+* older `autoconf` sometimes dislikes `[]`.
+* Move blocking worker and resolver to `libntp` from `ntpd`.
+* Use threads rather than forked child processes for blocking worker when possible.  Override with `configure --disable-thread-support`.
+* Move more `m4sh` tests needed by `libntp` to shared `.m4` files.
+* Split up `ntp_libntp.m4` into smaller, more specific subsets.
+* Enable `gcc -Wcast-align`, fix many instances of warnings when casting a pointer to a more-strictly-aligned underlying type.
+* Fix leak in `ntp_control.c read_mru_list()`.
+* Fix unexposed fencepost error in `format_time_fraction()`.
+* Avoid shadowing the `group` global variable.
+* Change new `timeval` and `timespec` to string routines to use `snprintf()` rather than hand-crafted conversion, avoid signed int overflow there.
+* Add configure support for `SIZEOF_LONG_LONG` to enable portable use of `snprintf()` with `time_t`.
+* Grow `ntpd/work_thread.c` arrays as needed.
+* Add `DEBUG_*` variants of `ntp_assert.h` macros which compile away using `./configure --disable-debugging`.
+* Return to a single `autoreconf` invocation in `./bootstrap` script.
 * crypto group changes from Dave Mills.
-* Lose the RANGEGATE check in PPS, from Dave Mills.
-* added timespecops.{c,h} and tievalops.{c.h} to libntp and include added tspecops.cpp to tests/libntp
-* Add erealloc_zero(), refactor estrdup(), emalloc(), emalloc_zero() to separate tracking callsite file/line from using debug MS C runtime, and to reduce code duplication.
-* Begin moving some of the low-level socket stuff to libntp.
-* Remove nearly all strcpy() and most strcat() from NTP distribution.
-  - One major pocket remains in ntp_crypto.c.  libopts & libisc also have (safe) uses of strcpy() and strcat() remaining.
+* Lose the `RANGEGATE` check in PPS, from Dave Mills.
+* added `timespecops.{c,h}` and `tievalops.{c.h}` to `libntp` and include added `tspecops.cpp` to `tests/libntp`
+* Add `erealloc_zero()`, refactor `estrdup(), emalloc(), emalloc_zero()` to separate tracking callsite file/line from using debug MS C runtime, and to reduce code duplication.
+* Begin moving some of the low-level socket stuff to `libntp`.
+* Remove nearly all `strcpy()` and most `strcat()` from NTP distribution.
+  - One major pocket remains in `ntp_crypto.c.  libopts` & `libisc` also have (safe) uses of `strcpy()` and `strcat()` remaining.
 * Autokey multiple identity group improvements from Dave Mills.
-* from 4.2.6p3: Update genCommitLog for the bk-5 release.
-* from 4.2.6p3: Update bk triggers for the bk-5 release.
+* from 4.2.6p3: Update `genCommitLog` for the bk-5 release.
+* from 4.2.6p3: Update `bk` triggers for the bk-5 release.
 * Support for multiple Autokey identity groups from Dave Mills.
-* from 4.2.6p3-RC12: Other manycastclient repairs:
-  - Separate handling of scope ID embedded in many in6_addr from ifindex used for IPv6 multicasting ioctls.
-  - Add INT_PRIVACY endpt bit flag for IPv6 RFC 4941 privacy addresses.
-  - Enable outbound multicast from only one address per interface in the same subnet, and in that case prefer embedded MAC address modified EUI-64 IPv6 addresses first, then static, and last RFC 4941 privacy addresses.
-  - Use setsockopt(IP[V6]_MULTICAST_IF) before each send to multicast to select the local source address, using the correct socket is not enough.
-* "server ... ident <groupname>" changes from Dave Mills.
+* from 4.2.6p3-RC12: Other `manycastclient` repairs:
+  - Separate handling of scope ID embedded in many `in6_addr` from `ifindex` used for IPv6 multicasting ioctls.
+  - Add `INT_PRIVACY` endpt bit flag for IPv6 [RFC 4941](https://www.rfc-editor.org/rfc/rfc4941) privacy addresses.
+  - Enable outbound multicast from only one address per interface in the same subnet, and in that case prefer embedded MAC address modified EUI-64 IPv6 addresses first, then static, and last [RFC 4941](https://www.rfc-editor.org/rfc/rfc4941) privacy addresses.
+  - Use `setsockopt(IP[V6]_MULTICAST_IF)` before each send to multicast to select the local source address, using the correct socket is not enough.
+* `server ... ident <groupname>` changes from Dave Mills.
 * An almost complete rebuild of the initial loopfilter configuration process, including the code that determines the interval between frequency file updates, from Dave Mills.
-* Add "nonvolatile" ntp.conf directive to control how often the driftfile is written.
+* Add `nonvolatile ntp.conf` directive to control how often the `driftfile` is written.
 * Correct frequency estimate with no drift file, from David Mills.
 * Refactor calendar functions in terms of new common code.
 * Include Linus Karlsson's GSoC 2010 testing code.
 * refinements to new startup behavior from David Mills.
-* Fix from Dave Mills for a rare singularity in clock_combine().
-* Remove unused 'bias' configuration keyword.
-* Remove 'calldelay' and 'sign' remnants from parser, ntp_config.c.
-* from 4.2.6p3: ntpsnmpd, libntpq warning cleanup.
-* Remove 'calldelay' and 'sign' keywords (Dave Mills).
-* Lose peer_count from ntp_peer.c and ntp_proto.c (Dave Mills).
+* Fix from Dave Mills for a rare singularity in `clock_combine()`.
+* Remove unused `bias` configuration keyword.
+* Remove `calldelay` and `sign` remnants from parser, `ntp_config.c`.
+* from 4.2.6p3: `ntpsnmpd, libntpq` warning cleanup.
+* Remove `calldelay` and `sign` keywords (Dave Mills).
+* Lose peer_count from `ntp_peer.c` and `ntp_proto.c` (Dave Mills).
 * Variable name cleanup from Dave Mills.
 * Clock select bugfix from Dave Mills.
 * Clock combining algorithm improvements from Dave Mills.
 * More Initial convergence improvements from Dave Mills.
-* Cleanup NTP_LIB_M.
-* Use AC_SEARCH_LIBS instead of AC_CHECK_LIB for NTP_LIB_M.
-* Typo fix in a comment in ntp_proto.c.
-* clock_filter()/reachability fixes from Dave Mills.
-* Rewrite of multiprecision macros in 'ntp_fp.h' from J. Perlinger
-* include/ntp_crypto.h: make assumption AUTOKEY implies OPENSSL explicit.
-* from 4.2.6p2-RC3: Simplify hash client code by providing OpenSSL EVP_*() API when built without OpenSSL.  (already in 4.2.7)
-* Update the ChangeLog entries when merging items from -stable.
-* Modify full MRU list preemption when full to match "discard monitor" documentation, by removing exception for count == 1.
-* ntpdate: stop querying source after KoD packet response, log it.
-* ntpdate: rate limit each server to 2s between packets.
-* From J. N. Perlinger: avoid pointer wraparound warnings in dolfptoa(), printf format mismatches with 64-bit size_t.
+* Cleanup `NTP_LIB_M`.
+* Use `AC_SEARCH_LIBS` instead of `AC_CHECK_LIB` for `NTP_LIB_M`.
+* Typo fix in a comment in `ntp_proto.c`.
+* `clock_filter()`/reachability fixes from Dave Mills.
+* Rewrite of multiprecision macros in `ntp_fp.h` from J. Perlinger
+* `include/ntp_crypto.h`: make assumption `AUTOKEY` implies `OPENSSL` explicit.
+* from 4.2.6p2-RC3: Simplify hash client code by providing `OpenSSL EVP_*()` API when built without OpenSSL.  (already in 4.2.7)
+* Update the `ChangeLog` entries when merging items from -stable.
+* Modify full MRU list preemption when full to match `discard monitor` documentation, by removing exception for `count == 1`.
+* `ntpdate`: stop querying source after KoD packet response, log it.
+* `ntpdate`: rate limit each server to 2s between packets.
+* From J. N. Perlinger: avoid pointer wraparound warnings in `dolfptoa(), printf` format mismatches with 64-bit `size_t`.
 * Broadcast client (ephemeral) associations should be demobilized only if they are not heard from for 10 consecutive polls, regardless of surviving the clock selection.  Fix from David Mills.
-* Modify internal representation of MRU list to use l_fp fixed-point NTP timestamps instead of seconds since startup.  This increases the resolution and substantially improves accuracy of sorts involving timestamps, at the cost of flushing all MRU entries when the clock is stepped, to ensure the timestamps can be compared with the current get_systime() results.
-* Add ntp.conf "mru" directive to configure MRU parameters, such as "mru mindepth 600 maxage 64 maxdepth 5000 maxmem 1024" or "mru initalloc 0 initmem 16 incalloc 99 incmem 4".  Several pairs are equivalent with one in units of MRU entries and its twin in units of kilobytes of memory, so the last one used in ntp.conf controls: maxdepth/maxmem, initalloc/initmem, incalloc/incmem.  With the above values, ntpd will preallocate 16kB worth of MRU entries, allocating 4kB worth each time more are needed, with a hard limit of 1MB of MRU entries.  Until there are more than 600 entries none would be reused. Then only entries for addresses last seen 64 seconds or longer ago are reused.
-* New "pool" directive implementation modeled on manycastclient.
-* Do not abort on non-ASCII characters in ntp.conf, ignore them.
-* configure: remove check for pointer type used with qsort(), we require ANSI C which mandates void *.
-* Reset sys_kodsent to 0 in proto_clr_stats().
-* Add sptoa()/sockporttoa() similar to stoa()/socktoa() adding :port.
-* Use memcpy() instead of memmove() when buffers can not overlap.
-* Remove sockaddr_storage from our sockaddr_u union of sockaddr, sockaddr_in, and sockaddr_in6, shaving about 100 bytes from its size and substantially decreasing MRU entry memory consumption.
-* "restrict source ..." configures override restrictions for time sources, allows tight default restrictions to be used with the pool directive (where server addresses are not known in advance).
-* Ignore "preempt" modifier on manycastclient and pool prototype associations.  The resulting associations are preemptible, but the prototype must not be.
-* Maintain and use linked list of associations (struct peer) in ntpd, avoiding walking 128 hash table entries to iterate over peers.
+* Modify internal representation of MRU list to use `l_fp` fixed-point NTP timestamps instead of seconds since startup.  This increases the resolution and substantially improves accuracy of sorts involving timestamps, at the cost of flushing all MRU entries when the clock is stepped, to ensure the timestamps can be compared with the current `get_systime()` results.
+* Add `ntp.conf mru` directive to configure MRU parameters, such as `mru mindepth 600 maxage 64 maxdepth 5000 maxmem 1024` or `mru initalloc 0 initmem 16 incalloc 99 incmem 4`.  Several pairs are equivalent with one in units of MRU entries and its twin in units of kilobytes of memory, so the last one used in `ntp.conf` controls: `maxdepth/maxmem, initalloc/initmem, incalloc/incmem`.  With the above values, `ntpd` will preallocate 16kB worth of MRU entries, allocating 4kB worth each time more are needed, with a hard limit of 1MB of MRU entries.  Until there are more than 600 entries none would be reused. Then only entries for addresses last seen 64 seconds or longer ago are reused.
+* New `pool` directive implementation modeled on `manycastclient`.
+* Do not abort on non-ASCII characters in `ntp.conf`, ignore them.
+* `configure`: remove check for pointer type used with `qsort()`, we require ANSI C which mandates `void *`.
+* Reset `sys_kodsent` to 0 in `proto_clr_stats()`.
+* Add `sptoa()/sockporttoa()` similar to `stoa()/socktoa()` adding `:port`.
+* Use `memcpy()` instead of `memmove()` when buffers can not overlap.
+* Remove `sockaddr_storage` from our `sockaddr_u union` of `sockaddr, sockaddr_in`, and `sockaddr_in6`, shaving about 100 bytes from its size and substantially decreasing MRU entry memory consumption.
+* `restrict source ...` configures override restrictions for time sources, allows tight default restrictions to be used with the pool directive (where server addresses are not known in advance).
+* Ignore `preempt` modifier on `manycastclient` and `pool` prototype associations.  The resulting associations are preemptible, but the prototype must not be.
+* Maintain and use linked list of associations (`struct peer`) in `ntpd`, avoiding walking 128 hash table entries to iterate over peers.
 * Remove more workarounds unneeded since we require ISO C90 AKA ANSI C:
-  - remove fallback implementations for memmove(), memset, strstr().
-  - do not test for atexit() or memcpy().
-* Collapse a bunch of code duplication in ntpd/ntp_restrict.c added with support for IPv6.
-* Correct some corner case failures in automatically enabling the MRU list if any "restrict ... limited" is in effect, and in disabling MRU maintenance. (ntp_monitor.c, ntp_restrict.c)
+  - remove fallback implementations for `memmove(), memset, strstr()`.
+  - do not test for `atexit()` or `memcpy()`.
+* Collapse a bunch of code duplication in `ntpd/ntp_restrict.c` added with support for IPv6.
+* Correct some corner case failures in automatically enabling the MRU list if any `restrict ... limited` is in effect, and in disabling MRU maintenance. (`ntp_monitor.c, ntp_restrict.c`)
 * Reverse the internal sort order of the address restriction lists, but preserve the same behavior.  This allows removal of special-case code related to the default restrictions and more straightforward lookups of restrictions for a given address (now, stop on first match).
-* Move ntp_restrict.c MRU doubly-linked list maintenance code into ntp_lists.h macros, allowing more duplicated source excision.
-* Repair ntpdate.c to no longer test HAVE_TIMER_SETTIME.
-* Do not reference peer_node/unpeer_node after freeing when built with --disable-saveconfig and using DNS.
+* Move `ntp_restrict.c` MRU doubly-linked list maintenance code into `ntp_lists.h` macros, allowing more duplicated source excision.
+* Repair `ntpdate.c` to no longer test `HAVE_TIMER_SETTIME`.
+* Do not reference peer_node/unpeer_node after freeing when built with `--disable-saveconfig` and using DNS.
 * Use all addresses for each restrict by hostname.
 * Use async DNS to resolve trap directive hostnames.
-* Stop using getaddrinfo() to convert numeric address strings to on-wire addresses in favor of is_ip_address() alone.
-* Attempts to cure CID 108 CID 118 CID 119 TAINTED_SCALAR warnings.
-* Broaden ylwrap workaround VPATH_HACK to all non-GNU make.
-* Include 4.2.6p1: Convert many sprintf() calls to snprintf(), also strcpy(), strcat().
-* Include 4.2.6p1: Remove some dead code checking for emalloc() returning NULL.
-* New async DNS resolver in ntpd allows nonblocking queries anytime, instead of only once at startup.
-* Include 4.2.6p1-RC3: Use TZ=UTC instead of TZ= when calling date in scripts/mkver.in .
+* Stop using `getaddrinfo()` to convert numeric address strings to on-wire addresses in favor of `is_ip_address()` alone.
+* Attempts to cure CID 108 CID 118 CID 119 `TAINTED_SCALAR` warnings.
+* Broaden `ylwrap` workaround `VPATH_HACK` to all non-GNU `make`.
+* Include 4.2.6p1: Convert many `sprintf()` calls to `snprintf()`, also `strcpy(), strcat()`.
+* Include 4.2.6p1: Remove some dead code checking for `emalloc()` returning NULL.
+* New async DNS resolver in `ntpd` allows nonblocking queries anytime, instead of only once at startup.
+* Include 4.2.6p1-RC3: Use `TZ=UTC` instead of `TZ=` when calling `date` in `scripts/mkver.in`.
