@@ -792,7 +792,7 @@ and 4.3.0 up to, but not including 4.3.77.Resolved in 4.2.8p4.CVSS2 Score4.
       <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/support/securitynotice/ntpbug2902/</guid>
-      <description>Summary Resolved4.2.8p421 Oct 2015ReferencesBug 2902CVE-2015-5196AffectsAll ntp-4 releases up to, but not including 4.2.8p4,
+      <description>Summary Resolved4.2.8p421 Oct 2015ReferencesBug 2902CVE-2015-7703AffectsAll ntp-4 releases up to, but not including 4.2.8p4,
 and 4.3.0 up to, but not including 4.3.77.Resolved in 4.2.8p4CVSS2 Score6.2 worst caseAV:N/AC:H/Au:M/C:N/I:C/A:C		 Description If ntpd is configured to allow for remote configuration, and if the (possibly spoofed) source IP address is allowed to send remote configuration requests, and if the attacker knows the remote configuration password, it&amp;rsquo;s possible for an attacker to use the pidfile or driftfile directives to potentially overwrite other files.</description>
     </item>
     
@@ -965,7 +965,7 @@ The remaining two issues are addressed by 4.2.8p1, which was released on 4 Febru
       <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/support/securitynotice/ntpbug2671/</guid>
-      <description>Summary Resolved4.2.8p104 Feb 2015ReferencesBug 2671CVE-2014-9297AffectsAll NTP4 releases before 4.2.8p1 that are running autokey.Resolved in 4.2.8p1.CVSS2 Score7.5AV:N/AC:L/Au:N/C:P/I:P/A:P		 Description The vallen packet value is not validated in several code paths in ntp_crypto.c which can lead to information leakage or a possible crash of ntpd.
+      <description>Summary Resolved4.2.8p104 Feb 2015ReferencesBug 2671CVE-2014-9750AffectsAll NTP4 releases before 4.2.8p1 that are running autokey.Resolved in 4.2.8p1.CVSS2 Score7.5AV:N/AC:L/Au:N/C:P/I:P/A:P		 Description The vallen packet value is not validated in several code paths in ntp_crypto.c which can lead to information leakage or a possible crash of ntpd.
  Mitigation Any of:</description>
     </item>
     
@@ -975,7 +975,7 @@ The remaining two issues are addressed by 4.2.8p1, which was released on 4 Febru
       <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/support/securitynotice/ntpbug2672/</guid>
-      <description>Summary Resolved4.2.8p104 Feb 2015ReferencesBug 2672CVE-2014-9298AffectsAll NTP4 releases before 4.2.8p1, under at least some versions of MacOS and Linux.
+      <description>Summary Resolved4.2.8p104 Feb 2015ReferencesBug 2672CVE-2014-9751AffectsAll NTP4 releases before 4.2.8p1, under at least some versions of MacOS and Linux.
 *BSD has not been seen to be vulnerable.Resolved in 4.2.8p1.CVSS2 Score9AV:N/AC:L/Au:N/C:P/I:P/A:C		 Description While available kernels will prevent 127.0.0.1 addresses from &amp;ldquo;appearing&amp;rdquo; on non-localhost IPv4 interfaces, some kernels do not offer the same protection for ::1 source addresses on IPv6 interfaces.</description>
     </item>
     
@@ -1285,13 +1285,47 @@ This is primarily a bug fix and minor enhancements release. Important new featur
     </item>
     
     <item>
+      <title>4.2.2-series Changelog</title>
+      <link>https://test.doc.ntp.org/support/securitynotice/4_2_2-series-changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://test.doc.ntp.org/support/securitynotice/4_2_2-series-changelog/</guid>
+      <description>4.2.2p4 4.2.2p3 4.2.2p2 4.2.2p1 4.2.2   4.2.2p4 Release Date: 2006 Oct 15
+ Bug 710: compat getnameinfo() has off-by-one error Bug 690: Buffer overflow in Windows when doing DNS Lookups   4.2.2p3 Release Date: 2006 Aug 5
+ Bug 657: Different OSes need different sized args for IP_MULTICAST_LOOP Bug 601: ntpq&amp;rsquo;s decodeint uses an extra level of indirection Make the ChangeLog file cleaner and easier to read release engineering/build changes Documentation fixes Get sntp working under AIX-5   4.</description>
+    </item>
+    
+    <item>
+      <title>4.2.4-series Changelog</title>
+      <link>https://test.doc.ntp.org/support/securitynotice/4_2_4-series-changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://test.doc.ntp.org/support/securitynotice/4_2_4-series-changelog/</guid>
+      <description>4.2.4p8 4.2.4p7 4.2.4p6 4.2.4p5 4.2.4p4 4.2.4p3 4.2.4p2 4.2.4p1 4.2.4p0 4.2.4   4.2.4p8 Release Date: 2009 Dec 08
+ Sec 1331: DoS with mode 7 packets - CVE-2009-3563   4.2.4p7 Release Date: 2009 May 18
+ Sec 1151: Remote exploit if autokey is enabled - CVE-2009-1252 Bug 1187: Update the copyright date. Bug 1191: ntpd fails on Win2000 - &amp;ldquo;Address already in use&amp;rdquo; after fix for Sec 1149   4.</description>
+    </item>
+    
+    <item>
+      <title>4.2.6-series Changelog</title>
+      <link>https://test.doc.ntp.org/support/securitynotice/4_2_6-series-changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://test.doc.ntp.org/support/securitynotice/4_2_6-series-changelog/</guid>
+      <description>4.2.6p5 4.2.6p4 4.2.6p3 4.2.6p2 4.2.6p1 4.2.6   4.2.6p5 Release Date: 2011 Dec 24
+No changes from 4.2.6p5-RC3.
+ 4.2.6p5-RC3 Release Date: 2011 Dec 8
+ Bug 2082: 3-char refid sent by ntpd 4.2.6p5-RC2 ends with extra dot. Bug 2085: clock_update() sys_rootdisp calculation omits root delay. Bug 2086: get_systime() should not offset by sys_residual. Bug 2087: sys_jitter calculation overweights sys.peer jitter. Ensure NULL peer-&amp;gt;dstadr is not accessed in orphan parent selection.</description>
+    </item>
+    
+    <item>
       <title>4.2.8-series Changelog</title>
       <link>https://test.doc.ntp.org/support/securitynotice/4_2_8-series-changelog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/support/securitynotice/4_2_8-series-changelog/</guid>
       <description>Click to hide release list 4.2.8p15 4.2.8p14 4.2.8p13 4.2.8p12 4.2.8p11 4.2.8p10 4.2.8p9-win 4.2.8p9 4.2.8p8 4.2.8p7 4.2.8p6 4.2.8p5 4.2.8p4 4.2.8p3 4.2.8p3-RC3 4.2.8p2 4.2.8p1 4.2.8   4.2.8p15 Release Date: 2020 Jun 23
- Sec 3661: memory leak with AES128CMAC keys Bug3670: Regression from bad merge of 3592 and 3596  fixed a bad merge that happened before 4.2.8-p14   Bug 3667: decodenetnum fails with numeric port  rewrite decodenetnum() in terms of inet_pton   Bug 3666: avoid unlimited receive buffer allocation  limit number of receive buffers, with an iron reserve for refclocks   Bug 3664: Enable openSSL CMAC support on Windows Bug 3662: Fix build errors on Windows with VS2008 Bug 3660: Manycast orphan mode startup discovery problem  integrated patch from Charles Claggett   Bug 3659: Move definition of psl[] from ntp_config.</description>
+ Sec 3661: memory leak with AES128CMAC keys Bug 3670: Regression from bad merge of 3592 and 3596  fixed a bad merge that happened before 4.2.8-p14   Bug 3667: decodenetnum fails with numeric port  rewrite decodenetnum() in terms of inet_pton   Bug 3666: avoid unlimited receive buffer allocation  limit number of receive buffers, with an iron reserve for refclocks   Bug 3664: Enable openSSL CMAC support on Windows Bug 3662: Fix build errors on Windows with VS2008 Bug 3660: Manycast orphan mode startup discovery problem  integrated patch from Charles Claggett   Bug 3659: Move definition of psl[] from ntp_config.</description>
     </item>
     
     <item>
@@ -1311,6 +1345,16 @@ This is primarily a bug fix and minor enhancements release. Important new featur
       <guid>https://test.doc.ntp.org/support/securitynotice/ntpbug3011/</guid>
       <description>Summary Resolved4.2.8p726 Apr 2016ReferencesBug 3011CVE-2016-2516AffectsAll ntp-4 releases up to, but not including 4.2.8p7,
 and 4.3.0 up to, but not including 4.3.92.Resolved in 4.2.8p7.CVSS2 ScoreMED 6.3AV:N/AC:M/Au:S/C:N/I:N/A:CCVSS3 ScoreMED 4.2CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:H		 Description If ntpd was expressly configured to allow for remote configuration, a malicious user who knows the controlkey for ntpq or the requestkey for ntpdc (if mode7 is expressly enabled) can create a session with ntpd and if an existing association is unconfigured using the same IP twice on the unconfig directive line, ntpd will abort.</description>
+    </item>
+    
+    <item>
+      <title>Older Releases Changelog</title>
+      <link>https://test.doc.ntp.org/support/securitynotice/older-releases-changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://test.doc.ntp.org/support/securitynotice/older-releases-changelog/</guid>
+      <description>4.2.0 4.1.2 4.1.1 4.1.0 4.0.99 4.0.98 4.0.97 4.0.96 4.0.95 4.0.94 4.0.93 4.0.92 4.0.91 4.0.90 4.0.73 4.0.72f   4.2.0 Release Date: 2003 Oct 15
+ Bug 213: Fix Bug 207: ntpdc crashes in monlinst with pre-IPv6 ntpd Bug 205: Prevent a NULL dereference Bug 197: Only check-kayout if we have PATH_PERL Bug 185: Fix compilation error on Tru64 UNIX V4.0F with cc. Bug 182: Clean up Solaris version checks Bug 180: Verify mode 7 packet layout at build time.</description>
     </item>
     
   </channel>
