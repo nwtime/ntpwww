@@ -42,9 +42,9 @@ Abali, B.
 : Rajsbaum, Sergio
 : Reiher, Peter
 : [Strom, Rob](mailto:STROM@IBM.COM)
-: [Vera, M](mailto:vera%chook.adelaide.edu.au@augean.ua.OZ.AU)
+: Vera, M
 : [Vielmetti, Ed](mailto:emv@ox.com)
-: [Yih, Benny](mailto:yih%albion@cs.utah.edu)
+: Yih, Benny
 
 * * *
 
