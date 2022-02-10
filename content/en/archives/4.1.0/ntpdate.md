@@ -9,7 +9,7 @@ I told you it was eyeball and wristwatch.
 
 * * *
 
-> **Disclaimer:** The functionality of this program is now available in the <code>ntpd</code> program. See the `-q` command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
+> **Disclaimer:** The functionality of this program is now available in the <code>ntpd</code> program. See the `-q` command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
 
 * * *
 

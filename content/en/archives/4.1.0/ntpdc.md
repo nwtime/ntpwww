@@ -239,15 +239,15 @@ The following commands all make authenticated requests.
 
 <code>pll</code>
 
-: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/archives/4.1.0/refclock) page for further information. The default for this flag is enable.
+: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/archives/4.1.0/refclock/) page for further information. The default for this flag is enable.
 
 <code>pps</code>
 
-: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/archives/4.1.0/kern) page for further information. The default for this flag is disable.
+: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/archives/4.1.0/kern/) page for further information. The default for this flag is disable.
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/4.1.0/monopt) page for further information. The default for this flag is enable.
+: Enables the statistics facility. See the [Monitoring Options](/archives/4.1.0/monopt/) page for further information. The default for this flag is enable.
 
 <code>pll_kernel</code>
 

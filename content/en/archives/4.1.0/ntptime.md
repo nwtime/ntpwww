@@ -25,7 +25,7 @@ The turtle has been swimming in the kernel.
 
 #### Description
 
-This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/4.1.0/kern) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>ntpdc</code> program and <code>kerninfo</code> command.
+This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/4.1.0/kern/) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>ntpdc</code> program and <code>kerninfo</code> command.
 
 * * *
 
