@@ -3,7 +3,7 @@ title: "Mitigation Rules and the prefer Keyword"
 type: archives
 ---
 
-![gif](/archives/pic/alice11.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice11.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Listen carefully to what I say; it is very complicated.
 
@@ -32,7 +32,7 @@ Recall the suite of NTP data acquisition and grooming algorithms as these algori
 3.  A loop error occurs if the source is synchronized to the client of if the source is synchronized to the same source as the client.
 4.  An unreachable error occurs if the source is unreachable or if the <code>server</code> or <code>peer</code> command for the source includes the <code>noselect</code> option.
 
-Phase three uses an intersection algorithm to select the truechimers from among the candidates, leaving behind the falsetickers. A server or peer configured with the <code>true</code> option is ipso facto a truechimer independent of this algorithm. Phase four uses a clustering algorithm to cast off statistical outliers from the truechimers until a set of survivors not less than the number specified as the <code>minclock</code> option of the <code>tos</code> command, with default 3. Phase five uses a set of mitigation rules to select from among the survivors a system peer from which a set of system statistics can be inherited and passed along to a dependent client population. The clock offset developed from these algorithms can discipline the system clock either using the <code>ntpd</code> clock discipline algorithm or enable the kernel to discipline the system clock directly, as described on the [A Kernel Model for Precision Timekeeping](/archives/4.2.6-series/kern) page. Phase five is the topic of this page.
+Phase three uses an intersection algorithm to select the truechimers from among the candidates, leaving behind the falsetickers. A server or peer configured with the <code>true</code> option is ipso facto a truechimer independent of this algorithm. Phase four uses a clustering algorithm to cast off statistical outliers from the truechimers until a set of survivors not less than the number specified as the <code>minclock</code> option of the <code>tos</code> command, with default 3. Phase five uses a set of mitigation rules to select from among the survivors a system peer from which a set of system statistics can be inherited and passed along to a dependent client population. The clock offset developed from these algorithms can discipline the system clock either using the <code>ntpd</code> clock discipline algorithm or enable the kernel to discipline the system clock directly, as described on the [A Kernel Model for Precision Timekeeping](/archives/4.2.6-series/kern/) page. Phase five is the topic of this page.
 
 * * *
 

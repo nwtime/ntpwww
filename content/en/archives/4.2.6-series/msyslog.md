@@ -3,7 +3,7 @@ title: "ntpd System Log Messages"
 type: archives
 ---
 
-![gif](/archives/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The log can be shrill at times.
 
@@ -48,7 +48,7 @@ In the following a `?` character stands for text in the message. The meaning sho
 
 <code>**proto_config: illegal item ?, value ?**</code>
 
-: Program error. Bugs can be reported [here](/archives/4.2.6-series/bugs).
+: Program error. Bugs can be reported [here](/archives/4.2.6-series/bugs/).
 
 <code>**receive: autokey requires two-way communication**</code>
 
@@ -91,7 +91,7 @@ In the following a `?` character stands for text in the message. The meaning sho
 <code>**sigaction() fails to save SIGSYS trap: ?**</code> 
 : <code>**sigaction() fails to restore SIGSYS trap: ?**</code>
 
-: Program error. Bugs can be reported [here](/archives/4.2.6-series/bugs).
+: Program error. Bugs can be reported [here](/archives/4.2.6-series/bugs/).
 
 <code>**LOG_NOTICE**</code>
 

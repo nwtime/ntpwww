@@ -3,7 +3,7 @@ title: "Association Management"
 type: archives
 ---
 
-![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
 
@@ -25,15 +25,15 @@ Last update: 21:56 UTC Friday, December 28, 2007
 
 #### Association Modes
 
-This page describes the various modes of operation provided in NTPv4. Details about the configuration commands and options are given on the [Configuration Options](/archives/4.2.6-series/confopt) page. Details about the cryptographic authentication schemes are given on the [Authentication Options](/archives/4.2.6-series/authopt) page. Details about the automatic server discovery schemes are described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp) page.
+This page describes the various modes of operation provided in NTPv4. Details about the configuration commands and options are given on the [Configuration Options](/archives/4.2.6-series/confopt/) page. Details about the cryptographic authentication schemes are given on the [Authentication Options](/archives/4.2.6-series/authopt/) page. Details about the automatic server discovery schemes are described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt/) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp/) page.
 
 There are three types of associations in NTP: persistent, preemptable and ephemeral. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the prempt option and are demobilized by a "better" server or by timeout, but only if the number of survivors exceeds the threshold set by the tos maxclock configuration command. Ephemeral associations are mobilized upon arrival of designated messages and demobilized by timeout.
 
-Ordinarily, successful mobilization of ephemeral associations requires the server to be cryptographically authenticated to the client. This can be done using either symmetric key or Autokey public key cryptography, as described in the [Authentication Options](/archives/4.2.6-series/authopt) page.
+Ordinarily, successful mobilization of ephemeral associations requires the server to be cryptographically authenticated to the client. This can be done using either symmetric key or Autokey public key cryptography, as described in the [Authentication Options](/archives/4.2.6-series/authopt/) page.
 
-There are three principal modes of operation in NTP: client/server, symmetric active/passive and broadcast/multicast. There are three automatic server discovery schemes in NTP: broadcast/multicast, manycast and pool described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt) page. In addition, the orphan mode and burst options described on this page can be used in appropriate cases.
+There are three principal modes of operation in NTP: client/server, symmetric active/passive and broadcast/multicast. There are three automatic server discovery schemes in NTP: broadcast/multicast, manycast and pool described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt/) page. In addition, the orphan mode and burst options described on this page can be used in appropriate cases.
 
-Following is a summary of the operations in each mode. Note that reference to option applies to the commands described on the [Configuration Options](/archives/4.2.6-series/confopt) page. See that page for applicability and defaults.
+Following is a summary of the operations in each mode. Note that reference to option applies to the commands described on the [Configuration Options](/archives/4.2.6-series/confopt/) page. See that page for applicability and defaults.
 
 * * *
 
@@ -61,13 +61,13 @@ As symmetric modes are most often used as root servers for moderate to large sub
 
 #### Broadcast/Multicast Modes
 
-NTP broadcast and multicast modes are intended for configurations involving one or a few servers and a possibly very large client population. Broadcast mode can be used with Ethernet, FDDI and WiFi spans interconnected by hubs or switches. Ordinarily, broadcast packets do not extend beyond a level-3 router. Where service is intended beyond a level-3 router, multicast mode can be used. Additional information is on the [Automatic NTP Configuration Options](/archives/4.2.6-series/manyopt) page.
+NTP broadcast and multicast modes are intended for configurations involving one or a few servers and a possibly very large client population. Broadcast mode can be used with Ethernet, FDDI and WiFi spans interconnected by hubs or switches. Ordinarily, broadcast packets do not extend beyond a level-3 router. Where service is intended beyond a level-3 router, multicast mode can be used. Additional information is on the [Automatic NTP Configuration Options](/archives/4.2.6-series/manyopt/) page.
 
 * * *
 
 #### Manycast Mode
 
-Manycast mode is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes ephemeral client associations with some number of the "best" of the nearby manycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the [Automatic NTP Configuration Options](/archives/4.2.6-series/manyopt) page.
+Manycast mode is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes ephemeral client associations with some number of the "best" of the nearby manycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the [Automatic NTP Configuration Options](/archives/4.2.6-series/manyopt/) page.
 
 * * *
 

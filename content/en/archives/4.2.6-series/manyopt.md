@@ -4,7 +4,7 @@ type: archives
 --- 
 
 
-![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
 
@@ -24,7 +24,7 @@ Last update: 25-Nov-2009 UTC
 
 #### Introduction
 
-This page describes the automatic server discovery schemes provided in NTPv4. Details about the configuration commands and options are described on the [Configuration Options](/archives/4.2.6-series/confopt) page. Details about the cryptographic authentication schemes are described on the [Authentication Options](/archives/4.2.6-series/authopt) page. Details about the other modes not directly involved in these schemes are described on the [Association Management](/archives/4.2.6-series/assoc) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp) page.
+This page describes the automatic server discovery schemes provided in NTPv4. Details about the configuration commands and options are described on the [Configuration Options](/archives/4.2.6-series/confopt/) page. Details about the cryptographic authentication schemes are described on the [Authentication Options](/archives/4.2.6-series/authopt/) page. Details about the other modes not directly involved in these schemes are described on the [Association Management](/archives/4.2.6-series/assoc/) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp/) page.
 
 There are three automatic server discovery schemes: broadcast/multicast, manycast and server pool described on this page. The broadcast/multicast and manycast schemes utilize the ubiquitous broadcast or one-to-many paradigm native to IPv4 and IPv6. The server pool scheme uses DNS to resolve addresses of multiple volunteer servers scattered throughout the world. All three schemes work in much the same way and might be described as _grab-n'-prune_. Through one means or another they grab a number of associations either directly or indirectly from the configuration file, order them from best to worst according to a defined metric, then cast off the associations with the lowest metric until no more than the number specified by the <code>maxclock</code> option of the <code>tos</code> command remain.
 
@@ -36,7 +36,7 @@ All schemes use a stratum filter to select just those servers with stratum consi
 
 The pruning process is handled using a set of counters, one for each preemptible association. Once each poll interval the counter is increased by one. If the association survives the selection and clustering algorithms; that is, it is a candidate for synchronization, the counter is reset to zero. If not and the counter reaches a defined threshold and the number of assocations is greater than <code>maxclock</code>, the association becomes a candidate for pruning. The pruning algorithm assigns to each association a metric ranging from the lowest, corresponding to no possibility of synchronization, to the highest, corresponding to a very likely possibility of synchronization. Upon reaching the threshold, an association is demobilized if it has the lowest metric of all associations. Operation continues in this way until the number of remaining associations is not greater than <code>maxclock</code>.
 
-Following is a summary of each scheme. Note that reference to option applies to the commands described on the [Configuration Options](/archives/4.2.6-series/confopt) page. See that page for applicability and defaults.
+Following is a summary of each scheme. Note that reference to option applies to the commands described on the [Configuration Options](/archives/4.2.6-series/confopt/) page. See that page for applicability and defaults.
 
 * * *
 
@@ -58,7 +58,7 @@ Since an intruder can impersonate a broadcast server and inject false time value
 
 With symmetric key cryptography each broadcast server can use the same or different keys. In one scenario on a broadcast LAN, a set of broadcast clients and servers share the same key along with another set that share a different key. Only the clients with matching key will respond to a server broadcast.
 
-Public key cryptography can be used with some restrictions. If multiple servers belonging to different secure groups share the same broadcast LAN, the clients on that LAN must have the client keys for all of them. This scenario is illustrated in the example on the [Authentication Options](/archives/4.2.6-series/authopt) page.
+Public key cryptography can be used with some restrictions. If multiple servers belonging to different secure groups share the same broadcast LAN, the clients on that LAN must have the client keys for all of them. This scenario is illustrated in the example on the [Authentication Options](/archives/4.2.6-series/authopt/) page.
 
 * * *
 

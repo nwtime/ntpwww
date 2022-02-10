@@ -3,7 +3,7 @@ title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
 ---
 
-![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
+![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 You need help from the monkeys.
 
@@ -35,9 +35,9 @@ Last update: 14-oct-09 22:23
 
 #### Description
 
-The <code>ntpd</code> program is an operating system daemon that synchronizes the system clock to remote NTP time servers or local reference clocks. It is a complete implementation of the Network Time Protocol (NTP) version 4, but also retains compatibility with version 3, as defined by RFC-1305, and version 1 and 2, as defined by RFC-1059 and RFC-1119, respectively. The program can operate in any of several modes, as described on the [Association Management](/archives/4.2.6-series/assoc) page, and with both symmetric key and public key cryptography, as described on the [Authentication Options](/archives/4.2.6-series/manyopt) page.
+The <code>ntpd</code> program is an operating system daemon that synchronizes the system clock to remote NTP time servers or local reference clocks. It is a complete implementation of the Network Time Protocol (NTP) version 4, but also retains compatibility with version 3, as defined by RFC-1305, and version 1 and 2, as defined by RFC-1059 and RFC-1119, respectively. The program can operate in any of several modes, as described on the [Association Management](/archives/4.2.6-series/assoc/) page, and with both symmetric key and public key cryptography, as described on the [Authentication Options](/archives/4.2.6-series/manyopt/) page.
 
-The <code>ntpd</code> program ordinarily requires a configuration file. However a client can discover remote servers and configure them automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment. Further details are on the [Automatic Server Discovery](/archives/4.2.6-series/manyopt) page.
+The <code>ntpd</code> program ordinarily requires a configuration file. However a client can discover remote servers and configure them automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment. Further details are on the [Automatic Server Discovery](/archives/4.2.6-series/manyopt/) page.
 
 Once the NTP software distribution has been compiled and installed and the configuration file constructed, the next step is to verify correct operation and fix any bugs that may result. Usually, the command line that starts the daemon is included in the system startup file, so it is executed only at system boot time; however, the daemon can be stopped and restarted from root at any time. Once started, the daemon will begin sending and receiving messages, as specified in the configuration file.
 
@@ -45,11 +45,11 @@ Once the NTP software distribution has been compiled and installed and the confi
 
 #### Setting the Time and Frequency
 
-The <code>ntpd</code> program operates by exchanging messages with one or more servers at designated intervals ranging from about one minute to about 17 minutes. When started, the program requires several exchanges while the algorithms accumulate and groom the data before setting the clock. The initial delay to set the clock can be reduced using options on the [Server Options](/archives/4.2.6-series/confopt) page.
+The <code>ntpd</code> program operates by exchanging messages with one or more servers at designated intervals ranging from about one minute to about 17 minutes. When started, the program requires several exchanges while the algorithms accumulate and groom the data before setting the clock. The initial delay to set the clock can be reduced using options on the [Server Options](/archives/4.2.6-series/confopt/) page.
 
 Most compters today incorporate a time-of-year (TOY) chip to maintain the time during periods when the power is off. When the machine is booted, the chip is used to initialize the operating system time. In case there is no TOY chip or the TOY time is more than 1000 s from the server time, <code>ntpd</code> assumes something must be terribly wrong and exits with a panic message to the system operator. With the <code>-g</code> option the clock will be initially set to the server time regardless of the chip time. However, once the clock has been set, an error greater than 1000 s will cause <code>ntpd</code> to exit anyway.
 
-Under ordinary conditions, <code>ntpd</code> slews the clock so that the time is effectively continuous and never runs backwards. If due to extreme network congestion an error spike exceeds the _step threshold_, by default 128 ms, the spike is discarded. However, if the error persists for more than the _stepout threshold_, by default 900 s, the system clock is stepped to the correct value. In practice the need for a step has is extremely rare and almost always the result of a hardware failure. With the <code>-x</code> option the step threshold is increased to 600 s. Other options are available using the <code>tinker</code> command on the [Miscellaneous Options](/archives/4.2.6-series/miscopt) page.
+Under ordinary conditions, <code>ntpd</code> slews the clock so that the time is effectively continuous and never runs backwards. If due to extreme network congestion an error spike exceeds the _step threshold_, by default 128 ms, the spike is discarded. However, if the error persists for more than the _stepout threshold_, by default 900 s, the system clock is stepped to the correct value. In practice the need for a step has is extremely rare and almost always the result of a hardware failure. With the <code>-x</code> option the step threshold is increased to 600 s. Other options are available using the <code>tinker</code> command on the [Miscellaneous Options](/archives/4.2.6-series/miscopt/) page.
 
 The issues should be carefully considered before using these options. The maximum slew rate possible is limited to 500 parts-per-million (PPM) by the Unix kernel. As a result, the clock can take 2000 s for each second the clock is outside the acceptable range. During this interval the clock will not be consistent with any other network clock and the system cannot be used for distributed applications that require correctly synchronized network time.
 
@@ -67,13 +67,13 @@ The <code>ntpd</code> program normally operates continuously while adjusting the
 
 NTP uses an intricate heuristic algorithm to automatically control the poll interval for maximum accuracy consistent with minimum network overhead. The algorithm measures the incidental offset and jitter to determine the best poll interval. When <code>ntpd</code> starts, the interval is the default minimum 64 s. Under normal conditions when the clock discipline has stabilized, the interval increases in steps to the default maximum 1024 s. In addition, should a server become unreachable after some time, the interval increases in steps to the maximum in order to reduce network overhead.
 
-The default poll interval range is suitable for most conditions, but can be changed using options on the [Server Options](/archives/4.2.6-series/confopt) and [Miscellaneous Options](/archives/4.2.6-series/miscopt) pages. However, when using maximum intervals much larger than the default, the residual clock frequency error must be small enough for the discipline loop to capture and correct. The capture range is 500 PPM with a 64-s interval decreasing by a factor of two for each interval doubling. At a 36-hr interval, for example, the capture range is only 0.24 PPM.
+The default poll interval range is suitable for most conditions, but can be changed using options on the [Server Options](/archives/4.2.6-series/confopt/) and [Miscellaneous Options](/archives/4.2.6-series/miscopt/) pages. However, when using maximum intervals much larger than the default, the residual clock frequency error must be small enough for the discipline loop to capture and correct. The capture range is 500 PPM with a 64-s interval decreasing by a factor of two for each interval doubling. At a 36-hr interval, for example, the capture range is only 0.24 PPM.
 
 #### The huff-n'-puff Filter
 
 In scenarios where a considerable amount of data are to be downloaded or uploaded over telephone modems, timekeeping quality can be seriously degraded. This occurs because the differential delays on the two directions of transmission can be quite large. In many cases the apparent time errors are so large as to exceed the step threshold and a step correction can occur during and after the data transfer.
 
-The huff-n'-puff filter is designed to correct the apparent time offset in these cases. It depends on knowledge of the propagation delay when no other traffic is present, such as during other than work hours. The filter remembers the minimum delay over the most recent interval measured usually in hours. Under conditions of severe delay, the filter corrects the apparent offset using the sign of the offset and the difference between the apparent delay and minimum delay. The name of the filter reflects the negative (huff) and positive (puff) correction, which depends on the sign of the offset. The filter is activated by the <code>tinker huffpuff</code> command, as described in the [Miscellaneous Options](/archives/4.2.6-series/miscopt) page.
+The huff-n'-puff filter is designed to correct the apparent time offset in these cases. It depends on knowledge of the propagation delay when no other traffic is present, such as during other than work hours. The filter remembers the minimum delay over the most recent interval measured usually in hours. Under conditions of severe delay, the filter corrects the apparent offset using the sign of the offset and the difference between the apparent delay and minimum delay. The name of the filter reflects the negative (huff) and positive (puff) correction, which depends on the sign of the offset. The filter is activated by the <code>tinker huffpuff</code> command, as described in the [Miscellaneous Options](/archives/4.2.6-series/miscopt/) page.
 
 * * *
 
@@ -83,7 +83,7 @@ As provided by international agreement, an extra second is sometimes inserted in
 
 If a host does not have the leapsecond values, they can be obtained over the net using the Autokey security protocol. Ordinarily, the leapseconds file is installed on the primary servers and the values flow from them via secondary servers to the clients. When multiple servers are involved, the values with the latest expiration time are used.
 
-If the latest leap is in the past, nothing further is done other than to install the TAI offset. If the leap is in the future less than 28 days, the leap warning bits are set. If in the future less than 23 hours, the kernel is armed to insert one second at the end of the current day. If the kernel is enabled, the leap is done automatically at that time; otherwise, the clock is effectively stopped for one second at the leap. Additional details are in the [The NTP Timescale and Leap Seconds](/reflib/leap) white paper.
+If the latest leap is in the past, nothing further is done other than to install the TAI offset. If the leap is in the future less than 28 days, the leap warning bits are set. If in the future less than 23 hours, the kernel is armed to insert one second at the end of the current day. If the kernel is enabled, the leap is done automatically at that time; otherwise, the clock is effectively stopped for one second at the leap. Additional details are in the [The NTP Timescale and Leap Seconds](/reflib/leap/) white paper.
 
 If none of the above provisions are available, dependent servers and clients tally the leap warning bits of surviving servers and reference clocks. When a majority of the survivors show warning, a leap is programmed at the end of the current month. During the month and day of insertion, they operate as above. In this way the leap is propagated at all dependent servers and clients.
 
@@ -91,13 +91,13 @@ If none of the above provisions are available, dependent servers and clients tal
 
 #### Additional Features
 
-A new experimental feature called interleaved modes can be used in NTP symmetric or broadcast modes. It is designed to improve accuracy by avoiding kernel latency and queueing delay, as described on the [NTP Interleaved Modes](/archives/4.2.6-series/xleave) page. It is activated by the <code>xleave</code> option with the <code>peer</code> or <code>broadcast</code> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved clients at the same time. Further details are in the white paper [NTP Interleaved On-Wire Protocol](/reflib/onwire) and the briefing [Interleaved Synchronization Protocols for LANs and Space Data Links](/reflib/brief/onwire/onwire.pdf).
+A new experimental feature called interleaved modes can be used in NTP symmetric or broadcast modes. It is designed to improve accuracy by avoiding kernel latency and queueing delay, as described on the [NTP Interleaved Modes](/archives/4.2.6-series/xleave/) page. It is activated by the <code>xleave</code> option with the <code>peer</code> or <code>broadcast</code> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved clients at the same time. Further details are in the white paper [NTP Interleaved On-Wire Protocol](/reflib/onwire/) and the briefing [Interleaved Synchronization Protocols for LANs and Space Data Links](/reflib/brief/onwire/onwire.pdf).
 
 If <code>ntpd</code>, is configured with NetInfo support, it will attempt to read its configuration from the NetInfo service if the default <code>ntp.conf</code> file cannot be read and no file is specified by the <code>-c</code> option.
 
 In contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.
 
-Various internal <code>ntpd</code> variables can be displayed and configuration options altered while the <code>ntpd</code> is running using the <code>[ntpq](/archives/4.2.6-series/ntpq)</code> and <code>[ntpdc](/archives/4.2.6-series/ntpdc)</code> utility programs.
+Various internal <code>ntpd</code> variables can be displayed and configuration options altered while the <code>ntpd</code> is running using the <code>[ntpq](/archives/4.2.6-series/ntpq/)</code> and <code>[ntpdc](/archives/4.2.6-series/ntpdc/)</code> utility programs.
 
 When <code>ntpd</code> starts it looks at the value of <code>umask</code>, and if zero <code>ntpd</code> will set the <code>umask</code> to <code>022</code>.
 

@@ -3,7 +3,7 @@ title: "Rate Management and the Kiss-o'-Death Packet"
 type: archives
 ---
 
-![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Our junior managers and the administrators.
 
@@ -24,7 +24,7 @@ Last update: 	03-May-2009 3:34 UTC
 
 #### Introduction
 
-This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the [Configuration Options](/archives/4.2.6-series/confopt) page. Details about the cryptographic authentication schemes are given on the [Authentication Options](/archives/4.2.6-series/authopt) page. Details about the automatic server discovery schemes are described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp) page.
+This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the [Configuration Options](/archives/4.2.6-series/confopt/) page. Details about the cryptographic authentication schemes are given on the [Authentication Options](/archives/4.2.6-series/authopt/) page. Details about the automatic server discovery schemes are described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt/) page. Additional information is available in the papers, reports, memoranda and briefings on the [NTP Project](/reflib/ntp/) page.
 
 Some national time metrology laboratories, including NIST and USNO, use the <code>ntpd</code> reference implementation in their very busy public time servers. They operate multiple servers behind load-balancing devices to support aggregate rates up to several thousand packets per second. The servers need to defend themselves against all manner of broken implementations that can clog the server and network infrastructure. On the other hand, friendly <code>ntpd</code> clients need to avoid configurations that can result in unfriendly rates.
 

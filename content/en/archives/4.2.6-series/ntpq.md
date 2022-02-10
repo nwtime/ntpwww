@@ -3,7 +3,7 @@ title: "ntpq - standard NTP query program"
 type: archives
 ---
 
-![gif](/archives/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 A typical NTP monitoring packet
 
@@ -42,7 +42,7 @@ If one or more request options is included on the command line when <code>ntpq</
 
 Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.
 
-For examples and usage, see the [NTP Debugging Techniques](/archives/4.2.6-series/debug) page.
+For examples and usage, see the [NTP Debugging Techniques](/archives/4.2.6-series/debug/) page.
 
 Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.
 
@@ -230,7 +230,7 @@ Association IDs are used to identify system, peer and clock variables. System va
 
 #### Status Words and Kiss Codes
 
-The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the [Event Messages and Status Words](/archives/4.2.6-series/decode) page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.
+The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the [Event Messages and Status Words](/archives/4.2.6-series/decode/) page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.
 
 Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called [kiss codes](/archives/4.2.6-series/decode/#kiss-codes). The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.
 
@@ -306,14 +306,14 @@ The following system variables appear in the <code>rv</code> billboard for each 
 | `pmode` | peer mode (1-5) |
 | `hpoll` | host poll exponent (log<sub>2</sub> s) (3-17) |
 | `ppoll` | peer poll exponent (log<sub>2</sub> s) (3-17) |
-| `headway` | headway (see [Rate Management and the Kiss-o'-Death Packet)](/archives/4.2.6-series/rate) |
+| `headway` | headway (see [Rate Management and the Kiss-o'-Death Packet)](/archives/4.2.6-series/rate/) |
 | `flash` | [flash status word](/archives/4.2.6-series/decode/#flash-status-word) |
 | `offset` | filter offset |
 | `delay` | filter delay |
 | `dispersion` | filter dispersion |
 | `jitter` | filter jitter |
 | `bias` | unicast/broadcast bias |
-| `xleave` | interleave delay (see [NTP Interleaved Modes](/archives/4.2.6-series/xleave)) |
+| `xleave` | interleave delay (see [NTP Interleaved Modes](/archives/4.2.6-series/xleave/)) |
 
 The bias variable is calculated when the first broadcast packet is received after the calibration volley. It represents the offset of the broadcast subgraph relative to the unicast subgraph. The xleave variable appears only in the interleaved symmetric and interleaved modes. It represents the internal queuing, buffering and transmission delays for the preceding packet.
 

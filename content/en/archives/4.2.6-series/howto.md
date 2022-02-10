@@ -3,7 +3,7 @@ title: "How to Write a Reference Clock Driver"
 type: archives
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 You need a little magic.
 
@@ -57,7 +57,7 @@ The best way to understand how the clock drivers work is to study one of the dri
 
 Radio and modem reference clocks by convention have addresses of the form <code>127.127._t_._u_</code>, where _t_ is the clock type and _u_ in the range 0-3 is used to distinguish multiple instances of clocks of the same type. Most clocks require a serial or parallel port or special bus peripheral. The particular device is normally specified by adding a soft link <code>/dev/device_u_</code> to the particular hardware device.
 
-By convention, reference clock drivers are named in the form <code>refclock__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name and device name. The existing assignments are in the [Reference Clock Drivers](/archives/4.2.6-series/refclock) page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the autoconfigure phase and conditionally compiled.
+By convention, reference clock drivers are named in the form <code>refclock__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name and device name. The existing assignments are in the [Reference Clock Drivers](/archives/4.2.6-series/refclock/) page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the autoconfigure phase and conditionally compiled.
 
 * * *
 
@@ -137,7 +137,7 @@ When a new reference clock driver is installed, the following files need to be e
 
 #### Pulse-per-Second Interface
 
-When the Pulse-per-Second Application Interface (RFC 2783) is present, a compact PPS interface is available to all drivers. See the [Mitigation Rules and the Prefer Peer](/archives/4.2.6-series/prefer) page for further information. To use this interface, include the <code>timeppps.h</code> and <code>refclock_atom.h</code> header files and define the <code>refclock_atom</code> structure in the driver private storage. The <code>timepps.h</code> file is specific to each operating system and may not be available for some systems.
+When the Pulse-per-Second Application Interface (RFC 2783) is present, a compact PPS interface is available to all drivers. See the [Mitigation Rules and the Prefer Peer](/archives/4.2.6-series/prefer/) page for further information. To use this interface, include the <code>timeppps.h</code> and <code>refclock_atom.h</code> header files and define the <code>refclock_atom</code> structure in the driver private storage. The <code>timepps.h</code> file is specific to each operating system and may not be available for some systems.
 
 To use the interface, call <code>refclock_ppsapi</code> from the startup routine passing the device file descriptor and <code>refclock_atom</code> structure pointer. Then, call <code>refclock_pps</code> from the timer routine passing the association pointer and <code>refclock_atom</code> structure pointer. See the <code>refclock_atom.c</code> file for examples and calling sequences. If the PPS signal is valid, the offset sample will be saved in the circular buffer and a bit set in the association flags word indicating the sample is valid and the driver an be selected as a PPS peer. If this bit is set when the poll routine is called, the driver calls the <code>refclock_receive</code> routine to process the samples in the circular buffer and update the system clock.
 
