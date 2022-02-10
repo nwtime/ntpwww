@@ -3,7 +3,7 @@ title: "Rate Management and the Kiss-o'-Death Packet"
 type: archives
 ---
 
-![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Our junior managers and the administrators.
 
@@ -40,13 +40,13 @@ Rate management involves four algorithms to manage resources: (1) poll rate cont
 
 #### Minimum Headway Time
 
-The headway is defined for each source as the interval between the last packet sent or received and the next packet for that source. The minimum receive headway is defined as the guard time. In the reference implementation, if the receive headway is less than the guard time, the packet is discarded. The guard time defaults to 2 s, but this can be changed using the <code>minimum</code> option of the [<code>discard</code>](/archives/4.2.8-series/accopt) command. By design, the minimum interval between <code>burst</code> and <code>iburst</code> packets sent by any client is 2 s, which does not violate this constraint. Packets sent by other implementations that violate this constraint will be dropped and a KoD packet returned, if enabled.
+The headway is defined for each source as the interval between the last packet sent or received and the next packet for that source. The minimum receive headway is defined as the guard time. In the reference implementation, if the receive headway is less than the guard time, the packet is discarded. The guard time defaults to 2 s, but this can be changed using the <code>minimum</code> option of the [<code>discard</code>](/archives/4.2.8-series/accopt/) command. By design, the minimum interval between <code>burst</code> and <code>iburst</code> packets sent by any client is 2 s, which does not violate this constraint. Packets sent by other implementations that violate this constraint will be dropped and a KoD packet returned, if enabled.
 
 * * *
 
 #### Minimum Average Headway Time
 
-There are two features in the reference implementation to manage the minimum average headway time between one packet and the next, and thus the maximum average rate for each source. The transmit throttle limits the rate for transmit packets, while the receive discard limits the rate for receive packets. These features make use of a pair of counters: a client output counter for each association and a server input counter for each distinct client IP address. For each packet received, the input counter increments by a value equal to the minimum average headway (MAH) and then decrements by one each second. For each packet transmitted, the output counter increments by the MAH and then decrements by one each second. The default MAH is 8 s, but this can be changed using the <code>average</code> option of the [<code>discard</code>](/archives/4.2.8-series/accopt) command.
+There are two features in the reference implementation to manage the minimum average headway time between one packet and the next, and thus the maximum average rate for each source. The transmit throttle limits the rate for transmit packets, while the receive discard limits the rate for receive packets. These features make use of a pair of counters: a client output counter for each association and a server input counter for each distinct client IP address. For each packet received, the input counter increments by a value equal to the minimum average headway (MAH) and then decrements by one each second. For each packet transmitted, the output counter increments by the MAH and then decrements by one each second. The default MAH is 8 s, but this can be changed using the <code>average</code> option of the [<code>discard</code>](/archives/4.2.8-series/accopt/) command.
 
 If the <code>iburst</code> or <code>burst</code> options are present, the poll algorithm sends a burst of packets instead of a single packet at each poll opportunity. The NTPv4 specification requires that bursts contain no more than eight packets. Starting from an output counter value of zero, the maximum counter value, called the ceiling, can be no more than eight times the MAH. However, if the burst starts with a counter value other than zero, there is a potential to exceed the ceiling. This can result from protocol restarts and/or Autokey protocol operations. In these cases the poll algorithm throttles the output rate by computing an additional headway time so that the next packet sent will not exceed the ceiling. Designs such as this are often called leaky buckets.
 
@@ -60,7 +60,7 @@ The reference implementation has a maximum MRU list size of a few hundred entrie
 
 #### The Kiss-of-Death Packet
 
-Ordinarily, packets denied service are simply dropped with no further action except incrementing statistics counters. Sometimes a more proactive response is needed to cause the client to slow down. A special packet has been created for this purpose called the kiss-o'-death (KoD) packet. KoD packets have leap indicator 3, stratum 0 and the reference identifier set to a four-octet ASCII code. At present, only one code <code>RATE</code> is sent by the server if the <code>limited</code> and <code>kod</code> flags of the [<code>restrict</code>](/archives/4.2.8-series/accopt) command are present and either the guard time or MAH time are violated.
+Ordinarily, packets denied service are simply dropped with no further action except incrementing statistics counters. Sometimes a more proactive response is needed to cause the client to slow down. A special packet has been created for this purpose called the kiss-o'-death (KoD) packet. KoD packets have leap indicator 3, stratum 0 and the reference identifier set to a four-octet ASCII code. At present, only one code <code>RATE</code> is sent by the server if the <code>limited</code> and <code>kod</code> flags of the [<code>restrict</code>](/archives/4.2.8-series/accopt/) command are present and either the guard time or MAH time are violated.
 
 A client receiving a KoD packet is expected to slow down; however, no explicit mechanism is specified in the protocol to do this. In the reference implementation, the server sets the poll field of the KoD packet to the greater of (a) the server MAH and (b) client packet poll field. In response to the KoD packet, the client sets the peer poll interval to the maximum of (a) the client MAH and (b) the server packet poll field. This automatically increases the headway for following client packets.
 

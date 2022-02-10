@@ -3,7 +3,7 @@ title: "ntpdc - special NTP query program"
 type: archives
 ---
 
-![gif](/archives/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 This program is a big, deprecated puppy.
 
@@ -254,7 +254,7 @@ The following commands all make authenticated requests.
 <code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>
 : <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>
 
-: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/archives/4.2.8-series/miscopt) page for further information.
+: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/archives/4.2.8-series/miscopt/) page for further information.
 
 <code>**restrict _address mask flag_ [ _flag_ ]**</code>
 

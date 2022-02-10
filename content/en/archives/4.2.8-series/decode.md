@@ -3,7 +3,7 @@ title: "Event Messages and Status Words"
 type: archives
 ---
 
-![gif](/archives/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Caterpillar knows all the error codes, which is more than most of us do.
 
@@ -25,7 +25,7 @@ Last update: 26-Jul-2015 06:26 UTC
 
 #### Introduction
 
-This page lists the status words, event messages and error codes used for <code>ntpd</code> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the [<code>ntpq</code>](/archives/4.2.8-series/ntpq) program.
+This page lists the status words, event messages and error codes used for <code>ntpd</code> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the [<code>ntpq</code>](/archives/4.2.8-series/ntpq/) program.
 
 Significant changes in program state are reported as events. There is one set of system events and a set of peer events for each association. In addition, there is a set of clock events for each association that supports a reference clock. Events are normally reported to the <code>protostats</code> monitoring file and optionally to the system log. In addition, if the trap facility is configured, events can be reported to a remote program that can page an administrator.
 

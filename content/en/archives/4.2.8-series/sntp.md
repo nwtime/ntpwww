@@ -3,7 +3,7 @@ title: "sntp - Simple Network Time Protocol (SNTP) Client"
 type: archives
 ---
 
-![gif](/archives/pic/dogsnake.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/dogsnake.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 S is for snakeoil.
 
@@ -91,7 +91,7 @@ If <code>-b _bcaddress_</code> is not specified, the program sends a single mess
 
 <code>**-k _keyfile_, -\-keyfile _keyfile_**</code>
 
-: Specifies the filename <code>_keyfile_</code> used with the <code>-a</code> / <code>-\-authentication</code> option. The format of the file is described on the [<code>ntp-keygen</code> page](/archives/4.2.8-series/keygen).
+: Specifies the filename <code>_keyfile_</code> used with the <code>-a</code> / <code>-\-authentication</code> option. The format of the file is described on the [<code>ntp-keygen</code> page](/archives/4.2.8-series/keygen/).
 
 <code>**-l _logfile_, -\-filelog _logfile_**</code>
 
