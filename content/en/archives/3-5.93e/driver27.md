@@ -260,6 +260,6 @@ May 10 12:41:34 oolong xntpd[615]: ARCRON: sync finished, signal quality 3: OK, 
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)  
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)  
 
 [ARC Rugby MSF Receiver](http://www2.exnet.com/NTP/ARC/ARC.html) page

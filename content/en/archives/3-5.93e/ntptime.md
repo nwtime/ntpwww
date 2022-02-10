@@ -19,7 +19,7 @@ type: archives
 
 #### Description
 
-This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/3-5.93e/kern) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>xntpdc</code> program and <code>kerninfo</code> command.
+This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/3-5.93e/kern/) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>xntpdc</code> program and <code>kerninfo</code> command.
 
 * * *
 

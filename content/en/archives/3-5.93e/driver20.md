@@ -113,4 +113,4 @@ The <code>$GPRMC</code> string that is used is written to the clockstats file.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)

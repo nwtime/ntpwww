@@ -106,4 +106,4 @@ The driver writes each timecode as received to the <code>clockstats</code> file.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)

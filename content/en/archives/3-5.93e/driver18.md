@@ -138,4 +138,4 @@ When enabled by the <code>flag4</code> fudge flag, every received timecode is wr
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)

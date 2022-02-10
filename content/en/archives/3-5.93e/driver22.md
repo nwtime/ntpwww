@@ -26,7 +26,7 @@ type: archives
 
 This driver furnishes an interface for pulse-per-second (PPS) signals produced by a cesium clock, radio clock or related equipment. It can be used to remove accumulated jitter and retime a secondary server when synchronized to a primary server over a congested, wide-area network and before redistributing the time to local clients. 
 
-In order for this driver to work, the local clock must be set to within +-500 ms by another means, such as a radio clock or NTP itself. The PPS signal is connected via a serial port and [gadget box](/archives/3-5.93e/gadget) consisting of a one-shot and RS232 level converter. When operated at 38.4 kbps with a SPARCstation IPC, this arrangement has a worst-case jitter less than 26 us. 
+In order for this driver to work, the local clock must be set to within +-500 ms by another means, such as a radio clock or NTP itself. The PPS signal is connected via a serial port and [gadget box](/archives/3-5.93e/gadget/) consisting of a one-shot and RS232 level converter. When operated at 38.4 kbps with a SPARCstation IPC, this arrangement has a worst-case jitter less than 26 us. 
 
 There are three ways in which this driver can be used. The first way uses the <code>LDISC_CLKPPS</code> line discipline and works only for the baseboard serial ports of the Sun SPARCstation running SunOS 4.x. In order to use this option, the -DPPS flag must be included in the <code>DEFS_LOCAL</code> line of the distribution configuration file <code>./Config.local</code>. The PPS signal is connected via the gadget box to the carrier detect (DCD) line of a serial port. The signal is activated by a <code>fudge flag3 1</code> command following the <code>server</code> command in the configuration file. This causes the <code>ppsclock</code> streams module to be configured for that port and to capture a timestamp at the on-time transition of the PPS signal. This driver then reads the timestamp directly by a designated <code>ioctl()</code> system call. This provides the most accurate time and least jitter of any other scheme. There is no need to configure a dedicated device for this purpose, which ordinarily is the device used for the associated radio clock.
 
@@ -74,4 +74,4 @@ The third way involves an auxiliary radio clock driver which calls the PPS drive
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)

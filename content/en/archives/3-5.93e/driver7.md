@@ -25,7 +25,7 @@ type: archives
 
 #### Description
 
-This driver supports a shortwave receiver and special modem circuitry described in the ./gadget directory of the xntp3 distribution. It requires the <code>chu_clk</code> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc) page. It also requires a gadget box and 300-bps modem, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps) page.
+This driver supports a shortwave receiver and special modem circuitry described in the ./gadget directory of the xntp3 distribution. It requires the <code>chu_clk</code> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc/) page. It also requires a gadget box and 300-bps modem, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps/) page.
 
 Unlike the NIST time services, whose timecode requires quite specialized hardware to interpret, the CHU timecode can be received directly via a serial port after demodulation. While there are currently no known commercial CHU receivers, the hardware required to receive the CHU timecode is fairly simple to build. While it is possible to configure several CHU units simultaneously, this is in general not useful.
 
@@ -81,4 +81,4 @@ When enabled by the <code>flag4</code> fudege flag, every received timecode is w
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)

@@ -26,7 +26,7 @@ type: archives
 
 #### Description
 
-This driver supports the Magnavox MX 4200 Navigation Receiver adapted to precision timing applications. It requires the <code>ppsclock</code> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps) page.
+This driver supports the Magnavox MX 4200 Navigation Receiver adapted to precision timing applications. It requires the <code>ppsclock</code> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc/) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps/) page.
 
 This driver supports all compatible receivers such as the 6-channel MX 4200, MX 4200D, and the 12-channel MX 9212, MX 9012R, MX 9112. 
 
@@ -84,4 +84,4 @@ The driver writes each timecode as received to the <code>clockstats</code> file.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)

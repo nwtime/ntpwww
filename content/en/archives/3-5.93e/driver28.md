@@ -115,4 +115,4 @@ If not set, a timeout is reported to ntp, nothing else happened.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock)
+[Reference Clock Drivers](/archives/3-5.93e/refclock/)

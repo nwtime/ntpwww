@@ -35,15 +35,15 @@ This software distribution contains a fully compliant implementation of the NTP 
 4.  Engineered refinements to radio clock drivers and interface code, as described in:
       Mills, D.L. Precision synchronization of computer network clocks. _ACM Computer Communication Review 24, 2_ (April 1994). 28-43. [Body: (PDF)](/reflib/reports/fine/fineb.pdf).
 
-5.  Support for over two dozen reference clock drivers for all known national and international radio, satellite and modem standard time services known at this time. See the [Reference Clock Drivers](/archives/3-5.93e/refclock) page.
-6.  Support for the MD5 cryptographic hash algorithm, in addition to the DES-CBC algorithm described in RFC-1305, as described in the [<code>xntpd</code> - Network Time Protocol (NTP) daemon](/archives/3-5.93e/xntpd) page.
-7.  The prefer-peer scheme, as described in the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/3-5.93e/prefer) page.
+5.  Support for over two dozen reference clock drivers for all known national and international radio, satellite and modem standard time services known at this time. See the [Reference Clock Drivers](/archives/3-5.93e/refclock/) page.
+6.  Support for the MD5 cryptographic hash algorithm, in addition to the DES-CBC algorithm described in RFC-1305, as described in the [<code>xntpd</code> - Network Time Protocol (NTP) daemon](/archives/3-5.93e/xntpd/) page.
+7.  The prefer-peer scheme, as described in the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/3-5.93e/prefer/) page.
 
 * * *
 
 #### Selected Bibliography
 
-A number of articles and reports have been written on the analysis, design, implementation and performance of NTP. A representative sample is included here, along with a short description of each. Additional information is available in the [Reference Library](/reflib).
+A number of articles and reports have been written on the analysis, design, implementation and performance of NTP. A representative sample is included here, along with a short description of each. Additional information is available in the [Reference Library](/reflib/).
 
 1.  A subset of NTP has been defined suitable for use where some degradation in accuracy and reliability is acceptable, so that the entire suite of specified algorithms need not be implemented. This subset is defined in:
 
