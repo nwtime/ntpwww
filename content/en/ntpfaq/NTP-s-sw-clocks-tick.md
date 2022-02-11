@@ -12,4 +12,3 @@ So we want a frequent update of the time bits. In most cases such an update is d
 Because of the speed requirement, most time bits use a linear time scale like seconds (instead of dealing with seconds, minutes, hours, days, etc.). When a human needs the current time, the time stamp is read and converted.
 
 In theory the mathematics to update the clock are easy: if you have two interrupts per hour, just add 30 minutes every interrupt; if you have 100 interrupts per second, simply add 10ms per interrupt. In the popular UNIX clock model the units in the time bits are microseconds, and the increase per interrupt is 1000000 / HZ (HZ is the interrupt frequency). (Of course it's highly desirable to use numbers where the division works without remainder.) The value added every timer interrupt is frequently referred to as `tick`.
-

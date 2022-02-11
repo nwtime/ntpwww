@@ -260,5 +260,5 @@ Supported modes of operation:
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)  
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)  
 [ARC Rugby MSF Receiver](http://www2.exnet.com/NTP/ARC/ARC.html)

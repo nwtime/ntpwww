@@ -92,9 +92,9 @@ Phone: (202) 762-1594 (Washington, DC); (719) 567-6743 (Colorado Springs, CO)
 
 `hhmmss` second of day
 
-[European Phone Numbers and Formats](/archives/drivers/tf582_4)
+[European Phone Numbers and Formats](/archives/drivers/tf582_4/)
 
-[Spectracom GPS and WWVB Receivers](http://www.spectracomcorp.com)
+[Spectracom GPS and WWVB Receivers](http://www.spectracomcorp.com/)
 
 If a modem is connected to a Spectracom receiver, this driver will call it and retrieve the time in one of two formats, 0 and 2. Ordinarily, the receiver requires a `T` in order to return the timecode. As this driver does not send data via the modem, it must either be configured in continuous mode or be polled by another local driver.
 
@@ -144,4 +144,4 @@ The received timecode is written as-is to the `clockstats` file along with the H
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

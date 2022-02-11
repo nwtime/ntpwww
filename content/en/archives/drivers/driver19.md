@@ -90,4 +90,4 @@ A fudge `time1` value of .07 s appears to center the clock offset residuals.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

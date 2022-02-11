@@ -129,4 +129,4 @@ When enabled by the `flag4` fudge flag, an additional line containing the latitu
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

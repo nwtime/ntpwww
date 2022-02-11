@@ -41,7 +41,7 @@ However, be acutely aware that the accuracy with Solaris 2.8 and beyond has been
 
 The driver performs a number of error checks to protect against overdriven or underdriven input signal levels, incorrect signal format or improper hardware configuration. The specific checks are detailed later in this page. Note that additional checks are done elsewhere in the reference clock interface routines.
 
-This driver incorporates several features in common with other audio drivers such as described in the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) and the [Radio WWV/H Audio Demodulator/Decoder](/archives/drivers/driver36) pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio) page.
+This driver incorporates several features in common with other audio drivers such as described in the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7/) and the [Radio WWV/H Audio Demodulator/Decoder](/archives/drivers/driver36/) pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio/) page.
 
 * * *
 

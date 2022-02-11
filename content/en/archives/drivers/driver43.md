@@ -92,4 +92,4 @@ S1 [prn] [channel] [aqflag] [ephstat] [snr] [azinuth] [elevation]
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

@@ -28,7 +28,7 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Description
 
-> **NOTE: We recommend against using this driver.** A much more flexible replacement is described on the [Orphan Mode](/archives/4.2.8-series/orphan) page.
+> **NOTE: We recommend against using this driver.** A much more flexible replacement is described on the [Orphan Mode](/archives/4.2.8-series/orphan/) page.
 
 
 This driver was intended for use in an isolated network where no external source of synchronization such as a radio clock or modem is available. It allows a designated time server to act as a primary server to provide synchronization to other clients on the network. Pick a machine that has a good clock oscillator and configure it with this driver. Set the clock using the best means available, like eyeball-and-wristwatch. Then, point all the other machines at this one or use broadcast mode to distribute time.
@@ -81,4 +81,4 @@ No `filegen clockstats` monitor data are produced by this driver.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

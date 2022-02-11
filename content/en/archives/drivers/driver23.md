@@ -23,7 +23,7 @@ type: archives
 
 #### Description
 
-This driver supports the PTB Automated Computer Time Service (ACTS) and is a modified version of the [NIST ACTS driver](/archives/drivers/driver18).
+This driver supports the PTB Automated Computer Time Service (ACTS) and is a modified version of the [NIST ACTS driver](/archives/drivers/driver18/).
 
 It periodically dials a prespecified telephone number, receives the PTB timecode data and calculates the local clock correction. It is designed primarily for use when neither a radio clock nor connectivity to Internet time servers is available. For the best accuracy, the individual telephone line/modem delay needs to be calibrated using outside sources.
 
@@ -127,4 +127,4 @@ Example:
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.0/refclock)
+[Reference Clock Drivers](/archives/4.2.0/refclock/)

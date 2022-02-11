@@ -23,13 +23,13 @@ Last update: 2006-11-21
 1.9 [Why are Graphics stored in PNG Format?](#19-why-are-graphics-stored-in-png-format)  
 1.10 [Credits](#110-credits)
 
-2. [Time, what Time?](/ntpfaq/ntp-s-time)  
+2. [Time, what Time?](/ntpfaq/ntp-s-time/)  
 2.1 [What is Time?](/ntpfaq/ntp-s-time#21-what-is-time)  
 2.2 [What is UTC?](/ntpfaq/ntp-s-time#22-what-is-utc)  
 2.3 [Is UTC the same as GMT?](/ntpfaq/ntp-s-time#23-is-utc-the-same-as-gmt)  
 2.4 [What happens during a Leap Second?](/ntpfaq/ntp-s-time#24-what-happens-during-a-leap-second)  
 
-3. [How do Computer Clocks work?](/ntpfaq/ntp-s-sw-clocks)  
+3. [How do Computer Clocks work?](/ntpfaq/ntp-s-sw-clocks/)  
 3.1 [Bits and Registers](/ntpfaq/ntp-s-sw-clocks/#31-bits-and-registers)  
 3.2 [Making Time go on](/ntpfaq/ntp-s-sw-clocks-tick)  
 3.3 [Clock Quality](/ntpfaq/ntp-s-sw-clocks-quality)  
@@ -37,7 +37,7 @@ Last update: 2006-11-21
 3.3.1.1 [How bad is a Frequency Error of 500 PPM?](/ntpfaq/ntp-s-sw-clocks-quality/#3311-how-bad-is-a-frequency-error-of-500-ppm)  
 3.3.1.2 [What is the Frequency Error of a good Clock?](/ntpfaq/ntp-s-sw-clocks-quality/#3312-what-is-the-frequency-error-of-a-good-clock)  
 
-4. [What is NTP?](/ntpfaq/ntp-s-def)  
+4. [What is NTP?](/ntpfaq/ntp-s-def/)  
 4.1 [Overview](/ntpfaq/ntp-s-def#41-overview)  
 4.1.1 [What is NTP?](/ntpfaq/ntp-s-def/#411-what-is-ntp)  
 4.1.2 [What is SNTP?](/ntpfaq/ntp-s-def/#412-what-is-sntp)  
@@ -106,7 +106,7 @@ Last update: 2006-11-21
 5.4.2.4 [Proventic Trail](/ntpfaq/ntp-s-algo-crypt/#5424-proventic-trail)  
 5.2.4.5 [Session Keys](/ntpfaq/ntp-s-algo-crypt/#5425-session-keys)
 
-6. [Configuration](/ntpfaq/ntp-s-config)  
+6. [Configuration](/ntpfaq/ntp-s-config/)  
 6.1. [Basic Configuration](/ntpfaq/ntp-s-config/#61-basic-configuration)  
 6.1.1 [Can't I just run ntpdate?](/ntpfaq/ntp-s-config/#611-cant-i-just-run-ntpdate)  
 6.1.2 [Recommended Minimum](/ntpfaq/ntp-s-config/#612-recommended-minimum)  
@@ -167,13 +167,14 @@ Last update: 2006-11-21
 6.3.1 [Mixing Time Protocols](/ntpfaq/ntp-s-config-tricks/#631-mixing-time-protocols)   
 6.3.2 [Avoiding Time Steps](/ntpfaq/ntp-s-config-tricks/#632-avoiding-time-steps)    
 6.3.3 [Using the Echo Feature in PPS API](/ntpfaq/ntp-s-config-tricks/#633-using-the-echo-feature-in-pps-api)  
-6.4. [Compatibility](/ntpfaq/ntp-s-compat)  
+6.4. [Compatibility](/ntpfaq/ntp-s-compat/)  
 6.4.1 [The Kernel PLL](/ntpfaq/ntp-s-compat/#641-the-kernel-pll)  
 6.4.1.1 [How many different kernel models and implementations exist?](/ntpfaq/ntp-s-compat/#6411-how-many-different-kernel-models-and-implementations-exist)  
 6.4.1.2 [What's new in each Version?](/ntpfaq/ntp-s-compat/#6412-whats-new-in-each-version)  
 6.4.1.3 [Are the individual kernel models compatible?](/ntpfaq/ntp-s-compat/#6413-are-the-individual-kernel-models-compatible)   
 6.4.1.4 [Is the Linux implementation different?](/ntpfaq/ntp-s-compat/#6414-is-the-linux-implementation-different)
-7. [Reference Clocks](/ntpfaq/ntp-s-refclk)  
+
+7. [Reference Clocks](/ntpfaq/ntp-s-refclk/)  
 7.1 [What is LCL, the Local Clock?](/ntpfaq/ntp-s-refclk/#71-what-is-lcl-the-local-clock)  
 7.2 [GPS Receivers](/ntpfaq/ntp-s-refclk/#72-gps-receivers)  
 7.2.1 [What should I know about various GPS Receivers?](/ntpfaq/ntp-s-refclk/#721-what-should-i-know-about-various-gps-receivers)  
@@ -183,20 +184,21 @@ Last update: 2006-11-21
 7.3 [DCF77 Receivers](/ntpfaq/ntp-s-refclk/#73-dcf77-receivers)  
 7.3.1 [What should I know about DCF77 Receivers?](/ntpfaq/ntp-s-refclk/#731-what-should-i-know-about-dcf77-receivers)  
 7.3.2 [What can make my DCF77 Receiver fail?](/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail)  
-7.4 [Other Receivers](/ntpfaq/ntp-s-refclk/#74-other-receivers)  
+7.4 [Other Receivers](/ntpfaq/ntp-s-refclk/#74-other-receivers/)  
 7.4.1 [What can make my MSF Receiver fail?](/ntpfaq/ntp-s-refclk/#741-what-can-make-my-msf-receiver-fail)  
 7.4.2 [How can I find a low-cost Receiver for Low-Frequency Transmissions?](/ntpfaq/ntp-s-refclk/#742-how-can-i-find-a-low-cost-receiver-for-low-frequency-transmissions)   
 7.5 [Products](/ntpfaq/ntp-s-refclk/#75-products)  
 7.5.1 [Where can I find a reference clock for NTP?](/ntpfaq/ntp-s-refclk/#751-where-can-i-find-a-reference-clock-for-ntp) 
 
-8. [Troubleshooting](/ntpfaq/ntp-s-trouble)  
+8. [Troubleshooting](/ntpfaq/ntp-s-trouble/)  
 8.1 [Monitoring](/ntpfaq/ntp-s-trouble/#81-monitoring)  
 8.1.1 [How do I confirm my NTP server is working fine?](/ntpfaq/ntp-s-trouble/#811-how-do-i-confirm-my-ntp-server-is-working-fine)  
 8.1.2 [How do I use peerstats and loopstats?](/ntpfaq/ntp-s-trouble/#812-how-do-i-use-peerstats-and-loopstats)  
 8.1.3 [How can I see the Time Difference between Client and Server?](/ntpfaq/ntp-s-trouble/#813-how-can-i-see-the-time-difference-between-client-and-server)  
 8.1.4 [What does 257 mean as value for reach?](/ntpfaq/ntp-s-trouble/#814-what-does-257-mean-as-value-for-reach)  
 8.1.5 [How do I use statistics files?](/ntpfaq/ntp-s-trouble/#815-how-do-i-use-statistics-files)    
-8.2. [General Issues](/ntpfaq/ntp-s-trbl-general)  
+
+8.2. [General Issues](/ntpfaq/ntp-s-trbl-general/)  
 8.2.1 [Starting, running, querying](/ntpfaq/ntp-s-trbl-general/#821-starting-running-querying)  
 8.2.1.1 [How can I check that ntpd is up and running?](/ntpfaq/ntp-s-trbl-general/#8211-how-can-i-check-that-ntpd-is-up-and-running)  
 8.2.1.2 [Why does ntpd only run for about 10 to 20 minutes??](/ntpfaq/ntp-s-trbl-general/#8212-why-does-ntpd-only-run-for-about-10-to-20-minutes)  
@@ -223,8 +225,9 @@ Last update: 2006-11-21
 8.2.7.3 [ntpdate: no server suitable for synchronization found](/ntpfaq/ntp-s-trbl-general/#8273-ntpdate-no-server-suitable-for-synchronization-found)   
 8.2.7.4 [configure: keyword "precision" unknown, line ignored](/ntpfaq/ntp-s-trbl-general/#8274-configure-keyword-precision-unknown-line-ignored)   
 8.2.7.5 [Previous time adjustment didn't complete](/ntpfaq/ntp-s-trbl-general/#8275-previous-time-adjustment-didnt-complete)   
-8.2.7.6 [sendto: Overlapped I/O operation is in progress.](/ntpfaq/ntp-s-trbl-general/#8276-sendto-overlapped-io-operation-is-in-progress)  
-8.3. [Troubleshooting Specific Products](/ntpfaq/ntp-s-trbl-spec)  
+8.2.7.6 [sendto: Overlapped I/O operation is in progress.](/ntpfaq/ntp-s-trbl-general/#8276-sendto-overlapped-io-operation-is-in-progress)
+
+8.3. [Troubleshooting Specific Products](/ntpfaq/ntp-s-trbl-spec/)  
 8.3.1 [PC Hardware](/ntpfaq/ntp-s-trbl-spec/#831-pc-hardware)  
 8.3.1.1 [How accurate is the CMOS clock?](/ntpfaq/ntp-s-trbl-spec/#8311-how-accurate-is-the-cmos-clock)  
 8.3.1.2 [How can I set the CMOS clock?](/ntpfaq/ntp-s-trbl-spec/#8312-how-can-i-set-the-cmos-clock)  
@@ -243,11 +246,13 @@ Last update: 2006-11-21
 8.3.6.1 [What is dosyncdr?](/ntpfaq/ntp-s-trbl-spec/#8361-what-is-dosyncdr)  
 8.3.6.2 [What causes occasional 2s Time Steps?](/ntpfaq/ntp-s-trbl-spec/#8362-what-causes-occasional-2s-time-steps)  
 8.3.7 [Trimble Clocks](/ntpfaq/ntp-s-trbl-spec/#837-trimble-clocks)  
-8.3.7.1 [Only one Edge of my Trimble Acutime's PPS Pulse is detected](/ntpfaq/ntp-s-trbl-spec/#8371-only-one-edge-of-my-trimble-acutimes-pps-pulse-is-detected)    
-8.4. [Reporting Bugs](/ntpfaq/ntp-s-trbl-bug-reports)  
+8.3.7.1 [Only one Edge of my Trimble Acutime's PPS Pulse is detected](/ntpfaq/ntp-s-trbl-spec/#8371-only-one-edge-of-my-trimble-acutimes-pps-pulse-is-detected)
+  
+8.4. [Reporting Bugs](/ntpfaq/ntp-s-trbl-bug-reports/)  
 8.4.1 [When should I report a Problem?](/ntpfaq/ntp-s-trbl-bug-reports/#841-when-should-i-report-a-problem)  
-8.4.2 [What should I report?](/ntpfaq/ntp-s-trbl-bug-reports/#842-what-should-i-report)  
-9. [Background and Related Information](/ntpfaq/ntp-s-related)  
+8.4.2 [What should I report?](/ntpfaq/ntp-s-trbl-bug-reports/#842-what-should-i-report)
+
+9. [Background and Related Information](/ntpfaq/ntp-s-related/)  
 9.1 [Miscellaneous](/ntpfaq/ntp-s-related/#91-miscellaneous)  
 9.1.1 [What is Mills-speak?](/ntpfaq/ntp-s-related/#911-what-is-mills-speak)  
 9.1.2 [How can I convert a date to NTP format?](/ntpfaq/ntp-s-related/#912-how-can-i-convert-a-date-to-ntp-format)  
@@ -255,7 +260,8 @@ Last update: 2006-11-21
 9.1.4 [Where can I find more Information?](/ntpfaq/ntp-s-related/#914-where-can-i-find-more-information)  
 9.2 [GPS](/ntpfaq/ntp-s-related/#92-gps)  
 9.2.1 [Selective Availability revisited](/ntpfaq/ntp-s-related/#921-selective-availability-revisited)
-10. [Common Terms and Acronyms](/ntpfaq/ntp-g-all)
+
+10. [Common Terms and Acronyms](/ntpfaq/ntp-g-all/)
  
 > This document tries to explain the most basic features of NTP, and to answer many frequently asked questions. The intention is to help the average user to get a quick start with the official implementation of NTP. Technical issues and mathematics are avoided where possible. Instead the most common questions are tried to be answered, enabling everybody to get a working configuration.
 
@@ -294,11 +300,11 @@ It is now maintained by [Network Time Foundation](https://www.nwtime.org). Contr
 
 This section tries to answer questions about the document itself. This document is intended for beginners as well as advanced users that are looking for advice. However, basic skills in system administration are required to enjoy this tour. True experts on the subject will probably prefer the original documentation that comes with the software, or make corrections where it is wrong.
 
-The impatient may want to go directly to [Section 2](/ntpfaq/ntp-s-time) where fundamentals of timekeeping are discussed. [Section 3](/ntpfaq/ntp-s-sw-clocks) introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, [Section 4](/ntpfaq/ntp-s-def).
+The impatient may want to go directly to [Section 2](/ntpfaq/ntp-s-time/) where fundamentals of timekeeping are discussed. [Section 3](/ntpfaq/ntp-s-sw-clocks) introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, [Section 4](/ntpfaq/ntp-s-def).
 
-At that point focus moves from a more theoretical treatment of the subject to practical aspects, starting with [Section 5](/ntpfaq/ntp-s-algo). Then [Section 6](/ntpfaq/ntp-s-config) moves into configuration of the NTP software. [Section 7](/ntpfaq/ntp-s-refclk) will talk about reference clocks.
+At that point focus moves from a more theoretical treatment of the subject to practical aspects, starting with [Section 5](/ntpfaq/ntp-s-algo/). Then [Section 6](/ntpfaq/ntp-s-config/) moves into configuration of the NTP software. [Section 7](/ntpfaq/ntp-s-refclk/) will talk about reference clocks.
 
-Real life is talked about in [Section 8](/ntpfaq/ntp-s-trouble) where procedures, tips, and tricks for troubleshooting are presented. For the curious, [Section 9](/ntpfaq/ntp-s-related) provides further information and references. Finally, there is a [glossary](/ntpfaq/ntp-g-all) of terms.
+Real life is talked about in [Section 8](/ntpfaq/ntp-s-trouble/) where procedures, tips, and tricks for troubleshooting are presented. For the curious, [Section 9](/ntpfaq/ntp-s-related/) provides further information and references. Finally, there is a [glossary](/ntpfaq/ntp-g-all/) of terms.
 
 * * *
 

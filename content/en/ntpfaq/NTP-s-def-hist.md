@@ -7,7 +7,7 @@ This section summarizes the history of NTP in a few words. Most material has bee
 
 * * *
 
-The first NTP implementation started around 1980 with an accuracy of only several hundred milliseconds. That very first implementation was documented in Internet Engineering Note [IEN-173](/reflib/rfc/ien-173.txt). Later the first specification appeared in [RFC 778](https://www.rfc-editor.org/rfc/rfc778), but it was still named _Internet Clock Service_. At that time clock synchronization was needed for the HELLO routing protocol. NTP was introduced in [RFC 958](https://www.rfc-editor.org/rfc/rfc958) for the first time, mainly describing the packets seen on the network as well as some basic calculations involved. Early versions of NTP did not compensate any frequency error.
+The first NTP implementation started around 1980 with an accuracy of only several hundred milliseconds. That very first implementation was documented in Internet Engineering Note [IEN-173](/reflib/rfc/ien-173.txt). Later the first specification appeared in [RFC 778](https://www.rfc-editor.org/rfc/rfc778/), but it was still named _Internet Clock Service_. At that time clock synchronization was needed for the HELLO routing protocol. NTP was introduced in [RFC 958](https://www.rfc-editor.org/rfc/rfc958/) for the first time, mainly describing the packets seen on the network as well as some basic calculations involved. Early versions of NTP did not compensate any frequency error.
 
 The first complete specification of the protocol and accompanying algorithms for NTP version 1 appeared 1988 in [RFC 1059](/reflib/rfc/rfc1059.txt). That version already had symmetric operation mode as well as client-server mode.
 

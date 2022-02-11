@@ -241,4 +241,4 @@ On some systems the PPS signal isn't switched on by default. It can be switched 
 
 `flag1, flag2`, and `flag3` are ignored under Windows.
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
