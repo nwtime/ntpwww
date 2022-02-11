@@ -207,7 +207,7 @@ Last update: 10-Mar-2014 05:14 UTC
   <div class="container">
   	<h1>ntpd - Network Time Protocol (NTP) daemon</h1>
      
-    <p><img src="/archives/pic/wingdorothy.gif" alt="gif"><a href="/reflib/pictures">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
+    <p><img src="/archives/pic/wingdorothy.gif" alt="gif"><a href="/reflib/pictures/">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
 <p>You need help from the monkeys.</p>
 <p>Last update: 10-Mar-2014 05:14 UTC</p>
 <hr>
@@ -225,7 +225,7 @@ Last update: 10-Mar-2014 05:14 UTC
 <hr>
 <h4 id="description">Description</h4>
 <p>The <code>ntpd</code> program is an operating system daemon that synchronizes the system clock to remote NTP time servers or local reference clocks. It is a complete implementation of NTP version 4 defined by <a href="/reflib/rfc/rfc5905.txt">RFC 5905</a>, but also retains compatible with version 3 defined by <a href="/reflib/rfc/rfc1305/rfc1305b.pdf">RFC 1305</a> and versions 1 and 2, defined by <a href="/reflib/rfc/rfc1059.txt">RFC 1059</a> and <a href="/reflib/rfc/rfc1119/rfc1119b.pdf">RFC 1119</a>, respectively. The program can operate in any of several modes, including client/server, symmetric and broadcast modes, and with both symmetric-key and public key-cryptography</p>
-<p>The <code>ntpd</code> program ordinarily requires a configuration file described on this page. It contains configuration commands described on the pages listed above. However a client can discover remote servers and configure them automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment. Further details are on the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery</a> page.</p>
+<p>The <code>ntpd</code> program ordinarily requires a configuration file described on this page. It contains configuration commands described on the pages listed above. However a client can discover remote servers and configure them automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment. Further details are on the <a href="/archives/4.2.8-series/discover/">Automatic Server Discovery</a> page.</p>
 <p>The <code>ntpd</code> program normally operates continuously while adjusting the system time and frequency, but in some cases this might not be practical. With the <code>-q</code> option <code>ntpd</code> operates as in continuous mode, but exits just after setting the clock for the first time. Most applications will probably want to specify the <code>iburst</code> option with the <code>server</code> command. With this option a volley of messages is exchanged to groom the data and set the clock in about ten seconds. If nothing is heard after a few minutes, the daemon times out and exits without setting the clock.</p>
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
@@ -276,7 +276,7 @@ Last update: 10-Mar-2014 05:14 UTC
 </dd>
 <dt><code><strong>-I [<em>address</em> | <em>interface name</em>]</strong></code></dt>
 <dd>
-<p>Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file <a href="/archives/4.2.8-series/miscopt">interface</a> command, which is more versatile.</p>
+<p>Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file <a href="/archives/4.2.8-series/miscopt/">interface</a> command, which is more versatile.</p>
 </dd>
 <dt><code><strong>-k <em>keyfile</em></strong></code></dt>
 <dd>
@@ -292,7 +292,7 @@ Last update: 10-Mar-2014 05:14 UTC
 </dd>
 <dt><code><strong>-L</strong></code></dt>
 <dd>
-<p>Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file <a href="/archives/4.2.8-series/miscopt">interface</a> command, which is more versatile.</p>
+<p>Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file <a href="/archives/4.2.8-series/miscopt/">interface</a> command, which is more versatile.</p>
 </dd>
 <dt><code><strong>-M</strong></code></dt>
 <dd>

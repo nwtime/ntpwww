@@ -276,7 +276,7 @@ Operation mode=1 …">
 </ul>
 <hr>
 <h4 id="gpsd">GPSD</h4>
-<p><a href="http://gpsd.berlios.de/"><em>GPSD</em></a> knows how to talk to many GPS devices. It can work with <em>NTPD</em> through the SHM driver.</p>
+<p><a href="https://www.berlios.de/software/gpsd/"><em>GPSD</em></a> knows how to talk to many GPS devices. It can work with <em>NTPD</em> through the SHM driver.</p>
 <p>The <em>GPSD</em> man page suggests setting <code>minpoll</code> and <code>maxpoll</code> to 4. That was an attempt to reduce jitter. The SHM driver was fixed (ntp-4.2.5p138) to collect data each second rather than once per polling interval so that suggestion is no longer reasonable.</p>
 <blockquote>
 <p><strong>NOTE:</strong>  The <em>GPSD</em> client driver (type 46) uses the <em>GPSD</em> client protocol to connect and talk to <em>GPSD</em>, but using the SHM driver is the ancient way to have <em>GPSD</em> talk to <em>NTPD</em>. There are some tricky points when using the SHM interface to interface with <em>GPSD</em>, because <em>GPSD</em> will use two SHM clocks, one for the serial data stream and one for the PPS information when available. Receivers with a loose/sloppy timing between PPS and serial data can easily cause trouble here because <em>NTPD</em> has no way to join the two data streams and correlate the serial data with the PPS events.</p>
@@ -383,7 +383,7 @@ Operation mode=1 …">
 <p>When running under Windows, the chosen user account must be able to create a SHM segment in the global object name space for SHM clocks with public access. Otherwise the session isolation used by Windows kernels after WinXP will get in the way if the client program does not run in the same session.</p>
 <hr>
 <h4 id="additional-information">Additional Information</h4>
-<p><a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
+<p><a href="/archives/4.2.8-series/refclock/">Reference Clock Drivers</a></p>
 
 	  
   </div>

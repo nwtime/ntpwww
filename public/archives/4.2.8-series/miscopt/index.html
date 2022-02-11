@@ -208,7 +208,7 @@ Last update: 11-Feb-2020 14:00 UTC
   <div class="container">
   	<h1>Miscellaneous Commands and Options</h1>
      
-    <p><img src="/archives/pic/boom3.gif" alt="gif"><a href="/reflib/pictures">from <em>Pogo</em>, Walt Kelly</a></p>
+    <p><img src="/archives/pic/boom3.gif" alt="gif"><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>We have three, now looking for more.</p>
 <p>Last update: 11-Feb-2020 14:00 UTC</p>
 <hr>
@@ -233,7 +233,7 @@ Last update: 11-Feb-2020 14:00 UTC
 <dt><code><strong>enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dt>
 <dd><code><strong>disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dd>
 <dd>
-<p>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using <a href="/archives/4.2.8-series/ntpq"><code>ntpq</code></a> utility program&rsquo;s <code>:config</code> and <code>config-from-file</code> commands.</p>
+<p>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using <a href="/archives/4.2.8-series/ntpq/"><code>ntpq</code></a> utility program&rsquo;s <code>:config</code> and <code>config-from-file</code> commands.</p>
 </dd>
 <dt><code>auth</code></dt>
 <dd>
@@ -257,7 +257,7 @@ Last update: 11-Feb-2020 14:00 UTC
 </dd>
 <dt><code>monitor</code></dt>
 <dd>
-<p>Enables the monitoring facility. See the <a href="/archives/4.2.8-series/ntpq"><code>ntpq</code> program</a> and the <code>monstats</code> and <code>mrulist</code> commands, as well as the <a href="/archives/4.2.8-series/accopt">Access Control Options</a> for details. The monitoring facility is also enabled by the presence of <a href="/archives/4.2.8-series/accopt"><code>limited</code></a> in any <code>restrict</code> commands. The default for this flag is enable.</p>
+<p>Enables the monitoring facility. See the <a href="/archives/4.2.8-series/ntpq/"><code>ntpq</code> program</a> and the <code>monstats</code> and <code>mrulist</code> commands, as well as the <a href="/archives/4.2.8-series/accopt/">Access Control Options</a> for details. The monitoring facility is also enabled by the presence of <a href="/archives/4.2.8-series/accopt/"><code>limited</code></a> in any <code>restrict</code> commands. The default for this flag is enable.</p>
 </dd>
 <dt><code>ntp</code></dt>
 <dd>
@@ -265,7 +265,7 @@ Last update: 11-Feb-2020 14:00 UTC
 </dd>
 <dt><code>stats</code></dt>
 <dd>
-<p>Enables the statistics facility. See the <a href="/archives/4.2.8-series/monopt">Monitoring Options</a> page for further information. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</p>
+<p>Enables the statistics facility. See the <a href="/archives/4.2.8-series/monopt/">Monitoring Options</a> page for further information. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</p>
 </dd>
 <dt><code>unpeer_crypto_early</code></dt>
 <dd>
@@ -317,7 +317,7 @@ Last update: 11-Feb-2020 14:00 UTC
 </dd>
 <dt><code><strong>mru [maxdepth <em>count</em> | maxmem <em>kilobytes</em> | mindepth <em>count</em> | maxage <em>seconds</em> | initalloc <em>count</em> | initmem <em>kilobytes</em> | incalloc <em>count</em> | incmem <em>kilobytes</em>]</strong></code></dt>
 <dd>
-<p>Controls size limits of the monitoring facility Most Recently Used <a href="/archives/4.2.8-series/ntpq#control-message-commands">(MRU) list</a> of client addresses, which is also used by the <a href="/archives/4.2.8-series/accopt">rate control facility</a>.</p>
+<p>Controls size limits of the monitoring facility Most Recently Used <a href="/archives/4.2.8-series/ntpq#control-message-commands">(MRU) list</a> of client addresses, which is also used by the <a href="/archives/4.2.8-series/accopt/">rate control facility</a>.</p>
 </dd>
 <dt><code>maxdepth <em>count</em></code></dt>
 <dd><code>maxmem <em>kilobytes</em></code></dd>
@@ -400,7 +400,7 @@ Last update: 11-Feb-2020 14:00 UTC
 </dd>
 <dt><code>huffpuff <em>huffpuff</em></code></dt>
 <dd>
-<p>Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 min), but a more reasonable value is 7200 (2 hours). See the <a href="/archives/4.2.8-series/huffpuff">Huff-n'-Puff Filter</a> page for further information.</p>
+<p>Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 min), but a more reasonable value is 7200 (2 hours). See the <a href="/archives/4.2.8-series/huffpuff/">Huff-n'-Puff Filter</a> page for further information.</p>
 </dd>
 <dt><code>panic <em>panic</em></code></dt>
 <dd>
@@ -408,11 +408,11 @@ Last update: 11-Feb-2020 14:00 UTC
 </dd>
 <dt><code>step <em>step</em></code></dt>
 <dd>
-<p>Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s. Further details are on the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page.</p>
+<p>Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s. Further details are on the <a href="/archives/4.2.8-series/clock/">Clock State Machine</a> page.</p>
 </dd>
 <dt><code>stepout <em>stepout</em></code></dt>
 <dd>
-<p>Specifies the stepout threshold in seconds. The default without this command is 300 s. Since this option also affects the training and startup intervals, it should not be set less than the default. Further details are on the <a href="/archives/4.2.8-series/clock">Clock State Machine</a> page.</p>
+<p>Specifies the stepout threshold in seconds. The default without this command is 300 s. Since this option also affects the training and startup intervals, it should not be set less than the default. Further details are on the <a href="/archives/4.2.8-series/clock/">Clock State Machine</a> page.</p>
 </dd>
 <dt><code><strong>tos [basedate <em>date</em> | bcpollbstep <em>poll-gate</em> | beacon <em>beacon</em> | ceiling <em>ceiling</em> | cohort {0 | 1} | floor <em>floor</em> | maxclock <em>maxclock</em> | maxdist <em>maxdist</em> | minclock <em>minclock</em> | mindist <em>mindist</em> | minsane <em>minsane</em> | orphan <em>stratum</em> | orphanwait <em>delay</em>]</strong></code></dt>
 <dd>
@@ -435,23 +435,23 @@ Last update: 11-Feb-2020 14:00 UTC
 </dd>
 <dt><code>beacon <em>beacon</em></code></dt>
 <dd>
-<p>The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the <code><em>beacon</em></code> interval in seconds. The default is 3600 s. See the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery</a> page for further details.</p>
+<p>The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the <code><em>beacon</em></code> interval in seconds. The default is 3600 s. See the <a href="/archives/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
 </dd>
 <dt><code>ceiling <em>ceiling</em></code></dt>
 <dd>
-<p>Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery</a> page for further details.</p>
+<p>Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the <a href="/archives/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
 </dd>
 <dt><code>cohort { 0 | 1 }</code></dt>
 <dd>
-<p>Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery</a> page for further details.</p>
+<p>Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the <a href="/archives/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
 </dd>
 <dt><code>floor <em>floor</em></code></dt>
 <dd>
-<p>Specify the minimum stratum (inclusive) for acceptable server packets. The default is 1. See the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery</a> page for further details.</p>
+<p>Specify the minimum stratum (inclusive) for acceptable server packets. The default is 1. See the <a href="/archives/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
 </dd>
 <dt><code>maxclock <em>maxclock</em></code></dt>
 <dd>
-<p>Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the <a href="/archives/4.2.8-series/discover">Automatic Server Discovery</a> page for further details.</p>
+<p>Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the <a href="/archives/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
 </dd>
 <dt><code>maxdist <em>maxdistance</em></code></dt>
 <dd>
@@ -471,7 +471,7 @@ Last update: 11-Feb-2020 14:00 UTC
 </dd>
 <dt><code>orphan <em>stratum</em></code></dt>
 <dd>
-<p>Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the <a href="/archives/4.2.8-series/orphan">Orphan Mode</a> page for further details.</p>
+<p>Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the <a href="/archives/4.2.8-series/orphan/">Orphan Mode</a> page for further details.</p>
 </dd>
 <dt><code>orphanwait <em>delay</em></code></dt>
 <dd>

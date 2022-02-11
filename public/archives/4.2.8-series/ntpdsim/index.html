@@ -209,7 +209,7 @@ Last update: 11-Sep-2010 05:55 UTC
   <div class="container">
   	<h1>ntpdsim - Network Time Protocol (NTP) simulator</h1>
      
-    <p><img src="/archives/pic/oz2.gif" alt="gif"><a href="/reflib/pictures">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
+    <p><img src="/archives/pic/oz2.gif" alt="gif"><a href="/reflib/pictures/">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
 <p>All in a row.</p>
 <p>Last update: 11-Sep-2010 05:55 UTC</p>
 <hr>
@@ -225,7 +225,7 @@ Last update: 11-Sep-2010 05:55 UTC
 <p><code>ntpdsim [ -B <em>bdly</em> ] [ -C <em>snse</em> ] [ -O <em>clk_time</em> ] [ -S <em>sim_time</em> ] [ -T <em>ferr</em> ] [ -W <em>fsne</em> ] [ -Y <em>ndly</em> ] [ -X <em>pdly</em> ]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <code>ntpdsim</code> program is an adaptation of the <code>ntpd</code> operating system daemon. The program operates as a discrete time simulator using specified systematic and random driving sources. It includes all the mitigation and discipline algorithms of the actual daemon, but with the packet I/O and system clock algorithms driven by simulation. Most functions of the real <code>ntpd</code> remain intact, including the monitoring, statistics recording, trace and host name resolution features. Further information on the simulator is on the <a href="/reflib/ntpsim">NTP Discrete Event Simulator</a> page.</p>
+<p>The <code>ntpdsim</code> program is an adaptation of the <code>ntpd</code> operating system daemon. The program operates as a discrete time simulator using specified systematic and random driving sources. It includes all the mitigation and discipline algorithms of the actual daemon, but with the packet I/O and system clock algorithms driven by simulation. Most functions of the real <code>ntpd</code> remain intact, including the monitoring, statistics recording, trace and host name resolution features. Further information on the simulator is on the <a href="/reflib/ntpsim/">NTP Discrete Event Simulator</a> page.</p>
 <p>The simulator is most useful to study NTP behavior in response to time and/or frequency transients under specific conditions of network jitter and oscillator wander. For this purpose the daemon can be driven by pseudorandom jitter and wander sample sequences characteristic of real networks and oscillators. The jitter generator produces samples from a Poisson distribution, while the wander generator produces samples from a Guassian distribution.</p>
 <p>The easiest way to use this program is to create a <code>ntpstats</code> directory, configuration file <code>ntp.conf</code> and frequency file <code>ntp.drift</code> and test shell <code>test.sh</code> in the base directory. The <code>ntp.drift</code> file and <code>ntpstats</code> directory can be empty to start. The <code>test.sh</code> script can contain something like</p>
 <pre>rm ./ntpstats/*
@@ -242,7 +242,7 @@ filegen peerstats type day enable
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
 <blockquote>
-<p><strong>NOTE:</strong> The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a <a href="/archives/4.2.8-series/ntpdsim_new">new one</a>. Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim</code>.</p>
+<p><strong>NOTE:</strong> The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a <a href="/archives/4.2.8-series/ntpdsim_new/">new one</a>. Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim</code>.</p>
 </blockquote>
 <dl>
 <dt><code><strong>-B <em>bdly</em></strong></code></dt>

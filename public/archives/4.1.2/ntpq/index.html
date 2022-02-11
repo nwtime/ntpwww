@@ -209,7 +209,7 @@ A typical NTP monitoring packet
   <div class="container">
   	<h1>ntpq - standard NTP query program</h1>
      
-    <p><img src="/archives/pic/bustardfly.gif" alt="gif"><a href="/reflib/pictures">from <em>Pogo</em>, Walt Kelly</a></p>
+    <p><img src="/archives/pic/bustardfly.gif" alt="gif"><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>A typical NTP monitoring packet</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
@@ -228,7 +228,7 @@ A typical NTP monitoring packet
 <p>The <code>ntpq</code> utility program is used to query NTP servers which implement the recommended NTP mode 6 control message format about current state and to request changes in that state. The program may be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. <code>ntpq</code> can also obtain and print a list of peers in a common format by sending multiple queries to the server.</p>
 <p>If one or more request options is included on the command line when <code>ntpq</code> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <code>ntpq</code> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <code>ntpq</code> will prompt for commands if the standard input is a terminal device.</p>
 <p><code>ntpq</code> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <code>ntpq</code> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.</p>
-<p>For examples and usage, see the <a href="/archives/4.1.2/debug">NTP Debugging Techniques</a> page.</p>
+<p>For examples and usage, see the <a href="/archives/4.1.2/debug/">NTP Debugging Techniques</a> page.</p>
 <p>Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.</p>
 <dl>
 <dt><code><strong>-c</strong></code></dt>
@@ -397,7 +397,7 @@ A typical NTP monitoring packet
 </dd>
 </dl>
 <p>The <code>flash</code> variable is a valuable debugging aid. It displays the results of the original sanity checks defined in the NTP specification RFC-1305 and additional ones added in NTP Version 4. There are eleven tests called <code>TEST1</code> through <code>TEST11</code>. The tests are performed in a certain order designed to gain maximum diagnostic information while protecting against accidental or malicious errors. The <code>flash</code> variable is first initialized to zero. If after each set of tests one or more bits are set, the packet is discarded.</p>
-<p>Tests <code>TEST4</code> and <code>TEST5</code> check the access permissions and cryptographic message digest. If any bits are set after that, the packet is discarded. Tests <code>TEST10</code> and <code>TEST11</code> check the authentication state using Autokey public-key cryptography, as described in the <a href="/archives/4.1.2/authopt">Authentication Options</a> page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.</p>
+<p>Tests <code>TEST4</code> and <code>TEST5</code> check the access permissions and cryptographic message digest. If any bits are set after that, the packet is discarded. Tests <code>TEST10</code> and <code>TEST11</code> check the authentication state using Autokey public-key cryptography, as described in the <a href="/archives/4.1.2/authopt/">Authentication Options</a> page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.</p>
 <p>Tests <code>TEST1</code> through <code>TEST3</code> check the packet timestamps from which the offset and delay are calculated. If any bits are set, the packet is discarded; otherwise, the packet header variables are saved. Tests <code>TEST6</code> through <code>TEST8</code> check the health of the server. If any bits are set, the packet is discarded; otherwise, the offset and delay relative to the server are calculated and saved. Test <code>TEST9</code> checks the health of the association itself. If any bits are set, the packet is discarded; otherwise, the saved variables are passed to the clock filter and mitigation algorithms.</p>
 <p>The <code>flash</code> bits for each test read in increasing order from the least significant bit are defined as follows.</p>
 <dl>
@@ -415,11 +415,11 @@ A typical NTP monitoring packet
 </dd>
 <dt><code>TEST4</code></dt>
 <dd>
-<p>Access is denied. See the <a href="/archives/4.1.2/accopt">Access Control Options</a> page.</p>
+<p>Access is denied. See the <a href="/archives/4.1.2/accopt/">Access Control Options</a> page.</p>
 </dd>
 <dt><code>TEST5</code></dt>
 <dd>
-<p>Cryptographic authentication fails. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
+<p>Cryptographic authentication fails. See the <a href="/archives/4.1.2/authopt/">Authentication Options</a> page.</p>
 </dd>
 <dt><code>TEST6</code></dt>
 <dd>
@@ -439,11 +439,11 @@ A typical NTP monitoring packet
 </dd>
 <dt><code>TEST10</code></dt>
 <dd>
-<p>The autokey protocol has detected an authentication failure. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
+<p>The autokey protocol has detected an authentication failure. See the <a href="/archives/4.1.2/authopt/">Authentication Options</a> page.</p>
 </dd>
 <dt><code>TEST11</code></dt>
 <dd>
-<p>The autokey protocol has not verified the server or peer is authentic and has valid public key credentials. See the <a href="/archives/4.1.2/authopt">Authentication Options</a> page.</p>
+<p>The autokey protocol has not verified the server or peer is authentic and has valid public key credentials. See the <a href="/archives/4.1.2/authopt/">Authentication Options</a> page.</p>
 </dd>
 </dl>
 <p>Additional system variables used by the NTP Version 4 Autokey support include the following:</p>

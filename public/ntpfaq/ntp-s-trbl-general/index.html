@@ -392,7 +392,7 @@ ntpq></pre>
 <h4 id="825-time-errors">8.2.5 Time Errors</h4>
 <h4 id="8251-why-does-my-server-change-time-references-quite-frequently">8.2.5.1 Why does my server change time references quite frequently?</h4>
 <p>Ideally, the quality of a time reference is a static feature. In reality, quality can vary over time. In fact this behaviour is so frequent that it has a name of its own: <em>clock hopping</em>.</p>
-<p>Clock hopping can be avoided by deterministic network delays, but usually you can&rsquo;t do anything about that. The other solution is to select a <em>preferred</em> time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to <a href="/archives/4.2.8-series/prefer">Mitigation Rules and the prefer Keyword</a> for more information.</p>
+<p>Clock hopping can be avoided by deterministic network delays, but usually you can&rsquo;t do anything about that. The other solution is to select a <em>preferred</em> time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to <a href="/archives/4.2.8-series/prefer/">Mitigation Rules and the prefer Keyword</a> for more information.</p>
 <hr>
 <h4 id="8252-my-server-periodically-loses-synchronization">8.2.5.2 My server periodically loses synchronization</h4>
 <p>The typical reason is that system time and the time received from a reference disagree. This can be caused when the local clock drifts badly and needs a significant <em>drift correction</em>. It can also occur when the the NTP server cannot decide between random variations in network delay or variations in the time reference itself. This is why it is recommended to configure several independent time references.</p>
@@ -416,7 +416,7 @@ ntpq></pre>
 <pre>Jun 9 15:00:47 NTPclient ntpdate[334]: step time server 10.0.0.1 offset 0.009416 sec
 Jun 9 21:40:23 NTPclient ntpdate[515]: step time server 10.0.0.1 offset 2.718281 sec</pre>
 <p>Use this information to compute the number of microseconds to add to <code>tick</code>.</p>
-<p>For some operating systems there is a <code>tickadj</code> utility that can be used to change the value of <code>tick</code>. See <a href="/ntpfaq/ntp-s-sw-clocks">Section 3</a> and <a href="#8261-how-do-i-set-the-correct-value-for-tick">Q: 8.2.6.1</a> for a discussion on how to compute the necessary adjustment.</p>
+<p>For some operating systems there is a <code>tickadj</code> utility that can be used to change the value of <code>tick</code>. See <a href="/ntpfaq/ntp-s-sw-clocks/">Section 3</a> and <a href="#8261-how-do-i-set-the-correct-value-for-tick">Q: 8.2.6.1</a> for a discussion on how to compute the necessary adjustment.</p>
 <hr>
 <h4 id="826-other">8.2.6 Other</h4>
 <h4 id="8261-how-do-i-set-the-correct-value-for-tick">8.2.6.1 How do I set the correct value for tick?</h4>

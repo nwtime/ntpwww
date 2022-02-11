@@ -396,7 +396,7 @@ PPS secondary clock …">
 <h4 id="additional-information">Additional Information</h4>
 <p><a name="myfootnote1">1</a>  Data transmission and decoding is done only once by the primary unit. The decoded data is then processed independently in both clock units. This avoids double transmission over two sockets and decoding the same data twice, but the primary unit is always needed as a downside of this approach.</p>
 <p><a name="myfootnote2">2</a>  The clock driver suppresses the processing PPS records when the TPV/TIME data indicates the receiver has no fix. It can also deal with situations where the PPS signal is not delivered to <em>GPSD</em>. But once it is available, it is also processed and used to create samples. If a receiver cannot be trusted for the precision of its PPS signal, it should not be used to create a possible PPS peer: These get extra clout and can effectively become the sole source of input for the control loop. You do not want to use sloppy data for that.</p>
-<p><a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
+<p><a href="/archives/4.2.8-series/refclock/">Reference Clock Drivers</a></p>
 
 	  
   </div>

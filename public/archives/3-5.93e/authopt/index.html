@@ -214,7 +214,7 @@ The NTP standard specifies …">
 <hr>
 <h4 id="authentication-support">Authentication Support</h4>
 <p>The NTP standard specifies an extension which provides cryptographic authentication of received NTP packets. This is implemented in <code>xntpd</code> using the DES or MD5 algorithms to compute a digital signature, or message digest. The specification allows any one of possibly 4 billion keys, numbered with 32-bit key identifiers, to be used to authenticate an association. The servers involved in an association must agree on the key and key identifier used to authenticate their messages.</p>
-<p>Keys and related information are specified in a key file, which should be exchanged and stored using secure procedures beyond the scope of the protocol. There are three classes of keys involved in the current implementation. One class is used for ordinary NTP associations, another for the <a href="/archives/3-5.93e/ntpq">ntpq</a> utility program and the third for the <a href="/archives/3-5.93e/xntpdc">xntpdc</a> utility program.</p>
+<p>Keys and related information are specified in a key file, which should be exchanged and stored using secure procedures beyond the scope of the protocol. There are three classes of keys involved in the current implementation. One class is used for ordinary NTP associations, another for the <a href="/archives/3-5.93e/ntpq/">ntpq</a> utility program and the third for the <a href="/archives/3-5.93e/xntpdc/">xntpdc</a> utility program.</p>
 <hr>
 <h4 id="authentication-commands">Authentication Commands</h4>
 <dl>
@@ -228,11 +228,11 @@ The NTP standard specifies …">
 </dd>
 <dt><code><strong>requestkey <em>key</em></strong></code></dt>
 <dd>
-<p>Specifies the key identifier to use with the <a href="/archives/3-5.93e/xntpdc"><code>xntpdc</code></a> program, which uses a proprietary protocol specific to this implementation of <code>xntpd</code>. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The key argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don&rsquo;t match, such requests will be ignored.</p>
+<p>Specifies the key identifier to use with the <a href="/archives/3-5.93e/xntpdc/"><code>xntpdc</code></a> program, which uses a proprietary protocol specific to this implementation of <code>xntpd</code>. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The key argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don&rsquo;t match, such requests will be ignored.</p>
 </dd>
 <dt><code><strong>controlkey <em>key</em></strong></code></dt>
 <dd>
-<p>Specifies the key identifier to use with the <a href="/archives/3-5.93e/ntpq"><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The <code><em>key</em></code> argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don&rsquo;t match, such requests will be ignored.</p>
+<p>Specifies the key identifier to use with the <a href="/archives/3-5.93e/ntpq/"><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The <code><em>key</em></code> argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don&rsquo;t match, such requests will be ignored.</p>
 </dd>
 </dl>
 <hr>
