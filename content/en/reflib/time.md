@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/wingdorothy.gif)
 
-from [_The Wizard of Oz_](/reflib/pictures), L. Frank Baum
+from [_The Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
 Public transport in Oz
 

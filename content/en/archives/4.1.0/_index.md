@@ -3,7 +3,7 @@ title: "4.1.0"
 type: archives
 ---
 
-![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Pleased to meet you.  
 
@@ -55,51 +55,51 @@ The NTP subnet in late 2000 includes over a hundred public primary (stratum 1) s
 
 Like other things Internet, the NTP synchronization subnets tend to be large and devilishly intricate, with many opportunities for misconfiguration and network problems. The NTP engineering model is specifically designed to help isolate and repair such problems using an integrated management protocol, together with a suite of monitoring and debugging tools. There is an optional data recording facility which can be used to record normal and aberrant operation, log problems to the system log facility, and retain records of client access. The [NTP Debugging Techniques](/archives/4.1.0/debug/) and [Hints and Kinks](/archives/4.1.0/hints/) pages contain useful information for identifying problems and devising solutions.
 
-Users are requested to report bugs, offer suggestions and contribute additions to this distribution. The [Patching Procedures](/archives/4.1.0/patches) page suggests procedures which greatly simplify distribution updates, while the [Porting Hints](/archives/4.1.0/porting) page suggest ways to make porting this code to new hardware and operating systems easier. Additional information on reference clock driver construction and debugging can be found in the [Reference Clock Drivers](/archives/4.1.0/refclock/) page.
+Users are requested to report bugs, offer suggestions and contribute additions to this distribution. The [Patching Procedures](/archives/4.1.0/patches/) page suggests procedures which greatly simplify distribution updates, while the [Porting Hints](/archives/4.1.0/porting/) page suggest ways to make porting this code to new hardware and operating systems easier. Additional information on reference clock driver construction and debugging can be found in the [Reference Clock Drivers](/archives/4.1.0/refclock/) page.
 
 * * *
 
 #### Program Manual Pages
 
-*   [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd)
-*   [<code>ntpq</code> - standard NTP query program](/archives/4.1.0/ntpq)
-*   [<code>ntpdc</code> - special NTP query program](/archives/4.1.0/ntpdc)
-*   [<code>ntpdate</code> - set the date and time via NTP](/archives/4.1.0/ntpdate)
-*   [<code>ntptrace</code> - trace a chain of NTP servers back to the primary source](/archives/4.1.0/ntptrace)
-*   [<code>tickadj</code> - set time-related kernel variables](/archives/4.1.0/tickadj)
-*   [<code>ntptime</code> - read kernel time variables](/archives/4.1.0/ntptime)
-*   [<code>ntp-genkeys</code> - generate public and private keys](/archives/4.1.0/genkeys)
+*   [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd/)
+*   [<code>ntpq</code> - standard NTP query program](/archives/4.1.0/ntpq/)
+*   [<code>ntpdc</code> - special NTP query program](/archives/4.1.0/ntpdc/)
+*   [<code>ntpdate</code> - set the date and time via NTP](/archives/4.1.0/ntpdate/)
+*   [<code>ntptrace</code> - trace a chain of NTP servers back to the primary source](/archives/4.1.0/ntptrace/)
+*   [<code>tickadj</code> - set time-related kernel variables](/archives/4.1.0/tickadj/)
+*   [<code>ntptime</code> - read kernel time variables](/archives/4.1.0/ntptime/)
+*   [<code>ntp-genkeys</code> - generate public and private keys](/archives/4.1.0/genkeys/)
 
 * * *
 
 #### Supporting Documentation
 
-*   [NTP Project and Reference Library](/reflib/ntp)
-*   [Copyright Notice](/archives/4.1.0/copyright)
-*   [Executive Summary - Computer Network Time Synchronization](/archives/4.1.0/exec)
-*   [Protocol Conformance Statement](/archives/4.1.0/biblio)
-*   [NTP Timescale and Leap Seconds](/archives/4.1.0/leap)
-*   [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/4.1.0/notes)
-*   [NTP Version 4 Release Notes](/archives/4.1.0/release)
-*   [Building and Installing the Distribution](/archives/4.1.0/build)
-*   [Configuration Options](/archives/4.1.0/config)
-*   [NTP Debugging Techniques](/archives/4.1.0/debug)
-*   [Reference Clock Drivers](/archives/4.1.0/refclock)
-*   [Patching Procedures](/archives/4.1.0/patches)
-*   [Hints and Kinks](/archives/4.1.0/hints)
-*   [Porting Hints](/archives/4.1.0/porting)
+*   [NTP Project and Reference Library](/reflib/ntp/)
+*   [Copyright Notice](/archives/4.1.0/copyright/)
+*   [Executive Summary - Computer Network Time Synchronization](/archives/4.1.0/exec/)
+*   [Protocol Conformance Statement](/archives/4.1.0/biblio/)
+*   [NTP Timescale and Leap Seconds](/archives/4.1.0/leap/)
+*   [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/4.1.0/notes/)
+*   [NTP Version 4 Release Notes](/archives/4.1.0/release/)
+*   [Building and Installing the Distribution](/archives/4.1.0/build/)
+*   [Configuration Options](/archives/4.1.0/config/)
+*   [NTP Debugging Techniques](/archives/4.1.0/debug/)
+*   [Reference Clock Drivers](/archives/4.1.0/refclock/)
+*   [Patching Procedures](/archives/4.1.0/patches/)
+*   [Hints and Kinks](/archives/4.1.0/hints/)
+*   [Porting Hints](/archives/4.1.0/porting/)
 
 * * *
 
 #### Application Notes
 
-*   [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.1.0/prefer)
-*   [Association Management](/archives/4.1.0/assoc)
-*   [Pulse-per-second (PPS) Signal Interfacing](/archives/4.1.0/pps)
-*   [Gadget Box PPS Level Converter and CHU Modem](/archives/4.1.0/gadget)
-*   [Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation](/archives/4.1.0/measure)
-*   [Kernel Model for Precision Timekeeping](/archives/4.1.0/kern)
-*   [Kernel Programming Interface for Precision Time Signals](/archives/4.1.0/kernpps)
+*   [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.1.0/prefer/)
+*   [Association Management](/archives/4.1.0/assoc/)
+*   [Pulse-per-second (PPS) Signal Interfacing](/archives/4.1.0/pps/)
+*   [Gadget Box PPS Level Converter and CHU Modem](/archives/4.1.0/gadget/)
+*   [Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation](/archives/4.1.0/measure/)
+*   [Kernel Model for Precision Timekeeping](/archives/4.1.0/kern/)
+*   [Kernel Programming Interface for Precision Time Signals](/archives/4.1.0/kernpps/)
 
 * * *
 

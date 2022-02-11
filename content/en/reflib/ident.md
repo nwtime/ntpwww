@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/alautun4a.gif)
 
-[Maya glyph _alautun_](/reflib/maya)
+[Maya glyph _alautun_](/reflib/maya/)
 
 #### Table of Contents
 
@@ -31,16 +31,16 @@ toc_hide: true
 
 #### Related Pages
 
-*   [Autonomous Configuration](/reflib/autocfg)
-*   [Autonomous Authentication](/reflib/autokey)
-*   [Autokey Protocol](/reflib/proto)
-*   [Autokey Identity Schemes](/reflib/ident)
+*   [Autonomous Configuration](/reflib/autocfg/)
+*   [Autonomous Authentication](/reflib/autokey/)
+*   [Autokey Protocol](/reflib/proto/)
+*   [Autokey Identity Schemes](/reflib/ident/)
 
 * * *
 
 #### Introduction
 
-While the identity scheme described in [RFC 2875](/reflib/rfc/rfc2875.txt) is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here. There are five schemes now implemented in Autokey to prove identity: (1) trusted certificates (TC), (2) private certificates (PC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). The TC scheme, which involves a certificate trail to a trusted host, is discussed on the [Autokey Protocol](/reflib/proto) page. Each of the others involves generating parameters specific to the scheme, together with public and private values used by the scheme.
+While the identity scheme described in [RFC 2875](/reflib/rfc/rfc2875.txt) is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here. There are five schemes now implemented in Autokey to prove identity: (1) trusted certificates (TC), (2) private certificates (PC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). The TC scheme, which involves a certificate trail to a trusted host, is discussed on the [Autokey Protocol](/reflib/proto/) page. Each of the others involves generating parameters specific to the scheme, together with public and private values used by the scheme.
 
 In order to simplify implementation, each scheme uses existing structures in the OpenSSL library, including those for RSA and DSA cryptography. As these structures are sometimes used in ways far different than their original purpose, they are called cuckoo structures in the descriptions that follow.
 

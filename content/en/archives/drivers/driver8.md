@@ -93,7 +93,7 @@ Verified implementations are:
 
 *   [Schweitzer Engineering Laboratories](http://www.selinc.com) SEL-240x clocks
 
-    : This implementation was provided and verified by SEL and [Network Time Foundation](http://nwtime.org) has an SEL-2407 in one of its development labs.
+    : This implementation was provided and verified by SEL and [Network Time Foundation](https://www.nwtime.org) has an SEL-2407 in one of its development labs.
 
 The pictures below have been taken from and are linked to the vendors' web pages.
 

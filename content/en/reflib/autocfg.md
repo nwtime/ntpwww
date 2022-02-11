@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/rabbit.gif)
 
-from [_Alice's Adventures in Wonderland_](/reflib/pictures), Lewis Carroll
+from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 * * *
 
@@ -33,7 +33,7 @@ Our approach involves IP multicasting and distributed, goal-oriented algorithms 
 
 We have used the Network Time Protocol (NTP) software and the widely distributed NTP synchronization subnet in the Internet as a testbed for distributed protocol development and testing. The ad-hoc deployment, configuration and management of the NTP subnet have features in common with sensor applications, both because of a mostly casual management style, but also because the Internet is inherently unreliable with unpredictable failure and recovery scenarios.
 
-A new paradigm called _Manycast_ has been developed for the automatic detection of NTP servers in the IP multicast near-neighborhood. It can use either symmetric key cryptography or the Autokey protocol described on the [Autonomous Authentication](/reflib/autokey) page as an integral component in order to cryptographically verify server credentials. An executive summary of the paradigm and implementation is included below. The [Association Management](/archives/4.2.8-series/assoc) and [Automatic Server Discovery Schemes](/archives/4.2.8-series/discover) program documentation pages provide additional details.
+A new paradigm called _Manycast_ has been developed for the automatic detection of NTP servers in the IP multicast near-neighborhood. It can use either symmetric key cryptography or the Autokey protocol described on the [Autonomous Authentication](/reflib/autokey/) page as an integral component in order to cryptographically verify server credentials. An executive summary of the paradigm and implementation is included below. The [Association Management](/archives/4.2.8-series/assoc/) and [Automatic Server Discovery Schemes](/archives/4.2.8-series/discover/) program documentation pages provide additional details.
 
 * * *
 
@@ -59,9 +59,9 @@ It is likely that some sort of whisper campaign protocol will be necessary in or
 
 #### Further Information
 
-*   [Autonomous Authentication](/reflib/autokey)
-*   [Autokey Protocol](/reflib/proto)
-*   [Autokey Identity Schemes](/reflib/ident)
+*   [Autonomous Authentication](/reflib/autokey/)
+*   [Autokey Protocol](/reflib/proto/)
+*   [Autokey Identity Schemes](/reflib/ident/)
 
 * * *
 

@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/wingman.gif)
 
-from [_The Wizard of Oz_](/reflib/pictures), L. Frank Baum
+from [_The Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
 Era dynamically aloft
 
@@ -100,6 +100,6 @@ Consider the case in Figure 1, where timestamps are represented as years mod 136
 
 **Figure 1**
 
-If <code>_S_</code> is within 68 years of <code>_C_ = 2006</code>, <code>_S_</code> can be anywhere between 1938 (timestamp 38 in era 0) and 2074 (timestamp 38 in era 1). If, as in the figure, <code>_S_</code> and <code>_C_</code> are expressed as datestamps, the offset <code>_S_ - _C_ = 2056 - 2006 = 50</code> years. However, if <code>_S_</code> and <code>_C_</code> are expressed as timestamps, as in the white paper [NTP Timestamp Calculatins](/reflib/time), the offset is <code>_S_ +(-_C_) = 20 + (136 - 106= 50) mod 136</code> years. Thus, even if the timestamps span adjacent eras, the offset compuation is correct.
+If <code>_S_</code> is within 68 years of <code>_C_ = 2006</code>, <code>_S_</code> can be anywhere between 1938 (timestamp 38 in era 0) and 2074 (timestamp 38 in era 1). If, as in the figure, <code>_S_</code> and <code>_C_</code> are expressed as datestamps, the offset <code>_S_ - _C_ = 2056 - 2006 = 50</code> years. However, if <code>_S_</code> and <code>_C_</code> are expressed as timestamps, as in the white paper [NTP Timestamp Calculations](/reflib/time/), the offset is <code>_S_ +(-_C_) = 20 + (136 - 106= 50) mod 136</code> years. Thus, even if the timestamps span adjacent eras, the offset compuation is correct.
 
 To convert system time in any format to NTP format requires only that the number of seconds <code>_s_</code> from the prime epoch to system time be determined. The era number is <code>_s_ / 2<sup>32</sup></code> and the timestamp is <code>_s_ mod 2<sup>32</sup></code>. To convert from NTP era number and timestamp to system time requires only the calculation <code>_s_ = 2<sup>32</sup> \* _era_ + _timestamp_</code> to determine the number of seconds since the prime epoch.

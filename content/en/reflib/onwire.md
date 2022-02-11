@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/pogo3a.gif)
 
-from [_Pogo_](/reflib/pictures), Walt Kelly
+from [_Pogo_](/reflib/pictures/), Walt Kelly
 
 If it walks like a duck...
 
@@ -46,7 +46,7 @@ The output delays can be avoided by capturing a transmit drivestamp after the ou
 
 Interleaved symmetric mode is an extension of basic symmetric mode, while interleaved broadcast mode is an extension of basic broadcast mode. The interleaved modes require servers and peers to retain state, so these modes do not support client/server mode. Mode selection can be determined by a configuration option or automatically by the protocol. In all modes the protocol can detect duplicate, unsynchronized and bogus packets and, in addition, can detect packets that violate the interleaving rules.
 
-The interleaved modes described in this document have been implemented and tested in the NTP reference implementation. In the present implementation, drivestamps are captured upon return from the I/O routines. They are more accurate than the softstamps used by the original basic modes, but not as accurate as those captured by the hardware (hardstamps), as in the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp).
+The interleaved modes described in this document have been implemented and tested in the NTP reference implementation. In the present implementation, drivestamps are captured upon return from the I/O routines. They are more accurate than the softstamps used by the original basic modes, but not as accurate as those captured by the hardware (hardstamps), as in the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp/).
 
 The plan for this document is first to consider general principles of correctness, error scenarios and protocol vulnerabilities. Then for each mode it describes the protocol state machine, its state variables, state transition rules and means for error detection and recovery. This is followed by a detailed description of each mode and an example. Finally, an example is presented that shows how the protocol automatically reverts to basic mode when confronted with an NTPv4 implementation that does not support interleaved modes. [Appendix A](/reflib/onwire/#appendix-a-ntp-protocol-state-machines) contains a set of flow charts accompanied by a short description of each.
 
@@ -147,7 +147,7 @@ While replayed and bogus packets are detected and discarded as in basic symmetri
 
 In broadcast mode the client responds to the first broadcast received by executing one round of the client/server protocol in order to calibrate the roundtrip delay. This round may be repeated at intervals as necessary. In addition, this round can be used to calibrate the difference between the time delivered via the broadcast spanning tree and the time delivered by the unicast spanning tree. This is most useful in large multicast systems using distance-vector multicast protocol (DVMRP) or protocol-independent multicast (PIM) technology.
 
-The [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp) master broadcasts a`Sync` message to the slaves, which capture the receive timestamp <code>_T_<sub>2</sub></code>. Immediately thereafter the master broadcasts a `Follow_up` message including the transmit timestamp of the `Sync` message <code>_T_<sub>1</sub></code>. Some time later each client separately sends a `Delay_req` message to the master and captures the transmit timestamp <code>_T_<sub>3</sub></code>. The master returns a `Delay_resp` message containing the receive timestamp <code>_T_<sub>4</sub></code> for the `Delay_req` message. The clients collect these fourtimestamps to calculate the offset and delay as in the NTP client/server protocol (1) with the offset sign inverted.
+The [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp/) master broadcasts a`Sync` message to the slaves, which capture the receive timestamp <code>_T_<sub>2</sub></code>. Immediately thereafter the master broadcasts a `Follow_up` message including the transmit timestamp of the `Sync` message <code>_T_<sub>1</sub></code>. Some time later each client separately sends a `Delay_req` message to the master and captures the transmit timestamp <code>_T_<sub>3</sub></code>. The master returns a `Delay_resp` message containing the receive timestamp <code>_T_<sub>4</sub></code> for the `Delay_req` message. The clients collect these fourtimestamps to calculate the offset and delay as in the NTP client/server protocol (1) with the offset sign inverted.
 
 The principal difference between the interleaved broadcast protocol and PTP is that the broadcast transmit drivestamp <code>_T_<sub>1</sub></code> is actually sent in the following broadcast message and the remaining timestamps are obtained by the same stateless protocol used in NTP client/server modes, although slightly modified.
 

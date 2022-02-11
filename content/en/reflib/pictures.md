@@ -134,7 +134,7 @@ The books by L. Frank Baum that began with _The Wizard of Oz_ <sup>[13](#myfootn
 
 ![gif](/archives/pic/kin1.gif)
 
-The [Classic Maya](/reflib/maya) civilization of southern Mexico, Guatemala and Belize flourished in the fourth through tenth century AD. They were accomplished astronomers and mathematicians and left a historic record engraved as glyphs in stone monuments called _stellae_. The glyphs record the rise and fall of the rulers, as well as the places, dates and atrocities of the age. The Maya calendar glyphs on these pages are from <sup>[14](#myfootnote14)</sup>. They illustrate the Maya calendar and arithmetic systems, which were highly developed long before the Europeans expunged the awkward Roman arithmetic system in favor of the much more practical Arabic system.
+The [Classic Maya](/reflib/maya/) civilization of southern Mexico, Guatemala and Belize flourished in the fourth through tenth century AD. They were accomplished astronomers and mathematicians and left a historic record engraved as glyphs in stone monuments called _stellae_. The glyphs record the rise and fall of the rulers, as well as the places, dates and atrocities of the age. The Maya calendar glyphs on these pages are from <sup>[14](#myfootnote14)</sup>. They illustrate the Maya calendar and arithmetic systems, which were highly developed long before the Europeans expunged the awkward Roman arithmetic system in favor of the much more practical Arabic system.
 
 * * *
 
@@ -144,12 +144,12 @@ The [Classic Maya](/reflib/maya) civilization of southern Mexico, Guatemala and 
 
 The unattributed photos on these web pages were taken and retouched by me. They are not copyrighted and you can use them any responsible way you want. Here are some adventures:
 
-* [The Fuzzball](/reflib/gallery/gallery10)
-* [Anatomy of a Hollerith Card](/reflib/gallery/gallery9)
-* [Data Concentrator Project](/reflib/gallery/gallery7)
-* [Michigan Terminal System](/reflib/gallery/gallery8)
+* [The Fuzzball](/reflib/gallery/gallery10/)
+* [Anatomy of a Hollerith Card](/reflib/gallery/gallery9/)
+* [Data Concentrator Project](/reflib/gallery/gallery7/)
+* [Michigan Terminal System](/reflib/gallery/gallery8/)
 
-As for our [young playful rascals](/reflib/fam) here, be advised kittens use their sharp little claws to climb anything, especially humans.
+As for our [young playful rascals](/reflib/fam/) here, be advised kittens use their sharp little claws to climb anything, especially humans.
 
 * * *
 

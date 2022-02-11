@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/alice44.gif)
 
-from [_Alice's Adventures in Wonderland_](/reflib/pictures), Lewis Carroll
+from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 The Cheshire Cat is our resident cryptographer.
 
@@ -92,7 +92,7 @@ Note that, if a particular threat is successfully defended at one layer, it is a
 
 #### 2. On-Wire Protocol Layer
 
-The on-wire protocol is used to transport packets from client to server and from server to client. It is described in detail in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire). The protocols use the transmit timestamp in the NTP packet as a nonce for bogus and duplicate detection and in what is called the _loopback test_. For this purpose a random fuzz is inserted in the non-significant bits of the 64-bit transmit timestamp. It is highly unlikely that an intruder could predict the transmit timestamp in advance. It is not necessary that the transmit timestamp be correct, or monotone-definite increasing; just that each transmit timestamp is different and could not be predicted precisely to within 0.232 ns.
+The on-wire protocol is used to transport packets from client to server and from server to client. It is described in detail in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/). The protocols use the transmit timestamp in the NTP packet as a nonce for bogus and duplicate detection and in what is called the _loopback test_. For this purpose a random fuzz is inserted in the non-significant bits of the 64-bit transmit timestamp. It is highly unlikely that an intruder could predict the transmit timestamp in advance. It is not necessary that the transmit timestamp be correct, or monotone-definite increasing; just that each transmit timestamp is different and could not be predicted precisely to within 0.232 ns.
 
 In all protocol modes a duplicate packet is detected if the transmit timestamp matches the transmit timestamp of the previous packet. In this case the duplicate is discarded without further effect on the timestamp calculations. In client/server and symmetric modes, the loopback test compares the transmit timestamp in the client request packet to the origin timestamp in the server reply packet. A discrepancy indicates that the server packet is bogus, an old duplicate, or lost in transit. In symmetric modes, the discrepancy could be due to a protocol restart or packets crossed in flight.
 

@@ -31,7 +31,7 @@ We use our DCnet laboratory network (128.4 subnets 1-9) for protocol development
 
 ![icon](/archives/pic/backroom.gif)
 
-Our [Backroom Test Facility (BTF)](/reflib/backroom) is a remote facility modelled after one once used in support of the DARPA Atlantic Satellite Program. It is populated by several Unix and Windows workstations and a mean collection of radio clocks, all connected by an ISDN link. This is where we conduct the most dangerous experiments requiring a containment facility.
+Our [Backroom Test Facility (BTF)](/reflib/backroom/) is a remote facility modelled after one once used in support of the DARPA Atlantic Satellite Program. It is populated by several Unix and Windows workstations and a mean collection of radio clocks, all connected by an ISDN link. This is where we conduct the most dangerous experiments requiring a containment facility.
 
 ![icon](/archives/pic/route.gif)
 
@@ -43,4 +43,4 @@ DCnet is directly connected by dual redundant routers to the UDELnet campus back
 
 ![icon](/archives/pic/clocks.gif)
 
-Three of the campus file servers and routers and one of the Backroom file servers are specially equipped to function as precision time servers with nominal accuracies in the order of a few microseconds relative to Coordinated Universal Time (UTC). These servers are synchronized to GPS and WWVB receivers and frequency-stabilized by cesium oscillators. They provide synchronization to the 6BONE and DCnet research networks, the EECISnet and UDELnet campus networks, and the Internet at large using the [Network Time Protocol (NTP)](/reflib/ntp) developed in our laboratory. They are coordinated with other NTP servers operated by the US Naval Observatory (USNO), National Institute of Science and Technology (NIST), and the national standards laboratories of several other countries. Collectively, they provide synchronization to a total of well over 100,000 clients scattered throughout the world.		
+Three of the campus file servers and routers and one of the Backroom file servers are specially equipped to function as precision time servers with nominal accuracies in the order of a few microseconds relative to Coordinated Universal Time (UTC). These servers are synchronized to GPS and WWVB receivers and frequency-stabilized by cesium oscillators. They provide synchronization to the 6BONE and DCnet research networks, the EECISnet and UDELnet campus networks, and the Internet at large using the [Network Time Protocol (NTP)](/reflib/ntp/) developed in our laboratory. They are coordinated with other NTP servers operated by the US Naval Observatory (USNO), National Institute of Science and Technology (NIST), and the national standards laboratories of several other countries. Collectively, they provide synchronization to a total of well over 100,000 clients scattered throughout the world.		

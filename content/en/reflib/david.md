@@ -10,9 +10,9 @@ toc_hide: true
 
 Phone: (302) 737-9212
 
-[Mills family pages](/reflib/fam)
+[Mills family pages](/reflib/fam/)
 
-My hobbies include hiking, amateur radio and photography, although I haven't had much time for the latter two in recent years. For recreational reading, I enjoy the study of ancient civilizations; in particular, their writing and calendar systems. I have followed with great interest the recent progress in deciphering the written language of the [Classic Maya](/reflib/maya), which consists of artistic glyphs. The Maya were wonderful calendarists and outstanding mathematicians. They recorded dates using a positional notation system including zero as early as two centuries BCE. I managed to sneak a bit of this stuff into my paper <sup>[4](#myfootnote4)</sup>. Other evidence of this interest is in the logos planted at various places in these pages. Having come this far, you may be curious about the other pictures and artwork that ornament these pages. For background on that, see the [About the Pictures](/reflib/pictures) page.
+My hobbies include hiking, amateur radio and photography, although I haven't had much time for the latter two in recent years. For recreational reading, I enjoy the study of ancient civilizations; in particular, their writing and calendar systems. I have followed with great interest the recent progress in deciphering the written language of the [Classic Maya](/reflib/maya/), which consists of artistic glyphs. The Maya were wonderful calendarists and outstanding mathematicians. They recorded dates using a positional notation system including zero as early as two centuries BCE. I managed to sneak a bit of this stuff into my paper <sup>[4](#myfootnote4)</sup>. Other evidence of this interest is in the logos planted at various places in these pages. Having come this far, you may be curious about the other pictures and artwork that ornament these pages. For background on that, see the [About the Pictures](/reflib/pictures/) page.
 
 It is an open secret among my correspondents that I on occasion do twitch the English language in mail messages and published works. Paper referees have come to agreement on what they call _millsspeak_ to refer to the subtilities with which I personalize my work. If you read my papers or my mail, you know my resonances. If not, you can calibrate my naughtimeter from children's books <sup>[1](#myfootnote1)</sup>, outhouse walls <sup>[2](#myfootnote2)</sup> and old English slang <sup>[3](#myfootnote3)</sup>.
 
@@ -20,7 +20,7 @@ It is an open secret among my correspondents that I on occasion do twitch the En
 
 [My amateur radio station W3HCF](/archives/pic/w3hcf3.jpg) includes two-way voice and data radio transmission equipment covering HF, VHF and UHF amateur bands. It uses modern solid-state gear that replaced [an older station](/archives/pic/hr01.jpg) using vacuum tubes. The [antenna farm on the roof](/archives/pic/43_front.jpg) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
 
-This is also the location of the [Backroom Test Facility (BTF)](/reflib/backroom), named for a similar facility once maintained in support of the DARPA Atlantic Satellite Program. The BTF includes computers and specialized radio equipment for network time synchronization. It is connected to campus with ISDN network links.
+This is also the location of the [Backroom Test Facility (BTF)](/reflib/backroom/), named for a similar facility once maintained in support of the DARPA Atlantic Satellite Program. The BTF includes computers and specialized radio equipment for network time synchronization. It is connected to campus with ISDN network links.
 
 ![gif](/archives/pic/t2a.gif)
 
@@ -34,7 +34,7 @@ Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and
 
 ![gif](/archives/pic/arrl_rgb.gif)[American Radio Relay League (Life Member since 1953)](http://www.arrl.org/)
 
-![gif](/archives/pic/rsgb_rgb.gif)[Radio Society of Great Britain (Member since 1971)](http://www.rsgb.org/)
+![gif](/archives/pic/rsgb_rgb.gif)[Radio Society of Great Britain (Member since 1971)](https://www.rsgb.org/)
 
 ![gif](/archives/pic/amsat_rgb.gif)[Amateur Satellite Organization (Life Member since 1975)](http://www.amsat.org/)
 

@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/oz2.gif)
 
-from [_Wizard of Oz_](/reflib/pictures), L. Frank Baum
+from [_Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
 Ya gotta salute the principles.
 
@@ -57,7 +57,7 @@ One of the main strengths of NTP is that it has been, and will continue to be, i
 
 The system clock interface (SCI) is the only source of time used by the NTP process and dependent applications. In Unix operating systems the SCI provides two data types, `timeval` (`gettimeofday()`) and<code>_timespec_</code> (`getclock()`). Both data types represent the time in seconds past 0h, 1 January 1970. In `timeval` format the second is represented in microseconds, while in `timespec` format the second is represented in nanoseconds. In either format, the Unix time must be converted to an NTP data type before use by NTP application programs.
 
-As described in the white paper [NTP Timestamp Calculations](/reflib/time), there are two NTP data types, _datestamp_ and _timestamp_. Datestamps have 128 bits, including a 64-bit seconds field followed by a 64-bit fraction field. Timestamps have 64 bits, including a 32-bit seconds field followd by a 32-bit fraction field. The datestamp is relative to the base epoch, 0h, 1 January 1900. The timestamp data type is relative to the era number, as described in the white paper [The NTP Era and Era Numbering](/reflib/y2k). For the purposes of this section, either data type is acceptable.
+As described in the white paper [NTP Timestamp Calculations](/reflib/time/), there are two NTP data types, _datestamp_ and _timestamp_. Datestamps have 128 bits, including a 64-bit seconds field followed by a 64-bit fraction field. Timestamps have 64 bits, including a 32-bit seconds field followd by a 32-bit fraction field. The datestamp is relative to the base epoch, 0h, 1 January 1900. The timestamp data type is relative to the era number, as described in the white paper [The NTP Era and Era Numbering](/reflib/y2k/). For the purposes of this section, either data type is acceptable.
 
 The NTP on-wire protocol reads the SCI on two occasions: when a packet arrives and when a packet departs. In either case the SCI is subject to operating system and hardware latencies. The operating system latency typically involves a context switch in order to map the kernel address space, as well as hardware latencies to either lock the system clock variable or read the clock registers.
 
@@ -153,7 +153,7 @@ As shown in Figure 1, the NTP on-wire specification uses what is called here the
 
 The precision to which the offset and delay can be calculated depends on the precision with which the timestamps can be struck. In general, it is best to strike the timestamps as close to the physical media as possible in order to avoid various queuing and buffering latencies. In this case the physical data media block is properly called a frame, but for clarity in the following discussion and for consistency with other documents in this collection, it will be called a packet.
 
-Timestamps are categoized by the point in the code flow that they are captured. _Softstamps_ are captured in the mainline code before a packet is sent or after a packet is received. _Drivestamps_ are captured in the packet interrupt routine after a packet is sent or received. _Hardstamps_ are captured by the hardware upon passage of a designated symbol in the media interface. This document does not consider hardstamps, as this requires special purpose network interfaces unavailable in the general population. By default, the NTPv4 reference implementation uses softstamps for transmitted packets and drivestamps for received packets. If interleaved mode is enabled in symmmetric and broadcast modes, drivestamps are used for transmitted packets as well. Additional information on interleaved modes is in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire).
+Timestamps are categoized by the point in the code flow that they are captured. _Softstamps_ are captured in the mainline code before a packet is sent or after a packet is received. _Drivestamps_ are captured in the packet interrupt routine after a packet is sent or received. _Hardstamps_ are captured by the hardware upon passage of a designated symbol in the media interface. This document does not consider hardstamps, as this requires special purpose network interfaces unavailable in the general population. By default, the NTPv4 reference implementation uses softstamps for transmitted packets and drivestamps for received packets. If interleaved mode is enabled in symmmetric and broadcast modes, drivestamps are used for transmitted packets as well. Additional information on interleaved modes is in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/).
 
 The timestamp scheme used by the NTP reference implementation attempts to approximate the reference timestamps as follows:
 

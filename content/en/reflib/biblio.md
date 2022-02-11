@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/alice47.gif)
 
-from [_Alice's Adventures in Wonderland_](/reflib/pictures), Lewis Carroll
+from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 It isn't clear whether the mushroom is a controlled substance or a food item.
 

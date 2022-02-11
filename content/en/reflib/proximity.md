@@ -68,7 +68,7 @@ The specification includes a Transmit Parameters SPDU to enable the remote MAC t
 
 SPDU frames carry no sequence numbers, so time tags associated with these frames are not useful in the present design. The specification expects that the time tags and associated sequence numbers are captured only for expedited frames. To capture for both sequenced and expedited frames would create an ambiguity, as the sequence numbers are from different spaces. The C&S wiretaps the frame type and sequence number from the 5-octet frame header.
 
-This is the same approach used with the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp). The network interface card (NIC) reaches far into the packet to inspect the frame type, packet type (UDP/IP) and port number to determine whether this is a PTP packet and if so, captures a timestamp for later retrieval. In some designs the timestamp in the packet itself is overwritten. This of course causes a messy UDP checksum error unless explicitly corrected or disabled.
+This is the same approach used with the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp/). The network interface card (NIC) reaches far into the packet to inspect the frame type, packet type (UDP/IP) and port number to determine whether this is a PTP packet and if so, captures a timestamp for later retrieval. In some designs the timestamp in the packet itself is overwritten. This of course causes a messy UDP checksum error unless explicitly corrected or disabled.
 
 What would seem to be a prudent procedure is for the MAC to enable the C&S to capture a number of transmit and receive time tags and send SPDUs to the other end of the link to enable the C&S to do the same thing. Then, each end sends a number of expedited frames to the other.
 
@@ -82,17 +82,17 @@ The current method for time synchronization in the Mars space fleet requires the
 
 The proposed Proximity-1 Interleaved Time Service (PITS) does this using the Proximity-1 data link protocol with certain minor modifications. PITS is applicable in NTP-like configurations involving multiple spacecraft and space links. In this design the Earth-disciplined vehicles operate as PITS primary servers and the others as PITS secondary servers and clients as in NTP. However, servers can come and go relatively frequently, depending on Earth telemetry schedule and orbit crosslink opportunities.
 
-The protocol is similar to the NTP interleaved symmetric mode described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire), but using only two packet fields instead of three to carry the timestamps. As a consequence, , the PITS protocol itself cannot detect all instances of lost packets or packets that violate the interleaved rules. These protections must be provided by additional means.
+The protocol is similar to the NTP interleaved symmetric mode described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/), but using only two packet fields instead of three to carry the timestamps. As a consequence, , the PITS protocol itself cannot detect all instances of lost packets or packets that violate the interleaved rules. These protections must be provided by additional means.
 
 In order to avoid conflict with the existing Proximity-1 provisions, we define a new, variable-length Timestamp SPDU (type 3). The C&S sublayer already sniffs the data stream for an expedited frame and captures the time tag and sequence number on request. In this proposal, the C&S sublayer sniffs the data stream for a Timestamp SPDU and captures a time tag (only). On transmit the C&S recognizes the Timestamp SPDU, captures a time tag and saves it in a buffer. On receive the C&S recognizes this SPDU, captures a time tag and saves it in a buffer. No sequence numbers are necessary and capture does not need to be enabled - it is always enabled for the Timestamp SPDU.
 
-Timestamp SPDUs are exchanged over the link several times each pass for redundancy and in order to discipline the rate offset, if needed. The Timestamp SPDU has two 8-octet fields, one for the last transmit timestamp, the other for the last receive timestamp, both converted to coordinate time. At each end of the link this results in four timestamps which can be used by the PITS protocol described in the next section to compute the relative offset and roundtrip delay as in NTP and the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp).
+Timestamp SPDUs are exchanged over the link several times each pass for redundancy and in order to discipline the rate offset, if needed. The Timestamp SPDU has two 8-octet fields, one for the last transmit timestamp, the other for the last receive timestamp, both converted to coordinate time. At each end of the link this results in four timestamps which can be used by the PITS protocol described in the next section to compute the relative offset and roundtrip delay as in NTP and the [IEEE 1588 Precision Time Protocol (PTP)](/reflib/ptp/).
 
 * * *
 
 #### PITS Protocol Operations
 
-The PITS state machine is very similar to the NTP interleaved symmetric mode state machine as described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire). Pseudo-code is contained in a companion S briefing document [NTP Interleaved Protocol for LANs and Space Data Links](/reflib/brief/onwire/onwire.ppt). While NTP supports an interleaved broadcast mode, this mode is not appropriate for the current Mars space fleet configuration, but could be considered in a future study.
+The PITS state machine is very similar to the NTP interleaved symmetric mode state machine as described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/). Pseudo-code is contained in a companion S briefing document [NTP Interleaved Protocol for LANs and Space Data Links](/reflib/brief/onwire/onwire.ppt). While NTP supports an interleaved broadcast mode, this mode is not appropriate for the current Mars space fleet configuration, but could be considered in a future study.
 
 The basic idea is that the PITS primary servers synchronize to Earth by some means and in the process determines the coordinate time <code>_t_<sub>0</sub></code> and the offset <code>_T_ = _t_<sub>0</sub> - _S_</code>, where <code>_S_</code> is the SCLK time at <code>_t_<sub>0</sub></code>. Each time the SCLK is read, <code>_T_</code> is added to its value <code>_S_</code> to determine the coordinate time <code>_t_</code>. If necessary, the SCLK rate can be disciplined as in NTP. Coordinate time values are used in Timestamp SPDU fields, so operation continues as in NTP.
 
@@ -120,7 +120,7 @@ Questions remain on how to implement this method as a practical matter. Computin
 
 #### Further Reading
 
-[Basics of Space Flight](http://www2.jpl.nasa.gov/basics/index.html)
+[Basics of Space Flight](https://solarsystem.nasa.gov/basics/)
 
 [Rocket and Space Technology: Orbital Mechanics](http://www.braeunig.us/space/orbmech.htm)
 
@@ -132,4 +132,4 @@ Questions remain on how to implement this method as a practical matter. Computin
 
 <a name="myfootnote2">2</a>  CCSDS 301.0-B-3 Time Code Formats. Blue Book. Issue 3. January 2002.
 
-<a name="myfootnote3">3</a>  Mills, D.L. [Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition](/reflib/book), CRC Press 2011.
+<a name="myfootnote3">3</a>  Mills, D.L. [Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition](/reflib/book/), CRC Press 2011.

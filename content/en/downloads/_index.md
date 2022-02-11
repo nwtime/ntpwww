@@ -4,7 +4,7 @@ type: archives
 date: 2021-10-26T01:48:02+00:00
 --- 
 
-The current release of NTP is [4.2.8p15](http://support.ntp.org/bin/view/Main/SecurityNotice#June_2020_ntp_4_2_8p15_NTP_Relea) which was released on June 23, 2020. 
+The current release of NTP is [4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement/) which was released on June 23, 2020. 
 
 <a link rel="alternate" type="application/rss+xml" href="/downloads/index.xml" title="Downloads"><i class="bi-rss"></i></a>
 

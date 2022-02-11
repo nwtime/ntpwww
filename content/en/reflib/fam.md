@@ -10,7 +10,7 @@ In the baby photo at left (circa 1971), that's me (b 1938), Beverly (b 1942), Ei
 
 Bev is a classically trained singer (lyric soprano) and musician (violin, piano) and is a retired music teacher in Wilmington, DE. She has a BA in Music and a Second Degree Brown Belt in Judo. Eileen works as a computer network technician in Newark, DE. She has a MCSE and volunteers at Tri State Bird Rescue, one of only three in the country. Keith is a photojournalist based in Baltimore, MD, and travels the world with laptop, WiFi and digital cameras. Kittens Midnight and Sunshine live and play anywhere they please. Charlie is intimidated and keeps to herself.
 
-Personal web site links are [here](/reflib/david) (the animals read mail).
+Personal web site links are [here](/reflib/david/) (the animals read mail).
 
 As Sunshine and Midnight were growing up, we carefully trained them for quick response using a laser pointer.
 
@@ -23,7 +23,7 @@ When off duty, the two chums serve as bedtime footwarmers.
 ![jpg](/archives/pic/cat16.jpg)
 
 ![jpg](/archives/pic/43_front.jpg)
-We live in a [leafy subdivision](/reflib/gallery/gallery1) about 2.4 km from campus at
+We live in a [leafy subdivision](/reflib/gallery/gallery1/) about 2.4 km from campus at
 
 David and Beverly Mills
 
