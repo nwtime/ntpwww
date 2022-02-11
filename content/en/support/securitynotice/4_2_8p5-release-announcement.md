@@ -6,7 +6,7 @@ date: "2016-01-07"
 
 NTF's NTP Project has been notified of the following 1 medium-severity vulnerability that is fixed in ntp-4.2.8p5, released on Thursday, 7 January 2016:
 
-* [2956: Small-step/Big-step](/support/securitynotice/ntpbug2956) / [CVE-2015-5300](https://nvd.nist.gov/vuln/detail/CVE-2015-5300)
+* [2956: Small-step/Big-step](/support/securitynotice/ntpbug2956/) / [CVE-2015-5300](https://nvd.nist.gov/vuln/detail/CVE-2015-5300/)
 
 ntp-4.2.8p5 also fixes:
 
@@ -32,6 +32,6 @@ ntp-4.2.8p5 also fixes:
 
 * 2016 Jan 7: Public release
 * 2016 Jan 4: CERT notified and pre-release patch availability announced to CERT
-* 2016 Jan 4: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2015 Oct 16: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Jan 4: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2015 Oct 16: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2016 Oct 8: Initial notification; analysis begins

@@ -45,7 +45,7 @@ While available kernels will prevent 127.0.0.1 addresses from "appearing" on non
     
 #### Mitigation
 
-* Upgrade to [4.2.8p1 or later](/downloads).
+* Upgrade to [4.2.8p1 or later](/downloads/).
 *  Install firewall rules to block packets claiming to come from ::1 from inappropriate network interfaces.
 
 * * *
@@ -59,6 +59,6 @@ This vulnerability was discovered by Stephen Roettger of the Google Security Tea
 #### Timeline
 
 * 2015 Feb 4: Public release
-* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Initial notification received; analysis begins

@@ -37,16 +37,16 @@ date: "2015-10-21"
     
 #### Description 
 
-Incorrect patch for [2671](/support/securitynotice/ntpbug2671), in `crypto_xmit()`. Missing length checks for autokey with GQ identity scheme.
+Incorrect patch for [2671](/support/securitynotice/ntpbug2671/), in `crypto_xmit()`. Missing length checks for autokey with GQ identity scheme.
 
-The fix for [CVE-2014-9750](https://nvd.nist.gov/vuln/detail/CVE-2014-9750) was incomplete in that there were certain code paths where a packet with particular autokey operations that contained malicious data was not always being completely validated. Receipt of these packets can cause `ntpd` to crash.
+The fix for [CVE-2014-9750](https://nvd.nist.gov/vuln/detail/CVE-2014-9750/) was incomplete in that there were certain code paths where a packet with particular autokey operations that contained malicious data was not always being completely validated. Receipt of these packets can cause `ntpd` to crash.
 
 * * *
     
 #### Mitigation
 
 * Don't use autokey.
-* Upgrade to [4.2.8p4 or later](/downloads).
+* Upgrade to [4.2.8p4 or later](/downloads/).
 * Monitor your `ntpd` instances. 
 
 * * *
@@ -60,7 +60,7 @@ This weakness was discovered by Tenable Network Security.
 #### Timeline
 
 * 2015 Oct 21: Public release
-* 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899), and [2902](/support/securitynotice/ntpbug2902)
-* 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902); analysis begins
-* 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899); analysis begins
+* 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902)
+* 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902/); analysis begins
+* 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899/); analysis begins

@@ -46,7 +46,7 @@ Under limited and specific circumstances an attacker can send a crafted packet t
     
 #### Mitigation
 
-* Upgrade to [4.2.8p3 or later.](/downloads)
+* Upgrade to [4.2.8p3 or later.](/downloads/)
 * Be prudent when deciding what IP addresses can perform remote configuration of an `ntpd` instance.
 * Monitor your `ntpd` instances.
 
@@ -61,6 +61,6 @@ This weakness was discovered by Aleksis Kauppinen of Codenomicon.
 #### Timeline
 
 * 2015 Jun 29: Public release
-* 2015 Jun 24: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2015 Jun 22: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2015 Jun 24: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2015 Jun 22: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2015 Jun 16: Notification received from FICORA; analysis begins

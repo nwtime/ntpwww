@@ -48,7 +48,7 @@ Packet authentication tests have been performed using `memcmp()` or possibly `bc
     
 #### Mitigation
 
-* Upgrade to [4.2.8p7 or later.](/downloads)
+* Upgrade to [4.2.8p7 or later.](/downloads/)
 * Properly monitor your `ntpd` instances. 
 
 * * *
@@ -62,6 +62,6 @@ This weakness was discovered independently by Loganaden Velvindron, and Matthew 
 #### Timeline
 
 * 2016 Apr 26: Public release
-* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2016 Jan 12: Initial notification from Cisco

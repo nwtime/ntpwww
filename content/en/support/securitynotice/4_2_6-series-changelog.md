@@ -484,7 +484,7 @@ No changes from 4.2.6p5-RC3.
 
 **Release Date:** 2009 Dec 09
 
-* [Sec 1331: DoS with mode 7 packets.](/support/securitynotice/ntpbug1331) (from4.2.4p8)
+* [Sec 1331: DoS with mode 7 packets.](/support/securitynotice/ntpbug1331/) (from4.2.4p8)
 
 * * *
 

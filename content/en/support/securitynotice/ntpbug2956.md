@@ -12,13 +12,13 @@ date: "2016-01-07"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p5-release-announcement">4.2.8p5</a></td>
+		<td><a href="/support/securitynotice/4_2_8p5-release-announcement/">4.2.8p5</a></td>
 		<td>07 Jan 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2956">Bug 2956</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-5300">CVE-2015-5300</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-5300/">CVE-2015-5300</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -44,7 +44,7 @@ If `ntpd` is always started with the `-g` option, which is common and against lo
 #### Mitigation
 
 * Configure `ntpd` to get time from multiple sources.
-* Upgrade to [4.2.8p5 or later.](/downloads)
+* Upgrade to [4.2.8p5 or later.](/downloads/)
 * As we've long documented, only use the `-g` option to `ntpd` in cold-start situations.
 * Monitor your `ntpd` instances.
 
@@ -59,6 +59,6 @@ This weakness was discovered by Aanchal Malhotra, Isaac E. Cohen, and Sharon Gol
 #### Timeline
 
 * 2016 Jan 7: Public release
-* 2016 Jan 4: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2015 Oct 16: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Jan 4: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2015 Oct 16: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2016 Oct 8: Initial notification; analysis begins

@@ -45,7 +45,7 @@ A remote attacker can send a carefully crafted packet that can overflow a stack 
 
 Any of:
 
-* Upgrade to [4.2.8 or later.](/downloads)
+* Upgrade to [4.2.8 or later.](/downloads/)
 * Put `restrict ... noquery` in your `ntp.conf` file, for non-trusted senders.
 
 * * *
@@ -59,6 +59,6 @@ This vulnerability was discovered by Stephen Roettger of the Google Security Tea
 #### Timeline
 
 * 2014 Dec 18: Public release
-* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Initial notification received; analysis begins

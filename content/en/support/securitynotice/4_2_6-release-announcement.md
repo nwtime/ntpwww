@@ -12,7 +12,7 @@ The NTP Public Services Project is pleased to announce that NTP 4.2.6, a Stable 
 
 This release fixes the following high-severity vulnerability:
 
-* [1331 DoS with mode 7 packets](/support/securitynotice/ntpbug1331) - [CVE-2009-3563](https://nvd.nist.gov/vuln/detail/CVE-2009-3563).
+* [1331 DoS with mode 7 packets](/support/securitynotice/ntpbug1331/) - [CVE-2009-3563](https://nvd.nist.gov/vuln/detail/CVE-2009-3563/).
 
 NTP mode 7 (`MODE_PRIVATE`) is used by the `ntpdc` query and control utility. In contrast, `ntpq` uses NTP mode 6 (`MODE_CONTROL`), while routine
 NTP time transfers use modes 1 through 5. Upon receipt of an incorrect mode 7 request or a mode 7 error response from an address which is not

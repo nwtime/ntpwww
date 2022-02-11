@@ -12,13 +12,13 @@ date: "2016-04-27"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p7-release-announcement">4.2.8p7</a></td>
+		<td><a href="/support/securitynotice/4_2_8p7-release-announcement/">4.2.8p7</a></td>
 		<td>26 Apr 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2952">Bug 2952</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7704">CVE-2015-7704</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7704/">CVE-2015-7704</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -38,7 +38,7 @@ The fix for [NTP Bug 2901](https://bugs.ntp.org/show_bug.cgi?id=2901) in ntp-4.2
     
 #### Mitigation
 
-* Upgrade to [4.2.8p7 or later](/downloads).
+* Upgrade to [4.2.8p7 or later](/downloads/).
 * Don't connect to ntp-4.2.8p4 thru p6 instances of `ntpd` using a `peer` association.
 * If you are running ntp-4.2.8p4 thru p6 instances of `ntpd` don't expect clients that connect to you with `peer` associations to work.
 * Properly monitor your `ntpd` instances. 
@@ -54,6 +54,6 @@ This weakness was discovered by Michael Tatarinov , NTP Project Developer Volunt
 #### Timeline
 
 * 2016 Apr 26: Public release
-* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2016 Jan 12: Initial notification from Cisco

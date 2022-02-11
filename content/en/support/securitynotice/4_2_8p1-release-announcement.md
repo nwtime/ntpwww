@@ -6,12 +6,12 @@ date: "2015-02-04"
 
 NTF's NTP Project has been notified of a number of vulnerabilities from Neel Mehta and Stephen Roettger of Google's Security Team.
 
-The two most serious of these issues and four less serious issues have been resolved as of [ntp-4.2.8](/support/securitynotice/4_2_8-release-announcement), which was released on 18 December 2014.
+The two most serious of these issues and four less serious issues have been resolved as of [ntp-4.2.8](/support/securitynotice/4_2_8-release-announcement/), which was released on 18 December 2014.
 
 The remaining two issues are addressed by 4.2.8p1, which was released on 4 February 2015.
 
-* [2671: vallen is not validated in several places in ntp_crypto.c, leading to a potential info leak or possibly crashing ntpd](/support/securitynotice/ntpbug2671) / [CVE-2014-9297](https://nvd.nist.gov/vuln/detail/CVE-2014-9297)
-* [2672: ::1 can be spoofed on some OSes, so ACLs based on IPv6 ::1 addresses can be bypassed](/support/securitynotice/ntpbug2672) / [CVE-2014-9298](https://nvd.nist.gov/vuln/detail/CVE-2014-9298)
+* [2671: vallen is not validated in several places in ntp_crypto.c, leading to a potential info leak or possibly crashing ntpd](/support/securitynotice/ntpbug2671/) / [CVE-2014-9297](https://nvd.nist.gov/vuln/detail/CVE-2014-9297/)
+* [2672: ::1 can be spoofed on some OSes, so ACLs based on IPv6 ::1 addresses can be bypassed](/support/securitynotice/ntpbug2672/) / [CVE-2014-9298](https://nvd.nist.gov/vuln/detail/CVE-2014-9298/)
 
 These are the vulnerabilities from Neel Mehta and Stephen Roettger of Google's Security Team:
 
