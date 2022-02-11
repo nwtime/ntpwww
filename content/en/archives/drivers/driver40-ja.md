@@ -4,7 +4,7 @@ type: archives
 ---
 Last update: 12-Oct-2017 09:05 UTC
        
-[ENGLISH（英語）](/archives/drivers/driver40)
+[ENGLISH（英語）](/archives/drivers/driver40/)
 
 * * *
 

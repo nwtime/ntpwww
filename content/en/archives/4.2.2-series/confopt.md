@@ -69,7 +69,7 @@ The <code>manycastclient</code> command specifies that the host is to operate in
 
 <code>**burst**</code>
 
-: When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the [<code>calldelay</code>](/archives/4.2.2-series/miscopt) command to allow additional time for a modem or ISDN call to complete. This option is valid only with the <code>server</code> command and is a recommended option with this command when the <code>maxpoll</code> option is 11 or greater.
+: When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the [<code>calldelay</code>](/archives/4.2.2-series/miscopt/) command to allow additional time for a modem or ISDN call to complete. This option is valid only with the <code>server</code> command and is a recommended option with this command when the <code>maxpoll</code> option is 11 or greater.
 
 <code>**iburst**</code>
 

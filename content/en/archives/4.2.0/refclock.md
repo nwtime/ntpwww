@@ -88,7 +88,7 @@ Following is a list showing the type and title of each driver currently implemen
 *   [Type 26](/archives/drivers/driver26/) Hewlett Packard 58503A GPS Receiver (<code>GPS_HP</code>)
 *   [Type 27](/archives/drivers/driver27/) Arcron MSF Receiver (<code>MSF_ARCRON</code>)
 *   [Type 28](/archives/drivers/driver28/) Shared Memory Driver (<code>SHM</code>)
-*   [Type 29](/archives/drivers/driver29) Trimble Navigation Palisade GPS (<code>GPS_PALISADE</code>)
+*   [Type 29](/archives/drivers/driver29/) Trimble Navigation Palisade GPS (<code>GPS_PALISADE</code>)
 *   [Type 30](/archives/drivers/driver30/) Motorola UT Oncore GPS <code>GPS_ONCORE</code>)
 *   Type 31 Rockwell Jupiter GPS (<code>GPS_JUPITER</code>)
 *   [Type 32](/archives/drivers/driver32/) Chrono-log K-series WWVB receiver (<code>CHRONOLOG</code>)

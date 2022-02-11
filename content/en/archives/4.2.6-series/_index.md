@@ -70,9 +70,9 @@ This distribution includes a simulation framework in which substantially all the
 
 #### Resolving Problems
 
-Like other things in modern Internet life, NTP problems can be devilishly intricate. This distribution includes a number of utilities designed to identify and repair problems using an integrated management protocol supported by the [ntpq](/archives/4.2.6-series/ntpq/) utility program. In addition, the [ntpdc](/archives/4.2.6-series/ntpdc) utility program can be useful in some cases.
+Like other things in modern Internet life, NTP problems can be devilishly intricate. This distribution includes a number of utilities designed to identify and repair problems using an integrated management protocol supported by the [ntpq](/archives/4.2.6-series/ntpq/) utility program. In addition, the [ntpdc](/archives/4.2.6-series/ntpdc/) utility program can be useful in some cases.
 
-The [NTP Debugging Techniques](/archives/4.2.6-series/debug) and [Hints and Kinks](/archives/4.2.6-series/hints/) pages contain useful information for identifying problems and devising solutions. Additional information on reference clock driver construction and debugging is in the [Debugging Hints for Reference Clock Drivers](/archives/4.2.6-series/rdebug/) page.
+The [NTP Debugging Techniques](/archives/4.2.6-series/debug/) and [Hints and Kinks](/archives/4.2.6-series/hints/) pages contain useful information for identifying problems and devising solutions. Additional information on reference clock driver construction and debugging is in the [Debugging Hints for Reference Clock Drivers](/archives/4.2.6-series/rdebug/) page.
 
 Users are invited to report bugs and offer suggestions via the [NTP Bug Reporting Procedures](/archives/4.2.6-series/bugs/) page.
 
