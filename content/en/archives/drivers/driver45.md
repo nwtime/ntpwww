@@ -27,10 +27,10 @@ Last update: 26-Mar-2012 05:10 UTC
 
 #### Description
 
-This driver supports the [Spectracom TSYNC PCI](https://www.orolia.com/support/timing/tsync/pcie) receiver.
+This driver supports the [Spectracom TSYNC PCI](https://www.orolia.com/support/timing/tsync/pcie/) receiver.
 
 * * *
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

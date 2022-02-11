@@ -3,7 +3,7 @@ title: "Monitoring Options"
 type: archives
 ---
 
-![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Pig was hired to watch the logs.
 
@@ -43,7 +43,7 @@ Statistics files can be managed using scripts, examples of which are in the <cod
 
 #### Monitoring Commands and Options
 
-Unless noted otherwise, further information about these commands is on the [Event Messages and Status Codes](/archives/4.2.8-series/decode) page.
+Unless noted otherwise, further information about these commands is on the [Event Messages and Status Codes](/archives/4.2.8-series/decode/) page.
 
 <code>**filegen _name_ [file _filename_] [type _type_] [link | nolink] [enable | disable] _name_**</code>
 
@@ -133,7 +133,7 @@ The <code>_message_</code> field includes the last timecode received in decoded 
 | `128.4.1.1` | IP | source address (`0.0.0.0` for system) |
 | message | text | log message |
 
-The <code>_message_</code> field includes the message type and certain ancillary information. See the [Authentication Options](/archives/4.2.8-series/authopt) page for further information.
+The <code>_message_</code> field includes the message type and certain ancillary information. See the [Authentication Options](/archives/4.2.8-series/authopt/) page for further information.
 
 <code>**loopstats**</code>
 
@@ -185,7 +185,7 @@ The status field is encoded in hex format as described in [Appendix B of the NTP
 | `8a` | code | event message code |
 | message | text | event message |
 
-The event message code and <code>_message_</code> field are described on the [Event Messages and Status Words](/archives/4.2.8-series/decode) page.
+The event message code and <code>_message_</code> field are described on the [Event Messages and Status Words](/archives/4.2.8-series/decode/) page.
 
 <code>**rawstats**</code>
 

@@ -163,7 +163,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 12**
 
-    : [HOPF](http://www.hopf-time.com) Funkuhr 6021
+    : [HOPF](http://www.hopf-time.com/) Funkuhr 6021
     ![Image DCF77 Interface Board](/archives/pic/fg6021.gif)  
 
 *   **server 127.127.8.0-3 mode 13**
@@ -222,7 +222,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
     : [Schweitzer Engineering Laboratories](http://www.selinc.com/)
 
-Actual data formats and setup requirements of the various clocks can be found in [NTP PARSE clock data formats](/archives/4.2.8-series/parsedata).
+Actual data formats and setup requirements of the various clocks can be found in [NTP PARSE clock data formats](/archives/4.2.8-series/parsedata/).
 
 * * *
 
@@ -351,10 +351,10 @@ If 1, `time2` refers to the TRUST TIME.
 
 #### Making your own PARSE clocks
 
-The parse clock mechanism deviates from the way other NTP reference clocks work. For a short description of how to build parse reference clocks, see [making PARSE clocks](/archives/4.2.8-series/parsenew).
+The parse clock mechanism deviates from the way other NTP reference clocks work. For a short description of how to build parse reference clocks, see [making PARSE clocks](/archives/4.2.8-series/parsenew/).
 
 * * *
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

@@ -3,7 +3,7 @@ title: "Server Options"
 type: archives
 ---
 
-![gif](/archives/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The chicken is getting configuration advice.
 
@@ -35,7 +35,7 @@ Note that in contexts where a host name is expected, a <code>-4</code> qualifier
 : <code>**broadcast address [key _key_ | autokey] [version _version_] [minpoll _minpoll_] [ttl _ttl_]**</code>
 : <code>**manycastclient address address [key _key_ | autokey] [version _version_] [minpoll _minpoll_ [maxpoll _maxpoll_] [ttl _ttl_]**</code>
 
-: These four commands specify the time server name or address to be used and the mode in which to operate. The <code>address</code> can be either a DNS name or a IP address in dotted-quad notation. Additional information on association behavior can be found in the [Association Management](/archives/4.2.0/assoc) page. 
+: These four commands specify the time server name or address to be used and the mode in which to operate. The <code>address</code> can be either a DNS name or a IP address in dotted-quad notation. Additional information on association behavior can be found in the [Association Management](/archives/4.2.0/assoc/) page. 
 
 <code>**server**</code>
 
@@ -63,7 +63,7 @@ The <code>manycastclient</code> command specifies that the host is to operate in
 
 <code>**autokey**</code>
 
-: All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in the [Authentication Options](/archives/4.2.0/authopt) page. 
+: All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in the [Authentication Options](/archives/4.2.0/authopt/) page. 
 
 <code>**burst**</code>
 
@@ -88,7 +88,7 @@ The <code>manycastclient</code> command specifies that the host is to operate in
 
 <code>**prefer**</code>
 
-: Mark the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.2.0/prefer) page for further information. 
+: Mark the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.2.0/prefer/) page for further information. 
 
 <code>**ttl _ttl_**</code>
 
@@ -104,15 +104,15 @@ The <code>manycastclient</code> command specifies that the host is to operate in
 
 <code>**broadcastclient**</code>
 
-: This command enables reception of broadcast server messages to any local interface (type b) address. Upon receiving a message for the first time, the broadcast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding broadcast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric-key or public-key authentication as described in the [Authentication Options](/archives/4.2.0/authopt) page. 
+: This command enables reception of broadcast server messages to any local interface (type b) address. Upon receiving a message for the first time, the broadcast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding broadcast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric-key or public-key authentication as described in the [Authentication Options](/archives/4.2.0/authopt/) page. 
 
 <code>**manycastserver _address_ [...]**</code>
 
-: This command enables reception of manycast client messages to the multicast group address(es) (type <code>m</code>) specified. At least one address is required. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to limit the span of the reply and avoid a possibly massive implosion at the original sender. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/archives/4.2.0/authopt) page.
+: This command enables reception of manycast client messages to the multicast group address(es) (type <code>m</code>) specified. At least one address is required. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to limit the span of the reply and avoid a possibly massive implosion at the original sender. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/archives/4.2.0/authopt/) page.
 
 <code>**multicastclient _address_ [...]**</code>
 
-: This command enables reception of multicast server messages to the multicast group address(es) (type <code>m</code>) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/archives/4.2.0/authopt) page.
+: This command enables reception of multicast server messages to the multicast group address(es) (type <code>m</code>) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/archives/4.2.0/authopt/) page.
 
 * * *
 

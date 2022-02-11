@@ -96,7 +96,7 @@ After the time stamps have been successfully plucked from the SHM segment, some 
 
 #### GPSD
 
-[_GPSD_](http://gpsd.berlios.de/) knows how to talk to many GPS devices. It can work with _NTPD_ through the SHM driver.
+[_GPSD_](https://www.berlios.de/software/gpsd/) knows how to talk to many GPS devices. It can work with _NTPD_ through the SHM driver.
 
 The _GPSD_ man page suggests setting `minpoll` and `maxpoll` to 4. That was an attempt to reduce jitter. The SHM driver was fixed (ntp-4.2.5p138) to collect data each second rather than once per polling interval so that suggestion is no longer reasonable.
 
@@ -202,4 +202,4 @@ When running under Windows, the chosen user account must be able to create a SHM
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

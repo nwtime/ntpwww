@@ -253,7 +253,7 @@ ntpq></pre>
 
 Ideally, the quality of a time reference is a static feature. In reality, quality can vary over time. In fact this behaviour is so frequent that it has a name of its own: _clock hopping_.
 
-Clock hopping can be avoided by deterministic network delays, but usually you can't do anything about that. The other solution is to select a _preferred_ time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to [Mitigation Rules and the prefer Keyword](/archives/4.2.8-series/prefer) for more information.
+Clock hopping can be avoided by deterministic network delays, but usually you can't do anything about that. The other solution is to select a _preferred_ time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to [Mitigation Rules and the prefer Keyword](/archives/4.2.8-series/prefer/) for more information.
 
 * * *
 
@@ -293,7 +293,7 @@ Jun 9 21:40:23 NTPclient ntpdate[515]: step time server 10.0.0.1 offset 2.718281
 
 Use this information to compute the number of microseconds to add to `tick`.
 
-For some operating systems there is a `tickadj` utility that can be used to change the value of `tick`. See [Section 3](/ntpfaq/ntp-s-sw-clocks) and [Q: 8.2.6.1](#8261-how-do-i-set-the-correct-value-for-tick) for a discussion on how to compute the necessary adjustment.
+For some operating systems there is a `tickadj` utility that can be used to change the value of `tick`. See [Section 3](/ntpfaq/ntp-s-sw-clocks/) and [Q: 8.2.6.1](#8261-how-do-i-set-the-correct-value-for-tick) for a discussion on how to compute the necessary adjustment.
 
 * * *
 

@@ -3,7 +3,7 @@ title: "Debugging Hints for Reference Clock Drivers"
 type: archives
 ---
 
-The [<code>ntpq</code>](/archives/3-5.93e/ntpq) and [<code>xntpdc</code>](/archives/3-5.93e/xntpdc) utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the [<code>xntpd</code>](/archives/3-5.93e/xntpd) page. The first thing to look for are error messages on the system log. If none occur, the daemon has started, opened the devices specified and waiting for peers and radios to come up. 
+The [<code>ntpq</code>](/archives/3-5.93e/ntpq/) and [<code>xntpdc</code>](/archives/3-5.93e/xntpdc/) utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the [<code>xntpd</code>](/archives/3-5.93e/xntpd/) page. The first thing to look for are error messages on the system log. If none occur, the daemon has started, opened the devices specified and waiting for peers and radios to come up. 
 
 The next step is to be sure the RS232 messages, if used, are getting to and from the clock. The most reliable way to do this is with an RS232 tester and to look for data flashes as the driver polls the clock and/or as data arrive from the clock. Our experience is that the overwhelming fraction of problems occurring during installation are due to problems such as miswired connectors or improperly configured device links at this stage. 
 

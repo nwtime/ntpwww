@@ -3,7 +3,7 @@ title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
 ---
 
-![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
+![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 You need help from the monkeys.
 
@@ -42,7 +42,7 @@ The <code>ntpd</code> program is an operating system daemon which sets and maint
 
 #### How NTP Operates
 
-The <code>ntpd</code> program operates by exchanging messages with one or more configured servers at designated poll intervals. When started, whether for the first or subsequent times, the program requires several exchanges from the majority of these servers so the signal processing and mitigation algorithms can accumulate and groom the data and set the clock. In order to protect the network from bursts, the initial poll interval for each server is delayed an interval randomized over a few seconds. At the default initial poll interval of 64s, several minutes can elapse before the clock is set. The initial delay to set the clock can be reduced using the <code>iburst</code> keyword with the <code>server</code> configuration command, as described on the [Configuration Options](/archives/4.2.4-series/confopt) page.
+The <code>ntpd</code> program operates by exchanging messages with one or more configured servers at designated poll intervals. When started, whether for the first or subsequent times, the program requires several exchanges from the majority of these servers so the signal processing and mitigation algorithms can accumulate and groom the data and set the clock. In order to protect the network from bursts, the initial poll interval for each server is delayed an interval randomized over a few seconds. At the default initial poll interval of 64s, several minutes can elapse before the clock is set. The initial delay to set the clock can be reduced using the <code>iburst</code> keyword with the <code>server</code> configuration command, as described on the [Configuration Options](/archives/4.2.4-series/confopt/) page.
 
 Most operating systems and hardware of today incorporate a time-of-year (TOY) chip to maintain the time during periods when the power is off. When the machine is booted, the chip is used to initialize the operating system time. After the machine has synchronized to a NTP server, the operating system corrects the chip from time to time. In case there is no TOY chip or for some reason its time is more than 1000s from the server time, <code>ntpd</code> assumes something must be terribly wrong and the only reliable action is for the operator to intervene and set the clock by hand. This causes <code>ntpd</code> to exit with a panic message to the system log. The <code>-g</code> option overrides this check and the clock will be set to the server time regardless of the chip time. However, and to protect against broken hardware, such as when the CMOS battery fails or the clock counter becomes defective, once the clock has been set, an error greater than 1000s will cause <code>ntpd</code> to exit anyway.
 
@@ -64,7 +64,7 @@ The <code>ntpd</code> behavior at startup depends on whether the frequency file,
 
 #### Operating Modes
 
-<code>ntpd</code> can operate in any of several modes, including symmetric active/passive, client/server broadcast/multicast and manycast, as described in the [Association Management](/archives/4.2.4-series/assoc) page. It normally operates continuously while monitoring for small changes in frequency and trimming the clock for the ultimate precision. However, it can operate in a one-time mode where the time is set from an external server and frequency is set from a previously recorded frequency file. A broadcast/multicast or manycast client can discover remote servers, compute server-client propagation delay correction factors and configure itself automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment.
+<code>ntpd</code> can operate in any of several modes, including symmetric active/passive, client/server broadcast/multicast and manycast, as described in the [Association Management](/archives/4.2.4-series/assoc/) page. It normally operates continuously while monitoring for small changes in frequency and trimming the clock for the ultimate precision. However, it can operate in a one-time mode where the time is set from an external server and frequency is set from a previously recorded frequency file. A broadcast/multicast or manycast client can discover remote servers, compute server-client propagation delay correction factors and configure itself automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment.
 
 By default, <code>ntpd</code> runs in continuous mode where each of possibly several external servers is polled at intervals determined by an intricate state machine. The state machine measures the incidental roundtrip delay jitter and oscillator frequency wander and determines the best poll interval using a heuristic algorithm. Ordinarily, and in most operating environments, the state machine will start with 64s intervals and eventually increase in steps to 1024s. A small amount of random variation is introduced in order to avoid bunching at the servers. In addition, should a server become unreachable for some time, the poll interval is increased in steps to 1024s in order to reduce network overhead.
 
@@ -88,7 +88,7 @@ In scenarios where a considerable amount of data are to be downloaded or uploade
 
 The huff-n'-puff filter is designed to correct the apparent time offset in these cases. It depends on knowledge of the propagation delay when no other traffic is present. In common scenarios this occurs during other than work hours. The filter maintains a shift register that remembers the minimum delay over the most recent interval measured usually in hours. Under conditions of severe delay, the filter corrects the apparent offset using the sign of the offset and the difference between the apparent delay and minimum delay. The name of the filter reflects the negative (huff) and positive (puff) correction, which depends on the sign of the offset.
 
-The filter is activated by the <code>tinker</code> command and <code>huffpuff</code> keyword, as described in the [Miscellaneous Options](/archives/4.2.4-series/miscopt) page.
+The filter is activated by the <code>tinker</code> command and <code>huffpuff</code> keyword, as described in the [Miscellaneous Options](/archives/4.2.4-series/miscopt/) page.
 
 * * *
 
@@ -98,7 +98,7 @@ If NetInfo support is built into <code>ntpd</code>, then <code>ntpd</code> will 
 
 In contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.
 
-Various internal <code>ntpd</code> variables can be displayed and configuration options altered while the <code>ntpd</code> is running using the <code>[ntpq](/archives/4.2.4-series/ntpq)</code> and <code>[ntpdc](/archives/4.2.4-series/ntpdc)</code> utility programs.
+Various internal <code>ntpd</code> variables can be displayed and configuration options altered while the <code>ntpd</code> is running using the <code>[ntpq](/archives/4.2.4-series/ntpq/)</code> and <code>[ntpdc](/archives/4.2.4-series/ntpdc/)</code> utility programs.
 
 When <code>ntpd</code> starts it looks at the value of <code>umask</code>, and if zero <code>ntpd</code> will set the <code>umask</code> to <code>022</code>.
 
@@ -217,13 +217,13 @@ Configuration commands consist of an initial keyword followed by a list of argum
 
 #### Configuration Options
 
-[Server Options](/archives/4.2.4-series/confopt)  
-[Authentication Options](/archives/4.2.4-series/authopt)  
-[Monitoring Options](/archives/4.2.4-series/monopt)  
-[Access Control Options](/archives/4.2.4-series/accopt)  
-[Automatic NTP Configuration Options](/archives/4.2.4-series/manyopt)  
-[Reference Clock Options](/archives/4.2.4-series/clockopt)  
-[Miscellaneous Options](/archives/4.2.4-series/miscopt)
+[Server Options](/archives/4.2.4-series/confopt/)  
+[Authentication Options](/archives/4.2.4-series/authopt/)  
+[Monitoring Options](/archives/4.2.4-series/monopt/)  
+[Access Control Options](/archives/4.2.4-series/accopt/)  
+[Automatic NTP Configuration Options](/archives/4.2.4-series/manyopt/)  
+[Reference Clock Options](/archives/4.2.4-series/clockopt/)  
+[Miscellaneous Options](/archives/4.2.4-series/miscopt/)
 
 * * *
 

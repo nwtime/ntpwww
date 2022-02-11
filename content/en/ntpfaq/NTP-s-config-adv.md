@@ -146,7 +146,7 @@ Yes and No. You can dynamically add servers that use authentication keys, and yo
 
 Refer to the examples in [Autokey Public-Key-Authentication](/archives/4.2.8-series/autokey/) and [Q: 6.1.4.6](/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey). 
 
-The following example includes [advice](https://support.ntp.org/bin/view/Support/ConfiguringAutokeyDev) from [Professor David L. Mills](mailto:mills@udel.edu):
+The following example includes [advice](https://support.ntp.org/bin/view/Support/ConfiguringAutokeyDev/) from [Professor David L. Mills](mailto:mills@udel.edu):
 
 > Ensure you have a working NTP configuration before configuring Autokey!
 
@@ -380,7 +380,7 @@ As seen above, the programming interface specific to the operating system and pl
 *   Routines to change operating parameters like compensating for processing delays and selecting polarity of the PPS signal.
 *   Routines to control automatic processing of detected events by a _kernel consumer_ in the kernel of the operating system.
 
-[RFC 2783](/reflib/rfc/rfc2783.txt) indicates that: "Several available implementations of this API are [listed](/ppsapi/ppsimplist). Note that not all of these implementations correspond to the current version of the specification".
+[RFC 2783](/reflib/rfc/rfc2783.txt) indicates that: "Several available implementations of this API are [listed](/ppsapi/ppsimplist/). Note that not all of these implementations correspond to the current version of the specification".
 
 * * *
 

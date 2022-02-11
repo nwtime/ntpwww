@@ -3,13 +3,13 @@ title: "ntpdate - set the date and time via NTP"
 type: archives
 ---
 
-![gif](/archives/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 I told you it was eyeball and wristwatch.
 
 * * *
 
-> **Disclaimer:** The functionality of this program is now available in the <code>ntpd</code> program. See the `-q` command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.1/ntpd) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
+> **Disclaimer:** The functionality of this program is now available in the <code>ntpd</code> program. See the `-q` command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.1/ntpd/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
 
 * * *
 

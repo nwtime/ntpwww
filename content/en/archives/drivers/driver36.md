@@ -48,7 +48,7 @@ After calibration relative to the PPS signal from a GPS receiver, the mean offse
 
 The driver performs a number of error checks to protect against overdriven or underdriven input signal levels, incorrect signal format or improper hardware configuration. The specific checks are detailed later in this page. Note that additional checks are done elsewhere in the reference clock interface routines.
 
-This driver incorporates several features in common with other audio drivers such as described in the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) and the [IRIG Audio Decoder](/archives/drivers/driver6) pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio) page.
+This driver incorporates several features in common with other audio drivers such as described in the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7/) and the [IRIG Audio Decoder](/archives/drivers/driver6/) pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio/) page.
 
 * * *
 
@@ -138,7 +138,7 @@ Once the system clock been set correctly it will continue to read correctly even
 
 #### Autotune
 
-The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio) page.
+The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio/) page.
 
 If specified, the driver will attempt to open the device `/dev/icom` and, if successful will activate the autotune function and tune the radio to each operating frequency in turn while attempting to acquire minute synch from either WWV or WWVH. However, the driver is liberal in what it assumes of the configuration. If the `/dev/icom` link is not present or the open fails or the CI-V bus is inoperative, the driver quietly gives up with no harm done.
 

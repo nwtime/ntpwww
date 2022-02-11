@@ -3,7 +3,7 @@ title: "Miscellaneous Options"
 type: archives
 ---
 
-![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 We have three, now looking for more.
 
@@ -22,7 +22,7 @@ The file format consists of a single line containing a single floating point num
 <code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | stats]**</code>  
 : <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | stats ]**</code>
 
-: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>ntpdc</code>](/archives/4.1.1/ntpdc) utility program.
+: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>ntpdc</code>](/archives/4.1.1/ntpdc/) utility program.
 
 <code>bclient</code>
 
@@ -30,7 +30,7 @@ The file format consists of a single line containing a single floating point num
 
 <code>calibrate</code>
 
-: Enables the calibration facility, which automatically adjusts the time1 values for each clock driver to display the same offset as the currently selected source or kernel discipline signal. See the [Reference Clock Drivers](/archives/4.1.1/refclock) for further information. The default for this flag is <code>disable</code>.
+: Enables the calibration facility, which automatically adjusts the time1 values for each clock driver to display the same offset as the currently selected source or kernel discipline signal. See the [Reference Clock Drivers](/archives/4.1.1/refclock/) for further information. The default for this flag is <code>disable</code>.
 
 <code>kernel</code>
 
@@ -42,11 +42,11 @@ The file format consists of a single line containing a single floating point num
 
 <code>ntp</code>
 
-: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver can be used to provide this function and also certain time variables for error estimates and leap-indicators. See the [Reference Clock Drivers](/archives/4.1.1/refclock) page for further information. The default for this flag is <code>enable</code>.
+: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver can be used to provide this function and also certain time variables for error estimates and leap-indicators. See the [Reference Clock Drivers](/archives/4.1.1/refclock/) page for further information. The default for this flag is <code>enable</code>.
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/4.1.1/monopt) page for further information. The default for this flag is <code>enable</code>.
+: Enables the statistics facility. See the [Monitoring Options](/archives/4.1.1/monopt/) page for further information. The default for this flag is <code>enable</code>.
 
 <code>**logconfig _configkeyword_**</code>
 

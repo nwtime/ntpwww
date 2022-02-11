@@ -52,7 +52,7 @@ In NTP these time references are named _stratum 0_, the highest possible quality
 
 #### 5.1.1.2 How will NTP use a reference clock?
 
-A reference clock will provide the current time. NTP will compute some additional statistical values that describe the quality of time it sees. [Among these values](/ntpfaq/ntp-s-sw-clocks-quality) are: _offset_ (or _phase_), _jitter_ (or _dispersion_), _frequency error_, and _stability_. Each NTP server maintains an estimate of the quality of its reference clocks and of itself.
+A reference clock will provide the current time. NTP will compute some additional statistical values that describe the quality of time it sees. [Among these values](/ntpfaq/ntp-s-sw-clocks-quality/) are: _offset_ (or _phase_), _jitter_ (or _dispersion_), _frequency error_, and _stability_. Each NTP server maintains an estimate of the quality of its reference clocks and of itself.
 
 * * *
 
@@ -145,7 +145,7 @@ When polling servers, a similar algorithm as described in [Q: 5.1.3.3.](#5133-ho
 
 #### 5.1.3.1 How accurate will my Clock be?
 
-For a general discussion see [Section 3](/ntpfaq/ntp-s-sw-clocks). Also keep in mind that corrections are applied gradually, so it may take up to three hours until the frequency error is compensated (see Figure 5.1a).
+For a general discussion see [Section 3](/ntpfaq/ntp-s-sw-clocks/). Also keep in mind that corrections are applied gradually, so it may take up to three hours until the frequency error is compensated (see Figure 5.1a).
 
 **Figure 5.1a: Initial Run of NTP**
 
@@ -171,7 +171,7 @@ Mostly, it depends on your networking. Sure, you can get your machines within a 
 
 #### 5.1.3.2 How frequently will the System Clock be updated?
 
-As time should be a continuous and steady stream, `ntpd` updates the clock in small quantities. However, to keep up with clock errors, such corrections have to be applied frequently. If `adjtime()` is used, `ntpd` will update the system clock every second. If `ntp_adjtime()` is available, the operating system can compensate clock errors automatically, requiring only infrequent updates. See also [Section 5.2](/ntpfaq/ntp-s-algo-kernel) and [Q: 5.1.6.1.](#5161-how-will-ntp-discipline-my-clock).
+As time should be a continuous and steady stream, `ntpd` updates the clock in small quantities. However, to keep up with clock errors, such corrections have to be applied frequently. If `adjtime()` is used, `ntpd` will update the system clock every second. If `ntp_adjtime()` is available, the operating system can compensate clock errors automatically, requiring only infrequent updates. See also [Section 5.2](/ntpfaq/ntp-s-algo-kernel/) and [Q: 5.1.6.1.](#5161-how-will-ntp-discipline-my-clock).
 
 * * *
 
@@ -255,7 +255,7 @@ Basically there are four mechanisms (system calls) an NTP implementation can use
 
 *   `adjtime(2)` to slew (gradually change) the time. Slewing the time means to change the virtual frequency of the software clock to make the clock go faster or slower until the requested correction is achieved. Slewing the clock for a larger amount of time may require some time. For example standard Linux adjusts the time with a rate of 0.5ms per second.
 
-*   `ntp_adjtime(2)` to control several parameters of the software clock, also known as [kernel discipline](/ntpfaq/ntp-s-algo-kernel). These parameters can:
+*   `ntp_adjtime(2)` to control several parameters of the software clock, also known as [kernel discipline](/ntpfaq/ntp-s-algo-kernel/). These parameters can:
 
     *   Adjust the offset of the software clock, possibly correcting the virtual frequency as well.
     *   Adjust the virtual frequency of the software clock directly.

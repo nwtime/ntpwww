@@ -92,7 +92,7 @@ In reality one would add several other configuration items, such as a [drift fil
 
 #### 6.1.2.2 Is the minimum configuration a typical one?
 
-Besides being functional, real configurations differ from the one shown in the [minimum configuration example](#6121-what-is-the-minimum-configuration). Most NTP servers have no reference clocks, but use lower [stratum](/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum) servers as time references. Public time servers can be found [here](/support/servers). [Courtesy](#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server) suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:
+Besides being functional, real configurations differ from the one shown in the [minimum configuration example](#6121-what-is-the-minimum-configuration). Most NTP servers have no reference clocks, but use lower [stratum](/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum) servers as time references. Public time servers can be found [here](/support/servers/). [Courtesy](#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server) suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:
 
 <pre>server 132.199.176.10	# some NTP server's IP address
 # You might add the EMail address of the contact person</pre>
@@ -242,7 +242,7 @@ NTPv4 manages authentication keys using the autokey mechanism. The following pro
 1.  A broadcast server needs to have a line like `broadcast 128.4.2.255 autokey`.
 2.  The clients simply have `broadcastclient`.
 
-Replace `broadcast` with `multicast` and follow `autokey` with `ttl 5` or something like that. As for the crypto questions, refer to [Autonomous Authentication](/reflib/autokey) and 
+Replace `broadcast` with `multicast` and follow `autokey` with `ttl 5` or something like that. As for the crypto questions, refer to [Autonomous Authentication](/reflib/autokey/) and 
 [Q: 6.2.2.6.](/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey).
 
 * * *
@@ -251,13 +251,13 @@ Replace `broadcast` with `multicast` and follow `autokey` with `ttl 5` or someth
 
 #### 6.1.5.1 What is the preferred etiquette when synchronizing to a public server?
 
-If the [listing](/support/servers) says to notify before before using a server, then you should send email and wait until you get an affirmative reply before using that server.
+If the [listing](/support/servers/) says to notify before before using a server, then you should send email and wait until you get an affirmative reply before using that server.
 
-Some public timeservers are listed as [OpenAccess](/support/servers/openaccess) with no notice required.
+Some public timeservers are listed as [OpenAccess](/support/servers/openaccess/) with no notice required.
 
 You should probably have no more than three of your timeservers using any individual public timeserver. Let all of your internal clients be served by those three or three-groups-of-three.
 
-The most popular time servers are overloaded, recommending that you should avoid them if possible. The official etiquette is described in [Rules of Engagement](/support/servers/rulesofengagement).
+The most popular time servers are overloaded, recommending that you should avoid them if possible. The official etiquette is described in [Rules of Engagement](/support/servers/rulesofengagement/).
 
 * * *
 

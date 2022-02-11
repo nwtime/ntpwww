@@ -3,7 +3,7 @@ title: "Access Control Commands and Options"
 type: archives
 ---
 
-![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The skunk watches for intruders and sprays.
 
@@ -13,11 +13,11 @@ Last update: 7-Jan-2018 23:56 UTC
 
 #### Commands and Options
 
-Unless noted otherwise, further information about these commands is on the [Access Control Support](/archives/4.2.8-series/access) page.
+Unless noted otherwise, further information about these commands is on the [Access Control Support](/archives/4.2.8-series/access/) page.
 
 <code>**discard [ average _avg_ ][ minimum _min_ ] [ monitor _prob_ ]**</code>
 
-: Set the parameters of the rate control facility which protects the server from client abuse. If the <code>limited</code> flag is present in the ACL, packets that violate these limits are discarded. If, in addition, the <code>kod</code> flag is present, a kiss-o'-death packet is returned. See the [Rate Management](/archives/4.2.8-series/rate) page for further information. The options are:
+: Set the parameters of the rate control facility which protects the server from client abuse. If the <code>limited</code> flag is present in the ACL, packets that violate these limits are discarded. If, in addition, the <code>kod</code> flag is present, a kiss-o'-death packet is returned. See the [Rate Management](/archives/4.2.8-series/rate/) page for further information. The options are:
 
 <code>**average _avg_**</code>
 

@@ -10,7 +10,7 @@ type: "archives"
 
 #### 8.4.1 When should I report a Problem?
 
-Before [reporting a problem](/bugs), make sure that it is not a known bug or already requested feature. Also try to make sure that the mistake is not at your side.
+Before [reporting a problem](/bugs/), make sure that it is not a known bug or already requested feature. Also try to make sure that the mistake is not at your side.
 
 [Search the bugs database](https://bugs.ntp.org/query.cgi) to see whether the problem has been reported or if there is an existing solution. An Internet search may also help determine if there is a known solution.
 

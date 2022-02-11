@@ -266,7 +266,7 @@ if (!doNotTrack) {
 <p>In reality one would add several other configuration items, such as a <a href="#6124-what-is-a-drift-file">drift file</a>, additional servers, remote monitoring and configuration, logging, and access restrictions.</p>
 <hr>
 <h4 id="6122-is-the-minimum-configuration-a-typical-one">6.1.2.2 Is the minimum configuration a typical one?</h4>
-<p>Besides being functional, real configurations differ from the one shown in the <a href="#6121-what-is-the-minimum-configuration">minimum configuration example</a>. Most NTP servers have no reference clocks, but use lower <a href="/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum">stratum</a> servers as time references. Public time servers can be found <a href="/support/servers">here</a>. <a href="#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server">Courtesy</a> suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:</p>
+<p>Besides being functional, real configurations differ from the one shown in the <a href="#6121-what-is-the-minimum-configuration">minimum configuration example</a>. Most NTP servers have no reference clocks, but use lower <a href="/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum">stratum</a> servers as time references. Public time servers can be found <a href="/support/servers/">here</a>. <a href="#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server">Courtesy</a> suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:</p>
 <pre>server 132.199.176.10	# some NTP server's IP address
 # You might add the EMail address of the contact person</pre>
 <p><a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">Configuring multiple servers</a> improves the quality of the time as it allows NTP to select the best time sources from a set of available ones.</p>
@@ -362,15 +362,15 @@ controlkey 15</pre>
 <li>A broadcast server needs to have a line like <code>broadcast 128.4.2.255 autokey</code>.</li>
 <li>The clients simply have <code>broadcastclient</code>.</li>
 </ol>
-<p>Replace <code>broadcast</code> with <code>multicast</code> and follow <code>autokey</code> with <code>ttl 5</code> or something like that. As for the crypto questions, refer to <a href="/reflib/autokey">Autonomous Authentication</a> and 
+<p>Replace <code>broadcast</code> with <code>multicast</code> and follow <code>autokey</code> with <code>ttl 5</code> or something like that. As for the crypto questions, refer to <a href="/reflib/autokey/">Autonomous Authentication</a> and 
 <a href="/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey">Q: 6.2.2.6.</a>.</p>
 <hr>
 <h4 id="615-miscellaneous-hints">6.1.5 Miscellaneous Hints</h4>
 <h4 id="6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server">6.1.5.1 What is the preferred etiquette when synchronizing to a public server?</h4>
-<p>If the <a href="/support/servers">listing</a> says to notify before before using a server, then you should send email and wait until you get an affirmative reply before using that server.</p>
-<p>Some public timeservers are listed as <a href="/support/servers/openaccess">OpenAccess</a> with no notice required.</p>
+<p>If the <a href="/support/servers/">listing</a> says to notify before before using a server, then you should send email and wait until you get an affirmative reply before using that server.</p>
+<p>Some public timeservers are listed as <a href="/support/servers/openaccess/">OpenAccess</a> with no notice required.</p>
 <p>You should probably have no more than three of your timeservers using any individual public timeserver. Let all of your internal clients be served by those three or three-groups-of-three.</p>
-<p>The most popular time servers are overloaded, recommending that you should avoid them if possible. The official etiquette is described in <a href="/support/servers/rulesofengagement">Rules of Engagement</a>.</p>
+<p>The most popular time servers are overloaded, recommending that you should avoid them if possible. The official etiquette is described in <a href="/support/servers/rulesofengagement/">Rules of Engagement</a>.</p>
 <hr>
 <h4 id="6152-where-can-i-find-public-time-servers">6.1.5.2 Where can I find public Time Servers?</h4>
 <p>Additionally, NIST (the United States National Instute of Standards and Technology) has a <a href="https://tf.nist.gov/tf-cgi/servers.cgi">list of public time servers</a>. Their policy statement implies that their Internet time servers are open access to everyone.</p>

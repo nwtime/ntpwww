@@ -216,7 +216,7 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Miscellaneous Options</h1>
      
-    <p><img src="/archives/pic/boom3.gif" alt="gif"><a href="/reflib/pictures">from <em>Pogo</em>, Walt Kelly</a></p>
+    <p><img src="/archives/pic/boom3.gif" alt="gif"><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>We have three, now looking for more.</p>
 <hr>
 <dl>
@@ -234,7 +234,7 @@ if (!doNotTrack) {
 <dt><code><strong>enable [ auth | bclient | calibrate | kernel | monitor | ntp | stats]</strong></code></dt>
 <dd><code><strong>disable [ auth | bclient | calibrate | kernel | monitor | ntp | stats ]</strong></code></dd>
 <dd>
-<p>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the <a href="/archives/4.1.2/ntpdc"><code>ntpdc</code></a> utility program.</p>
+<p>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the <a href="/archives/4.1.2/ntpdc/"><code>ntpdc</code></a> utility program.</p>
 </dd>
 <dt><code>bclient</code></dt>
 <dd>
@@ -242,7 +242,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code>calibrate</code></dt>
 <dd>
-<p>Enables the calibration facility, which automatically adjusts the time1 values for each clock driver to display the same offset as the currently selected source or kernel discipline signal. See the <a href="/archives/4.1.2/refclock">Reference Clock Drivers</a> for further information. The default for this flag is <code>disable</code>.</p>
+<p>Enables the calibration facility, which automatically adjusts the time1 values for each clock driver to display the same offset as the currently selected source or kernel discipline signal. See the <a href="/archives/4.1.2/refclock/">Reference Clock Drivers</a> for further information. The default for this flag is <code>disable</code>.</p>
 </dd>
 <dt><code>kernel</code></dt>
 <dd>
@@ -254,15 +254,15 @@ if (!doNotTrack) {
 </dd>
 <dt><code>ntp</code></dt>
 <dd>
-<p>Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver can be used to provide this function and also certain time variables for error estimates and leap-indicators. See the <a href="/archives/4.1.2/refclock">Reference Clock Drivers</a> page for further information. The default for this flag is <code>enable</code>.</p>
+<p>Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver can be used to provide this function and also certain time variables for error estimates and leap-indicators. See the <a href="/archives/4.1.2/refclock/">Reference Clock Drivers</a> page for further information. The default for this flag is <code>enable</code>.</p>
 </dd>
 <dt><code>stats</code></dt>
 <dd>
-<p>Enables the statistics facility. See the <a href="/archives/4.1.2/monopt">Monitoring Options</a> page for further information. The default for this flag is <code>enable</code>.</p>
+<p>Enables the statistics facility. See the <a href="/archives/4.1.2/monopt/">Monitoring Options</a> page for further information. The default for this flag is <code>enable</code>.</p>
 </dd>
 <dt><code><strong>logconfig <em>configkeyword</em></strong></code></dt>
 <dd>
-<p>This command controls the amount and type of output written to the system <code>syslog</code> facility or the alternate <code>logfile</code> log file. By default, all output is turned on. All <code><em>configkeyword</em></code> keywords can be prefixed with <code>=</code>, <code>+</code> and <code>-</code>, where <code>=</code> sets the <code>syslogmask</code>, <code>+</code> adds and <code>-</code> removes messages. <code>syslog messages</code> can be controlled in four classes (<code>clock</code>, <code>peer</code>, <code>sys</code> and <code>sync</code>). Within these classes four types of messages can be controlled.
+<p>This command controls the amount and type of output written to the system <code>syslog</code> facility or the alternate <code>logfile</code> log file. By default, all output is turned on. All <code><em>configkeyword</em></code> keywords can be prefixed with <code>=</code>, <code>+</code> and <code>-</code>, where <code>=</code> sets the <code>syslogmask</code>, <code>+</code> adds and <code>-</code> removes messages. <code>syslog messages</code> can be controlled in four classes (<code>clock</code>, <code>peer</code>, <code>sys</code> and <code>sync</code>). Within these classes four types of messages can be controlled. 
 Informational messages (<code>info</code>) control configuration information. Event messages (<code>events</code>) control logging of events (reachability, synchronization, alarm conditions). Statistical output is controlled with the (<code>statistics</code>) keyword. The final message group is the status messages. This describes mainly the synchronizations status. Configuration keywords are formed by concatenating the message class with the event class. The <code>all</code> prefix can be used instead of a message class. A message class may also be followed by the <code>all</code> keyword to enable/disable all messages of the respective message class.</p>
 </dd>
 </dl>

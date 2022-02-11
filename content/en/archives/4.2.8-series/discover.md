@@ -4,7 +4,7 @@ type: archives
 ---
 
 
-![gif](/archives/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
 
@@ -34,13 +34,13 @@ All three schemes work in much the same way and might be described as _grab-n'-p
 
 All schemes use an iterated process to discover new preemptable client associations as long as the total number of client associations is less than the <code>maxclock</code> option of the <code>tos</code> command. The <code>maxclock</code> default is 10, but it should be changed in typical configuration to some lower number, usually two greater than the <code>minclock</code> option of the same command.
 
-All schemes use a stratum filter to select just those servers with stratum considered useful. This can avoid large numbers of clients ganging up on a small number of low-stratum servers and avoid servers below or above specified stratum levels. By default, servers of all strata are acceptable; however, the <code>tos</code> command can be used to restrict the acceptable range from the <code>floor</code> option, inclusive, to the <code>ceiling</code> option, exclusive. Potential servers operating at the same stratum as the client will be avoided, unless the <code>cohort</code> option is present. Additional filters can be supplied using the methods described on the [Authentication Support](/archives/4.2.8-series/authentic) page.
+All schemes use a stratum filter to select just those servers with stratum considered useful. This can avoid large numbers of clients ganging up on a small number of low-stratum servers and avoid servers below or above specified stratum levels. By default, servers of all strata are acceptable; however, the <code>tos</code> command can be used to restrict the acceptable range from the <code>floor</code> option, inclusive, to the <code>ceiling</code> option, exclusive. Potential servers operating at the same stratum as the client will be avoided, unless the <code>cohort</code> option is present. Additional filters can be supplied using the methods described on the [Authentication Support](/archives/4.2.8-series/authentic/) page.
 
 The pruning process uses a set of unreach counters, one for each association created by the configuration or discovery processes. At each poll interval, the counter is increased by one. If an acceptable packet arrives for a persistent (configured) or ephemeral (broadcast/multicast) association, the counter is set to zero. If an acceptable packet arrives for a preemptable (manycast, pool) association and survives the selection and clustering algorithms, the counter is set to zero. If the counter reaches an arbitrary threshold of 10, the association becomes a candidate for pruning.
 
 The pruning algorithm is very simple. If an ephemeral or preemptable association becomes a candidate for pruning, it is immediately demobilized. If a persistent association becomes a candidate for pruning, it is not demobilized, but its poll interval is set at the maximum. The pruning algorithm design avoids needless discovery/prune cycles for associations that wander in and out of the survivor list, but otherwise have similar characteristics.
 
-Following is a summary of each scheme. Note that reference to option applies to the commands described on the [Configuration Options](/archives/4.2.8-series/confopt) page. See that page for applicability and defaults.
+Following is a summary of each scheme. Note that reference to option applies to the commands described on the [Configuration Options](/archives/4.2.8-series/confopt/) page. See that page for applicability and defaults.
 
 * * *
 
@@ -60,9 +60,9 @@ It is possible and frequently useful to configure a host as both broadcast clien
 
 Since an intruder can impersonate a broadcast server and inject false time values, broadcast mode should always be cryptographically authenticated. By default, a broadcast association will not be mobilized unless cryptographically authenticated. If necessary, the <code>auth</code> option of the <code>disable</code> command will disable this feature. The feature can be selectively enabled using the <code>notrust</code> option of the <code>restrict</code> command.
 
-With symmetric key cryptography each broadcast server can use the same or different keys. In one scenario on a broadcast LAN, a set of broadcast clients and servers share the same key along with another set that share a different key. Only the clients with matching key will respond to a server broadcast. Further information is on the [Authentication Support](/archives/4.2.8-series/authentic) page.
+With symmetric key cryptography each broadcast server can use the same or different keys. In one scenario on a broadcast LAN, a set of broadcast clients and servers share the same key along with another set that share a different key. Only the clients with matching key will respond to a server broadcast. Further information is on the [Authentication Support](/archives/4.2.8-series/authentic/) page.
 
-Public key cryptography can be used with some restrictions. If multiple servers belonging to different secure groups share the same broadcast LAN, the clients on that LAN must have the client keys for all of them. This scenario is illustrated in the example on the [Autokey Public Key Authentication](/archives/4.2.8-series/autokey) page.
+Public key cryptography can be used with some restrictions. If multiple servers belonging to different secure groups share the same broadcast LAN, the clients on that LAN must have the client keys for all of them. This scenario is illustrated in the example on the [Autokey Public Key Authentication](/archives/4.2.8-series/autokey/) page.
 
 * * *
 

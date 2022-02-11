@@ -37,4 +37,4 @@ Additionally, there are BNC connectors on the back for things like PPS and IRIG 
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

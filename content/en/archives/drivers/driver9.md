@@ -48,7 +48,7 @@ In mobile mode, the driver assumes the GPS antenna is mounted on a moving platfo
 
 #### Monitor Data
 
-The driver writes each timecode as received to the `clockstats` file. Documentation for the <cite>NMEA-0183</cite> proprietary sentences produced by the MX4200 can be found in [MX4200 Receiver Data Format](/archives/drivers/mx4200data).
+The driver writes each timecode as received to the `clockstats` file. Documentation for the <cite>NMEA-0183</cite> proprietary sentences produced by the MX4200 can be found in [MX4200 Receiver Data Format](/archives/drivers/mx4200data/).
 
 * * *
 
@@ -90,4 +90,4 @@ The driver writes each timecode as received to the `clockstats` file. Documentat
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

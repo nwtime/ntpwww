@@ -3,7 +3,7 @@ title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
 ---
 
-![gif](/archives/pic/alice32.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice32.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Alice is trying to find the PPS signal connector.
 
@@ -31,7 +31,7 @@ A Gadget Box built by Chuck Hanavin
 
 #### Gadget Box
 
-The PPS signal can be connected in either of two ways: via the data carrier detector (DCD) pin of a serial port or via the acknowledge (ACK) pin of a parallel port, depending on the hardware and operating system. Note that NTP no longer supports connection via the data leads of a serial port. However, the PPS signal levels are usually incompatible with serial port levels. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional modem designed to decode the radio timecode signals transmitted by Canadian time and frequency station CHU. This can be used with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7) driver. A complete set of schematics, PCB artwork and drill templates can be obtained via the web at [gadget.tar.Z](/reflib/software/gadget.tar.Z).
+The PPS signal can be connected in either of two ways: via the data carrier detector (DCD) pin of a serial port or via the acknowledge (ACK) pin of a parallel port, depending on the hardware and operating system. Note that NTP no longer supports connection via the data leads of a serial port. However, the PPS signal levels are usually incompatible with serial port levels. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional modem designed to decode the radio timecode signals transmitted by Canadian time and frequency station CHU. This can be used with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7/) driver. A complete set of schematics, PCB artwork and drill templates can be obtained via the web at [gadget.tar.Z](/reflib/software/gadget.tar.Z).
 
 * * *
 
@@ -45,11 +45,11 @@ The entire PPS interface functionality is currently provided by inline code in t
 
 #### PPS Driver
 
-In the preferred mode of operation, PPS signals are processed by the [PPS Clock Discipline](/archives/drivers/driver22) driver and other clock drivers which might be involved need not know or care about them. In some cases where there is no other driver, time might be obtained from remote NTP servers via the network and local PPS signals, for instance from a calibrated cesium oscillator, used to stabilize the frequency and remove network jitter. Note that the <code>pps</code> configuration command has been obsoleted by this driver.
+In the preferred mode of operation, PPS signals are processed by the [PPS Clock Discipline](/archives/drivers/driver22/) driver and other clock drivers which might be involved need not know or care about them. In some cases where there is no other driver, time might be obtained from remote NTP servers via the network and local PPS signals, for instance from a calibrated cesium oscillator, used to stabilize the frequency and remove network jitter. Note that the <code>pps</code> configuration command has been obsoleted by this driver.
 
-The PPS driver operates in conjunction with a preferred peer, as described in the [Mitigation Rules and the prefer Keyword](/archives/4.2.4-series/prefer) page. One of the drivers described in the [Reference Clock Drivers](/archives/4.2.4-series/refclock) page or another NTP server furnishes the coarse timing and disambiguates the seconds numbering of the PPS signal itself. The NTP daemon mitigates between the clock driver or NTP server and the PPS driver as described in that page in order to provide the most accurate time, while respecting the various types of equipment failures that could happen.
+The PPS driver operates in conjunction with a preferred peer, as described in the [Mitigation Rules and the prefer Keyword](/archives/4.2.4-series/prefer/) page. One of the drivers described in the [Reference Clock Drivers](/archives/4.2.4-series/refclock/) page or another NTP server furnishes the coarse timing and disambiguates the seconds numbering of the PPS signal itself. The NTP daemon mitigates between the clock driver or NTP server and the PPS driver as described in that page in order to provide the most accurate time, while respecting the various types of equipment failures that could happen.
 
-Some Unix system kernels support a PPS signal directly, as described in the [A Kernel Model for Precision Timekeeping](/archives/4.2.4-series/kern) page. Specifically, the PPS driver can be used to direct the PPS signal to the kernel for use as a discipline source for both time and frequency. The presence of the kernel support is automatically detected during the NTP build process and supporting code automatically compiled. Note that the PPS driver does not normally enable the PPS kernel code, since performance is generally better without it. However, this code can be enabled by a driver fudge flag if necessary.
+Some Unix system kernels support a PPS signal directly, as described in the [A Kernel Model for Precision Timekeeping](/archives/4.2.4-series/kern/) page. Specifically, the PPS driver can be used to direct the PPS signal to the kernel for use as a discipline source for both time and frequency. The presence of the kernel support is automatically detected during the NTP build process and supporting code automatically compiled. Note that the PPS driver does not normally enable the PPS kernel code, since performance is generally better without it. However, this code can be enabled by a driver fudge flag if necessary.
 
 Some configurations may include multiple radio clocks with individual PPS outputs. In some PPSAPI designs multiple PPS signals can be connected to multiple instances of the PPS driver. In such cases the NTP mitigation and grooming algorithms operate with all the radio timecodes and PPS signals to develop the highest degree of redundancy and survivability.
 

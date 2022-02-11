@@ -23,8 +23,8 @@ The following data were obtained from the International Frequency List published
 | [DCF77](https://www.ptb.de/cms/en/ptb/fachabteilungen/abt4/fb-44/ag-442/dissemination-of-legal-time/dcf77.html) Mainflingen, DE | 77.5 kHz | 50° 1' N, 9° 0' E |
 | [MSF](https://www.npl.co.uk/msf-signal) Anthorn, UK | 60 kHz | 54° 55' N, 3° 15' W |
 | [TDF](https://en.wikipedia.org/wiki/TDF_time_signal) Allouis, FR | 162 kHz | 47° 10' N, 2° 12' E |
-| [JJY](http://jjy.nict.go.jp/index-e.html) Fukushima, JP | 40 KHz | 37° 22' N, 140° 51' E |
-| [JJY](http://jjy.nict.go.jp/jjy/log/index-e.html) Kyushu, JP | 60 KHz | 33° 28' N, 130° 11' E |
+| [JJY](https://jjy.nict.go.jp/index-e.html) Fukushima, JP | 40 KHz | 37° 22' N, 140° 51' E |
+| [JJY](https://jjy.nict.go.jp/jjy/log/index-e.html) Kyushu, JP | 60 KHz | 33° 28' N, 130° 11' E |
 | [HBG](https://en.wikipedia.org/wiki/HBG_(time_signal)) Prangins, HB | 75 KHz | 46° 24' N, 6° 15' E |
 
 * * *
@@ -35,4 +35,3 @@ The following data were obtained from the International Frequency List published
 *   [WWV Broadcast Schedule (USA)](/archives/pic/wwv.jpg)
 *   [WWVH Broadcast Schedule (USA)](/archives/pic/wwvh.jpg)
 *   [Inter-Range Instrumentation Group (IRIG) Timecode Format](/archives/pic/irig_b.jpg)
-

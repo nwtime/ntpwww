@@ -241,7 +241,7 @@ if (!doNotTrack) {
 <p>In NTP these time references are named <em>stratum 0</em>, the highest possible quality. Each system that has its time synchronized to some reference clock can also be a time reference for other systems, but the stratum will increase for each synchronization.</p>
 <hr>
 <h4 id="5112-how-will-ntp-use-a-reference-clock">5.1.1.2 How will NTP use a reference clock?</h4>
-<p>A reference clock will provide the current time. NTP will compute some additional statistical values that describe the quality of time it sees. <a href="/ntpfaq/ntp-s-sw-clocks-quality">Among these values</a> are: <em>offset</em> (or <em>phase</em>), <em>jitter</em> (or <em>dispersion</em>), <em>frequency error</em>, and <em>stability</em>. Each NTP server maintains an estimate of the quality of its reference clocks and of itself.</p>
+<p>A reference clock will provide the current time. NTP will compute some additional statistical values that describe the quality of time it sees. <a href="/ntpfaq/ntp-s-sw-clocks-quality/">Among these values</a> are: <em>offset</em> (or <em>phase</em>), <em>jitter</em> (or <em>dispersion</em>), <em>frequency error</em>, and <em>stability</em>. Each NTP server maintains an estimate of the quality of its reference clocks and of itself.</p>
 <hr>
 <h4 id="5113-how-will-ntp-know-about-time-sources">5.1.1.3 How will NTP know about Time Sources?</h4>
 <p>There are serveral ways an NTP client knows which NTP servers to use:</p>
@@ -293,7 +293,7 @@ NTP:  bd5927ee.bc616000
 <hr>
 <h4 id="513-performance">5.1.3 Performance</h4>
 <h4 id="5131-how-accurate-will-my-clock-be">5.1.3.1 How accurate will my Clock be?</h4>
-<p>For a general discussion see <a href="/ntpfaq/ntp-s-sw-clocks">Section 3</a>. Also keep in mind that corrections are applied gradually, so it may take up to three hours until the frequency error is compensated (see Figure 5.1a).</p>
+<p>For a general discussion see <a href="/ntpfaq/ntp-s-sw-clocks/">Section 3</a>. Also keep in mind that corrections are applied gradually, so it may take up to three hours until the frequency error is compensated (see Figure 5.1a).</p>
 <p><strong>Figure 5.1a: Initial Run of NTP</strong></p>
 <p><img src="/ntpfaq/ntp35f-init.png" alt=""></p>
 <p>The final achievable accuracy depends on the time source being used. Basically, no client can be more accurate than its server. In addition, the quality of the network connection also influences the final accuracy. Slow and non-predictable networks with varying delays are bad for good time synchronization.</p>
@@ -306,7 +306,7 @@ NTP:  bd5927ee.bc616000
 <p>Mostly, it depends on your networking. Sure, you can get your machines within a few milliseconds of each other if they are connected to each other with Ethernet connections and not too many routers hops in between. If all the machines are on the same quiet subnet, NTP can easily keep them within one millisecond all the time. But what happens if your network get congested? What happens if you have a broadcast storm (say 1,000 broadcast packets per second) that causes your CPU to go over 100% load average just examining and discarding the broadcast packets? What happens if one of your routers loses its mind? Your local system time could drift well outside the &ldquo;few milliseconds&rdquo; window in situations like these.</p>
 <hr>
 <h4 id="5132-how-frequently-will-the-system-clock-be-updated">5.1.3.2 How frequently will the System Clock be updated?</h4>
-<p>As time should be a continuous and steady stream, <code>ntpd</code> updates the clock in small quantities. However, to keep up with clock errors, such corrections have to be applied frequently. If <code>adjtime()</code> is used, <code>ntpd</code> will update the system clock every second. If <code>ntp_adjtime()</code> is available, the operating system can compensate clock errors automatically, requiring only infrequent updates. See also <a href="/ntpfaq/ntp-s-algo-kernel">Section 5.2</a> and <a href="#5161-how-will-ntp-discipline-my-clock">Q: 5.1.6.1.</a>.</p>
+<p>As time should be a continuous and steady stream, <code>ntpd</code> updates the clock in small quantities. However, to keep up with clock errors, such corrections have to be applied frequently. If <code>adjtime()</code> is used, <code>ntpd</code> will update the system clock every second. If <code>ntp_adjtime()</code> is available, the operating system can compensate clock errors automatically, requiring only infrequent updates. See also <a href="/ntpfaq/ntp-s-algo-kernel/">Section 5.2</a> and <a href="#5161-how-will-ntp-discipline-my-clock">Q: 5.1.6.1.</a>.</p>
 <hr>
 <h4 id="5133-how-frequently-are-correction-values-updated">5.1.3.3 How frequently are Correction Values updated?</h4>
 <p>NTP maintains an internal clock quality indicator. If the clock seems stable, updates to the correction parameters happen less frequently. If the clock seems instable, more frequent updates are scheduled. Sometimes the update interval is also termed <em>stiffness</em> of the PLL, because only small changes are possible for long update intervals.</p>
@@ -362,7 +362,7 @@ watchdog timer:       63 s</pre>
 <p><code>adjtime(2)</code> to slew (gradually change) the time. Slewing the time means to change the virtual frequency of the software clock to make the clock go faster or slower until the requested correction is achieved. Slewing the clock for a larger amount of time may require some time. For example standard Linux adjusts the time with a rate of 0.5ms per second.</p>
 </li>
 <li>
-<p><code>ntp_adjtime(2)</code> to control several parameters of the software clock, also known as <a href="/ntpfaq/ntp-s-algo-kernel">kernel discipline</a>. These parameters can:</p>
+<p><code>ntp_adjtime(2)</code> to control several parameters of the software clock, also known as <a href="/ntpfaq/ntp-s-algo-kernel/">kernel discipline</a>. These parameters can:</p>
 <ul>
 <li>Adjust the offset of the software clock, possibly correcting the virtual frequency as well.</li>
 <li>Adjust the virtual frequency of the software clock directly.</li>

@@ -46,7 +46,7 @@ This driver supports the following JJY receivers and the GPS clock sold in Japan
 | [CITIZEN T.I.C. CO.,LTD.   JJY-200](https://tic.citizen.co.jp/english/index.html) | [4](/archives/drivers/driver40/#mode-4) | Japanese only |
 | [Tristate Ltd.   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40/#mode-5) | Japanese only |
 | [SEIKO TIME SYSTEMS INC.   TDC-300](http://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40/#mode-6) | English and Japanese |
-| [Telephone JJY](http://jjy.nict.go.jp/) | [100](/archives/drivers/driver40/#mode-100) | English and Japanese |
+| [Telephone JJY](https://jjy.nict.go.jp/) | [100](/archives/drivers/driver40/#mode-100) | English and Japanese |
 
 * * *
 
@@ -298,7 +298,7 @@ When `mode` 101 to 180 is specified, `time1` should not be specified because thi
 
 **phone 042NNNNNNN**
 
-The phone number is available at [http://jjy.nict.go.jp/](http://jjy.nict.go.jp/).
+The phone number is available at https://jjy.nict.go.jp/.
 
 The number of digits of the phone number is checked. If the international access number and the country number are added in order to call from outside of Japan, the number of digits is over the limit.
 
@@ -332,7 +332,7 @@ The date and time are requested separately. The time is requested before and aft
 
 The leap second is not handled, and only written in the `clockstats` file as information.
 
-The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from [http://www.nict.go.jp/](http://www.nict.go.jp/) (English and Japanese) and [http://jjy.nict.go.jp/](http://jjy.nict.go.jp/) (English and Japanese).
+The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from [http://www.nict.go.jp/](http://www.nict.go.jp/) (English and Japanese) and https://jjy.nict.go.jp/ (English and Japanese).
 
 The user is expected to provide a symbolic link to an available serial port device. This is typically performed by a command such as:
 

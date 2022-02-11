@@ -4,7 +4,7 @@ type: archives
 ---
 
 
-![gif](/archives/pic/alice38.gif)[from _Alice's Adventures in Wonderland_, Lewis Carrol](/reflib/pictures)
+![gif](/archives/pic/alice38.gif)[from _Alice's Adventures in Wonderland_, Lewis Carrol](/reflib/pictures/)
 
 The Mad Hatter says "Bring it on".
 

@@ -25,18 +25,18 @@ The NTP software supports different kinds of [reference clocks](/ntpfaq/ntp-s-al
 According to a [survey](/reflib/reports/ntp-survey99-minar.pdf), the most popular real reference clocks are:
 
 * [GPS](/ntpfaq/ntp-s-related#91-gps)
-* [DCF77](https://en.wikipedia.org/wiki/DCF77)
-* [WWVB](https://en.wikipedia.org/wiki/WWVB)
+* [DCF77](https://en.wikipedia.org/wiki/DCF77/)
+* [WWVB](https://en.wikipedia.org/wiki/WWVB/)
 
 While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.
 
-More information on reference clocks can be found in [Reference Clock](/archives/4.2.8-series/refclock/) and [NIST's list of receiver manufacturers](https://www.nist.gov/time-distribution/radio-station-wwv/manufacturers-time-and-frequency-receivers).
+More information on reference clocks can be found in [Reference Clock](/archives/4.2.8-series/refclock/) and [NIST's list of receiver manufacturers](https://www.nist.gov/time-distribution/radio-station-wwv/manufacturers-time-and-frequency-receivers/).
 
 * * *
 
 #### 7.1 What is LCL, the Local Clock?
 
-The [LCL](/archives/drivers/driver1) is not an actual reference clock; instead it simply refers to the system time on the current machine. Therefore it should never be used, except when the system time is synchronized by some means not visible by `ntpd`.
+The [LCL](/archives/drivers/driver1/) is not an actual reference clock; instead it simply refers to the system time on the current machine. Therefore it should never be used, except when the system time is synchronized by some means not visible by `ntpd`.
 
 On an isolated network one might set the time manually from time to time. Together with a frequency adjustment available as a [fudge factor](/archives/drivers/driver1/#fudge-factors) one may achieve an accuracy of a few seconds per week.
 
@@ -61,17 +61,17 @@ Fortunately there are also receivers that were designed for precision timekeepin
 
 | Manufacturer | Model | Driver/Mode | Interface | PPS available |
 | ----- | ----- | ----- | ----- | ----- |
-| Arbiter | 1088A/B | [11](/archives/drivers/driver11) | serial; 9600 baud | Y |
-| Austron | GPS-AS2201 | [10](/archives/drivers/driver10) | serial; 9600 baud | Y
-| Garmin | GPS35(25) | [20](/archives/drivers/driver20) | serial, 4800 baud | Y (TTL) |
-| [GPSclock](http://www.gpsclock.com/) | 200 | [20](/archives/drivers/driver20) (patched) | serial; 4800 baud | Y |
-| Hewlett Packard | 58503A | [26](/archives/drivers/driver26) | serial; 9600 baud | Y |
-| Magnavox | GPS-MX4200 | [9](/archives/drivers/driver9) | serial; 4800 baud | Y |
-| [Meinberg](http://www.meinberg.de/) | GPS166, GPS167 | [8](/archives/drivers/driver8) | serial; 9600 baud | Y |
-| Trak(?) | 8810, 8820 | [2](/archives/drivers/driver2) | serial; 9600 baud | Y |
-| Trimble | Acutime 2000<sup>a</sup> | [8](/archives/drivers/driver8), [10](/archives/drivers/driver10), [29](/archives/drivers/driver29) | TSIP | Y (TTL) |
-| Trimble | Palisade<sup>b</sup> | [8](/archives/drivers/driver8), [10](/archives/drivers/driver10), [29](/archives/drivers/driver29) | serial; | ? |
-| Trimble | SV6<sup>b</sup> | [8](/archives/drivers/driver8), [9](/archives/drivers/driver9), [10](/archives/drivers/driver10) | TAIP, TSIP | Y |
+| Arbiter | 1088A/B | [11](/archives/drivers/driver11/) | serial; 9600 baud | Y |
+| Austron | GPS-AS2201 | [10](/archives/drivers/driver10/) | serial; 9600 baud | Y
+| Garmin | GPS35(25) | [20](/archives/drivers/driver20/) | serial, 4800 baud | Y (TTL) |
+| [GPSclock](http://www.gpsclock.com/) | 200 | [20](/archives/drivers/driver20/) (patched) | serial; 4800 baud | Y |
+| Hewlett Packard | 58503A | [26](/archives/drivers/driver26/) | serial; 9600 baud | Y |
+| Magnavox | GPS-MX4200 | [9](/archives/drivers/driver9/) | serial; 4800 baud | Y |
+| [Meinberg](http://www.meinberg.de/) | GPS166, GPS167 | [8](/archives/drivers/driver8/) | serial; 9600 baud | Y |
+| Trak(?) | 8810, 8820 | [2](/archives/drivers/driver2/) | serial; 9600 baud | Y |
+| Trimble | Acutime 2000<sup>a</sup> | [8](/archives/drivers/driver8/), [10](/archives/drivers/driver10/), [29](/archives/drivers/driver29/) | TSIP | Y (TTL) |
+| Trimble | Palisade<sup>b</sup> | [8](/archives/drivers/driver8/), [10](/archives/drivers/driver10/), [29](/archives/drivers/driver29/) | serial; | ? |
+| Trimble | SV6<sup>b</sup> | [8](/archives/drivers/driver8/), [9](/archives/drivers/driver9/), [10](/archives/drivers/driver10/) | TAIP, TSIP | Y |
 
 **<sup>a</sup>** This SmartAntenna is the replacement for both, the SV6 and the  Palisade.  
 

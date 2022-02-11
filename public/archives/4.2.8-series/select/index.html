@@ -217,13 +217,13 @@ if (!doNotTrack) {
 <p>First, a number of sanity checks is performed to sift the selectable candidate from among the source population. The sanity checks are sumarized as follows:.</p>
 <ol>
 <li>
-<p>A <em>stratum error</em> occurs if (1) the source had never been synchronized or (2) the stratum of the source is below the <code>floor</code> option or not below the <code>ceiling</code> option of the <a href="/archives/4.2.8-series/miscopt"><code>tos</code></a> command. The default values for these options are 0 and 15, respectively.</p>
+<p>A <em>stratum error</em> occurs if (1) the source had never been synchronized or (2) the stratum of the source is below the <code>floor</code> option or not below the <code>ceiling</code> option of the <a href="/archives/4.2.8-series/miscopt/"><code>tos</code></a> command. The default values for these options are 0 and 15, respectively.</p>
 <blockquote>
 <p>Note that 15 is a valid stratum, but a server operating at that stratum cannot synchronize clients.</p>
 </blockquote>
 </li>
 <li>
-<p>A <em>distance error</em> occurs for a source if the root distance (also known as synchronization distance) of the source is not below the distance threshold <code>maxdist</code> option of the <a href="/archives/4.2.8-series/miscopt"><code>tos</code></a> command. The default value for this option is 1.5 s for networks including only the Earth, but this should be increased to 2.5 s for networks including the Moon.</p>
+<p>A <em>distance error</em> occurs for a source if the root distance (also known as synchronization distance) of the source is not below the distance threshold <code>maxdist</code> option of the <a href="/archives/4.2.8-series/miscopt/"><code>tos</code></a> command. The default value for this option is 1.5 s for networks including only the Earth, but this should be increased to 2.5 s for networks including the Moon.</p>
 </li>
 <li>
 <p>A <em>loop</em> <em>error</em> occurs if the source is synchronized to the client. This can occur if two peers are configured with each other in symmetric modes.</p>
@@ -243,7 +243,7 @@ if (!doNotTrack) {
 <p><strong>Figure 2: Clock Select Algorithm</strong></p>
 <p>The algorithm operates as shown in Figure 2. Let <code><em>m</em></code> be the number of candidates and <code><em>f</em></code> the number of falsetickers, initially zero. Move a pointer from the leftmost endpoint towards the rightmost endpoint in Figure 1 and count the number of candidates, stopping when that number reaches <code><em>m</em> − <em>f</em></code>; this is the left endpoint of the intersection interval. Then, do the same, but moving from the rightmost endpoint towards the leftmost endpoint; this is the right endpoint of the intersection interval. If the left endpoint is less than the right endpoint, the intersection interval has been found. Otherwise, increase <code><em>f</em></code> by 1. If <code><em>f</em></code> is less than <code><em>n</em> / 2</code>, try again; otherwise, the algorithm fails and no truechimers could be found.</p>
 <p>The clock select algorithm again scans the correctness intervals. If the right endpoint of the correctness interval for a candidate is greater than the left endpoint of the intersection interval, or if the left endpoint of the correctness interval is less than the right endpoint of the intersection interval, the candidate is a truechimer; otherwise, it is a falseticker.</p>
-<p>In practice, with fast LANs and modern computers, the correctness interval can be quite small, especially when the candidates are multiple reference clocks. In such cases the intersection interval might be empty, due to insignificant differences in the reference clock offsets. To avoid this, the size of the correctness interval is padded to the value of <code>mindist</code>, with default 1 ms. This value can be changed using the <code>mindist</code> option of the <a href="/archives/4.2.8-series/miscopt"><code>tos</code></a> command.</p>
+<p>In practice, with fast LANs and modern computers, the correctness interval can be quite small, especially when the candidates are multiple reference clocks. In such cases the intersection interval might be empty, due to insignificant differences in the reference clock offsets. To avoid this, the size of the correctness interval is padded to the value of <code>mindist</code>, with default 1 ms. This value can be changed using the <code>mindist</code> option of the <a href="/archives/4.2.8-series/miscopt/"><code>tos</code></a> command.</p>
 
 	  
 	  <style>

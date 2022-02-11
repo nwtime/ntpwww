@@ -45,7 +45,7 @@ Last update: 12-Oct-2017 09:05 UTC
 | [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/archives/drivers/driver40-ja/#mode-4) | 日本語 |
 | [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40-ja/#mode-5) | 日本語 |
 | [セイコー タイム システム   TDC-300](http://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40-ja/#mode-6) | 英語と日本語 |
-[テレフォンJJY](http://jjy.nict.go.jp/) | [100](/archives/drivers/driver40-ja/#mode-100) | 英語と日本語 |
+[テレフォンJJY](https://jjy.nict.go.jp/) | [100](/archives/drivers/driver40-ja/#mode-100) | 英語と日本語 |
 
 * * *
 
@@ -289,7 +289,7 @@ Flag4 は、スピーカーの音量を指定します。
 
 **phone 042NNNNNNN**
 
-電話番号は、[http://jjy.nict.go.jp/](http://jjy.nict.go.jp/) で公開されています。
+電話番号は、https://jjy.nict.go.jp/ で公開されています。
 電話番号の桁数をチェックしています。もし、日本国外から発信するために国際電話アクセス番号と国番号を付加すると、桁数制限を超えます。
 また、電話番号の最初の2桁や3桁をチェックしています。日本の緊急番号や特別のサービスの番号を指定することはできません。
 内線から外線に発信する時は、"0," ( ゼロとカンマ ) を先頭に付加して下さい。外線発信番号は、チェックしていて、それ以外の外線発信番号を指定することはできません。
@@ -319,7 +319,7 @@ RS-232C 又は USB, 2400 BPS, 8ビット, パリティなし, 1ストップ・�
 日付と時刻は、別々に問い合わせます。日付が深夜０時の前か後かの不確定をチェックするため、日付の問い合わせの前後に時刻を問い合わせています。
 うるう秒は、処理していません。情報として clockstats ファイルに記録しているだけです。
 
-JJY は、長波で日本標準時(JST)を送信している無線局で、国立研究開発法人　情報通信研究機構が運用しています。JJY の運用情報などは、 [http://www.nict.go.jp/](http://www.nict.go.jp/)（英語と日本語）や [http://jjy.nict.go.jp/](http://jjy.nict.go.jp/)（英語と日本語）で提供されています。
+JJY は、長波で日本標準時(JST)を送信している無線局で、国立研究開発法人　情報通信研究機構が運用しています。JJY の運用情報などは、 [http://www.nict.go.jp/](http://www.nict.go.jp/)（英語と日本語）や https://jjy.nict.go.jp/ （英語と日本語）で提供されています。
 
 実際のシリアル・ポートのデバイスにシンボリック・リンクを作成して下さい。シンボリック・リンクを作成するコマンドは、以下のとおりです。
 

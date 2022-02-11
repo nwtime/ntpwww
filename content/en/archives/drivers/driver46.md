@@ -160,4 +160,4 @@ If `flag4` is set when the driver is polled, a `clockstats` record is written fo
 
 <a name="myfootnote2">2</a>  The clock driver suppresses the processing PPS records when the TPV/TIME data indicates the receiver has no fix. It can also deal with situations where the PPS signal is not delivered to _GPSD_. But once it is available, it is also processed and used to create samples. If a receiver cannot be trusted for the precision of its PPS signal, it should not be used to create a possible PPS peer: These get extra clout and can effectively become the sole source of input for the control loop. You do not want to use sloppy data for that.
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)

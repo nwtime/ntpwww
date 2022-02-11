@@ -4,7 +4,7 @@ type: archives
 ---
 
 
-![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 We have three, now looking for more.
 
@@ -33,7 +33,7 @@ The file format consists of a single line containing a single floating point num
 <code>**enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
 : <code>**disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
 
-: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using [<code>ntpq</code>](/archives/4.2.8-series/ntpq) utility program's <code>:config</code> and <code>config-from-file</code> commands.
+: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using [<code>ntpq</code>](/archives/4.2.8-series/ntpq/) utility program's <code>:config</code> and <code>config-from-file</code> commands.
 
 <code>auth</code>
 
@@ -57,7 +57,7 @@ The file format consists of a single line containing a single floating point num
 
 <code>monitor</code>
 
-: Enables the monitoring facility. See the [<code>ntpq</code> program](/archives/4.2.8-series/ntpq) and the <code>monstats</code> and <code>mrulist</code> commands, as well as the [Access Control Options](/archives/4.2.8-series/accopt) for details. The monitoring facility is also enabled by the presence of [<code>limited</code>](/archives/4.2.8-series/accopt) in any <code>restrict</code> commands. The default for this flag is enable.
+: Enables the monitoring facility. See the [<code>ntpq</code> program](/archives/4.2.8-series/ntpq/) and the <code>monstats</code> and <code>mrulist</code> commands, as well as the [Access Control Options](/archives/4.2.8-series/accopt/) for details. The monitoring facility is also enabled by the presence of [<code>limited</code>](/archives/4.2.8-series/accopt/) in any <code>restrict</code> commands. The default for this flag is enable.
 
 <code>ntp</code>
 
@@ -65,7 +65,7 @@ The file format consists of a single line containing a single floating point num
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/4.2.8-series/monopt) page for further information. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.
+: Enables the statistics facility. See the [Monitoring Options](/archives/4.2.8-series/monopt/) page for further information. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.
 
 <code>unpeer_crypto_early</code>
 
@@ -121,7 +121,7 @@ This configuration will list all clock information and synchronization informati
 
 <code>**mru [maxdepth _count_ | maxmem _kilobytes_ | mindepth _count_ | maxage _seconds_ | initalloc _count_ | initmem _kilobytes_ | incalloc _count_ | incmem _kilobytes_]**</code>
 
-: Controls size limits of the monitoring facility Most Recently Used [(MRU) list](/archives/4.2.8-series/ntpq#control-message-commands) of client addresses, which is also used by the [rate control facility](/archives/4.2.8-series/accopt).
+: Controls size limits of the monitoring facility Most Recently Used [(MRU) list](/archives/4.2.8-series/ntpq#control-message-commands) of client addresses, which is also used by the [rate control facility](/archives/4.2.8-series/accopt/).
 
 <code>maxdepth _count_</code>  
 : <code>maxmem _kilobytes_</code>
@@ -204,7 +204,7 @@ This configuration will list all clock information and synchronization informati
 
 <code>huffpuff _huffpuff_</code>
 
-: Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 min), but a more reasonable value is 7200 (2 hours). See the [Huff-n'-Puff Filter](/archives/4.2.8-series/huffpuff) page for further information.
+: Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 min), but a more reasonable value is 7200 (2 hours). See the [Huff-n'-Puff Filter](/archives/4.2.8-series/huffpuff/) page for further information.
 
 <code>panic _panic_</code>
 
@@ -212,11 +212,11 @@ This configuration will list all clock information and synchronization informati
 
 <code>step _step_</code>
 
-: Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s. Further details are on the [Clock State Machine](/archives/4.2.8-series/clock) page.
+: Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s. Further details are on the [Clock State Machine](/archives/4.2.8-series/clock/) page.
 
 <code>stepout _stepout_</code>
 
-: Specifies the stepout threshold in seconds. The default without this command is 300 s. Since this option also affects the training and startup intervals, it should not be set less than the default. Further details are on the [Clock State Machine](/archives/4.2.8-series/clock) page.
+: Specifies the stepout threshold in seconds. The default without this command is 300 s. Since this option also affects the training and startup intervals, it should not be set less than the default. Further details are on the [Clock State Machine](/archives/4.2.8-series/clock/) page.
 
 <code>**tos [basedate _date_ | bcpollbstep _poll-gate_ | beacon _beacon_ | ceiling _ceiling_ | cohort {0 | 1} | floor _floor_ | maxclock _maxclock_ | maxdist _maxdist_ | minclock _minclock_ | mindist _mindist_ | minsane _minsane_ | orphan _stratum_ | orphanwait _delay_]**</code>
 
@@ -238,23 +238,23 @@ The default value is derived from the repository or build time stamp, minus 11 d
 
 <code>beacon _beacon_</code>
 
-: The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the <code>_beacon_</code> interval in seconds. The default is 3600 s. See the [Automatic Server Discovery](/archives/4.2.8-series/discover) page for further details.
+: The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the <code>_beacon_</code> interval in seconds. The default is 3600 s. See the [Automatic Server Discovery](/archives/4.2.8-series/discover/) page for further details.
 
 <code>ceiling _ceiling_</code>
 
-: Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the [Automatic Server Discovery](/archives/4.2.8-series/discover) page for further details.
+: Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the [Automatic Server Discovery](/archives/4.2.8-series/discover/) page for further details.
 
 <code>cohort { 0 | 1 }</code>
 
-: Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the [Automatic Server Discovery](/archives/4.2.8-series/discover) page for further details.
+: Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the [Automatic Server Discovery](/archives/4.2.8-series/discover/) page for further details.
 
 <code>floor _floor_</code>
 
-: Specify the minimum stratum (inclusive) for acceptable server packets. The default is 1. See the [Automatic Server Discovery](/archives/4.2.8-series/discover) page for further details.
+: Specify the minimum stratum (inclusive) for acceptable server packets. The default is 1. See the [Automatic Server Discovery](/archives/4.2.8-series/discover/) page for further details.
 
 <code>maxclock _maxclock_</code>
 
-: Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the [Automatic Server Discovery](/archives/4.2.8-series/discover) page for further details.
+: Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the [Automatic Server Discovery](/archives/4.2.8-series/discover/) page for further details.
 
 <code>maxdist _maxdistance_</code>
 
@@ -274,7 +274,7 @@ The default value is derived from the repository or build time stamp, minus 11 d
 
 <code>orphan _stratum_</code>
 
-: Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the [Orphan Mode](/archives/4.2.8-series/orphan) page for further details.
+: Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the [Orphan Mode](/archives/4.2.8-series/orphan/) page for further details.
 
 <code>orphanwait _delay_</code>
 

@@ -9,7 +9,7 @@ Last update: 10-Mar-2014 05:07 UTC
 
 #### Historical Notes on NTP Upgrades
 
-This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008. It is very important to recognize that this historic document describes the upgrade status as of 2008. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release) page.
+This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008. It is very important to recognize that this historic document describes the upgrade status as of 2008. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release/) page.
 
 The motivation for this project was the overhaul and refinement of the code, some of which dates back twenty years. Some four dozen sets of fingers have introduced sometimes incompatible "improvements" that to some degree enhance or burden the product. There has been a continuing effort over the years to maintain the briar patch and pluck the more flagrant weeds, but it now requires a more systematic and thorough examination of purpose, design and implementation. The project is not complete, but far enough along to present a status report and review of significant changes.
 
@@ -25,9 +25,9 @@ During the project a number of minor inconsistencies in various algorithms were 
 
 #### 2. Documentation
 
-The documentation required a major upgrade. Many pages have been overhauled, some completely rewritten and new ones added. A [site map](/archives/4.2.8-series/sitemap) has been added and sorted by page category. A comprehensive [command index](/archives/4.2.8-series/comdex) has been added and sorted by page category. The command index includes a brief gloss for each command. A page has been added to show the various [status word and event decodes](/archives/4.2.8-series/decode/) used for monitoring and event reporting. The decodes show the internal code, ASCII report and short function gloss.
+The documentation required a major upgrade. Many pages have been overhauled, some completely rewritten and new ones added. A [site map](/archives/4.2.8-series/sitemap/) has been added and sorted by page category. A comprehensive [command index](/archives/4.2.8-series/comdex/) has been added and sorted by page category. The command index includes a brief gloss for each command. A page has been added to show the various [status word and event decodes](/archives/4.2.8-series/decode/) used for monitoring and event reporting. The decodes show the internal code, ASCII report and short function gloss.
 
-New pages have been added on [association management](/archives/4.2.8-series/assoc), [automatic server discovery](/archives/4.2.8-series/discover) and [rate management](/archives/4.2.8-series/rate). Much of the overburden on the program manual and configuration pages has been moved to these pages with the intent of the original pages to contain primarily a functional description for the commands and command line options. This is still an ongoing process.
+New pages have been added on [association management](/archives/4.2.8-series/assoc/), [automatic server discovery](/archives/4.2.8-series/discover/) and [rate management](/archives/4.2.8-series/rate/). Much of the overburden on the program manual and configuration pages has been moved to these pages with the intent of the original pages to contain primarily a functional description for the commands and command line options. This is still an ongoing process.
 
 * * *
 
@@ -117,9 +117,9 @@ When the numbers were changed to align for reporting purposes, some scripts no l
 
 #### 11. Two-step and timestamp capture
 
-A number of interesting ideas were found in the [IEEE 1588 Precision Time Protocol specification](/reflib/ptp/). One of them was the two-step protocol in which the transmit timestamp is sent in a following message. However, the PTP design operates only in a master-slave configuration and is not directly usable in NTP. The protocol was adapted to the NTP symmetric design, which requires four state variables rather than two. It is described on [Timestamp Capture Principles](/reflib/stamp). This might be an interesting project for future research.
+A number of interesting ideas were found in the [IEEE 1588 Precision Time Protocol specification](/reflib/ptp/). One of them was the two-step protocol in which the transmit timestamp is sent in a following message. However, the PTP design operates only in a master-slave configuration and is not directly usable in NTP. The protocol was adapted to the NTP symmetric design, which requires four state variables rather than two. It is described on [Timestamp Capture Principles](/reflib/stamp/). This might be an interesting project for future research.
 
-A detailed study of the timestamp capture opportunities for both hardware and software timestamping revealed that the most accurate and interoperable design involves the transmit timestamp at the beginning of the packet and then receive timestamp at the end. This makes it possible to accurately measure the offset and delay even if the ends of the synchronization path operate at different rates. It is described on the [Timestamp Capture Principles](/reflib/stamp) page.
+A detailed study of the timestamp capture opportunities for both hardware and software timestamping revealed that the most accurate and interoperable design involves the transmit timestamp at the beginning of the packet and then receive timestamp at the end. This makes it possible to accurately measure the offset and delay even if the ends of the synchronization path operate at different rates. It is described on the [Timestamp Capture Principles](/reflib/stamp/) page.
 
 * * *
 

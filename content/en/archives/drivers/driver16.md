@@ -35,5 +35,5 @@ Most of this code is originally from `refclock_bancomm.c` with thanks. It has be
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
 
