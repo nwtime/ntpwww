@@ -12,13 +12,13 @@ date: "2016-11-21"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p9-release-announcement">4.2.8p9</a></td>
+		<td><a href="/support/securitynotice/4_2_8p9-release-announcement/">4.2.8p9</a></td>
 		<td>21 Nov 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3110">Bug 3110</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9312">CVE-2016-9312</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9312/">CVE-2016-9312</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -48,9 +48,9 @@ If a vulnerable instance of `ntpd` on Windows receives a crafted malicious packe
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info) 
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page) 
 * Implement a firewall rule blocking oversized NTP packets.
-* Upgrade to [4.2.8p9 or later.](/downloads)
+* Upgrade to [4.2.8p9 or later.](/downloads/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *
@@ -65,6 +65,6 @@ This weakness was discovered by Robert Pajak of ABB.
 
 * 2016 Nov 21: Public release
 * 2016 Nov 15: CERT given our software release notification 
-* 2016 Nov 14: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Nov 14: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Report received

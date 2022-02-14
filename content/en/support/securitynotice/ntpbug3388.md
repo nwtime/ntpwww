@@ -12,13 +12,13 @@ date: "2017-03-21"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p10-release-announcement">4.2.8p10</a></td>
+		<td><a href="/support/securitynotice/4_2_8p10-release-announcement/">4.2.8p10</a></td>
 		<td>21 Mar 2017</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3388">Bug 3388</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-6462">CVE-2017-6462</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-6462/">CVE-2017-6462</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -48,7 +48,7 @@ There is a potential for a buffer overflow in the legacy Datum Programmable Time
     
 #### Mitigation
 
-* If you have a Datum reference clock installed and think somebody may maliciously change the device, upgrade to [4.2.8p10 or later.](/downloads)
+* If you have a Datum reference clock installed and think somebody may maliciously change the device, upgrade to [4.2.8p10 or later.](/downloads/)
 * Properly monitor your `ntpd `instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *
@@ -62,6 +62,6 @@ This weakness was discovered by Cure53.
 #### Timeline
 
 * 2017 Mar 21: Public release
-* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2017 Feb 09: Mozilla/Cure53 audit received 

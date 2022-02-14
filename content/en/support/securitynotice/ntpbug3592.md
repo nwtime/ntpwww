@@ -12,13 +12,13 @@ date: "2020-03-03"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p14-release-announcement">4.2.8p14</a></td>
+		<td><a href="/support/securitynotice/4_2_8p14-release-announcement/">4.2.8p14</a></td>
 		<td>03 Mar 2020</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3592">Bug 3592</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-11868">CVE-2020-11868</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-11868/">CVE-2020-11868</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -50,7 +50,7 @@ The fix for [3445](https://bugs.ntp.org/show_bug.cgi?id=3445) introduced a bug w
 
 *  Use authentication with symmetric peers.
 * Have enough sources of time.
-* Upgrade to [4.2.8p14 or later](/downloads).
+* Upgrade to [4.2.8p14 or later](/downloads/).
 
 * * *
 
@@ -63,6 +63,6 @@ Reported by Miroslav Lichvar.
 #### Timeline
 
 * 2020 Mar 03: Public release
-* 2020 Feb 17: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2019 Jun 05: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2020 Feb 17: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2019 Jun 05: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2019 May 30: Notification from reporter

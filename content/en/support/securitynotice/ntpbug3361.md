@@ -12,13 +12,13 @@ date: "2017-03-21"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p10-release-announcement">4.2.8p10</a></td>
+		<td><a href="/support/securitynotice/4_2_8p10-release-announcement/">4.2.8p10</a></td>
 		<td>21 Mar 2017</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3361">Bug 3361</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9042">CVE-2016-9042</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9042/">CVE-2016-9042</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -48,9 +48,9 @@ An exploitable denial of service vulnerability exists in the origin timestamp ch
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info)
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Configure enough servers/peers that an attacker cannot target all of your time sources.
-* Upgrade to [4.2.8p10 or later.](/downloads) 
+* Upgrade to [4.2.8p10 or later.](/downloads/) 
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running.
 
 * * *
@@ -64,6 +64,6 @@ This weakness was discovered by Matthew Van Gundy of Cisco.
 #### Timeline
 
 * 2017 Mar 21: Public release
-* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2017 Feb 09: Mozilla/Cure53 audit received

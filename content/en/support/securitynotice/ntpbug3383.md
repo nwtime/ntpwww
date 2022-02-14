@@ -12,13 +12,13 @@ date: "2017-03-21"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p10-release-announcement">4.2.8p10</a></td>
+		<td><a href="/support/securitynotice/4_2_8p10-release-announcement/">4.2.8p10</a></td>
 		<td>21 Mar 2017</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3383">Bug 3383</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-6452">CVE-2017-6452</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-6452/">CVE-2017-6452</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -48,7 +48,7 @@ The Windows installer for NTP calls `strcat()`, blindly appending the string pas
     
 #### Mitigation
 
-* Upgrade to [4.2.8p10 or later.](/downloads)
+* Upgrade to [4.2.8p10 or later.](/downloads/)
 
 * * *
 
@@ -61,6 +61,6 @@ This weakness was discovered by Cure53.
 #### Timeline
 
 * 2017 Mar 21: Public release
-* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2017 Feb 09: Mozilla/Cure53 audit received

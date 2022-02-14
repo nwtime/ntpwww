@@ -12,13 +12,13 @@ date: "2018-02-27"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p11-release-announcement">4.2.8p11</a></td>
+		<td><a href="/support/securitynotice/4_2_8p11-release-announcement/">4.2.8p11</a></td>
 		<td>27 Feb 2018</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3415">Bug 3415</a><br> also see: <a href="https://bugs.ntp.org/show_bug.cgi?id=3012">Bug 3012</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170">CVE-2018-7170</a><br> also see: <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1549">CVE-2016-1549</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170/">CVE-2018-7170</a><br> also see: <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1549/">CVE-2016-1549</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -48,8 +48,8 @@ date: "2018-02-27"
     
 #### Mitigation
 
-* Implement [BCP-38](http://www.bcp38.info).
-* Upgrade to [ntp-4.2.8p11 or later](/downloads).
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
+* Upgrade to [ntp-4.2.8p11 or later](/downloads/).
 * Use the `noepeer` directive to prohibit symmetric passive ephemeral associations.
 * Use the `ippeerlimit` directive to limit the number of peers that can be created from an IP.
 * Use the 4th argument in the `ntp.keys` file to limit the IPs and subnets that can be time servers.
@@ -68,6 +68,6 @@ This weakness was reported as [Bug 3012](https://bugs.ntp.org/show_bug.cgi?id=30
 #### Timeline
 
 * 2018 Feb 27: Public release
-* 2018 Feb 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2018 Jan 23: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2018 Feb 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2018 Jan 23: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Notification from reporter

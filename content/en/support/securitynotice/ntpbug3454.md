@@ -12,13 +12,13 @@ date: "2018-02-27"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p11-release-announcement">4.2.8p11</a></td>
+		<td><a href="/support/securitynotice/4_2_8p11-release-announcement/">4.2.8p11</a></td>
 		<td>27 Feb 2018</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3454">Bug 3454</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7185">CVE-2018-7185</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7185/">CVE-2018-7185</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -48,8 +48,8 @@ The NTP Protocol allows for both non-authenticated and authenticated association
     
 #### Mitigation
 
-* Implement [BCP-38](http://www.bcp38.info).
-* Upgrade to [4.2.8p11 or later](/downloads).
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
+* Upgrade to [4.2.8p11 or later](/downloads/).
 * If you are unable to upgrade to 4.2.8p11 or later and have `peer HOST xleave` lines in your `ntp.conf` file, remove the `xleave` option.
 * Have enough sources of time.
 * Properly monitor your `ntpd` instances.
@@ -66,5 +66,5 @@ This weakness was discovered by Miroslav Lichvar of Red Hat.
 #### Timeline
 
 * 2018 Feb 27: Public release
-* 2018 Feb 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2018 Feb 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2018 Feb 05: Notification from reporter
