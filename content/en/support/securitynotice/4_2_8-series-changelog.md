@@ -33,7 +33,7 @@ type: archives
 
 **Release Date:** 2020 Jun 23
 
-* [Sec 3661: memory leak with AES128CMAC keys](/support/securitynotice/ntpbug3661)
+* [Sec 3661: memory leak with AES128CMAC keys](/support/securitynotice/ntpbug3661/)
 * [Bug 3670: Regression from bad merge of 3592 and 3596](https://bugs.ntp.org/show_bug.cgi?id=3670)
   - fixed a bad merge that happened before 4.2.8-p14
 * [Bug 3667: decodenetnum fails with numeric port](https://bugs.ntp.org/show_bug.cgi?id=3667)
@@ -62,11 +62,11 @@ type: archives
 
 **Release Date:** 2020 Mar 3
 
-* [Sec 3610: process_control() should bail earlier on short packets](/support/securitynotice/ntpbug3610)
+* [Sec 3610: process_control() should bail earlier on short packets](/support/securitynotice/ntpbug3610/)
   - Reported by Philippe Antoine
-* [Sec 3596: Highly predictable timestamp attack](/support/securitynotice/ntpbug3596)
+* [Sec 3596: Highly predictable timestamp attack](/support/securitynotice/ntpbug3596/)
   - Reported by Miroslav Lichvar
-* [Sec 3592: DoS attack on client ntpd](/support/securitynotice/ntpbug3592)
+* [Sec 3592: DoS attack on client ntpd](/support/securitynotice/ntpbug3592/)
   - Reported by Miroslav Lichvar
 * [Bug 3637: Emit the version of ntpd in saveconfig](https://bugs.ntp.org/show_bug.cgi?id=3637)
 * [Bug 3636: NMEA: combine time/date from multiple sentences](https://bugs.ntp.org/show_bug.cgi?id=3636)
@@ -158,7 +158,7 @@ type: archives
 
 **Release Date:** 2019 Mar 7
 
-* [Sec 3565: Crafted null dereference attack in authenticated mode 6 packet](/support/securitynotice/ntpbug3565)
+* [Sec 3565: Crafted null dereference attack in authenticated mode 6 packet](/support/securitynotice/ntpbug3565/)
   - reported by Magnus Stubman
 * [Bug 3560: Fix build when HAVE_DROPROOT is not defined](https://bugs.ntp.org/show_bug.cgi?id=3560)
   - applied patch by Ian Lepore
@@ -202,9 +202,9 @@ type: archives
 
 **Release Date:** 2018 Aug 14
 
-* [Sec 3505: CVE-2018-12327 - Arbitrary Code Execution Vulnerability](/support/securitynotice/ntpbug3505)
+* [Sec 3505: CVE-2018-12327 - Arbitrary Code Execution Vulnerability](/support/securitynotice/ntpbug3505/)
   - fixed stack buffer overflow in the `openhost()` command-line call of `ntpq/ntpdc`
-* [Sec 3012: noepeer tweaks](/support/securitynotice/ntpbug3012p12)
+* [Sec 3012: noepeer tweaks](/support/securitynotice/ntpbug3012p12/)
 * [Bug 3521: Fix a logic bug in the INVALIDNAK checks](https://bugs.ntp.org/show_bug.cgi?id=3521)
 * [Bug 3509: Add support for running as non-root on FreeBSD, Darwin, other TrustedBSD platforms](https://bugs.ntp.org/show_bug.cgi?id=3509)
   - applied patch by Ian Lepore
@@ -267,14 +267,14 @@ type: archives
 
 **Release Date:** 2018 Feb 27
 
-* [Sec 3454: Unauthenticated packet can reset authenticated interleave associations](/support/securitynotice/ntpbug3454)
-* [Sec 3453: Interleaved symmetric mode cannot recover from bad state](/support/securitynotice/ntpbug3453)
-* [Sec 3415: Permit blocking authenticated symmetric/passive associations](/support/securitynotice/ntpbug3415)
+* [Sec 3454: Unauthenticated packet can reset authenticated interleave associations](/support/securitynotice/ntpbug3454/)
+* [Sec 3453: Interleaved symmetric mode cannot recover from bad state](/support/securitynotice/ntpbug3453/)
+* [Sec 3415: Permit blocking authenticated symmetric/passive associations](/support/securitynotice/ntpbug3415/)
   - Implement ippeerlimit
-* [Sec 3414: ntpq: decodearr() can write beyond its 'buf' limits](/support/securitynotice/ntpbug3414)
+* [Sec 3414: ntpq: decodearr() can write beyond its 'buf' limits](/support/securitynotice/ntpbug3414/)
   - initial patch by Harlan Stenn, extended by JPerlinger
-* [Sec 3412: ctl_getitem(): Don't compare names past NUL](/support/securitynotice/ntpbug3412)
-* [Sec 3012: Sybil vulnerability: noepeer support](/support/securitynotice/ntpbug3012)
+* [Sec 3412: ctl_getitem(): Don't compare names past NUL](/support/securitynotice/ntpbug3412/)
+* [Sec 3012: Sybil vulnerability: noepeer support](/support/securitynotice/ntpbug3012/)
 * [Bug 3457: OpenSSL FIPS mode regression](https://bugs.ntp.org/show_bug.cgi?id=3457)
 * [Bug 3455: ntpd doesn't use scope id when binding multicast](https://bugs.ntp.org/show_bug.cgi?id=3455)
  - applied patch by Sean Haugh 
@@ -368,20 +368,20 @@ type: archives
 
 **Release Date:** 2017 Mar 21
 
-* [Sec 3389: NTP-01-016: Denial of Service via Malformed Config](/support/securitynotice/ntpbug3389)
-* [Sec 3388: NTP-01-014: Buffer Overflow in DPTS Clock](/support/securitynotice/ntpbug3388)
-* [Sec 3387: NTP-01-012: Authenticated DoS via Malicious Config Option](/support/securitynotice/ntpbug3387)
-* [Sec 3386: NTP-01-011: ntpq_stripquotes() returns incorrect Value](/support/securitynotice/ntpbug3386)
-* [Sec 3385: NTP-01-010: ereallocarray()/eallocarray() underused](/support/securitynotice/ntpbug3385)
-* [Sec 3384: NTP-01-009: Privileged execution of User Library code](/support/securitynotice/ntpbug3384)
-* [Sec 3383: NTP-01-008: Stack Buffer Overflow from Command Line](/support/securitynotice/ntpbug3383)
-* [Sec 3382: NTP-01-007: Data Structure terminated insufficiently](/support/securitynotice/ntpbug3382)
-* [Sec 3380: NTP-01-005: Off-by-one in Oncore GPS Receiver](/support/securitynotice/ntpbug3380)
-* [Sec 3379: NTP-01-004: Potential Overflows in ctl_put() functions](/support/securitynotice/ntpbug3379)
-* [Sec 3378: NTP-01-003: Improper use of snprintf() in mx4200_send()](/support/securitynotice/ntpbug3378)
-* [Sec 3377: NTP-01-002: Buffer Overflow in ntpq when fetching reslist](/support/securitynotice/ntpbug3377)
-* [Sec 3376: Support build "hardening" flags](/support/securitynotice/ntpbug3376)
-* [Sec 3361: 0rigin (zero origin) DoS](/support/securitynotice/ntpbug3361)
+* [Sec 3389: NTP-01-016: Denial of Service via Malformed Config](/support/securitynotice/ntpbug3389/)
+* [Sec 3388: NTP-01-014: Buffer Overflow in DPTS Clock](/support/securitynotice/ntpbug3388/)
+* [Sec 3387: NTP-01-012: Authenticated DoS via Malicious Config Option](/support/securitynotice/ntpbug3387/)
+* [Sec 3386: NTP-01-011: ntpq_stripquotes() returns incorrect Value](/support/securitynotice/ntpbug3386/)
+* [Sec 3385: NTP-01-010: ereallocarray()/eallocarray() underused](/support/securitynotice/ntpbug3385/)
+* [Sec 3384: NTP-01-009: Privileged execution of User Library code](/support/securitynotice/ntpbug3384/)
+* [Sec 3383: NTP-01-008: Stack Buffer Overflow from Command Line](/support/securitynotice/ntpbug3383/)
+* [Sec 3382: NTP-01-007: Data Structure terminated insufficiently](/support/securitynotice/ntpbug3382/)
+* [Sec 3380: NTP-01-005: Off-by-one in Oncore GPS Receiver](/support/securitynotice/ntpbug3380/)
+* [Sec 3379: NTP-01-004: Potential Overflows in ctl_put() functions](/support/securitynotice/ntpbug3379/)
+* [Sec 3378: NTP-01-003: Improper use of snprintf() in mx4200_send()](/support/securitynotice/ntpbug3378/)
+* [Sec 3377: NTP-01-002: Buffer Overflow in ntpq when fetching reslist](/support/securitynotice/ntpbug3377/)
+* [Sec 3376: Support build "hardening" flags](/support/securitynotice/ntpbug3376/)
+* [Sec 3361: 0rigin (zero origin) DoS](/support/securitynotice/ntpbug3361/)
 * [Bug 3393: clang scan-build findings](https://bugs.ntp.org/show_bug.cgi?id=3393)
 * [Bug 3363: Support for openssl-1.1.0 without compatibility modes](https://bugs.ntp.org/show_bug.cgi?id=3363)
   - rework of patch set from ntp.org@eroen.eu.
@@ -431,20 +431,20 @@ type: archives
 
 **Release Date:** 2016 Nov 21
 
-* [Sec 3119: Trap crash](/support/securitynotice/ntpbug3119)
-* [Sec 3118: Mode 6 information disclosure and DDoS vector](/support/securitynotice/ntpbug3118)
+* [Sec 3119: Trap crash](/support/securitynotice/ntpbug3119/)
+* [Sec 3118: Mode 6 information disclosure and DDoS vector](/support/securitynotice/ntpbug3118/)
   - TRAP config via mode 6 packet requires `AUTH` now.
-* [Sec 3114: Broadcast Mode Replay Prevention DoS](/support/securitynotice/ntpbug3114)
+* [Sec 3114: Broadcast Mode Replay Prevention DoS](/support/securitynotice/ntpbug3114/)
   - applied patches by Matthew Van Gundy.
   - with `bcpollbstep`, tweaks and cleanup
-* [Sec 3113: Broadcast Mode Poll Interval Enforcement DoS](/support/securitynotice/ntpbug3113)
+* [Sec 3113: Broadcast Mode Poll Interval Enforcement DoS](/support/securitynotice/ntpbug3113/)
   - applied fix as suggested by Matthew Van Gundy
-* [Sec 3110: Windows: ntpd DoS by oversized UDP packet](/support/securitynotice/ntpbug3110)
+* [Sec 3110: Windows: ntpd DoS by oversized UDP packet](/support/securitynotice/ntpbug3110/)
   - fixed error handling for truncated UDP packets.
-* [Sec 3102: Zero origin issues](/support/securitynotice/ntpbug3102)
-* [Sec 3082: null pointer dereference in _IO_str_init_static_internal()](/support/securitynotice/ntpbug3082)
+* [Sec 3102: Zero origin issues](/support/securitynotice/ntpbug3102/)
+* [Sec 3082: null pointer dereference in _IO_str_init_static_internal()](/support/securitynotice/ntpbug3082/)
   - more hardening to `read_mru_list()`.
-* [Sec 3072: Attack on interface selection](/support/securitynotice/ntpbug3072)
+* [Sec 3072: Attack on interface selection](/support/securitynotice/ntpbug3072/)
   - implemented Miroslav Lichvar's suggestion to skip interface updates based on incoming packets
 * [Bug 3142: bug in netmask prefix length detection](https://bugs.ntp.org/show_bug.cgi?id=3142)
 * [Bug 3138: gpsdjson refclock should honor fudgetime1](https://bugs.ntp.org/show_bug.cgi?id=3138)
@@ -496,12 +496,12 @@ type: archives
 
 **Release Date:** 2016 Jun 2
 
-* [Sec 3042: Broadcast Interleave](/support/securitynotice/ntpbug3042)
-* [Sec 3043: Autokey association reset](/support/securitynotice/ntpbug3043)
+* [Sec 3042: Broadcast Interleave](/support/securitynotice/ntpbug3042/)
+* [Sec 3043: Autokey association reset](/support/securitynotice/ntpbug3043/)
   - validate origin timestamps on bad MACs, too
-* [Sec 3044: Spoofed server packets are partially processed](/support/securitynotice/ntpbug3044)
-* [Sec 3045: Bad authentication demobilizes ephemeral associations](/support/securitynotice/ntpbug3045)
-* [Sec 3046: CRYPTO_NAK crash](/support/securitynotice/ntpbug3046)
+* [Sec 3044: Spoofed server packets are partially processed](/support/securitynotice/ntpbug3044/)
+* [Sec 3045: Bad authentication demobilizes ephemeral associations](/support/securitynotice/ntpbug3045/)
+* [Sec 3046: CRYPTO_NAK crash](/support/securitynotice/ntpbug3046/)
 * [Bug 3038: NTP fails to build in VS2015](https://bugs.ntp.org/show_bug.cgi?id=3038)
   - provide build environment
   - `wint_t` and `struct timespec` defined by VS2015
@@ -520,21 +520,21 @@ type: archives
 
 **Release Date:** 2016 Apr 26
 
-* [Sec 2901: KoD packets must have non-zero transmit timestamps](/support/securitynotice/ntpbug2901)
-* [Sec 2936: Skeleton Key: Any system knowing the trusted key can serve time. Include passive servers in this check](/support/securitynotice/ntpbug2936)
-* [Sec 2945: Additional KoD packet checks](/support/securitynotice/ntpbug2945)
-* [Sec 2978: Interleave can be partially triggered](/support/securitynotice/ntpbug2978)
-* [Sec 3007: Validate crypto-NAKs](/support/securitynotice/ntpbug3007)
-* [Sec 3008: Always check the return value of ctl_getitem()](/support/securitynotice/ntpbug3008)
+* [Sec 2901: KoD packets must have non-zero transmit timestamps](/support/securitynotice/ntpbug2901/)
+* [Sec 2936: Skeleton Key: Any system knowing the trusted key can serve time. Include passive servers in this check](/support/securitynotice/ntpbug2936/)
+* [Sec 2945: Additional KoD packet checks](/support/securitynotice/ntpbug2945/)
+* [Sec 2978: Interleave can be partially triggered](/support/securitynotice/ntpbug2978/)
+* [Sec 3007: Validate crypto-NAKs](/support/securitynotice/ntpbug3007/)
+* [Sec 3008: Always check the return value of ctl_getitem()](/support/securitynotice/ntpbug3008/)
   - initial work by HStenn
   - Additional cleanup of `ctl_getitem` by JPerlinger
-* [Sec 3009: Crafted addpeer with hmode > 7 causes OOB error](/support/securitynotice/ntpbug3009)
+* [Sec 3009: Crafted addpeer with hmode > 7 causes OOB error](/support/securitynotice/ntpbug3009/)
    - added more stringent checks on packet content
-* [Sec 3010: remote configuration trustedkey/requestkey values are not properly validated](/support/securitynotice/ntpbug3010)
+* [Sec 3010: remote configuration trustedkey/requestkey values are not properly validated](/support/securitynotice/ntpbug3010/)
   - sidekick: Ignore keys that have an unsupported MAC algorithm but are otherwise well-formed
-* [Sec 3011: Duplicate IPs on unconfig directives will cause an assertion botch](/support/securitynotice/ntpbug3011)
+* [Sec 3011: Duplicate IPs on unconfig directives will cause an assertion botch](/support/securitynotice/ntpbug3011/)
   - graciously accept the same IP multiple times.
-* [Sec 3020: Refclock impersonation](/support/securitynotice/ntpbug3020)
+* [Sec 3020: Refclock impersonation](/support/securitynotice/ntpbug3020/)
 * [Bug 2831:  Segmentation Fault in DNS lookup during startup](https://bugs.ntp.org/show_bug.cgi?id=2831)
   - fixed yet another race condition in the threaded resolver code.
 * [Bug 2858: bool support.  Use stdbool.h when available](https://bugs.ntp.org/show_bug.cgi?id=2858)
@@ -575,15 +575,15 @@ type: archives
 
 **Release Date:** 2016 Jan 20
 
-* [Sec 2935: Deja Vu: Replay attack on authenticated broadcast mode](/support/securitynotice/ntpbug2935)
-* [Sec 2936: Skeleton Key: Any trusted key system can serve time](/support/securitynotice/ntpbug2936)
-* [Sec 2937: ntpq: nextvar() missing length check](/support/securitynotice/ntpbug2937)
-* [Sec 2938: ntpq saveconfig command allows dangerous characters in filenames](/support/securitynotice/ntpbug2938)
-* [Sec 2939: reslist NULL pointer dereference](/support/securitynotice/ntpbug2939)
-* [Sec 2940: Stack exhaustion in recursive traversal of restriction list](/support/securitynotice/ntpbug2940)
-* [Sec 2942: Off-path DoS attack on auth broadcast mode](/support/securitynotice/ntpbug2942)
-* [Sec 2945: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug2945)
-* [Sec 2948: Potential Infinite Loop in ntpq ( and ntpdc)](/support/securitynotice/ntpbug2948)
+* [Sec 2935: Deja Vu: Replay attack on authenticated broadcast mode](/support/securitynotice/ntpbug2935/)
+* [Sec 2936: Skeleton Key: Any trusted key system can serve time](/support/securitynotice/ntpbug2936/)
+* [Sec 2937: ntpq: nextvar() missing length check](/support/securitynotice/ntpbug2937/)
+* [Sec 2938: ntpq saveconfig command allows dangerous characters in filenames](/support/securitynotice/ntpbug2938/)
+* [Sec 2939: reslist NULL pointer dereference](/support/securitynotice/ntpbug2939/)
+* [Sec 2940: Stack exhaustion in recursive traversal of restriction list](/support/securitynotice/ntpbug2940/)
+* [Sec 2942: Off-path DoS attack on auth broadcast mode](/support/securitynotice/ntpbug2942/)
+* [Sec 2945: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug2945/)
+* [Sec 2948: Potential Infinite Loop in ntpq ( and ntpdc)](/support/securitynotice/ntpbug2948/)
 * [Bug 2772: adj_systime overflows tv_usec](https://bugs.ntp.org/show_bug.cgi?id=2772)
 * [Bug 2814: msyslog deadlock when signaled](https://bugs.ntp.org/show_bug.cgi?id=2814)
   - applied patch by shenpeng11@huawei.com with minor adjustments
@@ -609,7 +609,7 @@ type: archives
 
 **Release Date:** 2016 Jan 7
 
-* [Sec 2956: small-step/big-step.  Close the panic gate earlier](/support/securitynotice/ntpbug2956)
+* [Sec 2956: small-step/big-step.  Close the panic gate earlier](/support/securitynotice/ntpbug2956/)
 * CID 1339955: Free allocated memory in `caljulian` test.
 * CID 1339962: Explicitly initialize variable in `caljulian` test.
 * CID 1341527: Quiet a `CHECKED_RETURN` in `sntp/tests/t-log.c`.
@@ -668,20 +668,20 @@ type: archives
 
 **Release Date:** 2015 Oct 21
 
-* [Sec 1918: TALOS-CAN-0062: prevent directory traversal for VMS, too, when using `saveconfig` command](/support/securitynotice/ntpbug2918)
-* [Sec 2899: CVE-2014-9297](/support/securitynotice/ntpbug2899)
-* [Sec 2901: Drop invalid packet before checking KoD. Check for all KoDs](/support/securitynotice/ntpbug2901)
+* [Sec 1918: TALOS-CAN-0062: prevent directory traversal for VMS, too, when using `saveconfig` command](/support/securitynotice/ntpbug2918/)
+* [Sec 2899: CVE-2014-9297](/support/securitynotice/ntpbug2899/)
+* [Sec 2901: Drop invalid packet before checking KoD. Check for all KoDs](/support/securitynotice/ntpbug2901/)
   - Log incoming packets that fail TEST2.
-* [Sec 2902: configuration directives "pidfile" and "driftfile" should be local-only](/support/securitynotice/ntpbug2902)
-* [Sec 2909: added missing call to 'free()' in ntp_crypto.c](/support/securitynotice/ntpbug2909)
-* [Sec 2913: TALOS-CAN-0052: crash by loop counter underrun](/support/securitynotice/ntpbug2913)
-* [Sec 2916: TALOS-CAN-0054: memory corruption in password store](/support/securitynotice/ntpbug2916)
-* [Sec 2917: TALOS-CAN-0055: Infinite loop if extended logging enabled and the logfile and keyfile are the same](/support/securitynotice/ntpbug2917)
-* [Sec 2919: TALOS-CAN-0063: avoid buffer overrun in ntpq](/support/securitynotice/ntpbug2919)
-* [Sec 2920: TALOS-CAN-0064: signed/unsiged clash could lead to buffer overun and memory corruption](/support/securitynotice/ntpbug2920)
-* [Sec 2921: TALOS-CAN-0065: password length memory corruption](/support/securitynotice/ntpbug2921)
-* [Sec 2922: decodenetnum() will ASSERT botch instead of returning FAIL on some bogus values](/support/securitynotice/ntpbug2922)
-* [Sec 2941: NAK to the Future: Symmetric association authentication bypass via crypto-NAK](/support/securitynotice/ntpbug2941)
+* [Sec 2902: configuration directives "pidfile" and "driftfile" should be local-only](/support/securitynotice/ntpbug2902/)
+* [Sec 2909: added missing call to 'free()' in ntp_crypto.c](/support/securitynotice/ntpbug2909/)
+* [Sec 2913: TALOS-CAN-0052: crash by loop counter underrun](/support/securitynotice/ntpbug2913/)
+* [Sec 2916: TALOS-CAN-0054: memory corruption in password store](/support/securitynotice/ntpbug2916/)
+* [Sec 2917: TALOS-CAN-0055: Infinite loop if extended logging enabled and the logfile and keyfile are the same](/support/securitynotice/ntpbug2917/)
+* [Sec 2919: TALOS-CAN-0063: avoid buffer overrun in ntpq](/support/securitynotice/ntpbug2919/)
+* [Sec 2920: TALOS-CAN-0064: signed/unsiged clash could lead to buffer overun and memory corruption](/support/securitynotice/ntpbug2920/)
+* [Sec 2921: TALOS-CAN-0065: password length memory corruption](/support/securitynotice/ntpbug2921/)
+* [Sec 2922: decodenetnum() will ASSERT botch instead of returning FAIL on some bogus values](/support/securitynotice/ntpbug2922/)
+* [Sec 2941: NAK to the Future: Symmetric association authentication bypass via crypto-NAK](/support/securitynotice/ntpbug2941/)
 * [Bug 2332: (reopened) Exercise thread cancellation once before dropping privileges and limiting resources in NTPD removes the need to link forcefully against `libgcc_s` which does not always work](https://bugs.ntp.org/show_bug.cgi?id=2332)
 * [Bug 2595: ntpdate man page quirks](https://bugs.ntp.org/show_bug.cgi?id=2595)
 * [Bug 2625: Deprecate flag1 in local refclock](https://bugs.ntp.org/show_bug.cgi?id=2625)
@@ -790,7 +790,7 @@ type: archives
 
 **Release Date:** 2015 Jun 29
 
-* [Sec 2853: Crafted remote config packet can crash some versions of ntpd](/support/securitynotice/ntpbug2853)
+* [Sec 2853: Crafted remote config packet can crash some versions of ntpd](/support/securitynotice/ntpbug2853/)
   - Initial work on `tests/sec-2853/`.
 * [Bug 1060: Buffer overruns in libparse/clk_rawdcf.c](https://bugs.ntp.org/show_bug.cgi?id=1060)
 * [Bug 2846: Report 'unsynchronized' status during the leap second](https://bugs.ntp.org/show_bug.cgi?id=2846)
@@ -932,8 +932,8 @@ type: archives
 
 **Release Date:** 2015 Mar 30
 
-* [Sec 2779: ntpd accepts unauthenticated packets with symmetric key crypto](/support/securitynotice/ntpbug2779)
-* [Sec 2781: Authentication doesn't protect symmetric associations against DoS attacks](/support/securitynotice/ntpbug2781)
+* [Sec 2779: ntpd accepts unauthenticated packets with symmetric key crypto](/support/securitynotice/ntpbug2779/)
+* [Sec 2781: Authentication doesn't protect symmetric associations against DoS attacks](/support/securitynotice/ntpbug2781/)
 * [Bug 2794: Don't let reports on normal kernel status changes look like errors](https://bugs.ntp.org/show_bug.cgi?id=2794)
 * [Bug 2788: New flag -G (force_step_once)](https://bugs.ntp.org/show_bug.cgi?id=2788)
 * [Bug 2592: Account for PPS sources which can provide an accurate absolute time stamp, and status information](https://bugs.ntp.org/show_bug.cgi?id=2592)
@@ -981,7 +981,7 @@ type: archives
 **Release Date:** 2015 Feb 04
 
 * Update the `NEWS` file.
-* [Sec 2671: vallen in extension fields are not validated](/support/securitynotice/ntpbug2671)
+* [Sec 2671: vallen in extension fields are not validated](/support/securitynotice/ntpbug2671/)
 
 #### 4.2.8p1-RC2
 
@@ -1002,7 +1002,7 @@ type: archives
 
 **Release Date:** 2015 Jan 24
 
-* [Sec 2672: Code cleanup: On some OSes ::1 can be spoofed](/support/securitynotice/ntpbug2672)
+* [Sec 2672: Code cleanup: On some OSes ::1 can be spoofed](/support/securitynotice/ntpbug2672/)
 * [Bug 2187: Update version number generation scripts](https://bugs.ntp.org/show_bug.cgi?id=2187)
 * [Bug 2617: Fix sntp Usage documentation section](https://bugs.ntp.org/show_bug.cgi?id=2617)
 * [Bug 2736: Show error message if we cannot open the config file](https://bugs.ntp.org/show_bug.cgi?id=2736)
@@ -1053,7 +1053,7 @@ type: archives
 
 **Release Date:** 2014 Dec 23
 
-* [Sec 2672: On some OSes ::1 can be spoofed, bypassing source IP ACLs](/support/securitynotice/ntpbug2672)
+* [Sec 2672: On some OSes ::1 can be spoofed, bypassing source IP ACLs](/support/securitynotice/ntpbug2672/)
 * [Bug 2693: ntp-keygen doesn't build without OpenSSL](https://bugs.ntp.org/show_bug.cgi?id=2693)
 * [Bug 2697: IN6_IS_ADDR_LOOPBACK build problems on some OSes](https://bugs.ntp.org/show_bug.cgi?id=2697)
 * [Bug 2699: HAVE_SYS_SELECT_H is misspelled in refclock_gpsdjson.c](https://bugs.ntp.org/show_bug.cgi?id=2699)
@@ -1063,13 +1063,13 @@ type: archives
 **Release Date:** 2014 Dec 19
 
 * [Sec 730: Increase `RSA_generate_key` modulus](https://bugs.ntp.org/show_bug.cgi?id=730) / [CVE-2006-4339](https://nvd.nist.gov/vuln/detail/CVE-2006-4339)
-* [Sec 2666: Use cryptographic random numbers for md5 key generation](/support/securitynotice/ntpbug2666)
-* [Sec 2667: buffer overflow in `crypto_recv()`](/support/securitynotice/ntpbug2667)
-* [Sec 2668: buffer overflow in `ctl_putdata()`](/support/securitynotice/ntpbug2668)
-* [Sec 2669: buffer overflow in `configure()`](/support/securitynotice/ntpbug2669)
-* [Sec 2670: Missing return; from error clause](/support/securitynotice/ntpbug2670)
-* [Sec 2671: `vallen` in extension fields are not validated](/support/securitynotice/ntpbug2671)
-* [Sec 2672: On some OSes ::1 can be spoofed, bypassing source IP ACLs](/support/securitynotice/ntpbug2672)
+* [Sec 2666: Use cryptographic random numbers for md5 key generation](/support/securitynotice/ntpbug2666/)
+* [Sec 2667: buffer overflow in `crypto_recv()`](/support/securitynotice/ntpbug2667/)
+* [Sec 2668: buffer overflow in `ctl_putdata()`](/support/securitynotice/ntpbug2668/)
+* [Sec 2669: buffer overflow in `configure()`](/support/securitynotice/ntpbug2669/)
+* [Sec 2670: Missing return; from error clause](/support/securitynotice/ntpbug2670/)
+* [Sec 2671: `vallen` in extension fields are not validated](/support/securitynotice/ntpbug2671/)
+* [Sec 2672: On some OSes ::1 can be spoofed, bypassing source IP ACLs](/support/securitynotice/ntpbug2672/)
 * [Sec 2630: buffer overrun in `ntpq tokenize()`](https://bugs.ntp.org/show_bug.cgi?id=2630)
   - Limit the `ntpq` command buffer to 512 bytes.
 * [Sec 2542: Strengthen the `mrulist` nonce](https://bugs.ntp.org/show_bug.cgi?id=2542)

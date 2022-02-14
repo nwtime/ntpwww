@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/alice47.gif)
 
-from [_Alice's Adventures in Wonderland_](/reflib/pictures), Lewis Carroll
+from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 Public transport in Oz
 
@@ -44,15 +44,15 @@ This document explores their individual characteristics, accuracy expectations a
 
 Harware Timestamps
 
-: NTP requires no hardware provisions to capture timestamps other than a typical Unix timer interrupt or counter/timer motherboard chip. PTP normally includes hardware provisions in the servers, clients and switches to capture timestamps upon the passage of an Ethernet frame at the physical layer. Further information about timestamping for both NTP and PTP can be found in the white paper [Timestamp Capture Principles](/reflib/stamp).
+: NTP requires no hardware provisions to capture timestamps other than a typical Unix timer interrupt or counter/timer motherboard chip. PTP normally includes hardware provisions in the servers, clients and switches to capture timestamps upon the passage of an Ethernet frame at the physical layer. Further information about timestamping for both NTP and PTP can be found in the white paper [Timestamp Capture Principles](/reflib/stamp/).
 
 On-Wire Protocol
 
-: The PTP on-wire protocol operates primarily in a broadcast mode where a grandmaster provides synchronization to multiple clients sharing the same network. Alternatively, the protocol can operate in a master/slave mode, where each client synchrhronizes to the grandmaster using a separate client/server message exchange. The NTP on-wire protocol can operate in broadcast, as well as master/slave, and symmetric modes where one or more primary servers provide synchronization to multiple clients on the same or different networks. This document is concerned primarily with broadcast configurations. Further information on NTP configurations can be found in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire).
+: The PTP on-wire protocol operates primarily in a broadcast mode where a grandmaster provides synchronization to multiple clients sharing the same network. Alternatively, the protocol can operate in a master/slave mode, where each client synchrhronizes to the grandmaster using a separate client/server message exchange. The NTP on-wire protocol can operate in broadcast, as well as master/slave, and symmetric modes where one or more primary servers provide synchronization to multiple clients on the same or different networks. This document is concerned primarily with broadcast configurations. Further information on NTP configurations can be found in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/).
 
 Timescale
 
-: The PTP timescale is defined in seconds and nanoseconds. While the PTP specification defines no particular timescale and origin, the common assumption is that the POSIX timescale with origin 1 January 1970 is used, with or without leap seconds. The NTP timescale is defined in seconds and fraction with origin 1 January 1900, as described in the white paper [NTP Timestamp Calculations](/reflib/time). Discussion on UTC leap seconds is in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap). Discussion on the extended NTP timescale and era considerations is in the white paper [The NTP Era and Era Numbering](/reflib/y2k).
+: The PTP timescale is defined in seconds and nanoseconds. While the PTP specification defines no particular timescale and origin, the common assumption is that the POSIX timescale with origin 1 January 1970 is used, with or without leap seconds. The NTP timescale is defined in seconds and fraction with origin 1 January 1900, as described in the white paper [NTP Timestamp Calculations](/reflib/time/). Discussion on UTC leap seconds is in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap/). Discussion on the extended NTP timescale and era considerations is in the white paper [The NTP Era and Era Numbering](/reflib/y2k/).
 
 Accuracy Expectations
 
@@ -72,7 +72,7 @@ Clock Discipline Algorithm
 
 Security
 
-: Both NTP and PTP can provide message security in the form of symmetric key cryptography. In addition, NTP can provide a variant of public key cryptography called Autokey <sup>[3](#myfootnote3)</sup>. Further information that applies in part to both PTP and NTP can be found in the white paper [NTP Security Analysis](/reflib/security).
+: Both NTP and PTP can provide message security in the form of symmetric key cryptography. In addition, NTP can provide a variant of public key cryptography called Autokey <sup>[3](#myfootnote3)</sup>. Further information that applies in part to both PTP and NTP can be found in the white paper [NTP Security Analysis](/reflib/security/).
 
 This document explores the technical issues implicit in the above. It characterizes PTP and NTP; in particular, the timestamp technology, on-wire protocol and discipline algorithms. It concludes with a discussion on NTP and PTP interoperability issues.
 
@@ -200,7 +200,7 @@ Since PTP is designed to operate in a relatively benign environment with low jit
 
 #### References
 
-<a name="myfootnote1">1</a>  Mills, D.L. [Network Time Synchronization - the Network Time Protocol on Earth and in Space](/reflib/book). CRC Press, 2011, 466 pp.
+<a name="myfootnote1">1</a>  Mills, D.L. [Network Time Synchronization - the Network Time Protocol on Earth and in Space](/reflib/book/). CRC Press, 2011, 466 pp.
 
 <a name="myfootnote2">2</a>  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments [RFC 5905](/reflib/rfc/rfc5905.txt), Internet Engineering Task Force, June 2010.
 

@@ -12,13 +12,13 @@ date: "2016-06-02"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p8-release-announcement">4.2.8p8</a></td>
+		<td><a href="/support/securitynotice/4_2_8p8-release-announcement/">4.2.8p8</a></td>
 		<td>02 June 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3045">Bug 3045</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-4953">CVE-2016-4953</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-4953/">CVE-2016-4953</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -49,7 +49,7 @@ An attacker who knows the origin timestamp and can send a spoofed packet contain
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info).
-* Upgrade to [4.2.8p8 or later](/downloads).
+* Upgrade to [4.2.8p8 or later](/downloads/).
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *
@@ -63,6 +63,6 @@ This weakness was discovered by Miroslav Lichvar of Red Hat.
 #### Timeline
 
 * 2016 Jun 02: Public release
-* 2016 May 24: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 May 24: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Report received

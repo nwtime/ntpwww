@@ -208,7 +208,7 @@ if (!doNotTrack) {
   	<h1>Autokey Identity Schemes</h1>
      
     <p><img src="/archives/pic/alautun4a.gif" alt="gif"></p>
-<p><a href="/reflib/maya">Maya glyph <em>alautun</em></a></p>
+<p><a href="/reflib/maya/">Maya glyph <em>alautun</em></a></p>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="/reflib/ident/#briefing-slides">Briefing Slides</a></li>
@@ -230,14 +230,14 @@ if (!doNotTrack) {
 <hr>
 <h4 id="related-pages">Related Pages</h4>
 <ul>
-<li><a href="/reflib/autocfg">Autonomous Configuration</a></li>
-<li><a href="/reflib/autokey">Autonomous Authentication</a></li>
-<li><a href="/reflib/proto">Autokey Protocol</a></li>
-<li><a href="/reflib/ident">Autokey Identity Schemes</a></li>
+<li><a href="/reflib/autocfg/">Autonomous Configuration</a></li>
+<li><a href="/reflib/autokey/">Autonomous Authentication</a></li>
+<li><a href="/reflib/proto/">Autokey Protocol</a></li>
+<li><a href="/reflib/ident/">Autokey Identity Schemes</a></li>
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>While the identity scheme described in <a href="/reflib/rfc/rfc2875.txt">RFC 2875</a> is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here. There are five schemes now implemented in Autokey to prove identity: (1) trusted certificates (TC), (2) private certificates (PC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). The TC scheme, which involves a certificate trail to a trusted host, is discussed on the <a href="/reflib/proto">Autokey Protocol</a> page. Each of the others involves generating parameters specific to the scheme, together with public and private values used by the scheme.</p>
+<p>While the identity scheme described in <a href="/reflib/rfc/rfc2875.txt">RFC 2875</a> is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here. There are five schemes now implemented in Autokey to prove identity: (1) trusted certificates (TC), (2) private certificates (PC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). The TC scheme, which involves a certificate trail to a trusted host, is discussed on the <a href="/reflib/proto/">Autokey Protocol</a> page. Each of the others involves generating parameters specific to the scheme, together with public and private values used by the scheme.</p>
 <p>In order to simplify implementation, each scheme uses existing structures in the OpenSSL library, including those for RSA and DSA cryptography. As these structures are sometimes used in ways far different than their original purpose, they are called cuckoo structures in the descriptions that follow.</p>
 <p><img src="/archives/pic/xchange.gif" alt="gif"></p>
 <p>In the challenge-response schemes client Alice asks server Bob to prove identity relative to a secret group key <em>b</em> provided by a trusted authority (TA). As shown in the figure above, client Alice rolls random <em>nonce1</em> and sends to server Bob. Bob rolls random <em>nonce2</em>, performs some mathematical function and returns the response along with the hash of some private value to Alice. Alice performs another mathematical function and verifies the result matches the hash in Bob&rsquo;s message.</p>

@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/rabbit.gif)
 
-from [_Alice's Adventures in Wonderland_](/reflib/pictures), Lewis Carroll
+from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 * * *
 
@@ -28,17 +28,17 @@ There are many points in common between NTP in the Internet and autonomous senso
 
 #### Approach
 
-There are two broad areas of effort on this project, each supporting the other, but funded as separate DARPA contracts. Each has its own project description, briefing slides and status reports. The [Autonomous Configuration](/reflib/autocfg) effort explores how a broadly distributed service such as NTP can be deployed and maintained autonomously in a very large network without manual configuration engineering. The [Autonomous Authentication](/reflib/autokey) effort explores how a autonomously configured NTP subnet can be cryptographically authenticated relative to certified public values. The technology developed can be reused for battlefield and planetary exploration missions and other protocols and services to be deployed in very large, ad hoc networks.
+There are two broad areas of effort on this project, each supporting the other, but funded as separate DARPA contracts. Each has its own project description, briefing slides and status reports. The [Autonomous Configuration](/reflib/autocfg/) effort explores how a broadly distributed service such as NTP can be deployed and maintained autonomously in a very large network without manual configuration engineering. The [Autonomous Authentication](/reflib/autokey/) effort explores how a autonomously configured NTP subnet can be cryptographically authenticated relative to certified public values. The technology developed can be reused for battlefield and planetary exploration missions and other protocols and services to be deployed in very large, ad hoc networks.
 
-A vital component of our research program is the [Internetworking Research Laboratory](/reflib/lab), [DCnet Research Network](/reflib/dcnet) and [CAIRN/DARTnet Collaboration](/reflib/dartnet). These provide connectivity between our collaborators as well as isolation from the Internet at large so we can conduct experiments in routing paradigms and traffic management without danger to the general Internet community.
+A vital component of our research program is the [Internetworking Research Laboratory](/reflib/lab), [DCnet Research Network](/reflib/dcnet/) and [CAIRN/DARTnet Collaboration](/reflib/dartnet/). These provide connectivity between our collaborators as well as isolation from the Internet at large so we can conduct experiments in routing paradigms and traffic management without danger to the general Internet community.
 
-As immediately evident in the project descriptions is the application of the developing technology to the [Network Time Synchronization Project](/reflib/ntp). While not funded specifically by this and related contracts, the Network Time Protocol (NTP) has been a highly useful testbed for distributed, self-organizing and secure applications in the Internet and ad hoc sensor networks.
+As immediately evident in the project descriptions is the application of the developing technology to the [Network Time Synchronization Project](/reflib/ntp/). While not funded specifically by this and related contracts, the Network Time Protocol (NTP) has been a highly useful testbed for distributed, self-organizing and secure applications in the Internet and ad hoc sensor networks.
 
 * * *
 
 #### Further Information
 
-*   [Autonomous Configuration](/reflib/autocfg)
-*   [Autonomous Authentication](/reflib/autokey)
-*   [Autokey Protocol](/reflib/proto)
-*   [Autokey Identity Schemes](/reflib/ident)
+*   [Autonomous Configuration](/reflib/autocfg/)
+*   [Autonomous Authentication](/reflib/autokey/)
+*   [Autokey Protocol](/reflib/proto/)
+*   [Autokey Identity Schemes](/reflib/ident/)

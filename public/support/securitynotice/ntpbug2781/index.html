@@ -253,13 +253,13 @@ if (!doNotTrack) {
 </table>
 <hr>
 <h4 id="description">Description</h4>
-<p>An attacker knowing that NTP hosts A and B are peering with each other (symmetric association) can send a packet to host A with source address of B which will set the NTP state variables on A to the values sent by the attacker. Host A will then send on its next poll to B a packet with originate timestamp that doesn&rsquo;t match the transmit timestamp of B and the packet will be dropped. If the attacker does this periodically for both hosts, they won&rsquo;t be able to synchronize to each other. This is a known denial-of-service attack, described in <a href="/reflib/onwire">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
+<p>An attacker knowing that NTP hosts A and B are peering with each other (symmetric association) can send a packet to host A with source address of B which will set the NTP state variables on A to the values sent by the attacker. Host A will then send on its next poll to B a packet with originate timestamp that doesn&rsquo;t match the transmit timestamp of B and the packet will be dropped. If the attacker does this periodically for both hosts, they won&rsquo;t be able to synchronize to each other. This is a known denial-of-service attack, described in <a href="/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
 <p>According to the document the NTP authentication is supposed to protect symmetric associations against this attack, but that doesn&rsquo;t seem to be the case. The state variables are updated even when authentication fails and the peers are sending packets with originate timestamps that don&rsquo;t match the transmit timestamps on the receiving side.</p>
 <p>This seems to be a very old problem, dating back to at least xntp3.3wy. It&rsquo;s also in the NTPv3 <a href="/reflib/rfc/rfc1305/rfc1305b.pdf">(RFC 1305)</a> and NTPv4 <a href="/reflib/rfc/rfc5905.txt">(RFC 5905)</a>) specifications, so other NTP implementations with support for symmetric associations and authentication may be vulnerable too. An update to the NTP RFC to correct this error is in-process.</p>
 <hr>
 <h4 id="mitigation">Mitigation</h4>
 <ul>
-<li>Upgrade to <a href="/downloads">4.2.8p2 or later.</a></li>
+<li>Upgrade to <a href="/downloads/">4.2.8p2 or later.</a></li>
 <li>Note that for users of autokey, this specific style of MITM attack is simply a long-known potential problem.</li>
 <li>Configure <code>ntpd</code> with appropriate time sources and monitor <code>ntpd</code>. Alert your staff if problems are detected.</li>
 </ul>
@@ -270,8 +270,8 @@ if (!doNotTrack) {
 <h4 id="timeline">Timeline</h4>
 <ul>
 <li>2015 Apr 7: Public release</li>
-<li>2015 Mar 22: <a href="https://www.nwtime.org/membership/benefits">Early Access Program Release: Premier and Partner Institutional Members</a></li>
-<li>2015 Mar 15: <a href="https://www.nwtime.org/membership/benefits">Notification to Institutional Members</a></li>
+<li>2015 Mar 22: <a href="https://www.nwtime.org/membership/benefits/">Early Access Program Release: Premier and Partner Institutional Members</a></li>
+<li>2015 Mar 15: <a href="https://www.nwtime.org/membership/benefits/">Notification to Institutional Members</a></li>
 <li>2015 Mar 6: Initial notification received; analysis begins</li>
 </ul>
 

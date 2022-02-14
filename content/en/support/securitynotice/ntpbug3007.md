@@ -12,13 +12,13 @@ date: "2016-04-26"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p7-release-announcement">4.2.8p7</a></td>
+		<td><a href="/support/securitynotice/4_2_8p7-release-announcement/">4.2.8p7</a></td>
 		<td>26 Apr 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3007">Bug 3007</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1547">CVE-2016-1547</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1547/">CVE-2016-1547</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -53,7 +53,7 @@ For ntp-4.2.8 thru ntp-4.2.8p6 there is less risk because more stringent checks 
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info).
-* Upgrade to [4.2.8p7 or later.](/downloads)
+* Upgrade to [4.2.8p7 or later.](/downloads/)
 * Properly monitor your `ntpd` instances. 
 
 * * *
@@ -67,6 +67,6 @@ This weakness was discovered by Stephen Gray and Matthew Van Gundy of Cisco ASIG
 #### Timeline
 
 * 2016 Apr 26: Public release
-* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2016 Jan 12: Initial notification from Cisco

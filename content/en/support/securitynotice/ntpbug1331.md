@@ -58,6 +58,6 @@ This vulnerability was discovered by Robin Park and Dmitri Vinokurov of Alcatel-
 #### Timeline
 
 * 2009 Dec 8: Public release
-* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * XXXX: Notification from reporter

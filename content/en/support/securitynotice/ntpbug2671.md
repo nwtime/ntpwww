@@ -45,7 +45,7 @@ The `vallen` packet value is not validated in several code paths in `ntp_crypto.
 
 Any of:
 
-* Upgrade to [4.2.8p1 or later](/downloads).
+* Upgrade to [4.2.8p1 or later](/downloads/).
 * Disable Autokey Authentication by removing, or commenting out, all configuration directives beginning with the `crypto` keyword in your `ntp.conf` file. 
 
 * * *
@@ -59,6 +59,6 @@ This vulnerability was discovered by Stephen Roettger of the Google Security Tea
 #### Timeline
 
 * 2015 Feb 4: Public release
-* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Initial notification received; analysis begins

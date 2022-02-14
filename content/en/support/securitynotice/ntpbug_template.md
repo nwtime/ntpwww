@@ -13,7 +13,7 @@ sitemap_exclude: true
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8pXX-release-announcement">RELEASE</a></td>
+		<td><a href="/support/securitynotice/4_2_8pXX-release-announcement/">RELEASE</a></td>
 		<td>DATE</td>
 	</tr>
 	<tr>
@@ -62,6 +62,6 @@ sitemap_exclude: true
 #### Timeline
 
 * XXXX: Public release
-* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * XXXX: Notification from reporter

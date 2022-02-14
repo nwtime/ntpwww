@@ -27,12 +27,11 @@ NTP makes use of Privileged Mode (PM) capability in order to bind to the NTP net
 
 NTP was ported using the `gcc` compiler.  Attempting to use the HP C/iX compiler is not recommended and has not been tested.
 
-Please note that NTP is not an HP product and is NOT supported by HP.  The best place for asking MPE-specific questions about NTP is the [HP3000-L mailing list](http://raven.utc.edu/Archives/hp3000-l.html) or the associated Usenet newsgroup of comp.sys.hp.mpe.
+Please note that NTP is not an HP product and is NOT supported by HP.  The best place for asking MPE-specific questions about NTP is the [HP3000-L mailing list](https://raven.utc.edu/SCRIPTS/WA.EXE?A0=HP3000-L) or the associated [newsgroup comp.sys.hp.mpe](https://groups.google.com/g/comp.sys.hp.mpe).
 
 * * *
 
 The original author of this port is:
 
-Mark Bixby
+[Mark Bixby](mailto:mark_bixby@hp.com)
 : HP CSY MPE Internet & Interoperability Engineer
-: mark_bixby@hp.com

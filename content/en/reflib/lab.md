@@ -4,9 +4,9 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/pogo1a.gif)[_The Okefenokee Swamp_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/pogo1a.gif)[_The Okefenokee Swamp_, Walt Kelly](/reflib/pictures/)
 
-![gif](/archives/pic/pogo.gif)[_Pogo Possum_](/reflib/pictures), our mascot, was created by Walt Kelly, who invented a delicious menagerie of swamp creatures. All of the machines on our DCnet research network 128.4 are named after these creatures. The initials DC stand for District of Columbia, Distributed Computing, Drastically Corrupted or Direct Current, depending on the mood of the audience and voltage of the speaker.
+![gif](/archives/pic/pogo.gif)[_Pogo Possum_](/reflib/pictures/), our mascot, was created by Walt Kelly, who invented a delicious menagerie of swamp creatures. All of the machines on our DCnet research network 128.4 are named after these creatures. The initials DC stand for District of Columbia, Distributed Computing, Drastically Corrupted or Direct Current, depending on the mood of the audience and voltage of the speaker.
 
 * * *
 
@@ -28,7 +28,7 @@ toc_hide: true
 
 ![jpg](/archives/pic/evans2a.jpg)
 
-The Internetworking Research Laboratory (IRL) is in 121 [Evans Hall](/reflib/gallery/gallery3), geographic coordinates 39:40:48.425N, 75:45:02.392W. It includes workstations and laboratory equipment in a configuration specially designed for precision time and frequency measurements with a total of 9.6 GB of RAM and 1900 GB of disk resources. Three Unix file/time/web servers with UPS backup support over a dozen Unix workstations and PCs in 102 and 121 Evans. These machines and four routers are interconnected by a 10/100-Mb Ethernet. The laboratory is generously populated with laser printers, big monitors and high resolution scanners.
+The Internetworking Research Laboratory (IRL) is in 121 [Evans Hall](/reflib/gallery/gallery3/), geographic coordinates 39:40:48.425N, 75:45:02.392W. It includes workstations and laboratory equipment in a configuration specially designed for precision time and frequency measurements with a total of 9.6 GB of RAM and 1900 GB of disk resources. Three Unix file/time/web servers with UPS backup support over a dozen Unix workstations and PCs in 102 and 121 Evans. These machines and four routers are interconnected by a 10/100-Mb Ethernet. The laboratory is generously populated with laser printers, big monitors and high resolution scanners.
 
 ![jpg](/archives/pic/vic3.jpg)
 
@@ -38,7 +38,7 @@ The Unix workstations are used for general purpose program development and exper
 
 A computer-controlled shortwave radio provides entertainment, as well as a reliable source of audio for remote testing. The mixer is not computer-controlled yet. There are several other computer controlled devices to pique students interests.
 
-An integral component of the laboratory is the [DCnet research network](/reflib/dcnet), including the [Backroom test facility](/reflib/backroom). DCnet has a rich history in the development of Internet technology and has been the witches brew from which many present day protocols have boiled over. It is probably best known as the home base for the Network Time Protocol (NTP) and a flock of time servers that wind their springs on this network. The various subnets are dedicated to network research functions that can be isolated when necessary for testing. DCnet is directly connected to the EECIS department network and the CAIRN research network.
+An integral component of the laboratory is the [DCnet research network](/reflib/dcnet/), including the [Backroom test facility](/reflib/backroom/). DCnet has a rich history in the development of Internet technology and has been the witches brew from which many present day protocols have boiled over. It is probably best known as the home base for the Network Time Protocol (NTP) and a flock of time servers that wind their springs on this network. The various subnets are dedicated to network research functions that can be isolated when necessary for testing. DCnet is directly connected to the EECIS department network and the CAIRN research network.
 
 ![jpg](/archives/pic/stack1a.jpg)
 

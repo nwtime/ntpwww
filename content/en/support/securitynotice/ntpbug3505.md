@@ -12,13 +12,13 @@ date: "2018-08-14"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p12-release-announcement">4.2.8p12</a></td>
+		<td><a href="/support/securitynotice/4_2_8p12-release-announcement/">4.2.8p12</a></td>
 		<td>14 Aug 2018</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3505">Bug 3505</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-12327">CVE-2018-12327</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-12327/">CVE-2018-12327</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -48,7 +48,7 @@ The `openhost()` function used by `ntpq` and `ntpdc` is vulnerable to a buffer o
     
 #### Mitigation
 
-Upgrade to [4.2.8p12 or later.](/downloads)
+Upgrade to [4.2.8p12 or later.](/downloads/)
 
 * * *
 
@@ -61,4 +61,4 @@ Reported by Fakhri Zulkifli.
 #### Timeline
 
 * 2018 Aug 14: Public release
-* 2018 Jul 25: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2018 Jul 25: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)

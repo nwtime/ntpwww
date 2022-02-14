@@ -3,7 +3,7 @@ title: "NTP Pool Time Servers"
 type: archives
 ---
 
-The [NTP Pool Project](https://www.ntppool.org/) uses DNS round robin to make a random selection from a pool of time servers who have [volunteered](https://www.ntppool.org/en/join.html) to be in the pool. This is usually good enough for end-users. The minimal `ntpd` configuration file (e.g. `/etc/ntpd.conf`) for using [NTP Pool Project](https://www.ntppool.org) is:
+The [NTP Pool Project](https://www.ntppool.org/) uses DNS round robin to make a random selection from a pool of time servers who have [volunteered](https://www.ntppool.org/en/join.html) to be in the pool. This is usually good enough for end-users. The minimal `ntpd` configuration file (e.g. `/etc/ntpd.conf`) for using [NTP Pool Project](https://www.ntppool.org/) is:
 
 <pre>
 driftfile /var/lib/ntp/ntp.drift
@@ -21,12 +21,12 @@ The NTP Pool Project's DNS system automatically selects geographically close tim
 
 | Area | HostName |
 | ----- | ----- |
-| Worldwide | [pool.ntp.org](https://www.ntppool.org/zone/@) |
-| Asia | [asia.pool.ntp.org](https://www.ntppool.org/zone/asia) |
-| Europe | [europe.pool.ntp.org](https://www.ntppool.org/zone/europe) |
-| North America | [north-america.pool.ntp.org](https://www.ntppool.org/zone/north-america) |
-| Oceania | [oceania.pool.ntp.org](https://www.ntppool.org/zone/oceania) |
-| South America | [south-america.pool.ntp.org](https://www.ntppool.org/zone/south-america) |
+| Worldwide | [pool.ntp.org](https://www.ntppool.org/zone/@/) |
+| Asia | [asia.pool.ntp.org](https://www.ntppool.org/zone/asia/) |
+| Europe | [europe.pool.ntp.org](https://www.ntppool.org/zone/europe/) |
+| North America | [north-america.pool.ntp.org](https://www.ntppool.org/zone/north-america/) |
+| Oceania | [oceania.pool.ntp.org](https://www.ntppool.org/zone/oceania/) |
+| South America | [south-america.pool.ntp.org](https://www.ntppool.org/zone/south-america/) |
 
  There are also sub-zones for many countries. Click a continent to see its country zones.
 

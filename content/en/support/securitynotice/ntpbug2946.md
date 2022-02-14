@@ -12,13 +12,13 @@ date: "2016-04-26"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p7-release-announcement">4.2.8p7</a></td>
+		<td><a href="/support/securitynotice/4_2_8p7-release-announcement/">4.2.8p7</a></td>
 		<td>26 Apr 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2946">Bug 2946</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8139">CVE-2015-8139</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-8139/">CVE-2015-8139</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -63,6 +63,6 @@ This weakness was discovered by [Matthew Van Gundy](mailto:mvangund@cisco.com) o
 #### Timeline
 
 * 2016 Apr 26: Public release
-* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2016 Jan 12: Initial notification from Cisco

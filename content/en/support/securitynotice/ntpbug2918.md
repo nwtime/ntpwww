@@ -12,7 +12,7 @@ date: "2015-10-21"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p4-release-announcement">4.2.8p4</a></td>
+		<td><a href="/support/securitynotice/4_2_8p4-release-announcement/">4.2.8p4</a></td>
 		<td>21 Oct 2015</td>
 	</tr>
 	<tr>
@@ -44,7 +44,7 @@ If `ntpd` is configured to allow remote configuration, and if the (possibly spoo
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info)
-* Upgrade to [4.2.8p4 or later](/downloads).
+* Upgrade to [4.2.8p4 or later](/downloads/).
 * If you are unable to upgrade, remote configuration of NTF's `ntpd` requires:
   * an explicitly configured "trusted" key. Only configure this if you need it.
   * access from permitted IP addresses. You choose the IPs.
@@ -62,7 +62,7 @@ This weakness was discovered by Yves Younan of Cisco Talos.
 #### Timeline
 
 * 2015 Oct 21: Public release
-* 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899), and [2902](/support/securitynotice/ntpbug2902)
-* 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902); analysis begins
-* 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899); analysis begins
+* 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902)
+* 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902/); analysis begins
+* 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899/); analysis begins

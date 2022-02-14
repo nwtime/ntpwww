@@ -45,7 +45,7 @@ Prior to ntp-4.2.7p230 `ntp-keygen` used a weak seed to prepare a random number 
 
 Any of:
 
-* Upgrade to [4.2.7p230 or later](/downloads).
+* Upgrade to [4.2.7p230 or later](/downloads/).
 * Put `restrict ... noquery` in your `ntp.conf` file, for non-trusted senders. 
 
 * * *
@@ -59,6 +59,6 @@ This vulnerability was discovered in ntp-4.2.6 by Stephen Roettger of the Google
 #### Timeline
 
 * 2011 Nov 1: Public release
-* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * XXXX: Notification from reporter

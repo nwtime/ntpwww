@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/alice12.gif)
 
-from [_Alice's Adventures in Wonderland_](/reflib/pictures), Lewis Carroll
+from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 The executive is the one on the left.
 
@@ -37,17 +37,17 @@ The Network Time Protocol (NTP) and other protocols are used to synchronize the 
 
 ####  Introduction
 
-This document contains an overview and functional description of the Network Time Protocol (NTP), which is used to synchronize computer clocks in the Internet to a common timescale. The discussion is intended for site managers and administrators as well as technical planning and support staff. This document does not describe the architecture, protocols and algorithm in detail; for that, see the tutorial collection [How NTP Works](/archives/4.2.8-series/warp).
+This document contains an overview and functional description of the Network Time Protocol (NTP), which is used to synchronize computer clocks in the Internet to a common timescale. The discussion is intended for site managers and administrators as well as technical planning and support staff. This document does not describe the architecture, protocols and algorithm in detail; for that, see the tutorial collection [How NTP Works](/archives/4.2.8-series/warp/).
 
-The standard timescale used by most nations of the world is Coordinated Universal Time (UTC), which is based on the Earth's rotation about its axis, and the Gregorian Calendar, which is based on the Earth's rotation about the Sun. The UTC timescale is disciplined with respect to International Atomic Time (TAI) by inserting leap seconds at intervals of about 18 months. UTC time is disseminated by various means, including radio and satellite navigation systems, telephone modems and portable clocks. Insertion of leap seconds in the NTP and POSIX timescale is discussed in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap).
+The standard timescale used by most nations of the world is Coordinated Universal Time (UTC), which is based on the Earth's rotation about its axis, and the Gregorian Calendar, which is based on the Earth's rotation about the Sun. The UTC timescale is disciplined with respect to International Atomic Time (TAI) by inserting leap seconds at intervals of about 18 months. UTC time is disseminated by various means, including radio and satellite navigation systems, telephone modems and portable clocks. Insertion of leap seconds in the NTP and POSIX timescale is discussed in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap/).
 
-Special purpose receivers are available for many time-dissemination services, including the Global Position System (GPS) and other services operated by various national governments. For reasons of cost and convenience, it is not possible to equip every computer with one of these receivers. However, it is possible to equip some number of computers acting as primary time servers to synchronize a much larger number of secondary servers and clients connected by a common network. In order to do this, a distributed network clock synchronization protocol is required which can read a server clock, transmit the reading to one or more clients and adjust each client clock as required. Protocols that do this include the Network Time Protocol (NTP), IEEE 1588 Precision Time Protocol (PTP), Digital Time Synchronization Service (DTSS), and others found in the literature (See [Further Reading](/reflib/exec/#further-reading)).
+Special purpose receivers are available for many time-dissemination services, including the Global Position System (GPS) and other services operated by various national governments. For reasons of cost and convenience, it is not possible to equip every computer with one of these receivers. However, it is possible to equip some number of computers acting as primary time servers to synchronize a much larger number of secondary servers and clients connected by a common network. In order to do this, a distributed network clock synchronization protocol is required which can read a server clock, transmit the reading to one or more clients and adjust each client clock as required. Protocols that do this include the Network Time Protocol (NTP), IEEE 1588 Precision Time Protocol (PTP), Digital Time Synchronization Service (DTSS), and others found in the literature (See [Further Reading](/reflib/exec/#further-reading/)).
 
 * * *
 
 #### Protocol Design Issues
 
-The synchronization protocol determines the time offset of the server clock relative to the client clock. The various synchronization protocols in use today provide different means to do this, but they all follow the same general model. On request, the server sends a message including its current clock value or _timestamp_ and the client records its own timestamp upon arrival of the message. Additional information on the NTP timescale and timescale calculations is in the white papers [NTP Timestamp Calculations](/reflib/time) and [The NTP Era and Era Numbering](/reflib/y2k).
+The synchronization protocol determines the time offset of the server clock relative to the client clock. The various synchronization protocols in use today provide different means to do this, but they all follow the same general model. On request, the server sends a message including its current clock value or _timestamp_ and the client records its own timestamp upon arrival of the message. Additional information on the NTP timescale and timescale calculations is in the white papers [NTP Timestamp Calculations](/reflib/time/) and [The NTP Era and Era Numbering](/reflib/y2k/).
 
 For the best accuracy, the client needs to measure the server-client propagation delay to determine its clock offset relative to the server. Since it is not possible to determine the one-way delays, unless the actual clock offset is known, the protocol measures the total roundtrip delay and calculates the propagation delay is half the roundtrip delay. This assumes the propagation delays are statistically equal in each direction. In general, this is a useful approximation; however, in the Internet of today, network paths and the associated delays can differ significantly due to the individual service providers.
 
@@ -59,7 +59,7 @@ Synchronization protocols work in one or more association modes, depending on th
 
 NTP, PTP and DTSS support a broadcast mode which allows many clients to synchronize to one or a few servers, reducing network traffic when large numbers of clients are involved. In NTP, IP multicast can be used when the subnet spans multiple networks.
 
-Configuration management can be a serious problem in large subnets. Various schemes which index public /reflibs and network directory services are used in NTP and DTSS to discover servers. Both protocols use broadcast modes to support large client populations; but, since listen-only clients cannot calibrate the delay, accuracy can suffer. In NTP and PTP, clients determine the delay at the time a server is first discovered by polling the server in client/server mode and then reverting to listen-only mode. In addition, NTP clients can broadcast a special "manycast" message to solicit responses from nearby servers and continue in client/server mode with the respondents. Additional details about the NTP protocol are in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire). Additional details about NTP and PTP interoperation are in the white paper [IEEE 1588 Precision Time Protocol](/reflib/ptp).
+Configuration management can be a serious problem in large subnets. Various schemes which index public /reflibs and network directory services are used in NTP and DTSS to discover servers. Both protocols use broadcast modes to support large client populations; but, since listen-only clients cannot calibrate the delay, accuracy can suffer. In NTP and PTP, clients determine the delay at the time a server is first discovered by polling the server in client/server mode and then reverting to listen-only mode. In addition, NTP clients can broadcast a special "manycast" message to solicit responses from nearby servers and continue in client/server mode with the respondents. Additional details about the NTP protocol are in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/). Additional details about NTP and PTP interoperation are in the white paper [IEEE 1588 Precision Time Protocol](/reflib/ptp/).
 
 * * *
 
@@ -83,7 +83,7 @@ NTP includes provisions to cryptographically authenticate individual servers usi
 
 Modern public-key cryptography provides means to reliably bind the server identification credentials and related public values using public directory services. However, these means carry a high computing cost, especially when large numbers of time-critical clients are involved as often the case with NTP servers. In addition, there are problems unique to NTP in the interaction between the authentication and synchronization functions, since each requires the other for success.
 
-The NTP Version 4 reference implementation includes a revised security model and authentication scheme supporting both symmetric and public-key cryptography. The public-key variant, called Autokey, is specially crafted to reduce the risk of intrusion, minimize the consumption of processor resources and minimize the vulnerability to hacker attack. Additional details can be found on the white paper [NTP Security Analysis](/reflib/security).
+The NTP Version 4 reference implementation includes a revised security model and authentication scheme supporting both symmetric and public-key cryptography. The public-key variant, called Autokey, is specially crafted to reduce the risk of intrusion, minimize the consumption of processor resources and minimize the vulnerability to hacker attack. Additional details can be found on the white paper [NTP Security Analysis](/reflib/security/).
 
 * * *
 
@@ -119,7 +119,7 @@ In the Probabilistic Clock Synchronization (PCS) scheme devised by Cristian, a m
 
 In a scheme devised by Marzullo and exploited in NTP and DTSS, the worst-case error determined for each server determines a correctness interval. If each of a number of servers are in fact synchronized to a common timescale, the actual time must be contained in the intersection of their correctness intervals. If some intervals do not intersect, then the clique containing the maximum number of intersections is assumed correct _truechimers_ and the others assumed incorrect _falsetickers_. Only the truechimers are used to adjust the system clock.
 
-System clock correctness principles require that clock readings must be always monotonic definite increasing, so that no two successive clock readings will be the same. As long as the reading latency exceeds the hardware resolution, this behavior is guaranteed. With reading latencies dropping below the microsecond in modern processors, the system clock in modern operating systems runs in nanoseconds, rather than the microseconds used in the original Unix kernel. With processor speeds exceeding 1 GHz, this assumption may be in jeopardy. Additional information on these topics is in the white paper [Timestamp Capture Principles](/reflib/stamp).
+System clock correctness principles require that clock readings must be always monotonic definite increasing, so that no two successive clock readings will be the same. As long as the reading latency exceeds the hardware resolution, this behavior is guaranteed. With reading latencies dropping below the microsecond in modern processors, the system clock in modern operating systems runs in nanoseconds, rather than the microseconds used in the original Unix kernel. With processor speeds exceeding 1 GHz, this assumption may be in jeopardy. Additional information on these topics is in the white paper [Timestamp Capture Principles](/reflib/stamp/).
 
 * * *
 
@@ -151,9 +151,9 @@ The significant design parameter is the time constant, or responsiveness to exte
 
 #### Further Reading
 
-These are selections from the comprehensive [Bibliography on Computer Network Time Synchronization](/reflib/biblio).
+These are selections from the comprehensive [Bibliography on Computer Network Time Synchronization](/reflib/biblio/).
 
-1.  Mills, David L. [_Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition._](/reflib/book) CRC Press 2011, 466 pp.
+1.  Mills, David L. [_Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition._](/reflib/book/) CRC Press 2011, 466 pp.
 2.  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments RFC 5905, Internet Engineering Task Force, June, 2010. [ASCII](/reflib/rfc/rfc5905.txt)
 3.  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments RFC 5906, Internet Engineering Task Force, June, 2010. [ASCII](/reflib/rfc/rfc5906.txt)
 4.  Mills, D.L. Network Time Protocol Version 4 Reference and Implementation Guide. Electrical and Computer Engineering Technical Report 06-06-1, University of Delaware, June 2006, 83 pp, [PDF](/reflib/reports/ntp4/ntp4.pdf)

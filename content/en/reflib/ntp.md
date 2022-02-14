@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/alautun4a.gif)
 
-[Maya glyph _alautun_](/reflib/maya)
+[Maya glyph _alautun_](/reflib/maya/)
 
 Researchers involved: David Mills, graduate students and many volunteers
 
@@ -65,15 +65,15 @@ We consider the NTP project and ongoing development a basically mature project, 
 
 There have been significant changes and additions  to the NTPv4 protocol specification [RFC 5905](/reflib/rfc/rfc5905.txt) and the Autokey specification [RFC 5906](/reflib/rfc/rfc5906.txt) since their publication in 2010. In addition, there have been significant unreported changes since the original drafts were written in 2006. The five-year delay in the IETF publishing process has meant that these changes have not kept pace with the current development and there are no current plans to update the documents in the near future.
 
-However, there is a considerable body of progress reported in the online documentation [NTP Version 4 Release Notes](/archives/4.2.8-series/release) and the white papers [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire) and [NTP Security Analysis](/reflib/security). These documents should be reformatted as an Informational RFC and relevant sections should be incorporated in a RFC 5905 replacement or supplement. While the book cited below cites some of the improvements, the most recent are documented only  in the online documentation and white papers.
+However, there is a considerable body of progress reported in the online documentation [NTP Version 4 Release Notes](/archives/4.2.8-series/release/) and the white papers [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/) and [NTP Security Analysis](/reflib/security/). These documents should be reformatted as an Informational RFC and relevant sections should be incorporated in a RFC 5905 replacement or supplement. While the book cited below cites some of the improvements, the most recent are documented only  in the online documentation and white papers.
 
 * * *
 
 #### Future Plans
 
-We anticipate future development of time synchronization technology for planetary networks and deep space missions, as described in the white paper [Time Synchronization for Space Data Links](/reflib/proximity). We expect to continue the study of interoperability between NTP and the [IEEE 1588 Precision Time Protocol](/reflib/ptp). These issues are discussed in a [book](/reflib/book). We plan to incorporate certain minor enhancements to improve error recovery in the reference implementation, as described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire).
+We anticipate future development of time synchronization technology for planetary networks and deep space missions, as described in the white paper [Time Synchronization for Space Data Links](/reflib/proximity/). We expect to continue the study of interoperability between NTP and the [IEEE 1588 Precision Time Protocol](/reflib/ptp/). These issues are discussed in a [book](/reflib/book/). We plan to incorporate certain minor enhancements to improve error recovery in the reference implementation, as described in the white paper [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/).
 
-We expect to refine the NTP Autokey protocol and incorporate refinements suggested in the white paper [NTP Security Analysis](/reflib/security). We expect to continue the testing and verification program with UTC leap seconds, as described in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap) and to verify correct operation in case of era rollover, as described in the white paper [NTP Timescale Calculations](/reflib/stamp).
+We expect to refine the NTP Autokey protocol and incorporate refinements suggested in the white paper [NTP Security Analysis](/reflib/security/). We expect to continue the testing and verification program with UTC leap seconds, as described in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap/) and to verify correct operation in case of era rollover, as described in the white paper [NTP Timescale Calculations](/reflib/stamp/).
 
 We expect to further refine the Manycast model to improve stability in networks with large numbers of servers and clients. The means proposed to do this involve a whisper campaign where Manycast servers keep track of dependent clients by means of specific Autokey messages. The servers would then run load balancing and stratum selection algorithms suggested in a recent dissertation.
 

@@ -12,7 +12,7 @@ date: "2017-03-21"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p10-release-announcement">4.2.8p10</a></td>
+		<td><a href="/support/securitynotice/4_2_8p10-release-announcement/">4.2.8p10</a></td>
 		<td>21 Mar 2017</td>
 	</tr>
 	<tr>
@@ -38,7 +38,7 @@ NTP makes use of several wrappers around the standard heap memory allocation fun
     
 #### Mitigation
 
-* Upgrade to [4.2.8p10 or later.](/downloads)
+* Upgrade to [4.2.8p10 or later.](/downloads/)
 
 * * *
 
@@ -51,6 +51,6 @@ This weakness was discovered by Cure53.
 #### Timeline
 
 * 2017 Mar 21: Public release
-* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2017 Feb 09: Mozilla/Cure53 audit received

@@ -58,7 +58,7 @@ There are a few things different about this release that have changed since the 
 
 2.  As the result of the above, the <code>./authstuff</code> directory, intended as a development and testing aid for porting cryptographic routines to exotic architectures, has been removed. Developers should note the NTP authentication routines use the interface defined in the <code>rsaref2.0</code> package available from RSA laboratories.
 
-3.  The enable and disable commands have a few changes in their arguments see the <code>ntpd</code> [Configuration Options](/archives/4.1.2/confopt) page for details. Note that the <code>authenticate</code> command has been removed.
+3.  The enable and disable commands have a few changes in their arguments see the <code>ntpd</code> [Configuration Options](/archives/4.1.2/confopt/) page for details. Note that the <code>authenticate</code> command has been removed.
 
 4.  The <code>ppsclock</code> line discipline/streams module is no longer supported. This function is now handled by the [PPS Clock Discipline](/archives/drivers/driver22/) driver, which uses the new PPSAPI application program interface proposed by the IETF. Note that the <code>pps</code> configuration file command has been obsoleted by the driver. See the [Pulse-per-second (PPS) Signal Interfacing](/archives/4.1.2/pps/) page for further information.
 

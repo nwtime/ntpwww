@@ -12,7 +12,7 @@ date: "2017-03-21"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p10-release-announcement">4.2.8p10</a></td>
+		<td><a href="/support/securitynotice/4_2_8p10-release-announcement/">4.2.8p10</a></td>
 		<td>21 Mar 2017</td>
 	</tr>
 	<tr>
@@ -48,8 +48,8 @@ The NTP Mode 6 monitoring and control client, `ntpq`, uses the function `ntpq_st
     
 #### Mitigation
 
-* Implement [BCP-38](http://www.bcp38.info).
-* Upgrade to [4.2.8p10 or later.](/downloads)
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
+* Upgrade to [4.2.8p10 or later.](/downloads/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *
@@ -63,6 +63,6 @@ This weakness was discovered by Cure53.
 #### Timeline
 
 * 2017 Mar 21: Public release
-* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2017 Mar 06: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2017 Mar 06: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2017 Feb 09: Mozilla/Cure53 audit received

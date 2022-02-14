@@ -43,7 +43,7 @@ Code in `ntp_proto.c:receive()` is missing a `return;` in the code path where an
     
 #### Mitigation
 
-* Upgrade to [4.2.8 or later](/downloads), or
+* Upgrade to [4.2.8 or later](/downloads/), or
 * Remove or comment out all configuration directives beginning with the `crypto` keyword in your `ntp.conf` file. 
 
 * * *
@@ -57,6 +57,6 @@ This vulnerability was discovered by Stephen Roettger of the Google Security Tea
 #### Timeline
 
 * 2014 Dec 18: Public release
-* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Initial notification received; analysis begins

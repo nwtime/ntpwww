@@ -3,11 +3,11 @@ title: "Access Policy"
 type: archives
 ---
 
-The general access policy of a [Time Server](/support/servers/timeserver). The following choices are available:
+The general access policy of a [Time Server](/support/servers/timeserver/). The following choices are available:
 
-* [Open Access](/support/servers/openaccess) - This Time Server is open to any client complying with the [Usage Guidelines](#usage-guidelines).
-* [Restricted Access](/support/servers/restrictedaccess) - This Time Server has some access restrictions in addition to the [Usage Guidelines](#usage-guidelines).
-* [Closed Access](/support/servers/closedaccess) - This Time Server is closed or requires prior arrangement for use.
+* [Open Access](/support/servers/openaccess/) - This Time Server is open to any client complying with the [Usage Guidelines](#usage-guidelines).
+* [Restricted Access](/support/servers/restrictedaccess/) - This Time Server has some access restrictions in addition to the [Usage Guidelines](#usage-guidelines).
+* [Closed Access](/support/servers/closedaccess/) - This Time Server is closed or requires prior arrangement for use.
 
 #### Usage Guidelines
 

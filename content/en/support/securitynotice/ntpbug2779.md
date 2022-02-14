@@ -45,7 +45,7 @@ Authentication using autokey doesn't have this problem as there is a check that 
     
 #### Mitigation
 
-* Upgrade to [4.2.8p2 or later.](/downloads)
+* Upgrade to [4.2.8p2 or later.](/downloads/)
 * Configure `ntpd` with enough time sources and monitor it properly. 
 
 * * *
@@ -59,6 +59,6 @@ This issue was discovered by Miroslav Lichvar, of Red Hat.
 #### Timeline
 
 * 2015 Apr 7: Public release
-* 2015 Mar 22: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2015 Mar 15: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2015 Mar 22: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2015 Mar 15: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2015 Mar 6: Initial notification received; analysis begins

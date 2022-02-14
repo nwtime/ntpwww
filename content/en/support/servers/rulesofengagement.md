@@ -15,4 +15,4 @@ In order to ensure reliability, clients should operate with several different se
 
 There are many scenarios where the above rules may not apply, especially large campus or corporate networks, clients with intermittent connectivity, and security considerations, which are beyond the scope of this page.
 
-Unix users are strongly encouraged to upgrade to the [latest NTP Version 4 software](/downloads). Besides providing more accurate, reliable service, the latest version automatically increases the polling intervals for all peer associations without sacrificing performance. This can significantly reduce network loads, as well as the loads on the busy primary servers, some of which have over 700 clients.
+Unix users are strongly encouraged to upgrade to the [latest NTP Version 4 software](/downloads/). Besides providing more accurate, reliable service, the latest version automatically increases the polling intervals for all peer associations without sacrificing performance. This can significantly reduce network loads, as well as the loads on the busy primary servers, some of which have over 700 clients.

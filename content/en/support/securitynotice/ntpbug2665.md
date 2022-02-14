@@ -45,7 +45,7 @@ If no `auth` key is set in the configuration file, `ntpd` would generate a rando
 
 Any of:
 
-* Upgrade to [4.2.7p11 or later](/downloads).
+* Upgrade to [4.2.7p11 or later](/downloads/).
 * Put `restrict ... noquery` in your `ntp.conf file`, for non-trusted senders. 
 
 * * *
@@ -59,6 +59,6 @@ This vulnerability was discovered in ntp-4.2.6 by Neel Mehta of the Google Secur
 #### Timeline
 
 * 2010 Jan 28: Public release
-* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * XXXX: Notification from reporter

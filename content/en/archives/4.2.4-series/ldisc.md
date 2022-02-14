@@ -59,6 +59,6 @@ Users are cautioned that these ioctls function improperly in Solaris versions pr
 
 #### <tt>tty_chu</tt> Line Discipline/Streams Module (deprecated)
 
-This routine is a special purpose line discipline for receiving a special timecode broadcast by Canadian time and frequency standard station CHU. It has been removed from the distribution since its function has been replaced by the [Radio CHU Audio Demodulator/Decoder (type 7)](/archives/drivers/driver7) clock driver.
+This routine is a special purpose line discipline for receiving a special timecode broadcast by Canadian time and frequency standard station CHU. It has been removed from the distribution since its function has been replaced by the [Radio CHU Audio Demodulator/Decoder (type 7)](/archives/drivers/driver7/) clock driver.
    
 

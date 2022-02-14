@@ -37,7 +37,7 @@ date: "2015-04-07"
     
 #### Description 
 
-An attacker knowing that NTP hosts A and B are peering with each other (symmetric association) can send a packet to host A with source address of B which will set the NTP state variables on A to the values sent by the attacker. Host A will then send on its next poll to B a packet with originate timestamp that doesn't match the transmit timestamp of B and the packet will be dropped. If the attacker does this periodically for both hosts, they won't be able to synchronize to each other. This is a known denial-of-service attack, described in [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire).
+An attacker knowing that NTP hosts A and B are peering with each other (symmetric association) can send a packet to host A with source address of B which will set the NTP state variables on A to the values sent by the attacker. Host A will then send on its next poll to B a packet with originate timestamp that doesn't match the transmit timestamp of B and the packet will be dropped. If the attacker does this periodically for both hosts, they won't be able to synchronize to each other. This is a known denial-of-service attack, described in [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/).
 
 According to the document the NTP authentication is supposed to protect symmetric associations against this attack, but that doesn't seem to be the case. The state variables are updated even when authentication fails and the peers are sending packets with originate timestamps that don't match the transmit timestamps on the receiving side.
 
@@ -47,7 +47,7 @@ This seems to be a very old problem, dating back to at least xntp3.3wy. It's als
     
 #### Mitigation
 
-* Upgrade to [4.2.8p2 or later.](/downloads)
+* Upgrade to [4.2.8p2 or later.](/downloads/)
 * Note that for users of autokey, this specific style of MITM attack is simply a long-known potential problem. 
 * Configure `ntpd` with appropriate time sources and monitor `ntpd`. Alert your staff if problems are detected.
 
@@ -62,6 +62,6 @@ This issue was discovered by Miroslav Lichvar, of Red Hat.
 #### Timeline
 
 * 2015 Apr 7: Public release
-* 2015 Mar 22: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2015 Mar 15: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2015 Mar 22: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2015 Mar 15: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2015 Mar 6: Initial notification received; analysis begins

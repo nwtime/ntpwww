@@ -51,6 +51,6 @@ Affected versions do not properly check the return value from the OpenSSL `EVP_V
 #### Timeline
 
 * 2008 Dec 23: Public release
-* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* XXXX: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* XXXX: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * XXXX: Notification from reporter

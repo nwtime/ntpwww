@@ -12,13 +12,13 @@ date: "2016-04-26"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p7-release-announcement">4.2.8p7</a></td>
+		<td><a href="/support/securitynotice/4_2_8p7-release-announcement/">4.2.8p7</a></td>
 		<td>26 Apr 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3020">Bug 3020</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1551">CVE-2016-1551</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1551/">CVE-2016-1551</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -50,7 +50,7 @@ While the majority OSes implement [martian packet](https://en.wikipedia.org/wiki
 
 * Implement martian packet filtering and [BCP-38](http://www.bcp38.info).
 * Configure `ntpd` to use an adequate number of time sources.
-* Upgrade to [4.2.8p7 or later.](/downloads)
+* Upgrade to [4.2.8p7 or later.](/downloads/)
 * If you are unable to upgrade and if you are running an OS that has this vulnerability, implement martian packet filters and lobby your OS vendor to fix this problem, or run your refclocks on computers that use OSes that are not vulnerable to these attacks and have your vulnerable machines get their time from protected resources.
 * Properly monitor your `ntpd` instances. 
 
@@ -65,6 +65,6 @@ This weakness was discovered by Matt Street and others of Cisco ASIG.
 #### Timeline
 
 * 2016 Apr 26: Public release
-* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2016 Apr 12: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* 2016 Feb 14: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2016 Jan 12: Initial notification from Cisco

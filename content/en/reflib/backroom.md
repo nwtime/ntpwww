@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/beaver.gif)
 
-[_pogo_](/reflib/pictures), Walt Kelly
+[_pogo_](/reflib/pictures/), Walt Kelly
 
 In case of fan failure
 
@@ -38,7 +38,7 @@ The BTF also includes [two-way voice and data radio transmission equipment](/arc
 
 ![gif](/archives/pic/stack.gif)
 
-The BTF is equipped to receive GPS, CDMA, WWVB, WWV/H and CHU transmissions. Receivers for WWVB and WWV are shown, including a specially designed DSP demodulator/decoder for WWV <sup>[2](#myfootnote2)</sup>. Any of five communications receivers for WWV/H and CHU can be connected to a workstation sound card and controlled by program. [NTP drivers](/archives/4.2.8-series/audio) for WWV/H and CHU demodulate and decode the receiver audio signal and automatically select the best transmitter frequency.
+The BTF is equipped to receive GPS, CDMA, WWVB, WWV/H and CHU transmissions. Receivers for WWVB and WWV are shown, including a specially designed DSP demodulator/decoder for WWV <sup>[2](#myfootnote2)</sup>. Any of five communications receivers for WWV/H and CHU can be connected to a workstation sound card and controlled by program. [NTP drivers](/archives/4.2.8-series/audio/) for WWV/H and CHU demodulate and decode the receiver audio signal and automatically select the best transmitter frequency.
 
 For the most accurate and precise timekeeping, a GPS receiver, rubidium frequency standard and cesium clock standard are used to discipline the computer clock in one of the Unix workstations, as well as calibrate the radio transmit and receive frequencies. If for any reason the heavens and the atoms fail, the system can fall back to more primitive means.
 
@@ -50,9 +50,9 @@ For the most accurate and precise timekeeping, a GPS receiver, rubidium frequenc
 
 ![gif](/archives/pic/backroom.gif)
 
-The BTF DCnet subnet is connected to the [campus DCnet subnet](/reflib/dcnet) via a 2x64 kb ISDN link and Cisco routers. The various radios and workstations are also used by the NTP volunteer developer corps to test and validate new NTP versions. More information is in the briefing slides: DCnet Research Network [PDF](/reflib/brief/dcnet/dcnet.pdf).
+The BTF DCnet subnet is connected to the [campus DCnet subnet](/reflib/dcnet/) via a 2x64 kb ISDN link and Cisco routers. The various radios and workstations are also used by the NTP volunteer developer corps to test and validate new NTP versions. More information is in the briefing slides: DCnet Research Network [PDF](/reflib/brief/dcnet/dcnet.pdf).
 
-[_Sunshine_](/reflib/fam) is our Guard Kitten. If a rogue ICMP Destination Unreachable packet shows up here, he barks. He has his own computer, complete with keyboard and mouse.
+[_Sunshine_](/reflib/fam/) is our Guard Kitten. If a rogue ICMP Destination Unreachable packet shows up here, he barks. He has his own computer, complete with keyboard and mouse.
 
 ![jpg](/archives/pic/yellow3.jpg)![jpg](/archives/pic/mouse.jpg)
 

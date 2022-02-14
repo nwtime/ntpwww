@@ -6,7 +6,7 @@ toc_hide: true
 
 ![kin](/archives/pic/kin1.gif)
 
-[one of the Maya day-glyphs for _Kin_](/reflib/pictures)
+[one of the Maya day-glyphs for _Kin_](/reflib/pictures/)
 
 * * *
 

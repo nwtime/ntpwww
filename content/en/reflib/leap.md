@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/alice15.gif)
 
-from [_Alice's Adventures in Wonderland_](/reflib/pictures), Lewis Carroll
+from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.
 

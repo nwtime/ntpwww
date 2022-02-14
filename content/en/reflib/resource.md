@@ -32,7 +32,7 @@ The baby panda was scanned at University College London and used as a FAX test i
 
 #### Resources for Collaborative Experiments
 
-We participate in many network experiments with our international partners in several countries. Some of these involve ongoing network performance evaluation and measurements with sites all over the world, others have specific goals and designated experiment plans. To support these experiments, we make available workstation and network resources to outside investigators. Some idea of the resources we can provide can be found in the [Internet Research Laboratory](/reflib/lab) page.
+We participate in many network experiments with our international partners in several countries. Some of these involve ongoing network performance evaluation and measurements with sites all over the world, others have specific goals and designated experiment plans. To support these experiments, we make available workstation and network resources to outside investigators. Some idea of the resources we can provide can be found in the [Internet Research Laboratory](/reflib/lab/) page.
 
 * * *
 
@@ -50,7 +50,7 @@ In the case of software distributions, we have stashed Unix-friendly (`gz` file 
 
 The Network Time Protocol is used to synchrnize clocks in Unix, VMS and Windows systems in an estimated population of over 25 million computers in most countries and all continents of the world. The current NTP Version 4 and previous versions have been used for over 30 year in almost all computer embedded and software systems currently available.
 
-The NTP Version 4 software distribution, documentation and configuration information is available on thisweb site. An extensive review of the technology and application is available on the [Network Time Synchronization Research Project](/reflib/ntp) page and the white papers in the [Reference Library](/reflib).
+The NTP Version 4 software distribution, documentation and configuration information is available on thisweb site. An extensive review of the technology and application is available on the [Network Time Synchronization Research Project](/reflib/ntp/) page and the white papers in the [Reference Library](/reflib/).
 
 The current NTP Version 4 protocol specification is at
 
