@@ -12,13 +12,13 @@ date: "2016-04-26"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p7-release-announcement">4.2.8p7</a></td>
+		<td><a href="/support/securitynotice/4_2_8p7-release-announcement/">4.2.8p7</a></td>
 		<td>26 Apr 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2879">Bug 2879</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1550">CVE-2016-1550</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1550/">CVE-2016-1550</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

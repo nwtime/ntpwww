@@ -49,7 +49,7 @@ If `ntpd` is configured to allow `mrulist` query requests from a server that sen
 #### Mitigation
 
 * Only allow `mrulist` query packets from trusted hosts.
-* Implement [BCP-38.](http://www.bcp38.info) 
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page) 
 * Upgrade to [4.2.8p9 or later.](/downloads/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 

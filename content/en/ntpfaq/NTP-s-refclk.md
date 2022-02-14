@@ -164,7 +164,7 @@ See [Q: 7.3.2](/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail) f
 
 #### 7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?
 
-[Markus Kuhn](mailto:mgk25@cl.cam.ac.uk) has set up a [page](http://www.cl.cam.ac.uk/~mgk25/lf-clocks.html) describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.
+[Markus Kuhn](mailto:mgk25@cl.cam.ac.uk) has set up a [page](https://www.cl.cam.ac.uk/~mgk25/lf-clocks.html) describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.
 
 * * *
 

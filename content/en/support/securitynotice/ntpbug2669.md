@@ -12,13 +12,13 @@ date: "2014-12-18"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8-release-announcement">4.2.8</a></td>
+		<td><a href="/support/securitynotice/4_2_8-release-announcement/">4.2.8</a></td>
 		<td>18 Dec 2014</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2669">Bug 2669</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2014-9295">CVE-2014-9295</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2014-9295/">CVE-2014-9295</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

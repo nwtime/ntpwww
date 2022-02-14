@@ -48,7 +48,7 @@ The fix for [3007](https://bugs.ntp.org/show_bug.cgi?id=3007) in ntp-4.2.8p7 con
     
 #### Mitigation
 
-* Implement [BCP-38](http://www.bcp38.info).
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
 * Upgrade to [4.2.8p8 or later](/downloads/).
 * If you cannot upgrade from 4.2.8p7, the only other alternatives are to patch your code or filter `CRYPTO_NAK` packets.
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 

@@ -18,7 +18,7 @@ date: "2015-10-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2920">Bug 2920</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7853">CVE-2015-7853</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7853/">CVE-2015-7853</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -60,6 +60,6 @@ This weakness was discovered by Yves Younan of Cisco Talos.
 
 * 2015 Oct 21: Public release
 * 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
-* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902)
+* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902/)
 * 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902/); analysis begins
 * 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899/); analysis begins

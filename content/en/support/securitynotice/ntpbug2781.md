@@ -12,13 +12,13 @@ date: "2015-04-07"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p2-release-announcement">4.2.8p2</a></td>
+		<td><a href="/support/securitynotice/4_2_8p2-release-announcement/">4.2.8p2</a></td>
 		<td>07 Apr 2015</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2781">Bug 2781</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-1799">CVE-2015-1799</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-1799/">CVE-2015-1799</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

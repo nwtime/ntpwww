@@ -50,7 +50,7 @@ While this blanket rate limiting can be useful to prevent brute-force attacks on
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info) 
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page) 
 * If you choose to use `restrict default limited ...`, be sure to use `restrict source ...` (without `limited`) to avoid this attack.
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 

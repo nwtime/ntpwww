@@ -44,7 +44,7 @@ The `ntpq saveconfig` command does not do adequate filtering of special characte
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info)
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Use `restrict default nomodify` in your `ntp.conf` file.
 * Upgrade to 4.2.8p6 or later.](/downloads/)
 * If you are unable to upgrade:

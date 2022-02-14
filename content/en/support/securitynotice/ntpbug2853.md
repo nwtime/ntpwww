@@ -12,13 +12,13 @@ date: "2015-06-29"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p3-release-announcement">4.2.8p3</a></td>
+		<td><a href="/support/securitynotice/4_2_8p3-release-announcement/">4.2.8p3</a></td>
 		<td>29 Jun 2015</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2853">Bug 2853</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-5146">CVE-2015-5146</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-5146/">CVE-2015-5146</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

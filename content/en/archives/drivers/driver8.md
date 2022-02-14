@@ -163,7 +163,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 12**
 
-    : [HOPF](http://www.hopf-time.com/) Funkuhr 6021
+    : [HOPF](https://www.hopf.com/index.php) Funkuhr 6021
     ![Image DCF77 Interface Board](/archives/pic/fg6021.gif)  
 
 *   **server 127.127.8.0-3 mode 13**

@@ -48,7 +48,7 @@ An attacker who is able to spoof a packet with a correct origin timestamp before
     
 #### Mitigation
 
-* Implement [BCP-38](http://www.bcp38.info).
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
 * Upgrade to [4.2.8p8 or later](/downloads/).
 * Properly monitor your `ntpd` instances. 
 

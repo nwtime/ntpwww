@@ -43,7 +43,7 @@ Symmetric key encryption uses a shared trusted key. The reported title for this 
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info)
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * If this scenario represents a real or a potential issue for you, upgrade to [4.2.8p6 or later](/downloads/), and use the new field in the `ntp.keys` file that specifies the list of IPs that are allowed to serve time. Note that this alone will not protect against time packets with forged source IP addresses, however other changes in ntp-4.2.8p6 provide significant mitigation against broadcast attacks. MITM attacks are a different story.
 * If you are unable to upgrade:
   * Don't use broadcast mode if you cannot monitor your client servers.

@@ -43,7 +43,7 @@ If `ntpd` is configured to allow remote configuration, and if the (possibly spoo
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info)
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Upgrade to [4.2.8p4 or later](/downloads/).
 * If you are unable to upgrade, remote configuration of NTF's `ntpd` requires:
   * an explicitly configured "trusted" key. Only configure this if you need it.

@@ -48,7 +48,7 @@ While the majority OSes implement [martian packet](https://en.wikipedia.org/wiki
     
 #### Mitigation
 
-* Implement martian packet filtering and [BCP-38](http://www.bcp38.info).
+* Implement martian packet filtering and [BCP-38](http://www.bcp38.info/index.php/Main_Page).
 * Configure `ntpd` to use an adequate number of time sources.
 * Upgrade to [4.2.8p7 or later.](/downloads/)
 * If you are unable to upgrade and if you are running an OS that has this vulnerability, implement martian packet filters and lobby your OS vendor to fix this problem, or run your refclocks on computers that use OSes that are not vulnerable to these attacks and have your vulnerable machines get their time from protected resources.
