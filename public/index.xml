@@ -575,7 +575,7 @@ and 4.3.0 up to, but not including 4.3.92.Resolved in 4.2.8p7.CVSS2 ScoreME
       <pubDate>Tue, 26 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/support/securitynotice/ntpbug3008/</guid>
-      <description>Summary Resolved4.2.8p726 Apr 2016ReferencesBug 3008CVE-2016-2519AffectsAll ntp-4 releases up to, but not including 4.2.8p7,
+      <description>Summary Resolved4.2.8p7/26 Apr 2016ReferencesBug 3008CVE-2016-2519AffectsAll ntp-4 releases up to, but not including 4.2.8p7,
 and 4.3.0 up to, but not including 4.3.92.Resolved in 4.2.8p7.CVSS2 ScoreMED 4.9AV:N/AC:H/Au:S/C:N/I:N/A:CCVSS3 ScoreMED 4.2CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:H		 Description ntpq and ntpdc can be used to store and retrieve information in ntpd.</description>
     </item>
     
@@ -4603,7 +4603,7 @@ When this option is set to Yes in a Time Server&amp;rsquo;s list entry, clients 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/support/securitynotice/ntpbug3011/</guid>
-      <description>Summary Resolved4.2.8p726 Apr 2016ReferencesBug 3011CVE-2016-2516AffectsAll ntp-4 releases up to, but not including 4.2.8p7,
+      <description>Summary Resolved4.2.8p7/26 Apr 2016ReferencesBug 3011CVE-2016-2516AffectsAll ntp-4 releases up to, but not including 4.2.8p7,
 and 4.3.0 up to, but not including 4.3.92.Resolved in 4.2.8p7.CVSS2 ScoreMED 6.3AV:N/AC:M/Au:S/C:N/I:N/A:CCVSS3 ScoreMED 4.2CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:H		 Description If ntpd was expressly configured to allow for remote configuration, a malicious user who knows the controlkey for ntpq or the requestkey for ntpdc (if mode7 is expressly enabled) can create a session with ntpd and if an existing association is unconfigured using the same IP twice on the unconfig directive line, ntpd will abort.</description>
     </item>
     
@@ -6323,7 +6323,7 @@ Say it three times and it must be right.
       <guid>https://test.doc.ntp.org/archives/drivers/tf582_4/</guid>
       <description>Last update: 21-Oct-2010 23:44 UTC
  Several European countries use the following message data format:
-Data format 0000000000111111111122222222223333333333444444444455555555556666666666777777777 7 0123456789012345678901234567890123456789012345678901234567890123456789012345678 9 1995-01-23 20:58:51 MEZ 10402303260219950123195849740+40000500 * A B C D EF G H IJ K L M N O P Q R S T U V W XY Z&amp;lsaquo;CR&amp;rsaquo;&amp;lsaquo;LF&amp;rsaquo; A year B month C day D hour E : normally A for DST to ST switch first hour B for DST to ST switch second hour if not marked in H F minute G second H timezone I day of week J week of year K day of year L month for next ST/DST changes M day N hour O UTC year P UTC month Q UTC day R UTC hour S UTC minute T modified julian day (MJD) U DUT1 V direction and month if leap second W signal delay (assumed/measured) X sequence number for additional text line in Y Y additional text Z on time marker (* - assumed delay / # measured delay) &amp;lsaquo;CR&amp;rsaquo;!</description>
+Data format 0000000000111111111122222222223333333333444444444455555555556666666666777777777 70123456789012345678901234567890123456789012345678901234567890123456789012345678 91995-01-23 20:58:51 MEZ 10402303260219950123195849740+40000500 *A B C D EF G H IJ K L M N O P Q R S T U V W XY Z&amp;lsaquo;CR&amp;rsaquo;&amp;lsaquo;LF&amp;rsaquo;A yearB monthC dayD hourE : normallyA for DST to ST switch first hourB for DST to ST switch second hour if not marked in HF minuteG secondH timezoneI day of weekJ week of yearK day of yearL month for next ST/DST changesM dayN hourO UTC yearP UTC monthQ UTC dayR UTC hourS UTC minuteT modified julian day (MJD)U DUT1V direction and month if leap secondW signal delay (assumed/measured)X sequence number for additional text line in YY additional textZ on time marker (* - assumed delay / # measured delay)&amp;lsaquo;CR&amp;rsaquo;!</description>
     </item>
     
     <item>
@@ -13509,7 +13509,7 @@ Some operators include information about the server hardware, operating system, 
       
       <guid>https://test.doc.ntp.org/archives/3-5.93e/driver28/</guid>
       <description>Table of Contents  Synopsis Description Structure of shared memory-segment Operation mode=0 Operation mode=1 Fudge Factors Additional Information   Synopsis  Address: 127.127.28.u Reference ID: SHM Driver ID: SHM   Description This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access for unit 0 and 1, and world access for unit 2 and 3.
- Structure of shared memory-segment  struct shmTime { int mode; /* 0 - if valid set * use values, * clear valid * 1 - if valid set * if count before and after read of * values is equal, * use values * clear valid */ int count; time_t clockTimeStampSec; /* external clock */ int clockTimeStampUSec; /* external clock */ time_t receiveTimeStampSec; /* internal clock, when external value was received */ int receiveTimeStampUSec; /* internal clock, when external value was received */ int leap; int precision; int nsamples; int valid; int dummy[10]; };   Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:</description>
+ Structure of shared memory-segment struct shmTime {int mode; /* 0 - if valid set* use values, * clear valid* 1 - if valid set * if count before and after read of * values is equal,* use values * clear valid*/int count;time_t clockTimeStampSec; /* external clock */int clockTimeStampUSec; /* external clock */time_t receiveTimeStampSec; /* internal clock, when external value was received */int receiveTimeStampUSec; /* internal clock, when external value was received */int leap;int precision;int nsamples;int valid;int dummy[10]; }; Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:</description>
     </item>
     
     <item>

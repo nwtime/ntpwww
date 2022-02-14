@@ -205,11 +205,11 @@ The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT ru
 <hr>
 <h4 id="introduction">Introduction</h4>
 <p>The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from <a href="http://www.meinberg.de/english/sw/ntp.htm">Meinberg</a>.</p>
-<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
+<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp/">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
 <hr>
 <h4 id="authentication-keys">Authentication Keys</h4>
-<p>With this release <code>ntp-keygen</code> is supported. See the <a href="/archives/4.2.8-series/keygen">ntp keygen documentation</a> for details on how to use <code>ntp-keygen</code>.</p>
-<p><code>ntpd</code> can now use the generated keys in the same way as on Unix platforms. Please refer to the <a href="/archives/4.2.8-series/authopt">Authentication Options</a> for details on how to use these.</p>
+<p>With this release <code>ntp-keygen</code> is supported. See the <a href="/archives/4.2.8-series/keygen/">ntp keygen documentation</a> for details on how to use <code>ntp-keygen</code>.</p>
+<p><code>ntpd</code> can now use the generated keys in the same way as on Unix platforms. Please refer to the <a href="/archives/4.2.8-series/authopt/">Authentication Options</a> for details on how to use these.</p>
 <blockquote>
 <p><strong>NOTE:</strong> <code>ntpd</code> and <code>ntp-keygen</code> both use OpenSSL which requires a random character file called <code>.rnd</code> by default. Both of these programs will automatically generate this file if they are not found. The programs will look for an environmental variable called <code>RANDFILE</code> and use that for the name of the random character file if the variable exists. If it does not exist it will look for an environmental variable called <code>HOME</code> and use that directory to search for a file called <code>.rnd</code> in that directory. Finally, if neither <code>RANDFILE</code> nor <code>HOME</code> exists it will look in <code>C:\</code> for a <code>.rnd</code> file. In each case it will search for and create the file if the environmental variable exists or in the <code>C:\</code> directory if it doesn&rsquo;t.</p>
 </blockquote>
@@ -217,7 +217,7 @@ The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT ru
 <p>Refer to <a href="#compiling-requirements">Compiling Requirements and Instructions</a> for how to compile the program.</p>
 <hr>
 <h4 id="reference-clocks">Reference Clocks</h4>
-<p>Reference clock support under Windows NT is tricky because the IO functions are so much different. Some of the clock types have been built into the <code>ntpd</code> executable and should work but have not been tested by the NTP project. If you have a clock that runs on Win32 and the driver is there but not implemented on Win32 you will have make the required configuration changes in <code>config.h</code> and then build <code>ntpd</code> from source and test it. The <a href="/archives/drivers/driver1">Undisciplined Local Clock (Type 1)</a> reference clock is known to work and is supported by Windows NT.</p>
+<p>Reference clock support under Windows NT is tricky because the IO functions are so much different. Some of the clock types have been built into the <code>ntpd</code> executable and should work but have not been tested by the NTP project. If you have a clock that runs on Win32 and the driver is there but not implemented on Win32 you will have make the required configuration changes in <code>config.h</code> and then build <code>ntpd</code> from source and test it. The <a href="/archives/drivers/driver1/">Undisciplined Local Clock (Type 1)</a> reference clock is known to work and is supported by Windows NT.</p>
 <hr>
 <h4 id="functions-supported">Functions Supported</h4>
 <p>All NTP functions are supported with some constraints. See the <a href="#todo">TODO</a> list below. Note that the <code>ntptrace</code> executable is not supported and you should use the PERL script version instead.</p>
@@ -305,7 +305,7 @@ The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT ru
 <p>Add the <code>-g</code> option to the <code>ImagePath</code> key, behind <code>%INSTALLDIR&gt;\ntpd.exe</code>. This will force NTP to accept large time errors (including 1.1.1980 00:00).</p>
 <hr>
 <h4 id="bug-reports">Bug Reports</h4>
-<p>Please follow the <a href="/archives/4.2.8-series/bugs">NTP Bug Reporting Procedures</a> to report bugs or request enhancements.</p>
+<p>Please follow the <a href="/archives/4.2.8-series/bugs/">NTP Bug Reporting Procedures</a> to report bugs or request enhancements.</p>
 
 	  
   </div>
