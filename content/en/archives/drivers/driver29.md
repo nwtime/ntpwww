@@ -51,10 +51,6 @@ Last update: 13-Sep-2019 08:07 UTC
 
 The `refclock_palisade` driver supports [Trimble](https://timing.trimble.com/) Navigation's Palisade Smart Antenna GPS receiver.
 
-[//]: # (24/5/2021 DL: they seem to be out of the GPS business in favor of GNSS?)
-[//]: # (Additional software and information about the Palisade GPS is available from: http://www.trimble.com/oem/ntp/).
-[//]: # (Latest NTP driver source, executables and documentation is maintained at: ftp://ftp.trimble.com/pub/ntp/.)
-
 This documentation describes version 7.12 of the GPS Firmware and version 2.46 (July 15, 1999) and later, of the driver source.
 
 This documentation describes version 1 of the Thunderbolt Receiver Firmware, no tests have been made on further firmwares. Please read [Notes on the Thunderbolt Receiver's Firmware](/archives/drivers/driver29/#notes-on-the-thunderbolt-receivers-firmware) for more information.

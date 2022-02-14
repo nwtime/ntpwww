@@ -1,5 +1,5 @@
 ---
-title: "NTP BUG 3110: DESCRIPTION"
+title: "NTP BUG 3110: Windows: ntpd DoS by oversized UDP packet "
 type: archives
 date: "2016-11-21"
 ---

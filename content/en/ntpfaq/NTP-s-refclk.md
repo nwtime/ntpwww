@@ -25,8 +25,8 @@ The NTP software supports different kinds of [reference clocks](/ntpfaq/ntp-s-al
 According to a [survey](/reflib/reports/ntp-survey99-minar.pdf), the most popular real reference clocks are:
 
 * [GPS](/ntpfaq/ntp-s-related#91-gps)
-* [DCF77](https://en.wikipedia.org/wiki/DCF77/)
-* [WWVB](https://en.wikipedia.org/wiki/WWVB/)
+* [DCF77](https://en.wikipedia.org/wiki/DCF77)
+* [WWVB](https://en.wikipedia.org/wiki/WWVB)
 
 While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.
 
