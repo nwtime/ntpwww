@@ -23,7 +23,7 @@ There are two major versions for the kernel PLL: the model for NTPv3, and the mo
 
 #### 6.4.1.2 What's new in each Version?
 
-The history of the earlier kernel clock models is somewhat obscure. The basic features are described in [Q: 5.2.1.1](/ntpfaq/ntp-s-algo-kernel#5211-what-is-special-about-the-kernel-clock).
+The history of the earlier kernel clock models is somewhat obscure. The basic features are described in [Q: 5.2.1.1](/ntpfaq/ntp-s-algo-kernel/#5211-what-is-special-about-the-kernel-clock).
 
 The clock model designed for NTPv4 has these features:
 

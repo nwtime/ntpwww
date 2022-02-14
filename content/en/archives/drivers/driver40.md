@@ -168,7 +168,7 @@ RS-232C, 4800 BPS, 8-bits, no parity, 1 stop bit
 
 This driver supports the Tristate TS-GPSclock-01 in command/response mode, though it is a GPS clock, not JJY radio clock. Using the menus and the onboard switches, the TS-GPSclock-01 should be set to command/response mode and JST time zone.
 
-Besides this driver (Type 40), [the generic NMEA GPS driver (Type 20)](/archives/drivers/driver20) supports the TS-GPSclock-01 in NMEA mode.
+Besides this driver (Type 40), [the generic NMEA GPS driver (Type 20)](/archives/drivers/driver20/) supports the TS-GPSclock-01 in NMEA mode.
 
 **NTP configuration (ntp.conf)**
 
@@ -232,7 +232,7 @@ The telephone JJY is the time service through a public telephone line.
 
 The service is provided by the National Institute of Information and Communications Technology in Japan.
 
-> **Attention:** This mode, the telephone JJY, can not be used with `refclock_acts` [(type 18)](/archives/drivers/driver18) at the same time. Because the `phone` statement in the ntp configuration file is not involved with the `server` statement, both the `refclock_acts` (type 18) and this `refclock_jjy` (type 40, mode 100 to 180) can not recognize the appropriate `phone` statement among the `phone` statements.
+> **Attention:** This mode, the telephone JJY, can not be used with `refclock_acts` [(type 18)](/archives/drivers/driver18/) at the same time. Because the `phone` statement in the ntp configuration file is not involved with the `server` statement, both the `refclock_acts` (type 18) and this `refclock_jjy` (type 40, mode 100 to 180) can not recognize the appropriate `phone` statement among the `phone` statements.
 
 **NTP configuration (ntp.conf)**
 

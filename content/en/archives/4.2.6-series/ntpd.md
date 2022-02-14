@@ -153,7 +153,7 @@ Unless the <code>-n</code>, <code>-d</code> or <code>-D</code> option is used, <
 
 <code>**-I [_address_ | _interface name_]**</code>
 
-: Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.6-series/miscopt#interface) command, which is more versatile.
+: Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.6-series/miscopt/#interface) command, which is more versatile.
 
 <code>**-k _keyfile_**</code>
 
@@ -165,7 +165,7 @@ Unless the <code>-n</code>, <code>-d</code> or <code>-D</code> option is used, <
 
 <code>**-L**</code>
 
-: Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.6-series/miscopt#interface) command, which is more versatile.
+: Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.6-series/miscopt/#interface) command, which is more versatile.
 
 <code>**-M**</code>
 

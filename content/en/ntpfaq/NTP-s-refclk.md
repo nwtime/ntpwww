@@ -20,11 +20,11 @@ type: "archives"
 
 * * *
 
-The NTP software supports different kinds of [reference clocks](/ntpfaq/ntp-s-algo#5111-what-is-a-reference-clock). This section presents various reference clocks.
+The NTP software supports different kinds of [reference clocks](/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock). This section presents various reference clocks.
 
 According to a [survey](/reflib/reports/ntp-survey99-minar.pdf), the most popular real reference clocks are:
 
-* [GPS](/ntpfaq/ntp-s-related#91-gps)
+* [GPS](/ntpfaq/ntp-s-related/#91-gps/)
 * [DCF77](https://en.wikipedia.org/wiki/DCF77)
 * [WWVB](https://en.wikipedia.org/wiki/WWVB)
 

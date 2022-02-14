@@ -57,7 +57,7 @@ Usually I only monitor the `loops` file. Table 8.1a lists the individual fields 
 
 The first command can be used to check what `ntpd` thinks the offset and jitter is currently, relative to the preferred/current server. The second command can tell you something about the estimated offset/error all the way to the stratum 1 source. [Q: 8.1.2](#812-how-do-i-use-peerstats-and-loopstats) describes a way to collect such data automatically.
 
-If a [PPS](/ntpfaq/ntp-s-algo-kernel#5231-what-is-pps-processing) source is [active](/ntpfaq/ntp-s-config-adv/#624-pps-synchronization), the offset displayed with the second choice is updated periodically, maybe every second.
+If a [PPS](/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing) source is [active](/ntpfaq/ntp-s-config-adv/#624-pps-synchronization), the offset displayed with the second choice is updated periodically, maybe every second.
 
 Sometimes things are wrong and you may want to compare time offsets directly. An easy way is to use <code>ntpdate -d _server_</code> to compare the local system time with the time taken from <code>_server_</code>.
 

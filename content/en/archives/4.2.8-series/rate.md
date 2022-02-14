@@ -34,7 +34,7 @@ There are several features in the reference implementation designed to defend th
 *   When the first packet of a burst is sent to a server, do not send further packets until the first packet has been received from the server.
 *   Upon receiving a [Kiss-o'-Death packet](#the-kiss-of-death-packet) (KoD), immediately reduce the sending rate.
 
-Rate management involves four algorithms to manage resources: (1) poll rate control, (2) burst control, (3) average headway time and (4) guard time. The first two algorithms are described on the [Poll Program](/archives/4.2.8-series/poll) page; the remaining two are described in following sections.
+Rate management involves four algorithms to manage resources: (1) poll rate control, (2) burst control, (3) average headway time and (4) guard time. The first two algorithms are described on the [Poll Program](/archives/4.2.8-series/poll/) page; the remaining two are described in following sections.
 
 * * *
 

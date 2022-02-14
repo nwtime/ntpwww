@@ -271,7 +271,7 @@ This is an indicator that `ntpd` has problems controlling the system clock. Most
 
 > As adjustments to `tick` are not possible for every operating system, it's deprecated in general. The suggested solution is to use suitable hardware for time servers.
 
-If you are using the [kernel discipline](/ntpfaq/ntp-s-algo#5161-how-will-ntp-discipline-my-clock) and suspect the second problem, use `adjtime()` instead.
+If you are using the [kernel discipline](/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock) and suspect the second problem, use `adjtime()` instead.
 
 Usually `ntpd` can compensate small and even not-so-small errors, but in this case the clock is too bad to be adjusted by the NTP algorithm. Any clock error of more than one minute per day is definitely too large to be corrected by NTP.
 
@@ -351,7 +351,7 @@ This is valid for the system clock and for reference clock drivers.
 
 Originally NTP has not been designed with dial-up connections in mind. Therefore it does not care very much about when to send out packets.
 
-If you have defined an external `server` or `peer`, `ntpd` will periodically poll it. The [polling interval](/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled) is limited by the [settings `minpoll` and `maxpoll`](/ntpfaq/ntp-s-algo#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll). The virtual stability of the system clock determines whether the polling interval is reduced or increased.
+If you have defined an external `server` or `peer`, `ntpd` will periodically poll it. The [polling interval](/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled) is limited by the [settings `minpoll` and `maxpoll`](/ntpfaq/ntp-s-algo/#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll). The virtual stability of the system clock determines whether the polling interval is reduced or increased.
 
 However, increasing the polling interval may be a sub-optimal solution: `ntpd` will take longer for the initial synchronization, and it may become unable to catch up with the clock's drift.
 

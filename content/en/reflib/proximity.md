@@ -6,7 +6,7 @@ toc_hide: true
 
 ![gif](/archives/pic/pogo5.gif)
 
-from [_Pogo_](/reflib/pictures), Walt Kelly
+from [_Pogo_](/reflib/pictures/), Walt Kelly
 
 Turtle wins the race.
 

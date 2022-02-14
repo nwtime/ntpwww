@@ -11,7 +11,7 @@ Last update: 3-Oct-2011 21:51 UTC
 #### Table of Contents
 
 *   [Introduction](/archives/4.2.8-series/autokey/#introduction)
-*   [Autokey Subnets](/archives/4.2.8-series/autokey#autokey-subnets)
+*   [Autokey Subnets](/archives/4.2.8-series/autokey/#autokey-subnets)
 *   [Subnet Group Names](/archives/4.2.8-series/autokey/#subnet-group-names)
 *   [Secure Groups](/archives/4.2.8-series/autokey/#secure-groups)
 *   [Configuration - Authentication Schemes](/archives/4.2.8-series/autokey/#configuration---authentication-schemes)

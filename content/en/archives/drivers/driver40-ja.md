@@ -170,7 +170,7 @@ RS-232C, 4800 BPS, 8ビット, パリティなし, 1ストップ・ビット
 
 このドライバーは、JJY受信機ではないGPS時計のトライステート TS-GPSclock-01 のコマンド・レスポンス・モードをサポートします。
 TS-GPSclock-01 は、オンボードのスイッチとメニューでコマンド・レスポンス・モードとタイム・ゾーンをJST（日本標準時）に設定しなければなりまん。
-この Type 40 のドライバーの他, TS-GPSclock-01 のNMEAモードは、[一般 NMEA GPS ドライバー ( Type 20 )](/archives/drivers/driver20) でも利用することができます。
+この Type 40 のドライバーの他, TS-GPSclock-01 のNMEAモードは、[一般 NMEA GPS ドライバー ( Type 20 )](/archives/drivers/driver20/) でも利用することができます。
 
 **NTPの設定 (ntp.conf)**
 

@@ -3,7 +3,7 @@ title: "Access Control Support"
 type: archives
 ---
 
-![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The skunk watches for intruders and sprays.
 
