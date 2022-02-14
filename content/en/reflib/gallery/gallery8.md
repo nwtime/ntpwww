@@ -24,7 +24,7 @@ At that time every IBM mainframe came with a resident hardware engineer who fixe
 
 ![jpg](/archives/pic/1410.jpg)
 
-This is an IBM Model 1410. At the Computing Center it had only one mission in life: read Hollerith cards to magnetic tape for input to the IBM 67 and print magnetic tape output from that machine. As it happened, the card reader and line printer were really fast, considering the huge quantity of cards and paper then used for program input and output. Before our habits turned to video displays, a large computing center like ours consumed paper in the range of fractional forests per day. See the [Anatomy of a Hollerith Card](/reflib/gallery/gallery9) gallery for long forgotten technology of that era.
+This is an IBM Model 1410. At the Computing Center it had only one mission in life: read Hollerith cards to magnetic tape for input to the IBM 67 and print magnetic tape output from that machine. As it happened, the card reader and line printer were really fast, considering the huge quantity of cards and paper then used for program input and output. Before our habits turned to video displays, a large computing center like ours consumed paper in the range of fractional forests per day. See the [Anatomy of a Hollerith Card](/reflib/gallery/gallery9/) gallery for long forgotten technology of that era.
 
 ![jpg](/archives/pic/2250b.jpg)
 
@@ -32,4 +32,4 @@ This is an IBM 2260 Video Display Unit, once the glass teletype of choice for a 
 
 ![jpg](/archives/pic/2703.jpg)
 
-This is an IBM 2703 Transmission Control Unit, at one time the only choice for an IBM customer to run a moderate to large number of remote terminals. It was clumsy, unforgiving and slow and the timesharing users hated it. I took on the job as chief designer for a team which built something better; see the [Data Concentrator Project](/reflib/gallery/gallery7) gallery for the results.
+This is an IBM 2703 Transmission Control Unit, at one time the only choice for an IBM customer to run a moderate to large number of remote terminals. It was clumsy, unforgiving and slow and the timesharing users hated it. I took on the job as chief designer for a team which built something better; see the [Data Concentrator Project](/reflib/gallery/gallery7/) gallery for the results.

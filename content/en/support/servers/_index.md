@@ -3,7 +3,7 @@ title: "NTP Public Time Servers"
 type: archives
 ---
 
-This section provides lists of Network Time Protocol (NTP) public Time Servers. **Please read the [Rules Of Engagement](/support/servers/rulesofengagement) before using servers from these lists.**
+This section provides lists of Network Time Protocol (NTP) public Time Servers. **Please read the [Rules Of Engagement](/support/servers/rulesofengagement/) before using servers from these lists.**
 
 > **ALERT** These lists are updated frequently and should not be cached or scraped.
 
@@ -55,7 +55,7 @@ To add a Time Server, modify, or inactivate an existing Time Server entry, email
 
 | Item | Value | Required |
 | ----- | ----- | ----- |
-| [Server Stratum](/support/servers/serverstratum/) | Indicate if the server is [Stratum One](/support/servers/stratumonetimeservers/), [Stratum Two](/support/servers/stratumtwotimeservers/), or [Inactive](/support/servers/inactivetimeservers) | Required |
+| [Server Stratum](/support/servers/serverstratum/) | Indicate if the server is [Stratum One](/support/servers/stratumonetimeservers/), [Stratum Two](/support/servers/stratumtwotimeservers/), or [Inactive](/support/servers/inactivetimeservers/) | Required |
 | [Country Code](/support/servers/countrycode/) | 2 digit country code; for US, indicate 2 digit state code | Required |
 | Hostname, IP Address, IPv6 Address | | At least one is required |
 | [Use DNS](/support/servers/usedns/) | Yes or No | Required |

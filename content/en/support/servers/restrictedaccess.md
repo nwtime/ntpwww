@@ -5,8 +5,8 @@ type: archives
 
 A restricted access Time Server does not require a prior arrangement before use but has some usage restrictions in addition to the [Usage Guidlines](#usage-guidelines). These restrictions include, but are not limited to:
 
-* Requiring a [Notification Message](/support/servers/notificationmessage) prior to use
-* Service only to clients within a specified [Service Area](/support/servers/servicearea)
+* Requiring a [Notification Message](/support/servers/notificationmessage/) prior to use
+* Service only to clients within a specified [Service Area](/support/servers/servicearea/)
 * Service only to certain types of institutions
 * Maximum number of clients
 * Minimum poll interval 

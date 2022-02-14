@@ -5,9 +5,9 @@ type: archives
 
 An open access Time Server may be polled by any client complying with the [Usage Guidelines](#usage-guidelines).
 
-Clients should respect any declared [Service Area](/support/servers/servicearea), but are not required to do so.
+Clients should respect any declared [Service Area](/support/servers/servicearea/), but are not required to do so.
 
-Operators of open access Time Servers may request, but may not require, a [Notification Message](/support/servers/notificationmessage) prior to use.
+Operators of open access Time Servers may request, but may not require, a [Notification Message](/support/servers/notificationmessage/) prior to use.
 
 #### Usage Guidelines
 
