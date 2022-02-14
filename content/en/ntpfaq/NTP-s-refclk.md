@@ -67,7 +67,7 @@ Fortunately there are also receivers that were designed for precision timekeepin
 | [GPSclock](http://www.gpsclock.com/) | 200 | [20](/archives/drivers/driver20/) (patched) | serial; 4800 baud | Y |
 | Hewlett Packard | 58503A | [26](/archives/drivers/driver26/) | serial; 9600 baud | Y |
 | Magnavox | GPS-MX4200 | [9](/archives/drivers/driver9/) | serial; 4800 baud | Y |
-| [Meinberg](http://www.meinberg.de/) | GPS166, GPS167 | [8](/archives/drivers/driver8/) | serial; 9600 baud | Y |
+| [Meinberg](https://www.meinberg.de/) | GPS166, GPS167 | [8](/archives/drivers/driver8/) | serial; 9600 baud | Y |
 | Trak(?) | 8810, 8820 | [2](/archives/drivers/driver2/) | serial; 9600 baud | Y |
 | Trimble | Acutime 2000<sup>a</sup> | [8](/archives/drivers/driver8/), [10](/archives/drivers/driver10/), [29](/archives/drivers/driver29/) | TSIP | Y (TTL) |
 | Trimble | Palisade<sup>b</sup> | [8](/archives/drivers/driver8/), [10](/archives/drivers/driver10/), [29](/archives/drivers/driver29/) | serial; | ? |

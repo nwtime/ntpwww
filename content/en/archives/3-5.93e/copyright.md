@@ -54,7 +54,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 25.  [Rainer Pruy](mailto:Rainer.Pruy@informatik.uni-erlangen.de) monitoring/trap scripts, statistics file handling  
 26.  Dirce Richards: Digital UNIX V4.0 port  
 27.  Nick Sayer: SunOS streams modules  
-28.  [Frank Kardel](http://www4.informatik.uni-erlangen.de/~kardel) [email](mailto:Frank.Kardel@informatik.uni-erlangen.de) PARSE <GENERIC> driver (14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup  
+28.  [Frank Kardel](https://www4.cs.fau.de/~kardel/) [email](mailto:Frank.Kardel@informatik.uni-erlangen.de) PARSE <GENERIC> driver (14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup  
 29.  [Ray Schnitzler](mailto:schnitz@unipress.com) Unixware1 port  
 30.  [Michael Shields](mailto:shields@tembel.org) USNO clock driver  
 31.  Jeff Steinman: Datum PTS clock driver  

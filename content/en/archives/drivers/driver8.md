@@ -87,31 +87,31 @@ Verified implementations are:
 
     : These variants have been tested for correct decoding with my own homegrown receivers. Interfacing with specific commercial products may involve some fiddling with cables. In particular, commercial RAWDCF receivers have a seemingly unlimited number of ways to draw power from the RS-232 port and to encode the DCF77 datastream. You are mainly on your own here unless I have a sample of the receiver.
 
-*   [Meinberg clocks](http://www.meinberg.de)
+*   [Meinberg clocks](https://www.meinberg.de/)
 
     : These implementations have been verified by the Meinberg people themselves and I have access to one of these clocks.
 
-*   [Schweitzer Engineering Laboratories](http://www.selinc.com) SEL-240x clocks
+*   [Schweitzer Engineering Laboratories](https://selinc.com/) SEL-240x clocks
 
-    : This implementation was provided and verified by SEL and [Network Time Foundation](https://www.nwtime.org) has an SEL-2407 in one of its development labs.
+    : This implementation was provided and verified by SEL and [Network Time Foundation](https://www.nwtime.org/) has an SEL-2407 in one of its development labs.
 
 The pictures below have been taken from and are linked to the vendors' web pages.
 
 *   **server 127.127.8.0-3 mode 0**
 
-    : [Meinberg](http://www.meinberg.de) PZF5xx receiver family (FM demodulation/TCXO / 50μs)
+    : [Meinberg](https://www.meinberg.de/) PZF5xx receiver family (FM demodulation/TCXO / 50μs)
 
 *   **server 127.127.8.0-3 mode 1**
 
-    : [Meinberg](http://www.meinberg.de) PZF5xx receiver family (FM demodulation/OCXO / 50μs)
-    [![Image PZF511](/archives/pic/pzf511.jpg)](http://www.meinberg.de/english/products/pzf-eurocard.htm)
+    : [Meinberg](https://www.meinberg.de/) PZF5xx receiver family (FM demodulation/OCXO / 50μs)
+    [![Image PZF511](/archives/pic/pzf511.jpg)](https://www.meinbergglobal.com/english/products/3u-dcf77-correlation-receiver.htm)
 
 *   **server 127.127.8.0-3 mode 2**
 
-    : [Meinberg](http://www.meinberg.de) [DCF C51 receiver and similar](http://www.meinberg.de/english/products/c51.htm) (AM demodulation / 4ms)
-    [![Image C51](/archives/pic/c51.jpg)](http://www.meinberg.de/english/products/c51.htm) This mode expects the Meinberg standard time string format with 9600/7E2.
+    : [Meinberg](http://www.meinberg.de/) [DCF C51 receiver and similar](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) (AM demodulation / 4ms)
+    [![Image C51](/archives/pic/c51.jpg)](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) This mode expects the Meinberg standard time string format with 9600/7E2.
 
-    > **Note:** mode 2 must also be used for [Meinberg](http://www.meinberg.de/english/products/formfactor.htm#slot_card) PCI cards under Linux, e.g. [the GPS PCI card](http://www.meinberg.de/english/products/gps-pcicard.htm) or [the DCF77 PCI card](http://www.meinberg.de/english/products/dcf-pcicard.htm). Please note the [Meinberg Linux driver](http://www.meinberg.de/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
+    > **Note:** mode 2 must also be used for Meinberg PCI cards under Linux, e.g. [the GPS PCI card](https://www.meinbergglobal.com/english/products/pci-gps-clock.htm) or [the DCF77 PCI card](https://www.meinbergglobal.com/english/products/pci-dcf77-clock.htm). Please note the [Meinberg Linux driver](https://www.meinbergglobal.com/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
 
 *   **server 127.127.8.0-3 mode 3**
 
@@ -131,8 +131,8 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 7**
 
-    : [Meinberg](http://www.meinberg.de) GPS16x/GPS17x receivers (GPS / <<1μs)
-    [![Image GPS167](/archives/pic/gps167.jpg)](http://www.meinberg.de/english/products/gps-eurocard.htm)
+    : [Meinberg](http://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / <<1μs)
+    [![Image GPS167](/archives/pic/gps167.jpg)](https://www.meinbergglobal.com/english/products/3u-gps-clock-lc-display.htm)
 
     This mode expects either the University of Erlangen time string format or the Meinberg standard time string format at 19200/8N1.
 
@@ -144,16 +144,16 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 8**
 
-    : [IGEL](http://www.igel.de) clock
+    : [IGEL](https://www.igel.de) clock
     ![Image IGEL clock](/archives/pic/igclock.gif)]
 
 *   **server 127.127.8.0-3 mode 9**
 
-    : [Trimble](http://www.trimble.com) SVeeSix GPS receiver TAIP protocol (GPS / \<<1μs)
+    : [Trimble](https://www.trimble.com) SVeeSix GPS receiver TAIP protocol (GPS / \<<1μs)
 
 *   **server 127.127.8.0-3 mode 10**
 
-    : [Trimble](http://www.trimble.com) SVeeSix GPS receiver TSIP protocol (GPS / \<<1μs) (no kernel support yet)
+    : [Trimble](https://www.trimble.com) SVeeSix GPS receiver TSIP protocol (GPS / \<<1μs) (no kernel support yet)
     ![Image SVeeSix-CM3](/archives/pic/pd_om011.gif)
     ![Image Lassen-SK8](/archives/pic/pd_om006.gif) 
 
@@ -188,7 +188,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 18**
 
-    : [Meinberg](http://www.meinberg.de) GPS16x/GPS17x receivers (GPS / \<<1μs)
+    : [Meinberg](http://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / \<<1μs)
 
     This mode works without additional data communication (version, GPS status etc.) and thus should be used with multidrop, heterogeneous multiclient operation.
 

@@ -17,7 +17,7 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Control Port Sentences
 
-The Control (CDU) Port is used to initialize, monitor, and control the receiver. The structure of the control port sentences is based on the <cite>NMEA-0183</cite> Standard for Interfacing Marine Electronics Navigation Devices (version 1.5). For more details, please refer to the <cite>NMEA-0183</cite> Specification available from the [National Marine Electronics Association](http://www.nmea.org/).
+The Control (CDU) Port is used to initialize, monitor, and control the receiver. The structure of the control port sentences is based on the <cite>NMEA-0183</cite> Standard for Interfacing Marine Electronics Navigation Devices (version 1.5). For more details, please refer to the <cite>NMEA-0183</cite> Specification available from the [National Marine Electronics Association](https://www.nmea.org/).
 
 Reserved characters are used to indicate the beginning and the end of records in the data stream, and to delimit data fields within a sentence. Only printable ASCII characters (Hex 20 through 7F) may be used in a sentence. Table 2 lists the reserved characters and defines their usage. Table 1 illustrates the general Magnavox proprietary NMEA sentence format.
 

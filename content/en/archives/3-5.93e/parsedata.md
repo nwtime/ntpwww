@@ -27,7 +27,7 @@ The parse driver currently supports several clocks with different query mechanis
       pattern="\2  .  .  ;  ;   :  :  ;    :  ;        ;   .         .       "
 </pre>
 
-Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach [Meinberg](http://www.meinberg.de/) via the Web. Information can also be ordered via eMail from [info@meinberg.de](mailto:%20info@meinberg.de)
+Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach [Meinberg](https://www.meinberg.de/) via the Web. Information can also be ordered via [email](mailto:info@meinberg.de)
 
 **General characteristics:**
   

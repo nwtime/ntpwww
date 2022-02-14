@@ -450,6 +450,6 @@ The Thunderbolt Receiver in the Palisade driver doesn't support (for now) event-
 
 Questions or Comments:  
 
-[Sven Dietrich](mailto:sven_dietrich@trimble.com), [Trimble Navigation Ltd.](http://www.trimble.com/)
+[Sven Dietrich](mailto:sven_dietrich@trimble.com), [Trimble Navigation Ltd.](https://www.trimble.com/)
 
 [Fernando P. Hauscarriaga](mailto:fernandoph@iar.unlp.edu.ar)
