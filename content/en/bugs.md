@@ -13,7 +13,7 @@ type: archives
 
 If you find a security vulnerability in the latest version of NTP, send an email report to [security@ntp.org](mailto:security@ntp.org). The NTP Security Officer will respond to your report.
 
-**Please refrain from discussing potential security issues in public,** including on the news group, bug tracking system, or any mailing lists. Refer to [Security Notices](https://support.ntp.org/bin/view/Main/SecurityNotice) for more information about NTP's security notification policy, security patch policy, instructions for reporting security issues, and a list of recent security vulnerabilities.
+**Please refrain from discussing potential security issues in public,** including on the news group, bug tracking system, or any mailing lists. Refer to [Security Notices](/support/securitynotice/) for more information about NTP's security notification policy, security patch policy, instructions for reporting security issues, and a list of recent security vulnerabilities.
 
 * * *
 
