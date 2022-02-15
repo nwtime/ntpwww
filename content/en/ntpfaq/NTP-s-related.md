@@ -144,7 +144,7 @@ There are various sources of information about NTP. The following list is defini
 *   This NTP website has a lot of information about NTP and related topics.
 *   There is also the [NTP Support Wiki](https://support.ntp.org).
 *   One of the oldest sources of useful information is the newsgroup news://comp.protocols.time.ntp. That newsgroup is visited by many beginners as well as a few experts, and occasionally even the father of NTP will post a note there.
-*   The page [Time, with focus on NTP and Slovenia](http://www.ijs.si/time/) contains a good summary of time synchronization using NTP as well as valuable references. The author allowed inclusion of his material into this FAQ. I really appreciate that.
+*   The page [Time, with focus on NTP and Slovenia](https://www.ijs.si/time/) contains a good summary of time synchronization using NTP as well as valuable references. The author allowed inclusion of his material into this FAQ. I really appreciate that.
 *   Technical papers by [Professor David L. Mills](mailto:mills@udel.edu) are available in the [Reference Library](/reflib/).
 *   Various [RFCs deal with NTP](/reflib/rfc/). While newer RFCs obsolete older ones, it might still be interesting to read the older ones.
 
@@ -152,9 +152,9 @@ There are various sources of information about NTP. The following list is defini
 
 | RFC Number | Date | Title or Description |
 | ----- | ----- | ----- |
-| 956 | September 1985 | [Algorithms for synchronizing network clocks](https://www.rfc-editor.org/rfc/rfc956/) |
-| 957 | September 1985 | [Experiments in network clock synchronization](https://www.rfc-editor.org/rfc/rfc957/) |
-| 958 | September 1985 | [Network Time Protocol (NTP)](https://www.rfc-editor.org/rfc/rfc958/) |
+| 956 | September 1985 | [Algorithms for synchronizing network clocks](https://www.rfc-editor.org/rfc/rfc956) |
+| 957 | September 1985 | [Experiments in network clock synchronization](https://www.rfc-editor.org/rfc/rfc957) |
+| 958 | September 1985 | [Network Time Protocol (NTP)](https://www.rfc-editor.org/rfc/rfc958) |
 | 1059 | July 1988 | [Network Time Protocol (version 1) - specification and implementation](/reflib/rfc/rfc1059.txt) |
 | 1119 | September 1989 | [Network Time Protocol (version 2) - specification and implementation](/reflib/rfc/rfc1119/rfc1119b.pdf) |
 | 1305 | March 1992 | [Network Time Protocol (Version 3) - Specification, Implementation and Analysis](/reflib/rfc/rfc1305/rfc1305b.pdf) |

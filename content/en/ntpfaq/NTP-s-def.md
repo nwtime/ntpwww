@@ -5,7 +5,7 @@ type: "archives"
 
 #### 4.1. Overview
 
-This section tries to introduce and explain the most basic features of NTP, the Network Time Protocol. The discussion here will be limited to the more theroretical aspects of NTP, while the [next section](/ntpfaq/ntp-s-algo) will go further towards real life.
+This section tries to introduce and explain the most basic features of NTP, the Network Time Protocol. The discussion here will be limited to the more theroretical aspects of NTP, while the [next section](/ntpfaq/ntp-s-algo/) will go further towards real life.
 
 4.1.1 [What is NTP?](#411-what-is-ntp)  
 4.1.2 [What is SNTP?](#412-what-is-sntp)  
@@ -47,7 +47,7 @@ Therefore, air traffic control was one of the first applications for NTP.
 There exist several protocols to synchronize computer clocks, each having distinguished features. Here is a list of NTP's features:
 
 * NTP needs some _reference clock_ that defines the _true time_ to operate. All clocks are set towards that true time. It will not just make all systems agree on _some_ time, but will make them agree upon the true time as defined by some standard.
-NTP uses [UTC](/ntpfaq/ntp-s-time#22-what-is-utc) as reference time.
+NTP uses [UTC](/ntpfaq/ntp-s-time/#22-what-is-utc) as reference time.
 
 * NTP is a fault-tolerant protocol that will automatically select the best of several available time sources to synchronize to. Multiple candidates can be combined to minimize the accumulated error. Temporarily or permanently unreliable time sources will be detected and avoided.
 
@@ -62,7 +62,7 @@ NTP uses [UTC](/ntpfaq/ntp-s-time#22-what-is-utc) as reference time.
 
 #### 4.1.5 Which Operating Systems are supported?
 
-The implementation described in [4.3.2 UNIX Systems](/ntpfaq/ntp-s-def-impl#432-unix-systems) works for most popular UNIX operating systems, including AIX, FreeBSD, HP-UX, Linux, NetBSD, OpenBSD, and Solaris.
+The implementation described in [4.3.2 UNIX Systems](/ntpfaq/ntp-s-def-impl/#432-unix-systems) works for most popular UNIX operating systems, including AIX, FreeBSD, HP-UX, Linux, NetBSD, OpenBSD, and Solaris.
 
 Meinberg provides a [GUI installer](https://www.meinbergglobal.com/english/sw/ntp.htm#ntp_stable) for Window XP and later.
 

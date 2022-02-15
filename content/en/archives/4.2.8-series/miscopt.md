@@ -85,7 +85,7 @@ The file format consists of a single line containing a single floating point num
 
 <code>**interface [listen | ignore | drop] [all | ipv4 | ipv6 | wildcard | _name_ | _address_[/_prefixlen_]]**</code>
 
-: This command controls which network addresses <code>ntpd</code> opens, and whether input is dropped without processing. The first parameter determines the action for addresses which match the second parameter. That parameter specifies a class of addresses, or a specific interface name, or an address. In the address case, <code>_prefixlen_</code> determines how many bits must match for this rule to apply. <code>ignore</code> prevents opening matching addresses, <code>drop</code> causes <code>ntpd</code> to open the address and drop all received packets without examination. Multiple <code>interface</code> commands can be used. The last rule which matches a particular address determines the action for it. <code>interface</code> commands are disabled if any [<code>-I</code>](/archives/4.2.8-series/ntpd#command-line-options), [<code>--interface</code>](/archives/4.2.8-series/ntpd#command-line-options), [<code>-L</code>](/archives/4.2.8-series/ntpd#command-line-options), or [<code>--novirtualips</code>](/archives/4.2.8-series/ntpd#command-line-options) command-line options are used. If none of those options are used and no <code>interface</code> actions are specified in the configuration file, all available network addresses are opened. The <code>nic</code> command is an alias for <code>interface</code>.
+: This command controls which network addresses <code>ntpd</code> opens, and whether input is dropped without processing. The first parameter determines the action for addresses which match the second parameter. That parameter specifies a class of addresses, or a specific interface name, or an address. In the address case, <code>_prefixlen_</code> determines how many bits must match for this rule to apply. <code>ignore</code> prevents opening matching addresses, <code>drop</code> causes <code>ntpd</code> to open the address and drop all received packets without examination. Multiple <code>interface</code> commands can be used. The last rule which matches a particular address determines the action for it. <code>interface</code> commands are disabled if any [<code>-I</code>](/archives/4.2.8-series/ntpd/#command-line-options), [<code>--interface</code>](/archives/4.2.8-series/ntpd/#command-line-options), [<code>-L</code>](/archives/4.2.8-series/ntpd/#command-line-options), or [<code>--novirtualips</code>](/archives/4.2.8-series/ntpd/#command-line-options) command-line options are used. If none of those options are used and no <code>interface</code> actions are specified in the configuration file, all available network addresses are opened. The <code>nic</code> command is an alias for <code>interface</code>.
 
 <code>**leapfile _leapfile_ [checkhash|ignorehash]**</code>
 
@@ -121,7 +121,7 @@ This configuration will list all clock information and synchronization informati
 
 <code>**mru [maxdepth _count_ | maxmem _kilobytes_ | mindepth _count_ | maxage _seconds_ | initalloc _count_ | initmem _kilobytes_ | incalloc _count_ | incmem _kilobytes_]**</code>
 
-: Controls size limits of the monitoring facility Most Recently Used [(MRU) list](/archives/4.2.8-series/ntpq#control-message-commands) of client addresses, which is also used by the [rate control facility](/archives/4.2.8-series/accopt/).
+: Controls size limits of the monitoring facility Most Recently Used [(MRU) list](/archives/4.2.8-series/ntpq/#control-message-commands) of client addresses, which is also used by the [rate control facility](/archives/4.2.8-series/accopt/).
 
 <code>maxdepth _count_</code>  
 : <code>maxmem _kilobytes_</code>
@@ -180,7 +180,7 @@ This configuration will list all clock information and synchronization informati
 
 <code>**saveconfigdir _directory_path_**</code>
 
-: Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>'s [saveconfig](/archives/4.2.8-series/ntpq#control-message-commands) command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
+: Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>'s [saveconfig](/archives/4.2.8-series/ntpq/#control-message-commands) command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
 
 <code>**setvar _variable_ [default]**</code>
 

@@ -12,7 +12,7 @@ date: "2014-12-18"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8-release-announcement">4.2.8</a></td>
+		<td><a href="/support/securitynotice/4_2_8-release-announcement/">4.2.8</a></td>
 		<td>18 Dec 2014</td>
 	</tr>
 	<tr>

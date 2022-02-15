@@ -18,7 +18,7 @@ date: "2018-02-27"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3454">Bug 3454</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7185/">CVE-2018-7185</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7185">CVE-2018-7185</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

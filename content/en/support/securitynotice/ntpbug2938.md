@@ -18,7 +18,7 @@ date: "2016-01-19"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2938">Bug 2938</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7976/">CVE-2015-7976</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7976/>CVE-2015-7976</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-01-19"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 4.0</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:L/Au:S/C:N/I:P/A:N)">AV:N/AC:L/Au:S/C:N/I:P/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:L/Au:S/C:N/I:P/A:N)">AV:N/AC:L/Au:S/C:N/I:P/A:N</a></td>
 	</tr>
 	
   </tbody>	
@@ -44,7 +44,7 @@ The `ntpq saveconfig` command does not do adequate filtering of special characte
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info)
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Use `restrict default nomodify` in your `ntp.conf` file.
 * Upgrade to 4.2.8p6 or later.](/downloads/)
 * If you are unable to upgrade:

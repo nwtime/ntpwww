@@ -20,13 +20,13 @@ type: "archives"
 
 * * *
 
-The NTP software supports different kinds of [reference clocks](/ntpfaq/ntp-s-algo#5111-what-is-a-reference-clock). This section presents various reference clocks.
+The NTP software supports different kinds of [reference clocks](/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock). This section presents various reference clocks.
 
 According to a [survey](/reflib/reports/ntp-survey99-minar.pdf), the most popular real reference clocks are:
 
-* [GPS](/ntpfaq/ntp-s-related#91-gps)
-* [DCF77](https://en.wikipedia.org/wiki/DCF77/)
-* [WWVB](https://en.wikipedia.org/wiki/WWVB/)
+* [GPS](/ntpfaq/ntp-s-related/#91-gps/)
+* [DCF77](https://en.wikipedia.org/wiki/DCF77)
+* [WWVB](https://en.wikipedia.org/wiki/WWVB)
 
 While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.
 
@@ -67,7 +67,7 @@ Fortunately there are also receivers that were designed for precision timekeepin
 | [GPSclock](http://www.gpsclock.com/) | 200 | [20](/archives/drivers/driver20/) (patched) | serial; 4800 baud | Y |
 | Hewlett Packard | 58503A | [26](/archives/drivers/driver26/) | serial; 9600 baud | Y |
 | Magnavox | GPS-MX4200 | [9](/archives/drivers/driver9/) | serial; 4800 baud | Y |
-| [Meinberg](http://www.meinberg.de/) | GPS166, GPS167 | [8](/archives/drivers/driver8/) | serial; 9600 baud | Y |
+| [Meinberg](https://www.meinberg.de/) | GPS166, GPS167 | [8](/archives/drivers/driver8/) | serial; 9600 baud | Y |
 | Trak(?) | 8810, 8820 | [2](/archives/drivers/driver2/) | serial; 9600 baud | Y |
 | Trimble | Acutime 2000<sup>a</sup> | [8](/archives/drivers/driver8/), [10](/archives/drivers/driver10/), [29](/archives/drivers/driver29/) | TSIP | Y (TTL) |
 | Trimble | Palisade<sup>b</sup> | [8](/archives/drivers/driver8/), [10](/archives/drivers/driver10/), [29](/archives/drivers/driver29/) | serial; | ? |
@@ -164,7 +164,7 @@ See [Q: 7.3.2](/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail) f
 
 #### 7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?
 
-[Markus Kuhn](mailto:mgk25@cl.cam.ac.uk) has set up a [page](http://www.cl.cam.ac.uk/~mgk25/lf-clocks.html) describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.
+[Markus Kuhn](mailto:mgk25@cl.cam.ac.uk) has set up a [page](https://www.cl.cam.ac.uk/~mgk25/lf-clocks.html) describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.
 
 * * *
 

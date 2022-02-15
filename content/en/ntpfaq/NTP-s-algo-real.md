@@ -64,5 +64,5 @@ Neither of these is true since multiple time sources will be selected and combin
 
 The theory of leap seconds in explained in [Q: 2.4](/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second). In reality there are two cases to consider:
 
-*   If the operating system implements the [kernel discipline](/ntpfaq/ntp-s-algo-kernel), `ntpd` will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.
+*   If the operating system implements the [kernel discipline](/ntpfaq/ntp-s-algo-kernel/), `ntpd` will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.
 *   If the operating system does not implement the kernel discipline, the clock will show an error of one second relative to NTP's time immediately after the leap second. The situation will be handled just like an unexpected change of time: the operating system will continue with the wrong time for some time, but eventually `ntpd` will _step_ the time. Effectively this will cause the correction for leap seconds to be applied too late.

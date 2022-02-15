@@ -18,7 +18,7 @@ date: "2017-03-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3388">Bug 3388</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-6462/">CVE-2017-6462</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-6462">CVE-2017-6462</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2017-03-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 1.0</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:L/AC:H/Au:S/C:N/I:N/A:P)">AV:L/AC:H/Au:S/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:L/AC:H/Au:S/C:N/I:N/A:P)">AV:L/AC:H/Au:S/C:N/I:N/A:P</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

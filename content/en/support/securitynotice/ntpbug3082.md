@@ -18,7 +18,7 @@ date: "2016-11-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3082">Bug 3082</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-7434/">CVE-2016-7434</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-7434">CVE-2016-7434</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-11-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 3.8</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:L/AC:H/Au:S/C:N/I:N/A:C)">AV:L/AC:H/Au:S/C:N/I:N/A:C</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:L/AC:H/Au:S/C:N/I:N/A:C)">AV:L/AC:H/Au:S/C:N/I:N/A:C</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>
@@ -49,7 +49,7 @@ If `ntpd` is configured to allow `mrulist` query requests from a server that sen
 #### Mitigation
 
 * Only allow `mrulist` query packets from trusted hosts.
-* Implement [BCP-38.](http://www.bcp38.info) 
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page) 
 * Upgrade to [4.2.8p9 or later.](/downloads/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 

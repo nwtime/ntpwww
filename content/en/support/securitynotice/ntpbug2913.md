@@ -28,7 +28,7 @@ date: "2015-10-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>4.6</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:C)">AV:N/AC:H/Au:M/C:N/I:N/A:C</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:C)">AV:N/AC:H/Au:M/C:N/I:N/A:C</a></td>
 	</tr>	
   </tbody>	
 </table>
@@ -43,7 +43,7 @@ If `ntpd` is configured to enable mode 7 packets, and if the use of mode 7 packe
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info)
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Upgrade to [4.2.8p4 or later](/downloads/).
 * If you are unable to upgrade:
   * In ntp-4.2.8, mode 7 is disabled by default. Don't enable it.
@@ -64,6 +64,6 @@ This weakness was discovered by Aleksandar Nikolic of Cisco Talos.
 
 * 2015 Oct 21: Public release
 * 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
-* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902)
+* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](https://bugs.ntp.org/show_bug.cgi?id=1593), [1774](https://bugs.ntp.org/show_bug.cgi?id=1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902/)
 * 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902/); analysis begins
 * 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899/); analysis begins

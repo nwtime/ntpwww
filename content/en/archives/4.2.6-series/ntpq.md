@@ -162,7 +162,7 @@ Association IDs are used to identify system, peer and clock variables. System va
 <code>**clockvar _assocID_ [_name_ [ = _value_ [...]] [...]**</code>  
 : <code>**cv _assocID_ [_name_ [ = _value_ [...] ][...]**</code>
 
-: Display a list of [clock variables](/archives/4.2.6-series/ntpq#clock-variables) for those associations supporting a reference clock.
+: Display a list of [clock variables](/archives/4.2.6-series/ntpq/#clock-variables) for those associations supporting a reference clock.
 
 <code>**:config [...]**</code>
 
@@ -216,15 +216,15 @@ Association IDs are used to identify system, peer and clock variables. System va
 <code>**readvar _assocID_ _name_ [ = _value_ ] [,...]**</code>  
 : <code>**rv _assocID_ [ _name_ ] [,...]**</code>
 
-: Display the specified variables. If <code>_assocID_</code> is zero, the variables are from the [system variables](/archives/4.2.6-series/ntpq#system-variables) name space, otherwise they are from the [peer variables](/archives/4.2.6-series/ntpq#peer-variables) name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces. If no <code>_name_</code> is included, all operative variables in the name space are displayed. In this case only, if the <code>_assocID_</code> is omitted, it is assumed zero. Multiple names are specified with comma separators and without whitespace. Note that time values are represented in milliseconds and frequency values in parts-per-million (PPM). Some NTP timestamps are represented in the format <code>YYYYMMDDTTTT</code>, where <code>YYYY</code> is the year, <code>MM</code> the month of year, <code>DD</code> the day of month and <code>TTTT</code> the time of day.
+: Display the specified variables. If <code>_assocID_</code> is zero, the variables are from the [system variables](/archives/4.2.6-series/ntpq/#system-variables) name space, otherwise they are from the [peer variables](/archives/4.2.6-series/ntpq/#peer-variables) name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces. If no <code>_name_</code> is included, all operative variables in the name space are displayed. In this case only, if the <code>_assocID_</code> is omitted, it is assumed zero. Multiple names are specified with comma separators and without whitespace. Note that time values are represented in milliseconds and frequency values in parts-per-million (PPM). Some NTP timestamps are represented in the format <code>YYYYMMDDTTTT</code>, where <code>YYYY</code> is the year, <code>MM</code> the month of year, <code>DD</code> the day of month and <code>TTTT</code> the time of day.
 
 <code>**saveconfig _filename_**</code>
 
-: Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/archives/4.2.6-series/miscopt#saveconfigdir) appears in the <code>ntpd</code> configuration file. <code>_filename_</code> can use <code>strftime()</code> format specifiers to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.
+: Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/archives/4.2.6-series/miscopt/#saveconfigdir) appears in the <code>ntpd</code> configuration file. <code>_filename_</code> can use <code>strftime()</code> format specifiers to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.
 
 <code>**writevar _assocID_ _name_ = _value_ [,...]**</code>
 
-: Write the specified variables. If the <code>_assocID_</code> is zero, the variables are from the [system variables](/archives/4.2.6-series/ntpq#system-variables) name space, otherwise they are from the [peer variables](/archives/4.2.6-series/ntpq#peer-variables) name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces.
+: Write the specified variables. If the <code>_assocID_</code> is zero, the variables are from the [system variables](/archives/4.2.6-series/ntpq/#system-variables) name space, otherwise they are from the [peer variables](/archives/4.2.6-series/ntpq/#peer-variables) name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces.
 
 * * *
 

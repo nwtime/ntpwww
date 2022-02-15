@@ -252,7 +252,7 @@ filegen loopstats file loops type day link enable</pre>
 <li><code>ntpdc -c loopinfo</code> will display the combined offset in seconds, as seen at the last poll. If supported, <code>ntpdc -c kerninfo</code> will display the current remaining correction, just as <code>ntptime</code> does.</li>
 </ul>
 <p>The first command can be used to check what <code>ntpd</code> thinks the offset and jitter is currently, relative to the preferred/current server. The second command can tell you something about the estimated offset/error all the way to the stratum 1 source. <a href="#812-how-do-i-use-peerstats-and-loopstats">Q: 8.1.2</a> describes a way to collect such data automatically.</p>
-<p>If a <a href="/ntpfaq/ntp-s-algo-kernel#5231-what-is-pps-processing">PPS</a> source is <a href="/ntpfaq/ntp-s-config-adv/#624-pps-synchronization">active</a>, the offset displayed with the second choice is updated periodically, maybe every second.</p>
+<p>If a <a href="/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing">PPS</a> source is <a href="/ntpfaq/ntp-s-config-adv/#624-pps-synchronization">active</a>, the offset displayed with the second choice is updated periodically, maybe every second.</p>
 <p>Sometimes things are wrong and you may want to compare time offsets directly. An easy way is to use <code>ntpdate -d <em>server</em></code> to compare the local system time with the time taken from <code><em>server</em></code>.</p>
 <hr>
 <h4 id="814-what-does-257-mean-as-value-for-reach">8.1.4 What does 257 mean as value for reach?</h4>
@@ -353,12 +353,6 @@ loop 73, -27+/-29.8, rms 6.9, freq 16.81+/-0.327, var 0.140</pre>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">

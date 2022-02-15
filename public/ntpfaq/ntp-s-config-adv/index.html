@@ -389,13 +389,13 @@ server 127.127.22.1 			# PPS
 fudge 127.127.22.1 flag3 1		# enable PPS API</pre>
 <p>When starting, the following things happen:</p>
 <ol>
-<li>The clock <code>GENERIC(1)</code> becomes reachable while PPS is used to update the kernel variables described in <a href="/ntpfaq/ntp-s-config-adv#6243-how-do-i-verify-that-everything-is-working">Q: 6.2.4.3</a>.</li>
+<li>The clock <code>GENERIC(1)</code> becomes reachable while PPS is used to update the kernel variables described in <a href="/ntpfaq/ntp-s-config-adv/#6243-how-do-i-verify-that-everything-is-working">Q: 6.2.4.3</a>.</li>
 <li>The configured clock is selected as synchronization source, and <code>status</code> changes to <code>0x2143</code> after a while. At that time <code>PPS(1)</code> also becomes reachable. During that time <code>status</code> changes to <code>0x2107</code>, and <code>offset</code> shows current offsets from PPS.</li>
 <li>Eventually <code>PPS(1)</code> becomes PPS peer.</li>
 </ol>
 <hr>
 <h4 id="6243-how-do-i-verify-that-everything-is-working">6.2.4.3 How do I verify that everything is working?</h4>
-<p>The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the <a href="/ntpfaq/ntp-s-config-adv#6245-what-is-the-pps-api">PPS API</a> may change things in a positive way.</p>
+<p>The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the <a href="/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api">PPS API</a> may change things in a positive way.</p>
 <p>Let&rsquo;s start with the easier part using standard tools:</p>
 <ol>
 <li>
@@ -439,7 +439,7 @@ ntp_adjtime() returns code 0 (OK)
 <p>If you did not find an error, your PPS configuration should work! You can inspect some additional performance indicators:</p>
 <ul>
 <li>
-<p><code>stability 0.016 ppm</code> is an averaged value for the last frequency corrections made (instability). Basically a small value indicates that both your operating system&rsquo;s clock and your external PPS signal are stable. Remember that <a href="/ntpfaq/ntp-s-algo#5131-how-accurate-will-my-clock-be">temperature changes affect the average PC</a>. The sample above was taken after running the system for about one hour; you should expect a value below <code>0.1 ppm</code> for a stable system.</p>
+<p><code>stability 0.016 ppm</code> is an averaged value for the last frequency corrections made (instability). Basically a small value indicates that both your operating system&rsquo;s clock and your external PPS signal are stable. Remember that <a href="/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be">temperature changes affect the average PC</a>. The sample above was taken after running the system for about one hour; you should expect a value below <code>0.1 ppm</code> for a stable system.</p>
 </li>
 <li>
 <p><code>jitter 1.378 us</code> is also an averaged value. It indicates how much the individual pulses vary from second to second, as measured by the operating system&rsquo;s clock. This value will vary due to system load and interrupt latency. A few microseconds are probably fine, but a few milliseconds definitely are not!</p>
@@ -461,7 +461,7 @@ ntp_adjtime() returns code 0 (OK)
 <h4 id="6244-special-drivers">6.2.4.4 Special Drivers</h4>
 <h4 id="62441-what-is-a-pps-peer">6.2.4.4.1. What is a PPS peer?</h4>
 <p>Even when the kernel clock uses PPS signals to calibrate, the NTP daemon will still use the usual offsets of some reference clock. As it is desirable to use the offsets of the PPS pulses, there is a pseudo clock driver to do that. That driver needs to know the interface specific to the platform to get the time stamps of the PPS pulses.</p>
-<p>That driver is called <a href="/archives/drivers/driver22/">PPS</a> and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the <code>PPS</code> driver becomes reachable, and it will eventually be used as <a href="/ntpfaq/ntp-s-algo-real#532-why-should-i-have-more-than-one-clock">primary synchronization source</a>. A PPS peer will be handled specially so that other time offsets are not considered. The command <code>ntpq -c peer -c as -c rl</code> will print something like:</p>
+<p>That driver is called <a href="/archives/drivers/driver22/">PPS</a> and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the <code>PPS</code> driver becomes reachable, and it will eventually be used as <a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">primary synchronization source</a>. A PPS peer will be handled specially so that other time offsets are not considered. The command <code>ntpq -c peer -c as -c rl</code> will print something like:</p>
 <pre>remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
 +GENERIC(1)      .GPS.            0 l   48   64  377    0.000    0.025   0.001
@@ -490,7 +490,7 @@ server 127.127.22.1                     # PPS
 fudge 127.127.22.1 flag3 1              # enable PPS module
 </pre>
 <blockquote>
-<p><strong>Note:</strong> As documented in <a href="/archives/drivers/driver8#fudge-factors">PPS Clock Discipline</a>, <code>flag2</code> controls the edge of the PPS signal being used, obsoleting the <code>pps</code> keyword.</p>
+<p><strong>Note:</strong> As documented in <a href="/archives/drivers/driver8/#fudge-factors">PPS Clock Discipline</a>, <code>flag2</code> controls the edge of the PPS signal being used, obsoleting the <code>pps</code> keyword.</p>
 </blockquote>
 <p>Maybe it should also be noted here that a <em>site survey</em> can take significant time to finish. <a href="mailto:Terje.Mathisen@hda.hydro.com">Terje Mathisen</a> says: &ldquo;My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion.&rdquo;</p>
 <hr>
@@ -599,12 +599,12 @@ fudge  flag3 1          # enable kernel PPS discipline</pre>
  -usno.pa-x.dec.c .USNO.      1 u   39  128  377     7.05   -0.434    0.26</pre>
 <p>So there are valid arguments for allowing some standard queries from prospective or active NTP clients. On the other hand there are also arguments for restricting access:</p>
 <ul>
-<li><a href="/ntpfaq/ntp-s-config#6144-how-do-i-use-authentication-keys">Configuration changes</a> should be restricted to machines within the own administrative domain at least.</li>
+<li><a href="/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys">Configuration changes</a> should be restricted to machines within the own administrative domain at least.</li>
 <li>You might consider the possibility that a security hole is found in some software which could be exploited to do bad things to your server. Therefore you could restrict or enable certain ranges of IP addresses.</li>
 </ul>
 <hr>
 <h4 id="6263-what-should-be-done-before-announcing-public-ntp-service">6.2.6.3. What should be done before announcing public NTP service?</h4>
-<p>As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some <a href="/ntpfaq/ntp-s-trouble#81-monitoring">monitoring</a> of your server before going public.</p>
+<p>As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some <a href="/ntpfaq/ntp-s-trouble/#81-monitoring">monitoring</a> of your server before going public.</p>
 <p>Once you are satisfied with the performance data, you should also consider the following questions:</p>
 <ul>
 <li>Does the server have an offset and stability better or equal to other servers at the same stratum?</li>
@@ -684,12 +684,6 @@ fudge  flag3 1          # enable kernel PPS discipline</pre>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">

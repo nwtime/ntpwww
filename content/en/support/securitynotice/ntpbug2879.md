@@ -12,7 +12,7 @@ date: "2016-04-26"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p7-release-announcement">4.2.8p7</a></td>
+		<td><a href="/support/securitynotice/4_2_8p7-release-announcement/">4.2.8p7</a></td>
 		<td>26 Apr 2016</td>
 	</tr>
 	<tr>
@@ -28,7 +28,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 2.6</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:L/AC:H/Au:N/C:P/I:P/A:N)">AV:L/AC:H/Au:N/C:P/I:P/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:L/AC:H/Au:N/C:P/I:P/A:N)">AV:L/AC:H/Au:N/C:P/I:P/A:N</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

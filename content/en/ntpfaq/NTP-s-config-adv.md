@@ -250,7 +250,7 @@ fudge 127.127.22.1 flag3 1		# enable PPS API</pre>
 
 When starting, the following things happen:
 
-1.  The clock `GENERIC(1)` becomes reachable while PPS is used to update the kernel variables described in [Q: 6.2.4.3](/ntpfaq/ntp-s-config-adv#6243-how-do-i-verify-that-everything-is-working).
+1.  The clock `GENERIC(1)` becomes reachable while PPS is used to update the kernel variables described in [Q: 6.2.4.3](/ntpfaq/ntp-s-config-adv/#6243-how-do-i-verify-that-everything-is-working).
 2.  The configured clock is selected as synchronization source, and `status` changes to `0x2143` after a while. At that time `PPS(1)` also becomes reachable. During that time `status` changes to `0x2107`, and `offset` shows current offsets from PPS.
 3.  Eventually `PPS(1)` becomes PPS peer.
 
@@ -258,7 +258,7 @@ When starting, the following things happen:
 
 #### 6.2.4.3 How do I verify that everything is working?
 
-The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the [PPS API](/ntpfaq/ntp-s-config-adv#6245-what-is-the-pps-api) may change things in a positive way.
+The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the [PPS API](/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api) may change things in a positive way.
 
 Let's start with the easier part using standard tools:
 
@@ -299,7 +299,7 @@ Let's start with the easier part using standard tools:
 
 3.  If you did not find an error, your PPS configuration should work! You can inspect some additional performance indicators:
 
-    *   `stability 0.016 ppm` is an averaged value for the last frequency corrections made (instability). Basically a small value indicates that both your operating system's clock and your external PPS signal are stable. Remember that [temperature changes affect the average PC](/ntpfaq/ntp-s-algo#5131-how-accurate-will-my-clock-be). The sample above was taken after running the system for about one hour; you should expect a value below `0.1 ppm` for a stable system.
+    *   `stability 0.016 ppm` is an averaged value for the last frequency corrections made (instability). Basically a small value indicates that both your operating system's clock and your external PPS signal are stable. Remember that [temperature changes affect the average PC](/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be). The sample above was taken after running the system for about one hour; you should expect a value below `0.1 ppm` for a stable system.
 
     *   `jitter 1.378 us` is also an averaged value. It indicates how much the individual pulses vary from second to second, as measured by the operating system's clock. This value will vary due to system load and interrupt latency. A few microseconds are probably fine, but a few milliseconds definitely are not!
 
@@ -319,7 +319,7 @@ This completes the basic checks for PPS configuration. In the case above the NTP
 
 Even when the kernel clock uses PPS signals to calibrate, the NTP daemon will still use the usual offsets of some reference clock. As it is desirable to use the offsets of the PPS pulses, there is a pseudo clock driver to do that. That driver needs to know the interface specific to the platform to get the time stamps of the PPS pulses.
 
-That driver is called [PPS](/archives/drivers/driver22/) and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the `PPS` driver becomes reachable, and it will eventually be used as [primary synchronization source](/ntpfaq/ntp-s-algo-real#532-why-should-i-have-more-than-one-clock). A PPS peer will be handled specially so that other time offsets are not considered. The command `ntpq -c peer -c as -c rl` will print something like:
+That driver is called [PPS](/archives/drivers/driver22/) and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the `PPS` driver becomes reachable, and it will eventually be used as [primary synchronization source](/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock). A PPS peer will be handled specially so that other time offsets are not considered. The command `ntpq -c peer -c as -c rl` will print something like:
 
 <pre>remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
@@ -354,7 +354,7 @@ server 127.127.22.1                     # PPS
 fudge 127.127.22.1 flag3 1              # enable PPS module
 </pre>
 
-> **Note:** As documented in [PPS Clock Discipline](/archives/drivers/driver8#fudge-factors), `flag2` controls the edge of the PPS signal being used, obsoleting the `pps` keyword.
+> **Note:** As documented in [PPS Clock Discipline](/archives/drivers/driver8/#fudge-factors), `flag2` controls the edge of the PPS signal being used, obsoleting the `pps` keyword.
 
 Maybe it should also be noted here that a _site survey_ can take significant time to finish. [Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com) says: "My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion."
 
@@ -514,14 +514,14 @@ Here are some results from well configured public timeservers that I have survey
 
 So there are valid arguments for allowing some standard queries from prospective or active NTP clients. On the other hand there are also arguments for restricting access:
 
-*   [Configuration changes](/ntpfaq/ntp-s-config#6144-how-do-i-use-authentication-keys) should be restricted to machines within the own administrative domain at least.
+*   [Configuration changes](/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys) should be restricted to machines within the own administrative domain at least.
 *   You might consider the possibility that a security hole is found in some software which could be exploited to do bad things to your server. Therefore you could restrict or enable certain ranges of IP addresses.
 
 * * *
 
 #### 6.2.6.3. What should be done before announcing public NTP service?
 
-As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some [monitoring](/ntpfaq/ntp-s-trouble#81-monitoring) of your server before going public.
+As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some [monitoring](/ntpfaq/ntp-s-trouble/#81-monitoring) of your server before going public.
 
 Once you are satisfied with the performance data, you should also consider the following questions:
 

@@ -18,7 +18,7 @@ date: "2018-02-27"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3415">Bug 3415</a><br> also see: <a href="https://bugs.ntp.org/show_bug.cgi?id=3012">Bug 3012</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170/">CVE-2018-7170</a><br> also see: <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1549/">CVE-2016-1549</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170">CVE-2018-7170</a><br> also see: <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1549">CVE-2016-1549</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2018-02-27"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 3.5</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:M/Au:S/C:N/I:P/A:N)">AV:N/AC:M/Au:S/C:N/I:P/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:M/Au:S/C:N/I:P/A:N)">AV:N/AC:M/Au:S/C:N/I:P/A:N</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

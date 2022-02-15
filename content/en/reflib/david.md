@@ -36,7 +36,7 @@ Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and
 
 ![gif](/archives/pic/rsgb_rgb.gif)[Radio Society of Great Britain (Member since 1971)](https://www.rsgb.org/)
 
-![gif](/archives/pic/amsat_rgb.gif)[Amateur Satellite Organization (Life Member since 1975)](http://www.amsat.org/)
+![gif](/archives/pic/amsat_rgb.gif)[Amateur Satellite Organization (Life Member since 1975)](https://www.amsat.org/)
 
 Call me on CW or SSB phone or on the ham club repeater W3UD 145.31/144.71 MHz FM (I'm the club advisor and station trustee).
 

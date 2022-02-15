@@ -231,7 +231,7 @@ if (!doNotTrack) {
       pattern="\2  .  .  ;  ;   :  :  ;        \3"
       pattern="\2  .  .  ;  ;   :  :  ;    :  ;        ;   .         .       "
 </pre>
-<p>Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach <a href="http://www.meinberg.de/">Meinberg</a> via the Web. Information can also be ordered via eMail from <a href="mailto:%20info@meinberg.de">info@meinberg.de</a>.</p>
+<p>Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach <a href="https://www.meinberg.de/">Meinberg</a> via the Web. Information can also be ordered via <a href="mailto:info@meinberg.de">email</a>.</p>
 <h5 id="general-characteristics">General characteristics</h5>
 <p>Meinberg clocks primarily output pulse per second and a describing ASCII string. This string can be produced in two modes: either upon the reception of a question mark or every second. NTP uses the latter mechanism. DCF77 AM clocks have a limited accuracy of a few milliseconds. The DCF77 PZF5xx variants provide higher accuracy and have a pretty good relationship between RS232 time code and the PPS signal. Except for early versions of the old GPS166 receiver type, Meinberg GPS receivers have a very good timing relationship between the datagram and the pulse. The beginning of the start bit of the first character has basically the same accuracy as the PPS signal, plus a jitter of up to 1 bit time depending on the selected baud rate, i.e. 52 μs @ 19200. PPS support should always be used, if possible, in order to yield the highest possible accuracy.</p>
 <p>The preferred tty setting for Meinberg DCF77 receivers is 9600/7E2:</p>
@@ -658,7 +658,7 @@ FF&0x4  - unsynchronised
 </pre>
 <hr>
 <h4 id="hopf-6021-und-kompatible">HOPF 6021 und Kompatible</h4>
-<p>HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl <a href="mailto:frank@comsys.dofn.de">frank@comsys.dofn.de</a> from <code>clk_rcc8000.c</code> Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.</p>
+<p>HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl from <code>clk_rcc8000.c</code> Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.</p>
 <pre> hopf Funkuhr 6021
       used with 9600,8N1,
       UTC via serial line
@@ -822,12 +822,6 @@ FF&0x4  - unsynchronised
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">

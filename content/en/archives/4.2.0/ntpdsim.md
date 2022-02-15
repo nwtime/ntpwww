@@ -27,7 +27,7 @@ Last update: 03:16 AM UTC Monday, October 13, 2003
 
 #### Description
 
-The <code>ntpdsim</code> program is an adaptation of the <code>ntpd</code> operating system daemon. The program operates as a discrete time simulator using specified systematic and random driving sources. It includes all the mitigation and discipline algorithms of the actual daemon, but with the packet I/O and system clock algorithms driven by simulation. Most functions of the real <code>ntpd</code> remain intact, including the monitoring, statistics recording, trace and host name resolution features. Further information on the simulator is on the [NTP Discrete Event Simulator](/reflib/ntpsim) page.
+The <code>ntpdsim</code> program is an adaptation of the <code>ntpd</code> operating system daemon. The program operates as a discrete time simulator using specified systematic and random driving sources. It includes all the mitigation and discipline algorithms of the actual daemon, but with the packet I/O and system clock algorithms driven by simulation. Most functions of the real <code>ntpd</code> remain intact, including the monitoring, statistics recording, trace and host name resolution features. Further information on the simulator is on the [NTP Discrete Event Simulator](/reflib/ntpsim/) page.
 
 The simulator is most useful to study NTP behavior in response to time and/or frequency transients under specific conditions of network jitter and oscillator wander. For this purpose the daemon can be driven by pseudorandom jitter and wander sample sequences characteristic of real networks and oscillators. The jitter generator produces samples from a Poisson distribution, while the wander generator produces samples from a Guassian distribution.
 

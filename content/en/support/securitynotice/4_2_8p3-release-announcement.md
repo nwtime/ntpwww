@@ -6,7 +6,7 @@ date: "2015-06-29"
 
 NTF's NTP Project has been notified of a minor vulnerability in the processing of a crafted remote-configuration packet. Remote configuration is disabled by default. This issue was discovered and reported byAleksis Kauppinen of Codenomicon.
 
-* [2853: ntpd control message crash: Crafted NUL-byte in configuration directive](/support/securitynotice/ntpbug2853/) / [CVE-2015-5146](https://nvd.nist.gov/vuln/detail/CVE-2015-5146/)
+* [2853: ntpd control message crash: Crafted NUL-byte in configuration directive](/support/securitynotice/ntpbug2853/) / [CVE-2015-5146](https://nvd.nist.gov/vuln/detail/CVE-2015-5146)
 
 * * *
 

@@ -12,13 +12,13 @@ date: "2016Y-04-26"
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="/support/securitynotice/4_2_8p7-release-announcement">4.2.8p7/</a></td>
+		<td><a href="/support/securitynotice/4_2_8p7-release-announcement/">4.2.8p7/</a></td>
 		<td>26 Apr 2016</td>
 	</tr>
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3011">Bug 3011</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-2516/">CVE-2016-2516</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-2516">CVE-2016-2516</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016Y-04-26"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 6.3</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:M/Au:S/C:N/I:N/A:C)">AV:N/AC:M/Au:S/C:N/I:N/A:C</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:M/Au:S/C:N/I:N/A:C)">AV:N/AC:M/Au:S/C:N/I:N/A:C</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>
@@ -48,7 +48,7 @@ If `ntpd` was expressly configured to allow for remote configuration, a maliciou
     
 #### Mitigation
 
-* Implement [BCP-38](http://www.bcp38.info).
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
 * Upgrade to [4.2.8p7 or later.](/downloads/)
 * Properly monitor your `ntpd` instances. 
 

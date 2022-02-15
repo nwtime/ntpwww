@@ -414,7 +414,7 @@ ntpq></pre>
 <blockquote>
 <p>As adjustments to <code>tick</code> are not possible for every operating system, it&rsquo;s deprecated in general. The suggested solution is to use suitable hardware for time servers.</p>
 </blockquote>
-<p>If you are using the <a href="/ntpfaq/ntp-s-algo#5161-how-will-ntp-discipline-my-clock">kernel discipline</a> and suspect the second problem, use <code>adjtime()</code> instead.</p>
+<p>If you are using the <a href="/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock">kernel discipline</a> and suspect the second problem, use <code>adjtime()</code> instead.</p>
 <p>Usually <code>ntpd</code> can compensate small and even not-so-small errors, but in this case the clock is too bad to be adjusted by the NTP algorithm. Any clock error of more than one minute per day is definitely too large to be corrected by NTP.</p>
 <p><strong>Example 8.2a: Entries in logfile from ntpd</strong></p>
 <pre> 9 Jun 21:56:53 ntpd[116]: time reset (step) 0.706052 s
@@ -466,7 +466,7 @@ tickadj 10003</pre>
 <hr>
 <h4 id="8263-ntpd-periodically-opens-a-dial-out-connection-can-i-avoid-that">8.2.6.3 ntpd periodically opens a dial-out connection. Can I avoid that?</h4>
 <p>Originally NTP has not been designed with dial-up connections in mind. Therefore it does not care very much about when to send out packets.</p>
-<p>If you have defined an external <code>server</code> or <code>peer</code>, <code>ntpd</code> will periodically poll it. The <a href="/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled">polling interval</a> is limited by the <a href="/ntpfaq/ntp-s-algo#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll">settings <code>minpoll</code> and <code>maxpoll</code></a>. The virtual stability of the system clock determines whether the polling interval is reduced or increased.</p>
+<p>If you have defined an external <code>server</code> or <code>peer</code>, <code>ntpd</code> will periodically poll it. The <a href="/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled">polling interval</a> is limited by the <a href="/ntpfaq/ntp-s-algo/#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll">settings <code>minpoll</code> and <code>maxpoll</code></a>. The virtual stability of the system clock determines whether the polling interval is reduced or increased.</p>
 <p>However, increasing the polling interval may be a sub-optimal solution: <code>ntpd</code> will take longer for the initial synchronization, and it may become unable to catch up with the clock&rsquo;s drift.</p>
 <p>For some operating systems you may be able to select what types of packets are allowed to open a dial-up connection.</p>
 <p>The following solution for FreeBSD and NetBSD was donated by <a href="mailto:ericx@vineyard.net">Eric W. Bates</a>. As <a href="mailto:chunkeey@web.de">chunkeey</a> pointed out, the solution will also work for Linux, where the preferred directory may be <code>/etc/ppp/ip-up.d</code> and <code>/etc/ppp/ip-down.d</code> as all the scripts found there are executed.</p>
@@ -593,12 +593,6 @@ fi</pre>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">

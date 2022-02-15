@@ -18,7 +18,7 @@ date: "2020-03-03"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3596">Bug 3596</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-13817/">CVE-2020-13817</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-13817">CVE-2020-13817</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

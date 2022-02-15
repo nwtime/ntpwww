@@ -28,7 +28,7 @@ date: "2017-03-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>NONE 0.0</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:S/C:N/I:N/A:N)">AV:N/AC:H/Au:N/C:N/I:N/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:S/C:N/I:N/A:N)">AV:N/AC:H/Au:N/C:N/I:N/A:N</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

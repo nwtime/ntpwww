@@ -18,7 +18,7 @@ date: "2016-11-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3071">Bug 3071</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-7426/">CVE-2016-7426</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-7426">CVE-2016-7426</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-11-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 1.0</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:L/AC:H/Au:S/C:N/I:N/A:P)">AV:L/AC:H/Au:S/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:L/AC:H/Au:S/C:N/I:N/A:P)">AV:L/AC:H/Au:S/C:N/I:N/A:P</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>
@@ -50,7 +50,7 @@ While this blanket rate limiting can be useful to prevent brute-force attacks on
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info) 
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page) 
 * If you choose to use `restrict default limited ...`, be sure to use `restrict source ...` (without `limited`) to avoid this attack.
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 

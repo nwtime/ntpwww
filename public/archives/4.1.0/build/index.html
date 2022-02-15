@@ -234,7 +234,7 @@ if (!doNotTrack) {
 <h4 id="building-and-installing-the-distribution">Building and Installing the Distribution</h4>
 <p>As a practical matter, every computer architecture and operating system version seems to be different than any other. The device drivers may be different, the input/output system may be idiosyncratic and the libraries may have different semantics. It is not possible in a software distribution such as this one to support every individual sysdtem with a common set of binaries, even with the same system but different versions. Therefore, it is necessary to configure each system individually for each system and version, both at compile time and at run time. In almost all cases, these procedures are completely automatic and all the newbie user need do is type <code>make</code> and the autoconfigure system does the rest. There are some exceptions, as noted below.</p>
 <p>Some programs included in this distribution use cryptographic algorithms to verify server authenticity and credentials. As required by the International Trade in Arms Regulations (ITAR), now called the Defense Trade Regulations (DTR), certain cryptographic products and media, including the Data Encryption Standard (DES), cannot be exported without per-instance license. For this reason, the DES encryption routine has been removed from the current version, even though it is used only to compute a message digest. Current DTR regulations allow export of the MD5 message digest routine, which is in fact the preferred algorithm, and this is included in the current version.</p>
-<p>The NTP authentication routines conform to the interface used by RSA Laboratories in the <code>rsaref20.zip</code> package, which was formerly downloadable from <code>ftp.rsa.com</code> or via the web at <code><a href="http://www.rsa.com">www.rsa.com</a></code>, but this may no longer be the case. Outside the US and Canada, the functionally identical <code>rsaeuro.zip</code> package is available from J.S.A. Kapp and other sources. The recommended way to integrate the routines in either package with the NTP build procedures is to uncompress and extract the <code>rsaref20</code> files in a top level directory with that name. Then install a link to that directory from <code>rsaref2</code> in the top level directory of the distribution. Use <code>rsaeuro1</code> instead for that distribution. These steps must be completed
+<p>The NTP authentication routines conform to the interface used by RSA Laboratories in the <code>rsaref20.zip</code> package, which was formerly downloadable from <a href="https://www.rsa.com">https://www.rsa.com</a>, but this may no longer be the case. Outside the US and Canada, the functionally identical <code>rsaeuro.zip</code> package is available from J.S.A. Kapp and other sources. The recommended way to integrate the routines in either package with the NTP build procedures is to uncompress and extract the <code>rsaref20</code> files in a top level directory with that name. Then install a link to that directory from <code>rsaref2</code> in the top level directory of the distribution. Use <code>rsaeuro1</code> instead for that distribution. These steps must be completed
 before the configuration process described below.</p></p>
 <hr>
 <h4 id="building-and-installing-under-unix">Building and Installing Under Unix</h4>
@@ -366,12 +366,6 @@ before the configuration process described below.</p></p>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">

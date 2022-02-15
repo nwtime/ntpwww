@@ -96,7 +96,7 @@ This configuration will list all clock information and synchronization informati
 
 <code>**saveconfigdir _directory_path_**</code>
 
-: Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>'s [saveconfig](/archives/4.2.6-series/ntpq#saveconfig) command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
+: Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>'s [saveconfig](/archives/4.2.6-series/ntpq/#saveconfig) command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
 
 <code>**setvar _variable_ [default]**</code>
 

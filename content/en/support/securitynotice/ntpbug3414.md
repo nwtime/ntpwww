@@ -18,7 +18,7 @@ date: "2018-02-27"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3414">Bug 3414</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7183/">CVE-2018-7183</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7183">CVE-2018-7183</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

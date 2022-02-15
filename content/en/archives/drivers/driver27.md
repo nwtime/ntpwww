@@ -43,7 +43,7 @@ This driver is designed to allow the unit to run from batteries as designed, for
 
 Much of this code is originally from the other refclock driver files with thanks. The code was originally made to work with the clock by Derek Mulcahy, with modifications by [Damon Hart-Davis](mailto:d@hd.org). Thanks also to [Lyndon David](mailto:lyndond@sentinet.co.uk) for some of the specifications of the clock. [Paul Alfille](mailto:palfille@partners.org) added support for the WWVB clock. [Christopher Price](mailto:cprice@cs-home.com) added enhanced support for the MSF, DCF and WWVB clocks.
 
-There is support for a Tcl/Tk monitor written by Derek Mulcahy that examines the output stats; see the [ARC Rugby MSF Receiver](http://www2.exnet.com/NTP/ARC/ARC.html) page for more details and the code.
+There is support for a Tcl/Tk monitor written by Derek Mulcahy that examines the output stats; see the [ARC Rugby MSF Receiver](https://www2.exnet.com/NTP/ARC/ARC.html) page for more details and the code.
 
 [//]: # (24/05/21 DL: can't find any info on a current WWVB product)
 [//]: # (Information on the WWVB version is available from Atomic Time http://www.arctime.com as their Atomic Time http://www.atomictime.com/Product17.html.)

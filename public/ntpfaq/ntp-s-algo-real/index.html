@@ -244,7 +244,7 @@ if (!doNotTrack) {
 <h4 id="534-what-happens-during-a-leap-second">5.3.4 What happens during a Leap Second?</h4>
 <p>The theory of leap seconds in explained in <a href="/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second">Q: 2.4</a>. In reality there are two cases to consider:</p>
 <ul>
-<li>If the operating system implements the <a href="/ntpfaq/ntp-s-algo-kernel">kernel discipline</a>, <code>ntpd</code> will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.</li>
+<li>If the operating system implements the <a href="/ntpfaq/ntp-s-algo-kernel/">kernel discipline</a>, <code>ntpd</code> will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.</li>
 <li>If the operating system does not implement the kernel discipline, the clock will show an error of one second relative to NTP&rsquo;s time immediately after the leap second. The situation will be handled just like an unexpected change of time: the operating system will continue with the wrong time for some time, but eventually <code>ntpd</code> will <em>step</em> the time. Effectively this will cause the correction for leap seconds to be applied too late.</li>
 </ul>
 
@@ -315,12 +315,6 @@ if (!doNotTrack) {
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">

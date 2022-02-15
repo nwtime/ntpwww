@@ -44,7 +44,7 @@ Last update: 12-Oct-2017 09:05 UTC
 | エコー計測器   LT-2000 | [3](/archives/drivers/driver40-ja/#mode-3) | |
 | [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/archives/drivers/driver40-ja/#mode-4) | 日本語 |
 | [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40-ja/#mode-5) | 日本語 |
-| [セイコー タイム システム   TDC-300](http://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40-ja/#mode-6) | 英語と日本語 |
+| [セイコー タイム システム   TDC-300](https://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40-ja/#mode-6) | 英語と日本語 |
 [テレフォンJJY](https://jjy.nict.go.jp/) | [100](/archives/drivers/driver40-ja/#mode-100) | 英語と日本語 |
 
 * * *
@@ -170,7 +170,7 @@ RS-232C, 4800 BPS, 8ビット, パリティなし, 1ストップ・ビット
 
 このドライバーは、JJY受信機ではないGPS時計のトライステート TS-GPSclock-01 のコマンド・レスポンス・モードをサポートします。
 TS-GPSclock-01 は、オンボードのスイッチとメニューでコマンド・レスポンス・モードとタイム・ゾーンをJST（日本標準時）に設定しなければなりまん。
-この Type 40 のドライバーの他, TS-GPSclock-01 のNMEAモードは、[一般 NMEA GPS ドライバー ( Type 20 )](/archives/drivers/driver20) でも利用することができます。
+この Type 40 のドライバーの他, TS-GPSclock-01 のNMEAモードは、[一般 NMEA GPS ドライバー ( Type 20 )](/archives/drivers/driver20/) でも利用することができます。
 
 **NTPの設定 (ntp.conf)**
 

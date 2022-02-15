@@ -18,7 +18,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3007">Bug 3007</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1547/">CVE-2016-1547</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1547">CVE-2016-1547</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 4.3</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:M/Au:N/C:N/I:N/A:P)">AV:N/AC:M/Au:N/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:M/Au:N/C:N/I:N/A:P)">AV:N/AC:M/Au:N/C:N/I:N/A:P</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>
@@ -52,7 +52,7 @@ For ntp-4.2.8 thru ntp-4.2.8p6 there is less risk because more stringent checks 
     
 #### Mitigation
 
-* Implement [BCP-38](http://www.bcp38.info).
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
 * Upgrade to [4.2.8p7 or later.](/downloads/)
 * Properly monitor your `ntpd` instances. 
 

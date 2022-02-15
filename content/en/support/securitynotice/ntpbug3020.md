@@ -18,7 +18,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3020">Bug 3020</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1551/">CVE-2016-1551</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1551">CVE-2016-1551</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 2.6</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:N/C:N/I:P/A:N)">AV:N/AC:H/Au:N/C:N/I:P/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:N/C:N/I:P/A:N)">AV:N/AC:H/Au:N/C:N/I:P/A:N</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>
@@ -48,7 +48,7 @@ While the majority OSes implement [martian packet](https://en.wikipedia.org/wiki
     
 #### Mitigation
 
-* Implement martian packet filtering and [BCP-38](http://www.bcp38.info).
+* Implement martian packet filtering and [BCP-38](http://www.bcp38.info/index.php/Main_Page).
 * Configure `ntpd` to use an adequate number of time sources.
 * Upgrade to [4.2.8p7 or later.](/downloads/)
 * If you are unable to upgrade and if you are running an OS that has this vulnerability, implement martian packet filters and lobby your OS vendor to fix this problem, or run your refclocks on computers that use OSes that are not vulnerable to these attacks and have your vulnerable machines get their time from protected resources.

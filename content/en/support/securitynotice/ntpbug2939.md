@@ -28,7 +28,7 @@ date: "2016-01-19"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>4.3</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:M/Au:N/C:N/I:N/A:P)">AV:N/AC:M/Au:N/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:M/Au:N/C:N/I:N/A:P)">AV:N/AC:M/Au:N/C:N/I:N/A:P</a></td>
 	</tr>	
   </tbody>	
 </table>
@@ -43,7 +43,7 @@ An unauthenticated `ntpdc reslist` command can cause a segmentation fault in `nt
     
 #### Mitigation
 
-* Implement [BCP-38.](http://www.bcp38.info)
+* Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Upgrade to 4.2.8p6 or later.](/downloads/)
 * If you are unable to upgrade:
   * In ntp-4.2.8, mode 7 is disabled by default. Don't enable it.

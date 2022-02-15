@@ -92,7 +92,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 25.  [Jeff Johnson](mailto:jbj@chatham.usdesign.com) massive prototyping overhaul
 26.  [Hans Lambermont](mailto:H.Lambermont@chello.nl) ntpsweep
 27.  [Poul-Henning Kamp](mailto:phk@FreeBSD.ORG) Oncore driver (Original author)
-28.  [Frank Kardel](http://www4.informatik.uni-erlangen.de/%7ekardel) [email](mailto:kardel@ntp.org) PARSE <GENERIC> (driver 14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup, dynamic interface handling
+28.  [Frank Kardel](https://www4.cs.fau.de/~kardel/) [email](mailto:kardel@ntp.org) PARSE <GENERIC> (driver 14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup, dynamic interface handling
 29.  [Johannes Maximilian Kuehn](mailto:kuehn@ntp.org) Rewrote <code>sntp</code> to comply with NTPv4 specification, <code>ntpq saveconfig</code>
 30.  William L. Jones: RS/6000 AIX modifications, HPUX modifications
 31.  [Dave Katz](mailto:dkatz@cisco.com) RS/6000 AIX port

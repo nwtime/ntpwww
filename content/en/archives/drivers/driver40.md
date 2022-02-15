@@ -45,7 +45,7 @@ This driver supports the following JJY receivers and the GPS clock sold in Japan
 | Echo Keisokuki Co.,Ltd.   LT-2000 | [3](/archives/drivers/driver40/#mode-3) | |
 | [CITIZEN T.I.C. CO.,LTD.   JJY-200](https://tic.citizen.co.jp/english/index.html) | [4](/archives/drivers/driver40/#mode-4) | Japanese only |
 | [Tristate Ltd.   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40/#mode-5) | Japanese only |
-| [SEIKO TIME SYSTEMS INC.   TDC-300](http://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40/#mode-6) | English and Japanese |
+| [SEIKO TIME SYSTEMS INC.   TDC-300](https://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40/#mode-6) | English and Japanese |
 | [Telephone JJY](https://jjy.nict.go.jp/) | [100](/archives/drivers/driver40/#mode-100) | English and Japanese |
 
 * * *
@@ -168,7 +168,7 @@ RS-232C, 4800 BPS, 8-bits, no parity, 1 stop bit
 
 This driver supports the Tristate TS-GPSclock-01 in command/response mode, though it is a GPS clock, not JJY radio clock. Using the menus and the onboard switches, the TS-GPSclock-01 should be set to command/response mode and JST time zone.
 
-Besides this driver (Type 40), [the generic NMEA GPS driver (Type 20)](/archives/drivers/driver20) supports the TS-GPSclock-01 in NMEA mode.
+Besides this driver (Type 40), [the generic NMEA GPS driver (Type 20)](/archives/drivers/driver20/) supports the TS-GPSclock-01 in NMEA mode.
 
 **NTP configuration (ntp.conf)**
 
@@ -232,7 +232,7 @@ The telephone JJY is the time service through a public telephone line.
 
 The service is provided by the National Institute of Information and Communications Technology in Japan.
 
-> **Attention:** This mode, the telephone JJY, can not be used with `refclock_acts` [(type 18)](/archives/drivers/driver18) at the same time. Because the `phone` statement in the ntp configuration file is not involved with the `server` statement, both the `refclock_acts` (type 18) and this `refclock_jjy` (type 40, mode 100 to 180) can not recognize the appropriate `phone` statement among the `phone` statements.
+> **Attention:** This mode, the telephone JJY, can not be used with `refclock_acts` [(type 18)](/archives/drivers/driver18/) at the same time. Because the `phone` statement in the ntp configuration file is not involved with the `server` statement, both the `refclock_acts` (type 18) and this `refclock_jjy` (type 40, mode 100 to 180) can not recognize the appropriate `phone` statement among the `phone` statements.
 
 **NTP configuration (ntp.conf)**
 

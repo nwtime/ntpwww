@@ -24,21 +24,21 @@ Last update: 2006-11-21
 1.10 [Credits](#110-credits)
 
 2. [Time, what Time?](/ntpfaq/ntp-s-time/)  
-2.1 [What is Time?](/ntpfaq/ntp-s-time#21-what-is-time)  
-2.2 [What is UTC?](/ntpfaq/ntp-s-time#22-what-is-utc)  
-2.3 [Is UTC the same as GMT?](/ntpfaq/ntp-s-time#23-is-utc-the-same-as-gmt)  
-2.4 [What happens during a Leap Second?](/ntpfaq/ntp-s-time#24-what-happens-during-a-leap-second)  
+2.1 [What is Time?](/ntpfaq/ntp-s-time/#21-what-is-time)  
+2.2 [What is UTC?](/ntpfaq/ntp-s-time/#22-what-is-utc)  
+2.3 [Is UTC the same as GMT?](/ntpfaq/ntp-s-time/#23-is-utc-the-same-as-gmt)  
+2.4 [What happens during a Leap Second?](/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second)  
 
 3. [How do Computer Clocks work?](/ntpfaq/ntp-s-sw-clocks/)  
 3.1 [Bits and Registers](/ntpfaq/ntp-s-sw-clocks/#31-bits-and-registers)  
-3.2 [Making Time go on](/ntpfaq/ntp-s-sw-clocks-tick)  
-3.3 [Clock Quality](/ntpfaq/ntp-s-sw-clocks-quality)  
+3.2 [Making Time go on](/ntpfaq/ntp-s-sw-clocks-tick/)  
+3.3 [Clock Quality](/ntpfaq/ntp-s-sw-clocks-quality/)  
 3.3.1 [Frequency Error](/ntpfaq/ntp-s-sw-clocks-quality/#331-frequency-error)  
 3.3.1.1 [How bad is a Frequency Error of 500 PPM?](/ntpfaq/ntp-s-sw-clocks-quality/#3311-how-bad-is-a-frequency-error-of-500-ppm)  
 3.3.1.2 [What is the Frequency Error of a good Clock?](/ntpfaq/ntp-s-sw-clocks-quality/#3312-what-is-the-frequency-error-of-a-good-clock)  
 
 4. [What is NTP?](/ntpfaq/ntp-s-def/)  
-4.1 [Overview](/ntpfaq/ntp-s-def#41-overview)  
+4.1 [Overview](/ntpfaq/ntp-s-def/#41-overview)  
 4.1.1 [What is NTP?](/ntpfaq/ntp-s-def/#411-what-is-ntp)  
 4.1.2 [What is SNTP?](/ntpfaq/ntp-s-def/#412-what-is-sntp)  
 4.1.3 [Why should Time be synchronized?](/ntpfaq/ntp-s-def/#413-why-should-time-be-synchronized)  
@@ -48,7 +48,7 @@ Last update: 2006-11-21
 4.1.7 [Which version of NTP should I use?](/ntpfaq/ntp-s-def/#417-which-version-of-ntp-should-i-use)  
 4.1.8 [What's the difference between xntp and ntp?](/ntpfaq/ntp-s-def/#418-whats-the-difference-between-xntp-and-ntp)    
 4.2. [History](/ntpfaq/ntp-s-def-hist)  
-4.3. [Implementations and Platforms](/ntpfaq/ntp-s-def-impl)  
+4.3. [Implementations and Platforms](/ntpfaq/ntp-s-def-impl/)  
 4.3.1 [Official Providers](/ntpfaq/ntp-s-def-impl/#431-official-providers)    
 4.3.2 [UNIX Systems](/ntpfaq/ntp-s-def-impl/#432-unix-systems)   
 4.3.3 [Microsoft Windows](/ntpfaq/ntp-s-def-impl/#433-microsoft-windows)    
@@ -84,17 +84,17 @@ Last update: 2006-11-21
 5.2.1.1 [What is special about the Kernel Clock?](/ntpfaq/ntp-s-algo-kernel/#5211-what-is-special-about-the-kernel-clock)  
 5.2.1.2 [Does my Operating System have the Kernel Discipline?](/ntpfaq/ntp-s-algo-kernel/#5212-does-my-operating-system-have-the-kernel-discipline)  
 5.2.1.3 [How can I verify the Kernel Discipline?](/ntpfaq/ntp-s-algo-kernel/#5213-how-can-i-verify-the-kernel-discipline)    
-5.2.2 [Monitoring](/ntpfaq/ntp-s-algo-kernel/#522-monitoring)   
+5.2.2 [Monitoring](/ntpfaq/ntp-s-algo-kernel/#522-monitoring/)   
 5.2.3 [PPS Processing](/ntpfaq/ntp-s-algo-kernel/#523-pps-processing)  
 5.2.3.1 [What is PPS Processing?](/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing)  
 5.2.3.2 [How is PPS Processing related to the Kernel Discipline?](/ntpfaq/ntp-s-algo-kernel/#5232-how-is-pps-processing-related-to-the-kernel-discipline)  
 5.2.3.3 [What does hardpps() do?](/ntpfaq/ntp-s-algo-kernel/#5233-what-does-hardpps-do)  
-5.3. [NTP in real Life](/ntpfaq/ntp-s-algo-real)  
-5.3.1 [What if I write my own SNTP Server?](/ntpfaq/ntp-s-algo-real#531-what-if-i-write-my-own-sntp-server)  
-5.3.2 [Why should I have more than one clock?](/ntpfaq/ntp-s-algo-real#532-why-should-i-have-more-than-one-clock)  
-5.3.3 [Does the reference time depend on all configured servers, or is it based on which ever responds first?](/ntpfaq/ntp-s-algo-real#533-does-the-reference-time-depend-on-all-configured-servers-or-is-it-based-on-which-ever-responds-first)  
-5.3.4 [What happens during a Leap Second?](/ntpfaq/ntp-s-algo-real#534-what-happens-during-a-leap-second)  
-5.4. [Encryption](/ntpfaq/ntp-s-algo-crypt)  
+5.3. [NTP in real Life](/ntpfaq/ntp-s-algo-real/)  
+5.3.1 [What if I write my own SNTP Server?](/ntpfaq/ntp-s-algo-real/#531-what-if-i-write-my-own-sntp-server)  
+5.3.2 [Why should I have more than one clock?](/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock)  
+5.3.3 [Does the reference time depend on all configured servers, or is it based on which ever responds first?](/ntpfaq/ntp-s-algo-real/#533-does-the-reference-time-depend-on-all-configured-servers-or-is-it-based-on-which-ever-responds-first)  
+5.3.4 [What happens during a Leap Second?](/ntpfaq/ntp-s-algo-real/#534-what-happens-during-a-leap-second)  
+5.4. [Encryption](/ntpfaq/ntp-s-algo-crypt/)  
 5.4.1 [What is Encryption used for in NTP?](/ntpfaq/ntp-s-algo-crypt/#541-what-is-encryption-used-for-in-ntp)  
 5.4.1.1 [How is Authenticity verified?](/ntpfaq/ntp-s-algo-crypt/#5411-how-is-authenticity-verified)  
 5.4.1.2 [Where are authenticated Messages used in NTP?](/ntpfaq/ntp-s-algo-crypt/#5412-where-are-authenticated-messages-used-in-ntp)  
@@ -128,7 +128,7 @@ Last update: 2006-11-21
 6.1.5 [Miscellaneous Hints](/ntpfaq/ntp-s-config/#615-miscellaneous-hints)  
 6.1.5.1 [What is the preferred etiquette when synchronizing to a public server?](/ntpfaq/ntp-s-config/#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server)  
 6.1.5.2 [Where can I find public Time Servers?](/ntpfaq/ntp-s-config/#6152-where-can-i-find-public-time-servers)  
-6.2. [Advanced Configuration](/ntpfaq/ntp-s-config-adv)  
+6.2. [Advanced Configuration](/ntpfaq/ntp-s-config-adv/)  
 6.2.1 [Server Selection](/ntpfaq/ntp-s-config-adv/#621-server-selection)  
 6.2.1.1 [What is the rule of thumb for number of servers to synchronize to?](/ntpfaq/ntp-s-config-adv/#6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to)  
 6.2.1.2 [Should the servers be a mix of primary and secondary servers?](/ntpfaq/ntp-s-config-adv/#6212-should-the-servers-be-a-mix-of-primary-and-secondary-servers)  
@@ -292,7 +292,7 @@ This document is distributed in the hope that it will be useful, but _WITHOUT AN
 If you don't already have the GNU General Public License at hand, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 {{% /pageinfo %}}
 
-It is now maintained by [Network Time Foundation](https://www.nwtime.org). Contributions to update the material are most appreciated and contributors will continue to be added to the credits.
+It is now maintained by [Network Time Foundation](https://www.nwtime.org/). Contributions to update the material are most appreciated and contributors will continue to be added to the credits.
 
 * * *
 
@@ -300,7 +300,7 @@ It is now maintained by [Network Time Foundation](https://www.nwtime.org). Contr
 
 This section tries to answer questions about the document itself. This document is intended for beginners as well as advanced users that are looking for advice. However, basic skills in system administration are required to enjoy this tour. True experts on the subject will probably prefer the original documentation that comes with the software, or make corrections where it is wrong.
 
-The impatient may want to go directly to [Section 2](/ntpfaq/ntp-s-time/) where fundamentals of timekeeping are discussed. [Section 3](/ntpfaq/ntp-s-sw-clocks) introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, [Section 4](/ntpfaq/ntp-s-def).
+The impatient may want to go directly to [Section 2](/ntpfaq/ntp-s-time/) where fundamentals of timekeeping are discussed. [Section 3](/ntpfaq/ntp-s-sw-clocks) introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, [Section 4](/ntpfaq/ntp-s-def/).
 
 At that point focus moves from a more theoretical treatment of the subject to practical aspects, starting with [Section 5](/ntpfaq/ntp-s-algo/). Then [Section 6](/ntpfaq/ntp-s-config/) moves into configuration of the NTP software. [Section 7](/ntpfaq/ntp-s-refclk/) will talk about reference clocks.
 

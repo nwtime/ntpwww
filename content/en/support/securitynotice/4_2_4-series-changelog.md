@@ -28,7 +28,7 @@ type: archives
 
 **Release Date:** 2009 May 18
 
-* [Sec 1151: Remote exploit if autokey is enabled](/support/securitynotice/ntpbug1151/) - [CVE-2009-1252](https://nvd.nist.gov/vuln/detail/CVE-2009-1252/)
+* [Sec 1151: Remote exploit if autokey is enabled](/support/securitynotice/ntpbug1151/) - [CVE-2009-1252](https://nvd.nist.gov/vuln/detail/CVE-2009-1252)
 * [Bug 1187: Update the copyright date.](https://bugs.ntp.org/show_bug.cgi?id=1187)
 * [Bug 1191: ntpd fails on Win2000 - "Address already in use" after fix for Sec 1149](https://bugs.ntp.org/show_bug.cgi?id=1191)
 

@@ -22,6 +22,6 @@ The current release of NTP is [4.2.8p15](/support/securitynotice/4_2_8p15-releas
 <div><span style="width: 100%;text-align: center">
 {{% pageinfo color="primary" %}}
 
-NTP users are strongly urged to [implement Ingress and Egress filtering through BCP38](http://bcp38.info) to ensure that their NTP daemon is not susceptible to use in a [reflected denial-of-service (DRDoS) attack](https://support.ntp.org/bin/view/Main/SecurityNotice#April_2010_DRDoS_Amplification_A). Please see this [Network Time Foundation Post](https://networktimefoundation.org/ntp-winter-2013-network-drdos-attacks/) for more information.
+NTP users are strongly urged to [implement Ingress and Egress filtering through BCP38](http://www.bcp38.info/index.php/Main_Page) to ensure that their NTP daemon is not susceptible to use in a [reflected denial-of-service (DRDoS) attack](https://doc.ntp.org/support/securitynotice/ntpbug1532/). Please see this [Network Time Foundation Post](https://www.nwtime.org/ntp-winter-2013-network-drdos-attacks/) for more information.
 {{% /pageinfo %}}
 </span></div>

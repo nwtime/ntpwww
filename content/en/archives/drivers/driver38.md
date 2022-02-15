@@ -33,11 +33,11 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Description
 
-The `refclock_hopf_serial` driver supports [hopf electronic receivers](http://www.hopf.com) with serial Interface kompatibel 6021.
+The `refclock_hopf_serial` driver supports [hopf electronic receivers](https://www.hopf.com/index.php) with serial Interface kompatibel 6021.
 
-Additional software and information about the software driver is available from: [http://www.ATLSoft.de/ntp](http://www.ATLSoft.de/ntp).
+Additional software and information about the software driver is available from: http://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
 
-Latest NTP driver source, executables and documentation is maintained at: [http://www.ATLSoft.de/ntp](http://www.ATLSoft.de/ntp).
+Latest NTP driver source, executables and documentation is maintained at: http://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
 
 * * *
 
