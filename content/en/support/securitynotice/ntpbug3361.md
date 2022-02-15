@@ -18,7 +18,7 @@ date: "2017-03-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3361">Bug 3361</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9042/">CVE-2016-9042</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9042">CVE-2016-9042</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2017-03-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 4.9</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:S/C:N/I:N/A:C)">AV:N/AC:H/Au:N/C:N/I:N/A:C</a> (worst case)</td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:S/C:N/I:N/A:C)">AV:N/AC:H/Au:N/C:N/I:N/A:C</a> (worst case)</td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

@@ -10,10 +10,10 @@ The two most serious of these issues and four less serious issues have been reso
 
 The remaining two issues are addressed by [4.2.8p1](/support/securitynotice/4_2_8p1-release-announcement/), which was released on 4 February 2015.
 
-* [2667: Buffer overflow in crypto_recv()](/support/securitynotice/ntpbug2667/) / [CVE-2014-9295](https://nvd.nist.gov/vuln/detail/CVE-2014-9295/)
-* [2668: Buffer overflow in ctl_putdata()](/support/securitynotice/ntpbug2668/) / [CVE-2014-9295](https://nvd.nist.gov/vuln/detail/CVE-2014-9295/)
-* [2669: Buffer overflow in configure()](/support/securitynotice/ntpbug2669/) / [CVE-2014-9295](https://nvd.nist.gov/vuln/detail/CVE-2014-9295/)
-* [2670: receive(): missing return on error](/support/securitynotice/ntpbug2670/) / [CVE-2014-9296](https://nvd.nist.gov/vuln/detail/CVE-2014-9296/)
+* [2667: Buffer overflow in crypto_recv()](/support/securitynotice/ntpbug2667/) / [CVE-2014-9295](https://nvd.nist.gov/vuln/detail/CVE-2014-9295)
+* [2668: Buffer overflow in ctl_putdata()](/support/securitynotice/ntpbug2668/) / [CVE-2014-9295](https://nvd.nist.gov/vuln/detail/CVE-2014-9295)
+* [2669: Buffer overflow in configure()](/support/securitynotice/ntpbug2669/) / [CVE-2014-9295](https://nvd.nist.gov/vuln/detail/CVE-2014-9295)
+* [2670: receive(): missing return on error](/support/securitynotice/ntpbug2670/) / [CVE-2014-9296](https://nvd.nist.gov/vuln/detail/CVE-2014-9296)
 
 These are the vulnerabilities from Neel Mehta and Stephen Roettger of Google's Security Team:
 

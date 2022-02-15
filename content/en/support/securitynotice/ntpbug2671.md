@@ -18,7 +18,7 @@ date: "2015-02-04"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2671">Bug 2671</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2014-9750/">CVE-2014-9750</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2014-9750">CVE-2014-9750</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2015-02-04"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>7.5</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:L/Au:N/C:P/I:P/A:P)">AV:N/AC:L/Au:N/C:P/I:P/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:L/Au:N/C:P/I:P/A:P)">AV:N/AC:L/Au:N/C:P/I:P/A:P</a></td>
 	</tr>	
   </tbody>	
 </table>

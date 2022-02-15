@@ -16,25 +16,25 @@ All of the security issues in this release are listed in [VU#633847](https://www
 
 ntp-4.2.8p9 is currently scheduled to be released on 21 November 2016.
 
-* [3119: Trap crash](/support/securitynotice/ntpbug3119/) / [CVE-2016-9311](https://nvd.nist.gov/vuln/detail/CVE-2016-9311/)
+* [3119: Trap crash](/support/securitynotice/ntpbug3119/) / [CVE-2016-9311](https://nvd.nist.gov/vuln/detail/CVE-2016-9311)
   * Reported by Matthew Van Gundy of Cisco ASIG. 
-* [3118: Mode 6 unauthenticated trap information disclosure and DDoS vector](/support/securitynotice/ntpbug3118/) / [CVE-2016-9310](https://nvd.nist.gov/vuln/detail/CVE-2016-9310/)
+* [3118: Mode 6 unauthenticated trap information disclosure and DDoS vector](/support/securitynotice/ntpbug3118/) / [CVE-2016-9310](https://nvd.nist.gov/vuln/detail/CVE-2016-9310)
   * Reported by Matthew Van Gundy of Cisco ASIG. 
-* [3114: Broadcast Mode Replay Prevention DoS](/support/securitynotice/ntpbug3114/) / [CVE-2016-7427](https://nvd.nist.gov/vuln/detail/CVE-2016-7427/)
+* [3114: Broadcast Mode Replay Prevention DoS](/support/securitynotice/ntpbug3114/) / [CVE-2016-7427](https://nvd.nist.gov/vuln/detail/CVE-2016-7427)
   * Reported by Matthew Van Gundy of Cisco ASIG. 
-* [3113: Broadcast Mode Poll Interval Enforcement DoS](/support/securitynotice/ntpbug3113/) / [CVE-2016-7428](https://nvd.nist.gov/vuln/detail/CVE-2016-7428/)
+* [3113: Broadcast Mode Poll Interval Enforcement DoS](/support/securitynotice/ntpbug3113/) / [CVE-2016-7428](https://nvd.nist.gov/vuln/detail/CVE-2016-7428)
   * Reported by Matthew Van Gundy of Cisco ASIG. 
-* [3110: Windows: ntpd DoS by oversized UDP packet](/support/securitynotice/ntpbug3110/) / [CVE-2016-9312](https://nvd.nist.gov/vuln/detail/CVE-2016-9312/)
+* [3110: Windows: ntpd DoS by oversized UDP packet](/support/securitynotice/ntpbug3110/) / [CVE-2016-9312](https://nvd.nist.gov/vuln/detail/CVE-2016-9312)
   * Reported by Robert Pajak of ABB. 
-* [3102: Regression: 010-origin: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug3102/) / [CVE-2016-7431](https://nvd.nist.gov/vuln/detail/CVE-2016-7431/)
+* [3102: Regression: 010-origin: Zero Origin Timestamp Bypass](/support/securitynotice/ntpbug3102/) / [CVE-2016-7431](https://nvd.nist.gov/vuln/detail/CVE-2016-7431)
   * Reported by Sharon Goldberg and Aanchal Malhotra of Boston University. 
-* [3082: Null pointer dereference in _IO_str_init_static_internal()](/support/securitynotice/ntpbug3082/) / [CVE-2016-7434](https://nvd.nist.gov/vuln/detail/CVE-2016-7434/)
+* [3082: Null pointer dereference in _IO_str_init_static_internal()](/support/securitynotice/ntpbug3082/) / [CVE-2016-7434](https://nvd.nist.gov/vuln/detail/CVE-2016-7434)
   * Reported by Magnus Stubman. 
-* [3072: Interface selection attack](/support/securitynotice/ntpbug3072/) / [CVE-2016-7429](https://nvd.nist.gov/vuln/detail/CVE-2016-7429/)
+* [3072: Interface selection attack](/support/securitynotice/ntpbug3072/) / [CVE-2016-7429](https://nvd.nist.gov/vuln/detail/CVE-2016-7429)
   * Reported by Miroslav Lichvar of Red Hat. 
-* [3071: Client rate limiting and server responses](/support/securitynotice/ntpbug3071/) / [CVE-2016-7426](https://nvd.nist.gov/vuln/detail/CVE-2016-7426/)
+* [3071: Client rate limiting and server responses](/support/securitynotice/ntpbug3071/) / [CVE-2016-7426](https://nvd.nist.gov/vuln/detail/CVE-2016-7426)
   * Reported by Miroslav Lichvar of Red Hat. 
-* [3067: Reboot sync calculation problem](/support/securitynotice/ntpbug3067/) / [CVE-2016-7433](https://nvd.nist.gov/vuln/detail/CVE-2016-7433/)
+* [3067: Reboot sync calculation problem](/support/securitynotice/ntpbug3067/) / [CVE-2016-7433](https://nvd.nist.gov/vuln/detail/CVE-2016-7433)
   * Reported independently by Brian Utterback of Oracle, and by Sharon Goldberg and Aanchal Malhotra of Boston University. 
 
 

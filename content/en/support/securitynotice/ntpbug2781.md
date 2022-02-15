@@ -18,7 +18,7 @@ date: "2015-04-07"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2781">Bug 2781</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-1799/">CVE-2015-1799</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-1799">CVE-2015-1799</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2015-04-07"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>could be 4.3 or lower, and it could be higher than 5.4</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:A/AC:M/Au:N/C:P/I:P/A:P)">AV:A/AC:M/Au:N/C:P/I:P/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:A/AC:M/Au:N/C:P/I:P/A:P)">AV:A/AC:M/Au:N/C:P/I:P/A:P</a></td>
 	</tr>	
   </tbody>	
 </table>

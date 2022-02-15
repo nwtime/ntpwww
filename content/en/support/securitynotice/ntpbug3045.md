@@ -18,7 +18,7 @@ date: "2016-06-02"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3045">Bug 3045</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-4953/">CVE-2016-4953</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-4953">CVE-2016-4953</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-06-02"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 2.6</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:N/C:N/I:N/A:P)">AV:N/AC:H/Au:N/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:N/C:N/I:N/A:P)">AV:N/AC:H/Au:N/C:N/I:N/A:P</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

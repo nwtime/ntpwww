@@ -17,7 +17,7 @@ date: "2017-03-21"
 	</tr>
 	<tr>
 		<th><b>References</b></th>
-		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3376/">Bug 3376</a></td>
+		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3376">Bug 3376</a></td>
 		<td></td>
 	</tr>
 	<tr>

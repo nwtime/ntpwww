@@ -318,4 +318,4 @@ Refer to the [Release Timeline](/dev/releasetimeline/) for a complete list of al
 
 | Security Issue | Severity |  Advance Notification | Advance Release | Public Release |
 | -------------- | -------- |  -------------------- | --------------- | -------------- |
-| [Multiple OpenSSL signature verification API misuse](https://nvd.nist.gov/vuln/detail/CVE-2009-0021/) | | | | 2009 Jan 8 |
+| [Multiple OpenSSL signature verification API misuse](https://nvd.nist.gov/vuln/detail/CVE-2009-0021) | | | | 2009 Jan 8 |

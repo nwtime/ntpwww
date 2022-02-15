@@ -18,7 +18,7 @@ date: "2016-11-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3118">Bug 3118</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9310/">CVE-2016-9310</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-9310">CVE-2016-9310</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-11-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 6.4</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:A/AC:L/Au:N/C:N/I:N/A:P)">AV:A/AC:L/Au:N/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:A/AC:L/Au:N/C:N/I:N/A:P)">AV:A/AC:L/Au:N/C:N/I:N/A:P</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

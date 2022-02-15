@@ -18,7 +18,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2978">Bug 2978</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1548/">CVE-2016-1548</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1548">CVE-2016-1548</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 6.4</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:L/Au:N/C:N/I:P/A:P)">AV:N/AC:L/Au:N/C:N/I:P/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:L/Au:N/C:N/I:P/A:P)">AV:N/AC:L/Au:N/C:N/I:P/A:P</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

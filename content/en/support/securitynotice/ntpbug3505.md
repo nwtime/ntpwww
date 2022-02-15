@@ -18,7 +18,7 @@ date: "2018-08-14"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3505">Bug 3505</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-12327/">CVE-2018-12327</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-12327">CVE-2018-12327</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

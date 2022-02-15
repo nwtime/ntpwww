@@ -6,8 +6,8 @@ date: "2015-04-07"
 
 NTF's NTP Project has been notified of two vulnerabilities in the processing of crafted packets using private key authentication. These issues were discovered and reported by Miroslav Lichvar of Red Hat. 
 
-* [2779: ntpd accepts unauthenticated packets with symmetric key crypto](/support/securitynotice/ntpbug2779/) / [CVE-2015-1798](https://nvd.nist.gov/vuln/detail/CVE-2015-1798/)
-* [2781: Authentication doesn't protect symmetric associations against DoS attacks](/support/securitynotice/ntpbug2781/) / [CVE-2015-1799](https://nvd.nist.gov/vuln/detail/CVE-2015-1799/)
+* [2779: ntpd accepts unauthenticated packets with symmetric key crypto](/support/securitynotice/ntpbug2779/) / [CVE-2015-1798](https://nvd.nist.gov/vuln/detail/CVE-2015-1798)
+* [2781: Authentication doesn't protect symmetric associations against DoS attacks](/support/securitynotice/ntpbug2781/) / [CVE-2015-1799](https://nvd.nist.gov/vuln/detail/CVE-2015-1799)
 
 The fixes for these issues (along with other bugfixes and improvements) was released on 7 April 2015 in ntp-4.2.8p2. 
 

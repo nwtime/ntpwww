@@ -18,7 +18,7 @@ date: "2019-03-07"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3565">Bug 3565</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-8936/">CVE-2019-8936</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-8936">CVE-2019-8936</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

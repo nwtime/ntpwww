@@ -18,7 +18,7 @@ date: "2016-01-19"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2936">Bug 2936</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7974/">CVE-2015-7974</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7974">CVE-2015-7974</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2016-01-19"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>4.9</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:S/C:N/I:C/A:N)">AV:N/AC:H/Au:S/C:N/I:C/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:S/C:N/I:C/A:N)">AV:N/AC:H/Au:S/C:N/I:C/A:N</a></td>
 	</tr>	
   </tbody>	
 </table>

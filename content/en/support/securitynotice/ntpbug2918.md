@@ -18,7 +18,7 @@ date: "2015-10-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2918">Bug 2918</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7851/">CVE-2015-7851</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7851">CVE-2015-7851</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2015-10-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>5.2, worst case</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:P/A:C)">AV:N/AC:H/Au:M/C:N/I:P/A:C</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:P/A:C)">AV:N/AC:H/Au:M/C:N/I:P/A:C</a></td>
 	</tr>	
   </tbody>	
 </table>
