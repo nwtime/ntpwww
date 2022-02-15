@@ -35,7 +35,7 @@ This driver is designed to allow the unit to run from batteries as designed, for
 
 Much of this code is originally from the other refclock driver files with thanks. The code was originally made to work with the clock by Derek Mulcahy, with modifications by [Damon Hart-Davis](mailto:d@hd.org). Thanks also to [Lyndon David](mailto:lyndond@sentinet.co.uk) for some of the specifications of the clock. 
 
-There is support for a Tcl/Tk monitor written by Derek Mulcahy that examines the output stats; see the [ARC Rugby MSF Receiver](https://www2.exnet.com/NTP/ARC/ARC.html) page for more details and the code. 
+There is support for a Tcl/Tk monitor written by Derek Mulcahy that examines the output stats; see the [ARC Rugby MSF Receiver](https://www.exnet.com/NTP/ARC/ARC.html) page for more details and the code. 
 
 Look at the notes at the start of the code for further information; some of the more important details follow.
 
@@ -262,4 +262,4 @@ May 10 12:41:34 oolong xntpd[615]: ARCRON: sync finished, signal quality 3: OK, 
 
 [Reference Clock Drivers](/archives/3-5.93e/refclock/)  
 
-[ARC Rugby MSF Receiver](https://www2.exnet.com/NTP/ARC/ARC.html) page
+[ARC Rugby MSF Receiver](https://www.exnet.com/NTP/ARC/ARC.html) page

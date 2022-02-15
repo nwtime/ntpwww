@@ -28,7 +28,7 @@ date: "2016-11-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 5.0</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:L/Au:N/C:N/I:P/A:N)">AV:N/AC:L/Au:N/C:N/I:P/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:L/Au:N/C:N/I:P/A:N)">AV:N/AC:L/Au:N/C:N/I:P/A:N</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

@@ -3,7 +3,7 @@ title: "Miscellaneous Options"
 type: archives
 ---
 
-![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 We have three, now looking for more.
 

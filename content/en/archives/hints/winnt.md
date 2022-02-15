@@ -11,7 +11,7 @@ Last update: 6-Apr-2014 23:27
 
 The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from [Meinberg](https://www.meinbergglobal.com/english/sw/ntp.htm).
 
-Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in [Microsoft KB 875424](https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp/). A less desirable alternative that avoids changing registry keys is to use the `--with-wintime` option when building the executable.
+Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in [Microsoft KB 875424](https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp). A less desirable alternative that avoids changing registry keys is to use the `--with-wintime` option when building the executable.
 
 * * *
 
@@ -72,7 +72,7 @@ These tasks are in no particular order of priority.
 
 1. Install Microsoft Visual C++ [redistributables](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
 
-2. Install [OpenSSL full installer for Windows](https://www.slproweb.com/products/Win32OpenSSL.html). Add the following to your system environment variables in the control panel (adjusting paths as appropriate to point to the directory containing only an openssl subdirectory, for `OPENSSL_INC`, and to the directory containing `openssl .lib` files for `OPENSSL_LIB:`
+2. Install [OpenSSL full installer for Windows](https://slproweb.com/products/Win32OpenSSL.html). Add the following to your system environment variables in the control panel (adjusting paths as appropriate to point to the directory containing only an openssl subdirectory, for `OPENSSL_INC`, and to the directory containing `openssl .lib` files for `OPENSSL_LIB:`
 
         OPENSSL_INC=C:\OpenSSL\include
         OPENSSL_LIB=C:\OpenSSL\lib

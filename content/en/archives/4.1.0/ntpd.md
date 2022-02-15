@@ -3,7 +3,7 @@ title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
 ---
 
-![gif](/archives/pic/alice47.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
+![gif](/archives/pic/alice47.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 The mushroom knows all the command line options.
 

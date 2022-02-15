@@ -206,4 +206,4 @@ Since PTP is designed to operate in a relatively benign environment with low jit
 
 <a name="myfootnote3">3</a>  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments [RFC 5906](/reflib/rfc/rfc5906.txt), Internet Engineering Task Force, June 2010.
 
-<a name="myfootnote4">4</a>  [IEEE 1588 Precision Time Protocol (PTP) Version 2 Specification](https://standards.ieee.org/standard/1588-2008.html), IEEE, March 2008.
+<a name="myfootnote4">4</a>  [IEEE 1588 Precision Time Protocol (PTP) Version 2 Specification](https://standards.ieee.org/ieee/1588/4355/), IEEE, March 2008.

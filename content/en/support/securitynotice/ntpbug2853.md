@@ -28,7 +28,7 @@ date: "2015-06-29"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>4.9 at likely worst, 1.4 or less at likely best</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:A/AC:M/Au:S/C:P/I:P/A:P)">AV:A/AC:M/Au:S/C:P/I:P/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:A/AC:M/Au:S/C:P/I:P/A:P)">AV:A/AC:M/Au:S/C:P/I:P/A:P</a></td>
 	</tr>	
   </tbody>	
 </table>

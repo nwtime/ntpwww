@@ -18,7 +18,7 @@ date: "2018-08-14"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3012">Bug 3012</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170">CVE-2018-7170</a><br> While fixed in ntp-4.2.8p7 and with significant additional protections for this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in the new <code>noepeer</code> support. Refer to <a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-1549">CVE-2016-1549</a> for additional info. </td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-7170">CVE-2018-7170</a><br> While fixed in ntp-4.2.8p7 and with significant additional protections for this issue in 4.2.8p11, ntp-4.2.8p12 includes a fix for an edge case in the new <code>noepeer</code> support. Refer to <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-1549">CVE-2016-1549</a> for additional info. </td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -28,7 +28,7 @@ date: "2018-08-14"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>LOW 3.5</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:M/Au:S/C:N/I:P/A:N)">AV:N/AC:M/Au:S/C:N/I:P/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:M/Au:S/C:N/I:P/A:N)">AV:N/AC:M/Au:S/C:N/I:P/A:N</a></td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

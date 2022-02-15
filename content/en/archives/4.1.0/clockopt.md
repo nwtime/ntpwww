@@ -3,7 +3,7 @@ title: "Reference Clock Options"
 type: archives
 ---
 
-![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 See the radios, all in a row.
 

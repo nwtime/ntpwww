@@ -3,7 +3,7 @@ title: "Debugging Hints for Reference Clock Drivers"
 type: archives
 ---
 
-![gif](/archives/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
+![gif](/archives/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 Call the girls and they'll sweep your bugs.
 

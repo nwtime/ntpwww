@@ -20,7 +20,7 @@ ISBN 978-1-4398-1463-5
 David L. Mills, PhD
 : Electrical and Computer Engineering Department and Computer and Information Systems Department
 : University of Delaware, Newark, DE 19716
-: mills@udel.edu https://www.eecis.udel.edu/~mills
+: mills@udel.edu https://www.eecis.udel.edu/~mills/
 
 Dr. David L. Mills is Professo Emeritus of Electrical and Computer Engineering and Computer and Information Sciences at the University of Delaware. He has been an active contributor for many years in Internet technology and in particular computer network time synchronization. He is the original developer of the Network Time Protocol and has authored over 30 papers and technical reports on the subject, including the current operative standards documents. His PhD degree in Computer Science was conferred by the University of Michigan in 1971. He is a member of the National Academy of Engineering and a Fellow in both the Association for Computing Machinery and the Institute of Electrical and Electronic Engineering
 

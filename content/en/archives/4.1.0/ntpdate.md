@@ -3,7 +3,7 @@ title: "ntpdate - set the date and time via NTP"
 type: archives
 ---
 
-![gif](/archives/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 I told you it was eyeball and wristwatch.
 

@@ -28,7 +28,7 @@ date: "2016-01-19"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>1.2</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:L/AC:H/Au:N/C:N/I:N/A:P)">AV:L/AC:H/Au:N/C:N/I:N/A:P</a><br> If you score A:C, this becomes 4.0.</td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:L/AC:H/Au:N/C:N/I:N/A:P)">AV:L/AC:H/Au:N/C:N/I:N/A:P</a><br> If you score A:C, this becomes 4.0.</td>
 	</tr>
 	<tr>
 		<th><b>CVSS3 Score<b></th>

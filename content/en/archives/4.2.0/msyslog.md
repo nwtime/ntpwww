@@ -3,7 +3,7 @@ title: "ntpd System Log Messages"
 type: archives
 ---
 
-![gif](/archives/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures)
+![gif](/archives/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The mushroom knows all the error codes, which is more than most of us do.
 

@@ -47,7 +47,7 @@ Last update: 2006-11-21
 4.1.6 [How many NTP servers are available in the Internet?](/ntpfaq/ntp-s-def/#416-how-many-ntp-servers-are-available-in-the-internet)  
 4.1.7 [Which version of NTP should I use?](/ntpfaq/ntp-s-def/#417-which-version-of-ntp-should-i-use)  
 4.1.8 [What's the difference between xntp and ntp?](/ntpfaq/ntp-s-def/#418-whats-the-difference-between-xntp-and-ntp)    
-4.2. [History](/ntpfaq/ntp-s-def-hist)  
+4.2. [History](/ntpfaq/ntp-s-def-hist/)  
 4.3. [Implementations and Platforms](/ntpfaq/ntp-s-def-impl/)  
 4.3.1 [Official Providers](/ntpfaq/ntp-s-def-impl/#431-official-providers)    
 4.3.2 [UNIX Systems](/ntpfaq/ntp-s-def-impl/#432-unix-systems)   
@@ -55,7 +55,7 @@ Last update: 2006-11-21
    
 5. [How does it work?](/ntpfaq/ntp-s-algo/)  
 5.1 [Basic Concepts](/ntpfaq/ntp-s-algo/#basic-concepts)  
-5.1.1 [Time References](/ntpfaq/ntp-s-algo#511-time-references)  
+5.1.1 [Time References](/ntpfaq/ntp-s-algo/#511-time-references)  
 5.1.1.1 [What is a reference clock?](/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock)  
 5.1.1.2 [How will NTP use a reference clock?](/ntpfaq/ntp-s-algo/#5112-how-will-ntp-use-a-reference-clock)  
 5.1.1.3 [How will NTP know about Time Sources?](/ntpfaq/ntp-s-algo/#5113-how-will-ntp-know-about-time-sources)  
@@ -79,7 +79,7 @@ Last update: 2006-11-21
 5.1.5.2 [What is the best polling Interval?](/ntpfaq/ntp-s-algo/#5152-what-is-the-best-polling-interval)  
 5.1.6 [Operating System Clock Interface](/ntpfaq/ntp-s-algo/#516-operating-system-clock-interface)  
 5.1.6.1 [How will NTP discipline my Clock?](/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock)  
-5.2. [The Kernel Discipline](/ntpfaq/ntp-s-algo-kernel)  
+5.2. [The Kernel Discipline](/ntpfaq/ntp-s-algo-kernel/)  
 5.2.1 [Basic Functionality](/ntpfaq/ntp-s-algo-kernel/#521-basic-functionality)  
 5.2.1.1 [What is special about the Kernel Clock?](/ntpfaq/ntp-s-algo-kernel/#5211-what-is-special-about-the-kernel-clock)  
 5.2.1.2 [Does my Operating System have the Kernel Discipline?](/ntpfaq/ntp-s-algo-kernel/#5212-does-my-operating-system-have-the-kernel-discipline)  
@@ -163,7 +163,7 @@ Last update: 2006-11-21
 6.2.6.1 [Is there any way to configure ntpd to attach to a specific Interface?](/ntpfaq/ntp-s-config-adv/#6261-is-there-any-way-to-configure-ntpd-to-attach-to-a-specific-interface)  
 6.2.6.2 [Should Access be restricted?](/ntpfaq/ntp-s-config-adv/#6262-should-access-be-restricted)  
 6.2.6.3 [What should be done before announcing public NTP service?](/ntpfaq/ntp-s-config-adv/#6263-what-should-be-done-before-announcing-public-ntp-service)  
-6.3. [Various Tricks](/ntpfaq/ntp-s-config-tricks)  
+6.3. [Various Tricks](/ntpfaq/ntp-s-config-tricks/)  
 6.3.1 [Mixing Time Protocols](/ntpfaq/ntp-s-config-tricks/#631-mixing-time-protocols)   
 6.3.2 [Avoiding Time Steps](/ntpfaq/ntp-s-config-tricks/#632-avoiding-time-steps)    
 6.3.3 [Using the Echo Feature in PPS API](/ntpfaq/ntp-s-config-tricks/#633-using-the-echo-feature-in-pps-api)  
@@ -300,7 +300,7 @@ It is now maintained by [Network Time Foundation](https://www.nwtime.org/). Cont
 
 This section tries to answer questions about the document itself. This document is intended for beginners as well as advanced users that are looking for advice. However, basic skills in system administration are required to enjoy this tour. True experts on the subject will probably prefer the original documentation that comes with the software, or make corrections where it is wrong.
 
-The impatient may want to go directly to [Section 2](/ntpfaq/ntp-s-time/) where fundamentals of timekeeping are discussed. [Section 3](/ntpfaq/ntp-s-sw-clocks) introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, [Section 4](/ntpfaq/ntp-s-def/).
+The impatient may want to go directly to [Section 2](/ntpfaq/ntp-s-time/) where fundamentals of timekeeping are discussed. [Section 3](/ntpfaq/ntp-s-sw-clocks/) introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, [Section 4](/ntpfaq/ntp-s-def/).
 
 At that point focus moves from a more theoretical treatment of the subject to practical aspects, starting with [Section 5](/ntpfaq/ntp-s-algo/). Then [Section 6](/ntpfaq/ntp-s-config/) moves into configuration of the NTP software. [Section 7](/ntpfaq/ntp-s-refclk/) will talk about reference clocks.
 

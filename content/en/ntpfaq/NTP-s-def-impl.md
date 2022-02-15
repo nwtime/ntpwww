@@ -17,7 +17,7 @@ For platforms and operating systems other than those mentioned here, there may b
 
 Several national time keepers allow reading the time via NTP:
 
-* [NIST](https://www.nist.gov/time-frequency/) (USA)
+* [NIST](https://www.nist.gov/time-frequency) (USA)
 * [USNO](https://www.usno.navy.mil/USNO/time/) (USA)
 * [PTB](https://www.ptb.de/cms/en/ptb/fachabteilungen/abtq/gruppe-q4/ref-q42/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html) (Germany)
 
@@ -49,6 +49,6 @@ scripts
 
 #### 4.3.3 Microsoft Windows
 
-NTP is the default time synchronization protocol used by the Windows Time service in Windows Server 2012 and higher, Windows 10 or later, and Azure Stack HCI. In addition, SNTP support is included for backwards compatibility with older clients. Refer to [How the Windows Time Service Works](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/how-the-windows-time-service-works/) for more information.
+NTP is the default time synchronization protocol used by the Windows Time service in Windows Server 2012 and higher, Windows 10 or later, and Azure Stack HCI. In addition, SNTP support is included for backwards compatibility with older clients. Refer to [How the Windows Time Service Works](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/how-the-windows-time-service-works) for more information.
 
 Meinberg provides a [GUI installer](https://www.meinbergglobal.com/english/sw/ntp.htm#ntp_stable) of the latest NTP version for Window XP and later.

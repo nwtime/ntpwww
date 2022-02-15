@@ -32,7 +32,7 @@ Last update: 21-Oct-2010 23:44 UTC
 
 This driver supports most models of the Motorola Oncore GPS receivers (Basic, PVT6, VP, UT, UT+, GT, GT+, SL, M12, M12+T), as long as they support the _Motorola Binary Protocol_.
 
-The interesting versions of the Oncore are the VP, the UT+, the Remote which is a prepackaged UT+, and the M12 Timing. The VP is no longer available new, and the UT, GT, and SL are at end-of-life. The Motorola evaluation kit can be recommended. It interfaces to a PC straightaway, using the serial (DCD) or parallel port for PPS input and packs the receiver in a nice and sturdy box. Less expensive interface kits are available from [TAPR](https://www.tapr.org) and [Synergy](https://www.synergy-gps.com).
+The interesting versions of the Oncore are the VP, the UT+, the Remote which is a prepackaged UT+, and the M12 Timing. The VP is no longer available new, and the UT, GT, and SL are at end-of-life. The Motorola evaluation kit can be recommended. It interfaces to a PC straightaway, using the serial (DCD) or parallel port for PPS input and packs the receiver in a nice and sturdy box. Less expensive interface kits are available from [TAPR](https://tapr.org/) and [Synergy](https://synergy-gps.com/).
 
 UT+ oncore
 
