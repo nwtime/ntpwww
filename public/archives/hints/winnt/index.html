@@ -205,7 +205,7 @@ The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT ru
 <hr>
 <h4 id="introduction">Introduction</h4>
 <p>The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from <a href="https://www.meinbergglobal.com/english/sw/ntp.htm">Meinberg</a>.</p>
-<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp/">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
+<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
 <hr>
 <h4 id="authentication-keys">Authentication Keys</h4>
 <p>With this release <code>ntp-keygen</code> is supported. See the <a href="/archives/4.2.8-series/keygen/">ntp keygen documentation</a> for details on how to use <code>ntp-keygen</code>.</p>
@@ -249,7 +249,7 @@ The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT ru
 <p>Install Microsoft Visual C++ <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">redistributables</a>.</p>
 </li>
 <li>
-<p>Install <a href="https://www.slproweb.com/products/Win32OpenSSL.html">OpenSSL full installer for Windows</a>. Add the following to your system environment variables in the control panel (adjusting paths as appropriate to point to the directory containing only an openssl subdirectory, for <code>OPENSSL_INC</code>, and to the directory containing <code>openssl .lib</code> files for <code>OPENSSL_LIB:</code></p>
+<p>Install <a href="https://slproweb.com/products/Win32OpenSSL.html">OpenSSL full installer for Windows</a>. Add the following to your system environment variables in the control panel (adjusting paths as appropriate to point to the directory containing only an openssl subdirectory, for <code>OPENSSL_INC</code>, and to the directory containing <code>openssl .lib</code> files for <code>OPENSSL_LIB:</code></p>
 <pre><code> OPENSSL_INC=C:\OpenSSL\include
  OPENSSL_LIB=C:\OpenSSL\lib
 </code></pre>
