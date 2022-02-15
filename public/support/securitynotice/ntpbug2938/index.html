@@ -18,11 +18,7 @@ Summary
 	
 		References
 		Bug 2938
-		CVE-2015-7976
-	
-	
-		Affects
-		All ntp-4 releases up to, …">
+		">
 <meta property="og:title" content="NTP BUG 2938: ntpq saveconfig command allows dangerous characters in filenames" />
 <meta property="og:description" content="Summary Resolved4.2.8p619 Jan 2016ReferencesBug 2938CVE-2015-7976AffectsAll ntp-4 releases up to, but not including 4.2.8p6,
 and 4.3.0 up to, but not including 4.3.90.Resolved in 4.2.8p6.CVSS2 ScoreMED 4.0AV:N/AC:L/Au:S/C:N/I:P/A:N	 Description The ntpq saveconfig command does not do adequate filtering of special characters from the supplied filename. Note well: The ability to use the saveconfig command is controlled by the restrict nomodify directive, and the recommended default configuration is to disable this capability." />
@@ -226,7 +222,7 @@ and 4.3.0 up to, but not including 4.3.90.Resolved in 4.2.8p6.CVSS2 ScoreME
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2938">Bug 2938</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7976/">CVE-2015-7976</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7976/>CVE-2015-7976</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -236,7 +232,7 @@ and 4.3.0 up to, but not including 4.3.90.Resolved in 4.2.8p6.CVSS2 ScoreME
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 4.0</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:L/Au:S/C:N/I:P/A:N)">AV:N/AC:L/Au:S/C:N/I:P/A:N</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:L/Au:S/C:N/I:P/A:N)">AV:N/AC:L/Au:S/C:N/I:P/A:N</a></td>
 	</tr>
   </tbody>	
 </table>
@@ -246,7 +242,7 @@ and 4.3.0 up to, but not including 4.3.90.Resolved in 4.2.8p6.CVSS2 ScoreME
 <hr>
 <h4 id="mitigation">Mitigation</h4>
 <ul>
-<li>Implement <a href="http://www.bcp38.info">BCP-38.</a></li>
+<li>Implement <a href="http://www.bcp38.info/index.php/Main_Page">BCP-38.</a></li>
 <li>Use <code>restrict default nomodify</code> in your <code>ntp.conf</code> file.</li>
 <li>Upgrade to 4.2.8p6 or later.](/downloads/)</li>
 <li>If you are unable to upgrade:
@@ -275,12 +271,6 @@ and 4.3.0 up to, but not including 4.3.90.Resolved in 4.2.8p6.CVSS2 ScoreME
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">

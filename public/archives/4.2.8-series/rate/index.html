@@ -230,7 +230,7 @@ Last update: 10-Mar-2014 05:19 UTC
 <li>When the first packet of a burst is sent to a server, do not send further packets until the first packet has been received from the server.</li>
 <li>Upon receiving a <a href="#the-kiss-of-death-packet">Kiss-o'-Death packet</a> (KoD), immediately reduce the sending rate.</li>
 </ul>
-<p>Rate management involves four algorithms to manage resources: (1) poll rate control, (2) burst control, (3) average headway time and (4) guard time. The first two algorithms are described on the <a href="/archives/4.2.8-series/poll">Poll Program</a> page; the remaining two are described in following sections.</p>
+<p>Rate management involves four algorithms to manage resources: (1) poll rate control, (2) burst control, (3) average headway time and (4) guard time. The first two algorithms are described on the <a href="/archives/4.2.8-series/poll/">Poll Program</a> page; the remaining two are described in following sections.</p>
 <hr>
 <h4 id="minimum-headway-time">Minimum Headway Time</h4>
 <p>The headway is defined for each source as the interval between the last packet sent or received and the next packet for that source. The minimum receive headway is defined as the guard time. In the reference implementation, if the receive headway is less than the guard time, the packet is discarded. The guard time defaults to 2 s, but this can be changed using the <code>minimum</code> option of the <a href="/archives/4.2.8-series/accopt/"><code>discard</code></a> command. By design, the minimum interval between <code>burst</code> and <code>iburst</code> packets sent by any client is 2 s, which does not violate this constraint. Packets sent by other implementations that violate this constraint will be dropped and a KoD packet returned, if enabled.</p>
@@ -255,12 +255,6 @@ Last update: 10-Mar-2014 05:19 UTC
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://lists.ntp.org/listinfo">
-        <i class="bi-envelope"></i>
-      </a>
-    </li>
     
     <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
       <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
