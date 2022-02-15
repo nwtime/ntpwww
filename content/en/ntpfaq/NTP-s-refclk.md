@@ -30,7 +30,7 @@ According to a [survey](/reflib/reports/ntp-survey99-minar.pdf), the most popula
 
 While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.
 
-More information on reference clocks can be found in [Reference Clock](/archives/4.2.8-series/refclock/) and [NIST's list of receiver manufacturers](https://www.nist.gov/time-distribution/radio-station-wwv/manufacturers-time-and-frequency-receivers/).
+More information on reference clocks can be found in [Reference Clock](/archives/4.2.8-series/refclock/) and [NIST's list of receiver manufacturers](https://www.nist.gov/time-distribution/radio-station-wwv/manufacturers-time-and-frequency-receivers).
 
 * * *
 
@@ -164,7 +164,7 @@ See [Q: 7.3.2](/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail) f
 
 #### 7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?
 
-[Markus Kuhn](mailto:mgk25@cl.cam.ac.uk) has set up a [page](https://www.cl.cam.ac.uk/~mgk25/lf-clocks.html) describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.
+[Markus Kuhn](mailto:mgk25@cl.cam.ac.uk) has set up a [page](https://www.cl.cam.ac.uk/~mgk25/time/lf-clocks/) describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.
 
 * * *
 

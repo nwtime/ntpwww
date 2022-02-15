@@ -43,7 +43,7 @@ The driver expects the receiver to be set up to transmit at least one supported 
 
 The accuracy depends on the receiver used. Inexpensive GPS models are available with a claimed PPS signal accuracy of 1 μs or better relative to the broadcast signal. However, in most cases the actual accuracy is limited by the precision of the timecode and the latencies of the serial interface and operating system.
 
-If the Operating System supports PPSAPI ([RFC 2783](http://www.ietf.org/rfc/rfc2783.txt)), `fudge flag1 1` enables its use.
+If the Operating System supports PPSAPI ([RFC 2783](/reflib/rfc/rfc2783.txt)), `fudge flag1 1` enables its use.
 
 The various GPS sentences that this driver recognises look like this: (others quietly ignored)
 

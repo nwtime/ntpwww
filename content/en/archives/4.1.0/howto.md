@@ -3,7 +3,7 @@ title: "How to Write a Reference Clock Driver"
 type: archives
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 You need a little magic.
 

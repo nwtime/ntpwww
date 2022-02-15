@@ -3,7 +3,7 @@ title: "Building and Installing the Distribution"
 type: archives
 ---
 
-![gif](/archives/pic/beaver.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/beaver.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 For putting out compiler fires.
 

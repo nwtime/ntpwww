@@ -3,7 +3,7 @@ title: "ntpq - standard NTP query program"
 type: archives
 ---
 
-![gif](/archives/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 A typical NTP monitoring packet
 

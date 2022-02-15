@@ -34,7 +34,7 @@ Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and
 
 ![gif](/archives/pic/arrl_rgb.gif)[American Radio Relay League (Life Member since 1953)](http://www.arrl.org/)
 
-![gif](/archives/pic/rsgb_rgb.gif)[Radio Society of Great Britain (Member since 1971)](https://www.rsgb.org/)
+![gif](/archives/pic/rsgb_rgb.gif)[Radio Society of Great Britain (Member since 1971)](https://rsgb.org/)
 
 ![gif](/archives/pic/amsat_rgb.gif)[Amateur Satellite Organization (Life Member since 1975)](https://www.amsat.org/)
 

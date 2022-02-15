@@ -3,7 +3,7 @@ title: "Kernel Model for Precision Timekeeping"
 type: archives
 ---
 
-![gif](/archives/pic/alice61.gif) [from _Pogo_, Walt Kelly](/reflib/pictures)
+![gif](/archives/pic/alice61.gif) [from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Exploding kernel
 

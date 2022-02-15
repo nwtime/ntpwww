@@ -28,7 +28,7 @@ date: "2015-10-21"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>5.2, worst case</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:P/A:C)">AV:N/AC:H/Au:M/C:N/I:P/A:C</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:H/Au:M/C:N/I:P/A:C)">AV:N/AC:H/Au:M/C:N/I:P/A:C</a></td>
 	</tr>	
   </tbody>	
 </table>

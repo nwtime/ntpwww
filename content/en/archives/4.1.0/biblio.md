@@ -3,7 +3,7 @@ title: "Protocol Conformance Statement"
 type: archives
 ---
 
-![](/archives/pic/flatheads.gif)[From _The Wizard of Oz_, L. Frank Baum](/reflib/pictures)
+![](/archives/pic/flatheads.gif)[From _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 Say it three times and it must be right.  
 

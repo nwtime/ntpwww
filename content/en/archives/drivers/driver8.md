@@ -108,7 +108,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 2**
 
-    : [Meinberg](http://www.meinberg.de/) [DCF C51 receiver and similar](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) (AM demodulation / 4ms)
+    : [Meinberg](https://www.meinberg.de/) [DCF C51 receiver and similar](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) (AM demodulation / 4ms)
     [![Image C51](/archives/pic/c51.jpg)](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) This mode expects the Meinberg standard time string format with 9600/7E2.
 
     > **Note:** mode 2 must also be used for Meinberg PCI cards under Linux, e.g. [the GPS PCI card](https://www.meinbergglobal.com/english/products/pci-gps-clock.htm) or [the DCF77 PCI card](https://www.meinbergglobal.com/english/products/pci-dcf77-clock.htm). Please note the [Meinberg Linux driver](https://www.meinbergglobal.com/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
@@ -131,7 +131,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 7**
 
-    : [Meinberg](http://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / <<1μs)
+    : [Meinberg](https://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / <<1μs)
     [![Image GPS167](/archives/pic/gps167.jpg)](https://www.meinbergglobal.com/english/products/3u-gps-clock-lc-display.htm)
 
     This mode expects either the University of Erlangen time string format or the Meinberg standard time string format at 19200/8N1.
@@ -188,7 +188,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 18**
 
-    : [Meinberg](http://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / \<<1μs)
+    : [Meinberg](https://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / \<<1μs)
 
     This mode works without additional data communication (version, GPS status etc.) and thus should be used with multidrop, heterogeneous multiclient operation.
 
@@ -220,7 +220,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
 *   **server 127.127.8.0-3 mode 24**
 
-    : [Schweitzer Engineering Laboratories](http://www.selinc.com/)
+    : [Schweitzer Engineering Laboratories](https://selinc.com/)
 
 Actual data formats and setup requirements of the various clocks can be found in [NTP PARSE clock data formats](/archives/4.2.8-series/parsedata/).
 
