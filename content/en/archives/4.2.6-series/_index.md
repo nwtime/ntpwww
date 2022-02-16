@@ -52,7 +52,7 @@ NTP supports Unix, VMS and Windows (Vista, XP, NT4 and 2000) systems. The [Build
 
 NTP is by its very nature a complex distributed network application and can be configured for widely divergent timekeeping scenarios. The documentation on these pages attempts to cover the entire suite of configuration, operation and maintenance features which this distribution supports. However, most applications will need only a few of these features. The [Quick Start](/archives/4.2.6-series/) page may be useful to get a simple workstation on the air with existing servers.
 
-The most important factor in providing accurate, reliable time is the selection of modes and servers in the configuration file. A discussion on the available modes is on the [Association Management](/archives/4.2.6-series/assoc/) page. The current public server list is maintained [here](/support/servers/). In many cases the configuration can be automated using the schemes described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt/) page.
+The most important factor in providing accurate, reliable time is the selection of modes and servers in the configuration file. A discussion on the available modes is on the [Association Management](/archives/4.2.6-series/assoc/) page. The current public server list is maintained [here](https://support.ntp.org/bin/view/Servers/WebHome). In many cases the configuration can be automated using the schemes described on the [Automatic Server Discovery Schemes](/archives/4.2.6-series/manyopt/) page.
 
 * * *
 
