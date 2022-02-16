@@ -14,10 +14,8 @@ Most software versions represent a series of patch levels. The landing page for 
 
 In addition to the implementation documentation, the following resources are available:
 
-* **[Reference Library](/reflib)**: Whitepapers, RFCs, and other technical documents written by Professor David L. Mills, inventor of NTP.
-*   **[NTP Wiki](http://support.ntp.org/)**: Community contributed documentation.
-*   **[NTP FAQ](/ntpfaq):** Frequently Asked Questions about the NTP protocol and software distribution.
-*   **[Public Time Server Lists](http://support.ntp.org/servers):** Provides an interface to browse or search for a public primary or secondary time server.
+* **[Reference Library](/reflib/)**: Whitepapers, RFCs, and other technical documents written by Professor David L. Mills, inventor of NTP.
+*   **[NTP Wiki](https://support.ntp.org/bin/view/Main/WebHome)**: Community contributed documentation.
+*   **[NTP FAQ](/ntpfaq/):** Frequently Asked Questions about the NTP protocol and software distribution.
+*   **[Public Time Server Lists](https://support.ntp.org/bin/view/Servers/WebHome):** Provides an interface to browse or search for a public primary or secondary time server.
 * **[comp.protocols.time.ntp](https://groups.google.com/g/comp.protocols.time.ntp):** Google group. Includes postings from original Usenet newsgroup going back to June, 1990.
-
-

@@ -8,12 +8,21 @@
   
   <meta name="description" content="Table of Contents
 
-NTP Wiki: Community-contributed documentation.
-Time Servers: Provides an interface to browse or search for a public primary or …">
-<meta property="og:title" content="Support" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://doc.ntp.org/support/" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+Bugzilla
+NTP Source Code
+Tools Needed to Build from a Repository
+Using the BitKeeper Client
+
+
+Bugzilla
+Tracking of NTP bugs or …">
+<meta property="og:title" content="NTP Software Development" />
+<meta property="og:description" content="Table of Contents  Bugzilla NTP Source Code Tools Needed to Build from a Repository Using the BitKeeper Client   Bugzilla Tracking of NTP bugs or enhancement requests is done using Bugzilla, an open-source bug tracking system developed by the the Mozilla team. Our Bugzilla server is located at https://bugs.ntp.org/. Users are encouraged to create an account and to report bugs or suggest enhancements.
+ NTP Source Code The NTP source is maintained in two branches." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/dev/softwaredevelopment/" /><meta property="article:section" content="dev" />
+<meta property="article:published_time" content="2019-02-12T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-02-12T00:00:00&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -29,7 +38,7 @@ if (!doNotTrack) {
 </script>
 
   
-  <title>Support</title>
+  <title>NTP Software Development</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -177,30 +186,77 @@ if (!doNotTrack) {
 
 
 
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/dev/">Developers</a>
+</li>
+
+
+
+
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/support/">Support</a>
+	<a href="https://doc.ntp.org/dev/softwaredevelopment/">NTP Software Development</a>
 </li>
 
 	</ol>
 </nav	>
 
+
 <section class="section pt-0  pb-auto">
   <div class="container">
-	<h1>Support</h1>
-        
-	<h4 id="table-of-contents">Table of Contents</h4>
+  	<h1>NTP Software Development</h1>
+     
+    <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><strong><a href="https://support.ntp.org/bin/view/Main/WebHome">NTP Wiki</a>:</strong> Community-contributed documentation.</li>
-<li><strong><a href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>:</strong> Provides an interface to browse or search for a public primary or secondary time server.</li>
-<li><strong><a href="/support/securitynotice/">Security Notices</a>:</strong> Security notification policy and list of security vulnerabilities.</li>
-<li><strong><a href="/ntpfaq">NTP FAQ</a>:</strong> Frequently Asked Questions about the NTP protocol and software distribution.</li>
-<li><strong><a href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>:</strong> Wiki area with NTP developer resources.</li>
-<li><strong><a href="/contributorslist/">Contributors List</a>:</strong> List of current and past NTP contributors.</li>
-<li><strong><a href="/contact/">Contacts</a>:</strong> Contacts for the webmaster, security officer, and developer team.</li>
+<li><a href="#bugzilla">Bugzilla</a></li>
+<li><a href="#ntp-source-code">NTP Source Code</a></li>
+<li><a href="#tools-needed-to-build-from-a-repository">Tools Needed to Build from a Repository</a></li>
+<li><a href="#using-the-bitkeeper-client">Using the BitKeeper Client</a></li>
 </ul>
+<hr>
+<h4 id="bugzilla">Bugzilla</h4>
+<p>Tracking of NTP bugs or enhancement requests is done using Bugzilla, an open-source bug tracking system developed by the the Mozilla team. Our Bugzilla server is located at <a href="https://bugs.ntp.org/">https://bugs.ntp.org/</a>. Users are encouraged to create an account and to report bugs or suggest enhancements.</p>
+<hr>
+<h4 id="ntp-source-code">NTP Source Code</h4>
+<p>The NTP source is maintained in two branches. The <code>-stable</code> branch, which has an even release number, and a <code>dev</code>, or master branch, which has an odd release number.</p>
+<p>The NTP repository and branches are published at <a href="https://bk.ntp.org">https://bk.ntp.org</a>.</p>
+<hr>
+<h4 id="tools-needed-to-build-from-a-repository">Tools Needed to Build from a Repository</h4>
+<p>To build from a repository you must have the following tools installed:</p>
+<ul>
+<li><code>autoconf</code> - Version 2.61 or later. We use the latest version.</li>
+<li><code>automake</code> - Version 1.11 or later. We use the latest version.</li>
+<li><code>libtool</code> - Version 1.5.something (this is a guess - we use something recent).</li>
+<li><code>lynx</code> - Any version. We use this to generate the COPYRIGHT file.</li>
+</ul>
+<p>The following tools are only needed if you are planning to hack on the <code>.def</code> files which produce our command-line parsing and our generated documentation. Almost nobody will ever need these:</p>
+<ul>
+<li><code>autogen</code> - Version 5.18.5 or later. We are currently using 5.18.5.</li>
+<li><code>guile</code> - needed by autogen.</li>
+</ul>
+<p>The instructions above assume your computer already has basic developer tools on it. If that is not the case (for example, many Linux distributions do not include developer tools, libraries, or headers by default), you will need to have a proper developer toolchain installed as well.</p>
+<p>For some Linux distributions, these tools can be loaded with something like:</p>
+<p><code>apt-get build-dep ntp</code></p>
+<hr>
+<h4 id="using-the-bitkeeper-client">Using the BitKeeper Client</h4>
+<p>The NTP Project uses the open-source BitKeeper product.</p>
+<p>You can get pre-compiled or source tarballs from <a href="https://www.bitkeeper.org/download.html">https://www.bitkeeper.org/download.html</a>.</p>
+<p>There is more information available to NTP Project Committers <a href="https://support.ntp.org/committers/bin/view/Info/GettingBk">here</a>.</p>
+<p>Once you have installed BitKeeper, you can clone the NTP repositories using the following commands:</p>
+<p>For the ntp-stable repository:</p>
+<p><code>bk clone bk://bk.ntp.org/ntp-stable</code></p>
+<p>For the ntp-dev repository:</p>
+<p><code>bk clone bk://bk.ntp.org/ntp-dev</code></p>
+<p>Once you have obtained the sources, <code>cd</code> to the directory the repository was downloaded to and run <code>./bootstrap</code> to generate the <code>configure</code> and <code>Makefile.in</code> files.</p>
+<p>For information about hacking on the codebase, please see <a href="https://support.ntp.org/bin/view/Dev/MaintainerIssues">MaintainerIssues</a>.</p>
+<p>You can keep your <code>bk</code> repository up to date by running this command in the repository directory:</p>
+<p><code>bk pull -v</code></p>
+<p>For help on any <code>bk</code> command (e.g. <code>clone</code>), use <code>bk clone --help</code>.</p>
 
-	
-		<style>
+	  
+	  <style>
   .feedback--answer {
     display: inline-block;
   }
@@ -260,9 +316,9 @@ if (!doNotTrack) {
   });
 </script>
 
-		<br />
+	  <br />
 	
-</div>
+  </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">

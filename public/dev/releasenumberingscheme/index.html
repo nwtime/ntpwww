@@ -8,12 +8,21 @@
   
   <meta name="description" content="Table of Contents
 
-NTP Wiki: Community-contributed documentation.
-Time Servers: Provides an interface to browse or search for a public primary or …">
-<meta property="og:title" content="Support" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://doc.ntp.org/support/" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+ntp-4.3.0 (new)
+ntp-4.2.2 thru ntp-4.2.8 (current)
+Prior to 06-Jun-2006
+
+
+ntp-4.3.0 (new)
+Once ntp-4.2.8 has been released we will …">
+<meta property="og:title" content="Release Numbering Scheme" />
+<meta property="og:description" content="Table of Contents  ntp-4.3.0 (new) ntp-4.2.2 thru ntp-4.2.8 (current) Prior to 06-Jun-2006   ntp-4.3.0 (new) Once ntp-4.2.8 has been released we will be changing to a new numbering system, one that is much closer to the one used before ntp-4.2.2.
+Discussion on the release numbering scheme should be done at ReleaseNumberingSchemeDiscussion.
+ Releases after 4.2.8:  The first development release will be ntp-4.3.0    The first stable release will be ntp-4." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/dev/releasenumberingscheme/" /><meta property="article:section" content="dev" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -29,7 +38,7 @@ if (!doNotTrack) {
 </script>
 
   
-  <title>Support</title>
+  <title>Release Numbering Scheme</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -177,30 +186,182 @@ if (!doNotTrack) {
 
 
 
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/dev/">Developers</a>
+</li>
+
+
+
+
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/support/">Support</a>
+	<a href="https://doc.ntp.org/dev/releasenumberingscheme/">Release Numbering Scheme</a>
 </li>
 
 	</ol>
 </nav	>
 
+
 <section class="section pt-0  pb-auto">
   <div class="container">
-	<h1>Support</h1>
-        
-	<h4 id="table-of-contents">Table of Contents</h4>
+  	<h1>Release Numbering Scheme</h1>
+     
+    <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><strong><a href="https://support.ntp.org/bin/view/Main/WebHome">NTP Wiki</a>:</strong> Community-contributed documentation.</li>
-<li><strong><a href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>:</strong> Provides an interface to browse or search for a public primary or secondary time server.</li>
-<li><strong><a href="/support/securitynotice/">Security Notices</a>:</strong> Security notification policy and list of security vulnerabilities.</li>
-<li><strong><a href="/ntpfaq">NTP FAQ</a>:</strong> Frequently Asked Questions about the NTP protocol and software distribution.</li>
-<li><strong><a href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>:</strong> Wiki area with NTP developer resources.</li>
-<li><strong><a href="/contributorslist/">Contributors List</a>:</strong> List of current and past NTP contributors.</li>
-<li><strong><a href="/contact/">Contacts</a>:</strong> Contacts for the webmaster, security officer, and developer team.</li>
+<li><a href="#ntp-430-new">ntp-4.3.0 (new)</a></li>
+<li><a href="#ntp-422-thru-ntp-428-current">ntp-4.2.2 thru ntp-4.2.8 (current)</a></li>
+<li><a href="#prior-to-06-jun-2006">Prior to 06-Jun-2006</a></li>
 </ul>
+<hr>
+<h4 id="ntp-430-new">ntp-4.3.0 (new)</h4>
+<p>Once ntp-4.2.8 has been released we will be changing to a new numbering system, one that is much closer to the one used before ntp-4.2.2.</p>
+<p>Discussion on the release numbering scheme should be done at <a href="https://support.ntp.org/bin/view/Dev/ReleaseNumberingSchemeDiscussion">ReleaseNumberingSchemeDiscussion</a>.</p>
+<dl>
+<dt>Releases after 4.2.8:</dt>
+<dd><ul>
+<li>The first development release will be ntp-4.3.0</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The first stable release will be ntp-4.4.0</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The first development release tarball will be named <code>ntp-dev-4.3.0.tar.gz</code>.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The first stable release tarball will be named <code>ntp-4.4.0.tar.gz</code>.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The first development release tarball after ntp-4.4.0 will be named <code>ntp-dev-4.5.0.tar.gz</code>.</li>
+</ul>
+</dd>
+<dt>Syntax</dt>
+<dd><code>Protocol_Version.Release_Version.Point_Version[Release_Tags]</code></dd>
+<dt>Point Version</dt>
+<dd>An increasing number indicates a Point (i.e. incremental) Release.</dd>
+<dd><ul>
+<li>The <code>-stable</code> release series point releases are used for bug fixes.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The <code>-dev</code> (development) release series point releases are incremental snapshot releases which checkpoint the development process.</li>
+</ul>
+</dd>
+<dt>Release Tags</dt>
+<dd><code>[Special][Status]</code></dd>
+<dt>Special</dt>
+<dd>Tags not described here may be used for internal projects.</dd>
+<dt>Status</dt>
+<dd>For <code>-stable</code>, one of:</dd>
+<dd><ul>
+<li><code>-beta</code> followed by an increasing number indicates a Beta release</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>-RC</code> followed by an increasing number indicates a Release Candidate</li>
+</ul>
+</dd>
+<dt>For <code>-dev</code>:</dt>
+<dd><ul>
+<li><code>-RC</code> indicating a Release Candidate</li>
+</ul>
+</dd>
+<dt>Stable vs Development Releases</dt>
+<dd><ul>
+<li>Stable releases have an even Release number</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Development releases have an odd Release number</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Examples</strong></p>
+<pre>
+ntp-4.3.142  NTP Protocol 4 v3.142 (development snapshot release)
+ntp-4.4.0    NTP Protocol 4 v4.0   (stable release, version 4 at patch level 0 - ie, with no patches)
+ntp-4.4.2    NTP Protocol 4 v4.2   (stable release, version 4 with 2 patches)
+</pre>
+<hr>
+<h4 id="ntp-422-thru-ntp-428-current">ntp-4.2.2 thru ntp-4.2.8 (current)</h4>
+<p>The following release numbering scheme was implemented with the release of ntp-4.2.2 on June 6, 2006.</p>
+<dl>
+<dt>Syntax</dt>
+<dd><code>Protocol_Version.Major_Version.Minor_Version[Release_Tags]</code></dd>
+<dt>Release Tags</dt>
+<dd><code>[Point][Special][Release Candidate]</code></dd>
+<dt>Point</dt>
+<dd><ul>
+<li>The letter <code>p</code> followed by an increasing number indicates a Point (i.e. incremental) Release.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The <code>-stable</code> release series point releases are used for bug fixes.</li>
+</ul>
+</dd>
+<dd><ul>
+<li>The <code>-dev</code> (development) release series point releases are incremental snapshot releases which checkpoint the development process.</li>
+</ul>
+</dd>
+<dt>Special</dt>
+<dd>Tags not described here may be used for internal projects.</dd>
+<dt>Release Candidate</dt>
+<dd>The string <code>-RC</code> followed by an increasing number indicates a Release Candidate.</dd>
+<dt>Stable vs Development Releases</dt>
+<dd><ul>
+<li>Stable releases have an even Minor Release number</li>
+</ul>
+</dd>
+<dd><ul>
+<li>Development releases have an odd Minor Release number</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Examples</strong></p>
+<pre>
+4.2.7p142  NTP Protocol 4 v2.7.142 (developement snapshot release)
+4.2.6p3    NTP Protocol 4 v2.6.3   (stable release)
+4.2.2      NTP Protocol 4 v2.2     (stable release)
+</pre>
+<hr>
+<h4 id="prior-to-06-jun-2006">Prior to 06-Jun-2006</h4>
+<dl>
+<dt>Syntax</dt>
+<dd><code>Protocol_Version.Minor_Version.Release_Tag</code></dd>
+<dt>Release Tags</dt>
+<dd>The tag is optional an is the patch / bug fix number.</dd>
+</dl>
+<ul>
+<li><code>0-69</code> for releases on the A.B.C series.</li>
+<li><code>70-79</code> for alpha releases of the A.B+1.0 series.</li>
+<li><code>80+</code> for beta releases of the A.B+1.0 series.</li>
+</ul>
+<p>Additional following this number indicates that this is an interim release.</p>
+<p>Interim releases almost always have a <code>C</code> portion consisting of a number followed by an increasing letter, optionally followed by <code>-rcX</code>, where <code>X</code> is an increasing number. The <code>-rcX</code> indicates a Release Candidate.</p>
+<dl>
+<dt>Release Tag examples:</dt>
+<dd><ul>
+<li><code>4.1.0</code>: A production release from the ntp-stable repository.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>4.1.0b-rc1</code>: A release candidate for 4.1.1 from the ntp-stable repository.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><code>4.1.71</code>: An alpha release of 4.20 from the ntp-dev repository.</li>
+</ul>
+</dd>
+</dl>
+<p>The goal of this scheme is to produce version numbers that collate properly with the output of the <code>ls</code> command.</p>
 
-	
-		<style>
+	  
+	  <style>
   .feedback--answer {
     display: inline-block;
   }
@@ -260,9 +421,9 @@ if (!doNotTrack) {
   });
 </script>
 
-		<br />
+	  <br />
 	
-</div>
+  </div>
 </section>
 <footer class="navbar site-footer fixed-bottom py-0">
   <ul class="mx-auto">
