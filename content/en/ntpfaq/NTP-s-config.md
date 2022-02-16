@@ -92,7 +92,7 @@ In reality one would add several other configuration items, such as a [drift fil
 
 #### 6.1.2.2 Is the minimum configuration a typical one?
 
-Besides being functional, real configurations differ from the one shown in the [minimum configuration example](#6121-what-is-the-minimum-configuration). Most NTP servers have no reference clocks, but use lower [stratum](/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum) servers as time references. Public time servers can be found [here](/https://support.ntp.org/bin/view/Servers/WebHome). [Courtesy](#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server) suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:
+Besides being functional, real configurations differ from the one shown in the [minimum configuration example](#6121-what-is-the-minimum-configuration). Most NTP servers have no reference clocks, but use lower [stratum](/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum) servers as time references. Public time servers can be found [here](https://support.ntp.org/bin/view/Servers/WebHome). [Courtesy](#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server) suggests to inform the maintainers of the time server that you are using their service. As an advantage, they might inform you if their service is going to be down. There is almost no difference in the configuration:
 
 <pre>server 132.199.176.10	# some NTP server's IP address
 # You might add the EMail address of the contact person</pre>
