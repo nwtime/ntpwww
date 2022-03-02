@@ -1587,7 +1587,7 @@ type: archives
 * [Bug 1578: Consistently use `-lm` when needed](https://bugs.ntp.org/show_bug.cgi?id=1578)
 * [Bug 1573: from 4.2.6p3-beta1: Miscalculation of offset in `sntp`](https://bugs.ntp.org/show_bug.cgi?id=1573)
 * [Bug 1602: Refactor some of the `sntp/` directory to facililtate testing](https://bugs.ntp.org/show_bug.cgi?id=1602)
-* [Bug 1593: `ntpd` abort in `free()` with `logconfig` syntax error](https://bugs.ntp.org/show_bug.cgi?id=1593)
+* [Bug 1593: `ntpd` abort in `free()` with `logconfig` syntax error](/support/securitynotice/ntpbug1593)
 * [Bug 1595: from 4.2.6p3-beta1: empty last line in key file causes duplicate key to be added](https://bugs.ntp.org/show_bug.cgi?id=1595)
 * [Bug 1597: from 4.2.6p3-beta1: packet processing ignores `RATE` KoD packets, because of a bug in string comparison](https://bugs.ntp.org/show_bug.cgi?id=1597)
 * [Bug 1586: `ntpd` 4.2.7p40 doesn't write to `syslog` after fork on QNX](https://bugs.ntp.org/show_bug.cgi?id=1586)
