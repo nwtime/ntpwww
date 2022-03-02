@@ -24,7 +24,7 @@ The only generally-exploitable bug in the above list is the crypto-NAK bug, whic
 
 Additionally, three bugs that have already been fixed in ntp-4.2.8 but were not fixed in ntp-4.2.6 as it was EOL'd have a security component, but are all below 1.8 CVSS score, so we're reporting them here:
 
-* [2382: Peer precision < -31 gives division by zero](https://bugs.ntp.org/show_bug.cgi?id=2382) 
+* [2382: Peer precision < -31 gives division by zero](/support/securitynotice/ntpbug2382/) 
 * [1774: Segfaults if cryptostats enabled when built without OpenSSL](/support/securitynotice/ntpbug1774) 
 * [1593: ntpd abort in free() with logconfig syntax error](/support/securitynotice/ntpbug1593)  
 
@@ -41,6 +41,6 @@ Additionally, three bugs that have already been fixed in ntp-4.2.8 but were not 
 * 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
 * 2015 Aug 26: Initial notification of [2909](/support/securitynotice/ntpbug2909/); analysis begins
 * 2015 Aug 26: CVE number clarification requested from Mitre
-* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](/support/securitynotice/ntpbug1593), [1774](/support/securitynotice/ntpbug1774), [2382](https://bugs.ntp.org/show_bug.cgi?id=2382), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902/)
+* 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](/support/securitynotice/ntpbug1593), [1774](/support/securitynotice/ntpbug1774), [2382](/support/securitynotice/ntpbug2382/), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902/)
 * 2015 Aug 20: Initial notification of [2902](/support/securitynotice/ntpbug2902/); analysis begins
 * 2015 Aug 11: Initial notification of [2899](/support/securitynotice/ntpbug2899/); analysis begins

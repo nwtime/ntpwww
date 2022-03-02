@@ -1281,7 +1281,7 @@ type: archives
 * [Bug 2415: `RES_LIMITED` flags check should use `&`, not `&&`](https://bugs.ntp.org/show_bug.cgi?id=2415)
 * [Bug 2145: `ntpq` dumps core when displaying `sys_var_list` and more](https://bugs.ntp.org/show_bug.cgi?id=2145)
 * [Bug 1485: Sometimes `ntpd` crashes](https://bugs.ntp.org/show_bug.cgi?id=1485)
-* [Bug 2382: Implement `LOGTOD` using `ldexp()` instead of shifting](https://bugs.ntp.org/show_bug.cgi?id=2382)
+* [Bug 2382: Implement `LOGTOD` using `ldexp()` instead of shifting](/support/securitynotice/ntpbug2382/)
 * [Bug 1866: Disable some debugging output in `refclock_oncore`](https://bugs.ntp.org/show_bug.cgi?id=1866)
 * [Bug 2149: Log an error message if `/proc/net/if_inet6` cannot be opened](https://bugs.ntp.org/show_bug.cgi?id=2149)
 * [Bug 2357: `sntp/libopts/usage.c` sometimes needs `-lintl`](https://bugs.ntp.org/show_bug.cgi?id=2357)
