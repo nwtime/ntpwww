@@ -1501,7 +1501,7 @@ type: archives
 * [Bug 1781: `longlong` undefined in `sntp handle_pkt()` on Debian amd64](https://bugs.ntp.org/show_bug.cgi?id=1781)
 * [Bug 1776: `sntp` mishandles `-t/--timeout` and `-a/--authentication`](https://bugs.ntp.org/show_bug.cgi?id=1776)
 * [Bug 1773: openssl not detected during `./configure`](https://bugs.ntp.org/show_bug.cgi?id=1773)
-* [Bug 1774: Segfaults if `cryptostats` enabled and built without OpenSSL](https://bugs.ntp.org/show_bug.cgi?id=1774)
+* [Bug 1774: Segfaults if `cryptostats` enabled and built without OpenSSL](/support/securitynotice/ntpbug1774)
 * [Bug 1772: `refclock_open()` return value check wrong for ACTS](https://bugs.ntp.org/show_bug.cgi?id=1772)
 * [Bug 1771: algorithmic error in `clocktime()` fixed](https://bugs.ntp.org/show_bug.cgi?id=1771)
 * [Bug 1764: Move Palisade modem control logic to `configure.ac`](https://bugs.ntp.org/show_bug.cgi?id=1764)
