@@ -14,7 +14,7 @@ The NTP Project produces a [Software Reference Implementation](https://bk.ntp.or
 
 Network Time Foundation provides support for the NTP Project. Learn more about the Foundation's work at https://www.nwtime.org/.
 
-  <div class="container-fluid">
+  <div class="container text-center">
     <div class="row">
       <div class="mx-auto">
 	  	<a class="btn btn-lg btn-primary mr-3 mb-4" 
