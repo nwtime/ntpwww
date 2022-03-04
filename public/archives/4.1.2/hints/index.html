@@ -1,242 +1,26 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-  
-  
-
-  
-  <meta name="description" content=" from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content=" from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Mother in law has all the answers.
 
-This is an index for a set of troubleshooting notes …">
-<meta property="og:title" content="Hints and Kinks" />
-<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+This is an index for a set of troubleshooting notes …"><meta property="og:title" content="Hints and Kinks"><meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Mother in law has all the answers.
- This is an index for a set of troubleshooting notes contained in individual text files in the ./hints directory. They were supplied by various volunteers in the form of mail messages, patches or just plain word of mouth. Each note applies to a specific computer and operating system and gives information found useful in setting up the NTP distribution or site configuration." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/archives/4.1.2/hints/" /><meta property="article:section" content="archives" />
-
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
-
-
-
-  
-  <title>Hints and Kinks</title>
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  
-  <meta name="generator" content="Hugo 0.83.1" />
-
-  <!-- Plugins -->
-  
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
-  
-    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
-  
-
-  <!-- Main Stylesheet -->
-  
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
-<body><!-- navigation -->
-    
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-<header class="sticky-top navigation">
-  <div class="container">
-
-
-    <nav class="navbar navbar-expand-lg navbar-light py-0">
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-      </div>
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
-      </div>
-	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-        <i class="bi-plus"></i>
-      </button>
-
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto py-0">
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
-          </li>
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Support
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Reference Library
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Documentation
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
-              
-            </div>
-          </li>
-          
-          
-        </ul>
-      </div>
-	  
-      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
-      <div class="gcse-search">
-      </div>
-
-    </nav>
-  </div>
-  <div class="header-border">
-  </div>
-</header>
-<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/archives/4.1.2/">4.1.2</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/archives/4.1.2/hints/">Hints and Kinks</a>
-</li>
-
-	</ol>
-</nav	>
-
-
-<section class="section pt-0  pb-auto">
-  <div class="container">
-  	<h1>Hints and Kinks</h1>
-     
-    <p><img src="/archives/pic/alice35.gif" alt="gif"> <a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
-<p>Mother in law has all the answers.</p>
-<hr>
-<p>This is an index for a set of troubleshooting notes contained in individual text files in the <code>./hints</code> directory. They were supplied by various volunteers in the form of mail messages, patches or just plain word of mouth. Each note applies to a specific computer and operating system and gives information found useful in setting up the NTP distribution or site configuration. The notes are very informal and subject to errors; no attempt has been made to verify the accuracy of the information contained in them.</p>
-<p>Additions or corrections to this list or the information contained in the notes is solicited. The most useful submissions include the name of the computer manufacturer (and model numbers where appropriate), operating system (specific version(s) where appropriate), problem description, problem solution and submitter&rsquo;s name and electric address. If the submitter is willing to continue debate on the problem, please so advise. See the <a href="/archives/hints/toc/">directory listing</a>.</p>
-
-	  
-  </div>
-</section>
-<footer class="navbar site-footer fixed-bottom py-0">
-  <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-        <i class="bi-twitter"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-        <i class="bi-linkedin"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-        <i class="bi-facebook"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text">
-      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
-    </li>
-  </ul>
-</footer>
-
-</body>
-</html>
+ This is an index for a set of troubleshooting notes contained in individual text files in the ./hints directory. They were supplied by various volunteers in the form of mail messages, patches or just plain word of mouth. Each note applies to a specific computer and operating system and gives information found useful in setting up the NTP distribution or site configuration."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/archives/4.1.2/hints/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>Hints and Kinks</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://necolas.github.io/normalize.css/latest/normalize.css><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://test.doc.ntp.org/archives/4.1.2/>4.1.2</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/archives/4.1.2/hints/>Hints and Kinks</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Hints and Kinks</h1><p><img src=/archives/pic/alice35.gif alt=gif> <a href=/reflib/pictures/>from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p><p>Mother in law has all the answers.</p><hr><p>This is an index for a set of troubleshooting notes contained in individual text files in the <code>./hints</code> directory. They were supplied by various volunteers in the form of mail messages, patches or just plain word of mouth. Each note applies to a specific computer and operating system and gives information found useful in setting up the NTP distribution or site configuration. The notes are very informal and subject to errors; no attempt has been made to verify the accuracy of the information contained in them.</p><p>Additions or corrections to this list or the information contained in the notes is solicited. The most useful submissions include the name of the computer manufacturer (and model numbers where appropriate), operating system (specific version(s) where appropriate), problem description, problem solution and submitter&rsquo;s name and electric address. If the submitter is willing to continue debate on the problem, please so advise. See the <a href=/archives/hints/toc/>directory listing</a>.</p></div></section><footer class="navbar site-footer fixed-bottom py-0"><ul class=mx-auto><li class=navbar-text data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class=text-white target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><i class=bi-twitter></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><i class=bi-linkedin></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><i class=bi-facebook></i></a></li><li class=navbar-text><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></footer></body></html>

@@ -1,257 +1,32 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-  
-  
-
-  
-  <meta name="description" content="If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, …">
-<meta property="og:title" content="8. Troubleshooting" />
-<meta property="og:description" content="If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, …"><meta property="og:title" content="8. Troubleshooting"><meta property="og:description" content="If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP.
 8.1 Monitoring
 8.1.1 How do I confirm my NTP server is working fine?
 8.1.2 How do I use peerstats and loopstats?
 8.1.3 How can I see the Time Difference between Client and Server?
-8.1.4 What does 257 mean as value for reach?" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-trouble/" /><meta property="article:section" content="ntpfaq" />
-
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
-
-
-
-  
-  <title>8. Troubleshooting</title>
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  
-  <meta name="generator" content="Hugo 0.83.1" />
-
-  <!-- Plugins -->
-  
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
-  
-    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
-  
-
-  <!-- Main Stylesheet -->
-  
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
-<body><!-- navigation -->
-    
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-<header class="sticky-top navigation">
-  <div class="container">
-
-
-    <nav class="navbar navbar-expand-lg navbar-light py-0">
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-      </div>
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
-      </div>
-	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-        <i class="bi-plus"></i>
-      </button>
-
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto py-0">
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
-          </li>
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Support
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Reference Library
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Documentation
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
-              
-            </div>
-          </li>
-          
-          
-        </ul>
-      </div>
-	  
-      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
-      <div class="gcse-search">
-      </div>
-
-    </nav>
-  </div>
-  <div class="header-border">
-  </div>
-</header>
-<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/ntpfaq/ntp-s-trouble/">8. Troubleshooting</a>
-</li>
-
-	</ol>
-</nav	>
-
-
-<section class="section pt-0  pb-auto">
-  <div class="container">
-  	<h1>8. Troubleshooting</h1>
-     
-    <p>If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP.</p>
-<p>8.1 <a href="#81-monitoring">Monitoring</a><br>
-8.1.1 <a href="#811-how-do-i-confirm-my-ntp-server-is-working-fine">How do I confirm my NTP server is working fine?</a><br>
-8.1.2 <a href="#812-how-do-i-use-peerstats-and-loopstats">How do I use peerstats and loopstats?</a><br>
-8.1.3 <a href="#813-how-can-i-see-the-time-difference-between-client-and-server">How can I see the Time Difference between Client and Server?</a><br>
-8.1.4 <a href="#814-what-does-257-mean-as-value-for-reach">What does 257 mean as value for reach?</a><br>
-8.1.5 <a href="#815-how-do-i-use-statistics-files">How do I use statistics files?</a></p>
-<hr>
-<h4 id="81-monitoring">8.1 Monitoring</h4>
-<p>Without any doubt, troubleshooting requires monitoring. Somehow you must find out that something is wrong before you wonder how to fix it.</p>
-<hr>
-<h4 id="811-how-do-i-confirm-my-ntp-server-is-working-fine">8.1.1 How do I confirm my NTP server is working fine?</h4>
-<p>One of the quickest commands to verify that <code>ntpd</code> is still up and running is <code>ntpq -p</code>. That command will show all configured peers together with their performance data.</p>
-<p>As the above command requires periodic invocation to monitor performance, it is also recommended to enable statistic files in <code>ntpd</code>.</p>
-<hr>
-<h4 id="812-how-do-i-use-peerstats-and-loopstats">8.1.2 How do I use peerstats and loopstats?</h4>
-<p>I use the following lines in <code>/etc/ntp.conf</code> to enable loopfilter statistics. New files are created every day, and the current files are available as <code>/var/log/ntp/peers</code> and <code>/var/log/ntp/loops</code>. Older files are archived as <code>/var/log/ntp/peers<em>YYYYMMDD</em></code> and <code>/var/log/ntp/loops.<em>YYYYMMDD</em></code>:</p>
-<pre>statistics loopstats
+8.1.4 What does 257 mean as value for reach?"><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-trouble/"><meta property="article:section" content="ntpfaq"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>8. Troubleshooting</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://necolas.github.io/normalize.css/latest/normalize.css><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/ntpfaq/>The NTP FAQ and HOWTO</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/ntpfaq/ntp-s-trouble/>8. Troubleshooting</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>8. Troubleshooting</h1><p>If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP.</p><p>8.1 <a href=#81-monitoring>Monitoring</a><br>8.1.1 <a href=#811-how-do-i-confirm-my-ntp-server-is-working-fine>How do I confirm my NTP server is working fine?</a><br>8.1.2 <a href=#812-how-do-i-use-peerstats-and-loopstats>How do I use peerstats and loopstats?</a><br>8.1.3 <a href=#813-how-can-i-see-the-time-difference-between-client-and-server>How can I see the Time Difference between Client and Server?</a><br>8.1.4 <a href=#814-what-does-257-mean-as-value-for-reach>What does 257 mean as value for reach?</a><br>8.1.5 <a href=#815-how-do-i-use-statistics-files>How do I use statistics files?</a></p><hr><h4 id=81-monitoring>8.1 Monitoring</h4><p>Without any doubt, troubleshooting requires monitoring. Somehow you must find out that something is wrong before you wonder how to fix it.</p><hr><h4 id=811-how-do-i-confirm-my-ntp-server-is-working-fine>8.1.1 How do I confirm my NTP server is working fine?</h4><p>One of the quickest commands to verify that <code>ntpd</code> is still up and running is <code>ntpq -p</code>. That command will show all configured peers together with their performance data.</p><p>As the above command requires periodic invocation to monitor performance, it is also recommended to enable statistic files in <code>ntpd</code>.</p><hr><h4 id=812-how-do-i-use-peerstats-and-loopstats>8.1.2 How do I use peerstats and loopstats?</h4><p>I use the following lines in <code>/etc/ntp.conf</code> to enable loopfilter statistics. New files are created every day, and the current files are available as <code>/var/log/ntp/peers</code> and <code>/var/log/ntp/loops</code>. Older files are archived as <code>/var/log/ntp/peers<em>YYYYMMDD</em></code> and <code>/var/log/ntp/loops.<em>YYYYMMDD</em></code>:</p><pre>statistics loopstats
 statsdir /var/log/ntp/
 filegen peerstats file peers type day link enable
-filegen loopstats file loops type day link enable</pre>
-<p>Usually I only monitor the <code>loops</code> file. Table 8.1a lists the individual fields of each file.</p>
-<p><strong>Table 8.1a: Statistic Files</strong></p>
-<table>
-<thead>
-<tr>
-<th>File Type</th>
-<th>List of Fields</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>loopstats</code></td>
-<td>day, second, offset, drift compensation, estimated error, stability, polling interval</td>
-</tr>
-<tr>
-<td><code>peerstats</code></td>
-<td>day, second, address, status, offset, delay, dispersion, skew (variance)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 id="813-how-can-i-see-the-time-difference-between-client-and-server">8.1.3 How can I see the Time Difference between Client and Server?</h4>
-<p>(By <a href="mailto:Terje.Mathisen@hda.hydro.com">Terje Mathisen</a>) Normally <code>ntpd</code> maintains an estimate of the time offset. To inspect these offsets, you can use the following commands:</p>
-<ul>
-<li><code>ntpq -p</code> will display the offsets for each reachable server in milliseconds (<code>ntpdc -p</code> uses seconds instead).</li>
-<li><code>ntpdc -c loopinfo</code> will display the combined offset in seconds, as seen at the last poll. If supported, <code>ntpdc -c kerninfo</code> will display the current remaining correction, just as <code>ntptime</code> does.</li>
-</ul>
-<p>The first command can be used to check what <code>ntpd</code> thinks the offset and jitter is currently, relative to the preferred/current server. The second command can tell you something about the estimated offset/error all the way to the stratum 1 source. <a href="#812-how-do-i-use-peerstats-and-loopstats">Q: 8.1.2</a> describes a way to collect such data automatically.</p>
-<p>If a <a href="/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing">PPS</a> source is <a href="/ntpfaq/ntp-s-config-adv/#624-pps-synchronization">active</a>, the offset displayed with the second choice is updated periodically, maybe every second.</p>
-<p>Sometimes things are wrong and you may want to compare time offsets directly. An easy way is to use <code>ntpdate -d <em>server</em></code> to compare the local system time with the time taken from <code><em>server</em></code>.</p>
-<hr>
-<h4 id="814-what-does-257-mean-as-value-for-reach">8.1.4 What does 257 mean as value for reach?</h4>
-<p>(Inspired by <a href="mailto:martin.burnicki@meinberg.de">Martin Burnicki</a>) The value displayed in column <code>reach</code> is octal, and it represents the <em>reachability register</em>. One digit in the range of <code>0</code> to <code>7</code> represents three bits. The initial value of that register is <code>0</code>, and after every poll that register is shifted left by one position. If the corresponding time source sent a valid response, the rightmost bit is set.</p>
-<p>During a normal startup the registers values are these: <code>0</code>, <code>1</code>, <code>3</code>, <code>7</code>, <code>17</code>, <code>37</code>, <code>77</code>, <code>177</code>, <code>377</code></p>
-<p>Thus <code>257</code> in the dual system is <code>10101111</code>, saying that two valid responses were not received during the last eight polls. However, the last four polls worked fine.</p>
-<hr>
-<h4 id="815-how-do-i-use-statistics-files">8.1.5 How do I use statistics files?</h4>
-<p>You can do a lot of useful things with statistic files before you remove them. For example there is a utility named <code>summary.pl</code> written in Perl to compute mean values and standard deviation (RMS) from the loopfilter and peer statistics. It will also show exceptional conditions found in these files. Here&rsquo;s a short example output of <code>summary.pl --dir=/var/log/ntp --start=19990518 --end=19990604</code>:</p>
-<pre>loops.19990518
+filegen loopstats file loops type day link enable</pre><p>Usually I only monitor the <code>loops</code> file. Table 8.1a lists the individual fields of each file.</p><p><strong>Table 8.1a: Statistic Files</strong></p><table><thead><tr><th>File Type</th><th>List of Fields</th></tr></thead><tbody><tr><td><code>loopstats</code></td><td>day, second, offset, drift compensation, estimated error, stability, polling interval</td></tr><tr><td><code>peerstats</code></td><td>day, second, address, status, offset, delay, dispersion, skew (variance)</td></tr></tbody></table><hr><h4 id=813-how-can-i-see-the-time-difference-between-client-and-server>8.1.3 How can I see the Time Difference between Client and Server?</h4><p>(By <a href=mailto:Terje.Mathisen@hda.hydro.com>Terje Mathisen</a>) Normally <code>ntpd</code> maintains an estimate of the time offset. To inspect these offsets, you can use the following commands:</p><ul><li><code>ntpq -p</code> will display the offsets for each reachable server in milliseconds (<code>ntpdc -p</code> uses seconds instead).</li><li><code>ntpdc -c loopinfo</code> will display the combined offset in seconds, as seen at the last poll. If supported, <code>ntpdc -c kerninfo</code> will display the current remaining correction, just as <code>ntptime</code> does.</li></ul><p>The first command can be used to check what <code>ntpd</code> thinks the offset and jitter is currently, relative to the preferred/current server. The second command can tell you something about the estimated offset/error all the way to the stratum 1 source. <a href=#812-how-do-i-use-peerstats-and-loopstats>Q: 8.1.2</a> describes a way to collect such data automatically.</p><p>If a <a href=/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing>PPS</a> source is <a href=/ntpfaq/ntp-s-config-adv/#624-pps-synchronization>active</a>, the offset displayed with the second choice is updated periodically, maybe every second.</p><p>Sometimes things are wrong and you may want to compare time offsets directly. An easy way is to use <code>ntpdate -d <em>server</em></code> to compare the local system time with the time taken from <code><em>server</em></code>.</p><hr><h4 id=814-what-does-257-mean-as-value-for-reach>8.1.4 What does 257 mean as value for reach?</h4><p>(Inspired by <a href=mailto:martin.burnicki@meinberg.de>Martin Burnicki</a>) The value displayed in column <code>reach</code> is octal, and it represents the <em>reachability register</em>. One digit in the range of <code>0</code> to <code>7</code> represents three bits. The initial value of that register is <code>0</code>, and after every poll that register is shifted left by one position. If the corresponding time source sent a valid response, the rightmost bit is set.</p><p>During a normal startup the registers values are these: <code>0</code>, <code>1</code>, <code>3</code>, <code>7</code>, <code>17</code>, <code>37</code>, <code>77</code>, <code>177</code>, <code>377</code></p><p>Thus <code>257</code> in the dual system is <code>10101111</code>, saying that two valid responses were not received during the last eight polls. However, the last four polls worked fine.</p><hr><h4 id=815-how-do-i-use-statistics-files>8.1.5 How do I use statistics files?</h4><p>You can do a lot of useful things with statistic files before you remove them. For example there is a utility named <code>summary.pl</code> written in Perl to compute mean values and standard deviation (RMS) from the loopfilter and peer statistics. It will also show exceptional conditions found in these files. Here&rsquo;s a short example output of <code>summary.pl --dir=/var/log/ntp --start=19990518 --end=19990604</code>:</p><pre>loops.19990518
 loop 110, -30+/-36.5, rms 6.7, freq 14.95+/-1.149, var 0.612
 loops.19990519
 loop 113, -26+/-40.3, rms 6.9, freq 12.95+/-3.240, var 1.378
@@ -262,48 +37,4 @@ loop 190, 3+/-18.5, rms 2.9, freq 15.48+/-3.715, var 0.604
 loops.19990523
 loop 146, -5+/-9.2, rms 1.9, freq 15.77+/-0.716, var 0.305
 loops.19990604
-loop 73, -27+/-29.8, rms 6.9, freq 16.81+/-0.327, var 0.140</pre>
-<p>Still another utility named <code>plot_summary.pl</code> can be used to make plots with these summary data. As an alternative you could plot the loopfilter file directly with <code>gnuplot</code> using the command <code>plot &quot;/var/log/ntp/loops&quot;</code> using 2:3 with linespoints.</p>
-<blockquote>
-<p><a href="http://www.gnuplot.info/faq/index.html#x1-70001.2">The &ldquo;GNU&rdquo; in gnuplot</a> is NOT related to the Free Software Foundation, the naming is just a coincidence (and a long story). Thus gnuplot is not covered by the Gnu copyleft, but rather by its own copyright statement, included in all source code files.</p>
-</blockquote>
-<p>Figure 8.1a was produced with a little more complicated command. It shows <code>yerrorbars</code> with the estimated errors for offset and frequency respectively.</p>
-<p><strong>Figure 8.1a: Plot of estimated Offset and Frequency Error (DCF77)</strong></p>
-<p><img src="/ntpfaq/loopstat.png" alt=""></p>
-<p>The reference clock, the antenna, and the computer system were located in an office room without air conditioning.</p>
-<p>Now that we are looking at numbers and graphs, let us compare the data of a GPS clock (using PPS) with a typical low-cost clock (not using PPS). Figure 8.1b shows a very small offset for the GPS clock. The frequency is continuously adjusted. In comparison, the DCF77 clock shows a high variation for the offset, but the frequency is adjusted less drastically. Figure 8.1a shows values between those, using a better DCF77 receiver with PPS.</p>
-<p><strong>Figure 8.1b: Comparing Offset and Frequency Error of DCF77 and GPS</strong></p>
-<p><img src="/ntpfaq/GPSvsDCF.png" alt=""></p>
-
-	  
-  </div>
-</section>
-<footer class="navbar site-footer fixed-bottom py-0">
-  <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-        <i class="bi-twitter"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-        <i class="bi-linkedin"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-        <i class="bi-facebook"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text">
-      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
-    </li>
-  </ul>
-</footer>
-
-</body>
-</html>
+loop 73, -27+/-29.8, rms 6.9, freq 16.81+/-0.327, var 0.140</pre><p>Still another utility named <code>plot_summary.pl</code> can be used to make plots with these summary data. As an alternative you could plot the loopfilter file directly with <code>gnuplot</code> using the command <code>plot "/var/log/ntp/loops"</code> using 2:3 with linespoints.</p><blockquote><p><a href=http://www.gnuplot.info/faq/index.html#x1-70001.2>The &ldquo;GNU&rdquo; in gnuplot</a> is NOT related to the Free Software Foundation, the naming is just a coincidence (and a long story). Thus gnuplot is not covered by the Gnu copyleft, but rather by its own copyright statement, included in all source code files.</p></blockquote><p>Figure 8.1a was produced with a little more complicated command. It shows <code>yerrorbars</code> with the estimated errors for offset and frequency respectively.</p><p><strong>Figure 8.1a: Plot of estimated Offset and Frequency Error (DCF77)</strong></p><p><img src=/ntpfaq/loopstat.png alt></p><p>The reference clock, the antenna, and the computer system were located in an office room without air conditioning.</p><p>Now that we are looking at numbers and graphs, let us compare the data of a GPS clock (using PPS) with a typical low-cost clock (not using PPS). Figure 8.1b shows a very small offset for the GPS clock. The frequency is continuously adjusted. In comparison, the DCF77 clock shows a high variation for the offset, but the frequency is adjusted less drastically. Figure 8.1a shows values between those, using a better DCF77 receiver with PPS.</p><p><strong>Figure 8.1b: Comparing Offset and Frequency Error of DCF77 and GPS</strong></p><p><img src=/ntpfaq/GPSvsDCF.png alt></p></div></section><footer class="navbar site-footer fixed-bottom py-0"><ul class=mx-auto><li class=navbar-text data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class=text-white target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><i class=bi-twitter></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><i class=bi-linkedin></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><i class=bi-facebook></i></a></li><li class=navbar-text><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></footer></body></html>

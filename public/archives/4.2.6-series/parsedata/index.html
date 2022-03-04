@@ -1,245 +1,41 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-  
-  
-
-  
-  <meta name="description" content="The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock …">
-<meta property="og:title" content="NTP PARSE clock data formats" />
-<meta property="og:description" content="The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I&rsquo;ll sum up the major features of the clocks (this information is distributed in the parse/clk_*.c and ntpd/refclock_parse.c files).
- Table of Contents  Meinberg clocks Raw DCF77 Data via serial line DCF77 raw time code Schmid clock Trimble SV6 ASCII time code (TAIP) ELV DCF7000 HOPF 6021 und Kompatible Diem Computime Clock WHARTON 400A Series Clock with a 404." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.6-series/parsedata/" /><meta property="article:section" content="archives" />
-
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
-
-
-
-  
-  <title>NTP PARSE clock data formats</title>
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  
-  <meta name="generator" content="Hugo 0.83.1" />
-
-  <!-- Plugins -->
-  
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
-  
-    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
-  
-
-  <!-- Main Stylesheet -->
-  
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
-<body><!-- navigation -->
-    
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-<header class="sticky-top navigation">
-  <div class="container">
-
-
-    <nav class="navbar navbar-expand-lg navbar-light py-0">
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-      </div>
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
-      </div>
-	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-        <i class="bi-plus"></i>
-      </button>
-
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto py-0">
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
-          </li>
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Support
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Reference Library
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Documentation
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
-              
-            </div>
-          </li>
-          
-          
-        </ul>
-      </div>
-	  
-      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
-      <div class="gcse-search">
-      </div>
-
-    </nav>
-  </div>
-  <div class="header-border">
-  </div>
-</header>
-<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/archives/4.2.6-series/">4.2.6-series</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/archives/4.2.6-series/parsedata/">NTP PARSE clock data formats</a>
-</li>
-
-	</ol>
-</nav	>
-
-
-<section class="section pt-0  pb-auto">
-  <div class="container">
-  	<h1>NTP PARSE clock data formats</h1>
-     
-    <p>The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I&rsquo;ll sum up the major features of the clocks (this information is distributed in the <code>parse/clk_*.c</code> and <code>ntpd/refclock_parse.c</code> files).</p>
-<hr>
-<h4 id="table-of-contents">Table of Contents</h4>
-<ul>
-<li><a href="/archives/4.2.6-series/parsedata/#meinberg-clocks">Meinberg clocks</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#raw-dcf77-data-via-serial-line">Raw DCF77 Data via serial line</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#dcf77-raw-time-code">DCF77 raw time code</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#schmid-clock">Schmid clock</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#trimble-sv6-ascii-time-code-taip">Trimble SV6 ASCII time code (TAIP)</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#elv-dcf7000">ELV DCF7000</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#hopf-6021-und-kompatible">HOPF 6021 und Kompatible</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#diem-computime-clock">Diem Computime Clock</a></li>
-<li><a href="/archives/4.2.6-series/parsedata/#wharton-400a-series-clock-with-a-4042-serial-interface">WHARTON 400A Series Clock with a 404.2 Serial interface</a></li>
-</ul>
-<h4 id="meinberg-clocks">Meinberg clocks</h4>
-<pre>Meinberg: start=<STX>, end=<ETX>, sync on start
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock …"><meta property="og:title" content="NTP PARSE clock data formats"><meta property="og:description" content="The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I&rsquo;ll sum up the major features of the clocks (this information is distributed in the parse/clk_*.c and ntpd/refclock_parse.c files).
+ Table of Contents  Meinberg clocks Raw DCF77 Data via serial line DCF77 raw time code Schmid clock Trimble SV6 ASCII time code (TAIP) ELV DCF7000 HOPF 6021 und Kompatible Diem Computime Clock WHARTON 400A Series Clock with a 404."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.6-series/parsedata/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>NTP PARSE clock data formats</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://necolas.github.io/normalize.css/latest/normalize.css><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://test.doc.ntp.org/archives/4.2.6-series/>4.2.6-series</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/archives/4.2.6-series/parsedata/>NTP PARSE clock data formats</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>NTP PARSE clock data formats</h1><p>The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I&rsquo;ll sum up the major features of the clocks (this information is distributed in the <code>parse/clk_*.c</code> and <code>ntpd/refclock_parse.c</code> files).</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.2.6-series/parsedata/#meinberg-clocks>Meinberg clocks</a></li><li><a href=/archives/4.2.6-series/parsedata/#raw-dcf77-data-via-serial-line>Raw DCF77 Data via serial line</a></li><li><a href=/archives/4.2.6-series/parsedata/#dcf77-raw-time-code>DCF77 raw time code</a></li><li><a href=/archives/4.2.6-series/parsedata/#schmid-clock>Schmid clock</a></li><li><a href=/archives/4.2.6-series/parsedata/#trimble-sv6-ascii-time-code-taip>Trimble SV6 ASCII time code (TAIP)</a></li><li><a href=/archives/4.2.6-series/parsedata/#elv-dcf7000>ELV DCF7000</a></li><li><a href=/archives/4.2.6-series/parsedata/#hopf-6021-und-kompatible>HOPF 6021 und Kompatible</a></li><li><a href=/archives/4.2.6-series/parsedata/#diem-computime-clock>Diem Computime Clock</a></li><li><a href=/archives/4.2.6-series/parsedata/#wharton-400a-series-clock-with-a-4042-serial-interface>WHARTON 400A Series Clock with a 404.2 Serial interface</a></li></ul><h4 id=meinberg-clocks>Meinberg clocks</h4><pre>Meinberg: start=<stx>, end=<etx>, sync on start
       pattern="\2D:  .  .  ;T: ;U:  .  .  ;    \3"
       pattern="\2  .  .  ;  ;   :  :  ;        \3"
       pattern="\2  .  .  ;  ;   :  :  ;    :  ;        ;   .         .       "
-</pre>
-<p>Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach <a href="http://www.meinberg.de/">Meinberg</a> via the Web. Information can also be ordered via eMail from <a href="mailto:%20info@meinberg.de">info@meinberg.de</a></p>
-<p><strong>General characteristics:</strong></p>
-<p>Meinberg clocks primarily output pulse per second and a describing ASCII string. This string can be produced in two modes: either upon the reception of a question mark or every second. NTP uses the latter mechanism. DCF77 AM clocks have a limited accuracy of a few milliseconds. The DCF77 PZF5xx variants provide higher accuracy and have a pretty good relationship between RS232 time code and the PPS signal. Except for early versions of the old GPS166 receiver type, Meinberg GPS receivers have a very good timing relationship between the datagram and the pulse. The beginning of the start bit of the first character has basically the same accuracy as the PPS signal, plus a jitter of up to 1 bit time depending on the selected baud rate, i.e. 52 μs @ 19200. PPS support should always be used, if possible, in order to yield the highest possible accuracy.</p>
-<p>The preferred tty setting for Meinberg DCF77 receivers is 9600/7E2:</p>
-<pre>		CFLAG		(B9600|CS7|PARENB|CREAD|HUPCL)
+</pre><p>Meinberg is a German manufacturer of time code receivers. Those clocks have a pretty common output format in the stock version. In order to support NTP Meinberg was so kind to produce some special versions of the firmware for the use with NTP. So, if you are going to use a Meinberg clock please ask whether there is a special Uni Erlangen version. You can reach <a href=http://www.meinberg.de/>Meinberg</a> via the Web. Information can also be ordered via eMail from <a href=mailto:%20info@meinberg.de>info@meinberg.de</a></p><p><strong>General characteristics:</strong></p><p>Meinberg clocks primarily output pulse per second and a describing ASCII string. This string can be produced in two modes: either upon the reception of a question mark or every second. NTP uses the latter mechanism. DCF77 AM clocks have a limited accuracy of a few milliseconds. The DCF77 PZF5xx variants provide higher accuracy and have a pretty good relationship between RS232 time code and the PPS signal. Except for early versions of the old GPS166 receiver type, Meinberg GPS receivers have a very good timing relationship between the datagram and the pulse. The beginning of the start bit of the first character has basically the same accuracy as the PPS signal, plus a jitter of up to 1 bit time depending on the selected baud rate, i.e. 52 μs @ 19200. PPS support should always be used, if possible, in order to yield the highest possible accuracy.</p><p>The preferred tty setting for Meinberg DCF77 receivers is 9600/7E2:</p><pre>		CFLAG		(B9600|CS7|PARENB|CREAD|HUPCL)
 		IFLAG		(IGNBRK|IGNPAR|ISTRIP)
 		OFLAG		0
 		LFLAG		0
-        </pre>
-<p>The tty setting for Meinberg GPS16x/17x receivers is 19200/8N1:</p>
-<pre>		CFLAG		(B19200|CS8|PARENB|CREAD|HUPCL)
+        </pre><p>The tty setting for Meinberg GPS16x/17x receivers is 19200/8N1:</p><pre>		CFLAG		(B19200|CS8|PARENB|CREAD|HUPCL)
 		IFLAG		(IGNBRK|IGNPAR|ISTRIP)
 		OFLAG		0
 		LFLAG		0
-        </pre>
-<p>All clocks should be run at datagram once per second.</p>
-<p>Format of the Meinberg standard time string:</p>
-<pre>        **_<STX>_D:_dd.mm.yy_;T:_w_;U:_hh.mm.ss_;_uvxy__<ETX>_**
+        </pre><p>All clocks should be run at datagram once per second.</p><p>Format of the Meinberg standard time string:</p><pre>        **_<stx>_D:_dd.mm.yy_;T:_w_;U:_hh.mm.ss_;_uvxy__<etx>_**
     pos:  0  000000001111111111222222222233  3
           1  234567890123456789012345678901  2
 
-    _<STX>_         = start-of-text, ASCII code 0x02
+    _<stx>_         = start-of-text, ASCII code 0x02
     _dd.mm.yy_      = day of month, month, year of the century, separated by dots
     _w_             = day of week (1..7, Monday = 1)
     _hh:mm:ss_      = hour, minute, second, separated by dots
@@ -256,14 +52,12 @@
     _y_             = '!' during the hour preceding start or end of daylight saving time
                            'A' during the hour preceding a leap second
                            ' ' if nothing of the above applies
-    _<ETX>_         = end-of-text, ASCII code 0x03
-</pre>
-<p>Format of the Uni Erlangen time string for PZF5xx receivers:</p>
-<pre>        **_<STX>__dd.mm.yy_; _w_; _hh:mm:ss_; _tuvxyza__<ETX>_**
+    _<etx>_         = end-of-text, ASCII code 0x03
+</pre><p>Format of the Uni Erlangen time string for PZF5xx receivers:</p><pre>        **_<stx>__dd.mm.yy_; _w_; _hh:mm:ss_; _tuvxyza__<etx>_**
     pos:  0  000000001111111111222222222233  3
           1  234567890123456789012345678901  2
 
-    _<STX>_         = start-of-text, ASCII code 0x02
+    _<stx>_         = start-of-text, ASCII code 0x02
     _dd.mm.yy_      = day of month, month, year of the century, separated by dots
     _w_             = day of week (1..7, Monday = 1)
     _hh:mm:ss_      = hour, minute, second, separated by colons
@@ -277,14 +71,12 @@
     _y_             = '!' during the hour preceding start or end of daylight saving time, else ' '
     _z_             = 'A' during the hour preceding a leap second, else ' '
     _a_             = 'R' alternate antenna (reminiscent of PZF5xx), usually ' ' for GPS receivers
-    _<ETX>_         = end-of-text, ASCII code 0x03
-</pre>
-<p>Format of the Uni Erlangen time string for GPS16x/GPS17x receivers:</p>
-<pre>        **_<STX>__dd.mm.yy_; _w_; _hh:mm:ss_; _+uu:uu_; _uvxyzab_; _ll.lllln_ _lll.lllle_ _hhhh_m_<ETX>_**
+    _<etx>_         = end-of-text, ASCII code 0x03
+</pre><p>Format of the Uni Erlangen time string for GPS16x/GPS17x receivers:</p><pre>        **_<stx>__dd.mm.yy_; _w_; _hh:mm:ss_; _+uu:uu_; _uvxyzab_; _ll.lllln_ _lll.lllle_ _hhhh_m_<etx>_**
     pos:  0  0000000011111111112222222222333333333344444444445555555555666666  6
           1  2345678901234567890123456789012345678901234567890123456789012345  6
 
-    _<STX>_         = start-of-text, ASCII code 0x02
+    _<stx>_         = start-of-text, ASCII code 0x02
     _dd.mm.yy_      = day of month, month, year of the century, separated by dots
     _w_             = day of week (1..7, Monday = 1)
     _hh:mm:ss_      = hour, minute, second, separated by colons
@@ -299,30 +91,15 @@
     _ll.lllln_      = position latitude in degrees, 'n' can actually be 'N' or 'S', i.e. North or South
     _lll.lllle_     = position longitude in degrees, 'e' can actually be 'E' or 'W', i.e. East or West
     _hhhh_          = position altitude in meters, always followed by 'm'
-    _<ETX>_         = end-of-text, ASCII code 0x03
-</pre>
-<p>Examples for Uni Erlangen strings from GPS receivers:</p>
-<pre>        \x02 09.07.93; 5; 08:48:26; +00:00;        ; 49.5736N  11.0280E  373m \x03
+    _<etx>_         = end-of-text, ASCII code 0x03
+</pre><p>Examples for Uni Erlangen strings from GPS receivers:</p><pre>        \x02 09.07.93; 5; 08:48:26; +00:00;        ; 49.5736N  11.0280E  373m \x03
         \x02 08.11.06; 3; 14:39:39; +00:00;        ; 51.9828N   9.2258E  176m \x03
-</pre>
-<p>The Uni Erlangen formats should be used preferably. Newer Meinberg GPS receivers can be configured to transmit that format, for older devices there may be a special firmware version available.</p>
-<p>For the Meinberg parse look into <code>clk_meinberg.c</code>.</p>
-<hr>
-<h4 id="raw-dcf77-data-via-serial-line">Raw DCF77 Data via serial line</h4>
-<p>RAWDCF: end=TIMEOUT&gt;1.5s, sync each char (any char),generate pseudo time codes, fixed format</p>
-<p>direct DCF77 code input</p>
-<p>In Europe it is relatively easy/cheap the receive the german time code transmitter DCF77. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. parse/clk_rawdcf.c holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.</p>
-<pre>	The preferred tty setting is:
+</pre><p>The Uni Erlangen formats should be used preferably. Newer Meinberg GPS receivers can be configured to transmit that format, for older devices there may be a special firmware version available.</p><p>For the Meinberg parse look into <code>clk_meinberg.c</code>.</p><hr><h4 id=raw-dcf77-data-via-serial-line>Raw DCF77 Data via serial line</h4><p>RAWDCF: end=TIMEOUT>1.5s, sync each char (any char),generate pseudo time codes, fixed format</p><p>direct DCF77 code input</p><p>In Europe it is relatively easy/cheap the receive the german time code transmitter DCF77. The simplest version to process its signal is to feed the 100/200ms pulse of the demodulated AM signal via a level converter to an RS232 port at 50Baud. parse/clk_rawdcf.c holds all necessary decoding logic for the time code which is transmitted each minute for one minute. A bit of the time code is sent once a second.</p><pre>	The preferred tty setting is:
 		CFLAG           (B50|CS8|CREAD|CLOCAL)
 		IFLAG		0
 		OFLAG		0
  		LFLAG		0
-</pre>
-<hr>
-<h4 id="dcf77-raw-time-code">DCF77 raw time code</h4>
-<p>From &ldquo;Zur Zeit&rdquo;, Physikalisch-Technische Bundesanstalt (PTB), Braunschweig und Berlin, März 1989</p>
-<p>Timecode transmission:</p>
-<pre>	AM:
+</pre><hr><h4 id=dcf77-raw-time-code>DCF77 raw time code</h4><p>From &ldquo;Zur Zeit&rdquo;, Physikalisch-Technische Bundesanstalt (PTB), Braunschweig und Berlin, März 1989</p><p>Timecode transmission:</p><pre>	AM:
 
 	time marks are send every second except for the second before the
 	next minute mark
@@ -331,9 +108,7 @@
 	the falling edge is the time indication (on time)
 	time marks of a 100ms duration constitute a logical 0
 	time marks of a 200ms duration constitute a logical 1
-</pre>
-<p>see the spec. (basically a (non-)inverted pseudo random phase shift) encoding:</p>
-<pre>	FM:
+</pre><p>see the spec. (basically a (non-)inverted pseudo random phase shift) encoding:</p><pre>	FM:
 
 	Second	Contents
 	0  - 10	AM: free, FM: 0
@@ -362,20 +137,13 @@
 	54 - 57	Y10   - BCD (lsb first) 10 Years
 	58 	P3    - Date Parity (even)
 	59	      - usually missing (minute indication), except for leap insertion
-</pre>
-<hr>
-<h4 id="schmid-clock">Schmid clock</h4>
-<p>Schmid clock: needs poll, binary input, end='\xFC', sync start</p>
-<p>The Schmid clock is a DCF77 receiver that sends a binary time code at the reception of a flag byte. The contents if the flag byte determined the time code format. The binary time code is delimited by the byte 0xFC.</p>
-<pre>	TTY setup is:
+</pre><hr><h4 id=schmid-clock>Schmid clock</h4><p>Schmid clock: needs poll, binary input, end='\xFC', sync start</p><p>The Schmid clock is a DCF77 receiver that sends a binary time code at the reception of a flag byte. The contents if the flag byte determined the time code format. The binary time code is delimited by the byte 0xFC.</p><pre>	TTY setup is:
 		CFLAG		(B1200|CS8|CREAD|CLOCAL)
 		IFLAG		0
 		OFLAG		0
  		LFLAG		0
 
-</pre>
-<p>The command to Schmid&rsquo;s DCF77 clock is a single byte; each bit allows the user to select some part of the time string, as follows (the output for the lsb is sent first).</p>
-<pre>	Bit 0:	time in MEZ, 4 bytes *binary, not BCD*; hh.mm.ss.tenths
+</pre><p>The command to Schmid&rsquo;s DCF77 clock is a single byte; each bit allows the user to select some part of the time string, as follows (the output for the lsb is sent first).</p><pre>	Bit 0:	time in MEZ, 4 bytes *binary, not BCD*; hh.mm.ss.tenths
 	Bit 1:	date 3 bytes *binary, not BCD: dd.mm.yy
 	Bit 2:	week day, 1 byte (unused here)
 	Bit 3:	time zone, 1 byte, 0=MET, 1=MEST. (unused here)
@@ -390,19 +158,12 @@
 						added within one hour
 					bits 5-7: Zero
 	Bit 6:	time in backup mode, units of 5 minutes (unused here)
-</pre>
-<hr>
-<h4 id="trimble-sv6-ascii-time-code-taip">Trimble SV6 ASCII time code (TAIP)</h4>
-<p>Trimble SV6: needs poll, ascii timecode, start='&gt;', end='&lt;', query='&gt;QTM&lt;', eol='&lt;'</p>
-<p>Trimble SV6 is a GPS receiver with PPS output. It needs to be polled. It also need a special tty mode setup (EOL='&lt;').</p>
-<pre>	TTY setup is:
+</pre><hr><h4 id=trimble-sv6-ascii-time-code-taip>Trimble SV6 ASCII time code (TAIP)</h4><p>Trimble SV6: needs poll, ascii timecode, start='>', end='&lt;', query='>QTM&lt;', eol='&lt;'</p><p>Trimble SV6 is a GPS receiver with PPS output. It needs to be polled. It also need a special tty mode setup (EOL='&lt;').</p><pre>	TTY setup is:
 		CFLAG            (B4800|CS8|CREAD)
 		IFLAG            (BRKINT|IGNPAR|ISTRIP|ICRNL|IXON)
 		OFLAG            (OPOST|ONLCR)
 		LFLAG            (ICANON|ECHOK)
-</pre>
-<p>Special flags are:</p>
-<pre>		PARSE_F_PPSPPS	    - use CIOGETEV for PPS time stamping
+</pre><p>Special flags are:</p><pre>		PARSE_F_PPSPPS	    - use CIOGETEV for PPS time stamping
 		PARSE_F_PPSONSECOND - the time code is not related to
 				      the PPS pulse (so use the time code
 				      only for the second epoch)
@@ -413,22 +174,13 @@
 	>RTMhhmmssdddDDMMYYYYoodnnvrrrrr;*xx<	Actual
 	----33445566600112222BB7__-_____--99-	Parse
 	>RTM                      1     ;*  < 	Check
-</pre>
-<hr>
-<h4 id="elv-dcf7000">ELV DCF7000</h4>
-<p>ELV DCF7000: end='\r', pattern=&quot; - - - - - - - \r&quot;</p>
-<p>The ELV DCF7000 is a cheap DCF77 receiver sending each second a time code (though not very precise!) delimited by &lsquo;`r&rsquo;</p>
-<pre>	Timecode
+</pre><hr><h4 id=elv-dcf7000>ELV DCF7000</h4><p>ELV DCF7000: end='\r', pattern=" - - - - - - - \r"</p><p>The ELV DCF7000 is a cheap DCF77 receiver sending each second a time code (though not very precise!) delimited by &lsquo;`r&rsquo;</p><pre>	Timecode
 	  YY-MM-DD-HH-MM-SS-FF\r
 
 		FF&0x1	- DST
 		FF&0x2	- DST switch warning
 		FF&0x4  - unsynchronised
-</pre>
-<hr>
-<h4 id="hopf-6021-und-kompatible">HOPF 6021 und Kompatible</h4>
-<p>HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl <a href="mailto:frank@comsys.dofn.de">frank@comsys.dofn.de</a> from clk_rcc8000.c Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.</p>
-<pre> hopf Funkuhr 6021 
+</pre><hr><h4 id=hopf-6021-und-kompatible>HOPF 6021 und Kompatible</h4><p>HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl <a href=mailto:frank@comsys.dofn.de>frank@comsys.dofn.de</a> from clk_rcc8000.c Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.</p><pre> hopf Funkuhr 6021 
       used with 9600,8N1,
       UTC via serial line
       "Sekundenvorlauf" ON
@@ -437,9 +189,7 @@
       output time and date
       transmit with control characters
       transmit evry second
- </pre>
-<p>Type 6021 Serial Output format</p>
-<pre>      000000000011111111 / char
+ </pre><p>Type 6021 Serial Output format</p><pre>      000000000011111111 / char
       012345678901234567 \ position
       sABHHMMSSDDMMYYnre  Actual
        C4110046231195     Parse
@@ -472,11 +222,7 @@
       x 1 0 1  - Friday
       x 1 1 0  - Saturday
       x 1 1 1  - Sunday
-</pre>
-<hr>
-<h4 id="diem-computime-clock">Diem Computime Clock</h4>
-<p>The Computime receiver sends a datagram in the following format every minute</p>
-<pre>   
+</pre><hr><h4 id=diem-computime-clock>Diem Computime Clock</h4><p>The Computime receiver sends a datagram in the following format every minute</p><pre>   
    Timestamp	T:YY:MM:MD:WD:HH:MM:SSCRLF 
    Pos          0123456789012345678901 2 3
 		0000000000111111111122 2 2
@@ -491,11 +237,7 @@
    SS   Second
    CR   Carriage return 
    LF   Linefeed
-</pre>
-<hr>
-<h4 id="wharton-400a-series-clock-with-a-4042-serial-interface">WHARTON 400A Series Clock with a 404.2 Serial interface</h4>
-<p>The WHARTON 400A Series clock is able to send date/time serial messages in 7 output formats. We use format 1 here because it is the shortest. We set up the clock to send a datagram every second. For use with this driver, the WHARTON 400A Series clock must be set-up as follows :</p>
-<pre>  					Programmable	Selected
+</pre><hr><h4 id=wharton-400a-series-clock-with-a-4042-serial-interface>WHARTON 400A Series Clock with a 404.2 Serial interface</h4><p>The WHARTON 400A Series clock is able to send date/time serial messages in 7 output formats. We use format 1 here because it is the shortest. We set up the clock to send a datagram every second. For use with this driver, the WHARTON 400A Series clock must be set-up as follows :</p><pre>  					Programmable	Selected
   					Option No	Option
 	BST or CET display		3		9 or 11
 	No external controller		7		0
@@ -503,9 +245,7 @@
 	Baud rate 9600 bps		10		96
 	Bit length 8 bits		11		8
 	Parity even			12		E
-</pre>
-<p>WHARTON 400A Series output format 1 is as follows :</p>
-<pre>   Timestamp	STXssmmhhDDMMYYSETX
+</pre><p>WHARTON 400A Series output format 1 is as follows :</p><pre>   Timestamp	STXssmmhhDDMMYYSETX
    Pos		0  12345678901234
   		0  00000000011111
 
@@ -522,37 +262,4 @@
 		bit 1	0 = Winter time		1 = Summer time
 		bit 2	0 = not synchronised	1 = synchronised
 		bit 3	0 = no early warning	1 = early warning
-</pre>
-
-	  
-  </div>
-</section>
-<footer class="navbar site-footer fixed-bottom py-0">
-  <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-        <i class="bi-twitter"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-        <i class="bi-linkedin"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-        <i class="bi-facebook"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text">
-      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
-    </li>
-  </ul>
-</footer>
-
-</body>
-</html>
+</pre></div></section><footer class="navbar site-footer fixed-bottom py-0"><ul class=mx-auto><li class=navbar-text data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class=text-white target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><i class=bi-twitter></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><i class=bi-linkedin></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><i class=bi-facebook></i></a></li><li class=navbar-text><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></footer></body></html>

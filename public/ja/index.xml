@@ -1,43 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>NTP: ネットワークタイムプロトコル </title>
-    <link>https://test.doc.ntp.org/ja/</link>
-    <description>Recent content on NTP: ネットワークタイムプロトコル </description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://test.doc.ntp.org/ja/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Generic NMEA GPS Receiver</title>
-      <link>https://test.doc.ntp.org/ja/archives/drivers/driver20/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://test.doc.ntp.org/ja/archives/drivers/driver20/</guid>
-      <description>Last update: 13-Jan-2020 07:12 UTC
- Table of Contents  Synopsis Description NMEA Talker IDs The &amp;lsquo;mode&amp;rsquo; byte About distrusting NMEA date stamps Monitor Data Setting up the Garmin GPS-25XL Fudge Factors Additional Information   Synopsis  Address: 127.127.20.u Reference ID: GPS Driver ID: GPS_NMEA Serial Port: /dev/gpsu; 4800 - 115200 bps, 8-bits, パリティーなし Serial Port: /dev/gpsppsu; PPS信号 (/dev/gpsu より先に処理) Serial Port: /dev/gpsu; このドライバー nmead のシンボリック・リンク Features: tty_clk   Description このドライバーは、GPS受信機のNMEAセンテンスの $GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス $GPZDG は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の $GPZDG を受信したら処理を無効にします。</description>
-    </item>
-    
-    <item>
-      <title>PPS Clock Discipline</title>
-      <link>https://test.doc.ntp.org/ja/archives/drivers/driver22/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://test.doc.ntp.org/ja/archives/drivers/driver22/</guid>
-      <description>Author: David L. Mills (mills@udel.edu) Last change: 31-Mar-2014 07:46 UTC   Table of Contents  Synopsis Description Fudge Factors Additional Information   Synopsis  Address: 127.127.22.u Reference ID: PPS Driver ID: PPS Serial or Parallel Port: /dev/ppsu Requires: PPSAPI signal interface for PPS signal processing.   ノート：　このドライバーは、同じ名前の古いドライバーを置き換えた後継です。 古いドライバーは、いくつかのやや古風なインターフェース・デバイスで動作していて複雑な構成が必要であり、また、文書化が不十分でした。 このドライバーを動作させるためには、１秒パルス信号API (PPSAPI)1 が必要です。 pps 構成コマンドは、このドライバーによって廃止されていることにも注意してください。
- Description このドライバーは、セシウム時計、電波時計、または、関連デバイスによって生成される1秒ごとのパルス信号（PPS）のインターフェースを提供します。 使い方の例としては、GPS受信機によって生成されたシリアル・タイムコードを時刻精度を向上させるために使用できます。 混雑した広域ネットワークにあるプライマリ・サーバーに同期しているときに、セカンダリ・サーバーがローカル・クライアントに時間を再配布する前に、 ジッター（時刻情報のゆらぎ）の累積を排除して時間を再設定できます。 このドライバーは、広範な信号の健全性チェックと信号の整備アルゴリズムを持っています。 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。 トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。
-このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。 この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、Mitigation Rules and the prefer Keyword で説明されています。</description>
-    </item>
-    
-    <item>
-      <title>Undisciplined Local Clock</title>
-      <link>https://test.doc.ntp.org/ja/archives/drivers/driver1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://test.doc.ntp.org/ja/archives/drivers/driver1/</guid>
-      <description>Author: David L. Mills (mills@udel.edu) Last update: 9-May-2014 08:34 UTC   Table of Contents  Synopsis Description Monitor Data Fudge Factors Additional Information   Synopsis  Address: 127.127.1.u Reference ID: LOCL Driver ID: LOCAL   Description  ノート： このドライバーの使用はお勧めしません。 もっと柔軟な代替方法については、Orphan Mode をご参照下さい。
- このドライバーは、電波時計やモデムなどの外部同期ソースが利用できない隔離されたネットワークでの使用を目的としていました。 このドライバーを指定されたタイム・サーバーがプライマリ・サーバーとして機能し、ネットワーク上の他のクライアントに同期時刻を提供できます。 優れたクロック発振器を備えたマシンを選び、このドライバーで構成します。利用可能な最良の時計を見て、そのマシンの時刻を設定します。 次に、他のすべてのマシンの参照先をこのマシンに向けるか、ブロードキャスト・モードを使用して時間を配信します。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTP: ネットワークタイムプロトコル</title><link>https://test.doc.ntp.org/ja/</link><description>Recent content on NTP: ネットワークタイムプロトコル</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://test.doc.ntp.org/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>Generic NMEA GPS Receiver</title><link>https://test.doc.ntp.org/ja/archives/drivers/driver20/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://test.doc.ntp.org/ja/archives/drivers/driver20/</guid><description>Last update: 13-Jan-2020 07:12 UTC
+Table of Contents Synopsis Description NMEA Talker IDs The &amp;lsquo;mode&amp;rsquo; byte About distrusting NMEA date stamps Monitor Data Setting up the Garmin GPS-25XL Fudge Factors Additional Information Synopsis Address: 127.127.20.u Reference ID: GPS Driver ID: GPS_NMEA Serial Port: /dev/gpsu; 4800 - 115200 bps, 8-bits, パリティーなし Serial Port: /dev/gpsppsu; PPS信号 (/dev/gpsu より先に処理) Serial Port: /dev/gpsu; このドライバー nmead のシンボリック・リンク Features: tty_clk Description このドライバーは、GPS受信機のNMEAセンテンスの $GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス $GPZDG は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の $GPZDG を受信したら処理を無効にします。</description></item><item><title>PPS Clock Discipline</title><link>https://test.doc.ntp.org/ja/archives/drivers/driver22/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://test.doc.ntp.org/ja/archives/drivers/driver22/</guid><description>Author: David L. Mills (mills@udel.edu) Last change: 31-Mar-2014 07:46 UTC Table of Contents Synopsis Description Fudge Factors Additional Information Synopsis Address: 127.127.22.u Reference ID: PPS Driver ID: PPS Serial or Parallel Port: /dev/ppsu Requires: PPSAPI signal interface for PPS signal processing. ノート：　このドライバーは、同じ名前の古いドライバーを置き換えた後継です。 古いドライバーは、いくつかのやや古風なインターフェース・デバイスで動作していて複雑な構成が必要であり、また、文書化が不十分でした。 このドライバーを動作させるためには、１秒パルス信号API (PPSAPI)1 が必要です。 pps 構成コマンドは、このドライバーによって廃止されていることにも注意してください。
+Description このドライバーは、セシウム時計、電波時計、または、関連デバイスによって生成される1秒ごとのパルス信号（PPS）のインターフェースを提供します。 使い方の例としては、GPS受信機によって生成されたシリアル・タイムコードを時刻精度を向上させるために使用できます。 混雑した広域ネットワークにあるプライマリ・サーバーに同期しているときに、セカンダリ・サーバーがローカル・クライアントに時間を再配布する前に、 ジッター（時刻情報のゆらぎ）の累積を排除して時間を再設定できます。 このドライバーは、広範な信号の健全性チェックと信号の整備アルゴリズムを持っています。 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。 トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。
+このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。 この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、Mitigation Rules and the prefer Keyword で説明されています。</description></item><item><title>Undisciplined Local Clock</title><link>https://test.doc.ntp.org/ja/archives/drivers/driver1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://test.doc.ntp.org/ja/archives/drivers/driver1/</guid><description>Author: David L. Mills (mills@udel.edu) Last update: 9-May-2014 08:34 UTC Table of Contents Synopsis Description Monitor Data Fudge Factors Additional Information Synopsis Address: 127.127.1.u Reference ID: LOCL Driver ID: LOCAL Description ノート： このドライバーの使用はお勧めしません。 もっと柔軟な代替方法については、Orphan Mode をご参照下さい。
+このドライバーは、電波時計やモデムなどの外部同期ソースが利用できない隔離されたネットワークでの使用を目的としていました。 このドライバーを指定されたタイム・サーバーがプライマリ・サーバーとして機能し、ネットワーク上の他のクライアントに同期時刻を提供できます。 優れたクロック発振器を備えたマシンを選び、このドライバーで構成します。利用可能な最良の時計を見て、そのマシンの時刻を設定します。 次に、他のすべてのマシンの参照先をこのマシンに向けるか、ブロードキャスト・モードを使用して時間を配信します。
 このドライバーの別の用途は、特定のタイム・サーバーで他の全ての通常の同期ソースがなくなったときに最後の手段のクロックとして使用する場合です。 これは、そのサーバーに周波数安定度が高い恒温槽発信器がある場合に特に役立ちます。 このため、必須ではありませんが通常は他の利用可能な時間ソースよりも大きい階層番号でこのドライバーを構成します。 このドライバーのデフォルトの5は、ネットワーク内の他の適切な同期ソースが利用可能な場合に、このドライバーが同期ソースを引き取ってしまうのを防ぎます。 偶発的または悪意による時刻公開から、インターネットのインフラストラクチャを保護するために、別の同期ソースが利用可能で動作している場合、このドライバーは無効になります。
- Monitor Data このドライバーは、clockstats を出力しません。
- Fudge Factors  time1 time 調整時間、単位：秒（小数点以下も可）、デフォルト 0.0秒 time2 time 周波数調整係数、単位：PPM（百万分の１）、デフォルト 0.</description>
-    </item>
-    
-  </channel>
-</rss>
+Monitor Data このドライバーは、clockstats を出力しません。
+Fudge Factors time1 time 調整時間、単位：秒（小数点以下も可）、デフォルト 0.0秒 time2 time 周波数調整係数、単位：PPM（百万分の１）、デフォルト 0.</description></item></channel></rss>

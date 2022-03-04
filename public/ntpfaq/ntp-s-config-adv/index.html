@@ -1,272 +1,35 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-  
-  
-
-  
-  <meta name="description" content="This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a …">
-<meta property="og:title" content="6.2. Advanced Configuration" />
-<meta property="og:description" content="This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a …"><meta property="og:title" content="6.2. Advanced Configuration"><meta property="og:description" content="This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.
 6.2.1 Server Selection
 6.2.1.1 What is the rule of thumb for number of servers to synchronize to?
 6.2.1.2 Should the servers be a mix of primary and secondary servers?
-6.2.1.3 How should I provide NTP services for a huge network?" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-config-adv/" /><meta property="article:section" content="ntpfaq" />
-
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
-
-
-
-  
-  <title>6.2. Advanced Configuration</title>
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  
-  <meta name="generator" content="Hugo 0.83.1" />
-
-  <!-- Plugins -->
-  
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
-  
-    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
-  
-
-  <!-- Main Stylesheet -->
-  
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
-<body><!-- navigation -->
-    
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-<header class="sticky-top navigation">
-  <div class="container">
-
-
-    <nav class="navbar navbar-expand-lg navbar-light py-0">
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-      </div>
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
-      </div>
-	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-        <i class="bi-plus"></i>
-      </button>
-
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto py-0">
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
-          </li>
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Support
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Reference Library
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Documentation
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
-              
-            </div>
-          </li>
-          
-          
-        </ul>
-      </div>
-	  
-      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
-      <div class="gcse-search">
-      </div>
-
-    </nav>
-  </div>
-  <div class="header-border">
-  </div>
-</header>
-<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/ntpfaq/ntp-s-config-adv/">6.2. Advanced Configuration</a>
-</li>
-
-	</ol>
-</nav	>
-
-
-<section class="section pt-0  pb-auto">
-  <div class="container">
-  	<h1>6.2. Advanced Configuration</h1>
-     
-    <p>This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.</p>
-<p>6.2.1 <a href="#621-server-selection">Server Selection</a><br>
-6.2.1.1 <a href="#6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to">What is the rule of thumb for number of servers to synchronize to?</a><br>
-6.2.1.2 <a href="#6212-should-the-servers-be-a-mix-of-primary-and-secondary-servers">Should the servers be a mix of primary and secondary servers?</a><br>
-6.2.1.3 <a href="#6213-how-should-i-provide-ntp-services-for-a-huge-network">How should I provide NTP services for a huge network?</a><br>
-6.2.2 <a href="#622-authentication">Authentication</a><br>
-6.2.2.1 <a href="#6221-why-authentication">Why Authentication?</a><br>
-6.2.2.2 <a href="#6222-how-is-authentication-applied">How is Authentication applied?</a><br>
-6.2.2.3 <a href="#6223-how-do-i-create-a-key">How do I create a key?</a><br>
-6.2.2.4 <a href="#6224-how-does-authentication-work">How does Authentication work?</a><br>
-6.2.2.5 <a href="#6225-can-i-add-authentication-without-restarting-ntpd">Can I add Authentication without restarting ntpd?</a><br>
-6.2.2.6 <a href="#6226-how-do-i-use-public-key-authentication-autokey">How do I use Public-Key Authentication (autokey)?</a><br>
-6.2.3 <a href="#623-broadcasting-multicasting-and-manycasting">Broadcasting, Multicasting, and Manycasting</a><br>
-6.2.3.1 <a href="#6231-how-do-i-configure-a-broadcast-server">How do I configure a Broadcast Server?</a><br>
-6.2.3.2 <a href="#6232-how-do-i-configure-a-broadcast-client">How do I configure a Broadcast Client?</a><br>
-6.2.3.3 <a href="#6233-why-doesnt-broadcasting-work-with-lcl">Why doesn&rsquo;t Broadcasting work with LCL?</a><br>
-6.2.3.4 <a href="#6234-how-do-i-configure-multicast-servers-and-clients">How do I configure Multicast Servers and Clients?</a> <br>
-6.2.3.5 <a href="#6235-what-is-manycasting">What is Manycasting?</a><br>
-6.2.4. <a href="#624-pps-synchronization">PPS Synchronization</a> <br>
-6.2.4.1 <a href="#6241-which-components-are-required-to-use-pps-synchronization">Which components are required to use PPS synchronization?</a><br>
-6.2.4.2 <a href="#6242-what-changes-are-required-in-ntpconf">What changes are required in ntp.conf?</a><br>
-6.2.4.3 <a href="#6243-how-do-i-verify-that-everything-is-working">How do I verify that everything is working?</a><br>
-6.2.4.4 <a href="#6244-special-drivers">Special Drivers</a><br>
-6.2.4.4.1 <a href="#62441-what-is-a-pps-peer">What is a PPS peer?</a><br>
-6.2.4.4.2 <a href="#62442-how-do-i-use-pps-with-the-motorola-oncore-driver">How do I use PPS with the Motorola Oncore driver?</a><br>
-6.2.4.4.3 <a href="#62443-how-do-i-use-pps-with-the-nmea-driver">How do I use PPS with the NMEA driver?</a><br>
-6.2.4.5 <a href="#6245-what-is-the-pps-api">What is the PPS API?</a><br>
-6.2.4.6 <a href="#6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface">What is the shortest Width for a Pulse connected to the DCD Pin of an RS-232 Interface?</a><br>
-6.2.5 <a href="#625-automatic-configuration">Automatic Configuration</a><br>
-6.2.5.1 <a href="#6251-how-can-i-define-the-address-of-an-ntp-server-in-a-bootp-reply">How can I define the address of an NTP server in a BOOTP reply?</a><br>
-6.2.5.2 <a href="#6252-how-do-i-use-information-about-ntp-servers-given-in-a-bootp-reply">How do I use information about NTP servers given in a BOOTP reply?</a><br>
-6.2.6 <a href="#626-offering-time-service">Offering Time Service</a><br>
-6.2.6.1 <a href="#6261-is-there-any-way-to-configure-ntpd-to-attach-to-a-specific-interface">Is there any way to configure ntpd to attach to a specific Interface?</a><br>
-6.2.6.2 <a href="#6262-should-access-be-restricted">Should Access be restricted?</a><br>
-6.2.6.3 <a href="#6263-what-should-be-done-before-announcing-public-ntp-service">What should be done before announcing public NTP service?</a></p>
-<hr>
-<h4 id="621-server-selection">6.2.1. Server Selection</h4>
-<h4 id="6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to">6.2.1.1. What is the rule of thumb for number of servers to synchronize to?</h4>
-<p>It is entirely up to you and your tolerance for outages. Obviously you have some tolerance, or you would be buying GPS receivers and installing your own stratum-1 servers. But three is a good place to start, and you can progress to three-groups-of-three if you feel the need. Remember that network outages are at least as likely as timeserver outages. If you only have one network path to the outside world, adding a more timeservers doesn&rsquo;t really improve reliability as your ISP is the single-point-of-failure.</p>
-<hr>
-<h4 id="6212-should-the-servers-be-a-mix-of-primary-and-secondary-servers">6.2.1.2. Should the servers be a mix of primary and secondary servers?</h4>
-<p>Probably not. The secondaries are good enough for almost everybody. If you care about the small differences in accuracy/precision between the primaries and the secondaries (and you must be close enough, topology-wise, to even <em>see</em> the difference) then you should buy some GPS receivers.</p>
-<hr>
-<h4 id="6213-how-should-i-provide-ntp-services-for-a-huge-network">6.2.1.3. How should I provide NTP services for a huge network?</h4>
-<p>For a huge network you should provide enough redundancy while avoiding a single point of failure. The following discussion will be based on Figure 6.2a, a configuration that is frequently recommended. I&rsquo;m not saying it&rsquo;s the only possible configuration, but let&rsquo;s just have a closer look.</p>
-<p><strong>Figure 6.2a: Configuration for a huge Network</strong></p>
-<pre> 1a  1b     1c  1d     1e  1f      outside
+6.2.1.3 How should I provide NTP services for a huge network?"><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-config-adv/"><meta property="article:section" content="ntpfaq"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>6.2. Advanced Configuration</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://necolas.github.io/normalize.css/latest/normalize.css><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/ntpfaq/>The NTP FAQ and HOWTO</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/ntpfaq/ntp-s-config-adv/>6.2. Advanced Configuration</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>6.2. Advanced Configuration</h1><p>This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.</p><p>6.2.1 <a href=#621-server-selection>Server Selection</a><br>6.2.1.1 <a href=#6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to>What is the rule of thumb for number of servers to synchronize to?</a><br>6.2.1.2 <a href=#6212-should-the-servers-be-a-mix-of-primary-and-secondary-servers>Should the servers be a mix of primary and secondary servers?</a><br>6.2.1.3 <a href=#6213-how-should-i-provide-ntp-services-for-a-huge-network>How should I provide NTP services for a huge network?</a><br>6.2.2 <a href=#622-authentication>Authentication</a><br>6.2.2.1 <a href=#6221-why-authentication>Why Authentication?</a><br>6.2.2.2 <a href=#6222-how-is-authentication-applied>How is Authentication applied?</a><br>6.2.2.3 <a href=#6223-how-do-i-create-a-key>How do I create a key?</a><br>6.2.2.4 <a href=#6224-how-does-authentication-work>How does Authentication work?</a><br>6.2.2.5 <a href=#6225-can-i-add-authentication-without-restarting-ntpd>Can I add Authentication without restarting ntpd?</a><br>6.2.2.6 <a href=#6226-how-do-i-use-public-key-authentication-autokey>How do I use Public-Key Authentication (autokey)?</a><br>6.2.3 <a href=#623-broadcasting-multicasting-and-manycasting>Broadcasting, Multicasting, and Manycasting</a><br>6.2.3.1 <a href=#6231-how-do-i-configure-a-broadcast-server>How do I configure a Broadcast Server?</a><br>6.2.3.2 <a href=#6232-how-do-i-configure-a-broadcast-client>How do I configure a Broadcast Client?</a><br>6.2.3.3 <a href=#6233-why-doesnt-broadcasting-work-with-lcl>Why doesn&rsquo;t Broadcasting work with LCL?</a><br>6.2.3.4 <a href=#6234-how-do-i-configure-multicast-servers-and-clients>How do I configure Multicast Servers and Clients?</a><br>6.2.3.5 <a href=#6235-what-is-manycasting>What is Manycasting?</a><br>6.2.4. <a href=#624-pps-synchronization>PPS Synchronization</a><br>6.2.4.1 <a href=#6241-which-components-are-required-to-use-pps-synchronization>Which components are required to use PPS synchronization?</a><br>6.2.4.2 <a href=#6242-what-changes-are-required-in-ntpconf>What changes are required in ntp.conf?</a><br>6.2.4.3 <a href=#6243-how-do-i-verify-that-everything-is-working>How do I verify that everything is working?</a><br>6.2.4.4 <a href=#6244-special-drivers>Special Drivers</a><br>6.2.4.4.1 <a href=#62441-what-is-a-pps-peer>What is a PPS peer?</a><br>6.2.4.4.2 <a href=#62442-how-do-i-use-pps-with-the-motorola-oncore-driver>How do I use PPS with the Motorola Oncore driver?</a><br>6.2.4.4.3 <a href=#62443-how-do-i-use-pps-with-the-nmea-driver>How do I use PPS with the NMEA driver?</a><br>6.2.4.5 <a href=#6245-what-is-the-pps-api>What is the PPS API?</a><br>6.2.4.6 <a href=#6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface>What is the shortest Width for a Pulse connected to the DCD Pin of an RS-232 Interface?</a><br>6.2.5 <a href=#625-automatic-configuration>Automatic Configuration</a><br>6.2.5.1 <a href=#6251-how-can-i-define-the-address-of-an-ntp-server-in-a-bootp-reply>How can I define the address of an NTP server in a BOOTP reply?</a><br>6.2.5.2 <a href=#6252-how-do-i-use-information-about-ntp-servers-given-in-a-bootp-reply>How do I use information about NTP servers given in a BOOTP reply?</a><br>6.2.6 <a href=#626-offering-time-service>Offering Time Service</a><br>6.2.6.1 <a href=#6261-is-there-any-way-to-configure-ntpd-to-attach-to-a-specific-interface>Is there any way to configure ntpd to attach to a specific Interface?</a><br>6.2.6.2 <a href=#6262-should-access-be-restricted>Should Access be restricted?</a><br>6.2.6.3 <a href=#6263-what-should-be-done-before-announcing-public-ntp-service>What should be done before announcing public NTP service?</a></p><hr><h4 id=621-server-selection>6.2.1. Server Selection</h4><h4 id=6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to>6.2.1.1. What is the rule of thumb for number of servers to synchronize to?</h4><p>It is entirely up to you and your tolerance for outages. Obviously you have some tolerance, or you would be buying GPS receivers and installing your own stratum-1 servers. But three is a good place to start, and you can progress to three-groups-of-three if you feel the need. Remember that network outages are at least as likely as timeserver outages. If you only have one network path to the outside world, adding a more timeservers doesn&rsquo;t really improve reliability as your ISP is the single-point-of-failure.</p><hr><h4 id=6212-should-the-servers-be-a-mix-of-primary-and-secondary-servers>6.2.1.2. Should the servers be a mix of primary and secondary servers?</h4><p>Probably not. The secondaries are good enough for almost everybody. If you care about the small differences in accuracy/precision between the primaries and the secondaries (and you must be close enough, topology-wise, to even <em>see</em> the difference) then you should buy some GPS receivers.</p><hr><h4 id=6213-how-should-i-provide-ntp-services-for-a-huge-network>6.2.1.3. How should I provide NTP services for a huge network?</h4><p>For a huge network you should provide enough redundancy while avoiding a single point of failure. The following discussion will be based on Figure 6.2a, a configuration that is frequently recommended. I&rsquo;m not saying it&rsquo;s the only possible configuration, but let&rsquo;s just have a closer look.</p><p><strong>Figure 6.2a: Configuration for a huge Network</strong></p><pre> 1a  1b     1c  1d     1e  1f      outside
 . \ / ...... \ / ...... \ / ..............
    2a ---p--- 2b ---p--- 2c        inside
   /|\        /|\        /|\
  / | \      / | \      / | \
 3a 3b 3c   3e 3f 3g   3h 3i 3j
 
-Key: 1 = stratum-1, 2 = stratum-2, 3 = stratum-3, p = peer</pre>
-<p>The example configuration uses six stratum-1 servers (<code>1a</code> &hellip; <code>1f</code>) to synchronize three stratum-2 servers (<code>2a</code> &hellip; <code>2c</code>). All servers at stratum two are peers to each other. Each of these stratum-2 servers serve three stratum-3 servers. Clients will be using the servers at stratum three.</p>
-<p>Having <a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">more than one reference server configured</a> increases reliability and stability of the client. That is why there are two servers for each of the stratum-2 servers. Distributing time horizontally (peering) reduces the amount of traffic to the stratum-1 servers while giving additional redundancy for the stratum-2 servers. The extra layer of stratum-2 servers helps to distribute the load created by lower levels (stratum-3).</p>
-<p>If you have a reference clock, you would probably arrange peering with one or more stratum-1 servers. For most networks you can probably leave out the third layer (stratum-3) completely.</p>
-<p>There&rsquo;s an additional comment by David Dalton:</p>
-<p>But my advice is this: if your stratum-N peers all use the same ISP to get to the outside world, then peers are mostly pointless. Your single-point-of-failure is the network path, not the stratum-1 machines themselves. Building huge redundancy into your hierarchy can get very expensive very quickly. Think hard about how much redundancy you really need.</p>
-<p>And another comment from <a href="mailto:mark.martinec@ijs.si">Mark Martinec</a>:</p>
-<p>I don&rsquo;t find the Figure 6.2a a good idea. It has a big problem in that stratum-3 servers in the picture all have a single point of failure in their single reference stratum-2 NTP server, not to mention it throws away all the fancy NTP algorithms.</p>
-<p>As a fix (and to make it cleaner/leaner), one could strike out the stratum-3 layer completely from the picture and say that each of the company clients will use <em>all three</em> peered company stratum-2 servers as their reference.</p>
-<p>If one really needs more fanout (doubtful), one can put back the stratum-3 layer, but with each stratum-3 server referenced to <em>each</em> of the company stratum-2 servers.</p>
-<hr>
-<h4 id="622-authentication">6.2.2. Authentication</h4>
-<h4 id="6221-why-authentication">6.2.2.1. Why Authentication?</h4>
-<p>Most users of NTP do not need authentication as the protocol contains several filters against bad time. However, there is still authentication, and its use seems to become more common. Some reasons might be:</p>
-<ul>
-<li>You only want to use time from trusted sources.</li>
-<li>An attacker may broadcast wrong time stamps.</li>
-<li>An attacker may disguise as another time server.</li>
-</ul>
-<hr>
-<h4 id="6222-how-is-authentication-applied">6.2.2.2. How is Authentication applied?</h4>
-<p>NTP uses keys to implement authentication. These keys are used when exchanging data between two machines. As shown in <a href="/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration">Q: 6.1.4.3</a> and <a href="/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys">Q: 6.1.4.4</a>, one of the uses has to do with remote administration. When configuring a <code>server</code> or <code>peer</code>, an authentication key can be specified:</p>
-<pre>peer 128.100.49.105 key 22
+Key: 1 = stratum-1, 2 = stratum-2, 3 = stratum-3, p = peer</pre><p>The example configuration uses six stratum-1 servers (<code>1a</code> &mldr; <code>1f</code>) to synchronize three stratum-2 servers (<code>2a</code> &mldr; <code>2c</code>). All servers at stratum two are peers to each other. Each of these stratum-2 servers serve three stratum-3 servers. Clients will be using the servers at stratum three.</p><p>Having <a href=/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock>more than one reference server configured</a> increases reliability and stability of the client. That is why there are two servers for each of the stratum-2 servers. Distributing time horizontally (peering) reduces the amount of traffic to the stratum-1 servers while giving additional redundancy for the stratum-2 servers. The extra layer of stratum-2 servers helps to distribute the load created by lower levels (stratum-3).</p><p>If you have a reference clock, you would probably arrange peering with one or more stratum-1 servers. For most networks you can probably leave out the third layer (stratum-3) completely.</p><p>There&rsquo;s an additional comment by David Dalton:</p><p>But my advice is this: if your stratum-N peers all use the same ISP to get to the outside world, then peers are mostly pointless. Your single-point-of-failure is the network path, not the stratum-1 machines themselves. Building huge redundancy into your hierarchy can get very expensive very quickly. Think hard about how much redundancy you really need.</p><p>And another comment from <a href=mailto:mark.martinec@ijs.si>Mark Martinec</a>:</p><p>I don&rsquo;t find the Figure 6.2a a good idea. It has a big problem in that stratum-3 servers in the picture all have a single point of failure in their single reference stratum-2 NTP server, not to mention it throws away all the fancy NTP algorithms.</p><p>As a fix (and to make it cleaner/leaner), one could strike out the stratum-3 layer completely from the picture and say that each of the company clients will use <em>all three</em> peered company stratum-2 servers as their reference.</p><p>If one really needs more fanout (doubtful), one can put back the stratum-3 layer, but with each stratum-3 server referenced to <em>each</em> of the company stratum-2 servers.</p><hr><h4 id=622-authentication>6.2.2. Authentication</h4><h4 id=6221-why-authentication>6.2.2.1. Why Authentication?</h4><p>Most users of NTP do not need authentication as the protocol contains several filters against bad time. However, there is still authentication, and its use seems to become more common. Some reasons might be:</p><ul><li>You only want to use time from trusted sources.</li><li>An attacker may broadcast wrong time stamps.</li><li>An attacker may disguise as another time server.</li></ul><hr><h4 id=6222-how-is-authentication-applied>6.2.2.2. How is Authentication applied?</h4><p>NTP uses keys to implement authentication. These keys are used when exchanging data between two machines. As shown in <a href=/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration>Q: 6.1.4.3</a> and <a href=/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys>Q: 6.1.4.4</a>, one of the uses has to do with remote administration. When configuring a <code>server</code> or <code>peer</code>, an authentication key can be specified:</p><pre>peer 128.100.49.105 key 22
 peer 128.8.10.1     key 4
 peer 192.35.82.50   key 6
 
@@ -275,121 +38,12 @@ keys /usr/local/etc/ntp.keys
 
 trustedkey 4 6 14 15 22 # define trusted keys
 requestkey 15    # key (7) for accessing server variables
-controlkey 15    # key (6) for accessing server variables</pre>
-<p>The keyword <code>key</code> specifies the key to be used when talking to the specified server.</p>
-<hr>
-<h4 id="6223-how-do-i-create-a-key">6.2.2.3. How do I create a key?</h4>
-<p><code>ntp-keygen</code> is used to create keys. Refer to its <a href="/archives/4.2.8-series/keygen/">documentation</a> for a complete description and command line options.</p>
-<p><a href="/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration">Q: 6.1.4.3</a> provides a remote configuration example.</p>
-<hr>
-<h4 id="6224-how-does-authentication-work">6.2.2.4. How does Authentication work?</h4>
-<p>Basically authentication is a digital signature, and no data encryption (if there is any difference at all). The usual data packet plus the key is used to build a non-reversible magic number that is appended to the packet. The receiver (having the same key) does the same computation and compares the result. If the results match, authentication suceeded.</p>
-<hr>
-<h4 id="6225-can-i-add-authentication-without-restarting-ntpd">6.2.2.5. Can I add Authentication without restarting ntpd?</h4>
-<p>Yes and No. You can dynamically add servers that use authentication keys, and you can trust or un-trust any key using <code>ntpdc</code>. You can also re-read the keyfile using the <code>readkeys</code> command. Unfortunately you need to configure basic authentication before using any of these commands.</p>
-<hr>
-<h4 id="6226-how-do-i-use-public-key-authentication-autokey">6.2.2.6. How do I use Public-Key Authentication (autokey)?</h4>
-<p>Refer to the examples in <a href="/archives/4.2.8-series/autokey/">Autokey Public-Key-Authentication</a> and <a href="/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey">Q: 6.1.4.6</a>.</p>
-<p>The following example includes <a href="https://support.ntp.org/bin/view/Support/ConfiguringAutokeyDev">advice</a> from <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
-<blockquote>
-<p>Ensure you have a working NTP configuration before configuring Autokey!</p>
-</blockquote>
-<p><strong>Configure NTP Servers</strong></p>
-<ol>
-<li>
-<p>Generate a trusted certificate for each group member using <code>ntp-keygen -T</code> as described in <a href="/archives/4.2.8-series/autokey/#configuration---authentication-schemes">Configuration - Authentication Schemes</a>.</p>
-</li>
-<li>
-<p>Make the group keys with the <code>-I</code> option on a trusted host or trusted agent.</p>
-</li>
-<li>
-<p>Make the client keys from the group keys and distribute to the clients. Use an arbitrary file name, preferably the name of the group.</p>
-</li>
-</ol>
-<p><strong>Configure NTP Clients</strong></p>
-<ol>
-<li>
-<p>Create a directory for the client&rsquo;s NTP keys (e.g. <code>/etc/ntp</code>). That directory should only be readable by root.</p>
-</li>
-<li>
-<p>In each client&rsquo;s <code>/etc/ntp.conf</code> file, append <code>autokey</code> to the <code>server</code> entry. Then append the <code>ident</code> option to the client&rsquo;s <code>server</code> entry with the same name as the installed client keys.</p>
-</li>
-<li>
-<p>For broadcast clients, use the <code>ident</code> option in the <code>crypto</code> command instead.</p>
-</li>
-</ol>
-<hr>
-<h4 id="623-broadcasting-multicasting-and-manycasting">6.2.3. Broadcasting, Multicasting, and Manycasting</h4>
-<p>With broadcasting and multicasting several clients can be addressed with a single packet transmitted by the server.</p>
-<hr>
-<h4 id="6231-how-do-i-configure-a-broadcast-server">6.2.3.1. How do I configure a Broadcast Server?</h4>
-<p>A line like <code>broadcast 128.4.2.255</code> enables periodic sending of broadcast packets containing the current time as long as the server&rsquo;s clock is synchronized. The period may be influenced by the <code>minpoll</code> option. Packet forwarding can be limited by specifying the <code>ttl</code> option. Make sure you are using the correct broadcast address for your subnet.</p>
-<hr>
-<h4 id="6232-how-do-i-configure-a-broadcast-client">6.2.3.2 How do I configure a Broadcast Client?</h4>
-<p>Using the line <code>broadcastclient</code> will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In NTPv4 the client will actively query a broadcasting server to calibrate the delay. More details can be found in <a href="/archives/4.2.8-series/assoc/#broadcastmulticast-modes">Association Management</a>.</p>
-<hr>
-<h4 id="6233-why-doesnt-broadcasting-work-with-lcl">6.2.3.3 Why doesn&rsquo;t Broadcasting work with LCL?</h4>
-<p>Before continuing, make sure you read and understood <a href="/ntpfaq/ntp-s-refclk/#711-what-is-lcl-the-local-clock">Q: 7.1.1</a> and <a href="/ntpfaq/ntp-s-config/#6131-can-i-use-my-system-clock-as-reference-clock">Q: 6.1.3.1.</a>. As you shouldn&rsquo;t broadcast bad time, a <code>prefer</code> keyword is required when using <code>LCL</code>.</p>
-<hr>
-<h4 id="6234-how-do-i-configure-multicast-servers-and-clients">6.2.3.4 How do I configure Multicast Servers and Clients?</h4>
-<p>Multicasting is configured just like broadcasting, but instead of using a broadcast address, a <em>multicast group address</em> (class D) is used.</p>
-<hr>
-<h4 id="6235-what-is-manycasting">6.2.3.5 What is Manycasting?</h4>
-<p>This is an explanation by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>: &ldquo;Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn&rsquo;t make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list.&rdquo; (&hellip;) &ldquo;Only the <code>*</code> and <code>+</code> tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all.&rdquo;</p>
-<p>So basically it&rsquo;s a mechanism to automatically configure servers on a nearby network. Compared to broadcasting and multicasting, manycasting uses the normal <code>server</code> keyword, but with a multicast group address (class D) on the client. Manycast servers use the keyword <code>manycastserver</code>. As for broadcasts and multicasts, manycast associations on the client may come and go over time.</p>
-<hr>
-<h4 id="624-pps-synchronization">6.2.4. PPS Synchronization</h4>
-<p><a href="/archives/4.2.8-series/pps/">PPS (Pulse-per-Second)</a> synchronization is an option that is neither necessary nor available for all operating systems. Still it brings many benefits if used, so it&rsquo;s discussed here.</p>
-<p>Network connections can suffer from random delays. Even for local reference clocks the exact point in time to which some time message belongs is difficult to determine. Delays imposed by the operating system are another issue to deal with.</p>
-<p>Some means to improve the situation were thought of:</p>
-<ul>
-<li>The operating system could be modified to capture the time of some external event more precisely. Among such events could be characters received at a serial port or some <a href="https://en.wikipedia.org/wiki/Signal_edge">signal edge</a> detected on a digital input.</li>
-<li>If such external events arrive periodically with high precision, the time stamps could be used to determine the frequency error of the associated computer clock.</li>
-<li>If the external event arrived exactly at the time when a new second starts, the time stamps could be used to correct the offset of the associated computer clock.</li>
-</ul>
-<p>Basically, this is what the PPS discussion is about.</p>
-<hr>
-<h4 id="6241-which-components-are-required-to-use-pps-synchronization">6.2.4.1 Which components are required to use PPS synchronization?</h4>
-<p>The following items are needed in order to use PPS synchronization:</p>
-<ul>
-<li>
-<p>You need a high precision signal that can be connected to the computer running NTP. Usual sources of PPS signals are quality reference clocks that feature such an output.</p>
-</li>
-<li>
-<p>Your operating system must support processing of PPS signals. Most operating systems that come with source code (such as Linux and FreeBSD) already support PPS processing or can be modified to do so.</p>
-<p>Most operating systems supporting PPS have a programming interface to read timestamps and also implement the NTP kernel clock model with special PPS processing options. See also <a href="/ntpfaq/ntp-s-algo-kernel/#5233-what-does-hardpps-do">Q: 5.2.3.3</a>.</p>
-</li>
-<li>
-<p>The NTP software must be configured to recognize and use PPS processing. Usually the software&rsquo;s autoconfigure process will detect the presence of PPS processing capabilities.</p>
-</li>
-<li>
-<p>Finally you should edit <code>ntp.conf</code> to work with PPS.</p>
-</li>
-</ul>
-<hr>
-<h4 id="6242-what-changes-are-required-in-ntpconf">6.2.4.2 What changes are required in ntp.conf?</h4>
-<p>Unfortunately PPS processing is a <a href="/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api">little messy</a>. Example 6.2a demonstrates the entries in <code>/etc/ntp.conf</code> which work with PPSkit-1.0.0 on my Linux PC.</p>
-<p><strong>Example 6.2a: Using a PPS Signal</strong></p>
-<pre>
+controlkey 15    # key (6) for accessing server variables</pre><p>The keyword <code>key</code> specifies the key to be used when talking to the specified server.</p><hr><h4 id=6223-how-do-i-create-a-key>6.2.2.3. How do I create a key?</h4><p><code>ntp-keygen</code> is used to create keys. Refer to its <a href=/archives/4.2.8-series/keygen/>documentation</a> for a complete description and command line options.</p><p><a href=/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration>Q: 6.1.4.3</a> provides a remote configuration example.</p><hr><h4 id=6224-how-does-authentication-work>6.2.2.4. How does Authentication work?</h4><p>Basically authentication is a digital signature, and no data encryption (if there is any difference at all). The usual data packet plus the key is used to build a non-reversible magic number that is appended to the packet. The receiver (having the same key) does the same computation and compares the result. If the results match, authentication suceeded.</p><hr><h4 id=6225-can-i-add-authentication-without-restarting-ntpd>6.2.2.5. Can I add Authentication without restarting ntpd?</h4><p>Yes and No. You can dynamically add servers that use authentication keys, and you can trust or un-trust any key using <code>ntpdc</code>. You can also re-read the keyfile using the <code>readkeys</code> command. Unfortunately you need to configure basic authentication before using any of these commands.</p><hr><h4 id=6226-how-do-i-use-public-key-authentication-autokey>6.2.2.6. How do I use Public-Key Authentication (autokey)?</h4><p>Refer to the examples in <a href=/archives/4.2.8-series/autokey/>Autokey Public-Key-Authentication</a> and <a href=/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey>Q: 6.1.4.6</a>.</p><p>The following example includes <a href=https://support.ntp.org/bin/view/Support/ConfiguringAutokeyDev>advice</a> from <a href=mailto:mills@udel.edu>Professor David L. Mills</a>:</p><blockquote><p>Ensure you have a working NTP configuration before configuring Autokey!</p></blockquote><p><strong>Configure NTP Servers</strong></p><ol><li><p>Generate a trusted certificate for each group member using <code>ntp-keygen -T</code> as described in <a href=/archives/4.2.8-series/autokey/#configuration---authentication-schemes>Configuration - Authentication Schemes</a>.</p></li><li><p>Make the group keys with the <code>-I</code> option on a trusted host or trusted agent.</p></li><li><p>Make the client keys from the group keys and distribute to the clients. Use an arbitrary file name, preferably the name of the group.</p></li></ol><p><strong>Configure NTP Clients</strong></p><ol><li><p>Create a directory for the client&rsquo;s NTP keys (e.g. <code>/etc/ntp</code>). That directory should only be readable by root.</p></li><li><p>In each client&rsquo;s <code>/etc/ntp.conf</code> file, append <code>autokey</code> to the <code>server</code> entry. Then append the <code>ident</code> option to the client&rsquo;s <code>server</code> entry with the same name as the installed client keys.</p></li><li><p>For broadcast clients, use the <code>ident</code> option in the <code>crypto</code> command instead.</p></li></ol><hr><h4 id=623-broadcasting-multicasting-and-manycasting>6.2.3. Broadcasting, Multicasting, and Manycasting</h4><p>With broadcasting and multicasting several clients can be addressed with a single packet transmitted by the server.</p><hr><h4 id=6231-how-do-i-configure-a-broadcast-server>6.2.3.1. How do I configure a Broadcast Server?</h4><p>A line like <code>broadcast 128.4.2.255</code> enables periodic sending of broadcast packets containing the current time as long as the server&rsquo;s clock is synchronized. The period may be influenced by the <code>minpoll</code> option. Packet forwarding can be limited by specifying the <code>ttl</code> option. Make sure you are using the correct broadcast address for your subnet.</p><hr><h4 id=6232-how-do-i-configure-a-broadcast-client>6.2.3.2 How do I configure a Broadcast Client?</h4><p>Using the line <code>broadcastclient</code> will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In NTPv4 the client will actively query a broadcasting server to calibrate the delay. More details can be found in <a href=/archives/4.2.8-series/assoc/#broadcastmulticast-modes>Association Management</a>.</p><hr><h4 id=6233-why-doesnt-broadcasting-work-with-lcl>6.2.3.3 Why doesn&rsquo;t Broadcasting work with LCL?</h4><p>Before continuing, make sure you read and understood <a href=/ntpfaq/ntp-s-refclk/#711-what-is-lcl-the-local-clock>Q: 7.1.1</a> and <a href=/ntpfaq/ntp-s-config/#6131-can-i-use-my-system-clock-as-reference-clock>Q: 6.1.3.1.</a>. As you shouldn&rsquo;t broadcast bad time, a <code>prefer</code> keyword is required when using <code>LCL</code>.</p><hr><h4 id=6234-how-do-i-configure-multicast-servers-and-clients>6.2.3.4 How do I configure Multicast Servers and Clients?</h4><p>Multicasting is configured just like broadcasting, but instead of using a broadcast address, a <em>multicast group address</em> (class D) is used.</p><hr><h4 id=6235-what-is-manycasting>6.2.3.5 What is Manycasting?</h4><p>This is an explanation by <a href=mailto:mills@udel.edu>Professor David L. Mills</a>: &ldquo;Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn&rsquo;t make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list.&rdquo; (&mldr;) &ldquo;Only the <code>*</code> and <code>+</code> tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all.&rdquo;</p><p>So basically it&rsquo;s a mechanism to automatically configure servers on a nearby network. Compared to broadcasting and multicasting, manycasting uses the normal <code>server</code> keyword, but with a multicast group address (class D) on the client. Manycast servers use the keyword <code>manycastserver</code>. As for broadcasts and multicasts, manycast associations on the client may come and go over time.</p><hr><h4 id=624-pps-synchronization>6.2.4. PPS Synchronization</h4><p><a href=/archives/4.2.8-series/pps/>PPS (Pulse-per-Second)</a> synchronization is an option that is neither necessary nor available for all operating systems. Still it brings many benefits if used, so it&rsquo;s discussed here.</p><p>Network connections can suffer from random delays. Even for local reference clocks the exact point in time to which some time message belongs is difficult to determine. Delays imposed by the operating system are another issue to deal with.</p><p>Some means to improve the situation were thought of:</p><ul><li>The operating system could be modified to capture the time of some external event more precisely. Among such events could be characters received at a serial port or some <a href=https://en.wikipedia.org/wiki/Signal_edge>signal edge</a> detected on a digital input.</li><li>If such external events arrive periodically with high precision, the time stamps could be used to determine the frequency error of the associated computer clock.</li><li>If the external event arrived exactly at the time when a new second starts, the time stamps could be used to correct the offset of the associated computer clock.</li></ul><p>Basically, this is what the PPS discussion is about.</p><hr><h4 id=6241-which-components-are-required-to-use-pps-synchronization>6.2.4.1 Which components are required to use PPS synchronization?</h4><p>The following items are needed in order to use PPS synchronization:</p><ul><li><p>You need a high precision signal that can be connected to the computer running NTP. Usual sources of PPS signals are quality reference clocks that feature such an output.</p></li><li><p>Your operating system must support processing of PPS signals. Most operating systems that come with source code (such as Linux and FreeBSD) already support PPS processing or can be modified to do so.</p><p>Most operating systems supporting PPS have a programming interface to read timestamps and also implement the NTP kernel clock model with special PPS processing options. See also <a href=/ntpfaq/ntp-s-algo-kernel/#5233-what-does-hardpps-do>Q: 5.2.3.3</a>.</p></li><li><p>The NTP software must be configured to recognize and use PPS processing. Usually the software&rsquo;s autoconfigure process will detect the presence of PPS processing capabilities.</p></li><li><p>Finally you should edit <code>ntp.conf</code> to work with PPS.</p></li></ul><hr><h4 id=6242-what-changes-are-required-in-ntpconf>6.2.4.2 What changes are required in ntp.conf?</h4><p>Unfortunately PPS processing is a <a href=/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api>little messy</a>. Example 6.2a demonstrates the entries in <code>/etc/ntp.conf</code> which work with PPSkit-1.0.0 on my Linux PC.</p><p><strong>Example 6.2a: Using a PPS Signal</strong></p><pre>
 server 127.127.8.1 mode 135 prefer	# Meinberg GPS167 with PPS
 fudge 127.127.8.1 time1 0.0042		# relative to PPS for my hardware
 
 server 127.127.22.1 			# PPS
-fudge 127.127.22.1 flag3 1		# enable PPS API</pre>
-<p>When starting, the following things happen:</p>
-<ol>
-<li>The clock <code>GENERIC(1)</code> becomes reachable while PPS is used to update the kernel variables described in <a href="/ntpfaq/ntp-s-config-adv/#6243-how-do-i-verify-that-everything-is-working">Q: 6.2.4.3</a>.</li>
-<li>The configured clock is selected as synchronization source, and <code>status</code> changes to <code>0x2143</code> after a while. At that time <code>PPS(1)</code> also becomes reachable. During that time <code>status</code> changes to <code>0x2107</code>, and <code>offset</code> shows current offsets from PPS.</li>
-<li>Eventually <code>PPS(1)</code> becomes PPS peer.</li>
-</ol>
-<hr>
-<h4 id="6243-how-do-i-verify-that-everything-is-working">6.2.4.3 How do I verify that everything is working?</h4>
-<p>The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the <a href="/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api">PPS API</a> may change things in a positive way.</p>
-<p>Let&rsquo;s start with the easier part using standard tools:</p>
-<ol>
-<li>
-<p>There are two means to look at the NTP kernel clock: <code>ntptime</code> and <code>ntpdc -c kerninfo</code>. As <code>ntptime</code> is a little more verbose, let&rsquo;s consider it.</p>
-<pre>windl@elf:~ >ntptime
+fudge 127.127.22.1 flag3 1		# enable PPS API</pre><p>When starting, the following things happen:</p><ol><li>The clock <code>GENERIC(1)</code> becomes reachable while PPS is used to update the kernel variables described in <a href=/ntpfaq/ntp-s-config-adv/#6243-how-do-i-verify-that-everything-is-working>Q: 6.2.4.3</a>.</li><li>The configured clock is selected as synchronization source, and <code>status</code> changes to <code>0x2143</code> after a while. At that time <code>PPS(1)</code> also becomes reachable. During that time <code>status</code> changes to <code>0x2107</code>, and <code>offset</code> shows current offsets from PPS.</li><li>Eventually <code>PPS(1)</code> becomes PPS peer.</li></ol><hr><h4 id=6243-how-do-i-verify-that-everything-is-working>6.2.4.3 How do I verify that everything is working?</h4><p>The pleasant part of this answer is that there are tools included in the standard NTP software that makes this an easy task. The less pleasant part is that there is no single way to enable PPS detection for each operating system. However the <a href=/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api>PPS API</a> may change things in a positive way.</p><p>Let&rsquo;s start with the easier part using standard tools:</p><ol><li><p>There are two means to look at the NTP kernel clock: <code>ntptime</code> and <code>ntpdc -c kerninfo</code>. As <code>ntptime</code> is a little more verbose, let&rsquo;s consider it.</p><pre>windl@elf:~ >ntptime
 ntp_gettime() returns code 0 (OK)
   time bd6b9cf2.9c3c6c60  Thu, Sep 14 2000 20:52:34.610, (.610297702),
   maximum error 3480 us, estimated error 0 us.
@@ -400,58 +54,7 @@ ntp_adjtime() returns code 0 (OK)
   status 0x2107 (PLL,PPSFREQ,PPSTIME,PPSSIGNAL,NANO),
   time constant 6, precision 3.530 us, tolerance 496 ppm,
   pps frequency 17.346 ppm, stability 0.016 ppm, jitter 1.378 us,
-  intervals 57, jitter exceeded 29, stability exceeded 0, errors 0.</pre>
-<p>The above command has been run on Linux version 2.2.16 with PPSkit-1.0.0. That combination features PPS processing and a kernel clock using nanoseconds.</p>
-<p>The first thing you should look at is the <code>status1</code> (<code>0x2107</code> in our case). The magic words in parentheses explain the meaning of the individual bits. The important bit for now is <code>PPSSIGNAL</code>. That bit is set directly by the operating system and says a PPS signal has been detected.</p>
-</li>
-<li>
-<p>Now that pulses are detected, let&rsquo;s see whether they are good ones. For that purpose we read some additional numbers about the kernel clock&rsquo;s calibration process:</p>
-<ul>
-<li>
-<p><code>intervals 57</code> says that there were 57 calibration intervals. When PPS pulses are arriving, this number should increase. Each frequency adjustment requires a good calibration interval. The length of the current calibration interval can be found as <code>interval 128 s</code> (128 seconds is the default maximum length). Remaining numbers count abnormal conditions as explained below.</p>
-</li>
-<li>
-<p><code>jitter exceeded 29</code> means that there were 29 pulses that arrived at a time when they were not considered good; however, completely bad pulses are not counted here. This can mean that the pulses were out of range, or that the system clock was read badly when the pulses arrived. The algorithm dynamically adjusts the threshold for jitter. Occasional jitter is allowed and should not worry you. If significant jitter is detected, the flag <code>PPSJITTER</code> is set.</p>
-</li>
-<li>
-<p><code>stability exceeded 0</code> is the number of calibration intervals that would result in a correction larger than considered valid, where the default limit is quite high.</p>
-<p>Validity is a bit fuzzy, but it means that the frequency change would be more than the tolerance. You can find the tolerance coded into your operating system from <code>tolerance 496 ppm</code>, but it&rsquo;s not guaranteed that the value is specific to your hardware.</p>
-<p>Stability should not be exceeded during normal operating conditions. Upon detection of that error the flag <code>PPSWANDER</code> is set.</p>
-</li>
-<li>
-<p><code>errors 0</code> indicates the number of calibration intervals where pulses were missing or completely out of bounds. In these cases the flag <code>PPSERROR</code> is set. During normal operation that number should not increase.</p>
-</li>
-</ul>
-<p>Those numbers are only reset when the machine is booted.</p>
-</li>
-<li>
-<p>If you did not find an error, your PPS configuration should work! You can inspect some additional performance indicators:</p>
-<ul>
-<li>
-<p><code>stability 0.016 ppm</code> is an averaged value for the last frequency corrections made (instability). Basically a small value indicates that both your operating system&rsquo;s clock and your external PPS signal are stable. Remember that <a href="/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be">temperature changes affect the average PC</a>. The sample above was taken after running the system for about one hour; you should expect a value below <code>0.1 ppm</code> for a stable system.</p>
-</li>
-<li>
-<p><code>jitter 1.378 us</code> is also an averaged value. It indicates how much the individual pulses vary from second to second, as measured by the operating system&rsquo;s clock. This value will vary due to system load and interrupt latency. A few microseconds are probably fine, but a few milliseconds definitely are not!</p>
-</li>
-</ul>
-</li>
-</ol>
-<p>This completes the basic checks for PPS configuration. In the case above the NTP daemon is also working and using the data provided from the operating system kernel. I&rsquo;ll complete the description of the remaining output:</p>
-<ul>
-<li>
-<p><code>pps frequency 17.346 ppm</code> indicates the current correction value for the clock frequency derived from the PPS signal. Positive values indicate the clock is too slow compared to the PPS. If flag <code>PPSFREQ</code> is set, that frequency correction is used for correcting the kernel clock. The NTP daemon will set this flag if the PPS parameters seem valid.</p>
-</li>
-<li>
-<p><code>offset 1.658 us</code> shows the last measured offset correction for the system clock. If flag <code>PPSTIME</code> is set, that offset is derived from the offset of the PPS pulse every second, and otherwise it&rsquo;s updated through <code>ntp_adjtime()</code> from the application. A positive value for <code>offset</code> means that the system clock is behind the reference time.</p>
-<p>PPS pulses add further corrections while the kernel clock tries to consume this offset by correcting the time accordingly. Formerly the offset was updated every 16 seconds by the kernel, but recently it&rsquo;s updated every second.</p>
-</li>
-</ul>
-<hr>
-<h4 id="6244-special-drivers">6.2.4.4 Special Drivers</h4>
-<h4 id="62441-what-is-a-pps-peer">6.2.4.4.1. What is a PPS peer?</h4>
-<p>Even when the kernel clock uses PPS signals to calibrate, the NTP daemon will still use the usual offsets of some reference clock. As it is desirable to use the offsets of the PPS pulses, there is a pseudo clock driver to do that. That driver needs to know the interface specific to the platform to get the time stamps of the PPS pulses.</p>
-<p>That driver is called <a href="/archives/drivers/driver22/">PPS</a> and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the <code>PPS</code> driver becomes reachable, and it will eventually be used as <a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">primary synchronization source</a>. A PPS peer will be handled specially so that other time offsets are not considered. The command <code>ntpq -c peer -c as -c rl</code> will print something like:</p>
-<pre>remote           refid      st t when poll reach   delay   offset  jitter
+  intervals 57, jitter exceeded 29, stability exceeded 0, errors 0.</pre><p>The above command has been run on Linux version 2.2.16 with PPSkit-1.0.0. That combination features PPS processing and a kernel clock using nanoseconds.</p><p>The first thing you should look at is the <code>status1</code> (<code>0x2107</code> in our case). The magic words in parentheses explain the meaning of the individual bits. The important bit for now is <code>PPSSIGNAL</code>. That bit is set directly by the operating system and says a PPS signal has been detected.</p></li><li><p>Now that pulses are detected, let&rsquo;s see whether they are good ones. For that purpose we read some additional numbers about the kernel clock&rsquo;s calibration process:</p><ul><li><p><code>intervals 57</code> says that there were 57 calibration intervals. When PPS pulses are arriving, this number should increase. Each frequency adjustment requires a good calibration interval. The length of the current calibration interval can be found as <code>interval 128 s</code> (128 seconds is the default maximum length). Remaining numbers count abnormal conditions as explained below.</p></li><li><p><code>jitter exceeded 29</code> means that there were 29 pulses that arrived at a time when they were not considered good; however, completely bad pulses are not counted here. This can mean that the pulses were out of range, or that the system clock was read badly when the pulses arrived. The algorithm dynamically adjusts the threshold for jitter. Occasional jitter is allowed and should not worry you. If significant jitter is detected, the flag <code>PPSJITTER</code> is set.</p></li><li><p><code>stability exceeded 0</code> is the number of calibration intervals that would result in a correction larger than considered valid, where the default limit is quite high.</p><p>Validity is a bit fuzzy, but it means that the frequency change would be more than the tolerance. You can find the tolerance coded into your operating system from <code>tolerance 496 ppm</code>, but it&rsquo;s not guaranteed that the value is specific to your hardware.</p><p>Stability should not be exceeded during normal operating conditions. Upon detection of that error the flag <code>PPSWANDER</code> is set.</p></li><li><p><code>errors 0</code> indicates the number of calibration intervals where pulses were missing or completely out of bounds. In these cases the flag <code>PPSERROR</code> is set. During normal operation that number should not increase.</p></li></ul><p>Those numbers are only reset when the machine is booted.</p></li><li><p>If you did not find an error, your PPS configuration should work! You can inspect some additional performance indicators:</p><ul><li><p><code>stability 0.016 ppm</code> is an averaged value for the last frequency corrections made (instability). Basically a small value indicates that both your operating system&rsquo;s clock and your external PPS signal are stable. Remember that <a href=/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be>temperature changes affect the average PC</a>. The sample above was taken after running the system for about one hour; you should expect a value below <code>0.1 ppm</code> for a stable system.</p></li><li><p><code>jitter 1.378 us</code> is also an averaged value. It indicates how much the individual pulses vary from second to second, as measured by the operating system&rsquo;s clock. This value will vary due to system load and interrupt latency. A few microseconds are probably fine, but a few milliseconds definitely are not!</p></li></ul></li></ol><p>This completes the basic checks for PPS configuration. In the case above the NTP daemon is also working and using the data provided from the operating system kernel. I&rsquo;ll complete the description of the remaining output:</p><ul><li><p><code>pps frequency 17.346 ppm</code> indicates the current correction value for the clock frequency derived from the PPS signal. Positive values indicate the clock is too slow compared to the PPS. If flag <code>PPSFREQ</code> is set, that frequency correction is used for correcting the kernel clock. The NTP daemon will set this flag if the PPS parameters seem valid.</p></li><li><p><code>offset 1.658 us</code> shows the last measured offset correction for the system clock. If flag <code>PPSTIME</code> is set, that offset is derived from the offset of the PPS pulse every second, and otherwise it&rsquo;s updated through <code>ntp_adjtime()</code> from the application. A positive value for <code>offset</code> means that the system clock is behind the reference time.</p><p>PPS pulses add further corrections while the kernel clock tries to consume this offset by correcting the time accordingly. Formerly the offset was updated every 16 seconds by the kernel, but recently it&rsquo;s updated every second.</p></li></ul><hr><h4 id=6244-special-drivers>6.2.4.4 Special Drivers</h4><h4 id=62441-what-is-a-pps-peer>6.2.4.4.1. What is a PPS peer?</h4><p>Even when the kernel clock uses PPS signals to calibrate, the NTP daemon will still use the usual offsets of some reference clock. As it is desirable to use the offsets of the PPS pulses, there is a pseudo clock driver to do that. That driver needs to know the interface specific to the platform to get the time stamps of the PPS pulses.</p><p>That driver is called <a href=/archives/drivers/driver22/>PPS</a> and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the <code>PPS</code> driver becomes reachable, and it will eventually be used as <a href=/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock>primary synchronization source</a>. A PPS peer will be handled specially so that other time offsets are not considered. The command <code>ntpq -c peer -c as -c rl</code> will print something like:</p><pre>remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
 +GENERIC(1)      .GPS.            0 l   48   64  377    0.000    0.025   0.001
 oPPS(1)          .PPS.            0 l   17   64  377    0.000    0.027   0.000
@@ -467,74 +70,16 @@ processor="i586", system="Linux2.2.16-NANO", leap=00, stratum=1,
 precision=-16, rootdelay=0.000, rootdispersion=1.831, peer=57301,
 refid=PPS, reftime=bd6b94f2.272b8844  Thu, Sep 14 2000 20:18:26.153,
 poll=6, clock=bd6b952d.da89dadf  Thu, Sep 14 2000 20:19:25.853, state=4,
-phase=0.005, frequency=16.984, jitter=0.000, stability=0.043</pre>
-<hr>
-<h4 id="62442-how-do-i-use-pps-with-the-motorola-oncore-driver">6.2.4.4.2 How do I use PPS with the Motorola Oncore driver?</h4>
-<p>Considering the configuration below, John Hay wrote:</p>
-<p>(&hellip;)The Oncore driver directly manages the PPS stuff, so you only need the first line (<code>server 127.127.30.0 prefer</code>) in the config file. The rest is not needed to have a functional Oncore refclock.</p>
-<pre>server 127.127.30.0 prefer
+phase=0.005, frequency=16.984, jitter=0.000, stability=0.043</pre><hr><h4 id=62442-how-do-i-use-pps-with-the-motorola-oncore-driver>6.2.4.4.2 How do I use PPS with the Motorola Oncore driver?</h4><p>Considering the configuration below, John Hay wrote:</p><p>(&mldr;)The Oncore driver directly manages the PPS stuff, so you only need the first line (<code>server 127.127.30.0 prefer</code>) in the config file. The rest is not needed to have a functional Oncore refclock.</p><pre>server 127.127.30.0 prefer
 fudge 127.127.30.0 stratum 0
 
 server 127.127.22.1                     # PPS
 fudge 127.127.22.1 flag3 1              # enable PPS module
-</pre>
-<blockquote>
-<p><strong>Note:</strong> As documented in <a href="/archives/drivers/driver8/#fudge-factors">PPS Clock Discipline</a>, <code>flag2</code> controls the edge of the PPS signal being used, obsoleting the <code>pps</code> keyword.</p>
-</blockquote>
-<p>Maybe it should also be noted here that a <em>site survey</em> can take significant time to finish. <a href="mailto:Terje.Mathisen@hda.hydro.com">Terje Mathisen</a> says: &ldquo;My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion.&rdquo;</p>
-<hr>
-<h4 id="62443-how-do-i-use-pps-with-the-nmea-driver">6.2.4.4.3 How do I use PPS with the NMEA driver?</h4>
-<p>An <a href="/archives/drivers/driver20/">NMEA driver</a> is included in NTPv4. That means that for PPS processing we don&rsquo;t need the <code>PPS</code> driver or <code>pps</code> command in <code>ntp.conf</code>.</p>
-<p>Here is sample <code>ntp.conf</code>:</p>
-<pre>server 127.127.20.0     # NMEA driver
-fudge  flag3 1          # enable kernel PPS discipline</pre>
-<hr>
-<h4 id="6245-what-is-the-pps-api">6.2.4.5 What is the PPS API?</h4>
-<p>As seen above, the programming interface specific to the operating system and platform is a messy thing. Therefore some people decided to make a common programming interface named PPS API. In March 2000 that draft was accepted as an <a href="/reflib/rfc/rfc2783.txt">RFC 2783</a>. The functions of the API include:</p>
-<ul>
-<li>Routines to enable capturing of external events on a specified device (if supported).</li>
-<li>Routines to query the last captured time stamps and associated event counters.</li>
-<li>Routines to change operating parameters like compensating for processing delays and selecting polarity of the PPS signal.</li>
-<li>Routines to control automatic processing of detected events by a <em>kernel consumer</em> in the kernel of the operating system.</li>
-</ul>
-<p><a href="/reflib/rfc/rfc2783.txt">RFC 2783</a> indicates that: &ldquo;Several available implementations of this API are <a href="/ppsapi/ppsimplist/">listed</a>. Note that not all of these implementations correspond to the current version of the specification&rdquo;.</p>
-<hr>
-<h4 id="6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface">6.2.4.6 What is the shortest Width for a Pulse connected to the DCD Pin of an RS-232 Interface?</h4>
-<p>That depends. The higher the quality your serial port is, the longer pulses will be needed. This is because of the ESD protection of the chip.</p>
-<p>26 usec should be about the bit time for a 38400 serial line, so you could connect it to the RxD line instead and see if you receive characters that way when the port is set for 38400 or faster.</p>
-<p>Another thing to try is to configure the serial port for 115200. Some chips base their deglitching on the baud rate, often requiring a full symbol before they react.</p>
-<hr>
-<h4 id="625-automatic-configuration">6.2.5 Automatic Configuration</h4>
-<p>If many systems have to be configured in a similar way, there is a desire to automate the process. We try to give some useful hints here.</p>
-<hr>
-<h4 id="6251-how-can-i-define-the-address-of-an-ntp-server-in-a-bootp-reply">6.2.5.1 How can I define the address of an NTP server in a BOOTP reply?</h4>
-<p>The BOOTP protocol is defined in <a href="https://www.rfc-editor.org/rfc/rfc1048">RFC 1048</a> (obsoleted by <a href="https://www.rfc-editor.org/rfc/rfc2132">RFC 2132</a>). Marc Brett contributed:</p>
-<p>Time (<a href="https://www.rfc-editor.org/rfc/rfc868">RFC 868</a>) servers may be specified in the <em>Vendor Extensions field</em>, Code <code>4</code>.</p>
-<p>NTP servers may be specified in the <em>Application and Service Parameters</em>, Code <code>42</code>.</p>
-<p>In some popular <code>bootpd</code>, time servers are specified with <code>ts=</code>, but NTP servers are specified with <code>nt=</code>. The latter allows a list of Internet addresses to be specified.</p>
-<hr>
-<h4 id="6252-how-do-i-use-information-about-ntp-servers-given-in-a-bootp-reply">6.2.5.2 How do I use information about NTP servers given in a BOOTP reply?</h4>
-<p>If you are using Microsoft Windows, check whether your DHCP client software or NTP software supports this feature. If not, you are probably out of luck.</p>
-<p>If you are using a UNIX system, you may be able to install the needed code.Exactly what is needed depends on the operating system, but if you are comfortable editing scripts, it shouldn&rsquo;t be too hard.</p>
-<p>In general, UNIX systems implement BOOTP DHCP via a client daemon which handles the interaction with the DHCP server. Often, the daemon itself does not set up the network interface&rsquo;s address or do any other work based on the DHCP reply. Instead, it stores the information and activates an initialization script to use that information to adjust the computer&rsquo;s configuration.</p>
-<p>Your first job is to identify the correct script. Start by tracking down the script that brings up the interface during normal startup. That script will have code which activates the DHCP client, and thus must also arrange to activate the script that implements the configuration provided by DHCP.</p>
-<hr>
-<h4 id="626-offering-time-service">6.2.6. Offering Time Service</h4>
-<p>This section presents some guidelines for offering time service to others.</p>
-<hr>
-<h4 id="6261-is-there-any-way-to-configure-ntpd-to-attach-to-a-specific-interface">6.2.6.1. Is there any way to configure ntpd to attach to a specific Interface?</h4>
-<p>By default, <code>ntpd</code> listens on all virtual IP addresses. Use <code>-L</code> to configure <code>ntpd</code> to not listen on virtual IPs.</p>
-<hr>
-<h4 id="6262-should-access-be-restricted">6.2.6.2. Should Access be restricted?</h4>
-<p>If you don&rsquo;t want to have clients, don&rsquo;t offer the service. But as you want to offer NTP service to others, you should not be afraid of clients. Let me quote from an article in news://comp.protocols.time.ntp written by David Dalton about the subject whether queries with <code>ntpq</code> and <code>ntpdc</code> should be allowed:</p>
-<p>I am somewhat new to the security concerns of public timeservers. Only in the past few weeks did I upgrade my public timeserver to stratum-1 with a Trimble Palisade GPS receiver. It doesn&rsquo;t have a lot of security right now, but the <code>ntpdc</code> reconfiguration functions are restricted. I&rsquo;m soliciting advice about how to protect myself, although I don&rsquo;t depend on that public timeserver in any way.</p>
-<p>I agree with you that there is no substitute for long-term data for evaluating the stability of a timeserver and the network between yourself and the timeserver.</p>
-<p>But the query tools allow one to make evaluations without spending a lot of time, because the timeservers themselves have already collected the long-term data. I always want to run <code>ntpq -p</code> or <code>ntpdc -p</code> on a remote timeserver before committing to it. Very handy.</p>
-<p>Even long-term statistics (gathered by your own client) won&rsquo;t tell you anything about how well the remote server is configured. How many reference clocks does it have? Which reference clocks? How many stratum-1 servers does it have in case the clock(s) fail(s)? Which one of these candidates would you prefer?</p>
-<pre>EXAMPLE ONE (BAD)
+</pre><blockquote><p><strong>Note:</strong> As documented in <a href=/archives/drivers/driver8/#fudge-factors>PPS Clock Discipline</a>, <code>flag2</code> controls the edge of the PPS signal being used, obsoleting the <code>pps</code> keyword.</p></blockquote><p>Maybe it should also be noted here that a <em>site survey</em> can take significant time to finish. <a href=mailto:Terje.Mathisen@hda.hydro.com>Terje Mathisen</a> says: &ldquo;My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion.&rdquo;</p><hr><h4 id=62443-how-do-i-use-pps-with-the-nmea-driver>6.2.4.4.3 How do I use PPS with the NMEA driver?</h4><p>An <a href=/archives/drivers/driver20/>NMEA driver</a> is included in NTPv4. That means that for PPS processing we don&rsquo;t need the <code>PPS</code> driver or <code>pps</code> command in <code>ntp.conf</code>.</p><p>Here is sample <code>ntp.conf</code>:</p><pre>server 127.127.20.0     # NMEA driver
+fudge  flag3 1          # enable kernel PPS discipline</pre><hr><h4 id=6245-what-is-the-pps-api>6.2.4.5 What is the PPS API?</h4><p>As seen above, the programming interface specific to the operating system and platform is a messy thing. Therefore some people decided to make a common programming interface named PPS API. In March 2000 that draft was accepted as an <a href=/reflib/rfc/rfc2783.txt>RFC 2783</a>. The functions of the API include:</p><ul><li>Routines to enable capturing of external events on a specified device (if supported).</li><li>Routines to query the last captured time stamps and associated event counters.</li><li>Routines to change operating parameters like compensating for processing delays and selecting polarity of the PPS signal.</li><li>Routines to control automatic processing of detected events by a <em>kernel consumer</em> in the kernel of the operating system.</li></ul><p><a href=/reflib/rfc/rfc2783.txt>RFC 2783</a> indicates that: &ldquo;Several available implementations of this API are <a href=/ppsapi/ppsimplist/>listed</a>. Note that not all of these implementations correspond to the current version of the specification&rdquo;.</p><hr><h4 id=6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface>6.2.4.6 What is the shortest Width for a Pulse connected to the DCD Pin of an RS-232 Interface?</h4><p>That depends. The higher the quality your serial port is, the longer pulses will be needed. This is because of the ESD protection of the chip.</p><p>26 usec should be about the bit time for a 38400 serial line, so you could connect it to the RxD line instead and see if you receive characters that way when the port is set for 38400 or faster.</p><p>Another thing to try is to configure the serial port for 115200. Some chips base their deglitching on the baud rate, often requiring a full symbol before they react.</p><hr><h4 id=625-automatic-configuration>6.2.5 Automatic Configuration</h4><p>If many systems have to be configured in a similar way, there is a desire to automate the process. We try to give some useful hints here.</p><hr><h4 id=6251-how-can-i-define-the-address-of-an-ntp-server-in-a-bootp-reply>6.2.5.1 How can I define the address of an NTP server in a BOOTP reply?</h4><p>The BOOTP protocol is defined in <a href=https://www.rfc-editor.org/rfc/rfc1048>RFC 1048</a> (obsoleted by <a href=https://www.rfc-editor.org/rfc/rfc2132>RFC 2132</a>). Marc Brett contributed:</p><p>Time (<a href=https://www.rfc-editor.org/rfc/rfc868>RFC 868</a>) servers may be specified in the <em>Vendor Extensions field</em>, Code <code>4</code>.</p><p>NTP servers may be specified in the <em>Application and Service Parameters</em>, Code <code>42</code>.</p><p>In some popular <code>bootpd</code>, time servers are specified with <code>ts=</code>, but NTP servers are specified with <code>nt=</code>. The latter allows a list of Internet addresses to be specified.</p><hr><h4 id=6252-how-do-i-use-information-about-ntp-servers-given-in-a-bootp-reply>6.2.5.2 How do I use information about NTP servers given in a BOOTP reply?</h4><p>If you are using Microsoft Windows, check whether your DHCP client software or NTP software supports this feature. If not, you are probably out of luck.</p><p>If you are using a UNIX system, you may be able to install the needed code.Exactly what is needed depends on the operating system, but if you are comfortable editing scripts, it shouldn&rsquo;t be too hard.</p><p>In general, UNIX systems implement BOOTP DHCP via a client daemon which handles the interaction with the DHCP server. Often, the daemon itself does not set up the network interface&rsquo;s address or do any other work based on the DHCP reply. Instead, it stores the information and activates an initialization script to use that information to adjust the computer&rsquo;s configuration.</p><p>Your first job is to identify the correct script. Start by tracking down the script that brings up the interface during normal startup. That script will have code which activates the DHCP client, and thus must also arrange to activate the script that implements the configuration provided by DHCP.</p><hr><h4 id=626-offering-time-service>6.2.6. Offering Time Service</h4><p>This section presents some guidelines for offering time service to others.</p><hr><h4 id=6261-is-there-any-way-to-configure-ntpd-to-attach-to-a-specific-interface>6.2.6.1. Is there any way to configure ntpd to attach to a specific Interface?</h4><p>By default, <code>ntpd</code> listens on all virtual IP addresses. Use <code>-L</code> to configure <code>ntpd</code> to not listen on virtual IPs.</p><hr><h4 id=6262-should-access-be-restricted>6.2.6.2. Should Access be restricted?</h4><p>If you don&rsquo;t want to have clients, don&rsquo;t offer the service. But as you want to offer NTP service to others, you should not be afraid of clients. Let me quote from an article in news://comp.protocols.time.ntp written by David Dalton about the subject whether queries with <code>ntpq</code> and <code>ntpdc</code> should be allowed:</p><p>I am somewhat new to the security concerns of public timeservers. Only in the past few weeks did I upgrade my public timeserver to stratum-1 with a Trimble Palisade GPS receiver. It doesn&rsquo;t have a lot of security right now, but the <code>ntpdc</code> reconfiguration functions are restricted. I&rsquo;m soliciting advice about how to protect myself, although I don&rsquo;t depend on that public timeserver in any way.</p><p>I agree with you that there is no substitute for long-term data for evaluating the stability of a timeserver and the network between yourself and the timeserver.</p><p>But the query tools allow one to make evaluations without spending a lot of time, because the timeservers themselves have already collected the long-term data. I always want to run <code>ntpq -p</code> or <code>ntpdc -p</code> on a remote timeserver before committing to it. Very handy.</p><p>Even long-term statistics (gathered by your own client) won&rsquo;t tell you anything about how well the remote server is configured. How many reference clocks does it have? Which reference clocks? How many stratum-1 servers does it have in case the clock(s) fail(s)? Which one of these candidates would you prefer?</p><pre>EXAMPLE ONE (BAD)
  -----------------
  [444] ntpq -p fubar.net
-  <samp class="COMPUTEROUTPUT">remote      refid      st t when poll reach   delay   offset    disp
+  <samp class=COMPUTEROUTPUT>remote      refid      st t when poll reach   delay   offset    disp
  =========================================================================
  *WWVB_SPEC       .WWVB.      0 l   18   16  377     0.00    0.301    1.69
   LOCAL(1)        LOCAL(1)    0 l    1   16  377     0.00    0.000   10.01
@@ -542,7 +87,7 @@ fudge  flag3 1          # enable kernel PPS discipline</pre>
  EXAMPLE TWO (NOT BAD)
  ---------------------
  [170] ntpq  -p fubar2.net</kbd>
-  <samp class="COMPUTEROUTPUT">remote      refid      st t when poll reach   delay   offset    disp
+  <samp class=COMPUTEROUTPUT>remote      refid      st t when poll reach   delay   offset    disp
  =========================================================================
  *WWVB_SPEC(      .WWVB.      0 l   30   16  377     0.00    0.140    2.01
   LOCAL(1)        LOCAL(1)   10 l   13   16  377     0.00    0.000   10.01
@@ -554,7 +99,7 @@ fudge  flag3 1          # enable kernel PPS discipline</pre>
  EXAMPLE THREE (OUTSTANDING)
  ---------------------------
  [169] ntpq  -p ntp2.usno.navy.mil</kbd>
-  <samp class="COMPUTEROUTPUT">remote      refid      st t when poll reach   delay   offset    disp
+  <samp class=COMPUTEROUTPUT>remote      refid      st t when poll reach   delay   offset    disp
  =========================================================================
  +GPS_VME(0)     .USNO.       0 l   15   16  377     0.00   -0.007    0.02
  *GPS_VME(1)     .USNO.       0 l   14   16  377     0.00    0.003    0.02
@@ -563,21 +108,13 @@ fudge  flag3 1          # enable kernel PPS discipline</pre>
  -tock.usno      .USNO.       1 u   16   64  377     1.48   -0.072    0.47
  x204.34.19      .USNO.       1 u   24   64  377   226.88    3.924    1.77
  x204.34.19      .USNO.       1 u 1014 1024  376   249.76   10.737   26.49
-  navobs1.g      0.0.0.0     16 -    - 1024    0     0.00    0.000 16000.0</pre>
-<p>That article continues:</p>
-<p>You and I might agree that a handheld consumer-grade GPS receiver putting out NMEA data to a small workstation with 500 milliseconds dispersion is a poor excuse for a stratum-1 public timeserver, but that doesn&rsquo;t stop somebody from offering such a server for public use. No sanity checking or evaluation is done on the machines listed at UDelaware (AFAIK).</p>
-<p>Here is what my handheld GPS receiver (400 dollars) looked like:</p>
-<pre>[179] ntpq  -p gpstime.net
-  <samp class="COMPUTEROUTPUT">remote      refid      st t when poll reach   delay   offset    disp
+  navobs1.g      0.0.0.0     16 -    - 1024    0     0.00    0.000 16000.0</pre><p>That article continues:</p><p>You and I might agree that a handheld consumer-grade GPS receiver putting out NMEA data to a small workstation with 500 milliseconds dispersion is a poor excuse for a stratum-1 public timeserver, but that doesn&rsquo;t stop somebody from offering such a server for public use. No sanity checking or evaluation is done on the machines listed at UDelaware (AFAIK).</p><p>Here is what my handheld GPS receiver (400 dollars) looked like:</p><pre>[179] ntpq  -p gpstime.net
+  <samp class=COMPUTEROUTPUT>remote      refid      st t when poll reach   delay   offset    disp
  =========================================================================
- *GPS_NMEA        .GPS.       0 l    1   64  377     0.00  -226.243  420.08</samp></pre>
-<p>Here is a stratum-2 timeserver that has a good pedigree (HP-UX) and is synching to a stratum-1 timeserver that has an HP GPS clock, but the stratum-2 machine is having problems because the network is <em>very</em> congested and it has no backup sources:</p>
- <pre>  remote            refid      st t when poll reach  delay   offset disp
+ *GPS_NMEA        .GPS.       0 l    1   64  377     0.00  -226.243  420.08</samp></pre><p>Here is a stratum-2 timeserver that has a good pedigree (HP-UX) and is synching to a stratum-1 timeserver that has an HP GPS clock, but the stratum-2 machine is having problems because the network is <em>very</em> congested and it has no backup sources:</p><pre>  remote            refid      st t when poll reach  delay   offset disp
  ==========================================================================
-  big_srv         17.8.5.7      2 u    3  512   17   312.87 -249.15 1960.85</pre>
-<p>Here are some results from well configured public timeservers that I have surveyed at various times. It is interesting to work your way through the stratum-1 list at UDelaware and see a lot of timeservers this way.</p>
- <pre>[165] ntpq  -p ntp-cup.external.hp.com
-  <samp class="COMPUTEROUTPUT">remote      refid      st t when poll reach   delay   offset    disp
+  big_srv         17.8.5.7      2 u    3  512   17   312.87 -249.15 1960.85</pre><p>Here are some results from well configured public timeservers that I have surveyed at various times. It is interesting to work your way through the stratum-1 list at UDelaware and see a lot of timeservers this way.</p><pre>[165] ntpq  -p ntp-cup.external.hp.com
+  <samp class=COMPUTEROUTPUT>remote      refid      st t when poll reach   delay   offset    disp
  =========================================================================
  *REFCLK(29,1)    .GPS.       0 l   21   32  377     0.00    0.014    0.02
  +bigben.cac.wash .USNO.      1 u  115  128  377    38.48   -0.292    0.46
@@ -585,56 +122,4 @@ fudge  flag3 1          # enable kernel PPS discipline</pre>
  -clock.isc.org   .GOES.      1 u  381 1024  377     6.29   -3.159    0.11
   hpsdlo.sdd.hp.c bigben.ash  2 u   25   32  125    53.68   -9.817    3.69
  -tick.ucla.edu   .USNO.      1 u   70  128  377    19.18   -0.894    0.38
- -usno.pa-x.dec.c .USNO.      1 u   39  128  377     7.05   -0.434    0.26</pre>
-<p>So there are valid arguments for allowing some standard queries from prospective or active NTP clients. On the other hand there are also arguments for restricting access:</p>
-<ul>
-<li><a href="/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys">Configuration changes</a> should be restricted to machines within the own administrative domain at least.</li>
-<li>You might consider the possibility that a security hole is found in some software which could be exploited to do bad things to your server. Therefore you could restrict or enable certain ranges of IP addresses.</li>
-</ul>
-<hr>
-<h4 id="6263-what-should-be-done-before-announcing-public-ntp-service">6.2.6.3. What should be done before announcing public NTP service?</h4>
-<p>As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some <a href="/ntpfaq/ntp-s-trouble/#81-monitoring">monitoring</a> of your server before going public.</p>
-<p>Once you are satisfied with the performance data, you should also consider the following questions:</p>
-<ul>
-<li>Does the server have an offset and stability better or equal to other servers at the same stratum?</li>
-<li>Does the server have redundant or highly available time sources (reference clocks or peers)?</li>
-<li>Did you arrange peering with at least one other server at the same or at an even better stratum?</li>
-<li>Do you want to serve possibly hundreds of unknown clients?</li>
-<li>Does the Internet connection satisfy the demands for NTP service (good network response times and very few dropped packets)?</li>
-<li>Is the server machine highly available? Does it start up automatically after a failure? Is there a contact person in case of problems?</li>
-<li>Are there plans to continue the service for at least six months?</li>
-</ul>
-<p>If you answered any of these questions with &ldquo;No&rdquo;, reconsider the decision to offer public time service.</p>
-
-	  
-  </div>
-</section>
-<footer class="navbar site-footer fixed-bottom py-0">
-  <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-        <i class="bi-twitter"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-        <i class="bi-linkedin"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-        <i class="bi-facebook"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text">
-      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
-    </li>
-  </ul>
-</footer>
-
-</body>
-</html>
+ -usno.pa-x.dec.c .USNO.      1 u   39  128  377     7.05   -0.434    0.26</pre><p>So there are valid arguments for allowing some standard queries from prospective or active NTP clients. On the other hand there are also arguments for restricting access:</p><ul><li><a href=/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys>Configuration changes</a> should be restricted to machines within the own administrative domain at least.</li><li>You might consider the possibility that a security hole is found in some software which could be exploited to do bad things to your server. Therefore you could restrict or enable certain ranges of IP addresses.</li></ul><hr><h4 id=6263-what-should-be-done-before-announcing-public-ntp-service>6.2.6.3. What should be done before announcing public NTP service?</h4><p>As with any service offered in the Internet, there is a potential to do something stupid. You are strongly advised to do some <a href=/ntpfaq/ntp-s-trouble/#81-monitoring>monitoring</a> of your server before going public.</p><p>Once you are satisfied with the performance data, you should also consider the following questions:</p><ul><li>Does the server have an offset and stability better or equal to other servers at the same stratum?</li><li>Does the server have redundant or highly available time sources (reference clocks or peers)?</li><li>Did you arrange peering with at least one other server at the same or at an even better stratum?</li><li>Do you want to serve possibly hundreds of unknown clients?</li><li>Does the Internet connection satisfy the demands for NTP service (good network response times and very few dropped packets)?</li><li>Is the server machine highly available? Does it start up automatically after a failure? Is there a contact person in case of problems?</li><li>Are there plans to continue the service for at least six months?</li></ul><p>If you answered any of these questions with &ldquo;No&rdquo;, reconsider the decision to offer public time service.</p></div></section><footer class="navbar site-footer fixed-bottom py-0"><ul class=mx-auto><li class=navbar-text data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class=text-white target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><i class=bi-twitter></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><i class=bi-linkedin></i></a></li><li class=navbar-text data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class=text-white target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><i class=bi-facebook></i></a></li><li class=navbar-text><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></footer></body></html>
