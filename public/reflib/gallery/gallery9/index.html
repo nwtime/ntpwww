@@ -1,24 +1,235 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
 A Hollerith Card
-In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The …"><meta property="og:title" content="Anatomy of a Hollerith Card"><meta property="og:description" content="A Hollerith Card
-In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The Hollerith punched card was the principal means for recording, accounting and archiving functions, not to mention the US census, until recently. In the early 1960&rsquo;s Hollerith cards were the only practical means to input programs for a IBM mainframe, but today these cards are seldom seen."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/reflib/gallery/gallery9/"><meta property="article:section" content="reflib"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>Anatomy of a Hollerith Card</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/reflib/>Reference Library</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/reflib/gallery/gallery9/>Anatomy of a Hollerith Card</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Anatomy of a Hollerith Card</h1><p><img src=/archives/pic/ibmcarda.gif alt=gif></p><p><a href=/archives/pic/ibmcard.jpg>A Hollerith Card</a></p><p>In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The Hollerith punched card was the principal means for recording, accounting and archiving functions, not to mention the US census, until recently. In the early 1960&rsquo;s Hollerith cards were the only practical means to input programs for a IBM mainframe, but today these cards are seldom seen.</p><p>Hollerith cards have 12 rows and 80 columns. Decimal digits are encoded in rows 0-9, one per column as shown above. Other characters are encoded using these rows plus rows 11-12 above row 0. Programmers prepared input using the IBM 407 Printing Calculator and IBM 026 Card Punch, which were entirely mechanical. The 026 produced copious amounts of rectangular chad which we used in place of rice at weddings.</p><p>Coinciding with the rise and decline of Hollerith input was the Fortran scientific programming language. A few of us old hands still prefer Fortran over languages with sissy single-character names. The card above is preprinted with the fields used in preparing Fortran input. So far, this discourse is pretty boring; but, the real secrets lost to the younger generation is why the card has this format and why the Fortran fields are as they are. Read on.</p><p>The first scientific computer larger than a Volkswagen and capable of floating-point arithmetic was the IBM 704, which used vacuum tubes and magnetic core memory. It had a cycle time of 2.1 microseconds, a memory of 32,768 36-bit words, two 36-bit arithmetic registers and three 15-bit index registers. Fortran and a raft of other early programming languages were born from that womb.</p><p>The early designers were faced with the problem of adapting the Hollerith card to the 36-bit word used by the 704, especially how to bootstrap the machine with the punched-card loader program. The 704 online card reader was a most primitive device. It read cards by row starting from row 9. For each row the machine read bits from column 1 through 36 into one word, then bits from column 37 through 72 into the next. Machine operators knew this as 9-left format, but casual programmers had no idea what it meant. The same reader was used in the later 709 and its transistorized brother 709T; oops, I mean 7090.</p><p>As a young grad student, I had personal use of the 7090 on Sundays when the computing center was shut down. I arrived one Sunday morning and found the online card reader refused to budge. In fear for my dearly cherished machine time, I searched for a way to fix the thing. Looking inside for fuses, etc., I came upon a real live crank, just like for a Model T. Sure enough, I was able to spin the crank, ignite the bootstrap and light up the machine. Hollerith would approve.</p><p>Back to our story. Why were early Fortran program variable names limited to six characters? Well, the 704 packed six 6-bit Binary Coded Decimal (BCD) characters in one 36-bit word. Why were statement numbers limited to five digits? They were held in 15-bit index registers. Why does the business end of the card have 72 columns with an 8-character card identifier/sequence number at the end? Remember the online card reader? 9-left, 9-right, 8-left, 8-right,&mldr;</p><p>Eventually, the online card reader was supplanted by an offline IBM 1401 machine that was only smart enough to transcribe cards to magnetic tape for input and tape to printer for output. This machine had a much faster, more rugged card reader. However, it read the cards by column, not by row, so the 9-left card became obsolete. However, by this time the 9-left format had become embedded in library programs and a program was needed to transcribe this format to column-binary (aka Chinese Binary) format.</p><p>Writing that library program was my first paid programming job. Now you know why this page is here.</p></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The …">
+<meta property="og:title" content="Anatomy of a Hollerith Card" />
+<meta property="og:description" content="A Hollerith Card
+In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The Hollerith punched card was the principal means for recording, accounting and archiving functions, not to mention the US census, until recently. In the early 1960&rsquo;s Hollerith cards were the only practical means to input programs for a IBM mainframe, but today these cards are seldom seen." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/gallery/gallery9/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>Anatomy of a Hollerith Card</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/reflib/gallery/gallery9/">Anatomy of a Hollerith Card</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Anatomy of a Hollerith Card</h1>
+     
+    <p><img src="/archives/pic/ibmcarda.gif" alt="gif"></p>
+<p><a href="/archives/pic/ibmcard.jpg">A Hollerith Card</a></p>
+<p>In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The Hollerith punched card was the principal means for recording, accounting and archiving functions, not to mention the US census, until recently. In the early 1960&rsquo;s Hollerith cards were the only practical means to input programs for a IBM mainframe, but today these cards are seldom seen.</p>
+<p>Hollerith cards have 12 rows and 80 columns. Decimal digits are encoded in rows 0-9, one per column as shown above. Other characters are encoded using these rows plus rows 11-12 above row 0. Programmers prepared input using the IBM 407 Printing Calculator and IBM 026 Card Punch, which were entirely mechanical. The 026 produced copious amounts of rectangular chad which we used in place of rice at weddings.</p>
+<p>Coinciding with the rise and decline of Hollerith input was the Fortran scientific programming language. A few of us old hands still prefer Fortran over languages with sissy single-character names. The card above is preprinted with the fields used in preparing Fortran input. So far, this discourse is pretty boring; but, the real secrets lost to the younger generation is why the card has this format and why the Fortran fields are as they are. Read on.</p>
+<p>The first scientific computer larger than a Volkswagen and capable of floating-point arithmetic was the IBM 704, which used vacuum tubes and magnetic core memory. It had a cycle time of 2.1 microseconds, a memory of 32,768 36-bit words, two 36-bit arithmetic registers and three 15-bit index registers. Fortran and a raft of other early programming languages were born from that womb.</p>
+<p>The early designers were faced with the problem of adapting the Hollerith card to the 36-bit word used by the 704, especially how to bootstrap the machine with the punched-card loader program. The 704 online card reader was a most primitive device. It read cards by row starting from row 9. For each row the machine read bits from column 1 through 36 into one word, then bits from column 37 through 72 into the next. Machine operators knew this as 9-left format, but casual programmers had no idea what it meant. The same reader was used in the later 709 and its transistorized brother 709T; oops, I mean 7090.</p>
+<p>As a young grad student, I had personal use of the 7090 on Sundays when the computing center was shut down. I arrived one Sunday morning and found the online card reader refused to budge. In fear for my dearly cherished machine time, I searched for a way to fix the thing. Looking inside for fuses, etc., I came upon a real live crank, just like for a Model T. Sure enough, I was able to spin the crank, ignite the bootstrap and light up the machine. Hollerith would approve.</p>
+<p>Back to our story. Why were early Fortran program variable names limited to six characters? Well, the 704 packed six 6-bit Binary Coded Decimal (BCD) characters in one 36-bit word. Why were statement numbers limited to five digits? They were held in 15-bit index registers. Why does the business end of the card have 72 columns with an 8-character card identifier/sequence number at the end? Remember the online card reader? 9-left, 9-right, 8-left, 8-right,&hellip;</p>
+<p>Eventually, the online card reader was supplanted by an offline IBM 1401 machine that was only smart enough to transcribe cards to magnetic tape for input and tape to printer for output. This machine had a much faster, more rugged card reader. However, it read the cards by column, not by row, so the 9-left card became obsolete. However, by this time the 9-left format had become embedded in library programs and a program was needed to transcribe this format to column-binary (aka Chinese Binary) format.</p>
+<p>Writing that library program was my first paid programming job. Now you know why this page is here.</p>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

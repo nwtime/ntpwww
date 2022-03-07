@@ -1,4 +1,12 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
 Author: David L. Mills (mills@udel.edu)
 Last update: 9-May-2014 08:34 UTC
 
@@ -8,35 +16,280 @@ Table of Contents
 Synopsis
 Description
 Monitor Data
-Fudge Factors …"><meta property="og:title" content="Undisciplined Local Clock"><meta property="og:description" content="Author: David L. Mills (mills@udel.edu) Last update: 9-May-2014 08:34 UTC   Table of Contents  Synopsis Description Monitor Data Fudge Factors Additional Information   Synopsis  Address: 127.127.1.u Reference ID: LOCL Driver ID: LOCAL   Description  ノート： このドライバーの使用はお勧めしません。 もっと柔軟な代替方法については、Orphan Mode をご参照下さい。
+Fudge Factors …">
+<meta property="og:title" content="Undisciplined Local Clock" />
+<meta property="og:description" content="Author: David L. Mills (mills@udel.edu) Last update: 9-May-2014 08:34 UTC   Table of Contents  Synopsis Description Monitor Data Fudge Factors Additional Information   Synopsis  Address: 127.127.1.u Reference ID: LOCL Driver ID: LOCAL   Description  ノート： このドライバーの使用はお勧めしません。 もっと柔軟な代替方法については、Orphan Mode をご参照下さい。
  このドライバーは、電波時計やモデムなどの外部同期ソースが利用できない隔離されたネットワークでの使用を目的としていました。 このドライバーを指定されたタイム・サーバーがプライマリ・サーバーとして機能し、ネットワーク上の他のクライアントに同期時刻を提供できます。 優れたクロック発振器を備えたマシンを選び、このドライバーで構成します。利用可能な最良の時計を見て、そのマシンの時刻を設定します。 次に、他のすべてのマシンの参照先をこのマシンに向けるか、ブロードキャスト・モードを使用して時間を配信します。
 このドライバーの別の用途は、特定のタイム・サーバーで他の全ての通常の同期ソースがなくなったときに最後の手段のクロックとして使用する場合です。 これは、そのサーバーに周波数安定度が高い恒温槽発信器がある場合に特に役立ちます。 このため、必須ではありませんが通常は他の利用可能な時間ソースよりも大きい階層番号でこのドライバーを構成します。 このドライバーのデフォルトの5は、ネットワーク内の他の適切な同期ソースが利用可能な場合に、このドライバーが同期ソースを引き取ってしまうのを防ぎます。 偶発的または悪意による時刻公開から、インターネットのインフラストラクチャを保護するために、別の同期ソースが利用可能で動作している場合、このドライバーは無効になります。
  Monitor Data このドライバーは、clockstats を出力しません。
- Fudge Factors  time1 time 調整時間、単位：秒（小数点以下も可）、デフォルト 0.0秒 time2 time 周波数調整係数、単位：PPM（百万分の１）、デフォルト 0."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver1/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル "><title>Undisciplined Local Clock</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: ネットワークタイムプロトコル "></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>サポート</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>サポート Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>タイムサーバー</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>セキュリティに関するお知らせ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>開発者向けリソース</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>寄稿者リスト</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>連絡先</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>リファレンスライブラリ</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>梗概</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>メモ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>レポート</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>ソフトウェア</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>白い紙</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>ドキュメンテーション</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/ja/archives/>Archives</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/ja/archives/drivers/driver1/>Undisciplined Local Clock</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Undisciplined Local Clock</h1><dl><dt>Author: David L. Mills (<a href=mailto:mills@udel.edu>mills@udel.edu</a>)</dt><dd>Last update: 9-May-2014 08:34 UTC</dd></dl><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/drivers/driver1/#synopsis>Synopsis</a></li><li><a href=/archives/drivers/driver1/#description>Description</a></li><li><a href=/archives/drivers/driver1/#monitor-data>Monitor Data</a></li><li><a href=/archives/drivers/driver1/#fudge-factors>Fudge Factors</a></li><li><a href=/archives/drivers/driver1/#additional-information>Additional Information</a></li></ul><hr><h4 id=synopsis>Synopsis</h4><dl><dt><strong>Address:</strong> <code>127.127.1.<em>u</em></code></dt><dd><strong>Reference ID:</strong> <code>LOCL</code></dd><dd><strong>Driver ID:</strong> <code>LOCAL</code></dd></dl><hr><h4 id=description>Description</h4><blockquote><p><strong>ノート： このドライバーの使用はお勧めしません。</strong> もっと柔軟な代替方法については、<a href=/archives/4.2.8-series/orphan>Orphan Mode</a> をご参照下さい。</p></blockquote><p>このドライバーは、電波時計やモデムなどの外部同期ソースが利用できない隔離されたネットワークでの使用を目的としていました。
+ Fudge Factors  time1 time 調整時間、単位：秒（小数点以下も可）、デフォルト 0.0秒 time2 time 周波数調整係数、単位：PPM（百万分の１）、デフォルト 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver1/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
+
+
+
+  
+  <title>Undisciplined Local Clock</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: ネットワークタイムプロトコル "></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              サポート
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">サポート Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">タイムサーバー </a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">セキュリティに関するお知らせ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">開発者向けリソース</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">寄稿者リスト</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">連絡先 </a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              リファレンスライブラリ
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">梗概</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">メモ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">レポート</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">ソフトウェア</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">白い紙</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ドキュメンテーション
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/ja/archives/">Archives</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/ja/archives/drivers/driver1/">Undisciplined Local Clock</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Undisciplined Local Clock</h1>
+     
+    <dl>
+<dt>Author: David L. Mills (<a href="mailto:mills@udel.edu">mills@udel.edu</a>)</dt>
+<dd>Last update: 9-May-2014 08:34 UTC</dd>
+</dl>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/drivers/driver1/#synopsis">Synopsis</a></li>
+<li><a href="/archives/drivers/driver1/#description">Description</a></li>
+<li><a href="/archives/drivers/driver1/#monitor-data">Monitor Data</a></li>
+<li><a href="/archives/drivers/driver1/#fudge-factors">Fudge Factors</a></li>
+<li><a href="/archives/drivers/driver1/#additional-information">Additional Information</a></li>
+</ul>
+<hr>
+<h4 id="synopsis">Synopsis</h4>
+<dl>
+<dt><strong>Address:</strong> <code>127.127.1.<em>u</em></code></dt>
+<dd><strong>Reference ID:</strong> <code>LOCL</code></dd>
+<dd><strong>Driver ID:</strong> <code>LOCAL</code></dd>
+</dl>
+<hr>
+<h4 id="description">Description</h4>
+<blockquote>
+<p><strong>ノート： このドライバーの使用はお勧めしません。</strong> もっと柔軟な代替方法については、<a href="/archives/4.2.8-series/orphan">Orphan Mode</a> をご参照下さい。</p>
+</blockquote>
+<p>このドライバーは、電波時計やモデムなどの外部同期ソースが利用できない隔離されたネットワークでの使用を目的としていました。
 このドライバーを指定されたタイム・サーバーがプライマリ・サーバーとして機能し、ネットワーク上の他のクライアントに同期時刻を提供できます。
 優れたクロック発振器を備えたマシンを選び、このドライバーで構成します。利用可能な最良の時計を見て、そのマシンの時刻を設定します。
-次に、他のすべてのマシンの参照先をこのマシンに向けるか、ブロードキャスト・モードを使用して時間を配信します。</p><p>このドライバーの別の用途は、特定のタイム・サーバーで他の全ての通常の同期ソースがなくなったときに最後の手段のクロックとして使用する場合です。
+次に、他のすべてのマシンの参照先をこのマシンに向けるか、ブロードキャスト・モードを使用して時間を配信します。</p>
+<p>このドライバーの別の用途は、特定のタイム・サーバーで他の全ての通常の同期ソースがなくなったときに最後の手段のクロックとして使用する場合です。 
 これは、そのサーバーに周波数安定度が高い恒温槽発信器がある場合に特に役立ちます。
 このため、必須ではありませんが通常は他の利用可能な時間ソースよりも大きい階層番号でこのドライバーを構成します。
-このドライバーのデフォルトの5は、ネットワーク内の他の適切な同期ソースが利用可能な場合に、このドライバーが同期ソースを引き取ってしまうのを防ぎます。
-偶発的または悪意による時刻公開から、インターネットのインフラストラクチャを保護するために、別の同期ソースが利用可能で動作している場合、このドライバーは無効になります。</p><hr><h4 id=monitor-data>Monitor Data</h4><p>このドライバーは、<code>clockstats</code> を出力しません。</p><hr><h4 id=fudge-factors>Fudge Factors</h4><dl><dt><code><strong>time1 <em>time</em></strong></code></dt><dd>調整時間、単位：秒（小数点以下も可）、デフォルト 0.0秒</dd><dt><code><strong>time2 <em>time</em></strong></code></dt><dd>周波数調整係数、単位：PPM（百万分の１）、デフォルト 0.0</dd><dt><code><strong>stratum <em>number</em></strong></code></dt><dd>階層番号、0 から 15 の整数、デフォルト 5</dd><dt><code><strong>refid <em>string</em></strong></code></dt><dd>ドライバーのREFID、ASCIIの1文字から４文字、デフォルト <code>LOCL</code>.</dd><dt><code><strong>flag1 0 | 1</strong></code></dt><dd>未使用</dd><dt><code><strong>flag2 0 | 1</strong></code></dt><dd>未使用</dd><dt><code><strong>flag3 0 | 1</strong></code></dt><dd>未使用</dd><dt><code><strong>flag4 0 | 1</strong></code></dt><dd>未使用</dd></dl><hr><h4 id=additional-information>Additional Information</h4><p><a href=/archives/4.2.8-series/refclock>Reference Clock Drivers</a></p></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+このドライバーのデフォルトの5は、ネットワーク内の他の適切な同期ソースが利用可能な場合に、このドライバーが同期ソースを引き取ってしまうのを防ぎます。 
+偶発的または悪意による時刻公開から、インターネットのインフラストラクチャを保護するために、別の同期ソースが利用可能で動作している場合、このドライバーは無効になります。</p>
+<hr>
+<h4 id="monitor-data">Monitor Data</h4>
+<p>このドライバーは、<code>clockstats</code> を出力しません。</p>
+<hr>
+<h4 id="fudge-factors">Fudge Factors</h4>
+<dl>
+<dt><code><strong>time1 <em>time</em></strong></code></dt>
+<dd>調整時間、単位：秒（小数点以下も可）、デフォルト 0.0秒</dd>
+<dt><code><strong>time2 <em>time</em></strong></code></dt>
+<dd>周波数調整係数、単位：PPM（百万分の１）、デフォルト 0.0</dd>
+<dt><code><strong>stratum <em>number</em></strong></code></dt>
+<dd>階層番号、0 から 15 の整数、デフォルト 5</dd>
+<dt><code><strong>refid <em>string</em></strong></code></dt>
+<dd>ドライバーのREFID、ASCIIの1文字から４文字、デフォルト <code>LOCL</code>.</dd>
+<dt><code><strong>flag1 0 | 1</strong></code></dt>
+<dd>未使用</dd>
+<dt><code><strong>flag2 0 | 1</strong></code></dt>
+<dd>未使用</dd>
+<dt><code><strong>flag3 0 | 1</strong></code></dt>
+<dd>未使用</dd>
+<dt><code><strong>flag4 0 | 1</strong></code></dt>
+<dd>未使用</dd>
+</dl>
+<hr>
+<h4 id="additional-information">Additional Information</h4>
+<p><a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

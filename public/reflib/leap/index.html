@@ -1,29 +1,300 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
 from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
-The Mad Hatter and the March Hare are discussing whether the Teapot serial number should …"><meta property="og:title" content="The NTP Timescale and Leap Seconds"><meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+The Mad Hatter and the March Hare are discussing whether the Teapot serial number should …">
+<meta property="og:title" content="The NTP Timescale and Leap Seconds" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.
 Last update: 12-May-2012
- Table of Contents  Abstract Introduction How UTC Reckons with Leap Seconds How NTP and POSIX Reckon with Leap Seconds How NTP and POSIX Number the Seconds How NTP Implements Leap Seconds Parting Shots Appendix A. Specimen NIST leap-seconds.list File   Abstract The timescale used by the Network Time Protocol (NTP) is based on coordinated univeral time (UTC), which itself is based on the Earth rotation about its axis."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/reflib/leap/"><meta property="article:section" content="reflib"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>The NTP Timescale and Leap Seconds</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/reflib/>Reference Library</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/reflib/leap/>The NTP Timescale and Leap Seconds</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>The NTP Timescale and Leap Seconds</h1><p><img src=/archives/pic/alice15.gif alt=gif></p><p>from <a href=/reflib/pictures/><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p><p>The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.</p><p>Last update: 12-May-2012</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/reflib/leap/#abstract>Abstract</a></li><li><a href=/reflib/leap/#introduction>Introduction</a></li><li><a href=/reflib/leap/#how-utc-reckons-with-leap-seconds>How UTC Reckons with Leap Seconds</a></li><li><a href=/reflib/leap/#how-ntp-and-posix-reckon-with-leap-seconds>How NTP and POSIX Reckon with Leap Seconds</a></li><li><a href=/reflib/leap/#how-ntp-and-posix-number-the-seconds>How NTP and POSIX Number the Seconds</a></li><li><a href=/reflib/leap/#how-ntp-implements-leap-seconds>How NTP Implements Leap Seconds</a></li><li><a href=/reflib/leap/#parting-shots>Parting Shots</a></li><li><a href=/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file>Appendix A. Specimen NIST <tt>leap-seconds.list</tt> File</a></li></ul><hr><h4 id=abstract>Abstract</h4><p>The timescale used by the Network Time Protocol (NTP) is based on coordinated univeral time (UTC), which itself is based on the Earth rotation about its axis. As the rotation of the Earth is slowing very gradually, this requires a leap second to be inserted in the timescale at approximately eighteen month intervals. This document describes the mechanics of insertion and how it affects the timescale shortly before, during and after the leap second.</p><hr><h4 id=introduction>Introduction</h4><p>The conventional civil timescale used in most parts of the world is based on Coordinated Universal Time (UTC sic). The rate of UTC is based on International Atomic Time (TAI sic), which is derived from hundreds of cesium and hydrogen clocks in the national standards laboratories of many countries. The UTC timescale is derived from the UT1 timescale, which is based on the rotation of Earth about its axis. Corrections of UTC relative to UT1 are implemented in the form of leap seconds, which occur at intervals from several months to several years. This document considers what happens in the NTP timescale upon the epoch of a leap second and how and why it differs from conventional Unix models such as POSIX.</p><p>While TAI is useful in the scientific community, most of us reckon time according to the Sun and season. Starting from TAI, the UT0 timescale is determined using corrections for Earth orbit and inclination (the Equation of Time as used by sundials). The <a href=https://hpiers.obspm.fr>International Earth Rotation Service (IERS)</a> at the Paris Observatory uses astronomical observations provided by USNO and other observatories to determine the UT1 (navigator&rsquo;s) timescale corrected for irregular variations in Earth rotation.</p><hr><h4 id=how-utc-reckons-with-leap-seconds>How UTC Reckons with Leap Seconds</h4><p>While UT1 defines the solar day, adopting it would require resetting our clocks some fraction of a second every month or two. On the epoch 0h 1 January 1972, UTC was defined TAI - 10 s, within 0.5 s of UT1, but the offset TAI - UT1 has been slowly increasing since then; in mid 2007 it is 33 s. When the offset UT1 - UTC becomes greater than about 0.5 s, a leap second is inserted in the UTC timescale. The residual difference is called the DUT1 correction in broadcast timecode formats and is represented in deciseconds (0.1 s).</p><p>For the most precise coordination and timestamping of events since 1972, it is necessary to know when leap seconds were implemented in UTC and how the seconds are numbered. This is currently the responsibility of the IERS, which publishes periodic bulletins available on the Internet. As specified in CCIR Report 517 and later revised, a leap second is inserted following second 23:59:59 on the last day of any designated month and becomes second 23:59:60 of that day. A leap second would be deleted by omitting second 23:59:59 on one of these days, although this has never happened.</p><p>A record of leap seconds, both historic and anticipated, is included in the <a href=https://tf.nist.gov/pubs/bulletin/leapsecond.htm>NIST Time Scale Data Archive</a>, which has been updated on a monthly basis since UTC began in 1972. A computer-readable summary is available in the <code>leap-seconds.list</code> file, which includes the NTP time of each leap second, along with the TAI-UTC offset. A specimen <code>leap-seconds.list</code> file is shown in <a href=/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file>Appendix A</a>.</p><p>The UTC timescale thus ticks in standard SI seconds and was set TAI - 10 s at 0h Modified Julian Day (MJD) 41,317.5 according to the Julian-day calendar or 0h 1 January 1972 according to the Gregorian calendar. This established the first tick of the UTC era and its reckoning with these calendars. Subsequently, the UTC timescale has marched backward relative to the TAI timescale exactly one second on scheduled occasions recorded in the institutional memory of our civilization.</p><p>Note in passing that leap second adjustments affect the number of seconds per day and thus the number of seconds per year. Apparently, should we choose to worry about it, the UTC clock, Gregorian calendar and various cosmic oscillators will inexorably drift apart with time until rationalized by a future papal bull.</p><p>While of less use to the computer timekeeper, the Global Positioning System (GPS), which is widely used to disseminate standard time, has its own timescale. The GPS timescale is syntonic with TAI, but at a fixed time offset of -19 s from TAI, apparently because the final system design review was in 1980. GPS reference clocks typically convert from GPS to UTC for external readings.</p><hr><h4 id=how-ntp-and-posix-reckon-with-leap-seconds>How NTP and POSIX Reckon with Leap Seconds</h4><p>The NTP and POSIX timescales are based on the UTC timescale, but not always coincident with it. The origin of the NTP timescale, the prime epoch, is 0h 1 January 1900, while the prime epoch of the POSIX timescale is 0h 1 January 1970. Both timescales reckon in standard (SI) seconds since the prime epoch. For instance, upon the first tick of UTC on 0h 1 January 1972 the NTP clock read 2,272,060,800, representing the number of SI seconds since the prime epoch.</p><p>The insertion of leap seconds in UTC and subsequently into NTP and POSIX affect the system clock, and thus the conversion between system clock time and conventional civil time in hours, minutes and seconds. However, since the only institutional memory available to determine the conversion are the UTC national broadcast services, the conversion is in effect reset to UTC as each broadcast timecode is received. Thus, when a leap second is inserted in UTC and subsequently in NTP or POSIX, knowledge of all previous leap seconds is lost.</p><p>Another way to describe this is to say there are as many NTP or POSIX timescales as historic leap seconds. In effect, a new timescale is reestablished after each new leap second. Thus, all previous leap seconds, not to mention the apparent origin of the timescale itself, lurch backward one second as each new timescale is established. For instance, if a clock synchronized to UTC in 2005 was used to establish the UTC epoch of an event that occurred in early 1972 without correction, the event would appear 22 seconds late. As a result, for the most precise determination of epoch relative to the historic Gregorian calendar and UTC timescale, the user must subtract from the apparent NTP or POSIX epoch the relevant offset provided by the IERS. This is a feature of almost all present day time distribution mechanisms.</p><hr><h4 id=how-ntp-and-posix-number-the-seconds>How NTP and POSIX Number the Seconds</h4><p>There are three approaches to implementing a leap second. The first approach is to increment the system clock during the leap second and continue incrementing following the leap. The problem with this approach is that conversion to UTC requires knowledge of all past leap seconds and epoch of insertion. The second approach is to increment the system clock during the leap second and step the clock backward one second at the end of the leap second. This is the approach taken by the POSIX conventions. The problem with this approach is that the resulting timescale is discontinuous and ambiguous, since a reading during the leap is repeated one second later. The third approach is to freeze the clock during the leap second allowing the time to catch up at the end of the leap second. This is the approach taken by the NTP conventions.</p><p>The NTP conventions are based on a set of formal assertions suggested by the computer science theory community.</p><ul><li>The time apparent to dependent processes must be quasi-continuous. That is, if <code>δx</code> is the actual interval between two clock readings and <code>δy</code> is the measured difference between the readings, then as <code>δx</code> approaches zero, the maximum value of <code>δy</code> approaches <code><em>p</em></code>, where <code><em>p</em></code> is the precision as defined in the specification.</li><li>The time apparent to dependent processes must be monotone-definite increasing. That is, if process B reads the clock after process A, the reading of B must be strictly greater than the reading of A. This is a consequence of Lamport&rsquo;s &ldquo;happens before&rdquo; relation, which is designed to produce a partial order of clock readings.</li><li>The time apparent to dependent processes must be correct before and after the leap second itself. That is, a clock step, even if not apparent to dependent processes, occurs somewhere during the leap second itself. In NTP the step occurs at the beginning of the leap second, while in POSIX the step occurs at the end.</li></ul><p>The detailed chronometry with either of the POSIX or NTP conventions is illustrated in Table 1. It shows the seconds numbering at the beginning of the second just before, during and just after the leap second at 23:59:59 UTC on 31 December 1998.</p><table><thead><tr><th>Date</th><th>Time</th><th>TAI Offset</th><th>NTP Leap</th><th>NTP Seconds</th></tr></thead><tbody><tr><td>31 Dec 98</td><td>23:59:59</td><td>31</td><td>01</td><td>3,124,137,599</td></tr><tr><td></td><td>23:59:60</td><td>31</td><td>01</td><td>3,124,137,600</td></tr><tr><td>1 Jan 99</td><td>00:00:00</td><td>32</td><td>00</td><td>3,124,137,600</td></tr><tr><td></td><td>00:00:01</td><td>32</td><td>00</td><td>3,124,137,601</td></tr></tbody></table><p><strong>Table 1. NTP Leap Second Numbering</strong></p><p>While the last second of a normal day is 23:59:59, the last second of a leap day is 23:59:60. Since this makes the day one second longer than the usual day, the day rollover will not occur until the end of the first occurrence of second 3,124,137,600.</p><p>Note that the NTP Seconds column in Table 1 actually shows the epoch of the leap second itself, which is the precise epoch of insertion. The TAI Offset column shows the cumulative seconds offset of UTC relative to TAI; that is, the number of seconds to add to UTC in order to maintain nominal agreement with TAI.</p><p>Finally, note that the epoch of insertion is relative to the timescale immediately prior to that epoch; e.g., the epoch of the 31 December 1998 insertion is determined on the timescale in effect just prior to this insertion, which means the actual insertion relative to TAI is 21 seconds earlier than the apparent time on the UTC timescale.</p><hr><h4 id=how-ntp-implements-leap-seconds>How NTP Implements Leap Seconds</h4><p>The obvious question raised by the NTP conventions is what happens during the leap second itself when NTP time stops and the clock remains unchanged. The NTP leap bits are set on the leap day, either directly by a reference clock driver or indirectly by the protocol. The leap second is implemented at the end of the normal day of 86,400 s, then the leap bits are reset.</p><p>If the precision time kernel modifications have been implemented, the kernel includes a state machine that implements the actions required by the scenario. The state machine implemented in most recent Unix kernels is described in the <a href=/reflib/software/nanokernel.tar.gz><code>nanokernel</code></a> software distribution. At the first occurrence of second 3,124,137,600, the system clock is stepped backward one second. The operating system kernel time conversion routines can recognize this condition and show the leap second as number 60.</p><p>However, the routine that actually reads the clock is constrained never to step backwards, unless the step is significantly larger than one second, which might occur due to explicit operator direction. In this design time stands still during the leap second, but is correct commencing with the next second.</p><p><img src=/archives/pic/leap.gif alt=gif></p><p><strong>Figure 1. NTP Offset In the Vicinity of a Leap Second</strong></p><p>Figure 1 shows the behavior with the modified design used in most kernels. Unlike the POSIX conventions, the NTP clock is frozen and does not advance during the leap second, so there is no need to set it back one second at the end of the leap second. The chronometric correspondence between the UTC and NTP timescales continues, but NTP has forgotten about all past leap insertions. Thus, determination of UTC time intervals spanning leap seconds will be in error, unless the exact times of insertion are known from the NIST table and its successors.</p><p>Immediately after the leap second insertion, both timescales resume ticking the seconds as if the leap had never happened. The clock reading is constrained to always increase, so every reading during the leap second increases the NTP clock by at least one microsecond for older kernels and one nanosecond for newer ones.</p><p>In case A the clock was not read during the leap second, so appears to stand still. In case B the clock was read one or more times during the leap second, so the value increments beyond the last reading. This will persist until after the leap second the stepped-back clock catches up to this value.</p><hr><h4 id=parting-shots>Parting Shots</h4><p>There might be some concern about the possibility of a software hazard which attempts to read the system clock as fast as possible. In principle, this could lead to a large divergence between the clock reading and the actual time, and that could grow indefinitely. With a modern nanosecond kernels and a typical time to read the system clock of 100 ns, the divergence at the end of the leap second would be no more than 10 ms. On the other hand, with an older microsecond kernel and a typical time to read the system clock of 1000 ns, the divergence after the leap second could be as much as one second. Means should be provided to protect against this kind of hazard.</p><hr><h4 id=appendix-a-specimen-nist-ttleap-secondslisttt-file>Appendix A. Specimen NIST <tt>leap-seconds.list</tt> File</h4><p>The following is a verbatim copy of a specimen <code>leap seconds.list</code> file available from most NIST time servers. The file name is a link to the actual file name with extension depending on the file generation, such as <code>leap-seconds</code>.</p><pre>#
+ Table of Contents  Abstract Introduction How UTC Reckons with Leap Seconds How NTP and POSIX Reckon with Leap Seconds How NTP and POSIX Number the Seconds How NTP Implements Leap Seconds Parting Shots Appendix A. Specimen NIST leap-seconds.list File   Abstract The timescale used by the Network Time Protocol (NTP) is based on coordinated univeral time (UTC), which itself is based on the Earth rotation about its axis." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/leap/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>The NTP Timescale and Leap Seconds</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/reflib/leap/">The NTP Timescale and Leap Seconds</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>The NTP Timescale and Leap Seconds</h1>
+     
+    <p><img src="/archives/pic/alice15.gif" alt="gif"></p>
+<p>from <a href="/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
+<p>The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.</p>
+<p>Last update: 12-May-2012</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/reflib/leap/#abstract">Abstract</a></li>
+<li><a href="/reflib/leap/#introduction">Introduction</a></li>
+<li><a href="/reflib/leap/#how-utc-reckons-with-leap-seconds">How UTC Reckons with Leap Seconds</a></li>
+<li><a href="/reflib/leap/#how-ntp-and-posix-reckon-with-leap-seconds">How NTP and POSIX Reckon with Leap Seconds</a></li>
+<li><a href="/reflib/leap/#how-ntp-and-posix-number-the-seconds">How NTP and POSIX Number the Seconds</a></li>
+<li><a href="/reflib/leap/#how-ntp-implements-leap-seconds">How NTP Implements Leap Seconds</a></li>
+<li><a href="/reflib/leap/#parting-shots">Parting Shots</a></li>
+<li><a href="/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file">Appendix A. Specimen NIST <tt>leap-seconds.list</tt> File</a></li>
+</ul>
+<hr>
+<h4 id="abstract">Abstract</h4>
+<p>The timescale used by the Network Time Protocol (NTP) is based on coordinated univeral time (UTC), which itself is based on the Earth rotation about its axis. As the rotation of the Earth is slowing very gradually, this requires a leap second to be inserted in the timescale at approximately eighteen month intervals. This document describes the mechanics of insertion and how it affects the timescale shortly before, during and after the leap second.</p>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>The conventional civil timescale used in most parts of the world is based on Coordinated Universal Time (UTC sic). The rate of UTC is based on International Atomic Time (TAI sic), which is derived from hundreds of cesium and hydrogen clocks in the national standards laboratories of many countries. The UTC timescale is derived from the UT1 timescale, which is based on the rotation of Earth about its axis. Corrections of UTC relative to UT1 are implemented in the form of leap seconds, which occur at intervals from several months to several years. This document considers what happens in the NTP timescale upon the epoch of a leap second and how and why it differs from conventional Unix models such as POSIX.</p>
+<p>While TAI is useful in the scientific community, most of us reckon time according to the Sun and season. Starting from TAI, the UT0 timescale is determined using corrections for Earth orbit and inclination (the Equation of Time as used by sundials). The <a href="https://hpiers.obspm.fr">International Earth Rotation Service (IERS)</a> at the Paris Observatory uses astronomical observations provided by USNO and other observatories to determine the UT1 (navigator&rsquo;s) timescale corrected for irregular variations in Earth rotation.</p>
+<hr>
+<h4 id="how-utc-reckons-with-leap-seconds">How UTC Reckons with Leap Seconds</h4>
+<p>While UT1 defines the solar day, adopting it would require resetting our clocks some fraction of a second every month or two. On the epoch 0h 1 January 1972, UTC was defined TAI - 10 s, within 0.5 s of UT1, but the offset TAI - UT1 has been slowly increasing since then; in mid 2007 it is 33 s. When the offset UT1 - UTC becomes greater than about 0.5 s, a leap second is inserted in the UTC timescale. The residual difference is called the DUT1 correction in broadcast timecode formats and is represented in deciseconds (0.1 s).</p>
+<p>For the most precise coordination and timestamping of events since 1972, it is necessary to know when leap seconds were implemented in UTC and how the seconds are numbered. This is currently the responsibility of the IERS, which publishes periodic bulletins available on the Internet. As specified in CCIR Report 517 and later revised, a leap second is inserted following second 23:59:59 on the last day of any designated month and becomes second 23:59:60 of that day. A leap second would be deleted by omitting second 23:59:59 on one of these days, although this has never happened.</p>
+<p>A record of leap seconds, both historic and anticipated, is included in the <a href="https://tf.nist.gov/pubs/bulletin/leapsecond.htm">NIST Time Scale Data Archive</a>, which has been updated on a monthly basis since UTC began in 1972. A computer-readable summary is available in the <code>leap-seconds.list</code> file, which includes the NTP time of each leap second, along with the TAI-UTC offset. A specimen <code>leap-seconds.list</code> file is shown in <a href="/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file">Appendix A</a>.</p>
+<p>The UTC timescale thus ticks in standard SI seconds and was set TAI - 10 s at 0h Modified Julian Day (MJD) 41,317.5 according to the Julian-day calendar or 0h 1 January 1972 according to the Gregorian calendar. This established the first tick of the UTC era and its reckoning with these calendars. Subsequently, the UTC timescale has marched backward relative to the TAI timescale exactly one second on scheduled occasions recorded in the institutional memory of our civilization.</p>
+<p>Note in passing that leap second adjustments affect the number of seconds per day and thus the number of seconds per year. Apparently, should we choose to worry about it, the UTC clock, Gregorian calendar and various cosmic oscillators will inexorably drift apart with time until rationalized by a future papal bull.</p>
+<p>While of less use to the computer timekeeper, the Global Positioning System (GPS), which is widely used to disseminate standard time, has its own timescale. The GPS timescale is syntonic with TAI, but at a fixed time offset of -19 s from TAI, apparently because the final system design review was in 1980. GPS reference clocks typically convert from GPS to UTC for external readings.</p>
+<hr>
+<h4 id="how-ntp-and-posix-reckon-with-leap-seconds">How NTP and POSIX Reckon with Leap Seconds</h4>
+<p>The NTP and POSIX timescales are based on the UTC timescale, but not always coincident with it. The origin of the NTP timescale, the prime epoch, is 0h 1 January 1900, while the prime epoch of the POSIX timescale is 0h 1 January 1970. Both timescales reckon in standard (SI) seconds since the prime epoch. For instance, upon the first tick of UTC on 0h 1 January 1972 the NTP clock read 2,272,060,800, representing the number of SI seconds since the prime epoch.</p>
+<p>The insertion of leap seconds in UTC and subsequently into NTP and POSIX affect the system clock, and thus the conversion between system clock time and conventional civil time in hours, minutes and seconds. However, since the only institutional memory available to determine the conversion are the UTC national broadcast services, the conversion is in effect reset to UTC as each broadcast timecode is received. Thus, when a leap second is inserted in UTC and subsequently in NTP or POSIX, knowledge of all previous leap seconds is lost.</p>
+<p>Another way to describe this is to say there are as many NTP or POSIX timescales as historic leap seconds. In effect, a new timescale is reestablished after each new leap second. Thus, all previous leap seconds, not to mention the apparent origin of the timescale itself, lurch backward one second as each new timescale is established. For instance, if a clock synchronized to UTC in 2005 was used to establish the UTC epoch of an event that occurred in early 1972 without correction, the event would appear 22 seconds late. As a result, for the most precise determination of epoch relative to the historic Gregorian calendar and UTC timescale, the user must subtract from the apparent NTP or POSIX epoch the relevant offset provided by the IERS. This is a feature of almost all present day time distribution mechanisms.</p>
+<hr>
+<h4 id="how-ntp-and-posix-number-the-seconds">How NTP and POSIX Number the Seconds</h4>
+<p>There are three approaches to implementing a leap second. The first approach is to increment the system clock during the leap second and continue incrementing following the leap. The problem with this approach is that conversion to UTC requires knowledge of all past leap seconds and epoch of insertion. The second approach is to increment the system clock during the leap second and step the clock backward one second at the end of the leap second. This is the approach taken by the POSIX conventions. The problem with this approach is that the resulting timescale is discontinuous and ambiguous, since a reading during the leap is repeated one second later. The third approach is to freeze the clock during the leap second allowing the time to catch up at the end of the leap second. This is the approach taken by the NTP conventions.</p>
+<p>The NTP conventions are based on a set of formal assertions suggested by the computer science theory community.</p>
+<ul>
+<li>The time apparent to dependent processes must be quasi-continuous. That is, if <code>δx</code> is the actual interval between two clock readings and <code>δy</code> is the measured difference between the readings, then as <code>δx</code> approaches zero, the maximum value of <code>δy</code> approaches <code><em>p</em></code>, where <code><em>p</em></code> is the precision as defined in the specification.</li>
+<li>The time apparent to dependent processes must be monotone-definite increasing. That is, if process B reads the clock after process A, the reading of B must be strictly greater than the reading of A. This is a consequence of Lamport&rsquo;s &ldquo;happens before&rdquo; relation, which is designed to produce a partial order of clock readings.</li>
+<li>The time apparent to dependent processes must be correct before and after the leap second itself. That is, a clock step, even if not apparent to dependent processes, occurs somewhere during the leap second itself. In NTP the step occurs at the beginning of the leap second, while in POSIX the step occurs at the end.</li>
+</ul>
+<p>The detailed chronometry with either of the POSIX or NTP conventions is illustrated in Table 1. It shows the seconds numbering at the beginning of the second just before, during and just after the leap second at 23:59:59 UTC on 31 December 1998.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>TAI Offset</th>
+<th>NTP Leap</th>
+<th>NTP Seconds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>31 Dec 98</td>
+<td>23:59:59</td>
+<td>31</td>
+<td>01</td>
+<td>3,124,137,599</td>
+</tr>
+<tr>
+<td></td>
+<td>23:59:60</td>
+<td>31</td>
+<td>01</td>
+<td>3,124,137,600</td>
+</tr>
+<tr>
+<td>1 Jan 99</td>
+<td>00:00:00</td>
+<td>32</td>
+<td>00</td>
+<td>3,124,137,600</td>
+</tr>
+<tr>
+<td></td>
+<td>00:00:01</td>
+<td>32</td>
+<td>00</td>
+<td>3,124,137,601</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 1. NTP Leap Second Numbering</strong></p>
+<p>While the last second of a normal day is 23:59:59, the last second of a leap day is 23:59:60. Since this makes the day one second longer than the usual day, the day rollover will not occur until the end of the first occurrence of second 3,124,137,600.</p>
+<p>Note that the NTP Seconds column in Table 1 actually shows the epoch of the leap second itself, which is the precise epoch of insertion. The TAI Offset column shows the cumulative seconds offset of UTC relative to TAI; that is, the number of seconds to add to UTC in order to maintain nominal agreement with TAI.</p>
+<p>Finally, note that the epoch of insertion is relative to the timescale immediately prior to that epoch; e.g., the epoch of the 31 December 1998 insertion is determined on the timescale in effect just prior to this insertion, which means the actual insertion relative to TAI is 21 seconds earlier than the apparent time on the UTC timescale.</p>
+<hr>
+<h4 id="how-ntp-implements-leap-seconds">How NTP Implements Leap Seconds</h4>
+<p>The obvious question raised by the NTP conventions is what happens during the leap second itself when NTP time stops and the clock remains unchanged. The NTP leap bits are set on the leap day, either directly by a reference clock driver or indirectly by the protocol. The leap second is implemented at the end of the normal day of 86,400 s, then the leap bits are reset.</p>
+<p>If the precision time kernel modifications have been implemented, the kernel includes a state machine that implements the actions required by the scenario. The state machine implemented in most recent Unix kernels is described in the <a href="/reflib/software/nanokernel.tar.gz"><code>nanokernel</code></a> software distribution. At the first occurrence of second 3,124,137,600, the system clock is stepped backward one second. The operating system kernel time conversion routines can recognize this condition and show the leap second as number 60.</p>
+<p>However, the routine that actually reads the clock is constrained never to step backwards, unless the step is significantly larger than one second, which might occur due to explicit operator direction. In this design time stands still during the leap second, but is correct commencing with the next second.</p>
+<p><img src="/archives/pic/leap.gif" alt="gif"></p>
+<p><strong>Figure 1. NTP Offset In the Vicinity of a Leap Second</strong></p>
+<p>Figure 1 shows the behavior with the modified design used in most kernels. Unlike the POSIX conventions, the NTP clock is frozen and does not advance during the leap second, so there is no need to set it back one second at the end of the leap second. The chronometric correspondence between the UTC and NTP timescales continues, but NTP has forgotten about all past leap insertions. Thus, determination of UTC time intervals spanning leap seconds will be in error, unless the exact times of insertion are known from the NIST table and its successors.</p>
+<p>Immediately after the leap second insertion, both timescales resume ticking the seconds as if the leap had never happened. The clock reading is constrained to always increase, so every reading during the leap second increases the NTP clock by at least one microsecond for older kernels and one nanosecond for newer ones.</p>
+<p>In case A the clock was not read during the leap second, so appears to stand still. In case B the clock was read one or more times during the leap second, so the value increments beyond the last reading. This will persist until after the leap second the stepped-back clock catches up to this value.</p>
+<hr>
+<h4 id="parting-shots">Parting Shots</h4>
+<p>There might be some concern about the possibility of a software hazard which attempts to read the system clock as fast as possible. In principle, this could lead to a large divergence between the clock reading and the actual time, and that could grow indefinitely. With a modern nanosecond kernels and a typical time to read the system clock of 100 ns, the divergence at the end of the leap second would be no more than 10 ms. On the other hand, with an older microsecond kernel and a typical time to read the system clock of 1000 ns, the divergence after the leap second could be as much as one second. Means should be provided to protect against this kind of hazard.</p>
+<hr>
+<h4 id="appendix-a-specimen-nist-ttleap-secondslisttt-file">Appendix A. Specimen NIST <tt>leap-seconds.list</tt> File</h4>
+<p>The following is a verbatim copy of a specimen <code>leap seconds.list</code> file available from most NIST time servers. The file name is a link to the actual file name with extension depending on the file generation, such as <code>leap-seconds</code>.</p>
+<pre>#
 #	In the following text, the symbol '#' introduces
 #	a comment, which continues from that symbol until
 #	the end of the line. A plain comment line has a
@@ -254,4 +525,41 @@ Last update: 12-May-2012
 #
 #	465a56fc 6c72f658 f1fe29c8 eec831a4 e19b5438
 
-    </pre></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+    </pre>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,27 +1,259 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
 from pogo, Walt Kelly
 Researchers involved: David Mills, graduate student Harish Nair
-Funding: Defense Advanced Research Projects Agency (DARPA) and …"><meta property="og:title" content="NTP Discrete Event Simulator"><meta property="og:description" content="from pogo, Walt Kelly
+Funding: Defense Advanced Research Projects Agency (DARPA) and …">
+<meta property="og:title" content="NTP Discrete Event Simulator" />
+<meta property="og:description" content="from pogo, Walt Kelly
 Researchers involved: David Mills, graduate student Harish Nair
 Funding: Defense Advanced Research Projects Agency (DARPA) and Jet Propulsion Laboratory/NASA
- Table of Contents  Briefing Slides Importance of the Problem Brief Description of Work and Results Future Work   Briefing Slides  NTP Architecture, Protocol And Algorithms PDF NTP Clock Discipline algorithm PDF   Importance of the Problem Evaluating NTP performance has always been a time consuming process, as the measurement periods can be long - in the order of days in some cases - and the data collected must be processed and converted to a useful form."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/reflib/ntpsim/"><meta property="article:section" content="reflib"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>NTP Discrete Event Simulator</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/reflib/>Reference Library</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/reflib/ntpsim/>NTP Discrete Event Simulator</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>NTP Discrete Event Simulator</h1><p><img src=/archives/pic/pogo6.gif alt=gif></p><p>from <a href=/reflib/pictures/><em>pogo</em></a>, Walt Kelly</p><p>Researchers involved: David Mills, graduate student Harish Nair</p><p>Funding: Defense Advanced Research Projects Agency (DARPA) and Jet Propulsion Laboratory/NASA</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/reflib/ntpsim/#briefing-slides>Briefing Slides</a></li><li><a href=/reflib/ntpsim/#importance-of-the-problem>Importance of the Problem</a></li><li><a href=/reflib/ntpsim/#brief-description-of-work-and-results>Brief Description of Work and Results</a></li><li><a href=/reflib/ntpsim/#future-work>Future Work</a></li></ul><hr><h4 id=briefing-slides>Briefing Slides</h4><ul><li>NTP Architecture, Protocol And Algorithms <a href=/reflib/brief/arch/arch.pdf>PDF</a></li><li>NTP Clock Discipline algorithm <a href=/reflib/brief/clock/clock.pdf>PDF</a></li></ul><hr><h4 id=importance-of-the-problem>Importance of the Problem</h4><p>Evaluating NTP performance has always been a time consuming process, as the measurement periods can be long - in the order of days in some cases - and the data collected must be processed and converted to a useful form. Previously, special purpose simulators of one kind or another have been built for specific purposes. For example, a special purpose simulator was built to test the NTP mitigation and discipline algorithms and another to test the nanokernel discipline algorithms. These simulators were very useful to verify the transfer functions and explore the performance envelope. The most useful simulators have been those that used the actual code developed for the operational software, but encapsulated in a virtual environment. This reduces the potential for errors and allows exploration of a wide operational envelope including various error scenarios. This is the approach taken in the nanokernel simulator, which proved very valuable for these purposes.</p><p>None of the NTP simulators developed to date have used the actual code from the public software distribution, only glosses representing the actual code. We felt the need to develop a simulator that could exercise as much of the actual code as practical in a simulation environment. The primary motivation for this is the need to explore the response to various forms of network jitter and path asymmetries, oscillator wander and configuration parameters such as poll interval and various thresholds. A secondary motivation is the first step toward an enhanced simulator that can operate in a simulated space environment where NTP nodes are moving and accelerating.</p><p>A discrete event simulator (DES) is a computer program that can emulate the behavior of an interconnected network of real processes in response to designated inputs, or events. Many real world systems can be modeled as a DES where internal and external events occurring at specific times cause the system to change from one state to another, possibly generating outputs and events to occur at a future time. A DES includes a set of nodes and an event queue which holds a number of events, each of which is directed to a specific node and the time which it is to occur. The queue server processes each event in turn, which increments a virtual clock and executes the program resident in the particular node. This may result in a new event, which is placed on the queue at the point where it is to be executed, and possibly an output function.</p><p>Identifying the events involved in the system is the first step in designing a DES. Once the events are identified a data structure is defined to represent the event queue for the system, ordinarily a linked list of structures. Each structure includes a link to the routine that executes the event, a set of arguments specific to that event, a link to the next event in the queue and the time the event is to be executed. Events are inserted into the event queue in order of increasing event time. Upon execution, the event is removed from the queue. It is important to note that an event can schedule other events in future.</p><hr><h4 id=brief-description-of-work-and-results>Brief Description of Work and Results</h4><p>We have constructed a prototype DES for NTP. It includes all of the algorithms used to mitigate the time and discipline the local clock. These algorithms use the same NTP Version 4 software distribution, some with minor changes, to support synthetic network and clock hardware. The DES simulates one actual node in the NTP subnet as driven by another synthetic node with a given time and frequency offset. The offsets can be programmed by command arguments or generated using stochastic pseudo-random number generators with characteristics matching typical computer clock oscillators.</p><p>In its current form the DES simulates a single NTPv4 client operating with a single NTPv4 server. The NTPv4 software I/O functions are modified such that a NTP packet sent by the client is processed by the DES server and linked on the client receive queue. . AIn addition, the NTPv4 software timer functions that read, set and adjust the system time are modified to implement a synthetic system clock with nanosecond precision. Two pseudorandom noise generators produce exponentially distributed network delay samples and random-walk frequency wander samples. No changes have been made in the clock filter, selection and combining algorithms or in the clock discipline algorithm. The statistics recording functions remain, as well as the debug trace and logging functions. Further information can be found in the briefings listed at the top of this page and on the <a href=/archives/4.2.8-series/ntpdsim/><code>ntpdsim</code> - Network Time Protocol (NTP) simulator</a> program documentation page.</p><p>We have used the simulator to test NTP performance over a wide range of operating conditions, some of which are possible but extremely rare in the real world. The purpose of these tests is to study the system behavior under conditions requiring very long convergence times and clock state machine transitions difficult to study in the real world. The tests have resulted in a number of incremental improvents in several algorithms, in particular the clock discipline algorithm. As virtual time runs some 16,000 times faster than real time, testing convergence regimes at very long poll intervals runs in seconds, rather than days.</p><hr><h4 id=future-work>Future Work</h4><p>It would be interesting to explore the use of multiple NTP clients and servers in separate virtual environments on the same or different machines. This way the operation of an entire NTP subnet could be explored under conditions of stress, instability and threat. This also makes it practical to develop and test new discovery and synchronization paradigms without harnessing dedicated test network resources.</p></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+ Table of Contents  Briefing Slides Importance of the Problem Brief Description of Work and Results Future Work   Briefing Slides  NTP Architecture, Protocol And Algorithms PDF NTP Clock Discipline algorithm PDF   Importance of the Problem Evaluating NTP performance has always been a time consuming process, as the measurement periods can be long - in the order of days in some cases - and the data collected must be processed and converted to a useful form." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/ntpsim/" /><meta property="article:section" content="reflib" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>NTP Discrete Event Simulator</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/reflib/ntpsim/">NTP Discrete Event Simulator</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>NTP Discrete Event Simulator</h1>
+     
+    <p><img src="/archives/pic/pogo6.gif" alt="gif"></p>
+<p>from <a href="/reflib/pictures/"><em>pogo</em></a>, Walt Kelly</p>
+<p>Researchers involved: David Mills, graduate student Harish Nair</p>
+<p>Funding: Defense Advanced Research Projects Agency (DARPA) and Jet Propulsion Laboratory/NASA</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/reflib/ntpsim/#briefing-slides">Briefing Slides</a></li>
+<li><a href="/reflib/ntpsim/#importance-of-the-problem">Importance of the Problem</a></li>
+<li><a href="/reflib/ntpsim/#brief-description-of-work-and-results">Brief Description of Work and Results</a></li>
+<li><a href="/reflib/ntpsim/#future-work">Future Work</a></li>
+</ul>
+<hr>
+<h4 id="briefing-slides">Briefing Slides</h4>
+<ul>
+<li>NTP Architecture, Protocol And Algorithms <a href="/reflib/brief/arch/arch.pdf">PDF</a></li>
+<li>NTP Clock Discipline algorithm <a href="/reflib/brief/clock/clock.pdf">PDF</a></li>
+</ul>
+<hr>
+<h4 id="importance-of-the-problem">Importance of the Problem</h4>
+<p>Evaluating NTP performance has always been a time consuming process, as the measurement periods can be long - in the order of days in some cases - and the data collected must be processed and converted to a useful form. Previously, special purpose simulators of one kind or another have been built for specific purposes. For example, a special purpose simulator was built to test the NTP mitigation and discipline algorithms and another to test the nanokernel discipline algorithms. These simulators were very useful to verify the transfer functions and explore the performance envelope. The most useful simulators have been those that used the actual code developed for the operational software, but encapsulated in a virtual environment. This reduces the potential for errors and allows exploration of a wide operational envelope including various error scenarios. This is the approach taken in the nanokernel simulator, which proved very valuable for these purposes.</p>
+<p>None of the NTP simulators developed to date have used the actual code from the public software distribution, only glosses representing the actual code. We felt the need to develop a simulator that could exercise as much of the actual code as practical in a simulation environment. The primary motivation for this is the need to explore the response to various forms of network jitter and path asymmetries, oscillator wander and configuration parameters such as poll interval and various thresholds. A secondary motivation is the first step toward an enhanced simulator that can operate in a simulated space environment where NTP nodes are moving and accelerating.</p>
+<p>A discrete event simulator (DES) is a computer program that can emulate the behavior of an interconnected network of real processes in response to designated inputs, or events. Many real world systems can be modeled as a DES where internal and external events occurring at specific times cause the system to change from one state to another, possibly generating outputs and events to occur at a future time. A DES includes a set of nodes and an event queue which holds a number of events, each of which is directed to a specific node and the time which it is to occur. The queue server processes each event in turn, which increments a virtual clock and executes the program resident in the particular node. This may result in a new event, which is placed on the queue at the point where it is to be executed, and possibly an output function.</p>
+<p>Identifying the events involved in the system is the first step in designing a DES. Once the events are identified a data structure is defined to represent the event queue for the system, ordinarily a linked list of structures. Each structure includes a link to the routine that executes the event, a set of arguments specific to that event, a link to the next event in the queue and the time the event is to be executed. Events are inserted into the event queue in order of increasing event time. Upon execution, the event is removed from the queue. It is important to note that an event can schedule other events in future.</p>
+<hr>
+<h4 id="brief-description-of-work-and-results">Brief Description of Work and Results</h4>
+<p>We have constructed a prototype DES for NTP. It includes all of the algorithms used to mitigate the time and discipline the local clock. These algorithms use the same NTP Version 4 software distribution, some with minor changes, to support synthetic network and clock hardware. The DES simulates one actual node in the NTP subnet as driven by another synthetic node with a given time and frequency offset. The offsets can be programmed by command arguments or generated using stochastic pseudo-random number generators with characteristics matching typical computer clock oscillators.</p>
+<p>In its current form the DES simulates a single NTPv4 client operating with a single NTPv4 server. The NTPv4 software I/O functions are modified such that a NTP packet sent by the client is processed by the DES server and linked on the client receive queue. . AIn addition, the NTPv4 software timer functions that read, set and adjust the system time are modified to implement a synthetic system clock with nanosecond precision. Two pseudorandom noise generators produce exponentially distributed network delay samples and random-walk frequency wander samples. No changes have been made in the clock filter, selection and combining algorithms or in the clock discipline algorithm. The statistics recording functions remain, as well as the debug trace and logging functions. Further information can be found in the briefings listed at the top of this page and on the <a href="/archives/4.2.8-series/ntpdsim/"><code>ntpdsim</code> - Network Time Protocol (NTP) simulator</a> program documentation page.</p>
+<p>We have used the simulator to test NTP performance over a wide range of operating conditions, some of which are possible but extremely rare in the real world. The purpose of these tests is to study the system behavior under conditions requiring very long convergence times and clock state machine transitions difficult to study in the real world. The tests have resulted in a number of incremental improvents in several algorithms, in particular the clock discipline algorithm. As virtual time runs some 16,000 times faster than real time, testing convergence regimes at very long poll intervals runs in seconds, rather than days.</p>
+<hr>
+<h4 id="future-work">Future Work</h4>
+<p>It would be interesting to explore the use of multiple NTP clients and servers in separate virtual environments on the same or different machines. This way the operation of an entire NTP subnet could be explored under conditions of stress, instability and threat. This also makes it practical to develop and test new discovery and synchronization paradigms without harnessing dedicated test network resources.</p>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

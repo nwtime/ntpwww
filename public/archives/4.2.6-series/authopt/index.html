@@ -1,28 +1,532 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Our resident cryptographer; now you see him, now you don&rsquo;t.
-Last update: 	14-Apr-2010 …"><meta property="og:title" content="Authentication Options"><meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Last update: 	14-Apr-2010 …">
+<meta property="og:title" content="Authentication Options" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Our resident cryptographer; now you see him, now you don&rsquo;t.
 Last update: 14-Apr-2010 20:49 UTC
- Table of Contents  Introduction Symmetric Key Cryptography Public Key Cryptography NTP Secure Groups Identity Schemes and Cryptotypes Configuration Examples Authentication Commands Error Codes Files   Introduction This page describes the various cryptographic authentication provisions in NTPv4. Details about the configuration commands and options are given on the Configuration Options page."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.6-series/authopt/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>Authentication Options</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://test.doc.ntp.org/archives/4.2.6-series/>4.2.6-series</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/archives/4.2.6-series/authopt/>Authentication Options</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Authentication Options</h1><p><img src=/archives/pic/alice44.gif alt=gif><a href=/reflib/pictures/>from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p><p>Our resident cryptographer; now you see him, now you don&rsquo;t.</p><p>Last update: 14-Apr-2010 20:49 UTC</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.2.6-series/authopt/#introduction>Introduction</a></li><li><a href=/archives/4.2.6-series/authopt/#symmetric-key-cryptography>Symmetric Key Cryptography</a></li><li><a href=/archives/4.2.6-series/authopt/#public-key-cryptography>Public Key Cryptography</a></li><li><a href=/archives/4.2.6-series/authopt/#ntp-secure-groups>NTP Secure Groups</a></li><li><a href=/archives/4.2.6-series/authopt/#identity-schemes-and-cryptotypes>Identity Schemes and Cryptotypes</a></li><li><a href=/archives/4.2.6-series/authopt/#configuration>Configuration</a></li><li><a href=/archives/4.2.6-series/authopt/#examples>Examples</a></li><li><a href=/archives/4.2.6-series/authopt/#authentication-commands>Authentication Commands</a></li><li><a href=/archives/4.2.6-series/authopt/#error-codes>Error Codes</a></li><li><a href=/archives/4.2.6-series/authopt/#files>Files</a></li></ul><hr><h4 id=introduction>Introduction</h4><p>This page describes the various cryptographic authentication provisions in NTPv4. Details about the configuration commands and options are given on the <a href=/archives/4.2.6-series/confopt/>Configuration Options</a> page. Details about the automatic server discovery schemes are described on the <a href=/archives/4.2.6-series/manyopt/>Automatic Server Discovery Schemes</a> page. Additional information is available in the papers, reports, memoranda and briefings cited on the <a href=/reflib/ntp/>NTP Project</a> page. Authentication support allows the NTP client to verify that servers are in fact known and trusted and not intruders intending accidentally or intentionally to masquerade as a legitimate server.</p><p>The NTPv3 specification RFC-1305 defines a scheme properly described as symmetric key cryptography. It uses the Data Encryption Standard (DES) algorithm operating in cipher-block chaining (CBC) mode. Subsequently, this scheme was replaced by the RSA Message Digest 5 (MD5) algorithm commonly called keyed-MD5. Either algorithm computes a message digest or one-way hash which can be used to verify the client has the same key and key identifier as the server. If the OpenSSL cryptographic library is installed, support is available for all algorithms included in the library. Note however, if conformance to FIPS 140-2 is required, only a limited subset of these algorithms is available.</p><p>NTPv4 includes the NTPv3 scheme and optionally a new scheme based on public key cryptography and called Autokey. Public key cryptography is generally considered more secure than symmetric key cryptography, since the security is based on private and public values which are generated by each participant and where the private value is never revealed. Autokey uses X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library or the <a href=/archives/4.2.6-series/keygen/><code>ntp-keygen</code></a> utility program in the NTP software distribution.</p><p>While the algorithms for MD5 symmetric key cryptography are included in the NTPv4 software distribution, modern algorithms for symmetric key and public key cryptograpny requires the OpenSSL software library to be installed before building the NTP distribution. This library is available from <a href=https://www.openssl.org>https://www.openssl.org</a> and can be installed using the procedures outlined in the <a href=/archives/4.2.6-series/build/>Building and Installing the Distribution</a> page. Once installed, the configure and build process automatically detects the library and links the library routines required.</p><p>Note that according to US law, NTP binaries including OpenSSL library components, including the OpenSSL library itself, cannot be exported outside the US without license from the US Department of Commerce. Builders outside the US are advised to obtain the OpenSSL library directly from OpenSSL, which is outside the US, and build outside the US.</p><p>Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> option of the <code>server</code> configuration command, as described in the <a href=/archives/4.2.6-series/confopt/>Server Options</a> page, and the options described on this page. The <a href=/archives/4.2.6-series/keygen/>ntp-keygen</a> page describes the files required for the various authentication schemes. Further details are in the briefings, papers and reports in the <a href=/reflib/>Reference Library</a>.</p><hr><h4 id=symmetric-key-cryptography>Symmetric Key Cryptography</h4><p>The original RFC-1305 specification allows any one of possibly 65,534 keys (excluding zero), each distinguished by a 32-bit key ID, to authenticate an association. The servers and clients involved must agree on the key, key ID and key type to authenticate NTP packets. If an NTP packet includes a message authentication code (MAC), consisting of a key ID and message digest, it is accepted only if the key ID matches a trusted key and the message digest is verified with this key. Note that for historic reasons the message digest algorithm is not consistent with RFC-1828. The digest is computed directly from the concatenation of the key string followed by the packet contents with the exception of the MAC itself.</p><p>Keys and related information are specified in a keys file, usually called <code>ntp.keys</code>, which must be distributed and stored using secure means beyond the scope of the NTP protocol itself. Besides the keys used for ordinary NTP associations, additional keys can be used as passwords for the <code><a href=/archives/4.2.6-series/ntpq/>ntpq</a></code> and <code><a href=/archives/4.2.6-series/ntpdc/>ntpdc</a></code> utility programs. Ordinarily, the <code>ntp.keys</code> file is generated by the <code><a href=/archives/4.2.6-series/keygen/>ntp-keygen</a></code> program, but it can be constructed and edited using an ordinary text editor. The program generates pseudo-random keys, one key for each line. Each line consists of three fields, the key identifier as a decimal number from 1 to 65534 inclusive, a key type chosen from the keywords of the <code>digest</code> option of the <code>crypto</code> command, and a 20-character printable ASCII string or a 40-character hex string as the key itself.</p><p>When <code>ntpd</code> is first started, it reads the key file specified by the <code>keys</code> command and installs the keys in the key cache. However, individual keys must be activated with the <code>trustedkey</code> configuration command before use. This allows, for instance, the installation of possibly several batches of keys and then activating a key remotely using <code>ntpdc</code>. The <code>requestkey</code> command selects the key ID used as the password for the <code>ntpdc</code> utility, while the <code>controlkey</code> command selects the key ID used as the password for the <code>ntpq</code> utility.</p><p>By default, the message digest algorithm is MD5 selected by the key type <code>M</code> in the keys file. However, if the OpenSSL library is installed, any message digest algorithm supported by that library can be used. The key type is selected as the algorithm name given in the OpenSSL documentation. The key type is associated with the key and can be different for different keys. The server and client must share the same key, key ID and key type and both must be trusted. Note that if conformance to FIPS 140-2 is required, the message digest algorithm must conform to the Secure Hash Standard (SHS), which requires an algorithm from the Secure Hash Algorithm (SHA) family, and the digital signature encryption algorithm, if used, must conform to the Digital Signature Standard (DSS), which requires the Digital Signature Algorithm (DSA).</p><p>In addition to the above means, <code>ntpd</code> now supports Microsoft Windows MS-SNTP authentication using Active Directory services. This support was contributed by the Samba Team and is still in development. It is enabled using the <code>mssntp</code> flag of the <code>restrict</code> command described on the <a href=/archives/4.2.6-series/authopt/>Access Control Options</a> page.</p><blockquote><p><strong>Note: Potential users should be aware that these services involve a TCP connection to another process that could potentially block, denying services to other users. Therefore, this flag should be used only for a dedicated server with no clients other than MS-SNTP.</strong></p></blockquote><hr><h4 id=public-key-cryptography>Public Key Cryptography</h4><p>NTPv4 supports the Autokey security protocol, which is based on public key cryptography. The Autokey Version 2 protocol described on the <a href=/reflib/proto/>Autokey Protocol</a> page verifies packet integrity using MD5 message digests and verifies the source using digital signatures and any of several digest/signature schemes. Optional identity schemes described on the <a href=/reflib/ident/>Autokey Identity Schemes</a> page are based on cryptographic challenge/response exchanges. These schemes provide strong security against replay with or without message modification, spoofing, masquerade and most forms of clogging attacks. These schemes are described along with an executive summary, current status, briefing slides and reading list on the <a href=/reflib/autokey/>Autonomous Authentication</a> page.</p><p>Autokey authenticates individual packets using cookies bound to the IP source and destination addresses. The cookies must have the same addresses at both the server and client. For this reason operation with network address translation schemes is not possible. This reflects the intended robust security model where government and corporate NTP servers are operated outside firewall perimeters.</p><p>There are three timeouts associated with the Autokey scheme. The key list timeout, which defaults to about 1.1 h, specifies the interval between generating new key lists. The revoke timeout, which defaults to about 36 h, specifies the interval between generating new private values. The restart timeout, with default about 5 d, specifies the interval between protocol restarts to refresh public values. In general, the behavior when these timeouts expire is not affected by the issues discussed on this page.</p><hr><h4 id=ntp-secure-groups>NTP Secure Groups</h4><p>NTP secure groups are used to define cryptographic compartments and security hierarchies. All hosts belonging to a secure group have the same group name but different host names. The string specified in the <code>host</code> option of the <code>crypto</code> command is the name of the host and the name used in the host key, sign key and certificate files. The string specified in the <code>ident</code> option of the <code>crypto</code> command is the group name of all group hosts and the name used in the identity files. The file naming conventions are described on the <a href=/archives/4.2.6-series/keygen/>ntp-keygen</a> page.</p><p>Each group includes one or more trusted hosts (THs) operating at the root, or lowest stratum in the group. The group name is used in the subject and issuer fields of the TH self-signed trusted certificate for these hosts. The host name is used in the subject and issuer fields of the self-signed certificates for all other hosts.</p><p>All group hosts are configured to provide an unbroken path, called a certificate trail, from each host, possibly via intermediate hosts and ending at a TH. When a host starts up, it recursively retrieves the certificates along the trail in order to verify group membership and avoid masquerade and middleman attacks.</p><p>Secure groups can be configured as hierarchies where a TH of one group can be a client of one or more other groups operating at a lower stratum. A certificate trail consist of a chain of hosts starting at a client, leading through secondary servers of progressively lower stratum and ending at a TH. In one scenario, groups RED and GREEN can be cryptographically distinct, but both be clients of group BLUE operating at a lower stratum. In another scenario, group CYAN can be a client of multiple groups YELLOW and MAGENTA, both operating at a lower stratum. There are many other scenarios, but all must be configured to include only acyclic certificate trails.</p><hr><h4 id=identity-schemes-and-cryptotypes>Identity Schemes and Cryptotypes</h4><p>All configurations include a public/private host key pair and matching certificate. Absent an identity scheme, this is a Trusted Certificate (TC) scheme. There are three identity schemes, IFF, GQ and MV described on the <a href=/reflib/ident/>Identity Schemes</a> page. With these schemes all servers in the group have encrypted server identity keys, while clients have nonencrypted client identity parameters. The client parameters can be obtained from a trusted agent (TA), usually one of the THs of the lower stratum group. Further information on identity schemes is on the <a href=/reflib/ident/>Autokey Identity Schemes</a> page.</p><p>A specific combination of authentication and identity schemes is called a cryptotype, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the following codes.</p><dl><dt><strong>NONE</strong></dt><dd><p>A client or server is type NONE if authentication is not available or not configured. Packets exchanged between client and server have no MAC.</p></dd><dt><strong>AUTH</strong></dt><dd><p>A client or server is type AUTH if the <code>key</code> option is specified with the <code>server</code> configuration command and the client and server keys are compatible. Packets exchanged between clients and servers have a MAC.</p></dd><dt><strong>PC</strong></dt><dd><p>A client or server is type PC if the <code>autokey</code> option is specified with the <code>server</code> configuration command and compatible host key and private certificate files are present. Packets exchanged between clients and servers have a MAC.</p></dd><dt><strong>TC</strong></dt><dd><p>A client or server is type TC if the <code>autokey</code> option is specified with the <code>server</code> configuration command and compatible host key and public certificate files are present. Packets exchanged between clients and servers have a MAC.</p></dd><dt><strong>IDENT</strong></dt><dd><p>A client or server is type IDENT if the <code>autokey</code> option is specified with the <code>server</code> configuration command and compatible host key, public certificate and identity scheme files are present. Packets exchanged between clients and servers have a MAC.</p></dd></dl><p>The compatible cryptotypes for clients and servers are listed in the following table.</p><table><thead><tr><th>Client/Server</th><th>NONE</th><th>AUTH</th><th>PC</th><th>TC</th><th>IDENT</th></tr></thead><tbody><tr><td>NONE</td><td>yes</td><td>yes*</td><td>yes*</td><td>yes*</td><td>yes*</td></tr><tr><td>AUTH</td><td>no</td><td>yes</td><td>no</td><td>no</td><td>no</td></tr><tr><td>PC</td><td>no</td><td>no</td><td>yes</td><td>no</td><td>no</td></tr><tr><td>TC</td><td>no</td><td>no</td><td>no</td><td>yes</td><td>yes</td></tr><tr><td>IDENT</td><td>no</td><td>no</td><td>no</td><td>no</td><td>yes</td></tr></tbody></table><p>* These combinations are not valid if the restriction list includes the <code>notrust</code> option.</p><hr><h4 id=configuration>Configuration</h4><p>Autokey has an intimidating number of configuration options, most of which are not necessary in typical scenarios. The simplest scenario consists of a TH where the host name of the TH is also the name of the group. For the simplest identity scheme TC, the TH generates host key and trusted certificate files using the <code>ntp-keygen -T</code> command, while the remaining group hosts use the same command with no options to generate the host key and public certificate files. All hosts use the <code>crypto</code> configuration command with no options. Configuration with passwords is described in the <a href=/archives/4.2.6-series/keygen/>ntp-keygen</a> page. All group hosts are configured as an acyclic tree with root the TH.</p><p>When an identity scheme is included, for example IFF, the TH generates host key, trusted certificate and private server identity key files using the <code>ntp-keygen -T -I -i <em>group</em></code> command, where <code><em>group</em></code> is the group name. The remaining group hosts use the same command as above. All hosts use the <code>crypto ident group</code> configuration command.</p><p>Hosts with no dependent clients can retrieve client parameter files from an archive or web page. The <code>ntp-keygen</code> can export these data using the <code>-e</code> option. Hosts with dependent clients other than the TH must retrieve copies of the server key files using secure means. The <code>ntp-keygen</code> can export these data using the <code>-q</code> option. In either case the data are installed as a file and then renamed using the name given as the first line in the file, but without the filestamp.</p><hr><h4 id=examples>Examples</h4><p>Consider a scenario involving three secure groups RED, GREEN and BLUE. RED and BLUE are typical of national laboratories providing certified time to the Internet at large. As shown ion the figure, RED TH mort and BLUE TH macabre run NTP symmetric mode with each other for monitoring or backup. For the purpose of illustration, assume both THs are primary servers. GREEN is typical of a large university providing certified time to the campus community. GREEN TH howland is a broadcast client of both RED and BLUE. BLUE uses the IFF scheme, while both RED and GREEN use the GQ scheme, but with different keys. YELLOW is a client of GREEN and for purposes of illustration a TH for YELLOW.</p><p>The BLUE TH macabre uses configuration commands</p><p><code>crypto pw qqsv ident blue</code>
-<code>peer mort autokey</code><br><code>broadcast <em>address</em> autokey</code></p><p>where <code>qqsv</code> is the password for macabre files and <code><em>address</em></code> is the broadcast address for the local LAN. It generates BLUE files using the commands</p><p><code>ntp-keygen -p qqsv -T -G -i blue</code><br><code>ntp-keygen -p qqsv -e >ntpkey_gqpar_blue</code></p><p>The first line generates the host, trusted certificate and private GQ server keys file. The second generates the public GQ client parameters file, which can have any nonconflicting mnemonic name.</p><p>The RED TH mort uses configuration commands</p><p><code>crypto pw xxx ident red</code>
-<code>peer macabre autokey</code><br><code>broadcast <em>address</em> autokey</code></p><p>where <code>xxx</code> is the password for mort files. It generates RED files using the commands</p><p><code>ntp-keygen -p xxx -T -I -i red</code><br><code>ntp-keygen -p xxx -e >ntpkey_iffpar_red</code></p><p>The GREEN TH howland uses configuration commands</p><p><code>crypto pw yyy ident green</code><br><code>broadcastclient</code></p><p>where <code>yyy</code> is the password for howland files. It generates GREEN files using the commands</p><p><code>ntp-keygen -p yyy -T -G -i green</code><br><code>ntp-keygen -p yyy -e >ntpkey_gqpar_green</code><br><code>ntp-keygen -p yyy -q zzz >zzz_ntpkey_gqkey_green</code></p><p>The first two lines serve the same purpose as the preceding examples. The third line generates a copy of the private GREEN server file for use on another server in the same group, say YELLOW, but encrypted with the <code>zzz</code> password.</p><p>A client of GREEN, for example YELLOW, uses the configuration commands</p><p><code>crypto pw abc ident green</code><br><code>server howland autokey</code></p><p>where <code>abc</code> is the password for its files. It generates files using the command</p><p><code>ntp-keygen -p abc</code></p><p>The client retrieves the client file for that group from a public archive or web page using nonsecure means. In addition, each server in a group retrieves the private server keys file from the TH of that group, but it is encrypted and so must be sent using secure means. The files are installed in the keys directory with name taken from the first line in the file, but without the filestamp.</p><p>Note that if servers of different groups, in this case RED and BLUE, share the same broadcast media, each server must have client files for all groups other than its own, while each client must have client files for all groups. Note also that this scenario is for illustration only and probably would not be wise for practical use, as if one of the TH reference clocks fails, the certificate trail becomes cyclic. In such cases the symmetric path between RED and BLUE, each in a different group, would not be a good idea.</p><hr><h4 id=authentication-commands>Authentication Commands</h4><dl><dt><code><strong>automax [<em>logsec</em>]</strong></code></dt><dd><p>Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (about 1.1 h). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent.</p></dd><dt><code><strong>controlkey <em>keyid</em></strong></code></dt><dd><p>Specifies the key ID to use with the <a href=/archives/4.2.6-series/ntpq/><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. The <code><em>keyid</em></code> argument is the key ID for a trusted key, where the value can be in the range 1 to 65534, inclusive.</p></dd><dt><code><strong>crypto [randfile <em>file</em>] [host <em>name</em>] [ident <em>name</em>] [pw <em>password</em>]</strong></code></dt><dd><p>This command requires the OpenSSL library. It activates public key cryptography and loads the required host key and public certificate. If one or more files are left unspecified, the default names are used as described below. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <code>keysdir</code> configuration command or default <code>/usr/local/etc</code>. Following are the options.</p></dd><dt><code>digest MD2 | MD4 | MD5 | MDC2 | RIPEMD160 | SHA | SHA1</code></dt><dd><p>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <code><em>name</em></code> can be any message digest algorithm supported by the library not exceeding 160 bits in length. However, all Autokey participants in an Autokey subnet must use the same algorithm. Note that the Autokey message digest algorithm is separate and distinct form the symmetric key message digest algorithms.</p></dd></dl><blockquote><p>Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <code>SHA</code> or <code>SHA1</code>.</p></blockquote><dl><dt><code>host <em>name</em></code></dt><dd><p>Specifies the string used when constructing the names for the host, sign and certificate files generated by the <code>ntp-keygen</code> program with the <code>-s <em>name</em></code> option.</p></dd><dt><code>ident <em>name</em></code></dt><dd><p>Specifies the string used in constructing the identity files generated by the <code>ntp-keygen</code> program with the <code>-i <em>name</em></code> option.</p></dd><dt><code>pw <em>password</em></code></dt><dd><p>Specifies the password to decrypt files previously encrypted by the <code>ntp-keygen</code> program with the <code>-p</code> option.</p></dd><dt><code>randfile <em>file</em></code></dt><dd><p>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the <code>ntp-keygen</code> page.</p></dd><dt><code><strong>keys <em>keyfile</em></strong></code></dt><dd><p>Specifies the complete path to the MD5 key file containing the keys and key IDs used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric key cryptography. This is the same operation as the <code>-k</code> command line option. Note that the directory path for Autokey media is specified by the <code>keysdir</code> command.</p></dd><dt><code><strong>keysdir <em>path</em></strong></code></dt><dd><p>This command specifies the default directory path for Autokey cryptographic keys, parameters and certificates. The default is <code>/usr/local/etc/</code>. Note that the path for the symmetric keys file is specified by the <code>keys</code> command.</p></dd><dt><code><strong>requestkey <em>keyid</em></strong></code></dt><dd><p>Specifies the key ID to use with the <a href=/archives/4.2.6-series/ntpdc/><code>ntpdc</code></a> utility program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code><em>keyid</em></code> argument is a key ID for a trusted key, in the range 1 to 65534, inclusive.</p></dd><dt><code><strong>revoke [<em>logsec</em>]</strong></code></dt><dd><p>Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds. These values need to be updated frequently in order to deflect brute-force attacks on the algorithms; however, updating some values is a relatively expensive operation. The default interval is 17 (about 36 h). For poll intervals above the specified interval, the values will be updated for every message sent.</p></dd><dt><code><strong>trustedkey [<em>keyid</em> | (<em>lowid</em> &mldr; <em>highid</em>)] [&mldr;]</strong></code></dt><dd><p>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <code>ntpq</code> and <code>ntpdc</code> operations must be listed here and additionally be enabled with <em>controlkey</em> and/or <em>requestkey</em>. The authentication procedure for time transfer require that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <code>trustedkey (1 &mldr; 19) 1000 (100 &mldr; 199)</code> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</p></dd></dl><hr><h4 id=error-codes>Error Codes</h4><p>Errors can occur due to mismatched configurations, unexpected protocol restarts, expired certificates and unfriendly people. In most cases the protocol state machine recovers automatically by retransmission, timeout and restart, where necessary. Some errors are due to mismatched keys, digest schemes or identity schemes and must be corrected by installing the correct media and/or correcting the configuration file. One of the most common errors is expired certificates, which must be regenerated and signed at least once per year using the <a href=/archives/4.2.6-series/keygen/><code>ntp-keygen</code></a> program.</p><p>The following error codes are reported via the NTP control and monitoring protocol trap mechanism and to the <code>cryptostats</code> monitoring file if configured.</p><dl><dt><strong>101 bad field format or length</strong></dt><dd><p>The packet has invalid version, length or format.</p></dd><dt><strong>102 bad timestamp</strong></dt><dd><p>The packet timestamp is the same or older than the most recent received. This could be due to a replay or a server clock time step.</p></dd><dt><strong>103 bad filestamp</strong></dt><dd><p>The packet filestamp is the same or older than the most recent received. This could be due to a replay or a key file generation error.</p></dd><dt><strong>104 bad or missing public key</strong></dt><dd><p>The public key is missing, has incorrect format or is an unsupported type.</p></dd><dt><strong>105 unsupported digest type</strong></dt><dd><p>The server requires an unsupported digest/signature scheme.</p></dd><dt><strong>106 unsupported identity type</strong></dt><dd><p>The client or server has requested an identity scheme the other does not support.</p></dd><dt><strong>107 bad signature length</strong></dt><dd><p>The signature length does not match the current public key.</p></dd><dt><strong>108 signature not verified</strong></dt><dd><p>The message fails the signature check. It could be bogus or signed by a different private key.</p></dd><dt><strong>109 certificate not verified</strong></dt><dd><p>The certificate is invalid or signed with the wrong key.</p></dd><dt><strong>110 host certificate expired</strong></dt><dd><p>The old server certificate has expired.</p></dd><dt><strong>111 bad or missing cookie</strong></dt><dd><p>The cookie is missing, corrupted or bogus.</p></dd><dt><strong>112 bad or missing leapseconds table</strong></dt><dd><p>The leapseconds table is missing, corrupted or bogus.</p></dd><dt><strong>113 bad or missing certificate</strong></dt><dd><p>The certificate is missing, corrupted or bogus.</p></dd><dt><strong>114 bad or missing group key</strong></dt><dd><p>The identity key is missing, corrupt or bogus.</p></dd><dt><strong>115 protocol error</strong></dt><dd><p>The protocol state machine has wedged due to unexpected restart.</p></dd></dl><hr><h4 id=files>Files</h4><p>See the <a href=/archives/4.2.6-series/keygen/><code>ntp-keygen</code></a> page. Note that provisions to load leap second values from the NIST files have been removed. These provisions are now available whether or not the OpenSSL library is available. However, the functions that can download these values from servers remains available.</p></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+ Table of Contents  Introduction Symmetric Key Cryptography Public Key Cryptography NTP Secure Groups Identity Schemes and Cryptotypes Configuration Examples Authentication Commands Error Codes Files   Introduction This page describes the various cryptographic authentication provisions in NTPv4. Details about the configuration commands and options are given on the Configuration Options page." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.6-series/authopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>Authentication Options</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/archives/4.2.6-series/">4.2.6-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/archives/4.2.6-series/authopt/">Authentication Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Authentication Options</h1>
+     
+    <p><img src="/archives/pic/alice44.gif" alt="gif"><a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>Our resident cryptographer; now you see him, now you don&rsquo;t.</p>
+<p>Last update: 	14-Apr-2010 20:49 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.6-series/authopt/#introduction">Introduction</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#symmetric-key-cryptography">Symmetric Key Cryptography</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#public-key-cryptography">Public Key Cryptography</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#ntp-secure-groups">NTP Secure Groups</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#identity-schemes-and-cryptotypes">Identity Schemes and Cryptotypes</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#configuration">Configuration</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#examples">Examples</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#authentication-commands">Authentication Commands</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#error-codes">Error Codes</a></li>
+<li><a href="/archives/4.2.6-series/authopt/#files">Files</a></li>
+</ul>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>This page describes the various cryptographic authentication provisions in NTPv4. Details about the configuration commands and options are given on the <a href="/archives/4.2.6-series/confopt/">Configuration Options</a> page. Details about the automatic server discovery schemes are described on the <a href="/archives/4.2.6-series/manyopt/">Automatic Server Discovery Schemes</a> page. Additional information is available in the papers, reports, memoranda and briefings cited on the <a href="/reflib/ntp/">NTP Project</a> page. Authentication support allows the NTP client to verify that servers are in fact known and trusted and not intruders intending accidentally or intentionally to masquerade as a legitimate server.</p>
+<p>The NTPv3 specification RFC-1305 defines a scheme properly described as symmetric key cryptography. It uses the Data Encryption Standard (DES) algorithm operating in cipher-block chaining (CBC) mode. Subsequently, this scheme was replaced by the RSA Message Digest 5 (MD5) algorithm commonly called keyed-MD5. Either algorithm computes a message digest or one-way hash which can be used to verify the client has the same key and key identifier as the server. If the OpenSSL cryptographic library is installed, support is available for all algorithms included in the library. Note however, if conformance to FIPS 140-2 is required, only a limited subset of these algorithms is available.</p>
+<p>NTPv4 includes the NTPv3 scheme and optionally a new scheme based on public key cryptography and called Autokey. Public key cryptography is generally considered more secure than symmetric key cryptography, since the security is based on private and public values which are generated by each participant and where the private value is never revealed. Autokey uses X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library or the <a href="/archives/4.2.6-series/keygen/"><code>ntp-keygen</code></a> utility program in the NTP software distribution.</p>
+<p>While the algorithms for MD5 symmetric key cryptography are included in the NTPv4 software distribution, modern algorithms for symmetric key and public key cryptograpny requires the OpenSSL software library to be installed before building the NTP distribution. This library is available from <a href="https://www.openssl.org">https://www.openssl.org</a> and can be installed using the procedures outlined in the <a href="/archives/4.2.6-series/build/">Building and Installing the Distribution</a> page. Once installed, the configure and build process automatically detects the library and links the library routines required.</p>
+<p>Note that according to US law, NTP binaries including OpenSSL library components, including the OpenSSL library itself, cannot be exported outside the US without license from the US Department of Commerce. Builders outside the US are advised to obtain the OpenSSL library directly from OpenSSL, which is outside the US, and build outside the US.</p>
+<p>Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> option of the <code>server</code> configuration command, as described in the <a href="/archives/4.2.6-series/confopt/">Server Options</a> page, and the options described on this page. The <a href="/archives/4.2.6-series/keygen/">ntp-keygen</a> page describes the files required for the various authentication schemes. Further details are in the briefings, papers and reports in the <a href="/reflib/">Reference Library</a>.</p>
+<hr>
+<h4 id="symmetric-key-cryptography">Symmetric Key Cryptography</h4>
+<p>The original RFC-1305 specification allows any one of possibly 65,534 keys (excluding zero), each distinguished by a 32-bit key ID, to authenticate an association. The servers and clients involved must agree on the key, key ID and key type to authenticate NTP packets. If an NTP packet includes a message authentication code (MAC), consisting of a key ID and message digest, it is accepted only if the key ID matches a trusted key and the message digest is verified with this key. Note that for historic reasons the message digest algorithm is not consistent with RFC-1828. The digest is computed directly from the concatenation of the key string followed by the packet contents with the exception of the MAC itself.</p>
+<p>Keys and related information are specified in a keys file, usually called <code>ntp.keys</code>, which must be distributed and stored using secure means beyond the scope of the NTP protocol itself. Besides the keys used for ordinary NTP associations, additional keys can be used as passwords for the <code><a href="/archives/4.2.6-series/ntpq/">ntpq</a></code> and <code><a href="/archives/4.2.6-series/ntpdc/">ntpdc</a></code> utility programs. Ordinarily, the <code>ntp.keys</code> file is generated by the <code><a href="/archives/4.2.6-series/keygen/">ntp-keygen</a></code> program, but it can be constructed and edited using an ordinary text editor. The program generates pseudo-random keys, one key for each line. Each line consists of three fields, the key identifier as a decimal number from 1 to 65534 inclusive, a key type chosen from the keywords of the <code>digest</code> option of the <code>crypto</code> command, and a 20-character printable ASCII string or a 40-character hex string as the key itself.</p>
+<p>When <code>ntpd</code> is first started, it reads the key file specified by the <code>keys</code> command and installs the keys in the key cache. However, individual keys must be activated with the <code>trustedkey</code> configuration command before use. This allows, for instance, the installation of possibly several batches of keys and then activating a key remotely using <code>ntpdc</code>. The <code>requestkey</code> command selects the key ID used as the password for the <code>ntpdc</code> utility, while the <code>controlkey</code> command selects the key ID used as the password for the <code>ntpq</code> utility.</p>
+<p>By default, the message digest algorithm is MD5 selected by the key type <code>M</code> in the keys file. However, if the OpenSSL library is installed, any message digest algorithm supported by that library can be used. The key type is selected as the algorithm name given in the OpenSSL documentation. The key type is associated with the key and can be different for different keys. The server and client must share the same key, key ID and key type and both must be trusted. Note that if conformance to FIPS 140-2 is required, the message digest algorithm must conform to the Secure Hash Standard (SHS), which requires an algorithm from the Secure Hash Algorithm (SHA) family, and the digital signature encryption algorithm, if used, must conform to the Digital Signature Standard (DSS), which requires the Digital Signature Algorithm (DSA).</p>
+<p>In addition to the above means, <code>ntpd</code> now supports Microsoft Windows MS-SNTP authentication using Active Directory services. This support was contributed by the Samba Team and is still in development. It is enabled using the <code>mssntp</code> flag of the <code>restrict</code> command described on the <a href="/archives/4.2.6-series/authopt/">Access Control Options</a> page.</p>
+<blockquote>
+<p><strong>Note: Potential users should be aware that these services involve a TCP connection to another process that could potentially block, denying services to other users. Therefore, this flag should be used only for a dedicated server with no clients other than MS-SNTP.</strong></p>
+</blockquote>
+<hr>
+<h4 id="public-key-cryptography">Public Key Cryptography</h4>
+<p>NTPv4 supports the Autokey security protocol, which is based on public key cryptography. The Autokey Version 2 protocol described on the <a href="/reflib/proto/">Autokey Protocol</a> page verifies packet integrity using MD5 message digests and verifies the source using digital signatures and any of several digest/signature schemes. Optional identity schemes described on the <a href="/reflib/ident/">Autokey Identity Schemes</a> page are based on cryptographic challenge/response exchanges. These schemes provide strong security against replay with or without message modification, spoofing, masquerade and most forms of clogging attacks. These schemes are described along with an executive summary, current status, briefing slides and reading list on the <a href="/reflib/autokey/">Autonomous Authentication</a> page.</p>
+<p>Autokey authenticates individual packets using cookies bound to the IP source and destination addresses. The cookies must have the same addresses at both the server and client. For this reason operation with network address translation schemes is not possible. This reflects the intended robust security model where government and corporate NTP servers are operated outside firewall perimeters.</p>
+<p>There are three timeouts associated with the Autokey scheme. The key list timeout, which defaults to about 1.1 h, specifies the interval between generating new key lists. The revoke timeout, which defaults to about 36 h, specifies the interval between generating new private values. The restart timeout, with default about 5 d, specifies the interval between protocol restarts to refresh public values. In general, the behavior when these timeouts expire is not affected by the issues discussed on this page.</p>
+<hr>
+<h4 id="ntp-secure-groups">NTP Secure Groups</h4>
+<p>NTP secure groups are used to define cryptographic compartments and security hierarchies. All hosts belonging to a secure group have the same group name but different host names. The string specified in the <code>host</code> option of the <code>crypto</code> command is the name of the host and the name used in the host key, sign key and certificate files. The string specified in the <code>ident</code> option of the <code>crypto</code> command is the group name of all group hosts and the name used in the identity files. The file naming conventions are described on the <a href="/archives/4.2.6-series/keygen/">ntp-keygen</a> page.</p>
+<p>Each group includes one or more trusted hosts (THs) operating at the root, or lowest stratum in the group. The group name is used in the subject and issuer fields of the TH self-signed trusted certificate for these hosts. The host name is used in the subject and issuer fields of the self-signed certificates for all other hosts.</p>
+<p>All group hosts are configured to provide an unbroken path, called a certificate trail, from each host, possibly via intermediate hosts and ending at a TH. When a host starts up, it recursively retrieves the certificates along the trail in order to verify group membership and avoid masquerade and middleman attacks.</p>
+<p>Secure groups can be configured as hierarchies where a TH of one group can be a client of one or more other groups operating at a lower stratum. A certificate trail consist of a chain of hosts starting at a client, leading through secondary servers of progressively lower stratum and ending at a TH. In one scenario, groups RED and GREEN can be cryptographically distinct, but both be clients of group BLUE operating at a lower stratum. In another scenario, group CYAN can be a client of multiple groups YELLOW and MAGENTA, both operating at a lower stratum. There are many other scenarios, but all must be configured to include only acyclic certificate trails.</p>
+<hr>
+<h4 id="identity-schemes-and-cryptotypes">Identity Schemes and Cryptotypes</h4>
+<p>All configurations include a public/private host key pair and matching certificate. Absent an identity scheme, this is a Trusted Certificate (TC) scheme. There are three identity schemes, IFF, GQ and MV described on the <a href="/reflib/ident/">Identity Schemes</a> page. With these schemes all servers in the group have encrypted server identity keys, while clients have nonencrypted client identity parameters. The client parameters can be obtained from a trusted agent (TA), usually one of the THs of the lower stratum group. Further information on identity schemes is on the <a href="/reflib/ident/">Autokey Identity Schemes</a> page.</p>
+<p>A specific combination of authentication and identity schemes is called a cryptotype, which applies to clients and servers separately. A group can be configured using more than one cryptotype combination, although not all combinations are interoperable. Note however that some cryptotype combinations may successfully intemperate with each other, but may not represent good security practice. The server and client cryptotypes are defined by the following codes.</p>
+<dl>
+<dt><strong>NONE</strong></dt>
+<dd>
+<p>A client or server is type NONE if authentication is not available or not configured. Packets exchanged between client and server have no MAC.</p>
+</dd>
+<dt><strong>AUTH</strong></dt>
+<dd>
+<p>A client or server is type AUTH if the <code>key</code> option is specified with the <code>server</code> configuration command and the client and server keys are compatible. Packets exchanged between clients and servers have a MAC.</p>
+</dd>
+<dt><strong>PC</strong></dt>
+<dd>
+<p>A client or server is type PC if the <code>autokey</code> option is specified with the <code>server</code> configuration command and compatible host key and private certificate files are present. Packets exchanged between clients and servers have a MAC.</p>
+</dd>
+<dt><strong>TC</strong></dt>
+<dd>
+<p>A client or server is type TC if the <code>autokey</code> option is specified with the <code>server</code> configuration command and compatible host key and public certificate files are present. Packets exchanged between clients and servers have a MAC.</p>
+</dd>
+<dt><strong>IDENT</strong></dt>
+<dd>
+<p>A client or server is type IDENT if the <code>autokey</code> option is specified with the <code>server</code> configuration command and compatible host key, public certificate and identity scheme files are present. Packets exchanged between clients and servers have a MAC.</p>
+</dd>
+</dl>
+<p>The compatible cryptotypes for clients and servers are listed in the following table.</p>
+<table>
+<thead>
+<tr>
+<th>Client/Server</th>
+<th>NONE</th>
+<th>AUTH</th>
+<th>PC</th>
+<th>TC</th>
+<th>IDENT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NONE</td>
+<td>yes</td>
+<td>yes*</td>
+<td>yes*</td>
+<td>yes*</td>
+<td>yes*</td>
+</tr>
+<tr>
+<td>AUTH</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>PC</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>TC</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>IDENT</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>* These combinations are not valid if the restriction list includes the <code>notrust</code> option.</p>
+<hr>
+<h4 id="configuration">Configuration</h4>
+<p>Autokey has an intimidating number of configuration options, most of which are not necessary in typical scenarios. The simplest scenario consists of a TH where the host name of the TH is also the name of the group. For the simplest identity scheme TC, the TH generates host key and trusted certificate files using the <code>ntp-keygen -T</code> command, while the remaining group hosts use the same command with no options to generate the host key and public certificate files. All hosts use the <code>crypto</code> configuration command with no options. Configuration with passwords is described in the <a href="/archives/4.2.6-series/keygen/">ntp-keygen</a> page. All group hosts are configured as an acyclic tree with root the TH.</p>
+<p>When an identity scheme is included, for example IFF, the TH generates host key, trusted certificate and private server identity key files using the <code>ntp-keygen -T -I -i <em>group</em></code> command, where <code><em>group</em></code> is the group name. The remaining group hosts use the same command as above. All hosts use the <code>crypto ident group</code> configuration command.</p>
+<p>Hosts with no dependent clients can retrieve client parameter files from an archive or web page. The <code>ntp-keygen</code> can export these data using the <code>-e</code> option. Hosts with dependent clients other than the TH must retrieve copies of the server key files using secure means. The <code>ntp-keygen</code> can export these data using the <code>-q</code> option. In either case the data are installed as a file and then renamed using the name given as the first line in the file, but without the filestamp.</p>
+<hr>
+<h4 id="examples">Examples</h4>
+<p>Consider a scenario involving three secure groups RED, GREEN and BLUE. RED and BLUE are typical of national laboratories providing certified time to the Internet at large. As shown ion the figure, RED TH mort and BLUE TH macabre run NTP symmetric mode with each other for monitoring or backup. For the purpose of illustration, assume both THs are primary servers. GREEN is typical of a large university providing certified time to the campus community. GREEN TH howland is a broadcast client of both RED and BLUE. BLUE uses the IFF scheme, while both RED and GREEN use the GQ scheme, but with different keys. YELLOW is a client of GREEN and for purposes of illustration a TH for YELLOW.</p>
+<p>The BLUE TH macabre uses configuration commands</p>
+<p><code>crypto pw qqsv ident blue</code>
+<code>peer mort autokey</code><br>
+<code>broadcast <em>address</em> autokey</code></p>
+<p>where <code>qqsv</code> is the password for macabre files and <code><em>address</em></code> is the broadcast address for the local LAN. It generates BLUE files using the commands</p>
+<p><code>ntp-keygen -p qqsv -T -G -i blue</code><br>
+<code>ntp-keygen -p qqsv -e &gt;ntpkey_gqpar_blue</code></p>
+<p>The first line generates the host, trusted certificate and private GQ server keys file. The second generates the public GQ client parameters file, which can have any nonconflicting mnemonic name.</p>
+<p>The RED TH mort uses configuration commands</p>
+<p><code>crypto pw xxx ident red</code>
+<code>peer macabre autokey</code><br>
+<code>broadcast <em>address</em> autokey</code></p>
+<p>where <code>xxx</code> is the password for mort files. It generates RED files using the commands</p>
+<p><code>ntp-keygen -p xxx -T -I -i red</code><br>
+<code>ntp-keygen -p xxx -e &gt;ntpkey_iffpar_red</code></p>
+<p>The GREEN TH howland uses configuration commands</p>
+<p><code>crypto pw yyy ident green</code><br>
+<code>broadcastclient</code></p>
+<p>where <code>yyy</code> is the password for howland files. It generates GREEN files using the commands</p>
+<p><code>ntp-keygen -p yyy -T -G -i green</code><br>
+<code>ntp-keygen -p yyy -e &gt;ntpkey_gqpar_green</code><br>
+<code>ntp-keygen -p yyy -q zzz &gt;zzz_ntpkey_gqkey_green</code></p>
+<p>The first two lines serve the same purpose as the preceding examples. The third line generates a copy of the private GREEN server file for use on another server in the same group, say YELLOW, but encrypted with the <code>zzz</code> password.</p>
+<p>A client of GREEN, for example YELLOW, uses the configuration commands</p>
+<p><code>crypto pw abc ident green</code><br>
+<code>server howland autokey</code></p>
+<p>where <code>abc</code> is the password for its files. It generates files using the command</p>
+<p><code>ntp-keygen -p abc</code></p>
+<p>The client retrieves the client file for that group from a public archive or web page using nonsecure means. In addition, each server in a group retrieves the private server keys file from the TH of that group, but it is encrypted and so must be sent using secure means. The files are installed in the keys directory with name taken from the first line in the file, but without the filestamp.</p>
+<p>Note that if servers of different groups, in this case RED and BLUE, share the same broadcast media, each server must have client files for all groups other than its own, while each client must have client files for all groups. Note also that this scenario is for illustration only and probably would not be wise for practical use, as if one of the TH reference clocks fails, the certificate trail becomes cyclic. In such cases the symmetric path between RED and BLUE, each in a different group, would not be a good idea.</p>
+<hr>
+<h4 id="authentication-commands">Authentication Commands</h4>
+<dl>
+<dt><code><strong>automax [<em>logsec</em>]</strong></code></dt>
+<dd>
+<p>Specifies the interval between regenerations of the session key list used with the Autokey protocol, as a power of 2 in seconds. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (about 1.1 h). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent.</p>
+</dd>
+<dt><code><strong>controlkey <em>keyid</em></strong></code></dt>
+<dd>
+<p>Specifies the key ID to use with the <a href="/archives/4.2.6-series/ntpq/"><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. The <code><em>keyid</em></code> argument is the key ID for a trusted key, where the value can be in the range 1 to 65534, inclusive.</p>
+</dd>
+<dt><code><strong>crypto [randfile <em>file</em>] [host <em>name</em>] [ident <em>name</em>] [pw <em>password</em>]</strong></code></dt>
+<dd>
+<p>This command requires the OpenSSL library. It activates public key cryptography and loads the required host key and public certificate. If one or more files are left unspecified, the default names are used as described below. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <code>keysdir</code> configuration command or default <code>/usr/local/etc</code>. Following are the options.</p>
+</dd>
+<dt><code>digest MD2 | MD4 | MD5 | MDC2 | RIPEMD160 | SHA | SHA1</code></dt>
+<dd>
+<p>Specify the message digest algorithm, with default MD5. If the OpenSSL library is installed, <code><em>name</em></code> can be any message digest algorithm supported by the library not exceeding 160 bits in length. However, all Autokey participants in an Autokey subnet must use the same algorithm. Note that the Autokey message digest algorithm is separate and distinct form the symmetric key message digest algorithms.</p>
+</dd>
+</dl>
+<blockquote>
+<p>Note: If compliance with FIPS 140-2 is required, the algorithm must be ether <code>SHA</code> or <code>SHA1</code>.</p>
+</blockquote>
+<dl>
+<dt><code>host <em>name</em></code></dt>
+<dd>
+<p>Specifies the string used when constructing the names for the host, sign and certificate files generated by the <code>ntp-keygen</code> program with the <code>-s <em>name</em></code> option.</p>
+</dd>
+<dt><code>ident <em>name</em></code></dt>
+<dd>
+<p>Specifies the string used in constructing the identity files generated by the <code>ntp-keygen</code> program with the <code>-i <em>name</em></code> option.</p>
+</dd>
+<dt><code>pw <em>password</em></code></dt>
+<dd>
+<p>Specifies the password to decrypt files previously encrypted by the <code>ntp-keygen</code> program with the <code>-p</code> option.</p>
+</dd>
+<dt><code>randfile <em>file</em></code></dt>
+<dd>
+<p>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described on the <code>ntp-keygen</code> page.</p>
+</dd>
+<dt><code><strong>keys <em>keyfile</em></strong></code></dt>
+<dd>
+<p>Specifies the complete path to the MD5 key file containing the keys and key IDs used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric key cryptography. This is the same operation as the <code>-k</code> command line option. Note that the directory path for Autokey media is specified by the <code>keysdir</code> command.</p>
+</dd>
+<dt><code><strong>keysdir <em>path</em></strong></code></dt>
+<dd>
+<p>This command specifies the default directory path for Autokey cryptographic keys, parameters and certificates. The default is <code>/usr/local/etc/</code>. Note that the path for the symmetric keys file is specified by the <code>keys</code> command.</p>
+</dd>
+<dt><code><strong>requestkey <em>keyid</em></strong></code></dt>
+<dd>
+<p>Specifies the key ID to use with the <a href="/archives/4.2.6-series/ntpdc/"><code>ntpdc</code></a> utility program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code><em>keyid</em></code> argument is a key ID for a trusted key, in the range 1 to 65534, inclusive.</p>
+</dd>
+<dt><code><strong>revoke [<em>logsec</em>]</strong></code></dt>
+<dd>
+<p>Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds. These values need to be updated frequently in order to deflect brute-force attacks on the algorithms; however, updating some values is a relatively expensive operation. The default interval is 17 (about 36 h). For poll intervals above the specified interval, the values will be updated for every message sent.</p>
+</dd>
+<dt><code><strong>trustedkey [<em>keyid</em> | (<em>lowid</em> &hellip; <em>highid</em>)] [&hellip;]</strong></code></dt>
+<dd>
+<p>Specifies the key ID(s) which are trusted for the purposes of authenticating peers with symmetric key cryptography. Key IDs used to authenticate <code>ntpq</code> and <code>ntpdc</code> operations must be listed here and additionally be enabled with <em>controlkey</em> and/or <em>requestkey</em>. The authentication procedure for time transfer require that both the local and remote NTP servers employ the same key ID and secret for this purpose, although different keys IDs may be used with different servers. Ranges of trusted key IDs may be specified: <code>trustedkey (1 &hellip; 19) 1000 (100 &hellip; 199)</code> enables the lowest 120 key IDs which start with the digit 1. The spaces surrounding the ellipsis are required when specifying a range.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="error-codes">Error Codes</h4>
+<p>Errors can occur due to mismatched configurations, unexpected protocol restarts, expired certificates and unfriendly people. In most cases the protocol state machine recovers automatically by retransmission, timeout and restart, where necessary. Some errors are due to mismatched keys, digest schemes or identity schemes and must be corrected by installing the correct media and/or correcting the configuration file. One of the most common errors is expired certificates, which must be regenerated and signed at least once per year using the <a href="/archives/4.2.6-series/keygen/"><code>ntp-keygen</code></a> program.</p>
+<p>The following error codes are reported via the NTP control and monitoring protocol trap mechanism and to the <code>cryptostats</code> monitoring file if configured.</p>
+<dl>
+<dt><strong>101 bad field format or length</strong></dt>
+<dd>
+<p>The packet has invalid version, length or format.</p>
+</dd>
+<dt><strong>102 bad timestamp</strong></dt>
+<dd>
+<p>The packet timestamp is the same or older than the most recent received. This could be due to a replay or a server clock time step.</p>
+</dd>
+<dt><strong>103 bad filestamp</strong></dt>
+<dd>
+<p>The packet filestamp is the same or older than the most recent received. This could be due to a replay or a key file generation error.</p>
+</dd>
+<dt><strong>104 bad or missing public key</strong></dt>
+<dd>
+<p>The public key is missing, has incorrect format or is an unsupported type.</p>
+</dd>
+<dt><strong>105 unsupported digest type</strong></dt>
+<dd>
+<p>The server requires an unsupported digest/signature scheme.</p>
+</dd>
+<dt><strong>106 unsupported identity type</strong></dt>
+<dd>
+<p>The client or server has requested an identity scheme the other does not support.</p>
+</dd>
+<dt><strong>107 bad signature length</strong></dt>
+<dd>
+<p>The signature length does not match the current public key.</p>
+</dd>
+<dt><strong>108 signature not verified</strong></dt>
+<dd>
+<p>The message fails the signature check. It could be bogus or signed by a different private key.</p>
+</dd>
+<dt><strong>109 certificate not verified</strong></dt>
+<dd>
+<p>The certificate is invalid or signed with the wrong key.</p>
+</dd>
+<dt><strong>110 host certificate expired</strong></dt>
+<dd>
+<p>The old server certificate has expired.</p>
+</dd>
+<dt><strong>111 bad or missing cookie</strong></dt>
+<dd>
+<p>The cookie is missing, corrupted or bogus.</p>
+</dd>
+<dt><strong>112 bad or missing leapseconds table</strong></dt>
+<dd>
+<p>The leapseconds table is missing, corrupted or bogus.</p>
+</dd>
+<dt><strong>113 bad or missing certificate</strong></dt>
+<dd>
+<p>The certificate is missing, corrupted or bogus.</p>
+</dd>
+<dt><strong>114 bad or missing group key</strong></dt>
+<dd>
+<p>The identity key is missing, corrupt or bogus.</p>
+</dd>
+<dt><strong>115 protocol error</strong></dt>
+<dd>
+<p>The protocol state machine has wedged due to unexpected restart.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="files">Files</h4>
+<p>See the <a href="/archives/4.2.6-series/keygen/"><code>ntp-keygen</code></a> page. Note that provisions to load leap second values from the NIST files have been removed. These provisions are now available whether or not the OpenSSL library is available. However, the functions that can download these values from servers remains available.</p>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

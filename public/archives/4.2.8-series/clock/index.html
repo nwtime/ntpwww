@@ -1,4 +1,12 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="Last update: 4-Aug-2011 23:40 UTC
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Last update: 4-Aug-2011 23:40 UTC
 
 Table of Contents
 
@@ -6,25 +14,300 @@ General Overview
 Panic Threshold
 Step and Stepout Thresholds
 Hold Timer
-Operating Intervals …"><meta property="og:title" content="Clock State Machine"><meta property="og:description" content="Last update: 4-Aug-2011 23:40 UTC
- Table of Contents  General Overview Panic Threshold Step and Stepout Thresholds Hold Timer Operating Intervals State Transition Function   General Overview In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.8-series/clock/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>Clock State Machine</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://test.doc.ntp.org/archives/4.2.8-series/>4.2.8-series</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/archives/4.2.8-series/clock/>Clock State Machine</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Clock State Machine</h1><p>Last update: 4-Aug-2011 23:40 UTC</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.2.8-series/clock/#general-overview>General Overview</a></li><li><a href=/archives/4.2.8-series/clock/#panic-threshold>Panic Threshold</a></li><li><a href=/archives/4.2.8-series/clock/#step-and-stepout-thresholds>Step and Stepout Thresholds</a></li><li><a href=/archives/4.2.8-series/clock/#hold-timer>Hold Timer</a></li><li><a href=/archives/4.2.8-series/clock/#operating-intervals>Operating Intervals</a></li><li><a href=/archives/4.2.8-series/clock/#state-transition-function>State Transition Function</a></li></ul><hr><h4 id=general-overview>General Overview</h4><p>In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail.</p><p>The state machine is activated upon receipt of an update by the clock discipline algorithm. Its primary purpose is to determine whether the clock is slewed or stepped and how the initial time and frequency are determined using three thresholds: <em>panic</em>, <em>step</em> and <em>stepout</em>, and one timer: <em>hold</em>.</p><hr><h4 id=panic-threshold>Panic Threshold</h4><p>Most computers today incorporate a time-of-year (TOY) chip to maintain the time when the power is off. When the computer is restarted, the chip is used to initialize the operating system time. In case there is no TOY chip or the TOY time is different from NTP time by more than the panic threshold, the daemon assumes something must be terribly wrong, so exits with a message to the system operator to set the time manually. With the <code>-g</code> option on the command line, the daemon sets the clock to NTP time at the first update, but exits if the offset exceeds the panic threshold at subsequent updates. The panic threshold default is 1000 s, but it can be changed with the <code>panic</code> option of the <a href=/archives/4.2.8-series/miscopt/><code>tinker</code></a> command.</p><hr><h4 id=step-and-stepout-thresholds>Step and Stepout Thresholds</h4><p>Under ordinary conditions, the clock discipline gradually slews the clock to the correct time, so that the time is effectively continuous and never stepped forward or backward. If, due to extreme network congestion, an offset spike exceeds the step threshold, by default 128 ms, the spike is discarded. However, if offset spikes greater than the step threshold persist for an interval more than the stepout threshold, by default 300 s, the system clock is stepped to the correct time.</p><p>In practice, the need for a step has been extremely rare and almost always the result of a hardware failure or operator error. The step threshold and stepout threshold can be changed using the <code>step</code> and <code>stepout</code> options of the <a href=/archives/4.2.8-series/miscopt/><code>tinker</code></a> command, respectively. If the step threshold is set to zero, the step function is entirely disabled and the clock is always slewed. The daemon sets the step threshold to 600 s using the <code>-x</code> option on the command line. If the <code>-g</code> option is used or the step threshold is set greater than 0.5 s, the precision time kernel support is disabled.</p><p>Historically, the most important application of the step function was when a leap second was inserted in the Coordinated Universal Time (UTC) timescale and the kernel precision time support was not available. This also happened with older reference clocks that indicated an impending leap second, but the radio itself did not respond until it resynchronized some minutes later. Further details are on the <a href=/archives/4.2.8-series/leap/>Leap Second Processing</a> page.</p><p>In some applications the clock can never be set backward, even it accidentally set forward a week by some evil means. The issues should be carefully considered before using these options. The slew rate is fixed at 500 parts-per-million (PPM) by the Unix kernel. As a result, the clock can take 33 minutes to amortize each second the clock is outside the acceptable range. During this interval the clock will not be consistent with any other network clock and the system cannot be used for distributed applications that require correctly synchronized network time.</p><hr><h4 id=hold-timer>Hold Timer</h4><p>When the daemon is started after a considerable downtime, it could be the TOY chip clock has drifted significantly from NTP time. This can cause a transient at system startup. In the past, this has produced a phase transient and resulted in a frequency surge that could take some time, even hours, to subside. When the highest accuracy is required, some means is necessary to manage the startup process so that the clock is quickly set correctly and the frequency is undisturbed. The hold timer is used to suppress frequency adjustments during the training and startup intervals described below. At the beginning of the interval the hold timer is set to the stepout threshold and decrements at one second intervals until reaching zero. However, the hold timer is forced to zero if the residual clock offset is less than 0.5 ms. When nonzero, the discipline algorithm uses a small time constant (equivalent to a poll exponent of 2), but does not adjust the frequency. Assuming that the frequency has been set to within 1 PPM, either from the frequency file or by the training interval described later, the clock is set to within 0.5 ms in less than 300 s.</p><hr><h4 id=operating-intervals>Operating Intervals</h4><p>The state machine operates in one of four nonoverlapping intervals.</p><dl><dt><strong>Training interval</strong></dt><dd><p>This interval is used at startup when the frequency file is not present at startup. It begins when the first update is received by the discipline algorithm and ends when an update is received following the stepout threshold. The clock phase is steered to the offset presented at the beginning of the interval, but without affecting the frequency. During the interval further updates are ignored. At the end of the interval the frequency is calculated as the phase change during the interval divided by the length of the interval. This generally results in a frequency error less than 0.5 PPM. Note that, if the intrinsic oscillator frequency error is large, the offset will in general have significant error. This is corrected during the subsequent startup interval.</p></dd><dt><strong>Startup interval</strong></dt><dd><p>This interval is used at startup to amortize the residual offset while not affecting the frequency. If the frequency file is present, it begins when the first update is received by the discipline. If not, it begins after the training interval. It ends when the hold timer decrements to zero or when the residual offset falls below 0.5 ms.</p></dd><dt><strong>Step interval</strong></dt><dd><p>This interval is used as a spike blanker during periods when the offsets exceed the step threshold. The interval continues as long as offsets are received that are greater than the step threshold, but ends when either an offset is received less than the step threshold or until the time since the last valid update exceeds the stepout threshold.</p></dd><dt><strong>Sync Interval</strong></dt><dd><p>This interval is implicit; that is, it is used when none of the above intervals are used.</p></dd></dl><hr><h4 id=state-transition-function>State Transition Function</h4><p>The state machine consists of five states. An event is created when an update is received by the discipline algorithm. Depending on the state and the offset magnitude, the machine performs some actions and transitions to the same or another state. Following is a short description of the states.</p><dl><dt><strong>FSET - The frequency file is present</strong></dt><dd><p>Load the frequency file, initialize the hold timer and continue in SYNC state.</p></dd><dt><strong>NSET - The frequency file is not present</strong></dt><dd><p>Initialize the hold timer and continue in FREQ state.</p></dd><dt><strong>FREQ - Frequency training state</strong></dt><dd><p>Disable the clock discipline until the time since the last update exceeds the stepout threshold. When this happens, calculate the frequency, initialize the hold counter and transition to SYNC state.</p></dd><dt><strong>SPIK - Spike state</strong></dt><dd><p>A update greater than the step threshold has occurred. Ignore the update and continue in this state as long as updates greater than the step threshold occur. If a valid update is received, continue in SYNC state. When the time since the last valid update was received exceeds the stepout threshold, step the system clock and continue in SYNC state.</p></dd><dt><strong>SYNC - Ordinary clock discipline state</strong></dt><dd><p>Discipline the system clock time and frequency using the hybrid phase/frequency feedback loop. However, do not discipline the frequency if the hold timer is nonzero.</p></dd></dl></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+Operating Intervals …">
+<meta property="og:title" content="Clock State Machine" />
+<meta property="og:description" content="Last update: 4-Aug-2011 23:40 UTC
+ Table of Contents  General Overview Panic Threshold Step and Stepout Thresholds Hold Timer Operating Intervals State Transition Function   General Overview In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.8-series/clock/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>Clock State Machine</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/archives/4.2.8-series/clock/">Clock State Machine</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Clock State Machine</h1>
+     
+    <p>Last update: 4-Aug-2011 23:40 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.8-series/clock/#general-overview">General Overview</a></li>
+<li><a href="/archives/4.2.8-series/clock/#panic-threshold">Panic Threshold</a></li>
+<li><a href="/archives/4.2.8-series/clock/#step-and-stepout-thresholds">Step and Stepout Thresholds</a></li>
+<li><a href="/archives/4.2.8-series/clock/#hold-timer">Hold Timer</a></li>
+<li><a href="/archives/4.2.8-series/clock/#operating-intervals">Operating Intervals</a></li>
+<li><a href="/archives/4.2.8-series/clock/#state-transition-function">State Transition Function</a></li>
+</ul>
+<hr>
+<h4 id="general-overview">General Overview</h4>
+<p>In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail.</p>
+<p>The state machine is activated upon receipt of an update by the clock discipline algorithm. Its primary purpose is to determine whether the clock is slewed or stepped and how the initial time and frequency are determined using three thresholds: <em>panic</em>, <em>step</em> and <em>stepout</em>, and one timer: <em>hold</em>.</p>
+<hr>
+<h4 id="panic-threshold">Panic Threshold</h4>
+<p>Most computers today incorporate a time-of-year (TOY) chip to maintain the time when the power is off. When the computer is restarted, the chip is used to initialize the operating system time. In case there is no TOY chip or the TOY time is different from NTP time by more than the panic threshold, the daemon assumes something must be terribly wrong, so exits with a message to the system operator to set the time manually. With the <code>-g</code> option on the command line, the daemon sets the clock to NTP time at the first update, but exits if the offset exceeds the panic threshold at subsequent updates. The panic threshold default is 1000 s, but it can be changed with the <code>panic</code> option of the <a href="/archives/4.2.8-series/miscopt/"><code>tinker</code></a> command.</p>
+<hr>
+<h4 id="step-and-stepout-thresholds">Step and Stepout Thresholds</h4>
+<p>Under ordinary conditions, the clock discipline gradually slews the clock to the correct time, so that the time is effectively continuous and never stepped forward or backward. If, due to extreme network congestion, an offset spike exceeds the step threshold, by default 128 ms, the spike is discarded. However, if offset spikes greater than the step threshold persist for an interval more than the stepout threshold, by default 300 s, the system clock is stepped to the correct time.</p>
+<p>In practice, the need for a step has been extremely rare and almost always the result of a hardware failure or operator error. The step threshold and stepout threshold can be changed using the <code>step</code> and <code>stepout</code> options of the <a href="/archives/4.2.8-series/miscopt/"><code>tinker</code></a> command, respectively. If the step threshold is set to zero, the step function is entirely disabled and the clock is always slewed. The daemon sets the step threshold to 600 s using the <code>-x</code> option on the command line. If the <code>-g</code> option is used or the step threshold is set greater than 0.5 s, the precision time kernel support is disabled.</p>
+<p>Historically, the most important application of the step function was when a leap second was inserted in the Coordinated Universal Time (UTC) timescale and the kernel precision time support was not available. This also happened with older reference clocks that indicated an impending leap second, but the radio itself did not respond until it resynchronized some minutes later. Further details are on the <a href="/archives/4.2.8-series/leap/">Leap Second Processing</a> page.</p>
+<p>In some applications the clock can never be set backward, even it accidentally set forward a week by some evil means. The issues should be carefully considered before using these options. The slew rate is fixed at 500 parts-per-million (PPM) by the Unix kernel. As a result, the clock can take 33 minutes to amortize each second the clock is outside the acceptable range. During this interval the clock will not be consistent with any other network clock and the system cannot be used for distributed applications that require correctly synchronized network time.</p>
+<hr>
+<h4 id="hold-timer">Hold Timer</h4>
+<p>When the daemon is started after a considerable downtime, it could be the TOY chip clock has drifted significantly from NTP time. This can cause a transient at system startup. In the past, this has produced a phase transient and resulted in a frequency surge that could take some time, even hours, to subside. When the highest accuracy is required, some means is necessary to manage the startup process so that the clock is quickly set correctly and the frequency is undisturbed. The hold timer is used to suppress frequency adjustments during the training and startup intervals described below. At the beginning of the interval the hold timer is set to the stepout threshold and decrements at one second intervals until reaching zero. However, the hold timer is forced to zero if the residual clock offset is less than 0.5 ms. When nonzero, the discipline algorithm uses a small time constant (equivalent to a poll exponent of 2), but does not adjust the frequency. Assuming that the frequency has been set to within 1 PPM, either from the frequency file or by the training interval described later, the clock is set to within 0.5 ms in less than 300 s.</p>
+<hr>
+<h4 id="operating-intervals">Operating Intervals</h4>
+<p>The state machine operates in one of four nonoverlapping intervals.</p>
+<dl>
+<dt><strong>Training interval</strong></dt>
+<dd>
+<p>This interval is used at startup when the frequency file is not present at startup. It begins when the first update is received by the discipline algorithm and ends when an update is received following the stepout threshold. The clock phase is steered to the offset presented at the beginning of the interval, but without affecting the frequency. During the interval further updates are ignored. At the end of the interval the frequency is calculated as the phase change during the interval divided by the length of the interval. This generally results in a frequency error less than 0.5 PPM. Note that, if the intrinsic oscillator frequency error is large, the offset will in general have significant error. This is corrected during the subsequent startup interval.</p>
+</dd>
+<dt><strong>Startup interval</strong></dt>
+<dd>
+<p>This interval is used at startup to amortize the residual offset while not affecting the frequency. If the frequency file is present, it begins when the first update is received by the discipline. If not, it begins after the training interval. It ends when the hold timer decrements to zero or when the residual offset falls below 0.5 ms.</p>
+</dd>
+<dt><strong>Step interval</strong></dt>
+<dd>
+<p>This interval is used as a spike blanker during periods when the offsets exceed the step threshold. The interval continues as long as offsets are received that are greater than the step threshold, but ends when either an offset is received less than the step threshold or until the time since the last valid update exceeds the stepout threshold.</p>
+</dd>
+<dt><strong>Sync Interval</strong></dt>
+<dd>
+<p>This interval is implicit; that is, it is used when none of the above intervals are used.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="state-transition-function">State Transition Function</h4>
+<p>The state machine consists of five states. An event is created when an update is received by the discipline algorithm. Depending on the state and the offset magnitude, the machine performs some actions and transitions to the same or another state. Following is a short description of the states.</p>
+<dl>
+<dt><strong>FSET - The frequency file is present</strong></dt>
+<dd>
+<p>Load the frequency file, initialize the hold timer and continue in SYNC state.</p>
+</dd>
+<dt><strong>NSET - The frequency file is not present</strong></dt>
+<dd>
+<p>Initialize the hold timer and continue in FREQ state.</p>
+</dd>
+<dt><strong>FREQ - Frequency training state</strong></dt>
+<dd>
+<p>Disable the clock discipline until the time since the last update exceeds the stepout threshold. When this happens, calculate the frequency, initialize the hold counter and transition to SYNC state.</p>
+</dd>
+<dt><strong>SPIK - Spike state</strong></dt>
+<dd>
+<p>A update greater than the step threshold has occurred. Ignore the update and continue in this state as long as updates greater than the step threshold occur. If a valid update is received, continue in SYNC state. When the time since the last valid update was received exceeds the stepout threshold, step the system clock and continue in SYNC state.</p>
+</dd>
+<dt><strong>SYNC - Ordinary clock discipline state</strong></dt>
+<dd>
+<p>Discipline the system clock time and frequency using the hybrid phase/frequency feedback loop. However, do not discipline the frequency if the hold timer is nonzero.</p>
+</dd>
+</dl>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

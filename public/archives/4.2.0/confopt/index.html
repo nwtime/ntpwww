@@ -1,28 +1,344 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="from Pogo, Walt Kelly
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Pogo, Walt Kelly
 The chicken is getting configuration advice.
 Last update: 	03:08 AM UTC Monday, October 13, 2003
 
-Table of Contents …"><meta property="og:title" content="Server Options"><meta property="og:description" content="from Pogo, Walt Kelly
+Table of Contents …">
+<meta property="og:title" content="Server Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly
 The chicken is getting configuration advice.
 Last update: 03:08 AM UTC Monday, October 13, 2003
- Table of Contents  Configuration Commands Command Options Auxiliary Commands Bugs  Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations."><meta property="og:type" content="article"><meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.0/confopt/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><title>Server Options</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://test.doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://test.doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://test.doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://test.doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://test.doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://test.doc.ntp.org/><img class=img-fluid src=https://test.doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://test.doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://test.doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://test.doc.ntp.org/archives/4.2.0/>4.2.0</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://test.doc.ntp.org/archives/4.2.0/confopt/>Server Options</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Server Options</h1><p><img src=/archives/pic/boom3a.gif alt=gif><a href=/reflib/pictures/>from <em>Pogo</em>, Walt Kelly</a></p><p>The chicken is getting configuration advice.</p><p>Last update: 03:08 AM UTC Monday, October 13, 2003</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.2.0/confopt/#configuration-commands>Configuration Commands</a></li><li><a href=/archives/4.2.0/confopt/#command-options>Command Options</a></li><li><a href=/archives/4.2.0/confopt/#auxiliary-commands>Auxiliary Commands</a></li><li><a href=/archives/4.2.0/confopt/#bugs>Bugs</a></li></ul><p>Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.</p><hr><h4 id=configuration-commands>Configuration Commands</h4><p>The various modes are determined by the command keyword and the required IP address. Addresses are classed by type as <code>s</code> a remote server or peer (IPv4 class A, B and C), <code>b</code> the broadcast address of a local interface, <code>m</code> a multicast address (IPv4 class D), or <code>r</code> a reference clock address (127.127.x.x). Note that only those options applicable to each command are listed below. Use of options not listed may not be caught as an error, but may result in some weird and even destructive behavior.</p><p>If the Basic Socket Interface Extensions for IPv6 (RFC-2553) is detected, support for the IPv6 address family is generated in addition to the default support of the IPv4 address family. In a few cases, including the <code>reslist</code> billboard generated by <code>ntpdc</code>, IPv6 addresses are automatically generated. IPv6 addresses can be identified by the presence of colons <code>:</code> in the address field. IPv6 addresses can be used almost everywhere where IPv4 addresses can be used, with the exception of reference clock addresses, which are always IPv4.</p><p>Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace. See IPv6 references for the equivalent classes for that address family.</p><dl><dt><code><strong>server <em>address</em> [key <em>key</em> | autokey] [burst] [iburst] [version <em>version</em>] [prefer] [minpoll <em>minpoll</em>] [maxpoll <em>maxpoll</em>]</strong></code></dt><dd><code><strong>peer address [key <em>key</em> | autokey] [version <em>version</em>] [prefer] [minpoll <em>minpoll</em>] [maxpoll <em>maxpoll</em>]</strong></code></dd><dd><code><strong>broadcast address [key <em>key</em> | autokey] [version <em>version</em>] [minpoll <em>minpoll</em>] [ttl <em>ttl</em>]</strong></code></dd><dd><code><strong>manycastclient address address [key <em>key</em> | autokey] [version <em>version</em>] [minpoll <em>minpoll</em> [maxpoll <em>maxpoll</em>] [ttl <em>ttl</em>]</strong></code></dd><dd><p>These four commands specify the time server name or address to be used and the mode in which to operate. The <code>address</code> can be either a DNS name or a IP address in dotted-quad notation. Additional information on association behavior can be found in the <a href=/archives/4.2.0/assoc/>Association Management</a> page.</p></dd><dt><code><strong>server</strong></code></dt><dd><p>For type s and r addresses, this command mobilizes a persistent client mode association with the specified remote server or local radio clock. In this mode the local clock can synchronized to the remote server, but the remote server can never be synchronized to the local clock. This command should NOT be used for type <code>b</code> or <code>m</code> addresses.</p></dd><dt><code><strong>peer</strong></code></dt><dd><p>For type s addresses (only), this command mobilizes a persistent symmetric-active mode association with the specified remote peer. In this mode the local clock can be synchronized to the remote peer or the remote peer can be synchronized to the local clock. This is useful in a network of servers where, depending on various failure scenarios, either the local or remote peer may be the better source of time. This command should NOT be used for type <code>b</code>, <code>m</code> or <code>r</code> addresses.</p></dd><dt><code><strong>broadcast</strong></code></dt><dd><p>For type <code>b</code> and <code>m</code> addresses (only), this command mobilizes a persistent broadcast mode association. Multiple commands can be used to specify multiple local broadcast interfaces (subnets) and/or multiple multicast groups. Note that local broadcast messages go only to the interface associated with the subnet specified, but multicast messages go to all interfaces.</p></dd></dl><p>In broadcast mode the local server sends periodic broadcast messages to a client population at the <code>address</code> specified, which is usually the broadcast address on (one of) the local network(s) or a multicast address assigned to NTP. The IANA has assigned the multicast group address IPv4 224.0.1.1 and IPv6 ff05::101 (site local) exclusively to NTP, but other nonconflicting addresses can be used to contain the messages within administrative boundaries. Ordinarily, this specification applies only to the local server operating as a sender; for operation as a broadcast client, see the <code>broadcastclient</code> or <code>multicastclient</code> commands below.</p><dl><dt><code><strong>manycastclient</strong></code></dt><dd><p>For type <code>m</code> addresses (only), this command mobilizes a preemptable manycast client mode association for the multicast group address specified. In this mode a specific address must be supplied which matches the address used on the <code>manycastserver</code> command for the designated manycast servers. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to avoid spraying large areas of the Internet with these messages and causing a possibly massive implosion of replies at the sender.</p></dd></dl><p>The <code>manycastclient</code> command specifies that the host is to operate in client mode with the remote servers that are discovered as the result of broadcast/multicast messages. The client broadcasts a request message to the group address associated with the specified <code>address</code> and specifically enabled servers respond to these messages. The client selects the servers providing the best time and continues as with the <code>server</code> command. The remaining servers are discarded as if never heard.</p><hr><h4 id=command-options>Command Options</h4><dl><dt><code><strong>autokey</strong></code></dt><dd><p>All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in the <a href=/archives/4.2.0/authopt/>Authentication Options</a> page.</p></dd><dt><code><strong>burst</strong></code></dt><dd><p>When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the <code>calldelay</code> command to allow additional time for a modem or ISDN call to complete. This is designed to improve timekeeping quality with the <code>server</code> command and <code>s</code> addresses.</p></dd><dt><code><strong>iburst</strong></code></dt><dd><p>When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the <code>calldelay</code> command to allow additional time for a modem or ISDN call to complete. This is designed to speed the initial synchronization acquisition with the <code>server</code> command and <code>s</code> addresses and when <code>ntpd</code> is started with the <code>-q</code> option.</p></dd><dt><code><strong>key <em>key</em></strong></code></dt><dd><p>All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified <code><em>key</em></code> identifier with values from 1 to 65534, inclusive. The default is to include no encryption field.</p></dd><dt><code><strong>minpoll <em>minpoll</em></strong></code></dt><dd><code><strong>maxpoll <em>maxpoll</em></strong></code></dd><dd><p>These options specify the minimum and maximum poll intervals for NTP messages, in seconds as a power of two. The maximum poll interval defaults to 10 (1024 s), but can be increased by the <code>maxpoll</code> option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the <code>minpoll</code> option to a lower limit of 4 (16 s).</p></dd><dt><code><strong>noselect</strong></code></dt><dd><p>Marks the server as unused, except for display purposes. The server is discarded by the selection algorithm.</p></dd><dt><code><strong>prefer</strong></code></dt><dd><p>Mark the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the <a href=/archives/4.2.0/prefer/>Mitigation Rules and the <code>prefer</code> Keyword</a> page for further information.</p></dd><dt><code><strong>ttl <em>ttl</em></strong></code></dt><dd><p>This option is used only with broadcast server and manycast client modes. It specifies the time-to-live <code><em>ttl</em></code> to use on broadcast server and multicast server and the maximum <code>ttl</code> for the expanding ring search with manycast client packets. Selection of the proper value, which defaults to 127, is something of a black art and should be coordinated with the network administrator.</p></dd><dt><code><strong>version <em>version</em></strong></code></dt><dd><p>Specifies the version number to be used for outgoing NTP packets. Versions 1-4 are the choices, with version 4 the default.</p></dd></dl><hr><h4 id=auxiliary-commands>Auxiliary Commands</h4><dl><dt><code><strong>broadcastclient</strong></code></dt><dd><p>This command enables reception of broadcast server messages to any local interface (type b) address. Upon receiving a message for the first time, the broadcast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding broadcast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric-key or public-key authentication as described in the <a href=/archives/4.2.0/authopt/>Authentication Options</a> page.</p></dd><dt><code><strong>manycastserver <em>address</em> [&mldr;]</strong></code></dt><dd><p>This command enables reception of manycast client messages to the multicast group address(es) (type <code>m</code>) specified. At least one address is required. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to limit the span of the reply and avoid a possibly massive implosion at the original sender. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the <a href=/archives/4.2.0/authopt/>Authentication Options</a> page.</p></dd><dt><code><strong>multicastclient <em>address</em> [&mldr;]</strong></code></dt><dd><p>This command enables reception of multicast server messages to the multicast group address(es) (type <code>m</code>) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the <a href=/archives/4.2.0/authopt/>Authentication Options</a> page.</p></dd></dl><hr><h4 id=bugs>Bugs</h4><p>The syntax checking is not picky; some combinations of ridiculous and even hilarious options and modes may not be detected.</p></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+ Table of Contents  Configuration Commands Command Options Auxiliary Commands Bugs  Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/archives/4.2.0/confopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+  
+  <title>Server Options</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://test.doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://test.doc.ntp.org/"><img class="img-fluid" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://test.doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/archives/4.2.0/">4.2.0</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/archives/4.2.0/confopt/">Server Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Server Options</h1>
+     
+    <p><img src="/archives/pic/boom3a.gif" alt="gif"><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>The chicken is getting configuration advice.</p>
+<p>Last update: 	03:08 AM UTC Monday, October 13, 2003</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.0/confopt/#configuration-commands">Configuration Commands</a></li>
+<li><a href="/archives/4.2.0/confopt/#command-options">Command Options</a></li>
+<li><a href="/archives/4.2.0/confopt/#auxiliary-commands">Auxiliary Commands</a></li>
+<li><a href="/archives/4.2.0/confopt/#bugs">Bugs</a></li>
+</ul>
+<p>Following is a description of the configuration commands in NTPv4. These commands have the same basic functions as in NTPv3 and in some cases new functions and new arguments. There are two classes of commands, configuration commands that configure a persistent association with a remote server, peer or reference clock, and auxilliary commands that specify environmental variables that control various related operations.</p>
+<hr>
+<h4 id="configuration-commands">Configuration Commands</h4>
+<p>The various modes are determined by the command keyword and the required IP address. Addresses are classed by type as <code>s</code> a remote server or peer (IPv4 class A, B and C), <code>b</code> the broadcast address of a local interface, <code>m</code> a multicast address (IPv4 class D), or <code>r</code> a reference clock address (127.127.x.x). Note that only those options applicable to each command are listed below. Use of options not listed may not be caught as an error, but may result in some weird and even destructive behavior.</p>
+<p>If the Basic Socket Interface Extensions for IPv6 (RFC-2553) is detected, support for the IPv6 address family is generated in addition to the default support of the IPv4 address family. In a few cases, including the <code>reslist</code> billboard generated by <code>ntpdc</code>, IPv6 addresses are automatically generated. IPv6 addresses can be identified by the presence of colons <code>:</code> in the address field. IPv6 addresses can be used almost everywhere where IPv4 addresses can be used, with the exception of reference clock addresses, which are always IPv4.</p>
+<p>Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace. See IPv6 references for the equivalent classes for that address family.</p>
+<dl>
+<dt><code><strong>server <em>address</em> [key <em>key</em> | autokey] [burst] [iburst] [version <em>version</em>] [prefer] [minpoll <em>minpoll</em>] [maxpoll <em>maxpoll</em>]</strong></code></dt>
+<dd><code><strong>peer address [key <em>key</em> | autokey] [version <em>version</em>] [prefer] [minpoll <em>minpoll</em>] [maxpoll <em>maxpoll</em>]</strong></code></dd>
+<dd><code><strong>broadcast address [key <em>key</em> | autokey] [version <em>version</em>] [minpoll <em>minpoll</em>] [ttl <em>ttl</em>]</strong></code></dd>
+<dd><code><strong>manycastclient address address [key <em>key</em> | autokey] [version <em>version</em>] [minpoll <em>minpoll</em> [maxpoll <em>maxpoll</em>] [ttl <em>ttl</em>]</strong></code></dd>
+<dd>
+<p>These four commands specify the time server name or address to be used and the mode in which to operate. The <code>address</code> can be either a DNS name or a IP address in dotted-quad notation. Additional information on association behavior can be found in the <a href="/archives/4.2.0/assoc/">Association Management</a> page.</p>
+</dd>
+<dt><code><strong>server</strong></code></dt>
+<dd>
+<p>For type s and r addresses, this command mobilizes a persistent client mode association with the specified remote server or local radio clock. In this mode the local clock can synchronized to the remote server, but the remote server can never be synchronized to the local clock. This command should NOT be used for type <code>b</code> or <code>m</code> addresses.</p>
+</dd>
+<dt><code><strong>peer</strong></code></dt>
+<dd>
+<p>For type s addresses (only), this command mobilizes a persistent symmetric-active mode association with the specified remote peer. In this mode the local clock can be synchronized to the remote peer or the remote peer can be synchronized to the local clock. This is useful in a network of servers where, depending on various failure scenarios, either the local or remote peer may be the better source of time. This command should NOT be used for type <code>b</code>, <code>m</code> or <code>r</code> addresses.</p>
+</dd>
+<dt><code><strong>broadcast</strong></code></dt>
+<dd>
+<p>For type <code>b</code> and <code>m</code> addresses (only), this command mobilizes a persistent broadcast mode association. Multiple commands can be used to specify multiple local broadcast interfaces (subnets) and/or multiple multicast groups. Note that local broadcast messages go only to the interface associated with the subnet specified, but multicast messages go to all interfaces.</p>
+</dd>
+</dl>
+<p>In broadcast mode the local server sends periodic broadcast messages to a client population at the <code>address</code> specified, which is usually the broadcast address on (one of) the local network(s) or a multicast address assigned to NTP. The IANA has assigned the multicast group address IPv4 224.0.1.1 and IPv6 ff05::101 (site local) exclusively to NTP, but other nonconflicting addresses can be used to contain the messages within administrative boundaries. Ordinarily, this specification applies only to the local server operating as a sender; for operation as a broadcast client, see the <code>broadcastclient</code> or <code>multicastclient</code> commands below.</p>
+<dl>
+<dt><code><strong>manycastclient</strong></code></dt>
+<dd>
+<p>For type <code>m</code> addresses (only), this command mobilizes a preemptable manycast client mode association for the multicast group address specified. In this mode a specific address must be supplied which matches the address used on the <code>manycastserver</code> command for the designated manycast servers. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to avoid spraying large areas of the Internet with these messages and causing a possibly massive implosion of replies at the sender.</p>
+</dd>
+</dl>
+<p>The <code>manycastclient</code> command specifies that the host is to operate in client mode with the remote servers that are discovered as the result of broadcast/multicast messages. The client broadcasts a request message to the group address associated with the specified <code>address</code> and specifically enabled servers respond to these messages. The client selects the servers providing the best time and continues as with the <code>server</code> command. The remaining servers are discarded as if never heard.</p>
+<hr>
+<h4 id="command-options">Command Options</h4>
+<dl>
+<dt><code><strong>autokey</strong></code></dt>
+<dd>
+<p>All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in the <a href="/archives/4.2.0/authopt/">Authentication Options</a> page.</p>
+</dd>
+<dt><code><strong>burst</strong></code></dt>
+<dd>
+<p>When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the <code>calldelay</code> command to allow additional time for a modem or ISDN call to complete. This is designed to improve timekeeping quality with the <code>server</code> command and <code>s</code> addresses.</p>
+</dd>
+<dt><code><strong>iburst</strong></code></dt>
+<dd>
+<p>When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the <code>calldelay</code> command to allow additional time for a modem or ISDN call to complete. This is designed to speed the initial synchronization acquisition with the <code>server</code> command and <code>s</code> addresses and when <code>ntpd</code> is started with the <code>-q</code> option.</p>
+</dd>
+<dt><code><strong>key <em>key</em></strong></code></dt>
+<dd>
+<p>All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified <code><em>key</em></code> identifier with values from 1 to 65534, inclusive. The default is to include no encryption field.</p>
+</dd>
+<dt><code><strong>minpoll <em>minpoll</em></strong></code></dt>
+<dd><code><strong>maxpoll <em>maxpoll</em></strong></code></dd>
+<dd>
+<p>These options specify the minimum and maximum poll intervals for NTP messages, in seconds as a power of two. The maximum poll interval defaults to 10 (1024 s), but can be increased by the <code>maxpoll</code> option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the <code>minpoll</code> option to a lower limit of 4 (16 s).</p>
+</dd>
+<dt><code><strong>noselect</strong></code></dt>
+<dd>
+<p>Marks the server as unused, except for display purposes. The server is discarded by the selection algorithm.</p>
+</dd>
+<dt><code><strong>prefer</strong></code></dt>
+<dd>
+<p>Mark the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the <a href="/archives/4.2.0/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page for further information.</p>
+</dd>
+<dt><code><strong>ttl <em>ttl</em></strong></code></dt>
+<dd>
+<p>This option is used only with broadcast server and manycast client modes. It specifies the time-to-live <code><em>ttl</em></code> to use on broadcast server and multicast server and the maximum <code>ttl</code> for the expanding ring search with manycast client packets. Selection of the proper value, which defaults to 127, is something of a black art and should be coordinated with the network administrator.</p>
+</dd>
+<dt><code><strong>version <em>version</em></strong></code></dt>
+<dd>
+<p>Specifies the version number to be used for outgoing NTP packets. Versions 1-4 are the choices, with version 4 the default.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="auxiliary-commands">Auxiliary Commands</h4>
+<dl>
+<dt><code><strong>broadcastclient</strong></code></dt>
+<dd>
+<p>This command enables reception of broadcast server messages to any local interface (type b) address. Upon receiving a message for the first time, the broadcast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding broadcast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric-key or public-key authentication as described in the <a href="/archives/4.2.0/authopt/">Authentication Options</a> page.</p>
+</dd>
+<dt><code><strong>manycastserver <em>address</em> [&hellip;]</strong></code></dt>
+<dd>
+<p>This command enables reception of manycast client messages to the multicast group address(es) (type <code>m</code>) specified. At least one address is required. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to limit the span of the reply and avoid a possibly massive implosion at the original sender. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the <a href="/archives/4.2.0/authopt/">Authentication Options</a> page.</p>
+</dd>
+<dt><code><strong>multicastclient <em>address</em> [&hellip;]</strong></code></dt>
+<dd>
+<p>This command enables reception of multicast server messages to the multicast group address(es) (type <code>m</code>) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the <a href="/archives/4.2.0/authopt/">Authentication Options</a> page.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="bugs">Bugs</h4>
+<p>The syntax checking is not picky; some combinations of ridiculous and even hilarious options and modes may not be detected.</p>
+
+	  
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>
