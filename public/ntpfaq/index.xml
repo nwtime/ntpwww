@@ -1,43 +1,155 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>The NTP FAQ and HOWTO on NTP: Network Time Protocol</title><link>https://doc.ntp.org/ntpfaq/</link><description>Recent content in The NTP FAQ and HOWTO on NTP: Network Time Protocol</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://doc.ntp.org/ntpfaq/index.xml" rel="self" type="application/rss+xml"/><item><title>2. Time, what Time?</title><link>https://doc.ntp.org/ntpfaq/ntp-s-time/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-time/</guid><description>This section discusses general topics related to time and time-keeping.
-2.1 What is Time? 2.2 What is UTC? 2.3 Is UTC the same as GMT? 2.4 What happens during a Leap Second? 2.1 What is Time? This quote from a fortune cookie from Edition 7: &amp;ldquo;Time has been invented in the universe so that everything would not happen at once.&amp;rdquo;
-There&amp;rsquo;s another interesting relation between time and change: There is no change without the concept of time, and there is no movement without time.</description></item><item><title>3. How do Computer Clocks work?</title><link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks/</guid><description>This section tries to explain the basics of software clocks used in computers. In principle, such clocks just consist of an oscillator and a counter.
-3.1 Bits and Registers Computers are good at adding bits. Therefore time is stored in a number of bits, and adding to these bits makes the time go on. The meaning of the value &amp;ldquo;zero&amp;rdquo; has to be defined separately (usually this is called the epoch).</description></item><item><title>3.2 Making Time go on</title><link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/</guid><description>The number of bits together with a definition of resolution and epoch are used to store time stamps. For a real clock, time must advance automatically.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The NTP FAQ and HOWTO on NTP: Network Time Protocol</title>
+    <link>https://doc.ntp.org/ntpfaq/</link>
+    <description>Recent content in The NTP FAQ and HOWTO on NTP: Network Time Protocol</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://doc.ntp.org/ntpfaq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2. Time, what Time?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-time/</guid>
+      <description>This section discusses general topics related to time and time-keeping.
+  2.1 What is Time? 2.2 What is UTC? 2.3 Is UTC the same as GMT? 2.4 What happens during a Leap Second?   2.1 What is Time? This quote from a fortune cookie from Edition 7: &amp;ldquo;Time has been invented in the universe so that everything would not happen at once.&amp;rdquo;
+There&amp;rsquo;s another interesting relation between time and change: There is no change without the concept of time, and there is no movement without time.</description>
+    </item>
+    
+    <item>
+      <title>3. How do Computer Clocks work?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks/</guid>
+      <description>This section tries to explain the basics of software clocks used in computers. In principle, such clocks just consist of an oscillator and a counter.
+ 3.1 Bits and Registers Computers are good at adding bits. Therefore time is stored in a number of bits, and adding to these bits makes the time go on. The meaning of the value &amp;ldquo;zero&amp;rdquo; has to be defined separately (usually this is called the epoch).</description>
+    </item>
+    
+    <item>
+      <title>3.2 Making Time go on</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/</guid>
+      <description>The number of bits together with a definition of resolution and epoch are used to store time stamps. For a real clock, time must advance automatically.
 A defined resolution of nanoseconds is useless if the value is updated once per minute. If you are still not convinced, consider reading such a clock three times a minute, and compare the time you would get.
-So we want a frequent update of the time bits.</description></item><item><title>3.3 Clock Quality</title><link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/</guid><description>3.3.1 Frequency Error
+So we want a frequent update of the time bits.</description>
+    </item>
+    
+    <item>
+      <title>3.3 Clock Quality</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/</guid>
+      <description>3.3.1 Frequency Error
 3.3.1.1 How bad is a Frequency Error of 500 PPM?
 3.3.1.2 What is the Frequency Error of a good Clock?
-When discussing clocks, the following quality factors are helpful:
-The smallest possible increase of time the clock model allows is called resolution. If a clock increments its value once per second, the resolution is one second.
-A high resolution does not help if you can&amp;rsquo;t read the clock.</description></item><item><title>4. What is NTP?</title><link>https://doc.ntp.org/ntpfaq/ntp-s-def/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-def/</guid><description>4.1. Overview This section tries to introduce and explain the most basic features of NTP, the Network Time Protocol. The discussion here will be limited to the more theroretical aspects of NTP, while the next section will go further towards real life.
+ When discussing clocks, the following quality factors are helpful:
+  The smallest possible increase of time the clock model allows is called resolution. If a clock increments its value once per second, the resolution is one second.
+  A high resolution does not help if you can&amp;rsquo;t read the clock.</description>
+    </item>
+    
+    <item>
+      <title>4. What is NTP?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-def/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-def/</guid>
+      <description>4.1. Overview This section tries to introduce and explain the most basic features of NTP, the Network Time Protocol. The discussion here will be limited to the more theroretical aspects of NTP, while the next section will go further towards real life.
 4.1.1 What is NTP?
 4.1.2 What is SNTP?
 4.1.3 Why should Time be synchronized?
 4.1.4 What are the basic features of NTP?
-4.1.5 Which Operating Systems are supported?</description></item><item><title>4.2 History</title><link>https://doc.ntp.org/ntpfaq/ntp-s-def-hist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-def-hist/</guid><description>This section summarizes the history of NTP in a few words. Most material has been taken from a draft of A Brief History of NTP Time: Confessions of an Internet Timekeeper by Professor David L. Mills.
-The first NTP implementation started around 1980 with an accuracy of only several hundred milliseconds. That very first implementation was documented in Internet Engineering Note IEN-173. Later the first specification appeared in RFC 778, but it was still named Internet Clock Service.</description></item><item><title>4.3. Implementations and Platforms</title><link>https://doc.ntp.org/ntpfaq/ntp-s-def-impl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-def-impl/</guid><description>This section discusses implementations of NTP for various platforms.
+4.1.5 Which Operating Systems are supported?</description>
+    </item>
+    
+    <item>
+      <title>4.2 History</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-def-hist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-def-hist/</guid>
+      <description>This section summarizes the history of NTP in a few words. Most material has been taken from a draft of A Brief History of NTP Time: Confessions of an Internet Timekeeper by Professor David L. Mills.
+ The first NTP implementation started around 1980 with an accuracy of only several hundred milliseconds. That very first implementation was documented in Internet Engineering Note IEN-173. Later the first specification appeared in RFC 778, but it was still named Internet Clock Service.</description>
+    </item>
+    
+    <item>
+      <title>4.3. Implementations and Platforms</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-def-impl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-def-impl/</guid>
+      <description>This section discusses implementations of NTP for various platforms.
 For platforms and operating systems other than those mentioned here, there may be software available. Maybe there are binary program packages available for your computer system. A good starting point is to search this website. Specific products are presented in Section 8.3.
 4.3.1 Official Providers 4.3.2 UNIX Systems
 4.3.3 Microsoft Windows
-4.3.1 Official Providers Several national time keepers allow reading the time via NTP:</description></item><item><title>5. How does it work?</title><link>https://doc.ntp.org/ntpfaq/ntp-s-algo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-algo/</guid><description>This section will try to explain how NTP will construct and maintain a working time synchronization network.
+ 4.3.1 Official Providers Several national time keepers allow reading the time via NTP:</description>
+    </item>
+    
+    <item>
+      <title>5. How does it work?</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo/</guid>
+      <description>This section will try to explain how NTP will construct and maintain a working time synchronization network.
 5.1 Basic Concepts To help understand the details of planning, configuring, and maintaining NTP, some basic concepts are presented here. The focus in this section is on theory.
 5.1.1 Time References
 5.1.1.1 What is a reference clock?
 5.1.1.2 How will NTP use a reference clock?
-5.1.1.3 How will NTP know about Time Sources?</description></item><item><title>5.2. The Kernel Discipline</title><link>https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/</guid><description>In addition to the NTP protocol specification, there exists a description for a kernel clock model (RFC 1589) that is discussed here.
+5.1.1.3 How will NTP know about Time Sources?</description>
+    </item>
+    
+    <item>
+      <title>5.2. The Kernel Discipline</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/</guid>
+      <description>In addition to the NTP protocol specification, there exists a description for a kernel clock model (RFC 1589) that is discussed here.
 5.2.1 Basic Functionality
 5.2.1.1 What is special about the Kernel Clock?
 5.2.1.2 Does my Operating System have the Kernel Discipline?
 5.2.1.3 How can I verify the Kernel Discipline? 5.2.2 Monitoring
 5.2.3 PPS Processing
 5.2.3.1 What is PPS Processing?
-5.2.3.2 How is PPS Processing related to the Kernel Discipline?</description></item><item><title>5.3. NTP in real Life</title><link>https://doc.ntp.org/ntpfaq/ntp-s-algo-real/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-real/</guid><description>This section discusses how well the theory applies to real life situations.
+5.2.3.2 How is PPS Processing related to the Kernel Discipline?</description>
+    </item>
+    
+    <item>
+      <title>5.3. NTP in real Life</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo-real/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-real/</guid>
+      <description>This section discusses how well the theory applies to real life situations.
 5.3.1 What if I write my own SNTP Server?
 5.3.2 Why should I have more than one clock?
 5.3.3 Does the reference time depend on all configured servers, or is it based on which ever responds first?
 5.3.4 What happens during a Leap Second?
-5.3.1 What if I write my own SNTP Server? There is a quote (with partial omissions) on that subject by Professor David L.</description></item><item><title>5.4. Encryption</title><link>https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/</guid><description>This section discusses the use of encryption and related technology for NTP.
+ 5.3.1 What if I write my own SNTP Server? There is a quote (with partial omissions) on that subject by Professor David L.</description>
+    </item>
+    
+    <item>
+      <title>5.4. Encryption</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/</guid>
+      <description>This section discusses the use of encryption and related technology for NTP.
 Providing or enabling the use of encryption in software was considered harmful by the USA. However electronic commerce is only possibly with safe data exchange, so use of encryption has become a bit more allowed. NTP version 4 includes no cryptography, from the viewpoint of government regulations, and introduces MD5 keys.
-As MD5 is heavily used in digital signatures, MD5 is not considered as cryptography, despite the fact that digital signatures actually do use encryption.</description></item><item><title>6. Configuration</title><link>https://doc.ntp.org/ntpfaq/ntp-s-config/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-config/</guid><description>Configuration is a manual procedure that is necessary to get a running NTP system.
+As MD5 is heavily used in digital signatures, MD5 is not considered as cryptography, despite the fact that digital signatures actually do use encryption.</description>
+    </item>
+    
+    <item>
+      <title>6. Configuration</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-config/</guid>
+      <description>Configuration is a manual procedure that is necessary to get a running NTP system.
 6.1 Basic Configuration
 6.1.1 Can&amp;rsquo;t I just run ntpdate?
 6.1.2 Recommended Minimum
@@ -46,20 +158,56 @@ As MD5 is heavily used in digital signatures, MD5 is not considered as cryptogra
 6.1.2.3 What is the correct Pseudo IP Address for my reference clock?
 6.1.2.4 What is a drift file?
 6.1.2.5 Should I use IP addresses or host names?
-6.1.3 Running an isolated Network</description></item><item><title>6.2. Advanced Configuration</title><link>https://doc.ntp.org/ntpfaq/ntp-s-config-adv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-config-adv/</guid><description>This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.
+6.1.3 Running an isolated Network</description>
+    </item>
+    
+    <item>
+      <title>6.2. Advanced Configuration</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-config-adv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-config-adv/</guid>
+      <description>This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.
 6.2.1 Server Selection
 6.2.1.1 What is the rule of thumb for number of servers to synchronize to?
 6.2.1.2 Should the servers be a mix of primary and secondary servers?
-6.2.1.3 How should I provide NTP services for a huge network?</description></item><item><title>6.3. Various Tricks</title><link>https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/</guid><description>6.3.1 Mixing Time Protocols
+6.2.1.3 How should I provide NTP services for a huge network?</description>
+    </item>
+    
+    <item>
+      <title>6.3. Various Tricks</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-config-tricks/</guid>
+      <description>6.3.1 Mixing Time Protocols
 6.3.2 Avoiding Time Steps 6.3.3 Using the Echo Feature in PPS API
-6.3.1 Mixing Time Protocols Note: Mixing different time protocols is generally deprecated, because it can invalidate some assumptions necessary for proper operation of any time protocol.
-However, sometimes there is a need for NTP to utilize a server that is using a different Time protocol. The short and possibly unpleasant answer is: &amp;ldquo;Run NTP on that server!</description></item><item><title>6.4. Compatibility</title><link>https://doc.ntp.org/ntpfaq/ntp-s-compat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-compat/</guid><description>An ideal world has no compatibility issues. This section deals with known incompatibilities.
+ 6.3.1 Mixing Time Protocols  Note: Mixing different time protocols is generally deprecated, because it can invalidate some assumptions necessary for proper operation of any time protocol.
+ However, sometimes there is a need for NTP to utilize a server that is using a different Time protocol. The short and possibly unpleasant answer is: &amp;ldquo;Run NTP on that server!</description>
+    </item>
+    
+    <item>
+      <title>6.4. Compatibility</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-compat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-compat/</guid>
+      <description>An ideal world has no compatibility issues. This section deals with known incompatibilities.
 6.4.1 The Kernel PLL
 6.4.1.1 How many different kernel models and implementations exist?
 6.4.1.2 What&amp;rsquo;s new in each Version?
 6.4.1.3 Are the individual kernel models compatible?
 6.4.1.4 Is the Linux implementation different?
-6.4.1 The Kernel PLL 6.4.1.1 How many different kernel models and implementations exist? There are two major versions for the kernel PLL: the model for NTPv3, and the model for NTPv4.</description></item><item><title>7. Reference Clocks</title><link>https://doc.ntp.org/ntpfaq/ntp-s-refclk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-refclk/</guid><description>7.1 What is LCL, the Local Clock?
+ 6.4.1 The Kernel PLL 6.4.1.1 How many different kernel models and implementations exist? There are two major versions for the kernel PLL: the model for NTPv3, and the model for NTPv4.</description>
+    </item>
+    
+    <item>
+      <title>7. Reference Clocks</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-refclk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-refclk/</guid>
+      <description>7.1 What is LCL, the Local Clock?
 7.2 GPS Receivers
 7.2.1 What should I know about various GPS Receivers?
 7.2.2 What are PDOP, TDOP, and GDOP?
@@ -70,19 +218,46 @@ However, sometimes there is a need for NTP to utilize a server that is using a d
 7.3.2 What can make my DCF77 Receiver fail?
 7.4 Other Receivers
 7.4.1 What can make my MSF Receiver fail?
-7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?</description></item><item><title>8. Troubleshooting</title><link>https://doc.ntp.org/ntpfaq/ntp-s-trouble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-trouble/</guid><description>If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP.
+7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?</description>
+    </item>
+    
+    <item>
+      <title>8. Troubleshooting</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trouble/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trouble/</guid>
+      <description>If you have set up your software, you usually want to know whether it works. This section discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP.
 8.1 Monitoring
 8.1.1 How do I confirm my NTP server is working fine?
 8.1.2 How do I use peerstats and loopstats?
 8.1.3 How can I see the Time Difference between Client and Server?
-8.1.4 What does 257 mean as value for reach?</description></item><item><title>8.2. General Issues</title><link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/</guid><description>This section discusses problems that are independent of a specific operating system.
+8.1.4 What does 257 mean as value for reach?</description>
+    </item>
+    
+    <item>
+      <title>8.2. General Issues</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/</guid>
+      <description>This section discusses problems that are independent of a specific operating system.
 8.2.1 Starting, running, querying
 8.2.1.1 How can I check that ntpd is up and running?
 8.2.1.2 Why does ntpd only run for about 10 to 20 minutes??
 8.2.2 Cabling and Interfacing
 8.2.2.1 Why does my Serial Interface hang when I connect a PPS Signal to DCD?
 8.2.2.2 Why is the PPS API only detecting one Edge?
-8.2.3 Exchanging Time</description></item><item><title>8.3. Troubleshooting Specific Products</title><link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/</guid><description>8.3.1 PC Hardware
+8.2.3 Exchanging Time</description>
+    </item>
+    
+    <item>
+      <title>8.3. Troubleshooting Specific Products</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/</guid>
+      <description>8.3.1 PC Hardware
 8.3.1.1 How accurate is the CMOS clock?
 8.3.1.2 How can I set the CMOS clock?
 8.3.1.3 How can I read or write the CMOS clock?
@@ -91,15 +266,46 @@ However, sometimes there is a need for NTP to utilize a server that is using a d
 8.3.2.1 What does set_rtc_mmss: can&amp;rsquo;t update from 54 to 5 mean?
 8.3.2.2 Why does my Linux system lose several milliseconds every once in a while.
 8.3.4 Serial Port
-8.3.4.1 Do Multiport Serial Cards cause Trouble?</description></item><item><title>8.4. Reporting Bugs</title><link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/</guid><description>8.4.1 When should I report a Problem?
+8.3.4.1 Do Multiport Serial Cards cause Trouble?</description>
+    </item>
+    
+    <item>
+      <title>8.4. Reporting Bugs</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/</guid>
+      <description>8.4.1 When should I report a Problem?
 8.4.2 What should I report?
-8.4.1 When should I report a Problem? Before reporting a problem, make sure that it is not a known bug or already requested feature. Also try to make sure that the mistake is not at your side.
-Search the bugs database to see whether the problem has been reported or if there is an existing solution. An Internet search may also help determine if there is a known solution.</description></item><item><title>9. Background and Related Information</title><link>https://doc.ntp.org/ntpfaq/ntp-s-related/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-s-related/</guid><description>This section presents some background information and other related stuff that one may find interesting or entertaining.
-9.1 Miscellaneous
+ 8.4.1 When should I report a Problem? Before reporting a problem, make sure that it is not a known bug or already requested feature. Also try to make sure that the mistake is not at your side.
+Search the bugs database to see whether the problem has been reported or if there is an existing solution. An Internet search may also help determine if there is a known solution.</description>
+    </item>
+    
+    <item>
+      <title>9. Background and Related Information</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-s-related/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-s-related/</guid>
+      <description>This section presents some background information and other related stuff that one may find interesting or entertaining.
+ 9.1 Miscellaneous
 9.1.1 What is Mills-speak?
 9.1.2 How can I convert a date to NTP format?
 9.1.3 How can I convert an NTP Timestamp to UNIX Time?
 9.1.4 Where can I find more Information?
 9.2 GPS
 9.2.1 Selective Availability revisited
-9.1 Miscellaneous 9.1.1 What is Mills-speak? Most people using NTP know that it has been invented by Professor David L.</description></item><item><title>Common Terms and Acronyms</title><link>https://doc.ntp.org/ntpfaq/ntp-g-all/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://doc.ntp.org/ntpfaq/ntp-g-all/</guid><description>anal-retentive programmer Probably the opposite of the famous &amp;ldquo;real programmer&amp;rdquo;, used by Professor David L. Mills. AM Amplitude Modulation. Information is encoded in the strength of the signal. APM Automatic Power Management, a feature found in modern PCs to reduce power consumption if the system is idle. APM consists of hardware and software. DES Data Encryption Standard, defined in Federal Information Processing Standards Publication 46 dated 1977 January 15. DES is an algorithm to encrypt a 64 bit value using a 56 bit key, giving 64 bit.</description></item></channel></rss>
+ 9.1 Miscellaneous 9.1.1 What is Mills-speak? Most people using NTP know that it has been invented by Professor David L.</description>
+    </item>
+    
+    <item>
+      <title>Common Terms and Acronyms</title>
+      <link>https://doc.ntp.org/ntpfaq/ntp-g-all/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://doc.ntp.org/ntpfaq/ntp-g-all/</guid>
+      <description>anal-retentive programmer Probably the opposite of the famous &amp;ldquo;real programmer&amp;rdquo;, used by Professor David L. Mills. AM Amplitude Modulation. Information is encoded in the strength of the signal. APM Automatic Power Management, a feature found in modern PCs to reduce power consumption if the system is idle. APM consists of hardware and software. DES Data Encryption Standard, defined in Federal Information Processing Standards Publication 46 dated 1977 January 15. DES is an algorithm to encrypt a 64 bit value using a 56 bit key, giving 64 bit.</description>
+    </item>
+    
+  </channel>
+</rss>

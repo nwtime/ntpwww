@@ -1,37 +1,246 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="from Pogo, Walt Kelly
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Pogo, Walt Kelly
 Gnu autoconfigure tools are in the backpack.
 
 Table of Contents
 
 Basic Configuration Options - the configure utility
-Options …"><meta property="og:title" content="Configuration Options"><meta property="og:description" content="from Pogo, Walt Kelly
+Options …">
+<meta property="og:title" content="Configuration Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly
 Gnu autoconfigure tools are in the backpack.
- Table of Contents  Basic Configuration Options - the configure utility Options Directory and File Names Host Type Optional Packages Optional Features Radio Clocks PARSE Clocks   Basic Configuration Options - the configure utility The following options are for compiling and installing a working version of the NTP distribution. In most cases, the build process is completely automatic."><meta property="og:type" content="article"><meta property="og:url" content="https://doc.ntp.org/archives/4.1.2/config/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-BN61ZTDHBP',{anonymize_ip:!1})}</script><title>Configuration Options</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://doc.ntp.org/><img class=img-fluid src=https://doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://doc.ntp.org/archives/4.1.2/>4.1.2</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://doc.ntp.org/archives/4.1.2/config/>Configuration Options</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Configuration Options</h1><p><img src=/archives/pic/pogo3a.gif alt=gif><a href=/reflib/pictures/>from <em>Pogo</em>, Walt Kelly</a></p><p>Gnu autoconfigure tools are in the backpack.</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.1.2/config/#basic-configuration-options---the-ttconfigurett-utility>Basic Configuration Options - the <tt>configure</tt> utility</a></li><li><a href=/archives/4.1.2/config/#options>Options</a></li><li><a href=/archives/4.1.2/config/#directory-and-file-names>Directory and File Names</a></li><li><a href=/archives/4.1.2/config/#host-type>Host Type</a></li><li><a href=/archives/4.1.2/config/#optional-packages>Optional Packages</a></li><li><a href=/archives/4.1.2/config/#optional-features>Optional Features</a></li><li><a href=/archives/4.1.2/config/#radio-clocks>Radio Clocks</a></li><li><a href=/archives/4.1.2/config/#parse-clocks>PARSE Clocks</a></li></ul><hr><h4 id=basic-configuration-options---the-ttconfigurett-utility>Basic Configuration Options - the <tt>configure</tt> utility</h4><p>The following options are for compiling and installing a working version of the NTP distribution. In most cases, the build process is completely automatic. In some cases where memory space is at a premium, or the binaries are to be installed in a different place, it is possible to tailor the configuration to remove such features as reference clock driver support, debugging support, and so forth.</p><p>Configuration options are specified as arguments to the <code>configure</code> script. Following is a summary of the current options, as of the 4.0.99m version:</p><p>Usage: <code>configure [options] [host]</code></p><h4 id=options>Options</h4><p>Defaults are in brackets after descriptions.</p><p>Configuration:</p><pre> --cache-file=FILE      cache test results in FILE
+ Table of Contents  Basic Configuration Options - the configure utility Options Directory and File Names Host Type Optional Packages Optional Features Radio Clocks PARSE Clocks   Basic Configuration Options - the configure utility The following options are for compiling and installing a working version of the NTP distribution. In most cases, the build process is completely automatic." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.1.2/config/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>Configuration Options</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/archives/4.1.2/">4.1.2</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/archives/4.1.2/config/">Configuration Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Configuration Options</h1>
+     
+    <p><img src="/archives/pic/pogo3a.gif" alt="gif"><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>Gnu autoconfigure tools are in the backpack.</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.1.2/config/#basic-configuration-options---the-ttconfigurett-utility">Basic Configuration Options - the <tt>configure</tt> utility</a></li>
+<li><a href="/archives/4.1.2/config/#options">Options</a></li>
+<li><a href="/archives/4.1.2/config/#directory-and-file-names">Directory and File Names</a></li>
+<li><a href="/archives/4.1.2/config/#host-type">Host Type</a></li>
+<li><a href="/archives/4.1.2/config/#optional-packages">Optional Packages</a></li>
+<li><a href="/archives/4.1.2/config/#optional-features">Optional Features</a></li>
+<li><a href="/archives/4.1.2/config/#radio-clocks">Radio Clocks</a></li>
+<li><a href="/archives/4.1.2/config/#parse-clocks">PARSE Clocks</a></li>
+</ul>
+<hr>
+<h4 id="basic-configuration-options---the-ttconfigurett-utility">Basic Configuration Options - the <tt>configure</tt> utility</h4>
+<p>The following options are for compiling and installing a working version of the NTP distribution. In most cases, the build process is completely automatic. In some cases where memory space is at a premium, or the binaries are to be installed in a different place, it is possible to tailor the configuration to remove such features as reference clock driver support, debugging support, and so forth.</p>
+<p>Configuration options are specified as arguments to the <code>configure</code> script. Following is a summary of the current options, as of the 4.0.99m version:</p>
+<p>Usage: <code>configure [options] [host]</code></p>
+<h4 id="options">Options</h4>
+<p>Defaults are in brackets after descriptions.</p>
+<p>Configuration:</p>
+<pre> --cache-file=FILE      cache test results in FILE
  --help                 print this message
  --no-create            do not create output files
  --quiet, --silent      do not print `checking...' messages
  --version              print the version of autoconf that created configure
-</pre><h4 id=directory-and-file-names>Directory and File Names</h4><pre> --prefix=PREFIX        install architecture-independent files in PREFIX [/usr/local]
+</pre>
+<h4 id="directory-and-file-names">Directory and File Names</h4>
+<pre> --prefix=PREFIX        install architecture-independent files in PREFIX [/usr/local]
  --exec-prefix=EPREFIX  install architecture-dependent files in EPREFIX [same as prefix]
  --bindir=DIR           user executables in DIR [EPREFIX/bin]
  --sbindir=DIR          system admin executables in DIR [EPREFIX/sbin]
@@ -51,10 +260,14 @@ Gnu autoconfigure tools are in the backpack.
  --program-prefix=PREFIX           prepend PREFIX to installed program names
  --program-suffix=SUFFIX           append SUFFIX to installed program names
  --program-transform-name=PROGRAM  run sed PROGRAM on installed program names
-</pre><h4 id=host-type>Host Type</h4><pre> --build=BUILD          configure for building on BUILD [BUILD=HOST]
+</pre>
+<h4 id="host-type">Host Type</h4>
+<pre> --build=BUILD          configure for building on BUILD [BUILD=HOST]
  --host=HOST            configure for HOST [guessed]
  --target=TARGET        configure for TARGET [TARGET=HOST]
-</pre><h4 id=optional-packages>Optional Packages</h4><pre> --with-PACKAGE[=ARG]   use PACKAGE [ARG=yes]
+</pre>
+<h4 id="optional-packages">Optional Packages</h4>
+<pre> --with-PACKAGE[=ARG]   use PACKAGE [ARG=yes]
  --without-PACKAGE      do not use PACKAGE (same as --with-PACKAGE=no)
 
  openssl-libdir=DIR     OpenSSL object code libraries in DIR [/usr/lib/usr/local/lib/usr/local/ssl/lib]
@@ -62,7 +275,9 @@ Gnu autoconfigure tools are in the backpack.
  crypto=autokey         Use autokey cryptography
  crypto=rsaref          Use the RSAREF library
  electricfence          Compile with ElectricFence malloc debugger
-</pre><h4 id=optional-features>Optional Features</h4><pre> --disable-FEATURE      do not include FEATURE (same as
+</pre>
+<h4 id="optional-features">Optional Features</h4>
+<pre> --disable-FEATURE      do not include FEATURE (same as
  --enable-FEATURE=no)
  --enable-FEATURE[=ARG] include FEATURE [ARG=yes]
 
@@ -82,7 +297,10 @@ Gnu autoconfigure tools are in the backpack.
  tick=VALUE             Force a value for 'tick'
  tickadj=VALUE          Force a value for 'tickadj'
  udp-wildcard           Use UDP wildcard delivery
-</pre><h4 id=radio-clocks>Radio Clocks</h4><p>These are ordinarily enabled, if supported by the machine and operating system:</p><pre> all-clocks             Include drivers for all suitable non-PARSE clocks [enable]
+</pre>
+<h4 id="radio-clocks">Radio Clocks</h4>
+<p>These are ordinarily enabled, if supported by the machine and operating system:</p>
+<pre> all-clocks             Include drivers for all suitable non-PARSE clocks [enable]
  ACTS                   NIST dialup clock
  ARBITER                Arbiter 1088A/B GPS receiver
  ARCRON_MSF             Arcron MSF receiver
@@ -120,7 +338,9 @@ Gnu autoconfigure tools are in the backpack.
  ULINK                  Ultralink WWVB receiver
  USNO                   US Naval Observatory dialup clock
  WWV                    WWV audio receiver
-</pre><h4 id=parse-clocks>PARSE Clocks</h4><pre> parse-clocks           Include drivers for all suitable PARSE clocks [enable]
+</pre>
+<h4 id="parse-clocks">PARSE Clocks</h4>
+<pre> parse-clocks           Include drivers for all suitable PARSE clocks [enable]
  COMPUTIME              Diem Computime Radio Clock
  DCF7000                ELV/DCF7000 Clock
  HOPF6021               HOPF 6021 Radio Clock support
@@ -132,5 +352,104 @@ Gnu autoconfigure tools are in the backpack.
  TRIMTSIP               Trimble GPS/TSIP Protocol
  VARITEXT               VARITEXT clock
  WHARTON                Wharton 400A Series clock
-</pre><blockquote></blockquote><style>.feedback--answer{display:inline-block}.feedback--answer-no{margin-left:1em}.feedback--response{display:none;margin-top:1em}.feedback--response__visible{display:block}</style><div><h2 class=feedback--title>Feedback</h2><p class=feedback--question>Was this page helpful?</p><button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button><p class="feedback--response feedback--response-yes">Glad to hear it!</a></p><p class="feedback--response feedback--response-no">Sorry to hear that.</a></p></div><script>const yesButton=document.querySelector('.feedback--answer-yes'),noButton=document.querySelector('.feedback--answer-no'),yesResponse=document.querySelector('.feedback--response-yes'),noResponse=document.querySelector('.feedback--response-no'),disableButtons=()=>{yesButton.disabled=!0,noButton.disabled=!0},sendFeedback=b=>{if(typeof ga!='function')return;const a={command:'send',hitType:'event',category:'Helpful',action:'click',label:window.location.pathname,value:b};ga(a.command,a.hitType,a.category,a.action,a.label,a.value)};yesButton.addEventListener('click',()=>{yesResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(1)}),noButton.addEventListener('click',()=>{noResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(0)})</script><br></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+</pre><blockquote>
+</blockquote>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

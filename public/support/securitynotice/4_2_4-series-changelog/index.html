@@ -1,4 +1,12 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="
 4.2.4p8
 4.2.4p7
 4.2.4p6
@@ -14,27 +22,748 @@
 4.2.4p8
 Release Date: 2009 Dec 08
 
-Sec 1331: DoS with mode 7 packets …"><meta property="og:title" content="4.2.4-series Changelog"><meta property="og:description" content="4.2.4p8 4.2.4p7 4.2.4p6 4.2.4p5 4.2.4p4 4.2.4p3 4.2.4p2 4.2.4p1 4.2.4p0 4.2.4   4.2.4p8 Release Date: 2009 Dec 08
+Sec 1331: DoS with mode 7 packets …">
+<meta property="og:title" content="4.2.4-series Changelog" />
+<meta property="og:description" content="4.2.4p8 4.2.4p7 4.2.4p6 4.2.4p5 4.2.4p4 4.2.4p3 4.2.4p2 4.2.4p1 4.2.4p0 4.2.4   4.2.4p8 Release Date: 2009 Dec 08
  Sec 1331: DoS with mode 7 packets - CVE-2009-3563   4.2.4p7 Release Date: 2009 May 18
- Sec 1151: Remote exploit if autokey is enabled - CVE-2009-1252 Bug 1187: Update the copyright date. Bug 1191: ntpd fails on Win2000 - &ldquo;Address already in use&rdquo; after fix for Sec 1149   4."><meta property="og:type" content="article"><meta property="og:url" content="https://doc.ntp.org/support/securitynotice/4_2_4-series-changelog/"><meta property="article:section" content="support"><meta property="og:site_name" content="NTP: Network Time Protocol"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-BN61ZTDHBP',{anonymize_ip:!1})}</script><title>4.2.4-series Changelog</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://doc.ntp.org/><img class=img-fluid src=https://doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://doc.ntp.org/support/>Support</a></li><li class=breadcrumb-item><a href=https://doc.ntp.org/support/securitynotice/>Security</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://doc.ntp.org/support/securitynotice/4_2_4-series-changelog/>4.2.4-series Changelog</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>4.2.4-series Changelog</h1><ul><li><a href=#424p8>4.2.4p8</a></li><li><a href=#424p7>4.2.4p7</a></li><li><a href=#424p6>4.2.4p6</a></li><li><a href=#424p5>4.2.4p5</a></li><li><a href=#424p4>4.2.4p4</a></li><li><a href=#424p3>4.2.4p3</a></li><li><a href=#424p2>4.2.4p2</a></li><li><a href=#424p1>4.2.4p1</a></li><li><a href=#424p0>4.2.4p0</a></li><li><a href=#424>4.2.4</a></li></ul><hr><h4 id=424p8>4.2.4p8</h4><p><strong>Release Date:</strong> 2009 Dec 08</p><ul><li><a href=/support/securitynotice/ntpbug1331/>Sec 1331: DoS with mode 7 packets</a> - <a href=https://nvd.nist.gov/vuln/detail/CVE-2009-3563>CVE-2009-3563</a></li></ul><hr><h4 id=424p7>4.2.4p7</h4><p><strong>Release Date:</strong> 2009 May 18</p><ul><li><a href=/support/securitynotice/ntpbug1151/>Sec 1151: Remote exploit if autokey is enabled</a> - <a href=https://nvd.nist.gov/vuln/detail/CVE-2009-1252>CVE-2009-1252</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1187">Bug 1187: Update the copyright date.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1191">Bug 1191: ntpd fails on Win2000 - &ldquo;Address already in use&rdquo; after fix for Sec 1149</a></li></ul><hr><h4 id=424p7-rc7>4.2.4p7-RC7</h4><p><strong>Release Date:</strong> 2009 May 12</p><ul><li>ntp.isc.org -> ntp.org cleanup.</li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1178">Bug 1178: Use prior FORCE_DNSRETRY behavior as needed at runtime, add configure &ndash;enable-ignore-dns-errors to be even more stubborn</a></li></ul><hr><h4 id=424p7-rc6>4.2.4p7-RC6</h4><p><strong>Release Date:</strong> 2009 May 08</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=784">Bug 784: Make &ndash;enable-linuxcaps the default when available</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1179">Bug 1179: error messages for -u/&ndash;user and -i lacking droproot</a></li><li>Updated JJY reference clock driver from Takao Abe</li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1071">Bug 1071: Log a message and exit before trying to use FD_SET with a descriptor larger than FD_SETSIZE, which will corrupt memory</a></li><li>On corruption of the iface list head in <code>add_interface</code>, log and exit</li></ul><hr><h4 id=424p7-rc5>4.2.4p7-RC5</h4><p><strong>Release Date:</strong> 2009 May 02</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1172">Bug 1172: 4.2.4p7-RC{3,4} fail to build on linux.</a></li><li><code>flock-build</code> script unportable <code>set -m</code> use removed</li></ul><hr><h4 id=424p7-rc4>4.2.4p7-RC4</h4><p><strong>Release Date:</strong> 2009 Apr 29</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1167">Bug 1167: use gcc -Winit-self only if it is understood</a></li></ul><hr><h4 id=424p7-rc3>4.2.4p7-RC3</h4><p><strong>Release Date:</strong> 2009 Apr 22</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=787">Bug 787: Bug fixes for 64-bit time_t on Windows</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=813">Bug 813: Conditional naming of Event</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1147">Bug 1147: System errors should be logged to msyslog()</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1155">Bug 1155: Fix compile problem on Windows with VS2005</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1156">Bug 1156: lock_thread_to_processor() should be declared in header</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1157">Bug 1157: quiet OpenSSL warnings, clean up configure.ac</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1158">Bug 1158: support for aix6.1</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1160">Bug 1160: MacOS X is like BSD regarding F_SETOWN</a></li></ul><hr><h4 id=424p7-rc2>4.2.4p7-RC2</h4><p><strong>Release Date:</strong> 2009 Apr 09</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1144">Sec 1144: limited buffer overflow in ntpq.</a> <a href=https://nvd.nist.gov/vuln/detail/CVE-2009-0159>CVE-2009-0159</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1149">Sec 1149: use SO_EXCLUSIVEADDRUSE on Windows</a></li></ul><hr><h4 id=424p7-rc1>4.2.4p7-RC1</h4><p><strong>Release Date:</strong> 2009 Mar 30</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1131">Bug 1131: UDP sockets should not use SIGPOLL on Solaris.</a></li><li>build system email address cleanup</li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=774">Bug 774: parsesolaris.c does not compile under the new Solaris</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=873">Bug 873: Windows serial refclock proper TTY line discipline emulation</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1014">Bug 1014: Enable building with VC9 (in Visual Studio 2008, Visual C++ 2008, or SDK)</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1117">Bug 1117: Deferred interface binding under Windows works only correctly if FORCE_DNSRETRY is defined</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1124">BUG 1124: Lock QueryPerformanceCounter() client threads to same CPU</a></li><li><code>DPRINTF</code> macro made safer, always evaluates to a statement and will not misassociate an else which follows the macro.</li></ul><hr><h4 id=424p6>4.2.4p6</h4><p><strong>Release Date:</strong> 2009 Jan 08</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1111">Sec 1111: Fix incorrect check of EVP_VerifyFinal()&rsquo;s return value.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1113">Bug 1113: Fixed build errors with recent versions of openSSL.</a></li><li>Update the copyright year.</li></ul><hr><h4 id=424p5>4.2.4p5</h4><p><strong>Release Date:</strong> 2008 Aug 17</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1051">BUG 1051: Month off by one in leap second message written to clockstats file fixed.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1038">Bug 1038: Built-in getpass() function also prompts for password if not built with DEBUG.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=1000">Bug 1000: allow implicit receive buffer allocation for Windows. fixes startup for windows systems with many interfaces. reduces dropped packets on network bursts. additionally fix timer() starvation during high load.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=997">Bug 997: ntpdate buffer too small and unsafe.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=993">Bug 993: Fix memory leak when fetching system messages.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=990">Bug 990: drop minimum time restriction for interface update interval.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=987">Bug 987: Wake up the resolver thread/process when a new interface has become available.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=982">Bug 982: ntpdate(and ntptimeset) buffer overrun if HAVE_POLL_H isn&rsquo;t set (dup of 908).</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=979">Bug 979: Provide ntptimeval if it is not otherwise present.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=977">Bug 977: Fix mismatching #ifdefs for builds without IPv6.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=970">Bug 970: Lose obsolete -g flag to ntp-keygen.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=967">Bug 967: preemptable associations are lost forever on a step.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=964">Bug 964: Change <em>-</em>-linux* to *-*-*linux* to allow for uclinux.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=963">Bug 963: get_systime() is too noisy.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=961">Bug 961: refclock_tpro.c:tpro_poll() calls refclock_receive() twice.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=960">Bug 960: spurious syslog:crypto_setup:spurious crypto command</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=959">Bug 959: Refclock on Windows not properly releasing recvbuffs.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=957">Bug 957: Windows only: Let command line parameters from the Windows SCM GUI override the standard parameters from the ImagePath registry key.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=952">Bug 952: Use md5 code with a friendlier license.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=940">Bug 940: ntp-keygen uses -v. Disallow it as a shortcut for &ndash;version.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=931">Bug 931: Require -lreadline to be asked for explicitly.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=929">Bug 929: int32_t is undefined on Windows. Casting wrong.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=928">Bug 928: readlink missing braces.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=918">Bug 918: Only use a native md5.h if MD5Init() is available.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=917">Bug 917: config parse leaves files open</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=916">Bug 916: &lsquo;cryptosw&rsquo; is undefined if built without OpenSSL.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=915">Bug 915: ntpd cores during processing of x509 certificates.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=912">Bug 912: detect conflicting enable/disable configuration on interfaces sharing an IP address</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=911">Bug 911: Fix error message in cmd_args.c.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=909">Bug 909: Fix int32_t errors for ntohl().</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=908">Bug 908: ntpdate crashes sometimes.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=905">Bug 905: ntp_crypto.c fails to compile without -DDEBUG.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=899">Bug 899: Only show -i/&ndash;jaildir -u/&ndash;user options if we HAVE_DROPROOT.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=897">Bug 897: Check RAND_status() - we may not need a .rnd file.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=895">Bug 895: Log assertion failures via syslog(), not stderr.*</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=894">Bug 894: Initialize keysdir before calling crypto_setup().</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=891">Bug 891: &lsquo;restrict&rsquo; config file keyword does not work (partial fix).</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=890">Bug 890: the crypto command seems to be required now.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=887">Bug 887: Fix error in ntp_types.h (for sizeof int != 4).</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=880">Bug 880: bug fixes for Windows build</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=864">Bug 864: Place ntpd service in maintenance mode if using SMF on Solaris</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=862">Bug 862: includefile nesting; preserve phonelist on reconfig.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=861">Bug 861: Leap second cleanups from Dave Mills.</a>](<a href="https://bugs.ntp.org/show_bug.cgi?id=861">https://bugs.ntp.org/show_bug.cgi?id=861</a>)</li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=858">Bug 858: recent leapfile changes broke non-OpenSSL builds.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=857">Bug 857: ntpdate debug mode adjusts system clock when it shouldn&rsquo;t.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=853">Bug 853: get_node() must return a pointer to maximally-aligned memory.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=850">Bug 850: Fix the wander threshold parameter on the driftfile command.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=846">Bug 846: Correct includefile parsing.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=843">Bug 843: Windows Completion port code was incorrectly merged from -stable.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=841">Bug 841: Obsolete the &ldquo;dynamic&rdquo; keyword and make deferred binding to local interfaces the default.</a><ul><li>Emit a warning if that keyword is used for configuration.</li></ul></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=840">Bug 840: do fudge configuration AFTER peers (thus refclocks) have been configured.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=839">Bug 839: Crypto password not read from ntp.conf.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=833">Bug 833: ntpq config keyword is quote-mark unfriendly.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=832">Bug 832: Add libisc/log.c headers to the distribution.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=830">Bug 830: Fix the checking order of the interface options.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=828">Bug 828: refid string not being parsed correctly.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=827">Bug 827: New parsing code does not handle &ldquo;fudge&rdquo; correctly.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=826">Bug 826: Fix redefinition of PI.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=825">Bug 825: Correct logconfig -/+ keyword processing.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=824">Bug 824: New parser code has some build problems with the SIM code.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=822">Bug 822: set progname once, early.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=819">Bug 819: remove erroneous #if 0 in Windows completion port code.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=817">Bug 817: Use longnames for setting ntp variables on the command-line; Allowing &lsquo;-v&rsquo; with and without an arg to disambiguate usage is error-prone.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=815">Bug 815: Fix warning compiling 4.2.5p22 under Windows with VC6.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=812">Bug 812: ntpd should drop supplementary groups.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=810">Bug 810: Fix ntp-keygen documentation.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=808">Bug 808: Only write the drift file if we are in state 4.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=798">Bug 798: ntpq [p typo crashes ntpq/ntpdc.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=796">Bug 796: Clean up duplicate #defines in ntp_control.c.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=795">Bug 795: Moved declaration of variable to top of function.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=788">Bug 788: Update macros to support VS 2005.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=787">Bug 787: Bug fixes for 64-bit time_t on Windows.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=786">Bug 786: Fix refclock_bancomm.c on Solaris.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=782">Bug 782: Remove P() macros from Windows files.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=778">Bug 778: ntpd fails to lock with drift=+500 when started with drift=-500.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=774">Bug 774: parsesolaris.c does not compile under the new Solaris.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=771">Bug 771: compare scopeid if available for IPv6 addresses</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=767">Bug 767: Fast sync to refclocks wanted.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=764">Bug 764: When looking for -lreadline support, also try using -lncurses.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=757">Bug 757 Lose ULONG_CONST().</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=756">Bug 756: Require ANSI C (function prototypes).</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=752">Bug 752: QoS: add parse/config handling code.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=740">Bug 740: Fix kernel/daemon startup drift anomaly.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=713">Bug 713: Fix bug reporting information.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=698">Bug 698: timeBeginPeriod is called without timeEndPeriod in some NTP tools.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=634">Bug 634: Re-instantiate syslog() and logfiles after the daemon fork.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=629">Bug 629: Undo bug #629 fixes as they cause more problems than were being solved</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=604">Bug 604: ntpd regularly dies on linux/alpha.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=592">Bug 592: Trimble Thunderbolt GPS support.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=569">Bug 569: Use the correct precision for the Leitch CSD-5300.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=542">Bug 542: Tolerate missing directory separator at EO statsdir.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=532">Bug 532: nptdate timeout is too long if several servers are supplied.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=450">Bug 450: Windows only: Under original Windows NT we must not discard the wildcard socket to workaround a bug in NT&rsquo;s getsockname().</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=376">Bug 376/214: Enhancements to support multiple if names and IP addresses.</a></li><li>much cleanup, fixes, and changes from Dave Mills.</li><li><code>ntp_control.c: LEAPTAB</code> is a filestamp, not an unsigned. From Dave Mills.</li><li><code>ntp_config.c: ntp_minpoll</code> fixes from Dave Mills.</li><li><code>ntp-keygen</code> updates from Dave Mills.</li><li>refresh epoch, throttle, and leap cleanup from Dave Mills.</li><li>Documentation cleanup from Dave Mills.</li><li>Clean up the <code>logfile/syslog</code> setup.</li><li>The <code>-e</code> flag to <code>ntp-keygen</code> can write GQ keys now, too.</li><li><code>ntp_proto.c: sys_survivors</code> and <code>hpoll</code> cleanup from Dave Mills.</li><li><code>ntp_loopfilter.c: sys_poll</code> cleanup from Dave Mills.</li><li><code>refclock_wwv.c</code>: maximum-likelihood digit and DSYNC fixes from Dave Mills.</li><li><code>ntp_config.c</code>: [CID 48] missing <code>else</code> clause.</li><li>Rename the <code>ntpq config</code> keyword to <code>:config</code>.</li><li>Dave Mills shifted some orphan processing.</li><li>Fix typos in the <a href="https://bugs.ntp.org/show_bug.cgi?id=963">Bug 963</a> patch.</li><li>bootstrap: squawk if <code>genver</code> fails. Use <code>-f</code> with <code>cp</code> in case Dave does a <code>chown</code>.</li><li>Remove obsolete simulator command-line options.</li><li><code>ntp_request.c</code>: [CID 36] zero <code>sin_zero</code>.</li><li>Changes from Dave Mills:<ul><li><code>ntp_util.c</code>: cleanup.</li><li><code>ntp_timer.c</code>: watch the non-burst packet rate.</li><li><code>ntp_request.c</code>: cleanup.</li><li><code>ntp_restrict.c</code>: <code>RES_LIMITED</code> cleanup.</li><li><code>ntp_proto.c</code>: <code>RES_LIMITED</code>, rate buckets, counters, overall cleanup.</li><li><code>ntp_peer.c</code>: disallow <code>peer_unconfig()</code>.</li><li><code>ntp_monitor.c</code>: <code>RES_LIMITED</code> cleanup.</li><li><code>ntp_loopfilter.c</code>: poll interval cleanup.</li><li><code>ntp_crypto.c</code>: volley -> retry. Cleanup TAI leap message.</li><li><code>ntp_config</code>: average and minimum are <sup>^</sup>2 values.</li><li><code>ntpdc</code>: <code>unknownversion</code> is really &ldquo;declined&rdquo;, not &ldquo;bad version&rdquo;.</li><li>Packet retry cleanup.</li></ul></li><li>Added <code>HAVE_INT32_T</code> to the Windows <code>config.h</code> to avoid duplicate definitions.</li><li><code>ntpd/ntp_timer.c</code>: add missing <code>sys_tai</code> parameter for <code>debug printf</code></li><li>Work around a <code>VPATH</code> difference in FreeBSD&rsquo;s <code>make</code> command.</li><li>Update bugreport URL.</li><li>Update <code>-I</code> documentation.</li><li>A bug in the application of the negative-sawtooth for 12 channel receivers.</li><li>The removal of unneeded startup code used for the original LinuxPPS, it now conforms to the PPSAPI and does not need special code.</li><li><code>ntp-keygen.c:</code> Coverity fixes [CID 33,47].</li><li>Volley cleanup from Dave Mills.</li><li>Fuzz cleanup from Dave Mills.</li><li><code>ntpsim.c</code>: add missing protypes and fix [CID 34], a nit.</li><li>Upgraded bison at UDel.</li><li>Update <code>br-flock</code> and <code>flock-build</code> machine lists.</li><li>Fix the <code>#include</code> order in <code>tickadj.c</code> for picky machines.</li><li>Orphan mode and other protocol cleanup from Dave Mills.</li><li>more cleanup to <code>ntp_lineeditlibs.m4</code>.</li><li>Documentation updates from Dave Mills.</li><li><code>-ledit</code> cleanup for <code>ntpdc</code> and <code>ntpq</code>.</li><li>Association and other cleanup from Dave Mills.</li><li><code>NTP_UNREACH</code> changes from Dave Mills.</li><li>Fix the readline history test.</li><li>Lose obsolete crypto subcommands (Dave Mills).</li><li>WWV is an HF source, not an LF source (Dave Mills).</li><li>Crypto lint cleanup from Dave Mills.</li><li>Crypto cleanup from Dave Mills.</li><li>Avoid double peer stats logging.</li><li><code>ntp-keygen</code> cleanup from Dave Mills.</li><li><code>libopts</code> needs to be built after ElectricFence.</li><li>Calysto cleanup for <code>ntpq</code>.</li><li><code>ntp-keygen -i</code> takes an arg.</li><li>Cleanup and fixes from Dave Mills.</li><li>Improve Calysto support.</li><li>The <code>revoke</code> parameter is a crypto command.</li><li>The <code>driftfile</code> wander threshold is a real number.</li><li><code>ntp_io.c</code>: Dead code cleanup - Coverity View 19.</li><li>Leap file related cleanup from Dave Mills.</li><li><code>ntp_peer.c</code>: Set <code>peer->srcadr</code> before (not after) calling <code>set_peerdstadr()</code>.</li><li>Initialize offset in <code>leap_file()</code> - Coverity View 17.</li><li>Use the correct stratum on KISS codes.</li><li>Fuzz bits cleanup.</li><li>Show more digits in some debug <code>printf</code>&rsquo;s.</li><li>Use <code>drift_file_sw</code> internally to control writing the <code>drift</code> file.</li><li>Implement the <code>wander_threshold</code> option for the <code>driftfile config</code> keyword.</li><li>reformat <code>ntp_control.c;</code> do not use <code>c++ //</code> comments.</li><li>Changes from Dave Mills: in/out-bound data rates, <code>leapsecond</code> cleanup, <code>driftfile</code> write cleanup, packet buffer length checks, documentation updates.</li><li>More assertion checks and <code>malloc()->emalloc()</code>, courtesy of Calysto.</li><li>more leap second infrastructure fixes from Dave Mills.</li><li>Use <code>emalloc()</code> instead of <code>malloc()</code> in <code>refclock_datum.c</code> (Calysto).</li><li>Start using &lsquo;design by contract&rsquo; assertions.</li><li>Allow null <code>driftfile</code>.</li><li>Use <code>YYERROR_VERBOSE</code> for the new parser, and fix related <code>BUILT_SOURCES</code>.</li><li>Initial leap file fixes from Dave Mills.</li><li>Use a char for <code>DIR_SEP</code>, not a string.</li><li>driftfile maintenance changes from Dave Mills. Use <code>clock_phi</code> instead of <code>stats_write_tolerance</code>.</li><li>Enable debugging capability in the <code>config</code> parser.</li><li>Have <code>autogen</code> produce writable output files.</li><li>Cleanup <code>FILE *</code> usage after <code>fclose()</code> in <code>ntp_filegen.c.</code></li><li>Initial import of <code>libisc/log.c</code> and friends.</li><li>The new <code>config</code> code missed an <code>#ifdef</code> for building without refclocks.</li><li>Distribute some files needed by the new <code>config</code> parsing code.</li><li>Use autogen 5.9.1.</li><li>Fix <code>clktest</code> command-line arg processing.</li><li>Audio documentation updates from Dave Mills.</li><li>New <code>config</code> file parsing code, from Sachin Kamboj.</li><li>fuzz bit cleanup from Dave Mills.</li><li>replay cleanup from Dave Mills.</li><li><code>refclock_wwv.c</code> fixes from Dave Mills.</li><li>IRIG, CHU, WWV, WWVB refclock improvements from Dave Mills.</li><li>codec (audio) and ICOM changes from Dave Mills.</li><li>Correctly apply negative-sawtooth for oncore 12 channel receiver.</li><li>Startup code for original LinuxPPS removed. LinuxPPS now conforms to the PPSAPI.</li><li>Update the copyright year.</li><li>Build system cleanup (make <code>autogen</code>-generated files writable).</li><li><code>ntpdate.c</code>: Under Windows check whether NTP port in use under same conditions as under other OSs.</li><li><code>ntpdate.c</code>: Fixed some typos and indents (tabs/spaces).</li></ul><hr><h4 id=424p4>4.2.4p4</h4><p><strong>Release Date:</strong> 2007 Aug 28</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=902">Bug 902: Fix problems with the -6 flag.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=889">Bug 889: avoid malloc() interrupted by SIGIO risk</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=886">Bug 886: Corrected sign handling on 64bit in ntpdc loopinfo command.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=885">Bug 885: use emalloc() to get a message at the end of the memory unsigned types cannot be less than 0</a><ul><li>default_ai_family is a short</li><li>lose trailing , from enum list</li><li>clarify ntp_restrict.c for easier automated analysis</li></ul></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=884">Bug 884: don&rsquo;t access recv buffers after having them passed to the free list.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=882">Bug 882: allow loopback interfaces to share addresses with other interfaces.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=881">Bug 881: Corrected display of pll offset on 64bit systems.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=878">Bug 878: Avoid ntpdc use of refid value as unterminated string.</a></li><li><code>ntpd/refclock_parse.c</code>: cleanup shutdown while the file descriptor is still open.</li><li>Updated <code>include/copyright.def</code> (owner and year).</li></ul><hr><h4 id=424p3>4.2.4p3</h4><p><strong>Release Date:</strong> 2007 Jun 29</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=863">Bug 863: unable to stop ntpd on Windows as the handle reference for events changed</a></li></ul><hr><h4 id=424p2>4.2.4p2</h4><p><strong>Release Date:</strong> 2007 Jun 20</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=885">Bug 885: use emalloc() to get a message at the end of the memory</a><ul><li>unsigned types cannot be less than 0</li><li>default_ai_family is a short</li><li>lose trailing , from enum list</li></ul></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=884">Bug 884: don&rsquo;t access recv buffers after having them passed to the free list.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=882">Bug 882: allow loopback interfaces to share addresses with other interfaces.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=854">Bug 854: Broadcast address was not correctly set for interface addresses</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=829">Bug 829: reduce syslog noise, while there fix Enabled/Disable logging to reflect the actual configuration.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=811">Bug 811: ntpd should not read a .ntprc file.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=795">Bug 795: Moved declaration of variable to top of function.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=789">Bug 789: Fix multicast client crypto authentication and make sure arriving multicast packets do not disturb the autokey dance.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=785">Bug 785: improve handling of multicast interfaces (multicast routers still need to run a multicast routing software/daemon)</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=527">Bug 527: Don&rsquo;t write from source address length to wrong location</a></li><li><code>ntpd/refclock_parse.c</code>: cleanup shutdown while the file descriptor is still open.</li><li>Upgraded <code>autogen</code> and <code>libopts</code>.</li></ul><hr><h4 id=424p1>4.2.4p1</h4><p><strong>Release Date:</strong> (skipped)</p><hr><h4 id=424p0>4.2.4p0</h4><p><strong>Release Date:</strong> 2007 Mar 7</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=793">Bug 793: Update Hans Lambermont&rsquo;s email address in ntpsweep.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=776">Bug 776: Remove unimplemented &ldquo;rate&rdquo; flag from ntpdate.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=770">Bug 770: Fix numeric parameters to ntp-keygen (Alain Guibert).</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=768">Bug 768: Fix io_setbclient() error message.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=765">Bug 765: Use net_bind_service capability on linux.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=760">Bug 760: The background resolver must be aware of the &lsquo;dynamic&rsquo; keyword.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=753">Bug 753: make union timestamp anonymous (Philip Prindeville).</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=586">Bug 586: Avoid lookups if AI_NUMERICHOST is set.</a></li><li><code>confopt.html</code>: move description for <code>dynamic</code> keyword into the right section.</li><li>pick the right type for the <code>recv*()</code> length argument.</li></ul><hr><h4 id=424>4.2.4</h4><p><strong>Release Date:</strong> 2006 Dec 18</p><ul><li><a href="https://bugs.ntp.org/show_bug.cgi?id=747">Bug 747: Drop <nobr>tags from ntpdc.html.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=746">Bug 746: Expert mouseCLOCK USB v2.0 support added.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=741">Bug 741: &ldquo;burst&rdquo; doesn&rsquo;t work with !unfit peers.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=739">Bug 739: ntpd -x should not take an argument.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=737">Bug 737: Some systems need help providing struct iovec.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=735">Bug 735: Fix a make/gmake VPATH issue on Solaris.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=734">Bug 734: setsockopt(&mldr;, IP_MULTICAST_IF, &mldr;) fails on 64-bit platforms.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=732">Bug 732: C-DEX JST2000 patch from Hideo Kuramatsu.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=728">Bug 728: parse documentation fixes.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=721">Bug 721: check for __ss_family and __ss_len separately.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=718">Bug 718: Use the recommended type for the saddrlen arg to getsockname().</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=717">Bug 717: Fix libopts compile problem.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=715">Bug 715: Fix a multicast issue under Linux.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=714">Bug 714: ntpq -p should conflict with -i, not -c.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=708">Bug 708: Use thread affinity only for the clock interpolation thread.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=706">Bug 706: ntpd can be running several times in parallel.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=704">Bug 704: Documentation typos.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=701">Bug 701: coverity: NULL dereference in ntp_peer.c</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=695">Bug 695: libopts does not protect against macro collisions.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=693">Bug 693: _<em>adjtimex is independent of ntp</em>{adj,get}time.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=692">Bug 692: sys_limitrejected was not being incremented.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=691">Bug 691: restrictions() assumption not always valid.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=690">Bug 690: Fix a Windows DNS lookup buffer overflow.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=689">Bug 689: Deprecate HEATH GC-1001 II; the driver never worked.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=688">Bug 688: Fix documentation typos.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=686">Bug 686: Handle leap seconds better under Windows.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=685">Bug 685: Use the Windows multimedia timer.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=684">Bug 684: Only allow debug options if debugging is enabled.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=683">Bug 683: Use the right version string.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=680">Bug 680: Fix the generated version string on Windows.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=678">Bug 678: Use the correct size for control messages.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=677">Bug 677: Do not check uint_t in configure.ac.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=676">Bug 676: Use the right value for msg_namelen.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=675">Bug 675: Make sure ntpd builds without debugging.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=672">Bug 672: Fix cross-platform structure padding/size differences.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=670">Bug 670: Resolved a Windows issue with the dynamic interface rescan code.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=666">Bug 666: ntpq opeers displays jitter rather than dispersion.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=660">Bug 660: New TIMESTAMP code fails tp build on Solaris Express.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=659">Bug 659: libopts does not build under Windows.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=658">Bug 658: HP-UX with cc needs -Wp,-H8166 in CFLAGS.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=656">Bug 656: ntpdate doesn&rsquo;t work with multicast address.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=638">Bug 638: STREAMS_TLI is deprecated - remove it.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=637">Bug 637, 51?: Dynamic interface scanning can now be done.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=635">Bug 635: Fix tOptions definition.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=628">Bug 628: Fallback to ntp discipline not working for large offsets.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=622">Bug 622: Dynamic interface tracking for ntpd.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=603">Bug 603: Don&rsquo;t link with libelf if it&rsquo;s not needed.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=523">Bug 523: ntpd service under Windows does&rsquo;t shut down properly.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=500">Bug 500: sntp should always be built.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=479">Bug 479: Fix the -P option.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=452">Bug 452: Do not report kernel PLL/FLL flips.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=421">Bug 421: Support the bc637PCI-U card.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=342">Bug 342: Deprecate broken TRAK refclock driver.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=340">Bug 340: Deprecate broken MSF EES refclock driver.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=153">Bug 153: Don&rsquo;t do DNS lookups on address masks.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=143">Bug 143: Fix interrupted system call on HP-UX.</a></li><li><a href="https://bugs.ntp.org/show_bug.cgi?id=42">Bug 42: Distribution tarballs should be signed.</a></li><li><code>monopt.html</code> fixes from Dave Mills.</li><li><code>driver8.html</code> updates.</li><li><code>sntp</code> now uses the returned precision to control decimal places.</li><li><code>sntp -u</code> will use an unprivileged port for its queries.</li><li>K&R C support is being deprecated.</li><li>WWV refclock improvements from Dave Mills.</li><li>Support separate PPS devices for PARSE refclocks.</li><li>Options processing now uses GNU AutoGen.</li></ul><style>.feedback--answer{display:inline-block}.feedback--answer-no{margin-left:1em}.feedback--response{display:none;margin-top:1em}.feedback--response__visible{display:block}</style><div><h2 class=feedback--title>Feedback</h2><p class=feedback--question>Was this page helpful?</p><button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button><p class="feedback--response feedback--response-yes">Glad to hear it!</a></p><p class="feedback--response feedback--response-no">Sorry to hear that.</a></p></div><script>const yesButton=document.querySelector('.feedback--answer-yes'),noButton=document.querySelector('.feedback--answer-no'),yesResponse=document.querySelector('.feedback--response-yes'),noResponse=document.querySelector('.feedback--response-no'),disableButtons=()=>{yesButton.disabled=!0,noButton.disabled=!0},sendFeedback=b=>{if(typeof ga!='function')return;const a={command:'send',hitType:'event',category:'Helpful',action:'click',label:window.location.pathname,value:b};ga(a.command,a.hitType,a.category,a.action,a.label,a.value)};yesButton.addEventListener('click',()=>{yesResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(1)}),noButton.addEventListener('click',()=>{noResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(0)})</script><br></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+ Sec 1151: Remote exploit if autokey is enabled - CVE-2009-1252 Bug 1187: Update the copyright date. Bug 1191: ntpd fails on Win2000 - &ldquo;Address already in use&rdquo; after fix for Sec 1149   4." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/support/securitynotice/4_2_4-series-changelog/" /><meta property="article:section" content="support" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>4.2.4-series Changelog</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/support/">Support</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/support/securitynotice/">Security</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/support/securitynotice/4_2_4-series-changelog/">4.2.4-series Changelog</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>4.2.4-series Changelog</h1>
+     
+    <ul>
+<li><a href="#424p8">4.2.4p8</a></li>
+<li><a href="#424p7">4.2.4p7</a></li>
+<li><a href="#424p6">4.2.4p6</a></li>
+<li><a href="#424p5">4.2.4p5</a></li>
+<li><a href="#424p4">4.2.4p4</a></li>
+<li><a href="#424p3">4.2.4p3</a></li>
+<li><a href="#424p2">4.2.4p2</a></li>
+<li><a href="#424p1">4.2.4p1</a></li>
+<li><a href="#424p0">4.2.4p0</a></li>
+<li><a href="#424">4.2.4</a></li>
+</ul>
+<hr>
+<h4 id="424p8">4.2.4p8</h4>
+<p><strong>Release Date:</strong> 2009 Dec 08</p>
+<ul>
+<li><a href="/support/securitynotice/ntpbug1331/">Sec 1331: DoS with mode 7 packets</a> - <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-3563">CVE-2009-3563</a></li>
+</ul>
+<hr>
+<h4 id="424p7">4.2.4p7</h4>
+<p><strong>Release Date:</strong> 2009 May 18</p>
+<ul>
+<li><a href="/support/securitynotice/ntpbug1151/">Sec 1151: Remote exploit if autokey is enabled</a> - <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1252">CVE-2009-1252</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1187">Bug 1187: Update the copyright date.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1191">Bug 1191: ntpd fails on Win2000 - &ldquo;Address already in use&rdquo; after fix for Sec 1149</a></li>
+</ul>
+<hr>
+<h4 id="424p7-rc7">4.2.4p7-RC7</h4>
+<p><strong>Release Date:</strong> 2009 May 12</p>
+<ul>
+<li>ntp.isc.org -&gt; ntp.org cleanup.</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1178">Bug 1178: Use prior FORCE_DNSRETRY behavior as needed at runtime, add configure &ndash;enable-ignore-dns-errors to be even more stubborn</a></li>
+</ul>
+<hr>
+<h4 id="424p7-rc6">4.2.4p7-RC6</h4>
+<p><strong>Release Date:</strong> 2009 May 08</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=784">Bug 784: Make &ndash;enable-linuxcaps the default when available</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1179">Bug 1179: error messages for -u/&ndash;user and -i lacking droproot</a></li>
+<li>Updated JJY reference clock driver from Takao Abe</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1071">Bug 1071: Log a message and exit before trying to use FD_SET with a descriptor larger than FD_SETSIZE, which will corrupt memory</a></li>
+<li>On corruption of the iface list head in <code>add_interface</code>, log and exit</li>
+</ul>
+<hr>
+<h4 id="424p7-rc5">4.2.4p7-RC5</h4>
+<p><strong>Release Date:</strong> 2009 May 02</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1172">Bug 1172: 4.2.4p7-RC{3,4} fail to build on linux.</a></li>
+<li><code>flock-build</code> script unportable <code>set -m</code> use removed</li>
+</ul>
+<hr>
+<h4 id="424p7-rc4">4.2.4p7-RC4</h4>
+<p><strong>Release Date:</strong> 2009 Apr 29</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1167">Bug 1167: use gcc -Winit-self only if it is understood</a></li>
+</ul>
+<hr>
+<h4 id="424p7-rc3">4.2.4p7-RC3</h4>
+<p><strong>Release Date:</strong> 2009 Apr 22</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=787">Bug 787: Bug fixes for 64-bit time_t on Windows</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=813">Bug 813: Conditional naming of Event</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1147">Bug 1147: System errors should be logged to msyslog()</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1155">Bug 1155: Fix compile problem on Windows with VS2005</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1156">Bug 1156: lock_thread_to_processor() should be declared in header</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1157">Bug 1157: quiet OpenSSL warnings, clean up configure.ac</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1158">Bug 1158: support for aix6.1</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1160">Bug 1160: MacOS X is like BSD regarding F_SETOWN</a></li>
+</ul>
+<hr>
+<h4 id="424p7-rc2">4.2.4p7-RC2</h4>
+<p><strong>Release Date:</strong> 2009 Apr 09</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1144">Sec 1144: limited buffer overflow in ntpq.</a>  <a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0159">CVE-2009-0159</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1149">Sec 1149: use SO_EXCLUSIVEADDRUSE on Windows</a></li>
+</ul>
+<hr>
+<h4 id="424p7-rc1">4.2.4p7-RC1</h4>
+<p><strong>Release Date:</strong> 2009 Mar 30</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1131">Bug 1131: UDP sockets should not use SIGPOLL on Solaris.</a></li>
+<li>build system email address cleanup</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=774">Bug 774: parsesolaris.c does not compile under the new Solaris</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=873">Bug 873: Windows serial refclock proper TTY line discipline emulation</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1014">Bug 1014: Enable building with VC9 (in Visual Studio 2008, Visual C++ 2008, or SDK)</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1117">Bug 1117: Deferred interface binding under Windows works only correctly if FORCE_DNSRETRY is defined</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1124">BUG 1124: Lock QueryPerformanceCounter() client threads to same CPU</a></li>
+<li><code>DPRINTF</code> macro made safer, always evaluates to a statement and will not misassociate an else which follows the macro.</li>
+</ul>
+<hr>
+<h4 id="424p6">4.2.4p6</h4>
+<p><strong>Release Date:</strong> 2009 Jan 08</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1111">Sec 1111: Fix incorrect check of EVP_VerifyFinal()&rsquo;s return value.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1113">Bug 1113: Fixed build errors with recent versions of openSSL.</a></li>
+<li>Update the copyright year.</li>
+</ul>
+<hr>
+<h4 id="424p5">4.2.4p5</h4>
+<p><strong>Release Date:</strong> 2008 Aug 17</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1051">BUG 1051: Month off by one in leap second message written to clockstats file fixed.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1038">Bug 1038: Built-in getpass() function also prompts for password if not built with DEBUG.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=1000">Bug 1000: allow implicit receive buffer allocation for Windows. fixes startup for windows systems with many interfaces. reduces dropped packets on network bursts. additionally fix timer() starvation during high load.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=997">Bug 997: ntpdate buffer too small and unsafe.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=993">Bug 993: Fix memory leak when fetching system messages.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=990">Bug 990: drop minimum time restriction for interface update interval.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=987">Bug 987: Wake up the resolver thread/process when a new interface has become available.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=982">Bug 982: ntpdate(and ntptimeset) buffer overrun if HAVE_POLL_H isn&rsquo;t set (dup of 908).</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=979">Bug 979: Provide ntptimeval if it is not otherwise present.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=977">Bug 977: Fix mismatching #ifdefs for builds without IPv6.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=970">Bug 970: Lose obsolete -g flag to ntp-keygen.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=967">Bug 967: preemptable associations are lost forever on a step.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=964">Bug 964: Change <em>-</em>-linux* to *-*-*linux* to allow for uclinux.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=963">Bug 963: get_systime() is too noisy.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=961">Bug 961: refclock_tpro.c:tpro_poll() calls refclock_receive() twice.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=960">Bug 960: spurious syslog:crypto_setup:spurious crypto command</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=959">Bug 959: Refclock on Windows not properly releasing recvbuffs.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=957">Bug 957: Windows only: Let command line parameters from the Windows SCM GUI override the standard parameters from the ImagePath registry key.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=952">Bug 952: Use md5 code with a friendlier license.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=940">Bug 940: ntp-keygen uses -v.  Disallow it as a shortcut for &ndash;version.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=931">Bug 931: Require -lreadline to be asked for explicitly.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=929">Bug 929: int32_t is undefined on Windows.  Casting wrong.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=928">Bug 928: readlink missing braces.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=918">Bug 918: Only use a native md5.h if MD5Init() is available.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=917">Bug 917: config parse leaves files open</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=916">Bug 916: &lsquo;cryptosw&rsquo; is undefined if built without OpenSSL.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=915">Bug 915: ntpd cores during processing of x509 certificates.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=912">Bug 912: detect conflicting enable/disable configuration on interfaces sharing an IP address</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=911">Bug 911: Fix error message in cmd_args.c.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=909">Bug 909: Fix int32_t errors for ntohl().</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=908">Bug 908: ntpdate crashes sometimes.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=905">Bug 905: ntp_crypto.c fails to compile without -DDEBUG.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=899">Bug 899: Only show -i/&ndash;jaildir -u/&ndash;user options if we HAVE_DROPROOT.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=897">Bug 897: Check RAND_status() - we may not need a .rnd file.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=895">Bug 895: Log assertion failures via syslog(), not stderr.* </a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=894">Bug 894: Initialize keysdir before calling crypto_setup().</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=891">Bug 891: &lsquo;restrict&rsquo; config file keyword does not work (partial fix).</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=890">Bug 890: the crypto command seems to be required now.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=887">Bug 887: Fix error in ntp_types.h (for sizeof int != 4).</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=880">Bug 880: bug fixes for Windows build</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=864">Bug 864: Place ntpd service in maintenance mode if using SMF on Solaris</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=862">Bug 862: includefile nesting; preserve phonelist on reconfig.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=861">Bug 861: Leap second cleanups from Dave Mills.</a>](<a href="https://bugs.ntp.org/show_bug.cgi?id=861">https://bugs.ntp.org/show_bug.cgi?id=861</a>)</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=858">Bug 858: recent leapfile changes broke non-OpenSSL builds.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=857">Bug 857: ntpdate debug mode adjusts system clock when it shouldn&rsquo;t.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=853">Bug 853: get_node() must return a pointer to maximally-aligned memory.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=850">Bug 850: Fix the wander threshold parameter on the driftfile command.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=846">Bug 846: Correct includefile parsing.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=843">Bug 843: Windows Completion port code was incorrectly merged from -stable.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=841">Bug 841: Obsolete the &ldquo;dynamic&rdquo; keyword and make deferred binding to local interfaces the default.</a>
+<ul>
+<li>Emit a warning if that keyword is used for configuration.</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=840">Bug 840: do fudge configuration AFTER peers (thus refclocks) have been configured.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=839">Bug 839: Crypto password not read from ntp.conf.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=833">Bug 833: ntpq config keyword is quote-mark unfriendly.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=832">Bug 832: Add libisc/log.c headers to the distribution.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=830">Bug 830: Fix the checking order of the interface options.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=828">Bug 828: refid string not being parsed correctly.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=827">Bug 827: New parsing code does not handle &ldquo;fudge&rdquo; correctly.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=826">Bug 826: Fix redefinition of PI.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=825">Bug 825: Correct logconfig -/+ keyword processing.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=824">Bug 824: New parser code has some build problems with the SIM code.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=822">Bug 822: set progname once, early.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=819">Bug 819: remove erroneous #if 0 in Windows completion port code.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=817">Bug 817: Use longnames for setting ntp variables on the command-line; Allowing &lsquo;-v&rsquo; with and without an arg to disambiguate usage is error-prone.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=815">Bug 815: Fix warning compiling 4.2.5p22 under Windows with VC6.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=812">Bug 812: ntpd should drop supplementary groups.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=810">Bug 810: Fix ntp-keygen documentation.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=808">Bug 808: Only write the drift file if we are in state 4.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=798">Bug 798: ntpq [p typo crashes ntpq/ntpdc.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=796">Bug 796: Clean up duplicate #defines in ntp_control.c.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=795">Bug 795: Moved declaration of variable to top of function.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=788">Bug 788: Update macros to support VS 2005.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=787">Bug 787: Bug fixes for 64-bit time_t on Windows.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=786">Bug 786: Fix refclock_bancomm.c on Solaris.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=782">Bug 782: Remove P() macros from Windows files.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=778">Bug 778: ntpd fails to lock with drift=+500 when started with drift=-500.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=774">Bug 774: parsesolaris.c does not compile under the new Solaris.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=771">Bug 771: compare scopeid if available for IPv6 addresses</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=767">Bug 767: Fast sync to refclocks wanted.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=764">Bug 764: When looking for -lreadline support, also try using -lncurses.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=757">Bug 757 Lose ULONG_CONST().</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=756">Bug 756: Require ANSI C (function prototypes).</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=752">Bug 752: QoS: add parse/config handling code.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=740">Bug 740: Fix kernel/daemon startup drift anomaly.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=713">Bug 713: Fix bug reporting information.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=698">Bug 698: timeBeginPeriod is called without timeEndPeriod in some NTP tools.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=634">Bug 634: Re-instantiate syslog() and logfiles after the daemon fork.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=629">Bug 629: Undo bug #629 fixes as they cause more problems than were  being solved</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=604">Bug 604: ntpd regularly dies on linux/alpha.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=592">Bug 592: Trimble Thunderbolt GPS support.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=569">Bug 569: Use the correct precision for the Leitch CSD-5300.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=542">Bug 542: Tolerate missing directory separator at EO statsdir.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=532">Bug 532: nptdate timeout is too long if several servers are supplied.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=450">Bug 450: Windows only: Under original Windows NT we must not discard the wildcard socket to workaround a bug in NT&rsquo;s getsockname().</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=376">Bug 376/214: Enhancements to support multiple if names and IP addresses.</a></li>
+<li>much cleanup, fixes, and changes from Dave Mills.</li>
+<li><code>ntp_control.c: LEAPTAB</code> is a filestamp, not an unsigned.  From Dave Mills.</li>
+<li><code>ntp_config.c: ntp_minpoll</code> fixes from Dave Mills.</li>
+<li><code>ntp-keygen</code> updates from Dave Mills.</li>
+<li>refresh epoch, throttle, and leap cleanup from Dave Mills.</li>
+<li>Documentation cleanup from Dave Mills.</li>
+<li>Clean up the <code>logfile/syslog</code> setup.</li>
+<li>The <code>-e</code> flag to <code>ntp-keygen</code> can write GQ keys now, too.</li>
+<li><code>ntp_proto.c: sys_survivors</code> and <code>hpoll</code> cleanup from Dave Mills.</li>
+<li><code>ntp_loopfilter.c: sys_poll</code> cleanup from Dave Mills.</li>
+<li><code>refclock_wwv.c</code>: maximum-likelihood digit and DSYNC fixes from Dave Mills.</li>
+<li><code>ntp_config.c</code>: [CID 48] missing <code>else</code> clause.</li>
+<li>Rename the <code>ntpq config</code> keyword to <code>:config</code>.</li>
+<li>Dave Mills shifted some orphan processing.</li>
+<li>Fix typos in the <a href="https://bugs.ntp.org/show_bug.cgi?id=963">Bug 963</a> patch.</li>
+<li>bootstrap: squawk if <code>genver</code> fails.  Use <code>-f</code> with <code>cp</code> in case Dave does a <code>chown</code>.</li>
+<li>Remove obsolete simulator command-line options.</li>
+<li><code>ntp_request.c</code>: [CID 36] zero <code>sin_zero</code>.</li>
+<li>Changes from Dave Mills:
+<ul>
+<li><code>ntp_util.c</code>: cleanup.</li>
+<li><code>ntp_timer.c</code>: watch the non-burst packet rate.</li>
+<li><code>ntp_request.c</code>: cleanup.</li>
+<li><code>ntp_restrict.c</code>: <code>RES_LIMITED</code> cleanup.</li>
+<li><code>ntp_proto.c</code>: <code>RES_LIMITED</code>, rate buckets, counters, overall cleanup.</li>
+<li><code>ntp_peer.c</code>: disallow <code>peer_unconfig()</code>.</li>
+<li><code>ntp_monitor.c</code>: <code>RES_LIMITED</code> cleanup.</li>
+<li><code>ntp_loopfilter.c</code>: poll interval cleanup.</li>
+<li><code>ntp_crypto.c</code>: volley -&gt; retry.  Cleanup TAI leap message.</li>
+<li><code>ntp_config</code>: average and minimum are <sup>^</sup>2 values.</li>
+<li><code>ntpdc</code>: <code>unknownversion</code> is really &ldquo;declined&rdquo;, not &ldquo;bad version&rdquo;.</li>
+<li>Packet retry cleanup.</li>
+</ul>
+</li>
+<li>Added <code>HAVE_INT32_T</code> to the Windows <code>config.h</code> to avoid duplicate definitions.</li>
+<li><code>ntpd/ntp_timer.c</code>: add missing <code>sys_tai</code> parameter for <code>debug printf</code></li>
+<li>Work around a <code>VPATH</code> difference in FreeBSD&rsquo;s <code>make</code> command.</li>
+<li>Update bugreport URL.</li>
+<li>Update <code>-I</code> documentation.</li>
+<li>A bug in the application of the negative-sawtooth for 12 channel receivers.</li>
+<li>The removal of unneeded startup code used for the original LinuxPPS, it now conforms to the PPSAPI and does not need special code.</li>
+<li><code>ntp-keygen.c:</code> Coverity fixes [CID 33,47].</li>
+<li>Volley cleanup from Dave Mills.</li>
+<li>Fuzz cleanup from Dave Mills.</li>
+<li><code>ntpsim.c</code>: add missing protypes and fix [CID 34], a nit.</li>
+<li>Upgraded bison at UDel.</li>
+<li>Update <code>br-flock</code> and <code>flock-build</code> machine lists.</li>
+<li>Fix the <code>#include</code> order in <code>tickadj.c</code> for picky machines.</li>
+<li>Orphan mode and other protocol cleanup from Dave Mills.</li>
+<li>more cleanup to <code>ntp_lineeditlibs.m4</code>.</li>
+<li>Documentation updates from Dave Mills.</li>
+<li><code>-ledit</code> cleanup for <code>ntpdc</code> and <code>ntpq</code>.</li>
+<li>Association and other cleanup from Dave Mills.</li>
+<li><code>NTP_UNREACH</code> changes from Dave Mills.</li>
+<li>Fix the readline history test.</li>
+<li>Lose obsolete crypto subcommands (Dave Mills).</li>
+<li>WWV is an HF source, not an LF source (Dave Mills).</li>
+<li>Crypto lint cleanup from Dave Mills.</li>
+<li>Crypto cleanup from Dave Mills.</li>
+<li>Avoid double peer stats logging.</li>
+<li><code>ntp-keygen</code> cleanup from Dave Mills.</li>
+<li><code>libopts</code> needs to be built after ElectricFence.</li>
+<li>Calysto cleanup for <code>ntpq</code>.</li>
+<li><code>ntp-keygen -i</code> takes an arg.</li>
+<li>Cleanup and fixes from Dave Mills.</li>
+<li>Improve Calysto support.</li>
+<li>The <code>revoke</code> parameter is a crypto command.</li>
+<li>The <code>driftfile</code> wander threshold is a real number.</li>
+<li><code>ntp_io.c</code>: Dead code cleanup - Coverity View 19.</li>
+<li>Leap file related cleanup from Dave Mills.</li>
+<li><code>ntp_peer.c</code>: Set <code>peer-&gt;srcadr</code> before (not after) calling <code>set_peerdstadr()</code>.</li>
+<li>Initialize offset in <code>leap_file()</code> - Coverity View 17.</li>
+<li>Use the correct stratum on KISS codes.</li>
+<li>Fuzz bits cleanup.</li>
+<li>Show more digits in some debug <code>printf</code>&rsquo;s.</li>
+<li>Use <code>drift_file_sw</code> internally to control writing the <code>drift</code> file.</li>
+<li>Implement the <code>wander_threshold</code> option for the <code>driftfile config</code> keyword.</li>
+<li>reformat <code>ntp_control.c;</code> do not use <code>c++ //</code> comments.</li>
+<li>Changes from Dave Mills: in/out-bound data rates, <code>leapsecond</code> cleanup, <code>driftfile</code> write cleanup, packet buffer length checks, documentation updates.</li>
+<li>More assertion checks and <code>malloc()-&gt;emalloc()</code>, courtesy of Calysto.</li>
+<li>more leap second infrastructure fixes from Dave Mills.</li>
+<li>Use <code>emalloc()</code> instead of <code>malloc()</code> in <code>refclock_datum.c</code> (Calysto).</li>
+<li>Start using &lsquo;design by contract&rsquo; assertions.</li>
+<li>Allow null <code>driftfile</code>.</li>
+<li>Use <code>YYERROR_VERBOSE</code> for the new parser, and fix related <code>BUILT_SOURCES</code>.</li>
+<li>Initial leap file fixes from Dave Mills.</li>
+<li>Use a char for <code>DIR_SEP</code>, not a string.</li>
+<li>driftfile maintenance changes from Dave Mills.  Use <code>clock_phi</code> instead of <code>stats_write_tolerance</code>.</li>
+<li>Enable debugging capability in the <code>config</code> parser.</li>
+<li>Have <code>autogen</code> produce writable output files.</li>
+<li>Cleanup <code>FILE *</code> usage after <code>fclose()</code> in <code>ntp_filegen.c.</code></li>
+<li>Initial import of <code>libisc/log.c</code> and friends.</li>
+<li>The new <code>config</code> code missed an <code>#ifdef</code> for building without refclocks.</li>
+<li>Distribute some files needed by the new <code>config</code> parsing code.</li>
+<li>Use autogen 5.9.1.</li>
+<li>Fix <code>clktest</code> command-line arg processing.</li>
+<li>Audio documentation updates from Dave Mills.</li>
+<li>New <code>config</code> file parsing code, from Sachin Kamboj.</li>
+<li>fuzz bit cleanup from Dave Mills.</li>
+<li>replay cleanup from Dave Mills.</li>
+<li><code>refclock_wwv.c</code> fixes from Dave Mills.</li>
+<li>IRIG, CHU, WWV, WWVB refclock improvements from Dave Mills.</li>
+<li>codec (audio) and ICOM changes from Dave Mills.</li>
+<li>Correctly apply negative-sawtooth for oncore 12 channel receiver.</li>
+<li>Startup code for original LinuxPPS removed.  LinuxPPS now conforms to the PPSAPI.</li>
+<li>Update the copyright year.</li>
+<li>Build system cleanup (make <code>autogen</code>-generated files writable).</li>
+<li><code>ntpdate.c</code>: Under Windows check whether NTP port in use under same conditions as under other OSs.</li>
+<li><code>ntpdate.c</code>: Fixed some typos and indents (tabs/spaces).</li>
+</ul>
+<hr>
+<h4 id="424p4">4.2.4p4</h4>
+<p><strong>Release Date:</strong> 2007 Aug 28</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=902">Bug 902: Fix problems with the -6 flag.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=889">Bug 889: avoid malloc() interrupted by SIGIO risk</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=886">Bug 886: Corrected sign handling on 64bit in ntpdc loopinfo command.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=885">Bug 885: use emalloc() to get a message at the end of the memory unsigned types cannot be less than 0</a>
+<ul>
+<li>default_ai_family is a short</li>
+<li>lose trailing , from enum list</li>
+<li>clarify ntp_restrict.c for easier automated analysis</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=884">Bug 884: don&rsquo;t access recv buffers after having them passed to the free list.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=882">Bug 882: allow loopback interfaces to share addresses with other interfaces.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=881">Bug 881: Corrected display of pll offset on 64bit systems.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=878">Bug 878: Avoid ntpdc use of refid value as unterminated string.</a></li>
+<li><code>ntpd/refclock_parse.c</code>: cleanup shutdown while the file descriptor is still open.</li>
+<li>Updated <code>include/copyright.def</code> (owner and year).</li>
+</ul>
+<hr>
+<h4 id="424p3">4.2.4p3</h4>
+<p><strong>Release Date:</strong> 2007 Jun 29</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=863">Bug 863: unable to stop ntpd on Windows as the handle reference for events changed</a></li>
+</ul>
+<hr>
+<h4 id="424p2">4.2.4p2</h4>
+<p><strong>Release Date:</strong> 2007 Jun 20</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=885">Bug 885: use emalloc() to get a message at the end of the memory</a>
+<ul>
+<li>unsigned types cannot be less than 0</li>
+<li>default_ai_family is a short</li>
+<li>lose trailing , from enum list</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=884">Bug 884: don&rsquo;t access recv buffers after having them passed to the free list.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=882">Bug 882: allow loopback interfaces to share addresses with other interfaces.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=854">Bug 854: Broadcast address was not correctly set for interface addresses</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=829">Bug 829: reduce syslog noise, while there fix Enabled/Disable logging to reflect the actual configuration.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=811">Bug 811: ntpd should not read a .ntprc file.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=795">Bug 795: Moved declaration of variable to top of function.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=789">Bug 789: Fix multicast client crypto authentication and make sure arriving multicast packets do not disturb the autokey dance.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=785">Bug 785: improve handling of multicast interfaces (multicast routers still need to run a multicast routing software/daemon)</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=527">Bug 527: Don&rsquo;t write from source address length to wrong location</a></li>
+<li><code>ntpd/refclock_parse.c</code>: cleanup shutdown while the file descriptor is still open.</li>
+<li>Upgraded <code>autogen</code> and <code>libopts</code>.</li>
+</ul>
+<hr>
+<h4 id="424p1">4.2.4p1</h4>
+<p><strong>Release Date:</strong> (skipped)</p>
+<hr>
+<h4 id="424p0">4.2.4p0</h4>
+<p><strong>Release Date:</strong> 2007 Mar 7</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=793">Bug 793: Update Hans Lambermont&rsquo;s email address in ntpsweep.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=776">Bug 776: Remove unimplemented &ldquo;rate&rdquo; flag from ntpdate.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=770">Bug 770: Fix numeric parameters to ntp-keygen (Alain Guibert).</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=768">Bug 768: Fix io_setbclient() error message.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=765">Bug 765: Use net_bind_service capability on linux.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=760">Bug 760: The background resolver must be aware of the &lsquo;dynamic&rsquo; keyword.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=753">Bug 753: make union timestamp anonymous (Philip Prindeville).</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=586">Bug 586: Avoid lookups if AI_NUMERICHOST is set.</a></li>
+<li><code>confopt.html</code>: move description for <code>dynamic</code> keyword into the right section.</li>
+<li>pick the right type for the <code>recv*()</code> length argument.</li>
+</ul>
+<hr>
+<h4 id="424">4.2.4</h4>
+<p><strong>Release Date:</strong> 2006 Dec 18</p>
+<ul>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=747">Bug 747: Drop <NOBR> tags from ntpdc.html.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=746">Bug 746: Expert mouseCLOCK USB v2.0 support added.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=741">Bug 741: &ldquo;burst&rdquo; doesn&rsquo;t work with !unfit peers.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=739">Bug 739: ntpd -x should not take an argument.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=737">Bug 737: Some systems need help providing struct iovec.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=735">Bug 735: Fix a make/gmake VPATH issue on Solaris.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=734">Bug 734: setsockopt(&hellip;, IP_MULTICAST_IF, &hellip;) fails on 64-bit platforms.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=732">Bug 732: C-DEX JST2000 patch from Hideo Kuramatsu.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=728">Bug 728: parse documentation fixes.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=721">Bug 721: check for __ss_family and __ss_len separately.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=718">Bug 718: Use the recommended type for the saddrlen arg to getsockname().</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=717">Bug 717: Fix libopts compile problem.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=715">Bug 715: Fix a multicast issue under Linux.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=714">Bug 714: ntpq -p should conflict with -i, not -c.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=708">Bug 708: Use thread affinity only for the clock interpolation thread.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=706">Bug 706: ntpd can be running several times in parallel.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=704">Bug 704: Documentation typos.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=701">Bug 701: coverity: NULL dereference in ntp_peer.c</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=695">Bug 695: libopts does not protect against macro collisions.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=693">Bug 693: _<em>adjtimex is independent of ntp</em>{adj,get}time.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=692">Bug 692: sys_limitrejected was not being incremented.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=691">Bug 691: restrictions() assumption not always valid.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=690">Bug 690: Fix a Windows DNS lookup buffer overflow.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=689">Bug 689: Deprecate HEATH GC-1001 II; the driver never worked.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=688">Bug 688: Fix documentation typos.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=686">Bug 686: Handle leap seconds better under Windows.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=685">Bug 685: Use the Windows multimedia timer.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=684">Bug 684: Only allow debug options if debugging is enabled.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=683">Bug 683: Use the right version string.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=680">Bug 680: Fix the generated version string on Windows.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=678">Bug 678: Use the correct size for control messages.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=677">Bug 677: Do not check uint_t in configure.ac.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=676">Bug 676: Use the right value for msg_namelen.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=675">Bug 675: Make sure ntpd builds without debugging.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=672">Bug 672: Fix cross-platform structure padding/size differences.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=670">Bug 670: Resolved a Windows issue with the dynamic interface rescan code.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=666">Bug 666: ntpq opeers displays jitter rather than dispersion.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=660">Bug 660: New TIMESTAMP code fails tp build on Solaris Express.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=659">Bug 659: libopts does not build under Windows.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=658">Bug 658: HP-UX with cc needs -Wp,-H8166 in CFLAGS.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=656">Bug 656: ntpdate doesn&rsquo;t work with multicast address.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=638">Bug 638: STREAMS_TLI is deprecated - remove it.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=637">Bug 637, 51?: Dynamic interface scanning can now be done.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=635">Bug 635: Fix tOptions definition.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=628">Bug 628: Fallback to ntp discipline not working for large offsets.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=622">Bug 622: Dynamic interface tracking for ntpd.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=603">Bug 603: Don&rsquo;t link with libelf if it&rsquo;s not needed.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=523">Bug 523: ntpd service under Windows does&rsquo;t shut down properly.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=500">Bug 500: sntp should always be built.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=479">Bug 479: Fix the -P option.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=452">Bug 452: Do not report kernel PLL/FLL flips.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=421">Bug 421: Support the bc637PCI-U card.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=342">Bug 342: Deprecate broken TRAK refclock driver.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=340">Bug 340: Deprecate broken MSF EES refclock driver.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=153">Bug 153: Don&rsquo;t do DNS lookups on address masks.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=143">Bug 143: Fix interrupted system call on HP-UX.</a></li>
+<li><a href="https://bugs.ntp.org/show_bug.cgi?id=42">Bug 42: Distribution tarballs should be signed.</a></li>
+<li><code>monopt.html</code> fixes from Dave Mills.</li>
+<li><code>driver8.html</code> updates.</li>
+<li><code>sntp</code> now uses the returned precision to control decimal places.</li>
+<li><code>sntp -u</code> will use an unprivileged port for its queries.</li>
+<li>K&amp;R C support is being deprecated.</li>
+<li>WWV refclock improvements from Dave Mills.</li>
+<li>Support separate PPS devices for PARSE refclocks.</li>
+<li>Options processing now uses GNU AutoGen.</li>
+</ul>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

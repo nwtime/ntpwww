@@ -1,25 +1,706 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="Understanding and using the Network Time Protocol (A first try on a non-technical Mini-HOWTO and FAQ on NTP)
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="Understanding and using the Network Time Protocol (A first try on a non-technical Mini-HOWTO and FAQ on NTP)
 Last update: 2006-11-21
 
-Table of …"><meta property="og:title" content="The NTP FAQ and HOWTO"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://doc.ntp.org/ntpfaq/"><meta property="og:site_name" content="NTP: Network Time Protocol"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-BN61ZTDHBP',{anonymize_ip:!1})}</script><title>The NTP FAQ and HOWTO</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://doc.ntp.org/><img class=img-fluid src=https://doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class="breadcrumb-item active" aria-current=page><a href=https://doc.ntp.org/ntpfaq/>The NTP FAQ and HOWTO</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>The NTP FAQ and HOWTO</h1><p><strong>Understanding and using the Network Time Protocol (A first try on a non-technical Mini-HOWTO and FAQ on NTP)</strong></p><p>Last update: 2006-11-21</p><hr><h4 id=table-of-contents>Table of Contents</h4><ol><li><p><a href=#1-about-this-document>About this Document</a><br>1.1 <a href=#11-preface>Preface</a><br>1.2 <a href=#12-why-is-this-document-named-faq-and-howto>Why is this Document named FAQ and HOWTO?</a><br>1.3 <a href=#13-where-is-the-source-of-this-document>Where is the source of this document?</a><br>1.4 <a href=#14-why-cant-i-find-information-about-xyz-in-this-faq>Why can&rsquo;t I find information about xyz in this FAQ?</a><br>1.5 <a href=#15-where-should-a-new-entry-be-put>Where should a new Entry be put?</a><br>1.6 <a href=#16-why-should-i-contribute>Why should I contribute?</a><br>1.7 <a href=#17-how-can-i-contribute>How can I contribute?</a><br>1.8 <a href=#18-i-contributed-to-this-faq-but-my-name-is-not-mentioned-anywhere-whats-wrong>I contributed to this FAQ, but my name is not mentioned anywhere. What&rsquo;s wrong?</a><br>1.9 <a href=#19-why-are-graphics-stored-in-png-format>Why are Graphics stored in PNG Format?</a><br>1.10 <a href=#110-credits>Credits</a></p></li><li><p><a href=/ntpfaq/ntp-s-time/>Time, what Time?</a><br>2.1 <a href=/ntpfaq/ntp-s-time/#21-what-is-time>What is Time?</a><br>2.2 <a href=/ntpfaq/ntp-s-time/#22-what-is-utc>What is UTC?</a><br>2.3 <a href=/ntpfaq/ntp-s-time/#23-is-utc-the-same-as-gmt>Is UTC the same as GMT?</a><br>2.4 <a href=/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second>What happens during a Leap Second?</a></p></li><li><p><a href=/ntpfaq/ntp-s-sw-clocks/>How do Computer Clocks work?</a><br>3.1 <a href=/ntpfaq/ntp-s-sw-clocks/#31-bits-and-registers>Bits and Registers</a><br>3.2 <a href=/ntpfaq/ntp-s-sw-clocks-tick/>Making Time go on</a><br>3.3 <a href=/ntpfaq/ntp-s-sw-clocks-quality/>Clock Quality</a><br>3.3.1 <a href=/ntpfaq/ntp-s-sw-clocks-quality/#331-frequency-error>Frequency Error</a><br>3.3.1.1 <a href=/ntpfaq/ntp-s-sw-clocks-quality/#3311-how-bad-is-a-frequency-error-of-500-ppm>How bad is a Frequency Error of 500 PPM?</a><br>3.3.1.2 <a href=/ntpfaq/ntp-s-sw-clocks-quality/#3312-what-is-the-frequency-error-of-a-good-clock>What is the Frequency Error of a good Clock?</a></p></li><li><p><a href=/ntpfaq/ntp-s-def/>What is NTP?</a><br>4.1 <a href=/ntpfaq/ntp-s-def/#41-overview>Overview</a><br>4.1.1 <a href=/ntpfaq/ntp-s-def/#411-what-is-ntp>What is NTP?</a><br>4.1.2 <a href=/ntpfaq/ntp-s-def/#412-what-is-sntp>What is SNTP?</a><br>4.1.3 <a href=/ntpfaq/ntp-s-def/#413-why-should-time-be-synchronized>Why should Time be synchronized?</a><br>4.1.4 <a href=/ntpfaq/ntp-s-def/#414-what-are-the-basic-features-of-ntp>What are the basic features of NTP?</a><br>4.1.5 <a href=/ntpfaq/ntp-s-def/#415-which-operating-systems-are-supported>Which Operating Systems are supported?</a><br>4.1.6 <a href=/ntpfaq/ntp-s-def/#416-how-many-ntp-servers-are-available-in-the-internet>How many NTP servers are available in the Internet?</a><br>4.1.7 <a href=/ntpfaq/ntp-s-def/#417-which-version-of-ntp-should-i-use>Which version of NTP should I use?</a><br>4.1.8 <a href=/ntpfaq/ntp-s-def/#418-whats-the-difference-between-xntp-and-ntp>What&rsquo;s the difference between xntp and ntp?</a><br>4.2. <a href=/ntpfaq/ntp-s-def-hist/>History</a><br>4.3. <a href=/ntpfaq/ntp-s-def-impl/>Implementations and Platforms</a><br>4.3.1 <a href=/ntpfaq/ntp-s-def-impl/#431-official-providers>Official Providers</a><br>4.3.2 <a href=/ntpfaq/ntp-s-def-impl/#432-unix-systems>UNIX Systems</a><br>4.3.3 <a href=/ntpfaq/ntp-s-def-impl/#433-microsoft-windows>Microsoft Windows</a></p></li><li><p><a href=/ntpfaq/ntp-s-algo/>How does it work?</a><br>5.1 <a href=/ntpfaq/ntp-s-algo/#basic-concepts>Basic Concepts</a><br>5.1.1 <a href=/ntpfaq/ntp-s-algo/#511-time-references>Time References</a><br>5.1.1.1 <a href=/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock>What is a reference clock?</a><br>5.1.1.2 <a href=/ntpfaq/ntp-s-algo/#5112-how-will-ntp-use-a-reference-clock>How will NTP use a reference clock?</a><br>5.1.1.3 <a href=/ntpfaq/ntp-s-algo/#5113-how-will-ntp-know-about-time-sources>How will NTP know about Time Sources?</a><br>5.1.1.4 <a href=/ntpfaq/ntp-s-algo/#5114-what-happens-if-the-reference-time-changes>What happens if the Reference Time changes?</a><br>5.1.1.5 <a href=/ntpfaq/ntp-s-algo/#5115-what-is-a-stratum-1-server>What is a stratum 1 Server?</a><br>5.1.2 <a href=/ntpfaq/ntp-s-algo/#512-time-exchange>Time Exchange</a><br>5.1.2.1 <a href=/ntpfaq/ntp-s-algo/#5121-how-is-time-synchronized>How is Time synchronized?</a><br>5.1.2.2 <a href=/ntpfaq/ntp-s-algo/#5122-which-network-protocols-are-used-by-ntp>Which Network Protocols are used by NTP?</a><br>5.1.2.3 <a href=/ntpfaq/ntp-s-algo/#5123-how-is-time-encoded-in-ntp>How is Time encoded in NTP?</a><br>5.1.2.4 <a href=/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled>When are the Servers polled?</a><br>5.1.3 <a href=/ntpfaq/ntp-s-algo/#513-performance>Performance</a><br>5.1.3.1 <a href=/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be>How accurate will my Clock be?</a><br>5.1.3.2 <a href=/ntpfaq/ntp-s-algo/#5132-how-frequently-will-the-system-clock-be-updated>How frequently will the System Clock be updated?</a><br>5.1.3.3 <a href=/ntpfaq/ntp-s-algo/#5133-how-frequently-are-correction-values-updated>How frequently are Correction Values updated?</a><br>5.1.3.4 <a href=/ntpfaq/ntp-s-algo/#5135-what-is-the-limit-for-the-number-of-clients>What is the Limit for the Number of Clients?</a><br>5.1.4 <a href=/ntpfaq/ntp-s-algo/#514-robustness>Robustness</a><br>5.1.4.1 <a href=/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum>What is the stratum?</a><br>5.1.4.2 <a href=/ntpfaq/ntp-s-algo/#5142-how-are-synchronization-loops-avoided>How are Synchronization Loops avoided?</a><br>5.1.5 <a href=/ntpfaq/ntp-s-algo/#515-tuning>Tuning</a><br>5.1.5.1 <a href=/ntpfaq/ntp-s-algo/#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll>What is the allowed range for minpoll and maxpoll?</a><br>5.1.5.2 <a href=/ntpfaq/ntp-s-algo/#5152-what-is-the-best-polling-interval>What is the best polling Interval?</a><br>5.1.6 <a href=/ntpfaq/ntp-s-algo/#516-operating-system-clock-interface>Operating System Clock Interface</a><br>5.1.6.1 <a href=/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock>How will NTP discipline my Clock?</a><br>5.2. <a href=/ntpfaq/ntp-s-algo-kernel/>The Kernel Discipline</a><br>5.2.1 <a href=/ntpfaq/ntp-s-algo-kernel/#521-basic-functionality>Basic Functionality</a><br>5.2.1.1 <a href=/ntpfaq/ntp-s-algo-kernel/#5211-what-is-special-about-the-kernel-clock>What is special about the Kernel Clock?</a><br>5.2.1.2 <a href=/ntpfaq/ntp-s-algo-kernel/#5212-does-my-operating-system-have-the-kernel-discipline>Does my Operating System have the Kernel Discipline?</a><br>5.2.1.3 <a href=/ntpfaq/ntp-s-algo-kernel/#5213-how-can-i-verify-the-kernel-discipline>How can I verify the Kernel Discipline?</a><br>5.2.2 <a href=/ntpfaq/ntp-s-algo-kernel/#522-monitoring/>Monitoring</a><br>5.2.3 <a href=/ntpfaq/ntp-s-algo-kernel/#523-pps-processing>PPS Processing</a><br>5.2.3.1 <a href=/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing>What is PPS Processing?</a><br>5.2.3.2 <a href=/ntpfaq/ntp-s-algo-kernel/#5232-how-is-pps-processing-related-to-the-kernel-discipline>How is PPS Processing related to the Kernel Discipline?</a><br>5.2.3.3 <a href=/ntpfaq/ntp-s-algo-kernel/#5233-what-does-hardpps-do>What does hardpps() do?</a><br>5.3. <a href=/ntpfaq/ntp-s-algo-real/>NTP in real Life</a><br>5.3.1 <a href=/ntpfaq/ntp-s-algo-real/#531-what-if-i-write-my-own-sntp-server>What if I write my own SNTP Server?</a><br>5.3.2 <a href=/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock>Why should I have more than one clock?</a><br>5.3.3 <a href=/ntpfaq/ntp-s-algo-real/#533-does-the-reference-time-depend-on-all-configured-servers-or-is-it-based-on-which-ever-responds-first>Does the reference time depend on all configured servers, or is it based on which ever responds first?</a><br>5.3.4 <a href=/ntpfaq/ntp-s-algo-real/#534-what-happens-during-a-leap-second>What happens during a Leap Second?</a><br>5.4. <a href=/ntpfaq/ntp-s-algo-crypt/>Encryption</a><br>5.4.1 <a href=/ntpfaq/ntp-s-algo-crypt/#541-what-is-encryption-used-for-in-ntp>What is Encryption used for in NTP?</a><br>5.4.1.1 <a href=/ntpfaq/ntp-s-algo-crypt/#5411-how-is-authenticity-verified>How is Authenticity verified?</a><br>5.4.1.2 <a href=/ntpfaq/ntp-s-algo-crypt/#5412-where-are-authenticated-messages-used-in-ntp>Where are authenticated Messages used in NTP?</a><br>5.4.1.3 <a href=/ntpfaq/ntp-s-algo-crypt/#5413-how-is-performance-affected-by-encryption>How is Performance affected by Encryption?</a><br>5.4.2 <a href=/ntpfaq/ntp-s-algo-crypt/#542-the-basics-of-autokey>The Basics of Autokey</a><br>5.4.2.1 <a href=/ntpfaq/ntp-s-algo-crypt/#5421-authentic-and-proventic>Authentic and Proventic</a><br>5.4.2.2 <a href=/ntpfaq/ntp-s-algo-crypt/#5422-secure-group-and-trusted-host>Secure Group and Trusted Host</a><br>5.4.2.3 <a href=/ntpfaq/ntp-s-algo-crypt/#5423-identity-schemes>Identity Schemes</a><br>5.4.2.4 <a href=/ntpfaq/ntp-s-algo-crypt/#5424-proventic-trail>Proventic Trail</a><br>5.2.4.5 <a href=/ntpfaq/ntp-s-algo-crypt/#5425-session-keys>Session Keys</a></p></li><li><p><a href=/ntpfaq/ntp-s-config/>Configuration</a><br>6.1. <a href=/ntpfaq/ntp-s-config/#61-basic-configuration>Basic Configuration</a><br>6.1.1 <a href=/ntpfaq/ntp-s-config/#611-cant-i-just-run-ntpdate>Can&rsquo;t I just run ntpdate?</a><br>6.1.2 <a href=/ntpfaq/ntp-s-config/#612-recommended-minimum>Recommended Minimum</a><br>6.1.2.1 <a href=/ntpfaq/ntp-s-config/#6121-what-is-the-minimum-configuration>What is the minimum configuration?</a><br>6.1.2.2 <a href=/ntpfaq/ntp-s-config/#6122-is-the-minimum-configuration-a-typical-one>Is the minimum configuration a typical one?</a><br>6.1.2.3 <a href=/ntpfaq/ntp-s-config/#6123-what-is-the-correct-pseudo-ip-address-for-my-reference-clock>What is the correct Pseudo IP Address for my reference clock?</a><br>6.1.2.4 <a href=/ntpfaq/ntp-s-config/#6124-what-is-a-drift-file>What is a drift file?</a><br>6.1.2.5 <a href=/ntpfaq/ntp-s-config/#6125-should-i-use-ip-addresses-or-host-names>Should I use IP addresses or host names?</a><br>6.1.3 <a href=/ntpfaq/ntp-s-config/#613-running-an-isolated-network>Running an isolated Network</a><br>6.1.3.1 <a href=/ntpfaq/ntp-s-config/#6131-can-i-use-my-system-clock-as-reference-clock>Can I use my system clock as reference clock?</a><br>6.1.3.2 <a href=/ntpfaq/ntp-s-config/#6132-can-i-avoid-manual-time-adjustments-in-a-network-without-reference-clock>Can I avoid manual time adjustments in a network without reference clock?</a><br>6.1.4 <a href=/ntpfaq/ntp-s-config/#614-recommended-goodies>Recommended Goodies</a><br>6.1.4.1 <a href=/ntpfaq/ntp-s-config/#6141-how-can-i-configure-the-amount-of-logging-information>How can I configure the amount of logging information?</a><br>6.1.4.2 <a href=/ntpfaq/ntp-s-config/#6142-how-can-i-speed-up-initial-synchronization>How can I speed up initial Synchronization?</a><br>6.1.4.3 <a href=/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration>How do I configure remote administration?</a><br>6.1.4.4 <a href=/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys>How do I use authentication keys?</a><br>6.1.4.5 <a href=/ntpfaq/ntp-s-config/#6145-what-are-all-the-different-keys-used-for>What are all the different Keys used for?</a><br>6.1.4.6 <a href=/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey>How do I use autokey?</a><br>6.1.5 <a href=/ntpfaq/ntp-s-config/#615-miscellaneous-hints>Miscellaneous Hints</a><br>6.1.5.1 <a href=/ntpfaq/ntp-s-config/#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server>What is the preferred etiquette when synchronizing to a public server?</a><br>6.1.5.2 <a href=/ntpfaq/ntp-s-config/#6152-where-can-i-find-public-time-servers>Where can I find public Time Servers?</a><br>6.2. <a href=/ntpfaq/ntp-s-config-adv/>Advanced Configuration</a><br>6.2.1 <a href=/ntpfaq/ntp-s-config-adv/#621-server-selection>Server Selection</a><br>6.2.1.1 <a href=/ntpfaq/ntp-s-config-adv/#6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to>What is the rule of thumb for number of servers to synchronize to?</a><br>6.2.1.2 <a href=/ntpfaq/ntp-s-config-adv/#6212-should-the-servers-be-a-mix-of-primary-and-secondary-servers>Should the servers be a mix of primary and secondary servers?</a><br>6.2.1.3 <a href=/ntpfaq/ntp-s-config-adv/#6213-how-should-i-provide-ntp-services-for-a-huge-network>How should I provide NTP services for a huge network?</a><br>6.2.2 <a href=/ntpfaq/ntp-s-config-adv/#622-authentication>Authentication</a><br>6.2.2.1 <a href=/ntpfaq/ntp-s-config-adv/#6221-why-authentication>Why Authentication?</a><br>6.2.2.2 <a href=/ntpfaq/ntp-s-config-adv/#6222-how-is-authentication-applied>How is Authentication applied?</a><br>6.2.2.3 <a href=/ntpfaq/ntp-s-config-adv/#6223-how-do-i-create-a-key>How do I create a key?</a><br>6.2.2.4 <a href=/ntpfaq/ntp-s-config-adv/#6224-how-does-authentication-work>How does Authentication work?</a><br>6.2.2.5 <a href=/ntpfaq/ntp-s-config-adv/#6225-can-i-add-authentication-without-restarting-ntpd>Can I add Authentication without restarting ntpd?</a><br>6.2.2.6 <a href=/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey>How do I use Public-Key Authentication (autokey)?</a><br>6.2.3 <a href=/ntpfaq/ntp-s-config-adv/#623-broadcasting-multicasting-and-manycasting>Broadcasting, Multicasting, and Manycasting</a><br>6.2.3.1 <a href=/ntpfaq/ntp-s-config-adv/#6231-how-do-i-configure-a-broadcast-server>How do I configure a Broadcast Server?</a><br>6.2.3.2 <a href=/ntpfaq/ntp-s-config-adv/#6232-how-do-i-configure-a-broadcast-client>How do I configure a Broadcast Client?</a><br>6.2.3.3 <a href=/ntpfaq/ntp-s-config-adv/#6233-why-doesnt-broadcasting-work-with-lcl>Why doesn&rsquo;t Broadcasting work with LCL?</a><br>6.2.3.4 <a href=/ntpfaq/ntp-s-config-adv/#6234-how-do-i-configure-multicast-servers-and-clients>How do I configure Multicast Servers and Clients?</a><br>6.2.3.5 <a href=/ntpfaq/ntp-s-config-adv/#6235-what-is-manycasting>What is Manycasting?</a><br>6.2.4. <a href=/ntpfaq/ntp-s-config-adv/#624-pps-synchronization>PPS Synchronization</a><br>6.2.4.1 <a href=/ntpfaq/ntp-s-config-adv/#6241-which-components-are-required-to-use-pps-synchronization>Which components are required to use PPS synchronization?</a><br>6.2.4.2 <a href=/ntpfaq/ntp-s-config-adv/#6242-what-changes-are-required-in-ntpconf>What changes are required in ntp.conf?</a><br>6.2.4.3 <a href=/ntpfaq/ntp-s-config-adv/#6243-how-do-i-verify-that-everything-is-working>How do I verify that everything is working?</a><br>6.2.4.4 <a href=/ntpfaq/ntp-s-config-adv/#6244-special-drivers>Special Drivers</a><br>6.2.4.4.1 <a href=/ntpfaq/ntp-s-config-adv/#62441-what-is-a-pps-peer>What is a PPS peer?</a><br>6.2.4.4.2 <a href=/ntpfaq/ntp-s-config-adv/#62442-how-do-i-use-pps-with-the-motorola-oncore-driver>How do I use PPS with the Motorola Oncore driver?</a><br>6.2.4.4.3 <a href=/ntpfaq/ntp-s-config-adv/#62443-how-do-i-use-pps-with-the-nmea-driver>How do I use PPS with the NMEA driver?</a><br>6.2.4.5 <a href=/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api>What is the PPS API?</a><br>6.2.4.6 <a href=/ntpfaq/ntp-s-config-adv/#6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface>What is the shortest Width for a Pulse connected to the DCD Pin of an RS-232 Interface?</a><br>6.2.5 <a href=/ntpfaq/ntp-s-config-adv/#625-automatic-configuration>Automatic Configuration</a><br>6.2.5.1 <a href=/ntpfaq/ntp-s-config-adv/#6251-how-can-i-define-the-address-of-an-ntp-server-in-a-bootp-reply>How can I define the address of an NTP server in a BOOTP reply?</a><br>6.2.5.2 <a href=/ntpfaq/ntp-s-config-adv/#6252-how-do-i-use-information-about-ntp-servers-given-in-a-bootp-reply>How do I use information about NTP servers given in a BOOTP reply?</a><br>6.2.6 <a href=/ntpfaq/ntp-s-config-adv/#626-offering-time-service>Offering Time Service</a><br>6.2.6.1 <a href=/ntpfaq/ntp-s-config-adv/#6261-is-there-any-way-to-configure-ntpd-to-attach-to-a-specific-interface>Is there any way to configure ntpd to attach to a specific Interface?</a><br>6.2.6.2 <a href=/ntpfaq/ntp-s-config-adv/#6262-should-access-be-restricted>Should Access be restricted?</a><br>6.2.6.3 <a href=/ntpfaq/ntp-s-config-adv/#6263-what-should-be-done-before-announcing-public-ntp-service>What should be done before announcing public NTP service?</a><br>6.3. <a href=/ntpfaq/ntp-s-config-tricks/>Various Tricks</a><br>6.3.1 <a href=/ntpfaq/ntp-s-config-tricks/#631-mixing-time-protocols>Mixing Time Protocols</a><br>6.3.2 <a href=/ntpfaq/ntp-s-config-tricks/#632-avoiding-time-steps>Avoiding Time Steps</a><br>6.3.3 <a href=/ntpfaq/ntp-s-config-tricks/#633-using-the-echo-feature-in-pps-api>Using the Echo Feature in PPS API</a><br>6.4. <a href=/ntpfaq/ntp-s-compat/>Compatibility</a><br>6.4.1 <a href=/ntpfaq/ntp-s-compat/#641-the-kernel-pll>The Kernel PLL</a><br>6.4.1.1 <a href=/ntpfaq/ntp-s-compat/#6411-how-many-different-kernel-models-and-implementations-exist>How many different kernel models and implementations exist?</a><br>6.4.1.2 <a href=/ntpfaq/ntp-s-compat/#6412-whats-new-in-each-version>What&rsquo;s new in each Version?</a><br>6.4.1.3 <a href=/ntpfaq/ntp-s-compat/#6413-are-the-individual-kernel-models-compatible>Are the individual kernel models compatible?</a><br>6.4.1.4 <a href=/ntpfaq/ntp-s-compat/#6414-is-the-linux-implementation-different>Is the Linux implementation different?</a></p></li><li><p><a href=/ntpfaq/ntp-s-refclk/>Reference Clocks</a><br>7.1 <a href=/ntpfaq/ntp-s-refclk/#71-what-is-lcl-the-local-clock>What is LCL, the Local Clock?</a><br>7.2 <a href=/ntpfaq/ntp-s-refclk/#72-gps-receivers>GPS Receivers</a><br>7.2.1 <a href=/ntpfaq/ntp-s-refclk/#721-what-should-i-know-about-various-gps-receivers>What should I know about various GPS Receivers?</a><br>7.2.2 <a href=/ntpfaq/ntp-s-refclk/#722-what-are-pdop-tdop-and-gdop>What are PDOP, TDOP, and GDOP?</a><br>7.2.3 <a href=/ntpfaq/ntp-s-refclk/#723-what-is-nmea>What is NMEA?</a><br>7.2.4 <a href=/ntpfaq/ntp-s-refclk/#724-what-is-tsip>What is TSIP?</a><br>7.3 <a href=/ntpfaq/ntp-s-refclk/#73-dcf77-receivers>DCF77 Receivers</a><br>7.3.1 <a href=/ntpfaq/ntp-s-refclk/#731-what-should-i-know-about-dcf77-receivers>What should I know about DCF77 Receivers?</a><br>7.3.2 <a href=/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail>What can make my DCF77 Receiver fail?</a><br>7.4 <a href=/ntpfaq/ntp-s-refclk/#74-other-receivers/>Other Receivers</a><br>7.4.1 <a href=/ntpfaq/ntp-s-refclk/#741-what-can-make-my-msf-receiver-fail>What can make my MSF Receiver fail?</a><br>7.4.2 <a href=/ntpfaq/ntp-s-refclk/#742-how-can-i-find-a-low-cost-receiver-for-low-frequency-transmissions>How can I find a low-cost Receiver for Low-Frequency Transmissions?</a><br>7.5 <a href=/ntpfaq/ntp-s-refclk/#75-products>Products</a><br>7.5.1 <a href=/ntpfaq/ntp-s-refclk/#751-where-can-i-find-a-reference-clock-for-ntp>Where can I find a reference clock for NTP?</a></p></li><li><p><a href=/ntpfaq/ntp-s-trouble/>Troubleshooting</a><br>8.1 <a href=/ntpfaq/ntp-s-trouble/#81-monitoring>Monitoring</a><br>8.1.1 <a href=/ntpfaq/ntp-s-trouble/#811-how-do-i-confirm-my-ntp-server-is-working-fine>How do I confirm my NTP server is working fine?</a><br>8.1.2 <a href=/ntpfaq/ntp-s-trouble/#812-how-do-i-use-peerstats-and-loopstats>How do I use peerstats and loopstats?</a><br>8.1.3 <a href=/ntpfaq/ntp-s-trouble/#813-how-can-i-see-the-time-difference-between-client-and-server>How can I see the Time Difference between Client and Server?</a><br>8.1.4 <a href=/ntpfaq/ntp-s-trouble/#814-what-does-257-mean-as-value-for-reach>What does 257 mean as value for reach?</a><br>8.1.5 <a href=/ntpfaq/ntp-s-trouble/#815-how-do-i-use-statistics-files>How do I use statistics files?</a></p></li></ol><p>8.2. <a href=/ntpfaq/ntp-s-trbl-general/>General Issues</a><br>8.2.1 <a href=/ntpfaq/ntp-s-trbl-general/#821-starting-running-querying>Starting, running, querying</a><br>8.2.1.1 <a href=/ntpfaq/ntp-s-trbl-general/#8211-how-can-i-check-that-ntpd-is-up-and-running>How can I check that ntpd is up and running?</a><br>8.2.1.2 <a href=/ntpfaq/ntp-s-trbl-general/#8212-why-does-ntpd-only-run-for-about-10-to-20-minutes>Why does ntpd only run for about 10 to 20 minutes??</a><br>8.2.2 <a href=/ntpfaq/ntp-s-trbl-general/#822-cabling-and-interfacing>Cabling and Interfacing</a><br>8.2.2.1 <a href=/ntpfaq/ntp-s-trbl-general/#8221-why-does-my-serial-interface-hang-when-i-connect-a-pps-signal-to-dcd>Why does my Serial Interface hang when I connect a PPS Signal to DCD?</a><br>8.2.2.2 <a href=/ntpfaq/ntp-s-trbl-general/#8222-why-is-the-pps-api-only-detecting-one-edge>Why is the PPS API only detecting one Edge?</a><br>8.2.3 <a href=/ntpfaq/ntp-s-trbl-general/#823-exchanging-time>Exchanging Time</a><br>8.2.3.1 <a href=/ntpfaq/ntp-s-trbl-general/#8231-is-a-remote-server-providing-time>Is a remote server providing time?</a><br>8.2.3.2 <a href=/ntpfaq/ntp-s-trbl-general/#8232-my-server-is-up-and-running-but-it-is-unusable-for-clients>My server is up and running, but it is unusable for clients</a><br>8.2.4 <a href=/ntpfaq/ntp-s-trbl-general/#824-cryptography>Cryptography</a><br>8.2.4.1 <a href=/ntpfaq/ntp-s-trbl-general/#8241-no-time-received-when-using-autokey>No time received when using autokey</a><br>8.2.5 <a href=/ntpfaq/ntp-s-trbl-general/#825-time-errors>Time Errors</a><br>8.2.5.1 <a href=/ntpfaq/ntp-s-trbl-general/#8251-why-does-my-server-change-time-references-quite-frequently>Why does my server change time references quite frequently?</a><br>8.2.5.2 <a href=/ntpfaq/ntp-s-trbl-general/#8252-my-server-periodically-loses-synchronization>My server periodically loses synchronization</a><br>8.2.5.3 <a href=/ntpfaq/ntp-s-trbl-general/#8253-why-does-my-system-step-several-times-a-day>Why does my system step several times a day?</a><br>8.2.6 <a href=/ntpfaq/ntp-s-trbl-general/#826-other>Other</a><br>8.2.6.1 <a href=/ntpfaq/ntp-s-trbl-general/#8261-how-do-i-set-the-correct-value-for-tick>How do I set the correct value for tick?</a><br>8.2.6.2 <a href=/ntpfaq/ntp-s-trbl-general/#8262-how-do-i-set-the-precision>How do I set the precision?</a><br>8.2.6.3 <a href=/ntpfaq/ntp-s-trbl-general/#8263-ntpd-periodically-opens-a-dial-out-connection-can-i-avoid-that>ntpd periodically opens a dial-out connection. Can I avoid that?</a><br>8.2.6.4 <a href=/ntpfaq/ntp-s-trbl-general/#8264-any-more-hints>Any more Hints?</a><br>8.2.7 <a href=/ntpfaq/ntp-s-trbl-general/#827-errors-and-warnings>Errors and Warnings</a><br>8.2.7.1 <a href=/ntpfaq/ntp-s-trbl-general/#8271-ntpq-read-connection-refused>ntpq: read: connection refused</a><br>8.2.7.2 <a href=/ntpfaq/ntp-s-trbl-general/#8272-127001-timed-out-nothing-received-request-timed-out>127.0.0.1: timed out, nothing received, Request timed out</a><br>8.2.7.3 <a href=/ntpfaq/ntp-s-trbl-general/#8273-ntpdate-no-server-suitable-for-synchronization-found>ntpdate: no server suitable for synchronization found</a><br>8.2.7.4 <a href=/ntpfaq/ntp-s-trbl-general/#8274-configure-keyword-precision-unknown-line-ignored>configure: keyword &ldquo;precision&rdquo; unknown, line ignored</a><br>8.2.7.5 <a href=/ntpfaq/ntp-s-trbl-general/#8275-previous-time-adjustment-didnt-complete>Previous time adjustment didn&rsquo;t complete</a><br>8.2.7.6 <a href=/ntpfaq/ntp-s-trbl-general/#8276-sendto-overlapped-io-operation-is-in-progress>sendto: Overlapped I/O operation is in progress.</a></p><p>8.3. <a href=/ntpfaq/ntp-s-trbl-spec/>Troubleshooting Specific Products</a><br>8.3.1 <a href=/ntpfaq/ntp-s-trbl-spec/#831-pc-hardware>PC Hardware</a><br>8.3.1.1 <a href=/ntpfaq/ntp-s-trbl-spec/#8311-how-accurate-is-the-cmos-clock>How accurate is the CMOS clock?</a><br>8.3.1.2 <a href=/ntpfaq/ntp-s-trbl-spec/#8312-how-can-i-set-the-cmos-clock>How can I set the CMOS clock?</a><br>8.3.1.3 <a href=/ntpfaq/ntp-s-trbl-spec/#8313-how-can-i-read-or-write-the-cmos-clock>How can I read or write the CMOS clock?</a><br>8.3.1.4 <a href=/ntpfaq/ntp-s-trbl-spec/#8314-how-can-smm-affect-interrupt-processing>How can SMM affect Interrupt Processing?</a><br>8.3.2 <a href=/ntpfaq/ntp-s-trbl-spec/#832-linux>Linux</a><br>8.3.2.1 <a href=/ntpfaq/ntp-s-trbl-spec/#8321-what-does-set_rtc_mmss-cant-update-from-54-to-5-mean>What does set_rtc_mmss: can&rsquo;t update from 54 to 5 mean?</a><br>8.3.2.2 <a href=/ntpfaq/ntp-s-trbl-spec/#8322-why-does-my-linux-system-lose-several-milliseconds-every-once-in-a-while>Why does my Linux system lose several milliseconds every once in a while.</a><br>8.3.4 <a href=/ntpfaq/ntp-s-trbl-spec/#834-serial-port>Serial Port</a><br>8.3.4.1 <a href=/ntpfaq/ntp-s-trbl-spec/#8341-do-multiport-serial-cards-cause-trouble>Do Multiport Serial Cards cause Trouble?</a><br>8.3.4.2 <a href=/ntpfaq/ntp-s-trbl-spec/#8342-why-does-my-dcf77-receiver-not-get-power-from-the-serial-port>Why does my DCF77 Receiver not get Power from the serial Port?</a><br>8.3.5 <a href=/ntpfaq/ntp-s-trbl-spec/#835-oncore-compatibles>Oncore Compatibles</a><br>8.3.5.1 <a href=/ntpfaq/ntp-s-trbl-spec/#8351-will-the-m12-work-with-the-oncore-driver>Will the M12 work with the Oncore driver?</a><br>8.3.5.2 <a href=/ntpfaq/ntp-s-trbl-spec/#8352-why-is-the-ut-reporting-clk_noreply>Why is the UT+ reporting clk_noreply?</a><br>8.3.6 <a href=/ntpfaq/ntp-s-trbl-spec/#836-solaris>Solaris</a><br>8.3.6.1 <a href=/ntpfaq/ntp-s-trbl-spec/#8361-what-is-dosyncdr>What is dosyncdr?</a><br>8.3.6.2 <a href=/ntpfaq/ntp-s-trbl-spec/#8362-what-causes-occasional-2s-time-steps>What causes occasional 2s Time Steps?</a><br>8.3.7 <a href=/ntpfaq/ntp-s-trbl-spec/#837-trimble-clocks>Trimble Clocks</a><br>8.3.7.1 <a href=/ntpfaq/ntp-s-trbl-spec/#8371-only-one-edge-of-my-trimble-acutimes-pps-pulse-is-detected>Only one Edge of my Trimble Acutime&rsquo;s PPS Pulse is detected</a></p><p>8.4. <a href=/ntpfaq/ntp-s-trbl-bug-reports/>Reporting Bugs</a><br>8.4.1 <a href=/ntpfaq/ntp-s-trbl-bug-reports/#841-when-should-i-report-a-problem>When should I report a Problem?</a><br>8.4.2 <a href=/ntpfaq/ntp-s-trbl-bug-reports/#842-what-should-i-report>What should I report?</a></p><ol start=9><li><p><a href=/ntpfaq/ntp-s-related/>Background and Related Information</a><br>9.1 <a href=/ntpfaq/ntp-s-related/#91-miscellaneous>Miscellaneous</a><br>9.1.1 <a href=/ntpfaq/ntp-s-related/#911-what-is-mills-speak>What is Mills-speak?</a><br>9.1.2 <a href=/ntpfaq/ntp-s-related/#912-how-can-i-convert-a-date-to-ntp-format>How can I convert a date to NTP format?</a><br>9.1.3 <a href=/ntpfaq/ntp-s-related/#913-how-can-i-convert-an-ntp-timestamp-to-unix-time>How can I convert an NTP Timestamp to UNIX Time?</a><br>9.1.4 <a href=/ntpfaq/ntp-s-related/#914-where-can-i-find-more-information>Where can I find more Information?</a><br>9.2 <a href=/ntpfaq/ntp-s-related/#92-gps>GPS</a><br>9.2.1 <a href=/ntpfaq/ntp-s-related/#921-selective-availability-revisited>Selective Availability revisited</a></p></li><li><p><a href=/ntpfaq/ntp-g-all/>Common Terms and Acronyms</a></p></li></ol><blockquote><p>This document tries to explain the most basic features of NTP, and to answer many frequently asked questions. The intention is to help the average user to get a quick start with the official implementation of NTP. Technical issues and mathematics are avoided where possible. Instead the most common questions are tried to be answered, enabling everybody to get a working configuration.</p></blockquote><dl><dt>All we do here is invent games to pass the time.</dt><dd>John O' Donohue</dd></dl><hr><h4 id=1-about-this-document>1. About this Document</h4><div class="pageinfo pageinfo-primary"><dl><dt>The NTP FAQ and HOWTO was originally edited by:</dt><dd>Ulrich Windl</dd><dd>Dale R. Worley</dd><dd>David Dalton, Hewlett-Packard</dd><dd>Marc Martinec, Josef Stefan Institute</dd></dl><p>with this copyright notice:</p><p>Copyright © 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006 Ulrich Windl, et al. (see <a href=#110-credits>credits</a>)</p><p>The material in this document is covered by the respective contributor&rsquo;s copyright. © Copyright 1999 - 2005, by the contributors and editors of this document. For details see the list of editors and authors.</p><p>All editors and contributors (non-exclusively) grant a perpetual, irrevocable, and royalty free license to distribute this document under the terms of the General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p><p>This document is distributed in the hope that it will be useful, but <em>WITHOUT ANY WARRANTY</em>; without even the implied warranty of <em>MERCHANTABILITY</em> or <em>FITNESS FOR A PARTICULAR PURPOSE</em>. See the GNU General Public License for more details.</p><p>If you don&rsquo;t already have the GNU General Public License at hand, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</p></div><p>It is now maintained by <a href=https://www.nwtime.org/>Network Time Foundation</a>. Contributions to update the material are most appreciated and contributors will continue to be added to the credits.</p><hr><h4 id=11-preface>1.1 Preface</h4><p>This section tries to answer questions about the document itself. This document is intended for beginners as well as advanced users that are looking for advice. However, basic skills in system administration are required to enjoy this tour. True experts on the subject will probably prefer the original documentation that comes with the software, or make corrections where it is wrong.</p><p>The impatient may want to go directly to <a href=/ntpfaq/ntp-s-time/>Section 2</a> where fundamentals of timekeeping are discussed. <a href=/ntpfaq/ntp-s-sw-clocks/>Section 3</a> introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, <a href=/ntpfaq/ntp-s-def/>Section 4</a>.</p><p>At that point focus moves from a more theoretical treatment of the subject to practical aspects, starting with <a href=/ntpfaq/ntp-s-algo/>Section 5</a>. Then <a href=/ntpfaq/ntp-s-config/>Section 6</a> moves into configuration of the NTP software. <a href=/ntpfaq/ntp-s-refclk/>Section 7</a> will talk about reference clocks.</p><p>Real life is talked about in <a href=/ntpfaq/ntp-s-trouble/>Section 8</a> where procedures, tips, and tricks for troubleshooting are presented. For the curious, <a href=/ntpfaq/ntp-s-related/>Section 9</a> provides further information and references. Finally, there is a <a href=/ntpfaq/ntp-g-all/>glossary</a> of terms.</p><hr><h4 id=12-why-is-this-document-named-faq-and-howto>1.2 Why is this Document named FAQ and HOWTO?</h4><p>This document tries to answer frequently asked questions (FAQs) that can not (at least virtually) be answered easily from the standard documentation.</p><p>In addition to just answering user questions, this document also tries to give a gentle introduction and guidelines to the newcomer. The authors believe that it&rsquo;s better to use NTP correctly right from the start rather than fixing all the problems after they occur.</p><p>&ldquo;Gentle&rdquo; means &ldquo;not too technical&rdquo; and &ldquo;not too theoretical&rdquo;. However, some basic non-trivial understanding of real life is required at several points, so please accept these deviations from the goal.</p><hr><h4 id=13-where-is-the-source-of-this-document>1.3 Where is the source of this document?</h4><p>The source files for the FAQ can be found <a href=https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/content/en/ntpfaq>here</a>. The repository also contains the <a href=https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/public/ntpfaq>HTML files for the FAQ</a> and a <a href=https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/README.md>README</a> for obtaining the source files.</p><hr><h4 id=14-why-cant-i-find-information-about-xyz-in-this-faq>1.4 Why can&rsquo;t I find information about xyz in this FAQ?</h4><p>Unless it simply has not been written yet, there may be other reasons:</p><ol><li>The editors don&rsquo;t want to copy documentation that is already publicly available. This is especially true for standards, specifications, and manuals. The editors think that referring to is better than copying. The intention is to avoid redundancy while saving labour.</li><li>Either the problem or the solution is too vague to document it. This is true for uncommon configurations. After all, we want to answer <em>frequently</em> asked questions here.</li></ol><hr><h4 id=15-where-should-a-new-entry-be-put>1.5 Where should a new Entry be put?</h4><p>The answer to this question is quite delicate! The guidelines are probably these:</p><ul><li>Try to understand the existing structure of the document.</li><li>If there are similar entries, see where the new one fits best. Usually it&rsquo;s right near the existing one, or in a corresponding section. Possibly it makes sense to create a new section.</li></ul><hr><h4 id=16-why-should-i-contribute>1.6 Why should I contribute?</h4><p>In &ldquo;the good old times&rdquo; the Internet was a valuable source of information, and people were happy to share their knowledge. These days, however, people think of E-Commerce, how to make money.</p><p>This FAQ was written not to make money, but to have a reference to refer to and to provide information to more people. If you have solved some NTP problem that may be of interest to other people, please share your experience.</p><hr><h4 id=17-how-can-i-contribute>1.7 How can I contribute?</h4><p>Contributions are very much appreciated. You can:</p><ol><li>Correct errors or incomplete information.</li><li>Suggest an addition consisting of a question together with its answer.</li><li>Update examples so they match the current NTP version.</li></ol><hr><h4 id=18-i-contributed-to-this-faq-but-my-name-is-not-mentioned-anywhere-whats-wrong>1.8 I contributed to this FAQ, but my name is not mentioned anywhere. What&rsquo;s wrong?</h4><p>Probably the fault of the editor. Maybe he thought you don&rsquo;t want to be listed, or simply forgot. <a href=#110-credits>Section 1.10</a> shows the names the editor was aware of.</p><hr><h4 id=19-why-are-graphics-stored-in-png-format>1.9 Why are Graphics stored in PNG Format?</h4><p>The popular GIF format supported by many browsers relies on a compression algorithm that is patented, and the owner of the patent wants to receive money from everyone making GIF files. PNG (Portable Network Graphics) uses a different algorithm for compression and does not require payment.</p><hr><h4 id=110-credits>1.10 Credits</h4><p>If you contributed to this FAQ, and you could not find your name elsewhere, this is where it should be.</p><p>This is an alphabetical list of contributors:</p><ul><li><a href=mailto:ma@suse.de>Michael Andres</a></li><li><a href=mailto:tvb@veritas.com>Tom Van Baak</a></li><li><a href=mailto:wob@swobspace.rhein.de>Wolfgang Barth</a></li><li><a href=mailto:Lyle_Batema@Trimble.COM>Lyle Batema</a></li><li><a href=mailto:ericx@vineyard.net>Eric W. Bates</a></li><li><a href=mailto:brianb@mac.com>Brian Bergstrand</a></li><li><a href=mailto:boettcher@ll.mit.edu>Peter Boettcher</a></li><li>Marc Brett</li><li>Bill Broadley</li><li><a href=mailto:martin.burnicki@meinberg.de>Martin Burnicki</a></li><li>Jonathan A. Buzzard</li><li><a href=mailto:chunkeey@web.de>chunkeey</a></li><li>James Clark</li><li><a href=mailto:dcraggs@gotadsl.co.uk>David Craggs</a></li><li>David Dalton</li><li>John DeDourek</li><li><a href=mailto:Sven_Dietrich@Trimble.COM>Sven Dietrich</a></li><li>Casper H. Dik</li><li>John K. Doyle, Jr.</li><li><a href=mailto:ddrucker@easylink.com>Daniel Drucker</a></li><li><a href=mailto:add@netcom.com>Arthur Darren Dunham</a></li><li><a href=mailto:philippe_eveque@grenoble.hp.com>Philippe Eveque</a></li><li><a href=mailto:georgi@BelWue.DE>Jürgen Georgi</a></li><li><a href=mailto:Tim.Granger@cl.cam.ac.uk>Tim Granger</a></li><li><a href=mailto:beng@lcs.mit.edu>Benjamin Greenwald</a></li><li><a href=mailto:agriffin@cpcug.org>James & Charlotte Griffin</a></li><li><a href=mailto:rick@cnssys.com>Richard M. Hambly</a></li><li>John Hay</li><li><a href=mailto:per@erix.ericsson.se>Per Hedeland</a></li><li><a href=mailto:kees@echelon.nl>Kees Hendrikse</a></li><li>Martin Herbener</li><li><a href=mailto:DougHo@niceties.com>Doug Hogarth</a></li><li>Andrew Hood</li><li><a href=mailto:jakobus@iaf.fhg.de>Theo Jakobus</a></li><li>Nicholas Jenkins</li><li><a href=mailto:phk@freebsd.dk>Poul-Henning Kamp</a></li><li><a href=mailto:jimkirk@uwyo.edu>James Kirkpatrick</a></li><li>Wolfgang Klische</li><li><a href=mailto:kostecke@ntp.org>Steve Kostecke</a></li><li><a href=mailto:mgk25@cl.cam.ac.uk>Markus Kuhn</a></li><li><a href=mailto:akumria@acm.org>Anand Kumria</a></li><li>Judah Levine</li><li><a href=mailto:mark.martinec@ijs.si>Mark Martinec</a></li><li><a href=mailto:Terje.Mathisen@hda.hydro.com>Terje Mathisen</a></li><li><a href=mailto:frank@exit.com>Frank Mayhar</a></li><li><a href=mailto:mills@udel.edu>Professor David L. Mills</a></li><li><a href=mailto:nelson@media.mit.edu>Nelson Minar</a></li><li>Jeffrey Mogul</li><li>Hal Murray</li><li><a href=mailto:dirk-n@dircon.co.uk>Dirk A. Niggemann</a></li><li>Mike Nolan</li><li>Johan Fredrik Øhman</li><li><a href=mailto:ro@TechFak.Uni-Bielefeld.DE>Rainer Orth</a></li><li>Don Payette</li><li><a href=mailto:bill.pennock@transquest.com>William R. Pennock</a></li><li>Bruce M. Penrod</li><li><a href=mailto:nicolai@esperi.org>Nicolai E M Plum</a></li><li><a href=mailto:jcs@zoo.bt.co.uk>John Sager</a></li><li>Hans P. Reiser</li><li><a href=mailto:schulz@adi.com>Thomas Schulz</a></li><li><a href=mailto:msinatra@uclink4.berkeley.edu>Michael Sinatra</a></li><li><a href=mailto:Greg.Smith@ci.seattle.wa.us>Greg Smith</a></li><li><a href=mailto:Johan.Swenker@HetNet.NL>Johan Swenker</a></li><li><a href=mailto:vs@cesnet.cz>Vladimir Smotlacha</a></li><li><a href=mailto:stenn@whimsy.udel.edu>Harlan Stenn</a></li><li><a href=mailto:david-taylor@blueyonder.co.uk>David J. Taylor</a></li><li><a href=mailto:gterrone@itsco.com>George Terrone</a></li><li>Thomas Tornblom</li><li>Scott Tuttle</li><li>Brian Utterback</li><li>Gilles Vollant</li><li><a href=mailto:ndw@nwalsh.com>Norman Walsh</a></li><li>David Woolley</li><li><a href=mailto:worley@shell01.TheWorld.com>Dale R. Worley</a></li></ul><style>.feedback--answer{display:inline-block}.feedback--answer-no{margin-left:1em}.feedback--response{display:none;margin-top:1em}.feedback--response__visible{display:block}</style><div><h2 class=feedback--title>Feedback</h2><p class=feedback--question>Was this page helpful?</p><button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button><p class="feedback--response feedback--response-yes">Glad to hear it!</a></p><p class="feedback--response feedback--response-no">Sorry to hear that.</a></p></div><script>const yesButton=document.querySelector('.feedback--answer-yes'),noButton=document.querySelector('.feedback--answer-no'),yesResponse=document.querySelector('.feedback--response-yes'),noResponse=document.querySelector('.feedback--response-no'),disableButtons=()=>{yesButton.disabled=!0,noButton.disabled=!0},sendFeedback=b=>{if(typeof ga!='function')return;const a={command:'send',hitType:'event',category:'Helpful',action:'click',label:window.location.pathname,value:b};ga(a.command,a.hitType,a.category,a.action,a.label,a.value)};yesButton.addEventListener('click',()=>{yesResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(1)}),noButton.addEventListener('click',()=>{noResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(0)})</script><br></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+Table of …">
+<meta property="og:title" content="The NTP FAQ and HOWTO" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>The NTP FAQ and HOWTO</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+	</ol>
+</nav	>
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+	<h1>The NTP FAQ and HOWTO</h1>
+        
+	<p><strong>Understanding and using the Network Time Protocol (A first try on a non-technical Mini-HOWTO and FAQ on NTP)</strong></p>
+<p>Last update: 2006-11-21</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ol>
+<li>
+<p><a href="#1-about-this-document">About this Document</a><br>
+1.1 <a href="#11-preface">Preface</a><br>
+1.2 <a href="#12-why-is-this-document-named-faq-and-howto">Why is this Document named FAQ and HOWTO?</a><br>
+1.3 <a href="#13-where-is-the-source-of-this-document">Where is the source of this document?</a><br>
+1.4 <a href="#14-why-cant-i-find-information-about-xyz-in-this-faq">Why can&rsquo;t I find information about xyz in this FAQ?</a><br>
+1.5 <a href="#15-where-should-a-new-entry-be-put">Where should a new Entry be put?</a><br>
+1.6 <a href="#16-why-should-i-contribute">Why should I contribute?</a><br>
+1.7 <a href="#17-how-can-i-contribute">How can I contribute?</a> <br>
+1.8 <a href="#18-i-contributed-to-this-faq-but-my-name-is-not-mentioned-anywhere-whats-wrong">I contributed to this FAQ, but my name is not mentioned anywhere. What&rsquo;s wrong?</a><br>
+1.9 <a href="#19-why-are-graphics-stored-in-png-format">Why are Graphics stored in PNG Format?</a><br>
+1.10 <a href="#110-credits">Credits</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-s-time/">Time, what Time?</a><br>
+2.1 <a href="/ntpfaq/ntp-s-time/#21-what-is-time">What is Time?</a><br>
+2.2 <a href="/ntpfaq/ntp-s-time/#22-what-is-utc">What is UTC?</a><br>
+2.3 <a href="/ntpfaq/ntp-s-time/#23-is-utc-the-same-as-gmt">Is UTC the same as GMT?</a><br>
+2.4 <a href="/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second">What happens during a Leap Second?</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-s-sw-clocks/">How do Computer Clocks work?</a><br>
+3.1 <a href="/ntpfaq/ntp-s-sw-clocks/#31-bits-and-registers">Bits and Registers</a><br>
+3.2 <a href="/ntpfaq/ntp-s-sw-clocks-tick/">Making Time go on</a><br>
+3.3 <a href="/ntpfaq/ntp-s-sw-clocks-quality/">Clock Quality</a><br>
+3.3.1 <a href="/ntpfaq/ntp-s-sw-clocks-quality/#331-frequency-error">Frequency Error</a><br>
+3.3.1.1 <a href="/ntpfaq/ntp-s-sw-clocks-quality/#3311-how-bad-is-a-frequency-error-of-500-ppm">How bad is a Frequency Error of 500 PPM?</a><br>
+3.3.1.2 <a href="/ntpfaq/ntp-s-sw-clocks-quality/#3312-what-is-the-frequency-error-of-a-good-clock">What is the Frequency Error of a good Clock?</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-s-def/">What is NTP?</a><br>
+4.1 <a href="/ntpfaq/ntp-s-def/#41-overview">Overview</a><br>
+4.1.1 <a href="/ntpfaq/ntp-s-def/#411-what-is-ntp">What is NTP?</a><br>
+4.1.2 <a href="/ntpfaq/ntp-s-def/#412-what-is-sntp">What is SNTP?</a><br>
+4.1.3 <a href="/ntpfaq/ntp-s-def/#413-why-should-time-be-synchronized">Why should Time be synchronized?</a><br>
+4.1.4 <a href="/ntpfaq/ntp-s-def/#414-what-are-the-basic-features-of-ntp">What are the basic features of NTP?</a><br>
+4.1.5 <a href="/ntpfaq/ntp-s-def/#415-which-operating-systems-are-supported">Which Operating Systems are supported?</a><br>
+4.1.6 <a href="/ntpfaq/ntp-s-def/#416-how-many-ntp-servers-are-available-in-the-internet">How many NTP servers are available in the Internet?</a><br>
+4.1.7 <a href="/ntpfaq/ntp-s-def/#417-which-version-of-ntp-should-i-use">Which version of NTP should I use?</a><br>
+4.1.8 <a href="/ntpfaq/ntp-s-def/#418-whats-the-difference-between-xntp-and-ntp">What&rsquo;s the difference between xntp and ntp?</a> <br>
+4.2. <a href="/ntpfaq/ntp-s-def-hist/">History</a><br>
+4.3. <a href="/ntpfaq/ntp-s-def-impl/">Implementations and Platforms</a><br>
+4.3.1 <a href="/ntpfaq/ntp-s-def-impl/#431-official-providers">Official Providers</a> <br>
+4.3.2 <a href="/ntpfaq/ntp-s-def-impl/#432-unix-systems">UNIX Systems</a><br>
+4.3.3 <a href="/ntpfaq/ntp-s-def-impl/#433-microsoft-windows">Microsoft Windows</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-s-algo/">How does it work?</a><br>
+5.1 <a href="/ntpfaq/ntp-s-algo/#basic-concepts">Basic Concepts</a><br>
+5.1.1 <a href="/ntpfaq/ntp-s-algo/#511-time-references">Time References</a><br>
+5.1.1.1 <a href="/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock">What is a reference clock?</a><br>
+5.1.1.2 <a href="/ntpfaq/ntp-s-algo/#5112-how-will-ntp-use-a-reference-clock">How will NTP use a reference clock?</a><br>
+5.1.1.3 <a href="/ntpfaq/ntp-s-algo/#5113-how-will-ntp-know-about-time-sources">How will NTP know about Time Sources?</a><br>
+5.1.1.4 <a href="/ntpfaq/ntp-s-algo/#5114-what-happens-if-the-reference-time-changes">What happens if the Reference Time changes?</a><br>
+5.1.1.5 <a href="/ntpfaq/ntp-s-algo/#5115-what-is-a-stratum-1-server">What is a stratum 1 Server?</a><br>
+5.1.2 <a href="/ntpfaq/ntp-s-algo/#512-time-exchange">Time Exchange</a><br>
+5.1.2.1 <a href="/ntpfaq/ntp-s-algo/#5121-how-is-time-synchronized">How is Time synchronized?</a><br>
+5.1.2.2 <a href="/ntpfaq/ntp-s-algo/#5122-which-network-protocols-are-used-by-ntp">Which Network Protocols are used by NTP?</a><br>
+5.1.2.3 <a href="/ntpfaq/ntp-s-algo/#5123-how-is-time-encoded-in-ntp">How is Time encoded in NTP?</a><br>
+5.1.2.4 <a href="/ntpfaq/ntp-s-algo/#5124-when-are-the-servers-polled">When are the Servers polled?</a><br>
+5.1.3 <a href="/ntpfaq/ntp-s-algo/#513-performance">Performance</a><br>
+5.1.3.1 <a href="/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be">How accurate will my Clock be?</a><br>
+5.1.3.2 <a href="/ntpfaq/ntp-s-algo/#5132-how-frequently-will-the-system-clock-be-updated">How frequently will the System Clock be updated?</a><br>
+5.1.3.3 <a href="/ntpfaq/ntp-s-algo/#5133-how-frequently-are-correction-values-updated">How frequently are Correction Values updated?</a><br>
+5.1.3.4 <a href="/ntpfaq/ntp-s-algo/#5135-what-is-the-limit-for-the-number-of-clients">What is the Limit for the Number of Clients?</a><br>
+5.1.4 <a href="/ntpfaq/ntp-s-algo/#514-robustness">Robustness</a><br>
+5.1.4.1 <a href="/ntpfaq/ntp-s-algo/#5141-what-is-the-stratum">What is the stratum?</a><br>
+5.1.4.2 <a href="/ntpfaq/ntp-s-algo/#5142-how-are-synchronization-loops-avoided">How are Synchronization Loops avoided?</a><br>
+5.1.5 <a href="/ntpfaq/ntp-s-algo/#515-tuning">Tuning</a><br>
+5.1.5.1 <a href="/ntpfaq/ntp-s-algo/#5151-what-is-the-allowed-range-for-minpoll-and-maxpoll">What is the allowed range for minpoll and maxpoll?</a><br>
+5.1.5.2 <a href="/ntpfaq/ntp-s-algo/#5152-what-is-the-best-polling-interval">What is the best polling Interval?</a><br>
+5.1.6 <a href="/ntpfaq/ntp-s-algo/#516-operating-system-clock-interface">Operating System Clock Interface</a><br>
+5.1.6.1 <a href="/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock">How will NTP discipline my Clock?</a><br>
+5.2. <a href="/ntpfaq/ntp-s-algo-kernel/">The Kernel Discipline</a><br>
+5.2.1 <a href="/ntpfaq/ntp-s-algo-kernel/#521-basic-functionality">Basic Functionality</a><br>
+5.2.1.1 <a href="/ntpfaq/ntp-s-algo-kernel/#5211-what-is-special-about-the-kernel-clock">What is special about the Kernel Clock?</a><br>
+5.2.1.2 <a href="/ntpfaq/ntp-s-algo-kernel/#5212-does-my-operating-system-have-the-kernel-discipline">Does my Operating System have the Kernel Discipline?</a><br>
+5.2.1.3 <a href="/ntpfaq/ntp-s-algo-kernel/#5213-how-can-i-verify-the-kernel-discipline">How can I verify the Kernel Discipline?</a> <br>
+5.2.2 <a href="/ntpfaq/ntp-s-algo-kernel/#522-monitoring/">Monitoring</a><br>
+5.2.3 <a href="/ntpfaq/ntp-s-algo-kernel/#523-pps-processing">PPS Processing</a><br>
+5.2.3.1 <a href="/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing">What is PPS Processing?</a><br>
+5.2.3.2 <a href="/ntpfaq/ntp-s-algo-kernel/#5232-how-is-pps-processing-related-to-the-kernel-discipline">How is PPS Processing related to the Kernel Discipline?</a><br>
+5.2.3.3 <a href="/ntpfaq/ntp-s-algo-kernel/#5233-what-does-hardpps-do">What does hardpps() do?</a><br>
+5.3. <a href="/ntpfaq/ntp-s-algo-real/">NTP in real Life</a><br>
+5.3.1 <a href="/ntpfaq/ntp-s-algo-real/#531-what-if-i-write-my-own-sntp-server">What if I write my own SNTP Server?</a><br>
+5.3.2 <a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">Why should I have more than one clock?</a><br>
+5.3.3 <a href="/ntpfaq/ntp-s-algo-real/#533-does-the-reference-time-depend-on-all-configured-servers-or-is-it-based-on-which-ever-responds-first">Does the reference time depend on all configured servers, or is it based on which ever responds first?</a><br>
+5.3.4 <a href="/ntpfaq/ntp-s-algo-real/#534-what-happens-during-a-leap-second">What happens during a Leap Second?</a><br>
+5.4. <a href="/ntpfaq/ntp-s-algo-crypt/">Encryption</a><br>
+5.4.1 <a href="/ntpfaq/ntp-s-algo-crypt/#541-what-is-encryption-used-for-in-ntp">What is Encryption used for in NTP?</a><br>
+5.4.1.1 <a href="/ntpfaq/ntp-s-algo-crypt/#5411-how-is-authenticity-verified">How is Authenticity verified?</a><br>
+5.4.1.2 <a href="/ntpfaq/ntp-s-algo-crypt/#5412-where-are-authenticated-messages-used-in-ntp">Where are authenticated Messages used in NTP?</a><br>
+5.4.1.3 <a href="/ntpfaq/ntp-s-algo-crypt/#5413-how-is-performance-affected-by-encryption">How is Performance affected by Encryption?</a><br>
+5.4.2 <a href="/ntpfaq/ntp-s-algo-crypt/#542-the-basics-of-autokey">The Basics of Autokey</a><br>
+5.4.2.1 <a href="/ntpfaq/ntp-s-algo-crypt/#5421-authentic-and-proventic">Authentic and Proventic</a><br>
+5.4.2.2 <a href="/ntpfaq/ntp-s-algo-crypt/#5422-secure-group-and-trusted-host">Secure Group and Trusted Host</a><br>
+5.4.2.3 <a href="/ntpfaq/ntp-s-algo-crypt/#5423-identity-schemes">Identity Schemes</a><br>
+5.4.2.4 <a href="/ntpfaq/ntp-s-algo-crypt/#5424-proventic-trail">Proventic Trail</a><br>
+5.2.4.5 <a href="/ntpfaq/ntp-s-algo-crypt/#5425-session-keys">Session Keys</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-s-config/">Configuration</a><br>
+6.1. <a href="/ntpfaq/ntp-s-config/#61-basic-configuration">Basic Configuration</a><br>
+6.1.1 <a href="/ntpfaq/ntp-s-config/#611-cant-i-just-run-ntpdate">Can&rsquo;t I just run ntpdate?</a><br>
+6.1.2 <a href="/ntpfaq/ntp-s-config/#612-recommended-minimum">Recommended Minimum</a><br>
+6.1.2.1 <a href="/ntpfaq/ntp-s-config/#6121-what-is-the-minimum-configuration">What is the minimum configuration?</a><br>
+6.1.2.2 <a href="/ntpfaq/ntp-s-config/#6122-is-the-minimum-configuration-a-typical-one">Is the minimum configuration a typical one?</a><br>
+6.1.2.3 <a href="/ntpfaq/ntp-s-config/#6123-what-is-the-correct-pseudo-ip-address-for-my-reference-clock">What is the correct Pseudo IP Address for my reference clock?</a><br>
+6.1.2.4 <a href="/ntpfaq/ntp-s-config/#6124-what-is-a-drift-file">What is a drift file?</a><br>
+6.1.2.5 <a href="/ntpfaq/ntp-s-config/#6125-should-i-use-ip-addresses-or-host-names">Should I use IP addresses or host names?</a><br>
+6.1.3 <a href="/ntpfaq/ntp-s-config/#613-running-an-isolated-network">Running an isolated Network</a><br>
+6.1.3.1 <a href="/ntpfaq/ntp-s-config/#6131-can-i-use-my-system-clock-as-reference-clock">Can I use my system clock as reference clock?</a><br>
+6.1.3.2 <a href="/ntpfaq/ntp-s-config/#6132-can-i-avoid-manual-time-adjustments-in-a-network-without-reference-clock">Can I avoid manual time adjustments in a network without reference clock?</a><br>
+6.1.4 <a href="/ntpfaq/ntp-s-config/#614-recommended-goodies">Recommended Goodies</a><br>
+6.1.4.1 <a href="/ntpfaq/ntp-s-config/#6141-how-can-i-configure-the-amount-of-logging-information">How can I configure the amount of logging information?</a><br>
+6.1.4.2 <a href="/ntpfaq/ntp-s-config/#6142-how-can-i-speed-up-initial-synchronization">How can I speed up initial Synchronization?</a><br>
+6.1.4.3 <a href="/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration">How do I configure remote administration?</a><br>
+6.1.4.4 <a href="/ntpfaq/ntp-s-config/#6144-how-do-i-use-authentication-keys">How do I use authentication keys?</a><br>
+6.1.4.5 <a href="/ntpfaq/ntp-s-config/#6145-what-are-all-the-different-keys-used-for">What are all the different Keys used for?</a><br>
+6.1.4.6 <a href="/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey">How do I use autokey?</a><br>
+6.1.5 <a href="/ntpfaq/ntp-s-config/#615-miscellaneous-hints">Miscellaneous Hints</a><br>
+6.1.5.1 <a href="/ntpfaq/ntp-s-config/#6151-what-is-the-preferred-etiquette-when-synchronizing-to-a-public-server">What is the preferred etiquette when synchronizing to a public server?</a><br>
+6.1.5.2 <a href="/ntpfaq/ntp-s-config/#6152-where-can-i-find-public-time-servers">Where can I find public Time Servers?</a><br>
+6.2. <a href="/ntpfaq/ntp-s-config-adv/">Advanced Configuration</a><br>
+6.2.1 <a href="/ntpfaq/ntp-s-config-adv/#621-server-selection">Server Selection</a><br>
+6.2.1.1 <a href="/ntpfaq/ntp-s-config-adv/#6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to">What is the rule of thumb for number of servers to synchronize to?</a><br>
+6.2.1.2 <a href="/ntpfaq/ntp-s-config-adv/#6212-should-the-servers-be-a-mix-of-primary-and-secondary-servers">Should the servers be a mix of primary and secondary servers?</a><br>
+6.2.1.3 <a href="/ntpfaq/ntp-s-config-adv/#6213-how-should-i-provide-ntp-services-for-a-huge-network">How should I provide NTP services for a huge network?</a><br>
+6.2.2 <a href="/ntpfaq/ntp-s-config-adv/#622-authentication">Authentication</a><br>
+6.2.2.1 <a href="/ntpfaq/ntp-s-config-adv/#6221-why-authentication">Why Authentication?</a><br>
+6.2.2.2 <a href="/ntpfaq/ntp-s-config-adv/#6222-how-is-authentication-applied">How is Authentication applied?</a><br>
+6.2.2.3 <a href="/ntpfaq/ntp-s-config-adv/#6223-how-do-i-create-a-key">How do I create a key?</a><br>
+6.2.2.4 <a href="/ntpfaq/ntp-s-config-adv/#6224-how-does-authentication-work">How does Authentication work?</a><br>
+6.2.2.5 <a href="/ntpfaq/ntp-s-config-adv/#6225-can-i-add-authentication-without-restarting-ntpd">Can I add Authentication without restarting ntpd?</a><br>
+6.2.2.6 <a href="/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey">How do I use Public-Key Authentication (autokey)?</a><br>
+6.2.3 <a href="/ntpfaq/ntp-s-config-adv/#623-broadcasting-multicasting-and-manycasting">Broadcasting, Multicasting, and Manycasting</a><br>
+6.2.3.1 <a href="/ntpfaq/ntp-s-config-adv/#6231-how-do-i-configure-a-broadcast-server">How do I configure a Broadcast Server?</a><br>
+6.2.3.2 <a href="/ntpfaq/ntp-s-config-adv/#6232-how-do-i-configure-a-broadcast-client">How do I configure a Broadcast Client?</a><br>
+6.2.3.3 <a href="/ntpfaq/ntp-s-config-adv/#6233-why-doesnt-broadcasting-work-with-lcl">Why doesn&rsquo;t Broadcasting work with LCL?</a><br>
+6.2.3.4 <a href="/ntpfaq/ntp-s-config-adv/#6234-how-do-i-configure-multicast-servers-and-clients">How do I configure Multicast Servers and Clients?</a> <br>
+6.2.3.5 <a href="/ntpfaq/ntp-s-config-adv/#6235-what-is-manycasting">What is Manycasting?</a><br>
+6.2.4. <a href="/ntpfaq/ntp-s-config-adv/#624-pps-synchronization">PPS Synchronization</a> <br>
+6.2.4.1 <a href="/ntpfaq/ntp-s-config-adv/#6241-which-components-are-required-to-use-pps-synchronization">Which components are required to use PPS synchronization?</a><br>
+6.2.4.2 <a href="/ntpfaq/ntp-s-config-adv/#6242-what-changes-are-required-in-ntpconf">What changes are required in ntp.conf?</a><br>
+6.2.4.3 <a href="/ntpfaq/ntp-s-config-adv/#6243-how-do-i-verify-that-everything-is-working">How do I verify that everything is working?</a><br>
+6.2.4.4 <a href="/ntpfaq/ntp-s-config-adv/#6244-special-drivers">Special Drivers</a><br>
+6.2.4.4.1 <a href="/ntpfaq/ntp-s-config-adv/#62441-what-is-a-pps-peer">What is a PPS peer?</a><br>
+6.2.4.4.2 <a href="/ntpfaq/ntp-s-config-adv/#62442-how-do-i-use-pps-with-the-motorola-oncore-driver">How do I use PPS with the Motorola Oncore driver?</a><br>
+6.2.4.4.3 <a href="/ntpfaq/ntp-s-config-adv/#62443-how-do-i-use-pps-with-the-nmea-driver">How do I use PPS with the NMEA driver?</a><br>
+6.2.4.5 <a href="/ntpfaq/ntp-s-config-adv/#6245-what-is-the-pps-api">What is the PPS API?</a><br>
+6.2.4.6 <a href="/ntpfaq/ntp-s-config-adv/#6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface">What is the shortest Width for a Pulse connected to the DCD Pin of an RS-232 Interface?</a><br>
+6.2.5 <a href="/ntpfaq/ntp-s-config-adv/#625-automatic-configuration">Automatic Configuration</a><br>
+6.2.5.1 <a href="/ntpfaq/ntp-s-config-adv/#6251-how-can-i-define-the-address-of-an-ntp-server-in-a-bootp-reply">How can I define the address of an NTP server in a BOOTP reply?</a><br>
+6.2.5.2 <a href="/ntpfaq/ntp-s-config-adv/#6252-how-do-i-use-information-about-ntp-servers-given-in-a-bootp-reply">How do I use information about NTP servers given in a BOOTP reply?</a><br>
+6.2.6 <a href="/ntpfaq/ntp-s-config-adv/#626-offering-time-service">Offering Time Service</a><br>
+6.2.6.1 <a href="/ntpfaq/ntp-s-config-adv/#6261-is-there-any-way-to-configure-ntpd-to-attach-to-a-specific-interface">Is there any way to configure ntpd to attach to a specific Interface?</a><br>
+6.2.6.2 <a href="/ntpfaq/ntp-s-config-adv/#6262-should-access-be-restricted">Should Access be restricted?</a><br>
+6.2.6.3 <a href="/ntpfaq/ntp-s-config-adv/#6263-what-should-be-done-before-announcing-public-ntp-service">What should be done before announcing public NTP service?</a><br>
+6.3. <a href="/ntpfaq/ntp-s-config-tricks/">Various Tricks</a><br>
+6.3.1 <a href="/ntpfaq/ntp-s-config-tricks/#631-mixing-time-protocols">Mixing Time Protocols</a><br>
+6.3.2 <a href="/ntpfaq/ntp-s-config-tricks/#632-avoiding-time-steps">Avoiding Time Steps</a> <br>
+6.3.3 <a href="/ntpfaq/ntp-s-config-tricks/#633-using-the-echo-feature-in-pps-api">Using the Echo Feature in PPS API</a><br>
+6.4. <a href="/ntpfaq/ntp-s-compat/">Compatibility</a><br>
+6.4.1 <a href="/ntpfaq/ntp-s-compat/#641-the-kernel-pll">The Kernel PLL</a><br>
+6.4.1.1 <a href="/ntpfaq/ntp-s-compat/#6411-how-many-different-kernel-models-and-implementations-exist">How many different kernel models and implementations exist?</a><br>
+6.4.1.2 <a href="/ntpfaq/ntp-s-compat/#6412-whats-new-in-each-version">What&rsquo;s new in each Version?</a><br>
+6.4.1.3 <a href="/ntpfaq/ntp-s-compat/#6413-are-the-individual-kernel-models-compatible">Are the individual kernel models compatible?</a><br>
+6.4.1.4 <a href="/ntpfaq/ntp-s-compat/#6414-is-the-linux-implementation-different">Is the Linux implementation different?</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-s-refclk/">Reference Clocks</a><br>
+7.1 <a href="/ntpfaq/ntp-s-refclk/#71-what-is-lcl-the-local-clock">What is LCL, the Local Clock?</a><br>
+7.2 <a href="/ntpfaq/ntp-s-refclk/#72-gps-receivers">GPS Receivers</a><br>
+7.2.1 <a href="/ntpfaq/ntp-s-refclk/#721-what-should-i-know-about-various-gps-receivers">What should I know about various GPS Receivers?</a><br>
+7.2.2 <a href="/ntpfaq/ntp-s-refclk/#722-what-are-pdop-tdop-and-gdop">What are PDOP, TDOP, and GDOP?</a><br>
+7.2.3 <a href="/ntpfaq/ntp-s-refclk/#723-what-is-nmea">What is NMEA?</a><br>
+7.2.4 <a href="/ntpfaq/ntp-s-refclk/#724-what-is-tsip">What is TSIP?</a><br>
+7.3 <a href="/ntpfaq/ntp-s-refclk/#73-dcf77-receivers">DCF77 Receivers</a><br>
+7.3.1 <a href="/ntpfaq/ntp-s-refclk/#731-what-should-i-know-about-dcf77-receivers">What should I know about DCF77 Receivers?</a><br>
+7.3.2 <a href="/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail">What can make my DCF77 Receiver fail?</a><br>
+7.4 <a href="/ntpfaq/ntp-s-refclk/#74-other-receivers/">Other Receivers</a><br>
+7.4.1 <a href="/ntpfaq/ntp-s-refclk/#741-what-can-make-my-msf-receiver-fail">What can make my MSF Receiver fail?</a><br>
+7.4.2 <a href="/ntpfaq/ntp-s-refclk/#742-how-can-i-find-a-low-cost-receiver-for-low-frequency-transmissions">How can I find a low-cost Receiver for Low-Frequency Transmissions?</a><br>
+7.5 <a href="/ntpfaq/ntp-s-refclk/#75-products">Products</a><br>
+7.5.1 <a href="/ntpfaq/ntp-s-refclk/#751-where-can-i-find-a-reference-clock-for-ntp">Where can I find a reference clock for NTP?</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-s-trouble/">Troubleshooting</a><br>
+8.1 <a href="/ntpfaq/ntp-s-trouble/#81-monitoring">Monitoring</a><br>
+8.1.1 <a href="/ntpfaq/ntp-s-trouble/#811-how-do-i-confirm-my-ntp-server-is-working-fine">How do I confirm my NTP server is working fine?</a><br>
+8.1.2 <a href="/ntpfaq/ntp-s-trouble/#812-how-do-i-use-peerstats-and-loopstats">How do I use peerstats and loopstats?</a><br>
+8.1.3 <a href="/ntpfaq/ntp-s-trouble/#813-how-can-i-see-the-time-difference-between-client-and-server">How can I see the Time Difference between Client and Server?</a><br>
+8.1.4 <a href="/ntpfaq/ntp-s-trouble/#814-what-does-257-mean-as-value-for-reach">What does 257 mean as value for reach?</a><br>
+8.1.5 <a href="/ntpfaq/ntp-s-trouble/#815-how-do-i-use-statistics-files">How do I use statistics files?</a></p>
+</li>
+</ol>
+<p>8.2. <a href="/ntpfaq/ntp-s-trbl-general/">General Issues</a><br>
+8.2.1 <a href="/ntpfaq/ntp-s-trbl-general/#821-starting-running-querying">Starting, running, querying</a><br>
+8.2.1.1 <a href="/ntpfaq/ntp-s-trbl-general/#8211-how-can-i-check-that-ntpd-is-up-and-running">How can I check that ntpd is up and running?</a><br>
+8.2.1.2 <a href="/ntpfaq/ntp-s-trbl-general/#8212-why-does-ntpd-only-run-for-about-10-to-20-minutes">Why does ntpd only run for about 10 to 20 minutes??</a><br>
+8.2.2 <a href="/ntpfaq/ntp-s-trbl-general/#822-cabling-and-interfacing">Cabling and Interfacing</a><br>
+8.2.2.1 <a href="/ntpfaq/ntp-s-trbl-general/#8221-why-does-my-serial-interface-hang-when-i-connect-a-pps-signal-to-dcd">Why does my Serial Interface hang when I connect a PPS Signal to DCD?</a><br>
+8.2.2.2 <a href="/ntpfaq/ntp-s-trbl-general/#8222-why-is-the-pps-api-only-detecting-one-edge">Why is the PPS API only detecting one Edge?</a><br>
+8.2.3 <a href="/ntpfaq/ntp-s-trbl-general/#823-exchanging-time">Exchanging Time</a><br>
+8.2.3.1 <a href="/ntpfaq/ntp-s-trbl-general/#8231-is-a-remote-server-providing-time">Is a remote server providing time?</a><br>
+8.2.3.2 <a href="/ntpfaq/ntp-s-trbl-general/#8232-my-server-is-up-and-running-but-it-is-unusable-for-clients">My server is up and running, but it is unusable for clients</a> <br>
+8.2.4 <a href="/ntpfaq/ntp-s-trbl-general/#824-cryptography">Cryptography</a><br>
+8.2.4.1 <a href="/ntpfaq/ntp-s-trbl-general/#8241-no-time-received-when-using-autokey">No time received when using autokey</a><br>
+8.2.5 <a href="/ntpfaq/ntp-s-trbl-general/#825-time-errors">Time Errors</a><br>
+8.2.5.1 <a href="/ntpfaq/ntp-s-trbl-general/#8251-why-does-my-server-change-time-references-quite-frequently">Why does my server change time references quite frequently?</a><br>
+8.2.5.2 <a href="/ntpfaq/ntp-s-trbl-general/#8252-my-server-periodically-loses-synchronization">My server periodically loses synchronization</a><br>
+8.2.5.3 <a href="/ntpfaq/ntp-s-trbl-general/#8253-why-does-my-system-step-several-times-a-day">Why does my system step several times a day?</a><br>
+8.2.6 <a href="/ntpfaq/ntp-s-trbl-general/#826-other">Other</a><br>
+8.2.6.1 <a href="/ntpfaq/ntp-s-trbl-general/#8261-how-do-i-set-the-correct-value-for-tick">How do I set the correct value for tick?</a><br>
+8.2.6.2 <a href="/ntpfaq/ntp-s-trbl-general/#8262-how-do-i-set-the-precision">How do I set the precision?</a><br>
+8.2.6.3 <a href="/ntpfaq/ntp-s-trbl-general/#8263-ntpd-periodically-opens-a-dial-out-connection-can-i-avoid-that">ntpd periodically opens a dial-out connection. Can I avoid that?</a><br>
+8.2.6.4 <a href="/ntpfaq/ntp-s-trbl-general/#8264-any-more-hints">Any more Hints?</a><br>
+8.2.7 <a href="/ntpfaq/ntp-s-trbl-general/#827-errors-and-warnings">Errors and Warnings</a><br>
+8.2.7.1 <a href="/ntpfaq/ntp-s-trbl-general/#8271-ntpq-read-connection-refused">ntpq: read: connection refused</a><br>
+8.2.7.2 <a href="/ntpfaq/ntp-s-trbl-general/#8272-127001-timed-out-nothing-received-request-timed-out">127.0.0.1: timed out, nothing received, Request timed out</a><br>
+8.2.7.3 <a href="/ntpfaq/ntp-s-trbl-general/#8273-ntpdate-no-server-suitable-for-synchronization-found">ntpdate: no server suitable for synchronization found</a><br>
+8.2.7.4 <a href="/ntpfaq/ntp-s-trbl-general/#8274-configure-keyword-precision-unknown-line-ignored">configure: keyword &ldquo;precision&rdquo; unknown, line ignored</a><br>
+8.2.7.5 <a href="/ntpfaq/ntp-s-trbl-general/#8275-previous-time-adjustment-didnt-complete">Previous time adjustment didn&rsquo;t complete</a><br>
+8.2.7.6 <a href="/ntpfaq/ntp-s-trbl-general/#8276-sendto-overlapped-io-operation-is-in-progress">sendto: Overlapped I/O operation is in progress.</a></p>
+<p>8.3. <a href="/ntpfaq/ntp-s-trbl-spec/">Troubleshooting Specific Products</a><br>
+8.3.1 <a href="/ntpfaq/ntp-s-trbl-spec/#831-pc-hardware">PC Hardware</a><br>
+8.3.1.1 <a href="/ntpfaq/ntp-s-trbl-spec/#8311-how-accurate-is-the-cmos-clock">How accurate is the CMOS clock?</a><br>
+8.3.1.2 <a href="/ntpfaq/ntp-s-trbl-spec/#8312-how-can-i-set-the-cmos-clock">How can I set the CMOS clock?</a><br>
+8.3.1.3 <a href="/ntpfaq/ntp-s-trbl-spec/#8313-how-can-i-read-or-write-the-cmos-clock">How can I read or write the CMOS clock?</a><br>
+8.3.1.4 <a href="/ntpfaq/ntp-s-trbl-spec/#8314-how-can-smm-affect-interrupt-processing">How can SMM affect Interrupt Processing?</a><br>
+8.3.2 <a href="/ntpfaq/ntp-s-trbl-spec/#832-linux">Linux</a><br>
+8.3.2.1 <a href="/ntpfaq/ntp-s-trbl-spec/#8321-what-does-set_rtc_mmss-cant-update-from-54-to-5-mean">What does set_rtc_mmss: can&rsquo;t update from 54 to 5 mean?</a><br>
+8.3.2.2 <a href="/ntpfaq/ntp-s-trbl-spec/#8322-why-does-my-linux-system-lose-several-milliseconds-every-once-in-a-while">Why does my Linux system lose several milliseconds every once in a while.</a><br>
+8.3.4 <a href="/ntpfaq/ntp-s-trbl-spec/#834-serial-port">Serial Port</a><br>
+8.3.4.1 <a href="/ntpfaq/ntp-s-trbl-spec/#8341-do-multiport-serial-cards-cause-trouble">Do Multiport Serial Cards cause Trouble?</a><br>
+8.3.4.2 <a href="/ntpfaq/ntp-s-trbl-spec/#8342-why-does-my-dcf77-receiver-not-get-power-from-the-serial-port">Why does my DCF77 Receiver not get Power from the serial Port?</a><br>
+8.3.5 <a href="/ntpfaq/ntp-s-trbl-spec/#835-oncore-compatibles">Oncore Compatibles</a><br>
+8.3.5.1 <a href="/ntpfaq/ntp-s-trbl-spec/#8351-will-the-m12-work-with-the-oncore-driver">Will the M12 work with the Oncore driver?</a><br>
+8.3.5.2 <a href="/ntpfaq/ntp-s-trbl-spec/#8352-why-is-the-ut-reporting-clk_noreply">Why is the UT+ reporting clk_noreply?</a><br>
+8.3.6 <a href="/ntpfaq/ntp-s-trbl-spec/#836-solaris">Solaris</a>  <br>
+8.3.6.1 <a href="/ntpfaq/ntp-s-trbl-spec/#8361-what-is-dosyncdr">What is dosyncdr?</a><br>
+8.3.6.2 <a href="/ntpfaq/ntp-s-trbl-spec/#8362-what-causes-occasional-2s-time-steps">What causes occasional 2s Time Steps?</a><br>
+8.3.7 <a href="/ntpfaq/ntp-s-trbl-spec/#837-trimble-clocks">Trimble Clocks</a><br>
+8.3.7.1 <a href="/ntpfaq/ntp-s-trbl-spec/#8371-only-one-edge-of-my-trimble-acutimes-pps-pulse-is-detected">Only one Edge of my Trimble Acutime&rsquo;s PPS Pulse is detected</a></p>
+<p>8.4. <a href="/ntpfaq/ntp-s-trbl-bug-reports/">Reporting Bugs</a><br>
+8.4.1 <a href="/ntpfaq/ntp-s-trbl-bug-reports/#841-when-should-i-report-a-problem">When should I report a Problem?</a><br>
+8.4.2 <a href="/ntpfaq/ntp-s-trbl-bug-reports/#842-what-should-i-report">What should I report?</a></p>
+<ol start="9">
+<li>
+<p><a href="/ntpfaq/ntp-s-related/">Background and Related Information</a><br>
+9.1 <a href="/ntpfaq/ntp-s-related/#91-miscellaneous">Miscellaneous</a><br>
+9.1.1 <a href="/ntpfaq/ntp-s-related/#911-what-is-mills-speak">What is Mills-speak?</a><br>
+9.1.2 <a href="/ntpfaq/ntp-s-related/#912-how-can-i-convert-a-date-to-ntp-format">How can I convert a date to NTP format?</a><br>
+9.1.3 <a href="/ntpfaq/ntp-s-related/#913-how-can-i-convert-an-ntp-timestamp-to-unix-time">How can I convert an NTP Timestamp to UNIX Time?</a><br>
+9.1.4 <a href="/ntpfaq/ntp-s-related/#914-where-can-i-find-more-information">Where can I find more Information?</a><br>
+9.2 <a href="/ntpfaq/ntp-s-related/#92-gps">GPS</a><br>
+9.2.1 <a href="/ntpfaq/ntp-s-related/#921-selective-availability-revisited">Selective Availability revisited</a></p>
+</li>
+<li>
+<p><a href="/ntpfaq/ntp-g-all/">Common Terms and Acronyms</a></p>
+</li>
+</ol>
+<blockquote>
+<p>This document tries to explain the most basic features of NTP, and to answer many frequently asked questions. The intention is to help the average user to get a quick start with the official implementation of NTP. Technical issues and mathematics are avoided where possible. Instead the most common questions are tried to be answered, enabling everybody to get a working configuration.</p>
+</blockquote>
+<dl>
+<dt>All we do here is invent games to pass the time.</dt>
+<dd>John O' Donohue</dd>
+</dl>
+<hr>
+<h4 id="1-about-this-document">1. About this Document</h4>
+
+
+<div class="pageinfo pageinfo-primary">
+<dl>
+<dt>The NTP FAQ and HOWTO was originally edited by:</dt>
+<dd>Ulrich Windl</dd>
+<dd>Dale R. Worley</dd>
+<dd>David Dalton, Hewlett-Packard</dd>
+<dd>Marc Martinec, Josef Stefan Institute</dd>
+</dl>
+<p>with this copyright notice:</p>
+<p>Copyright © 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006 Ulrich Windl, et al. (see <a href="#110-credits">credits</a>)</p>
+<p>The material in this document is covered by the respective contributor&rsquo;s copyright. © Copyright 1999 - 2005, by the contributors and editors of this document. For details see the list of editors and authors.</p>
+<p>All editors and contributors (non-exclusively) grant a perpetual, irrevocable, and royalty free license to distribute this document under the terms of the General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+<p>This document is distributed in the hope that it will be useful, but <em>WITHOUT ANY WARRANTY</em>; without even the implied warranty of <em>MERCHANTABILITY</em> or <em>FITNESS FOR A PARTICULAR PURPOSE</em>. See the GNU General Public License for more details.</p>
+<p>If you don&rsquo;t already have the GNU General Public License at hand, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</p>
+
+</div>
+
+<p>It is now maintained by <a href="https://www.nwtime.org/">Network Time Foundation</a>. Contributions to update the material are most appreciated and contributors will continue to be added to the credits.</p>
+<hr>
+<h4 id="11-preface">1.1 Preface</h4>
+<p>This section tries to answer questions about the document itself. This document is intended for beginners as well as advanced users that are looking for advice. However, basic skills in system administration are required to enjoy this tour. True experts on the subject will probably prefer the original documentation that comes with the software, or make corrections where it is wrong.</p>
+<p>The impatient may want to go directly to <a href="/ntpfaq/ntp-s-time/">Section 2</a> where fundamentals of timekeeping are discussed. <a href="/ntpfaq/ntp-s-sw-clocks/">Section 3</a> introduces clocks that are implemented using computers. If you are reading sequentially, you should be ready for the section that presents NTP, <a href="/ntpfaq/ntp-s-def/">Section 4</a>.</p>
+<p>At that point focus moves from a more theoretical treatment of the subject to practical aspects, starting with <a href="/ntpfaq/ntp-s-algo/">Section 5</a>. Then <a href="/ntpfaq/ntp-s-config/">Section 6</a> moves into configuration of the NTP software. <a href="/ntpfaq/ntp-s-refclk/">Section 7</a> will talk about reference clocks.</p>
+<p>Real life is talked about in <a href="/ntpfaq/ntp-s-trouble/">Section 8</a> where procedures, tips, and tricks for troubleshooting are presented. For the curious, <a href="/ntpfaq/ntp-s-related/">Section 9</a> provides further information and references. Finally, there is a <a href="/ntpfaq/ntp-g-all/">glossary</a> of terms.</p>
+<hr>
+<h4 id="12-why-is-this-document-named-faq-and-howto">1.2 Why is this Document named FAQ and HOWTO?</h4>
+<p>This document tries to answer frequently asked questions (FAQs) that can not (at least virtually) be answered easily from the standard documentation.</p>
+<p>In addition to just answering user questions, this document also tries to give a gentle introduction and guidelines to the newcomer. The authors believe that it&rsquo;s better to use NTP correctly right from the start rather than fixing all the problems after they occur.</p>
+<p>&ldquo;Gentle&rdquo; means &ldquo;not too technical&rdquo; and &ldquo;not too theoretical&rdquo;. However, some basic non-trivial understanding of real life is required at several points, so please accept these deviations from the goal.</p>
+<hr>
+<h4 id="13-where-is-the-source-of-this-document">1.3 Where is the source of this document?</h4>
+<p>The source files for the FAQ can be found <a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/content/en/ntpfaq">here</a>. The repository also contains the <a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/public/ntpfaq">HTML files for the FAQ</a> and a <a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/README.md">README</a> for obtaining the source files.</p>
+<hr>
+<h4 id="14-why-cant-i-find-information-about-xyz-in-this-faq">1.4 Why can&rsquo;t I find information about xyz in this FAQ?</h4>
+<p>Unless it simply has not been written yet, there may be other reasons:</p>
+<ol>
+<li>The editors don&rsquo;t want to copy documentation that is already publicly available. This is especially true for standards, specifications, and manuals. The editors think that referring to is better than copying. The intention is to avoid redundancy while saving labour.</li>
+<li>Either the problem or the solution is too vague to document it. This is true for uncommon configurations. After all, we want to answer <em>frequently</em> asked questions here.</li>
+</ol>
+<hr>
+<h4 id="15-where-should-a-new-entry-be-put">1.5 Where should a new Entry be put?</h4>
+<p>The answer to this question is quite delicate! The guidelines are probably these:</p>
+<ul>
+<li>Try to understand the existing structure of the document.</li>
+<li>If there are similar entries, see where the new one fits best. Usually it&rsquo;s right near the existing one, or in a corresponding section. Possibly it makes sense to create a new section.</li>
+</ul>
+<hr>
+<h4 id="16-why-should-i-contribute">1.6 Why should I contribute?</h4>
+<p>In &ldquo;the good old times&rdquo; the Internet was a valuable source of information, and people were happy to share their knowledge. These days, however, people think of E-Commerce, how to make money.</p>
+<p>This FAQ was written not to make money, but to have a reference to refer to and to provide information to more people. If you have solved some NTP problem that may be of interest to other people, please share your experience.</p>
+<hr>
+<h4 id="17-how-can-i-contribute">1.7 How can I contribute?</h4>
+<p>Contributions are very much appreciated. You can:</p>
+<ol>
+<li>Correct errors or incomplete information.</li>
+<li>Suggest an addition consisting of a question together with its answer.</li>
+<li>Update examples so they match the current NTP version.</li>
+</ol>
+<hr>
+<h4 id="18-i-contributed-to-this-faq-but-my-name-is-not-mentioned-anywhere-whats-wrong">1.8 I contributed to this FAQ, but my name is not mentioned anywhere. What&rsquo;s wrong?</h4>
+<p>Probably the fault of the editor. Maybe he thought you don&rsquo;t want to be listed, or simply forgot. <a href="#110-credits">Section 1.10</a> shows the names the editor was aware of.</p>
+<hr>
+<h4 id="19-why-are-graphics-stored-in-png-format">1.9 Why are Graphics stored in PNG Format?</h4>
+<p>The popular GIF format supported by many browsers relies on a compression algorithm that is patented, and the owner of the patent wants to receive money from everyone making GIF files. PNG (Portable Network Graphics) uses a different algorithm for compression and does not require payment.</p>
+<hr>
+<h4 id="110-credits">1.10 Credits</h4>
+<p>If you contributed to this FAQ, and you could not find your name elsewhere, this is where it should be.</p>
+<p>This is an alphabetical list of contributors:</p>
+<ul>
+<li><a href="mailto:ma@suse.de">Michael Andres</a></li>
+<li><a href="mailto:tvb@veritas.com">Tom Van Baak</a></li>
+<li><a href="mailto:wob@swobspace.rhein.de">Wolfgang Barth</a></li>
+<li><a href="mailto:Lyle_Batema@Trimble.COM">Lyle Batema</a></li>
+<li><a href="mailto:ericx@vineyard.net">Eric W. Bates</a></li>
+<li><a href="mailto:brianb@mac.com">Brian Bergstrand</a></li>
+<li><a href="mailto:boettcher@ll.mit.edu">Peter Boettcher</a></li>
+<li>Marc Brett</li>
+<li>Bill Broadley</li>
+<li><a href="mailto:martin.burnicki@meinberg.de">Martin Burnicki</a></li>
+<li>Jonathan A. Buzzard</li>
+<li><a href="mailto:chunkeey@web.de">chunkeey</a></li>
+<li>James Clark</li>
+<li><a href="mailto:dcraggs@gotadsl.co.uk">David Craggs</a></li>
+<li>David Dalton</li>
+<li>John DeDourek</li>
+<li><a href="mailto:Sven_Dietrich@Trimble.COM">Sven Dietrich</a></li>
+<li>Casper H. Dik</li>
+<li>John K. Doyle, Jr.</li>
+<li><a href="mailto:ddrucker@easylink.com">Daniel Drucker</a></li>
+<li><a href="mailto:add@netcom.com">Arthur Darren Dunham</a></li>
+<li><a href="mailto:philippe_eveque@grenoble.hp.com">Philippe Eveque</a></li>
+<li><a href="mailto:georgi@BelWue.DE">Jürgen Georgi</a></li>
+<li><a href="mailto:Tim.Granger@cl.cam.ac.uk">Tim Granger</a></li>
+<li><a href="mailto:beng@lcs.mit.edu">Benjamin Greenwald</a></li>
+<li><a href="mailto:agriffin@cpcug.org">James &amp; Charlotte Griffin</a></li>
+<li><a href="mailto:rick@cnssys.com">Richard M. Hambly</a></li>
+<li>John Hay</li>
+<li><a href="mailto:per@erix.ericsson.se">Per Hedeland </a></li>
+<li><a href="mailto:kees@echelon.nl">Kees Hendrikse</a></li>
+<li>Martin Herbener</li>
+<li><a href="mailto:DougHo@niceties.com">Doug Hogarth</a></li>
+<li>Andrew Hood</li>
+<li><a href="mailto:jakobus@iaf.fhg.de">Theo Jakobus</a></li>
+<li>Nicholas Jenkins</li>
+<li><a href="mailto:phk@freebsd.dk">Poul-Henning Kamp</a></li>
+<li><a href="mailto:jimkirk@uwyo.edu">James Kirkpatrick</a></li>
+<li>Wolfgang Klische</li>
+<li><a href="mailto:kostecke@ntp.org">Steve Kostecke</a></li>
+<li><a href="mailto:mgk25@cl.cam.ac.uk">Markus Kuhn</a></li>
+<li><a href="mailto:akumria@acm.org">Anand Kumria</a></li>
+<li>Judah Levine</li>
+<li><a href="mailto:mark.martinec@ijs.si">Mark Martinec</a></li>
+<li><a href="mailto:Terje.Mathisen@hda.hydro.com">Terje Mathisen</a></li>
+<li><a href="mailto:frank@exit.com">Frank Mayhar</a></li>
+<li><a href="mailto:mills@udel.edu">Professor David L. Mills</a></li>
+<li><a href="mailto:nelson@media.mit.edu">Nelson Minar</a></li>
+<li>Jeffrey Mogul</li>
+<li>Hal Murray</li>
+<li><a href="mailto:dirk-n@dircon.co.uk">Dirk A. Niggemann</a></li>
+<li>Mike Nolan</li>
+<li>Johan Fredrik Øhman</li>
+<li><a href="mailto:ro@TechFak.Uni-Bielefeld.DE">Rainer Orth</a></li>
+<li>Don Payette</li>
+<li><a href="mailto:bill.pennock@transquest.com">William R. Pennock</a></li>
+<li>Bruce M. Penrod</li>
+<li><a href="mailto:nicolai@esperi.org">Nicolai E M Plum</a></li>
+<li><a href="mailto:jcs@zoo.bt.co.uk">John Sager</a></li>
+<li>Hans P. Reiser</li>
+<li><a href="mailto:schulz@adi.com">Thomas Schulz</a></li>
+<li><a href="mailto:msinatra@uclink4.berkeley.edu">Michael Sinatra</a></li>
+<li><a href="mailto:Greg.Smith@ci.seattle.wa.us">Greg Smith</a></li>
+<li><a href="mailto:Johan.Swenker@HetNet.NL">Johan Swenker</a></li>
+<li><a href="mailto:vs@cesnet.cz">Vladimir Smotlacha</a></li>
+<li><a href="mailto:stenn@whimsy.udel.edu">Harlan Stenn</a></li>
+<li><a href="mailto:david-taylor@blueyonder.co.uk">David J. Taylor</a></li>
+<li><a href="mailto:gterrone@itsco.com">George Terrone</a></li>
+<li>Thomas Tornblom</li>
+<li>Scott Tuttle</li>
+<li>Brian Utterback</li>
+<li>Gilles Vollant</li>
+<li><a href="mailto:ndw@nwalsh.com">Norman Walsh</a></li>
+<li>David Woolley</li>
+<li><a href="mailto:worley@shell01.TheWorld.com">Dale R. Worley</a></li>
+</ul>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+</div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

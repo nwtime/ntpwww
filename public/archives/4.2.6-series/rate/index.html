@@ -1,32 +1,369 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="from Pogo, Walt Kelly
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Pogo, Walt Kelly
 Our junior managers and the administrators.
 Last update: 	03-May-2009 3:34 UTC
 
 Table of Contents
 
 Introduction
-Poll Rate …"><meta property="og:title" content="Rate Management and the Kiss-o'-Death Packet"><meta property="og:description" content="from Pogo, Walt Kelly
+Poll Rate …">
+<meta property="og:title" content="Rate Management and the Kiss-o&#39;-Death Packet" />
+<meta property="og:description" content="from Pogo, Walt Kelly
 Our junior managers and the administrators.
 Last update: 03-May-2009 3:34 UTC
- Table of Contents  Introduction Poll Rate Control Burst Control Average Headway Time Guard Time The Kiss of Death Packet   Introduction This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the Configuration Options page. Details about the cryptographic authentication schemes are given on the Authentication Options page."><meta property="og:type" content="article"><meta property="og:url" content="https://doc.ntp.org/archives/4.2.6-series/rate/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-BN61ZTDHBP',{anonymize_ip:!1})}</script><title>Rate Management and the Kiss-o'-Death Packet</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://doc.ntp.org/><img class=img-fluid src=https://doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://doc.ntp.org/archives/4.2.6-series/>4.2.6-series</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://doc.ntp.org/archives/4.2.6-series/rate/>Rate Management and the Kiss-o'-Death Packet</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Rate Management and the Kiss-o'-Death Packet</h1><p><img src=/archives/pic/boom4.gif alt=gif><a href=/reflib/pictures/>from <em>Pogo</em>, Walt Kelly</a></p><p>Our junior managers and the administrators.</p><p>Last update: 03-May-2009 3:34 UTC</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.2.6-series/rate/#introduction>Introduction</a></li><li><a href=/archives/4.2.6-series/rate/#poll-rate-control>Poll Rate Control</a></li><li><a href=/archives/4.2.6-series/rate/#burst-control>Burst Control</a></li><li><a href=/archives/4.2.6-series/rate/#average-headway-time>Average Headway Time</a></li><li><a href=/archives/4.2.6-series/rate/#guard-time>Guard Time</a></li><li><a href=/archives/4.2.6-series/rate/#the-kiss-of-death-packet>The Kiss of Death Packet</a></li></ul><hr><h4 id=introduction>Introduction</h4><p>This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the <a href=/archives/4.2.6-series/confopt/>Configuration Options</a> page. Details about the cryptographic authentication schemes are given on the <a href=/archives/4.2.6-series/authopt/>Authentication Options</a> page. Details about the automatic server discovery schemes are described on the <a href=/archives/4.2.6-series/manyopt/>Automatic Server Discovery Schemes</a> page. Additional information is available in the papers, reports, memoranda and briefings on the <a href=/reflib/ntp/>NTP Project</a> page.</p><p>Some national time metrology laboratories, including NIST and USNO, use the <code>ntpd</code> reference implementation in their very busy public time servers. They operate multiple servers behind load-balancing devices to support aggregate rates up to several thousand packets per second. The servers need to defend themselves against all manner of broken implementations that can clog the server and network infrastructure. On the other hand, friendly <code>ntpd</code> clients need to avoid configurations that can result in unfriendly rates.</p><p>There are several features in <code>ntpd</code> designed to defend the servers, clients and network against accidental or intentional flood attack. On the other hand these features are also used to insure <code>ntpd</code> is a good citizen, even if configured in unfriendly ways. The ground rules are:</p><ul><li>Send at the lowest rate consistent with the expected accuracy expectations.</li><li>Maintain strict minimum average headway and guard times, even if multiple burst options and/or the Autokey protocol are operating.</li><li>When the first packet of a burst is sent to a server, do not send further packets until the first packet has been received from the server.</li><li>Upon receiving a Kiss-o'-Death packet (see below), immediately reduce the sending rate.</li></ul><p>Rate management involves four algorithms to manage resources: (1) poll rate control, (2) burst control, (3) average headway time and (4) guard time. These are described in following sections.</p><hr><h4 id=poll-rate-control>Poll Rate Control</h4><p>Control of the poll interval is an intricate balance between expected acuracy and network load. The poll interval is constrained by the lower limit <code>minpoll</code> and upper limit <code>maxpoll</code> options of the <code>server</code> command and represented by the poll exponent in log<sub>2</sub> s units. The limits default to 6 (64 s) and 10 (1024 s), respectively, which are appropriate for the vast majority of cases. The default limits can be changed with these options to a minimum set by the <code>average</code> option of the <code>discard</code> command (see below) to a maximum of 17 (36 h). Unless the best possible accuracy is required, the well mannered NTP client automatically increases the poll interval to the maximum when possible, whether or not the server is reachable. The current poll interval for each association is displayed by the <code>ntpq</code> program <a href=/archives/4.2.6-series/ntpq/#pe><code>pe</code></a> command. The global poll interval/time constant is displayed as the poll system variable by the rv command. The minimum global poll interval/time constant is displayed as the minpoll system variable by the <a href=/archives/4.2.6-series/ntpq/#pe><code>rv</code></a> command.</p><p>As a rule of thumb, the expected errors increase by a factor of two as the poll interval increases by a factor of four. The <code>ntpd</code> poll interval algorithm slowly increases the poll interval when jitter dominates the error budget, but quickly reduces the interval when wander dominates it. The algorithm uses a jiggle counter which operates over the range from <font face=symbol>-</font>30 to +30 and is initialized at 0. If the measured offset is less than four times the measured average jitter, the counter is increased by the pollcurrent exponent; if not, it is decreased by twice the poll exponent. If the counter reaches +30, the poll exponent is incremented by 1; if the counter reaches <font face=symbol>-</font>30, the exponent is decremented by 1. In either case the counter is set to 0.</p><p>The poll interval is proportional to the time constant of the feedback loop which disciplines the system clock. The optimum time constant depends on the network time jitter and the clock oscillator frequency wander. Errors due to jitter decrease as the time constant increases, while errors due to wander decrease as the time constant decreases. The two error characteristics intersect at a point called the Allan intercept, which represents the ideal time constant. With a compromise Allan intercept of 2000 s, the optimim poll interval is about 64 s, which corresponds to a poll exponent of 6.</p><p>There is normally no need to change the poll limits, as the poll interval is managed automatically as a function of prevailing jitter and wander. The most common exceptions are the following.</p><ul><li>With fast, lightly loaded LANs and modern processors, the nominal Allan intercept is about 500 s. In these cases the expected errors can be further reduced using a poll exponent of 4 (16 s). In the case of the pulse-per-second (PPS) driver, this is the recommended value.</li><li>With symmetric modes the most stable behavior results when both peers are configured in symmetric active mode with matching poll intervals of 6 (64 s).</li><li>The poll interval should not be modified for reference clocks, with the single exception the ACTS telephone modem driver. In this case the recommended minimum and maximum intervals are 12 (1.1 h) and 17 (36 h), respectively.</li></ul><hr><h4 id=burst-control>Burst Control</h4><p>Occasionally it is necessary to send packets at intervals less than the poll interval. For instance, with the <code>burst</code> and <code>iburst</code> options of the <code>server</code> command, the poll algorithm sends a burst of several packets at 2-s intervals. The <code>ntpd</code> poll algorithm avoids sending needless packets if the server is not responding. The client begins a burst with a single packet. When the first packet is received from the server, the client continues with the remaining packets in the burst. If the first packet is not received within 64 s, it will be sent again for two additional retries before beginning backoff. The result is to minimize network load if the server is not responding.</p><p>For the <code>iburst</code> option the number of packets in the burst is six, which is the number normally needed to synchronize the clock; for the <code>burst</code> option, the number of packets in the burst is determined by the difference between the poll interval and the minimum poll interval set by the <code>minpoll</code> option of the <a href=/archives/4.2.6-series/confopt/#server><code>server</code></a> command. For instance, with a poll exponent of 6 (64 s), only a single packet is sent for every poll, while the full number of eight packets is sent at poll intervals of 9 (512 s) or more.</p><hr><h4 id=average-headway-time>Average Headway Time</h4><p>There are two features in <code>ntpd</code> to manage the interval between one packet and the next. These features make use of a set of counters: a client output counter for each association and a server input counter for each distinct client address. Each counter increments by a value called the headway when a packet is processed and decrements by one each second. The default minimum average headway in <code>ntpd</code> is 8 s, but this can be changed using the <code>average</code> option of the <code>discard</code> command, but not less than 3 (8 s).</p><p>If the <code>iburst</code> or <code>burst</code> options are present, the poll algorithm sends a burst of packets instead of a single packet at each poll opportunity. The NTPv4 specification requires that bursts contain no more than eight packets; so, starting from an output counter value of zero, the maximum counter value or output ceiling can be no more than eight times the minimum poll interval set by the <code>minpoll</code> option of the <a href=/archives/4.2.6-series/confopt/#server><code>server</code></a> command. However, if the burst starts with a counter value other than zero, there is a potential to exceed the ceiling. The poll algorithm avoids this by computing an additional headway time so that the next packet sent will not exceed the ceiling. Additional headway time can result from Autokey protocol operations. Designs such as this are often called leaky buckets. The current headway is displayed as the headway peer variable by the <code>ntpq</code> <a href=/archives/4.2.6-series/ntpq/#pe><code>rv</code></a> command.</p><p>The <code>ntpd</code> input packet routine uses a special list of entries, one for each distinct client address found. Each entry includes an IP address, input counter and interval since the last packet arrival. The entries are ordered by interval from the smallest to the largest. As each packet arrives, the IP source address is compared to the IP address in each entry in turn. If a match is found the entry is removed and inserted first on the list. If the IP source address does not match any entry, a new entry is created and inserted first, possibly discarding the last entry on the list if it is full. Observers will note this is the same algorithm used for page replacement in virtual memory systems.</p><p>In the virtual memory algorithm the entry of interest is the last, whereas here the entry of interest is the first. The input counter is decreased by the interval since it was last referenced, but not below zero. If the value of the counter plus the headway is greater than the input ceiling set by the <code>average</code> option, the packet is discarded. Otherwise, the counter is increased by the headway and the packet is processed. The result is, if the client maintains a maximum average headway not less than the input ceiling and transmits no more than eight packets in a burst, the input counter will not exceed the ceiling.</p><hr><h4 id=guard-time>Guard Time</h4><p>A review of past client abuse incidence shows the most frequent scenario is a broken client that attempts to send a number of packets at rates of one per second or more. On one occasion due to a defective client design, over 750,000 clients fell into this mode. There have been occasions where this abuse has persisted for days at a time. These scenarios are the most damaging, as they can threaten not only the victim server but the network infrastructure as well.</p><p>In the <code>ntpd</code> design the minimum headway between the last packet received and the current packet is called the guard time. If the headway is less than the guard time, the packet is discarded. The guard time defaults to 2 s, but this can be changed using the <code>minimum</code> option of the <code>discard</code> command.</p><hr><h4 id=the-kiss-of-death-packet>The Kiss-of-Death Packet</h4><p>Ordinarily, packets denied service are simply dropped with no further action except incrementing statistics counters. Sometimes a more proactive response is needed to cause the client to slow down. A special packet format has been created for this purpose called the kiss-o'-death (KoD) packet. KoD packets have leap indicator 3, stratum 0 and the reference identifier set to a four-byte ASCII code. At present, only one code <code>RATE</code> is sent by the server if the <code>limited</code> and <code>kod</code> flags are set in the <a href=/archives/4.2.6-series/accopt/#restrict><code>restrict</code></a> command and the rate limit is exceeded.</p><p>A client receiving a KoD packet is expected to slow down; however, no explicit mechanism is specified in the protocol to do this. In the current reference implementation, the server sets the packet poll to the greater of (a) minimum average headway and (b) client packet poll. The client sets the peer poll field to the maximum of (a) minimum average headway and (b) server packet poll. For KoD packets (only), the minimum peer poll is clamped not less than the peer poll and the headway temporarily increased.</p><p>At present there is only one KoD packet with code <code>RATE.</code> In order to make sure the client notices the KoD, the receive and transmit timestamps are set to the transmit timestamp of the client packet and all other fields left as in the client packet. Thus, even if the client ignores the KoD, it cannot do any useful time computations. KoDs themselves are rate limited in the same way as arriving packets in order to deflect a flood attack.</p><style>.feedback--answer{display:inline-block}.feedback--answer-no{margin-left:1em}.feedback--response{display:none;margin-top:1em}.feedback--response__visible{display:block}</style><div><h2 class=feedback--title>Feedback</h2><p class=feedback--question>Was this page helpful?</p><button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button><p class="feedback--response feedback--response-yes">Glad to hear it!</a></p><p class="feedback--response feedback--response-no">Sorry to hear that.</a></p></div><script>const yesButton=document.querySelector('.feedback--answer-yes'),noButton=document.querySelector('.feedback--answer-no'),yesResponse=document.querySelector('.feedback--response-yes'),noResponse=document.querySelector('.feedback--response-no'),disableButtons=()=>{yesButton.disabled=!0,noButton.disabled=!0},sendFeedback=b=>{if(typeof ga!='function')return;const a={command:'send',hitType:'event',category:'Helpful',action:'click',label:window.location.pathname,value:b};ga(a.command,a.hitType,a.category,a.action,a.label,a.value)};yesButton.addEventListener('click',()=>{yesResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(1)}),noButton.addEventListener('click',()=>{noResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(0)})</script><br></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+ Table of Contents  Introduction Poll Rate Control Burst Control Average Headway Time Guard Time The Kiss of Death Packet   Introduction This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the Configuration Options page. Details about the cryptographic authentication schemes are given on the Authentication Options page." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.6-series/rate/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>Rate Management and the Kiss-o&#39;-Death Packet</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/archives/4.2.6-series/">4.2.6-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/archives/4.2.6-series/rate/">Rate Management and the Kiss-o&#39;-Death Packet</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Rate Management and the Kiss-o&#39;-Death Packet</h1>
+     
+    <p><img src="/archives/pic/boom4.gif" alt="gif"><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>Our junior managers and the administrators.</p>
+<p>Last update: 	03-May-2009 3:34 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.6-series/rate/#introduction">Introduction</a></li>
+<li><a href="/archives/4.2.6-series/rate/#poll-rate-control">Poll Rate Control</a></li>
+<li><a href="/archives/4.2.6-series/rate/#burst-control">Burst Control</a></li>
+<li><a href="/archives/4.2.6-series/rate/#average-headway-time">Average Headway Time</a></li>
+<li><a href="/archives/4.2.6-series/rate/#guard-time">Guard Time</a></li>
+<li><a href="/archives/4.2.6-series/rate/#the-kiss-of-death-packet">The Kiss of Death Packet</a></li>
+</ul>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>This page describes the various rate management provisions in NTPv4. Details about the configuration commands and options are given on the <a href="/archives/4.2.6-series/confopt/">Configuration Options</a> page. Details about the cryptographic authentication schemes are given on the <a href="/archives/4.2.6-series/authopt/">Authentication Options</a> page. Details about the automatic server discovery schemes are described on the <a href="/archives/4.2.6-series/manyopt/">Automatic Server Discovery Schemes</a> page. Additional information is available in the papers, reports, memoranda and briefings on the <a href="/reflib/ntp/">NTP Project</a> page.</p>
+<p>Some national time metrology laboratories, including NIST and USNO, use the <code>ntpd</code> reference implementation in their very busy public time servers. They operate multiple servers behind load-balancing devices to support aggregate rates up to several thousand packets per second. The servers need to defend themselves against all manner of broken implementations that can clog the server and network infrastructure. On the other hand, friendly <code>ntpd</code> clients need to avoid configurations that can result in unfriendly rates.</p>
+<p>There are several features in <code>ntpd</code> designed to defend the servers, clients and network against accidental or intentional flood attack. On the other hand these features are also used to insure <code>ntpd</code> is a good citizen, even if configured in unfriendly ways. The ground rules are:</p>
+<ul>
+<li>Send at the lowest rate consistent with the expected accuracy expectations.</li>
+<li>Maintain strict minimum average headway and guard times, even if multiple burst options and/or the Autokey protocol are operating.</li>
+<li>When the first packet of a burst is sent to a server, do not send further packets until the first packet has been received from the server.</li>
+<li>Upon receiving a Kiss-o'-Death packet (see below), immediately reduce the sending rate.</li>
+</ul>
+<p>Rate management involves four algorithms to manage resources: (1) poll rate control, (2) burst control, (3) average headway time and (4) guard time. These are described in following sections.</p>
+<hr>
+<h4 id="poll-rate-control">Poll Rate Control</h4>
+<p>Control of the poll interval is an intricate balance between expected acuracy and network load. The poll interval is constrained by the lower limit <code>minpoll</code> and upper limit <code>maxpoll</code> options of the <code>server</code> command and represented by the poll exponent in log<sub>2</sub> s units. The limits default to 6 (64 s) and 10 (1024 s), respectively, which are appropriate for the vast majority of cases. The default limits can be changed with these options to a minimum set by the <code>average</code> option of the <code>discard</code> command (see below) to a maximum of 17 (36 h). Unless the best possible accuracy is required, the well mannered NTP client automatically increases the poll interval to the maximum when possible, whether or not the server is reachable. The current poll interval for each association is displayed by the <code>ntpq</code> program <a href="/archives/4.2.6-series/ntpq/#pe"><code>pe</code></a> command. The global poll interval/time constant is displayed as the poll system variable by the rv command. The minimum global poll interval/time constant is displayed as the minpoll system variable by the <a href="/archives/4.2.6-series/ntpq/#pe"><code>rv</code></a> command.</p>
+<p>As a rule of thumb, the expected errors increase by a factor of two as the poll interval increases by a factor of four. The <code>ntpd</code> poll interval algorithm slowly increases the poll interval when jitter dominates the error budget, but quickly reduces the interval when wander dominates it. The algorithm uses a jiggle counter which operates over the range from <font face="symbol">-</font>30 to +30 and is initialized at 0. If the measured offset is less than four times the measured average jitter, the counter is increased by the pollcurrent exponent; if not, it is decreased by twice the poll exponent. If the counter reaches +30, the poll exponent is incremented by 1; if the counter reaches <font face="symbol">-</font>30, the exponent is decremented by 1. In either case the counter is set to 0.</p>
+<p>The poll interval is proportional to the time constant of the feedback loop which disciplines the system clock. The optimum time constant depends on the network time jitter and the clock oscillator frequency wander. Errors due to jitter decrease as the time constant increases, while errors due to wander decrease as the time constant decreases. The two error characteristics intersect at a point called the Allan intercept, which represents the ideal time constant. With a compromise Allan intercept of 2000 s, the optimim poll interval is about 64 s, which corresponds to a poll exponent of 6.</p>
+<p>There is normally no need to change the poll limits, as the poll interval is managed automatically as a function of prevailing jitter and wander. The most common exceptions are the following.</p>
+<ul>
+<li>With fast, lightly loaded LANs and modern processors, the nominal Allan intercept is about 500 s. In these cases the expected errors can be further reduced using a poll exponent of 4 (16 s). In the case of the pulse-per-second (PPS) driver, this is the recommended value.</li>
+<li>With symmetric modes the most stable behavior results when both peers are configured in symmetric active mode with matching poll intervals of 6 (64 s).</li>
+<li>The poll interval should not be modified for reference clocks, with the single exception the ACTS telephone modem driver. In this case the recommended minimum and maximum intervals are 12 (1.1 h) and 17 (36 h), respectively.</li>
+</ul>
+<hr>
+<h4 id="burst-control">Burst Control</h4>
+<p>Occasionally it is necessary to send packets at intervals less than the poll interval. For instance, with the <code>burst</code> and <code>iburst</code> options of the <code>server</code> command, the poll algorithm sends a burst of several packets at 2-s intervals. The <code>ntpd</code> poll algorithm avoids sending needless packets if the server is not responding. The client begins a burst with a single packet. When the first packet is received from the server, the client continues with the remaining packets in the burst. If the first packet is not received within 64 s, it will be sent again for two additional retries before beginning backoff. The result is to minimize network load if the server is not responding.</p>
+<p>For the <code>iburst</code> option the number of packets in the burst is six, which is the number normally needed to synchronize the clock; for the <code>burst</code> option, the number of packets in the burst is determined by the difference between the poll interval and the minimum poll interval set by the <code>minpoll</code> option of the <a href="/archives/4.2.6-series/confopt/#server"><code>server</code></a> command. For instance, with a poll exponent of 6 (64 s), only a single packet is sent for every poll, while the full number of eight packets is sent at poll intervals of 9 (512 s) or more.</p>
+<hr>
+<h4 id="average-headway-time">Average Headway Time</h4>
+<p>There are two features in <code>ntpd</code> to manage the interval between one packet and the next. These features make use of a set of counters: a client output counter for each association and a server input counter for each distinct client address. Each counter increments by a value called the headway when a packet is processed and decrements by one each second. The default minimum average headway in <code>ntpd</code> is 8 s, but this can be changed using the <code>average</code> option of the <code>discard</code> command, but not less than 3 (8 s).</p>
+<p>If the <code>iburst</code> or <code>burst</code> options are present, the poll algorithm sends a burst of packets instead of a single packet at each poll opportunity. The NTPv4 specification requires that bursts contain no more than eight packets; so, starting from an output counter value of zero, the maximum counter value or output ceiling can be no more than eight times the minimum poll interval set by the <code>minpoll</code> option of the <a href="/archives/4.2.6-series/confopt/#server"><code>server</code></a> command. However, if the burst starts with a counter value other than zero, there is a potential to exceed the ceiling. The poll algorithm avoids this by computing an additional headway time so that the next packet sent will not exceed the ceiling. Additional headway time can result from Autokey protocol operations. Designs such as this are often called leaky buckets. The current headway is displayed as the headway peer variable by the <code>ntpq</code> <a href="/archives/4.2.6-series/ntpq/#pe"><code>rv</code></a> command.</p>
+<p>The <code>ntpd</code> input packet routine uses a special list of entries, one for each distinct client address found. Each entry includes an IP address, input counter and interval since the last packet arrival. The entries are ordered by interval from the smallest to the largest. As each packet arrives, the IP source address is compared to the IP address in each entry in turn. If a match is found the entry is removed and inserted first on the list. If the IP source address does not match any entry, a new entry is created and inserted first, possibly discarding the last entry on the list if it is full. Observers will note this is the same algorithm used for page replacement in virtual memory systems.</p>
+<p>In the virtual memory algorithm the entry of interest is the last, whereas here the entry of interest is the first. The input counter is decreased by the interval since it was last referenced, but not below zero. If the value of the counter plus the headway is greater than the input ceiling set by the <code>average</code> option, the packet is discarded. Otherwise, the counter is increased by the headway and the packet is processed. The result is, if the client maintains a maximum average headway not less than the input ceiling and transmits no more than eight packets in a burst, the input counter will not exceed the ceiling.</p>
+<hr>
+<h4 id="guard-time">Guard Time</h4>
+<p>A review of past client abuse incidence shows the most frequent scenario is a broken client that attempts to send a number of packets at rates of one per second or more. On one occasion due to a defective client design, over 750,000 clients fell into this mode. There have been occasions where this abuse has persisted for days at a time. These scenarios are the most damaging, as they can threaten not only the victim server but the network infrastructure as well.</p>
+<p>In the <code>ntpd</code> design the minimum headway between the last packet received and the current packet is called the guard time. If the headway is less than the guard time, the packet is discarded. The guard time defaults to 2 s, but this can be changed using the <code>minimum</code> option of the <code>discard</code> command.</p>
+<hr>
+<h4 id="the-kiss-of-death-packet">The Kiss-of-Death Packet</h4>
+<p>Ordinarily, packets denied service are simply dropped with no further action except incrementing statistics counters. Sometimes a more proactive response is needed to cause the client to slow down. A special packet format has been created for this purpose called the kiss-o'-death (KoD) packet. KoD packets have leap indicator 3, stratum 0 and the reference identifier set to a four-byte ASCII code. At present, only one code <code>RATE</code> is sent by the server if the <code>limited</code> and <code>kod</code> flags are set in the <a href="/archives/4.2.6-series/accopt/#restrict"><code>restrict</code></a> command and the rate limit is exceeded.</p>
+<p>A client receiving a KoD packet is expected to slow down; however, no explicit mechanism is specified in the protocol to do this. In the current reference implementation, the server sets the packet poll to the greater of (a) minimum average headway and (b) client packet poll. The client sets the peer poll field to the maximum of (a) minimum average headway and (b) server packet poll. For KoD packets (only), the minimum peer poll is clamped not less than the peer poll and the headway temporarily increased.</p>
+<p>At present there is only one KoD packet with code <code>RATE.</code> In order to make sure the client notices the KoD, the receive and transmit timestamps are set to the transmit timestamp of the client packet and all other fields left as in the client packet. Thus, even if the client ignores the KoD, it cannot do any useful time computations. KoDs themselves are rate limited in the same way as arriving packets in order to deflect a flood attack.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

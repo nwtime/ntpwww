@@ -1,32 +1,895 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="from Pogo, Walt Kelly
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Pogo, Walt Kelly
 Pig was hired to watch the logs.
 Last update: 7-Dec-2017 10:17 UTC
 
 Table of Contents
 
 Naming Conventions
-Monitoring Commands …"><meta property="og:title" content="Monitoring Options"><meta property="og:description" content="from Pogo, Walt Kelly
+Monitoring Commands …">
+<meta property="og:title" content="Monitoring Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly
 Pig was hired to watch the logs.
 Last update: 7-Dec-2017 10:17 UTC
- Table of Contents  Naming Conventions Monitoring Commands and Options File Set Types   Naming Conventions The ntpd includes a comprehensive monitoring facility which collects statistical data of various types and writes the data to files associated with each type at defined events or intervals. The files associated with a particular type are collectively called the generation file set for that type."><meta property="og:type" content="article"><meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/monopt/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-BN61ZTDHBP',{anonymize_ip:!1})}</script><title>Monitoring Options</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://doc.ntp.org/><img class=img-fluid src=https://doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://doc.ntp.org/archives/4.2.8-series/>4.2.8-series</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://doc.ntp.org/archives/4.2.8-series/monopt/>Monitoring Options</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Monitoring Options</h1><p><img src=/archives/pic/pogo8.gif alt=gif><a href=/reflib/pictures/>from <em>Pogo</em>, Walt Kelly</a></p><p>Pig was hired to watch the logs.</p><p>Last update: 7-Dec-2017 10:17 UTC</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.2.8-series/monopt/#naming-conventions>Naming Conventions</a></li><li><a href=/archives/4.2.8-series/monopt/#monitoring-commands-and-options>Monitoring Commands and Options</a></li><li><a href=/archives/4.2.8-series/monopt/#file-set-types>File Set Types</a></li></ul><hr><h4 id=naming-conventions>Naming Conventions</h4><p>The <code>ntpd</code> includes a comprehensive monitoring facility which collects statistical data of various types and writes the data to files associated with each type at defined events or intervals. The files associated with a particular type are collectively called the generation file set for that type. The files in the file set are the members of that set.</p><p>File sets have names specific to the type and generation epoch. The names are constructed from three concatenated elements <em><code>prefix</code></em>, <em><code>filename</code></em> and <em><code>suffix</code></em>:</p><dl><dt><code><strong><em>prefix</em></strong></code></dt><dd><p>The directory path specified in the <code>statsdir</code> command.</p></dd><dt><code><strong><em>name</em></strong></code></dt><dd><p>The name specified by the <code>file</code> option of the <code>filegen</code> command.</p></dd><dt><code><strong><em>suffix</em></strong></code></dt><dd><p>A string of elements beginning with . (dot) followed by a number of elements depending on the file set type.</p></dd></dl><p>Statistics files can be managed using scripts, examples of which are in the <code>./scripts</code> directory. Using these or similar scripts and Unix <code>cron</code> jobs, the files can be automatically summarized and archived for retrospective analysis.</p><hr><h4 id=monitoring-commands-and-options>Monitoring Commands and Options</h4><p>Unless noted otherwise, further information about these commands is on the <a href=/archives/4.2.8-series/decode/>Event Messages and Status Codes</a> page.</p><dl><dt><code><strong>filegen <em>name</em> [file <em>filename</em>] [type <em>type</em>] [link | nolink] [enable | disable] <em>name</em></strong></code></dt><dd><p>Specifies the file set type from the list in the next section.</p></dd><dt><code><strong>file <em>filename</em></strong></code></dt><dd><p>Specifies the filename prefix. The default is the file set type, such as <code>loopstats</code>.</p></dd><dt><code><strong>type <em>typename</em></strong></code></dt><dd><p>Specifies the file set interval. The following intervals are supported with default <code>day</code>:</p></dd><dt><code>none</code></dt><dd><p>The file set is actually a single plain file.</p></dd><dt><code>pid</code></dt><dd><p>One file set member is created for every incarnation of <code>ntpd</code>. The file name suffix is the string .<code>n</code>, where <code>n</code> is the process ID of the <code>ntpd</code> server process.</p></dd><dt><code>day</code></dt><dd><p>One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<code>yyyymmdd</code>, where <code>yyyy</code> is the year, <code>mm</code> the month of the year and <code>dd</code> the day of the month. Thus, member created on 10 December 1992 would have suffix <code>.19921210</code>.</p></dd><dt><code>week</code></dt><dd><p>One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<code>yyyyWww</code>, where <code>yyyy</code> is the year, <code>W</code> stands for itself and <code>ww</code> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <code>.1992W1</code>.</p></dd><dt><code>month</code></dt><dd><p>One file set member is created per month. The file name suffix is the string .<code>yyyymm</code>, where <code>yyyy</code> is the year and <code>mm</code> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <code>.199201</code>.</p></dd><dt><code>year</code></dt><dd><p>One file set member is generated per year. The file name suffix is the string .<code>yyyy</code>, where <code>yyyy</code> is the year. For example, The member created on 1 January 1992 would have suffix <code>.1992</code>.</p></dd><dt><code>age</code></dt><dd><p>One file set member is generated every 24 hours of <code>ntpd</code> operation. The filename suffix is the string <code>.adddddddd</code>, where <code>a</code> stands for itself and <code>dddddddd</code> is the <code>ntpd</code> running time in seconds at the start of the corresponding 24-hour period.</p></dd><dt><code><strong>link | nolink</strong></code></dt><dd><p>It is convenient to be able to access the current file set members by file name, but without the suffix. This feature is enabled by <code>link</code> and disabled by <code>nolink</code>. If enabled, which is the default, a hard link from the current file set member to a file without suffix is created. When there is already a file with this name and the number of links to this file is one, it is renamed by appending a dot, the letter <code>C</code>, and the pid of the <code>ntpd</code> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</p></dd><dt><code><strong>enable | disable</strong></code></dt><dd><p>Enable or disable the recording function, with default <code>enable</code>. These options are intended for remote configuration commands.</p></dd><dt><code><strong>statistics <em>name</em>&mldr;</strong></code></dt><dd><p>Enables writing of statistics records. Currently, eight kinds of statistics are supported: <em>names</em> specify the file set type(s) from the list in the next section.</p></dd><dt><code><strong>statsdir <em>directory_path</em></strong></code></dt><dd><p>Specify the directory path prefix for statistics file names.</p></dd></dl><hr><h4 id=file-set-types>File Set Types</h4><dl><dt><code><strong>clockstats</strong></code></dt><dd><p>Record reference clock statistics. Each update received from a reference clock driver appends one line to the <code>clockstats</code> file set:</p></dd></dl><p><code>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>49213</code></td><td>MJD</td><td>date</td></tr><tr><td><code>525.624</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>127.127.4.1</code></td><td>IP</td><td>reference clock address</td></tr><tr><td>message</td><td>text</td><td>log message</td></tr></tbody></table><p>The <code><em>message</em></code> field includes the last timecode received in decoded ASCII format, where meaningful. In some cases a good deal of additional information is displayed. See information specific to each reference clock for further details.</p><dl><dt><code><strong>cryptostats</strong></code></dt><dd><p>Record significant events in the Autokey protocol. This option requires the OpenSSL cryptographic software library. Each event appends one line to the <code>cryptostats</code> file set:</p></dd></dl><p><code>49213 525.624 128.4.1.1 <em>message</em></code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>49213</code></td><td>MJD</td><td>date</td></tr><tr><td><code>525.624</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>128.4.1.1</code></td><td>IP</td><td>source address (<code>0.0.0.0</code> for system)</td></tr><tr><td>message</td><td>text</td><td>log message</td></tr></tbody></table><p>The <code><em>message</em></code> field includes the message type and certain ancillary information. See the <a href=/archives/4.2.8-series/authopt/>Authentication Options</a> page for further information.</p><dl><dt><code><strong>loopstats</strong></code></dt><dd><p>Record clock discipline loop statistics. Each system clock update appends one line to the <code>loopstats</code> file set:</p></dd></dl><p><code>50935 75440.031 0.000006019 13.778 0.000351733 0.013380 6</code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>50935</code></td><td>MJD</td><td>date</td></tr><tr><td><code>75440.031</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>0.000006019</code></td><td>s</td><td>clock offset</td></tr><tr><td><code>13.778</code></td><td>PPM</td><td>frequency offset</td></tr><tr><td><code>0.000351733</code></td><td>s</td><td>RMS jitter</td></tr><tr><td><code>0.013380</code></td><td>PPM</td><td>RMS frequency jitter (aka wander)</td></tr><tr><td><code>6</code></td><td>log<sub>2</sub> s</td><td>clock discipline loop time constant</td></tr></tbody></table><dl><dt><code><strong>peerstats</strong></code></dt><dd><p>Record peer statistics. Each NTP packet or reference clock update received appends one line to the <code>peerstats</code> file set:</p></dd></dl><p><code>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>48773</code></td><td>MJD</td><td>date</td></tr><tr><td><code>10847.650</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>127.127.4.1</code></td><td>IP</td><td>source address</td></tr><tr><td><code>9714</code></td><td>hex</td><td>status word</td></tr><tr><td><code>-0.001605376</code></td><td>s</td><td>clock offset</td></tr><tr><td><code>0.000000000</code></td><td>s</td><td>roundtrip delay</td></tr><tr><td><code>0.001424877</code></td><td>s</td><td>dispersion</td></tr><tr><td><code>0.000958674</code></td><td>s</td><td>RMS jitter</td></tr></tbody></table><p>The status field is encoded in hex format as described in <a href=/reflib/rfc/rfc1305/rfc1305c.pdf>Appendix B of the NTP specification RFC 1305</a>.</p><dl><dt><code><strong>protostats</strong></code></dt><dd><p>Record significant peer, system and protocol events. Each significant event appends one line to the <code>protostats</code> file set:</p></dd></dl><p><code>49213 525.624 128.4.1.1 963a 8a <em>message</em></code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>49213</code></td><td>MJD</td><td>date</td></tr><tr><td><code>525.624</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>128.4.1.1</code></td><td>IP</td><td>source address (<code>0.0.0.0</code> for system)</td></tr><tr><td><code>963a</code></td><td>code</td><td>status word</td></tr><tr><td><code>8a</code></td><td>code</td><td>event message code</td></tr><tr><td>message</td><td>text</td><td>event message</td></tr></tbody></table><p>The event message code and <code><em>message</em></code> field are described on the <a href=/archives/4.2.8-series/decode/>Event Messages and Status Words</a> page.</p><dl><dt><code><strong>rawstats</strong></code></dt><dd><p>Record timestamp statistics. Each NTP packet received appends one line to the <code>rawstats</code> file set. As of ntp-4.2.8p11, each NTP packet written appends one line to the <code>rawstats</code> file set, as well. The format of this line is:</p></dd></dl><p><code>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS.</code></p><p><code>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS. 4: 0000</code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>56285</code></td><td>MJD</td><td>date</td></tr><tr><td><code>54575.160</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>128.4.1.1</code></td><td>IP</td><td>source address</td></tr><tr><td><code>192.168.1.5</code></td><td>IP</td><td>destination address</td></tr><tr><td><code>3565350574.400229473</code></td><td>NTP s</td><td>origin timestamp</td></tr><tr><td><code>3565350574.442385200</code></td><td>NTP s</td><td>receive timestamp</td></tr><tr><td><code>3565350574.442436000</code></td><td>NTP s</td><td>transmit timestamp</td></tr><tr><td><code>3565350575.154505763</code></td><td>NTP s</td><td>destination timestamp</td></tr><tr><td><code>0</code></td><td>0: OK<br>1: insert pending<br>2: delete pending<br>3: not synced</td><td>leap warning indicator</td></tr><tr><td><code>4</code></td><td>4 was current in 2020</td><td>NTP version</td></tr><tr><td><code>4</code></td><td>3: client<br>4: server<br>5: broadcast</td><td>mode</td></tr><tr><td><code>1</code></td><td>1-15<br>16: not synced</td><td>stratum</td></tr><tr><td><code>8</code></td><td>log<sub>2</sub> seconds</td><td>poll</td></tr><tr><td><code>-21</code></td><td>log<sub>2</sub> seconds</td><td>precision</td></tr><tr><td><code>0.000000</code></td><td>seconds</td><td>total roundtrip delay to the primary reference clock</td></tr><tr><td><code>0.000320</code></td><td>seconds</td><td>total dispersion to the primary reference clock</td></tr><tr><td><code>.PPS.</code></td><td>REFID</td><td>system peer, association ID</td></tr><tr><td></td><td>If there is data beyond the base packet:</td><td></td></tr><tr><td><code>4:</code></td><td>Integer</td><td>Length, in bytes</td></tr><tr><td><code>0000</code></td><td>Hex data</td><td></td></tr></tbody></table><dl><dt><code><strong>sysstats</strong></code></dt><dd><p>Record system statistics. Each hour one line is appended to the <code>sysstats</code> file set in the following format:</p></dd></dl><p><code>50928 2132.543 3600 81965 0 9546 56 512 540 10 4 147 1</code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>50928</code></td><td>MJD</td><td>date</td></tr><tr><td><code>2132.543</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>3600</code></td><td>s</td><td>time since reset</td></tr><tr><td><code>81965</code></td><td>#</td><td>packets received</td></tr><tr><td><code>0</code></td><td>#</td><td>packets for this host</td></tr><tr><td><code>9546</code></td><td>#</td><td>current versions</td></tr><tr><td><code>56</code></td><td>#</td><td>old version</td></tr><tr><td><code>512</code></td><td>#</td><td>access denied</td></tr><tr><td><code>540</code></td><td>#</td><td>bad length or format</td></tr><tr><td><code>10</code></td><td>#</td><td>bad authentication</td></tr><tr><td><code>4</code></td><td>#</td><td>declined</td></tr><tr><td><code>147</code></td><td>#</td><td>rate exceeded</td></tr><tr><td><code>1</code></td><td>#</td><td>kiss-o'-death packets sent</td></tr></tbody></table><dl><dt><code><strong>timingstats</strong></code></dt><dd><p>(Only available when the daemon is compiled with process time debugging support (<code>--enable-debug-timing</code> - costs performance). Record processing time statistics for various selected code paths.</p></dd></dl><p><code>53876 36.920 10.0.3.5 1 0.000014592 input processing delay</code></p><table><thead><tr><th>Item</th><th>Units</th><th>Description</th></tr></thead><tbody><tr><td><code>53876</code></td><td>MJD</td><td>date</td></tr><tr><td><code>36.920</code></td><td>s</td><td>time past midnight</td></tr><tr><td><code>10.0.3.5</code></td><td>IP</td><td>server address</td></tr><tr><td><code>1</code></td><td>#</td><td>event count</td></tr><tr><td><code>0.000014592</code></td><td>s</td><td>total time</td></tr><tr><td>message</td><td>text</td><td>code path description (see source)</td></tr></tbody></table><style>.feedback--answer{display:inline-block}.feedback--answer-no{margin-left:1em}.feedback--response{display:none;margin-top:1em}.feedback--response__visible{display:block}</style><div><h2 class=feedback--title>Feedback</h2><p class=feedback--question>Was this page helpful?</p><button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button><p class="feedback--response feedback--response-yes">Glad to hear it!</a></p><p class="feedback--response feedback--response-no">Sorry to hear that.</a></p></div><script>const yesButton=document.querySelector('.feedback--answer-yes'),noButton=document.querySelector('.feedback--answer-no'),yesResponse=document.querySelector('.feedback--response-yes'),noResponse=document.querySelector('.feedback--response-no'),disableButtons=()=>{yesButton.disabled=!0,noButton.disabled=!0},sendFeedback=b=>{if(typeof ga!='function')return;const a={command:'send',hitType:'event',category:'Helpful',action:'click',label:window.location.pathname,value:b};ga(a.command,a.hitType,a.category,a.action,a.label,a.value)};yesButton.addEventListener('click',()=>{yesResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(1)}),noButton.addEventListener('click',()=>{noResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(0)})</script><br></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+ Table of Contents  Naming Conventions Monitoring Commands and Options File Set Types   Naming Conventions The ntpd includes a comprehensive monitoring facility which collects statistical data of various types and writes the data to files associated with each type at defined events or intervals. The files associated with a particular type are collectively called the generation file set for that type." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.2.8-series/monopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>Monitoring Options</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/archives/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/archives/4.2.8-series/monopt/">Monitoring Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Monitoring Options</h1>
+     
+    <p><img src="/archives/pic/pogo8.gif" alt="gif"><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>Pig was hired to watch the logs.</p>
+<p>Last update: 7-Dec-2017 10:17 UTC</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.2.8-series/monopt/#naming-conventions">Naming Conventions</a></li>
+<li><a href="/archives/4.2.8-series/monopt/#monitoring-commands-and-options">Monitoring Commands and Options</a></li>
+<li><a href="/archives/4.2.8-series/monopt/#file-set-types">File Set Types</a></li>
+</ul>
+<hr>
+<h4 id="naming-conventions">Naming Conventions</h4>
+<p>The <code>ntpd</code> includes a comprehensive monitoring facility which collects statistical data of various types and writes the data to files associated with each type at defined events or intervals. The files associated with a particular type are collectively called the generation file set for that type. The files in the file set are the members of that set.</p>
+<p>File sets have names specific to the type and generation epoch. The names are constructed from three concatenated elements <em><code>prefix</code></em>, <em><code>filename</code></em> and <em><code>suffix</code></em>:</p>
+<dl>
+<dt><code><strong><em>prefix</em></strong></code></dt>
+<dd>
+<p>The directory path specified in the <code>statsdir</code> command.</p>
+</dd>
+<dt><code><strong><em>name</em></strong></code></dt>
+<dd>
+<p>The name specified by the <code>file</code> option of the <code>filegen</code> command.</p>
+</dd>
+<dt><code><strong><em>suffix</em></strong></code></dt>
+<dd>
+<p>A string of elements beginning with . (dot) followed by a number of elements depending on the file set type.</p>
+</dd>
+</dl>
+<p>Statistics files can be managed using scripts, examples of which are in the <code>./scripts</code> directory. Using these or similar scripts and Unix <code>cron</code> jobs, the files can be automatically summarized and archived for retrospective analysis.</p>
+<hr>
+<h4 id="monitoring-commands-and-options">Monitoring Commands and Options</h4>
+<p>Unless noted otherwise, further information about these commands is on the <a href="/archives/4.2.8-series/decode/">Event Messages and Status Codes</a> page.</p>
+<dl>
+<dt><code><strong>filegen <em>name</em> [file <em>filename</em>] [type <em>type</em>] [link | nolink] [enable | disable] <em>name</em></strong></code></dt>
+<dd>
+<p>Specifies the file set type from the list in the next section.</p>
+</dd>
+<dt><code><strong>file <em>filename</em></strong></code></dt>
+<dd>
+<p>Specifies the filename prefix. The default is the file set type, such as <code>loopstats</code>.</p>
+</dd>
+<dt><code><strong>type <em>typename</em></strong></code></dt>
+<dd>
+<p>Specifies the file set interval. The following intervals are supported with default <code>day</code>:</p>
+</dd>
+<dt><code>none</code></dt>
+<dd>
+<p>The file set is actually a single plain file.</p>
+</dd>
+<dt><code>pid</code></dt>
+<dd>
+<p>One file set member is created for every incarnation of <code>ntpd</code>. The file name suffix is the string .<code>n</code>, where <code>n</code> is the process ID of the <code>ntpd</code> server process.</p>
+</dd>
+<dt><code>day</code></dt>
+<dd>
+<p>One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<code>yyyymmdd</code>, where <code>yyyy</code> is the year, <code>mm</code> the month of the year and <code>dd</code> the day of the month. Thus, member created on 10 December 1992 would have suffix <code>.19921210</code>.</p>
+</dd>
+<dt><code>week</code></dt>
+<dd>
+<p>One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<code>yyyyWww</code>, where <code>yyyy</code> is the year, <code>W</code> stands for itself and <code>ww</code> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <code>.1992W1</code>.</p>
+</dd>
+<dt><code>month</code></dt>
+<dd>
+<p>One file set member is created per month. The file name suffix is the string .<code>yyyymm</code>, where <code>yyyy</code> is the year and <code>mm</code> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <code>.199201</code>.</p>
+</dd>
+<dt><code>year</code></dt>
+<dd>
+<p>One file set member is generated per year. The file name suffix is the string .<code>yyyy</code>, where <code>yyyy</code> is the year. For example, The member created on 1 January 1992 would have suffix <code>.1992</code>.</p>
+</dd>
+<dt><code>age</code></dt>
+<dd>
+<p>One file set member is generated every 24 hours of <code>ntpd</code> operation. The filename suffix is the string <code>.adddddddd</code>, where <code>a</code> stands for itself and <code>dddddddd</code> is the <code>ntpd</code> running time in seconds at the start of the corresponding 24-hour period.</p>
+</dd>
+<dt><code><strong>link | nolink</strong></code></dt>
+<dd>
+<p>It is convenient to be able to access the current file set members by file name, but without the suffix. This feature is enabled by <code>link</code> and disabled by <code>nolink</code>. If enabled, which is the default, a hard link from the current file set member to a file without suffix is created. When there is already a file with this name and the number of links to this file is one, it is renamed by appending a dot, the letter <code>C</code>, and the pid of the <code>ntpd</code> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</p>
+</dd>
+<dt><code><strong>enable | disable</strong></code></dt>
+<dd>
+<p>Enable or disable the recording function, with default <code>enable</code>. These options are intended for remote configuration commands.</p>
+</dd>
+<dt><code><strong>statistics <em>name</em>&hellip;</strong></code></dt>
+<dd>
+<p>Enables writing of statistics records. Currently, eight kinds of statistics are supported: <em>names</em> specify the file set type(s) from the list in the next section.</p>
+</dd>
+<dt><code><strong>statsdir <em>directory_path</em></strong></code></dt>
+<dd>
+<p>Specify the directory path prefix for statistics file names.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="file-set-types">File Set Types</h4>
+<dl>
+<dt><code><strong>clockstats</strong></code></dt>
+<dd>
+<p>Record reference clock statistics. Each update received from a reference clock driver appends one line to the <code>clockstats</code> file set:</p>
+</dd>
+</dl>
+<p><code>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>49213</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>525.624</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>127.127.4.1</code></td>
+<td>IP</td>
+<td>reference clock address</td>
+</tr>
+<tr>
+<td>message</td>
+<td>text</td>
+<td>log message</td>
+</tr>
+</tbody>
+</table>
+<p>The <code><em>message</em></code> field includes the last timecode received in decoded ASCII format, where meaningful. In some cases a good deal of additional information is displayed. See information specific to each reference clock for further details.</p>
+<dl>
+<dt><code><strong>cryptostats</strong></code></dt>
+<dd>
+<p>Record significant events in the Autokey protocol. This option requires the OpenSSL cryptographic software library. Each event appends one line to the <code>cryptostats</code> file set:</p>
+</dd>
+</dl>
+<p><code>49213 525.624 128.4.1.1 <em>message</em></code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>49213</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>525.624</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>128.4.1.1</code></td>
+<td>IP</td>
+<td>source address (<code>0.0.0.0</code> for system)</td>
+</tr>
+<tr>
+<td>message</td>
+<td>text</td>
+<td>log message</td>
+</tr>
+</tbody>
+</table>
+<p>The <code><em>message</em></code> field includes the message type and certain ancillary information. See the <a href="/archives/4.2.8-series/authopt/">Authentication Options</a> page for further information.</p>
+<dl>
+<dt><code><strong>loopstats</strong></code></dt>
+<dd>
+<p>Record clock discipline loop statistics. Each system clock update appends one line to the <code>loopstats</code> file set:</p>
+</dd>
+</dl>
+<p><code>50935 75440.031 0.000006019 13.778 0.000351733 0.013380 6</code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>50935</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>75440.031</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>0.000006019</code></td>
+<td>s</td>
+<td>clock offset</td>
+</tr>
+<tr>
+<td><code>13.778</code></td>
+<td>PPM</td>
+<td>frequency offset</td>
+</tr>
+<tr>
+<td><code>0.000351733</code></td>
+<td>s</td>
+<td>RMS jitter</td>
+</tr>
+<tr>
+<td><code>0.013380</code></td>
+<td>PPM</td>
+<td>RMS frequency jitter (aka wander)</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>log<sub>2</sub> s</td>
+<td>clock discipline loop time constant</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt><code><strong>peerstats</strong></code></dt>
+<dd>
+<p>Record peer statistics. Each NTP packet or reference clock update received appends one line to the <code>peerstats</code> file set:</p>
+</dd>
+</dl>
+<p><code>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>48773</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>10847.650</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>127.127.4.1</code></td>
+<td>IP</td>
+<td>source address</td>
+</tr>
+<tr>
+<td><code>9714</code></td>
+<td>hex</td>
+<td>status word</td>
+</tr>
+<tr>
+<td><code>-0.001605376</code></td>
+<td>s</td>
+<td>clock offset</td>
+</tr>
+<tr>
+<td><code>0.000000000</code></td>
+<td>s</td>
+<td>roundtrip delay</td>
+</tr>
+<tr>
+<td><code>0.001424877</code></td>
+<td>s</td>
+<td>dispersion</td>
+</tr>
+<tr>
+<td><code>0.000958674</code></td>
+<td>s</td>
+<td>RMS jitter</td>
+</tr>
+</tbody>
+</table>
+<p>The status field is encoded in hex format as described in <a href="/reflib/rfc/rfc1305/rfc1305c.pdf">Appendix B of the NTP specification RFC 1305</a>.</p>
+<dl>
+<dt><code><strong>protostats</strong></code></dt>
+<dd>
+<p>Record significant peer, system and protocol events. Each significant event appends one line to the <code>protostats</code> file set:</p>
+</dd>
+</dl>
+<p><code>49213 525.624 128.4.1.1 963a 8a <em>message</em></code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>49213</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>525.624</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>128.4.1.1</code></td>
+<td>IP</td>
+<td>source address (<code>0.0.0.0</code> for system)</td>
+</tr>
+<tr>
+<td><code>963a</code></td>
+<td>code</td>
+<td>status word</td>
+</tr>
+<tr>
+<td><code>8a</code></td>
+<td>code</td>
+<td>event message code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>text</td>
+<td>event message</td>
+</tr>
+</tbody>
+</table>
+<p>The event message code and <code><em>message</em></code> field are described on the <a href="/archives/4.2.8-series/decode/">Event Messages and Status Words</a> page.</p>
+<dl>
+<dt><code><strong>rawstats</strong></code></dt>
+<dd>
+<p>Record timestamp statistics. Each NTP packet received appends one line to the <code>rawstats</code> file set. As of ntp-4.2.8p11, each NTP packet written appends one line to the <code>rawstats</code> file set, as well. The format of this line is:</p>
+</dd>
+</dl>
+<p><code>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS.</code></p>
+<p><code>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS. 4: 0000</code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>56285</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>54575.160</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>128.4.1.1</code></td>
+<td>IP</td>
+<td>source address</td>
+</tr>
+<tr>
+<td><code>192.168.1.5</code></td>
+<td>IP</td>
+<td>destination address</td>
+</tr>
+<tr>
+<td><code>3565350574.400229473</code></td>
+<td>NTP s</td>
+<td>origin timestamp</td>
+</tr>
+<tr>
+<td><code>3565350574.442385200</code></td>
+<td>NTP s</td>
+<td>receive timestamp</td>
+</tr>
+<tr>
+<td><code>3565350574.442436000</code></td>
+<td>NTP s</td>
+<td>transmit timestamp</td>
+</tr>
+<tr>
+<td><code>3565350575.154505763</code></td>
+<td>NTP s</td>
+<td>destination timestamp</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>0: OK <br> 1: insert pending<br> 2: delete pending<br> 3: not synced</td>
+<td>leap warning indicator</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>4 was current in 2020</td>
+<td>NTP version</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>3: client<br> 4: server<br> 5: broadcast</td>
+<td>mode</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>1-15<br> 16: not synced</td>
+<td>stratum</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>log<sub>2</sub> seconds</td>
+<td>poll</td>
+</tr>
+<tr>
+<td><code>-21</code></td>
+<td>log<sub>2</sub> seconds</td>
+<td>precision</td>
+</tr>
+<tr>
+<td><code>0.000000</code></td>
+<td>seconds</td>
+<td>total roundtrip delay to the primary reference clock</td>
+</tr>
+<tr>
+<td><code>0.000320</code></td>
+<td>seconds</td>
+<td>total dispersion to the primary reference clock</td>
+</tr>
+<tr>
+<td><code>.PPS.</code></td>
+<td>REFID</td>
+<td>system peer, association ID</td>
+</tr>
+<tr>
+<td></td>
+<td>If there is data beyond the base packet:</td>
+<td></td>
+</tr>
+<tr>
+<td><code>4:</code></td>
+<td>Integer</td>
+<td>Length, in bytes</td>
+</tr>
+<tr>
+<td><code>0000</code></td>
+<td>Hex data</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt><code><strong>sysstats</strong></code></dt>
+<dd>
+<p>Record system statistics. Each hour one line is appended to the <code>sysstats</code> file set in the following format:</p>
+</dd>
+</dl>
+<p><code>50928 2132.543 3600 81965 0 9546 56 512 540 10 4 147 1</code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>50928</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>2132.543</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>3600</code></td>
+<td>s</td>
+<td>time since reset</td>
+</tr>
+<tr>
+<td><code>81965</code></td>
+<td>#</td>
+<td>packets received</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>#</td>
+<td>packets for this host</td>
+</tr>
+<tr>
+<td><code>9546</code></td>
+<td>#</td>
+<td>current versions</td>
+</tr>
+<tr>
+<td><code>56</code></td>
+<td>#</td>
+<td>old version</td>
+</tr>
+<tr>
+<td><code>512</code></td>
+<td>#</td>
+<td>access denied</td>
+</tr>
+<tr>
+<td><code>540</code></td>
+<td>#</td>
+<td>bad length or format</td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td>#</td>
+<td>bad authentication</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>#</td>
+<td>declined</td>
+</tr>
+<tr>
+<td><code>147</code></td>
+<td>#</td>
+<td>rate exceeded</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>#</td>
+<td>kiss-o'-death packets sent</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt><code><strong>timingstats</strong></code></dt>
+<dd>
+<p>(Only available when the daemon is compiled with process time debugging support (<code>--enable-debug-timing</code> - costs performance). Record processing time statistics for various selected code paths.</p>
+</dd>
+</dl>
+<p><code>53876 36.920 10.0.3.5 1 0.000014592 input processing delay</code></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>53876</code></td>
+<td>MJD</td>
+<td>date</td>
+</tr>
+<tr>
+<td><code>36.920</code></td>
+<td>s</td>
+<td>time past midnight</td>
+</tr>
+<tr>
+<td><code>10.0.3.5</code></td>
+<td>IP</td>
+<td>server address</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>#</td>
+<td>event count</td>
+</tr>
+<tr>
+<td><code>0.000014592</code></td>
+<td>s</td>
+<td>total time</td>
+</tr>
+<tr>
+<td>message</td>
+<td>text</td>
+<td>code path description (see source)</td>
+</tr>
+</tbody>
+</table>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>

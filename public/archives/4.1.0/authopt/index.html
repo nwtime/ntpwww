@@ -1,30 +1,419 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  
+  
+
+  
+  <meta name="description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Our resident cryptographer; now you see him, now you don&rsquo;t.
 
-Table of Contents …"><meta property="og:title" content="Authentication Options"><meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Table of Contents …">
+<meta property="og:title" content="Authentication Options" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Our resident cryptographer; now you see him, now you don&rsquo;t.
- Table of Contents  Authentication Support Symmetric Key Scheme Public Key Scheme Leapseconds Table Key Management Authentication Commands Files Bugs   Authentication Support Authentication support allows the NTP client to verify that the server is in fact known and trusted and not an intruder intending accidentally or on purpose to masquerade as that server."><meta property="og:type" content="article"><meta property="og:url" content="https://doc.ntp.org/archives/4.1.0/authopt/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-BN61ZTDHBP',{anonymize_ip:!1})}</script><title>Authentication Options</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://doc.ntp.org/><img class=img-fluid src=https://doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/support/securitynotice>Security</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/ntpfaq>FAQ</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contributorslist>Contributors List</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/brief>Briefs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/memos>Memos</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/reports>Reports</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/rfc>RFCs</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/software>Software</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.0>4.2.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.2>4.1.2</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.1>4.1.1</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.0>4.1.0</a>
-<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://doc.ntp.org/archives/4.1.0/>4.1.0</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://doc.ntp.org/archives/4.1.0/authopt/>Authentication Options</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>Authentication Options</h1><p><img src=/archives/pic/alice44.gif alt=gif><a href=/reflib/pictures/>from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p><p>Our resident cryptographer; now you see him, now you don&rsquo;t.</p><hr><h4 id=table-of-contents>Table of Contents</h4><ul><li><a href=/archives/4.1.0/authopt/#authentication-support>Authentication Support</a></li><li><a href=/archives/4.1.0/authopt/#symmetric-key-scheme>Symmetric Key Scheme</a></li><li><a href=/archives/4.1.0/authopt/#public-key-scheme>Public Key Scheme</a></li><li><a href=/archives/4.1.0/authopt/#leapseconds-table>Leapseconds Table</a></li><li><a href=/archives/4.1.0/authopt/#key-management>Key Management</a></li><li><a href=/archives/4.1.0/authopt/#authentication-commands>Authentication Commands</a></li><li><a href=/archives/4.1.0/authopt/#files>Files</a></li><li><a href=/archives/4.1.0/authopt/#bugs>Bugs</a></li></ul><hr><h4 id=authentication-support>Authentication Support</h4><p>Authentication support allows the NTP client to verify that the server is in fact known and trusted and not an intruder intending accidentally or on purpose to masquerade as that server. The NTPv3 specification RFC-1305 defines an scheme which provides cryptographic authentication of received NTP packets. Originally, this was done using the Data Encryption Standard (DES) algorithm operating in Cipher Block Chaining (CBC) mode, commonly called
-DES-CBC. Subsequently, this was augmented by the RSA Message Digest 5 (MD5) algorithm using a private key, commonly called keyed-MD5. Either algorithm computes a message digest, or one-way hash, which can be used to verify the server has the correct private key and key identifier.</p><p>NTPv4 retains the NTPv3 schemes, properly described as symmetric-key cryptography and, in addition, provides a new Autokey scheme based on public-key cryptography. Public-key cryptography is generally considered more secure than symmetric-key cryptography, since the security is based on a private value which is generated by each server and never revealed. With Autokey all key distribution and management functions involve only public values, which considerably simplifies key distribution and storage.</p><p>Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> subcommands on the <code>peer</code>, <code>server</code>, <code>broadcast</code> and <code>manycastclient</code> commands as described in the <a href=/archives/4.1.0/config/>Configuration Options</a> page. The authentication
-options described below specify the suite of keys, select the key for each configured association and manage the configuration operations.</p><p>The <code>auth</code> flag controls whether new associations or remote configuration commands require cryptographic authentication. This flag can be set or reset by the <code>enable</code> and <code>disable</code> configuration commands and also by remote configuration commands sent by a <code>ntpdc</code> program running in another machine. If this flag is enabled, which is the default case, new broadcast client and symmetric passive associations and remote configuration commands must be cryptographically authenticated using either symmetric-key or public-key schemes. If this flag is disabled, these operations are effective even if not cryptographic authenticated. It should be understood that operating in the latter mode invites a significant vulnerability where a rogue hacker can seriously disrupt client timekeeping.</p><p>In networks with firewalls and large numbers of broadcast clients it may be acceptable to disable authentication, since that avoids key distribution and simplifies network maintenance. However, when the configuration file contains host names, or when a server or client is configured remotely, host names are resolved using the DNS and a separate name resolution process. In order to protect against bogus name server messages, name resolution messages are authenticated using an internally generated key which is normally invisible to the user. However, if cryptographic support is disabled, the name resolution process will fail. This can be avoided either by specifying IP addresses instead of host names, which is generally inadvisable, or by enabling the flag for
-name resolution and disabled it once the name resolution process is complete.</p><p>An attractive alternative where multicast support is available is manycast mode, in which clients periodically troll for servers. Cryptographic authentication in this mode uses public-key schemes as described below. The principle advantage of this manycast mode is that potential servers need not be configured in advance, since the client finds them during regular operation, and the configuration files for all clients can be identical.</p><p>In addition to the default symmetric-key cryptographic support, support for public-key cryptography is available if the requisite <code>rsaref20</code> software distribution has been installed before building the distribution. Public-key cryptography provides secure authentication of servers without compromising accuracy and stability. The security model and protocol schemes for both symmetric-key and public-key cryptography are described below.</p><hr><h4 id=symmetric-key-scheme>Symmetric Key Scheme</h4><p>The original RFC-1305 specification allows any one of possibly 65,534 keys, each distinguished by a 32-bit key identifier, to authenticate an association. The servers and clients involved must agree on the key and key identifier to authenticate NTP packets. Keys and related information are specified in a key file, usually called <code>ntp.keys</code>, which must be distributed and stored using secure means beyond the scope of the NTP protocol itself. Besides the keys used for ordinary NTP associations, additional keys can be used as passwords for the <a href=/archives/4.1.0/ntpq/>ntpq</a> and <a href=/archives/4.1.0/ntpdc/>ntpdc</a> utility programs.</p><p>When <code>ntpd</code> is first started, it reads the key file specified in the <code>keys</code> configuration command and installs the keys in the key cache. However, individual keys must be activated with the <code>trustedkey</code> command before use. This allows, for instance, the installation of possibly several batches of keys and then activating or deactivating each batch remotely using <code>ntpdc</code>. This also provides a revocation capability that can be used if a key becomes compromised. The <code>requestkey</code> command selects the key used as the password for the <code>ntpdc</code> utility, while the <code>controlkey</code> command selects the key used as the password for the <code>ntpq</code> utility.</p><hr><h4 id=public-key-scheme>Public Key Scheme</h4><p>The original NTPv3 authentication scheme described in RFC-1305 continues to be supported; however, in NTPv4 an additional authentication scheme called Autokey is available. It uses MD5 message digest, RSA public-key signature and Diffie-Hellman key agreement algorithms available from several sources, but not included in the NTPv4 software distribution. In order to be effective, the <code>rsaref20</code> package must be installed as described in the <code>README.rsa</code> file. Once installed, the configure and build process automatically detects it and compiles the routines required. The Autokey scheme has several modes of operation corresponding to the various NTP modes supported. RSA signatures with timestamps are used in all modes to verify the source of cryptographic values. All modes use a special cookie which can be computed independently by the client and server. In symmetric modes the cookie is constructed using the Diffie-Hellman key agreement algorithm. In other modes the cookie is constructed from the IP addresses and a private value known only to the server. All modes use in addition a variant of the S-KEY scheme, in which a pseudo-random key list is generated and used in reverse order. These schemes are described along with an executive summary, current status, briefing slides and reading list, on the <a href=/reflib/autokey/>Autonomous Authentication</a> page.</p><p>The cryptographic values used by the Autokey scheme are incorporated as a set of files generated by the <a href=/archives/4.1.0/genkeys/><code>ntp-genkeys</code></a> program, including the symmetric private keys, public/private key pair, and the agreement parameters. See the <code>ntp-genkeys</code> page for a description of the formats of these files. They contain cryptographic values generated by the algorithms of the <code>rsaref20</code> package and are in printable ASCII format. All file names include the timestamp, in NTP seconds, following the default names given below. Since the file data are derived from random values seeded by the system clock and the file name includes the timestamp, every generation produces a different file and different file name.</p><p>The <code>ntp.keys</code> file contains the DES/MD5 private keys. It must be distributed by secure means to other servers and clients sharing the same security compartment and made visible only to root. While this file is not used with the Autokey scheme, it is needed to authenticate some remote configuration commands used by the <a href=/archives/4.1.0/ntpq/><code>ntpq</code></a> and <a href=/archives/4.1.0/ntpdc/><code>ntpdc</code></a> utilities. The <code>ntpkey</code> file contains the RSA private key. It is useful only to the machine that generated it and never shared with any other daemon or application program, so must be made visible only to root.</p><p>The <code>ntp_dh</code> file contains the agreement parameters, which are used only in symmetric (active and passive) modes. It is necessary that both peers beginning a symmetric-mode association share the same parameters, but it does not matter which <code>ntp_dh</code> file generates them. If one of the peers contains the parameters, the other peer obtains them using the Autokey protocol. If both peers contain the parameters, the most recent copy is used by both peers. If a peer does not have the parameters, they will be requested by all associations, either configured or not; but, none of the associations can proceed until one of them has received the parameters. Once loaded, the parameters can be provided on request to other clients and servers. The <code>ntp_dh</code> file can also be distributed using insecure means, since the data are public values.</p><p>The <code>ntpkey_<em>host</em></code> file contains the RSA public key, where <code><em>host</em></code> is the name of the host. Each host must have its own <code>ntpkey_<em>host</em></code> file, which is normally provided to other hosts using the Autokey protocol Each <code>server</code> or <code>peer</code> association requires the public key associated with the particular server or peer to be loaded either directly from a local file or indirectly from the server using the Autokey protocol. These files can be widely distributed and stored using insecure means, since the data are public values.</p><p>The optional <code>ntpkey_certif_<em>host</em></code> file contains the PKI certificate for the host. This provides a binding between the host hame and RSA public key. In the current implementation the certificate is obtained by a client, if present, but the contents are ignored.</p><p>Due to the widespread use of interface-specific naming, the host names used in configured and mobilized associations are determined by the Unix <code>gethostname()</code> library routine. Both the <code>ntp-genkeys</code> program and the Autokey protocol derive the name of the public key file using the name returned by this routine. While every server and client is required to load their own public and private keys, the public keys for each client or peer association can be obtained from the server or peer using the Autokey protocol. Note however, that at the current stage of development the authenticity of the server or peer and the cryptographic binding of the server name, address and public key is not yet established by a certificate authority or web of trust.</p><hr><h4 id=leapseconds-table>Leapseconds Table</h4><p>The NIST provides <a href=https://www.nist.gov/pml/time-and-frequency-division/time-realization/leap-seconds>tables</a> showing the epoch for all historic occasions of leap second insertion since 1972. The leapsecond table shows each epoch of insertion along with the offset of International Atomic Time (TAI) with respect to Coordinated Universtal Time (UTC), as disseminated by NTP.</p><p>While not strictly a security function, the Autokey protocol provides means to securely retrieve the leapsecond table from a server or peer. Servers load the leapsecond table directly from the file specified in the <code>crypto</code> command, while clients can obtain the table indirectly from the servers using the Autokey protocol. Once loaded, the table can be provided on request to other clients and servers.</p><hr><h4 id=key-management>Key Management</h4><p>All key files are installed by default in <code>/usr/local/etc</code>, which is normally in a shared filesystem in NFS-mounted networks and avoids installing them in each machine separately. The default can be overridden by the <code>keysdir</code> configuration command. However, this is not a good place to install the private key file, since each machine needs its own file. A suitable place to install it is in <code>/etc</code>, which is normally not in a shared filesystem.</p><p>The recommended practice is to keep the timestamp extensions when installing a file and to install a link from the default name (without the timestamp extension) to the actual file. This allows new file generations to be activated simply by changing the link. However, <code>ntpd</code> parses the link name when present to extract the extension value and sends it along with the public key and host name when requested. This allows clients to verify that the file and generation time are always current. However, the actual location of each file can be overridden by the <code>crypto</code> configuration command.</p><p>All cryptographic keys and related parameters should be regenerated on a periodic and automatic basis, like once per month. The <code>ntp-genkeys</code> program uses the same timestamp extension for all files generated at one time, so each generation is distinct and can be readily recognized in monitoring data. While a public/private key pair must be generated by every server and client, the public keys and agreement parameters do not need to be explicitly copied to all machines in the same security compartment, since they can be obtained automatically using the Autokey protocol. However, it is necessary that all primary servers have the same agreement parameter file. The recommended way to do this is for one of the primary servers to generate that file and then copy it to the other primary servers in the same compartment using the Unix <code>rdist</code> command. Future versions of the Autokey protocol are to contain provisions for an agreement protocol to do this automatically.</p><p>Servers and clients can make a new generation in the following way. All machines have loaded the old generation at startup and are operating normally. At designated intervals, each machine generates a new public/private key pair and makes links from the default file names to the new file names. The <code>ntpd</code> is then restarted and loads the new generation, with result clients no longer can authenticate correctly. The Autokey protocol is designed so that after a few minutes the clients time out and restart the protocol from the beginning, with result the new generation is loaded and operation continues as before. A similar procedure can be used for the agreement parameter file, but in this case precautions must be take to be sure that all machines with this file have the same copy.</p><hr><h4 id=authentication-commands>Authentication Commands</h4><dl><dt><code><strong>autokey [<em>logsec</em>]</strong></code></dt><dd><p>Specifies the interval between regenerations of the session key list used with the Autokey protocol. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (4096 s or about 1.1 hours). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent.</p></dd><dt><code><strong>controlkey <em>key</em></strong></code></dt><dd><p>Specifies the key identifier to use with the <a href=/archives/4.1.0/ntpq/><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. The <code><em>key</em></code> argument is the key identifier for a trusted key, where the value can be in the range 1 to 65534, inclusive.</p></dd><dt><code><strong>[flags <em>flags</em>] [privatekey <em>file</em>] [publickey <em>file</em>] [dhparms <em>file</em>] [leap <em>file</em>]</strong></code></dt><dd><p>This command requires the NTP daemon build process be configured with the RSA library. This command activates public-key cryptography and loads the required RSA private and public key files and the optional Diffie-Hellman agreement parameter file, if present. If one or more files are left unspecified, the default names are used as described below. Following are the subcommands:</p></dd><dt><code>privatekey <em>file</em></code></dt><dd><p>Specifies the location of the RSA private key file, which otherwise defaults to <code>/usr/local/etc/ntpkey</code>.</p></dd><dt><code>publickey <em>file</em></code></dt><dd><p>Specifies the location of the RSA public key file, which otherwise defaults to <code>/usr/local/etc/ntpkey_<em>host</em></code>, where <code><em>host</em></code> is the name of the generating machine.</p></dd><dt><code>dhparms <em>file</em></code></dt><dd><p>Specifies the location of the Diffie-Hellman parameters file, which otherwise defaults to <code>/usr/local/etc/ntpkey_dh</code>.</p></dd><dt><code>leap <em>file</em></code></dt><dd><p>Specifies the location of the leapsecond table file, which otherwise defaults to <code>/usr/local/etc/ntpkey_leap</code>.</p></dd><dt><code><strong>keys <em>keyfile</em></strong></code></dt><dd><p>Specifies the location of the DES/MD5 private key file containing the keys and key identifiers used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric-key mode.</p></dd><dt><code><strong>keysdir <em>path</em></strong></code></dt><dd><p>This command requires the NTP daemon build process be configured with the RSA library. It specifies the default directory path for the private key file, agreement parameters file and one or more public key files. The default when this command does not appear in the configuration file is <code>/usr/local/etc/</code>.</p></dd><dt><code><strong>requestkey <em>key</em></strong></code></dt><dd><p>Specifies the key identifier to use with the <a href=/archives/4.1.0/ntpdc/><code>ntpdc</code></a> program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code><em>key</em></code> argument is a key identifier for the trusted key, where the value can be in the range 1 to 65534, inclusive.</p></dd><dt><code><strong>revoke [<em>logsec</em>]</strong></code></dt><dd><p>Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds. These values need to be updated frequently in order to deflect brute-force attacks on the algorithms of the scheme; however, updating some values is a relatively expensive operation. The default interval is 16 (65,536 s or about 18 hours). For poll intervals above the specified interval, the values will be updated for every message sent.</p></dd><dt><code><strong>trustedkey [<em>key</em>] [&mldr;]</strong></code></dt><dd><p>Specifies the key identifiers which are trusted for the purposes of authenticating peers with symmetric-key cryptography, as well as keys used by the <code>ntpq</code> and <code>ntpdc</code> programs. The authentication procedures require that both the local and remote servers share the same key and key identifier for this purpose, although different keys can be used with different servers. The <code>key</code> arguments are 32-bit unsigned integers with values from 1 to 65,534.</p></dd></dl><hr><h4 id=files>Files</h4><p><code>ntp.keys</code> - private MD5 keys</p><p><code>ntpkey</code> - RSA private key</p><p><code>ntpkey_<em>host</em></code> - RSA public key</p><p><code>ntp_dh</code> - Diffie-Hellman agreement parameters</p><hr><h4 id=bugs>Bugs</h4><p>The <code>ntpkey_<i>host</i></code> files are really digital certificates. These should be obtained via secure directory services when they become universally available.</p><style>.feedback--answer{display:inline-block}.feedback--answer-no{margin-left:1em}.feedback--response{display:none;margin-top:1em}.feedback--response__visible{display:block}</style><div><h2 class=feedback--title>Feedback</h2><p class=feedback--question>Was this page helpful?</p><button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button><p class="feedback--response feedback--response-yes">Glad to hear it!</a></p><p class="feedback--response feedback--response-no">Sorry to hear that.</a></p></div><script>const yesButton=document.querySelector('.feedback--answer-yes'),noButton=document.querySelector('.feedback--answer-no'),yesResponse=document.querySelector('.feedback--response-yes'),noResponse=document.querySelector('.feedback--response-no'),disableButtons=()=>{yesButton.disabled=!0,noButton.disabled=!0},sendFeedback=b=>{if(typeof ga!='function')return;const a={command:'send',hitType:'event',category:'Helpful',action:'click',label:window.location.pathname,value:b};ga(a.command,a.hitType,a.category,a.action,a.label,a.value)};yesButton.addEventListener('click',()=>{yesResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(1)}),noButton.addEventListener('click',()=>{noResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(0)})</script><br></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>
+ Table of Contents  Authentication Support Symmetric Key Scheme Public Key Scheme Leapseconds Table Key Management Authentication Commands Files Bugs   Authentication Support Authentication support allows the NTP client to verify that the server is in fact known and trusted and not an intruder intending accidentally or on purpose to masquerade as that server." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/archives/4.1.0/authopt/" /><meta property="article:section" content="archives" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+  
+  <title>Authentication Options</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<header class="sticky-top navigation">
+  <div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+      </div>
+	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
+		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+      </div>
+	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="bi-plus"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto py-0">
+          <li class="nav-item py-0">
+            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
+          </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Support
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reference Library
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+      </div>
+	  
+      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+      <div class="gcse-search">
+      </div>
+
+    </nav>
+  </div>
+  <div class="header-border">
+  </div>
+</header>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/archives/4.1.0/">4.1.0</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/archives/4.1.0/authopt/">Authentication Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Authentication Options</h1>
+     
+    <p><img src="/archives/pic/alice44.gif" alt="gif"><a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>Our resident cryptographer; now you see him, now you don&rsquo;t.</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/archives/4.1.0/authopt/#authentication-support">Authentication Support</a></li>
+<li><a href="/archives/4.1.0/authopt/#symmetric-key-scheme">Symmetric Key Scheme</a></li>
+<li><a href="/archives/4.1.0/authopt/#public-key-scheme">Public Key Scheme</a></li>
+<li><a href="/archives/4.1.0/authopt/#leapseconds-table">Leapseconds Table</a></li>
+<li><a href="/archives/4.1.0/authopt/#key-management">Key Management</a></li>
+<li><a href="/archives/4.1.0/authopt/#authentication-commands">Authentication Commands</a></li>
+<li><a href="/archives/4.1.0/authopt/#files">Files</a></li>
+<li><a href="/archives/4.1.0/authopt/#bugs">Bugs</a></li>
+</ul>
+<hr>
+<h4 id="authentication-support">Authentication Support</h4>
+<p>Authentication support allows the NTP client to verify that the server is in fact known and trusted and not an intruder intending accidentally or on purpose to masquerade as that server. The NTPv3 specification RFC-1305 defines an scheme which provides cryptographic authentication of received NTP packets. Originally, this was done using the Data Encryption Standard (DES) algorithm operating in Cipher Block Chaining (CBC) mode, commonly called
+DES-CBC. Subsequently, this was augmented by the RSA Message Digest 5 (MD5) algorithm using a private key, commonly called keyed-MD5. Either algorithm computes a message digest, or one-way hash, which can be used to verify the server has the correct private key and key identifier.</p>
+<p>NTPv4 retains the NTPv3 schemes, properly described as symmetric-key cryptography and, in addition, provides a new Autokey scheme based on public-key cryptography. Public-key cryptography is generally considered more secure than symmetric-key cryptography, since the security is based on a private value which is generated by each server and never revealed. With Autokey all key distribution and management functions involve only public values, which considerably simplifies key distribution and storage.</p>
+<p>Authentication is configured separately for each association using the <code>key</code> or <code>autokey</code> subcommands on the <code>peer</code>, <code>server</code>, <code>broadcast</code> and <code>manycastclient</code> commands as described in the <a href="/archives/4.1.0/config/">Configuration Options</a> page. The authentication
+options described below specify the suite of keys, select the key for each configured association and manage the configuration operations.</p>
+<p>The <code>auth</code> flag controls whether new associations or remote configuration commands require cryptographic authentication. This flag can be set or reset by the <code>enable</code> and <code>disable</code> configuration commands and also by remote configuration commands sent by a <code>ntpdc</code> program running in another machine. If this flag is enabled, which is the default case, new broadcast client and symmetric passive associations and remote configuration commands must be cryptographically authenticated using either symmetric-key or public-key schemes. If this flag is disabled, these operations are effective even if not cryptographic authenticated. It should be understood that operating in the latter mode invites a significant vulnerability where a rogue hacker can seriously disrupt client timekeeping.</p>
+<p>In networks with firewalls and large numbers of broadcast clients it may be acceptable to disable authentication, since that avoids key distribution and simplifies network maintenance. However, when the configuration file contains host names, or when a server or client is configured remotely, host names are resolved using the DNS and a separate name resolution process. In order to protect against bogus name server messages, name resolution messages are authenticated using an internally generated key which is normally invisible to the user. However, if cryptographic support is disabled, the name resolution process will fail. This can be avoided either by specifying IP addresses instead of host names, which is generally inadvisable, or by enabling the flag for
+name resolution and disabled it once the name resolution process is complete.</p>
+<p>An attractive alternative where multicast support is available is manycast mode, in which clients periodically troll for servers. Cryptographic authentication in this mode uses public-key schemes as described below. The principle advantage of this manycast mode is that potential servers need not be configured in advance, since the client finds them during regular operation, and the configuration files for all clients can be identical.</p>
+<p>In addition to the default symmetric-key cryptographic support, support for public-key cryptography is available if the requisite <code>rsaref20</code> software distribution has been installed before building the distribution. Public-key cryptography provides secure authentication of servers without compromising accuracy and stability. The security model and protocol schemes for both symmetric-key and public-key cryptography are described below.</p>
+<hr>
+<h4 id="symmetric-key-scheme">Symmetric Key Scheme</h4>
+<p>The original RFC-1305 specification allows any one of possibly 65,534 keys, each distinguished by a 32-bit key identifier, to authenticate an association. The servers and clients involved must agree on the key and key identifier to authenticate NTP packets. Keys and related information are specified in a key file, usually called <code>ntp.keys</code>, which must be distributed and stored using secure means beyond the scope of the NTP protocol itself. Besides the keys used for ordinary NTP associations, additional keys can be used as passwords for the <a href="/archives/4.1.0/ntpq/">ntpq</a> and <a href="/archives/4.1.0/ntpdc/">ntpdc</a> utility programs.</p>
+<p>When <code>ntpd</code> is first started, it reads the key file specified in the <code>keys</code> configuration command and installs the keys in the key cache. However, individual keys must be activated with the <code>trustedkey</code> command before use. This allows, for instance, the installation of possibly several batches of keys and then activating or deactivating each batch remotely using <code>ntpdc</code>. This also provides a revocation capability that can be used if a key becomes compromised. The <code>requestkey</code> command selects the key used as the password for the <code>ntpdc</code> utility, while the <code>controlkey</code> command selects the key used as the password for the <code>ntpq</code> utility.</p>
+<hr>
+<h4 id="public-key-scheme">Public Key Scheme</h4>
+<p>The original NTPv3 authentication scheme described in RFC-1305 continues to be supported; however, in NTPv4 an additional authentication scheme called Autokey is available. It uses MD5 message digest, RSA public-key signature and Diffie-Hellman key agreement algorithms available from several sources, but not included in the NTPv4 software distribution. In order to be effective, the <code>rsaref20</code> package must be installed as described in the <code>README.rsa</code> file. Once installed, the configure and build process automatically detects it and compiles the routines required. The Autokey scheme has several modes of operation corresponding to the various NTP modes supported. RSA signatures with timestamps are used in all modes to verify the source of cryptographic values. All modes use a special cookie which can be computed independently by the client and server. In symmetric modes the cookie is constructed using the Diffie-Hellman key agreement algorithm. In other modes the cookie is constructed from the IP addresses and a private value known only to the server. All modes use in addition a variant of the S-KEY scheme, in which a pseudo-random key list is generated and used in reverse order. These schemes are described along with an executive summary, current status, briefing slides and reading list, on the <a href="/reflib/autokey/">Autonomous Authentication</a> page.</p>
+<p>The cryptographic values used by the Autokey scheme are incorporated as a set of files generated by the <a href="/archives/4.1.0/genkeys/"><code>ntp-genkeys</code></a> program, including the symmetric private keys, public/private key pair, and the agreement parameters. See the <code>ntp-genkeys</code> page for a description of the formats of these files. They contain cryptographic values generated by the algorithms of the <code>rsaref20</code> package and are in printable ASCII format. All file names include the timestamp, in NTP seconds, following the default names given below. Since the file data are derived from random values seeded by the system clock and the file name includes the timestamp, every generation produces a different file and different file name.</p>
+<p>The <code>ntp.keys</code> file contains the DES/MD5 private keys. It must be distributed by secure means to other servers and clients sharing the same security compartment and made visible only to root. While this file is not used with the Autokey scheme, it is needed to authenticate some remote configuration commands used by the <a href="/archives/4.1.0/ntpq/"><code>ntpq</code></a> and <a href="/archives/4.1.0/ntpdc/"><code>ntpdc</code></a> utilities. The <code>ntpkey</code> file contains the RSA private key. It is useful only to the machine that generated it and never shared with any other daemon or application program, so must be made visible only to root.</p>
+<p>The <code>ntp_dh</code> file contains the agreement parameters, which are used only in symmetric (active and passive) modes. It is necessary that both peers beginning a symmetric-mode association share the same parameters, but it does not matter which <code>ntp_dh</code> file generates them. If one of the peers contains the parameters, the other peer obtains them using the Autokey protocol. If both peers contain the parameters, the most recent copy is used by both peers. If a peer does not have the parameters, they will be requested by all associations, either configured or not; but, none of the associations can proceed until one of them has received the parameters. Once loaded, the parameters can be provided on request to other clients and servers. The <code>ntp_dh</code> file can also be distributed using insecure means, since the data are public values.</p>
+<p>The <code>ntpkey_<em>host</em></code> file contains the RSA public key, where <code><em>host</em></code> is the name of the host. Each host must have its own <code>ntpkey_<em>host</em></code> file, which is normally provided to other hosts using the Autokey protocol Each <code>server</code> or <code>peer</code> association requires the public key associated with the particular server or peer to be loaded either directly from a local file or indirectly from the server using the Autokey protocol. These files can be widely distributed and stored using insecure means, since the data are public values.</p>
+<p>The optional <code>ntpkey_certif_<em>host</em></code> file contains the PKI certificate for the host. This provides a binding between the host hame and RSA public key. In the current implementation the certificate is obtained by a client, if present, but the contents are ignored.</p>
+<p>Due to the widespread use of interface-specific naming, the host names used in configured and mobilized associations are determined by the Unix <code>gethostname()</code> library routine. Both the <code>ntp-genkeys</code> program and the Autokey protocol derive the name of the public key file using the name returned by this routine. While every server and client is required to load their own public and private keys, the public keys for each client or peer association can be obtained from the server or peer using the Autokey protocol. Note however, that at the current stage of development the authenticity of the server or peer and the cryptographic binding of the server name, address and public key is not yet established by a certificate authority or web of trust.</p>
+<hr>
+<h4 id="leapseconds-table">Leapseconds Table</h4>
+<p>The NIST provides <a href="https://www.nist.gov/pml/time-and-frequency-division/time-realization/leap-seconds">tables</a> showing the epoch for all historic occasions of leap second insertion since 1972. The leapsecond table shows each epoch of insertion along with the offset of International Atomic Time (TAI) with respect to Coordinated Universtal Time (UTC), as disseminated by NTP.</p>
+<p>While not strictly a security function, the Autokey protocol provides means to securely retrieve the leapsecond table from a server or peer. Servers load the leapsecond table directly from the file specified in the <code>crypto</code> command, while clients can obtain the table indirectly from the servers using the Autokey protocol. Once loaded, the table can be provided on request to other clients and servers.</p>
+<hr>
+<h4 id="key-management">Key Management</h4>
+<p>All key files are installed by default in <code>/usr/local/etc</code>, which is normally in a shared filesystem in NFS-mounted networks and avoids installing them in each machine separately. The default can be overridden by the <code>keysdir</code> configuration command. However, this is not a good place to install the private key file, since each machine needs its own file. A suitable place to install it is in <code>/etc</code>, which is normally not in a shared filesystem.</p>
+<p>The recommended practice is to keep the timestamp extensions when installing a file and to install a link from the default name (without the timestamp extension) to the actual file. This allows new file generations to be activated simply by changing the link. However, <code>ntpd</code> parses the link name when present to extract the extension value and sends it along with the public key and host name when requested. This allows clients to verify that the file and generation time are always current. However, the actual location of each file can be overridden by the <code>crypto</code> configuration command.</p>
+<p>All cryptographic keys and related parameters should be regenerated on a periodic and automatic basis, like once per month. The <code>ntp-genkeys</code> program uses the same timestamp extension for all files generated at one time, so each generation is distinct and can be readily recognized in monitoring data. While a public/private key pair must be generated by every server and client, the public keys and agreement parameters do not need to be explicitly copied to all machines in the same security compartment, since they can be obtained automatically using the Autokey protocol. However, it is necessary that all primary servers have the same agreement parameter file. The recommended way to do this is for one of the primary servers to generate that file and then copy it to the other primary servers in the same compartment using the Unix <code>rdist</code> command. Future versions of the Autokey protocol are to contain provisions for an agreement protocol to do this automatically.</p>
+<p>Servers and clients can make a new generation in the following way. All machines have loaded the old generation at startup and are operating normally. At designated intervals, each machine generates a new public/private key pair and makes links from the default file names to the new file names. The <code>ntpd</code> is then restarted and loads the new generation, with result clients no longer can authenticate correctly. The Autokey protocol is designed so that after a few minutes the clients time out and restart the protocol from the beginning, with result the new generation is loaded and operation continues as before. A similar procedure can be used for the agreement parameter file, but in this case precautions must be take to be sure that all machines with this file have the same copy.</p>
+<hr>
+<h4 id="authentication-commands">Authentication Commands</h4>
+<dl>
+<dt><code><strong>autokey [<em>logsec</em>]</strong></code></dt>
+<dd>
+<p>Specifies the interval between regenerations of the session key list used with the Autokey protocol. Note that the size of the key list for each association depends on this interval and the current poll interval. The default interval is 12 (4096 s or about 1.1 hours). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent.</p>
+</dd>
+<dt><code><strong>controlkey <em>key</em></strong></code></dt>
+<dd>
+<p>Specifies the key identifier to use with the <a href="/archives/4.1.0/ntpq/"><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. The <code><em>key</em></code> argument is the key identifier for a trusted key, where the value can be in the range 1 to 65534, inclusive.</p>
+</dd>
+<dt><code><strong>[flags <em>flags</em>] [privatekey <em>file</em>] [publickey <em>file</em>] [dhparms <em>file</em>] [leap <em>file</em>]</strong></code></dt>
+<dd>
+<p>This command requires the NTP daemon build process be configured with the RSA library. This command activates public-key cryptography and loads the required RSA private and public key files and the optional Diffie-Hellman agreement parameter file, if present. If one or more files are left unspecified, the default names are used as described below. Following are the subcommands:</p>
+</dd>
+<dt><code>privatekey <em>file</em></code></dt>
+<dd>
+<p>Specifies the location of the RSA private key file, which otherwise defaults to <code>/usr/local/etc/ntpkey</code>.</p>
+</dd>
+<dt><code>publickey <em>file</em></code></dt>
+<dd>
+<p>Specifies the location of the RSA public key file, which otherwise defaults to <code>/usr/local/etc/ntpkey_<em>host</em></code>, where <code><em>host</em></code> is the name of the generating machine.</p>
+</dd>
+<dt><code>dhparms <em>file</em></code></dt>
+<dd>
+<p>Specifies the location of the Diffie-Hellman parameters file, which otherwise defaults to <code>/usr/local/etc/ntpkey_dh</code>.</p>
+</dd>
+<dt><code>leap <em>file</em></code></dt>
+<dd>
+<p>Specifies the location of the leapsecond table file, which otherwise defaults to <code>/usr/local/etc/ntpkey_leap</code>.</p>
+</dd>
+<dt><code><strong>keys <em>keyfile</em></strong></code></dt>
+<dd>
+<p>Specifies the location of the DES/MD5 private key file containing the keys and key identifiers used by <code>ntpd</code>, <code>ntpq</code> and <code>ntpdc</code> when operating with symmetric-key mode.</p>
+</dd>
+<dt><code><strong>keysdir <em>path</em></strong></code></dt>
+<dd>
+<p>This command requires the NTP daemon build process be configured with the RSA library. It specifies the default directory path for the private key file, agreement parameters file and one or more public key files. The default when this command does not appear in the configuration file is <code>/usr/local/etc/</code>.</p>
+</dd>
+<dt><code><strong>requestkey <em>key</em></strong></code></dt>
+<dd>
+<p>Specifies the key identifier to use with the <a href="/archives/4.1.0/ntpdc/"><code>ntpdc</code></a> program, which uses a proprietary protocol specific to this implementation of <code>ntpd</code>. The <code><em>key</em></code> argument is a key identifier for the trusted key, where the value can be in the range 1 to 65534, inclusive.</p>
+</dd>
+<dt><code><strong>revoke [<em>logsec</em>]</strong></code></dt>
+<dd>
+<p>Specifies the interval between re-randomization of certain cryptographic values used by the Autokey scheme, as a power of 2 in seconds. These values need to be updated frequently in order to deflect brute-force attacks on the algorithms of the scheme; however, updating some values is a relatively expensive operation. The default interval is 16 (65,536 s or about 18 hours). For poll intervals above the specified interval, the values will be updated for every message sent.</p>
+</dd>
+<dt><code><strong>trustedkey [<em>key</em>] [&hellip;]</strong></code></dt>
+<dd>
+<p>Specifies the key identifiers which are trusted for the purposes of authenticating peers with symmetric-key cryptography, as well as keys used by the <code>ntpq</code> and <code>ntpdc</code> programs. The authentication procedures require that both the local and remote servers share the same key and key identifier for this purpose, although different keys can be used with different servers. The <code>key</code> arguments are 32-bit unsigned integers with values from 1 to 65,534.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="files">Files</h4>
+<p><code>ntp.keys</code> - private MD5 keys</p>
+<p><code>ntpkey</code> - RSA private key</p>
+<p><code>ntpkey_<em>host</em></code> - RSA public key</p>
+<p><code>ntp_dh</code> - Diffie-Hellman agreement parameters</p>
+<hr>
+<h4 id="bugs">Bugs</h4>
+<p>The <code>ntpkey_<i>host</i></code> files are really digital certificates. These should be obtained via secure directory services when they become universally available.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+        <img src="images/icons/twitter.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+        <img src="images/icons/linkedin.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+        <img src="images/icons/facebook.svg" width="16" height="16"></img>
+      </a>
+    </li>
+    
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
+      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
+    </li>
+  </ul>
+  </div>
+</footer>
+
+</body>
+</html>
