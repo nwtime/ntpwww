@@ -13,7 +13,12 @@
 {{- template "_internal/opengraph.html" . -}}
 <!--To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled -->
 {{ template "_internal/google_analytics.html" . }}
-  
+
+  <!-- prefetch and preconnect Google Nunito fonts; load Google font css directly -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
   <title>{{ .Title }}</title>
 
   {{ "<!-- Mobile Responsive Meta -->" | safeHTML }}
