@@ -1,228 +1,26 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-  
-  
-
-  
-  <meta name="description" content="Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned …">
-<meta property="og:title" content="How to build new PARSE clocks" />
-<meta property="og:description" content="Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=ROBOTS content="INDEX, FOLLOW"><meta name=description content="Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned …"><meta property="og:title" content="How to build new PARSE clocks"><meta property="og:description" content="Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.
  Prerequisites:
- Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)  What to do:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/archives/4.1.0/parsenew/" /><meta property="article:section" content="archives" />
-
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
-}
-</script>
-
-  
-  <title>How to build new PARSE clocks</title>
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  
-  <meta name="generator" content="Hugo 0.83.1" />
-
-  <!-- Plugins -->
-  
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
-  
-    <link rel="stylesheet" href="https://doc.ntp.org/plugins/bootstrap/bootstrap.min.css">
-  
-
-  <!-- Main Stylesheet -->
-  
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
-<body><!-- navigation -->
-    
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-<header class="sticky-top navigation">
-  <div class="container">
-
-
-    <nav class="navbar navbar-expand-lg navbar-light py-0">
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="py-0 mx-1" href="https://www.nwtime.org"><img class="img-fluid" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-      </div>
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-		 <a class="navbar-brand py-0 mx-1" href="https://doc.ntp.org/"><img class="img-fluid" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
-      </div>
-	  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-        <i class="bi-plus"></i>
-      </button>
-
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto py-0">
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/"></a>
-          </li>
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Support
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/">Support Wiki</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/support/securitynotice">Security</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/ntpfaq">FAQ</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contributorslist">Contributors List</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/contact">Contacts</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Reference Library
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/brief">Briefs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/memos">Memos</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/reports">Reports</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/rfc">RFCs</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/software">Software</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/reflib/papers">White Papers</a>
-              
-            </div>
-          </li>
-          
-          
-          
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Documentation
-            </a>
-            <div class="dropdown-menu">
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.8-series">4.2.8-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.6-series">4.2.6-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.4-series">4.2.4-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.2-series">4.2.2-series</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.2.0">4.2.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.2">4.1.2</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.1">4.1.1</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/4.1.0">4.1.0</a>
-              
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://doc.ntp.org/archives/3-5.93e">3-5.93e</a>
-              
-            </div>
-          </li>
-          
-          
-        </ul>
-      </div>
-	  
-      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
-      <div class="gcse-search">
-      </div>
-
-    </nav>
-  </div>
-  <div class="header-border">
-  </div>
-</header>
-<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">Documentation</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/archives/4.1.0/">4.1.0</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/archives/4.1.0/parsenew/">How to build new PARSE clocks</a>
-</li>
-
-	</ol>
-</nav	>
-
-
-<section class="section pt-0  pb-auto">
-  <div class="container">
-  	<h1>How to build new PARSE clocks</h1>
-     
-    <p>Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.</p>
-<hr>
-<p>Prerequisites:</p>
-<ul>
-<li>Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)</li>
-</ul>
-<p>What to do:</p>
-<p>Make a conversion module (<code>libparse/clk_\*.c</code>)</p>
-<ol>
-<li>What is the time code format ?</li>
-</ol>
-<p>Find year, month, day, hour, minute, second, status (synchronised or not), possibly time zone information (you need to give the offset to UTC). You will have to convert the data from a string into a struct clocktime:</p>
-<pre><code>    &lt;pre&gt;      struct clocktime                /* clock time broken up from time code */
+ Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)  What to do:"><meta property="og:type" content="article"><meta property="og:url" content="https://doc.ntp.org/archives/4.1.0/parsenew/"><meta property="article:section" content="archives"><meta property="og:site_name" content="NTP: Network Time Protocol"><script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-BN61ZTDHBP',{anonymize_ip:!1})}</script><title>How to build new PARSE clocks</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://doc.ntp.org/plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css><link rel=stylesheet href=https://doc.ntp.org/scss/nwtime.min.css media=screen><link rel="shortcut icon" href=https://doc.ntp.org/favicons/favicon.ico type=image/x-icon><link rel=apple-touch-icon href=https://doc.ntp.org/favicons/apple-touch-icon.png sizes=180x180><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=https://doc.ntp.org/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-192x192.png sizes=192x192><link rel=icon type=image/png href=https://doc.ntp.org/favicons/android-chrome-512x512.png sizes=512x512></head><body><header class="sticky-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light py-0"><div class="d-flex align-items-center" style=height:80px;width:80px><a class="py-0 mx-1" href=https://www.nwtime.org><img class=img-fluid src=https://doc.ntp.org/images/logo.png alt></a></div><div class="d-flex align-items-center" style=height:80px;width:80px><a class="navbar-brand py-0 mx-1" href=https://doc.ntp.org/><img class=img-fluid src=https://doc.ntp.org/images/ntp_logo.jpg alt="NTP: Network Time Protocol"></a></div><button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class=bi-plus></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto py-0"><li class="nav-item py-0"><a class="nav-link py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/></a></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Support</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/>Support Wiki</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Servers/WebHome>Time Servers</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/support/securitynotice>Security</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/ntpfaq>FAQ</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://support.ntp.org/bin/view/Dev/WebHome>Developer Resources</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contributorslist>Contributors List</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/contact>Contacts</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Reference Library</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/brief>Briefs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/memos>Memos</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/reports>Reports</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/rfc>RFCs</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/software>Software</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/reflib/papers>White Papers</a></div></li><li class="nav-item dropdown py-0"><a class="nav-link dropdown-toggle py-0" style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=# role=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>Documentation</a><div class=dropdown-menu><a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.8-series>4.2.8-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.6-series>4.2.6-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.4-series>4.2.4-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.2-series>4.2.2-series</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.2.0>4.2.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.2>4.1.2</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.1>4.1.1</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/4.1.0>4.1.0</a>
+<a class=dropdown-item style="text-decoration:none;font-size:16px;font-family:nunito sans,sans-serif" href=https://doc.ntp.org/archives/3-5.93e>3-5.93e</a></div></li></ul></div><script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script><div class=gcse-search></div></nav></div><div class=header-border></div></header><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=https://doc.ntp.org/documentation/>Documentation</a></li><li class=breadcrumb-item><a href=https://doc.ntp.org/archives/4.1.0/>4.1.0</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://doc.ntp.org/archives/4.1.0/parsenew/>How to build new PARSE clocks</a></li></ol></nav><section class="section pt-0 pb-auto"><div class=container><h1>How to build new PARSE clocks</h1><p>Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.</p><hr><p>Prerequisites:</p><ul><li>Does the system you want the clock connect to have the include files termio.h or termios.h ? (You need that for the parse driver)</li></ul><p>What to do:</p><p>Make a conversion module (<code>libparse/clk_\*.c</code>)</p><ol><li>What is the time code format ?</li></ol><p>Find year, month, day, hour, minute, second, status (synchronised or not), possibly time zone information (you need to give the offset to UTC). You will have to convert the data from a string into a struct clocktime:</p><pre><code>    &lt;pre&gt;      struct clocktime                /* clock time broken up from time code */
           {
         long day;
         long month;
@@ -236,9 +34,7 @@ if (!doNotTrack) {
         long flags;           /* current clock status */
           };
     &lt;/pre&gt;
-</code></pre>
-<p>Conversion is usually simple and straight forward. For the flags following values can be OR&rsquo;ed together:</p>
-<pre><code>    &lt;pre&gt;     PARSEB_ANNOUNCE           switch time zone warning (informational only)
+</code></pre><p>Conversion is usually simple and straight forward. For the flags following values can be OR&rsquo;ed together:</p><pre><code>    &lt;pre&gt;     PARSEB_ANNOUNCE           switch time zone warning (informational only)
          PARSEB_POWERUP            no synchronisation - clock confused (must set then)
          PARSEB_NOSYNC             timecode currently not confirmed (must set then)
                                    usually on reception error when there is still a
@@ -255,17 +51,12 @@ if (!doNotTrack) {
          PARSEB_LEAPSECOND         actual leap second (this time code is the leap
                                    second - informational only)
     &lt;/pre&gt;
-</code></pre>
-<p>These are feature flags denoting items that are supported by the clock:</p>
-<pre><code>    &lt;pre&gt;     PARSEB_S_LEAP             supports LEAP - might set PARSEB_LEAP
+</code></pre><p>These are feature flags denoting items that are supported by the clock:</p><pre><code>    &lt;pre&gt;     PARSEB_S_LEAP             supports LEAP - might set PARSEB_LEAP
          PARSEB_S_ANTENNA          supports ANTENNA - might set PARSEB_ALTERNATE
          PARSEB_S_PPS              supports PPS time stamping
          PARSEB_S_POSITION         supports position information (GPS)
        &lt;/pre&gt;
-</code></pre>
-<p>If the utctime field is non zero this value will be take as time code value. This allows for conversion routines that already have the utc time value. The utctime field gives the seconds since Jan 1st 1970, 0:00:00. The useconds field gives the respective usec value. The fields for date and time (down to second resolution) will be ignored.</p>
-<p>Conversion is done in the <code>cvt_\*</code> routine in <code>parse/clk_\*.c</code> files, look in them for examples. The basic structure is:</p>
-<pre><code>    &lt;pre&gt;     struct clockformat &lt;yourclock&gt;_format = {
+</code></pre><p>If the utctime field is non zero this value will be take as time code value. This allows for conversion routines that already have the utc time value. The utctime field gives the seconds since Jan 1st 1970, 0:00:00. The useconds field gives the respective usec value. The fields for date and time (down to second resolution) will be ignored.</p><p>Conversion is done in the <code>cvt_\*</code> routine in <code>parse/clk_\*.c</code> files, look in them for examples. The basic structure is:</p><pre><code>    &lt;pre&gt;     struct clockformat &lt;yourclock&gt;_format = {
            lots of fields for you to fill out (see below)
          };
 
@@ -283,9 +74,7 @@ if (!doNotTrack) {
              }
            }
     &lt;/pre&gt;
-</code></pre>
-<p>The struct clockformat is the interface to the rest of the parse driver - it holds all information necessary for finding the clock message and doing the appropriate time stamping.</p>
-<pre><code>    &lt;pre&gt;struct clockformat
+</code></pre><p>The struct clockformat is the interface to the rest of the parse driver - it holds all information necessary for finding the clock message and doing the appropriate time stamping.</p><pre><code>    &lt;pre&gt;struct clockformat
     {
       u_long (*input)();
       /* input routine - your routine - cvt_&lt;yourclock&gt; */
@@ -305,15 +94,7 @@ if (!doNotTrack) {
      /* information for the parser what to look for */
     };
     &lt;/pre&gt;
-</code></pre>
-<p>The above should have given you some hints on how to build a <code>clk_\*.c</code> file with the time code conversion. See the examples and pick a clock closest to yours and tweak the code to match your clock.</p>
-<p>In order to make your <code>clk_\*.c</code> file usable a reference to the clockformat structure must be put into <code>parse_conf.c</code>.</p>
-<ol start="2">
-<li>TTY setup and initialisation/configuration will be done in <code>ntpd/refclock_parse.c</code>.</li>
-</ol>
-<p>Find out the exact tty settings for your clock (baud rate, parity, stop bits, character size, &hellip;) and note them in terms of <code>termio\*.h</code> c_cflag macros.</p>
-<p>In <code>ntpd/refclock_parse.c</code> fill out a new the struct clockinfo element (that allocates a new &ldquo;IP&rdquo; address - see comments) (see all the other clocks for example).</p>
-<pre><code>    &lt;pre&gt;   struct clockinfo
+</code></pre><p>The above should have given you some hints on how to build a <code>clk_\*.c</code> file with the time code conversion. See the examples and pick a clock closest to yours and tweak the code to match your clock.</p><p>In order to make your <code>clk_\*.c</code> file usable a reference to the clockformat structure must be put into <code>parse_conf.c</code>.</p><ol start=2><li>TTY setup and initialisation/configuration will be done in <code>ntpd/refclock_parse.c</code>.</li></ol><p>Find out the exact tty settings for your clock (baud rate, parity, stop bits, character size, &mldr;) and note them in terms of <code>termio\*.h</code> c_cflag macros.</p><p>In <code>ntpd/refclock_parse.c</code> fill out a new the struct clockinfo element (that allocates a new &ldquo;IP&rdquo; address - see comments) (see all the other clocks for example).</p><pre><code>    &lt;pre&gt;   struct clockinfo
          {
           u_long  cl_flags;             /* operation flags (io modes) */
          PARSE_F_PPSPPS       use loopfilter PPS code (CIOGETEV)
@@ -381,103 +162,5 @@ if (!doNotTrack) {
       };
 
     &lt;/pre&gt;
-</code></pre>
-<p>Well, this is very sketchy, I know. But I hope it helps a little bit. The best way is to look which clock comes closest to your and tweak that code.</p>
-<p>Two sorts of clocks are used with parse. Clocks that automatically send their time code (once a second) do not need entries in the poll routines because they send the data all the time. The second sort are the clocks that need a command sent to them in order to reply with a time code (like the Trimble clock).</p>
-<p>For questions: <a href="mailto:%20kardel@acm.org">kardel@acm.org</a>.</p>
-<p>Please include an exact description on how your clock works. (initialisation, TTY modes, strings to be sent to it, responses received from the clock).</p>
-
-	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
-  </div>
-</section>
-<footer class="navbar site-footer fixed-bottom py-0">
-  <ul class="mx-auto">
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-        <i class="bi-twitter"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-        <i class="bi-linkedin"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="Facebook" aria-label="Facebook">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-        <i class="bi-facebook"></i>
-      </a>
-    </li>
-    
-    <li class="navbar-text">
-      <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
-    </li>
-  </ul>
-</footer>
-
-</body>
-</html>
+</code></pre><p>Well, this is very sketchy, I know. But I hope it helps a little bit. The best way is to look which clock comes closest to your and tweak that code.</p><p>Two sorts of clocks are used with parse. Clocks that automatically send their time code (once a second) do not need entries in the poll routines because they send the data all the time. The second sort are the clocks that need a command sent to them in order to reply with a time code (like the Trimble clock).</p><p>For questions: <a href=mailto:%20kardel@acm.org>kardel@acm.org</a>.</p><p>Please include an exact description on how your clock works. (initialisation, TTY modes, strings to be sent to it, responses received from the clock).</p><style>.feedback--answer{display:inline-block}.feedback--answer-no{margin-left:1em}.feedback--response{display:none;margin-top:1em}.feedback--response__visible{display:block}</style><div><h2 class=feedback--title>Feedback</h2><p class=feedback--question>Was this page helpful?</p><button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button><p class="feedback--response feedback--response-yes">Glad to hear it!</a></p><p class="feedback--response feedback--response-no">Sorry to hear that.</a></p></div><script>const yesButton=document.querySelector('.feedback--answer-yes'),noButton=document.querySelector('.feedback--answer-no'),yesResponse=document.querySelector('.feedback--response-yes'),noResponse=document.querySelector('.feedback--response-no'),disableButtons=()=>{yesButton.disabled=!0,noButton.disabled=!0},sendFeedback=b=>{if(typeof ga!='function')return;const a={command:'send',hitType:'event',category:'Helpful',action:'click',label:window.location.pathname,value:b};ga(a.command,a.hitType,a.category,a.action,a.label,a.value)};yesButton.addEventListener('click',()=>{yesResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(1)}),noButton.addEventListener('click',()=>{noResponse.classList.add('feedback--response__visible'),disableButtons(),sendFeedback(0)})</script><br></div></section><footer class="navbar site-footer fixed-bottom pb-0 py-0"><div class=container-fluid style=height:3%><ul class="nav justify-content-center"><li class=nav-item data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://twitter.com/ntp><img src=images/icons/twitter.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=LinkedIn aria-label=LinkedIn><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/groups/4651343><img src=images/icons/linkedin.svg width=16 height=16></img></a></li><li class=nav-item data-toggle=tooltip data-placement=top title=Facebook aria-label=Facebook><a class="nav-link text-white" target=_blank rel="noopener noreferrer" href=https://www.facebook.com/networktimeprotocol><img src=images/icons/facebook.svg width=16 height=16></img></a></li></ul><ul class="mx-auto pt-3"><li class=nav-item><p>&copy; 2022 <a class="navbar-text text-white" href=https://www.nwtime.org>Network Time Foundation</a></p></li></ul></div></footer></body></html>

@@ -1,15 +1,19 @@
-<footer class="navbar site-footer fixed-bottom py-0">
-  <ul class="mx-auto">
+<footer class="navbar site-footer fixed-bottom pb-0 py-0">
+<div class="container-fluid" style="height: 3%;">
+  <ul class="nav justify-content-center">
     {{ range .Site.Params.links.user }}
-    <li class="navbar-text" data-toggle="tooltip" data-placement="top" title="{{ .name }}" aria-label="{{ .name }}">
-      <a class="text-white" target="_blank" rel="noopener noreferrer" href="{{ .url }}">
-        <i class="{{ .icon }}"></i>
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="{{ .name }}" aria-label="{{ .name }}">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="{{ .url }}">
+        <img src="{{ .icon }}" width="16" height="16"></img>
       </a>
     </li>
     {{ end }}
-    <li class="navbar-text">
+	</ul>
+	<ul class="mx-auto pt-3">
+    <li class="nav-item">
       <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org">Network Time Foundation</a></p>	
     </li>
   </ul>
+  </div>
 </footer>
 
