@@ -1,7 +1,7 @@
 {{ "<!-- navigation -->" | safeHTML }}
 
-<nav class="navbar navbar-light">
-  <div class="container">
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
 
 <!-- Add NTP and nwtime logos to left. Constrain header height with icon height. -->
 	<div>
@@ -9,41 +9,22 @@
 	  <a class="navbar-brand" href="{{ site.BaseURL }}"><img height="80" width="80" src="{{ site.Params.logo1 | absURL }}" alt="{{ site.Title }}"></a> 
     </div>
 
-<!-- Menu items live in separate div and are defined in config.toml -->	
-<div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto py-0">
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="{{ site.BaseURL }}">{{ with site.Params.Home }} {{ . }} {{ end }}</a>
-          </li>
-          {{ range site.Menus.main }}
-          {{ if .HasChildren }}
-          <li class="nav-item dropdown py-0">
-            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ .Name }}
-            </a>
-            <div class="dropdown-menu">
-              {{ range .Children }}
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="{{ .URL | absURL }}">{{ .Name }}</a>
-              {{ end }}
-            </div>
-          </li>
-          {{ else }}
-          <li class="nav-item py-0">
-            <a class="nav-link py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="{{ .URL | absURL }}">{{ .Name }}</a>
-          </li>
-          {{ end }}
-          {{ end }}
-        </ul>
-      </div>
+<!-- Button names are defined in config.toml. Still need logic for localization. -->
+    <div>
+      {{ range site.Menus.main }}
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none" href="{{ .URL | absURL }}">{{ .Name }}</a>
+        </button>
+      {{ end }}
+    </div>
 
-<!-- Incorporate Google search -->
-      <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
-      <div class="gcse-search">
-      </div>
-  </div>
+<!-- Incorporate Google search. -->
+  <div class="gcse-search">
+  <script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+    </div>
+
 </nav>
 
-<!-- End with blue border -->
+<!-- End with blue border. -->
   <div class="header-border">
   </div>
 {{ "<!-- /navigation -->" | safeHTML }}
