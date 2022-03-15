@@ -4,11 +4,24 @@ url: "/documentation"
 type: archives
 ---
 
-The NTP implementation documentation for all software versions from 1998 (NTP version 3.5.93e) to the present (NTP version 4.2.8p15) is available from the Documentation drop-down menu.
+<a class="btn btn-primary" href="/archives/4.2.8-series/" role="button">Click here</a> to read the current documentation (4.2.8-series).
 
-Most software versions represent a series of patch levels. The landing page for each series has a table showing all patch levels for that series, including release dates and links to release announcements. The documentation for a series applies to all patch levels for that series, unless specified otherwise.
+* * *
 
-**To ensure your system is patched against all known vulnerabilities and has the latest features and bug fixes applied, it is recommended to use the latest series (4.2.8-series) and patch level (p15).**
+#### Documentation Archives
+
+Archived documentation for older NTP releases is available:
+
+* [4.2.6-series](/archives/4.2.6-series/)
+* [4.2.4-series](/archives/4.2.4-series/)
+* [4.2.2-series](/archives/4.2.2-series/)
+* [4.2.0](/archives/4.2.0/)
+* [4.1.2](/archives/4.1.2/)
+* [4.1.1](/archives/4.1.1/)
+* [4.1.0](/archives/4.1.0/)
+* [3-5.93e](/archives/3-5.93e/)
+
+* * *
 
 #### Additional Information
 
