@@ -3,7 +3,7 @@ title: "NTP: The Network Time Protocol"
 type: "home"
 ---
 
-<section class="section pt-0 pb-0">
+<section class="min-vh-100 mt-auto">
   <div class="container"> 
 
 <h4 class=text-center>Welcome to the home of the Network Time Protocol (NTP) Project.</h4><br />
