@@ -1,6 +1,7 @@
 ---
 title: "4.2.6-series"
 type: archives
+noindex: true
 ---
 
 * * *
