@@ -1,6 +1,7 @@
 ---
 title: "USNO Modem Time Service"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

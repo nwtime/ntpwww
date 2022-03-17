@@ -1,6 +1,7 @@
 ---
 title: "Undisciplined Local Clock"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

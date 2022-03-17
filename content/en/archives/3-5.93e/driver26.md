@@ -1,6 +1,7 @@
 ---
 title: "Hewlett Packard 58503A GPS Receiver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

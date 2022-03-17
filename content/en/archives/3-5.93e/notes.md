@@ -1,6 +1,7 @@
 ---
 title: "Notes on Configuring NTP and Setting up a NTP Subnet"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

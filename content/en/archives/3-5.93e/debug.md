@@ -1,6 +1,7 @@
 ---
 title: "NTP Debugging Techniques"
 type: archives
+noindex: true
 ---
 
 Once the NTP software distribution has been compiled and installed and the configuration file constructed, the next step is to verify correct operation and fix any bugs that may result. Usually, the command line that starts the daemon is included in the system startup file, so it is executed only at system boot time; however, the daemon can be stopped and restarted from root at any time. Usually, no command-line arguments are required, unless special actions described in the xntpd.8 man page are required. Once started, the daemon will begin sending messages, as specified in the configuration file, and interpreting received messages. 

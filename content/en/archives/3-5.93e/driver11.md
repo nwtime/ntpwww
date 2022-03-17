@@ -1,6 +1,7 @@
 ---
 title: "Arbiter 1088A/B GPS Receiver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

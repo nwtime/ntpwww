@@ -1,6 +1,7 @@
 ---
 title: "Scratchbuilt CHU Receiver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

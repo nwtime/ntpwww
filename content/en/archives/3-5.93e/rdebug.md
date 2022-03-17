@@ -1,6 +1,7 @@
 ---
 title: "Debugging Hints for Reference Clock Drivers"
 type: archives
+noindex: true
 ---
 
 The [<code>ntpq</code>](/archives/3-5.93e/ntpq/) and [<code>xntpdc</code>](/archives/3-5.93e/xntpdc/) utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the [<code>xntpd</code>](/archives/3-5.93e/xntpd/) page. The first thing to look for are error messages on the system log. If none occur, the daemon has started, opened the devices specified and waiting for peers and radios to come up. 

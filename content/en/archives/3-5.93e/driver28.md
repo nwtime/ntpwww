@@ -1,6 +1,7 @@
 ---
 title: "Shared Memory Driver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

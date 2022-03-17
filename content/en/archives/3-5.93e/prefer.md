@@ -1,6 +1,7 @@
 ---
 title: "Mitigation Rules and the prefer Keyword"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

@@ -1,6 +1,7 @@
 ---
 title: "ntptrace - trace a chain of NTP servers back to the primary source"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

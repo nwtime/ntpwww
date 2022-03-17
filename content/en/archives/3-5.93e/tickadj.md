@@ -1,6 +1,7 @@
 ---
 title: "tickadj - set time-related kernel variables"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

@@ -1,6 +1,7 @@
 ---
 title: "Monitoring Options"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

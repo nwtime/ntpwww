@@ -1,6 +1,7 @@
 ---
 title: "authspeed - determine authentication delays"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

@@ -1,6 +1,7 @@
 ---
 title: "Patching Procedures"
 type: archives
+noindex: true
 ---
 
 A distribution so widely used as this one eventually develops numerous barnacles as the result of [porting](/archives/3-5.93e/porting/) to new systems, idiosyncratic new features and just plain bugs. In order to help keep order and make maintenance bearable, we ask that proposed changes to the distribution be submitted in the following form.

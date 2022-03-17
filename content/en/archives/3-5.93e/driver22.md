@@ -1,6 +1,7 @@
 ---
 title: "PPS Clock Discipline"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents
