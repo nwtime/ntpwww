@@ -1,6 +1,7 @@
 ---
 title: "sntp - Simple Network Time Protocol (SNTP) Client"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/dogsnake.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

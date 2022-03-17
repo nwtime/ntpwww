@@ -1,6 +1,7 @@
 ---
 title: "IRIG Support Using Sun SPARC Audio"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

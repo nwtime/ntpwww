@@ -1,6 +1,7 @@
 ---
 title: "ntpdc - special NTP query program"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

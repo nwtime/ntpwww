@@ -1,6 +1,7 @@
 ---
 title: "Server Options"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

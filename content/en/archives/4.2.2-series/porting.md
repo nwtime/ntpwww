@@ -1,6 +1,7 @@
 ---
 title: "Porting Hints"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)

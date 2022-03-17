@@ -1,6 +1,7 @@
 ---
 title: "authcert - DES validation program"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

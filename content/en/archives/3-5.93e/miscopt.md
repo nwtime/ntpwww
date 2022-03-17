@@ -1,6 +1,7 @@
 ---
 title: "Miscellaneous Options"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

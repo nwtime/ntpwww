@@ -1,6 +1,7 @@
 ---
 title: "ntptime - read kernel time variables"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

@@ -1,6 +1,7 @@
 ---
 title: "IRIG Audio Decoder"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

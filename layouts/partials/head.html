@@ -1,6 +1,10 @@
 <head>
   <meta charset="UTF-8">
+{{- if .Params.noindex -}}
+  <meta name = "robots" content = "noindex">
+{{ else }}
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+{{- end -}}
   
   <!-- for search engine optimization and third-party search engines like Elastic App Search-->
 {{ if .Page.Description }}

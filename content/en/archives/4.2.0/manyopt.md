@@ -1,6 +1,7 @@
 ---
 title: "Automatic NTP Configuration Options"
 type: archives
+noindex: true
 --- 
 
 

@@ -1,6 +1,7 @@
 ---
 title: "Command Index"
 type: archives
+noindex: true
 ---
 
 

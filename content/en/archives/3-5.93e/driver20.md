@@ -1,6 +1,7 @@
 ---
 title: "Generic NMEA GPS Receiver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

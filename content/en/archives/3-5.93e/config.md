@@ -1,6 +1,7 @@
 ---
 title: "Configuration Options"
 type: archives
+noindex: true
 ---
 
 #### Basic Configuration Options - the <tt>configure</tt> utility

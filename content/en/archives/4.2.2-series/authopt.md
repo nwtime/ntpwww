@@ -1,6 +1,7 @@
 ---
 title: "Authentication Options"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

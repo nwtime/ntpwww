@@ -1,6 +1,7 @@
 ---
 title: "Notes on Configuring NTP and Setting up a NTP Subnet"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/tonea.gif)From NBS Special Publication 432 (out of print)

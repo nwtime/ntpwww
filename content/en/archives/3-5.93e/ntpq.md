@@ -1,6 +1,7 @@
 ---
 title: "ntpq - standard NTP query program"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

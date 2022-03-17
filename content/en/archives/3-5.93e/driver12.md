@@ -1,6 +1,7 @@
 ---
 title: "KSI/Odetics TPRO/S IRIG Interface"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

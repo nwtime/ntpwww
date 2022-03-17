@@ -1,6 +1,7 @@
 ---
 title: "NTP Debugging Techniques"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/pogo.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

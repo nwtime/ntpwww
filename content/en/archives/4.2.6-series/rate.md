@@ -1,6 +1,7 @@
 ---
 title: "Rate Management and the Kiss-o'-Death Packet"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

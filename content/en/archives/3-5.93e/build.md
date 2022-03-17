@@ -1,6 +1,7 @@
 ---
 title: "Building and Installing the Distribution"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

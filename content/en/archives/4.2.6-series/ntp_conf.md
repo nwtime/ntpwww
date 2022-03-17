@@ -1,6 +1,7 @@
 ---
 title: "Configuration File Definition (Advanced)"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/pogo7.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

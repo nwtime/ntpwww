@@ -1,6 +1,7 @@
 ---
 title: "How to build new PARSE clocks"
 type: archives
+noindex: true
 ---
 
 Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.

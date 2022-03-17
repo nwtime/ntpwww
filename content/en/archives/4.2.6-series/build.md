@@ -1,6 +1,7 @@
 ---
 title: "Building and Installing the Distribution"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/beaver.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

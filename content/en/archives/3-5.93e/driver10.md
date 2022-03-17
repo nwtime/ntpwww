@@ -1,6 +1,7 @@
 ---
 title: "Austron 2200A/2201A GPS Receivers"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

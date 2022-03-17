@@ -1,6 +1,7 @@
 ---
 title: "How to Write a Reference Clock Driver"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

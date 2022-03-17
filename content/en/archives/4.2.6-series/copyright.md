@@ -1,6 +1,7 @@
 ---
 title: "Copyright Notice"
 type: archives
+noindex: true
 ---
 
 ![Clone me,](/archives/pic/sheepb.jpg) Clone me, says Dolly sheepishly.

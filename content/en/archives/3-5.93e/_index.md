@@ -1,6 +1,7 @@
 ---
 title: "3-5.93e"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

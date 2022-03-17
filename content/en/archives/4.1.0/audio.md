@@ -1,6 +1,7 @@
 ---
 title: "Reference Clock Audio Drivers"
 type: archives
+noindex: true
 ---
 
 ![jpg](/archives/pic/radio2.jpg) Make a little noise here.

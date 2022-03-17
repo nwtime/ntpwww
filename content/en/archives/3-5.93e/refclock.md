@@ -1,6 +1,7 @@
 ---
 title: "Reference Clock Drivers"
 type: archives
+noindex: true
 ---
 
 #### Reference Clock Drivers

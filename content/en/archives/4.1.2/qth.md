@@ -1,6 +1,7 @@
 ---
 title: "Stations, Frequencies and Geographic Coordinates"
 type: archives
+noindex: true
 ---
 
 The following data were obtained from the International Frequency List published by the ITU and other sources.

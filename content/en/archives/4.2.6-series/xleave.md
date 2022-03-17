@@ -1,6 +1,7 @@
 ---
 title: "NTP Interleaved Modes"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

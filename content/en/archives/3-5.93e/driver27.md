@@ -1,6 +1,7 @@
 ---
 title: "Arcron MSF Receiver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

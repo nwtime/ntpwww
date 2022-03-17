@@ -1,6 +1,7 @@
 ---
 title: "Magnavox MX4200 GPS Receiver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

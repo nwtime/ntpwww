@@ -1,6 +1,7 @@
 ---
 title: "4.2.2-series"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures/)

@@ -1,6 +1,7 @@
 ---
 title: "ntptime - read and set kernel time variables"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/pogo5.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

@@ -1,6 +1,7 @@
 ---
 title: "xntpdc - special NTP query program"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

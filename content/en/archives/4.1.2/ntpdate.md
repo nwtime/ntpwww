@@ -1,6 +1,7 @@
 ---
 title: "ntpdate - set the date and time via NTP"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

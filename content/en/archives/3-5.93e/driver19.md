@@ -1,6 +1,7 @@
 ---
 title: "Heath WWV/WWVH Receiver"
 type: archives
+noindex: true
 ---
 
 #### Table of Contents

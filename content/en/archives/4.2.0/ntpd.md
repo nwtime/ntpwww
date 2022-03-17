@@ -1,6 +1,7 @@
 ---
 title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/alice47.gif) [from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)

@@ -1,6 +1,7 @@
 ---
 title: "Quick Start"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/panda.gif)FAX test image for SATNET (1979).
