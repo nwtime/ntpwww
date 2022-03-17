@@ -1,6 +1,7 @@
 ---
 title: "Kernel Model for Precision Timekeeping"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/alice61.gif) [from _Pogo_, Walt Kelly](/reflib/pictures/)

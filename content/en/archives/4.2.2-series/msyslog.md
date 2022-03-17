@@ -1,6 +1,7 @@
 ---
 title: "ntpd System Log Messages"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

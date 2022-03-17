@@ -1,6 +1,7 @@
 ---
 title: "Reference Clock Audio Drivers"
 type: archives
+noindex: true
 ---
 
 ![jpg](/archives/pic/radio2.jpg) ICOM R-72 shortwave receiver and Sure audio mixer

@@ -1,6 +1,7 @@
 ---
 title: "Monitoring Options"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
