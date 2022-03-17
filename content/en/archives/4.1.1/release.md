@@ -1,6 +1,7 @@
 ---
 title: "NTP Version 4 Release Notes"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
