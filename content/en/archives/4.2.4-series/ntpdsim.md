@@ -1,6 +1,7 @@
 ---
 title: "ntpdsim - Network Time Protocol (NTP) simulator"
 type: archives
+noindex: true
 ---
 ![gif](/archives/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 

@@ -1,6 +1,7 @@
 ---
 title: "Access Control Options"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
