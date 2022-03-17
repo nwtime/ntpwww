@@ -1,6 +1,7 @@
 ---
 title: "Line Disciplines and Streams Modules"
 type: archives
+noindex: true
 --- 
 
 #### Table of Contents
