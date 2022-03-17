@@ -1,6 +1,7 @@
 ---
 title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/alice32.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

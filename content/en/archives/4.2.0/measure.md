@@ -1,6 +1,7 @@
 ---
 title: "Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation"
 type: archives
+noindex: true
 --- 
 
 Last update: 20:24 UTC Monday, December 02, 2002

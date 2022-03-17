@@ -1,6 +1,7 @@
 ---
 title: "Miscellaneous Options"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
