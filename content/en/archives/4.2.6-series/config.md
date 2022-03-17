@@ -1,6 +1,7 @@
 ---
 title: "Build Options"
 type: archives
+noindex: true
 ---
 
 

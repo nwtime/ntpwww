@@ -1,6 +1,7 @@
 ---
 title: "Gadget Box PPS Level Converter and CHU Modem"
 type: archives
+noindex: true
 ---
 
 ![gif](/archives/pic/gadget.jpg)A Gadget Box built by Chuck Hanavin
