@@ -127,7 +127,7 @@ Note that the automatic build process inspects the machine environment and tests
       
       <guid>https://test.doc.ntp.org/archives/3-5.93e/copyright/</guid>
       <description>The following copyright notice applies to all files collectively called the Network Time Protocol Version 3 Distribution. Unless specifically declared otherwise in an individual file, this notice applies as if the text was explicitly included in the file.
-/************************************************************************ ** Copyright (c) David L. Mills 1992, 1993, 1994, 1995, 1996, 1997 ** ** Permission to use, copy, modify, and distribute this software and ** its documentation for any purpose and without fee is hereby ** granted, provided that the above copyright notice appears in all ** copies and that both the copyright notice and this permission ** notice appear in supporting documentation, and that the name ** University of Delaware not be used in advertising or publicity ** pertaining to distribution of the software without specific, ** written prior permission.</description>
+ /*********************************************************************** * * * Copyright (c) David L. Mills 1992, 1993, 1994, 1995, 1996, 1997 * * * * Permission to use, copy, modify, and distribute this software and * * its documentation for any purpose and without fee is hereby * * granted, provided that the above copyright notice appears in all * * copies and that both the copyright notice and this permission * * notice appear in supporting documentation, and that the name * * University of Delaware not be used in advertising or publicity * * pertaining to distribution of the software without specific, * * written prior permission.</description>
     </item>
     
     <item>
@@ -472,22 +472,13 @@ Radio and modem clocks by convention have addresses in the form 127.</descriptio
     </item>
     
     <item>
-      <title>Search Results</title>
-      <link>https://test.doc.ntp.org/archives/3-5.93e/search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://test.doc.ntp.org/archives/3-5.93e/search/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Shared Memory Driver</title>
       <link>https://test.doc.ntp.org/archives/3-5.93e/driver28/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/archives/3-5.93e/driver28/</guid>
       <description>Table of Contents  Synopsis Description Structure of shared memory-segment Operation mode=0 Operation mode=1 Fudge Factors Additional Information   Synopsis  Address: 127.127.28.u Reference ID: SHM Driver ID: SHM   Description This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access for unit 0 and 1, and world access for unit 2 and 3.
- Structure of shared memory-segment struct shmTime {int mode; /* 0 - if valid set* use values, * clear valid* 1 - if valid set * if count before and after read of * values is equal,* use values * clear valid*/int count;time_t clockTimeStampSec; /* external clock */int clockTimeStampUSec; /* external clock */time_t receiveTimeStampSec; /* internal clock, when external value was received */int receiveTimeStampUSec; /* internal clock, when external value was received */int leap;int precision;int nsamples;int valid;int dummy[10]; }; Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:</description>
+ Structure of shared memory-segment  struct shmTime { int mode; /* 0 - if valid set * use values, * clear valid * 1 - if valid set * if count before and after read of * values is equal, * use values * clear valid */ int count; time_t clockTimeStampSec; /* external clock */ int clockTimeStampUSec; /* external clock */ time_t receiveTimeStampSec; /* internal clock, when external value was received */ int receiveTimeStampUSec; /* internal clock, when external value was received */ int leap; int precision; int nsamples; int valid; int dummy[10]; };   Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:</description>
     </item>
     
     <item>
