@@ -10,6 +10,7 @@ $border-color: #94C5EA;
 $light: rgb(223, 223, 223);
 $body-bg: rgb(68, 68, 68);
 $body-color: rgb(68, 68, 68);
+$link-decoration: underline;
 
 // Font Variables
 $primary-font: 'Nunito Sans', sans-serif;
@@ -21,6 +22,7 @@ $line-height-base: 1.6;
 
 // Code Variables
 $border-radius: 1 rem;
+$pre-color: $gray-100;
 
 /*----------  Typography  ----------*/
 
@@ -41,29 +43,8 @@ sup > a {
 	color: #1a79c0;
 }
 
-a.footnote-ref::before {
-    content: '[';
-}
-
-a.footnote-ref::after {
-    content: ']';
-}
-
 a {
 	color: #1a79c0;
-	text-decoration: underline;
-}
-
-a:hover,
-a:focus {
-	border-bottom: 0;
-	text-decoration: none;
-}
-
-
-
-a:hover {
-  color: $primary;
 }
 
 p {
@@ -71,39 +52,14 @@ p {
 	padding: 0;
 }
 
-ol,
-ul {
-	margin: 0;
-	padding: 0;
-}
-
-li {
-	list-style-type: inherit;
-	margin-left: 40px;
-}
-
-b,
-strong {
-	font-weight: 700;
-}
-
-blockquote,
-cite,
-em,
-i {
-	font-style: italic;
-}
+/*---------- Alerts ----------*/
 
 blockquote {
+    font-style: italic;
 	border-left: 3px solid #333;
 	color: #333;
 	margin: 1.3em 0;
 	padding-left: 10px;
-}
-
-small,
-cite {
-	font-size: 0.75em;
 }
 
 /*----------  Headings  ----------*/
@@ -207,62 +163,16 @@ thead {
 	background-color: rgb(68, 68, 68);
 }
 
-// Code formatting.
+/*---------- Code formatting ----------*/
 
-code {
+p code, li > code, table code, pre {
    color: #404040 !important;
    font-family: monospace;
-   font-size: 16px;
-   font-weight: 400;
-}
-
-.td-content {
-	// Highlighted code.
-    .highlight {
-        @extend .card !optional;
-	
-        margin: 2rem 0;
-        padding: 0;
-	    
-        pre {
-            margin: 0;
-            padding: 1rem;
-        }
-    }
-
-    // Inline code
-    p code, li > code, table code {
-        color: #6c757d !important;
-        padding: 0.2em 0.4em;
-        margin: 0;
-        font-size: 85%;
-        word-break: normal;
-        background-color: rgba($black, 0.05);
-        border-radius: $border-radius;
-
-        br {
-            display: none;
-        }
-    }
-
-/*----------  Code Blocks  ----------*/
-
-    pre {
-        word-wrap: normal;
-        background-color: $gray-100;
-        padding: $spacer;
-     
-
-        > code {
-	    background-color: inherit !important;
-            padding: 0;
-            margin: 0;
-            font-size: 100%;
-            word-break: normal;
-            white-space: pre;
-            border: 0;
-        }
-    }
+   font-size: 87%;
+   font-weight: bold;
+   word-break: normal;
+   background-color: rgba($black, 0.05);
+   border-radius: $border-radius;
 }
 
 /*---------- Buttons ----------*/
