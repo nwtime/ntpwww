@@ -1,5 +1,21 @@
 {{ define "main" }}
-{{ with .Content }}
-{{ . }}
-{{ end }}
+<body style="--bs-body-text-align: center;">
+  <section class="min-vh-100 mt-auto">
+  	<h4>{{ .Title }}</h4></br>
+    {{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }} 
+
+	<div class="container" style="--bs-body-text-align: start;">
+    <p>{{.Content}}</p>
+	</div>
+	<hr class="mt-5">
+<br />
+<button class="btn btn-primary btn-lg">
+  <a class="btn btn-primary btn-lg" href="/downloads/">Download NTP <img src="/images/icons/download.svg"></img></a>
+    </button>	
+<button class="btn btn-primary btn-lg">
+  <a class="btn btn-primary btn-lg" href="/bugs/">Report a Bug <img src="/images/icons/bug.svg"></img></a>
+</button>
+<br /><br />
+  </section>
+</body>
 {{ end }}

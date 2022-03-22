@@ -1,65 +1,42 @@
-@import 'static/plugins/bootstrap-5.1.3/scss/bootstrap.scss';
-
 // Color Variables
 $primary: #1a79c0;
 $secondary: #FFA630;
+$body-color: #444;
 $text-color: #333;
 $text-color-dark: #222222;
-$body-color: #fff;
-$border-color: #94C5EA;
 $light: rgb(223, 223, 223);
-$body-bg: rgb(68, 68, 68);
-$body-color: rgb(68, 68, 68);
+$link-color: #1a79c0;
+$headings-color: #333;
+$table-border-width: 1px;
+$table-border-color: #94C5EA;
+$table-group-separator-color: #ddd;
 
-// Font Variables
+// Typography
 $primary-font: 'Nunito Sans', sans-serif;
 $icon-font: 'bootstrap';
 $heading-font: 'Nunito Sans', sans-serif;
 $font-family-sans-serif: 'Nunito Sans', sans-serif;
+$font-weight-normal: 400;
+$line-height-base: 1.6;
+$headings-font-weight: 900;
+$font-size-root: .625rem;
+$h1-font-size: 3.6rem;
+$h3-font-size: 3rem;
+$h4-font-size: 2.4rem;
+$h5-font-size: 2.0rem;
+$h6-font-size: 1.8rem;
+$table-th-font-weight: 400;
+
+@import 'static/plugins/bootstrap-5.1.3/scss/bootstrap.scss';
 
 // Code Variables
 $border-radius: 1 rem;
-
-/*=================================
-=             Presets             =
-=================================
-
-Headline Font:
-	font-weight: 900;
-Secondary Color:
-	#94c5ea //Light Blue
-Background Color: 
-	#fff
-Blackish Shade:
-	#333
-Light Grey: 
-	#f9f9f9
-*/
+$pre-color: $gray-100;
 
 /*----------  Typography  ----------*/
 
-html {
-    font-size: 62.5%; /* Set the default browser size to 10px */
-}
-
-body > div {
-    font-size: 1.6rem; /* Chrome fix for REM values */
-}
-
 body {
-	background-color: #fff;
-	color: #444;
-	font-family: 'Nunito Sans', sans-serif;
-	font-size: 16px;
 	font-size: 1.6rem;
-	font-weight: 400;
-	line-height: 1.611;
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
-}
-
-body.nav-visible {
-	overflow: hidden;
 }
 
 /*----------  don't underline footnote symbols  ----------*/
@@ -69,86 +46,14 @@ sup > a {
 	color: #1a79c0;
 }
 
-a.footnote-ref::before {
-    content: '[';
-}
-
-a.footnote-ref::after {
-    content: ']';
-}
-
-a {
-	color: #1a79c0;
-	text-decoration: underline;
-}
-
-a:hover,
-a:focus {
-	border-bottom: 0;
-	text-decoration: none;
-}
-
-a,
-button,
-select {
-  cursor: pointer;
-  transition: .2s ease;
-
-  &:focus {
-    outline: 0;
-  }
-}
-
-a:hover {
-  color: $primary;
-}
-
-p {
-	margin: 0 0 1.3em 0;
-	padding: 0;
-}
-
-ol,
-ul {
-	margin: 0;
-	padding: 0;
-}
-
-li {
-	list-style-type: inherit;
-	margin-left: 40px;
-}
-
-hr {
-	border: 0;
-	border-collapse: collapse;
-	border-top: 1px solid #eee;
-	clear: both;
-	margin: 1em 0;
-}
-
-b,
-strong {
-	font-weight: 700;
-}
-
-blockquote,
-cite,
-em,
-i {
-	font-style: italic;
-}
+/*---------- Alerts ----------*/
 
 blockquote {
+    font-style: italic;
 	border-left: 3px solid #333;
 	color: #333;
 	margin: 1.3em 0;
 	padding-left: 10px;
-}
-
-small,
-cite {
-	font-size: 0.75em;
 }
 
 /*----------  Headings  ----------*/
@@ -159,26 +64,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #333;
-	font-family: 'Nunito Sans', sans-serif;
-	font-weight: 900;
 	margin: 1.414em 0 0.5em;
-}
-
-h1 {
-	font-size: 36px;
-	font-size: 3.6rem;
-}
-
-h2,
-h3 {
-	font-size: 30px;
-	font-size: 3rem;
-}
-
-h4 {
-	font-size: 24px;
-	font-size: 2.4rem;
 }
 
 /*----------  add padding to heading anchors from ToC  ----------*/
@@ -192,71 +78,24 @@ h4::before {
   pointer-events: none;
 }
 
-h5 {
-	font-size: 20px;
-	font-size: 2.0rem;
-}
-
-h6 {
-	font-size: 18px;
-	font-size: 1.8rem;
-}
-
 
 /*----------  Objects  ----------*/
-
-embed,
-iframe,
-img,
-object,
-video,
-.wp-caption {
-	max-width: 100%;
-}
 
 img {
 	height: auto;
 }
 
-.featured-content img,
-.gallery img {
-	width: auto;
-}
-
-.wp-caption {
-	margin: 0;
-}
-
 /*----------  Tables  ----------*/
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	line-height: 2;
 	margin-bottom: 40px;
-	width: 100%;
-}
-
-tbody {
-	border-bottom: 1px solid #ddd;
-}
-
-td,
-th {
-	text-align: left;
 }
 
 td {
 	border-top: 1px solid #ddd;
-	padding: 6px 0;
 	border-right: 1px solid #ddd;
 	border-left: 1px solid #ddd;
-	text-align: left;
-	padding-left: 15px;
-}
-
-th {
-	font-weight: 400;
+	padding-left: 5px;
 }
 
 /*----------  Add striping and dark border  ----------*/
@@ -270,175 +109,22 @@ thead {
 	background-color: rgb(68, 68, 68);
 }
 
-// Code formatting.
+/*---------- Code formatting ----------*/
 
-code {
+p code, li > code, table code, pre {
    color: #404040 !important;
    font-family: monospace;
-   font-size: 16px;
-   font-weight: 400;
+   font-size: 87%;
+   font-weight: bold;
+   word-break: normal;
+   background-color: rgba($black, 0.05);
+   border-radius: $border-radius;
 }
 
-.td-content {
-	// Highlighted code.
-    .highlight {
-        @extend .card !optional;
-	
-        margin: 2rem 0;
-        padding: 0;
-	    
-        pre {
-            margin: 0;
-            padding: 1rem;
-        }
-    }
-
-    // Inline code
-    p code, li > code, table code {
-        color: #6c757d !important;
-        padding: 0.2em 0.4em;
-        margin: 0;
-        font-size: 85%;
-        word-break: normal;
-        background-color: rgba($black, 0.05);
-        border-radius: $border-radius;
-
-        br {
-            display: none;
-        }
-    }
-
-/*----------  Code Blocks  ----------*/
-
-    pre {
-        word-wrap: normal;
-        background-color: $gray-100;
-        padding: $spacer;
-     
-
-        > code {
-	    background-color: inherit !important;
-            padding: 0;
-            margin: 0;
-            font-size: 100%;
-            word-break: normal;
-            white-space: pre;
-            border: 0;
-        }
-    }
-
-    pre.mermaid {
-        background-color: inherit;
-        font-size: 0;
-    }
-}
-
-/*----------  Alerts  ----------*/
-
-.alert {
-    font-weight: 500;
-    background: $white;
-    color: inherit;
-    border-radius: 0;
-    border-style: solid;
-    border-width: 0 0 0 4px;
-}
-
-/*----------  RSS  ----------*/
-
-.td-blog {
-    .td-rss-button {
-        position: absolute;
-        top: 5.5rem;
-        right: 1rem;
-        z-index: 22;
-    }
-}
-
-
-/*=============================
-=            Forms            =
-=============================*/
-
-input,
-select,
-textarea {
-	background-color: #fff;
-	border-radius: 0;
-	border: 1px solid #ddd;
-	color: #333;
-	padding: 16px;
-	width: 100%;
-}
-
-.required_text {
-    color: #c02b0a;
-}
-
-.form-check-label {
-	margin-left: 10px;
-}
-
-input:focus,
-textarea:focus {
-	border: 1px solid #999;
-	outline: none;
-}
-
-input[type="checkbox"],
-input[type="image"],
-input[type="radio"] {
-	width: auto;
-}
-
-::-moz-placeholder {
-	color: #333;
-	font-weight: 300;
-	opacity: 1;
-}
-
-::-webkit-input-placeholder {
-	color: #333;
-	font-weight: 300;
-}
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-.button {
-	background: #94c5ea;
-	border-radius: 3px;
-	color: #fff;
-	cursor: pointer;
-	font-family: 'Nunito Sans', sans-serif;
-	font-weight: 900;
-	padding: 16px 24px;
-	text-transform: uppercase;
-	width: auto;
-}
-
-button:hover,
-input:hover[type="button"],
-input:hover[type="reset"],
-input:hover[type="submit"],
-.button:hover,
-button:focus,
-input:focus[type="button"],
-input:focus[type="reset"],
-input:focus[type="submit"],
-.button:focus {
-	background-color: #333;
-	color: #fff;
-}
-
-.button {
-	display: inline-block;
-}
+/*---------- Buttons ----------*/
 
 .btn-primary {
     background: #ffa82c;
-    color: #fff;
     border-color: #ffa82c;
     text-transform: uppercase;
     text-decoration: none;
@@ -468,357 +154,7 @@ padding-bottom: 0px !important;
 padding: inherit !important;
 }
 
-
-/*=====================================
-=            Accessibility            =
-=====================================*/
-
-/*----------  Screen Reader Text  ----------*/
-
-.screen-reader-text,
-.screen-reader-text span,
-.screen-reader-shortcut {
-	position: absolute !important;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	width: 1px;
-	border: 0;
-	overflow: hidden;
-}
-
-.screen-reader-text:focus,
-.screen-reader-shortcut:focus,
-
-.more-link {
-    position: relative;
-}
-
-/*----------  Skip Links  ----------*/
-
-.genesis-skip-link {
-	margin: 0;
-}
-
-.genesis-skip-link li {
-	height: 0;
-	width: 0;
-	list-style: none;
-}
-
-.genesis-skip-link a {
-	border-bottom: 0;
-}
-
-.genesis-skip-link a:hover {
-	background: #f5f5f5;
-}
-
-/* Display outline on focus */
-:focus {
-	color: #222;
-	box-shadow: 0;
-	outline: rgba(0,0,0,.2) solid 2px;
-}
-
-
-/*=================================
-=            WordPress            =
-=================================*/
-
-/*----------  Defaults  ----------*/
-
-/*----------  DL: center small amount of text on page  ----------*/
-.center {
-position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-padding: 10px;
-}
-
-
-a.aligncenter img {
-	display: block;
-	margin: 0 auto;
-}
-
-a.alignnone {
-	display: inline-block;
-}
-
-.alignleft {
-	float: left;
-	text-align: left;
-}
-
-.alignright {
-	float: right;
-	text-align: right;
-}
-
-a.alignleft,
-a.alignnone,
-a.alignright {
-	max-width: 100%;
-}
-
-img.centered,
-.aligncenter {
-	display: block;
-	margin: 0 auto 24px;
-}
-
-img.alignnone,
-.alignnone {
-	margin-bottom: 12px;
-}
-
-a.alignleft,
-img.alignleft,
-.wp-caption.alignleft {
-	margin: 0 24px 24px 0;
-}
-
-a.alignright,
-img.alignright,
-.wp-caption.alignright {
-	margin: 0 0 24px 24px;
-}
-
-.wp-caption-text {
-	font-size: 14px;
-	font-size: 1.4rem;
-	font-style: italic;
-	text-align: center;
-}
-
-.entry-content p.wp-caption-text {
-	margin-bottom: 0;
-}
-
-.sticky {
-}
-
-.entry-content .wp-audio-shortcode,
-.entry-content .wp-playlist,
-.entry-content .wp-video {
-	margin: 0 0 28px;
-}
-
-#wpadminbar {
-	position: fixed !important;
-}
-
-/*----------  Gallery  ----------*/
-
-.gallery {
-	overflow: hidden;
-}
-
-.gallery-item {
-	float: left;
-	margin: 0 0 28px;
-	text-align: center;
-}
-
-.gallery-columns-2 .gallery-item {
-	width: 50%;
-}
-
-.gallery-columns-3 .gallery-item {
-	width: 33%;
-}
-
-.gallery-columns-4 .gallery-item {
-	width: 25%;
-}
-
-.gallery-columns-5 .gallery-item {
-	width: 20%;
-}
-
-.gallery-columns-6 .gallery-item {
-	width: 16.6666%;
-}
-
-.gallery-columns-7 .gallery-item {
-	width: 14.2857%;
-}
-
-.gallery-columns-8 .gallery-item {
-	width: 12.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-	width: 11.1111%;
-}
-
-.gallery img {
-	border: 1px solid #ddd;
-	height: auto;
-	padding: 4px;
-}
-
-.gallery img:hover,
-.gallery img:focus {
-	border: 1px solid #ddd;
-}
-
-/*----------  Avatar  ----------*/
-
-.avatar {
-	float: right;
-}
-
-.alignleft .avatar {
-	margin-left: 24px;
-}
-
-.alignright .avatar {
-	margin-left: 24px;
-}
-
-
-/*=================================
-=            Structure            =
-=================================*/
-
-/*----------  Site Containers  ----------*/
-
-.site-container {
-	max-width: 100%;
-}
-
-.site-inner,
-.wrap {
-	margin: 0 auto;
-	max-width: 1200px;
-	width: 100%;
-}
-
-.site-inner {
-	background: #fff;
-	clear: both;
-	padding: 20px 10px;
-}
-
-.page-template-page_builder .site-inner {
-	max-width:100%;
-	padding: 0px;
-}
-
-/*----------  Site Header  ----------*/
-
-.site-header {
-	left: 0;
-	overflow: hidden;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 100;
-}
-
-.admin-bar .site-header {
-	top: 46px;
-}
-
-.site-header > .wrap {
-	display: none;
-}
-
-.title-area {
-	display: none;
-}
-
-.header-widget-area {
-	display: none;
-}
-
-
-
-/*==============================
-=            Titles            =
-==============================*/
-
-/*----------  Site Header  ----------*/
-
-.site-title {
-	display: none;
-}
-
-.site-description {
-	display: none;
-}
-
-
-
-/*----------  Author Box  ----------*/
-
-.author-box-title {
-	font-size: 18px;
-	font-size: 1.8rem;
-	margin-top: 0;
-}
-
-/*----------  Archive Description  ----------*/
-
-.archive-title {
-	margin: 0;
-}
-
-
-/*==================================
-=            Navigation            =
-==================================*/
-
-.genesis-nav-menu {
-	clear: both;
-	line-height: 1;
-}
-
-.genesis-nav-menu .menu-item {
-	display: block;
-	position: relative;
-	text-align: right;
-}
-
-.genesis-nav-menu a {
-	border-bottom: 1px solid #ddd;
-	color: #1a79c0;
-	display: block;
-	padding: 20px 10px;
-	text-align: left;
-	text-decoration: none;
-}
-
-.genesis-nav-menu .menu-item.menu-item-has-children > a {
-	padding-right: 50px;
-}
-
-.genesis-nav-menu > .menu-item > a {
-	padding: 20px;
-}
-
-/* Sub Menu */
-
-.genesis-nav-menu .sub-menu {
-	display: none;
-}
-
-.genesis-nav-menu .sub-menu a {
-	font-size: .8em;
-	padding-left: 40px;
-	word-wrap: break-word;
-}
-
-.genesis-nav-menu .sub-menu .sub-menu a {
-	padding-left: 60px;
-}
-.nav-bar {
-	font-family: 'Nunito Sans', sans-serif;
-	font-weight: 900;
-}
-
+/*---------- Blue border under header ----------*/
 .header-border {
     border-style: solid;
     border-color: #94c5ea;
@@ -828,324 +164,16 @@ img.alignright,
     border-left-width: 0px;
 }
 
-/*----------  Primary Navigation  ----------*/
-
-.nav-primary,
-.nav-primary .genesis-nav-menu {
-	width: 100%;
-}
-
-.nav-primary {
-	background: #fff;
-	border-bottom: 1px solid #ddd;
-	display: none;
-	height: 100%;
-	overflow-y: scroll;
-	padding-top: 65px;
-	position: fixed;
-	top: 0;
-	z-index: 99;
-}
-
-.admin-bar .nav-primary {
-	padding-top: 111px;
-}
-
-/*----------  Secondary Navigation  ----------*/
-
-.nav-secondary {
-	background: #3bcacd;
-	border-bottom: 1px solid #ddd;
-	font-size: .8em;
-	font-weight: bold;
-	display: none;
-	text-transform: uppercase;
-}
-
-
-/*----------  Menu Toggle  ----------*/
-
-.menu-toggle {
-	background: transparent;
-	border: 0;
-	border-bottom: 1px solid #1a79c0;
-	color: #333;
-	float: right;
-	font-weight: bold;
-	padding: 0;
-	text-align: right;
-	text-transform: none;
-}
-
-.menu-toggle:focus,
-.menu-toggle:active,
-.menu-toggle:hover,
-.sub-menu-toggle:focus,
-.sub-menu-toggle:active,
-.sub-menu-toggle:hover {
-	background: transparent;
-	color: #444;
-}
-
-.sub-menu-toggle {
-	background: transparent;
-	border: 0;
-	padding: 20px;
-	position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.sub-menu-toggle:before {
-	color: #333;
-    content: "\f347";
-    display: block;
-    font-family: "dashicons";
-    font-size: inherit;
-    line-height: inherit;
-}
-
-.sub-menu-toggle.activated {
-	transform: rotate(180deg);
-}
-
-/*=====================================
-=            Content Areas            =
-=====================================*/
-
-/*----------  Entries  ----------*/
-
-.content .entry:first-of-type .entry-title {
-	margin-top: 0;
-}
-
-.entry {
-	text-rendering: optimizeLegibility;
-}
-
-.entry-content code {
-	background-color: rgb(68, 68, 68) !important;
-	color: #fff !important;
-}
-
-/*----------  Entry Meta  ----------*/
-
-p.entry-meta {
-	font-size: .8em;
-	font-style: italic;
-}
-
-/*----------  Comments  ----------*/
-
-.comment-respond,
-.entry-comments,
-.entry-pings {
-	background-color: #fff;
-	border-top: 2px solid #f2f1f1;
-	margin-bottom: 40px;
-}
-
-.entry-pings {
-	display: none;
-}
-
-.comment-header {
-	font-size: 16px;
-}
-
-li.comment {
-	border-bottom: 2px solid #f2f1f1;
-	border-right: none;
-}
-
-.comment-content {
-	clear: both;
-}
-
-.comment-list li {
-	font-size: 18px;
-	padding: 3%;
-}
-
-.comment-list li li {
-	background-color: #f9f9f9;
-}
-
-.comment-list .children {
-	border-top: 2px solid #e5e5e5;
-	margin-top: 5%;
-}
-
-.comment-respond input[type="email"],
-.comment-respond input[type="text"],
-.comment-respond input[type="url"] {
-	width: 50%;
-}
-
-.comment-respond label {
-	display: block;
-	margin-right: 12px;
-}
-
-.entry-comments .comment-author {
-	margin-bottom: 0;
-}
-
-.entry-comments .comment-author span,
-.entry-comments .comment-author a {
-	color: #1a79c0;
-	font-size: 26px;
-	font-style: normal;
-	line-height: 1;
-	text-decoration: none;
-}
-
-.says {
-	display: none;
-}
-
-.entry-pings .reply {
-	display: none;
-}
-
-.bypostauthor {
-}
-
-.form-allowed-tags {
-	display: none;
-}
-.avatar {
-    float: left;
-    margin: 0 20px 0 0;
-    height: 50px;
-    width: 50px;
-}
-
-/*----------  Pagination  ----------*/
-
-/* Pagination
---------------------------------------------- */
-
-.archive-pagination,
-.entry-pagination {
-	font-size: 14px;
-	font-weight: 400;
-	margin: 40px 0;
-	text-transform: uppercase;
-}
-
-.archive-pagination li {
-	display: inline;
-}
-
-.archive-pagination li a {
-	background-color: #f9f9f9;
-	color: #333;
-	cursor: pointer;
-	display: inline-block;
-	padding: 8px 12px;
-}
-
-.archive-pagination li a:hover,
-.archive-pagination li.active a {
-	color: #333;
-}
-
-/*================================
-=            Sidebars            =
-================================*/
-
-.sidebar {
-	display: none;
-}
-
-
-
-/*===============================
-=            Widgets            =
-===============================*/
-
-/*----------  Header Widget Area  ----------*/
-
-.header-widget-area {
-	display: none;
-	max-width: 600px;
-	width: 100%;
-}
-
-/*----------  Sidebar Widgets  ----------*/
-
-.sidebar .widget {
-	margin-bottom: 40px;
-}
-
-/*======================================
-=            Common Classes            =
-======================================*/
-
-/*----------  Archive/Author Box  ----------*/
-
-.archive-description,
-.author-box {
-	border-bottom: 1px solid #ddd;
-	border-top: 1px solid #ddd;
-    padding: 40px 0 40px;
-}
-
-.author-box {
-	font-size: .8em;
-	margin: 20px 0 40px;
-}
-
-.archive-description {
-	margin: 0 0 40px;
-}
-
-.archive-description p:last-child,
-.author-box p:last-child {
-	margin-bottom: 0;
-}
-
-.author-box .avatar {
-	margin: 0 0 24px 24px;
-	max-width: 70px;
-}
-
-/*----------  Breadcrumbs  ----------*/
-
-.breadcrumb {
-	font-size: 16px;
-	background: none;
-	padding-left: 3%;
-	padding-top: 10px;
-	line-height: 20px;
-}
-
 /*----------  Informational box  ----------*/
 
 .pageinfo {
-    font-weight: 500;
     background: #f8f9fa;
-    color: inherit;
-    border-radius: 0;
-    margin: 2rem;
     padding: 1.5rem;
     padding-bottom: 0.5rem;
     border-style: solid;
 }
 
-/*----------  Accordians  ----------*/
-
-summary {list-style: none}
-summary::-webkit-details-marker {display: none; }
-
-details summary > * { 
-  display: inline;
-}
-
-/*==============================
-=            Footer            =
-==============================*/
+/*----------  Footer ----------*/
 
 .site-footer {
 	background: #1a79c0;
@@ -1155,158 +183,4 @@ details summary > * {
 .site-footer p, {
 	color: #f9f9f9;
 	margin-bottom: 0;
-}
-
-
-/*=====================================
-=            Miscellaneous            =
-=====================================*/
-.fl-menu .fl-menu-mobile-toggle {
-	color: #fff !important;
-}
-
-
-
-/* # Print Styles
----------------------------------------------------------------------------------------------------- */
-
-@media print {
-
-	*,
-	*:before,
-	*:after {
-		background: transparent !important;
-		box-shadow: none !important;
-		color: #333 !important;
-		text-shadow: none !important;
-	}
-
-	a,
-	a:visited {
-		text-decoration: underline;
-	}
-
-	a[href]:after {
-		content: " (" attr(href) ")";
-	}
-
-	abbr[title]:after {
-		content: " (" attr(title) ")";
-	}
-
-	a[href^="javascript:"]:after,
-	a[href^="#"]:after,
-	.site-title > a:after {
-		content: "";
-	}
-
-	thead {
-		display: table-header-group;
-	}
-
-	img,
-	tr {
-		page-break-inside: avoid;
-	}
-
-	img {
-		max-width: 100% !important;
-	}
-
-	@page {
-		margin: 2cm 0.5cm;
-	}
-
-	p,
-	h2,
-	h3 {
-		orphans: 3;
-		widows: 3;
-	}
-
-	blockquote,
-	pre {
-		border: 1px solid #999;
-		page-break-inside: avoid;
-	}
-
-	.content,
-	.content-sidebar {
-		width: 100%;
-	}
-
-	button,
-	input,
-	select,
-	textarea,
-	.breadcrumb,
-	.comment-edit-link,
-	.comment-form,
-	.comment-list .reply a,
-	.comment-reply-title,
-	.edit-link,
-	.entry-comments-link,
-	.entry-footer,
-	.genesis-box,
-	.header-widget-area,
-	.hidden-print,
-	.home-top,
-	.nav-primary,
-	.nav-secondary,
-	.post-edit-link,
-	.sidebar {
-		display: none !important;
-	}
-
-	.title-area {
-		text-align: center;
-		width: 100%;
-	}
-
-	.site-title > a {
-		margin: 0;
-		text-decoration: none;
-		text-indent: 0;
-	}
-
-	.site-inner {
-		padding-top: 0;
-		position: relative;
-		top: -100px;
-	}
-
-	.author-box {
-		margin-bottom: 0;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		orphans: 3;
-		page-break-after: avoid;
-		page-break-inside: avoid;
-		widows: 3;
-	}
-
-
-	img {
-		page-break-after: avoid;
-		page-break-inside: avoid;
-	}
-
-	blockquote,
-	pre,
-	table {
-		page-break-inside: avoid;
-	}
-
-	dl,
-	ol,
-	ul {
-		page-break-before: avoid;
-	}
-
 }
