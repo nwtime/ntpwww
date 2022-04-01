@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/alice44.gif)
+![gif](/documentation/pic/alice44.gif)
 
 from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
@@ -80,7 +80,7 @@ The security measures discussed in this document are not the only defenses avail
 
 #### 1.2 Protocol Layers
 
-![gif](/archives/pic/sx1.gif)
+![gif](/documentation/pic/sx1.gif)
 
 **Figure 1. NTP Security Model**
 
@@ -108,7 +108,7 @@ The assumption made so far is that packets cannot be modified in transit. A rogu
 
 The message digest is a cryptographic hash computed by an algorithm such as MD5 or SHA. When authentication is specified, the reference implementation appends a message authentication code (MAC) following the NTP packet header and extension fields, if present. The MAC consists of a 32-bit key identifier (key ID) followed by a 128- or 160-bit message digest. The algorithm computes the message digest as the hash of a 128- or 160- bit secret message digest key concatenated with the NTP packet header fields and extension fields, if present, with the exception of the MAC itself. On transmit, the digest is computed and inserted in the MAC. On receive, the digest is computed and compared with the digest in the MAC. The packet is accepted only if the two digests are identical. If a discrepancy is found, the client ignores the packet, but raises an alarm. If this happens at the server, the server returns a special message called a _crypto-NAK_.
 
-![gif](/archives/pic/sx5.gif)
+![gif](/documentation/pic/sx5.gif)
 
 **Figure 2. Typical Symmetric Key File**
 
@@ -158,7 +158,7 @@ In symmetric modes, each peer operates as a server for the other peer as client;
 
 In broadcast modes the design is more complex, since a two-way exchange is not possible. The Autokey layer defense in broadcast modes uses a variant of the S-KEY scheme to bind a batch of packets to a digitally signed packet. A typical scenario is illustrated in Figure 3.
 
-![gif](/archives/pic/sx2.gif)
+![gif](/documentation/pic/sx2.gif)
 
 **Figure 3. Autokey Sequence in Broadcast Modes**
 
@@ -307,7 +307,7 @@ Following are suggested changes in the NTP reference implementation.
 
 #### Appendix A. Autokey Extension Fields
 
-![gif](/archives/pic/sx3.gif)
+![gif](/documentation/pic/sx3.gif)
 
 **Figure A1. Autokey**
 
@@ -319,7 +319,7 @@ Extension fields are normally used only in the Autokey dances before the system 
 
 The Autokey protocol uses one or more extension fields inserted between the NTP packet header and the MAC. The general format of the extension field is shown in Figure A2.
 
-![gif](/archives/pic/sx4.gif)
+![gif](/documentation/pic/sx4.gif)
 
 **Figure A2. Extension Field Format**
 

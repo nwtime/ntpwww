@@ -8,7 +8,7 @@ I was chief nerd for several projects in the fifteen years I was with U Michigan
 
 In the late 60s IBM was the crushing giant, while Digital Equipment Corporation (DEC) was yet a pipsqueak. The U Michigan Computing Center had a giant - a two-processor System 360 Model 67 processor with a dazzling one megabyte of core memory. This machine could support only dumb user terminals made by IBM and Teletype Corporation. I managed to get my hands on a pipsqueak - a DEC PDP8 - to serve as the nucleus for a controller to support other fancier user terminals and remote data communications. I was chief designer for a team that built the thing, which we called the Data Concentrator <sup>[5](#myfootnote5)</sup>. It was hardly a paragon of miniaturization, as evident in the photo below. It consisted of four six-foot racks populated with DEC Flip-Chip modules. We were lucky to get three NAND gates or two flipflops on one 5.25" plug-in card.
 
-![jpg](/archives/pic/dataconce.jpg)
+![jpg](/documentation/pic/dataconce.jpg)
 
 On the far left is a Teletype Model 35 with paper tape reader/punch. It made a sturdy operator console, but topped out at 10 char/sec. The leftmost rack contains the PDP8, 8192 words of 12-bit core memory and power supplies. The machine had eight instructions and no multiply/divide hardware. We used to say it was the smallest machine just larger than a Turing machine that was potentially useful. The next rack to the right contains an awesomely fast and noisy paper tape punch at the top. Just below that are control panels for the two IBM multiplexor channel interfaces. More about that later. Below that is a high speed (1000 byte/sec) paper tape reader.
 
@@ -22,15 +22,15 @@ Some idea of the scale of integration is evident in the photo below. Here DEC te
 
 The PDP8 instruction set had only seven instructions, a single accumulator and no index registers. Nevertheless, the homegrown operating system called RAMP [7] ran the show with a few cycles left over. Later, RAMP was used in real-time systems for audio switching <sup>[4](#myfootnote4)</sup> and automotive test cell control.
 
-![jpg](/archives/pic/dataconcb.jpg)
+![jpg](/documentation/pic/dataconcb.jpg)
 
 Just about the only terminal type the Data Concentrator didn't deal with was the IBM 1050 Data Terminal shown below circa 1970. This one had a keyboard, printer and punched card reader. It used the six-bit Binary Coded Decimal (BCD) code at 134.5 bps. A bunch of these shared the same telephone line with each one selected by a special prefix code. It had no internal memory, so the operator had to retype a line of data if the checksum failed. The last one I saw was buried in the Negev Desert in 1971.
 
-![jpg](/archives/pic/1052.jpg)
+![jpg](/documentation/pic/1052.jpg)
 
 As it happened, the IBM multiplexor channel interface was the first such interface not designed by IBM, so it caused a fair amount of interest <sup>[6](#myfootnote6)</sup>. There were actually two of them, one for each Model 67 processor. It was carefully designed to emulate either of two IBM communications controllers used to connect remote terminals and remote jobstations, but could also emulate the operator console. It could and sometimes did switch in when the operator console broke. The control panels for the two interfaces are shown in the photo below.
 
-![jpg](/archives/pic/dataconcc.jpg)
+![jpg](/documentation/pic/dataconcc.jpg)
 
 The Data Concentrator shown here operated for some years through the early and middle '70s. It was eventually replaced by a more modern PDP11 and microprogrammed interfaces. One of the technicians bought the PDP8 and so far as I know has it still running in his basement. I expect the only extant copies of the 30-year old reports are in my office, but the lessons learned were later bottled in journal and symposium papers <sup>[1, 2, 3](#myfootnote1)</sup>.
 

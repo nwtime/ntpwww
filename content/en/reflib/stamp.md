@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/oz2.gif)
+![gif](/documentation/pic/oz2.gif)
 
 from [_Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
@@ -141,7 +141,7 @@ Stochastic errors are generally mitigated by the NTP mitigation and discipline a
 
 To better understand the issues, consider the ultimate case where the server and client implement clocks that can be read with exquisite accuracy. The object is to measure the time offset of a server relative to the client.
 
-![gif](/archives/pic/stamp2.gif)
+![gif](/documentation/pic/stamp2.gif)
 
 **Figure 1**
 
@@ -215,7 +215,7 @@ The random variables <code>ε<sub>_t_</sub></code> and <code>ε<sub>_r_</sub></c
 
 In anticipation of a packet arrival, the NTP implementation allocates an input buffer in user space. When a complete packet (chain of kernel mbufs) arrives, the driver copies the mbufs to the buffer. The <code>_t_<sub>2</sub></code> or <code>_t_<sub>4</sub></code> (receive) drivestamp is struck from the system clock and copied to the buffer. The drivestamp is delayed by various device driver and operating system latencies represented by the random variable <code>ε<sub>_r_</sub></code>. Thus, <code>_T_<sub>2</sub> = _t_<sub>2</sub>− ε<sub>_r_</sub></code> and <code>_T_<sub>4</sub> = _t_<sub>4</sub> − ε<sub>_r_</sub></code>. The interrupt routine then copies the drivestamp to a preallocated field in the buffer.
 
-![gif](/archives/pic/stamp1.gif)
+![gif](/documentation/pic/stamp1.gif)
 
 **Figure 5**
 
@@ -243,7 +243,7 @@ Some idea of the errors introduced by nonreciprocal paths is illustrated in Figu
 
 **Figure 6**
 
-![gif](/archives/pic/stamp3.gif)
+![gif](/documentation/pic/stamp3.gif)
 
 As shown in Figure 6, the NTP on-wire protocol performs the same calculations as [Example 1](#myfootnote1) and [Example 2](#myfootnote2) using the reference timestamps but ignoring the latencies discussed in the preceding section. After substitution we have
 
@@ -319,7 +319,7 @@ results in a delay increase of <code>_d_</code>. Other combinations are possible
 
 Consider a scenario with two LAN segments connected by a switch or router, where one segment operates at 10 Mb and the other at 100 Mb. Even with hardware timestamps errors can occur due to the different packet transmission times.
 
-![gif](/archives/pic/stamp7.gif)
+![gif](/documentation/pic/stamp7.gif)
 
 **Figure 7**
 

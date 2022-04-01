@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/wingdorothy.gif)
+![gif](/documentation/pic/wingdorothy.gif)
 
 from [_The Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
@@ -47,7 +47,7 @@ The discussion in this document is designed to support and confirm this statemen
 
 _Time_ is an abstraction that establishes an ordering of events relative to a _timescale_. In NTP, a _date_ is a point on the timescale expressed in one of two formats, _datestamp_ and _timestamp._ As shown in Figure 1, a datestamp is a 128-bit, signed fixed-point number in seconds and fraction, with the decimal point to the left of bit 64. Dates are relative to the _prime epoch,_ 0 h, 1 January 1900; dates prior to the prime epoch have negative values, while dates since then have positive values. A timestamp is a 64-bit, unsigned fixed-point number in seconds and fraction with the decimal point to the left of bit 32. Datestamps are used in internal calculations where extended range and freedom from overflow are important, while timestamps are used in packet headers where economy of storage is important.
 
-![gif](/archives/pic/time1.gif)
+![gif](/documentation/pic/time1.gif)
 
 **Figure 1. NT Data Formats**
 

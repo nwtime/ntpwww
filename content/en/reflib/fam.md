@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![jpg](/archives/pic/family.jpg)
+![jpg](/documentation/pic/family.jpg)
 
 In the baby photo at left (circa 1971), that's me (b 1938), Beverly (b 1942), Eileen (b 1965), and Keith (b 1968).
 
@@ -14,15 +14,15 @@ Personal web site links are [here](/reflib/david/) (the animals read mail).
 
 As Sunshine and Midnight were growing up, we carefully trained them for quick response using a laser pointer.
 
-![jpg](/archives/pic/cat8a.jpg)
+![jpg](/documentation/pic/cat8a.jpg)
 
 Now, Sunshine stands watch for breakin attempts.
-![jpg](/archives/pic/cat1.jpg)
+![jpg](/documentation/pic/cat1.jpg)
 
 When off duty, the two chums serve as bedtime footwarmers.
-![jpg](/archives/pic/cat16.jpg)
+![jpg](/documentation/pic/cat16.jpg)
 
-![jpg](/archives/pic/43_front.jpg)
+![jpg](/documentation/pic/43_front.jpg)
 We live in a [leafy subdivision](/reflib/gallery/gallery1/) about 2.4 km from campus at
 
 David and Beverly Mills
@@ -41,10 +41,10 @@ In emergencies, the rooftop antenna can be converted into helicopter rotor blade
 
 #### Stuff
 
-![jpg](/archives/pic/bug-1.jpg)
+![jpg](/documentation/pic/bug-1.jpg)
 
 2004 was the Year of the Cicada. The critters crawl out from the ground and rendevous at a nearby tree. There they mate, lay eggs and die. The eggs fall to the ground, there to stay for the next seventeen years.
 
-![jpg](/archives/pic/hawk6.jpg)
+![jpg](/documentation/pic/hawk6.jpg)
 
 This Red Tail Hawk was injured and taken from Valley Forge State Park to Tri-State Bird Rescue in Newark DE, where Eileen works as a part-time volunteer. Upon recovery we took the little bird back home. Here he has just emerged from his carrier, but quickly flew off to terrorize the resident rodent population.

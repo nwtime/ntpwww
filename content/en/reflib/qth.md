@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/tonea.gif)
+![gif](/documentation/pic/tonea.gif)
 
 From NBS Special Publication 432 (1979 edition, now out of print)
 
@@ -32,6 +32,6 @@ The following data were obtained from the International Frequency List published
 #### Additional Information
 
 *   Beehler, R.E., and M.A. Lombardi. NIST Time and Frequency Services. NIST Special Publication 432 (2002 Edition). Covers Radio Stations WWV, WWVH, WWVB, GOES Satellite Time Code and Automated Computer Time Service (ACTS)
-*   [WWV Broadcast Schedule (USA)](/archives/pic/wwv.jpg)
-*   [WWVH Broadcast Schedule (USA)](/archives/pic/wwvh.jpg)
-*   [Inter-Range Instrumentation Group (IRIG) Timecode Format](/archives/pic/irig_b.jpg)
+*   [WWV Broadcast Schedule (USA)](/documentation/pic/wwv.jpg)
+*   [WWVH Broadcast Schedule (USA)](/documentation/pic/wwvh.jpg)
+*   [Inter-Range Instrumentation Group (IRIG) Timecode Format](/documentation/pic/irig_b.jpg)

@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/alautun4a.gif)
+![gif](/documentation/pic/alautun4a.gif)
 
 [Maya glyph _alautun_](/reflib/maya/)
 
@@ -65,7 +65,7 @@ We consider the NTP project and ongoing development a basically mature project, 
 
 There have been significant changes and additions  to the NTPv4 protocol specification [RFC 5905](/reflib/rfc/rfc5905.txt) and the Autokey specification [RFC 5906](/reflib/rfc/rfc5906.txt) since their publication in 2010. In addition, there have been significant unreported changes since the original drafts were written in 2006. The five-year delay in the IETF publishing process has meant that these changes have not kept pace with the current development and there are no current plans to update the documents in the near future.
 
-However, there is a considerable body of progress reported in the online documentation [NTP Version 4 Release Notes](/archives/4.2.8-series/release/) and the white papers [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/) and [NTP Security Analysis](/reflib/security/). These documents should be reformatted as an Informational RFC and relevant sections should be incorporated in a RFC 5905 replacement or supplement. While the book cited below cites some of the improvements, the most recent are documented only  in the online documentation and white papers.
+However, there is a considerable body of progress reported in the online documentation [NTP Version 4 Release Notes](/documentation/4.2.8-series/release/) and the white papers [Analysis and Simulation of the NTP On-Wire Protocols](/reflib/onwire/) and [NTP Security Analysis](/reflib/security/). These documents should be reformatted as an Informational RFC and relevant sections should be incorporated in a RFC 5905 replacement or supplement. While the book cited below cites some of the improvements, the most recent are documented only  in the online documentation and white papers.
 
 * * *
 

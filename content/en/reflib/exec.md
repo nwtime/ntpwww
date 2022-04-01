@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/alice12.gif)
+![gif](/documentation/pic/alice12.gif)
 
 from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
@@ -37,7 +37,7 @@ The Network Time Protocol (NTP) and other protocols are used to synchronize the 
 
 ####  Introduction
 
-This document contains an overview and functional description of the Network Time Protocol (NTP), which is used to synchronize computer clocks in the Internet to a common timescale. The discussion is intended for site managers and administrators as well as technical planning and support staff. This document does not describe the architecture, protocols and algorithm in detail; for that, see the tutorial collection [How NTP Works](/archives/4.2.8-series/warp/).
+This document contains an overview and functional description of the Network Time Protocol (NTP), which is used to synchronize computer clocks in the Internet to a common timescale. The discussion is intended for site managers and administrators as well as technical planning and support staff. This document does not describe the architecture, protocols and algorithm in detail; for that, see the tutorial collection [How NTP Works](/documentation/4.2.8-series/warp/).
 
 The standard timescale used by most nations of the world is Coordinated Universal Time (UTC), which is based on the Earth's rotation about its axis, and the Gregorian Calendar, which is based on the Earth's rotation about the Sun. The UTC timescale is disciplined with respect to International Atomic Time (TAI) by inserting leap seconds at intervals of about 18 months. UTC time is disseminated by various means, including radio and satellite navigation systems, telephone modems and portable clocks. Insertion of leap seconds in the NTP and POSIX timescale is discussed in the white paper [The NTP Timescale and Leap Seconds](/reflib/leap/).
 

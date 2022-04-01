@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/wingman.gif)
+![gif](/documentation/pic/wingman.gif)
 
 from [_The Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
@@ -96,7 +96,7 @@ As required by the NTP specification, the NTP reference implementation operates 
 
 Consider the case in Figure 1, where timestamps are represented as years mod 136. Server clock <code>_S_</code> is set to 2056 (timestamp 20 in era 1), while the client clock <code>_C_</code> is set to 2006 (timestamp 106 in era 0).
 
-![gif](/archives/pic/era.gif)
+![gif](/documentation/pic/era.gif)
 
 **Figure 1**
 
