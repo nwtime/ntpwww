@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 You need a little magic.
 
@@ -12,10 +12,10 @@ You need a little magic.
 
 #### Table of Contents
 
-*   [Description](/archives/4.1.2/howto/#description)
-*   [Conventions, Fudge Factors and Flags](/archives/4.1.2/howto/#conventions-fudge-factors-and-flags)
-*   [Files Which Need to be Changed](/archives/4.1.2/howto/#files-which-need-to-be-changed)
-*   [Interface Routine Overview](/archives/4.1.2/howto/#interface-routine-overview)
+*   [Description](/documentation/4.1.2/howto/#description)
+*   [Conventions, Fudge Factors and Flags](/documentation/4.1.2/howto/#conventions-fudge-factors-and-flags)
+*   [Files Which Need to be Changed](/documentation/4.1.2/howto/#files-which-need-to-be-changed)
+*   [Interface Routine Overview](/documentation/4.1.2/howto/#interface-routine-overview)
 
 * * *
 
@@ -29,9 +29,9 @@ The best way to understand how the clock drivers work is to study the <code>ntp_
 
 The main interface used by these routines is the <code>refclockproc</code> structure, which contains for most drivers the decimal equivalents of the year, day, month, hour, second and millisecond/microsecond decoded from the ASCII timecode. Additional information includes the receive timestamp, exception report, statistics tallies, etc. The support routines are passed a pointer to the <code>peer</code> structure, which is used for all peer-specific processing and contains a pointer to the <code>refclockproc</code> structure, which in turn contains a pointer to the unit structure, if used. For legacy purposes, a table <code>typeunit[type][unit]</code> contains the peer structure pointer for each configured clock type and unit.
 
-The reference clock interface supports auxiliary functions to support in-stream timestamping, pulse-per-second (PPS) interfacing and precision time kernel support. In most cases the drivers do not need to be aware of them, since they are detected at autoconfigure time and loaded automatically when the device is opened. These include the <code>tty_clk</code> and <code>ppsclock</code> STREAMS modules and <code>ppsapi</code> PPS interface described in the [Line Disciplines and Streams Modules](/archives/4.1.2/ldisc/) page. The <code>tty_clk</code> module reduces latency errors due to the operating system and serial port code in slower systems. The <code>ppsclock</code> module is an interface for the PPS signal provided by some radios. The <code>ppsapi</code> PPS interface replaces the <code>ppsclock</code> STREAMS module and is expected to become the IETF standard cross-platform interface for PPS signals. In either case, the PPS signal can be connected via a level converter/pulse generator described in the [Gadget Box PPS Level Converter and CHU Modem](/archives/4.1.2/gadget/) page.
+The reference clock interface supports auxiliary functions to support in-stream timestamping, pulse-per-second (PPS) interfacing and precision time kernel support. In most cases the drivers do not need to be aware of them, since they are detected at autoconfigure time and loaded automatically when the device is opened. These include the <code>tty_clk</code> and <code>ppsclock</code> STREAMS modules and <code>ppsapi</code> PPS interface described in the [Line Disciplines and Streams Modules](/documentation/4.1.2/ldisc/) page. The <code>tty_clk</code> module reduces latency errors due to the operating system and serial port code in slower systems. The <code>ppsclock</code> module is an interface for the PPS signal provided by some radios. The <code>ppsapi</code> PPS interface replaces the <code>ppsclock</code> STREAMS module and is expected to become the IETF standard cross-platform interface for PPS signals. In either case, the PPS signal can be connected via a level converter/pulse generator described in the [Gadget Box PPS Level Converter and CHU Modem](/documentation/4.1.2/gadget/) page.
 
-By convention, reference clock drivers are named in the form <code>refclock\__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name, and device name. The existing assignments are in the [Reference Clock Drivers](/archives/4.1.2/refclock/) page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the autoconfigure phase and conditionally compiled. They are configured when the daemon is started according to the configuration file, as described in the [Configuration Options](/archives/4.1.2/config/) page.
+By convention, reference clock drivers are named in the form <code>refclock\__xxxx_.c</code>, where <code>_xxxx_</code> is a unique string. Each driver is assigned a unique type number, long-form driver name, short-form driver name, and device name. The existing assignments are in the [Reference Clock Drivers](/documentation/4.1.2/refclock/) page and its dependencies. All drivers supported by the particular hardware and operating system are automatically detected in the autoconfigure phase and conditionally compiled. They are configured when the daemon is started according to the configuration file, as described in the [Configuration Options](/documentation/4.1.2/config/) page.
 
 The standard clock driver interface includes a set of common support routines some of which do such things as start and stop the device, open the serial port, and establish special functions such as PPS signal support. Other routines read and write data to the device and process time values. Most drivers need only a little customizing code to, for instance, transform idiosyncratic timecode formats to standard form, poll the device as necessary, and handle exception conditions. A standard interface is available for remote debugging and monitoring programs, such as <code>ntpq</code> and <code>ntpdc</code>, as well as the <code>filegen</code> facility, which can be used to record device status on a continuous basis.
 
@@ -157,4 +157,4 @@ Note that no provision is included for the year, as provided by some (but not al
 
 * * *
 
-![gif](/archives/pic/pogo1a.gif)
+![gif](/documentation/pic/pogo1a.gif)

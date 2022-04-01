@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 This program is a big puppy.
 
@@ -12,13 +12,13 @@ This program is a big puppy.
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.1.2/ntpdc/#synopsis)
-*   [Description](/archives/4.1.2/ntpdc/#description)
-*   [Command Line Options](/archives/4.1.2/ntpdc/#command-line-options)
-*   [Interactive Commands](/archives/4.1.2/ntpdc/#interactive-commands)
-*   [Control Message Commands](/archives/4.1.2/ntpdc/#control-message-commands)
-*   [Runtime Configuration Requests](/archives/4.1.2/ntpdc/#runtime-configuration-requests)
-*   [Bugs](/archives/4.1.2/ntpdc/#bugs)
+*   [Synopsis](/documentation/4.1.2/ntpdc/#synopsis)
+*   [Description](/documentation/4.1.2/ntpdc/#description)
+*   [Command Line Options](/documentation/4.1.2/ntpdc/#command-line-options)
+*   [Interactive Commands](/documentation/4.1.2/ntpdc/#interactive-commands)
+*   [Control Message Commands](/documentation/4.1.2/ntpdc/#control-message-commands)
+*   [Runtime Configuration Requests](/documentation/4.1.2/ntpdc/#runtime-configuration-requests)
+*   [Bugs](/documentation/4.1.2/ntpdc/#bugs)
 
 * * *
 
@@ -240,15 +240,15 @@ The following commands all make authenticated requests.
 
 <code>pll</code>
 
-: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/archives/4.1.2/refclock/) page for further information. The default for this flag is enable.
+: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/documentation/4.1.2/refclock/) page for further information. The default for this flag is enable.
 
 <code>pps</code>
 
-: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/archives/4.1.2/kern/) page for further information. The default for this flag is disable.
+: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/documentation/4.1.2/kern/) page for further information. The default for this flag is disable.
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/4.1.2/monopt/) page for further information. The default for this flag is enable.
+: Enables the statistics facility. See the [Monitoring Options](/documentation/4.1.2/monopt/) page for further information. The default for this flag is enable.
 
 <code>pll_kernel</code>
 

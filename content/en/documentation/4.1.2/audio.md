@@ -4,15 +4,15 @@ type: archives
 noindex: true
 ---
 
-![jpg](/archives/pic/radio2.jpg) ICOM R-72 shortwave receiver and Sure audio mixer
+![jpg](/documentation/pic/radio2.jpg) ICOM R-72 shortwave receiver and Sure audio mixer
 
 * * *
 
 #### Table of Contents
 
-*   [Sound Card Drivers](/archives/4.1.2/audio/#sound-card-drivers)
-*   [Shortwave Radio Drivers](/archives/4.1.2/audio/#shortwave-radio-drivers)
-*   [Debugging Aids](/archives/4.1.2/audio/#debugging-aids)
+*   [Sound Card Drivers](/documentation/4.1.2/audio/#sound-card-drivers)
+*   [Shortwave Radio Drivers](/documentation/4.1.2/audio/#shortwave-radio-drivers)
+*   [Debugging Aids](/documentation/4.1.2/audio/#debugging-aids)
 
 * * *
 
