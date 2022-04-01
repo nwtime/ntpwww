@@ -6,12 +6,12 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/xntpd/#synopsis)
-*   [Description](/archives/3-5.93e/xntpd/#description)
-*   [Command Line Options](/archives/3-5.93e/xntpd/#command-line-options)
-*   [The Configuration File](/archives/3-5.93e/xntpd/#the-configuration-file)
-*   [Files](/archives/3-5.93e/xntpd/#files)
-*   [Bugs](/archives/3-5.93e/xntpd/#bugs)
+*   [Synopsis](/documentation/3-5.93e/xntpd/#synopsis)
+*   [Description](/documentation/3-5.93e/xntpd/#description)
+*   [Command Line Options](/documentation/3-5.93e/xntpd/#command-line-options)
+*   [The Configuration File](/documentation/3-5.93e/xntpd/#the-configuration-file)
+*   [Files](/documentation/3-5.93e/xntpd/#files)
+*   [Bugs](/documentation/3-5.93e/xntpd/#bugs)
 
 * * *
 
@@ -29,7 +29,7 @@ The daemon can operate in any of several modes, including symmetric active/passi
 
 Ordinarily, <code>xntpd</code> reads the <code>ntp.conf</code> configuration file at startup time in order to determine the synchronization sources and operating modes. It is also possible to specify a working, although limited, configuration entirely on the command line, obviating the need for a configuration file. This may be particularly appropriate when the local host is to be configured as a broadcast or multicast client, with all peers being determined by listening to broadcasts at run time.
 
-Various internal <code>xntpd</code> variables can be displayed and configuration options altered while the daemon is running using the [ntpq](/archives/3-5.93e/ntpq/) and [xntpdc](/archives/3-5.93e/xntpdc/) utility programs.
+Various internal <code>xntpd</code> variables can be displayed and configuration options altered while the daemon is running using the [ntpq](/documentation/3-5.93e/ntpq/) and [xntpdc](/documentation/3-5.93e/xntpdc/) utility programs.
 
 When <code>xntpd</code> starts it looks at the value of <code>umask</code>, and if it's zero <code>xntpd</code> will set the <code>umask</code> to <code>022</code>. 
 
@@ -103,14 +103,14 @@ When <code>xntpd</code> starts it looks at the value of <code>umask</code>, and 
 
 The <code>xntpd</code> configuration file is read at initial startup in order to specify the synchronization sources, modes and other related information. Usually, it is installed in the <code>/etc</code> directory, but could be installed elsewhere (see the <code>-c _conffile_</code> command line option). The file format is similar to other Unix configuration files - comments begin with a <code>#</code> character and extend to the end of the line; blank lines are ignored. Configuration commands consist of an initial keyword followed by a list of arguments, some of which may be optional, separated by whitespace. Commands may not be continued over multiple lines. Arguments may be host names, host addresses written in numeric, dotted-quad form, integers, floating point numbers (when specifying times in seconds) and text strings. Optional arguments are delimited by <code>[ ]</code> in the following descriptions, while alternatives are separated by <code>|</code>. The notation <code>[ ... ]</code> means an optional, indefinite repetition of the last item before the <code>[ ... ]</code>.
 
-See the following pages for configuration and control options. While there is a rich set of options available, the only required option is one or more <code>server, peer</code> or <code>broadcast</code> commands described in the Configuration Options page. The [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/3-5.93e/notes/) page contains an extended discussion of these options. 
+See the following pages for configuration and control options. While there is a rich set of options available, the only required option is one or more <code>server, peer</code> or <code>broadcast</code> commands described in the Configuration Options page. The [Notes on Configuring NTP and Setting up a NTP Subnet](/documentation/3-5.93e/notes/) page contains an extended discussion of these options. 
 
-[Configuration Options](/archives/3-5.93e/confopt/)  
-[Authentication Options](/archives/3-5.93e/authopt/)  
-[Monitoring Options](/archives/3-5.93e/monopt/)  
-[Access Control Options](/archives/3-5.93e/accopt/)   
-[Reference Clock Options](/archives/3-5.93e/clockopt/)  
-[Miscellaneous Options](/archives/3-5.93e/miscopt/)
+[Configuration Options](/documentation/3-5.93e/confopt/)  
+[Authentication Options](/documentation/3-5.93e/authopt/)  
+[Monitoring Options](/documentation/3-5.93e/monopt/)  
+[Access Control Options](/documentation/3-5.93e/accopt/)   
+[Reference Clock Options](/documentation/3-5.93e/clockopt/)  
+[Miscellaneous Options](/documentation/3-5.93e/miscopt/)
 
 * * *
 

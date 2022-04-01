@@ -6,13 +6,13 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver28/#synopsis)
-*   [Description](/archives/3-5.93e/driver28/#description)
-*   [Structure of shared memory-segment](/archives/3-5.93e/driver28/#structure-of-shared-memory-segment)
-*   [Operation mode=0](/archives/3-5.93e/driver28/#operation-mode0)
-*   [Operation mode=1](/archives/3-5.93e/driver28/#operation-mode1)
-*   [Fudge Factors](/archives/3-5.93e/driver28/#fudge-factors)
-*   [Additional Information](/archives/3-5.93e/driver28/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver28/#synopsis)
+*   [Description](/documentation/3-5.93e/driver28/#description)
+*   [Structure of shared memory-segment](/documentation/3-5.93e/driver28/#structure-of-shared-memory-segment)
+*   [Operation mode=0](/documentation/3-5.93e/driver28/#operation-mode0)
+*   [Operation mode=1](/documentation/3-5.93e/driver28/#operation-mode1)
+*   [Fudge Factors](/documentation/3-5.93e/driver28/#fudge-factors)
+*   [Additional Information](/documentation/3-5.93e/driver28/#additional-information)
 
 * * *
 
@@ -116,4 +116,4 @@ If not set, a timeout is reported to ntp, nothing else happened.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)

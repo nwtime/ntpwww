@@ -6,11 +6,11 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver4/#synopsis)
-*   [Description](/archives/3-5.93e/driver4/#description)
-*   [Monitor Data](/archives/3-5.93e/driver4/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver4/#fudge-factors)
-*   [Additional Information](/archives/3-5.93e/driver4/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver4/#synopsis)
+*   [Description](/documentation/3-5.93e/driver4/#description)
+*   [Monitor Data](/documentation/3-5.93e/driver4/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver4/#fudge-factors)
+*   [Additional Information](/documentation/3-5.93e/driver4/#additional-information)
 
 * * *
 
@@ -107,4 +107,4 @@ The driver writes each timecode as received to the <code>clockstats</code> file.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)

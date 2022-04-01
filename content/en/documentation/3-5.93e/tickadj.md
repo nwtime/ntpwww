@@ -6,11 +6,11 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/tickadj/#synopsis)
-*   [Description](/archives/3-5.93e/tickadj/#description)
-*   [Command Line Options](/archives/3-5.93e/tickadj/#command-line-options)
-*   [Files](/archives/3-5.93e/tickadj/#files)
-*   [Bugs](/archives/3-5.93e/tickadj/#bugs)
+*   [Synopsis](/documentation/3-5.93e/tickadj/#synopsis)
+*   [Description](/documentation/3-5.93e/tickadj/#description)
+*   [Command Line Options](/documentation/3-5.93e/tickadj/#command-line-options)
+*   [Files](/documentation/3-5.93e/tickadj/#files)
+*   [Bugs](/documentation/3-5.93e/tickadj/#bugs)
 
 * * *
 

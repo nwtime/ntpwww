@@ -6,10 +6,10 @@ noindex: true
 
 #### Table of Contents
 
-* [Synopsis](/archives/3-5.93e/ntptrace/#synopsis)
-* [Description](/archives/3-5.93e/ntptrace/#description)
-* [Options](/archives/3-5.93e/ntptrace/#options)
-* [Bugs](/archives/3-5.93e/ntptrace/#bugs)
+* [Synopsis](/documentation/3-5.93e/ntptrace/#synopsis)
+* [Description](/documentation/3-5.93e/ntptrace/#description)
+* [Options](/documentation/3-5.93e/ntptrace/#options)
+* [Bugs](/documentation/3-5.93e/ntptrace/#bugs)
 
 * * *
 

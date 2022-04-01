@@ -6,8 +6,8 @@ noindex: true
 
 #### Table of Contents
 
-*   [Monitoring Support](/archives/3-5.93e/monopt/#monitoring-support)
-*   [Monitoring Commands](/archives/3-5.93e/monopt/#monitoring-commands)
+*   [Monitoring Support](/documentation/3-5.93e/monopt/#monitoring-support)
+*   [Monitoring Commands](/documentation/3-5.93e/monopt/#monitoring-commands)
 
 * * *
 

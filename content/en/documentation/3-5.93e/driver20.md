@@ -6,12 +6,12 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver20/#synopsis)
-*   [Description](/archives/3-5.93e/driver20/#description)
-*   [Setting up the Garmin GPS-25XL](/archives/3-5.93e/driver20/#setting-up-the-garmin-gps-25xl)
-*   [Monitor Data](/archives/3-5.93e/driver20/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver20/#fudge-factors)
-*   [Additional Information](/archives/3-5.93e/driver20/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver20/#synopsis)
+*   [Description](/documentation/3-5.93e/driver20/#description)
+*   [Setting up the Garmin GPS-25XL](/documentation/3-5.93e/driver20/#setting-up-the-garmin-gps-25xl)
+*   [Monitor Data](/documentation/3-5.93e/driver20/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver20/#fudge-factors)
+*   [Additional Information](/documentation/3-5.93e/driver20/#additional-information)
 
 * * *
 
@@ -114,4 +114,4 @@ The <code>$GPRMC</code> string that is used is written to the clockstats file.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)

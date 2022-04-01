@@ -6,11 +6,11 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver10/#synopsis)
-*   [Description](/archives/3-5.93e/driver10/#description)
-*   [Monitor Data](/archives/3-5.93e/driver10/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver10/#fudge-factors)
-*   [Additional Information](/archives/3-5.93e/driver10/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver10/#synopsis)
+*   [Description](/documentation/3-5.93e/driver10/#description)
+*   [Monitor Data](/documentation/3-5.93e/driver10/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver10/#fudge-factors)
+*   [Additional Information](/documentation/3-5.93e/driver10/#additional-information)
 
 * * *
 
@@ -26,7 +26,7 @@ noindex: true
 
 #### Description
 
-This driver supports the Austron 2200A/2201A GPS/LORAN Synchronized Clock and Timing Receiver connected via a serial port. It supports several special features of the clock, including the Input Buffer Module, Output Buffer Module, IRIG-B Interface Module and LORAN Assist Module. It requires the RS232 Serial Interface module for communication with the driver. It requires the `ppsclock` streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc/) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps/) page.
+This driver supports the Austron 2200A/2201A GPS/LORAN Synchronized Clock and Timing Receiver connected via a serial port. It supports several special features of the clock, including the Input Buffer Module, Output Buffer Module, IRIG-B Interface Module and LORAN Assist Module. It requires the RS232 Serial Interface module for communication with the driver. It requires the `ppsclock` streams module described in the [Line Disciplines and Streams Drivers](/documentation/3-5.93e/ldisc/) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/documentation/3-5.93e/pps/) page.
 
 This receiver is capable of a comprehensive and large volume of statistics and operational data. The specific data collection commands and attributes are embedded in the driver source code; however, the collection process can be enabled or disabled using the flag4 flag. If set, collection is enabled; if not, which is the default, it is disabled. A comprehensive suite of data reduction and summary scripts is in the ./scripts/stats directory of the xntp3 distribution.
 
@@ -78,4 +78,4 @@ When enabled by the <code>flag4</code> fudge flag, every received timecode is wr
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)

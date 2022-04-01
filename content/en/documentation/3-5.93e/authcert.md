@@ -6,9 +6,9 @@ noindex: true
 
 #### Table of Contents
 
-*  [Synopsis](/archives/3-5.93e/authcert/#synopsis)
-*  [Description](/archives/3-5.93e/authcert/#description)
-*  [Files](/archives/3-5.93e/authcert/#files)
+*  [Synopsis](/documentation/3-5.93e/authcert/#synopsis)
+*  [Description](/documentation/3-5.93e/authcert/#description)
+*  [Files](/documentation/3-5.93e/authcert/#files)
 
 * * *
 

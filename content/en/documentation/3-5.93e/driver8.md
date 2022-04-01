@@ -6,13 +6,13 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver8/#synopsis)
-*   [Description](/archives/3-5.93e/driver8/#description)
-*   [ntpq (8) Timecode Variables](/archives/3-5.93e/driver8/#ntpq-8-timecode-variables)
-*   [Monitor Data](/archives/3-5.93e/driver8/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver8/#fudge-factors)
-*   [Making your own PARSE clocks](/archives/3-5.93e/driver8/#making-your-own-parse-clocks)
-*   [Additional Information](/archives/3-5.93e/driver8/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver8/#synopsis)
+*   [Description](/documentation/3-5.93e/driver8/#description)
+*   [ntpq (8) Timecode Variables](/documentation/3-5.93e/driver8/#ntpq-8-timecode-variables)
+*   [Monitor Data](/documentation/3-5.93e/driver8/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver8/#fudge-factors)
+*   [Making your own PARSE clocks](/documentation/3-5.93e/driver8/#making-your-own-parse-clocks)
+*   [Additional Information](/documentation/3-5.93e/driver8/#additional-information)
 
 * * *
 
@@ -77,7 +77,7 @@ Currently, fourteen clock types (devices <code>/dev/refclock-0</code> - <code>/d
 *   server 127.127.8.0-3 mode 13  
     Diem's Computime Radio Clock
 
-Actual data formats and set-up requirements of the various clocks can be found in [XNTP PARSE clock data formats](/archives/3-5.93e/parsedata/).
+Actual data formats and set-up requirements of the various clocks can be found in [XNTP PARSE clock data formats](/documentation/3-5.93e/parsedata/).
 
 The reference clock support carefully monitors the state transitions of the receiver. All state changes and exceptional events such as loss of time code transmission are logged via the <code>syslog</code> facility. Every hour a summary of the accumulated times for the clock states is listed via <code>syslog</code>.
 
@@ -135,10 +135,10 @@ Clock state statistics are written hourly to the syslog service. Online informat
 
 #### Making your own PARSE clocks
 
-The parse clock mechanism is deviated from the way other xntp reference clocks work. For a short description of how to build parse reference clocks, see [making PARSE clocks](/archives/3-5.93e/parsenew/).
+The parse clock mechanism is deviated from the way other xntp reference clocks work. For a short description of how to build parse reference clocks, see [making PARSE clocks](/documentation/3-5.93e/parsenew/).
 
 * * *
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)

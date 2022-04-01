@@ -8,11 +8,11 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver5/#synopsis)
-*   [Description](/archives/3-5.93e/driver5/#description)
-*   [Monitor Data](/archives/3-5.93e/driver5/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver5/#fudge-factors)
-*   [Additional Information](/archives/3-5.93e/driver5/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver5/#synopsis)
+*   [Description](/documentation/3-5.93e/driver5/#description)
+*   [Monitor Data](/documentation/3-5.93e/driver5/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver5/#fudge-factors)
+*   [Additional Information](/documentation/3-5.93e/driver5/#additional-information)
 
 * * *
 
@@ -119,4 +119,4 @@ When enabled by the <code>flag4</code> fudge flag, every received timecode is wr
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)

@@ -6,10 +6,10 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/authspeed/#synopsis)
-*   [Description](/archives/3-5.93e/authspeed/#description)
-*   [Options](/archives/3-5.93e/authspeed/#options)
-*   [Files](/archives/3-5.93e/authspeed/#files)
+*   [Synopsis](/documentation/3-5.93e/authspeed/#synopsis)
+*   [Description](/documentation/3-5.93e/authspeed/#description)
+*   [Options](/documentation/3-5.93e/authspeed/#options)
+*   [Files](/documentation/3-5.93e/authspeed/#files)
 
 * * *
 

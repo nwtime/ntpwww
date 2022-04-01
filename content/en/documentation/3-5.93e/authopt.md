@@ -6,9 +6,9 @@ noindex: true
 
 #### Table of Contents
 
-*   [Authentication Support](/archives/3-5.93e/authopt/#authentication-support)
-*   [Authentication Commands](/archives/3-5.93e/authopt/#authentication-commands)
-*   [Authentication Key File Format](/archives/3-5.93e/authopt/#authentication-key-file-format)
+*   [Authentication Support](/documentation/3-5.93e/authopt/#authentication-support)
+*   [Authentication Commands](/documentation/3-5.93e/authopt/#authentication-commands)
+*   [Authentication Key File Format](/documentation/3-5.93e/authopt/#authentication-key-file-format)
 
 * * *
 
@@ -16,7 +16,7 @@ noindex: true
 
 The NTP standard specifies an extension which provides cryptographic authentication of received NTP packets. This is implemented in <code>xntpd</code> using the DES or MD5 algorithms to compute a digital signature, or message digest. The specification allows any one of possibly 4 billion keys, numbered with 32-bit key identifiers, to be used to authenticate an association. The servers involved in an association must agree on the key and key identifier used to authenticate their messages. 
 
-Keys and related information are specified in a key file, which should be exchanged and stored using secure procedures beyond the scope of the protocol. There are three classes of keys involved in the current implementation. One class is used for ordinary NTP associations, another for the [ntpq](/archives/3-5.93e/ntpq/) utility program and the third for the [xntpdc](/archives/3-5.93e/xntpdc/) utility program. 
+Keys and related information are specified in a key file, which should be exchanged and stored using secure procedures beyond the scope of the protocol. There are three classes of keys involved in the current implementation. One class is used for ordinary NTP associations, another for the [ntpq](/documentation/3-5.93e/ntpq/) utility program and the third for the [xntpdc](/documentation/3-5.93e/xntpdc/) utility program. 
 
 * * *
 
@@ -32,11 +32,11 @@ Keys and related information are specified in a key file, which should be exchan
 
 <code>**requestkey _key_**</code>
 
-: Specifies the key identifier to use with the [<code>xntpdc</code>](/archives/3-5.93e/xntpdc/) program, which uses a proprietary protocol specific to this implementation of <code>xntpd</code>. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The key argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don't match, such requests will be ignored. 
+: Specifies the key identifier to use with the [<code>xntpdc</code>](/documentation/3-5.93e/xntpdc/) program, which uses a proprietary protocol specific to this implementation of <code>xntpd</code>. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The key argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don't match, such requests will be ignored. 
 
 <code>**controlkey _key_**</code>
 
-: Specifies the key identifier to use with the [<code>ntpq</code>](/archives/3-5.93e/ntpq/) utility, which uses the standard protocol defined in RFC-1305. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The <code>_key_</code> argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don't match, such requests will be ignored. 
+: Specifies the key identifier to use with the [<code>ntpq</code>](/documentation/3-5.93e/ntpq/) utility, which uses the standard protocol defined in RFC-1305. This program is useful to diagnose and repair problems that affect <code>xntpd</code> operation. The <code>_key_</code> argument to this command is a 32-bit unsigned integer. If no <code>requestkey</code> command is included in the configuration file, or if the keys don't match, such requests will be ignored. 
 
 * * *
 

@@ -6,9 +6,9 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/ntptime/#synopsis)
-*   [Description](/archives/3-5.93e/ntptime/#description)
-*   [Options](/archives/3-5.93e/ntptime/#options)
+*   [Synopsis](/documentation/3-5.93e/ntptime/#synopsis)
+*   [Description](/documentation/3-5.93e/ntptime/#description)
+*   [Options](/documentation/3-5.93e/ntptime/#options)
 
 * * *
 
@@ -20,7 +20,7 @@ noindex: true
 
 #### Description
 
-This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/3-5.93e/kern/) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>xntpdc</code> program and <code>kerninfo</code> command.
+This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/documentation/3-5.93e/kern/) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>xntpdc</code> program and <code>kerninfo</code> command.
 
 * * *
 

@@ -6,13 +6,13 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/xntpdc/#synopsis)
-*   [Description](/archives/3-5.93e/xntpdc/#description)
-*   [Command Line Options](/archives/3-5.93e/xntpdc/#command-line-options)
-*   [Interactive Commands](/archives/3-5.93e/xntpdc/#interactive-commands)
-*   [Control Message Commands](/archives/3-5.93e/xntpdc/#control-message-commands)
-*   [Runtime Configuration Requests](/archives/3-5.93e/xntpdc/#runtime-configuration-requests)
-*   [Bugs](/archives/3-5.93e/xntpdc/#bugs)
+*   [Synopsis](/documentation/3-5.93e/xntpdc/#synopsis)
+*   [Description](/documentation/3-5.93e/xntpdc/#description)
+*   [Command Line Options](/documentation/3-5.93e/xntpdc/#command-line-options)
+*   [Interactive Commands](/documentation/3-5.93e/xntpdc/#interactive-commands)
+*   [Control Message Commands](/documentation/3-5.93e/xntpdc/#control-message-commands)
+*   [Runtime Configuration Requests](/documentation/3-5.93e/xntpdc/#runtime-configuration-requests)
+*   [Bugs](/documentation/3-5.93e/xntpdc/#bugs)
 
 * * *
 
@@ -232,15 +232,15 @@ The following commands all make authenticated requests.
 
 <code>pll</code>
 
-: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/archives/3-5.93e/refclock/) page for further information. The default for this flag is enable.
+: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/documentation/3-5.93e/refclock/) page for further information. The default for this flag is enable.
 
 <code>pps</code>
 
-: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/archives/3-5.93e/kern/) page for further information. The default for this flag is disable.
+: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/documentation/3-5.93e/kern/) page for further information. The default for this flag is disable.
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/3-5.93e/monopt/) page for further information. The default for this flag is enable.
+: Enables the statistics facility. See the [Monitoring Options](/documentation/3-5.93e/monopt/) page for further information. The default for this flag is enable.
 
 <code>pll_kernel</code>
 

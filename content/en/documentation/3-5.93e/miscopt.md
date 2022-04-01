@@ -6,8 +6,8 @@ noindex: true
 
 #### Table of Contents
 
-*  [Miscellaneous Commands](/archives/3-5.93e/miscopt/#miscellaneous-commands)
-*  [Variables](/archives/3-5.93e/miscopt/#variables)
+*  [Miscellaneous Commands](/documentation/3-5.93e/miscopt/#miscellaneous-commands)
+*  [Variables](/documentation/3-5.93e/miscopt/#variables)
 
 * * *
 

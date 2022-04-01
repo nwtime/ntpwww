@@ -6,11 +6,11 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/ntpq/#synopsis)
-*   [Description](/archives/3-5.93e/ntpq/#description)
-*   [Internal Commands](/archives/3-5.93e/ntpq/#internal-commands)
-*   [Control Message Commands](/archives/3-5.93e/ntpq/#control-message-commands)
-*   [Bugs](/archives/3-5.93e/ntpq/#bugs)
+*   [Synopsis](/documentation/3-5.93e/ntpq/#synopsis)
+*   [Description](/documentation/3-5.93e/ntpq/#description)
+*   [Internal Commands](/documentation/3-5.93e/ntpq/#internal-commands)
+*   [Control Message Commands](/documentation/3-5.93e/ntpq/#control-message-commands)
+*   [Bugs](/documentation/3-5.93e/ntpq/#bugs)
 
 * * *
 

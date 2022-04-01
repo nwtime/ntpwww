@@ -6,9 +6,9 @@ noindex: true
 
 #### Table of Contents
 
-*  [Synopsis](/archives/3-5.93e/md5cert/#synopsis)
-*  [Description](/archives/3-5.93e/md5cert/#description)
-*  [Options](/archives/3-5.93e/md5cert/#options)
+*  [Synopsis](/documentation/3-5.93e/md5cert/#synopsis)
+*  [Description](/documentation/3-5.93e/md5cert/#description)
+*  [Options](/documentation/3-5.93e/md5cert/#options)
 
 * * *
 

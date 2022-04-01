@@ -6,9 +6,9 @@ noindex: true
 
 #### Table of Contents
 
-*  [Introduction](/archives/3-5.93e/gadget/#introduction)
-*  [Circuit Description](/archives/3-5.93e/gadget/#circuit-description)
-*  [Files](/archives/3-5.93e/gadget/#files)
+*  [Introduction](/documentation/3-5.93e/gadget/#introduction)
+*  [Circuit Description](/documentation/3-5.93e/gadget/#circuit-description)
+*  [Files](/documentation/3-5.93e/gadget/#files)
 
 * * *
 

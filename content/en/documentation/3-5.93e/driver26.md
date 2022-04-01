@@ -6,10 +6,10 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver26/#synopsis)
-*   [Description](/archives/3-5.93e/driver26/#description)
-*   [Monitor Data](/archives/3-5.93e/driver26/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver26/#fudge-factors)
+*   [Synopsis](/documentation/3-5.93e/driver26/#synopsis)
+*   [Description](/documentation/3-5.93e/driver26/#description)
+*   [Monitor Data](/documentation/3-5.93e/driver26/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver26/#fudge-factors)
 
 * * *
 

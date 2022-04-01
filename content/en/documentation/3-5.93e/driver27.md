@@ -6,11 +6,11 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver27/#synopsis)
-*   [Description](/archives/3-5.93e/driver27/#description)
-*   [Monitor Data](/archives/3-5.93e/driver27/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver27/#fudge-factors)
-*   [Additional Information](/archives/3-5.93e/driver27/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver27/#synopsis)
+*   [Description](/documentation/3-5.93e/driver27/#description)
+*   [Monitor Data](/documentation/3-5.93e/driver27/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver27/#fudge-factors)
+*   [Additional Information](/documentation/3-5.93e/driver27/#additional-information)
 
 * * *
 
@@ -261,6 +261,6 @@ May 10 12:41:34 oolong xntpd[615]: ARCRON: sync finished, signal quality 3: OK, 
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)  
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)  
 
 [ARC Rugby MSF Receiver](https://www.exnet.com/NTP/ARC/ARC.html) page

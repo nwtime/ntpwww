@@ -6,10 +6,10 @@ noindex: true
 
 #### Table of Contents
 
-*   [Introduction](/archives/3-5.93e/#introduction)
-*   [Programming Interface](/archives/3-5.93e/#programming-interface)
-*   [Programming Example](/archives/3-5.93e/#programming-example)
-*   [Implementation and Configuration Notes](/archives/3-5.93e/#implementation-and-configuration-notes)
+*   [Introduction](/documentation/3-5.93e/#introduction)
+*   [Programming Interface](/documentation/3-5.93e/#programming-interface)
+*   [Programming Example](/documentation/3-5.93e/#programming-example)
+*   [Implementation and Configuration Notes](/documentation/3-5.93e/#implementation-and-configuration-notes)
 
 * * *
 
@@ -122,13 +122,13 @@ The following pseudo-code demonstrates how the IRIG receiver may be used by a si
 
 The signal level produced by most IRIG-equipped radios is on the order of a few volts peak-peak, which is far larger than the audio codec can accept; therefore, an attenuator in the form of a voltage divider is needed. The codec can handle IRIG signals at the microphone input from 4.2 mV to 230 mV peak-peak. A suitable attenuator conists of a series- connected 100K-Ohm resistor at the input and a parallel-connected 1K-Ohm resistor at the output, both contained along with suitable connectors in a small aluminum box. The exact values of these resistors are not critical, since the IRIG driver includes an automatic level-adjustment capability.
 
-For the most accurate time using the IRIG signal and a particular radio, it may be necessary to adjust the <code>time1</code> parameter of the <code>fudge</code> command to compensate for the codec delay and any additional delay due to IRIG processing in the radio itself. Since the codec samples at an 8-kHz rate, the average delay is about 62 us; however, the delays due to the radios and IRIG signals themselves can vary. For instance, in the Austron recievers the IRIG delay is essentially zero, while in the Spectracom receivers the delay is about 240 usec relative to the PPS signal. In addition, the poll interval can be reduced from the usual 64 seconds to 16 seconds to reduce wander of the local hardware clock. Finally, the <code>prefer</code> keyword can be used to bias the clock-selection algorithm to favor the IRIG time, which is ordinarily the best time available. The [Mitigation Rules and the <code>prefer</code> Keyword](/archives/3-5.93e/prefer/) page describes the operation of this keyword. For example, the following two lines in the NTP configuration file <code>ntp.conf</code> are appropriate for the Spectracom Netclock/1 WWVB Synchronized Clock with IRIG Option:
+For the most accurate time using the IRIG signal and a particular radio, it may be necessary to adjust the <code>time1</code> parameter of the <code>fudge</code> command to compensate for the codec delay and any additional delay due to IRIG processing in the radio itself. Since the codec samples at an 8-kHz rate, the average delay is about 62 us; however, the delays due to the radios and IRIG signals themselves can vary. For instance, in the Austron recievers the IRIG delay is essentially zero, while in the Spectracom receivers the delay is about 240 usec relative to the PPS signal. In addition, the poll interval can be reduced from the usual 64 seconds to 16 seconds to reduce wander of the local hardware clock. Finally, the <code>prefer</code> keyword can be used to bias the clock-selection algorithm to favor the IRIG time, which is ordinarily the best time available. The [Mitigation Rules and the <code>prefer</code> Keyword](/documentation/3-5.93e/prefer/) page describes the operation of this keyword. For example, the following two lines in the NTP configuration file <code>ntp.conf</code> are appropriate for the Spectracom Netclock/1 WWVB Synchronized Clock with IRIG Option:
 
 <pre>server 127.127.6.0 prefer minpoll 4 maxpoll 4 # irig audio decoder
 fudge 127.127.6.0 time1 0.0005
 </pre>
 
-The <code>time1</code> value of .0005 s (500 us) was determined by actual measurement. Since the IRIG delay in Austron receivers is essentially zero, the <code>fudge</code> command is not necessary with these receivers. The correct value in case of other radios may have to be determined by actual measurement. A convenient way of doing this is to configure the <code>ppsclock</code> streams module. This module can be built from the [ppsclock.tar.Z distribution.](/reflib/software/ppsclock.tar.Z) It can be used to adjust <code>time1</code> until the PPS signal and IRIG signal both show the same offset. The <code>ppsclock</code> streams module is described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc/) page.
+The <code>time1</code> value of .0005 s (500 us) was determined by actual measurement. Since the IRIG delay in Austron receivers is essentially zero, the <code>fudge</code> command is not necessary with these receivers. The correct value in case of other radios may have to be determined by actual measurement. A convenient way of doing this is to configure the <code>ppsclock</code> streams module. This module can be built from the [ppsclock.tar.Z distribution.](/reflib/software/ppsclock.tar.Z) It can be used to adjust <code>time1</code> until the PPS signal and IRIG signal both show the same offset. The <code>ppsclock</code> streams module is described in the [Line Disciplines and Streams Drivers](/documentation/3-5.93e/ldisc/) page.
 
 The modified BSD driver includes both the modified driver itself bsd_audio.c and the IRIG header file <code>bsd_audioirig.h</code>, as well as modified header files <code>bsd_audiovar.h</code> and <code>bsd_audioio.h</code>. The driver is installed in the same way as described in the BSD driver documentation, with the addition of the following define in the kernel configuration file:
 

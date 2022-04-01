@@ -26,7 +26,7 @@ The <code>broadcast</code> command specifies that the local server is to operate
 
 <code>prefer</code>
 
-Marks the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/3-5.93e/prefer/) page for further information. 
+Marks the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the [Mitigation Rules and the <code>prefer</code> Keyword](/documentation/3-5.93e/prefer/) page for further information. 
 
 <code>ttl _ttl_</code>
 
@@ -57,7 +57,7 @@ The <code>ntp.drift</code> file format consists of a single line containing a si
 <code>**enable auth | bclient | monitor | pll | pps | stats**</code>
 : <code>**disable auth | bclient | monitor | pll | pps | stats**</code>
 
-: Provides a way to enable or disable various server options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>xntpdc</code>](/archives/3-5.93e/xntpdc/) utility program.
+: Provides a way to enable or disable various server options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>xntpdc</code>](/documentation/3-5.93e/xntpdc/) utility program.
 
 <code>auth</code>
 
@@ -73,15 +73,15 @@ The <code>ntp.drift</code> file format consists of a single line containing a si
 
 <code>pll</code>
 
-: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/archives/3-5.93e/refclock/) page for further information. The default for this flag is enable.
+: Enables the server to adjust its local clock by means of NTP. If disabled, the local clock free-runs at its intrinsic time and frequency offset. This flag is useful in case the local clock is controlled by some other device or protocol and NTP is used only to provide synchronization to other clients. In this case, the local clock driver is used. See the [Reference Clock Drivers](/documentation/3-5.93e/refclock/) page for further information. The default for this flag is enable.
 
 <code>pps</code>
 
-: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/archives/3-5.93e/kern/) page for further information. The default for this flag is disable.
+: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/documentation/3-5.93e/kern/) page for further information. The default for this flag is disable.
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/3-5.93e/monopt/) page for further information. The default for this flag is enable.
+: Enables the statistics facility. See the [Monitoring Options](/documentation/3-5.93e/monopt/) page for further information. The default for this flag is enable.
 
 <code>**tick value**</code>
 

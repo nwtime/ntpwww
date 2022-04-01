@@ -6,12 +6,12 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/3-5.93e/driver9/#synopsis)
-*   [Description](/archives/3-5.93e/driver9/#description)
-*   [Operating Modes](/archives/3-5.93e/driver9/#operating-modes)
-*   [Monitor Data](/archives/3-5.93e/driver9/#monitor-data)
-*   [Fudge Factors](/archives/3-5.93e/driver9/#fudge-factors)
-*   [Additional Information](/archives/3-5.93e/driver9/#additional-information)
+*   [Synopsis](/documentation/3-5.93e/driver9/#synopsis)
+*   [Description](/documentation/3-5.93e/driver9/#description)
+*   [Operating Modes](/documentation/3-5.93e/driver9/#operating-modes)
+*   [Monitor Data](/documentation/3-5.93e/driver9/#monitor-data)
+*   [Fudge Factors](/documentation/3-5.93e/driver9/#fudge-factors)
+*   [Additional Information](/documentation/3-5.93e/driver9/#additional-information)
 
 * * *
 
@@ -27,7 +27,7 @@ noindex: true
 
 #### Description
 
-This driver supports the Magnavox MX 4200 Navigation Receiver adapted to precision timing applications. It requires the <code>ppsclock</code> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/archives/3-5.93e/ldisc/) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/3-5.93e/pps/) page.
+This driver supports the Magnavox MX 4200 Navigation Receiver adapted to precision timing applications. It requires the <code>ppsclock</code> line discipline or streams module described in the [Line Disciplines and Streams Drivers](/documentation/3-5.93e/ldisc/) page. It also requires a gadget box and 1-PPS level converter, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/documentation/3-5.93e/pps/) page.
 
 This driver supports all compatible receivers such as the 6-channel MX 4200, MX 4200D, and the 12-channel MX 9212, MX 9012R, MX 9112. 
 
@@ -85,4 +85,4 @@ The driver writes each timecode as received to the <code>clockstats</code> file.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/3-5.93e/refclock/)
+[Reference Clock Drivers](/documentation/3-5.93e/refclock/)
