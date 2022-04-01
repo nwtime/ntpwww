@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo5.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo5.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The turtle has been swimming in the kernel.
 
@@ -14,9 +14,9 @@ Last update: 18:46 UTC Thursday, July 28, 2005
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.2-series/ntptime/#synopsis)
-*   [Description](/archives/4.2.2-series/ntptime/#description)
-*   [Options](/archives/4.2.2-series/ntptime/#options)
+*   [Synopsis](/documentation/4.2.2-series/ntptime/#synopsis)
+*   [Description](/documentation/4.2.2-series/ntptime/#description)
+*   [Options](/documentation/4.2.2-series/ntptime/#options)
 
 * * *
 
@@ -28,7 +28,7 @@ Last update: 18:46 UTC Thursday, July 28, 2005
 
 #### Description
 
-This program is useful only with special kernels described in [A Kernel Model for Precision Timekeeping](/archives/4.2.2-series/kern/). It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>ntpdc</code> program and <code>kerninfo</code> command.
+This program is useful only with special kernels described in [A Kernel Model for Precision Timekeeping](/documentation/4.2.2-series/kern/). It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>ntpdc</code> program and <code>kerninfo</code> command.
 
 * * *
 

@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice61.gif) [from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/alice61.gif) [from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Alice finds the kernel a house of cards.
 
@@ -16,7 +16,7 @@ The technical report <sup>[2](#myfootnote2)</sup>, which is a major revision and
 
 The hybrid PLL/FLL code described in <sup>[2](#myfootnote2)</sup> is included in Solaris and Digital/Compaq/HP Tru64. It includes two system calls <code>ntp_gettime()</code> and <code>ntp_adjtime()</code> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup>[1](#myfootnote1)</sup> is available for Linux, FreeBSD, SunOS and Tru64; however, only the Linux and FreeBSD implementations, which do not include licensed code, are readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available at [nanokernel.tar.gz](/reflib/software/nanokernel.tar.gz).
 
-The model also changes the way the system clock is adjusted in time and frequency relative to an external precision timing source, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/4.2.2-series/pps/) page. The NTP software daemon uses the PPS to provide synchronization limited in principle only by the accuracy and stability of the external timing source.
+The model also changes the way the system clock is adjusted in time and frequency relative to an external precision timing source, such as described in the [Pulse-per-second (PPS) Signal Interfacing](/documentation/4.2.2-series/pps/) page. The NTP software daemon uses the PPS to provide synchronization limited in principle only by the accuracy and stability of the external timing source.
 
 #### Footnotes
 

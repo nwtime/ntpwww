@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
+![gif](/documentation/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 All in a row.
 
@@ -14,9 +14,9 @@ Last update: 21:32 UTC Friday, June 16, 2006
 
 #### Table of Contents
 
-*   [Description](/archives/4.2.2-series/ntpdsim_new/#description)
-*   [Configuration](/archives/4.2.2-series/ntpdsim_new/#configuration)
-*   [Sample Configuration File](/archives/4.2.2-series/ntpdsim_new/#sample-configuration-file)
+*   [Description](/documentation/4.2.2-series/ntpdsim_new/#description)
+*   [Configuration](/documentation/4.2.2-series/ntpdsim_new/#configuration)
+*   [Sample Configuration File](/documentation/4.2.2-series/ntpdsim_new/#sample-configuration-file)
 
 * * *
 

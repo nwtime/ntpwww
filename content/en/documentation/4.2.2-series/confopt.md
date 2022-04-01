@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The chicken is getting configuration advice.
 
@@ -14,10 +14,10 @@ Last update: 	20:57 UTC Monday, October 10, 2005
 
 #### Table of Contents
 
-*   [Configuration Commands](/archives/4.2.2-series/confopt/#configuration-commands)
-*   [Command Options](/archives/4.2.2-series/confopt/#command-options)
-*   [Auxiliary Commands](/archives/4.2.2-series/confopt/#auxiliary-commands)
-*   [Bugs](/archives/4.2.2-series/confopt/#bugs)
+*   [Configuration Commands](/documentation/4.2.2-series/confopt/#configuration-commands)
+*   [Command Options](/documentation/4.2.2-series/confopt/#command-options)
+*   [Auxiliary Commands](/documentation/4.2.2-series/confopt/#auxiliary-commands)
+*   [Bugs](/documentation/4.2.2-series/confopt/#bugs)
 
 * * *
 
@@ -38,7 +38,7 @@ There are three types of associations: persistent, preemptable and ephemeral. Pe
 : <code>**broadcast address [options ...]**</code>
 : <code>**manycastclient address [options ...]**</code>
 
-: These four commands specify the time server name or address to be used and the mode in which to operate. The <code>address</code> can be either a DNS name or a IP address in dotted-quad notation. Additional information on association behavior can be found in the [Association Management](/archives/4.2.2-series/assoc/) page. 
+: These four commands specify the time server name or address to be used and the mode in which to operate. The <code>address</code> can be either a DNS name or a IP address in dotted-quad notation. Additional information on association behavior can be found in the [Association Management](/documentation/4.2.2-series/assoc/) page. 
 
 <code>**server**</code>
 
@@ -66,15 +66,15 @@ The <code>manycastclient</code> command specifies that the host is to operate in
 
 <code>**autokey**</code>
 
-: All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in the [Authentication Options](/archives/4.2.2-series/authopt/) page. This option is valid with all commands.
+: All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in the [Authentication Options](/documentation/4.2.2-series/authopt/) page. This option is valid with all commands.
 
 <code>**burst**</code>
 
-: When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the [<code>calldelay</code>](/archives/4.2.2-series/miscopt/) command to allow additional time for a modem or ISDN call to complete. This option is valid only with the <code>server</code> command and is a recommended option with this command when the <code>maxpoll</code> option is 11 or greater.
+: When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the [<code>calldelay</code>](/documentation/4.2.2-series/miscopt/) command to allow additional time for a modem or ISDN call to complete. This option is valid only with the <code>server</code> command and is a recommended option with this command when the <code>maxpoll</code> option is 11 or greater.
 
 <code>**iburst**</code>
 
-: When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the [<code>calldelay</code>](/archives/4.2.2-series/miscopt/) command to allow additional time for a modem or ISDN call to complete. This option is valid only with the <code>server</code> command and is a recommended option with this command.
+: When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the [<code>calldelay</code>](/documentation/4.2.2-series/miscopt/) command to allow additional time for a modem or ISDN call to complete. This option is valid only with the <code>server</code> command and is a recommended option with this command.
 
 <code>**key _key_**</code>
 
@@ -95,7 +95,7 @@ The <code>manycastclient</code> command specifies that the host is to operate in
 
 <code>**prefer**</code>
 
-: Mark the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the [Mitigation Rules and the <code>prefer</code> Keyword](/archives/4.2.2-series/prefer/) page for further information. This option is valid only with the <code>server</code> and <code>peer</code> commands.
+: Mark the server as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the [Mitigation Rules and the <code>prefer</code> Keyword](/documentation/4.2.2-series/prefer/) page for further information. This option is valid only with the <code>server</code> and <code>peer</code> commands.
 
 <code>**true**</code>
 
@@ -116,15 +116,15 @@ The <code>manycastclient</code> command specifies that the host is to operate in
 
 <code>**broadcastclient [novolley]**</code>
 
-: This command enables reception of broadcast server messages to any local interface (type b) address. Ordinarily, upon receiving a message for the first time, the broadcast client measures the nominal server propagation delay using a brief client/server exchange with the server, after which it continues in listen-only mode. If the <code>novolley</code> keyword is present, the exchange is not used and the value specified in the <code>broadcastdelay</code> command is used or, if the <code>broadcastdelay</code> command is not used, the default 4.0 ms. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/archives/4.2.2-series/authopt/) page. Note that the <code>novolley</code> keyword is incompatible with public key authentication.
+: This command enables reception of broadcast server messages to any local interface (type b) address. Ordinarily, upon receiving a message for the first time, the broadcast client measures the nominal server propagation delay using a brief client/server exchange with the server, after which it continues in listen-only mode. If the <code>novolley</code> keyword is present, the exchange is not used and the value specified in the <code>broadcastdelay</code> command is used or, if the <code>broadcastdelay</code> command is not used, the default 4.0 ms. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/documentation/4.2.2-series/authopt/) page. Note that the <code>novolley</code> keyword is incompatible with public key authentication.
 
 <code>**manycastserver _address_ [...]**</code>
 
-: This command enables reception of manycast client messages to the multicast group address(es) (type <code>m</code>) specified. At least one address is required. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to limit the span of the reply and avoid a possibly massive implosion at the original sender. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/archives/4.2.2-series/authopt/) page.
+: This command enables reception of manycast client messages to the multicast group address(es) (type <code>m</code>) specified. At least one address is required. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to limit the span of the reply and avoid a possibly massive implosion at the original sender. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/documentation/4.2.2-series/authopt/) page.
 
 <code>**multicastclient _address_ [...]**</code>
 
-: This command enables reception of multicast server messages to the multicast group address(es) (type <code>m</code>) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/archives/4.2.2-series/authopt/) page.
+: This command enables reception of multicast server messages to the multicast group address(es) (type <code>m</code>) specified. Upon receiving a message for the first time, the multicast client measures the nominal server propagation delay using a brief client/server exchange with the server, then enters the broadcast client mode, in which it synchronizes to succeeding multicast messages. Note that, in order to avoid accidental or malicious disruption in this mode, both the server and client should operate using symmetric key or public key authentication as described in the [Authentication Options](/documentation/4.2.2-series/authopt/) page.
 
 * * *
 

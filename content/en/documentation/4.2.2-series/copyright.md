@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![jpg](/archives/pic/sheepb.jpg) "Clone me," says Dolly sheepishly
+![jpg](/documentation/pic/sheepb.jpg) "Clone me," says Dolly sheepishly
 
 Last update: 02:45 UTC Tuesday, June 27, 2006
 

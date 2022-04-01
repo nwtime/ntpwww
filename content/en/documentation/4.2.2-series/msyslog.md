@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The log can be shrill at times.
 
@@ -14,10 +14,10 @@ Last update:  19:24 UTC Saturday, October 01, 2005
 
 #### Table of Contents
 
-*   [Introduction](/archives/4.2.2-series/msyslog/#introduction)
-*   [Protocol Module](/archives/4.2.2-series/msyslog/#protocol-module)
-*   [Clock Discipline Module](/archives/4.2.2-series/msyslog/#clock-discipline-module)
-*   [Cryptographic Module](/archives/4.2.2-series/msyslog/#cryptographic-module)
+*   [Introduction](/documentation/4.2.2-series/msyslog/#introduction)
+*   [Protocol Module](/documentation/4.2.2-series/msyslog/#protocol-module)
+*   [Clock Discipline Module](/documentation/4.2.2-series/msyslog/#clock-discipline-module)
+*   [Cryptographic Module](/documentation/4.2.2-series/msyslog/#cryptographic-module)
 
 * * *
 
