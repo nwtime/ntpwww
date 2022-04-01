@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/pogo3a.gif)
+![gif](/documentation/pic/pogo3a.gif)
 
 from [_Pogo_](/reflib/pictures/), Walt Kelly
 
@@ -74,7 +74,7 @@ The use of authentication is optional; but, if it is used, it is highly unlikely
 
 Basic symmetric mode represents the current NTPv4 specification [RFC 5905](/reflib/rfc/rfc5905.txt) supported by the reference implementation. Following is an example that illustrates typical operation in this mode starting from an unsynchronized condition.
 
-![gif](/archives/pic/xlev5.gif)
+![gif](/documentation/pic/xlev5.gif)
 
 **Figure 1. Basic Symmetric Mode**
 
@@ -116,7 +116,7 @@ Finally, assume that packets <code>_T_<sub>3</sub>→*T*<sub>4</sub></code> and 
 
 In interleaved modes the transmit timestamp, here called a drivestamp, is captured after the packet has been sent, so it cannot be sent in the same packet. A solution for this is the two-step or interleaved protocol described in this section. In this variant the transmit drivestamp for one packet is actually transmitted in the immediately following packet. The trick, however, is to implement the interleaved protocol without changing the NTP packet header format, without compromising backwards compatibility and without compromising the error recovery properties. Following is a typical example of operation starting from an unsynchronized condition.
 
-![gif](/archives/pic/xlev6.gif)
+![gif](/documentation/pic/xlev6.gif)
 
 **Figure 2. Interleaved Symmetric Mode**
 
@@ -153,7 +153,7 @@ The principal difference between the interleaved broadcast protocol and PTP is t
 
 The interleaved protocol uses the same packet header format as the basic protocol, but includes the transmit drivestamp captured in the previous packet. While softstamps are not used in the interleaved protocol, they are included to support both basic and interleaved modes with the same packet stream, as well as to detect errors in the interleaved mode. When interleaved broadcast mode is not supported, the <code>_t<sub>org</sub>_</code> and <code>_t<sub>rec</sub>_</code> header fields are unused and ordinarily set to zero. When interleaved broadcast mode is supported, the clients will note that <code>_t<sub>org</sub>_</code> is nonzero and switch to interleaved mode.
 
-![gif](/archives/pic/xlev7.gif)
+![gif](/documentation/pic/xlev7.gif)
 
 **Figure 3. Interleaved Broadcast Mode**
 
@@ -183,7 +183,7 @@ In contrast to the basic and interleaved symmetric modes, interleaved broadcast 
 
 In the scheme of things, error packets are rare, especially in fast LANs where propagation delays are very small and poll intervals are in the order of many seconds. However, there is one instance where this can be useful. It occurs when a peer is initially configured to operate in interleaved mode and is presented with a client capable only of basic mode.
 
-![gif](/archives/pic/xlev8.gif)
+![gif](/documentation/pic/xlev8.gif)
 
 **Figure 4. Error Recovery in Basic Symmetric Mode**
 
@@ -245,7 +245,7 @@ There are in general four exceptions that can occur in the following diagrams:
 
 Depending on the mode, detection of these conditions can cause the loss of a packet, loss of a round or loss of two rounds.
 
-![gif](/archives/pic/fig_1.gif)
+![gif](/documentation/pic/fig_1.gif)
 
 **Figure A.1. Transmit Process**
 
@@ -255,7 +255,7 @@ While presented for simplicity in the figure, the clock is actually read twice. 
 
 Note that in interleaved broadcast mode <code>_t<sub>org</sub>_</code>, ordinarily zero in previous NTP versions, is hijacked to hold the previous transmit drivestamp. This is how a broadcast client recognizes whether basic or interleaved mode is in use. Clients conforming to the NTPv4 specification ignore <code>_t<sub>org</sub>_</code> and <code>_T_<sub>_rec</sub>_</code>.
 
-![gif](/archives/pic/fig_2.gif)
+![gif](/documentation/pic/fig_2.gif)
 
 **Figure A.2. Receive Process - Broadcast Mode**
 
@@ -269,7 +269,7 @@ In basic broadcast mode, <code>_t<sub>org</sub>_</code> is zero, so the <code>_t
 
 There are three exception conditions. At the beginning of the receive routine duplicate packets are discarded immediately without affecting the state machine. <code>SYNC</code> occurs when the broadcast client restarts, while <code>DELY</code> occurs when the first packet following a dropped packet is received. In this case the time computed from the previous transmit softstamp to the previous transmit hardstamp exceeds a credible queuing delay. In either case the timestamps are not used and only one packet is skipped. However, an old duplicate must be detected by means other than the state machine.
 
-![gif](/archives/pic/fig_3.gif)
+![gif](/documentation/pic/fig_3.gif)
 
 **Figure A.3. Receive Process - Basic Symmetric Mode**
 
@@ -277,7 +277,7 @@ Figure A.3 shows the receive process operations in client and basic symmetric mo
 
 If any of these conditions occur, the timestamps are not used and one or more packets are skipped. A dropped packet results in a bogus exception at the next received packet and a delay of one packet, while a protocol restart by either peer results in a delay of one packet. The other exceptions result in a delay of one round (two packets). There are no ambiguous conditions that are not detected by the state machine.
 
-![gif](/archives/pic/fig_4.gif)
+![gif](/documentation/pic/fig_4.gif)
 
 **Figure A.4. Receive process - Interleaved Symmetric Mode**
 
@@ -287,7 +287,7 @@ There are five intricately designed exceptions. <code>SYNC</code> occurs in two 
 
 If any of these conditions occur, the timestamps are not used and one or more packets are skipped. A protocol restart results in a delay of three packets, or when each peer has completed one round. Packets crossed in flight result in a delay of one round, where each peer detects a bogus packet from the other. Other exceptions result in a delay of two rounds (four packets). There are no ambiguous conditions that are not detected by the state machine.
 
-![gif](/archives/pic/fig_5.gif)
+![gif](/documentation/pic/fig_5.gif)
 
 **Figure A.5. Timestamp Order Detection**
 

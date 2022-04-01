@@ -53,7 +53,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -76,13 +76,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -176,7 +176,7 @@ if (!doNotTrack) {
 <h4 id="823-exchanging-time">8.2.3 Exchanging Time</h4>
 <h4 id="8231-is-a-remote-server-providing-time">8.2.3.1 Is a remote server providing time?</h4>
 <p>The procedure to check a remote server is identical to debugging a local server, but some commands may be restricted. To check a remote server with <code>ntpq</code>, add the desired host name or IP address to the command line.</p>
-<p>There is another command named <code>ntptrace</code> to follow a complete synchronization path from the local or specified server to the reference clock. <a href="/archives/4.2.8-series/ntptrace/">ntptrace</a> provides a usage example and explanation of the trace output.</p>
+<p>There is another command named <code>ntptrace</code> to follow a complete synchronization path from the local or specified server to the reference clock. <a href="/documentation/4.2.8-series/ntptrace/">ntptrace</a> provides a usage example and explanation of the trace output.</p>
 <hr>
 <h4 id="8232-my-server-is-up-and-running-but-it-is-unusable-for-clients">8.2.3.2 My server is up and running, but it is unusable for clients</h4>
 <p>Probably you have made no mistakes, but simply have to wait for about five minutes until the server synchronizes to a time reference for the first time. If you changed the <code>minpoll</code> parameter, the wait time may change accordingly.</p>
@@ -321,7 +321,7 @@ ntpq></pre>
 <h4 id="825-time-errors">8.2.5 Time Errors</h4>
 <h4 id="8251-why-does-my-server-change-time-references-quite-frequently">8.2.5.1 Why does my server change time references quite frequently?</h4>
 <p>Ideally, the quality of a time reference is a static feature. In reality, quality can vary over time. In fact this behaviour is so frequent that it has a name of its own: <em>clock hopping</em>.</p>
-<p>Clock hopping can be avoided by deterministic network delays, but usually you can&rsquo;t do anything about that. The other solution is to select a <em>preferred</em> time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to <a href="/archives/4.2.8-series/prefer/">Mitigation Rules and the prefer Keyword</a> for more information.</p>
+<p>Clock hopping can be avoided by deterministic network delays, but usually you can&rsquo;t do anything about that. The other solution is to select a <em>preferred</em> time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to <a href="/documentation/4.2.8-series/prefer/">Mitigation Rules and the prefer Keyword</a> for more information.</p>
 <hr>
 <h4 id="8252-my-server-periodically-loses-synchronization">8.2.5.2 My server periodically loses synchronization</h4>
 <p>The typical reason is that system time and the time received from a reference disagree. This can be caused when the local clock drifts badly and needs a significant <em>drift correction</em>. It can also occur when the the NTP server cannot decide between random variations in network delay or variations in the time reference itself. This is why it is recommended to configure several independent time references.</p>
@@ -415,7 +415,7 @@ fi</pre>
 <p>This has worked nicely for me for some years. I recognize that frequent connect/disconnects tend to mess with <code>ntpd</code>&rsquo;s ability to sync, but my work habits are such that once the PPP is up and live, it tends to stay up for long periods. Good enough for a workstation at home.</p>
 <hr>
 <h4 id="8264-any-more-hints">8.2.6.4 Any more Hints?</h4>
-<p>Try the suggestions in <a href="/archives/4.2.8-series/debug/">NTP Debugging Techniques</a>.</p>
+<p>Try the suggestions in <a href="/documentation/4.2.8-series/debug/">NTP Debugging Techniques</a>.</p>
 <hr>
 <h4 id="827-errors-and-warnings">8.2.7 Errors and Warnings</h4>
 <p>This section deals with messages that are not too obvious in their meaning.</p>

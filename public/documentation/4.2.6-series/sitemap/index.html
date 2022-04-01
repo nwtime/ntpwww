@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
+
+  
+  <meta name="description" content="Build and Install
+
+Building and Installing the Distribution
+Quick Start
+Release Notes
+Build Options
+NTP Debugging Techniques
+Debugging Reference Clock …">
+<meta property="og:title" content="Site Map" />
+<meta property="og:description" content="Build and Install  Building and Installing the Distribution Quick Start Release Notes Build Options NTP Debugging Techniques Debugging Reference Clock Drivers ntpd Event Messages and Status Words ntpd System Log Messages NTP Bug Reporting Procedures   Program Manual Pages  ntpd - Network Time Protocol (NTP) daemon ntpq - standard NTP query program ntpdc - special NTP query program ntpdate - set the date and time via NTP sntp - Simple Network Time Protocol (SNTP) client ntptrace - trace a chain of NTP servers back to the primary source tickadj - set time-related kernel variables ntptime - read and set kernel time variables ntp-keygen - generate public and private keys ntpdsim - Network Time Protocol (NTP) simulator   Configuration Commands and Options  Command Index Server Options Access Control Options Authentication Options Monitoring Options Reference Clock Options Miscellaneous Options Configuration File Definition (Advanced)   Client and Server Configuration  Association Management Rate Management and the Kiss-o&#39;-Death Packet Automatic Server Discovery   Reference Clock Support  Reference Clock Drivers External Clock Discipline and the Local Clock Driver How to Write a Reference Clock Driver How to build new PARSE clocks   Reference Clock Audio Drivers  Reference Clock Audio Drivers Radio CHU Audio Demodulator/Decoder Radio WWV/H Audio Demodulator/Decoder IRIG Audio Decoder   Miscellaneous  Copyright Notice Mitigation Rules and the prefer Keyword Kernel Model for Precision Timekeeping PPSAPI Interface for Precision Time Signals Pulse-per-second (PPS) Signal Interfacing Gadget Box PPS Level Converter and CHU Modem   Other Links  Computer Network Time Synchronization - The Network Time Protocol (book) NTP Research Project (home page) Executive Summary: Computer Network Time Synchronization The NTP Timescale and Leap Seconds NTP Timestamp Calculations The NTP Era and Era Numbering Timestamp Capture Principles Autonomous Configuration Autonomous Authentication Autokey Protocol Autokey Identity Schemes  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.6-series/sitemap/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Site Map</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/documentation/4.2.6-series/sitemap/">Site Map</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Site Map</h1>
+     
+    <h4 id="build-and-install">Build and Install</h4>
+<ul>
+<li><a href="/documentation/4.2.6-series/build/">Building and Installing the Distribution</a></li>
+<li><a href="/documentation/4.2.6-series/quick/">Quick Start</a></li>
+<li><a href="/documentation/4.2.6-series/release/">Release Notes</a></li>
+<li><a href="/documentation/4.2.6-series/config/">Build Options</a></li>
+<li><a href="/documentation/4.2.6-series/debug/">NTP Debugging Techniques</a></li>
+<li><a href="/documentation/4.2.6-series/rdebug/">Debugging Reference Clock Drivers</a></li>
+<li><a href="/documentation/4.2.6-series/decode/"><code>ntpd</code> Event Messages and Status Words</a></li>
+<li><a href="/documentation/4.2.6-series/msyslog/"><code>ntpd</code> System Log Messages</a></li>
+<li><a href="/bugs/">NTP Bug Reporting Procedures</a></li>
+</ul>
+<hr>
+<h4 id="program-manual-pages">Program Manual Pages</h4>
+<ul>
+<li><a href="/documentation/4.2.6-series/ntpd/"><code>ntpd</code> - Network Time Protocol (NTP) daemon</a></li>
+<li><a href="/documentation/4.2.6-series/ntpq/"><code>ntpq</code> - standard NTP query program</a></li>
+<li><a href="/documentation/4.2.6-series/ntpdc/"><code>ntpdc</code> - special NTP query program</a></li>
+<li><a href="/documentation/4.2.6-series/ntpdate/"><code>ntpdate</code> - set the date and time via NTP</a></li>
+<li><code><a href="/documentation/4.2.6-series/sntp/">sntp</code> - Simple Network Time Protocol (SNTP) client</a></li>
+<li><a href="/documentation/4.2.6-series/ntptrace/"><code>ntptrace</code> - trace a chain of NTP servers back to the primary source</a></li>
+<li><a href="/documentation/4.2.6-series/tickadj/"><code>tickadj</code> - set time-related kernel variables</a></li>
+<li><a href="/documentation/4.2.6-series/ntptime/"><code>ntptime</code> - read and set kernel time variables</a></li>
+<li><a href="/documentation/4.2.6-series/keygen/"><code>ntp-keygen</code> - generate public and private keys</a></li>
+<li><a href="/documentation/4.2.6-series/ntpdsim/"><code>ntpdsim</code> - Network Time Protocol (NTP) simulator</a></li>
+</ul>
+<hr>
+<h4 id="configuration-commands-and-options">Configuration Commands and Options</h4>
+<ul>
+<li><a href="/documentation/4.2.6-series/comdex/">Command Index</a></li>
+<li><a href="/documentation/4.2.6-series/confopt/">Server Options</a></li>
+<li><a href="/documentation/4.2.6-series/accopt/">Access Control Options</a></li>
+<li><a href="/documentation/4.2.6-series/authopt/">Authentication Options</a></li>
+<li><a href="/documentation/4.2.6-series/monopt/">Monitoring Options</a></li>
+<li><a href="/documentation/4.2.6-series/clockopt/">Reference Clock Options</a></li>
+<li><a href="/documentation/4.2.6-series/miscopt/">Miscellaneous Options</a></li>
+<li><a href="/documentation/4.2.6-series/ntp_conf/">Configuration File Definition (Advanced)</a></li>
+</ul>
+<hr>
+<h4 id="client-and-server-configuration">Client and Server Configuration</h4>
+<ul>
+<li><a href="/documentation/4.2.6-series/assoc/">Association Management</a></li>
+<li><a href="/documentation/4.2.6-series/rate/">Rate Management and the Kiss-o'-Death Packet</a></li>
+<li><a href="/documentation/4.2.6-series/manyopt/">Automatic Server Discovery</a></li>
+</ul>
+<hr>
+<h4 id="reference-clock-support">Reference Clock Support</h4>
+<ul>
+<li><a href="/documentation/4.2.6-series/refclock/">Reference Clock Drivers</a></li>
+<li><a href="/documentation/4.2.6-series/extern/">External Clock Discipline and the Local Clock Driver</a></li>
+<li><a href="/documentation/4.2.6-series/howto/">How to Write a Reference Clock Driver</a></li>
+<li><a href="/documentation/4.2.6-series/parsenew/">How to build new PARSE clocks</a></li>
+</ul>
+<hr>
+<h4 id="reference-clock-audio-drivers">Reference Clock Audio Drivers</h4>
+<ul>
+<li><a href="/documentation/4.2.6-series/audio/">Reference Clock Audio Drivers</a></li>
+<li><a href="/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder</a></li>
+<li><a href="/documentation/drivers/driver36/">Radio WWV/H Audio Demodulator/Decoder</a></li>
+<li><a href="/documentation/drivers/driver6/">IRIG Audio Decoder</a></li>
+</ul>
+<hr>
+<h4 id="miscellaneous">Miscellaneous</h4>
+<ul>
+<li><a href="/documentation/4.2.6-series/copyright/">Copyright Notice</a></li>
+<li><a href="/documentation/4.2.6-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a></li>
+<li><a href="/documentation/4.2.6-series/kern/">Kernel Model for Precision Timekeeping</a></li>
+<li><a href="/documentation/4.2.6-series/kernpps/">PPSAPI Interface for Precision Time Signals</a></li>
+<li><a href="/documentation/4.2.6-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a></li>
+<li><a href="/documentation/4.2.6-series/gadget/">Gadget Box PPS Level Converter and CHU Modem</a></li>
+</ul>
+<hr>
+<h4 id="other-links">Other Links</h4>
+<ul>
+<li><a href="/reflib/book/">Computer Network Time Synchronization - The Network Time Protocol (book)</a></li>
+<li><a href="/reflib/ntp/">NTP Research Project (home page)</a></li>
+<li><a href="/reflib/exec/">Executive Summary: Computer Network Time Synchronization</a></li>
+<li><a href="/reflib/leap/">The NTP Timescale and Leap Seconds</a></li>
+<li><a href="/reflib/time/">NTP Timestamp Calculations</a></li>
+<li><a href="/reflib/y2k/">The NTP Era and Era Numbering</a></li>
+<li><a href="/reflib/stamp/">Timestamp Capture Principles</a></li>
+<li><a href="/reflib/autocfg/">Autonomous Configuration</a></li>
+<li><a href="/reflib/autokey/">Autonomous Authentication</a></li>
+<li><a href="/reflib/proto/">Autokey Protocol</a></li>
+<li><a href="/reflib/ident/">Autokey Identity Schemes</a></li>
+</ul>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

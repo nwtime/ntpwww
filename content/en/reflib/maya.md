@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![kin](/archives/pic/kin1.gif)
+![kin](/documentation/pic/kin1.gif)
 
 [one of the Maya day-glyphs for _Kin_](/reflib/pictures/)
 
@@ -36,7 +36,7 @@ The Maya actually used two calendars, a sacred year of 260 days and a vague year
 
 Longer cycles can be incorporated in the Maya calendar. A _katun_ consists of 20 tun (about 19.7 years), a _baktun_ of 20 katuns (about 395 years), a _pictun_ of 20 baktuns (about 78.9 centuries), a _calabtun_ of 20 pictuns (about 158 millennia), and a _kinchiltun_ of 20 calabtuns (about 3.16 million years). There is evidence to suggest the Maya were aware that the vague year differed slightly from the actual solar year, but no evidence they actually did something about it.
 
-![Pictun](/archives/pic/pictun.gif) Days of either the sacred year or vague year are represented by articulated viget-glyph digraphs similar to the figure at left. The _overt viget_ on the left of the figure encodes 14 as described above. The glyph on the right, called a _day glyph_, encodes a _vague viget_ depending on its face.
+![Pictun](/documentation/pic/pictun.gif) Days of either the sacred year or vague year are represented by articulated viget-glyph digraphs similar to the figure at left. The _overt viget_ on the left of the figure encodes 14 as described above. The glyph on the right, called a _day glyph_, encodes a _vague viget_ depending on its face.
 
 A calendar round date consists of two digraphs representing the sacred-year day followed by the vague-year day. When necessary, years are represented in positional notation, where each overt viget represents a coefficient and the opaque viget the positional multiplier or _year glyph_. The format varies somewhat according to the style of the calendrist, with the overt viget placed on the top or on the left as in the figure, which is literally translated 14 Pictun (about 103 centuries).
 
@@ -82,7 +82,7 @@ Historians write a Maya _long count_ calendar round date in the form, e.g., 9.17
 | | ... | |
 | vague day | 18 | ![Cumku](/reflib/maya/month18_cumku.gif) | Cumku |
 
-Other engravings include kinchiltuns ![Kinchiltun](/archives/pic/kinchiltun.gif), calabtuns ![Calabtun](/archives/pic/calabtun.gif), and pictuns ![Pictun](/archives/pic/pictun.gif). The next digraph represents the sacred day and, after some intervening glyphs, the last of the 15 digraphs represents the vague day.
+Other engravings include kinchiltuns ![Kinchiltun](/documentation/pic/kinchiltun.gif), calabtuns ![Calabtun](/documentation/pic/calabtun.gif), and pictuns ![Pictun](/documentation/pic/pictun.gif). The next digraph represents the sacred day and, after some intervening glyphs, the last of the 15 digraphs represents the vague day.
 
 * * *
 

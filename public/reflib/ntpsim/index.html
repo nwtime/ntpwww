@@ -5,9 +5,11 @@
 
   
   <meta name="description" content="
+  
+
 from pogo, Walt Kelly
 Researchers involved: David Mills, graduate student Harish Nair
-Funding: Defense Advanced Research Projects Agency (DARPA) and …">
+Funding: Defense Advanced Research Projects Agency …">
 <meta property="og:title" content="NTP Discrete Event Simulator" />
 <meta property="og:description" content="from pogo, Walt Kelly
 Researchers involved: David Mills, graduate student Harish Nair
@@ -50,7 +52,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -73,13 +75,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -122,7 +124,9 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>NTP Discrete Event Simulator</h1>
      
-    <p><img src="/archives/pic/pogo6.gif" alt="gif"></p>
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/pogo6.gif" alt="gif"  />
+</p></p>
 <p>from <a href="/reflib/pictures/"><em>pogo</em></a>, Walt Kelly</p>
 <p>Researchers involved: David Mills, graduate student Harish Nair</p>
 <p>Funding: Defense Advanced Research Projects Agency (DARPA) and Jet Propulsion Laboratory/NASA</p>
@@ -149,7 +153,7 @@ if (!doNotTrack) {
 <hr>
 <h4 id="brief-description-of-work-and-results">Brief Description of Work and Results</h4>
 <p>We have constructed a prototype DES for NTP. It includes all of the algorithms used to mitigate the time and discipline the local clock. These algorithms use the same NTP Version 4 software distribution, some with minor changes, to support synthetic network and clock hardware. The DES simulates one actual node in the NTP subnet as driven by another synthetic node with a given time and frequency offset. The offsets can be programmed by command arguments or generated using stochastic pseudo-random number generators with characteristics matching typical computer clock oscillators.</p>
-<p>In its current form the DES simulates a single NTPv4 client operating with a single NTPv4 server. The NTPv4 software I/O functions are modified such that a NTP packet sent by the client is processed by the DES server and linked on the client receive queue. . AIn addition, the NTPv4 software timer functions that read, set and adjust the system time are modified to implement a synthetic system clock with nanosecond precision. Two pseudorandom noise generators produce exponentially distributed network delay samples and random-walk frequency wander samples. No changes have been made in the clock filter, selection and combining algorithms or in the clock discipline algorithm. The statistics recording functions remain, as well as the debug trace and logging functions. Further information can be found in the briefings listed at the top of this page and on the <a href="/archives/4.2.8-series/ntpdsim/"><code>ntpdsim</code> - Network Time Protocol (NTP) simulator</a> program documentation page.</p>
+<p>In its current form the DES simulates a single NTPv4 client operating with a single NTPv4 server. The NTPv4 software I/O functions are modified such that a NTP packet sent by the client is processed by the DES server and linked on the client receive queue. . AIn addition, the NTPv4 software timer functions that read, set and adjust the system time are modified to implement a synthetic system clock with nanosecond precision. Two pseudorandom noise generators produce exponentially distributed network delay samples and random-walk frequency wander samples. No changes have been made in the clock filter, selection and combining algorithms or in the clock discipline algorithm. The statistics recording functions remain, as well as the debug trace and logging functions. Further information can be found in the briefings listed at the top of this page and on the <a href="/documentation/4.2.8-series/ntpdsim/"><code>ntpdsim</code> - Network Time Protocol (NTP) simulator</a> program documentation page.</p>
 <p>We have used the simulator to test NTP performance over a wide range of operating conditions, some of which are possible but extremely rare in the real world. The purpose of these tests is to study the system behavior under conditions requiring very long convergence times and clock state machine transitions difficult to study in the real world. The tests have resulted in a number of incremental improvents in several algorithms, in particular the clock discipline algorithm. As virtual time runs some 16,000 times faster than real time, testing convergence regimes at very long poll intervals runs in seconds, rather than days.</p>
 <hr>
 <h4 id="future-work">Future Work</h4>

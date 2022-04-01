@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
+
+  
+  <meta name="description" content="
+  
+from Pogo, Walt Kelly
+
+The pig watches the logs.
+
+Table of Contents
+
+Monitoring Support
+Monitoring Commands
+
+
+Monitoring Support
+ntpd includes a …">
+<meta property="og:title" content="Monitoring Options" />
+<meta property="og:description" content="from Pogo, Walt Kelly 
+The pig watches the logs.
+ Table of Contents  Monitoring Support Monitoring Commands   Monitoring Support ntpd includes a comprehensive monitoring facility suitable for continuous, long term recording of server and client timekeeping performance. See the statistics command below for a listing and example of each type of statistics currently supported. Statistic files are managed using file generation sets and scripts in the ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.1/monopt/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Monitoring Options</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/4.1.1/">4.1.1</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/documentation/4.1.1/monopt/">Monitoring Options</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Monitoring Options</h1>
+     
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/pogo8.gif" alt="gif"  />
+</p><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly
+</a></p>
+<p>The pig watches the logs.</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/documentation/4.1.1/monopt/#monitoring-support">Monitoring Support</a></li>
+<li><a href="/documentation/4.1.1/monopt/#monitoring-commands">Monitoring Commands</a></li>
+</ul>
+<hr>
+<h4 id="monitoring-support">Monitoring Support</h4>
+<p><code>ntpd</code> includes a comprehensive monitoring facility suitable for continuous, long term recording of server and client timekeeping performance. See the <code>statistics</code> command below for a listing and example of each type of statistics currently supported. Statistic files are managed using file generation sets and scripts in the <code>./scripts</code> directory of this distribution. Using these facilities and Unix <code>cron</code> jobs, the data can be automatically summarized and archived for retrospective analysis.</p>
+<hr>
+<h4 id="monitoring-commands">Monitoring Commands</h4>
+<dl>
+<dt><code><strong>statistics <em>name</em> [&hellip;]</strong></code></dt>
+<dd>
+<p>Enables writing of statistics records. Currently, four kinds of <code><em>name</em></code> statistics are supported.</p>
+</dd>
+<dt><code>loopstats</code></dt>
+<dd>
+<p>Enables recording of loop filter statistics information. Each update of the local clock outputs a line of the following form to the file generation set named <code>loopstats</code>:</p>
+</dd>
+</dl>
+<p><code>50935 75440.031 0.000006019 13.778190 0.000351733 0.013380 6</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next five fields show time offset (seconds), frequency offset (parts per million - PPM), RMS jitter (seconds), Allan deviation (PPM) and clock discipline time constant.</p>
+<dl>
+<dt><code>peerstats</code></dt>
+<dd>
+<p>Enables recording of peer statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each valid update appends a line of the following form to the current element of a file generation set named <code>peerstats</code>:</p>
+</dd>
+</dl>
+<p><code>48773 10847.650 127.127.4.1 9714 -0.001605 0.00000 0.00142</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix B of the NTP specification RFC 1305. The final three fields show the offset, delay, and RMS jitter, all in seconds.</p>
+<dl>
+<dt><code>clockstats</code></dt>
+<dd>
+<p>Enables recording of clock driver statistics information. Each update received from a clock driver appends a line of the following form to the file generation set named <code>clockstats</code>:</p>
+</dd>
+</dl>
+<p><code>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the clock address in dotted-quad notation. The final field shows the last timecode received from the clock in decoded ASCII format, where meaningful. In some clock drivers a good deal of additional information can be gathered and displayed as well. See information specific to each clock for further details.</p>
+<dl>
+<dt><code>rawstats</code></dt>
+<dd>
+<p>Enables recording of raw-timestamp statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each NTP message received from a peer or clock driver appends a line of the following form to the file generation set named <code>rawstats</code>:</p>
+</dd>
+</dl>
+<p><code>50928 2132.543 128.4.1.1 128.4.1.10 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000</code></p>
+<p>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the remote peer or clock address followed by the local address in dotted-quad notation, The final four fields show the originate, receive, transmit and final NTP timestamps in order. The timestamp values are as received and before processing by the various data smoothing and mitigation algorithms.</p>
+<dl>
+<dt><code><strong>statsdir <em>directory_path</em></strong></code></dt>
+<dd>
+<p>Indicates the full path of a directory where statistics files should be created (see below). This keyword allows the (otherwise constant) <code>filegen</code> filename prefix to be modified for file generation sets, which is useful for handling statistics logs.</p>
+</dd>
+<dt><code><strong>filegen <em>name</em> [file <em>filename</em>] [type <em>typename</em>] [link | nolink] [enable | disable]</strong></code></dt>
+<dd>
+<p>Configures setting of generation file set <code><em>name</em></code>. Generation file sets provide a means for handling files that are continuously growing during the lifetime of a server. Server statistics are a typical example for such files. Generation file sets provide access to a set of files used to store the actual data. At any time at most one element of the set is being written to. The type given specifies when and how data will be directed to a new element of the set. This way, information stored in elements of a file set that are currently unused are available for administrational operations without the risk of disturbing the operation of <code>ntpd</code>. (Most important: they can be removed to free space for new data produced.)</p>
+</dd>
+</dl>
+<p>Note that this command can be sent from the <code>ntpdc</code> program running at a remote location.</p>
+<dl>
+<dt><code><em>name</em></code></dt>
+<dd>
+<p>This is the type of the statistics records, as shown in the <code>statistics</code> command.</p>
+</dd>
+<dt><code>file <em>filename</em></code></dt>
+<dd>
+<p>This is the file name for the statistics records. Filenames of set members are built from three concatenated elements <code><em>prefix</em></code>, <code><em>filename</em></code>, and <code><em>suffix</em></code>:</p>
+</dd>
+<dt><code><em>prefix</em></code></dt>
+<dd>
+<p>This is a constant filename path. It is not subject to modifications via the <code>filegen</code> option. It is defined by the server, usually specified as a compile-time constant. It may, however, be configurable for individual file generation sets via other commands. For example, the prefix used with <code>loopstats</code> and <code>peerstats</code> generation can be configured using the <code>statsdir</code> option explained above.</p>
+</dd>
+<dt><code><em>filename</em></code></dt>
+<dd>
+<p>This string is directly concatenated to the prefix mentioned above (no intervening <code>/</code> (slash)). This can be modified using the <code>file</code> argument to the <code>filegen</code> statement. No <code>..</code> elements are allowed in this component to prevent filenames referring to parts outside the filesystem hierarchy denoted by <code>prefix</code>.</p>
+</dd>
+<dt><code><em>suffix</em></code></dt>
+<dd>
+<p>This part is reflects individual elements of a file set. It is generated according to the type of a file set.</p>
+</dd>
+<dt><code>type <em>typename</em></code></dt>
+<dd>
+<p>A file generation set is characterized by its type. The following types are supported:</p>
+</dd>
+<dt><code>none</code></dt>
+<dd>
+<p>The file set is actually a single plain file.</p>
+</dd>
+<dt><code>pid</code></dt>
+<dd>
+<p>One element of file set is used per incarnation of a <code>ntpd</code> server. This type does not perform any changes to file set members during runtime, however it provides an easy way of separating files belonging to different <code>ntpd</code> server incarnations. The set member filename is built by appending a <code>.</code> (dot) to concatenated <code><em>prefix</em></code> and <code><em>filename</em></code> strings, and appending the decimal representation of the process ID of the <code>ntpd</code> server process.</p>
+</dd>
+<dt><code>day</code></dt>
+<dd>
+<p>One file generation set element is created per day. A day is defined as the period between 00:00 and 24:00 UTC. The file set member suffix consists of a <code>.</code> (dot) and a day specification in the form <code>YYYYMMdd</code>. <code>YYYY</code> is a 4-digit year number (e.g., 1992). <code>MM</code> is a two digit month number. <code>dd</code> is a two digit day number. Thus, all information written at 10 December 1992 would end up in a file named <code><em>prefix filename</em>.19921210</code>.</p>
+</dd>
+<dt><code>week</code></dt>
+<dd>
+<p>Any file set member contains data related to a certain week of a year. The term week is defined by computing day-of-year modulo 7. Elements of such a file generation set are distinguished by appending the following suffix to the file set filename base: A dot, a 4-digit year number, the letter <code>W</code>, and a 2-digit week number. For example, information from January, 10th 1992 would end up in a file with suffix <code>.1992W1</code>.</p>
+</dd>
+<dt><code>month</code></dt>
+<dd>
+<p>One generation file set element is generated per month. The file name suffix consists of a dot, a 4-digit year number, and a 2-digit month.</p>
+</dd>
+<dt><code>year</code></dt>
+<dd>
+<p>One generation file element is generated per year. The filename suffix consists of a dot and a 4-digit year number.</p>
+</dd>
+<dt><code>age</code></dt>
+<dd>
+<p>This type of file generation sets changes to a new element of the file set every 24 hours of server operation. The filename suffix consists of a dot, the letter <code>a</code>, and an 8-digit number. This number is taken to be the number of seconds the server is running at the start of the corresponding 24-hour period. Information is only written to a file generation by specifying <code>enable</code>; output is prevented by specifying <code>disable</code>.</p>
+</dd>
+<dt><code><strong>link | nolink</strong></code></dt>
+<dd>
+<p>It is convenient to be able to access the current element of a file generation set by a fixed name. This feature is enabled by specifying <code>link</code> and disabled using <code>nolink</code>. If <code>link</code> is specified, a hard link from the current file set element to a file without suffix is created. When there is already a file with this name and the number of links of this file is one, it is renamed appending a dot, the letter <code>C</code>, and the pid of the <code>ntpd</code> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</p>
+</dd>
+<dt><code><strong>enable | disable</strong></code></dt>
+<dd>
+<p>Enables or disables the recording function.</p>
+</dd>
+</dl>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

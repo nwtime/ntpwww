@@ -51,7 +51,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -74,13 +74,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -213,7 +213,9 @@ NTP:  bd5927ee.bc616000
 <h4 id="5131-how-accurate-will-my-clock-be">5.1.3.1 How accurate will my Clock be?</h4>
 <p>For a general discussion see <a href="/ntpfaq/ntp-s-sw-clocks/">Section 3</a>. Also keep in mind that corrections are applied gradually, so it may take up to three hours until the frequency error is compensated (see Figure 5.1a).</p>
 <p><strong>Figure 5.1a: Initial Run of NTP</strong></p>
-<p><img src="/ntpfaq/ntp35f-init.png" alt=""></p>
+<p><p>
+  <img loading="lazy" src="/ntpfaq/ntp35f-init.png" alt=""  />
+</p></p>
 <p>The final achievable accuracy depends on the time source being used. Basically, no client can be more accurate than its server. In addition, the quality of the network connection also influences the final accuracy. Slow and non-predictable networks with varying delays are bad for good time synchronization.</p>
 <p>A time difference of less than 128ms between server and client is required to maintain NTP synchronization. The typical accuracy on the Internet ranges from about 5ms to 100ms, possibly varying with network delays. A survey by Professor David L. Mills suggests that 90% of the NTP servers have network delays below 100ms, and about 99% are synchronized within one second to the <em>synchronization peer</em>.</p>
 <p>With PPS synchronization an accuracy of 50μs and a stability below 0.1 PPM is achievable on a Pentium PC running Linux. However, there are some hardware facts to consider. Judah Levine wrote:</p>

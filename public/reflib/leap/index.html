@@ -5,13 +5,15 @@
 
   
   <meta name="description" content="
+  
+
 from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
-The Mad Hatter and the March Hare are discussing whether the Teapot serial number should …">
+The Mad Hatter and the March Hare are discussing whether the Teapot serial number …">
 <meta property="og:title" content="The NTP Timescale and Leap Seconds" />
 <meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.
 Last update: 12-May-2012
- Table of Contents  Abstract Introduction How UTC Reckons with Leap Seconds How NTP and POSIX Reckon with Leap Seconds How NTP and POSIX Number the Seconds How NTP Implements Leap Seconds Parting Shots Appendix A. Specimen NIST leap-seconds.list File   Abstract The timescale used by the Network Time Protocol (NTP) is based on coordinated univeral time (UTC), which itself is based on the Earth rotation about its axis." />
+ Table of Contents  Abstract Introduction How UTC Reckons with Leap Seconds How NTP and POSIX Reckon with Leap Seconds How NTP and POSIX Number the Seconds How NTP Implements Leap Seconds Parting Shots Appendix A. Specimen NIST leap-seconds." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/reflib/leap/" /><meta property="article:section" content="reflib" />
 
@@ -49,7 +51,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -72,13 +74,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -121,7 +123,9 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>The NTP Timescale and Leap Seconds</h1>
      
-    <p><img src="/archives/pic/alice15.gif" alt="gif"></p>
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/alice15.gif" alt="gif"  />
+</p></p>
 <p>from <a href="/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
 <p>The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.</p>
 <p>Last update: 12-May-2012</p>
@@ -217,7 +221,9 @@ if (!doNotTrack) {
 <p>The obvious question raised by the NTP conventions is what happens during the leap second itself when NTP time stops and the clock remains unchanged. The NTP leap bits are set on the leap day, either directly by a reference clock driver or indirectly by the protocol. The leap second is implemented at the end of the normal day of 86,400 s, then the leap bits are reset.</p>
 <p>If the precision time kernel modifications have been implemented, the kernel includes a state machine that implements the actions required by the scenario. The state machine implemented in most recent Unix kernels is described in the <a href="/reflib/software/nanokernel.tar.gz"><code>nanokernel</code></a> software distribution. At the first occurrence of second 3,124,137,600, the system clock is stepped backward one second. The operating system kernel time conversion routines can recognize this condition and show the leap second as number 60.</p>
 <p>However, the routine that actually reads the clock is constrained never to step backwards, unless the step is significantly larger than one second, which might occur due to explicit operator direction. In this design time stands still during the leap second, but is correct commencing with the next second.</p>
-<p><img src="/archives/pic/leap.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/leap.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 1. NTP Offset In the Vicinity of a Leap Second</strong></p>
 <p>Figure 1 shows the behavior with the modified design used in most kernels. Unlike the POSIX conventions, the NTP clock is frozen and does not advance during the leap second, so there is no need to set it back one second at the end of the leap second. The chronometric correspondence between the UTC and NTP timescales continues, but NTP has forgotten about all past leap insertions. Thus, determination of UTC time intervals spanning leap seconds will be in error, unless the exact times of insertion are known from the NIST table and its successors.</p>
 <p>Immediately after the leap second insertion, both timescales resume ticking the seconds as if the leap had never happened. The clock reading is constrained to always increase, so every reading during the leap second increases the NTP clock by at least one microsecond for older kernels and one nanosecond for newer ones.</p>

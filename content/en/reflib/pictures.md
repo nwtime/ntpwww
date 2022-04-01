@@ -3,7 +3,7 @@ title: "About the Pictures"
 type: archives
 ---
 
-![gif](/archives/pic/tribeb.gif)
+![gif](/documentation/pic/tribeb.gif)
 
 _The Okefenokee Orchestra_, Walt Kelly
 
@@ -27,7 +27,7 @@ Sung to the tune of _Deck the halls with boughs of holly._
 
 [//]: <> (commented by DL July/2021:[Hear the words sung by Beverly Mills](wav/song1a.wav).)
 
-![gif](/archives/pic/bostona.gif)
+![gif](/documentation/pic/bostona.gif)
 
 Deck us all with Boston Charlie,
 : _Walla Walla, Wash., an' Kalamazoo!_
@@ -51,15 +51,15 @@ The artwork sprinkled on these pages is drawn from several sources, including te
 
 #### The Pogo Collection
 
-![gif](/archives/pic/pogo.gif)
+![gif](/documentation/pic/pogo.gif)
 
-![gif](/archives/pic/w_kellya.gif)
+![gif](/documentation/pic/w_kellya.gif)
 
 _Pogo Possum_, the DCnet mascot (top), carries a bag of tools used to repair Unix kernels, and a [bug](https://www.history.navy.mil/our-collections/photography/numerical-list-of-images/nhhc-series/nh-series/NH-96000/NH-96566-KN.html) in his hat, which is a hazard in much of the work we do.
 
 "We have met the enemy and he is us" is probably the most famous line from the _Pogo_ comic strips and books published by Walt Kelly (above) <sup>[6](#myfootnote6)</sup>. The mugshots scattered over these pages were taken from his books [4-11](/reflib/pictures/#references), some of which are now valuable collectors items. The workstations, routers and other Internet munchkins that lurk in the DCnet swamp are named after his critters.
 
-![gif](/archives/pic/mugshot.gif)
+![gif](/documentation/pic/mugshot.gif)
 
 Here are some songs from _Songs of the Pogo_ <sup>[5](#myfootnote5)</sup> sung by Beverly Mills [Final Focus]:
 
@@ -102,9 +102,9 @@ The Keen and the Quing
 
 #### The Alice Books
 
-![gif](/archives/pic/alice47.gif)
+![gif](/documentation/pic/alice47.gif)
 
-![jpg](/archives/pic/alice05s.jpg)
+![jpg](/documentation/pic/alice05s.jpg)
 
 The artwork by Sir John Tenniel (top) was taken from _Alice's Adventures in Wonderland_ and _Through the Looking Glass_, by Lewis Carroll, the pen name of Charles Dodgson. Sir John was a well known illustrator and political cartoonist of the day. His drawings have influenced the perceptions of Alice in books, films, plays and generations of children.
 
@@ -112,11 +112,11 @@ The life and works of Lewis Carroll and the story behind the Alice books have be
 
 Dodgson is the author not only of the Alice books [1-2](/reflib/pictures/#references), but of many delightful poems and puzzles <sup>[3](#myfootnote3)</sup>, the best known of which may be _The Hunting of the Snark_. In them can be found the _Bandersnatch_, _Boojum_, _Snark_, and other creatures of imagination that make wonderful names for computers.
 
-![jpg](/archives/pic/alice100.jpg)
+![jpg](/documentation/pic/alice100.jpg)
 
 Curiously, Sir John's rendition of Alice Pleasance Liddel, for whom the Alice books were written, is nothing like the real Alice, whose picture, taken by Dodgson himself and in the style of the day, is above <sup>[2](#myfootnote2)</sup>.
 
-![gif](/archives/pic/alice101a.gif)
+![gif](/documentation/pic/alice101a.gif)
 
 Alice herself lived a long life, during which several musical plays, books and films were made about the story, which Dodgson first told to her and her two sisters during a boat trip in 1862. The picture above was taken during a visit to New York to collect an honorary degree when she was 80 <sup>[1](#myfootnote1)</sup>.
 
@@ -124,7 +124,7 @@ Alice herself lived a long life, during which several musical plays, books and f
 
 #### The Oz Books
 
-![gif](/archives/pic/flatheads.gif)
+![gif](/documentation/pic/flatheads.gif)
 
 The books by L. Frank Baum that began with _The Wizard of Oz_ <sup>[13](#myfootnote13)</sup>, first published in 1900, are probably, along with the Alice books, the best known children's books in the world. The artwork appearing on these pages is from the original by W.W. Denslow.
 
@@ -132,7 +132,7 @@ The books by L. Frank Baum that began with _The Wizard of Oz_ <sup>[13](#myfootn
 
 #### The Maya Glyphs
 
-![gif](/archives/pic/kin1.gif)
+![gif](/documentation/pic/kin1.gif)
 
 The [Classic Maya](/reflib/maya/) civilization of southern Mexico, Guatemala and Belize flourished in the fourth through tenth century AD. They were accomplished astronomers and mathematicians and left a historic record engraved as glyphs in stone monuments called _stellae_. The glyphs record the rise and fall of the rulers, as well as the places, dates and atrocities of the age. The Maya calendar glyphs on these pages are from <sup>[14](#myfootnote14)</sup>. They illustrate the Maya calendar and arithmetic systems, which were highly developed long before the Europeans expunged the awkward Roman arithmetic system in favor of the much more practical Arabic system.
 
@@ -140,7 +140,7 @@ The [Classic Maya](/reflib/maya/) civilization of southern Mexico, Guatemala and
 
 #### Photography
 
-![jpg](/archives/pic/yandb1.jpg)
+![jpg](/documentation/pic/yandb1.jpg)
 
 The unattributed photos on these web pages were taken and retouched by me. They are not copyrighted and you can use them any responsible way you want. Here are some adventures:
 

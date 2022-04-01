@@ -5,6 +5,8 @@
 
   
   <meta name="description" content="
+  
+
 Maya glyph alautun
 Table of Contents
 
@@ -12,7 +14,7 @@ Briefing Slides
 Related Pages
 Introduction
 Private Certificate (PC) Cryptosystem
-Schnorr (IFF) Cryptosystem …">
+Schnorr (IFF) …">
 <meta property="og:title" content="Autokey Identity Schemes" />
 <meta property="og:description" content="Maya glyph alautun
 Table of Contents  Briefing Slides Related Pages Introduction Private Certificate (PC) Cryptosystem Schnorr (IFF) Cryptosystem Guillou-Quisquater (GQ) Cryptosystem Mu-Varadharajan (MV) Cryptosystem Selected Publications   Briefing Slides  NTP Security Model PDF NTP Security Algorithms PDF NTP Security Protocol PDF   Related Pages  Autonomous Configuration Autonomous Authentication Autokey Protocol Autokey Identity Schemes   Introduction While the identity scheme described in RFC 2875 is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here." />
@@ -53,7 +55,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -76,13 +78,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -125,7 +127,9 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Autokey Identity Schemes</h1>
      
-    <p><img src="/archives/pic/alautun4a.gif" alt="gif"></p>
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/alautun4a.gif" alt="gif"  />
+</p></p>
 <p><a href="/reflib/maya/">Maya glyph <em>alautun</em></a></p>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
@@ -157,7 +161,9 @@ if (!doNotTrack) {
 <h4 id="introduction">Introduction</h4>
 <p>While the identity scheme described in <a href="/reflib/rfc/rfc2875.txt">RFC 2875</a> is based on a ubiquitous Diffie-Hellman infrastructure, it is expensive to generate and use when compared to others described here. There are five schemes now implemented in Autokey to prove identity: (1) trusted certificates (TC), (2) private certificates (PC), (3) a modified Schnorr algorithm (IFF aka Identify Friendly or Foe), (4) a modified Guillou-Quisquater algorithm (GQ), and (5) a modified Mu-Varadharajan algorithm (MV). The TC scheme, which involves a certificate trail to a trusted host, is discussed on the <a href="/reflib/proto/">Autokey Protocol</a> page. Each of the others involves generating parameters specific to the scheme, together with public and private values used by the scheme.</p>
 <p>In order to simplify implementation, each scheme uses existing structures in the OpenSSL library, including those for RSA and DSA cryptography. As these structures are sometimes used in ways far different than their original purpose, they are called cuckoo structures in the descriptions that follow.</p>
-<p><img src="/archives/pic/xchange.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/xchange.gif" alt="gif"  />
+</p></p>
 <p>In the challenge-response schemes client Alice asks server Bob to prove identity relative to a secret group key <em>b</em> provided by a trusted authority (TA). As shown in the figure above, client Alice rolls random <em>nonce1</em> and sends to server Bob. Bob rolls random <em>nonce2</em>, performs some mathematical function and returns the response along with the hash of some private value to Alice. Alice performs another mathematical function and verifies the result matches the hash in Bob&rsquo;s message.</p>
 <p>Each of the five schemes is intended for specific use. There are three kinds of keys, trusted agent, server and client. Servers can be clients of other servers, but clients cannot be servers for dependent clients. In general, the goals of the schemes are that clients cannot masquerade as servers and servers cannot masquerade as trusted agents (TAs), but they differ somewhat on how to achieve these goals. To the extent that identity can be verified without revealing the group key, the schemes are properly described as zero-knowledge proofs.</p>
 <p>The four identity schemes described here have different design goals and are intended for specific application. The PC scheme is intended for one-way broadcast configurations where clients cannot run a duplex protocol. It is essentially a symmetric key cryptosystem where the certificate itself is the key.</p>
@@ -166,13 +172,17 @@ if (!doNotTrack) {
 <p>The MV scheme is intended for the most challenging scenarios where it is necessary to protect against both server and client masquerade. The private values used by the TA to generate the cryptosystem are not available to the servers and the private values used by the servers to encrypt data are not available to the clients. Thus, a client cannot masquerade as a server and a server cannot masquerade as a TA. However, a client can verify a server has the correct group key even though neither the client nor server know the group key, nor can either manufacture a client key acceptable to any other client. A further feature of this scheme is that the TA can collaborate with the servers to revoke client keys.</p>
 <hr>
 <h4 id="private-certificate-pc-cryptosystem">Private Certificate (PC) Cryptosystem</h4>
-<p><img src="/archives/pic/pc.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/pc.gif" alt="gif"  />
+</p></p>
 <p>The PC scheme shown above uses a private certificate as the group key. A certificate is designated private by a X509 Version 3 extension field when generated by the <code>ntp-keygen</code> program in the NTP software distribution. In the Autokey context it functions as a symmetric key. The private certificate is generated by a TA and distributed to all group members by secure means and is never revealed outside the group. A client is marked trusted in the (optional) Parameter Exchange and authentic when the first signature is verified. This scheme is cryptographically strong as long as the private certificate is protected; however, it can be very awkward to refresh the keys or certificate, since new values must be securely distributed to a possibly large population and activated simultaneously.</p>
 <hr>
 <h4 id="schnorr-iff-cryptosystem">Schnorr (IFF) Cryptosystem</h4>
 <p>The Schnorr (IFF) identity scheme can be used when certificates are generated by utilities other than the <code>ntp-keygen</code> program in the NTP software distribution. Certificates can be generated by the OpenSSL library or an external public certificate authority, but conveying an arbitrary public value in a certificate extension field might not be possible. The TA generates the IFF parameters, private key and public key, then sends these values to the servers and the parameters and public key to the clients. Without the private key a client cannot masquerade as a legitimate server.</p>
 <p>The DSA parameters are generated by routines in the OpenSSL library. The IFF values hide in a DSA cuckoo structure which uses the same parameters. The values are used by an identity scheme based on DSA cryptography and described in <sup><a href="#myfootnote4">4</a></sup> and <sup><a href="#myfootnote5">5</a></sup> p. 285. The <code><em>p</em></code> is a 512-bit prime, <code><em>g</em></code> a generator of the multiplicative group <code><em>Z<sub>p</sub></em>*</code> and <code><em>q</em></code> a 160-bit prime that divides <code><em>p</em> - 1</code> and is a <code><em>q</em></code>th root of <code>1 mod <em>p</em></code>; that is, <code><em>g<sup>q</sup></em> = 1 mod <em>p</em></code>. The TA rolls a private random group key <code><em>b</em> (0 &lt; <em>b</em> &lt; <em>q</em>)</code> and computes the public key <code><em>v</em> = <em>g<sup>b</sup></em></code>, then distributes private <code>(<em>p</em>, <em>q</em>, <em>g</em>, <em>b</em>)</code> to the servers using secure means and public <code>(<em>p</em>, <em>q</em>, <em>g, v</em>)</code> to the clients not necessarily using secure means.</p>
-<p><img src="/archives/pic/iff.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/iff.gif" alt="gif"  />
+</p></p>
 <p>The TA generates a DSA parameter structure for use as IFF parameters. The IFF parameters are identical to the DSA parameters, so the OpenSSL library DSA parameter generation routine can be used directly. The DSA parameter structure is written to a file as an encrypted DSA key encoded in PEM. Unused structure members are set to one.</p>
 <table>
 <thead>
@@ -226,7 +236,9 @@ if (!doNotTrack) {
 <h4 id="guillou-quisquater-gq-cryptosystem">Guillou-Quisquater (GQ) Cryptosystem</h4>
 <p>The Guillou-Quisquater (GQ) identity scheme is useful when certificates are generated by the <code>ntp-keygen</code> program in the NTP software distribution. The TA generates the GQ parameters, private key and public key, then sends these values to the servers and the parameters to the clients. The public key is inserted in an X.509 extension field when the certificate is generated. Without the private key a client cannot masquerade as a legitimate server.</p>
 <p>The RSA parameters are generated by routines in the OpenSSL libbrary. The GQ values hide in a RSA cuckoo structure which uses the same parameters. The values are used in an identity scheme based on RSA cryptography and described in <sup><a href="#myfootnote1">1</a></sup> and <sup><a href="#myfootnote5">5</a></sup> p. 300 (with errors). The 512-bit public modulus <code><em>n</em> = <em>p</em> <em>q</em></code>, where <code><em>p</em></code> and <code><em>q</em></code> are secret large primes. The TA rolls random group key <code><em>b</em> (0 &lt; <em>b</em> &lt; <em>n</em>)</code> and sends <code>(<em>n</em>, <em>b</em>)</code> to the servers using secure means. The private key and public key are constructed later.</p>
-<p><img src="/archives/pic/gq.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/gq.gif" alt="gif"  />
+</p></p>
 <p>The TA generates a RSA parameter structure for use as GQ parameters. The RSA parameter structure is written to a file as an encrypted RSA key encoded in PEM. Unused structure members are set to one.</p>
 <p>When generating new certificates, the server rolls new random private key <code><em>u</em> (0 &lt; <em>u</em> &lt; <em>n</em>)</code> and public key its inverse <code><em>u</em><sup>-1</sup></code> obscured by the group key <code><em>v</em> = <em>u</em><sup>-1</sup> <em><sup>b</sup></em></code>. These values replace the private and public keys normally generated by the RSA scheme. In addition, the public key <code><em>v</em></code> is conveyed in a X.509 certificate extension.</p>
 <table>
@@ -278,7 +290,9 @@ if (!doNotTrack) {
 <p>Clients are assigned one of the activation keys and are provided with the corresponding client key. There can be any number of clients sharing the same activation key according to policy. While the machinery to enable and disable ativation keys is included in the current implementation, specific means and interfaces to do this are not yet available, so only one client key is provided.</p>
 <p>The scheme is designed so that clients can construct the inverse of <code><em>E</em></code> from the server <code><em>gbar</em></code> and <code><em>ghat</em></code> and client <code><em>xbar</em></code> and <code><em>xhat</em></code>. In the scheme both <code><em>E</em></code> and its inverse are exponentiated by a server nonce, so the product is always one and the secrecy depends on the descrete log problem.</p>
 <p>The MV values hide in a DSA cuckoo structure which uses the same parameters, but generated in a different way. The values are used in an encryption scheme similar to El Gamal cryptography and use a polynomial formed from the expansion of product terms <code>(<em>x</em> - <em>x<sub>j</sub></em>)</code>, as described in <sup><a href="#myfootnote3">3</a></sup>. The paper has significant errors and serious omissions.</p>
-<p><img src="/archives/pic/mv.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/mv.gif" alt="gif"  />
+</p></p>
 <p>The TA generates the modulus, encryption key and server decryption keys as an encrypted DSA key encoded in PEM. Unused structure members are set to one.</p>
 <table>
 <thead>

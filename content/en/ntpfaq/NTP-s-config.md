@@ -84,7 +84,7 @@ The minimum configuration for `ntpd` only needs one reference clock. Reference c
 
 <pre>server 127.127.8.0 mode 5	# GENERIC DCF77 AM</pre>
 
-> **Note:** Some reference clock drivers require special device files to be created. These files are used to talk to the reference clock. See the [corresponding documentation of the driver](/archives/4.2.8-series/refclock/#list-of-reference-clock-drivers).
+> **Note:** Some reference clock drivers require special device files to be created. These files are used to talk to the reference clock. See the [corresponding documentation of the driver](/documentation/4.2.8-series/refclock/#list-of-reference-clock-drivers).
 
 In reality one would add several other configuration items, such as a [drift file](#6124-what-is-a-drift-file), additional servers, remote monitoring and configuration, logging, and access restrictions.
 
@@ -105,7 +105,7 @@ Besides being functional, real configurations differ from the one shown in the [
 
 The various drivers for reference clocks are selected using IPv4 adresses which consist of four bytes that are separated by a dot. The individual bytes are: <code>127.127._Clock Type.Unit Number_</code>.
 
-The supported clock types are listed [here](/archives/4.2.8-series/refclock/#list-of-reference-clock-drivers). Usually it does not make sense, but if you want to connect more than one clock of a type, you can do so by using different unit numbers. The driver maps these unit numbers to one or more device files. The exact name of the device file can be found in the description of the individual reference clock's driver.
+The supported clock types are listed [here](/documentation/4.2.8-series/refclock/#list-of-reference-clock-drivers). Usually it does not make sense, but if you want to connect more than one clock of a type, you can do so by using different unit numbers. The driver maps these unit numbers to one or more device files. The exact name of the device file can be found in the description of the individual reference clock's driver.
 
 * * *
 
@@ -215,7 +215,7 @@ By default, the keys themselves are configured in the file `/etc/ntp.keys`. Sinc
 
 > **Note:** Password are stored unencrypted in the keyfile. Therefore no other user should have read or write access to that file or write access to its directory.
 
-[Cryptographic Data Files](/archives/4.2.8-series/keygen/#cryptographic-data-files) provides an example for `/etc/ntp.keys` and explains the meaning of each column in the file.
+[Cryptographic Data Files](/documentation/4.2.8-series/keygen/#cryptographic-data-files) provides an example for `/etc/ntp.keys` and explains the meaning of each column in the file.
 
 * * *
 

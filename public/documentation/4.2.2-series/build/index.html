@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
+
+  
+  <meta name="description" content="
+  
+from Pogo, Walt Kelly
+For putting out compiler fires.
+Last update: 03:06 AM UTC Monday, October 13, 2003
+
+Table of Contents
+
+Building and …">
+<meta property="og:title" content="Building and Installing the Distribution" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+For putting out compiler fires.
+Last update: 03:06 AM UTC Monday, October 13, 2003
+ Table of Contents  Building and Installing the Distribution Building and Installing under Unix Compilation Installation Configuration If You Have Problems Additional make Commands Building and Installing Under Windows NT   Building and Installing the Distribution As a practical matter, every computer architecture and operating system version seems to be different than any other." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.2-series/build/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Building and Installing the Distribution</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/4.2.2-series/">4.2.2-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/documentation/4.2.2-series/build/">Building and Installing the Distribution</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Building and Installing the Distribution</h1>
+     
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/beaver.gif" alt="gif"  />
+</p><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>For putting out compiler fires.</p>
+<p>Last update: 03:06 AM UTC Monday, October 13, 2003</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/documentation/4.2.2-series/build/#building-and-installing-the-distribution">Building and Installing the Distribution</a></li>
+<li><a href="/documentation/4.2.2-series/build/#building-and-installing-under-unix">Building and Installing under Unix</a></li>
+<li><a href="/documentation/4.2.2-series/build/#compilation">Compilation</a></li>
+<li><a href="/documentation/4.2.2-series/build/#installation">Installation</a></li>
+<li><a href="/documentation/4.2.2-series/build/#configuration">Configuration</a></li>
+<li><a href="/documentation/4.2.2-series/build/#if-you-have-problems">If You Have Problems</a></li>
+<li><a href="/documentation/4.2.2-series/build/#additional-ttmakett-commands">Additional <tt>make</tt> Commands</a></li>
+<li><a href="/documentation/4.2.2-series/build/#building-and-installing-under-windows-nt">Building and Installing Under Windows NT</a></li>
+</ul>
+<hr>
+<h4 id="building-and-installing-the-distribution">Building and Installing the Distribution</h4>
+<p>As a practical matter, every computer architecture and operating system version seems to be different than any other. The device drivers may be different, the input/output system may be idiosyncratic and the libraries may have different semantics. It is not possible in a software distribution such as this one to support every individual system with a common set of binaries, even with the same system but different versions. Therefore, it is necessary to individually configure the software build for each system and version, both at compile time and at run time. In almost all cases, these procedures are completely automatic and all the newbie user need do is type <code>configure</code>, <code>make</code> and <code>install</code> in that order and the autoconfigure system does the rest. There are some exceptions, as noted below and on the <a href="/documentation/4.2.2-series/hints/">Hints and Kinks</a> page.</p>
+<p>If available, the OpenSSL library from <a href="https://www.openssl.org">https://www.openssl.org</a> is used to support public key cryptography. The library must be built and installed prior to building NTPv4. The procedures for doing that are included in the OpenSSL documentation. The library is found during the normal NTPv4 configure phase and the interface routines compiled automatically. Only the <code>libcrypto.a</code> library and associated header files are used. If the library is not available or disabled, this step is not required.</p>
+<hr>
+<h4 id="building-and-installing-under-unix">Building and Installing Under Unix</h4>
+<p>Make sure that you have all necessary tools for building executables. These tools include <code>cc/gcc</code>, <code>make</code>, <code>awk</code>, <code>sed</code>, <code>tr</code>, <code>sh</code>, <code>grep</code>, <code>egrep</code> and a few others. Not all of these tools exist in the standard distribution of modern Unix versions (compilers are likely to be an add-on product). If this is the case, consider using the GNU tools and <code>gcc</code> compiler. For a successful build, all of these tools should be accessible via the current path.</p>
+<p>The first thing to do is uncompress the distribution and extract the source tree. In the distribution base directory use the <code>./configure</code> command to perform an automatic configuration procedure. This command inspects the hardware and software environment and tests for the presence of system header files and the contents of these files to determine if certain features are present. When one or more of these features are present, the code is compiled to use them; if not, no special code is compiled. However, even if the code is compiled to use these features, the code does a special test at run time to see if one or more are actually present and avoids using them if not present. In such cases a warning message is sent to the system log, but the daemon should still work properly.</p>
+<p>The default build normally includes the debugging code, which can be useful in diagnosing problems found in initial test, and all reference clock drivers known to work with each machine and operating system. Unless memory space is at a premium, this is a sensible strategy and greatly simplifies debugging and support. If you need to delete either the debugging code or one or all reference clock drivers to save space, see the <a href="/documentation/4.2.2-series/config/">Configuration Options</a> page.</p>
+<p>If your site supports multiple architectures and uses NFS to share files, you can use a single source tree to compile executables for all architectures. While running on a target architecture machine and in the distribution base directory create a subdirectory using a command like <code>mkdir A.`config.guess`</code>, which will create an architecture-specific directory with name peculiar to the architecture and operating system. Then change to this directory and emit a <code>./configure</code> command. The remaining steps are the same whether building in the base directory or in the subdirectory.</p>
+<hr>
+<h4 id="compilation">Compilation</h4>
+<p>Use the <code>make</code> command to compile all source modules, construct the libraries and link the distribution. Expect few or no warnings using <code>cc</code> and a moderate level of warnings using <code>gcc</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> On some Unix platforms <code>gcc</code> may show quite a few complaints about system header files and type inconsistencies, especially with pointer variables. This is usually the case when the system header files are not up to ANSI standards or <code>gcc</code> expectations, when <code>gcc</code> is not installed properly, or when operating system updates and patches are applied and <code>gcc</code> is not reinstalled. While the autoconfigure process is quite thorough, the Unix programming cultures of the various workstation makers still remain idiosyncratic.</p>
+</blockquote>
+<hr>
+<h4 id="installation">Installation</h4>
+<p>As root, use the <code>make install</code> command to install the binaries in the destination directory. Most commonly, these programs are installed in <code>/usr/local/bin</code>, but this can be overridden during configuration. You must of course have write permission on the install in the destination directory. This includes the following programs:</p>
+<ul>
+<li><a href="/documentation/4.2.2-series/ntpd/">ntpd - Network Time Protocol (NTP) daemon</a></li>
+<li><a href="/documentation/4.2.2-series/ntpq/">ntpq - standard NTP query program</a></li>
+<li><a href="/documentation/4.2.2-series/ntpdc/">ntpdc - special NTP query program</a></li>
+<li><a href="/documentation/4.2.2-series/ntpdate/">ntpdate - set the date and time via NTP</a></li>
+<li><a href="/documentation/4.2.2-series/ntptrace/">ntptrace - trace a chain of NTP servers back to the primary source</a></li>
+</ul>
+<p>If the precision time kernel modifications are present, the following program is installed:</p>
+<ul>
+<li><a href="/documentation/4.2.2-series/ntptime/">ntptime - read kernel time variables</a></li>
+</ul>
+<p>If the public key authentication functions are present, the following program is installed:</p>
+<ul>
+<li><a href="/documentation/4.2.2-series/keygen/">ntp-keygen - generate public and private keys</a></li>
+</ul>
+<p>In some systems that include the capability to edit kernel variables, the following program is installed:</p>
+<ul>
+<li><a href="/documentation/4.2.2-series/tickadj/">tickadj - set time-related kernel variables</a></li>
+</ul>
+<p>Cryptographic support, both symmetric and public key, requires one or more key files, commonly installed in <code>/usr/local/etc</code>. Public key cryptography requires a random seed file, usually called <code>.rnd</code>, installed in a dark place such as the root directory or <code>/etc</code>. Directions for generating keys is on the <a href="/documentation/4.2.2-series/authopt/">Authentication Options</a> page.</p>
+<hr>
+<h4 id="configuration">Configuration</h4>
+<p>You are now ready to configure the daemon and start it. You will need to create a NTP configuration file <code>ntp.conf</code> and a cryptographic key file <code>ntp.keys</code>. The latter file is necessary only for remote configuration support, if needed. Newbies should see the <a href="/documentation/4.2.2-series/quick/">Quick Start</a> page for orientation. Seasoned veterans can start with the <a href="/documentation/4.2.2-series/ntpd/">ntpd - Network Time Protocol (NTP) daemon</a> page and move on to the specific configuration option pages from there. A tutorial on NTP subnet design and configuration options is in the <a href="/documentation/4.2.2-series/notes/">Notes on Configuring NTP and Setting up a NTP Subnet</a> page.</p>
+<hr>
+<h4 id="if-you-have-problems">If You Have Problems</h4>
+<p>If you have problems peculiar to the particular hardware and software environment (e.g. operating system-specific issues), browse the <a href="/documentation/4.2.2-series/hints/">Hints and Kinks</a> and <a href="/ntpfaq/">FAQ</a>. For other problems a tutorial on debugging technique is in the <a href="/documentation/4.2.2-series/debug/">NTP Debugging Technique</a> page. Requests for assistance of a general nature and of interest to other timekeepers should be sent to the <a href="https://groups.google.com/g/comp.protocols.time.ntp">NTP newsgroup</a>. Bug reports of a specific nature should be <a href="https://bugs.ntp.org/">reported</a>. Bug reports of a specific nature on features implemented by the programmer corps mentioned in the <a href="/documentation/4.2.2-series/copyright/">Copyright</a> page should be sent directly to the implementor listed in that page, with copy to <a href="mailto:bugs@ntp.org">bugs@ntp.org</a>.</p>
+<p>Please include the version of the source distribution (e.g., ntp-4.0.70a) in your bug report, as well as billboards from the relevant utility programs and debug trace, if available. Please include the output of <code>config.guess</code> in your bug report. It will look something like:</p>
+<p><code>pdp11-dec-fuzzos3.4</code></p>
+<hr>
+<h4 id="additional-ttmakett-commands">Additional <tt>make</tt> commands</h4>
+<dl>
+<dt><code><strong>make clean</strong></code></dt>
+<dd>
+<p>Cleans out object files, programs and temporary files.</p>
+</dd>
+<dt><code><strong>make distclean</strong></code></dt>
+<dd>
+<p>Does the work of <code>clean</code>, but cleans out all directories in preparation for a new distribution release.</p>
+</dd>
+<dt><code><strong>make dist</strong></code></dt>
+<dd>
+<p>Does the work of <code>make distclean</code>, but constructs compressed tar files for distribution. You must have GNU automake to perform this function.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="building-and-installing-under-windows-nt">Building and Installing under Windows NT</h4>
+<p>See <a href="/documentation/hints/winnt/">Windows NT Hints</a> for directions to compile the sources and install the executables.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/panda.gif)
+![gif](/documentation/pic/panda.gif)
 
 FAX test image for SATNET (1979).
 
@@ -73,7 +73,7 @@ This is a compressed archive containing the source code used by the Fuzzball, a 
 
 #### Precision Radio Clock for WWV Transmissions
 
-![jpg](/archives/pic/dsp93.jpg)
+![jpg](/documentation/pic/dsp93.jpg)
 
 [wwv.tar.gz](/reflib/software/wwv.tar.gz)
 
@@ -85,7 +85,7 @@ This is a program for the DSP-93, a digital signal processor system based on the
 
 #### Gadget Box Level Converter
 
-![jpg](/archives/pic/gadget.jpg) [gadget.tar.Z](/reflib/software/gadget.tar.Z)
+![jpg](/documentation/pic/gadget.jpg) [gadget.tar.Z](/reflib/software/gadget.tar.Z)
 
 This is a compressed archive containing the schematics, artwork and related information for (a) a modem for the Canadian time/frequency radio service CHU, which can be used as a primary reference clock for NTP Version 2 and Version 3 daemons, and (b) a pulse shaper and line driver used to provide an external one-pulse-per-second signal from a radio clock to a serial port. See above and the NTP Version 3 distribution for an example of its use.
 
@@ -117,9 +117,9 @@ This is a compressed archive containing sample code segments and documentation f
 
 [loran.tar.gz](/reflib/software/loran.tar.gz)
 
-![jpg](/archives/pic/loran.gif)
+![jpg](/documentation/pic/loran.gif)
 
-![jpg](/archives/pic/loran1.jpg)
+![jpg](/documentation/pic/loran1.jpg)
 
 **LORAN-C Receiver PC Card and Oscillator Unit**
 

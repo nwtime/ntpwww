@@ -48,7 +48,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -71,13 +71,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -208,7 +208,7 @@ controlkey 15    # key (6) for accessing server variables</pre>
 <p>The keyword <code>key</code> specifies the key to be used when talking to the specified server.</p>
 <hr>
 <h4 id="6223-how-do-i-create-a-key">6.2.2.3. How do I create a key?</h4>
-<p><code>ntp-keygen</code> is used to create keys. Refer to its <a href="/archives/4.2.8-series/keygen/">documentation</a> for a complete description and command line options.</p>
+<p><code>ntp-keygen</code> is used to create keys. Refer to its <a href="/documentation/4.2.8-series/keygen/">documentation</a> for a complete description and command line options.</p>
 <p><a href="/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration">Q: 6.1.4.3</a> provides a remote configuration example.</p>
 <hr>
 <h4 id="6224-how-does-authentication-work">6.2.2.4. How does Authentication work?</h4>
@@ -218,7 +218,7 @@ controlkey 15    # key (6) for accessing server variables</pre>
 <p>Yes and No. You can dynamically add servers that use authentication keys, and you can trust or un-trust any key using <code>ntpdc</code>. You can also re-read the keyfile using the <code>readkeys</code> command. Unfortunately you need to configure basic authentication before using any of these commands.</p>
 <hr>
 <h4 id="6226-how-do-i-use-public-key-authentication-autokey">6.2.2.6. How do I use Public-Key Authentication (autokey)?</h4>
-<p>Refer to the examples in <a href="/archives/4.2.8-series/autokey/">Autokey Public-Key-Authentication</a> and <a href="/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey">Q: 6.1.4.6</a>.</p>
+<p>Refer to the examples in <a href="/documentation/4.2.8-series/autokey/">Autokey Public-Key-Authentication</a> and <a href="/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey">Q: 6.1.4.6</a>.</p>
 <p>The following example includes <a href="https://support.ntp.org/bin/view/Support/ConfiguringAutokeyDev">advice</a> from <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
 <blockquote>
 <p>Ensure you have a working NTP configuration before configuring Autokey!</p>
@@ -226,7 +226,7 @@ controlkey 15    # key (6) for accessing server variables</pre>
 <p><strong>Configure NTP Servers</strong></p>
 <ol>
 <li>
-<p>Generate a trusted certificate for each group member using <code>ntp-keygen -T</code> as described in <a href="/archives/4.2.8-series/autokey/#configuration---authentication-schemes">Configuration - Authentication Schemes</a>.</p>
+<p>Generate a trusted certificate for each group member using <code>ntp-keygen -T</code> as described in <a href="/documentation/4.2.8-series/autokey/#configuration---authentication-schemes">Configuration - Authentication Schemes</a>.</p>
 </li>
 <li>
 <p>Make the group keys with the <code>-I</code> option on a trusted host or trusted agent.</p>
@@ -255,7 +255,7 @@ controlkey 15    # key (6) for accessing server variables</pre>
 <p>A line like <code>broadcast 128.4.2.255</code> enables periodic sending of broadcast packets containing the current time as long as the server&rsquo;s clock is synchronized. The period may be influenced by the <code>minpoll</code> option. Packet forwarding can be limited by specifying the <code>ttl</code> option. Make sure you are using the correct broadcast address for your subnet.</p>
 <hr>
 <h4 id="6232-how-do-i-configure-a-broadcast-client">6.2.3.2 How do I configure a Broadcast Client?</h4>
-<p>Using the line <code>broadcastclient</code> will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In NTPv4 the client will actively query a broadcasting server to calibrate the delay. More details can be found in <a href="/archives/4.2.8-series/assoc/#broadcastmulticast-modes">Association Management</a>.</p>
+<p>Using the line <code>broadcastclient</code> will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In NTPv4 the client will actively query a broadcasting server to calibrate the delay. More details can be found in <a href="/documentation/4.2.8-series/assoc/#broadcastmulticast-modes">Association Management</a>.</p>
 <hr>
 <h4 id="6233-why-doesnt-broadcasting-work-with-lcl">6.2.3.3 Why doesn&rsquo;t Broadcasting work with LCL?</h4>
 <p>Before continuing, make sure you read and understood <a href="/ntpfaq/ntp-s-refclk/#711-what-is-lcl-the-local-clock">Q: 7.1.1</a> and <a href="/ntpfaq/ntp-s-config/#6131-can-i-use-my-system-clock-as-reference-clock">Q: 6.1.3.1.</a>. As you shouldn&rsquo;t broadcast bad time, a <code>prefer</code> keyword is required when using <code>LCL</code>.</p>
@@ -268,7 +268,7 @@ controlkey 15    # key (6) for accessing server variables</pre>
 <p>So basically it&rsquo;s a mechanism to automatically configure servers on a nearby network. Compared to broadcasting and multicasting, manycasting uses the normal <code>server</code> keyword, but with a multicast group address (class D) on the client. Manycast servers use the keyword <code>manycastserver</code>. As for broadcasts and multicasts, manycast associations on the client may come and go over time.</p>
 <hr>
 <h4 id="624-pps-synchronization">6.2.4. PPS Synchronization</h4>
-<p><a href="/archives/4.2.8-series/pps/">PPS (Pulse-per-Second)</a> synchronization is an option that is neither necessary nor available for all operating systems. Still it brings many benefits if used, so it&rsquo;s discussed here.</p>
+<p><a href="/documentation/4.2.8-series/pps/">PPS (Pulse-per-Second)</a> synchronization is an option that is neither necessary nor available for all operating systems. Still it brings many benefits if used, so it&rsquo;s discussed here.</p>
 <p>Network connections can suffer from random delays. Even for local reference clocks the exact point in time to which some time message belongs is difficult to determine. Delays imposed by the operating system are another issue to deal with.</p>
 <p>Some means to improve the situation were thought of:</p>
 <ul>
@@ -379,7 +379,7 @@ ntp_adjtime() returns code 0 (OK)
 <h4 id="6244-special-drivers">6.2.4.4 Special Drivers</h4>
 <h4 id="62441-what-is-a-pps-peer">6.2.4.4.1. What is a PPS peer?</h4>
 <p>Even when the kernel clock uses PPS signals to calibrate, the NTP daemon will still use the usual offsets of some reference clock. As it is desirable to use the offsets of the PPS pulses, there is a pseudo clock driver to do that. That driver needs to know the interface specific to the platform to get the time stamps of the PPS pulses.</p>
-<p>That driver is called <a href="/archives/drivers/driver22/">PPS</a> and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the <code>PPS</code> driver becomes reachable, and it will eventually be used as <a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">primary synchronization source</a>. A PPS peer will be handled specially so that other time offsets are not considered. The command <code>ntpq -c peer -c as -c rl</code> will print something like:</p>
+<p>That driver is called <a href="/documentation/drivers/driver22/">PPS</a> and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the <code>PPS</code> driver becomes reachable, and it will eventually be used as <a href="/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock">primary synchronization source</a>. A PPS peer will be handled specially so that other time offsets are not considered. The command <code>ntpq -c peer -c as -c rl</code> will print something like:</p>
 <pre>remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
 +GENERIC(1)      .GPS.            0 l   48   64  377    0.000    0.025   0.001
@@ -408,12 +408,12 @@ server 127.127.22.1                     # PPS
 fudge 127.127.22.1 flag3 1              # enable PPS module
 </pre>
 <blockquote>
-<p><strong>Note:</strong> As documented in <a href="/archives/drivers/driver8/#fudge-factors">PPS Clock Discipline</a>, <code>flag2</code> controls the edge of the PPS signal being used, obsoleting the <code>pps</code> keyword.</p>
+<p><strong>Note:</strong> As documented in <a href="/documentation/drivers/driver8/#fudge-factors">PPS Clock Discipline</a>, <code>flag2</code> controls the edge of the PPS signal being used, obsoleting the <code>pps</code> keyword.</p>
 </blockquote>
 <p>Maybe it should also be noted here that a <em>site survey</em> can take significant time to finish. <a href="mailto:Terje.Mathisen@hda.hydro.com">Terje Mathisen</a> says: &ldquo;My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion.&rdquo;</p>
 <hr>
 <h4 id="62443-how-do-i-use-pps-with-the-nmea-driver">6.2.4.4.3 How do I use PPS with the NMEA driver?</h4>
-<p>An <a href="/archives/drivers/driver20/">NMEA driver</a> is included in NTPv4. That means that for PPS processing we don&rsquo;t need the <code>PPS</code> driver or <code>pps</code> command in <code>ntp.conf</code>.</p>
+<p>An <a href="/documentation/drivers/driver20/">NMEA driver</a> is included in NTPv4. That means that for PPS processing we don&rsquo;t need the <code>PPS</code> driver or <code>pps</code> command in <code>ntp.conf</code>.</p>
 <p>Here is sample <code>ntp.conf</code>:</p>
 <pre>server 127.127.20.0     # NMEA driver
 fudge  flag3 1          # enable kernel PPS discipline</pre>

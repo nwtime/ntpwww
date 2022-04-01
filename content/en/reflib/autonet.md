@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/rabbit.gif)
+![gif](/documentation/pic/rabbit.gif)
 
 from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 

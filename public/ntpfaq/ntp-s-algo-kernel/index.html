@@ -52,7 +52,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -75,13 +75,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -233,7 +233,9 @@ if (!doNotTrack) {
 <p><code>hardpps()</code> is called with two parameters, the absolute time of the event, and the time relative to the last pulse. Both times are measured by the system clock.</p>
 <p>The first value is used to minimize the difference between the system clock&rsquo;s start of a second and the external event, while the second value is used to minimize the difference in clock frequency. Normally <code>hardpps()</code> just monitors (<code>STA_PPSSIGNAL</code>, PPS frequency, stability and jitter) the external events, but does not apply corrections to the system clock.</p>
 <p><strong>Figure 5.2a: PPS Synchronization</strong></p>
-<p><img src="/ntpfaq/hardpps.png" alt=""></p>
+<p><p>
+  <img loading="lazy" src="/ntpfaq/hardpps.png" alt=""  />
+</p></p>
 <p><code>hardpps()</code> can minimize the differences of both frequency and offset between the system clock and an external reference.</p>
 <p>Flag <code>STA_PPSFREQ</code> enables periodic updates to the clock&rsquo;s frequency correction. Stable clocks require only small and infrequent updates while bad clocks require frequent and large updates. The value passed as parameter is reduced to be a small value around zero, and then it is added to an accumulated value. After a specific amount of values has been added (at the end of a calibration interval), the total amount is divided by the length of the calibration interval, giving a new frequency correction.</p>
 <p>When flag <code>STA_PPSTIME</code> is set, the start of a second is moved towards the PPS event, reducing the needed offset correction. The time offset given as argument to the routine will be put into a three-stage median filter to reduce spikes and to compute the jitter. Then an averaged value is applied as offset correction.</p>

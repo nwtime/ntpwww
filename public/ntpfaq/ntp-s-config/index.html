@@ -56,7 +56,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -79,13 +79,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -179,7 +179,7 @@ if (!doNotTrack) {
 <p>The minimum configuration for <code>ntpd</code> only needs one reference clock. Reference clocks use <em>pseudo IP addresses</em> in <code>ntpd</code>. Thus your configuration file could look like this:</p>
 <pre>server 127.127.8.0 mode 5	# GENERIC DCF77 AM</pre>
 <blockquote>
-<p><strong>Note:</strong> Some reference clock drivers require special device files to be created. These files are used to talk to the reference clock. See the <a href="/archives/4.2.8-series/refclock/#list-of-reference-clock-drivers">corresponding documentation of the driver</a>.</p>
+<p><strong>Note:</strong> Some reference clock drivers require special device files to be created. These files are used to talk to the reference clock. See the <a href="/documentation/4.2.8-series/refclock/#list-of-reference-clock-drivers">corresponding documentation of the driver</a>.</p>
 </blockquote>
 <p>In reality one would add several other configuration items, such as a <a href="#6124-what-is-a-drift-file">drift file</a>, additional servers, remote monitoring and configuration, logging, and access restrictions.</p>
 <hr>
@@ -191,7 +191,7 @@ if (!doNotTrack) {
 <hr>
 <h4 id="6123-what-is-the-correct-pseudo-ip-address-for-my-reference-clock">6.1.2.3 What is the correct Pseudo IP Address for my reference clock?</h4>
 <p>The various drivers for reference clocks are selected using IPv4 adresses which consist of four bytes that are separated by a dot. The individual bytes are: <code>127.127.<em>Clock Type.Unit Number</em></code>.</p>
-<p>The supported clock types are listed <a href="/archives/4.2.8-series/refclock/#list-of-reference-clock-drivers">here</a>. Usually it does not make sense, but if you want to connect more than one clock of a type, you can do so by using different unit numbers. The driver maps these unit numbers to one or more device files. The exact name of the device file can be found in the description of the individual reference clock&rsquo;s driver.</p>
+<p>The supported clock types are listed <a href="/documentation/4.2.8-series/refclock/#list-of-reference-clock-drivers">here</a>. Usually it does not make sense, but if you want to connect more than one clock of a type, you can do so by using different unit numbers. The driver maps these unit numbers to one or more device files. The exact name of the device file can be found in the description of the individual reference clock&rsquo;s driver.</p>
 <hr>
 <h4 id="6124-what-is-a-drift-file">6.1.2.4 What is a drift file?</h4>
 <p>When running, <code>ntpd</code> learns about the drift of the system clock relative to the reference clock. To make <code>ntpd</code> remember the drift, you must add the following item to your configuration file (it will be updated every hour):</p>
@@ -264,7 +264,7 @@ controlkey 15</pre>
 <blockquote>
 <p><strong>Note:</strong> Password are stored unencrypted in the keyfile. Therefore no other user should have read or write access to that file or write access to its directory.</p>
 </blockquote>
-<p><a href="/archives/4.2.8-series/keygen/#cryptographic-data-files">Cryptographic Data Files</a> provides an example for <code>/etc/ntp.keys</code> and explains the meaning of each column in the file.</p>
+<p><a href="/documentation/4.2.8-series/keygen/#cryptographic-data-files">Cryptographic Data Files</a> provides an example for <code>/etc/ntp.keys</code> and explains the meaning of each column in the file.</p>
 <hr>
 <h4 id="6144-how-do-i-use-authentication-keys">6.1.4.4 How do I use authentication keys?</h4>
 <p>NTP provides <em>dynamic reconfiguration</em>, meaning you can change the configuration of your servers using the protocol itself and the <code>ntpq</code> command. As this works over the network, there&rsquo;s no need to log in or to walk around. Even more, it works the same on all operating systems.</p>

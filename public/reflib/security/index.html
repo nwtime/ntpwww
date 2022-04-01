@@ -5,16 +5,18 @@
 
   
   <meta name="description" content="
+  
+
 from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 The Cheshire Cat is our resident cryptographer.
 Last update 14 May 2012
 
-Table of Contents …">
+Table of …">
 <meta property="og:title" content="NTP Security Analysis" />
 <meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 The Cheshire Cat is our resident cryptographer.
 Last update 14 May 2012
- Table of Contents  Abstract 1. Introduction 1.1 Threats and Countermeasures 1.2 Protocol Layers 2. On-Wire Protocol Layer 3. Message Digest Layer 4. Autokey Sequence Layer 4.1. Client/Server Mode 4.2. Symmetric Modes 4.3 Broadcast Modes 5. Autokey Protocol Layer 5.1. Client/Server and Symmetric Modes 5.2. Broadcast Modes 6. Conclusions 7. Parting Shots 7." />
+ Table of Contents  Abstract 1. Introduction 1.1 Threats and Countermeasures 1.2 Protocol Layers 2. On-Wire Protocol Layer 3. Message Digest Layer 4. Autokey Sequence Layer 4.1. Client/Server Mode 4.2. Symmetric Modes 4.3 Broadcast Modes 5. Autokey Protocol Layer 5.1. Client/Server and Symmetric Modes 5.2. Broadcast Modes 6. Conclusions 7." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/reflib/security/" /><meta property="article:section" content="reflib" />
 
@@ -52,7 +54,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -75,13 +77,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -124,7 +126,9 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>NTP Security Analysis</h1>
      
-    <p><img src="/archives/pic/alice44.gif" alt="gif"></p>
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/alice44.gif" alt="gif"  />
+</p></p>
 <p>from <a href="/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
 <p>The Cheshire Cat is our resident cryptographer.</p>
 <p>Last update 14 May 2012</p>
@@ -176,7 +180,9 @@ if (!doNotTrack) {
 <p>The security measures discussed in this document are not the only defenses available. This document does not consider access controls, which are an integral part of the NTP reference implementation. It does not consider the packet sanity tests which detect and discard packets with invalid format or packet header values. Finally, it does not consider the various mitigation algorithms, in particular the select algorithm which separates the truechimer servers from the falseticker rascals.</p>
 <hr>
 <h4 id="12-protocol-layers">1.2 Protocol Layers</h4>
-<p><img src="/archives/pic/sx1.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/sx1.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 1. NTP Security Model</strong></p>
 <p>The NTP security model has the hierarchical structure shown in Figure 1. Defense against intruder attack starts at the bottom layer of the hierarchy, the <em>On-Wire Protocol</em> layer. Successful attacks on this layer, if there are any, are defended by the next upward layer, the <em>Message Digest</em> layer, using symmetric key cryptography. Successful attacks on this layer, if there are any, are defended by the <em>Autokey Sequence</em> layer, which uses a hash or pseudo-random sequence technique to bind packets to digital signatures. The Autokey architecture, protocol and algorithms are described in <a href="/reflib/rfc/rfc5906.txt">Network Time Protocol Version 4: Autokey Specification RFC 5906</a>. Defense against a masquerade attack depends on the <em>Autokey Protocol</em> layer, which uses public key cryptography to securely bind the server credentials to digital signatures.</p>
 <p>Note that, if a particular threat is successfully defended at one layer, it is assumed defended at higher layers. However, if a particular threat is successfully defended at one layer, it may or may not be defended at lower layers. In general, the layers above the On-Wire Protocol layer are optional. Symmetric key cryptography uses only the bottom two layers; public key cryptography uses all four layers.</p>
@@ -192,7 +198,9 @@ if (!doNotTrack) {
 <h4 id="3-message-digest-layer">3. Message Digest Layer</h4>
 <p>The assumption made so far is that packets cannot be modified in transit. A rogue or compromised router or even a compromised server, could modify any field of a packet except the transmit timestamp field. This can cause the packet to be incorrectly classified or to deliver incorrect time. To defend against this type of attack, the message digest layer uses symmetric key cryptography to compute a message digest.</p>
 <p>The message digest is a cryptographic hash computed by an algorithm such as MD5 or SHA. When authentication is specified, the reference implementation appends a message authentication code (MAC) following the NTP packet header and extension fields, if present. The MAC consists of a 32-bit key identifier (key ID) followed by a 128- or 160-bit message digest. The algorithm computes the message digest as the hash of a 128- or 160- bit secret message digest key concatenated with the NTP packet header fields and extension fields, if present, with the exception of the MAC itself. On transmit, the digest is computed and inserted in the MAC. On receive, the digest is computed and compared with the digest in the MAC. The packet is accepted only if the two digests are identical. If a discrepancy is found, the client ignores the packet, but raises an alarm. If this happens at the server, the server returns a special message called a <em>crypto-NAK</em>.</p>
-<p><img src="/archives/pic/sx5.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/sx5.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 2. Typical Symmetric Key File</strong></p>
 <p>The security of the message digest layer depends on the <em>message digest key</em>. In symmetric key cryptography, a set of secret message digest keys is defined in a keys file such as shown in Figure 2. A file such as this is loaded by the reference implementation when the program is started. Each line consists of a key ID used in the packet header, a digest algorithm identifier and the key. In the case of MD5, the key is restricted to a maximum of 16 ASCII printing characters, either a given string, such as <code>2late4Me</code> for key ID 10, or a random string. In other digest algorithms the key is a 20-octet random string represented as 40 hex digits.</p>
 <p>A tabular definition is not the only method to define message digest keys. In the Autokey sequence layer described in <a href="/reflib/security/#4-autokey-sequence-layer">Section 4</a>, the message digest key is computed by a crafted algorithm involving shared secrets.</p>
@@ -223,7 +231,9 @@ if (!doNotTrack) {
 <hr>
 <h4 id="43-broadcast-modes">4.3. Broadcast Modes</h4>
 <p>In broadcast modes the design is more complex, since a two-way exchange is not possible. The Autokey layer defense in broadcast modes uses a variant of the S-KEY scheme to bind a batch of packets to a digitally signed packet. A typical scenario is illustrated in Figure 3.</p>
-<p><img src="/archives/pic/sx2.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/sx2.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 3. Autokey Sequence in Broadcast Modes</strong></p>
 <p>Here, <code><em>T<sub>i</sub></em></code> represents the transmit timestamp in the NTP header and <code><em>T<sub>i</sub></em> &lt; <em>T</em><sub><em>i</em>+1</sub></code>. The broadcast server constructs a key list, where each entry represents the key ID and corresponding message digest key of an autokey with the server source IP address, the broadcast destination IP address, a key ID <code><em>x</em></code> and a cookie zero. Let <code><em>y</em> = S(<em>x</em>)</code> be the first four octets of the message digest key <code><em>x</em></code>.</p>
 <p>There is a broadcast server serving each subnet, each with an individual key list. If for some reason the system clock is stepped, all key lists are expunged and regenerated. Each broadcast server constructs a key list as follows. Let <code><em>C</em></code> be a nonce. From Figure 3, <code>S(<em>C</em>) = 11, S(11) = S(S(C)) = 1, S(1) = S(S(S(C))) = 5</code> and so on. The final <code>S(3) = 7</code>, along with the number of hashes <code>5</code>, are called the <em>autokey values</em>, in this case <code>(7, 5)</code>. These values are transmitted in an Autokey extension field signed by the server private sign key. A key list populated in this way has from one to several hundred entries, depending on the poll interval, and lasts about one hour, after which it is regenerated with a new nonce <code><em>C</em></code>.</p>
@@ -320,13 +330,17 @@ if (!doNotTrack) {
 <p><a name="myfootnote2">2</a>  Dierks, T. The Transport Layer Security (TLS) Protocol Version 1.2. Request for Comments <a href="https://www.rfc-editor.org/rfc/rfc5246.html">RFC 5246</a>. Internet Engineering Task Force, August 2008.</p>
 <hr>
 <h4 id="appendix-a-autokey-extension-fields">Appendix A. Autokey Extension Fields</h4>
-<p><img src="/archives/pic/sx3.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/sx3.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure A1. Autokey</strong></p>
 <p>The autokey function is used to map a packet header to a message digest key of 16 or 20 octets, depending on the hash algorithm. The function is used for all modes, including client/server, symmetric and broadcast modes. As shown in Figure A1, the autokey function includes four arguments, a 4-octet IPv4 or 16-octet IPv6 source address, a 4-octet IPv4 or 16-octet IPv6 destination address, a 4-octet key ID and a 4-octet <em>cookie</em>. It is likely in future that the cookie size will be increased to at least the message digest size.</p>
 <p>The first three arguments are public values included in the NTP packet header; the last is either a public or a private value. The MD5 or SHA hash of these four fields is the message digest key used for the hash algorithm of the message digest layer.</p>
 <p>Extension fields are normally used only in the Autokey dances before the system clock is synchronized. For packets with extension fields, the cookie value is zero and thus a public value. Extension fields are individually protected by digital signatures. Since in principle an intruder could change the packet header and recompute the message digest, packets with extension fields should not be used for timestamp calculations. For packets without extension fields, the cookie is a private value mutually agreed between server and client.</p>
 <p>The Autokey protocol uses one or more extension fields inserted between the NTP packet header and the MAC. The general format of the extension field is shown in Figure A2.</p>
-<p><img src="/archives/pic/sx4.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/sx4.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure A2. Extension Field Format</strong></p>
 <p>The ER, VN and Code fields specify the operation code and modifiers. The Length field specifies the overall extension field length, including the Length field. The Association ID field specifies the association mobilized in the configuration. The Timestamp field specifies the NTP seconds that the signature was computed, while the Filestamp field specifies the NTP seconds that the associated cryptographic media was created. The optional Value and Value Length fields specify a value, such as a certificate, client cookie or autokey values.</p>
 <p>A set of timestamp values is maintained by the client for each Autokey message type. The timestamps are in NTP seconds if the server is synchronized to an authentic source; otherwise, the timestamps have value zero. Timestamps are used to detect and discard old, but otherwise valid, extension fields and avoid expensive signature verifications. If the timestamp fields are valid and a Value field is present, the Signature and Signature Length fields specify the signature of the entire extension field.</p>

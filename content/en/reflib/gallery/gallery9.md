@@ -4,9 +4,9 @@ type: archives
 toc_hide: true
 ---
  
-![gif](/archives/pic/ibmcarda.gif)  
+![gif](/documentation/pic/ibmcarda.gif)  
 
-[A Hollerith Card](/archives/pic/ibmcard.jpg)  
+[A Hollerith Card](/documentation/pic/ibmcard.jpg)  
 
 In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The Hollerith punched card was the principal means for recording, accounting and archiving functions, not to mention the US census, until recently. In the early 1960's Hollerith cards were the only practical means to input programs for a IBM mainframe, but today these cards are seldom seen.
 

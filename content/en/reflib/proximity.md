@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/pogo5.gif)
+![gif](/documentation/pic/pogo5.gif)
 
 from [_Pogo_](/reflib/pictures/), Walt Kelly
 

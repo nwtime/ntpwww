@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/alice15.gif)
+![gif](/documentation/pic/alice15.gif)
 
 from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
@@ -104,7 +104,7 @@ If the precision time kernel modifications have been implemented, the kernel inc
 
 However, the routine that actually reads the clock is constrained never to step backwards, unless the step is significantly larger than one second, which might occur due to explicit operator direction. In this design time stands still during the leap second, but is correct commencing with the next second.
 
-![gif](/archives/pic/leap.gif)
+![gif](/documentation/pic/leap.gif)
 
 **Figure 1. NTP Offset In the Vicinity of a Leap Second**
 

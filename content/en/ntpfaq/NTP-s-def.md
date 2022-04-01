@@ -80,9 +80,9 @@ According to [A Survey of the NTP Network](/reflib/reports/ntp-survey99-minar.pd
 
 [RFC 5905 Network Time Protocol Version 4: Protocol and Algorithms Specification](/reflib/rfc/rfc5905.txt) is the current standard, obsoleting [RFC 1305 Network Time Protocol (Version 3) Specification, Implementation and Analysis](/reflib/rfc/rfc1305/rfc1305b.pdf).
 
-It is recommended to run the latest [series](/archives/4.2.8-series/) and patch level (currently 4.2.8p15) to ensure the system has the latest features and security fixes.
+It is recommended to run the latest [series](/documentation/4.2.8-series/) and patch level (currently 4.2.8p15) to ensure the system has the latest features and security fixes.
 
-If you are worried about compatibility issues, older client versions can generally talk to newer version servers automagically as newer servers know how to answer older client queries, but the other direction requires manual configuration using [the `version` keyword](/archives/4.2.8-series/confopt/#server-command-options).
+If you are worried about compatibility issues, older client versions can generally talk to newer version servers automagically as newer servers know how to answer older client queries, but the other direction requires manual configuration using [the `version` keyword](/documentation/4.2.8-series/confopt/#server-command-options).
 
 See also [Section 6.4 Compatibility](/ntpfaq/ntp-s-compat/).
 

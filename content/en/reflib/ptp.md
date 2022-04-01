@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/alice47.gif)
+![gif](/documentation/pic/alice47.gif)
 
 from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
@@ -106,7 +106,7 @@ In both PTP and NTP the protocol can operate in a point-to-point _master-slave m
 
 #### Master-Slave Mode
 
-![gif](/archives/pic/stamp2.gif)
+![gif](/documentation/pic/stamp2.gif)
 
 **Figure 1. Master-Slave Mode**
 
@@ -128,7 +128,7 @@ While it is possible to use master-slave mode in PTP, this requires an awkward m
 
 In broadcast mode for both NTP and PTP, the offset expression has an inverted sign, while the delay calculation is the same. Note that NTP can operate in either basic or interleaved broadcast mode. In this document, only NTP interleaved mode is considered. The on-wire protocol operations in broadcast mode are illustrated in Figure 2.
 
-![gif](/archives/pic/bcst1.gif)
+![gif](/documentation/pic/bcst1.gif)
 
 **Figure 2: Broadcast Mode**
 

@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/pogo6.gif)
+![gif](/documentation/pic/pogo6.gif)
 
 Researchers involved: David Mills, Jon Crowcroft (UCL), Kenneth Carlberg (SAIC)
 
@@ -32,7 +32,7 @@ Status: This project was completed in 2001. This page is for historic record.
 
 #### Importance of the Problem
 
-![jpg](/archives/pic/cairn_marquee.jpg)
+![jpg](/documentation/pic/cairn_marquee.jpg)
 
 Provision of good real-time, multicast services using a best-effort infrastructure like the Internet is generally considered difficult at best. The work now under way in the research community involves a suite of routing and reservation tools, together with enhancements to existing host and router software. However, this approach, which is based on a layered architecture and the existing Internet infrastructure, comes with considerable complexity, overhead and inefficient use of shared resources. The approach favored in this project, which is a collaborative effort with University College London (UCL) and Science Applications International Corporation (SAIC), involves the analysis, implementation and testing of unusual multicast infrastructure models specifically optimized for good performance and efficient resource sharing.
 
@@ -42,11 +42,11 @@ Provision of good real-time, multicast services using a best-effort infrastructu
 
 Our participation in this collaboration follows from previous work on other projects, specifically the [Network Time Synchronization Project](/reflib/ntp/), in which the multicast paradigm plays a pivotal role. Current work in this project is centered on technology which automatically launches, deploys and authenticates sources in a very large, survivable network. The technology involves inputs from the [Autonomous Configuration and Authentication in Very Large Networks](/reflib/autonet/) project. This technology uses intelligent multicast discovery algorithms, as well as span-limited add/drop heuristics which automatically reconfigure the hierarchical server/client subnet in response to failures and repairs. This technology is the outgrowth of previous work on DARTnet, an 18-site network operating at 1.544 Mbps.
 
-![gif](/archives/pic/dartnet.gif)
+![gif](/documentation/pic/dartnet.gif)
 
 An important feature of Defense Advanced Research Technology Network (DARTnet) and its follow-on Collaborative Advanced Interagency Research Network (CAIRN) is the ability to bring up experimental applications that cannot be safely deployed in an operational network. This feature has been exploited many times in the development of the NTP infrastructure, especially the capability to configure the routers in various error scenarios and verify that the intricate discovery, configuration and optimization algorithms work as designed.
 
-![gif](/archives/pic/cairn.gif)
+![gif](/documentation/pic/cairn.gif)
 
 DARTnet has since evolved to CAIRN, which presently connects 27 institutions in the US and Britain. The network links operate at speeds from T1 (1.544 Mbps) to OC3 (155 Mbps), as shown in the figure. Our collaborators at University College London are connected to CAIRN via a dedicated transatlantic link and also to several European research networks. SAIC and UDEL are presently connected with T1 links, although these may be upgraded in future. In addition, UDEL is connected by the UDELnet campus net to Abilene and vBNS. The interconnected research networks, together covering major portions of the globe, are intended for network research projects involving high speed, real-time applications and supporting infrastructure.
 

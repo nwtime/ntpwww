@@ -5,6 +5,8 @@
 
   
   <meta name="description" content="
+  
+
 from The Wizard of Oz, L. Frank Baum
 Public transport in Oz
 Last update 26-May-2012
@@ -13,8 +15,7 @@ Table of Contents
 
 Abstract
 1. Introduction
-2. Data Formats
-3. …">
+2. Data …">
 <meta property="og:title" content="NTP Timestamp Calculations" />
 <meta property="og:description" content="from The Wizard of Oz, L. Frank Baum
 Public transport in Oz
@@ -57,7 +58,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -80,13 +81,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -129,7 +130,9 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>NTP Timestamp Calculations</h1>
      
-    <p><img src="/archives/pic/wingdorothy.gif" alt="gif"></p>
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/wingdorothy.gif" alt="gif"  />
+</p></p>
 <p>from <a href="/reflib/pictures/"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
 <p>Public transport in Oz</p>
 <p>Last update 26-May-2012</p>
@@ -157,7 +160,9 @@ if (!doNotTrack) {
 <hr>
 <h4 id="2-data-formats">2. Data Formats</h4>
 <p><em>Time</em> is an abstraction that establishes an ordering of events relative to a <em>timescale</em>. In NTP, a <em>date</em> is a point on the timescale expressed in one of two formats, <em>datestamp</em> and <em>timestamp.</em> As shown in Figure 1, a datestamp is a 128-bit, signed fixed-point number in seconds and fraction, with the decimal point to the left of bit 64. Dates are relative to the <em>prime epoch,</em> 0 h, 1 January 1900; dates prior to the prime epoch have negative values, while dates since then have positive values. A timestamp is a 64-bit, unsigned fixed-point number in seconds and fraction with the decimal point to the left of bit 32. Datestamps are used in internal calculations where extended range and freedom from overflow are important, while timestamps are used in packet headers where economy of storage is important.</p>
-<p><img src="/archives/pic/time1.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/time1.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 1. NT Data Formats</strong></p>
 <p>Datestamps span the age of the Universe with a precision less than the time light transits an atom. Timestamps span a 136-year interval , called an <em>era</em>, with a precision of 232 ps. The datestamp format includes a timestamp field that specifies the seconds and fraction of an era, together with an era number field that specifies the timestamp origin. There is a special convention in both timestamp and datestamp formats where the value zero represents an undefined or unknown date that should not be used in time related calculations.</p>
 <hr>

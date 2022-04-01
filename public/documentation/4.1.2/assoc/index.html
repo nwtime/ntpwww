@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
+
+  
+  <meta name="description" content="
+  
+ from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Make sure who your friends are.
+
+Table of Contents
+
+Association Modes
+Client/Server …">
+<meta property="og:title" content="Association Management" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+Make sure who your friends are.
+ Table of Contents  Association Modes Client/Server Mode Symmetric Active/Passive Mode Broadcast Mode IP Multicast Support Multicasting Manycasting Burst Modes   Association Modes NTP Version 4 (NTPv4) incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms; however, it continues the tradition of backwards compatibility with older versions. A number of new operating modes for automatic server discovery and improved accuracy in occasionally connected networks are provided." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.2/assoc/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Association Management</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/4.1.2/">4.1.2</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/documentation/4.1.2/assoc/">Association Management</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Association Management</h1>
+     
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/alice51.gif" alt="gif"  />
+</p> <a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>Make sure who your friends are.</p>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/documentation/4.1.2/assoc/#association-modes">Association Modes</a></li>
+<li><a href="/documentation/4.1.2/assoc/#clientserver-mode">Client/Server Mode</a></li>
+<li><a href="/documentation/4.1.2/assoc/#symmetric-activepassive-mode">Symmetric Active/Passive Mode</a></li>
+<li><a href="/documentation/4.1.2/assoc/#broadcast-mode">Broadcast Mode</a></li>
+<li><a href="/documentation/4.1.2/assoc/#ip-multicast-support">IP Multicast Support</a></li>
+<li><a href="/documentation/4.1.2/assoc/#multicasting">Multicasting</a></li>
+<li><a href="/documentation/4.1.2/assoc/#manycasting">Manycasting</a></li>
+<li><a href="/documentation/4.1.2/assoc/#burst-modes">Burst Modes</a></li>
+</ul>
+<hr>
+<h4 id="association-modes">Association Modes</h4>
+<p>NTP Version 4 (NTPv4) incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms; however, it continues the tradition of backwards compatibility with older versions. A number of new operating modes for automatic server discovery and improved accuracy in occasionally connected networks are provided. Following is an overview of the new features; additional information is available on the <a href="/documentation/4.1.2/confopt/">Configuration Options</a> and <a href="/documentation/4.1.2/authopt/">Authentication Options</a> pages and in the papers, reports, memoranda and briefings in the <a href="/reflib/">Reference Library</a>.</p>
+<p>There are two types of associations: persistent associations, which result from configuration file commands, and ephemeral associations, which result from protocol operations described below. A persistent association is never demobilized, although it may become dormant when the associated server becomes unreachable. An ephemeral association is mobilized when a message arrives from a server; for instance, a symmetric passive association is mobilized upon arrival of a symmetric active message. A broadcast client association is mobilized upon arrival of a broadcast server message, while a manycast client association is mobilized upon arrival of a manycast server message.</p>
+<p>Ordinarily, successful mobilization of an ephemeral association requires the server to be cryptographically authenticated to the dependent client. This can be done using either symmetric-key or public-key cryptography, as described in the <a href="/documentation/4.1.2/authopt/">Authentication Options</a> page. The cryptographic means insure an unbroken chain of trust between the dependent client and the primary servers at the root of the synchronization subnet. We call this chain the <em>provenance</em> of the client and define new vocabulary as to proventicate a client or provide proventic credentials. Once mobilized, ephemeral associations are demobilized when either (a) the server becomes unreachable or (b) the server refreshes the key media without notifying the client.</p>
+<p>There are three principal modes of operation: client/server, symmetric active/passive and broadcast. In addition, there are two modes using IP multicast support: multicast and manycast. These modes are selected based on the scope of service, intended flow of time and proventic values and means of configuration. Following is a summary of the operations in each mode.</p>
+<hr>
+<h4 id="clientserver-mode">Client/Server Mode</h4>
+<p>Client/server mode is probably the most common configuration in the Internet today. It operates in the classic remote-procedure-call (RPC) paradigm with stateless servers. In this mode a client sends a request to the server and expects a reply at some future time. In some contexts this would be described as a &ldquo;pull&rdquo; operation, in that the client pulls the time and proventic values from the server. A client is configured in client mode using the <code>server</code> (sic) command and specifying the server IPv4 or IPv6 DNS name or address; the server requires no prior configuration. The original NTPv3 authentication scheme is applicable in this mode, as well as the new NTPv4 Autokey proventication scheme. In addition, two burst modes described below can be used in appropriate cases.</p>
+<hr>
+<h4 id="symmetric-activepassive-mode">Symmetric Active/Passive Mode</h4>
+<p>Symmetric active/passive mode is intended for configurations where a clique of low-stratum peers operate as mutual backups for each other. Each peer operates with one or more primary reference sources, such as a radio clock, or a subset of secondary servers known to be reliable and proventicated. Should one of the peers lose all reference sources or simply cease operation, the other peers will automatically reconfigure so that time and proventication values can flow from the surviving peers to all the others in the clique. In some contexts this would be described as a &ldquo;push-pull&rdquo; operation, in that the peer either pulls or pushes the time and proventic values depending on the particular configuration.</p>
+<p>Symmetric peers operate with their sources in some NTP mode and with each other in symmetric mode. A peer is configured in symmetric active mode using the <code>peer</code> command and specifying the other peer DNS name or address. The other peer can also be configured in symmetric active mode in a similar way. However, if the other peer is not specifically configured in this way, a symmetric passive association is mobilized upon arrival of a symmetric active message. Since an intruder can impersonate a symmetric active peer and inject false time values, symmetric mode should always be cryptographically validated. The original NTPv3 authentication scheme is applicable in this mode, as well as the new NTPv4 Autokey proventication scheme.</p>
+<hr>
+<h4 id="broadcast-mode">Broadcast Mode</h4>
+<p>Broadcast mode is intended for configurations involving one or a few servers and a possibly very large client population. A broadcast server is configured using the <code>broadcast</code> command and a local subnet address. A broadcast client is configured using the <code>broadcastclient</code> command, in which case it responds to broadcast messages received on any interface. Since an intruder can impersonate a broadcast server and inject false time values, this mode should always be cryptographically validated. The original NTPv3 authentication scheme is applicable in this mode, as well as the new NTPv4 Autokey proventication scheme.</p>
+<p>The server generates broadcast messages continuously at intervals specified by the <code>minpoll</code> keyword and with a time-to-live span specified by the <code>ttl</code> keyword. A NTPv4 broadcast client responds to the first proventicated message received by waiting a short interval randomized over the <code>minpoll</code> interval, in order to avoid implosion at the server. Then, the client polls the server in burst mode in order to reliably set the host clock and validate the source. This normally results in a volley of eight client/server cycles over a 30-s interval during which both the synchronization and cryptographic protocols run concurrently. When the next broadcast message is received after the volley, the client computes the offset between the apparent broadcast time and the (unicast) client time. This offset is used to compensate for the propagation time between the broadcast server and client. Once the offset is computed, the server continues as before and the client sends no further messages.</p>
+<hr>
+<h4 id="ip-multicast-support">IP Multicast Support</h4>
+<p>Broadcast mode in both NTPv3 and NTPv4 is limited to directly connected subnets such as Ethernets which support broadcast technology. Ordinarily, this technology does not operate beyond the first hop router or gateway. Where service is intended beyond the local subnet, IP multicasting can be used where supported by the operating system and the routers support the Internet Group Management Protocol (IGMP). Most current kernels and available routers do support IP multicast technology, although service providers are sometimes reluctant to deploy it.</p>
+<p>A general discussion of IP multicast technology is beyond the scope here. In simple terms a host or router sending to a IP multicast group (class D) address expects all hosts or routers listening on this address to receive the message. There is no intrinsic limit on the number of senders or receivers and senders can be receivers and vice versa. The IANA has assigned multicast group address 224.0.1.1 to NTP, but this address should be used only where the multicast span can be reliably constrained to protect neighbor networks. In general, administratively scoped group addresses should be used, as described in RFC-2365, or GLOP group addresses, as described in RFC-2770.</p>
+<hr>
+<h4 id="multicasting">Multicasting</h4>
+<p>IP multicasting can be used to extend the scope of a timekeeping subnet in two ways: multicasting and manycasting. A multicast client is configured using the <code>broadcast</code> command, but with a multicast group (class D) address instead of a local subnet broadcast address. However, there is a subtle difference between broadcasting and multicasting. Broadcasting is specific to each interface and local subnet address. If more than one interface is attached to a machine, a separate <code>broadcast</code> command applies to each one separately. This provides a way to limit exposure in a firewall, for example.</p>
+<p>IP multicasting is a different paradigm. A multicast message has the same format as a broadcast message and is configured with the same <code>broadcast</code> command, but with a multicast group address instead of a local subnet address. By design, multicast messages travel from the sender via a shortest-path or shared tree to the receivers, which may require these messages emit from one or all interfaces, but carry a common source address. However, it is possible to configure multiple multicast group addresses using multiple <code>broadcast</code> commands. Other than these particulars, multicast messages are processed just like broadcast messages. Note that the calibration feature in broadcast mode is extremely important, since IP multicast messages can travel far different paths through the IP routing fabric than ordinary IP unicast messages.</p>
+<hr>
+<h4 id="manycasting">Manycasting</h4>
+<p>Manycasting is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes client associations with the &ldquo;best&rdquo; three of the available manycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail.</p>
+<p>Note that the manycasting paradigm does not coincide with the anycasting paradigm described in RFC-1546, which is designed to find a single server from a clique of servers providing the same service. The manycasting paradigm is designed to find a plurality of redundant servers, in this case willing NTP servers.</p>
+<p>A persistent manycast client association is configured using the <code>server</code> command, but with a multicast (class D) group address instead of an ordinary IP (class A, B, C) address. It sends client mode messages to this address at the maximum feasible poll interval and minimum feasible time-to-live hops, depending on how many servers have already been found. There can be as many manycast client associations as different group addresses, each one serving as a template for a future ephemeral client/server mode association.</p>
+<p>Manycast servers configured with the <code>manycastserver</code> command listen on the specified group address for manycast client messages. Note the distinction between manycast client, which is configured with a <code>server</code> command, and manycast server, which is configured with a <code>manycastserver</code> command. If a manycast server is in range of the current time-to-live and is itself synchronized to a valid source and operating at a stratum level equal to or lower than the manycast client, it replies to the manycast client message with an ordinary server mode message.</p>
+<p>The manycast client receiving this message mobilizes an ephemeral client association as in ordinary client/server mode according to the matching manycast client template. Then, the client polls the server at its unicast address in burst mode in order to reliably set the host clock and validate the source. This normally results in a volley of eight client/server cycles over a 30-s interval during which both the synchronization and cryptographic protocols run concurrently. Following the volley, the client runs the NTP intersection and clustering algorithms, which act to discard all but the best three associations. The surviving associations then continue in ordinary client/server mode.</p>
+<p>The manycast client polling program is designed to reduce as much as possible the volume of messages and the effects of implosion due to near-simultaneous arrival of manycast server messages. The program uses a poll interval eight times the system poll interval, which starts out at the <code>minpoll</code> value and under normal circumstances increases gradually to the <code>maxpoll</code> value. Initially, the time-to-live is set at one hop. At each retransmission the time-to-live is incremented by one until at least three manycast servers are found. Further retransmissions use the same time-to-live value.</p>
+<p>If less than three servers are found when the time-to-live has reached the maximum specified by the <code>ttl</code> keyword, the poll interval is doubled. For each transmission after that, the poll interval is doubled again until reaching the maximum of eight times the value specified by the <code>maxpoll</code> keyword. Further transmissions use the same poll interval and time-to-live values.</p>
+<p>The above scenario happens for each manycast client message, which repeats at the designated poll interval. However, once the ephemeral client association is mobilized, subsequent manycast server replies are discarded, since they will fail the message digest test. If during a poll interval the number of client associations falls below three, all manycast client prototype associations are reset to the initial poll interval and time-to-live values and operation resumes from the beginning. It is important in manycast mode to avoid frequent manycast client messages, since each one requires all manycast servers in range to respond. The result could well be an implosion, either minor or major, depending on the number of servers in range. The recommended value for <code>maxpoll</code> is 12 (4,096 s) and for <code>ttl</code> is 7.</p>
+<p>It is possible and frequently useful to configure a host as both a manycast client and manycast server. A number of hosts configured this way and sharing a common group address will automatically organize themselves in an optimum configuration based on the smallest synchronization distance computed by the NTP mitigation algorithms. For example, consider an NTP subnet of two primary servers and maybe a dozen dependent clients. All servers and clients are configured as both multicast client and multicast server with multicast group address 239.1.1.1. In addition, the primary servers are configured for a primary reference source such as a GPS receiver. Once operations have stabilized in this scenario, the primary servers will affiliate with the primary reference source and each other, since they both operate at the same stratum (1), but not with any client, since clients operate at a higher stratum. The clients will find both primary servers and in addition, one of their own at the minimum synchronization distance. If one of the primary servers loses its GPS receiver, it will continue to operate as a client and other clients will time out the corresponding association and re-associate accordingly.</p>
+<hr>
+<h4 id="burst-modes">Burst Modes</h4>
+<p>There are two burst modes that can be enabled in client/server mode using the <code>iburst</code> and <code>burst</code> keywords. In either mode a single poll initiates a burst of eight client messages at intervals randomized over the range 1-4 s. However, the interval between the first and second messages is increased to about 16 s in order for a dialup modem to complete a call, if necessary. Received server messages update the NTPv4 clock filter, which selects the best (most accurate) time values. When the last client message in the burst is sent, the next received server message updates the system variables and sets the system clock in the usual manner, as if only a single client/server cycle had occurred. The result is not only a rapid and reliable setting of the system clock, but a considerable reduction in network jitter.</p>
+<p>The <code>iburst</code> keyword can be configured for cases where it is important to set the clock quickly when an association is first mobilized or first becomes reachable or when the network attachment requires an initial calling or training procedure. The burst is initiated only when the server first becomes reachable and results in good accuracy with intermittent connections typical of PPP and ISDN services. Outlyers due to initial dial-up delays, etc., are avoided and the client sets the clock within 30 s after the first message.</p>
+<p>The <code>burst</code> keyword can be configured in cases of excessive network jitter or when the network attachment requires an initial calling or training procedure. The burst is initiated at each poll interval when the server is reachable. The burst does produce additional network overhead and can cause trouble if used indiscriminately. It should only be used where the poll interval is expected to settle to values at or above 1024 s.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

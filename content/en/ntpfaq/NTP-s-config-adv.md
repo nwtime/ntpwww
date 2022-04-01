@@ -124,7 +124,7 @@ The keyword `key` specifies the key to be used when talking to the specified ser
 
 #### 6.2.2.3. How do I create a key?
 
-`ntp-keygen` is used to create keys. Refer to its [documentation](/archives/4.2.8-series/keygen/) for a complete description and command line options.
+`ntp-keygen` is used to create keys. Refer to its [documentation](/documentation/4.2.8-series/keygen/) for a complete description and command line options.
 
 [Q: 6.1.4.3](/ntpfaq/ntp-s-config/#6143-how-do-i-configure-remote-administration) provides a remote configuration example.
 
@@ -144,7 +144,7 @@ Yes and No. You can dynamically add servers that use authentication keys, and yo
 
 #### 6.2.2.6. How do I use Public-Key Authentication (autokey)?
 
-Refer to the examples in [Autokey Public-Key-Authentication](/archives/4.2.8-series/autokey/) and [Q: 6.1.4.6](/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey). 
+Refer to the examples in [Autokey Public-Key-Authentication](/documentation/4.2.8-series/autokey/) and [Q: 6.1.4.6](/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey). 
 
 The following example includes [advice](https://support.ntp.org/bin/view/Support/ConfiguringAutokeyDev) from [Professor David L. Mills](mailto:mills@udel.edu):
 
@@ -152,7 +152,7 @@ The following example includes [advice](https://support.ntp.org/bin/view/Support
 
 **Configure NTP Servers**
 
-1. Generate a trusted certificate for each group member using `ntp-keygen -T` as described in [Configuration - Authentication Schemes](/archives/4.2.8-series/autokey/#configuration---authentication-schemes). 
+1. Generate a trusted certificate for each group member using `ntp-keygen -T` as described in [Configuration - Authentication Schemes](/documentation/4.2.8-series/autokey/#configuration---authentication-schemes). 
 
 2. Make the group keys with the `-I` option on a trusted host or trusted agent.
 
@@ -182,7 +182,7 @@ A line like `broadcast 128.4.2.255` enables periodic sending of broadcast packet
 
 #### 6.2.3.2 How do I configure a Broadcast Client?
 
-Using the line `broadcastclient` will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In NTPv4 the client will actively query a broadcasting server to calibrate the delay. More details can be found in [Association Management](/archives/4.2.8-series/assoc/#broadcastmulticast-modes).
+Using the line `broadcastclient` will enable listening to broadcasts. As anybody can send out any broadcasts, use of authentication is strongly advised. In NTPv4 the client will actively query a broadcasting server to calibrate the delay. More details can be found in [Association Management](/documentation/4.2.8-series/assoc/#broadcastmulticast-modes).
 
 * * *
 
@@ -208,7 +208,7 @@ So basically it's a mechanism to automatically configure servers on a nearby net
 
 #### 6.2.4. PPS Synchronization
 
-[PPS (Pulse-per-Second)](/archives/4.2.8-series/pps/) synchronization is an option that is neither necessary nor available for all operating systems. Still it brings many benefits if used, so it's discussed here.
+[PPS (Pulse-per-Second)](/documentation/4.2.8-series/pps/) synchronization is an option that is neither necessary nor available for all operating systems. Still it brings many benefits if used, so it's discussed here.
 
 Network connections can suffer from random delays. Even for local reference clocks the exact point in time to which some time message belongs is difficult to determine. Delays imposed by the operating system are another issue to deal with.
 
@@ -319,7 +319,7 @@ This completes the basic checks for PPS configuration. In the case above the NTP
 
 Even when the kernel clock uses PPS signals to calibrate, the NTP daemon will still use the usual offsets of some reference clock. As it is desirable to use the offsets of the PPS pulses, there is a pseudo clock driver to do that. That driver needs to know the interface specific to the platform to get the time stamps of the PPS pulses.
 
-That driver is called [PPS](/archives/drivers/driver22/) and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the `PPS` driver becomes reachable, and it will eventually be used as [primary synchronization source](/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock). A PPS peer will be handled specially so that other time offsets are not considered. The command `ntpq -c peer -c as -c rl` will print something like:
+That driver is called [PPS](/documentation/drivers/driver22/) and can be configured just as any other reference clock. The difference is that PPS can only be used in combination with another preferred time reference. As soon as the preferred time reference is used for synchronization, the `PPS` driver becomes reachable, and it will eventually be used as [primary synchronization source](/ntpfaq/ntp-s-algo-real/#532-why-should-i-have-more-than-one-clock). A PPS peer will be handled specially so that other time offsets are not considered. The command `ntpq -c peer -c as -c rl` will print something like:
 
 <pre>remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
@@ -354,7 +354,7 @@ server 127.127.22.1                     # PPS
 fudge 127.127.22.1 flag3 1              # enable PPS module
 </pre>
 
-> **Note:** As documented in [PPS Clock Discipline](/archives/drivers/driver8/#fudge-factors), `flag2` controls the edge of the PPS signal being used, obsoleting the `pps` keyword.
+> **Note:** As documented in [PPS Clock Discipline](/documentation/drivers/driver8/#fudge-factors), `flag2` controls the edge of the PPS signal being used, obsoleting the `pps` keyword.
 
 Maybe it should also be noted here that a _site survey_ can take significant time to finish. [Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com) says: "My survey (under Linux) took about 36 hours, I also gave up a couple of times before allowing it to run to completion."
 
@@ -362,7 +362,7 @@ Maybe it should also be noted here that a _site survey_ can take significant tim
 
 #### 6.2.4.4.3 How do I use PPS with the NMEA driver?
 
-An [NMEA driver](/archives/drivers/driver20/) is included in NTPv4. That means that for PPS processing we don't need the `PPS` driver or `pps` command in `ntp.conf`.
+An [NMEA driver](/documentation/drivers/driver20/) is included in NTPv4. That means that for PPS processing we don't need the `PPS` driver or `pps` command in `ntp.conf`.
 
 Here is sample `ntp.conf`:
 

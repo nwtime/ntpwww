@@ -53,7 +53,7 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -76,13 +76,13 @@ if (!doNotTrack) {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -161,14 +161,18 @@ if (!doNotTrack) {
 <h4 id="331-frequency-error">3.3.1 Frequency Error</h4>
 <p>It&rsquo;s not sufficient to correct the clock once. Figure 3.3a illustrates the problem. The offset of a precision reference pulse has been measured with the free-running system clock. The figure shows that the system clock gains about 50 milliseconds per hour (red line). Even if the frequency error is taken into account, the error spans a few milliseconds within a few hours (blue line).</p>
 <p><strong>Figure 3.3a: Offset for a free-running Clock</strong></p>
-<p><img src="/ntpfaq/clockdrift.png" alt=""></p>
+<p><p>
+  <img loading="lazy" src="/ntpfaq/clockdrift.png" alt=""  />
+</p></p>
 <p>Even if the offset seems to drift in a linear way, a closer examination reveals that the drift is not linear.</p>
 <p><strong>Example 3.3a: Quartz Oscillators in IBM compatible PCs</strong></p>
 <p>In my experiments with PCs running Linux I found out that the frequency of the oscillator&rsquo;s correction value increases by about 11 PPM after powering up the system. This is quite likely due to the increase of temperature. A typical quartz is expected to drift about 1 PPM per °C.</p>
 <p>Even for a system that has been running for several days in a non-air-conditioned office, the correction value changed by more than 1 PPM within a week (see Figure 3.3b for a snapshot from that machine). It is possible that a change in supply voltage also changes the drift value of the quartz.</p>
 <p>As a consequence, without continuous adjustments the clock must be expected to drift away at roughly one second per day in the worst case. Even worse, the values quoted above may increase significantly for other circuits, or even more for extreme environmental conditions.</p>
 <p><strong>Figure 3.3b: Frequency Correction within a Week</strong></p>
-<p><img src="/ntpfaq/f-tick1b.png" alt=""></p>
+<p><p>
+  <img loading="lazy" src="/ntpfaq/f-tick1b.png" alt=""  />
+</p></p>
 <p>Some spikes may be due to the fact that the DCF77 signal failed several times during the observation, causing the receiver to resynchronize with an unknown phase.</p>
 <hr>
 <h4 id="3311-how-bad-is-a-frequency-error-of-500-ppm">3.3.1.1 How bad is a Frequency Error of 500 PPM?</h4>

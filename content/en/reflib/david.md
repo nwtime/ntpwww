@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/trail.gif)
+![gif](/documentation/pic/trail.gif)
 
 43 The Horseshoe, Newark, DE 19711
 
@@ -16,39 +16,39 @@ My hobbies include hiking, amateur radio and photography, although I haven't had
 
 It is an open secret among my correspondents that I on occasion do twitch the English language in mail messages and published works. Paper referees have come to agreement on what they call _millsspeak_ to refer to the subtilities with which I personalize my work. If you read my papers or my mail, you know my resonances. If not, you can calibrate my naughtimeter from children's books <sup>[1](#myfootnote1)</sup>, outhouse walls <sup>[2](#myfootnote2)</sup> and old English slang <sup>[3](#myfootnote3)</sup>.
 
-![gif](/archives/pic/w3hcf4.jpg)
+![gif](/documentation/pic/w3hcf4.jpg)
 
-[My amateur radio station W3HCF](/archives/pic/w3hcf3.jpg) includes two-way voice and data radio transmission equipment covering HF, VHF and UHF amateur bands. It uses modern solid-state gear that replaced [an older station](/archives/pic/hr01.jpg) using vacuum tubes. The [antenna farm on the roof](/archives/pic/43_front.jpg) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
+[My amateur radio station W3HCF](/documentation/pic/w3hcf3.jpg) includes two-way voice and data radio transmission equipment covering HF, VHF and UHF amateur bands. It uses modern solid-state gear that replaced [an older station](/documentation/pic/hr01.jpg) using vacuum tubes. The [antenna farm on the roof](/documentation/pic/43_front.jpg) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
 
 This is also the location of the [Backroom Test Facility (BTF)](/reflib/backroom/), named for a similar facility once maintained in support of the DARPA Atlantic Satellite Program. The BTF includes computers and specialized radio equipment for network time synchronization. It is connected to campus with ISDN network links.
 
-![gif](/archives/pic/t2a.gif)
+![gif](/documentation/pic/t2a.gif)
 
-![jpg](/archives/pic/licensea.jpg)
+![jpg](/documentation/pic/licensea.jpg)
 
-![jpg](/archives/pic/w3hcf-1.jpg)
+![jpg](/documentation/pic/w3hcf-1.jpg)
 
-![jpg](/archives/pic/car_license.jpg)
+![jpg](/documentation/pic/car_license.jpg)
 
 Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and Amateur Extra Class License. There is no mistaking me on the road, either. The telegraph ticket requires a proficiency in Morse code sending and receiving of 25 words-per-minute, which may be useful as a MIME type in secret mail. The upper picture is a verification (QSL) card for my current amateur radio station W3HCF. I have been licensed since 1954 and held former callsigns K2GUP (New Jersey), W8EJQ (Michigan), GM5AWF (Scotland) and F0BCX (France).
 
-![gif](/archives/pic/arrl_rgb.gif)[American Radio Relay League (Life Member since 1953)](http://www.arrl.org/)
+![gif](/documentation/pic/arrl_rgb.gif)[American Radio Relay League (Life Member since 1953)](http://www.arrl.org/)
 
-![gif](/archives/pic/rsgb_rgb.gif)[Radio Society of Great Britain (Member since 1971)](https://rsgb.org/)
+![gif](/documentation/pic/rsgb_rgb.gif)[Radio Society of Great Britain (Member since 1971)](https://rsgb.org/)
 
-![gif](/archives/pic/amsat_rgb.gif)[Amateur Satellite Organization (Life Member since 1975)](https://www.amsat.org/)
+![gif](/documentation/pic/amsat_rgb.gif)[Amateur Satellite Organization (Life Member since 1975)](https://www.amsat.org/)
 
 Call me on CW or SSB phone or on the ham club repeater W3UD 145.31/144.71 MHz FM (I'm the club advisor and station trustee).
 
-![gif](/archives/pic/qst1.gif)![gif](/archives/pic/a002.jpg)
+![gif](/documentation/pic/qst1.gif)![gif](/documentation/pic/a002.jpg)
 
 In fifty years of sometimes sporadic attention to the hobby, I have worked stations in well over 200 countries of the world, including some geographical extremes, such as these three rare ones at Palmer Station, Antarctica and the South Pole. Careful observers will note that since the pictures on these cards were taken both installations have grown to huge proportions.
 
-![gif](/archives/pic/kc4usn.gif)
+![gif](/documentation/pic/kc4usn.gif)
 
-![gif](/archives/pic/kc4usz.gif)
+![gif](/documentation/pic/kc4usz.gif)
 
-![gif](/archives/pic/kc4usp.gif)
+![gif](/documentation/pic/kc4usp.gif)
 
 In the 1970s when the Seabees were building the South Pole Station I ran occasional phone patches so the Antarctica guys could talk to their wives in the US. They told me of the 200-Degree Club, an initiation rite where a newcomer is forced to take a hot shower, following which he is tossed naked outdoors in the cold. Not for very long, I trust. Jerri Nielson reports a newer 300-Degree Club, which starts in the sauna instead of the shower <sup>[5](#myfootnote5)</sup>. Now of course the Polies have satellite links, video and the Internet.
 

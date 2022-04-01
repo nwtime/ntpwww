@@ -4,7 +4,7 @@ type: archives
 toc_hide: true
 ---
 
-![gif](/archives/pic/10753_cover.jpg)
+![gif](/documentation/pic/10753_cover.jpg)
 
 Mills, David L. _Computer Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition_, CRC Press 2011, 466 pp.
 

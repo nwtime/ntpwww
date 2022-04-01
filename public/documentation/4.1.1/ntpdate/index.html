@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
+
+  
+  <meta name="description" content="
+  
+from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+I told you it was eyeball and wristwatch.
+
+
+Disclaimer: The functionality of this …">
+<meta property="og:title" content="ntpdate - set the date and time via NTP" />
+<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
+I told you it was eyeball and wristwatch.
+  Disclaimer: The functionality of this program is now available in the ntpd program. See the -q command line option in the ntpd - Network Time Protocol (NTP) daemon page. After a suitable period of mourning, the ntpdate program will be retired from this distribution.
+  Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ &hellip; ]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.1/ntpdate/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>ntpdate - set the date and time via NTP</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://doc.ntp.org/documentation/4.1.1/">4.1.1</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://doc.ntp.org/documentation/4.1.1/ntpdate/">ntpdate - set the date and time via NTP</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>ntpdate - set the date and time via NTP</h1>
+     
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/rabbit.gif" alt="gif"  />
+</p><a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+<p>I told you it was eyeball and wristwatch.</p>
+<hr>
+<blockquote>
+<p><strong>Disclaimer:</strong> The functionality of this program is now available in the <code>ntpd</code> program. See the <code>-q</code> command line option in the <a href="/documentation/4.1.1/ntpd/"><code>ntpd</code> - Network Time Protocol (NTP) daemon</a> page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.</p>
+</blockquote>
+<hr>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="/documentation/4.1.1/ntpdate/#synopsis">Synopsis</a></li>
+<li><a href="/documentation/4.1.1/ntpdate/#description">Description</a></li>
+<li><a href="/documentation/4.1.1/ntpdate/#command-line-options">Command Line Options</a></li>
+<li><a href="/documentation/4.1.1/ntpdate/#files">Files</a></li>
+<li><a href="/documentation/4.1.1/ntpdate/#bugs">Bugs</a></li>
+</ul>
+<hr>
+<h4 id="synopsis">Synopsis</h4>
+<p><code>ntpdate [ -bBdoqsuv ] [ -a <em>key</em> ] [ -e <em>authdelay</em> ] [ -k <em>keyfile</em> ] [ -o <em>version</em> ] [ -p <em>samples</em> ] [ -t <em>timeout</em> ] <em>server</em> [ &hellip; ]</code></p>
+<hr>
+<h4 id="description">Description</h4>
+<p><code>ntpdate</code> sets the local date and time by polling the Network Time Protocol (NTP) server(s) given as the <code><em>server</em></code> arguments to determine the correct time. It must be run as root on the local host. A number of samples are obtained from each of the servers specified and a subset of the NTP clock filter and selection algorithms are applied to select the best of these. Note that the accuracy and reliability of <code>ntpdate</code> depends on the number of servers, the number of polls each time it is run and the interval between runs.</p>
+<p><code>ntpdate</code> can be run manually as necessary to set the host clock, or it can be run from the host startup script to set the clock at boot time. This is useful in some cases to set the clock initially before starting the NTP daemon <code>ntpd</code>. It is also possible to run <code>ntpdate</code> from a <code>cron</code> script. However, it is important to note that <code>ntpdate</code> with contrived <code>cron</code> scripts is no substitute for the NTP daemon, which uses sophisticated algorithms to maximize accuracy and reliability while minimizing resource use. Finally, since <code>ntpdate</code> does not discipline the host clock frequency as does <code>ntpd</code>, the accuracy using <code>ntpdate</code> is limited.</p>
+<p>Time adjustments are made by <code>ntpdate</code> in one of two ways. If <code>ntpdate</code> determines the clock is in error more than 0.5 second it will simply step the time by calling the system <code>settimeofday()</code> routine. If the error is less than 0.5 seconds, it will slew the time by calling the system <code>adjtime()</code> routine. The latter technique is less disruptive and more accurate when the error is small, and works quite well when <code>ntpdate</code> is run by <code>cron</code> every hour or two.</p>
+<p><code>ntpdate</code> will decline to set the date if an NTP server daemon (e.g., <code>ntpd</code>) is running on the same host. When running <code>ntpdate</code> on a regular basis from <code>cron</code> as an alternative to running a daemon, doing so once every hour or two will result in precise enough timekeeping to avoid stepping the clock.</p>
+<p>If NetInfo support is compiled into <code>ntpdate</code>, then the <code>server</code> argument is optional if <code>ntpdate</code> can find a time server in the NetInfo configuration for <code>ntpd</code>.</p>
+<hr>
+<h4 id="command-line-options">Command Line Options</h4>
+<dl>
+<dt><code><strong>-a <em>key</em></strong></code></dt>
+<dd>
+<p>Enable the authentication function and specify the key identifier to be used for authentication as the argument <code><em>key</em></code> to <code>ntpdate</code>. The keys and key identifiers must match in both the client and server key files. The default is to disable the authentication function.</p>
+</dd>
+<dt><code><strong>-B</strong></code></dt>
+<dd>
+<p>Force the time to always be slewed using the <code>adjtime()</code> system call, even if the measured offset is greater than +-128 ms. The default is to step the time using <code>settimeofday()</code> if the offset is greater than +-128 ms. Note that, if the offset is much greater than +-128 ms in this case, that it can take a long time (hours) to slew the clock to the correct value. During this time, the host should not be used to synchronize clients.</p>
+</dd>
+<dt><code><strong>-b</strong></code></dt>
+<dd>
+<p>Force the time to be stepped using the <code>settimeofday()</code> system call, rather than slewed (default) using the <code>adjtime()</code> system call. This option should be used when called from a startup file at boot time.</p>
+</dd>
+<dt><code><strong>-d</strong></code></dt>
+<dd>
+<p>Enable the debugging mode, in which <code>ntpdate</code> will go through all the steps, but not adjust the local clock. Information useful for general debugging will also be printed.</p>
+</dd>
+<dt><code><strong>-e <em>authdelay</em></strong></code></dt>
+<dd>
+<p>Specify the processing delay to perform an authentication function as the value <code><em>authdelay</em></code>, in seconds and fraction (see <code>ntpd</code> for details). This number is usually small enough to be negligible for most purposes, though specifying a value may improve timekeeping on very slow CPUs.</p>
+</dd>
+<dt><code><strong>-k <em>keyfile</em></strong></code></dt>
+<dd>
+<p>Specify the path for the authentication key file as the string <code><em>keyfile</em></code>. The default is <code>/etc/ntp.keys</code>. This file should be in the format described in <code>ntpd</code>.</p>
+</dd>
+<dt><code><strong>-o <em>version</em></strong></code></dt>
+<dd>
+<p>Specify the NTP version for outgoing packets as the integer <code><em>version</em></code>, which can be 1 or 2. The default is 3. This allows <code>ntpdate</code> to be used with older NTP versions.</p>
+</dd>
+<dt><code><strong>-p <em>samples</em></strong></code></dt>
+<dd>
+<p>Specify the number of samples to be acquired from each server as the integer <code><em>samples</em></code>, with values from 1 to 8 inclusive. The default is 4.</p>
+</dd>
+<dt><code><strong>-q</strong></code></dt>
+<dd>
+<p>Query only - don&rsquo;t set the clock.</p>
+</dd>
+<dt><code><strong>-s</strong></code></dt>
+<dd>
+<p>Divert logging output from the standard output (default) to the system <code>syslog</code> facility. This is designed primarily for convenience of <code>cron</code> scripts.</p>
+</dd>
+<dt><code><strong>-t <em>timeout</em></strong></code></dt>
+<dd>
+<p>Specify the maximum time waiting for a server response as the value <code><em>timeout</em></code>, in seconds and fraction. The value is rounded to a multiple of 0.2 seconds. The default is 1 second, a value suitable for polling across a LAN.</p>
+</dd>
+<dt><code><strong>-u</strong></code></dt>
+<dd>
+<p>Direct <code>ntpdate</code> to use an unprivileged port for outgoing packets. This is most useful when behind a firewall that blocks incoming traffic to privileged ports, and you want to synchronize with hosts beyond the firewall. Note that the <code>-d</code> option always uses unprivileged ports.</p>
+</dd>
+<dt><code><strong>-v</strong></code></dt>
+<dd>
+<p>Be verbose. This option will cause <code>ntpdate</code>&rsquo;s version identification string to be logged.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="files">Files</h4>
+<p><code>/etc/ntp.keys</code> - encryption keys used by <code>ntpdate</code>.</p>
+<hr>
+<h4 id="bugs">Bugs</h4>
+<p>The slew adjustment is actually 50% larger than the measured offset, since this (it is argued) will tend to keep a badly drifting clock more accurate. This is probably not a good idea and may cause a troubling hunt for some values of the kernel variables <code>tick</code> and <code>tickadj</code>.</p>
+
+	  
+	  <style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it!</a>
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that.</a>
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+	  <br />
+	
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>
