@@ -29,7 +29,7 @@ sitemap_exclude: true
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>1.7 (worst case)</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:P)">AV:N/AC:H/Au:M/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:P)">AV:N/AC:H/Au:M/C:N/I:N/A:P</a></td>
 	</tr>	
   </tbody>	
 </table>
@@ -45,7 +45,7 @@ If `MINPOLL` is set to 3 then it's possible to crash some versions of `ntpd`.
 #### Mitigation
 
 * If you decide to override the default value of `minpoll`, make sure you use a value of 4 or more.
-* Upgrade to [4.2.8p4 or later](/downloads).
+* Upgrade to [4.2.8p4 or later](/downloads/).
 * Monitor your `ntpd` instances. 
 
 * * *

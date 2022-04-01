@@ -29,7 +29,7 @@ sitemap_exclude: true
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>1.7 (worst case)</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:P)">AV:N/AC:H/Au:M/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:P)">AV:N/AC:H/Au:M/C:N/I:N/A:P</a></td>
 	</tr>	
   </tbody>	
 </table>
@@ -45,7 +45,7 @@ If `ntpd` is not built with OpenSSL cryptography and `ntpd` is told to configure
 #### Mitigation
 
 * Don't specify cryptography statistics directives in unpatched releases of `ntpd` if your `ntpd` doesn't support cryptography.
-* Upgrade to [4.2.8p4 or later](/downloads).
+* Upgrade to [4.2.8p4 or later](/downloads/).
 * Monitor your `ntpd` instances. 
 
 * * *
