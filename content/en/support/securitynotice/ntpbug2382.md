@@ -29,7 +29,7 @@ sitemap_exclude: true
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>1.7 (worst case)</td>
-		<td><a href="https://nvd.nist.gov/cvss.cfm?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:P)">AV:N/AC:H/Au:M/C:N/I:N/A:P</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2&vector=(AV:N/AC:H/Au:M/C:N/I:N/A:P)">AV:N/AC:H/Au:M/C:N/I:N/A:P</a></td>
 	</tr>	
   </tbody>	
 </table>

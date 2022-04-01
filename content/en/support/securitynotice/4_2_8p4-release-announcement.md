@@ -25,8 +25,8 @@ The only generally-exploitable bug in the above list is the crypto-NAK bug, whic
 Additionally, three bugs that have already been fixed in ntp-4.2.8 but were not fixed in ntp-4.2.6 as it was EOL'd have a security component, but are all below 1.8 CVSS score, so we're reporting them here:
 
 * [2382: Peer precision < -31 gives division by zero](/support/securitynotice/ntpbug2382/) 
-* [1774: Segfaults if cryptostats enabled when built without OpenSSL](/support/securitynotice/ntpbug1774) 
-* [1593: ntpd abort in free() with logconfig syntax error](/support/securitynotice/ntpbug1593)  
+* [1774: Segfaults if cryptostats enabled when built without OpenSSL](/support/securitynotice/ntpbug1774/) 
+* [1593: ntpd abort in free() with logconfig syntax error](/support/securitynotice/ntpbug1593/)  
 
 * * *
 

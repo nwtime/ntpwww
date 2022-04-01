@@ -54,7 +54,7 @@ The `minpoll` and `maxpoll` keywords of the server configuration command can be 
 
 > **Note:** Phone numbers include the entire Hayes modem command, including the `ATDT` and other control codes as may be necessary. For most cases only the `ATDT` may be necessary.
 
-[National Institute of Science and Technology (NIST)](https://www.nist.gov/time-distribution/automated-computer-time-service-acts)
+[National Institute of Science and Technology (NIST)](https://www.nist.gov/pml/time-and-frequency-division/time-distribution/automated-computer-time-service-acts)
 
 Phone: (303) 494-4774 (Boulder, CO); (808) 335-4721 (Hawaii)
 
