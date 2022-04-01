@@ -1,6 +1,5 @@
 ---
 title: "Documentation"
-url: "/documentation"
 type: archives
 ---
 
@@ -10,7 +9,7 @@ type: archives
 
 #### Documentation Archives
 
-Archived documentation for older NTP releases is available:
+Archived documentation for older major NTP releases is available:
 
 * [4.2.6-series](/archives/4.2.6-series/)
 * [4.2.4-series](/archives/4.2.4-series/)
