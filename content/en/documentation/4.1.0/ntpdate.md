@@ -4,23 +4,23 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 I told you it was eyeball and wristwatch.
 
 * * *
 
-> **Disclaimer:** The functionality of this program is now available in the <code>ntpd</code> program. See the `-q` command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.1.0/ntpd/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
+> **Disclaimer:** The functionality of this program is now available in the <code>ntpd</code> program. See the `-q` command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/documentation/4.1.0/ntpd/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
 
 * * *
 
 #### Table of Contents
 
-* [Synopsis](/archives/4.1.0/ntpdate/#synopsis)
-* [Description](/archives/4.1.0/ntpdate/#description)
-* [Command Line Options](/archives/4.1.0/ntpdate/#command-line-options)
-* [Files](/archives/4.1.0/ntpdate/#files)
-* [Bugs](/archives/4.1.0/ntpdate/#bugs)
+* [Synopsis](/documentation/4.1.0/ntpdate/#synopsis)
+* [Description](/documentation/4.1.0/ntpdate/#description)
+* [Command Line Options](/documentation/4.1.0/ntpdate/#command-line-options)
+* [Files](/documentation/4.1.0/ntpdate/#files)
+* [Bugs](/documentation/4.1.0/ntpdate/#bugs)
 
 * * *
 

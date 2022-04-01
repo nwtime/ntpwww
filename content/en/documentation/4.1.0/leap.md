@@ -4,7 +4,7 @@ type: archives
 noindex: true
 --- 
 
-![gif](/archives/pic/alice15.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice15.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.  
 
@@ -12,12 +12,12 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
 
 #### Table of Contents
 
-*  [Introduction](/archives/4.1.0/leap/#introduction)
-*  [The NTP Timescale](/archives/4.1.0/leap/#the-ntp-timescale)
-*  [Conversion to Other Timescales](/archives/4.1.0/leap/#conversion-to-other-timescales)
-*  [Timescale Resolution and the Tick Interval](/archives/4.1.0/leap/#timescale-resolution-and-the-tick-interval)
-*  [Leap Seconds](/archives/4.1.0/leap/#leap-seconds)
-*  [Reckoning with NTP and UTC Leap seconds](/archives/4.1.0/leap/#reckoning-with-ntp-and-utc-leap-seconds)
+*  [Introduction](/documentation/4.1.0/leap/#introduction)
+*  [The NTP Timescale](/documentation/4.1.0/leap/#the-ntp-timescale)
+*  [Conversion to Other Timescales](/documentation/4.1.0/leap/#conversion-to-other-timescales)
+*  [Timescale Resolution and the Tick Interval](/documentation/4.1.0/leap/#timescale-resolution-and-the-tick-interval)
+*  [Leap Seconds](/documentation/4.1.0/leap/#leap-seconds)
+*  [Reckoning with NTP and UTC Leap seconds](/documentation/4.1.0/leap/#reckoning-with-ntp-and-utc-leap-seconds)
 
 * * *
 

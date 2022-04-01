@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
+![gif](/documentation/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 Porting Dorothy in Oz
 
@@ -40,6 +40,6 @@ These are the rules so that older bsd systems and the POSIX standard system can 
 
 See <code>include/ntp_machines.h</code> for the various compile time options.
 
-When you are satisfied the port works and that other ports are not adversely affected, please send [patches](/archives/4.1.0/patches/) for the system files you have changed, as well as any documentation that should be updated, including the advice herein.
+When you are satisfied the port works and that other ports are not adversely affected, please send [patches](/documentation/4.1.0/patches/) for the system files you have changed, as well as any documentation that should be updated, including the advice herein.
 
 Good luck.

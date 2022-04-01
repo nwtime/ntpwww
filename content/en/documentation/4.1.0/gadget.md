@@ -4,15 +4,15 @@ type: archives
 noindex: true
 ---
 
-![jpg](/archives/pic/gadget.jpg) A Gadget Box built by Chuck Hanavin
+![jpg](/documentation/pic/gadget.jpg) A Gadget Box built by Chuck Hanavin
 
 * * *
 
 #### Table of Contents
 
-*  [Introduction](/archives/4.1.0/gadget/#introduction)
-*  [Circuit Description](/archives/4.1.0/gadget/#circuit-description)
-*  [Files](/archives/4.1.0/gadget/#files)
+*  [Introduction](/documentation/4.1.0/gadget/#introduction)
+*  [Circuit Description](/documentation/4.1.0/gadget/#circuit-description)
+*  [Files](/documentation/4.1.0/gadget/#files)
 
 * * *
 
@@ -20,7 +20,7 @@ noindex: true
 
 Many radio clocks used as a primary reference source for NTP servers produce a pulse-per-second (PPS) signal that can be used to improve accuracy to a high degree. However, the signals produced are usually incompatible with the modem interface signals on the serial ports used to connect the signal to the host. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional radio modem designed to decode the radio timecode signals transmitted by the Canadian time and frequency station CHU. A complete set of schematics, PCB artwork, drill templates can be obrtained via the web as the distribution [gadget.tar.Z](/reflib/software/gadget.tar.Z).
 
-The gadget box is assembled in a 5"x3"x2" aluminum minibox containing the level converter and modem circuitry. It includes two subcircuits. One of these converts a TTL positive edge into a fixed-width pulse at EIA levels and is for use with a timecode receiver or oscillator including a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7/) driver.
+The gadget box is assembled in a 5"x3"x2" aluminum minibox containing the level converter and modem circuitry. It includes two subcircuits. One of these converts a TTL positive edge into a fixed-width pulse at EIA levels and is for use with a timecode receiver or oscillator including a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the [Radio CHU Audio Demodulator/Decoder](/documentation/drivers/driver7/) driver.
 
 This archive contains complete construction details for the gadget box, including schematic, parts list and artwork for a two-sided, printed-circuit board. All files are in PostScript, with the exception of this file and an information file, which are in ASCII. The artwork is in the 1:1 scale and is suitable for direct printing on photographic resist for each side of the board. While a plated-through-holes process is most convenient, it is possible to bridge the two sides using soldered wires where necessary.
 

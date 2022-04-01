@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The skunk watches for intruders and sprays.
 
@@ -12,15 +12,15 @@ The skunk watches for intruders and sprays.
 
 #### Table of Contents
 
-*  [Access Control Support](/archives/4.1.0/accopt/#access-control-support)
-*  [The Kiss-of-Death Packet](/archives/4.1.0/accopt/#the-kiss-of-death-packet)
-*  [Access Control Commands](/archives/4.1.0/accopt/#access-control-commands)
+*  [Access Control Support](/documentation/4.1.0/accopt/#access-control-support)
+*  [The Kiss-of-Death Packet](/documentation/4.1.0/accopt/#the-kiss-of-death-packet)
+*  [Access Control Commands](/documentation/4.1.0/accopt/#access-control-commands)
 
 * * *
 
 #### Access Control Support
 
-<code>ntpd</code> implements a general purpose address-and-mask based restriction list. The list is sorted by address and by mask, and the list is searched in this order for matches, with the last match found defining the restriction flags associated with the incoming packets. The source address of incoming packets is used for the match, with the 32- bit address being and'ed with the mask associated with the restriction entry and then compared with the entry's address (which has also been and'ed with the mask) to look for a match. Additional information and examples can be found in the  [Notes on Configuring NTP and Setting up a NTP Subnet](/archives/4.1.0/notes/) page. 
+<code>ntpd</code> implements a general purpose address-and-mask based restriction list. The list is sorted by address and by mask, and the list is searched in this order for matches, with the last match found defining the restriction flags associated with the incoming packets. The source address of incoming packets is used for the match, with the 32- bit address being and'ed with the mask associated with the restriction entry and then compared with the entry's address (which has also been and'ed with the mask) to look for a match. Additional information and examples can be found in the  [Notes on Configuring NTP and Setting up a NTP Subnet](/documentation/4.1.0/notes/) page. 
 
 The restriction facility was implemented in conformance with the access policies for the original NSFnet backbone time servers. While this facility may be otherwise useful for keeping unwanted or broken remote time servers from affecting your own, it should not be considered an alternative to the standard NTP authentication facility. Source address based restrictions are easily circumvented by a determined cracker.
 

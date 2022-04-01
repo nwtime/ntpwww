@@ -10,15 +10,15 @@ The parse driver currently supports several clocks with different query mechanis
 
 #### Table of Contents
 
-* [Meinberg clocks](/archives/4.1.0/parsedata/#meinberg-clocks)
-* [Raw DCF77 Data via serial line](/archives/4.1.0/parsedata/#raw-dcf77-data-via-serial-line)
-* [DCF77 raw time code](/archives/4.1.0/parsedata/#dcf77-raw-time-code)
-* [Schmid clock](/archives/4.1.0/parsedata/#schmid-clock)
-* [Trimble SV6 ASCII time code (TAIP)](/archives/4.1.0/parsedata/#trimble-sv6-ascii-time-code-taip)
-* [ELV DCF7000](/archives/4.1.0/parsedata/#elv-dcf7000)
-* [HOPF 6021 und Kompatible](/archives/4.1.0/parsedata/#hopf-6021-und-kompatible)
-* [Diem Computime Clock](/archives/4.1.0/parsedata/#diem-computime-clock)
-* [WHARTON 400A Series Clock with a 404.2 Serial interface](/archives/4.1.0/parsedata/#wharton-400a-series-clock-with-a-4042-serial-interface)
+* [Meinberg clocks](/documentation/4.1.0/parsedata/#meinberg-clocks)
+* [Raw DCF77 Data via serial line](/documentation/4.1.0/parsedata/#raw-dcf77-data-via-serial-line)
+* [DCF77 raw time code](/documentation/4.1.0/parsedata/#dcf77-raw-time-code)
+* [Schmid clock](/documentation/4.1.0/parsedata/#schmid-clock)
+* [Trimble SV6 ASCII time code (TAIP)](/documentation/4.1.0/parsedata/#trimble-sv6-ascii-time-code-taip)
+* [ELV DCF7000](/documentation/4.1.0/parsedata/#elv-dcf7000)
+* [HOPF 6021 und Kompatible](/documentation/4.1.0/parsedata/#hopf-6021-und-kompatible)
+* [Diem Computime Clock](/documentation/4.1.0/parsedata/#diem-computime-clock)
+* [WHARTON 400A Series Clock with a 404.2 Serial interface](/documentation/4.1.0/parsedata/#wharton-400a-series-clock-with-a-4042-serial-interface)
 
 #### Meinberg clocks
 

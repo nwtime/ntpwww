@@ -4,15 +4,15 @@ type: archives
 noindex: true
 ---
 
-![jpg](/archives/pic/radio2.jpg) Make a little noise here.
+![jpg](/documentation/pic/radio2.jpg) Make a little noise here.
 
 * * *
 
 #### Table of Contents
 
-*   [Sound Card Drivers](/archives/4.1.0/audio/#sound-card-drivers)
-*   [Shortwave Radio Drivers](/archives/4.1.0/audio/#shortwave-radio-drivers)
-*   [Debugging Aids](/archives/4.1.0/audio/#debugging-aids)
+*   [Sound Card Drivers](/documentation/4.1.0/audio/#sound-card-drivers)
+*   [Shortwave Radio Drivers](/documentation/4.1.0/audio/#shortwave-radio-drivers)
+*   [Debugging Aids](/documentation/4.1.0/audio/#debugging-aids)
 
 * * *
 

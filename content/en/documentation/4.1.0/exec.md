@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice12.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice12.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The executive is the one on the left.  
 
@@ -12,13 +12,13 @@ The executive is the one on the left.
 
 #### Table of Contents
 
-*  [Introduction](/archives/4.1.0/exec/#introduction)
-*  [Protocol Design Issues](/archives/4.1.0/exec/#protocol-design-issues)
-*  [Security Issues](/archives/4.1.0/exec/#security-issues)
-*  [Computer Clock Modelling and Error Analysis](/archives/4.1.0/exec/#computer-clock-modelling-and-error-analysis)
-*  [Correctness Principles](/archives/4.1.0/exec/#correctness-principles)
-*  [Data Grooming Algorithms](/archives/4.1.0/exec/#data-grooming-algorithms)
-*  [Further Reading](/archives/4.1.0/exec/#further-reading)
+*  [Introduction](/documentation/4.1.0/exec/#introduction)
+*  [Protocol Design Issues](/documentation/4.1.0/exec/#protocol-design-issues)
+*  [Security Issues](/documentation/4.1.0/exec/#security-issues)
+*  [Computer Clock Modelling and Error Analysis](/documentation/4.1.0/exec/#computer-clock-modelling-and-error-analysis)
+*  [Correctness Principles](/documentation/4.1.0/exec/#correctness-principles)
+*  [Data Grooming Algorithms](/documentation/4.1.0/exec/#data-grooming-algorithms)
+*  [Further Reading](/documentation/4.1.0/exec/#further-reading)
 
 * * *
 

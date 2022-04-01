@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
 
@@ -12,24 +12,24 @@ Make sure who your friends are.
 
 #### Table of Contents
 
-*   [Association Modes](/archives/4.1.0/assoc/#association-modes)
-*   [Client/Server Mode](/archives/4.1.0/assoc/#clientserver-mode)
-*   [Symmetric Active/Passive Mode](/archives/4.1.0/assoc/#symmetric-activepassive-mode)
-*   [Broadcast Mode](/archives/4.1.0/assoc/#broadcast-mode)
-*   [IP Multicast Support](/archives/4.1.0/assoc/#ip-multicast-support)
-*   [Multicasting](/archives/4.1.0/assoc/#multicasting)
-*   [Manycasting](/archives/4.1.0/assoc/#manycasting)
-*   [Burst Modes](/archives/4.1.0/assoc/#burst-modes)
+*   [Association Modes](/documentation/4.1.0/assoc/#association-modes)
+*   [Client/Server Mode](/documentation/4.1.0/assoc/#clientserver-mode)
+*   [Symmetric Active/Passive Mode](/documentation/4.1.0/assoc/#symmetric-activepassive-mode)
+*   [Broadcast Mode](/documentation/4.1.0/assoc/#broadcast-mode)
+*   [IP Multicast Support](/documentation/4.1.0/assoc/#ip-multicast-support)
+*   [Multicasting](/documentation/4.1.0/assoc/#multicasting)
+*   [Manycasting](/documentation/4.1.0/assoc/#manycasting)
+*   [Burst Modes](/documentation/4.1.0/assoc/#burst-modes)
 
 * * *
 
 #### Association Modes
 
-NTP Version 4 (NTPv4) incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms; however, it continues the tradition of backwards compatibility with older versions. A number of new operating modes for automatic server discovery and improved accuracy in occasionally connected networks are provided. Following is an overview of the new features; additional information is available on the [Configuration Options](/archives/4.1.0/confopt/) and [Authentication Options](/archives/4.1.0/authopt/) pages and in the papers, reports, memoranda and briefings in the [Reference Library](/reflib/).
+NTP Version 4 (NTPv4) incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms; however, it continues the tradition of backwards compatibility with older versions. A number of new operating modes for automatic server discovery and improved accuracy in occasionally connected networks are provided. Following is an overview of the new features; additional information is available on the [Configuration Options](/documentation/4.1.0/confopt/) and [Authentication Options](/documentation/4.1.0/authopt/) pages and in the papers, reports, memoranda and briefings in the [Reference Library](/reflib/).
 
 There are two types of associations: persistent associations, which result from configuration file commands, and ephemeral associations, which result from protocol operations described below. A persistent association is never demobilized, although it may become dormant when the associated server becomes unreachable. An ephemeral association is mobilized when a message arrives from a server; for instance, a symmetric passive association is mobilized upon arrival of a symmetric active message. A broadcast client association is mobilized upon arrival of a broadcast server message, while a manycast client association is mobilized upon arrival of a manycast server message.
 
-Ordinarily, successful mobilization of an ephemeral association requires the server to be cryptographically authenticated to the dependent client. This can be done using either symmetric-key or public-key cryptography, as described in the [Authentication Options](/archives/4.1.0/authopt/) page. The cryptographic means insure an unbroken chain of trust between the dependent client and the primary servers at the root of the synchronization subnet. We call this chain the _provenance_ of the client and define new vocabulary as to proventicate a client or provide proventic credentials. Once mobilized, ephemeral associations are demobilized when either (a) the server becomes unreachable or (b) the server refreshes the key media without notifying the client.
+Ordinarily, successful mobilization of an ephemeral association requires the server to be cryptographically authenticated to the dependent client. This can be done using either symmetric-key or public-key cryptography, as described in the [Authentication Options](/documentation/4.1.0/authopt/) page. The cryptographic means insure an unbroken chain of trust between the dependent client and the primary servers at the root of the synchronization subnet. We call this chain the _provenance_ of the client and define new vocabulary as to proventicate a client or provide proventic credentials. Once mobilized, ephemeral associations are demobilized when either (a) the server becomes unreachable or (b) the server refreshes the key media without notifying the client.
 
 There are three principal modes of operation: client/server, symmetric active/passive and broadcast. In addition, there are two modes using IP multicast support: multicast and manycast. These modes are selected based on the scope of service, intended flow of time and proventic values and means of configuration. Following is a summary of the operations in each mode.
 

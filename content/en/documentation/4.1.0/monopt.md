@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly
+![gif](/documentation/pic/pogo8.gif)[from _Pogo_, Walt Kelly
 ](/reflib/pictures/) 
 
 The pig watches the logs. 
@@ -13,8 +13,8 @@ The pig watches the logs.
 
 #### Table of Contents
 
-*   [Monitoring Support](/archives/4.1.0/monopt/#monitoring-support)
-*   [Monitoring Commands](/archives/4.1.0/monopt/#monitoring-commands)
+*   [Monitoring Support](/documentation/4.1.0/monopt/#monitoring-support)
+*   [Monitoring Commands](/documentation/4.1.0/monopt/#monitoring-commands)
 
 * * *
 

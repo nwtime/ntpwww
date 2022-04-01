@@ -4,13 +4,13 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
+![gif](/documentation/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 Call the girls and they'll sweep your bugs.
 
 * * *
 
-The [<code>ntpq</code>](/archives/4.1.0/ntpq/) and [<code>ntpdc</code>](/archives/4.1.0/ntpdc/) utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the [<code>ntpd</code>](/archives/4.1.0/ntpd/) page and its dependencies. If the clock appears in the <code>ntpq</code> utility and <code>pe</code> command, no errors have occurred and the daemon has started, opened the devices specified and waiting for peers and radios to come up. If not, the first thing to look for are error messages on the system log. These are usually due to improper configuration, missing links or multiple instances of the daemon.
+The [<code>ntpq</code>](/documentation/4.1.0/ntpq/) and [<code>ntpdc</code>](/documentation/4.1.0/ntpdc/) utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the [<code>ntpd</code>](/documentation/4.1.0/ntpd/) page and its dependencies. If the clock appears in the <code>ntpq</code> utility and <code>pe</code> command, no errors have occurred and the daemon has started, opened the devices specified and waiting for peers and radios to come up. If not, the first thing to look for are error messages on the system log. These are usually due to improper configuration, missing links or multiple instances of the daemon.
 
 It normally takes a minute or so for evidence to appear that the clock is running and the driver is operating correctly. The first indication is a nonzero value in the <code>reach</code> column in the <code>pe</code> billboard. If nothing appears after a few minutes, the next step is to be sure the RS232 messages, if used, are getting to and from the clock. The most reliable way to do this is with an RS232 tester and to look for data flashes as the driver polls the clock and/or as data arrive from the clock. Our experience is that the overwhelming fraction of problems occurring during installation are due to problems such as miswired connectors or improperly configured device links at this stage.
 

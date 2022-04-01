@@ -6,11 +6,11 @@ noindex: true
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.1.0/tickadj/#synopsis)
-*   [Description](/archives/4.1.0/tickadj/#description)
-*   [Command Line Options](/archives/4.1.0/tickadj/#command-line-options)
-*   [Files](/archives/4.1.0/tickadj/#files)
-*   [Bugs](/archives/4.1.0/tickadj/#bugs)
+*   [Synopsis](/documentation/4.1.0/tickadj/#synopsis)
+*   [Description](/documentation/4.1.0/tickadj/#description)
+*   [Command Line Options](/documentation/4.1.0/tickadj/#command-line-options)
+*   [Files](/documentation/4.1.0/tickadj/#files)
+*   [Bugs](/documentation/4.1.0/tickadj/#bugs)
 
 * * *
 
@@ -24,7 +24,7 @@ noindex: true
 
 The <code>tickadj</code> program reads, and optionally modifies, several timekeeping-related variables in the running kernel in some machines, via <code>/dev/kmem</code>. The particular variables it is concerned with are <code>tick</code>, which is the number of microseconds added to the system time for a clock interrupt, <code>tickadj</code>, which sets the slew rate and resolution used by the <code>adjtime</code> system call, and <code>dosynctodr</code>, which indicates to the kernels on some machines whether they should internally adjust the system clock to keep it in line with time-of-day clock or not.
 
-Note that this program does NOT work in some kernels, in particular Solaris 2.6 or later. See the [report](/archives/hints/solaris-dosynctodr/).
+Note that this program does NOT work in some kernels, in particular Solaris 2.6 or later. See the [report](/documentation/hints/solaris-dosynctodr/).
 
 By default, with no arguments, <code>tickadj</code> reads the variables of interest in the kernel and displays them. At the same time, it determines an "optimal" value for the value of the <code>tickadj</code> variable if the intent is to run the <code>ntpd</code> Network Time Protocol (NTP) daemon, and prints this as well. Since the operation of <code>tickadj</code> when reading the kernel mimics the operation of similar parts of the <code>ntpd</code> program fairly closely, this can be useful when debugging problems with <code>ntpd</code>.
 
