@@ -9,12 +9,12 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Introduction](/archives/drivers/oncore-shmem/#introduction)
-*   [Activating the Interface](/archives/drivers/oncore-shmem/#activating-the-interface)
-*   [Storage of Messages in Shared Memory](/archives/drivers/oncore-shmem/#storage-of-messages-in-shared-memory)
-*   [Opening the Shared Memory File](/archives/drivers/oncore-shmem/#opening-the-shared-memory-file)
-*   [Accessing the data](/archives/drivers/oncore-shmem/#accessing-the-data)
-*   [Examples](/archives/drivers/oncore-shmem/#examples)
+*   [Introduction](/documentation/drivers/oncore-shmem/#introduction)
+*   [Activating the Interface](/documentation/drivers/oncore-shmem/#activating-the-interface)
+*   [Storage of Messages in Shared Memory](/documentation/drivers/oncore-shmem/#storage-of-messages-in-shared-memory)
+*   [Opening the Shared Memory File](/documentation/drivers/oncore-shmem/#opening-the-shared-memory-file)
+*   [Accessing the data](/documentation/drivers/oncore-shmem/#accessing-the-data)
+*   [Examples](/documentation/drivers/oncore-shmem/#examples)
 
 * * *
 

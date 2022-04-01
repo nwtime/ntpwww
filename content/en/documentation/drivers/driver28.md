@@ -9,18 +9,18 @@ Last update: 8-Aug-2014 19:17 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver28/#synopsis)
-*   [Description](/archives/drivers/driver28/#description)
-*   [Structure of shared memory-segment](/archives/drivers/driver28/#structure-of-shared-memory-segment)
-*   [Operation mode=0](/archives/drivers/driver28/#operation-mode0)
-*   [Operation mode=1](/archives/drivers/driver28/#operation-mode1)
-*   [Mode-independent post-processing](/archives/drivers/driver28/#mode-independent-post-processing)
-*   [GPSD](/archives/drivers/driver28/#gpsd)
-*   [Clockstats](/archives/drivers/driver28/#clockstats)
-*   [The 'mode' word](/archives/drivers/driver28/#the-mode-word)
-*   [Fudge Factors](/archives/drivers/driver28/#fudge-factors)
-*   [Public vs. Private SHM segments](/archives/drivers/driver28/#public-vs-private-shm-segments)
-*   [Additional Information](/archives/drivers/driver28/#additional-information)
+*   [Synopsis](/documentation/drivers/driver28/#synopsis)
+*   [Description](/documentation/drivers/driver28/#description)
+*   [Structure of shared memory-segment](/documentation/drivers/driver28/#structure-of-shared-memory-segment)
+*   [Operation mode=0](/documentation/drivers/driver28/#operation-mode0)
+*   [Operation mode=1](/documentation/drivers/driver28/#operation-mode1)
+*   [Mode-independent post-processing](/documentation/drivers/driver28/#mode-independent-post-processing)
+*   [GPSD](/documentation/drivers/driver28/#gpsd)
+*   [Clockstats](/documentation/drivers/driver28/#clockstats)
+*   [The 'mode' word](/documentation/drivers/driver28/#the-mode-word)
+*   [Fudge Factors](/documentation/drivers/driver28/#fudge-factors)
+*   [Public vs. Private SHM segments](/documentation/drivers/driver28/#public-vs-private-shm-segments)
+*   [Additional Information](/documentation/drivers/driver28/#additional-information)
 
 * * *
 
@@ -202,4 +202,4 @@ When running under Windows, the chosen user account must be able to create a SHM
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

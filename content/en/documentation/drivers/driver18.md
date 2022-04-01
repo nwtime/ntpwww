@@ -10,12 +10,12 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver18/#synopsis)
-*   [Description](/archives/drivers/driver18/#description)
-*   [US Phone Numbers and Formats](/archives/drivers/driver18/#us-phone-numbers-and-formats)
-*   [Monitor Data](/archives/drivers/driver18/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver18/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver18/#additional-information)
+*   [Synopsis](/documentation/drivers/driver18/#synopsis)
+*   [Description](/documentation/drivers/driver18/#description)
+*   [US Phone Numbers and Formats](/documentation/drivers/driver18/#us-phone-numbers-and-formats)
+*   [Monitor Data](/documentation/drivers/driver18/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver18/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver18/#additional-information)
 
 * * *
 
@@ -92,7 +92,7 @@ Phone: (202) 762-1594 (Washington, DC); (719) 567-6743 (Colorado Springs, CO)
 
 `hhmmss` second of day
 
-[European Phone Numbers and Formats](/archives/drivers/tf582_4/)
+[European Phone Numbers and Formats](/documentation/drivers/tf582_4/)
 
 [Spectracom GPS and WWVB Receivers](https://www.orolia.com/)
 
@@ -144,4 +144,4 @@ The received timecode is written as-is to the `clockstats` file along with the H
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

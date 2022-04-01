@@ -9,11 +9,11 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver27/#synopsis)
-*   [Description](/archives/drivers/driver27/#description)
-*   [Monitor Data](/archives/drivers/driver27/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver27/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver27/#additional-information)
+*   [Synopsis](/documentation/drivers/driver27/#synopsis)
+*   [Description](/documentation/drivers/driver27/#description)
+*   [Monitor Data](/documentation/drivers/driver27/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver27/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver27/#additional-information)
 
 * * *
 
@@ -35,7 +35,7 @@ This documentation describes v1.3 (2003/2/21) of the source and has been tested 
 
 To use the alternate modes, the `mode` flag must be specified. If the mode flag is 0, or unspecified, the original MSF version is assumed. This should assure backwards compatibility and should not break existing setups.
 
-The [previous documentation described version V1.1 (1997/06/23)](/archives/3-5.93e/driver27/) of the source and had been tested (amongst others) against ntpd3-5.90 on Solaris-1 (SunOS 4.1.3_U1 on an SS1 serving as a router and firewall) and against ntpd3-5.90 on Solaris-2.5 (on a SS1+ and TurboSPARC 170MHz). That code claimed increased stability, reduced jitter and more efficiency (fewer context switches) with the `tty_clk` discipline/STREAMS module installed, but this has not been tested. For a to-do list see the comments at the start of the code.
+The [previous documentation described version V1.1 (1997/06/23)](/documentation/3-5.93e/driver27/) of the source and had been tested (amongst others) against ntpd3-5.90 on Solaris-1 (SunOS 4.1.3_U1 on an SS1 serving as a router and firewall) and against ntpd3-5.90 on Solaris-2.5 (on a SS1+ and TurboSPARC 170MHz). That code claimed increased stability, reduced jitter and more efficiency (fewer context switches) with the `tty_clk` discipline/STREAMS module installed, but this has not been tested. For a to-do list see the comments at the start of the code.
 
 This code has been significantly slimmed down since the V1.0 version, roughly halving the memory footprint of its code and data.
 
@@ -260,5 +260,5 @@ Supported modes of operation:
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)  
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)  
 [ARC Rugby MSF Receiver](https://www.exnet.com/NTP/ARC/ARC.html)

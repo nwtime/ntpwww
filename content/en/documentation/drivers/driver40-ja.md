@@ -4,23 +4,23 @@ type: archives
 ---
 Last update: 12-Oct-2017 09:05 UTC
        
-[ENGLISH（英語）](/archives/drivers/driver40/)
+[ENGLISH（英語）](/documentation/drivers/driver40/)
 
 * * *
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver40-ja/#synopsis)
-*   [Description](/archives/drivers/driver40-ja/#description)
-*   [Mode-1](/archives/drivers/driver40-ja/#mode-1)
-*   [Mode-2](/archives/drivers/driver40-ja/#mode-2)
-*   [Mode-3](/archives/drivers/driver40-ja/#mode-3)
-*   [Mode-4](/archives/drivers/driver40-ja/#mode-4)
-*   [Mode-5](/archives/drivers/driver40-ja/#mode-5)
-*   [Mode-6](/archives/drivers/driver40-ja/#mode-6)
-*   [Mode-100](/archives/drivers/driver40-ja/#mode-100)
-*   [Monitor Data](/archives/drivers/driver40-ja/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver40-ja/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver40-ja/#synopsis)
+*   [Description](/documentation/drivers/driver40-ja/#description)
+*   [Mode-1](/documentation/drivers/driver40-ja/#mode-1)
+*   [Mode-2](/documentation/drivers/driver40-ja/#mode-2)
+*   [Mode-3](/documentation/drivers/driver40-ja/#mode-3)
+*   [Mode-4](/documentation/drivers/driver40-ja/#mode-4)
+*   [Mode-5](/documentation/drivers/driver40-ja/#mode-5)
+*   [Mode-6](/documentation/drivers/driver40-ja/#mode-6)
+*   [Mode-100](/documentation/drivers/driver40-ja/#mode-100)
+*   [Monitor Data](/documentation/drivers/driver40-ja/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver40-ja/#fudge-factors)
 
 * * *
 
@@ -39,13 +39,13 @@ Last update: 12-Oct-2017 09:05 UTC
 
 | Model | Mode | Language |
 | ----- | ----- | ----- |
-| [トライステート   TS-JJY01, TS-JJY02](http://www.tristate.ne.jp/) | [1](/archives/drivers/driver40-ja/#mode-1) | 日本語 |
-| [シーデックス   JST2000](http://www.c-dex.co.jp/) | [2](/archives/drivers/driver40-ja/#mode-2) | 日本語 | 
-| エコー計測器   LT-2000 | [3](/archives/drivers/driver40-ja/#mode-3) | |
-| [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/archives/drivers/driver40-ja/#mode-4) | 日本語 |
-| [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/archives/drivers/driver40-ja/#mode-5) | 日本語 |
-| [セイコー タイム システム   TDC-300](https://www.seiko-sts.co.jp/) | [6](/archives/drivers/driver40-ja/#mode-6) | 英語と日本語 |
-[テレフォンJJY](https://jjy.nict.go.jp/) | [100](/archives/drivers/driver40-ja/#mode-100) | 英語と日本語 |
+| [トライステート   TS-JJY01, TS-JJY02](http://www.tristate.ne.jp/) | [1](/documentation/drivers/driver40-ja/#mode-1) | 日本語 |
+| [シーデックス   JST2000](http://www.c-dex.co.jp/) | [2](/documentation/drivers/driver40-ja/#mode-2) | 日本語 | 
+| エコー計測器   LT-2000 | [3](/documentation/drivers/driver40-ja/#mode-3) | |
+| [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/documentation/drivers/driver40-ja/#mode-4) | 日本語 |
+| [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/documentation/drivers/driver40-ja/#mode-5) | 日本語 |
+| [セイコー タイム システム   TDC-300](https://www.seiko-sts.co.jp/) | [6](/documentation/drivers/driver40-ja/#mode-6) | 英語と日本語 |
+[テレフォンJJY](https://jjy.nict.go.jp/) | [100](/documentation/drivers/driver40-ja/#mode-100) | 英語と日本語 |
 
 * * *
 
@@ -170,7 +170,7 @@ RS-232C, 4800 BPS, 8ビット, パリティなし, 1ストップ・ビット
 
 このドライバーは、JJY受信機ではないGPS時計のトライステート TS-GPSclock-01 のコマンド・レスポンス・モードをサポートします。
 TS-GPSclock-01 は、オンボードのスイッチとメニューでコマンド・レスポンス・モードとタイム・ゾーンをJST（日本標準時）に設定しなければなりまん。
-この Type 40 のドライバーの他, TS-GPSclock-01 のNMEAモードは、[一般 NMEA GPS ドライバー ( Type 20 )](/archives/drivers/driver20/) でも利用することができます。
+この Type 40 のドライバーの他, TS-GPSclock-01 のNMEAモードは、[一般 NMEA GPS ドライバー ( Type 20 )](/documentation/drivers/driver20/) でも利用することができます。
 
 **NTPの設定 (ntp.conf)**
 

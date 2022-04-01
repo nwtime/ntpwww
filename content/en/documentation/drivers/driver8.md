@@ -9,16 +9,16 @@ Last update: 27-Jan-2014 05:31 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver8/#synopsis)
-*   [Description](/archives/drivers/driver8/#description)
-*   [Timecode variables listed by ntpq (8)](/archives/drivers/driver8/#timecode-variables-listed-by-ntpq-8)
-*   [Supported Devices](/archives/drivers/driver8/#supported-devices)
-*   [Operation](/archives/drivers/driver8/#operation)
-*   [Hardware PPS support](/archives/drivers/driver8/#hardware-pps-support)
-*   [Monitor Data](/archives/drivers/driver8/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver8/#fudge-factors)
-*   [Making your own PARSE clocks](/archives/drivers/driver8/#making-your-own-parse-clocks)
-*   [Additional Information](/archives/drivers/driver8/#additional-information)
+*   [Synopsis](/documentation/drivers/driver8/#synopsis)
+*   [Description](/documentation/drivers/driver8/#description)
+*   [Timecode variables listed by ntpq (8)](/documentation/drivers/driver8/#timecode-variables-listed-by-ntpq-8)
+*   [Supported Devices](/documentation/drivers/driver8/#supported-devices)
+*   [Operation](/documentation/drivers/driver8/#operation)
+*   [Hardware PPS support](/documentation/drivers/driver8/#hardware-pps-support)
+*   [Monitor Data](/documentation/drivers/driver8/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver8/#fudge-factors)
+*   [Making your own PARSE clocks](/documentation/drivers/driver8/#making-your-own-parse-clocks)
+*   [Additional Information](/documentation/drivers/driver8/#additional-information)
 
 * * *
 
@@ -104,12 +104,12 @@ The pictures below have been taken from and are linked to the vendors' web pages
 *   **server 127.127.8.0-3 mode 1**
 
     : [Meinberg](https://www.meinberg.de/) PZF5xx receiver family (FM demodulation/OCXO / 50μs)
-    [![Image PZF511](/archives/pic/pzf511.jpg)](https://www.meinbergglobal.com/english/products/3u-dcf77-correlation-receiver.htm)
+    [![Image PZF511](/documentation/pic/pzf511.jpg)](https://www.meinbergglobal.com/english/products/3u-dcf77-correlation-receiver.htm)
 
 *   **server 127.127.8.0-3 mode 2**
 
     : [Meinberg](https://www.meinberg.de/) [DCF C51 receiver and similar](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) (AM demodulation / 4ms)
-    [![Image C51](/archives/pic/c51.jpg)](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) This mode expects the Meinberg standard time string format with 9600/7E2.
+    [![Image C51](/documentation/pic/c51.jpg)](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) This mode expects the Meinberg standard time string format with 9600/7E2.
 
     > **Note:** mode 2 must also be used for Meinberg PCI cards under Linux, e.g. [the GPS PCI card](https://www.meinbergglobal.com/english/products/pci-gps-clock.htm) or [the DCF77 PCI card](https://www.meinbergglobal.com/english/products/pci-dcf77-clock.htm). Please note the [Meinberg Linux driver](https://www.meinbergglobal.com/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
 
@@ -132,7 +132,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 *   **server 127.127.8.0-3 mode 7**
 
     : [Meinberg](https://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / <<1μs)
-    [![Image GPS167](/archives/pic/gps167.jpg)](https://www.meinbergglobal.com/english/products/3u-gps-clock-lc-display.htm)
+    [![Image GPS167](/documentation/pic/gps167.jpg)](https://www.meinbergglobal.com/english/products/3u-gps-clock-lc-display.htm)
 
     This mode expects either the University of Erlangen time string format or the Meinberg standard time string format at 19200/8N1.
 
@@ -145,7 +145,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 *   **server 127.127.8.0-3 mode 8**
 
     : [IGEL](https://www.igel.de) clock
-    ![Image IGEL clock](/archives/pic/igclock.gif)]
+    ![Image IGEL clock](/documentation/pic/igclock.gif)]
 
 *   **server 127.127.8.0-3 mode 9**
 
@@ -154,8 +154,8 @@ The pictures below have been taken from and are linked to the vendors' web pages
 *   **server 127.127.8.0-3 mode 10**
 
     : [Trimble](https://www.trimble.com) SVeeSix GPS receiver TSIP protocol (GPS / \<<1μs) (no kernel support yet)
-    ![Image SVeeSix-CM3](/archives/pic/pd_om011.gif)
-    ![Image Lassen-SK8](/archives/pic/pd_om006.gif) 
+    ![Image SVeeSix-CM3](/documentation/pic/pd_om011.gif)
+    ![Image Lassen-SK8](/documentation/pic/pd_om006.gif) 
 
 *   **server 127.127.8.0-3 mode 11**
 
@@ -164,7 +164,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 *   **server 127.127.8.0-3 mode 12**
 
     : [HOPF](https://www.hopf.com/index.php) Funkuhr 6021
-    ![Image DCF77 Interface Board](/archives/pic/fg6021.gif)  
+    ![Image DCF77 Interface Board](/documentation/pic/fg6021.gif)  
 
 *   **server 127.127.8.0-3 mode 13**
 
@@ -222,7 +222,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 
     : [Schweitzer Engineering Laboratories](https://selinc.com/)
 
-Actual data formats and setup requirements of the various clocks can be found in [NTP PARSE clock data formats](/archives/4.2.8-series/parsedata/).
+Actual data formats and setup requirements of the various clocks can be found in [NTP PARSE clock data formats](/documentation/4.2.8-series/parsedata/).
 
 * * *
 
@@ -351,10 +351,10 @@ If 1, `time2` refers to the TRUST TIME.
 
 #### Making your own PARSE clocks
 
-The parse clock mechanism deviates from the way other NTP reference clocks work. For a short description of how to build parse reference clocks, see [making PARSE clocks](/archives/4.2.8-series/parsenew/).
+The parse clock mechanism deviates from the way other NTP reference clocks work. For a short description of how to build parse reference clocks, see [making PARSE clocks](/documentation/4.2.8-series/parsenew/).
 
 * * *
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

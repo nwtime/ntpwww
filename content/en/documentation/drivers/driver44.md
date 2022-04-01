@@ -9,16 +9,16 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver44/#synopsis)
-*   [Description](/archives/drivers/driver44/#description)
-*   [Fudge Factors](/archives/drivers/driver44/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver44/#synopsis)
+*   [Description](/documentation/drivers/driver44/#description)
+*   [Fudge Factors](/documentation/drivers/driver44/#fudge-factors)
 
 * * *
 
 
 ## Synopsis
 
-![NeoClock4X - DCF77 receiver](/archives/pic/neoclock4x.gif) 
+![NeoClock4X - DCF77 receiver](/documentation/pic/neoclock4x.gif) 
 
 **Address:** <code>127.127.44.u</code>
 : **Reference ID:** `neol`

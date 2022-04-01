@@ -10,11 +10,11 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver4/#synopsis)
-*   [Description](/archives/drivers/driver4/#description)
-*   [PPS Signal Processing](/archives/drivers/driver4/#pps-signal-processing)
-*   [Monitor Data](/archives/drivers/driver4/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver4/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver4/#synopsis)
+*   [Description](/documentation/drivers/driver4/#description)
+*   [PPS Signal Processing](/documentation/drivers/driver4/#pps-signal-processing)
+*   [Monitor Data](/documentation/drivers/driver4/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver4/#fudge-factors)
 
 * * *
 

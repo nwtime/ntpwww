@@ -5,9 +5,9 @@ type: archives
 
 #### Table of Contents
 
-*  [Synopsis](/archives/drivers/driver24/#synopsis)
-*  [Description](/archives/drivers/driver24/#description)
-*  [Fudge Factors](/archives/drivers/driver24/#fudge-factors)
+*  [Synopsis](/documentation/drivers/driver24/#synopsis)
+*  [Description](/documentation/drivers/driver24/#description)
+*  [Fudge Factors](/documentation/drivers/driver24/#fudge-factors)
 
 * * *
 

@@ -9,9 +9,9 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Control Port Sentences](/archives/drivers/mx4200data/#control-port-sentences)
-*   [Control Port Input Sentences](/archives/drivers/mx4200data/#control-port-input-sentences)
-*   [Control Port Output Sentences](/archives/drivers/mx4200data/#control-port-output-sentences)
+*   [Control Port Sentences](/documentation/drivers/mx4200data/#control-port-sentences)
+*   [Control Port Input Sentences](/documentation/drivers/mx4200data/#control-port-input-sentences)
+*   [Control Port Output Sentences](/documentation/drivers/mx4200data/#control-port-output-sentences)
 
 * * *
 

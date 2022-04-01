@@ -8,30 +8,30 @@ Last update: 13-Sep-2019 08:07 UTC
 
 * * *
 
-![gif](/archives/pic/driver29.gif)
+![gif](/documentation/pic/driver29.gif)
 
-![jpg](/archives/pic/thunderbolt.jpg)
+![jpg](/documentation/pic/thunderbolt.jpg)
 
 * * *
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver29/#synopsis)
-*   [Description](/archives/drivers/driver29/#description)
-*   [Operating System Compatibility](/archives/drivers/driver29/#operating-system-compatibility)
-*   [GPS Receiver](/archives/drivers/driver29/#gps-receiver)
-*   [GPS Installation](/archives/drivers/driver29/#gps-installation)
-*   [O/S Serial Port Configuration](/archives/drivers/driver29/#os-serial-port-configuration)
-*   [NTP Configuration](/archives/drivers/driver29/#ntp-configuration)
-*   [Time Transfer and Polling](/archives/drivers/driver29/#time-transfer-and-polling)
-*   [Run NTP in Debugging Mode](/archives/drivers/driver29/#run-ntp-in-debugging-mode)
-*   [Event Logging](/archives/drivers/driver29/#event-logging)
-*   [Fudge Factors](/archives/drivers/driver29/#fudge-factors)
-*   [Mode Parameter](/archives/drivers/driver29/#mode-parameter)
-*   [DEFINEs](/archives/drivers/driver29/#defines)
-*   [Data Format](/archives/drivers/driver29/#data-format)
-*   [Pinouts](/archives/drivers/driver29/#pinouts)
-*   [Notes on the Thunderbolt Receiver’s Firmware](/archives/drivers/driver29/#notes-on-the-thunderbolt-receivers-firmware)
+*   [Synopsis](/documentation/drivers/driver29/#synopsis)
+*   [Description](/documentation/drivers/driver29/#description)
+*   [Operating System Compatibility](/documentation/drivers/driver29/#operating-system-compatibility)
+*   [GPS Receiver](/documentation/drivers/driver29/#gps-receiver)
+*   [GPS Installation](/documentation/drivers/driver29/#gps-installation)
+*   [O/S Serial Port Configuration](/documentation/drivers/driver29/#os-serial-port-configuration)
+*   [NTP Configuration](/documentation/drivers/driver29/#ntp-configuration)
+*   [Time Transfer and Polling](/documentation/drivers/driver29/#time-transfer-and-polling)
+*   [Run NTP in Debugging Mode](/documentation/drivers/driver29/#run-ntp-in-debugging-mode)
+*   [Event Logging](/documentation/drivers/driver29/#event-logging)
+*   [Fudge Factors](/documentation/drivers/driver29/#fudge-factors)
+*   [Mode Parameter](/documentation/drivers/driver29/#mode-parameter)
+*   [DEFINEs](/documentation/drivers/driver29/#defines)
+*   [Data Format](/documentation/drivers/driver29/#data-format)
+*   [Pinouts](/documentation/drivers/driver29/#pinouts)
+*   [Notes on the Thunderbolt Receiver’s Firmware](/documentation/drivers/driver29/#notes-on-the-thunderbolt-receivers-firmware)
 
 * * *
 
@@ -53,7 +53,7 @@ The `refclock_palisade` driver supports [Trimble](https://timing.trimble.com/) N
 
 This documentation describes version 7.12 of the GPS Firmware and version 2.46 (July 15, 1999) and later, of the driver source.
 
-This documentation describes version 1 of the Thunderbolt Receiver Firmware, no tests have been made on further firmwares. Please read [Notes on the Thunderbolt Receiver's Firmware](/archives/drivers/driver29/#notes-on-the-thunderbolt-receivers-firmware) for more information.
+This documentation describes version 1 of the Thunderbolt Receiver Firmware, no tests have been made on further firmwares. Please read [Notes on the Thunderbolt Receiver's Firmware](/documentation/drivers/driver29/#notes-on-the-thunderbolt-receivers-firmware) for more information.
 
 This driver also supports the following receivers:
 
@@ -96,7 +96,7 @@ No user initialization of the receiver is required. This driver is compatible wi
 | 7.12 | Yes | 38158-00 |
 
 
-> **NOTE:**  When using Palisade 26664-00, you must set fudge `flag2` to 1 in `ntp.conf`. See [configuration](/archives/drivers/driver29/#ntp-configuration).
+> **NOTE:**  When using Palisade 26664-00, you must set fudge `flag2` to 1 in `ntp.conf`. See [configuration](/documentation/drivers/driver29/#ntp-configuration).
 
 * * *
 
@@ -108,7 +108,7 @@ The 12 conductor (dia. 10 mm)  power and I/O cable must be routed from the rooft
 
 ##### GPS Connection
 
-The Palisade is equipped with dual (A & B) RS-422 serial interfaces and a differential TTL PPS output. An RS-232 / RS-422 Interface Module is supplied with the Palisade NTP Synchronization Kit. Palisade port A must be connected to the NTP host server. Maximum antenna cable length is 500 meters. See the [pinouts](/archives/drivers/driver29/#pinouts) table for detailed connection Information.
+The Palisade is equipped with dual (A & B) RS-422 serial interfaces and a differential TTL PPS output. An RS-232 / RS-422 Interface Module is supplied with the Palisade NTP Synchronization Kit. Palisade port A must be connected to the NTP host server. Maximum antenna cable length is 500 meters. See the [pinouts](/documentation/drivers/driver29/#pinouts) table for detailed connection Information.
 
 Palisade's port B provides a TSIP (Trimble Standard Interface Protocol) interface for diagnostics, configuration, and monitoring. Port B and the PPS output are not currently used by the Palisade NTP reference clock driver.
 
@@ -188,7 +188,7 @@ server 127.127.29.0 mode 7 # Trimble Copernicus II GPS (Stratum 1).
 [fudge 127.127.29.0 flag2 1](#flag2)
 #-------------------------------------------------------------------</pre>
 
-Currently the Thunderbolt mode doesn't support event polling, the reasons are explained in the [Notes on the Thunderbolt Receiver's Firmware](/archives/drivers/driver29/#notes-on-the-thunderbolt-receivers-firmware) section. The Resolution and Copernicus II modes require event polling to be disabled whereas the ACE III requires polling to be enabled.
+Currently the Thunderbolt mode doesn't support event polling, the reasons are explained in the [Notes on the Thunderbolt Receiver's Firmware](/documentation/drivers/driver29/#notes-on-the-thunderbolt-receivers-firmware) section. The Resolution and Copernicus II modes require event polling to be disabled whereas the ACE III requires polling to be enabled.
 
 * * *
 

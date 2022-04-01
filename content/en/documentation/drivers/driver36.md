@@ -10,19 +10,19 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver36/#synopsis)
-*   [Description](/archives/drivers/driver36/#description)
-*   [Technical Overview](/archives/drivers/driver36/#technical-overview)
-*   [Baseband Signal Processing](/archives/drivers/driver36/#baseband-signal-processing)
-*   [Maximum-Likelihood Decoder](/archives/drivers/driver36/#maximum-likelihood-decoder)
-*   [Master Clock Discipline](/archives/drivers/driver36/#master-clock-discipline)
-*   [Station Identification](/archives/drivers/driver36/#station-identification)
-*   [Performance](/archives/drivers/driver36/#performance)
-*   [Program Operation](/archives/drivers/driver36/#program-operation)
-*   [Autotune](/archives/drivers/driver36/#autotune)
-*   [Debugging Aids](/archives/drivers/driver36/#debugging-aids)
-*   [Monitor Data](/archives/drivers/driver36/#monitor-data)
-*   [Fudge factors](/archives/drivers/driver36/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver36/#synopsis)
+*   [Description](/documentation/drivers/driver36/#description)
+*   [Technical Overview](/documentation/drivers/driver36/#technical-overview)
+*   [Baseband Signal Processing](/documentation/drivers/driver36/#baseband-signal-processing)
+*   [Maximum-Likelihood Decoder](/documentation/drivers/driver36/#maximum-likelihood-decoder)
+*   [Master Clock Discipline](/documentation/drivers/driver36/#master-clock-discipline)
+*   [Station Identification](/documentation/drivers/driver36/#station-identification)
+*   [Performance](/documentation/drivers/driver36/#performance)
+*   [Program Operation](/documentation/drivers/driver36/#program-operation)
+*   [Autotune](/documentation/drivers/driver36/#autotune)
+*   [Debugging Aids](/documentation/drivers/driver36/#debugging-aids)
+*   [Monitor Data](/documentation/drivers/driver36/#monitor-data)
+*   [Fudge factors](/documentation/drivers/driver36/#fudge-factors)
 
 * * *
 
@@ -48,7 +48,7 @@ After calibration relative to the PPS signal from a GPS receiver, the mean offse
 
 The driver performs a number of error checks to protect against overdriven or underdriven input signal levels, incorrect signal format or improper hardware configuration. The specific checks are detailed later in this page. Note that additional checks are done elsewhere in the reference clock interface routines.
 
-This driver incorporates several features in common with other audio drivers such as described in the [Radio CHU Audio Demodulator/Decoder](/archives/drivers/driver7/) and the [IRIG Audio Decoder](/archives/drivers/driver6/) pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio/) page.
+This driver incorporates several features in common with other audio drivers such as described in the [Radio CHU Audio Demodulator/Decoder](/documentation/drivers/driver7/) and the [IRIG Audio Decoder](/documentation/drivers/driver6/) pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the [Reference Clock Audio Drivers](/documentation/4.2.8-series/audio/) page.
 
 * * *
 
@@ -112,7 +112,7 @@ It is the intent of the design that the accuracy and stability of the indicated 
 
 The figure below shows the measured offsets over a typical day near the bottom of the sunspot cycle ending in October, 2006. Variations up to ±0.4 ms can be expected due to changing ionospheric layer height and ray geometry over the day and night.
 
-![gif](/archives/pic/offset1211.gif)
+![gif](/documentation/pic/offset1211.gif)
 
 The figure was constructed using a 2.4-GHz P4 running FreeBSD 6.1. For these measurements the computer clock was disciplined within a few microseconds of UTC using a PPS signal and GPS receiver and the measured offsets determined from the `filegen peerstats` data.
 
@@ -138,7 +138,7 @@ Once the system clock been set correctly it will continue to read correctly even
 
 #### Autotune
 
-The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the [Reference Clock Audio Drivers](/archives/4.2.8-series/audio/) page.
+The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the [Reference Clock Audio Drivers](/documentation/4.2.8-series/audio/) page.
 
 If specified, the driver will attempt to open the device `/dev/icom` and, if successful will activate the autotune function and tune the radio to each operating frequency in turn while attempting to acquire minute synch from either WWV or WWVH. However, the driver is liberal in what it assumes of the configuration. If the `/dev/icom` link is not present or the open fails or the CI-V bus is inoperative, the driver quietly gives up with no harm done.
 
@@ -148,7 +148,7 @@ The mitigation procedure selects the frequency and station with the highest vali
 
 The behavior of the autotune function over a typical day is shown in the figure below.
 
-![gif](/archives/pic/freq1211.gif)
+![gif](/documentation/pic/freq1211.gif)
 
 As expected, the lower frequencies prevail when the ray path is in moonlight (0100-1300 UTC) and the higher frequencies when the path is in sunlight (1300-0100 UTC). Note three periods in the figure show zero frequency when signals are below the minimum for all frequencies and stations.
 

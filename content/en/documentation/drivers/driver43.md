@@ -9,16 +9,16 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver43/#synopsis)
-*   [Description](/archives/drivers/driver43/#description)
-*   [Why this driver?](/archives/drivers/driver43/#why-this-driver)
-*   [RIPE NCC clock card](/archives/drivers/driver43/#ripe-ncc-clock-card)
-*   [Monitor Data](/archives/drivers/driver43/#monitor-data)
-*   [Additional Information](/archives/drivers/driver43/#additional-information)
+*   [Synopsis](/documentation/drivers/driver43/#synopsis)
+*   [Description](/documentation/drivers/driver43/#description)
+*   [Why this driver?](/documentation/drivers/driver43/#why-this-driver)
+*   [RIPE NCC clock card](/documentation/drivers/driver43/#ripe-ncc-clock-card)
+*   [Monitor Data](/documentation/drivers/driver43/#monitor-data)
+*   [Additional Information](/documentation/drivers/driver43/#additional-information)
 
 * * *
 
-![Trimble Acutime 2000](/archives/pic/driver43_2.jpg)
+![Trimble Acutime 2000](/documentation/pic/driver43_2.jpg)
 
 #### Synopsis
 
@@ -42,7 +42,7 @@ This is where we wanted more flexibility. We wanted to be able to use existing w
 
 More information about the project can be found on the [Test Traffic Measurements](https://www.ripe.net/analyse/archived-projects/ttm) website.
 
-![RIPE NCC clock card](/archives/pic/driver43_1.gif)
+![RIPE NCC clock card](/documentation/pic/driver43_1.gif)
 
 * * *
 
@@ -92,4 +92,4 @@ S1 [prn] [channel] [aqflag] [ephstat] [snr] [azinuth] [elevation]
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

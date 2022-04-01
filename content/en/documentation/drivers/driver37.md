@@ -7,10 +7,10 @@ type: archives
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver37/#synopsis)
-*   [Description](/archives/drivers/driver37/#description)
-*   [Monitor Data](/archives/drivers/driver37/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver37/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver37/#synopsis)
+*   [Description](/documentation/drivers/driver37/#description)
+*   [Monitor Data](/documentation/drivers/driver37/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver37/#fudge-factors)
 
 * * *
 

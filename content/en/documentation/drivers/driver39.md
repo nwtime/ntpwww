@@ -9,12 +9,12 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver39/#synopsis)
-*   [Description](/archives/drivers/driver39/#description)
-*   [Operating System Compatibility](/archives/drivers/driver39/#operating-system-compatibility)
-*   [O/S System Configuration](/archives/drivers/driver39/#os-system-configuration)
-*   [Fudge Factors](/archives/drivers/driver39/#fudge-factors)
-*   [Questions or Comments](/archives/drivers/driver39/#questions-or-comments)
+*   [Synopsis](/documentation/drivers/driver39/#synopsis)
+*   [Description](/documentation/drivers/driver39/#description)
+*   [Operating System Compatibility](/documentation/drivers/driver39/#operating-system-compatibility)
+*   [O/S System Configuration](/documentation/drivers/driver39/#os-system-configuration)
+*   [Fudge Factors](/documentation/drivers/driver39/#fudge-factors)
+*   [Questions or Comments](/documentation/drivers/driver39/#questions-or-comments)
 
 * * *
 
@@ -24,7 +24,7 @@ Last update: 21-Oct-2010 23:44 UTC
 : **Reference ID:** `hopf` (default), `GPS`, `DCF`
 : **Driver ID:** `HOPF_P`
 
-![gif](/archives/pic/fg6039.jpg)
+![gif](/documentation/pic/fg6039.jpg)
 
 * * *
 

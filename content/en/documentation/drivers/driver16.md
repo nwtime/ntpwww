@@ -9,9 +9,9 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver16/#synopsis)
-*   [Description](/archives/drivers/driver16/#description)
-*   [Additional Information](/archives/drivers/driver16/#additional-information)
+*   [Synopsis](/documentation/drivers/driver16/#synopsis)
+*   [Description](/documentation/drivers/driver16/#description)
+*   [Additional Information](/documentation/drivers/driver16/#additional-information)
 
 * * *
 
@@ -35,5 +35,5 @@ Most of this code is originally from `refclock_bancomm.c` with thanks. It has be
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)
 

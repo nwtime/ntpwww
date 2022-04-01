@@ -9,9 +9,9 @@ Last update: 26-Mar-2012 05:10 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver45/#synopsis)
-*   [Description](/archives/drivers/driver45/#description)
-*   [Additional Information](/archives/drivers/driver45/#additional-information)
+*   [Synopsis](/documentation/drivers/driver45/#synopsis)
+*   [Description](/documentation/drivers/driver45/#description)
+*   [Additional Information](/documentation/drivers/driver45/#additional-information)
 
 * * *
 
@@ -33,4 +33,4 @@ This driver supports the [Spectracom TSYNC PCI](https://www.orolia.com/new-rugge
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

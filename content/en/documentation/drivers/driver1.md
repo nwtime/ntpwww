@@ -10,11 +10,11 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver1/#synopsis)
-*   [Description](/archives/drivers/driver1/#description)
-*   [Monitor Data](/archives/drivers/driver1/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver1/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver1/#additional-information)
+*   [Synopsis](/documentation/drivers/driver1/#synopsis)
+*   [Description](/documentation/drivers/driver1/#description)
+*   [Monitor Data](/documentation/drivers/driver1/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver1/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver1/#additional-information)
 
 * * *
 
@@ -28,7 +28,7 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Description
 
-> **NOTE: We recommend against using this driver.** A much more flexible replacement is described on the [Orphan Mode](/archives/4.2.8-series/orphan/) page.
+> **NOTE: We recommend against using this driver.** A much more flexible replacement is described on the [Orphan Mode](/documentation/4.2.8-series/orphan/) page.
 
 
 This driver was intended for use in an isolated network where no external source of synchronization such as a radio clock or modem is available. It allows a designated time server to act as a primary server to provide synchronization to other clients on the network. Pick a machine that has a good clock oscillator and configure it with this driver. Set the clock using the best means available, like eyeball-and-wristwatch. Then, point all the other machines at this one or use broadcast mode to distribute time.
@@ -81,4 +81,4 @@ No `filegen clockstats` monitor data are produced by this driver.
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

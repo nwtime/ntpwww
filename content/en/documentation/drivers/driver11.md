@@ -10,10 +10,10 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver11/#synopsis)
-*   [Description](/archives/drivers/driver11/#description)
-*   [Fudge Factors](/archives/drivers/driver11/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver11/#additional-information)
+*   [Synopsis](/documentation/drivers/driver11/#synopsis)
+*   [Description](/documentation/drivers/driver11/#description)
+*   [Fudge Factors](/documentation/drivers/driver11/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver11/#additional-information)
 
 * * *
 
@@ -129,4 +129,4 @@ When enabled by the `flag4` fudge flag, an additional line containing the latitu
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

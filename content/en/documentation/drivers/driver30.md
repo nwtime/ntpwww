@@ -9,11 +9,11 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver30/#synopsis)
-*   [Description](/archives/drivers/driver30/#description)
-*   [Monitor Data](/archives/drivers/driver30/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver30/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver30/#additional-information)
+*   [Synopsis](/documentation/drivers/driver30/#synopsis)
+*   [Description](/documentation/drivers/driver30/#description)
+*   [Monitor Data](/documentation/drivers/driver30/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver30/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver30/#additional-information)
 
 * * *
 
@@ -36,17 +36,17 @@ The interesting versions of the Oncore are the VP, the UT+, the Remote which is 
 
 UT+ oncore
 
-![gif](/archives/pic/oncore_utplusbig.gif)
+![gif](/documentation/pic/oncore_utplusbig.gif)
 
 Evaluation kit
 
-![gif](/archives/pic/oncore_evalbig.gif)
+![gif](/documentation/pic/oncore_evalbig.gif)
 
 Oncore Remote
 
-![gif](/archives/pic/oncore_remoteant.jpg)
+![gif](/documentation/pic/oncore_remoteant.jpg)
 
-The driver requires a standard `PPS` interface for the pulse-per-second output from the receiver. The serial data stream alone does not provide precision time stamps (0-50ms variance, according to the manual), whereas the PPS output is precise down to 50 ns (1 sigma) for the VP/UT models and 25 ns for the M12 Timing. If you do not have the PPS signal available, then you should probably be using the [NMEA driver](/archives/drivers/driver20/) rather than the Oncore driver.
+The driver requires a standard `PPS` interface for the pulse-per-second output from the receiver. The serial data stream alone does not provide precision time stamps (0-50ms variance, according to the manual), whereas the PPS output is precise down to 50 ns (1 sigma) for the VP/UT models and 25 ns for the M12 Timing. If you do not have the PPS signal available, then you should probably be using the [NMEA driver](/documentation/drivers/driver20/) rather than the Oncore driver.
 
 The driver will use the "position hold" mode with user provided coordinates, the receiver's built-in site-survey, or a similar algorithm implemented in this driver to determine the antenna position.
 
@@ -56,7 +56,7 @@ The driver will use the "position hold" mode with user provided coordinates, the
 
 The driver always puts a lot of useful information on the `clockstats` file, and when run with debugging can be quite chatty on `stdout`. When first starting to use the driver you should definitely review the information written to the `clockstats` file to verify that the driver is running correctly.
 
-In addition, on platforms supporting Shared Memory, all of the messages received from the Oncore receiver are made available in shared memory for use by other programs. See the [Oncore-SHMEM](/archives/drivers/oncore-shmem/) manual page for information on how to use this option. For either debugging or using the SHMEM option, an Oncore Reference Manual for the specific receiver in use will be required.
+In addition, on platforms supporting Shared Memory, all of the messages received from the Oncore receiver are made available in shared memory for use by other programs. See the [Oncore-SHMEM](/documentation/drivers/oncore-shmem/) manual page for information on how to use this option. For either debugging or using the SHMEM option, an Oncore Reference Manual for the specific receiver in use will be required.
 
 * * *
 

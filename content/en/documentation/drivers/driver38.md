@@ -9,13 +9,13 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver38/#synopsis)
-*   [Description](/archives/drivers/driver38/#description)
-*   [Operating System Compatibility](/archives/drivers/driver38/#operating-system-compatibility)
-*   [O/S Serial Port Configuration](/archives/drivers/driver38/#os-serial-port-configuration)
-*   [Fudge Factors](/archives/drivers/driver38/#fudge-factors)
-*   [Data Format](/archives/drivers/driver38/#data-format)
-*   [Questions or Comments](/archives/drivers/driver38/#questions-or-comments)
+*   [Synopsis](/documentation/drivers/driver38/#synopsis)
+*   [Description](/documentation/drivers/driver38/#description)
+*   [Operating System Compatibility](/documentation/drivers/driver38/#operating-system-compatibility)
+*   [O/S Serial Port Configuration](/documentation/drivers/driver38/#os-serial-port-configuration)
+*   [Fudge Factors](/documentation/drivers/driver38/#fudge-factors)
+*   [Data Format](/documentation/drivers/driver38/#data-format)
+*   [Questions or Comments](/documentation/drivers/driver38/#questions-or-comments)
 
 * * *
 
@@ -27,7 +27,7 @@ Last update: 21-Oct-2010 23:44 UTC
 : **Serial Port:**  <code>/dev/hopfclock*X*</code>
 : **Serial I/O:** 9600 baud, 8-bits, 1-stop, no parity
 
-![gif](/archives/pic/fg6021.gif)
+![gif](/documentation/pic/fg6021.gif)
 
 * * *
 

@@ -9,11 +9,11 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver9/#synopsis)
-*   [Description](/archives/drivers/driver9/#description)
-*   [Operating Modes](/archives/drivers/driver9/#operating-modes)
-*   [Fudge Factors](/archives/drivers/driver9/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver9/#additional-information)
+*   [Synopsis](/documentation/drivers/driver9/#synopsis)
+*   [Description](/documentation/drivers/driver9/#description)
+*   [Operating Modes](/documentation/drivers/driver9/#operating-modes)
+*   [Fudge Factors](/documentation/drivers/driver9/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver9/#additional-information)
 
 * * *
 
@@ -33,7 +33,7 @@ This driver supports the Magnavox MX4200 Navigation Receiver adapted to precisio
 
 [Leica Geosystems](http://www.leica.kiev.ua/) acquired the Magnavox commercial GPS technology business in February of 1994. They now market and support former Magnavox GPS products such as the MX4200 and its successors.
 
-[![Leica MX9400N Navigator](/archives/pic/9400n.jpg)]
+[![Leica MX9400N Navigator](/documentation/pic/9400n.jpg)]
 **Leica MX9400N Navigator**
 
 * * *
@@ -48,7 +48,7 @@ In mobile mode, the driver assumes the GPS antenna is mounted on a moving platfo
 
 #### Monitor Data
 
-The driver writes each timecode as received to the `clockstats` file. Documentation for the <cite>NMEA-0183</cite> proprietary sentences produced by the MX4200 can be found in [MX4200 Receiver Data Format](/archives/drivers/mx4200data/).
+The driver writes each timecode as received to the `clockstats` file. Documentation for the <cite>NMEA-0183</cite> proprietary sentences produced by the MX4200 can be found in [MX4200 Receiver Data Format](/documentation/drivers/mx4200data/).
 
 * * *
 
@@ -90,4 +90,4 @@ The driver writes each timecode as received to the `clockstats` file. Documentat
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

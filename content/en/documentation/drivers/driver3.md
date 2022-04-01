@@ -10,11 +10,11 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver3/#synopsis)
-*   [Description](/archives/drivers/driver3/#description)
-*   [Monitor Data](/archives/drivers/driver3/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver3/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver3/#additional-information)
+*   [Synopsis](/documentation/drivers/driver3/#synopsis)
+*   [Description](/documentation/drivers/driver3/#description)
+*   [Monitor Data](/documentation/drivers/driver3/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver3/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver3/#additional-information)
 
 * * *
 
@@ -107,4 +107,4 @@ When enabled by the `flag4` fudge flag, every received timecode is written as-is
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

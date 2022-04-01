@@ -7,11 +7,11 @@ type: archives
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver5/#synopsis)
-*   [Description](/archives/drivers/driver5/#description)
-*   [Monitor Data](/archives/drivers/driver5/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver5/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver5/#additional-information)
+*   [Synopsis](/documentation/drivers/driver5/#synopsis)
+*   [Description](/documentation/drivers/driver5/#description)
+*   [Monitor Data](/documentation/drivers/driver5/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver5/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver5/#additional-information)
 
 * * *
 
@@ -125,4 +125,4 @@ When enabled by the `flag4` fudge flag, every received timecode is written as-is
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

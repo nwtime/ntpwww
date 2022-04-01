@@ -9,9 +9,9 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver42/#synopsis)
-*   [Description](/archives/drivers/driver42/#description)
-*   [Additional Information](/archives/drivers/driver42/#additional-information)
+*   [Synopsis](/documentation/drivers/driver42/#synopsis)
+*   [Description](/documentation/drivers/driver42/#description)
+*   [Additional Information](/documentation/drivers/driver42/#additional-information)
 
 * * *
 
@@ -37,4 +37,4 @@ Additionally, there are BNC connectors on the back for things like PPS and IRIG 
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

@@ -9,10 +9,10 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver35/#synopsis)
-*   [Description](/archives/drivers/driver35/#description)
-*   [Monitor Data](/archives/drivers/driver35/#monitor-data)
-*   [Fudge factors](/archives/drivers/driver35/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver35/#synopsis)
+*   [Description](/documentation/drivers/driver35/#description)
+*   [Monitor Data](/documentation/drivers/driver35/#monitor-data)
+*   [Fudge factors](/documentation/drivers/driver35/#fudge-factors)
 
 * * *
 

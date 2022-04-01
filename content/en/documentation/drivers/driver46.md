@@ -9,15 +9,15 @@ Last update: 30-Apr-2015 05:53 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver46/#synopsis)
-*   [Description](/archives/drivers/driver46/#description)
-*   [Naming a Device](/archives/drivers/driver46/#naming-a-device)
-*   [The ‘mode’ word](/archives/drivers/driver46/#the-mode-word)
-*   [Syslog flood throttle](/archives/drivers/driver46/#syslog-flood-throttle)
-*   [PPS secondary clock unit](/archives/drivers/driver46/#pps-secondary-clock-unit)
-*   [Clockstats](/archives/drivers/driver46/#clockstats)
-*   [Fudge Factors](/archives/drivers/driver46/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver46/#additional-information)
+*   [Synopsis](/documentation/drivers/driver46/#synopsis)
+*   [Description](/documentation/drivers/driver46/#description)
+*   [Naming a Device](/documentation/drivers/driver46/#naming-a-device)
+*   [The ‘mode’ word](/documentation/drivers/driver46/#the-mode-word)
+*   [Syslog flood throttle](/documentation/drivers/driver46/#syslog-flood-throttle)
+*   [PPS secondary clock unit](/documentation/drivers/driver46/#pps-secondary-clock-unit)
+*   [Clockstats](/documentation/drivers/driver46/#clockstats)
+*   [Fudge Factors](/documentation/drivers/driver46/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver46/#additional-information)
 
 * * *
 
@@ -160,4 +160,4 @@ If `flag4` is set when the driver is polled, a `clockstats` record is written fo
 
 <a name="myfootnote2">2</a>  The clock driver suppresses the processing PPS records when the TPV/TIME data indicates the receiver has no fix. It can also deal with situations where the PPS signal is not delivered to _GPSD_. But once it is available, it is also processed and used to create samples. If a receiver cannot be trusted for the precision of its PPS signal, it should not be used to create a possible PPS peer: These get extra clout and can effectively become the sole source of input for the control loop. You do not want to use sloppy data for that.
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

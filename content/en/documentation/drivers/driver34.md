@@ -7,12 +7,12 @@ type: archives
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver34/#synopsis)
-*   [Description](/archives/drivers/driver34/#description)
-*   [Model 325 timecode format](/archives/drivers/driver34/#model-325-timecode-format)
-*   [Model 320 timecode format](/archives/drivers/driver34/#model-320-timecode-format)
-*   [Model 33x timecode format](/archives/drivers/driver34/#model-33x-timecode-format)
-*   [Fudge factors](/archives/drivers/driver34/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver34/#synopsis)
+*   [Description](/documentation/drivers/driver34/#description)
+*   [Model 325 timecode format](/documentation/drivers/driver34/#model-325-timecode-format)
+*   [Model 320 timecode format](/documentation/drivers/driver34/#model-320-timecode-format)
+*   [Model 33x timecode format](/documentation/drivers/driver34/#model-33x-timecode-format)
+*   [Fudge factors](/documentation/drivers/driver34/#fudge-factors)
 
 * * *
 

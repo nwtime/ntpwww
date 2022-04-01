@@ -9,15 +9,15 @@ Last update: 13-Jan-2020 07:12 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver20/#synopsis)
-*   [Description](/archives/drivers/driver20/#description)
-*   [NMEA Talker IDs](/archives/drivers/driver20/#nmea-talker-ids)
-*   [The 'mode' byte](/archives/drivers/driver20/#the-mode-byte)
-*   [About distrusting NMEA date stamps](/archives/drivers/driver20/#about-distrusting-nmea-date-stamps)
-*   [Monitor Data](/archives/drivers/driver20/#monitor-data)
-*   [Setting up the Garmin GPS-25XL](/archives/drivers/driver20/#setting-up-the-garmin-gps-25xl)
-*   [Fudge Factors](/archives/drivers/driver20/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver20/#additional-information)
+*   [Synopsis](/documentation/drivers/driver20/#synopsis)
+*   [Description](/documentation/drivers/driver20/#description)
+*   [NMEA Talker IDs](/documentation/drivers/driver20/#nmea-talker-ids)
+*   [The 'mode' byte](/documentation/drivers/driver20/#the-mode-byte)
+*   [About distrusting NMEA date stamps](/documentation/drivers/driver20/#about-distrusting-nmea-date-stamps)
+*   [Monitor Data](/documentation/drivers/driver20/#monitor-data)
+*   [Setting up the Garmin GPS-25XL](/documentation/drivers/driver20/#setting-up-the-garmin-gps-25xl)
+*   [Fudge Factors](/documentation/drivers/driver20/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver20/#additional-information)
 
 * * *
 
@@ -37,7 +37,7 @@ Last update: 13-Jan-2020 07:12 UTC
 
 This driver supports GPS receivers with the `$GPRMC, $GPGLL, $GPGGA, $GPZDA` and `$GPZDG` NMEA sentences by default.  Note that Accord's custom NMEA sentence `$GPZDG` reports using the GPS timescale, while the rest of the sentences report UTC.  The difference between the two is a whole number of seconds which increases with each leap second insertion in UTC.  To avoid problems mixing UTC and GPS timescales, the driver disables processing of UTC sentences once `$GPZDG` is received.
 
-> **Caveat:** Please see [Talker IDs](/archives/drivers/driver20/#nmea-talker-ids) when using non-GPS or multi-system receivers.
+> **Caveat:** Please see [Talker IDs](/documentation/drivers/driver20/#nmea-talker-ids) when using non-GPS or multi-system receivers.
 
 The driver expects the receiver to be set up to transmit at least one supported sentence every second.
 
@@ -136,9 +136,9 @@ Specific GPS sentences and bitrates may be selected by setting bits of the `mode
 | `10-15` |  | `0xFC00` | reserved - leave 0 |
 | `16` | `65536` | `0x10000` | Append extra statistics to the clockstats line. Details below. |
 | `17` | `131072` | `0x20000` | "Silent PPS" mode. Use the PPS channel (if enabled with `fudge flag 1`) to get precise receive time stamps. **Do not** set the PPS flag in the clock status, so the clock is not considered as PPS peer. |
-| `18` | `262144` | `0x40000` | Trust the date delivered via NMEA. Do this only if you _really_ trust the receiver! See [below](/archives/drivers/driver20/#about-distrusting-nmea-date-stamps). **Caveat:** This (hitherto undocumented) bit has moved! |
+| `18` | `262144` | `0x40000` | Trust the date delivered via NMEA. Do this only if you _really_ trust the receiver! See [below](/documentation/drivers/driver20/#about-distrusting-nmea-date-stamps). **Caveat:** This (hitherto undocumented) bit has moved! |
 
-The default (mode 0) is to process all supported sentences at a linespeed of 4800 bps, which results in the first one received and recognised in each cycle being used.  If only specific sentences should be recognised, then the mode byte must be chosen to enable only the selected ones.  Multiple sentences may be selected by adding their mode bit values, but of those enabled still only the first received sentence in a cycle will be used.  Using more than one sentence per cycle is impossible, because there is only [fudge time2](/archives/drivers/driver20/#fudge-factors) available to compensate for transmission delays but every sentence would need a different one, and using more than one sentence per cycle overstuffs the internal data filters.
+The default (mode 0) is to process all supported sentences at a linespeed of 4800 bps, which results in the first one received and recognised in each cycle being used.  If only specific sentences should be recognised, then the mode byte must be chosen to enable only the selected ones.  Multiple sentences may be selected by adding their mode bit values, but of those enabled still only the first received sentence in a cycle will be used.  Using more than one sentence per cycle is impossible, because there is only [fudge time2](/documentation/drivers/driver20/#fudge-factors) available to compensate for transmission delays but every sentence would need a different one, and using more than one sentence per cycle overstuffs the internal data filters.
 
 The driver uses 4800 bits per second by default, but faster bitrates can be selected using bits 4 to 6 of the mode field.
 
@@ -241,4 +241,4 @@ On some systems the PPS signal isn't switched on by default. It can be switched 
 
 `flag1, flag2`, and `flag3` are ignored under Windows.
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

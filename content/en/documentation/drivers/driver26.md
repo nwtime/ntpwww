@@ -9,9 +9,9 @@ Last update: 5-Oct-2005 04:37 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver26/#synopsis)
-*   [Description](/archives/drivers/driver26/#description)
-*   [Fudge Factors](/archives/drivers/driver26/#fudge-factors)
+*   [Synopsis](/documentation/drivers/driver26/#synopsis)
+*   [Description](/documentation/drivers/driver26/#description)
+*   [Fudge Factors](/documentation/drivers/driver26/#fudge-factors)
 
 * * *
 

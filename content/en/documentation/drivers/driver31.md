@@ -9,11 +9,11 @@ Last update: 21-Oct-2010 23:44 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver31/#synopsis)
-*   [Description](/archives/drivers/driver31/#description)
-*   [Monitor Data](/archives/drivers/driver31/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver31/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver31/#additional-information)
+*   [Synopsis](/documentation/drivers/driver31/#synopsis)
+*   [Description](/documentation/drivers/driver31/#description)
+*   [Monitor Data](/documentation/drivers/driver31/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver31/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver31/#additional-information)
 
 * * *
 
