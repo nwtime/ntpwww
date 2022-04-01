@@ -5,7 +5,7 @@ noindex: true
 --- 
 
 
-![gif](/archives/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
 
@@ -15,9 +15,9 @@ Last update: 03:13 AM UTC Monday, October 13, 2003
 
 #### Table of Contents
 
-*   [Manycasting](/archives/4.2.0/manyopt/#manycasting)
-*   [Manycast Interactions with Autokey](/archives/4.2.0/manyopt/#manycast-interactions-with-autokey)
-*   [Manycast Options](/archives/4.2.0/manyopt/#manycast-options)
+*   [Manycasting](/documentation/4.2.0/manyopt/#manycasting)
+*   [Manycast Interactions with Autokey](/documentation/4.2.0/manyopt/#manycast-interactions-with-autokey)
+*   [Manycast Options](/documentation/4.2.0/manyopt/#manycast-options)
 
 * * *
 

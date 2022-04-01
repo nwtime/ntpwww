@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice13.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice13.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The rabbit knows the way back.
 
@@ -14,10 +14,10 @@ Last update: 20:19 UTC Monday, December 02, 2002
 
 #### Table of Contents
 
-* [Synopsis](/archives/4.2.0/ntptrace/#synopsis)
-* [Description](/archives/4.2.0/ntptrace/#description)
-* [Options](/archives/4.2.0/ntptrace/#options)
-* [Bugs](/archives/4.2.0/ntptrace/#bugs)
+* [Synopsis](/documentation/4.2.0/ntptrace/#synopsis)
+* [Description](/documentation/4.2.0/ntptrace/#description)
+* [Options](/documentation/4.2.0/ntptrace/#options)
+* [Bugs](/documentation/4.2.0/ntptrace/#bugs)
 
 * * *
 

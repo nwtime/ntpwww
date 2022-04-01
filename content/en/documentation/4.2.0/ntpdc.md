@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 This program is a big puppy.
 
@@ -14,13 +14,13 @@ Last update: 21:39 UTC Sunday, January 26, 2003
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.0/ntpdc/#synopsis)
-*   [Description](/archives/4.2.0/ntpdc/#description)
-*   [Command Line Options](/archives/4.2.0/ntpdc/#command-line-options)
-*   [Interactive Commands](/archives/4.2.0/ntpdc/#interactive-commands)
-*   [Control Message Commands](/archives/4.2.0/ntpdc/#control-message-commands)
-*   [Runtime Configuration Requests](/archives/4.2.0/ntpdc/#runtime-configuration-requests)
-*   [Bugs](/archives/4.2.0/ntpdc/#bugs)
+*   [Synopsis](/documentation/4.2.0/ntpdc/#synopsis)
+*   [Description](/documentation/4.2.0/ntpdc/#description)
+*   [Command Line Options](/documentation/4.2.0/ntpdc/#command-line-options)
+*   [Interactive Commands](/documentation/4.2.0/ntpdc/#interactive-commands)
+*   [Control Message Commands](/documentation/4.2.0/ntpdc/#control-message-commands)
+*   [Runtime Configuration Requests](/documentation/4.2.0/ntpdc/#runtime-configuration-requests)
+*   [Bugs](/documentation/4.2.0/ntpdc/#bugs)
 
 * * *
 
@@ -236,7 +236,7 @@ The following commands all make authenticated requests.
 <code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>  
 : <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>
 
-: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/archives/4.2.0/miscopt/) page for further information.
+: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/documentation/4.2.0/miscopt/) page for further information.
 
 <code>**restrict _address mask flag_ [ _flag_ ]**</code>
 

@@ -3,7 +3,7 @@ title: "ntpdsim - Network Time Protocol (NTP) simulator"
 type: archives
 noindex: true
 ---
-![gif](/archives/pic/alice47.gif) [from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
+![gif](/documentation/pic/alice47.gif) [from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 The mushroom knows all the command line options.
 
@@ -13,10 +13,10 @@ Last update: 03:16 AM UTC Monday, October 13, 2003
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.0/ntpdsim/#synopsis)
-*   [Description](/archives/4.2.0/ntpdsim/#description)
-*   [Command Line Options](/archives/4.2.0/ntpdsim/#command-line-options)
-*   [Files](/archives/4.2.0/ntpdsim/#files)
+*   [Synopsis](/documentation/4.2.0/ntpdsim/#synopsis)
+*   [Description](/documentation/4.2.0/ntpdsim/#description)
+*   [Command Line Options](/documentation/4.2.0/ntpdsim/#command-line-options)
+*   [Files](/documentation/4.2.0/ntpdsim/#files)
 
 * * *
 

@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The mushroom knows all the error codes, which is more than most of us do.
 
@@ -14,10 +14,10 @@ Last update:  02:23 UTC Saturday, February 01, 2003
 
 #### Table of Contents
 
-*   [Introduction](/archives/4.2.0/msyslog/#introduction)
-*   [Protocol Module](/archives/4.2.0/msyslog/#protocol-module)
-*   [Clock Discipline Module](/archives/4.2.0/msyslog/#clock-discipline-module)
-*   [Cryptographic Module](/archives/4.2.0/msyslog/#cryptographic-module)
+*   [Introduction](/documentation/4.2.0/msyslog/#introduction)
+*   [Protocol Module](/documentation/4.2.0/msyslog/#protocol-module)
+*   [Clock Discipline Module](/documentation/4.2.0/msyslog/#clock-discipline-module)
+*   [Cryptographic Module](/documentation/4.2.0/msyslog/#cryptographic-module)
 
 * * *
 

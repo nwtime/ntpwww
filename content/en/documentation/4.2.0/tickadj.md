@@ -10,11 +10,11 @@ Last update: 20:11 UTC Monday, December 02, 2002
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.0/tickadj/#synopsis)
-*   [Description](/archives/4.2.0/tickadj/#description)
-*   [Command Line Options](/archives/4.2.0/tickadj/#command-line-options)
-*   [Files](/archives/4.2.0/tickadj/#files)
-*   [Bugs](/archives/4.2.0/tickadj/#bugs)
+*   [Synopsis](/documentation/4.2.0/tickadj/#synopsis)
+*   [Description](/documentation/4.2.0/tickadj/#description)
+*   [Command Line Options](/documentation/4.2.0/tickadj/#command-line-options)
+*   [Files](/documentation/4.2.0/tickadj/#files)
+*   [Bugs](/documentation/4.2.0/tickadj/#bugs)
 
 * * *
 

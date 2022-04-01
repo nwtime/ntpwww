@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 A typical NTP monitoring packet
 
@@ -14,15 +14,15 @@ Last update: 21:38 UTC Sunday, January 26, 2003
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.0/ntpq/#synopsis)
-*   [Description](/archives/4.2.0/ntpq/#description)
-*   [Internal Commands](/archives/4.2.0/ntpq/#internal-commands)
-*   [Control Message Commands](/archives/4.2.0/ntpq/#control-message-commands)
-*   [Tally Codes](/archives/4.2.0/ntpq/#tally-codes)
-*   [System Variables](/archives/4.2.0/ntpq/#system-variables)
-*   [Peer Variables](/archives/4.2.0/ntpq/#peer-variables)
-*   [Flash Codes](/archives/4.2.0/ntpq/#flash-codes)
-*   [Bugs](/archives/4.2.0/ntpq/#bugs)
+*   [Synopsis](/documentation/4.2.0/ntpq/#synopsis)
+*   [Description](/documentation/4.2.0/ntpq/#description)
+*   [Internal Commands](/documentation/4.2.0/ntpq/#internal-commands)
+*   [Control Message Commands](/documentation/4.2.0/ntpq/#control-message-commands)
+*   [Tally Codes](/documentation/4.2.0/ntpq/#tally-codes)
+*   [System Variables](/documentation/4.2.0/ntpq/#system-variables)
+*   [Peer Variables](/documentation/4.2.0/ntpq/#peer-variables)
+*   [Flash Codes](/documentation/4.2.0/ntpq/#flash-codes)
+*   [Bugs](/documentation/4.2.0/ntpq/#bugs)
 
 * * *
 
@@ -44,7 +44,7 @@ If one or more request options is included on the command line when <code>ntpq</
 
 Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.
 
-For examples and usage, see the [NTP Debugging Techniques](/archives/4.2.0/debug/) page.
+For examples and usage, see the [NTP Debugging Techniques](/documentation/4.2.0/debug/) page.
 
 Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.
 
@@ -385,7 +385,7 @@ Tests <code>TEST1</code> through <code>TEST3</code> check the packet timestamps 
 
 Tests <code>TEST6</code> through <code>TEST8</code> check the health of the server. If any bits are set, the packet is discarded; otherwise, the offset and delay relative to the server are calculated and saved. <code>TEST9</code> checks the health of the association itself. If any bits are set, the packet is discarded; otherwise, the saved variables are passed to the clock filter and mitigation algorithms.
 
-Tests <code>TEST10</code> through <code>TEST12</code> check the authentication state using Autokey public-key cryptography, as described in the [Authentication Options](/archives/4.2.0/authopt/) page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.
+Tests <code>TEST10</code> through <code>TEST12</code> check the authentication state using Autokey public-key cryptography, as described in the [Authentication Options](/documentation/4.2.0/authopt/) page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.
 
 The <code>flash</code> bits for each test are defined as follows.
 
@@ -403,11 +403,11 @@ The <code>flash</code> bits for each test are defined as follows.
 
 <code>**0x008 TEST4**</code>
 
-: Access is denied. See the [Access Control Options](/archives/4.2.0/accopt/) page.
+: Access is denied. See the [Access Control Options](/documentation/4.2.0/accopt/) page.
 
 <code>**0x010 TEST5**</code>
 
-: Cryptographic authentication fails. See the [Authentication Options](/archives/4.2.0/authopt/) page.
+: Cryptographic authentication fails. See the [Authentication Options](/documentation/4.2.0/authopt/) page.
 
 <code>**0x020TEST6**</code>
 
@@ -427,15 +427,15 @@ The <code>flash</code> bits for each test are defined as follows.
 
 <code>**0x200 TEST10**</code>
 
-: The autokey protocol has detected an authentication failure. See the [Authentication Options](/archives/4.2.0/authopt/) page.
+: The autokey protocol has detected an authentication failure. See the [Authentication Options](/documentation/4.2.0/authopt/) page.
 
 <code>**0x400 TEST11**</code>
 
-: The autokey protocol has not verified the server or peer is proventic and has valid public key credentials. See the [Authentication Options](/archives/4.2.0/authopt/) page.
+: The autokey protocol has not verified the server or peer is proventic and has valid public key credentials. See the [Authentication Options](/documentation/4.2.0/authopt/) page.
 
 <code>**0x800 TEST12**</code>
 
-: A protocol or configuration error has occurred in the public key algorithms or a possible intrusion event has been detected. See the [Authentication Options](/archives/4.2.0/authopt/) page.
+: A protocol or configuration error has occurred in the public key algorithms or a possible intrusion event has been detected. See the [Authentication Options](/documentation/4.2.0/authopt/) page.
 
 * * *
 
