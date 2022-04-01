@@ -15,7 +15,7 @@ type: archives
 
 #### Commercial Products
 
-Commercial NTP related products are listed on the [Vendor Links](/support/vendorlinks) page.
+Commercial NTP related products are listed on the [Vendor Links](/support/vendorlinks/) page.
 
 * * *
 
@@ -49,12 +49,12 @@ Commercial NTP related products are listed on the [Vendor Links](/support/vendor
 #### Time-Related Websites
 
 * [A summary of the ISO 8601 time notation](https://www.cl.cam.ac.uk/~mgk25/iso-time.html)
-* [NIST Internet Time Service (ITS)](https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its)
-* [NIST - Time & Frequency Division](https://www.nist.gov/pml/time-and-frequency-division)
+* [NIST Internet Time Service (ITS)](https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its/)
+* [NIST - Time & Frequency Division](https://www.nist.gov/pml/time-and-frequency-division/)
 
 * * *
 
 #### Online Time Services
 
 * [NIST Official Time](https://www.time.gov/)
-* [U.S. Navy Time](https://www.usno.navy.mil/USNO/time)
+* [U.S. Navy Time](https://www.usno.navy.mil/USNO/time/)

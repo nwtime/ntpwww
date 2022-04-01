@@ -13,17 +13,17 @@ If you're not running Solaris 2.5.1 or later, it is likely that you will have pr
 
 #### Table of Contents
 
-* [All Solaris versions](/archives/hints/solaris/#all-solaris-versions)
-* [Dealing with Frequency Tolerance Violations](/archives/hints/solaris/#dealing-with-frequency-tolerance-violations)
-* [Solaris 2.6](/archives/hints/solaris/#solaris-26)
-* [Solaris 2.5 and 2.5.1](/archives/hints/solaris/#solaris-25-and-251)
-* [Solaris 2.2](/archives/hints/solaris/#solaris-22)
-* [Solaris 2.1](/archives/hints/solaris/#solaris-21)
+* [All Solaris versions](/documentation/hints/solaris/#all-solaris-versions)
+* [Dealing with Frequency Tolerance Violations](/documentation/hints/solaris/#dealing-with-frequency-tolerance-violations)
+* [Solaris 2.6](/documentation/hints/solaris/#solaris-26)
+* [Solaris 2.5 and 2.5.1](/documentation/hints/solaris/#solaris-25-and-251)
+* [Solaris 2.2](/documentation/hints/solaris/#solaris-22)
+* [Solaris 2.1](/documentation/hints/solaris/#solaris-21)
 
 
 ### All Solaris versions
 
-> We have a report that says starting with Solaris 2.6 we should leave <code>_dosynctodr_</code> alone. [Here is the report](/archives/hints/solaris-dosynctodr/).
+> We have a report that says starting with Solaris 2.6 we should leave <code>_dosynctodr_</code> alone. [Here is the report](/documentation/hints/solaris-dosynctodr/).
 
 Proper operation of ntp under Solaris may require setting the kernel variable <code>_dosynctodr_</code> to zero (meaning "do not synchronize the clock to the hardware time-of-day clock"). This can be done with the `tickadj` utility:
 
@@ -37,7 +37,7 @@ Or, it can also be set by adding a line to `/etc/system`:
 
 `set dosynctodr = 0`
 
-Instead of the <code>_tick_</code> kernel variable, which many operating systems use to control microseconds added to the system time every clock tick (see [Dealing with Frequency Tolerance Violations](/archives/hints/solaris/#dealing-with-frequency-tolerance-violations)), Solaris has the variables <code>_nsec_per_tick_</code> and <code>_usec_per_tick_</code>.
+Instead of the <code>_tick_</code> kernel variable, which many operating systems use to control microseconds added to the system time every clock tick (see [Dealing with Frequency Tolerance Violations](/documentation/hints/solaris/#dealing-with-frequency-tolerance-violations)), Solaris has the variables <code>_nsec_per_tick_</code> and <code>_usec_per_tick_</code>.
 
 <code>_nsec_per_tick_</code> and <code>_usec_per_tick_</code> control the number of nanoseconds and microseconds, respectively, added to the system clock each clock interrupt. Enterprising souls may set these based on information collected by `ntpd` in the `/etc/ntp.drift` file to correct for individual hardware variations.
 
@@ -45,7 +45,7 @@ On UltraSPARC systems, <code>_nsec_per_tick_</code> and <code>_usec_per_tick_</c
 
 In general, the same ntp binaries should not be used across multiple operating system releases. There is enough variation in the core operating system support for timekeeping that a rebuild of `ntpd` for the idiosyncracies of your specific operating system version is advisable.
 
-It is recommended that ntp be started via a script like [this one](/archives/hints/solaris.xtra.S99ntpd/), installed in `/etc/init.d/ntpd` with a symbol link from `/etc/rc2.d/S99ntpd`.<a id="frequency_tolerance"></a>
+It is recommended that ntp be started via a script like [this one](/documentation/hints/solaris.xtra.S99ntpd/), installed in `/etc/init.d/ntpd` with a symbol link from `/etc/rc2.d/S99ntpd`.<a id="frequency_tolerance"></a>
 
 * * *
 
@@ -75,13 +75,13 @@ All this stuff about diddling kernel variables so the NTP daemon will work is re
 
 ### Solaris 2.6
 
-Solaris 2.6 adds support for kernel PLL timekeeping, but breaks this support in such a fashion that using it worse than not. This is [SUN Bug ID 4095849](/archives/hints/solaris.xtra.4095849/), and it is not yet fixed as of June 1998.
+Solaris 2.6 adds support for kernel PLL timekeeping, but breaks this support in such a fashion that using it worse than not. This is [SUN Bug ID 4095849](/documentation/hints/solaris.xtra.4095849/), and it is not yet fixed as of June 1998.
 
 * * *
 
 ### Solaris 2.5 and 2.5.1
 
-On UltraSPARC systems, calculation of <code>_cpu_tick_freq_</code> is broken such that values that are off by significant amounts may be used instead. This unfortunately means that `ntpd` may have severe problems keeping synchronization. This is [SUN Bug ID 4023118](/archives/hints/solaris.xtra.4023118/). Bryan Cantrill of Sun posted [patchfreq](/archives/hints/solaris.xtra.patchfreq/), a workaround script, to comp.protocols.time.ntp in March of 1997.
+On UltraSPARC systems, calculation of <code>_cpu_tick_freq_</code> is broken such that values that are off by significant amounts may be used instead. This unfortunately means that `ntpd` may have severe problems keeping synchronization. This is [SUN Bug ID 4023118](/documentation/hints/solaris.xtra.4023118/). Bryan Cantrill of Sun posted [patchfreq](/documentation/hints/solaris.xtra.patchfreq/), a workaround script, to comp.protocols.time.ntp in March of 1997.
 
 * * *
 

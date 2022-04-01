@@ -17,9 +17,9 @@ Users should note that the stock Windows client sends requests as mode-1 packets
 
 #### Authentication Keys
 
-With this release `ntp-keygen` is supported. See the [ntp keygen documentation](/archives/4.2.8-series/keygen/) for details on how to use `ntp-keygen`.
+With this release `ntp-keygen` is supported. See the [ntp keygen documentation](/documentation/4.2.8-series/keygen/) for details on how to use `ntp-keygen`.
 
-`ntpd` can now use the generated keys in the same way as on Unix platforms. Please refer to the [Authentication Options](/archives/4.2.8-series/authopt/) for details on how to use these.
+`ntpd` can now use the generated keys in the same way as on Unix platforms. Please refer to the [Authentication Options](/documentation/4.2.8-series/authopt/) for details on how to use these.
 
 > **NOTE:** `ntpd` and `ntp-keygen` both use OpenSSL which requires a random character file called `.rnd` by default. Both of these programs will automatically generate this file if they are not found. The programs will look for an environmental variable called `RANDFILE` and use that for the name of the random character file if the variable exists. If it does not exist it will look for an environmental variable called `HOME` and use that directory to search for a file called `.rnd` in that directory. Finally, if neither `RANDFILE` nor `HOME` exists it will look in `C:\` for a `.rnd` file. In each case it will search for and create the file if the environmental variable exists or in the `C:\` directory if it doesn't.
 
@@ -31,7 +31,7 @@ Refer to [Compiling Requirements and Instructions](#compiling-requirements) for 
 
 #### Reference Clocks
 
-Reference clock support under Windows NT is tricky because the IO functions are so much different. Some of the clock types have been built into the `ntpd` executable and should work but have not been tested by the NTP project. If you have a clock that runs on Win32 and the driver is there but not implemented on Win32 you will have make the required configuration changes in `config.h` and then build `ntpd` from source and test it. The [Undisciplined Local Clock (Type 1)](/archives/drivers/driver1/) reference clock is known to work and is supported by Windows NT. 
+Reference clock support under Windows NT is tricky because the IO functions are so much different. Some of the clock types have been built into the `ntpd` executable and should work but have not been tested by the NTP project. If you have a clock that runs on Win32 and the driver is there but not implemented on Win32 you will have make the required configuration changes in `config.h` and then build `ntpd` from source and test it. The [Undisciplined Local Clock (Type 1)](/documentation/drivers/driver1/) reference clock is known to work and is supported by Windows NT. 
 
 * * *
 
@@ -45,7 +45,7 @@ All NTP functions are supported with some constraints. See the [TODO](#todo) lis
 
 Greg Brackley has implemented a fantastic interpolation scheme that improves the precision of the NTP clock using a realtime thread (is that poetic or what!) which captures a tick count from the 8253 counter after each OS tick. The count is used to interpolate the time between operating system ticks.
 
-On a typical 200+ MHz system NTP achieves a precision of about 5 microseconds and synchronizes the clock to +/-500 microseconds using the [Trimble Palisade](/archives/drivers/driver29/) as UTC reference. This allows distributed applications to use the 10 milliseconds ticks available to them with high confidence.
+On a typical 200+ MHz system NTP achieves a precision of about 5 microseconds and synchronizes the clock to +/-500 microseconds using the [Trimble Palisade](/documentation/drivers/driver29/) as UTC reference. This allows distributed applications to use the 10 milliseconds ticks available to them with high confidence.
 
 * * *
 
@@ -127,4 +127,4 @@ Add the `-g` option to the `ImagePath` key, behind `%INSTALLDIR>\ntpd.exe`. This
 
 #### Bug Reports
 
-Please follow the [NTP Bug Reporting Procedures](/archives/4.2.8-series/bugs/) to report bugs or request enhancements.
+Please follow the [NTP Bug Reporting Procedures](/documentation/4.2.8-series/bugs/) to report bugs or request enhancements.
