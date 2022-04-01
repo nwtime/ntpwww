@@ -40,7 +40,7 @@ ntptrace
 : A utility to back-trace the current system time, starting from the local server.
 
 documentation
-: The [documentation](/archives/4.2.8-series/) for the software is definitely worth reading.
+: The [documentation](/documentation/4.2.8-series/) for the software is definitely worth reading.
 
 scripts
 : There are also several scripts that might be useful or at least a source of ideas if you want to run and monitor NTP.

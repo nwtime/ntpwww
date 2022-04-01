@@ -79,7 +79,7 @@ Finally, even if the hardware can send an interrupt for the edge being detected 
 
 The procedure to check a remote server is identical to debugging a local server, but some commands may be restricted. To check a remote server with `ntpq`, add the desired host name or IP address to the command line.
 
-There is another command named `ntptrace` to follow a complete synchronization path from the local or specified server to the reference clock. [ntptrace](/archives/4.2.8-series/ntptrace/) provides a usage example and explanation of the trace output.
+There is another command named `ntptrace` to follow a complete synchronization path from the local or specified server to the reference clock. [ntptrace](/documentation/4.2.8-series/ntptrace/) provides a usage example and explanation of the trace output.
 
 * * *
 
@@ -253,7 +253,7 @@ ntpq></pre>
 
 Ideally, the quality of a time reference is a static feature. In reality, quality can vary over time. In fact this behaviour is so frequent that it has a name of its own: _clock hopping_.
 
-Clock hopping can be avoided by deterministic network delays, but usually you can't do anything about that. The other solution is to select a _preferred_ time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to [Mitigation Rules and the prefer Keyword](/archives/4.2.8-series/prefer/) for more information.
+Clock hopping can be avoided by deterministic network delays, but usually you can't do anything about that. The other solution is to select a _preferred_ time source that is used as long as it seems reasonable, even if other sources have better quality. Refer to [Mitigation Rules and the prefer Keyword](/documentation/4.2.8-series/prefer/) for more information.
 
 * * *
 
@@ -394,7 +394,7 @@ This has worked nicely for me for some years. I recognize that frequent connect/
 
 #### 8.2.6.4 Any more Hints?
 
-Try the suggestions in [NTP Debugging Techniques](/archives/4.2.8-series/debug/).
+Try the suggestions in [NTP Debugging Techniques](/documentation/4.2.8-series/debug/).
 
 * * *
 

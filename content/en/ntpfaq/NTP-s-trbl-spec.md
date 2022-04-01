@@ -119,7 +119,7 @@ Somewhere in the code cleanup between NTPv3 and NTPv4, the code to set the modem
 
 For my receiver the command `setserialbits /dev/refclock-0 -rts` turns on power while `ntpd` is running. Some receivers care about polarity, some don't. You might try substituting `-rts` with `-dtr`.
 
-For the [RAWDCF PARSE driver](/archives/drivers/driver8/) there is a `mode 14`, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.
+For the [RAWDCF PARSE driver](/documentation/drivers/driver8/) there is a `mode 14`, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.
 
 * * *
 
@@ -135,7 +135,7 @@ It seems this product speaks a different protocol than the original hardware. To
 
 #### 8.3.5.2 Why is the UT+ reporting clk_noreply?
 
-According to the documentation [driver 30](/archives/drivers/driver30/) should work for the UT+ "as long as they support the Motorola Binary Protocol". Furthermore the documentation recommends: "When first starting to use the driver you should definitely review the information written to the `clockstats` file to verify that the driver is running correctly."
+According to the documentation [driver 30](/documentation/drivers/driver30/) should work for the UT+ "as long as they support the Motorola Binary Protocol". Furthermore the documentation recommends: "When first starting to use the driver you should definitely review the information written to the `clockstats` file to verify that the driver is running correctly."
 
 Unfortunately some essential documentation can only be found in the source file (`ntpd/refclock_oncore.c`). Some anonymous person wrote in news://comp.protocols.time.ntp:
 
