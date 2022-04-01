@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice47.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice47.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Caterpillar knows all the error codes, which is more than most of us do.
 
@@ -14,13 +14,13 @@ Last update: 30-Apr-2010 23:13 UTC
 
 #### Table of Contents
 
-*   [Introduction](/archives/4.2.6-series/decode/#introduction)
-*   [System Status Word](/archives/4.2.6-series/decode/#system-status-word)
-*   [Peer Status Word](/archives/4.2.6-series/decode/#peer-status-word)
-*   [Clock Status Word](/archives/4.2.6-series/decode/#clock-status-word)
-*   [Flash Status Word](/archives/4.2.6-series/decode/#flash-status-word)
-*   [Kiss Codes](/archives/4.2.6-series/decode/#kiss-codes)
-*   [Crypto Messages](/archives/4.2.6-series/decode/#crypto-messages)
+*   [Introduction](/documentation/4.2.6-series/decode/#introduction)
+*   [System Status Word](/documentation/4.2.6-series/decode/#system-status-word)
+*   [Peer Status Word](/documentation/4.2.6-series/decode/#peer-status-word)
+*   [Clock Status Word](/documentation/4.2.6-series/decode/#clock-status-word)
+*   [Flash Status Word](/documentation/4.2.6-series/decode/#flash-status-word)
+*   [Kiss Codes](/documentation/4.2.6-series/decode/#kiss-codes)
+*   [Crypto Messages](/documentation/4.2.6-series/decode/#crypto-messages)
 
 * * *
 

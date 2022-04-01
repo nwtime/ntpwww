@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The skunk watches for intruders and sprays.
 
@@ -14,8 +14,8 @@ Last update: 30-Sep-2009 17:16 UTC
 
 #### Table of Contents
 
-*  [Access Control Support](/archives/4.2.6-series/accopt/#access-control-support)
-*  [Access Control Commands](/archives/4.2.6-series/accopt/#access-control-commands)
+*  [Access Control Support](/documentation/4.2.6-series/accopt/#access-control-support)
+*  [Access Control Commands](/documentation/4.2.6-series/accopt/#access-control-commands)
 
 * * *
 

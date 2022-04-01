@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![Clone me,](/archives/pic/sheepb.jpg) Clone me, says Dolly sheepishly.
+![Clone me,](/documentation/pic/sheepb.jpg) Clone me, says Dolly sheepishly.
 
 Last update: 1-Jan-2011 08:34 UTC
 

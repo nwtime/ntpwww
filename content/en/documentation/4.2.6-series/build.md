@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/beaver.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/beaver.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 For putting out compiler fires.
 
@@ -14,22 +14,22 @@ Last update: 16:45 UTC Sunday, March 02, 2008
 
 #### Table of Contents
 
-*   [Building and Installing the Distribution](/archives/4.2.6-series/build/#building-and-installing-the-distribution)
-*   [Building and Installing for Unix](/archives/4.2.6-series/build/#building-and-installing-for-unix)
-*   [Building and Installing for Windows](/archives/4.2.6-series/build/#building-and-installing-for-windows)
-*   [Configuration](/archives/4.2.6-series/build/#configuration)
-*   [If You Have Problems](/archives/4.2.6-series/build/#if-you-have-problems)
-*   [Additional <tt>make</tt> Commands](/archives/4.2.6-series/build/#additional-ttmakett-commands)
+*   [Building and Installing the Distribution](/documentation/4.2.6-series/build/#building-and-installing-the-distribution)
+*   [Building and Installing for Unix](/documentation/4.2.6-series/build/#building-and-installing-for-unix)
+*   [Building and Installing for Windows](/documentation/4.2.6-series/build/#building-and-installing-for-windows)
+*   [Configuration](/documentation/4.2.6-series/build/#configuration)
+*   [If You Have Problems](/documentation/4.2.6-series/build/#if-you-have-problems)
+*   [Additional <tt>make</tt> Commands](/documentation/4.2.6-series/build/#additional-ttmakett-commands)
 
 * * *
 
 #### Building and Installing the Distribution
 
-It is not possible in a software distribution such as this to support every individual computer and operating system with a common executable, even with the same system but different versions and options. Therefore, it is necessary to configure, build and install for each system and version. In almost all cases, these procedures are completely automatic, The user types <code>./configure</code>, <code>make</code> and <code>install</code> in that order and the autoconfigure system does the rest. There are some exceptions, as noted below and on the [Hints and Kinks](/archives/4.2.6-series/hints/) pages.
+It is not possible in a software distribution such as this to support every individual computer and operating system with a common executable, even with the same system but different versions and options. Therefore, it is necessary to configure, build and install for each system and version. In almost all cases, these procedures are completely automatic, The user types <code>./configure</code>, <code>make</code> and <code>install</code> in that order and the autoconfigure system does the rest. There are some exceptions, as noted below and on the [Hints and Kinks](/documentation/4.2.6-series/hints/) pages.
 
 If available, the OpenSSL library from https://www.openssl.org is used to support public key cryptography. The library must be built and installed prior to building NTP. The procedures for doing that are included in the OpenSSL documentation. The library is found during the normal NTP configure phase and the interface routines compiled automatically. Only the <code>libcrypto.a</code> library file and <code>openssl</code> header files are needed. If the library is not available or disabled, this step is not required.
 
-The [Build Options](/archives/4.2.6-series/config/) page describes a number of options that determine whether debug support is included, whether and which reference clock drivers are included and the locations of the executables and library files, if not the default. By default debugging options and all reference clock drivers are included.
+The [Build Options](/documentation/4.2.6-series/config/) page describes a number of options that determine whether debug support is included, whether and which reference clock drivers are included and the locations of the executables and library files, if not the default. By default debugging options and all reference clock drivers are included.
 * * *
 
 #### Building and Installing for Unix
@@ -44,19 +44,19 @@ If your site supports multiple architectures and uses NFS to share files, you ca
 
 #### Building and Installing for Windows
 
-NTP supports Windows Vista, XP, NT4 and 2000 systems. See the [Windows NT](/archives/hints/winnt/) page for directions to compile the sources and install the executables. A precompiled executable is available.
+NTP supports Windows Vista, XP, NT4 and 2000 systems. See the [Windows NT](/documentation/hints/winnt/) page for directions to compile the sources and install the executables. A precompiled executable is available.
 
 * * *
 
 #### Configuration
 
-You are now ready to configure the daemon. You will need to create a NTP configuration file by default in <code>/etc/ntp.conf.</code> Newbies should see the [Quick Start](/archives/4.2.6-series/quick/) page for orientation. Seasoned veterans can start with the [<code>ntpd</code>](/archives/4.2.6-series/ntpd/) page and move on to the specific configuration option pages from there.
+You are now ready to configure the daemon. You will need to create a NTP configuration file by default in <code>/etc/ntp.conf.</code> Newbies should see the [Quick Start](/documentation/4.2.6-series/quick/) page for orientation. Seasoned veterans can start with the [<code>ntpd</code>](/documentation/4.2.6-series/ntpd/) page and move on to the specific configuration option pages from there.
 
 * * *
 
 #### If You Have Problems
 
-If you have problems with your hardware and software environment (e.g. operating system-specific issues), browse the [Hints and Kinks](/archives/4.2.6-series/hints/) pages. For other problems a tutorial on debugging technique is in the [NTP Debugging Technique](/archives/4.2.6-series/debug/) page. A list of important system log messages is on the [<code>ntpd</code> System Log Messages](/archives/4.2.6-series/msyslog/) page.
+If you have problems with your hardware and software environment (e.g. operating system-specific issues), browse the [Hints and Kinks](/documentation/4.2.6-series/hints/) pages. For other problems a tutorial on debugging technique is in the [NTP Debugging Technique](/documentation/4.2.6-series/debug/) page. A list of important system log messages is on the [<code>ntpd</code> System Log Messages](/documentation/4.2.6-series/msyslog/) page.
 
 The first line of general assistance is the documentation on this website. Requests for assistance of a general nature and of interest to other timekeepers should be sent to the [NTP newsgroup](https://groups.google.com/g/comp.protocols.time.ntp).
 

@@ -10,11 +10,11 @@ Last update: Wednesday, January 16, 2008
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.6-series/tickadj/#synopsis)
-*   [Description](/archives/4.2.6-series/tickadj/#description)
-*   [Command Line Options](/archives/4.2.6-series/tickadj/#command-line-options)
-*   [Files](/archives/4.2.6-series/tickadj/#files)
-*   [Bugs](/archives/4.2.6-series/tickadj/#bugs)
+*   [Synopsis](/documentation/4.2.6-series/tickadj/#synopsis)
+*   [Description](/documentation/4.2.6-series/tickadj/#description)
+*   [Command Line Options](/documentation/4.2.6-series/tickadj/#command-line-options)
+*   [Files](/documentation/4.2.6-series/tickadj/#files)
+*   [Bugs](/documentation/4.2.6-series/tickadj/#bugs)
 
 * * *
 
@@ -27,7 +27,7 @@ Last update: Wednesday, January 16, 2008
 
 #### Description
 
-The <code>tickadj</code> program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision ttimekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel <code>/dev/kmem</code>. Newer machines with kernel time support, including Solaris, Tru64, FreeBSD and Linux, should NOT use the program, even if it appears to work, as it will destabilize the kernel time support. Use the [<code>ntptime</code>](/archives/4.2.6-series/ntptime/) program instead.
+The <code>tickadj</code> program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision ttimekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel <code>/dev/kmem</code>. Newer machines with kernel time support, including Solaris, Tru64, FreeBSD and Linux, should NOT use the program, even if it appears to work, as it will destabilize the kernel time support. Use the [<code>ntptime</code>](/documentation/4.2.6-series/ntptime/) program instead.
 
 The particular variables that can be changed with <code>tickadj</code> include <code>tick</code>, which is the number of microseconds added to the system time for a clock interrupt, <code>tickadj</code>, which sets the slew rate and resolution used by the <code>adjtime</code> system call, and <code>dosynctodr</code>, which indicates to the kernels on some machines whether they should internally adjust the system clock to keep it in line with time-of-day clock or not.
 

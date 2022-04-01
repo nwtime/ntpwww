@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 You need a little magic.
 
@@ -26,4 +26,4 @@ Interleaved modes can be used only in NTP symmetric and broadcast modes. It is a
 
 * * *
 
-![gif](/archives/pic/pogo1a.gif)
+![gif](/documentation/pic/pogo1a.gif)

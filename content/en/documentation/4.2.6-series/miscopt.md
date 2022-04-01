@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 We have three, now looking for more.
 
@@ -27,7 +27,7 @@ The parameter <code>tolerance</code> is the wander threshold to skip writing the
 <code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>  
 : <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats ]**</code>
 
-: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>ntpdc</code>](/archives/4.2.6-series/ntpdc/) utility program.
+: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>ntpdc</code>](/documentation/4.2.6-series/ntpdc/) utility program.
 
 <code>auth</code>
 
@@ -55,7 +55,7 @@ The parameter <code>tolerance</code> is the wander threshold to skip writing the
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/4.2.6-series/monopt/) page for further information. The default for this flag is disable.
+: Enables the statistics facility. See the [Monitoring Options](/documentation/4.2.6-series/monopt/) page for further information. The default for this flag is disable.
 
 <code>**includefile _includefile_**</code>
 
@@ -63,7 +63,7 @@ The parameter <code>tolerance</code> is the wander threshold to skip writing the
 
 <code>**interface [listen | ignore | drop] [all | ipv4 | ipv6 | wildcard | _name_ | _address_[/_prefixlen_]]**</code>
 
-: This command controls which network addresses <code>ntpd</code> opens, and whether input is dropped without processing. The first parameter determines the action for addresses which match the second parameter. That parameter specifies a class of addresses, or a specific interface name, or an address. In the address case, <code>_prefixlen_</code> determines how many bits must match for this rule to apply. <code>ignore</code> prevents opening matching addresses, <code>drop</code> causes <code>ntpd</code> to open the address and drop all received packets without examination. Multiple <code>interface</code> commands can be used. The last rule which matches a particular address determines the action for it. <code>interface</code> commands are disabled if any [<code>-I</code>](/archives/4.2.6-series/ntpd/#--interface) or [<code>-L</code>](/archives/4.2.6-series/ntpd/#--novirtualips) command-line options are used. If none of those options are used and no <code>interface</code> actions are specified in the configuration file, all available network addresses are opened. The <code>nic</code> command is an alias for <code>interface</code>.
+: This command controls which network addresses <code>ntpd</code> opens, and whether input is dropped without processing. The first parameter determines the action for addresses which match the second parameter. That parameter specifies a class of addresses, or a specific interface name, or an address. In the address case, <code>_prefixlen_</code> determines how many bits must match for this rule to apply. <code>ignore</code> prevents opening matching addresses, <code>drop</code> causes <code>ntpd</code> to open the address and drop all received packets without examination. Multiple <code>interface</code> commands can be used. The last rule which matches a particular address determines the action for it. <code>interface</code> commands are disabled if any [<code>-I</code>](/documentation/4.2.6-series/ntpd/#--interface) or [<code>-L</code>](/documentation/4.2.6-series/ntpd/#--novirtualips) command-line options are used. If none of those options are used and no <code>interface</code> actions are specified in the configuration file, all available network addresses are opened. The <code>nic</code> command is an alias for <code>interface</code>.
 
 <code>**leapfile _leapfile_**</code>
 
@@ -97,7 +97,7 @@ This configuration will list all clock information and synchronization informati
 
 <code>**saveconfigdir _directory_path_**</code>
 
-: Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>'s [saveconfig](/archives/4.2.6-series/ntpq/#saveconfig) command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
+: Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>'s [saveconfig](/documentation/4.2.6-series/ntpq/#saveconfig) command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.
 
 <code>**setvar _variable_ [default]**</code>
 
@@ -142,23 +142,23 @@ This configuration will list all clock information and synchronization informati
 
 <code>beacon _beacon_</code>
 
-: The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the _<code>beacon</code>_ interval in seconds. The default is 3600 s. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt/) page for further details.
+: The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the _<code>beacon</code>_ interval in seconds. The default is 3600 s. See the [Automatic Server Discovery](/documentation/4.2.6-series/manyopt/) page for further details.
 
 <code>ceiling _ceiling_</code>
 
-: Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt/) page for further details.
+: Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the [Automatic Server Discovery](/documentation/4.2.6-series/manyopt/) page for further details.
 
 <code>cohort { 0 | 1 }</code>
 
-: Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt/) page for further details.
+: Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the [Automatic Server Discovery](/documentation/4.2.6-series/manyopt/) page for further details.
 
 <code>floor _floor_</code>
 
-: Specify the minimum stratum (inclusive) for acceptable server packest. The default is 1. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt/) page for further details.
+: Specify the minimum stratum (inclusive) for acceptable server packest. The default is 1. See the [Automatic Server Discovery](/documentation/4.2.6-series/manyopt/) page for further details.
 
 <code>maxclock _maxclock_</code>
 
-: Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the [Automatic Server Discovery](/archives/4.2.6-series/manyopt/) page for further details.
+: Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the [Automatic Server Discovery](/documentation/4.2.6-series/manyopt/) page for further details.
 
 <code>maxdist _maxdistance_</code>
 
@@ -178,7 +178,7 @@ This configuration will list all clock information and synchronization informati
 
 <code>orphan _stratum_</code>
 
-: Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the [Association Management](/archives/4.2.6-series/assoc/) page for further details.
+: Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the [Association Management](/documentation/4.2.6-series/assoc/) page for further details.
 
 <code>**trap _host_address_ [port _port_number_] [interface _interfSace_address_]**</code>
 

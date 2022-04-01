@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The log can be shrill at times.
 
@@ -14,10 +14,10 @@ Last update:  02:22 UTC Monday, March 03, 2008
 
 #### Table of Contents
 
-*   [Introduction](/archives/4.2.6-series/msyslog/#introduction)
-*   [Protocol Module](/archives/4.2.6-series/msyslog/#protocol-module)
-*   [Clock Discipline Module](/archives/4.2.6-series/msyslog/#clock-discipline-module)
-*   [Cryptographic Module](/archives/4.2.6-series/msyslog/#cryptographic-module)
+*   [Introduction](/documentation/4.2.6-series/msyslog/#introduction)
+*   [Protocol Module](/documentation/4.2.6-series/msyslog/#protocol-module)
+*   [Clock Discipline Module](/documentation/4.2.6-series/msyslog/#clock-discipline-module)
+*   [Cryptographic Module](/documentation/4.2.6-series/msyslog/#cryptographic-module)
 
 * * *
 
@@ -49,7 +49,7 @@ In the following a `?` character stands for text in the message. The meaning sho
 
 <code>**proto_config: illegal item ?, value ?**</code>
 
-: Program error. Bugs can be reported [here](/archives/4.2.6-series/bugs/).
+: Program error. Bugs can be reported [here](/documentation/4.2.6-series/bugs/).
 
 <code>**receive: autokey requires two-way communication**</code>
 
@@ -92,7 +92,7 @@ In the following a `?` character stands for text in the message. The meaning sho
 <code>**sigaction() fails to save SIGSYS trap: ?**</code> 
 : <code>**sigaction() fails to restore SIGSYS trap: ?**</code>
 
-: Program error. Bugs can be reported [here](/archives/4.2.6-series/bugs/).
+: Program error. Bugs can be reported [here](/documentation/4.2.6-series/bugs/).
 
 <code>**LOG_NOTICE**</code>
 

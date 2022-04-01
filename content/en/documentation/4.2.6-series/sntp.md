@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/dogsnake.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/dogsnake.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 S is for snakeoil.
 
@@ -14,11 +14,11 @@ Last update: 16:31 UTC Wednesday, March 12, 2008
 
 #### Table of Contents
 
-* [Synopsis](/archives/4.2.6-series/sntp/#synopsis)
-* [Description](/archives/4.2.6-series/sntp/#description)
-* [Options](/archives/4.2.6-series/sntp/#options)
-* [Return Value](/archives/4.2.6-series/sntp/#return-value)
-* [Author](/archives/4.2.6-series/sntp/#author)
+* [Synopsis](/documentation/4.2.6-series/sntp/#synopsis)
+* [Description](/documentation/4.2.6-series/sntp/#description)
+* [Options](/documentation/4.2.6-series/sntp/#options)
+* [Return Value](/documentation/4.2.6-series/sntp/#return-value)
+* [Author](/documentation/4.2.6-series/sntp/#author)
 
 * * *
 

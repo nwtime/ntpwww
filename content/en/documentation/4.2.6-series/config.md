@@ -5,7 +5,7 @@ noindex: true
 ---
 
 
-![gif](/archives/pic/pogo3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Gnu autoconfigure tools are in the backpack.
 

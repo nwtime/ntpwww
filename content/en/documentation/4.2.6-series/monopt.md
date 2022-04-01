@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Pig was hired to watch the logs.
 
@@ -14,9 +14,9 @@ Last update: 10-May-2009 16:19 UTC
 
 #### Table of Contents
 
-*   [Introduction](/archives/4.2.6-series/monopt/#introduction)
-*   [Monitoring Commands](/archives/4.2.6-series/monopt/#monitoring-commands)
-*   [File Set Types](/archives/4.2.6-series/monopt/#file-set-types)
+*   [Introduction](/documentation/4.2.6-series/monopt/#introduction)
+*   [Monitoring Commands](/documentation/4.2.6-series/monopt/#monitoring-commands)
+*   [File Set Types](/documentation/4.2.6-series/monopt/#file-set-types)
 
 * * *
 
@@ -127,7 +127,7 @@ The <code>_message_</code> field includes the last timecode received in decoded 
 | `128.4.1.1` | IP | source address (`0.0.0.0` for system) |
 | message | text | log message |
 
-The <code>_message_</code> field includes the message type and certain ancillary information. See the [Authentication Options](/archives/4.2.6-series/authopt/) page for further information.
+The <code>_message_</code> field includes the message type and certain ancillary information. See the [Authentication Options](/documentation/4.2.6-series/authopt/) page for further information.
 
 <code>**loopstats**</code>
 
@@ -179,7 +179,7 @@ The status field is encoded in hex format as described in Appendix B of the NTP 
 | `8a` | code | event message code |
 | message | text | event message |
 
-The event message code and <code>_message_</code> field are described on the [Event Messages and Status Words](/archives/4.2.6-series/decode/) page.
+The event message code and <code>_message_</code> field are described on the [Event Messages and Status Words](/documentation/4.2.6-series/decode/) page.
 
 <code>**rawstats**</code>
 
