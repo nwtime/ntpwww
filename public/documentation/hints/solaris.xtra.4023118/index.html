@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+  
+  <meta name="description" content="
+Bug Id: 4023118
+Category: kernel
+Subcategory: other
+State: integrated
+Synopsis: sun4u doesn&rsquo;t keep accurate time
+Description:
+
+
+[ bmc, 12/20/96 …">
+<meta property="og:title" content="Solaris Bug #4023118" />
+<meta property="og:description" content="Bug Id: 4023118 Category: kernel Subcategory: other State: integrated Synopsis: sun4u doesn&rsquo;t keep accurate time Description:   [ bmc, 12/20/96 ]
+The clock on a sun4u drifts unacceptably. On a typical 143 mHz Ultra, the clock took 1.0001350 seconds to count 1 second. While this may seem trivial, it adds up quickly. In this case, the TOD chip will have to pull the clock forward by 2 seconds every 4 hours and 7 minutes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/solaris.xtra.4023118/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Solaris Bug #4023118</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/hints/solaris.xtra.4023118/">Solaris Bug #4023118</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Solaris Bug #4023118</h1>
+     
+    <dl>
+<dt>Bug Id: <code>4023118</code></dt>
+<dd><strong>Category:</strong> kernel</dd>
+<dd><strong>Subcategory:</strong> other</dd>
+<dd><strong>State:</strong> integrated</dd>
+<dd><strong>Synopsis:</strong> sun4u doesn&rsquo;t keep accurate time</dd>
+<dd><strong>Description:</strong></dd>
+</dl>
+<hr>
+<p>[ bmc, 12/20/96 ]</p>
+<p>The clock on a sun4u drifts unacceptably.  On a typical 143 mHz Ultra, the clock took 1.0001350 seconds to count 1 second.  While this may seem trivial, it adds up quickly.  In this case, the TOD chip will have to pull the clock forward by 2 seconds every 4 hours and 7 minutes. This drift rate is so high, that the clock is close to being too broken for NTP to guarantee correctness (in order for NTP&rsquo;s mechanism to work, it must be assured that the local clock drifts no more than 20 ms in 64 seconds;  this particular 143 mHz Ultra will drift by nearly 9 ms in that period).  This problem has been reproduced on virtually all sun4u classes.</p>
+<p>The fundamental problem lies in the kernel&rsquo;s perception of ticks per second.  The PROM is responsible for determining this figure exactly, and the kernel extracts it into the variable <code>cpu_tick_freq</code>.  On sun4u&rsquo;s, this number is disconcertingly round:  143000000, 167000000, 248000000, etc.  Indeed, a simple experiment revealed that these numbers were quite far from the actual ticks per second.  Typical was the 143 mHz Ultra which was discovered to tick around 142,980,806 (+/- 10) times per second.</p>
+<hr>
+<dl>
+<dt><strong>Work around:</strong> <code>Integrated in releases: s297_27</code></dt>
+<dd><strong>Duplicate of:</strong></dd>
+<dd><strong>Patch id:</strong></dd>
+<dd><strong>See also:</strong></dd>
+<dd><strong>Summary:</strong></dd>
+</dl>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

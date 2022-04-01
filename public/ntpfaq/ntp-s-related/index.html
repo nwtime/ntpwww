@@ -44,7 +44,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -382,11 +382,17 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
 </table>
 <p><strong>Example 9.2b: The Effects of Selective Availability</strong></p>
 <p>Most GPS receivers are unable to compensate for Selective Availability. As a virtually changing position causes time offsets (roughly 3ns per meter), it&rsquo;s interesting what the effects of SA are. For my GPS167 from Meinberg I examined the <code>gps_position(LLA)</code> that the clock driver showed. The following graphic shows the changing position over time, including a smoothed path.</p>
-<p><img src="/ntpfaq/GPS167_XY.png" alt=""></p>
+<p><p>
+  <img loading="lazy" src="/ntpfaq/GPS167_XY.png" alt=""  />
+</p></p>
 <p>These position changes have a comparatively small effect on time accuracy, but if one considers the computed altitude, the huge changes can accumulate to a few hundred nanoseconds. The following graph shows the varying altitude over time.</p>
-<p><img src="/ntpfaq/GPS167_Z.png" alt=""></p>
+<p><p>
+  <img loading="lazy" src="/ntpfaq/GPS167_Z.png" alt=""  />
+</p></p>
 <p>Finally, the following figure combines the three coordinates in space to give you an impression on how accurate GPS is:</p>
-<p><img src="/ntpfaq/GPS167_XYZ.png" alt=""></p>
+<p><p>
+  <img loading="lazy" src="/ntpfaq/GPS167_XYZ.png" alt=""  />
+</p></p>
 <hr>
 <h4 id="921-selective-availability-revisited">9.2.1 Selective Availability revisited</h4>
 <p>On May 1st, 2000 there was an announcement about turning off Selective Availability (SA). The document titled <em>President Clinton: Improving the Civilian Global Positioning System (GPS)</em> quotes Bill Clinton: &ldquo;The decision to discontinue Selective Availability is the latest measure in an ongoing effort to make GPS more responsive to civil and commercial users worldwide. &ndash;This increase in accuracy will allow new GPS applications to emerge and continue to enhance the lives of people around the world.&rdquo;</p>

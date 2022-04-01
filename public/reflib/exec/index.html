@@ -5,6 +5,8 @@
 
   
   <meta name="description" content="
+  
+
 from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 The executive is the one on the left.
 Last update: 12-May-2012
@@ -41,7 +43,7 @@ Last update: 12-May-2012
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -113,7 +115,9 @@ Last update: 12-May-2012
   <div class="container">
   	<h1>Executive Summary: Computer Network Time Synchronization</h1>
      
-    <p><img src="/archives/pic/alice12.gif" alt="gif"></p>
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/alice12.gif" alt="gif"  />
+</p></p>
 <p>from <a href="/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
 <p>The executive is the one on the left.</p>
 <p>Last update: 12-May-2012</p>
@@ -136,7 +140,7 @@ Last update: 12-May-2012
 <p>The Network Time Protocol (NTP) and other protocols are used to synchronize the clocks in an estimated total of 25 million servers, workstations and PCs of the public Internet and private networks. This document contains an overview and functional description of NTP, and its design principles. The material in this document is intended for network architects, administrators and technical operating personel. Additional technical details on design and operation are discussed in related white papers in this collection.</p>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>This document contains an overview and functional description of the Network Time Protocol (NTP), which is used to synchronize computer clocks in the Internet to a common timescale. The discussion is intended for site managers and administrators as well as technical planning and support staff. This document does not describe the architecture, protocols and algorithm in detail; for that, see the tutorial collection <a href="/archives/4.2.8-series/warp/">How NTP Works</a>.</p>
+<p>This document contains an overview and functional description of the Network Time Protocol (NTP), which is used to synchronize computer clocks in the Internet to a common timescale. The discussion is intended for site managers and administrators as well as technical planning and support staff. This document does not describe the architecture, protocols and algorithm in detail; for that, see the tutorial collection <a href="/documentation/4.2.8-series/warp/">How NTP Works</a>.</p>
 <p>The standard timescale used by most nations of the world is Coordinated Universal Time (UTC), which is based on the Earth&rsquo;s rotation about its axis, and the Gregorian Calendar, which is based on the Earth&rsquo;s rotation about the Sun. The UTC timescale is disciplined with respect to International Atomic Time (TAI) by inserting leap seconds at intervals of about 18 months. UTC time is disseminated by various means, including radio and satellite navigation systems, telephone modems and portable clocks. Insertion of leap seconds in the NTP and POSIX timescale is discussed in the white paper <a href="/reflib/leap/">The NTP Timescale and Leap Seconds</a>.</p>
 <p>Special purpose receivers are available for many time-dissemination services, including the Global Position System (GPS) and other services operated by various national governments. For reasons of cost and convenience, it is not possible to equip every computer with one of these receivers. However, it is possible to equip some number of computers acting as primary time servers to synchronize a much larger number of secondary servers and clients connected by a common network. In order to do this, a distributed network clock synchronization protocol is required which can read a server clock, transmit the reading to one or more clients and adjust each client clock as required. Protocols that do this include the Network Time Protocol (NTP), IEEE 1588 Precision Time Protocol (PTP), Digital Time Synchronization Service (DTSS), and others found in the literature (See <a href="/reflib/exec/#further-reading/">Further Reading</a>).</p>
 <hr>

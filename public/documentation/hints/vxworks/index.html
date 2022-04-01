@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+  
+  <meta name="description" content="Last update: 21-Oct-2010 23:44 UTC
+Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to …">
+<meta property="og:title" content="vxWorks port" />
+<meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
+Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where main() is not allowed, and where the configure scripts need to be altered.
+ Configuration issues I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/vxworks/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>vxWorks port</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/hints/vxworks/">vxWorks port</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>vxWorks port</h1>
+     
+    <p>Last update: 21-Oct-2010 23:44 UTC</p>
+<p>Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where <code>main()</code> is not allowed, and where the configure scripts need to be altered.</p>
+<hr>
+<h4 id="configuration-issues">Configuration issues</h4>
+<p>I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree. The following changes were needed; as a side effect these changes will allow for easy porting of other autoconfigure-enabled code.</p>
+<p>Where I have <code>386</code> you will need to put in your target type. The vxWorks tree entry point is <code>/usr/wind</code>. If these are the same for your system, you should be able to cut and paste the changes.</p>
+<blockquote>
+<p><strong>WARNING:</strong> Check you are not overwriting files, before entering the following: there should be no conflict, but check first.</p>
+</blockquote>
+<pre>            export CC="cc386 -nostdlib -m486 -DCPU=I80486 -I/usr/wind/target/h"
+            export RANLIB=ranlib386
+            export AR=ar386
+            export VX_KERNEL=/usr/wind/target/config/ims_std_bsp/vxWorks
+
+            cd /usr/wind/target/sys
+            ln -s ../signal.h
+            ln -s ../time.h
+            ln -s socket.h sockio.h
+            ln -s ../selectLib.h select.h
+            ln -s ../timers.h
+            touch file .h param.h resource.h utsname.h var.h ../netdb.h ../a.out.h ../termios.h
+         echo " ******ADD #include \"sys/times.h\" to sys/time.h "
+            </pre>
+<p>The configure script must be changed in the following way to get the linking tests to work; once in the correct directory issue the following commands:</p>
+<pre>      sed -e 's%main.*()%vxmain()%' configure > configure.vxnew
+            mv configure.vxnew configure
+            chmod 755 configure
+      </pre>
+<p>The new version 4 of NTP requires some <code>maths</code> functions so it links in the <code>maths</code> library (<code>-lm</code>). In the <code>./ntpd/Makefile.am</code> file change the line <code>ntpd_LDADD = $(LDADD) -lm</code> by removing the <code>-lm</code>.</p>
+<p>You are now ready to compile.</p>
+<p>The <code>./configure.in</code> file needs to be altered to allow for a host-target configuration to take place.</p>
+<ul>
+<li>The define <code>SYS_VXWORKS</code> was added to the compilation flags.</li>
+<li>Little endianess is set if the target is of type <code>iX86</code>.</li>
+<li>The size of <code>char, integer, long</code> values are all set. If Wind River ever changes these values they will need to be updated.</li>
+<li><code>clock_settime()</code> is defined to be used for setting the clock.</li>
+<li>The <code>Linking</code> flags have <code>-r</code> added to allow for relinking into the vxWorks kernel.</li>
+</ul>
+<p>Unfortunately I have had to make use of the <code>./include/ntp_machine.h</code> file to add in the checks that would have been checked at linking stage by <code>autoconf</code>, a better method should be devised.</p>
+<ul>
+<li>There is now a <code>NO_MAIN_ALLOWED</code> define that simulates command line args, this allows the use of the normal startup syntax.</li>
+<li>POSIX timers have been added.</li>
+<li>Structures normally found in <code>netdb.h</code> have been added; the corresponding code is in <code>./libntp/machines.c</code>. Where possible the defines for these have been kept non-vxWorks specific.</li>
+</ul>
+<p>Unfortunately there are still quite a few <code>SYS_VXWORKS</code> type defines in the source, but I have eliminated as many as possible. You have the choice of using the <code>usrtime.a</code> library available from the vxworks archives or forgoing <code>adjtime()</code> and using the <code>clock_[get|set]time()</code>. The <code>./include/ntp_machine.h</code> file clearly marks how to do this.</p>
+<hr>
+<h4 id="compilation-issues">Compilation issues</h4>
+<p>You will need <code>autoconf</code> and <code>automake</code> &hellip; available free from the gnu archives worldwide.</p>
+<p>The variable <code>arch</code> is the target architecture (e.g. <code>i486</code>):</p>
+<pre>            mkdir A.vxworks
+            cd A.vxworks
+            ../configure --target=arch-wrs-vxworks
+            make
+       </pre>
+<p>Options I normally use are the <code>--disable-all-clocks --enable-LOCAL-CLOCK</code> flags. The program should proceed to compile without problem. The daemon <code>ntpd</code>, the <code>ntpdate, ntptrace, ntpdc, ntpq</code> programs, and of course the libraries are all fully ported. The other utilities are not, but they should be easy to port.</p>
+<hr>
+<h4 id="running-the-software">Running the software</h4>
+<p>Load in the various files, call them in the normal vxWorks function type manner. Here are some examples. Refer to the man pages for further information.</p>
+<pre>            ld < ntpdate/ntpdate
+            ld < ntpd/ntpd
+            ld < ntptrace/ntptrace
+            ld < ntpq/ntpq
+            ld < ntpdc/ntpdc
+            ntpdate ("-b", "192.168.0.245")
+            sp(ntpd, "-c", "/export/home/casey/ntp/ntp.conf")
+            ntpdc("-c", "monlist", "192.168.0.244")
+            ntpq("-c", "peers", "192.168.0.244")
+            ntptrace("192.168.0.244")
+        </pre>
+<p>Casey Crellin, <a href="mailto:casey@csc.co.za">casey@csc.co.za</a></p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+  
+  <meta name="description" content="Last update: 10-Mar-2014 05:22 UTC
+
+The clock select algorithm determines from a set of sources , which are correct (truechimers) and which are not ( …">
+<meta property="og:title" content="Clock Select Algorithm" />
+<meta property="og:description" content="Last update: 10-Mar-2014 05:22 UTC
+ The clock select algorithm determines from a set of sources , which are correct (truechimers) and which are not (falsetickers) according to a set of formal correctness assertions. The principles are based on the observation that the maximum error in determining the offset of a candidate cannot exceed one-half the roundtrip delay to the primary reference clock at the time of measurement. This must be increased by the maximum error that can accumulate since then." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/select/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Clock Select Algorithm</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/4.2.8-series/select/">Clock Select Algorithm</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Clock Select Algorithm</h1>
+     
+    <p>Last update: 10-Mar-2014 05:22 UTC</p>
+<hr>
+<p>The clock select algorithm determines from a set of sources , which are correct (<em>truechimers</em>) and which are not (<em>falsetickers</em>) according to a set of formal correctness assertions. The principles are based on the observation that the maximum error in determining the offset of a candidate cannot exceed one-half the roundtrip delay to the primary reference clock at the time of measurement. This must be increased by the maximum error that can accumulate since then. The selection metric, called the <em>root distance</em>, is one-half the roundtrip root delay plus the root dispersion plus minor error contributions not considered here.</p>
+<p>First, a number of sanity checks is performed to sift the selectable candidate from among the source population. The sanity checks are sumarized as follows:.</p>
+<ol>
+<li>
+<p>A <em>stratum error</em> occurs if (1) the source had never been synchronized or (2) the stratum of the source is below the <code>floor</code> option or not below the <code>ceiling</code> option of the <a href="/documentation/4.2.8-series/miscopt/"><code>tos</code></a> command. The default values for these options are 0 and 15, respectively.</p>
+<blockquote>
+<p>Note that 15 is a valid stratum, but a server operating at that stratum cannot synchronize clients.</p>
+</blockquote>
+</li>
+<li>
+<p>A <em>distance error</em> occurs for a source if the root distance (also known as synchronization distance) of the source is not below the distance threshold <code>maxdist</code> option of the <a href="/documentation/4.2.8-series/miscopt/"><code>tos</code></a> command. The default value for this option is 1.5 s for networks including only the Earth, but this should be increased to 2.5 s for networks including the Moon.</p>
+</li>
+<li>
+<p>A <em>loop</em> <em>error</em> occurs if the source is synchronized to the client. This can occur if two peers are configured with each other in symmetric modes.</p>
+</li>
+<li>
+<p>An <em>unreachable</em> <em>error</em> occurs if the source is unreachable or if the <code>server</code> or <code>peer</code> command for the source includes the <code>noselect</code> option.</p>
+</li>
+</ol>
+<p>Sources showing one or more of these errors are considered nonselectable; only the selectable candidates are considered in the following algorithm. Given the measured offset <code>θ<sub>0</sub></code> and root distance <code>λ</code>, this defines a <em>correctness interval</em> <code>[θ<sub>0</sub> − λ, θ<sub>0</sub> + λ]</code> of points where the true value of <code>θ</code> lies somewhere on the interval. The given problem is to determine from a set of correctness intervals, which represent truechimers and which represent falsetickers. The principles must be given a precise definition. The <em>intersection interval</em> is the <em>smallest interval containing points from the largest number of correctness intervals.</em> An algorithm that finds the intersection interval was devised by Keith Marzullo in his doctoral dissertation. It was first implemented in the Digital Time Synchronization Service (DTSS) for the VMS operating system for the VAX.</p>
+<p>While the NTP algorithm is based on DTSS, it remains to establish which point in the correctness interval represents the best estimate of the offset for each candidate. The best point is at the midpoint <code>θ<sub>0</sub></code> of the correctness interval; however, the midpoint might not be within the intersection interval. A candidate with a correctness interval that contains points in the intersection interval is a truechimer and the best offset estimate is the midpoint of its correctness interval. A candidate with a correctness interval that contains no points in the intersection interval is a falseticker.</p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/flt3.gif" alt="gif"  />
+</p></p>
+<p><strong>Figure 1: Intersection Interval</strong></p>
+<p>Figure 1 shows correctness intervals for each of four candidates A, B, C and D. We need to find the maximum number of candidates that contain points in common. The result is the interval labeled DTSS. In the figure there are three truechimers A, B and C, and one falseticker D. In DTSS any point in the intersection interval can represent the true time; however, as shown below, this may throw away valuable statistical information. In any case, the clock is considered correct if the number of truechimers found in this way are greater than half the total number of candidates.</p>
+<p>The question remains, which is the best point to represent the true time of each correctness interval? Fortunately, we already have the maximum likelihood estimate at the midpoint of each correctness interval. But, while the midpoint of candidate C is outside the intersection interval, its correctness interval contains points in common with the intersection interval, so the candidate is a truechimer and the midpoint is chosen to represent its time.</p>
+<p>The DTSS correctness assertions do not consider how best to represent the truechimer time. To support the midpoint choice, consider the selection algorithm as a method to reject correctness intervals that cannot contribute to the final outcome; that is, they are falsetickers. The remaining correctness intervals can contribute to the final outcome; that is, they are truechimers. Samples in the intersection interval are usually of very low probability and thus poor estimates for truechimer time. On the other hand, the midpoint sample produced by the clock filter algorithm is the maximum likelihood estimate and thus best represents the truechimer time.</p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/flt6.gif" alt="gif"  />
+</p></p>
+<p><strong>Figure 2: Clock Select Algorithm</strong></p>
+<p>The algorithm operates as shown in Figure 2. Let <code><em>m</em></code> be the number of candidates and <code><em>f</em></code> the number of falsetickers, initially zero. Move a pointer from the leftmost endpoint towards the rightmost endpoint in Figure 1 and count the number of candidates, stopping when that number reaches <code><em>m</em> − <em>f</em></code>; this is the left endpoint of the intersection interval. Then, do the same, but moving from the rightmost endpoint towards the leftmost endpoint; this is the right endpoint of the intersection interval. If the left endpoint is less than the right endpoint, the intersection interval has been found. Otherwise, increase <code><em>f</em></code> by 1. If <code><em>f</em></code> is less than <code><em>n</em> / 2</code>, try again; otherwise, the algorithm fails and no truechimers could be found.</p>
+<p>The clock select algorithm again scans the correctness intervals. If the right endpoint of the correctness interval for a candidate is greater than the left endpoint of the intersection interval, or if the left endpoint of the correctness interval is less than the right endpoint of the intersection interval, the candidate is a truechimer; otherwise, it is a falseticker.</p>
+<p>In practice, with fast LANs and modern computers, the correctness interval can be quite small, especially when the candidates are multiple reference clocks. In such cases the intersection interval might be empty, due to insignificant differences in the reference clock offsets. To avoid this, the size of the correctness interval is padded to the value of <code>mindist</code>, with default 1 ms. This value can be changed using the <code>mindist</code> option of the <a href="/documentation/4.2.8-series/miscopt/"><code>tos</code></a> command.</p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

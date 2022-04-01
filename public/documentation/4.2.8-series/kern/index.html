@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+  
+  <meta name="description" content="
+  
+ from Pogo, Walt Kelly
+Alice finds the kernel a house of cards.
+Last update: 10-Mar-2014 05:10 UTC
+
+The technical report 2, which is a revision …">
+<meta property="og:title" content="Kernel Model for Precision Timekeeping" />
+<meta property="og:description" content="from Pogo, Walt Kelly
+Alice finds the kernel a house of cards.
+Last update: 10-Mar-2014 05:10 UTC
+ The technical report 2, which is a revision and update of an earlier report 3, describes an engineering model for a precision clock discipline function for a generic operating system. The model is the same hybrid phase/frequecy-lock feedback loop used by ntpd, but implemented in the kernel. The code described in 2 is included in Solaris and Digital/Compaq/HP Tru64." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/kern/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Kernel Model for Precision Timekeeping</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/4.2.8-series/kern/">Kernel Model for Precision Timekeeping</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Kernel Model for Precision Timekeeping</h1>
+     
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/alice61.gif" alt="gif"  />
+</p> <a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+<p>Alice finds the kernel a house of cards.</p>
+<p>Last update: 10-Mar-2014 05:10 UTC</p>
+<hr>
+<p>The technical report <sup><a href="#myfootnote2">2</a></sup>, which is a revision and update of an earlier report <sup><a href="#myfootnote3">3</a></sup>, describes an engineering model for a precision clock discipline function for a generic operating system. The model is the same hybrid phase/frequecy-lock feedback loop used by <code>ntpd</code>, but implemented in the kernel. The code described in <sup><a href="#myfootnote2">2</a></sup> is included in Solaris and Digital/Compaq/HP Tru64. It provides two system calls <code>ntp_gettime()</code> and <code>ntp_adjtime()</code> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup><a href="#myfootnote1">1</a></sup> is in FreeBSD, Linux and Tru64. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available in the <a href="/reflib/software/nanokernel.tar.gz">nanokernel.tar.gz</a> distribution.</p>
+<p>Ordinarily, the kernel clock discipline function is used with the NTP daemon, but could be used for other purposes. The <a href="/documentation/4.2.8-series/ntptime/"><code>ntptime</code></a> utility program can be used to control it manually.</p>
+<p>The kernel model also provides support for an external precision timing source, such as described in the <a href="/documentation/4.2.8-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. The new system calls are used by the <a href="/documentation/4.2.8-series/kernpps/">PPSAPI interface</a> and in turn by the <a href="/documentation/drivers/driver22/">PPS Clock Discipline</a> driver (type 22) to provide synchronization limited in principle only by the accuracy and stability of the external timing source. Typical results with the PPS signal from a GPS receiver and a modern computer are in the 3 μs range.</p>
+<h4 id="footnotes">Footnotes</h4>
+<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="/reflib/papers/nano/nano2.ps">PostScript</a> | <a href="/reflib/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="/reflib/brief/nano/nano.ps">PostScript</a> | <a href="/reflib/brief/nano/nano.pdf">PDF</a> | <a href="/reflib/brief/nano/nano.ppt">PowerPoint</a></p>
+<p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="/reflib/reports/kern/kerna.ps">PostScript</a> | <a href="/reflib/reports/kern/kerna.pdf">PDF</a>, Body: <a href="/reflib/reports/kern/kernb.ps">PostScript</a> | <a href="/reflib/reports/kern/kernb.pdf">PDF</a></p>
+<p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="/reflib/rfc/rfc1589.txt">ASCII</a></p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

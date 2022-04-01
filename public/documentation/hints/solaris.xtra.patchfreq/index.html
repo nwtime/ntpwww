@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+  
+  <meta name="description" content="#!/bin/ksh
+
+#
+# File:         patchfreq
+# Author:       Bryan Cantrill (bmc@eng.sun.com), Solaris Performance
+# Modified:     Sat Apr 26 04:00:59 PDT …">
+<meta property="og:title" content="Solaris frequency patch" />
+<meta property="og:description" content="#!/bin/ksh # # File: patchfreq # Author: Bryan Cantrill (bmc@eng.sun.com), Solaris Performance # Modified: Sat Apr 26 04:00:59 PDT 1997 # # This is a little script to patch a 5.5 or 5.5.1 kernel to get around # the cpu_tick_freq inaccuracy. Before running this script, one must # know the true frequency of one&#39;s CPU; this can be derived by NTP, # or by observing the clock relative to the time-of-day chip over a # long period of time (the TOD will pull system time when it drifts # by more than two seconds)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/solaris.xtra.patchfreq/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Solaris frequency patch</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/hints/solaris.xtra.patchfreq/">Solaris frequency patch</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Solaris frequency patch</h1>
+     
+    <pre>#!/bin/ksh
+
+#
+# File:         patchfreq
+# Author:       Bryan Cantrill (bmc@eng.sun.com), Solaris Performance
+# Modified:     Sat Apr 26 04:00:59 PDT 1997
+#
+# This is a little script to patch a 5.5 or 5.5.1 kernel to get around
+# the cpu_tick_freq inaccuracy.  Before running this script, one must
+# know the true frequency of one's CPU;  this can be derived by NTP,
+# or by observing the clock relative to the time-of-day chip over a
+# long period of time (the TOD will pull system time when it drifts
+# by more than two seconds).
+#
+# Patching a kernel can render a machine unbootable;  do not run this
+# script unless you are prepared to accept that possibility.  It
+# is advisable to have a backout path (e.g. net booting, an alternate
+# boot disk, an installation CD) should your machine fail to boot.
+#
+# This is not a product of Sun Microsystems, and is provided "as is",
+# without warranty of any kind expressed or implied including, but not
+# limited to, the suitability of this script for any purpose.
+#
+
+if [ $# -eq 0 ]; then
+        echo "Usage:  $0 cpu_tick_freq [ alternate_kernel ]"
+        exit 1
+fi
+
+cpu_tick_freq=$1
+kernel=/platform/sun4u/kernel/unix
+
+if [ $# -eq 2 ]; then
+        kernel=$2
+fi
+
+if [ ! -w $kernel ]; then
+        echo "$0:  Cannot open $kernel for writing."
+        exit 1
+fi
+
+arch=`echo utsname+404?s | adb $kernel | cut -d: -f2`
+
+if [ ! $arch = "sun4u" ]; then
+        echo "Patch only applies to sun4u"
+        exit 1
+fi
+
+rel=`echo utsname+202?s | adb $kernel | cut -d: -f2`
+
+if [ ! $rel = "5.5" ] && [ ! $rel = "5.5.1" ]; then
+        echo "Patch only applies to 5.5 or 5.5.1..."
+        exit 1
+fi
+
+nop="1000000"           # nop
+store_mask="ffffe000"   # mask out low 13 bits
+store="da256000"        # st      %o5, [%l5 + offset]
+
+instr=`echo setcpudelay+34?X | adb $kernel | cut -d: -f 2 | nawk '{ print $1 }'`
+
+if [ $instr = $nop ]; then
+        echo "Instruction already patched..."
+else
+        let masked="(16#$store_mask & 16#$instr) - 16#$store"
+        if [ $masked -ne 0 ]; then
+                echo "Couldn't find instruction to patch;  aborting."
+                exit 1
+        fi
+
+        if ! echo setcpudelay+34?W $nop | adb -w $kernel 1> /dev/null
+        then
+                echo "adb returned an unexpected error;  aborting."
+        fi
+fi
+
+echo "Patching cpu_tick_freq to $cpu_tick_freq..."
+
+if ! echo cpu_tick_freq?W 0t$cpu_tick_freq | adb -w $kernel 1> /dev/null; then
+        echo "adb returned an unexpected error;  aborting."
+        exit 1
+fi
+
+echo "$kernel successfully patched."
+exit 0
+
+</pre><blockquote>
+</blockquote>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

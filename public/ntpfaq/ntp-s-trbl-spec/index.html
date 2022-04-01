@@ -45,7 +45,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -195,7 +195,7 @@
 <h4 id="8342-why-does-my-dcf77-receiver-not-get-power-from-the-serial-port">8.3.4.2 Why does my DCF77 Receiver not get Power from the serial Port?</h4>
 <p>Somewhere in the code cleanup between NTPv3 and NTPv4, the code to set the modem lines of the serial port got lost. The port has to be set up in a special way to provide power to the receiver.</p>
 <p>For my receiver the command <code>setserialbits /dev/refclock-0 -rts</code> turns on power while <code>ntpd</code> is running. Some receivers care about polarity, some don&rsquo;t. You might try substituting <code>-rts</code> with <code>-dtr</code>.</p>
-<p>For the <a href="/archives/drivers/driver8/">RAWDCF PARSE driver</a> there is a <code>mode 14</code>, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.</p>
+<p>For the <a href="/documentation/drivers/driver8/">RAWDCF PARSE driver</a> there is a <code>mode 14</code>, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.</p>
 <hr>
 <h4 id="835-oncore-compatibles">8.3.5 Oncore Compatibles</h4>
 <h4 id="8351-will-the-m12-work-with-the-oncore-driver">8.3.5.1 Will the M12 work with the Oncore driver?</h4>
@@ -203,7 +203,7 @@
 <p><a href="mailto:mark.martinec@ijs.si">Mark Martinec</a> contributed: &ldquo;I just stumbled across the specs of the 12-channel GPS receiver Motorola Oncore M12. Its acquisition time (time to first fix) for cold start is less than 60 seconds typical.</p>
 <hr>
 <h4 id="8352-why-is-the-ut-reporting-clk_noreply">8.3.5.2 Why is the UT+ reporting clk_noreply?</h4>
-<p>According to the documentation <a href="/archives/drivers/driver30/">driver 30</a> should work for the UT+ &ldquo;as long as they support the Motorola Binary Protocol&rdquo;. Furthermore the documentation recommends: &ldquo;When first starting to use the driver you should definitely review the information written to the <code>clockstats</code> file to verify that the driver is running correctly.&rdquo;</p>
+<p>According to the documentation <a href="/documentation/drivers/driver30/">driver 30</a> should work for the UT+ &ldquo;as long as they support the Motorola Binary Protocol&rdquo;. Furthermore the documentation recommends: &ldquo;When first starting to use the driver you should definitely review the information written to the <code>clockstats</code> file to verify that the driver is running correctly.&rdquo;</p>
 <p>Unfortunately some essential documentation can only be found in the source file (<code>ntpd/refclock_oncore.c</code>). Some anonymous person wrote in news://comp.protocols.time.ntp:</p>
 <p>(&hellip;) When the GPS is in (navigation mode), the driver simply discards the timestamp, resulting in the <code>clk_noreply</code>. The clock <em>did</em> indeed reply, but the driver just threw it away with no messages to inform me about what it was doing.</p>
 <p>(&hellip;) yes, the GPS is indeed in Navigation mode. The Oncore driver <em>does</em> change the mode, even though the code comment quoted above says &ldquo;don&rsquo;t do anything to change it&rdquo; (mode <code>0</code>).</p>

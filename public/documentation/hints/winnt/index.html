@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+  
+  <meta name="description" content="Last update: 6-Apr-2014 23:27
+
+Introduction
+The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, …">
+<meta property="og:title" content="Windows NT" />
+<meta property="og:description" content="Last update: 6-Apr-2014 23:27
+ Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from Meinberg." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/winnt/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Windows NT</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/hints/winnt/">Windows NT</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Windows NT</h1>
+     
+    <p>Last update: 6-Apr-2014 23:27</p>
+<hr>
+<h4 id="introduction">Introduction</h4>
+<p>The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from <a href="https://www.meinbergglobal.com/english/sw/ntp.htm">Meinberg</a>.</p>
+<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
+<hr>
+<h4 id="authentication-keys">Authentication Keys</h4>
+<p>With this release <code>ntp-keygen</code> is supported. See the <a href="/documentation/4.2.8-series/keygen/">ntp keygen documentation</a> for details on how to use <code>ntp-keygen</code>.</p>
+<p><code>ntpd</code> can now use the generated keys in the same way as on Unix platforms. Please refer to the <a href="/documentation/4.2.8-series/authopt/">Authentication Options</a> for details on how to use these.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <code>ntpd</code> and <code>ntp-keygen</code> both use OpenSSL which requires a random character file called <code>.rnd</code> by default. Both of these programs will automatically generate this file if they are not found. The programs will look for an environmental variable called <code>RANDFILE</code> and use that for the name of the random character file if the variable exists. If it does not exist it will look for an environmental variable called <code>HOME</code> and use that directory to search for a file called <code>.rnd</code> in that directory. Finally, if neither <code>RANDFILE</code> nor <code>HOME</code> exists it will look in <code>C:\</code> for a <code>.rnd</code> file. In each case it will search for and create the file if the environmental variable exists or in the <code>C:\</code> directory if it doesn&rsquo;t.</p>
+</blockquote>
+<p>Note that <code>ntpd</code> normally runs as a service so that the only way that it will have either <code>RANDFILE</code> or <code>HOME</code> defined is if it is a System environmental variable or if the service is run under a specific account name and that account has one of those variables defined. Otherwise it will use the file <code>c:\.rnd</code>. This was done so that OpenSSL will work normally on Win32 systems. This obviates the need to ship the <code>OpenSSL.exe</code> file and explain how to generate the <code>.rnd</code> file. A future version may change this behavior.</p>
+<p>Refer to <a href="#compiling-requirements">Compiling Requirements and Instructions</a> for how to compile the program.</p>
+<hr>
+<h4 id="reference-clocks">Reference Clocks</h4>
+<p>Reference clock support under Windows NT is tricky because the IO functions are so much different. Some of the clock types have been built into the <code>ntpd</code> executable and should work but have not been tested by the NTP project. If you have a clock that runs on Win32 and the driver is there but not implemented on Win32 you will have make the required configuration changes in <code>config.h</code> and then build <code>ntpd</code> from source and test it. The <a href="/documentation/drivers/driver1/">Undisciplined Local Clock (Type 1)</a> reference clock is known to work and is supported by Windows NT.</p>
+<hr>
+<h4 id="functions-supported">Functions Supported</h4>
+<p>All NTP functions are supported with some constraints. See the <a href="#todo">TODO</a> list below. Note that the <code>ntptrace</code> executable is not supported and you should use the PERL script version instead.</p>
+<hr>
+<h4 id="accuracy">Accuracy</h4>
+<p>Greg Brackley has implemented a fantastic interpolation scheme that improves the precision of the NTP clock using a realtime thread (is that poetic or what!) which captures a tick count from the 8253 counter after each OS tick. The count is used to interpolate the time between operating system ticks.</p>
+<p>On a typical 200+ MHz system NTP achieves a precision of about 5 microseconds and synchronizes the clock to +/-500 microseconds using the <a href="/documentation/drivers/driver29/">Trimble Palisade</a> as UTC reference. This allows distributed applications to use the 10 milliseconds ticks available to them with high confidence.</p>
+<hr>
+<h4 id="todo">ToDo</h4>
+<p>These tasks are in no particular order of priority.</p>
+<ul>
+<li>Add IPv6 support (UPDATE: available in newer binaries from Meinberg).</li>
+<li>See if precision can be improved by using CPU cycle counter for tick interpolation.</li>
+<li>Make precision time available to applications using <code>NTP_GETTIME API</code>.</li>
+</ul>
+<hr>
+<h4 id="compiling-requirements">Compiling Requirements</h4>
+<ul>
+<li>Windows 7 or Windows.NET Server 2003, or later.</li>
+<li>Windows NT 4.0 Windows 2000, Windows XP or Windows Vista <em>may</em> still work.</li>
+<li>Microsoft Visual C++ 2008, 2010, or 2013 EE.</li>
+<li>Some way of uncompressing and untarring the gzipped tar file.</li>
+<li>OpenSSL must be built on the box before building NTP. Additional steps would be required to not use OpenSSL.</li>
+<li>Microsoft Visual C++ redistributables.</li>
+</ul>
+<h4 id="compiling-instructions">Compiling Instructions</h4>
+<ol>
+<li>
+<p>Install Microsoft Visual C++ <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">redistributables</a>.</p>
+</li>
+<li>
+<p>Install <a href="https://slproweb.com/products/Win32OpenSSL.html">OpenSSL full installer for Windows</a>. Add the following to your system environment variables in the control panel (adjusting paths as appropriate to point to the directory containing only an openssl subdirectory, for <code>OPENSSL_INC</code>, and to the directory containing <code>openssl .lib</code> files for <code>OPENSSL_LIB:</code></p>
+<pre><code> OPENSSL_INC=C:\OpenSSL\include
+ OPENSSL_LIB=C:\OpenSSL\lib
+</code></pre>
+</li>
+<li>
+<p>Unpack the <code>NTP-4.x.tar.gz</code> using utilities such as WinZip or WinRar.</p>
+</li>
+<li>
+<p>Run Microsoft Visual C++ 2008 EE.</p>
+</li>
+<li>
+<p>Open the <code>ports\winnt\vs2008\ntp.sln</code> solution file.</p>
+</li>
+<li>
+<p>Batch build all projects (Build menu, Batch Build&hellip;, select all, build).</p>
+</li>
+<li>
+<p>The built binaries can be found in the <code>ports\winnt\v2008\Win32-bin\Release</code> directory.</p>
+</li>
+<li>
+<p>If you are shipping binaries in a kit it is strongly recommended that you ship this file along with the binaries.</p>
+</li>
+</ol>
+<hr>
+<h4 id="configuration-file">Configuration File</h4>
+<p>The default NTP configuration file path is <code>%SystemRoot%\system32\drivers\etc\</code>. <code>%SystemRoot%</code> is an environmental variable that can be determined by typing <code>set</code> at the <kbd>Command Prompt</kbd> or from the <kbd>System</kbd> icon in the <kbd>Control Panel</kbd>.</p>
+<p>Refer to your system environment and create your <code>ntp.conf</code> file in the directory corresponding to your system  installation. The older <code>&lt;WINDIR&gt;\ntp.conf</code> is still supported but you will get a log entry reporting that the first file wasn&rsquo;t found.</p>
+<hr>
+<h4 id="installation-instructions">Installation Instructions</h4>
+<p>The <code>instsrv</code> program in the <code>instsrv</code> subdirectory of the distribution can be used to install <code>ntpd</code> as a service and start automatically at boot time. <code>instsrv</code> is automatically compiled with the rest of the distribution if you followed the steps above.</p>
+<ol>
+<li>
+<p>Start a command prompt and enter <code>instsrv.exe &lt;pathname_for_ntpd.exe&gt;</code>.</p>
+</li>
+<li>
+<p>Clicking on the <kbd>Services</kbd> icon in the <kbd>Control Panel</kbd> will display the list of currently installed services in a dialog box. The NetworkTimeProtocol service should show up in this list. Select it in the list and hit the <kbd>Start</kbd> button in the dialog box. The NTP service should start.</p>
+</li>
+<li>
+<p>You can also stop and start the service by typing <code>net start | stop NetworkTimeProtocol</code> at the DOS prompt.</p>
+</li>
+<li>
+<p>View the event log by clicking on the <kbd>Event Viewer</kbd> icon in the <kbd>Administrative Tools</kbd> group, there should be several successful startup messages from NTP. NTP will keep running and restart automatically when the machine is rebooted.</p>
+</li>
+</ol>
+<p>You can change the start mode (automatic/manual) and other startup parameters corresponding to the NTP service in the <kbd>Services</kbd> dialog box if you wish.</p>
+<hr>
+<h4 id="removing-ntp">Removing NTP</h4>
+<p>You can also use <code>instsrv</code> to delete the NTP service by entering: <code>instsrv.exe remove</code>.</p>
+<hr>
+<h4 id="command-line-parameters-and-registry-entries">Command Line Parameters and Registry Entries</h4>
+<p>Unlike the Unix environment, there is no clean way to run <code>ntpdate</code> and reset the clock before starting <code>ntpd</code> at boot time. NTP will step the clock up to 1000 seconds by default. While there is no reason that the system clock should be that much off during bootup if <code>ntpd</code> was running before, you may wish to override this default and/or pass other command line directives.</p>
+<p>Use the registry editor to edit the value for the <code>ntpd</code> executable under <code>LocalMachine\System\CurrentControlSet\Services\NTP</code>.</p>
+<p>Add the <code>-g</code> option to the <code>ImagePath</code> key, behind <code>%INSTALLDIR&gt;\ntpd.exe</code>. This will force NTP to accept large time errors (including 1.1.1980 00:00).</p>
+<hr>
+<h4 id="bug-reports">Bug Reports</h4>
+<p>Please follow the <a href="/documentation/4.2.8-series/bugs/">NTP Bug Reporting Procedures</a> to report bugs or request enhancements.</p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

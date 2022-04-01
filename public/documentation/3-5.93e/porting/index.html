@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
+
+  
+  <meta name="description" content="
+
+
+NOTE
+
+    The following procedures have been replaced by GNU automake and autoconfigure. This page is to be updated in the next release. …">
+<meta property="og:title" content="Porting Hints" />
+<meta property="og:description" content="NOTEThe following procedures have been replaced by GNU automake and autoconfigure. This page is to be updated in the next release.Porting to a new machine or operating system ordinarily requires updating the ./machines directory and the ./compilers directories in order to define the build environment and autoconfigure means. You will probably have to modify the ntp_machines.h file and l_stdlib.h files as well. The two most famous trouble spots are the I/O code in ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/3-5.93e/porting/" /><meta property="article:section" content="documentation" />
+
+<meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Porting Hints</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" id="dropdownMenu2" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation">Documentation</a>
+        </button>
+      
+    </div>
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/3-5.93e/">3-5.93e</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/3-5.93e/porting/">Porting Hints</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Porting Hints</h1>
+     
+    
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">NOTE</h4>
+
+    The following procedures have been replaced by GNU <code>automake</code> and <code>autoconfigure</code>. This page is to be updated in the next release.
+
+</div>
+
+<p>Porting to a new machine or operating system ordinarily requires updating the <code>./machines</code> directory and the <code>./compilers</code> directories in order to define the build environment and autoconfigure means. You will probably have to modify the <code>ntp_machines.h</code> file and <code>l_stdlib.h</code> files as well. The two most famous trouble spots are the I/O code in <code>./xntpd/ntp_io.c</code> and the clock adjustment code in <code>./xntpd/ntp_unixclock.c</code>.</p>
+<p>These are the rules so that older bsd systems and the POSIX standard system can coexist together.</p>
+<ol>
+<li>
+<p>If you use <code>select</code> then include <code>ntp_select.h</code>. <code>select</code> is not standard, since it is very system dependent as to where it is defined. The logic to include the right system dependent include file is in <code>ntp_select.h</code>.</p>
+</li>
+<li>
+<p>Always use POSIX definition of strings. Include <code>ntp_string.h</code> instead of <code>&lt;string.h&gt;</code>.</p>
+</li>
+<li>
+<p>Always include <code>ntp_malloc.h</code> if you use <code>malloc</code>.</p>
+</li>
+<li>
+<p>Always include <code>ntp_io.h</code> instead of <code>&lt;sys/file.h&gt;</code> or <code>&lt;fnctl.h&gt;</code> to get <code>O_*</code> flags.</p>
+</li>
+<li>
+<p>Always include <code>ntp_if.h</code> instead of <code>&lt;net/if.h&gt;</code>.</p>
+</li>
+<li>
+<p>Always include <code>ntp_stdlib.h</code> instead of <code>&lt;stdlib.h&gt;</code>.</p>
+</li>
+<li>
+<p>Define any special defines needed for a system in <code>./include/ntp_machine.h</code> based on system identifier. This file is included by the <code>ntp_types.h</code> file and should always be placed first after the <code>&lt;&gt;</code> defines.</p>
+</li>
+<li>
+<p>Define any special library prototypes left over from the system library and include files in the <code>l_stdlib.h</code> file. This file is included by the <code>ntp_stdlib.h</code> file and should ordinarily be placed last in the includes list.</p>
+</li>
+<li>
+<p>Don&rsquo;t define a include file by the same name as a system include file.</p>
+</li>
+</ol>
+<p><code>l_stdlib.h</code> can contain any extra definitions that are needed so that <code>gcc</code> will shut up. They should be controlled by a system identifier and there should be a separate section for each system. Really this will make it easier to maintain.</p>
+<p>See <code>include/ntp_machines.h</code> for the various compile time options.</p>
+<p>When you are satisfied the port works and that other ports are not adversely affected, please send <a href="/documentation/3-5.93e/patches/">patches</a> for the system files you have changed, as well as any documentation that should be updated, including the advice herein.</p>
+<p>Good luck.</p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

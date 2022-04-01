@@ -5,6 +5,8 @@
 
   
   <meta name="description" content="
+  
+
 from Pogo, Walt Kelly
 If it walks like a duck&hellip;
 Last update: 12-May-2012
@@ -46,7 +48,7 @@ Last update: 12-May-2012
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -118,7 +120,9 @@ Last update: 12-May-2012
   <div class="container">
   	<h1>Analysis and Simulation of the NTP On-Wire Protocols</h1>
      
-    <p><img src="/archives/pic/pogo3a.gif" alt="gif"></p>
+    <p><p>
+  <img loading="lazy" src="/documentation/pic/pogo3a.gif" alt="gif"  />
+</p></p>
 <p>from <a href="/reflib/pictures/"><em>Pogo</em></a>, Walt Kelly</p>
 <p>If it walks like a duck&hellip;</p>
 <p>Last update: 12-May-2012</p>
@@ -160,7 +164,9 @@ Last update: 12-May-2012
 <hr>
 <h4 id="basic-symmetric-mode">Basic Symmetric Mode</h4>
 <p>Basic symmetric mode represents the current NTPv4 specification <a href="/reflib/rfc/rfc5905.txt">RFC 5905</a> supported by the reference implementation. Following is an example that illustrates typical operation in this mode starting from an unsynchronized condition.</p>
-<p><img src="/archives/pic/xlev5.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/xlev5.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 1. Basic Symmetric Mode</strong></p>
 <p>Figure 1 illustrates the most general case where symmetric peers A and B independently measure the offset and delay relative to the other. Each packet transmitted is shown as an arrow with the receive timestamp at the head and the transmit timestamp at the tail. The timestamps shown are after arrival or departure of a packet and may overwrite earlier values. The shaded boxes hold timestamps captured from the system clock. The other boxes hold values copied from them, other state variables or packet headers. Those timestamps with asterisks (<code>*</code>) are softstamps; those without are drivestamps.</p>
 <p>The figure shows three packet header variables, <code><em>t<sub>org</sub></em>, <em>t<sub>rec</sub></em></code> and <code><em>t<sub>xmt</sub></em></code>, and three state variables <code><em>org</em>, <em>rec</em></code> and <code><em>aorg</em></code>. By convention, timestamps are shown in upper case, while state variables are shown in lower case. The state machine operates as follows. When a packet arrives, the transmit softstamp <code><em>t<sub>xmt</sub></em></code> is copied to <code><em>rec</em></code> and the receive drivestamp to <code><em>dst</em></code>. When a packet departs, <code><em>rec</em></code> is copied to <code><em>t<sub>org</sub></em>, <em>dst</em></code> to <code><em>t<sub>rec</sub></em></code> and the transmit softstamp to <code><em>org</em></code> and <code><em>t<sub>xmt</sub></code>.</em> After the state variables have been updated, the timestamps are <code><em>T</em><sub>1</sub> = <em>t<sub>org</sub></em>, <em>T</em><sub>2</sub> = <em>t<sub>rec</sub></em>, <em>T</em><sub>3</sub> = <em>t<sub>xmt</sub></em></code>, and <code><em>T</em><sub>4</sub> = <em>dst</em></code>. Thus,</p>
@@ -184,7 +190,9 @@ Last update: 12-May-2012
 <hr>
 <h4 id="interleaved-symmetric-mode">Interleaved Symmetric Mode</h4>
 <p>In interleaved modes the transmit timestamp, here called a drivestamp, is captured after the packet has been sent, so it cannot be sent in the same packet. A solution for this is the two-step or interleaved protocol described in this section. In this variant the transmit drivestamp for one packet is actually transmitted in the immediately following packet. The trick, however, is to implement the interleaved protocol without changing the NTP packet header format, without compromising backwards compatibility and without compromising the error recovery properties. Following is a typical example of operation starting from an unsynchronized condition.</p>
-<p><img src="/archives/pic/xlev6.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/xlev6.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 2. Interleaved Symmetric Mode</strong></p>
 <p>Figure 2 illustrates a typical scenario involving peers A and B. Note that the receive (even-numbered) drivestamps are available immediately after the packet has been received, but the transmit (odd-numbered) drivestamps are available only after the packet has been sent.</p>
 <p>In contrast to the basic protocol, which requires one round to calculate offset and delay, the interleaved protocol requires two rounds. The round that begins at <code><em>T</em><sub>1</sub></code> is not complete until <code><em>T</em><sub>8</sub></code> and the round that begins at <code><em>T</em><sub>5</sub></code> is not complete until <em>T</em><sub>12</sub>. However, the rate of offset/delay calculations is the same as the basic protocol. The NTP packet header fields are the same in the interleaved protocol as in the basic protocol, but carry different values.</p>
@@ -206,7 +214,9 @@ Last update: 12-May-2012
 <p>The <a href="/reflib/ptp/">IEEE 1588 Precision Time Protocol (PTP)</a> master broadcasts a<code>Sync</code> message to the slaves, which capture the receive timestamp <code><em>T</em><sub>2</sub></code>. Immediately thereafter the master broadcasts a <code>Follow_up</code> message including the transmit timestamp of the <code>Sync</code> message <code><em>T</em><sub>1</sub></code>. Some time later each client separately sends a <code>Delay_req</code> message to the master and captures the transmit timestamp <code><em>T</em><sub>3</sub></code>. The master returns a <code>Delay_resp</code> message containing the receive timestamp <code><em>T</em><sub>4</sub></code> for the <code>Delay_req</code> message. The clients collect these fourtimestamps to calculate the offset and delay as in the NTP client/server protocol (1) with the offset sign inverted.</p>
 <p>The principal difference between the interleaved broadcast protocol and PTP is that the broadcast transmit drivestamp <code><em>T</em><sub>1</sub></code> is actually sent in the following broadcast message and the remaining timestamps are obtained by the same stateless protocol used in NTP client/server modes, although slightly modified.</p>
 <p>The interleaved protocol uses the same packet header format as the basic protocol, but includes the transmit drivestamp captured in the previous packet. While softstamps are not used in the interleaved protocol, they are included to support both basic and interleaved modes with the same packet stream, as well as to detect errors in the interleaved mode. When interleaved broadcast mode is not supported, the <code><em>t<sub>org</sub></em></code> and <code><em>t<sub>rec</sub></em></code> header fields are unused and ordinarily set to zero. When interleaved broadcast mode is supported, the clients will note that <code><em>t<sub>org</sub></em></code> is nonzero and switch to interleaved mode.</p>
-<p><img src="/archives/pic/xlev7.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/xlev7.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 3. Interleaved Broadcast Mode</strong></p>
 <p>Figure 3 shows a typical scenario where the clock is updated as each broadcast packet arrives at <code><em>T</em><sub>2</sub>, <em>T</em><sub>4</sub>, <em>T</em><sub>12</sub>,</code> and <code><em>T</em><sub>14</sub></code>. Note that the server B alternates between <code><em>aorg</em></code> and <code><em>borg</em></code> only in order to simplify the implementation when supporting the multiple modes described in this document, but otherwise this distinction is unimportant.</p>
 <p>The figure shows three packet header variables, <code><em>t<sub>org</sub></em>, <em>t<sub>rec</sub></em>,</code> and <code><em>t<sub>xmt</sub></em></code>, and four state variables, <code><em>rec</em>, <em>dst</em>, <em>aorg,</code></em> and <code><em>borg</em></code>. Although not shown, an additional state variable <code><em>b</em></code> is used as a switch and an additional state variable <code><em>d</em></code> is used as the computed roundtrip delay. As in previous descriptions, state variable <code><em>xmt</em></code> is used to detect duplicates, but not shown.</p>
@@ -224,7 +234,9 @@ Last update: 12-May-2012
 <hr>
 <h4 id="error-detection-and-recovery">Error Detection and Recovery</h4>
 <p>In the scheme of things, error packets are rare, especially in fast LANs where propagation delays are very small and poll intervals are in the order of many seconds. However, there is one instance where this can be useful. It occurs when a peer is initially configured to operate in interleaved mode and is presented with a client capable only of basic mode.</p>
-<p><img src="/archives/pic/xlev8.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/xlev8.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure 4. Error Recovery in Basic Symmetric Mode</strong></p>
 <p>In Figure 4, peer A can operate only in basic interleaved mode, but peer B is initially configured in interleaved symmetric mode. When A begins operations, B stumbles along until failing the bogus test at <code><em>T</em><sub>10</sub></code>. It then checks for a bogus packet in basic interleaved mode by comparing <code><em>aorg</em></code> to <code><em>t<sub>org</sub></em></code>. If they match, the packet is legitimate in basic symmetric mode, so B continues in this mode. If they do not match, the packet is bogus in interleaved symmetric mode, so B continues in this mode. After synchronizing again, both peers clank happily along in the same mode. In principle, the reverse case is possible, but not considered here.</p>
 <hr>
@@ -314,28 +326,38 @@ Last update: 12-May-2012
 <li>Restart - the protocol state machine has restarted with fresh state variables.</li>
 </ul>
 <p>Depending on the mode, detection of these conditions can cause the loss of a packet, loss of a round or loss of two rounds.</p>
-<p><img src="/archives/pic/fig_1.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/fig_1.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure A.1. Transmit Process</strong></p>
 <p>Figure A.1 shows the operations of the transmit process in all five modes. Note that <code><em>x</em></code> serves both as a switch to indicate basic mode <code>(<em>x</em> = 0)</code> or interleaved mode <code>(<em>x</em> = ±1)</code> to alternate the transmit timestamp between <code><em>aorg</em></code> and <code><em>borg</em></code>. It is set at configuration time to 0 for basic mode or +1 for interleaved mode.</p>
 <p>While presented for simplicity in the figure, the clock is actually read twice. Before calling the output packet routine, the clock is read and saved as the <code><em>t<sub>xmt</sub></em></code> softstamp sent in the packet. Upon return from the output interrupt routine, the clock is read again and saved as the <code><em>borg</em></code> drivestamp to be sent in the next packet.</p>
 <p>Note that in interleaved broadcast mode <code><em>t<sub>org</sub></em></code>, ordinarily zero in previous NTP versions, is hijacked to hold the previous transmit drivestamp. This is how a broadcast client recognizes whether basic or interleaved mode is in use. Clients conforming to the NTPv4 specification ignore <code><em>t<sub>org</sub></em></code> and <code><em>T</em><sub><em>rec</sub></em></code>.</p>
-<p><img src="/archives/pic/fig_2.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/fig_2.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure A.2. Receive Process - Broadcast Mode</strong></p>
 <p>The function of the receive process is to determine the timestamps used to calculate offset and delay. Figures A.2, A.3, A.4 and A.5 show the receive process in all modes and how the various modes are determined. Note that these figures represent segments of one routine consisting of three if/else clauses. The clause is selected by the <em>mode</em> variable in the NTP packet header and the <code><em>x</em></code> state variable. If <code><em>x</em></code> is zero, the mode is either client/server, basic symmetric or basic broadcast. If not, the mode is interleaved symmetric, since the broadcast modes, whether basic or interleaved, are determine from a packet header timestamp. In addition, an internal variable <code><em>err</em></code> is used to convey status information for later use in the sanity checks. A variable called <code><em>f</em></code> is set to 1 upon completion of an initial synchronization sequence. A routine called <code>reset()</code>, not shown, clears all state variables to zero with the exception of <code><em>x</em></code>.</p>
 <p>In interleaved broadcast and interleaved symmetric modes, some errors are detected by a bounds check on a delay or offset statistic. The parameter <code>MAX</code> is assumed somewhat less than half the poll interval, but somewhat greater than the maximum roundtrip delay.</p>
 <p>In broadcast modes only two timestamps, <code><em>T</em><sub>3</sub></code> and <code><em>T</em><sub>4</sub></code>, are required to compute offset, since the delay is computed during the client/server calibration volley. In other modes four timestamps, <code><em>T</em><sub>1</sub>, <em>T</em><sub>2</sub>, <em>T</em><sub>3</sub>,</code> and <code><em>T</em><sub>4</sub></code>, are required to compute offset and delay.</p>
 <p>In basic broadcast mode, <code><em>t<sub>org</sub></em></code> is zero, so the <code><em>t<sub>xmt</sub></em></code> softstamp and <code><em>dst</em></code> receive drivestamps are used to calculate offset. In interleaved broadcast mode, <code><em>t<sub>org</sub></code></em> is hijacked to hold the previous transmit drivestamp. This is how a broadcast client recognizes whether basic or interleaved mode. Clients conforming to the NTPv4 specification ignore <code><em>t<sub>org</sub></em></code> and <code><em>t<sub>rec</sub></em></code>.</p>
 <p>There are three exception conditions. At the beginning of the receive routine duplicate packets are discarded immediately without affecting the state machine. <code>SYNC</code> occurs when the broadcast client restarts, while <code>DELY</code> occurs when the first packet following a dropped packet is received. In this case the time computed from the previous transmit softstamp to the previous transmit hardstamp exceeds a credible queuing delay. In either case the timestamps are not used and only one packet is skipped. However, an old duplicate must be detected by means other than the state machine.</p>
-<p><img src="/archives/pic/fig_3.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/fig_3.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure A.3. Receive Process - Basic Symmetric Mode</strong></p>
 <p>Figure A.3 shows the receive process operations in client and basic symmetric modes where <code><em>x</em></code> is 0. There are three exception conditions. <code>SYNC</code> occurs at protocol restart, <code>ERRR</code> occurs as the result of a protocol error, while <code>BOGS</code> occurs when the packet violates the loopback test. <code>ERRR</code> occurs only in case of a program error or a massive barrage of multiple unrelated errors, while <code>BOGS</code> occurs when the origin softstamp in the packet does not match the origin softstamp for the round. This usually occurs when a packet is dropped or when packets cross in flight.</p>
 <p>If any of these conditions occur, the timestamps are not used and one or more packets are skipped. A dropped packet results in a bogus exception at the next received packet and a delay of one packet, while a protocol restart by either peer results in a delay of one packet. The other exceptions result in a delay of one round (two packets). There are no ambiguous conditions that are not detected by the state machine.</p>
-<p><img src="/archives/pic/fig_4.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/fig_4.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure A.4. Receive process - Interleaved Symmetric Mode</strong></p>
 <p>Figure A.4 shows the operations of the receive process in interleaved symmetric mode. The <code><em>x</em></code> variable determines which of the two origin drivestamps <code><em>aorg</em></code> or <code><em>borg</em></code>, is used. Ordinarily, it follows the same variable used a the transmit process, but if a packet is lost or the protocol is restarted, the peers will be out of phase, resulting in a bogus packet and protocol restart.</p>
 <p>There are five intricately designed exceptions. <code>SYNC</code> occurs in two cases when the protocol is restarted in either or both peers. <code>HOLD</code> occurs when one peer is waiting for the other to complete the synchronization process. As in basic symmetric mode, <code>ERRR</code> occurs as the result of a protocol error, while <code>BOGS</code> occurs when a bogus packet is received as a result of a dropped packet or crossed packets in flight. The <code>reset()</code> routine is called when an exception is found by peer A, for example. It sets all state variables, including <code><em>f</em></code>, to 0 without changing the <code><em>x</em></code> variable. This causes peer A to send a reset packet consisting of three zero timestamps to peer B, causing it to send a reset packet to A. When each peer receives the reset packet, it sets the <code><em>f</em></code> variable to 1. If for some reason peer B does not respond to the reset sequence, peer A continues to send the reset sequence until B does respond. When both peers have set the <code><em>f</em></code> variable to 1, operation continues normally.</p>
 <p>If any of these conditions occur, the timestamps are not used and one or more packets are skipped. A protocol restart results in a delay of three packets, or when each peer has completed one round. Packets crossed in flight result in a delay of one round, where each peer detects a bogus packet from the other. Other exceptions result in a delay of two rounds (four packets). There are no ambiguous conditions that are not detected by the state machine.</p>
-<p><img src="/archives/pic/fig_5.gif" alt="gif"></p>
+<p><p>
+  <img loading="lazy" src="/documentation/pic/fig_5.gif" alt="gif"  />
+</p></p>
 <p><strong>Figure A.5. Timestamp Order Detection</strong></p>
 <p>When the three receive process segments have complete operations, variable <code><em>err</em></code> contains the completion code. Figure A.5 shows the subsequent operations. If this code is not OK, an error has occurred and operation continues in the next round. However, even if OK there may still be errors due to invalid timestamp ordering. Especially if the frequency of lost packets and packet crosses in flight are uncomfortably high, like ten percent. This can result in some rather messy conditions where restarts occur during restarts or packet crosses in flight. These cases are detected by two rules:</p>
 <p>As long as the clocks are never set backwards, <code><em>T</em><sub>4</sub></code> must be later than <code><em>T</em><sub>1</sub></code> and <code><em>T</em><sub>4</sub></code> must be later than <code><em>T</em><sub>4</sub></code>. This is called the valid test. In the delay computation all packets must be from the same round. If packets are from different rounds, the computed delay will be less than zero or greater than one poll interval. This is called the delay test.</p>
