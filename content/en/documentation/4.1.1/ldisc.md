@@ -5,13 +5,13 @@ noindex: true
 --- 
 
 #### Table of Contents
-*  [Description](/archives/4.1.1/ldisc/#description)
-*  [PPSAPI Application Program Interface](/archives/4.1.1/ldisc/#ppsapi-application-program-interface)
-*  [<tt>tty_clk</tt> Line Discipline/Streams Module](/archives/4.1.1/ldisc/#tttty_clktt-line-disciplinestreams-module)
-*  [<tt>TIOCDCDTIMESTAMP</tt> ioctl in FreeBSD](/archives/4.1.1/ldisc/#tttiocdcdtimestamptt-ioctl-in-freebsd)
-*  [<tt>ppsclock</tt> Streams Module](/archives/4.1.1/ldisc/#ttppsclocktt-streams-module)
-*  [<tt>TIOCSPPS</tt> and <tt>TIOCGETPPSEV</tt> ioctls in Solaris](/archives/4.1.1/ldisc/#tttiocsppstt-and-tttiocgetppsevtt-ioctls-in-solaris)
-*  [<tt>tty_chu</tt> Line Discipline/Streams Module (deprecated)](/archives/4.1.1/ldisc/#tttty_chutt-line-disciplinestreams-module-deprecated)
+*  [Description](/documentation/4.1.1/ldisc/#description)
+*  [PPSAPI Application Program Interface](/documentation/4.1.1/ldisc/#ppsapi-application-program-interface)
+*  [<tt>tty_clk</tt> Line Discipline/Streams Module](/documentation/4.1.1/ldisc/#tttty_clktt-line-disciplinestreams-module)
+*  [<tt>TIOCDCDTIMESTAMP</tt> ioctl in FreeBSD](/documentation/4.1.1/ldisc/#tttiocdcdtimestamptt-ioctl-in-freebsd)
+*  [<tt>ppsclock</tt> Streams Module](/documentation/4.1.1/ldisc/#ttppsclocktt-streams-module)
+*  [<tt>TIOCSPPS</tt> and <tt>TIOCGETPPSEV</tt> ioctls in Solaris](/documentation/4.1.1/ldisc/#tttiocsppstt-and-tttiocgetppsevtt-ioctls-in-solaris)
+*  [<tt>tty_chu</tt> Line Discipline/Streams Module (deprecated)](/documentation/4.1.1/ldisc/#tttty_chutt-line-disciplinestreams-module-deprecated)
 
 * * *
 
@@ -27,7 +27,7 @@ The routines can be compiled in the kernel in older BSD-derived systems, or inst
 
 #### PPSAPI Application Program Interface
 
-Pulse-per-second (PPS) signals are normally processed as described in the [Pulse-per-second (PPS) Signal Interfacing](/archives/4.1.1/pps/) page. The [PPS Clock Discipline](/archives/drivers/driver22/) driver uses the PPSAPI application program interface to capture PPS signal transitions used to fine-tune the system clock. This interface, defined in RFC-2783, is the only PPS interface supported in NTP. While older PPS interfaces based on the ioctls described below continue to be supported, they are used only in the special header file <code>/usr/include/sys/timepps.h</code>, which implements the PPSAPI specific to each archeticture and operating system.
+Pulse-per-second (PPS) signals are normally processed as described in the [Pulse-per-second (PPS) Signal Interfacing](/documentation/4.1.1/pps/) page. The [PPS Clock Discipline](/documentation/drivers/driver22/) driver uses the PPSAPI application program interface to capture PPS signal transitions used to fine-tune the system clock. This interface, defined in RFC-2783, is the only PPS interface supported in NTP. While older PPS interfaces based on the ioctls described below continue to be supported, they are used only in the special header file <code>/usr/include/sys/timepps.h</code>, which implements the PPSAPI specific to each archeticture and operating system.
 
 It is the intent of the evolving design to remove all PPS support from the various clock drivers and utilize only the PPS driver for PPS support. This allows the required sanity checks and signal grooming to be provided and maintained in one place and avoids cluttering up the drivers with duplicate functionality. Since the PPS signal samples are processed by the entire suite of NTP grooming, selection and clustering algorithms, noisy PPS signals and signals outside specific time and frequency tolerances are excluded.
 
@@ -109,4 +109,4 @@ Users are cautioned that these ioctls function improperly in Solaris versions pr
 
 #### <tt>tty_chu</tt> Line Discipline/Streams Module (deprecated)
 
-This routine is a special purpose line discipline for receiving a special timecode broadcast by Canadian time and frequency standard station CHU. It has been removed from the distribution since its function has been replaced by the [Radio CHU Audio Demodulator/Decoder (type 7)](/archives/drivers/driver7/) clock driver.
+This routine is a special purpose line discipline for receiving a special timecode broadcast by Canadian time and frequency standard station CHU. It has been removed from the distribution since its function has been replaced by the [Radio CHU Audio Demodulator/Decoder (type 7)](/documentation/drivers/driver7/) clock driver.

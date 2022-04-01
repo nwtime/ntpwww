@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 A typical NTP monitoring packet
 
@@ -12,11 +12,11 @@ A typical NTP monitoring packet
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.1.1/ntpq/#synopsis)
-*   [Description](/archives/4.1.1/ntpq/#description)
-*   [Internal Commands](/archives/4.1.1/ntpq/#internal-commands)
-*   [Control Message Commands](/archives/4.1.1/ntpq/#control-message-commands)
-*   [Bugs](/archives/4.1.1/ntpq/#bugs)
+*   [Synopsis](/documentation/4.1.1/ntpq/#synopsis)
+*   [Description](/documentation/4.1.1/ntpq/#description)
+*   [Internal Commands](/documentation/4.1.1/ntpq/#internal-commands)
+*   [Control Message Commands](/documentation/4.1.1/ntpq/#control-message-commands)
+*   [Bugs](/documentation/4.1.1/ntpq/#bugs)
 
 * * *
 
@@ -34,7 +34,7 @@ If one or more request options is included on the command line when <code>ntpq</
 
 <code>ntpq</code> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <code>ntpq</code> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.
 
-For examples and usage, see the [NTP Debugging Techniques](/archives/4.1.1/debug/) page.
+For examples and usage, see the [NTP Debugging Techniques](/documentation/4.1.1/debug/) page.
 
 Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.
 
@@ -206,7 +206,7 @@ The character in the left margin indicates the fate of this peer in the clock se
 
 The <code>flash</code> variable is a valuable debugging aid. It displays the results of the original sanity checks defined in the NTP specification RFC-1305 and additional ones added in NTP Version 4. There are eleven tests called <code>TEST1</code> through <code>TEST11</code>. The tests are performed in a certain order designed to gain maximum diagnostic information while protecting against accidental or malicious errors. The <code>flash</code> variable is first initialized to zero. If after each set of tests one or more bits are set, the packet is discarded.
 
-Tests <code>TEST4</code> and <code>TEST5</code> check the access permissions and cryptographic message digest. If any bits are set after that, the packet is discarded. Tests <code>TEST10</code> and <code>TEST11</code> check the authentication state using Autokey public-key cryptography, as described in the [Authentication Options](/archives/4.1.1/authopt/) page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.
+Tests <code>TEST4</code> and <code>TEST5</code> check the access permissions and cryptographic message digest. If any bits are set after that, the packet is discarded. Tests <code>TEST10</code> and <code>TEST11</code> check the authentication state using Autokey public-key cryptography, as described in the [Authentication Options](/documentation/4.1.1/authopt/) page. If any bits are set and the association has previously been marked reachable, the packet is discarded; otherwise, the originate and receive timestamps are saved, as required by the NTP protocol, and processing continues.
 
 Tests <code>TEST1</code> through <code>TEST3</code> check the packet timestamps from which the offset and delay are calculated. If any bits are set, the packet is discarded; otherwise, the packet header variables are saved. Tests <code>TEST6</code> through <code>TEST8</code> check the health of the server. If any bits are set, the packet is discarded; otherwise, the offset and delay relative to the server are calculated and saved. Test <code>TEST9</code> checks the health of the association itself. If any bits are set, the packet is discarded; otherwise, the saved variables are passed to the clock filter and mitigation algorithms.
 
@@ -226,11 +226,11 @@ The <code>flash</code> bits for each test read in increasing order from the leas
 
 <code>TEST4</code>
 
-: Access is denied. See the [Access Control Options](/archives/4.1.1/accopt/) page.
+: Access is denied. See the [Access Control Options](/documentation/4.1.1/accopt/) page.
 
 <code>TEST5</code>
 
-: Cryptographic authentication fails. See the [Authentication Options](/archives/4.1.1/authopt/) page.
+: Cryptographic authentication fails. See the [Authentication Options](/documentation/4.1.1/authopt/) page.
 
 <code>TEST6</code>
 
@@ -250,11 +250,11 @@ The <code>flash</code> bits for each test read in increasing order from the leas
 
 <code>TEST10</code>
 
-: The autokey protocol has detected an authentication failure. See the [Authentication Options](/archives/4.1.1/authopt/) page.
+: The autokey protocol has detected an authentication failure. See the [Authentication Options](/documentation/4.1.1/authopt/) page.
 
 <code>TEST11</code>
 
-: The autokey protocol has not verified the server or peer is authentic and has valid public key credentials. See the [Authentication Options](/archives/4.1.1/authopt/) page.
+: The autokey protocol has not verified the server or peer is authentic and has valid public key credentials. See the [Authentication Options](/documentation/4.1.1/authopt/) page.
 
 Additional system variables used by the NTP Version 4 Autokey support include the following:
 

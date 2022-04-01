@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice23.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice23.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Alice holds the key.
 
@@ -12,11 +12,11 @@ Alice holds the key.
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.1.1/genkeys/#synopsis)
-*   [Description](/archives/4.1.1/genkeys/#description)
-*   [Symmetric Key File Format](/archives/4.1.1/genkeys/#symmetric-key-file-format)
-*   [Files](/archives/4.1.1/genkeys/#files)
-*   [Bugs](/archives/4.1.1/genkeys/#bugs)
+*   [Synopsis](/documentation/4.1.1/genkeys/#synopsis)
+*   [Description](/documentation/4.1.1/genkeys/#description)
+*   [Symmetric Key File Format](/documentation/4.1.1/genkeys/#symmetric-key-file-format)
+*   [Files](/documentation/4.1.1/genkeys/#files)
+*   [Bugs](/documentation/4.1.1/genkeys/#bugs)
 
 * * *
 
