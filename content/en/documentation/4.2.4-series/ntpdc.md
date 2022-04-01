@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 This program is a big, deprecated puppy.
 
@@ -14,13 +14,13 @@ Last update: 04:11 AM UTC Monday, November 27, 2006
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.4-series/ntpdc/#synopsis)
-*   [Description](/archives/4.2.4-series/ntpdc/#description)
-*   [Command Line Options](/archives/4.2.4-series/ntpdc/#command-line-options)
-*   [Interactive Commands](/archives/4.2.4-series/ntpdc/#interactive-commands)
-*   [Control Message Commands](/archives/4.2.4-series/ntpdc/#control-message-commands)
-*   [Runtime Configuration Requests](/archives/4.2.4-series/ntpdc/#runtime-configuration-requests)
-*   [Bugs](/archives/4.2.4-series/ntpdc/#bugs)
+*   [Synopsis](/documentation/4.2.4-series/ntpdc/#synopsis)
+*   [Description](/documentation/4.2.4-series/ntpdc/#description)
+*   [Command Line Options](/documentation/4.2.4-series/ntpdc/#command-line-options)
+*   [Interactive Commands](/documentation/4.2.4-series/ntpdc/#interactive-commands)
+*   [Control Message Commands](/documentation/4.2.4-series/ntpdc/#control-message-commands)
+*   [Runtime Configuration Requests](/documentation/4.2.4-series/ntpdc/#runtime-configuration-requests)
+*   [Bugs](/documentation/4.2.4-series/ntpdc/#bugs)
 
 * * *
 
@@ -224,7 +224,7 @@ The following commands all make authenticated requests.
 <code>**addpeer _peer_address_ [ _keyid_ ] [ _version_ ] [ minpoll# | prefer | iburst | burst | minpoll _N_ | maxpoll _N_ [ dynamic ] [...] ]**</code>
 : <code>**addpeer _peer_address_ [ prefer | iburst | burst | minpoll _N_ | maxpoll _N_ | keyid _N_ | version _N_ [...] ]**</code>
 
-: Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If ntpdc's key number has not yet been set (_e.g.,_ by the keyid command), it will be set to this value. The <code>version#</code> can be 1 through 4 and defaults to 3. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>iburst</code>, <code>burst</code>, <code>minpoll _N_</code>, <code>keyid _N_</code>, <code>version _N_</code>, or <code>maxpoll _N_</code> (where <code>_N_</code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of ntpd. See the [Server Options](/archives/4.2.4-series/confopt/) page for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.
+: Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If ntpdc's key number has not yet been set (_e.g.,_ by the keyid command), it will be set to this value. The <code>version#</code> can be 1 through 4 and defaults to 3. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>iburst</code>, <code>burst</code>, <code>minpoll _N_</code>, <code>keyid _N_</code>, <code>version _N_</code>, or <code>maxpoll _N_</code> (where <code>_N_</code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of ntpd. See the [Server Options](/documentation/4.2.4-series/confopt/) page for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.
 
 <code>**addserver _peer_address_ [ _keyid_ ] [ _version_ ] [ minpoll# | prefer | iburst | burst | minpoll _N_ | maxpoll _N_ [...] ]**</code>
 : <code>**addserver _peer_address_ [ prefer | iburst | burst | minpoll _N_ | maxpoll _N_ | keyid _N_ | version _N_ [ dynamic } [...] ]**</code>
@@ -246,7 +246,7 @@ The following commands all make authenticated requests.
 <code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>  
 : <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>
 
-: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/archives/4.2.4-series/miscopt/) page for further information.
+: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/documentation/4.2.4-series/miscopt/) page for further information.
 
 <code>**restrict _address mask flag_ [ _flag_ ]**</code>
 

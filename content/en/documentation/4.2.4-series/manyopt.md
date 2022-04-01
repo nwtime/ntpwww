@@ -5,7 +5,7 @@ noindex: true
 --- 
 
 
-![gif](/archives/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
 
@@ -15,10 +15,10 @@ Last update: 20:55 UTC Tuesday, October 11, 2005
 
 #### Table of Contents
 
-*   [Broadcasting](/archives/4.2.4-series/manyopt/#broadcasting)
-*   [Manycasting](/archives/4.2.4-series/manyopt/#manycasting)
-*   [Orphan Mode](/archives/4.2.4-series/manyopt/#orphan-mode)
-*   [Server Discovery Options](/archives/4.2.4-series/manyopt/#server-discovery-options)
+*   [Broadcasting](/documentation/4.2.4-series/manyopt/#broadcasting)
+*   [Manycasting](/documentation/4.2.4-series/manyopt/#manycasting)
+*   [Orphan Mode](/documentation/4.2.4-series/manyopt/#orphan-mode)
+*   [Server Discovery Options](/documentation/4.2.4-series/manyopt/#server-discovery-options)
 
 * * *
 

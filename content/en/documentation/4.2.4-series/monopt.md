@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Pig was hired to watch the logs.
 
@@ -14,7 +14,7 @@ Last update: 00:40 UTC Sunday, December 24, 2006
 
 #### Table of Contents
 
-*   [Monitoring Commands](/archives/4.2.4-series/monopt/#monitoring-commands)
+*   [Monitoring Commands](/documentation/4.2.4-series/monopt/#monitoring-commands)
 
 * * *
 
@@ -42,7 +42,7 @@ The first two fields show the date (Modified Julian Day) and time (seconds and f
 
 <code>49213 525.624 127.127.4.1 _message_</code>
 
-The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the peer address in dotted-quad notation, The final <code>_message_</code> field includes the message type and certain ancillary information. See the [Authentication Options](/archives/4.2.4-series/authopt/) page for further information.
+The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the peer address in dotted-quad notation, The final <code>_message_</code> field includes the message type and certain ancillary information. See the [Authentication Options](/documentation/4.2.4-series/authopt/) page for further information.
 
 <code>**loopstats**</code>
 

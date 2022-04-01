@@ -5,7 +5,7 @@ noindex: true
 ---
 
 
-![gif](/archives/pic/pogo3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Gnu autoconfigure tools are in the backpack.
 
@@ -15,14 +15,14 @@ Last update: 12:56 AM UTC Saturday, March 20, 2004
 
 #### Table of Contents
 
-*   [Basic Configuration Options - the <tt>configure</tt> utility](/archives/4.2.4-series/config/#basic-configuration-options---the-ttconfigurett-utility)
-*   [Options](/archives/4.2.4-series/config/#options)
-*   [Directory and File Names](/archives/4.2.4-series/config/#directory-and-file-names)
-*   [Host Type](/archives/4.2.4-series/config/#host-type)
-*   [Optional Packages](/archives/4.2.4-series/config/#optional-packages)
-*   [Optional Features](/archives/4.2.4-series/config/#optional-features)
-*   [Radio Clocks](/archives/4.2.4-series/config/#radio-clocks)
-*   [PARSE Clocks](/archives/4.2.4-series/config/#parse-clocks)
+*   [Basic Configuration Options - the <tt>configure</tt> utility](/documentation/4.2.4-series/config/#basic-configuration-options---the-ttconfigurett-utility)
+*   [Options](/documentation/4.2.4-series/config/#options)
+*   [Directory and File Names](/documentation/4.2.4-series/config/#directory-and-file-names)
+*   [Host Type](/documentation/4.2.4-series/config/#host-type)
+*   [Optional Packages](/documentation/4.2.4-series/config/#optional-packages)
+*   [Optional Features](/documentation/4.2.4-series/config/#optional-features)
+*   [Radio Clocks](/documentation/4.2.4-series/config/#radio-clocks)
+*   [PARSE Clocks](/documentation/4.2.4-series/config/#parse-clocks)
 
 * * *
 

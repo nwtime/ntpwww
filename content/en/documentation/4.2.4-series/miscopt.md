@@ -4,7 +4,7 @@ type: archives
 noindex: true
 ---
 
-![gif](/archives/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 We have three, now looking for more.
 
@@ -31,7 +31,7 @@ The two optional values determine how often the file is written, and are particu
 <code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>  
 : <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats ]**</code>
 
-: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>ntpdc</code>](/archives/4.2.4-series/ntpdc/) utility program.
+: Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [<code>ntpdc</code>](/documentation/4.2.4-series/ntpdc/) utility program.
 
 <code>auth</code>
 
@@ -59,11 +59,11 @@ The two optional values determine how often the file is written, and are particu
 
 <code>pps</code>
 
-: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/archives/4.2.4-series/kern/) page for further information. The default for this flag is disable.
+: Enables the pulse-per-second (PPS) signal when frequency and time is disciplined by the precision time kernel modifications. See the [A Kernel Model for Precision Timekeeping](/documentation/4.2.4-series/kern/) page for further information. The default for this flag is disable.
 
 <code>stats</code>
 
-: Enables the statistics facility. See the [Monitoring Options](/archives/4.2.4-series/monopt/) page for further information. The default for this flag is disable
+: Enables the statistics facility. See the [Monitoring Options](/documentation/4.2.4-series/monopt/) page for further information. The default for this flag is disable
 
 <code>**includefile _includefile_**</code>
 
