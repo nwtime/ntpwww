@@ -3,7 +3,7 @@ title: "NTP Interleaved Modes"
 type: archives
 ---
 
-![gif](/archives/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 You need a little magic.
 
@@ -23,4 +23,4 @@ As demonstrated in the white paper [Analysis and Simulation of the NTP On-Wire P
 
 * * *
 
-![gif](/archives/pic/pogo1a.gif)
+![gif](/documentation/pic/pogo1a.gif)

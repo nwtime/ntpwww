@@ -3,7 +3,7 @@ title: "ntpdsim - Network Time Protocol (NTP) Simulator"
 type: archives
 ---
 
-![gif](/archives/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
+![gif](/documentation/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 All in a row.
 
@@ -13,9 +13,9 @@ Last update: 31-Jan-2014 06:54 UTC
 
 #### Table of Contents
 
-*   [Description](/archives/4.2.8-series/ntpdsim_new/#description)
-*   [Configuration](/archives/4.2.8-series/ntpdsim_new/#configuration)
-*   [Sample Configuration File](/archives/4.2.8-series/ntpdsim_new/#sample-configuration-file)
+*   [Description](/documentation/4.2.8-series/ntpdsim_new/#description)
+*   [Configuration](/documentation/4.2.8-series/ntpdsim_new/#configuration)
+*   [Sample Configuration File](/documentation/4.2.8-series/ntpdsim_new/#sample-configuration-file)
 
 * * *
 

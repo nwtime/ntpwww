@@ -3,7 +3,7 @@ title: "Configuration File Definition (Advanced)"
 type: archives
 ---
 
-![gif](/archives/pic/pogo7.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo7.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Racoon is shooting configuration bugs.
 
@@ -13,11 +13,11 @@ Last update: 4-Oct-2010 05:13 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.8-series/ntp_conf/#synopsis)
-*   [Files](/archives/4.2.8-series/ntp_conf/#files)
-*   [High-Level Description](/archives/4.2.8-series/ntp_conf/#high-level-description)
-*   [Detailed Description](/archives/4.2.8-series/ntp_conf/#detailed-description)
-*   [Guidelines for Adding Configuration Commands](/archives/4.2.8-series/ntp_conf/#guidelines-for-adding-configuration-commands)
+*   [Synopsis](/documentation/4.2.8-series/ntp_conf/#synopsis)
+*   [Files](/documentation/4.2.8-series/ntp_conf/#files)
+*   [High-Level Description](/documentation/4.2.8-series/ntp_conf/#high-level-description)
+*   [Detailed Description](/documentation/4.2.8-series/ntp_conf/#detailed-description)
+*   [Guidelines for Adding Configuration Commands](/documentation/4.2.8-series/ntp_conf/#guidelines-for-adding-configuration-commands)
 
 * * *
 
@@ -51,7 +51,7 @@ A brief description of the files used by the configuration code is given below:
 
 A high-level description of the configuration process showing where all the files fit in is given below:
 
-![JPEG](/archives/pic/description.jpg)
+![JPEG](/documentation/pic/description.jpg)
 
 The scanner reads in an NTP configuration file and converts it into tokens. The Bison generated parser reads these tokens and converts them into an AST. The AST traverser consists of a set of functions that configure parts of NTP on the basis of what is on the tree. A more detailed description of these parts and the files used is given below.
 

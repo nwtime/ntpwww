@@ -3,7 +3,7 @@ title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
 ---
 
-![gif](/archives/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
+![gif](/documentation/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 You need help from the monkeys.
 
@@ -13,11 +13,11 @@ Last update: 10-Mar-2014 05:14 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.8-series/ntpd/#synopsis)
-*   [Description](/archives/4.2.8-series/ntpd/#description)
-*   [Command Line Options](/archives/4.2.8-series/ntpd/#command-line-options)
-*   [The Configuration File](/archives/4.2.8-series/ntpd/#the-configuration-file)
-*   [Files](/archives/4.2.8-series/ntpd/#files)
+*   [Synopsis](/documentation/4.2.8-series/ntpd/#synopsis)
+*   [Description](/documentation/4.2.8-series/ntpd/#description)
+*   [Command Line Options](/documentation/4.2.8-series/ntpd/#command-line-options)
+*   [The Configuration File](/documentation/4.2.8-series/ntpd/#the-configuration-file)
+*   [Files](/documentation/4.2.8-series/ntpd/#files)
 
 * * *
 
@@ -31,7 +31,7 @@ Last update: 10-Mar-2014 05:14 UTC
 
 The <code>ntpd</code> program is an operating system daemon that synchronizes the system clock to remote NTP time servers or local reference clocks. It is a complete implementation of NTP version 4 defined by [RFC 5905](/reflib/rfc/rfc5905.txt), but also retains compatible with version 3 defined by [RFC 1305](/reflib/rfc/rfc1305/rfc1305b.pdf) and versions 1 and 2, defined by [RFC 1059](/reflib/rfc/rfc1059.txt) and [RFC 1119](/reflib/rfc/rfc1119/rfc1119b.pdf), respectively. The program can operate in any of several modes, including client/server, symmetric and broadcast modes, and with both symmetric-key and public key-cryptography
 
-The <code>ntpd</code> program ordinarily requires a configuration file described on this page. It contains configuration commands described on the pages listed above. However a client can discover remote servers and configure them automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment. Further details are on the [Automatic Server Discovery](/archives/4.2.8-series/discover/) page.
+The <code>ntpd</code> program ordinarily requires a configuration file described on this page. It contains configuration commands described on the pages listed above. However a client can discover remote servers and configure them automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment. Further details are on the [Automatic Server Discovery](/documentation/4.2.8-series/discover/) page.
 
 The <code>ntpd</code> program normally operates continuously while adjusting the system time and frequency, but in some cases this might not be practical. With the <code>-q</code> option <code>ntpd</code> operates as in continuous mode, but exits just after setting the clock for the first time. Most applications will probably want to specify the <code>iburst</code> option with the <code>server</code> command. With this option a volley of messages is exchanged to groom the data and set the clock in about ten seconds. If nothing is heard after a few minutes, the daemon times out and exits without setting the clock.
 
@@ -85,7 +85,7 @@ The <code>ntpd</code> program normally operates continuously while adjusting the
 
 <code>**-I [_address_ | _interface name_]**</code>
 
-: Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.8-series/miscopt/) command, which is more versatile.
+: Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file [interface](/documentation/4.2.8-series/miscopt/) command, which is more versatile.
 
 <code>**-k _keyfile_**</code>
 
@@ -101,7 +101,7 @@ The <code>ntpd</code> program normally operates continuously while adjusting the
 
 <code>**-L**</code>
 
-: Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file [interface](/archives/4.2.8-series/miscopt/) command, which is more versatile.
+: Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file [interface](/documentation/4.2.8-series/miscopt/) command, which is more versatile.
 
 <code>**-M**</code>
 

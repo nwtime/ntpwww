@@ -3,7 +3,7 @@ title: "NTP Bug Reporting Procedures"
 type: archives
 ---
 
-![gif](/archives/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The rabbit toots to make sure you read this.
 

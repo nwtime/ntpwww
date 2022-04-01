@@ -11,10 +11,10 @@ The clock select algorithm determines from a set of sources , which are correct 
 
 First, a number of sanity checks is performed to sift the selectable candidate from among the source population. The sanity checks are sumarized as follows:.
 
-1.  A _stratum error_ occurs if (1) the source had never been synchronized or (2) the stratum of the source is below the <code>floor</code> option or not below the <code>ceiling</code> option of the [<code>tos</code>](/archives/4.2.8-series/miscopt/) command. The default values for these options are 0 and 15, respectively.
+1.  A _stratum error_ occurs if (1) the source had never been synchronized or (2) the stratum of the source is below the <code>floor</code> option or not below the <code>ceiling</code> option of the [<code>tos</code>](/documentation/4.2.8-series/miscopt/) command. The default values for these options are 0 and 15, respectively.
 
     > Note that 15 is a valid stratum, but a server operating at that stratum cannot synchronize clients.
-2.  A _distance error_ occurs for a source if the root distance (also known as synchronization distance) of the source is not below the distance threshold <code>maxdist</code> option of the [<code>tos</code>](/archives/4.2.8-series/miscopt/) command. The default value for this option is 1.5 s for networks including only the Earth, but this should be increased to 2.5 s for networks including the Moon.
+2.  A _distance error_ occurs for a source if the root distance (also known as synchronization distance) of the source is not below the distance threshold <code>maxdist</code> option of the [<code>tos</code>](/documentation/4.2.8-series/miscopt/) command. The default value for this option is 1.5 s for networks including only the Earth, but this should be increased to 2.5 s for networks including the Moon.
 3.  A _loop_ _error_ occurs if the source is synchronized to the client. This can occur if two peers are configured with each other in symmetric modes.
 4.  An _unreachable_ _error_ occurs if the source is unreachable or if the <code>server</code> or <code>peer</code> command for the source includes the <code>noselect</code> option.
 
@@ -22,7 +22,7 @@ Sources showing one or more of these errors are considered nonselectable; only t
 
 While the NTP algorithm is based on DTSS, it remains to establish which point in the correctness interval represents the best estimate of the offset for each candidate. The best point is at the midpoint <code>θ<sub>0</sub></code> of the correctness interval; however, the midpoint might not be within the intersection interval. A candidate with a correctness interval that contains points in the intersection interval is a truechimer and the best offset estimate is the midpoint of its correctness interval. A candidate with a correctness interval that contains no points in the intersection interval is a falseticker.
 
-![gif](/archives/pic/flt3.gif)
+![gif](/documentation/pic/flt3.gif)
 
 **Figure 1: Intersection Interval**
 
@@ -32,7 +32,7 @@ The question remains, which is the best point to represent the true time of each
 
 The DTSS correctness assertions do not consider how best to represent the truechimer time. To support the midpoint choice, consider the selection algorithm as a method to reject correctness intervals that cannot contribute to the final outcome; that is, they are falsetickers. The remaining correctness intervals can contribute to the final outcome; that is, they are truechimers. Samples in the intersection interval are usually of very low probability and thus poor estimates for truechimer time. On the other hand, the midpoint sample produced by the clock filter algorithm is the maximum likelihood estimate and thus best represents the truechimer time.
 
-![gif](/archives/pic/flt6.gif)
+![gif](/documentation/pic/flt6.gif)
 
 **Figure 2: Clock Select Algorithm**
 
@@ -40,4 +40,4 @@ The algorithm operates as shown in Figure 2. Let <code>_m_</code> be the number 
 
 The clock select algorithm again scans the correctness intervals. If the right endpoint of the correctness interval for a candidate is greater than the left endpoint of the intersection interval, or if the left endpoint of the correctness interval is less than the right endpoint of the intersection interval, the candidate is a truechimer; otherwise, it is a falseticker.
 
-In practice, with fast LANs and modern computers, the correctness interval can be quite small, especially when the candidates are multiple reference clocks. In such cases the intersection interval might be empty, due to insignificant differences in the reference clock offsets. To avoid this, the size of the correctness interval is padded to the value of <code>mindist</code>, with default 1 ms. This value can be changed using the <code>mindist</code> option of the [<code>tos</code>](/archives/4.2.8-series/miscopt/) command.
+In practice, with fast LANs and modern computers, the correctness interval can be quite small, especially when the candidates are multiple reference clocks. In such cases the intersection interval might be empty, due to insignificant differences in the reference clock offsets. To avoid this, the size of the correctness interval is padded to the value of <code>mindist</code>, with default 1 ms. This value can be changed using the <code>mindist</code> option of the [<code>tos</code>](/documentation/4.2.8-series/miscopt/) command.

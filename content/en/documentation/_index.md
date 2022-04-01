@@ -3,7 +3,7 @@ title: "Documentation"
 type: archives
 ---
 
-<a class="btn btn-primary" href="/archives/4.2.8-series/" role="button">Click here</a> to read the current documentation (4.2.8-series).
+<a class="btn btn-primary" href="/documentation/4.2.8-series/" role="button">Click here</a> to read the current documentation (4.2.8-series).
 
 * * *
 
@@ -11,14 +11,14 @@ type: archives
 
 Archived documentation for older major NTP releases is available:
 
-* [4.2.6-series](/archives/4.2.6-series/)
-* [4.2.4-series](/archives/4.2.4-series/)
-* [4.2.2-series](/archives/4.2.2-series/)
-* [4.2.0](/archives/4.2.0/)
-* [4.1.2](/archives/4.1.2/)
-* [4.1.1](/archives/4.1.1/)
-* [4.1.0](/archives/4.1.0/)
-* [3-5.93e](/archives/3-5.93e/)
+* [4.2.6-series](/documentation/4.2.6-series/)
+* [4.2.4-series](/documentation/4.2.4-series/)
+* [4.2.2-series](/documentation/4.2.2-series/)
+* [4.2.0](/documentation/4.2.0/)
+* [4.1.2](/documentation/4.1.2/)
+* [4.1.1](/documentation/4.1.1/)
+* [4.1.0](/documentation/4.1.0/)
+* [3-5.93e](/documentation/3-5.93e/)
 
 * * *
 

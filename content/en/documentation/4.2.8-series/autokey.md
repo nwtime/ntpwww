@@ -10,14 +10,14 @@ Last update: 3-Oct-2011 21:51 UTC
 
 #### Table of Contents
 
-*   [Introduction](/archives/4.2.8-series/autokey/#introduction)
-*   [Autokey Subnets](/archives/4.2.8-series/autokey/#autokey-subnets)
-*   [Subnet Group Names](/archives/4.2.8-series/autokey/#subnet-group-names)
-*   [Secure Groups](/archives/4.2.8-series/autokey/#secure-groups)
-*   [Configuration - Authentication Schemes](/archives/4.2.8-series/autokey/#configuration---authentication-schemes)
-*   [Configuration - Identity Schemes](/archives/4.2.8-series/autokey/#configuration---identity-schemes)
-*   [Identity Schemes and Cryptotypes](/archives/4.2.8-series/autokey/#identity-schemes-and-cryptotypes)
-*   [Files](/archives/4.2.8-series/autokey/#files)
+*   [Introduction](/documentation/4.2.8-series/autokey/#introduction)
+*   [Autokey Subnets](/documentation/4.2.8-series/autokey/#autokey-subnets)
+*   [Subnet Group Names](/documentation/4.2.8-series/autokey/#subnet-group-names)
+*   [Secure Groups](/documentation/4.2.8-series/autokey/#secure-groups)
+*   [Configuration - Authentication Schemes](/documentation/4.2.8-series/autokey/#configuration---authentication-schemes)
+*   [Configuration - Identity Schemes](/documentation/4.2.8-series/autokey/#configuration---identity-schemes)
+*   [Identity Schemes and Cryptotypes](/documentation/4.2.8-series/autokey/#identity-schemes-and-cryptotypes)
+*   [Files](/documentation/4.2.8-series/autokey/#files)
 
 * * *
 
@@ -35,7 +35,7 @@ Autokey authenticates individual packets using cookies bound to the IP source an
 
 Autokey is designed to authenticate servers to clients, not the other way around as in SSH. An Autokey server can support an authentication scheme such as the Trusted Certificate (TC) scheme described in [RFC 5906](/reflib/rfc/rfc5906.txt), while a client is free to choose between the various options. It is important to understand that these provisions are optional and that selection of which option is at the discretion of the client. If the client does not require authentication, it is free to ignore it, even if some other client of the same server elects to participate in either symmetric key or public key cryptography.
 
-Autokey uses industry standard X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library, and the [<code>ntp-keygen</code>](/archives/4.2.8-series/keygen/) utility program in the NTP software distribution. A certificate includes the subject name of the client, the issuer name of the server, the public key of the client and the time period over which the public and private keys are valid. All Autokey hosts have a self-signed certificate with the Autokey name as both the subject and issuer. During the protocol, additional certificates are produced with the Autokey host name as subject and the host that signs the certificate as issuer.
+Autokey uses industry standard X.509 public certificates, which can be produced by commercial services, utility programs in the OpenSSL software library, and the [<code>ntp-keygen</code>](/documentation/4.2.8-series/keygen/) utility program in the NTP software distribution. A certificate includes the subject name of the client, the issuer name of the server, the public key of the client and the time period over which the public and private keys are valid. All Autokey hosts have a self-signed certificate with the Autokey name as both the subject and issuer. During the protocol, additional certificates are produced with the Autokey host name as subject and the host that signs the certificate as issuer.
 
 There are two timeouts associated with the Autokey scheme. The _key list timeout_ is set by the <code>automax</code> command, which specifies the interval between generating new key lists by the client or server. The default timeout of about 1.1 hr is appropriate for the majority of configurations and ordinarily should not be changed. The _revoke timeout_ is set by the <code>revoke</code> command, which specifies the interval between generating new server private values. It is intended to reduce the vulnerability to cryptanalysis; however, new values require the server to encrypt each client cookie separately. The default timeout of about 36 hr is appropriate for most servers, but might be too short for national time servers.
 
@@ -53,7 +53,7 @@ The certificates derived from each association are combined in the cache with du
 
 It is important to note that the certificate trail is validated only at startup when an association is mobilized. Once validated in this way, the server remains valid until it is demobilized, even if certificates on the trail to the THs expire. While the certificate trail authenticates each host on the trail to the THs, it does not validate the time values themselves. Ultimately, this is determined by the NTP on-wire protocol.
 
-![gif](/archives/pic/flt8.gif)
+![gif](/documentation/pic/flt8.gif)
 
 **Figure 1: Example Configuration**
 
@@ -75,7 +75,7 @@ NTP security groups are an extension of the NTP subnets described in the previou
 
 An NTP secure group is an NTP subnet configured as an acyclic tree rooted on the THs. The THs are at the lowest stratum of the secure group. They run an identity exchange with the TAs of parent subnets All group hosts construct an unbroken certificate trail from each host, possibly via intermediate hosts, and ending at a TH of that group. The TH verifies authenticity with the TA of the parent subnet using an identity exchange.
 
-![gif](/archives/pic/flt9.gif)
+![gif](/documentation/pic/flt9.gif)
 
 **Figure 2: Identify Scheme**
 
@@ -177,7 +177,7 @@ The compatible cryptotypes for clients and servers are listed in the following t
 
 #### Error Codes
 
-Errors can occur due to mismatched configurations, unexpected protocol restarts, expired certificates and unfriendly people. In most cases the protocol state machine recovers automatically by retransmission, timeout and restart, where necessary. Some errors are due to mismatched keys, digest schemes or identity schemes and must be corrected by installing the correct media and/or correcting the configuration file. One of the most common errors is expired certificates, which must be regenerated and signed at least once per year using the [<code>ntp-keygen</code>](/archives/4.2.8-series/keygen/) program.
+Errors can occur due to mismatched configurations, unexpected protocol restarts, expired certificates and unfriendly people. In most cases the protocol state machine recovers automatically by retransmission, timeout and restart, where necessary. Some errors are due to mismatched keys, digest schemes or identity schemes and must be corrected by installing the correct media and/or correcting the configuration file. One of the most common errors is expired certificates, which must be regenerated and signed at least once per year using the [<code>ntp-keygen</code>](/documentation/4.2.8-series/keygen/) program.
 
 The following error codes are reported via the NTP control and monitoring protocol trap mechanism and to the <code>cryptostats</code> monitoring file if configured.
 
@@ -201,4 +201,4 @@ The following error codes are reported via the NTP control and monitoring protoc
 
 #### Files
 
-See the [<code>ntp-keygen</code>](/archives/4.2.8-series/keygen/) page. Note that provisions to load leap second values from the NIST files have been removed. These provisions are now available whether or not the OpenSSL library is available. However, the functions that can download these values from servers remains available.
+See the [<code>ntp-keygen</code>](/documentation/4.2.8-series/keygen/) page. Note that provisions to load leap second values from the NIST files have been removed. These provisions are now available whether or not the OpenSSL library is available. However, the functions that can download these values from servers remains available.

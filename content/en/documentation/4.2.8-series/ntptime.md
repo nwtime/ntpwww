@@ -3,7 +3,7 @@ title: "ntptime - read and set kernel time variables"
 type: archives
 ---
 
-![gif](/archives/pic/pogo5.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/pogo5.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The turtle has been swimming in the kernel.
 
@@ -13,9 +13,9 @@ Last update: 11-Sep-2010 05:55 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.8-series/ntptime/#synopsis)
-*   [Description](/archives/4.2.8-series/ntptime/#description)
-*   [Options](/archives/4.2.8-series/ntptime/#options)
+*   [Synopsis](/documentation/4.2.8-series/ntptime/#synopsis)
+*   [Description](/documentation/4.2.8-series/ntptime/#description)
+*   [Options](/documentation/4.2.8-series/ntptime/#options)
 
 * * *
 
@@ -27,7 +27,7 @@ Last update: 11-Sep-2010 05:55 UTC
 
 #### Description
 
-This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/archives/4.2.8-series/kern/) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>ntpdc</code> program and <code>kerninfo</code> command.
+This program is useful only with special kernels described in the [A Kernel Model for Precision Timekeeping](/documentation/4.2.8-series/kern/) page. It reads and displays time-related kernel variables using the <code>ntp_gettime()</code> system call. A similar display can be obtained using the <code>ntpdc</code> program and <code>kerninfo</code> command.
 
 * * *
 

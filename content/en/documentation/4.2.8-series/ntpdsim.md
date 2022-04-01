@@ -2,7 +2,7 @@
 title: "ntpdsim - Network Time Protocol (NTP) simulator"
 type: archives
 ---
-![gif](/archives/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
+![gif](/documentation/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 All in a row.
 
@@ -12,10 +12,10 @@ Last update: 11-Sep-2010 05:55 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.8-series/ntpdsim/#synopsis)
-*   [Description](/archives/4.2.8-series/ntpdsim/#description)
-*   [Command Line Options](/archives/4.2.8-series/ntpdsim/#command-line-options)
-*   [Files](/archives/4.2.8-series/ntpdsim/#files)
+*   [Synopsis](/documentation/4.2.8-series/ntpdsim/#synopsis)
+*   [Description](/documentation/4.2.8-series/ntpdsim/#description)
+*   [Command Line Options](/documentation/4.2.8-series/ntpdsim/#command-line-options)
+*   [Files](/documentation/4.2.8-series/ntpdsim/#files)
 
 * * *
 
@@ -51,7 +51,7 @@ filegen peerstats type day enable
 
 #### Command Line Options
 
-> **NOTE:** The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a [new one](/archives/4.2.8-series/ntpdsim_new/). Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim</code>.
+> **NOTE:** The NTP development team is moving to the use of a syntax-directed configuration file design. When complete these options will be replaced by a [new one](/documentation/4.2.8-series/ntpdsim_new/). Most of the <code>ntpd</code> command line options apply also to <code>ntpdsim</code>. In addition, the following command line options apply to <code>ntpdsim</code>.
 
 <code>**-B _bdly_**</code>
 

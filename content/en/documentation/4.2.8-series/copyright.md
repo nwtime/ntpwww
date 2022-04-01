@@ -3,7 +3,7 @@ title: "Copyright Notice"
 type: archives
 ---
 
-![Clone me,](/archives/pic/sheepb.jpg) Clone me, says Dolly sheepishly.
+![Clone me,](/documentation/pic/sheepb.jpg) Clone me, says Dolly sheepishly.
 
 Last update: 4-Feb-2020 23:47 UTC
 

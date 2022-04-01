@@ -3,7 +3,7 @@ title: "ntpq - standard NTP query program"
 type: archives
 ---
 
-![gif](/archives/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
+![gif](/documentation/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 A typical NTP monitoring packet
 
@@ -13,14 +13,14 @@ Last update: 24-Jan-2018 08:35 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.8-series/ntpq/#synopsis)
-*   [Description](/archives/4.2.8-series/ntpq/#description)
-*   [Internal Commands](/archives/4.2.8-series/ntpq/#internal-commands)
-*   [Control Message Commands](/archives/4.2.8-series/ntpq/#control-message-commands)
-*   [Status Words and Kiss Codes](/archives/4.2.8-series/ntpq/#status-words-and-kiss-codes)
-*   [System Variables](/archives/4.2.8-series/ntpq/#system-variables)
-*   [Peer Variables](/archives/4.2.8-series/ntpq/#peer-variables)
-*   [Clock Variables](/archives/4.2.8-series/ntpq/#clock-variables)
+*   [Synopsis](/documentation/4.2.8-series/ntpq/#synopsis)
+*   [Description](/documentation/4.2.8-series/ntpq/#description)
+*   [Internal Commands](/documentation/4.2.8-series/ntpq/#internal-commands)
+*   [Control Message Commands](/documentation/4.2.8-series/ntpq/#control-message-commands)
+*   [Status Words and Kiss Codes](/documentation/4.2.8-series/ntpq/#status-words-and-kiss-codes)
+*   [System Variables](/documentation/4.2.8-series/ntpq/#system-variables)
+*   [Peer Variables](/documentation/4.2.8-series/ntpq/#peer-variables)
+*   [Clock Variables](/documentation/4.2.8-series/ntpq/#clock-variables)
 
 * * *
 
@@ -42,7 +42,7 @@ If one or more request options is included on the command line when <code>ntpq</
 
 Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.
 
-For examples and usage, see the [NTP Debugging Techniques](/archives/4.2.8-series/debug/) page.
+For examples and usage, see the [NTP Debugging Techniques](/documentation/4.2.8-series/debug/) page.
 
 Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.
 
@@ -155,7 +155,7 @@ Association IDs are used to identify system, peer and clock variables. System va
 | ----- | ----- |
 | `ind` | index on this list |
 | `assid` | association ID |
-| `status` | [peer status word](/archives/4.2.8-series/decode/#peer-status-word) |
+| `status` | [peer status word](/documentation/4.2.8-series/decode/#peer-status-word) |
 | `conf` | `yes`: persistent<br> `no`: ephemeral |
 | `reach` | `yes`: reachable<br> `no`: unreachable |
 | `auth` | `ok`, `yes`, `bad` and `none` |
@@ -231,7 +231,7 @@ The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <
 
 | Variable | Description |
 | ----- | ----- |
-| `[tally]` | single-character code indicating current value of the `select` field of the [peer status word](/archives/4.2.8-series/decode/#peer-status-word) |
+| `[tally]` | single-character code indicating current value of the `select` field of the [peer status word](/documentation/4.2.8-series/decode/#peer-status-word) |
 | `remote` | host name (or IP number) of peer |
 | `refid` | association ID or kiss code |
 | `st` | stratum |
@@ -250,7 +250,7 @@ The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <
 
 <code>**saveconfig _filename_**</code>
 
-: Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/archives/4.2.8-series/miscopt/) appears in the <code>ntpd</code> configuration file. <code>_filename_</code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.
+: Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/documentation/4.2.8-series/miscopt/) appears in the <code>ntpd</code> configuration file. <code>_filename_</code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.
 
 <code>**writevar _assocID_ _name_ = _value_ [,...]**</code>
 
@@ -268,9 +268,9 @@ The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <
 
 #### Status Words and Kiss Codes
 
-The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the [Event Messages and Status Words](/archives/4.2.8-series/decode/) page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.
+The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the [Event Messages and Status Words](/documentation/4.2.8-series/decode/) page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.
 
-Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called [kiss codes](/archives/4.2.8-series/decode/#kiss-codes). The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.
+Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called [kiss codes](/documentation/4.2.8-series/decode/#kiss-codes). The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.
 
 * * *
 
@@ -280,7 +280,7 @@ The following system variables appear in the <code>rv</code> billboard. Not all 
 
 | Variable | Description |
 | ----- | ----- |
-| `status` | [system status word](/archives/4.2.8-series/decode/#system-status-word) |
+| `status` | [system status word](/documentation/4.2.8-series/decode/#system-status-word) |
 | `version` | NTP software version and build time |
 | `processor` | hardware platform and version |
 | `system` | operating system and version |
@@ -293,7 +293,7 @@ The following system variables appear in the <code>rv</code> billboard. Not all 
 | `tc` | time constant and poll exponent (log<sub>2</sub> s) (3-17) |
 | `mintc` | minimum time constant (log<sub>2</sub> s) (3-10) |
 | `clock` | date and time of day |
-| `refid` | reference ID or [kiss code](/archives/4.2.8-series/decode/#kiss-codes) |
+| `refid` | reference ID or [kiss code](/documentation/4.2.8-series/decode/#kiss-codes) |
 | `reftime` | reference time |
 | `offset` | combined offset of server relative to this host |
 | `sys_jitter` | combined system jitter |
@@ -328,7 +328,7 @@ The following peer variables appear in the <code>rv</code> billboard for each as
 | Variable | Description |
 | ----- | ----- |
 | `associd` | association ID |
-| `status` | [peer status word](/archives/4.2.8-series/decode/#peer-status-word) |
+| `status` | [peer status word](/documentation/4.2.8-series/decode/#peer-status-word) |
 | `srcadr`<br>  `srcport` | source (remote) IP address and port |
 | `dstadr`<br> `dstport` | destination (local) IP address and port |
 | `leap` | leap indicator (0-3) |
@@ -336,7 +336,7 @@ The following peer variables appear in the <code>rv</code> billboard for each as
 | `precision` | precision (log<sub>2</sub> s) |
 | `rootdelay` | total roundtrip delay to the primary reference clock |
 | `rootdisp` | total root dispersion to the primary reference clock |
-| `refid` | reference ID or [kiss code](/archives/4.2.8-series/decode/#kiss-codes) |
+| `refid` | reference ID or [kiss code](/documentation/4.2.8-series/decode/#kiss-codes) |
 | `reftime` | reference time |
 | `reach` | reach register (octal) |
 | `unreach` | unreach counter |
@@ -344,15 +344,15 @@ The following peer variables appear in the <code>rv</code> billboard for each as
 | `pmode` | peer mode (1-5) |
 | `hpoll` | host poll exponent (log<sub>2</sub> s) (3-17) |
 | `ppoll` | peer poll exponent (log<sub>2</sub> s) (3-17) |
-| `headway` | headway (see [Rate Management and the Kiss-o'-Death Packet)](/archives/4.2.8-series/rate/) |
-| `flash` | [flash status word](/archives/4.2.8-series/decode/#flash-status-word) |
+| `headway` | headway (see [Rate Management and the Kiss-o'-Death Packet)](/documentation/4.2.8-series/rate/) |
+| `flash` | [flash status word](/documentation/4.2.8-series/decode/#flash-status-word) |
 | `offset` | filter offset |
 | `delay` | filter delay |
 | `dispersion` | filter dispersion |
 | `jitter` | filter jitter |
 | `ident` | Autokey group name for this association |
 | `bias` | unicast/broadcast bias |
-| `xleave` | interleave delay (see [NTP Interleaved Modes](/archives/4.2.8-series/xleave/)) |
+| `xleave` | interleave delay (see [NTP Interleaved Modes](/documentation/4.2.8-series/xleave/)) |
 
 The `bias` variable is calculated when the first broadcast packet is received after the calibration volley. It represents the offset of the broadcast subgraph relative to the unicast subgraph. The `xleave` variable appears only the interleaved symmetric and interleaved modes. It represents the internal queuing, buffering and transmission delays for the preceding packet.
 
@@ -377,7 +377,7 @@ The following clock variables appear in the <code>cv</code> billboard for each a
 | Variable | Description |
 | ----- | ----- |
 | `associd` | association ID |
-| `status` | [clock status word](/archives/4.2.8-series/decode/#clock-status-word) |
+| `status` | [clock status word](/documentation/4.2.8-series/decode/#clock-status-word) |
 | `device` | device description |
 | `timecode` | ASCII time code string (specific to device) |
 | `poll` | poll messages sent |

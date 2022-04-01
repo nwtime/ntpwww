@@ -3,7 +3,7 @@ title: "ntpdate - set the date and time via NTP"
 type: archives
 ---
 
-![gif](/archives/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 I told you it was eyeball and wristwatch.
 
@@ -11,16 +11,16 @@ Last update: 21-Jul-2018 04:09 UTC
 
 * * *
 
-> Disclaimer: This program has known bugs and deficiencies and nobody has volunteered to fix them in a long time. The good news is the functionality originally intended for this program is available in the <code>ntpd</code> and <code>sntp</code> programs. See the [Deprecating <code>ntpdate</code> topic](https://support.ntp.org/bin/view/Dev/DeprecatingNtpdate) in the NTP Support wiki for a thorough discussion and analysis of the issues. See the <code>-q</code> command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/archives/4.2.8-series/ntpd/) page and/or the [<code>sntp</code> - Simple Network Time Protocol (SNTP) Client](/archives/4.2.8-series/sntp/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
+> Disclaimer: This program has known bugs and deficiencies and nobody has volunteered to fix them in a long time. The good news is the functionality originally intended for this program is available in the <code>ntpd</code> and <code>sntp</code> programs. See the [Deprecating <code>ntpdate</code> topic](https://support.ntp.org/bin/view/Dev/DeprecatingNtpdate) in the NTP Support wiki for a thorough discussion and analysis of the issues. See the <code>-q</code> command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/documentation/4.2.8-series/ntpd/) page and/or the [<code>sntp</code> - Simple Network Time Protocol (SNTP) Client](/documentation/4.2.8-series/sntp/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.
 
 #### Table of Contents
 
-* [Synopsis](/archives/4.2.8-series/ntpdate/#synopsis)
-* [Description](/archives/4.2.8-series/ntpdate/#description)
-* [Command Line Options](/archives/4.2.8-series/ntpdate/#command-line-options)
-* [Diagnostics](/archives/4.2.8-series/ntpdate/#diagnostics)
-* [Files](/archives/4.2.8-series/ntpdate/#files)
-* [Bugs](/archives/4.2.8-series/ntpdate/#bugs)
+* [Synopsis](/documentation/4.2.8-series/ntpdate/#synopsis)
+* [Description](/documentation/4.2.8-series/ntpdate/#description)
+* [Command Line Options](/documentation/4.2.8-series/ntpdate/#command-line-options)
+* [Diagnostics](/documentation/4.2.8-series/ntpdate/#diagnostics)
+* [Files](/documentation/4.2.8-series/ntpdate/#files)
+* [Bugs](/documentation/4.2.8-series/ntpdate/#bugs)
 
 #### Synopsis
 

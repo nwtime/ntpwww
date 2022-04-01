@@ -3,7 +3,7 @@ title: "ntpdc - special NTP query program"
 type: archives
 ---
 
-![gif](/archives/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
+![gif](/documentation/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 This program is a big, deprecated puppy.
 
@@ -13,13 +13,13 @@ Last update: 31-Jan-2014 06:54 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/4.2.8-series/ntpdc/#synopsis)
-*   [Description](/archives/4.2.8-series/ntpdc/#description)
-*   [Command Line Options](/archives/4.2.8-series/ntpdc/#command-line-options)
-*   [Interactive Commands](/archives/4.2.8-series/ntpdc/#interactive-commands)
-*   [Control Message Commands](/archives/4.2.8-series/ntpdc/#control-message-commands)
-*   [Runtime Configuration Requests](/archives/4.2.8-series/ntpdc/#runtime-configuration-requests)
-*   [Bugs](/archives/4.2.8-series/ntpdc/#bugs)
+*   [Synopsis](/documentation/4.2.8-series/ntpdc/#synopsis)
+*   [Description](/documentation/4.2.8-series/ntpdc/#description)
+*   [Command Line Options](/documentation/4.2.8-series/ntpdc/#command-line-options)
+*   [Interactive Commands](/documentation/4.2.8-series/ntpdc/#interactive-commands)
+*   [Control Message Commands](/documentation/4.2.8-series/ntpdc/#control-message-commands)
+*   [Runtime Configuration Requests](/documentation/4.2.8-series/ntpdc/#runtime-configuration-requests)
+*   [Bugs](/documentation/4.2.8-series/ntpdc/#bugs)
 
 * * *
 
@@ -214,7 +214,7 @@ The <code>authdelay</code> shows the default authentication delay, as set by the
 
 <code>**monlist [ _version_ ]**</code>
 
-: Obtain and print traffic counts collected and maintained by the monitor facility. The version number should not normally need to be specified. At most, 600 entries are displayed by <code>monlist</code>. To display the entire MRU list, use the <code>ntpq</code> program's [<code>mrulist</code>](/archives/4.2.8-series/ntpq/#control-message-commands) command.
+: Obtain and print traffic counts collected and maintained by the monitor facility. The version number should not normally need to be specified. At most, 600 entries are displayed by <code>monlist</code>. To display the entire MRU list, use the <code>ntpq</code> program's [<code>mrulist</code>](/documentation/4.2.8-series/ntpq/#control-message-commands) command.
 
 <code>**clkbug _clock_peer_address_ [...]**</code>
 
@@ -233,7 +233,7 @@ The following commands all make authenticated requests.
 <code>**addpeer _peer_address_ [ _keyid_ ] [ _version_ ] [ minpoll# | prefer | minpoll _N_ | maxpoll _N_ [...] ]**</code>
 : <code>**addpeer _peer_address_ [ prefer | minpoll _N_ | maxpoll _N_ | keyid _N_ | version _N_ [...] ]**</code>
 
-: Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If <code>ntpdc</code>'s key number has not yet been set (_e.g.,_ by the <code>keyid</code> command), it will be set to this value. The <code>version#</code> can be <code>1</code> through <code>4</code> and defaults to <code>3</code>. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>burst</code>, <code>minpoll _N_</code>, <code>keyid _N_</code>, <code>version _N_</code>, or <code>maxpoll _N_</code> (where <code>_N_</code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of <code>ntpd</code>. See the [Server Options](/archives/4.2.8-series/confopt/#server-command-options) page for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.
+: Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If <code>ntpdc</code>'s key number has not yet been set (_e.g.,_ by the <code>keyid</code> command), it will be set to this value. The <code>version#</code> can be <code>1</code> through <code>4</code> and defaults to <code>3</code>. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>burst</code>, <code>minpoll _N_</code>, <code>keyid _N_</code>, <code>version _N_</code>, or <code>maxpoll _N_</code> (where <code>_N_</code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of <code>ntpd</code>. See the [Server Options](/documentation/4.2.8-series/confopt/#server-command-options) page for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.
 
 <code>**addserver _peer_address_ [ _address_ [ _keyid_ ] [ _version_ ] [ minpoll | prefer | iburst | burst | minpoll _N_ | maxpoll _N_ [...] ] prefer | iburst | burst | minpoll _N_ | maxpoll _N_ | keyid _N_ | version _N_ [...] ]**</code>
 
@@ -254,7 +254,7 @@ The following commands all make authenticated requests.
 <code>**enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>
 : <code>**disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]**</code>
 
-: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/archives/4.2.8-series/miscopt/) page for further information.
+: These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the [Miscellaneous Options](/documentation/4.2.8-series/miscopt/) page for further information.
 
 <code>**restrict _address mask flag_ [ _flag_ ]**</code>
 

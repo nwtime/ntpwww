@@ -9,12 +9,12 @@ Last update: 4-Aug-2011 23:40 UTC
 
 #### Table of Contents
 
-*   [General Overview](/archives/4.2.8-series/clock/#general-overview)
-*   [Panic Threshold](/archives/4.2.8-series/clock/#panic-threshold)
-*   [Step and Stepout Thresholds](/archives/4.2.8-series/clock/#step-and-stepout-thresholds)
-*   [Hold Timer](/archives/4.2.8-series/clock/#hold-timer)
-*   [Operating Intervals](/archives/4.2.8-series/clock/#operating-intervals)
-*   [State Transition Function](/archives/4.2.8-series/clock/#state-transition-function)
+*   [General Overview](/documentation/4.2.8-series/clock/#general-overview)
+*   [Panic Threshold](/documentation/4.2.8-series/clock/#panic-threshold)
+*   [Step and Stepout Thresholds](/documentation/4.2.8-series/clock/#step-and-stepout-thresholds)
+*   [Hold Timer](/documentation/4.2.8-series/clock/#hold-timer)
+*   [Operating Intervals](/documentation/4.2.8-series/clock/#operating-intervals)
+*   [State Transition Function](/documentation/4.2.8-series/clock/#state-transition-function)
 
 * * *
 
@@ -28,7 +28,7 @@ The state machine is activated upon receipt of an update by the clock discipline
 
 #### Panic Threshold
 
-Most computers today incorporate a time-of-year (TOY) chip to maintain the time when the power is off. When the computer is restarted, the chip is used to initialize the operating system time. In case there is no TOY chip or the TOY time is different from NTP time by more than the panic threshold, the daemon assumes something must be terribly wrong, so exits with a message to the system operator to set the time manually. With the <code>-g</code> option on the command line, the daemon sets the clock to NTP time at the first update, but exits if the offset exceeds the panic threshold at subsequent updates. The panic threshold default is 1000 s, but it can be changed with the <code>panic</code> option of the [<code>tinker</code>](/archives/4.2.8-series/miscopt/) command.
+Most computers today incorporate a time-of-year (TOY) chip to maintain the time when the power is off. When the computer is restarted, the chip is used to initialize the operating system time. In case there is no TOY chip or the TOY time is different from NTP time by more than the panic threshold, the daemon assumes something must be terribly wrong, so exits with a message to the system operator to set the time manually. With the <code>-g</code> option on the command line, the daemon sets the clock to NTP time at the first update, but exits if the offset exceeds the panic threshold at subsequent updates. The panic threshold default is 1000 s, but it can be changed with the <code>panic</code> option of the [<code>tinker</code>](/documentation/4.2.8-series/miscopt/) command.
 
 * * *
 
@@ -36,9 +36,9 @@ Most computers today incorporate a time-of-year (TOY) chip to maintain the time 
 
 Under ordinary conditions, the clock discipline gradually slews the clock to the correct time, so that the time is effectively continuous and never stepped forward or backward. If, due to extreme network congestion, an offset spike exceeds the step threshold, by default 128 ms, the spike is discarded. However, if offset spikes greater than the step threshold persist for an interval more than the stepout threshold, by default 300 s, the system clock is stepped to the correct time.
 
-In practice, the need for a step has been extremely rare and almost always the result of a hardware failure or operator error. The step threshold and stepout threshold can be changed using the <code>step</code> and <code>stepout</code> options of the [<code>tinker</code>](/archives/4.2.8-series/miscopt/) command, respectively. If the step threshold is set to zero, the step function is entirely disabled and the clock is always slewed. The daemon sets the step threshold to 600 s using the <code>-x</code> option on the command line. If the <code>-g</code> option is used or the step threshold is set greater than 0.5 s, the precision time kernel support is disabled.
+In practice, the need for a step has been extremely rare and almost always the result of a hardware failure or operator error. The step threshold and stepout threshold can be changed using the <code>step</code> and <code>stepout</code> options of the [<code>tinker</code>](/documentation/4.2.8-series/miscopt/) command, respectively. If the step threshold is set to zero, the step function is entirely disabled and the clock is always slewed. The daemon sets the step threshold to 600 s using the <code>-x</code> option on the command line. If the <code>-g</code> option is used or the step threshold is set greater than 0.5 s, the precision time kernel support is disabled.
 
-Historically, the most important application of the step function was when a leap second was inserted in the Coordinated Universal Time (UTC) timescale and the kernel precision time support was not available. This also happened with older reference clocks that indicated an impending leap second, but the radio itself did not respond until it resynchronized some minutes later. Further details are on the [Leap Second Processing](/archives/4.2.8-series/leap/) page.
+Historically, the most important application of the step function was when a leap second was inserted in the Coordinated Universal Time (UTC) timescale and the kernel precision time support was not available. This also happened with older reference clocks that indicated an impending leap second, but the radio itself did not respond until it resynchronized some minutes later. Further details are on the [Leap Second Processing](/documentation/4.2.8-series/leap/) page.
 
 In some applications the clock can never be set backward, even it accidentally set forward a week by some evil means. The issues should be carefully considered before using these options. The slew rate is fixed at 500 parts-per-million (PPM) by the Unix kernel. As a result, the clock can take 33 minutes to amortize each second the clock is outside the acceptable range. During this interval the clock will not be consistent with any other network clock and the system cannot be used for distributed applications that require correctly synchronized network time.
 

@@ -9,7 +9,7 @@ Last update: 10-Mar-2014 05:07 UTC
 
 #### Historical Notes on NTP Upgrades
 
-This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008. It is very important to recognize that this historic document describes the upgrade status as of 2008. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the [NTP Version 4 Release Notes](/archives/4.2.8-series/release/) page.
+This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008. It is very important to recognize that this historic document describes the upgrade status as of 2008. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the [NTP Version 4 Release Notes](/documentation/4.2.8-series/release/) page.
 
 The motivation for this project was the overhaul and refinement of the code, some of which dates back twenty years. Some four dozen sets of fingers have introduced sometimes incompatible "improvements" that to some degree enhance or burden the product. There has been a continuing effort over the years to maintain the briar patch and pluck the more flagrant weeds, but it now requires a more systematic and thorough examination of purpose, design and implementation. The project is not complete, but far enough along to present a status report and review of significant changes.
 
@@ -25,9 +25,9 @@ During the project a number of minor inconsistencies in various algorithms were 
 
 #### 2. Documentation
 
-The documentation required a major upgrade. Many pages have been overhauled, some completely rewritten and new ones added. A [site map](/archives/4.2.8-series/sitemap/) has been added and sorted by page category. A comprehensive [command index](/archives/4.2.8-series/comdex/) has been added and sorted by page category. The command index includes a brief gloss for each command. A page has been added to show the various [status word and event decodes](/archives/4.2.8-series/decode/) used for monitoring and event reporting. The decodes show the internal code, ASCII report and short function gloss.
+The documentation required a major upgrade. Many pages have been overhauled, some completely rewritten and new ones added. A [site map](/documentation/4.2.8-series/sitemap/) has been added and sorted by page category. A comprehensive [command index](/documentation/4.2.8-series/comdex/) has been added and sorted by page category. The command index includes a brief gloss for each command. A page has been added to show the various [status word and event decodes](/documentation/4.2.8-series/decode/) used for monitoring and event reporting. The decodes show the internal code, ASCII report and short function gloss.
 
-New pages have been added on [association management](/archives/4.2.8-series/assoc/), [automatic server discovery](/archives/4.2.8-series/discover/) and [rate management](/archives/4.2.8-series/rate/). Much of the overburden on the program manual and configuration pages has been moved to these pages with the intent of the original pages to contain primarily a functional description for the commands and command line options. This is still an ongoing process.
+New pages have been added on [association management](/documentation/4.2.8-series/assoc/), [automatic server discovery](/documentation/4.2.8-series/discover/) and [rate management](/documentation/4.2.8-series/rate/). Much of the overburden on the program manual and configuration pages has been moved to these pages with the intent of the original pages to contain primarily a functional description for the commands and command line options. This is still an ongoing process.
 
 * * *
 
@@ -45,7 +45,7 @@ The main feature of the revised design is that it is responsive to the server mi
 
 The revised design makes possible a decrease in the minimum time constant/poll interval to 3 (8 s), which reduces the risetime to 250 s. This may be useful for rapid convergence when a client is first started, but should not be used for links with moderate to large jitter. This is done using the average option of the discard command, which sets the minimum poll interval and headway from the default 4 (16 s) to a value in the range 3 (8 s) to 6 (64 s). Larger values than 4 might be appropriate for very busy public servers.
 
-[Rate management](/archives/4.2.8-series/rate/) applies also to Autokey messages. This fixes a problem when <code>iburst</code> and autokey are both in play and when for some reason an association with iburst is repeatedly restarted. This may appear spooky to some folks that frequently restart a client for testing. The server remembers. 
+[Rate management](/documentation/4.2.8-series/rate/) applies also to Autokey messages. This fixes a problem when <code>iburst</code> and autokey are both in play and when for some reason an association with iburst is repeatedly restarted. This may appear spooky to some folks that frequently restart a client for testing. The server remembers. 
 
 * * *
 
@@ -79,7 +79,7 @@ The local clock driver can be very dangerous when used as a fallback when connec
 
 #### 8. Poll Rate Control
 
-One of the most persistent problems is when after long operation and then a failure and then subsequently recovery, a client can take a long time to refresh the clock filter and resynchronize. Once the client has backed off the poll interval after a lengthy outage, it sends polls at that interval until receiving a response. At that time it temporarily retries at the minimum poll interval to fill up the clock filter. If <code>iburst</code> is configured, this will happen after 10 seconds or so and the client then resumes its poll interval required by the discipline time constant. This avoids needless network traffic while the poll interval increases gradually to the maximum. Further information is in the [poll](/archives/4.2.8-series/poll/) page.
+One of the most persistent problems is when after long operation and then a failure and then subsequently recovery, a client can take a long time to refresh the clock filter and resynchronize. Once the client has backed off the poll interval after a lengthy outage, it sends polls at that interval until receiving a response. At that time it temporarily retries at the minimum poll interval to fill up the clock filter. If <code>iburst</code> is configured, this will happen after 10 seconds or so and the client then resumes its poll interval required by the discipline time constant. This avoids needless network traffic while the poll interval increases gradually to the maximum. Further information is in the [poll](/documentation/4.2.8-series/poll/) page.
 
 The same thing happens on initial startup or when an association is restarted. The intent is to avoid a blast of <code>iburst</code> packets unless the server actually responds to the first one and to retry only while responding to the rate controls.
 
@@ -89,7 +89,7 @@ In order to speed response to initial startup when a reference clock is availabl
 
 #### 9. Autokey
 
-The management of host and group names with respect to Autokey configuration and key generation has been removed and simplified. On host certificates, the subject and issuer fields carry the group name, while other certificates carry the host name, which can be an arbitrary string having nothing to do with the DNS name. This opens up a possible future plan to use the Autokey name rather than the IP address when constructing the session key. It also allows a client to easily switch from one group to another without regenerating the certificate. Further information is in the [Autokey](/archives/4.2.8-series/autokey/) page.
+The management of host and group names with respect to Autokey configuration and key generation has been removed and simplified. On host certificates, the subject and issuer fields carry the group name, while other certificates carry the host name, which can be an arbitrary string having nothing to do with the DNS name. This opens up a possible future plan to use the Autokey name rather than the IP address when constructing the session key. It also allows a client to easily switch from one group to another without regenerating the certificate. Further information is in the [Autokey](/documentation/4.2.8-series/autokey/) page.
 
 Various protocol refinements have been done in the Autokey state machine. A bug was found in symmetric modes where the peer cookies were not EXORed. A bug was found in processing the certificate cache when a participant was a client of two or more server in the same group which themselves had certificate trails to different trusted hosts.
 

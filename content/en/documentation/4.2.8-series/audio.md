@@ -3,7 +3,7 @@ title: "Reference Clock Audio Drivers"
 type: archives
 ---
 
-![jpg](/archives/pic/radio2.jpg) ICOM R-72 shortwave receiver and Sure audio mixer
+![jpg](/documentation/pic/radio2.jpg) ICOM R-72 shortwave receiver and Sure audio mixer
 
 Last update: 11-Sep-2010 05:55 UTC
 
@@ -11,9 +11,9 @@ Last update: 11-Sep-2010 05:55 UTC
 
 #### Table of Contents
 
-*   [Sound Card Drivers](/archives/4.2.8-series/audio/#sound-card-drivers)
-*   [Shortwave Radio Drivers](/archives/4.2.8-series/audio/#shortwave-radio-drivers)
-*   [Setup and Debugging Aids](/archives/4.2.8-series/audio/#setup-and-debugging-aids)
+*   [Sound Card Drivers](/documentation/4.2.8-series/audio/#sound-card-drivers)
+*   [Shortwave Radio Drivers](/documentation/4.2.8-series/audio/#shortwave-radio-drivers)
+*   [Setup and Debugging Aids](/documentation/4.2.8-series/audio/#setup-and-debugging-aids)
 
 * * *
 
@@ -27,13 +27,13 @@ Currently, the audio drivers work with Sun operating systems and audio codecs, i
 
 The audio drivers include a number of common features designed to groom input signals, suppress spikes and normalize signal levels. An automatic gain control (AGC) feature provides protection against overdriven or underdriven input signals. It is designed to maintain adequate demodulator signal amplitude while avoiding occasional noise spikes. In order to assure reliable operation, the signal level must be in the range where the audio gain control is effective. In general, this means the input signal level must be such as to cause the AGC to set the gain somewhere in the middle of the range from 0 to 255, as indicated in the timecode displayed by the <code>ntpq</code> program.
 
-The [IRIG](/archives/drivers/driver6/) and [WWV](/archives/drivers/driver36/) drivers operate by disciplining a logical clock based on the codec sample clock to the audio signal as received. This is done by stuffing or slipping samples as required to maintain exact frequency to the order of 0.1 PPM. In order for the driver to reliably lock on the audio signal, the sample clock frequency tolerance must be less than 250 PPM (.025 percent) for the IRIG driver and half that for the WWV driver. The largest error observed so far is about 60 PPM, but it is possible some sound cards or codecs may exceed that value. In any case, the configuration file command <code>tinker codec</code> can be used to change the systematic offset in units of 125 PPM.
+The [IRIG](/documentation/drivers/driver6/) and [WWV](/documentation/drivers/driver36/) drivers operate by disciplining a logical clock based on the codec sample clock to the audio signal as received. This is done by stuffing or slipping samples as required to maintain exact frequency to the order of 0.1 PPM. In order for the driver to reliably lock on the audio signal, the sample clock frequency tolerance must be less than 250 PPM (.025 percent) for the IRIG driver and half that for the WWV driver. The largest error observed so far is about 60 PPM, but it is possible some sound cards or codecs may exceed that value. In any case, the configuration file command <code>tinker codec</code> can be used to change the systematic offset in units of 125 PPM.
 
 The drivers include provisions to select the input port and to monitor the input signal. The <code>fudge flag 2</code> command selects the microphone port if set to zero or the line-in port if set to one. It does not seem useful to specify the compact disc player port. The <code>fudge flag 3</code> command enables the input signal monitor using the previously selected output port and output gain. Both of these flags can be set in the configuration file or remotely using the <code>ntpdc</code> utility program.
 
 #### Shortwave Radio Drivers
 
-The WWV/H and [CHU](/archives/drivers/driver7/) audio drivers require an external shortwave radio with the radio output - speaker or headphone jack - connected to either the microphone or line-in port on the computer. There is some degree of art in setting up the radio and antenna and getting the setup to work. While the drivers are highly sophisticated and efficient in extracting timing signals from noise and interference, it always helps to have as clear a signal as possible.
+The WWV/H and [CHU](/documentation/drivers/driver7/) audio drivers require an external shortwave radio with the radio output - speaker or headphone jack - connected to either the microphone or line-in port on the computer. There is some degree of art in setting up the radio and antenna and getting the setup to work. While the drivers are highly sophisticated and efficient in extracting timing signals from noise and interference, it always helps to have as clear a signal as possible.
 
 The most important factor affecting the radio signal is the antenna. It need not be long - even 15 feet is enough if it is located outside of a metal frame building, preferably on the roof, and away from metallic objects. An ordinary CB whip mounted on a PVC pipe and wooden X-frame on the roof should work well with most portable radios, as they are optimized for small antennas.
 
