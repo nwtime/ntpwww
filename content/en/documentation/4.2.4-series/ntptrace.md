@@ -1,7 +1,8 @@
 ---
 title: "ntptrace - trace a chain of NTP servers back to the primary source"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice13.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
