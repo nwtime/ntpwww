@@ -1,7 +1,8 @@
 ---
 title: "Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
 
 The technical memorandum: <cite>Time and Time Interval Measurement with Application to Computer and Network Performance Evaluation</cite> [(PDF)](/reflib/memos/memo96a.pdf) describes a number of techniques for conducting experiments typical of computer network and transmission systems engineering.

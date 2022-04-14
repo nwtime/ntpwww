@@ -1,7 +1,8 @@
 ---
 title: "Protocol Conformance Statement"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![](/documentation/pic/flatheads.gif)[From _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
