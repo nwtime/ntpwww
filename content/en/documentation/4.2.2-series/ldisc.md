@@ -1,7 +1,8 @@
 ---
 title: "Line Disciplines and Streams Modules"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
 
 Last update: 18:40 UTC Thursday, July 28, 2005
