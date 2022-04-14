@@ -1,7 +1,8 @@
 ---
 title: "Automatic Server Discovery"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
 
 

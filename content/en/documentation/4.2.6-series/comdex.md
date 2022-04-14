@@ -1,7 +1,8 @@
 ---
 title: "Command Index"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 

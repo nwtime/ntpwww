@@ -1,7 +1,8 @@
 ---
 title: "External Clock Discipline and the Local Clock Driver"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
 
 Last update: 18:38 UTC Thursday, July 28, 2005
