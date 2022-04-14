@@ -1,7 +1,8 @@
 ---
 title: "Configuration Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

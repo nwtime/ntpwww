@@ -1,7 +1,8 @@
 ---
 title: "NTP Timescale and Leap Seconds"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
 
 ![gif](/documentation/pic/alice15.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
