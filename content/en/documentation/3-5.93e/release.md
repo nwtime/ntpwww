@@ -1,7 +1,8 @@
 ---
 title: "Release Notes"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 The following changes are in the version 3-5.85 distribution relative to the previous 3.5f version.

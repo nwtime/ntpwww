@@ -1,7 +1,8 @@
 ---
 title: "TrueTime GPS/GOES/OMEGA Receivers"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 * * *

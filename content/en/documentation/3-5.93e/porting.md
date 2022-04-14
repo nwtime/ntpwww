@@ -1,7 +1,8 @@
 ---
 title: "Porting Hints"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 {{% alert title="NOTE" color="warning" %}} 

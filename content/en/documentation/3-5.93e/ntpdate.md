@@ -1,7 +1,8 @@
 ---
 title: "ntpdate - set the date and time via NTP"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Table of Contents

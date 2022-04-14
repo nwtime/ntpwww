@@ -1,7 +1,8 @@
 ---
 title: "Configuration Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Configuration Commands

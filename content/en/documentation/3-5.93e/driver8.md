@@ -1,7 +1,8 @@
 ---
 title: "Generic Reference Driver"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Table of Contents

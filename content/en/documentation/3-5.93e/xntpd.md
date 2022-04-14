@@ -1,7 +1,8 @@
 ---
 title: "xntpd - Network Time Protocol (NTP) daemon"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Table of Contents

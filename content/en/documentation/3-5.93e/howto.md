@@ -1,7 +1,8 @@
 ---
 title: "How to Write a Reference Clock Driver"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Table of Contents

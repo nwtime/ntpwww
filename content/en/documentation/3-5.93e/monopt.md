@@ -1,7 +1,8 @@
 ---
 title: "Monitoring Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Table of Contents
