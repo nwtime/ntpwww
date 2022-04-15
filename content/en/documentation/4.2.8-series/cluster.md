@@ -3,10 +3,6 @@ title: "Clock Cluster Algorithm"
 type: archives
 ---
 
-Last update: 15-Nov-2012 06:02 UTC
-
-* * *
-
 The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of _survivors_. These survivors are used by the mitigation algorithms to discipline the system clock. The cluster algorithm operates in a series of rounds, where at each round the truechimer furthest from the offset centroid is pruned from the population. The rounds are continued until a specified termination condition is met. This page discusses the algorithm in detail.
 
 First, the truechimer associations are saved on an unordered list with each candidate entry identified with index <code>_i_</code> (_i_ = 1, ..., _n)_, where <code>_n_</code> is the number of candidates. Let <code>θ(_i_)</code> be the offset and <code>λ(_i_)</code> be the root distance of the <code>_i_</code>th entry. Recall that the root distance is equal to the root dispersion plus half the root delay. For the <code>_i_</code>th candidate on the list, a statistic called the _select jitter_ relative to the <code>_i_</code>th candidate is calculated as follows. Let

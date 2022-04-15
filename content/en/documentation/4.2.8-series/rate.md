@@ -7,8 +7,6 @@ type: archives
 
 Our junior managers and the administrators.
 
-Last update: 10-Mar-2014 05:19 UTC
-
 * * *
 
 #### Table of Contents

@@ -5,8 +5,6 @@ type: archives
 
 Here is an attempt to sketch out what you need to do in order to add another clock to the parse driver: Currently the implementation is being cleaned up - so not all information in here is completely correct. Refer to the included code where in doubt.
 
-Last update: 13-Oct-2010 00:33 UTC
-
 * * *
 
 Prerequisite: Does the system you want the clock to connect to have the include files <code>termio.h</code> or <code>termios.h</code>? They are needed by the parse driver.

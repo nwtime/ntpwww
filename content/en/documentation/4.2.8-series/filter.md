@@ -3,10 +3,6 @@ title: "Clock Filter Algorithm"
 type: archives
 ---
 
-Last update: 10-Mar-2014 05:05 UTC
-
-* * *
-
 The clock filter algorithm processes the offset and delay samples produced by the on-wire protocol for each peer process separately. It uses a sliding window of eight samples and picks out the sample with the least expected error. This page describes the algorithm design principles along with an example of typical performance.
 
 ![gif](/documentation/pic/flt5.gif)

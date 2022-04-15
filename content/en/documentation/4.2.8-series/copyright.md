@@ -5,8 +5,6 @@ type: archives
 
 ![Clone me,](/documentation/pic/sheepb.jpg) Clone me, says Dolly sheepishly.
 
-Last update: 4-Feb-2020 23:47 UTC
-
 * * *
 
 The following copyright notice applies to all files collectively called the Network Time Protocol Version 4 Distribution. Unless specifically declared otherwise in an individual file, this entire notice applies as if the text was explicitly included in the file.

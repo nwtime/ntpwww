@@ -3,10 +3,6 @@ title: "ntp-wait - waits until ntpd is in synchronized state"
 type: archives
 ---
 
-Last update: 12-Jul-2011 22:03 UTC
-
-* * *
-
 #### Synopsis
 
 <code>ntp-wait [ -v ] [ -n _tries_ ] [ -s _seconds_ ]</code>

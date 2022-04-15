@@ -7,8 +7,6 @@ type: archives
 
 Listen carefully to what I say; it is very complicated.
 
-Last update: 10-Mar-2014 05:18 UTC
-
 * * *
 
 #### Table of Contents

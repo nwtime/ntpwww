@@ -3,10 +3,6 @@ title: "Historical Notes"
 type: archives
 ---
 
-Last update: 10-Mar-2014 05:07 UTC
-
-* * *
-
 #### Historical Notes on NTP Upgrades
 
 This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008. It is very important to recognize that this historic document describes the upgrade status as of 2008. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the [NTP Version 4 Release Notes](/documentation/4.2.8-series/release/) page.

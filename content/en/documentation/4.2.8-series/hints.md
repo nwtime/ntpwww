@@ -7,8 +7,6 @@ type: archives
 
 Mother in law has all the answers.
 
-Last update: 10-Mar-2014 05:06 UTC
-
 * * *
 
 This is an index for a set of troubleshooting notes contained in individual text files in the <code>./hints</code> directory. They were supplied by various volunteers in the form of mail messages, patches or just plain word of mouth. Each note applies to a specific computer and operating system and gives information found useful in setting up the NTP distribution or site configuration. The notes are very informal and subject to errors; no attempt has been made to verify the accuracy of the information contained in them.

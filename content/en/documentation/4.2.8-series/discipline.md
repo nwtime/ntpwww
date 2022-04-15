@@ -3,10 +3,6 @@ title: "Clock Discipline Algorithm"
 type: archives
 ---
 
-Last update: 3-Jan-2020 02:12 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [General Overview](/documentation/4.2.8-series/discipline/#general-overview)

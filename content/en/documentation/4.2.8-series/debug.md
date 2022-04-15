@@ -7,8 +7,6 @@ type: archives
 
 We make house calls and bring our own bugs.
 
-Last update: 16-Jul-2014 08:38 UTC
-
 * * *
 
 ### Table of Contents

@@ -3,10 +3,6 @@ title: "How NTP Works"
 type: archives
 ---
 
-Last update: 10-Mar-2014 05:24 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Abstract](/documentation/4.2.8-series/warp/#abstract)

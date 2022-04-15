@@ -7,8 +7,6 @@ type: archives
 
 You need a little magic.
 
-Last update: 6-Feb-2016 07:17 UTC
-
 * * *
 
 In the protocol described in the NTP specification and reference implementation up to now, the transmit timestamp, which is captured before the message digest is computed and the packet queued for output, is properly called as a _softstamp_. The receive timestamp, which is captured after the input driver interrupt routine and before the packet is queued for input, is properly called a _drivestamp_. For enhanced accuracy it is desirable to capture the transmit timestamp as close to the wire as possible; for example, after the output driver interrupt routine.

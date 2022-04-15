@@ -3,10 +3,6 @@ title: "Clock State Machine"
 type: archives
 ---
 
-Last update: 4-Aug-2011 23:40 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [General Overview](/documentation/4.2.8-series/clock/#general-overview)

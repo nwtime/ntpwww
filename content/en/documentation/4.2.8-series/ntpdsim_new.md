@@ -7,8 +7,6 @@ type: archives
 
 All in a row.
 
-Last update: 31-Jan-2014 06:54 UTC
-
 * * *
 
 #### Table of Contents

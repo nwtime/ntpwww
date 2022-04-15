@@ -7,8 +7,6 @@ type: archives
 
 For putting out compiler fires.
 
-Last update: 1-Apr-2015 02:57
-
 * * *
 
 #### Table of Contents

@@ -5,8 +5,6 @@ type: archives
 
 ![gif](/documentation/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab/)
 
-Last update: 26-Sep-2019 06:34 UTC
-
 * * *
 
 #### Table of Contents

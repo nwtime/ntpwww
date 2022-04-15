@@ -3,11 +3,6 @@ title: "Orphan Mode"
 type: archives
 ---
 
-
-Last update: 4-Aug-2011 23:40 UTC
-
-* * *
-
 Sometimes an NTP subnet becomes isolated from all UTC sources such as local reference clocks or Internet time servers. In such cases it may be necessary that the subnet servers and clients remain synchronized to a common timescale, not necessarily the UTC timescale. Previously, this function was provided by the local clock driver to simulate a UTC source. A server with this driver could be used to synchronize other hosts in the subnet directly or indirectly.
 
 There are many disadvantages using the local clock driver, primarily that the subnet is vulnerable to single-point failures and multiple-server redundancy is not possible. Orphan mode is intended to replace the local clock driver. It provides a single simulated UTC source with multiple servers and provides seamless switching as servers fail and recover.

@@ -7,8 +7,6 @@ type: archives
 
 Racoon is shooting configuration bugs.
 
-Last update: 4-Oct-2010 05:13 UTC
-
 * * *
 
 #### Table of Contents

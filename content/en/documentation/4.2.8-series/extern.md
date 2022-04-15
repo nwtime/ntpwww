@@ -3,10 +3,6 @@ title: "External Clock Discipline and the Local Clock Driver"
 type: archives
 ---
 
-Last update: 9-May-2014 04:46 UTC
-
-* * *
-
 The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server. A third implementation might be a completely separate clock discipline algorithm and synchronization protocol, such as the <code>Lockclock</code> algorithm used with NIST Automated Computer Time Service (ACTS) modem synchronized time.
 
 When external clocks are used in conjunction with NTP service, some way needs to be provided for the external clock driver and NTP daemon <code>ntpd</code> to communicate and determine which discipline is in control. This is necessary in order to provide backup, for instance if the external clock or protocol were to fail and synchronization service fall back to other means, such as a local reference clock or another NTP server. In addition, when the external clock and driver are in control, some means needs to be provided for the clock driver to pass on status information and error statistics to the NTP daemon.
