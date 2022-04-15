@@ -4,22 +4,24 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
   
-  <meta name="description" content="Last update: 4-Aug-2011 23:40 UTC
-
-Table of Contents
+  <meta name="description" content="Table of Contents
 
 General Overview
 Panic Threshold
 Step and Stepout Thresholds
 Hold Timer
-Operating Intervals …">
+Operating Intervals
+State Transition Function
+
+
+General …">
 <meta property="og:title" content="Clock State Machine" />
-<meta property="og:description" content="Last update: 4-Aug-2011 23:40 UTC
- Table of Contents  General Overview Panic Threshold Step and Stepout Thresholds Hold Timer Operating Intervals State Transition Function   General Overview In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail." />
+<meta property="og:description" content="Table of Contents  General Overview Panic Threshold Step and Stepout Thresholds Hold Timer Operating Intervals State Transition Function   General Overview In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine in detail.
+The state machine is activated upon receipt of an update by the clock discipline algorithm." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/clock/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T13:56:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -137,10 +139,8 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Clock State Machine</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7386fed5f93e735ad22a77658a8905a02422aa47">7386fed5f</a>)</p>
-	<p>Last update: 4-Aug-2011 23:40 UTC</p>
-<hr>
-<h4 id="table-of-contents">Table of Contents</h4>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
+	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="/documentation/4.2.8-series/clock/#general-overview">General Overview</a></li>
 <li><a href="/documentation/4.2.8-series/clock/#panic-threshold">Panic Threshold</a></li>

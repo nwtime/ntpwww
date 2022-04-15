@@ -8,18 +8,16 @@
   
 from Pogo, Walt Kelly
 You need a little magic.
-Last update: 6-Feb-2016 07:17 UTC
 
-In the protocol described in the NTP specification and …">
+In the protocol described in the NTP specification and reference implementation up to now, the …">
 <meta property="og:title" content="NTP Interleaved Modes" />
 <meta property="og:description" content="from Pogo, Walt Kelly
 You need a little magic.
-Last update: 6-Feb-2016 07:17 UTC
  In the protocol described in the NTP specification and reference implementation up to now, the transmit timestamp, which is captured before the message digest is computed and the packet queued for output, is properly called as a softstamp. The receive timestamp, which is captured after the input driver interrupt routine and before the packet is queued for input, is properly called a drivestamp." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/xleave/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T13:56:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -137,12 +135,11 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>NTP Interleaved Modes</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7386fed5f93e735ad22a77658a8905a02422aa47">7386fed5f</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
 	<p><p>
   <img loading="lazy" src="/documentation/pic/pogo4.gif" alt="gif"  />
 </p><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>You need a little magic.</p>
-<p>Last update: 6-Feb-2016 07:17 UTC</p>
 <hr>
 <p>In the protocol described in the NTP specification and reference implementation up to now, the transmit timestamp, which is captured before the message digest is computed and the packet queued for output, is properly called as a <em>softstamp</em>. The receive timestamp, which is captured after the input driver interrupt routine and before the packet is queued for input, is properly called a <em>drivestamp</em>. For enhanced accuracy it is desirable to capture the transmit timestamp as close to the wire as possible; for example, after the output driver interrupt routine.</p>
 <p>In other words, we would like to replace the transmit softstamp with a drivestamp, but the problem is the transmit drivestamp is available only after the packet has been sent. A solution for this problem is the two-step or interleaved protocol described on this page and included in the current reference implementation. In interleaved modes the transmit drivestamp for one packet is actually carried in the immediately following packet. The trick, however, is to implement the interleaved protocol without changing the NTP packet header format, without compromising backwards compatibility and without compromising the error recovery properties.</p>

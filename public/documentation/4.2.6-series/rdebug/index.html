@@ -8,18 +8,16 @@
   
 from The Wizard of Oz, L. Frank Baum
 Call the girls and they&rsquo;ll sweep your bugs.
-Last update: 01:24 UTC Saturday, November 24, 2007
 
-The …">
+The ntpq and ntpdc utility programs can be used to debug …">
 <meta property="og:title" content="Debugging Reference Clock Drivers" />
 <meta property="og:description" content="from The Wizard of Oz, L. Frank Baum
 Call the girls and they&rsquo;ll sweep your bugs.
-Last update: 01:24 UTC Saturday, November 24, 2007
- The ntpq and ntpdc utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the ntpd page and its dependencies." />
+ The ntpq and ntpdc utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the ntpd page and its dependencies. If the clock appears in the ntpq utility and pe command, no errors have occurred and the daemon has started, opened the devices specified and waiting for peers and radios to come up." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.6-series/rdebug/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-14T17:36:50&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:28:22&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -137,12 +135,11 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Debugging Reference Clock Drivers</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:36 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0bd599bc919ab599e80f881dea60872eadcfe397">0bd599bc9</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:28 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/ccc2d1e85650f914a85d08abe67d10163d733da2">ccc2d1e85</a>)</p>
 	<p><p>
   <img loading="lazy" src="/documentation/pic/oz2.gif" alt="gif"  />
 </p><a href="/reflib/pictures/">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
 <p>Call the girls and they&rsquo;ll sweep your bugs.</p>
-<p>Last update: 01:24 UTC Saturday, November 24, 2007</p>
 <hr>
 <p>The <a href="/documentation/4.2.6-series/ntpq/"><code>ntpq</code></a> and <a href="/documentation/4.2.6-series/ntpdc/"><code>ntpdc</code></a> utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the <a href="/documentation/4.2.6-series/ntpd/"><code>ntpd</code></a> page and its dependencies. If the clock appears in the <code>ntpq</code> utility and <code>pe</code> command, no errors have occurred and the daemon has started, opened the devices specified and waiting for peers and radios to come up. If not, the first thing to look for are error messages on the system log. These are usually due to improper configuration, missing links or multiple instances of the daemon.</p>
 <p>It normally takes a minute or so for evidence to appear that the clock is running and the driver is operating correctly. The first indication is a nonzero value in the <code>reach</code> column in the <code>pe</code> billboard. If nothing appears after a few minutes, the next step is to be sure the RS232 messages, if used, are getting to and from the clock. The most reliable way to do this is with an RS232 tester and to look for data flashes as the driver polls the clock and/or as data arrive from the clock. Our experience is that the overwhelming fraction of problems occurring during installation are due to problems such as miswired connectors or improperly configured device links at this stage.</p>

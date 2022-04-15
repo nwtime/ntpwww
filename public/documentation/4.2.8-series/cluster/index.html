@@ -4,16 +4,13 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
   
-  <meta name="description" content="Last update: 15-Nov-2012 06:02 UTC
-
-The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of …">
+  <meta name="description" content="The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of survivors. These survivors are used …">
 <meta property="og:title" content="Clock Cluster Algorithm" />
-<meta property="og:description" content="Last update: 15-Nov-2012 06:02 UTC
- The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of survivors. These survivors are used by the mitigation algorithms to discipline the system clock. The cluster algorithm operates in a series of rounds, where at each round the truechimer furthest from the offset centroid is pruned from the population. The rounds are continued until a specified termination condition is met." />
+<meta property="og:description" content="The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of survivors. These survivors are used by the mitigation algorithms to discipline the system clock. The cluster algorithm operates in a series of rounds, where at each round the truechimer furthest from the offset centroid is pruned from the population. The rounds are continued until a specified termination condition is met. This page discusses the algorithm in detail." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/cluster/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T13:56:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -131,10 +128,8 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Clock Cluster Algorithm</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7386fed5f93e735ad22a77658a8905a02422aa47">7386fed5f</a>)</p>
-	<p>Last update: 15-Nov-2012 06:02 UTC</p>
-<hr>
-<p>The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of <em>survivors</em>. These survivors are used by the mitigation algorithms to discipline the system clock. The cluster algorithm operates in a series of rounds, where at each round the truechimer furthest from the offset centroid is pruned from the population. The rounds are continued until a specified termination condition is met. This page discusses the algorithm in detail.</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
+	<p>The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of <em>survivors</em>. These survivors are used by the mitigation algorithms to discipline the system clock. The cluster algorithm operates in a series of rounds, where at each round the truechimer furthest from the offset centroid is pruned from the population. The rounds are continued until a specified termination condition is met. This page discusses the algorithm in detail.</p>
 <p>First, the truechimer associations are saved on an unordered list with each candidate entry identified with index <code><em>i</em></code> (<em>i</em> = 1, &hellip;, <em>n)</em>, where <code><em>n</em></code> is the number of candidates. Let <code>θ(<em>i</em>)</code> be the offset and <code>λ(<em>i</em>)</code> be the root distance of the <code><em>i</em></code>th entry. Recall that the root distance is equal to the root dispersion plus half the root delay. For the <code><em>i</em></code>th candidate on the list, a statistic called the <em>select jitter</em> relative to the <code><em>i</em></code>th candidate is calculated as follows. Let</p>
 <p><code><em>d<sub>i</sub></em>(<em>j</em>) = |θ(<em>j</em>) − θ(<em>i</em>)| λ(<em>i</em>),</code></p>
 <p>where <code>θ(<em>i)</em></code> is the peer offset of the <code><em>i</em></code>th entry and <code>θ(<em>j</em>)</code> is the peer offset of the <code><em>j</em></code>th entry, both produced by the clock filter algorithm. The metric used by the cluster algorithm is the select jitter <code>φ<sub>S</sub>(<em>i</em>)</code> computed as the root mean square (RMS) of the <code><em>d<sub>i</sub></em>(<em>j</em>)</code> as <code><em>j</em></code> ranges from 1 to <code><em>n</em></code>. For the purpose of notation in the example to follow, let <code>φ<sub>R</sub>(<em>i</em>)</code> be the peer jitter computed by the clock filter algorithm for the <code><em>i</em></code>th candidate.</p>

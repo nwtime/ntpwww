@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
 
   
   <meta name="description" content="Problem with recent ANSI compilers
@@ -11,7 +11,7 @@ On some systems, including AIX, the compiler quits on the ntp_refclock.c file wh
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/aix/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T13:48:53&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:58:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -129,7 +129,7 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>AIX Hints</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0d8b5fd77425c7b41b9b12b38eb585cc348537e5">0d8b5fd77</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:58 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/726cddc70b0ee8948d301123e9a89790fe343816">726cddc70</a>)</p>
 	<h4 id="problem-with-recent-ansi-compilers">Problem with recent ANSI compilers</h4>
 <p>On some systems, including AIX, the compiler quits on the <code>ntp_refclock.c</code> file when processing the <code>refclock_report()</code> routine. The problem, which is either a feature or a bug, has to do with an unwanted promotion of the <code>u_char</code> argument to an <code>int</code> and a failure of the compiler to recognize the preceding prototype. A workaround is to use ANSI syntax to delare the arguments. Since ANSI compilers are not universally available, this syntax can&rsquo;t be used in the stock distribution.</p>
 <pre>

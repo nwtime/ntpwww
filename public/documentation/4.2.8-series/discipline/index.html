@@ -4,21 +4,22 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
   
-  <meta name="description" content="Last update: 3-Jan-2020 02:12 UTC
-
-Table of Contents
+  <meta name="description" content="Table of Contents
 
 General Overview
 Clock Discipline Operations
 Loop Dynamics
-Clock Initialization and Management …">
+Clock Initialization and Management
+
+
+General Overview
+At the heart of …">
 <meta property="og:title" content="Clock Discipline Algorithm" />
-<meta property="og:description" content="Last update: 3-Jan-2020 02:12 UTC
- Table of Contents  General Overview Clock Discipline Operations Loop Dynamics Clock Initialization and Management   General Overview At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that." />
+<meta property="og:description" content="Table of Contents  General Overview Clock Discipline Operations Loop Dynamics Clock Initialization and Management   General Overview At the heart of the NTP specification and reference implementation is the clock discipline algorithm, which is best described as an adaptive parameter, hybrid phase/frequency-lock feedback loop. It is an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead. Operation is in two modes, phase-lock loop (PLL), which is used at poll intervals below the Allan intercept, by default 2048 s, and frequency-lock loop (FLL), which is used above that." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/discipline/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T13:56:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -136,10 +137,8 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Clock Discipline Algorithm</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7386fed5f93e735ad22a77658a8905a02422aa47">7386fed5f</a>)</p>
-	<p>Last update: 3-Jan-2020 02:12 UTC</p>
-<hr>
-<h4 id="table-of-contents">Table of Contents</h4>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
+	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="/documentation/4.2.8-series/discipline/#general-overview">General Overview</a></li>
 <li><a href="/documentation/4.2.8-series/discipline/#clock-discipline-operations">Clock Discipline Operations</a></li>

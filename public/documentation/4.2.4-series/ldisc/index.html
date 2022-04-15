@@ -4,21 +4,19 @@
 
 
   
-  <meta name="description" content="Last update: Thursday, July 28, 2005
-
-Table of Contents
+  <meta name="description" content="Table of Contents
 
 Description
 tty_clk Line Discipline/Streams Module
 TIOCDCDTIMESTAMP ioctl in FreeBSD
-ppsclock …">
+ppsclock Streams Module (deprecated)
+TIOCSPPS …">
 <meta property="og:title" content="Line Disciplines and Streams Modules" />
-<meta property="og:description" content="Last update: Thursday, July 28, 2005
- Table of Contents  Description tty_clk Line Discipline/Streams Module TIOCDCDTIMESTAMP ioctl in FreeBSD ppsclock Streams Module (deprecated) TIOCSPPS and TIOCGETPPSEV ioctls in Solaris tty_chu Line Discipline/Streams Module (deprecated)  Description Most radio and modem clocks used for a primary (stratum-1) NTP server utilize serial ports operating at speeds of 9600 baud or greater. The intrinsic delay and jitter contributed by the serial port hardware and software driver can accumulate up to a millisecond in newer Unix systems and tens of milliseconds in older ones." />
+<meta property="og:description" content="Table of Contents  Description tty_clk Line Discipline/Streams Module TIOCDCDTIMESTAMP ioctl in FreeBSD ppsclock Streams Module (deprecated) TIOCSPPS and TIOCGETPPSEV ioctls in Solaris tty_chu Line Discipline/Streams Module (deprecated)  Description Most radio and modem clocks used for a primary (stratum-1) NTP server utilize serial ports operating at speeds of 9600 baud or greater. The intrinsic delay and jitter contributed by the serial port hardware and software driver can accumulate up to a millisecond in newer Unix systems and tens of milliseconds in older ones." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.4-series/ldisc/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-14T17:42:34&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:34:01&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -136,10 +134,8 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Line Disciplines and Streams Modules</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:42 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/59673a4c11139bfe618c012d25e64831175cb0e4">59673a4c1</a>)</p>
-	<p>Last update: Thursday, July 28, 2005</p>
-<hr>
-<h4 id="table-of-contents">Table of Contents</h4>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:34 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3c0d205a8588adbbd06a3a709da5853e5b156dbc">3c0d205a8</a>)</p>
+	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="/documentation/4.2.4-series/ldisc/#description">Description</a></li>
 <li><a href="/documentation/4.2.4-series/ldisc/#tttty_clktt-line-disciplinestreams-module"><tt>tty_clk</tt> Line Discipline/Streams Module</a></li>

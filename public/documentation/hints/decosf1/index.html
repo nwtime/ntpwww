@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
 
   
   <meta name="description" content="Some major changes were necessary to make xntp v3 run on the DEC Alpha hardware running DEC OSF/1.  All long and u_long declarations and casts in the …">
@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/decosf1/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T13:48:53&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:58:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -128,7 +128,7 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>DEC OSF/1 Hints</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0d8b5fd77425c7b41b9b12b38eb585cc348537e5">0d8b5fd77</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:58 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/726cddc70b0ee8948d301123e9a89790fe343816">726cddc70</a>)</p>
 	<p>Some major changes were necessary to make <code>xntp</code> v3 run on the DEC Alpha hardware running DEC OSF/1.  All <code>long</code> and <code>u_long</code> declarations and casts in the code were changed to <code>LONG</code> and <code>U_LONG</code> and a new header file (<code>include/ntp_types.h</code>) was added.  The new header file defines <code>LONG</code> as <code>int</code> and <code>U_LONG</code> as <code>u_int</code> for the Alpha hardware and as <code>long</code> and <code>u_long</code> for anything else.  A couple of <code>#if</code>s where changed in <code>ntpq</code> and <code>xntpdc</code> to get the result of a signal defined correctly.  The <code>Config.decosf1</code> file built the programs here with no problems.</p>
 <p>I don&rsquo;t have a radio clock here, so none of that code has been tested. I have run <code>xntpd, xntpdc, xntpres, ntpq, ntpdate</code>, and <code>tickadj</code> under DEC OSF/1 v1.2-2 (BL10).</p>
 <pre>

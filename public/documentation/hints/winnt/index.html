@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
 
   
-  <meta name="description" content="Last update: 6-Apr-2014 23:27
-
-Introduction
-The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, …">
+  <meta name="description" content="Introduction
+The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the …">
 <meta property="og:title" content="Windows NT" />
-<meta property="og:description" content="Last update: 6-Apr-2014 23:27
- Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from Meinberg." />
+<meta property="og:description" content="Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from Meinberg.
+Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/winnt/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T14:29:39&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:58:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -132,10 +130,8 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Windows NT</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 14:29 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7b76ccf28b854042ec32347be96f0bb2e9e23d52">7b76ccf28</a>)</p>
-	<p>Last update: 6-Apr-2014 23:27</p>
-<hr>
-<h4 id="introduction">Introduction</h4>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:58 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/726cddc70b0ee8948d301123e9a89790fe343816">726cddc70</a>)</p>
+	<h4 id="introduction">Introduction</h4>
 <p>The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from <a href="https://www.meinbergglobal.com/english/sw/ntp.htm">Meinberg</a>.</p>
 <p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
 <hr>

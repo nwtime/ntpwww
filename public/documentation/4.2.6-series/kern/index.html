@@ -8,18 +8,16 @@
   
  from Pogo, Walt Kelly
 Alice finds the kernel a house of cards.
-Last update: 15:42 UTC Sunday, March 02, 2008
 
-The technical report 2, which is …">
+The technical report 2, which is a revision and update of an earlier report 3, …">
 <meta property="og:title" content="Kernel Model for Precision Timekeeping" />
 <meta property="og:description" content="from Pogo, Walt Kelly
 Alice finds the kernel a house of cards.
-Last update: 15:42 UTC Sunday, March 02, 2008
  The technical report 2, which is a revision and update of an earlier report 3, describes an engineering model for a precision clock discipline function for a generic operating system. The model is the same hybrid phase/frequency-lock feedback loop used by ntpd, but implemented in the kernel. The code described in 2 is included in Solaris and Digital/Compaq/HP Tru64." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.6-series/kern/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-14T17:36:50&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:28:22&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -137,12 +135,11 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>Kernel Model for Precision Timekeeping</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:36 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0bd599bc919ab599e80f881dea60872eadcfe397">0bd599bc9</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:28 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/ccc2d1e85650f914a85d08abe67d10163d733da2">ccc2d1e85</a>)</p>
 	<p><p>
   <img loading="lazy" src="/documentation/pic/alice61.gif" alt="gif"  />
 </p> <a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>Alice finds the kernel a house of cards.</p>
-<p>Last update: 15:42 UTC Sunday, March 02, 2008</p>
 <hr>
 <p>The technical report <sup><a href="#myfootnote2">2</a></sup>, which is a revision and update of an earlier report <sup><a href="#myfootnote3">3</a></sup>, describes an engineering model for a precision clock discipline function for a generic operating system. The model is the same hybrid phase/frequency-lock feedback loop used by <code>ntpd</code>, but implemented in the kernel. The code described in <sup><a href="#myfootnote2">2</a></sup> is included in Solaris and Digital/Compaq/HP Tru64. It provides two system calls <code>ntp_gettime()</code> and <code>ntp_adjtime()</code> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup><a href="#myfootnote1">1</a></sup> is in FreeBSD and is an option for Linux, SunOS and Tru64; however, of the options, only the Linux implementation, which does not include licensed code, is readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available from <a href="/reflib/software/nanokernel.tar.gz">nanokernel.tar.gz</a>.</p>
 <p>The kernel model also provides support for an external precision timing source, such as described in the <a href="/documentation/4.2.6-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. The new system calls are used by the <a href="/documentation/4.2.6-series/kernpps/">PPSAPI interface</a> and in turn by the <a href="/documentation/drivers/driver22/">PPS Clock Discipline</a> driver (type 22) to provide synchronization limited in principle only by the accuracy and stability of the external timing source.</p>

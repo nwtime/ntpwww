@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  <meta charset="UTF-8"><meta name = "robots" content = "noindex">
+
 
   
-  <meta name="description" content="Last update: 21-Oct-2010 23:44 UTC
-Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to …">
+  <meta name="description" content="Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other …">
 <meta property="og:title" content="vxWorks port" />
-<meta property="og:description" content="Last update: 21-Oct-2010 23:44 UTC
-Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where main() is not allowed, and where the configure scripts need to be altered.
+<meta property="og:description" content="Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where main() is not allowed, and where the configure scripts need to be altered.
  Configuration issues I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/vxworks/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T13:48:53&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-15T18:58:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -131,9 +129,8 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>vxWorks port</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0d8b5fd77425c7b41b9b12b38eb585cc348537e5">0d8b5fd77</a>)</p>
-	<p>Last update: 21-Oct-2010 23:44 UTC</p>
-<p>Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where <code>main()</code> is not allowed, and where the configure scripts need to be altered.</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:58 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/726cddc70b0ee8948d301123e9a89790fe343816">726cddc70</a>)</p>
+	<p>Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where <code>main()</code> is not allowed, and where the configure scripts need to be altered.</p>
 <hr>
 <h4 id="configuration-issues">Configuration issues</h4>
 <p>I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree. The following changes were needed; as a side effect these changes will allow for easy porting of other autoconfigure-enabled code.</p>

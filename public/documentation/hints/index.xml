@@ -11,9 +11,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/a-ux/</guid>
-      <description>Last revision: 06-Jul-1994
- Introduction Included in this distribution of XNTP V3 is a configuration file suitable for use under Apple&amp;rsquo;s A/UX Version 3.x.x There is also one for A/UX 2.0.1 but it has not been fully tested. To make the executables follow the steps outlined below.
- NOTE: You must have gcc installed to successfully compile the current distribution; the native cc supplied with A/UX will NOT correctly compile this source.</description>
+      <description>Introduction Included in this distribution of XNTP V3 is a configuration file suitable for use under Apple&amp;rsquo;s A/UX Version 3.x.x There is also one for A/UX 2.0.1 but it has not been fully tested. To make the executables follow the steps outlined below.
+ NOTE: You must have gcc installed to successfully compile the current distribution; the native cc supplied with A/UX will NOT correctly compile this source. See the FAQ in comp.</description>
     </item>
     
     <item>
@@ -69,7 +68,7 @@
       
       <guid>https://test.doc.ntp.org/documentation/hints/decosf2/</guid>
       <description>Problems with DEC OSF/1 V2.0 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h include files.
-cowbird:/usr/include/sys# diff -c wait.h.orig wait.h*** wait.h.orig Tue Feb 22 02:41:38 1994--- wait.h Thu Aug 25 14:52:57 1994****************** 298,304 ****#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, id_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */--- 298,304 ----#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, pid_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */cowbird:/usr/include/sys# diff -c procset.</description>
+ cowbird:/usr/include/sys# diff -c wait.h.orig wait.h *** wait.h.orig Tue Feb 22 02:41:38 1994 --- wait.h Thu Aug 25 14:52:57 1994 *************** *** 298,304 **** #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, id_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ --- 298,304 ---- #else _BEGIN_CPLUSPLUS ! extern int waitid(idtype_t, pid_t, siginfo_t *, int); _END_CPLUSPLUS #endif /* _NO_PROTO */ cowbird:/usr/include/sys# diff -c procset.</description>
     </item>
     
     <item>
@@ -80,7 +79,7 @@
       <guid>https://test.doc.ntp.org/documentation/hints/freebsd/</guid>
       <description>If you are compiling under FreeBSD and see messages in the syslogs that indicate that the ntpd process is trying to use unavailable sched_ calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled.
  You have two choices:  Ignore the messages.     Generate a new kernel, where the kernel configuration file contains the lines:
-options	&amp;quot;P1003_1B&amp;quot;options	&amp;quot;_KPOSIX_PRIORITY_SCHEDULING&amp;quot;options	&amp;quot;_KPOSIX_VERSION=199309L&amp;quot;     </description>
+options	&amp;quot;P1003_1B&amp;quot; options	&amp;quot;_KPOSIX_PRIORITY_SCHEDULING&amp;quot; options	&amp;quot;_KPOSIX_VERSION=199309L&amp;quot;     </description>
     </item>
     
     <item>
@@ -101,8 +100,7 @@ NTP was re-ported to MPE in May 2001. What follows are hints learned from workin
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/hpux/</guid>
-      <description>Last update: Sun Mar 13 15:05:31 PST 1994
- This file hopefully describes the whatever and however of how to get xntp running on HP-UX 7.0 and later: s300, s400, s700, and s800.
+      <description>This file hopefully describes the whatever and however of how to get xntp running on HP-UX 7.0 and later: s300, s400, s700, and s800.
 First off, all the standard disclaimers hold here &amp;hellip; HP doesn&amp;rsquo;t have anything to do with this stuff. I fool with it in my spare time because we use it and because I like to. We just happen to have a lot of HP machines around here :-) xntpd has been in use here for several years and has a fair amount of mileage on various HP platforms within the company.</description>
     </item>
     
@@ -175,9 +173,9 @@ Matthias Ernst
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/sco/</guid>
-      <description>Last update: 21-Oct-2010 23:44 UTC
- Older SCO Unix versions NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&amp;rsquo;t mind modifying your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.
- Compiling NTP Delete the old SCO supplied NTP programs using the custom utility. Run the NTP configure program with CFLAGS=&amp;quot;-b elf -K processor-type&amp;quot; for best results.</description>
+      <description>Older SCO Unix versions NTP 4.0.x does not run on SCO Unix prior to version 3.2.5.0.0. If you need NTP on an older SCO Unix system and don&amp;rsquo;t mind modifying your kernel, use 3.5.91 which has patches for SCO Unix 3.2.4.x.
+ Compiling NTP Delete the old SCO supplied NTP programs using the custom utility. Run the NTP configure program with CFLAGS=&amp;quot;-b elf -K processor-type&amp;quot; for best results.
+ Running NTP Run tickadj -As after every reboot to set the variables clock_drift and track_rtc to the right values.</description>
     </item>
     
     <item>
@@ -215,7 +213,7 @@ The clock on a sun4u drifts unacceptably. On a typical 143 mHz Ultra, the clock 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/solaris.xtra.patchfreq/</guid>
-      <description>#!/bin/ksh## File: patchfreq# Author: Bryan Cantrill (bmc@eng.sun.com), Solaris Performance# Modified: Sat Apr 26 04:00:59 PDT 1997## This is a little script to patch a 5.5 or 5.5.1 kernel to get around# the cpu_tick_freq inaccuracy. Before running this script, one must# know the true frequency of one&#39;s CPU; this can be derived by NTP,# or by observing the clock relative to the time-of-day chip over a# long period of time (the TOD will pull system time when it drifts# by more than two seconds).</description>
+      <description>#!/bin/ksh # # File: patchfreq # Author: Bryan Cantrill (bmc@eng.sun.com), Solaris Performance # Modified: Sat Apr 26 04:00:59 PDT 1997 # # This is a little script to patch a 5.5 or 5.5.1 kernel to get around # the cpu_tick_freq inaccuracy. Before running this script, one must # know the true frequency of one&#39;s CPU; this can be derived by NTP, # or by observing the clock relative to the time-of-day chip over a # long period of time (the TOD will pull system time when it drifts # by more than two seconds).</description>
     </item>
     
     <item>
@@ -225,9 +223,8 @@ The clock on a sun4u drifts unacceptably. On a typical 143 mHz Ultra, the clock 
       
       <guid>https://test.doc.ntp.org/documentation/hints/solaris/</guid>
       <description>Information on compiling and executing ntpd under Solaris.
-Last update: 27-Jan-2014 05:31 UTC, John Hawkinson, jhawk@MIT.EDU
 If you&amp;rsquo;re not running Solaris 2.5.1 or later, it is likely that you will have problems; upgrading would be a really good plan.
- Table of Contents  All Solaris versions Dealing with Frequency Tolerance Violations Solaris 2.6 Solaris 2.5 and 2.5.1 Solaris 2.2 Solaris 2.1  All Solaris versions  We have a report that says starting with Solaris 2.</description>
+ Table of Contents  All Solaris versions Dealing with Frequency Tolerance Violations Solaris 2.6 Solaris 2.5 and 2.5.1 Solaris 2.2 Solaris 2.1  All Solaris versions  We have a report that says starting with Solaris 2.6 we should leave dosynctodr alone.</description>
     </item>
     
     <item>
@@ -236,7 +233,7 @@ If you&amp;rsquo;re not running Solaris 2.5.1 or later, it is likely that you wi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/svr4_package/</guid>
-      <description>Date: Wed, 12 Apr 1995 12:42:03 +0100Message-ID: From: Andy Chittenden Dave
+      <description>Date: Wed, 12 Apr 1995 12:42:03 +0100 Message-ID:  From: Andy Chittenden  Dave
 Here is a uuencoded, compressed tar file. The only file I&amp;rsquo;ve changed is Makefile - I&amp;rsquo;ve included the full file rather than diffs. There are some new files as well:
  xntp Shell script that starts up ntp during boot up (the packaging stuff creates links to it so it comes up at run level 2). As with all svr4 start/stop scripts, it takes one parameter which is either start or stop.</description>
     </item>
@@ -247,7 +244,7 @@ Here is a uuencoded, compressed tar file. The only file I&amp;rsquo;ve changed i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/solaris.xtra.s99ntpd/</guid>
-      <description>\#!/bin/shif [ $1 = &#34;start&#34; ]; thenif [ -x /usr/local/bin/xntpd ]; thenecho &#34;Starting NTP daemon, takes about 1 minute... &#34;# dosynctodr may need to be left alone as of with Solaris 2.6# The following line is unnecessary if you turn off# dosynctodr in /etc/system./usr/local/bin/tickadj -s/usr/local/bin/ntpdate -v server1 server2sleep 5/usr/local/bin/xntpdfielseif [ $1 = &#34;stop&#34; ]; thenpid=`/usr/bin/ps -e | /usr/bin/grep xntpd | /usr/bin/sed -e &#39;s/^ *//&#39; -e &#39;s/ .</description>
+      <description>\#!/bin/sh if [ $1 = &#34;start&#34; ]; then if [ -x /usr/local/bin/xntpd ]; then echo &#34;Starting NTP daemon, takes about 1 minute... &#34; # dosynctodr may need to be left alone as of with Solaris 2.6 # The following line is unnecessary if you turn off # dosynctodr in /etc/system. /usr/local/bin/tickadj -s /usr/local/bin/ntpdate -v server1 server2 sleep 5 /usr/local/bin/xntpd fi else if [ $1 = &#34;stop&#34; ]; then pid=`/usr/bin/ps -e | /usr/bin/grep xntpd | /usr/bin/sed -e &#39;s/^ *//&#39; -e &#39;s/ .</description>
     </item>
     
     <item>
@@ -285,8 +282,7 @@ Here is a uuencoded, compressed tar file. The only file I&amp;rsquo;ve changed i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/vxworks/</guid>
-      <description>Last update: 21-Oct-2010 23:44 UTC
-Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where main() is not allowed, and where the configure scripts need to be altered.
+      <description>Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where main() is not allowed, and where the configure scripts need to be altered.
  Configuration issues I decided to do as little invasive surgery as possible on the NTP code, so I brought the vxWorks header tree in line with the standard Unix tree.</description>
     </item>
     
@@ -296,8 +292,8 @@ Creating a port for vxWorks posed some problems. This port may help as a startin
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://test.doc.ntp.org/documentation/hints/winnt/</guid>
-      <description>Last update: 6-Apr-2014 23:27
- Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from Meinberg.</description>
+      <description>Introduction The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from Meinberg.
+Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk.</description>
     </item>
     
   </channel>
