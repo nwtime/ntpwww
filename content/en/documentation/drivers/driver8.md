@@ -3,10 +3,6 @@ title: "Generic Reference Driver"
 type: archives
 ---
 
-Last update: 27-Jan-2014 05:31 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver8/#synopsis)

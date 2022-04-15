@@ -2,8 +2,6 @@
 title: "JJY Receivers"
 type: archives
 ---
-
-Last update: 12-Oct-2017 09:05 UTC
        
 [JAPANESE](/documentation/drivers/driver40-ja/)
 

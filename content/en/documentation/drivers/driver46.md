@@ -3,10 +3,6 @@ title: "GPSD-NG client driver"
 type: archives
 ---
 
-Last update: 30-Apr-2015 05:53 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver46/#synopsis)

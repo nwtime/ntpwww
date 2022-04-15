@@ -3,10 +3,6 @@ title: "Arcron MSF Receiver"
 type: archives
 ---
 
-Last update: 21-Oct-2010 23:44 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver27/#synopsis)

@@ -3,10 +3,6 @@ title: "hopf GPS/DCF77 6021/komp for Serial Line"
 type: archives
 ---
 
-Last update: 21-Oct-2010 23:44 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver38/#synopsis)

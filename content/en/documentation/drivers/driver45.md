@@ -3,10 +3,6 @@ title: "Spectracom TSYNC PCI"
 type: archives
 ---
 
-Last update: 26-Mar-2012 05:10 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver45/#synopsis)

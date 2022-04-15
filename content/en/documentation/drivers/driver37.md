@@ -3,8 +3,6 @@ title: "Forum Graphic GPS Dating station"
 type: archives
 ---
 
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver37/#synopsis)

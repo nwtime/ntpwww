@@ -3,10 +3,6 @@ title: "hopf PCI-Bus Receiver (6039 GPS/DCF77)"
 type: archives
 ---
 
-Last update: 21-Oct-2010 23:44 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver39/#synopsis)

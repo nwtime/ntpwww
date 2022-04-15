@@ -3,10 +3,6 @@ title: "Generic NMEA GPS Receiver"
 type: archives
 ---
 
-Last update: 13-Jan-2020 07:12 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver20/#synopsis)

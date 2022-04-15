@@ -3,10 +3,6 @@ title: "Shared Memory Driver"
 type: archives
 ---
 
-Last update: 8-Aug-2014 19:17 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver28/#synopsis)
