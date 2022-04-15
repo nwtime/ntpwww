@@ -10,9 +10,22 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/3-5.93e/kern/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-14T17:54:34&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -115,7 +128,8 @@
   <div class="container">
   	<h1>A Kernel Model for Precision Timekeeping</h1>
      
-    <p>The technical memorandum: <cite>A Kernel Model for Precision Timekeeping</cite> <a href="/reflib/memos/memo96b.pdf">(PDF)</a> describes an engineering model which implements a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model implements a hybrid PLL/FLL discipline algorithm implemented in the kernel. The hybrid loop provides automatic time and frequency steering with update intervals from a few seconds to several hours.</p>
+    <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:54 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/74f2bb37e81508678aace5de294d77ddd4993bb6">74f2bb37e</a>)</p>
+	<p>The technical memorandum: <cite>A Kernel Model for Precision Timekeeping</cite> <a href="/reflib/memos/memo96b.pdf">(PDF)</a> describes an engineering model which implements a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model implements a hybrid PLL/FLL discipline algorithm implemented in the kernel. The hybrid loop provides automatic time and frequency steering with update intervals from a few seconds to several hours.</p>
 <p>The hybrid PLL/FLL has been implemented in the Unix kernels for several workstations, including those made by Sun Microsystems, Digital and Hewlett Packard. The model changes the way the system clock is adjusted in time and frequency, as well as provides mechanisms to discipline its time and frequency to an external precision timing source, such as a pulse-per-second (PPS) signal. The model incorporates a generic system-call interface for use with the Network Time Protocol (NTP) or similar time synchronization protocol. The NTP Version 3 daemon <code>xntpd</code> operates with this model to provide synchronization limited in principle only by the accuracy and stability of the external timing source.</p>
 <p>This memorandum does not propose a standard protocol, specification or algorithm. It is intended to provoke comment, refinement and implementations for kernels not considered herein. While a working knowledge of NTP is not required for an understanding of the design principles or implementation of the model, it may be helpful in understanding how the model behaves in a fully functional timekeeping system.</p>
 <p>The model has been implemented in the Unix kernels for Sun Microsystems, Digital and Hewlett Packard workstations. In addition, for the Digital machines the model provides improved precision to one microsecond. Since these specific implementations involve modifications to licensed code, they cannot be provided directly. Inquiries should be directed to the manufacturer&rsquo;s representatives. However, the engineering model for these implementations, including a simulator with code segments almost identical to the implementations, but not involving licensed code, is available at <a href="/reflib/software/kernel.tar.Z">kernel.tar.Z</a>.</p>

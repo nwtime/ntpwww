@@ -22,9 +22,22 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-config/" /><meta property="article:section" content="ntpfaq" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T14:23:03&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-K07ZJQFYSZ', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -117,7 +130,8 @@
   <div class="container">
   	<h1>6. Configuration</h1>
      
-    <p>Configuration is a manual procedure that is necessary to get a running NTP system.</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 14:23 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/c85de503f8c3b4d9647b61e424ddd1998eea9e08">c85de503f</a>)</p>
+	<p>Configuration is a manual procedure that is necessary to get a running NTP system.</p>
 <p>6.1 <a href="#61-basic-configuration">Basic Configuration</a><br>
 6.1.1 <a href="#611-cant-i-just-run-ntpdate">Can&rsquo;t I just run ntpdate?</a><br>
 6.1.2 <a href="#612-recommended-minimum">Recommended Minimum</a><br>
@@ -269,7 +283,7 @@ controlkey 15</pre>
 <li>A broadcast server needs to have a line like <code>broadcast 128.4.2.255 autokey</code>.</li>
 <li>The clients simply have <code>broadcastclient</code>.</li>
 </ol>
-<p>Replace <code>broadcast</code> with <code>multicast</code> and follow <code>autokey</code> with <code>ttl 5</code> or something like that. As for the crypto questions, refer to <a href="/reflib/autokey/">Autonomous Authentication</a> and
+<p>Replace <code>broadcast</code> with <code>multicast</code> and follow <code>autokey</code> with <code>ttl 5</code> or something like that. As for the crypto questions, refer to <a href="/reflib/autokey/">Autonomous Authentication</a> and 
 <a href="/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey">Q: 6.2.2.6.</a>.</p>
 <hr>
 <h4 id="615-miscellaneous-hints">6.1.5 Miscellaneous Hints</h4>

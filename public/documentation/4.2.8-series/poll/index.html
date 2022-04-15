@@ -13,9 +13,22 @@ The poll process sends NTP packets at intervals determined by the clock discipli
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/poll/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:56:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -118,7 +131,8 @@ The poll process sends NTP packets at intervals determined by the clock discipli
   <div class="container">
   	<h1>Poll Process</h1>
      
-    <p>Last update: 10-Mar-2014 05:17 UTC</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7386fed5f93e735ad22a77658a8905a02422aa47">7386fed5f</a>)</p>
+	<p>Last update: 10-Mar-2014 05:17 UTC</p>
 <hr>
 <p>The poll process sends NTP packets at intervals determined by the clock discipline algorithm. The process is designed to provide a sufficient update rate to maximize accuracy while minimizing network overhead. The process is designed to operate over a poll exponent range between 3 (8 s) and 17 (36 hr). The minimum and maximum poll exponent within this range can be set using the <code>minpoll</code> and <code>maxpoll</code> options of the <a href="/documentation/4.2.8-series/confopt/#server-command-options"><code>server</code></a> command, with default 6 (64 s) and 10 (1024 s), respectively.</p>
 <p>The poll interval is managed by a heuristic algorithm developed over several years of experimentation. It depends on an exponentially weighted average of clock offset differences, called <em>clock jitter</em>, and a jiggle counter, which is initially set to zero. When a clock update is received and the offset exceeds the clock jitter by a factor of 4, the jiggle counter is increased by the poll exponent; otherwise, it is decreased by twice the poll exponent. If the jiggle counter is greater than an arbitrary threshold of 30, it is reset to 0 and the poll exponent is increased by 1. If the jiggle counter is less than -30, it is set to 0 and the poll exponent decreased by 1. In effect, the algorithm has a relatively slow reaction to good news, but a relatively fast reaction to bad news.</p>

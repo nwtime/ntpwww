@@ -13,9 +13,22 @@ In scenarios where a considerable amount of data are downloaded or uploaded usin
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/huffpuff/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:56:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -118,7 +131,8 @@ In scenarios where a considerable amount of data are downloaded or uploaded usin
   <div class="container">
   	<h1>The Huff-n&#39;-Puff Filter</h1>
      
-    <p>Last update: 10-Mar-2014 05:09 UTC</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7386fed5f93e735ad22a77658a8905a02422aa47">7386fed5f</a>)</p>
+	<p>Last update: 10-Mar-2014 05:09 UTC</p>
 <hr>
 <p>In scenarios where a considerable amount of data are downloaded or uploaded using DSL or telephone modem lines, timekeeping quality can be seriously degraded. This occurs because the traffic volume, and thus the queuing delays, on the upload and download directions of transmission can be very different. In many cases the apparent time errors are so large as to exceed the step threshold and a step correction can occur during and after the data transfer.</p>
 <p>The huff-n'-puff filter is designed to correct the apparent time offset in these cases. It depends on knowledge of the propagation delay when no other traffic is present, such as during other than work hours. The filter remembers the minimum delay over the most recent interval measured usually in hours. Under conditions of large delay, the filter corrects the apparent offset using the sign of the offset and the difference between the apparent delay and minimum delay. The name of the filter reflects the negative (huff) and positive (puff) correction, which depends on the sign of the offset. The filter is activated by the <code>tinker huffpuff</code> command, as described in the <a href="/documentation/4.2.8-series/miscopt/">Miscellaneous Options</a> page.</p>

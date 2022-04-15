@@ -8,13 +8,26 @@
 <meta property="og:title" content="FreeBSD Hints" />
 <meta property="og:description" content="If you are compiling under FreeBSD and see messages in the syslogs that indicate that the ntpd process is trying to use unavailable sched_ calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled.
  You have two choices:  Ignore the messages.     Generate a new kernel, where the kernel configuration file contains the lines:
-options	&quot;P1003_1B&quot; options	&quot;_KPOSIX_PRIORITY_SCHEDULING&quot; options	&quot;_KPOSIX_VERSION=199309L&quot;     " />
+options	&quot;P1003_1B&quot;options	&quot;_KPOSIX_PRIORITY_SCHEDULING&quot;options	&quot;_KPOSIX_VERSION=199309L&quot;     " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/freebsd/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:48:53&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -117,7 +130,8 @@ options	&quot;P1003_1B&quot; options	&quot;_KPOSIX_PRIORITY_SCHEDULING&quot; opt
   <div class="container">
   	<h1>FreeBSD Hints</h1>
      
-    <p>If you are compiling under FreeBSD and see messages in the syslogs that indicate that the <code>ntpd</code> process is trying to use unavailable <code>sched_</code> calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled.</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0d8b5fd77425c7b41b9b12b38eb585cc348537e5">0d8b5fd77</a>)</p>
+	<p>If you are compiling under FreeBSD and see messages in the syslogs that indicate that the <code>ntpd</code> process is trying to use unavailable <code>sched_</code> calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled.</p>
 <dl>
 <dt>You have two choices:</dt>
 <dd><ul>

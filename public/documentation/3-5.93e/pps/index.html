@@ -10,9 +10,22 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/3-5.93e/pps/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-14T17:54:34&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -115,7 +128,8 @@
   <div class="container">
   	<h1>Pulse-Per-Second (PPS) Signal Interfacing</h1>
      
-    <p>Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the <a href="/documentation/3-5.93e/gadget/">Gadget Box PPS Level Converter and CHU Modem</a> page.</p>
+    <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:54 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/74f2bb37e81508678aace5de294d77ddd4993bb6">74f2bb37e</a>)</p>
+	<p>Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the <a href="/documentation/3-5.93e/gadget/">Gadget Box PPS Level Converter and CHU Modem</a> page.</p>
 <p>The data leads interface requires regenerating the PPS pulse and converting to RS232 signal levels, so that the pulse looks like a legitimate ASCII character. The optional <code>tty_clk</code> line discipline/streams module inserts a timestamp following this character in the input data stream. The driver uses this timestamp to determine the time of arrival of the PPS pulse to within 26 us at 38.4 kbps while eliminating error due to operating system queues and service times. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>TTYCLK</code> defined.</p>
 <p>The modem control leads interface requires converting to RS232 levels and connecting to the data carrier detect (DCD) lead of a serial port. The optional <code>ppsclock</code> streams module captures a timestamp upon transition of the DCD signal. This module can be built from the <a href="/reflib/software/ppsclock.tar.Z"><code>ppsclock.tar.Z</code> distribution.</a> The driver reads the latest timestamp with a designated <code>ioctl()</code> system call to determine the time of arrival of the PPS pulse to within a few tens of microseconds. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>PPS</code> defined.</p>
 <p>Both the <code>tty_clk</code> and <code>ppsclock</code> modules are described in the <a href="/documentation/3-5.93e/ldisc/">Line Disciplines and Streams Drivers</a> page. Directions for building the modules themselves are in the <code>./kernel</code> directory. Directions on how to configure <code>xntpd</code> to operate with these modules is described in <a href="/documentation/3-5.93e/build/">Building and Installing the Distribution</a> page.</p>

@@ -13,9 +13,22 @@ Sometimes an NTP subnet becomes isolated from all UTC sources such as local refe
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/orphan/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:56:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -118,7 +131,8 @@ Sometimes an NTP subnet becomes isolated from all UTC sources such as local refe
   <div class="container">
   	<h1>Orphan Mode</h1>
      
-    <p>Last update: 4-Aug-2011 23:40 UTC</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/7386fed5f93e735ad22a77658a8905a02422aa47">7386fed5f</a>)</p>
+	<p>Last update: 4-Aug-2011 23:40 UTC</p>
 <hr>
 <p>Sometimes an NTP subnet becomes isolated from all UTC sources such as local reference clocks or Internet time servers. In such cases it may be necessary that the subnet servers and clients remain synchronized to a common timescale, not necessarily the UTC timescale. Previously, this function was provided by the local clock driver to simulate a UTC source. A server with this driver could be used to synchronize other hosts in the subnet directly or indirectly.</p>
 <p>There are many disadvantages using the local clock driver, primarily that the subnet is vulnerable to single-point failures and multiple-server redundancy is not possible. Orphan mode is intended to replace the local clock driver. It provides a single simulated UTC source with multiple servers and provides seamless switching as servers fail and recover.</p>

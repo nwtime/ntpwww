@@ -14,9 +14,22 @@ The protocol machinery operates in conformance …">
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/notes-xntp-v3/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:48:53&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -119,7 +132,8 @@ The protocol machinery operates in conformance …">
   <div class="container">
   	<h1>Notes for NTPv3</h1>
      
-    <p>This version operates in much the same manner as Version 2 with the following changes and additions:</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0d8b5fd77425c7b41b9b12b38eb585cc348537e5">0d8b5fd77</a>)</p>
+	<p>This version operates in much the same manner as Version 2 with the following changes and additions:</p>
 <ol>
 <li>
 <p>The protocol machinery operates in conformance with the <a href="/reflib/rfc/rfc1305/rfc1305b.pdf">RFC 1305</a> NTP Version 3 specification. The most visible characteristic of this version is that the poll intervals for all polls, even selected ones, is significantly increased. This is especially desirable when serving a large client population. This implementation supports previous versions as non-configured peers; for version-2 configured peers a <code>version 2</code> keyword should be included on the <code>peer</code> line.</p>

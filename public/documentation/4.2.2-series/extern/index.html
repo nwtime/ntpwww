@@ -13,9 +13,22 @@ The NTPv4 implementation includes provisions for an external clock, where the sy
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.2-series/extern/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-14T17:45:37&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -118,7 +131,8 @@ The NTPv4 implementation includes provisions for an external clock, where the sy
   <div class="container">
   	<h1>External Clock Discipline and the Local Clock Driver</h1>
      
-    <p>Last update: 18:38 UTC Thursday, July 28, 2005</p>
+    <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:45 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/72ec1d2237d2157ddd10ad2c0d67753503494f81">72ec1d223</a>)</p>
+	<p>Last update: 18:38 UTC Thursday, July 28, 2005</p>
 <hr>
 <p>The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server. A third implementation might be a completely separate clock discipline algorithm and synchronization protocol, such as the <code>Lockclock</code> algorithm used with NIST Automated Computer Time Service (ACTS) modem synchronized time.</p>
 <p>When external clocks are used in conjunction with NTP service, some way needs to be provided for the external clock driver and NTP daemon <code>ntpd</code> to communicate and determine which discipline is in control. This is necessary in order to provide backup, for instance if the external clock or protocol were to fail and synchronization service fall back to other means, such as a local reference clock or another NTP server. In addition, when the external clock and driver are in control, some means needs to be provided for the clock driver to pass on status information and error statistics to the NTP daemon.</p>

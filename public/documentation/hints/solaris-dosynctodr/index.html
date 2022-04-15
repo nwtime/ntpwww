@@ -25,9 +25,22 @@ Upgraded to …">
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/solaris-dosynctodr/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:48:53&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -130,7 +143,8 @@ Upgraded to …">
   <div class="container">
   	<h1>Solaris Symptoms and Resolutions Article 19195</h1>
      
-    <blockquote>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0d8b5fd77425c7b41b9b12b38eb585cc348537e5">0d8b5fd77</a>)</p>
+	<blockquote>
 <p><strong>NOTE:</strong> This content is from SunSolve Article 19195 which once lived on the Sun Microsystems website.</p>
 </blockquote>
 <table>
@@ -156,7 +170,7 @@ Upgraded to …">
 <hr>
 <h4 id="problem-solution">Problem Solution</h4>
 <p>The common lore for setting up <code>xntpd</code> on Solaris using the freeware version included the warning to set the  kernel variable <code>dosynctodr</code> to 0 in the <code>/etc/system</code> file thus: <code>set dosynctodr=0</code>.</p>
-<p>When using NTP on Solaris 2.6 or later, the kernel variable MUST be left at the default value of 1. Prior
+<p>When using NTP on Solaris 2.6 or later, the kernel variable MUST be left at the default value of 1. Prior 
 to 2.6 this variable controlled whether or not to rein in the softclock using the hardware clock, with the result that NTP and the hardware clock would fight for control of the soft clock; thus before 2.6 you had to set <code>dosynctodr</code> to 0. At 2.6, every system call that adjusts the softclock also sets the hard clock, thus while NTP controls the soft clock, the hard clock is also controlled. Setting <code>dosynctodr</code> to 0 reverts the behavior back to the pre 2.6 default behavior, having exactly the opposite effect as that intended.</p>
 <p><strong>Do not set <code>dosynctodr</code> to 0.</strong></p>
 <hr>

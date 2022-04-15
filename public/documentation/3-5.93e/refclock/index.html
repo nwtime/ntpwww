@@ -12,9 +12,22 @@ Radio and modem clocks by convention have addresses in the form 127." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/3-5.93e/refclock/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-14T17:54:34&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -117,7 +130,8 @@ Radio and modem clocks by convention have addresses in the form 127." />
   <div class="container">
   	<h1>Reference Clock Drivers</h1>
      
-    <h4 id="reference-clock-drivers">Reference Clock Drivers</h4>
+    <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:54 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/74f2bb37e81508678aace5de294d77ddd4993bb6">74f2bb37e</a>)</p>
+	<h4 id="reference-clock-drivers">Reference Clock Drivers</h4>
 <p>Support for most of the commonly available radio and modem clocks is included in the default configuration of the NTP daemon for Unix <code>xntpd</code>. Individual clocks can be activated by configuration file commands, specifically the <code>server</code> and <code>fudge</code> commands described in the <a href="/documentation/3-5.93e/xntpd/"><code>xntpd</code> program manual page</a>. The following discussion presents Information on how to select and configure the device drivers in a running Unix system.</p>
 <p>Radio and modem clocks by convention have addresses in the form <code>127.127.<em>t.u</em></code>, where <code><em>t</em></code> is the clock type and <code><em>u</em></code> is a unit number in the range 0-3 used to distinguish multiple instances of clocks of the same type. Most of these clocks require support in the form of a serial port or special bus peripheral. The particular device is normally specified by adding a soft link <code>/dev/device_<em>u</em></code> to the particular hardware device involved, where <code><em>u</em></code> correspond to the unit number above.</p>
 <p>Following is a list showing the type and title of each driver currently implemented. The compile-time identifier for each is shown in parentheses. Click on a selected type for specific description and configuration documentation, including the clock address, reference ID, driver ID, serial port device name and speed, and features (line disciplines, etc.). For those drivers without specific documentation, please contact the author listed in the <a href="/documentation/3-5.93e/copyright/">Copyright Notice</a> page.</p>

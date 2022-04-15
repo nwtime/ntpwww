@@ -14,9 +14,22 @@ The SGI value for HZ is 100 under Irix 4, with the system clock running in nomin
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/sgi/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:48:53&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
+}
+</script>
 
 
   
@@ -119,7 +132,8 @@ The SGI value for HZ is 100 under Irix 4, with the system clock running in nomin
   <div class="container">
   	<h1>SGI Hints</h1>
      
-    <p>12 Jan 93</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0d8b5fd77425c7b41b9b12b38eb585cc348537e5">0d8b5fd77</a>)</p>
+	<p>12 Jan 93</p>
 <hr>
 <h4 id="adjtime-tick-and-tickadj">adjtime, tick and tickadj</h4>
 <p>The SGI value for HZ is 100 under Irix 4, with the system clock running in nominal mode (<code>ftimer off</code>), so the value for tick is 10000 usec. <code>tickadj</code> is a bit more tricky because of the behaviour of <code>adjtime()</code>, which seems to try to perform the correction over 100-200 seconds, with a rate limit of 0.04 secs/sec for large corrections.  Corrections of less than 0.017 seconds generally complete in less than a second,
