@@ -10,8 +10,6 @@ from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 The executive is the one on the left.
 
-Last update: 12-May-2012
-
 * * *
 
 #### Table of Contents

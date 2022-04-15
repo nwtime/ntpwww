@@ -10,8 +10,6 @@ from [_Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
 Ya gotta salute the principles.
 
-Last update 12-May-2012
-
 David L. Mills and Stuart Venters
 
 * * *

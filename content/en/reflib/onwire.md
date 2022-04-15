@@ -10,8 +10,6 @@ from [_Pogo_](/reflib/pictures/), Walt Kelly
 
 If it walks like a duck...
 
-Last update: 12-May-2012
-
 * * *
 
 #### Table of Contents

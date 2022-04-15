@@ -10,8 +10,6 @@ from [_The Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
 Public transport in Oz
 
-Last update 26-May-2012
-
 * * *
 
 #### Table of Contents

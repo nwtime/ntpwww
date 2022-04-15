@@ -10,8 +10,6 @@ from [_Pogo_](/reflib/pictures/), Walt Kelly
 
 Turtle wins the race.
 
-Last update: 07-Jun-2012
-
 * * *
 
 #### Table of Contents

@@ -10,8 +10,6 @@ from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 The Cheshire Cat is our resident cryptographer.
 
-Last update 14 May 2012
-
 * * *
 
 #### Table of Contents

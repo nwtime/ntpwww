@@ -12,8 +12,6 @@ Researchers involved: David Mills, graduate students and many volunteers
 
 Funding: Defense Advanced Research Projects Agency (DARPA), National Science Foundation (NSF), Navy Surface Weapons Center (NSWC) and Jet Propulsion Laboratory/NASA
 
-Last update: 13-May-2012
-
 * * *
 
 #### Table of Contents

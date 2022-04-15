@@ -5,10 +5,6 @@ noindex: true
 sitemap_exclude: true
 ---
 
-Last update: Sun Mar 13 15:05:31 PST 1994
-
-* * *
-
 This file hopefully describes the whatever and however of how to get `xntp` running on HP-UX 7.0 and later: s300, s400, s700, and s800.
 
 First off,  all the standard disclaimers hold here ... HP doesn't have anything to do with this stuff.  I fool with it in my spare time because we use it and because I like to.  We just happen to have a lot of HP machines around here :-) `xntpd` has been in use here for several years and has a fair amount of mileage on various HP platforms within the company.  I can't really guarantee bug fixes but I'd certainly like to hear about bugs and I won't hestitate to look at any fixes sent to me.
