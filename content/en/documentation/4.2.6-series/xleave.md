@@ -10,8 +10,6 @@ sitemap_exclude: true
 
 You need a little magic.
 
-Last update: 03-May-2009 3:37 UTC
-
 * * *
 
 In the protocol described in the NTP specification and implemented today the transmit timestamp is captured before the MD5 digest is computed and the packet is sent, while the receive timestamp is captured after the packet is received. For enhanced accuracy it is desirable to capture the timestamps as close to the wire as possible; i.e., with hardware assist or with a modified driver.

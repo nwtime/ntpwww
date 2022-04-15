@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 A typical NTP monitoring packet
 
-Last update: 04-Nov-2009 0:12 UTC
-
 * * *
 
 #### Table of Contents

@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Racoon is shooting configuration bugs.
 
-Last update: 02:20 UTC Monday, March 03, 2008
-
 * * *
 
 #### Table of Contents

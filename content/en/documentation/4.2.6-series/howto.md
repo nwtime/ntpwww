@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 You need a little magic.
 
-Last update: 11-Jul-2009 20:44
-
 * * *
 
 #### Table of Contents

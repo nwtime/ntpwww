@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 We make house calls and bring our own bugs.
 
-Last update: 16-Jul-2009 19:36 UTC
-
 * * *
 
 ### Table of Contents

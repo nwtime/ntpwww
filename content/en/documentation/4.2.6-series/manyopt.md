@@ -10,8 +10,6 @@ sitemap_exclude: true
 
 Make sure who your friends are.
 
-Last update: 25-Nov-2009 UTC
-
 * * *
 
 #### Table of Contents

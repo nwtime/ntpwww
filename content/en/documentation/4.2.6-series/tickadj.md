@@ -5,10 +5,6 @@ noindex: true
 sitemap_exclude: true
 ---
 
-Last update: Wednesday, January 16, 2008
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/4.2.6-series/tickadj/#synopsis)

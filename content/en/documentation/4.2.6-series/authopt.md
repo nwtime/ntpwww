@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Our resident cryptographer; now you see him, now you don't.
 
-Last update: 	14-Apr-2010 20:49 UTC
-
 * * *
 
 #### Table of Contents

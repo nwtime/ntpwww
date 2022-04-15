@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Our junior managers and the administrators.
 
-Last update: 	03-May-2009 3:34 UTC
-
 * * *
 
 #### Table of Contents

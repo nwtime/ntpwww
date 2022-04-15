@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 You need help from the monkeys.
 
-Last update: 14-oct-09 22:23
-
 * * *
 
 #### Table of Contents

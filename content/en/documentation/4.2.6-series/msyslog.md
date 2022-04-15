@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The log can be shrill at times.
 
-Last update:  02:22 UTC Monday, March 03, 2008
-
 * * *
 
 #### Table of Contents

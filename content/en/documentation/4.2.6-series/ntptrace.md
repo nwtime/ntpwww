@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The rabbit knows the way back.
 
-Last update: 19:06 UTC Wednesday, January 16, 2008
-
 * * *
 
 #### Table of Contents

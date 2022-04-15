@@ -10,8 +10,6 @@ sitemap_exclude: true
 
 The Mad Hatter says "Bring it on".
 
-Last update: 08-Apr-2009 2:56 UTC
-
 * * *
 
 #### Access Control Commands

@@ -8,8 +8,6 @@ sitemap_exclude: true
 
 All in a row.
 
-Last update: 15:55 UTC Sunday, March 02, 2008
-
 * * *
 
 #### Table of Contents

@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 S is for snakeoil.
 
-Last update: 16:31 UTC Wednesday, March 12, 2008
-
 * * *
 
 #### Table of Contents

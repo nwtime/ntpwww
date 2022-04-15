@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Listen carefully to what I say; it is very complicated.
 
-Last update: 22-Apr-2009 14:04 UTC
-
 * * *
 
 #### Table of Contents

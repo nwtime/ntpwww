@@ -11,8 +11,6 @@ sitemap_exclude: true
 
 Pleased to meet you.
 
-Last update: 	07-Nov-2009 20:43 UTC
-
 A list of all links is on the [Site Map](/documentation/4.2.6-series/sitemap/) page.
 
 * * *

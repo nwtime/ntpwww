@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Caterpillar knows all the error codes, which is more than most of us do.
 
-Last update: 30-Apr-2010 23:13 UTC
-
 * * *
 
 #### Table of Contents

@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Alice finds the kernel a house of cards.
 
-Last update: 15:42 UTC Sunday, March 02, 2008
-
 * * *
 
 The technical report <sup>[2](#myfootnote2)</sup>, which is a revision and update of an earlier report <sup>[3](#myfootnote3)</sup>, describes an engineering model for a precision clock discipline function for a generic operating system. The model is the same hybrid phase/frequency-lock feedback loop used by <code>ntpd</code>, but implemented in the kernel. The code described in <sup>[2](#myfootnote2)</sup> is included in Solaris and Digital/Compaq/HP Tru64. It provides two system calls <code>ntp_gettime()</code> and <code>ntp_adjtime()</code> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup>[1](#myfootnote1)</sup> is in FreeBSD and is an option for Linux, SunOS and Tru64; however, of the options, only the Linux implementation, which does not include licensed code, is readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available from [nanokernel.tar.gz](/reflib/software/nanokernel.tar.gz).
