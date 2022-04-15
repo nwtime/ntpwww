@@ -1,6 +1,8 @@
 ---
 title: "Solaris frequency patch"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 <pre>#!/bin/ksh

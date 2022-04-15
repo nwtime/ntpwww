@@ -1,6 +1,8 @@
 ---
 title: "Solaris S99 script for NTPv3"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 <pre>

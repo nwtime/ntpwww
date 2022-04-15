@@ -1,10 +1,8 @@
 ---
 title: "SCO Unix Hints"
 type: archives
----
-
-Last update: 21-Oct-2010 23:44 UTC
-
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Older SCO Unix versions

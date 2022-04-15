@@ -1,6 +1,8 @@
 ---
 title: "AIX Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Problem with recent ANSI compilers

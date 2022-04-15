@@ -1,6 +1,8 @@
 ---
 title: "Available Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Table of Contents

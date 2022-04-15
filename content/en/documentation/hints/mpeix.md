@@ -1,6 +1,8 @@
 ---
 title: "HP e3000 MPE/iX NTP Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 May 29, 2001

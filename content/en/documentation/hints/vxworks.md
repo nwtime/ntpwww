@@ -1,9 +1,9 @@
 ---
 title: "vxWorks port"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
-
-Last update: 21-Oct-2010 23:44 UTC
 
 Creating a port for vxWorks posed some problems. This port may help as a starting point for similar ports to real-time operating systems and other embeddable kernels, particularly where `main()` is not allowed, and where the configure scripts need to be altered.
 

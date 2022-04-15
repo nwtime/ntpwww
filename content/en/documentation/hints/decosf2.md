@@ -1,6 +1,8 @@
 ---
 title: "DEC OSF/1 V2.0 Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Problems with DEC OSF/1 V2.0

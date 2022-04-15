@@ -1,6 +1,8 @@
 ---
 title: "HPUX Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 Last update: Sun Mar 13 15:05:31 PST 1994

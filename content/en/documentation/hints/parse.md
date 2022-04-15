@@ -1,6 +1,8 @@
 ---
 title: "parse"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Compilation

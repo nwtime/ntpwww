@@ -1,6 +1,8 @@
 ---
 title: "BSDi Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 Author:		Bdale Garbee, bdale@gag.com

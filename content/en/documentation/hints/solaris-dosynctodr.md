@@ -1,6 +1,8 @@
 ---
 title: "Solaris Symptoms and Resolutions Article 19195"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 > **NOTE:** This content is from SunSolve Article 19195 which once lived on the Sun Microsystems website.

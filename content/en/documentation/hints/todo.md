@@ -1,6 +1,8 @@
 ---
 title: "Todo"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 Ulrich Windl <Ulrich.Windl@rz.uni-regensburg.de>:

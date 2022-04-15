@@ -1,6 +1,8 @@
 ---
 title: "Solaris Bug #4023118"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 Bug Id: `4023118`

@@ -1,6 +1,8 @@
 ---
 title: "SunOS 4.1.1 and 4.1.3 Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Notes on CPU clock oscillator tolerance with SunOS 4.1.1 and 4.1.3

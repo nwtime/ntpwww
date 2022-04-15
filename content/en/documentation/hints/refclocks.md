@@ -1,6 +1,8 @@
 ---
 title: "NTPv3 refclocks"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 This is a short overview for the reference clocks currently supported by `xntp` V3. Ultimate wisdom can be obtained from `xntpd/refclock_*.c`. This page was derived from that information - unfortunately some comments in the files tend to get stale - so use with caution.
