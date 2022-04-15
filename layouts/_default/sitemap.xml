@@ -5,7 +5,8 @@
   {{ if ne .Section "documentation" }}
   <url>
     <loc>{{ .Permalink }}</loc>	
-    <lastmod>{{ safeHTML ( .Lastmod.Format "January 2, 2006 15:04 UTC" ) }}{{ with .GitInfo }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
+    <lastmod>{{ safeHTML ( .Lastmod.Format "January 2, 2006 15:04 UTC" ) }}{{ with .GitInfo }}{{ end }}</lastmod>
+	{{ with .Sitemap.ChangeFreq }}
     <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
     <priority>{{ .Sitemap.Priority }}</priority>{{ end }}
   </url>
@@ -15,7 +16,8 @@
   {{ if eq .Section "documentation" }}
   <url>
 	<loc>https://doc.ntp.org{{ .RelPermalink }}</loc>
-     <lastmod>{{ safeHTML ( .Lastmod.Format "January 2, 2006 15:04 UTC" ) }}{{ with .GitInfo }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
+     <lastmod>{{ safeHTML ( .Lastmod.Format "January 2, 2006 15:04 UTC" ) }}{{ with .GitInfo }}>{{ end }}</lastmod>
+	 {{ with .Sitemap.ChangeFreq }}
     <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
     <priority>{{ .Sitemap.Priority }}</priority>{{ end }}
  </url>
