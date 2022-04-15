@@ -7,8 +7,6 @@ sitemap_exclude: true
 
 ![jpg](/documentation/pic/radio2.jpg) ICOM R-72 shortwave receiver and Sure audio mixer
 
-Last update: 18:36 UTC Thursday, July 28, 2005
-
 * * *
 
 #### Table of Contents

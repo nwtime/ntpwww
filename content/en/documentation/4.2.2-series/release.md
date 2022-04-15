@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The rabbit toots to make sure you read this.
 
-Last update: 19:17 UTC Monday, October 10, 2005
-
 * * *
 
 #### Table of Contents

@@ -7,8 +7,6 @@ sitemap_exclude: true
 
 ![gif](/documentation/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab/)
 
-Last update:  13:06 UTC Wednesday, August 10, 2005
-
 * * *
 
 #### Table of Contents

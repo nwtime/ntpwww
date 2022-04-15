@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Pig was hired to watch the logs.
 
-Last update: 18:43 UTC Thursday, July 28, 2005
-
 * * *
 
 #### Table of Contents

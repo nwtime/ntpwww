@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 This program is a big, deprecated puppy.
 
-Last update: 18:45 UTC Thursday, July 28, 2005
-
 * * *
 
 #### Table of Contents

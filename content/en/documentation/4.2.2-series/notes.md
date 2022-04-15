@@ -7,8 +7,6 @@ sitemap_exclude: true
 
 ![gif](/documentation/pic/tonea.gif)From NBS Special Publication 432 (out of print)
 
-Last update: 18:44 UTC Thursday, July 28, 2005
-
 * * *
 
 #### Introduction

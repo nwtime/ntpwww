@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The skunk watches for intruders and sprays.
 
-Last update: 18:35 UTC Thursday, July 28, 2005
-
 * * *
 
 #### Table of Contents

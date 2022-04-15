@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 For putting out compiler fires.
 
-Last update: 03:06 AM UTC Monday, October 13, 2003
-
 * * *
 
 #### Table of Contents

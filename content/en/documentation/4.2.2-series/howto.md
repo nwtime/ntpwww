@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 You need a little magic.
 
-Last update: 18:39 UTC Thursday, July 28, 2005
-
 * * *
 
 #### Table of Contents
