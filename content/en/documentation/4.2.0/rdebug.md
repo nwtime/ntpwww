@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Call the girls and they'll sweep your bugs.
 
-Last update: 21:31 UTC Sunday, January 26, 2003
-
 * * *
 
 The [<code>ntpq</code>](/documentation/4.2.0/ntpq/) and [<code>ntpdc</code>](/documentation/4.2.0/ntpdc/) utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the [<code>ntpd</code>](/documentation/4.2.0/ntpd/) page and its dependencies. If the clock appears in the <code>ntpq</code> utility and <code>pe</code> command, no errors have occurred and the daemon has started, opened the devices specified and waiting for peers and radios to come up. If not, the first thing to look for are error messages on the system log. These are usually due to improper configuration, missing links or multiple instances of the daemon.

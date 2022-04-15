@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 I told you it was eyeball and wristwatch.
 
-Last update: 01:13 UTC Sunday, December 22, 2002
-
 * * *
 
 > **Disclaimer:** The functionality of this program is now available in the <code>ntpd</code> program. See the `-q` command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/documentation/4.2.0/ntpd/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.

@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The turtle has been swimming in the kernel.
 
-Last update: 20:19 UTC Monday, December 02, 2002
-
 * * *
 
 #### Table of Contents

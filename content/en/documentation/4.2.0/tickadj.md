@@ -5,10 +5,6 @@ noindex: true
 sitemap_exclude: true
 ---
 
-Last update: 20:11 UTC Monday, December 02, 2002
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/4.2.0/tickadj/#synopsis)

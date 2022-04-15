@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Porting Dorothy in Oz
 
-Last update: 20:17 UTC Monday, December 02, 2002
-
 * * *
 
 {{% alert title="NOTE" color="warning" %}} 

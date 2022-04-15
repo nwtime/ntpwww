@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 We have three, now looking for more.
 
-Last update: 01:50 UTC Friday, May 02, 2003
-
 * * *
 
 <code>**broadcastdelay _seconds_**</code>

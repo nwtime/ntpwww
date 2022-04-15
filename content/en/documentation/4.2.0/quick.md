@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The baby panda was scanned at University College London and used as a FAX test image for a demonstration of the DARPA Atlantic SATNET Program and the first transatlantic Internet connection in 1978. The computing system used for that demonstration was called the [Fuzzball](/reflib/papers/fuzz.pdf). As it happened, this was also the first Internet multimedia presentation and the first to use a predecessor of NTP in regular operation. The image was widely copied and used for testing purpose throughout much of the 1980s.
 
-Last update: 00:39 UTC Saturday, January 11, 2003
-
 * * *
 
 For the rank amateur the sheer volume of the documentation collection must be intimidating. However, it doesn't take much to fly the <code>ntpd</code> daemon with a simple configuration where a workstation needs to synchronize to some server elsewhere in the Internet. The first thing that needs to be done is to build the distribution for the particular workstation and install in the usual place. The [Building and Installing the Distribution](/documentation/4.2.0/build/) page describes how to do this.

@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Alice holds the key.
 
-Last update: 03:13 AM UTC Monday, October 13, 2003
-
 * * *
 
 #### Table of Contents

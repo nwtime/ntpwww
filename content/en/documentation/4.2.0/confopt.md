@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The chicken is getting configuration advice.
 
-Last update: 	03:08 AM UTC Monday, October 13, 2003
-
 * * *
 
 #### Table of Contents

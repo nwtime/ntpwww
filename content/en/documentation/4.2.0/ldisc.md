@@ -5,10 +5,6 @@ noindex: true
 sitemap_exclude: true
 --- 
 
-Last update: Monday, January 20, 2003
-
-* * *
-
 #### Table of Contents
 *  [Description](/documentation/4.2.0/ldisc/#description)
 *  [<tt>tty_clk</tt> Line Discipline/Streams Module](/documentation/4.2.0/ldisc/#tttty_clktt-line-disciplinestreams-module)

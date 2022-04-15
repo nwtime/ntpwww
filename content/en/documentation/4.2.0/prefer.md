@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Listen carefully to what I say; it is very complicated.
 
-Last update: 03:17 AM UTC Monday, October 13, 2003
-
 * * *
 
 #### Table of Contents

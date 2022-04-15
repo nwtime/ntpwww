@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The mushroom knows all the error codes, which is more than most of us do.
 
-Last update:  02:23 UTC Saturday, February 01, 2003
-
 * * *
 
 #### Table of Contents

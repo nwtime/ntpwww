@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 This program is a big puppy.
 
-Last update: 21:39 UTC Sunday, January 26, 2003
-
 * * *
 
 #### Table of Contents

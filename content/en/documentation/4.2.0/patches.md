@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The Mad Hatter needs patches.
 
-Last update: 02:16 UTC Thursday, January 02, 2003
-
 * * *
 
 A distribution so widely used as this one eventually develops numerous barnacles as the result of [porting](/documentation/4.2.0/porting/) to new systems, idiosyncratic new features and just plain bugs. In order to help keep order and make maintenance bearable, we ask that proposed changes to the distribution be submitted in the following form.

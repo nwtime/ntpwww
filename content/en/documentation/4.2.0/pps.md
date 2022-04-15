@@ -9,7 +9,6 @@ sitemap_exclude: true
 
 Alice is trying to find the PPS signal connector.
 
-Last update: 14:46 UTC Monday, January 20, 2003
 * * *
 
 #### Table of Contents

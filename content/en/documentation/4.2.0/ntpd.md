@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 The mushroom knows all the command line options.
 
-Last update: 03:15 AM UTC Monday, October 13, 2003
-
 * * *
 
 #### Table of Contents

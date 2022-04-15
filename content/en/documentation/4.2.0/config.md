@@ -10,8 +10,6 @@ sitemap_exclude: true
 
 Gnu autoconfigure tools are in the backpack.
 
-Last update: 03:07 AM UTC Monday, October 13, 2003
-
 * * *
 
 #### Table of Contents

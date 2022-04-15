@@ -7,8 +7,6 @@ sitemap_exclude: true
 
 ![jpg](/documentation/pic/sheepb.jpg) "Clone me," says Dolly sheepishly
 
-Last update: 15:44 UTC Tuesday, July 15, 2003
-
 * * *
 
 The following copyright notice applies to all files collectively called the Network Time Protocol Version 4 Distribution. Unless specifically declared otherwise in an individual file, this notice applies as if the text was explicitly included in the file.  
