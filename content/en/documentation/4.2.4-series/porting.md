@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Porting Dorothy in Oz
 
-Last update: Saturday, March 20, 2004
-
 * * *
 
 {{% alert title="NOTE" color="warning" %}} 

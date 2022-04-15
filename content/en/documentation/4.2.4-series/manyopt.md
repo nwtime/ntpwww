@@ -10,8 +10,6 @@ sitemap_exclude: true
 
 Make sure who your friends are.
 
-Last update: 20:55 UTC Tuesday, October 11, 2005
-
 * * *
 
 #### Table of Contents

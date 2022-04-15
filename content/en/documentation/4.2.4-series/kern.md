@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Alice finds the kernel a house of cards.
 
-Last update: 18:40 UTC Thursday, July 28, 2005
-
 * * *
 
 The technical report <sup>[2](#myfootnote2)</sup>, which is a major revision and update of RFC-1589 <sup>[3](#myfootnote3)</sup>, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model uses a hybrid PLL/FLL discipline algorithm implemented in the kernel. The algorithm, which is very similar to the algorithm implemented in the NTP daemon, provides automatic time and frequency steering with update intervals from a few seconds to tens of minutes.

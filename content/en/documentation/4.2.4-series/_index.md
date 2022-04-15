@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 Pleased to meet you.
 
-Last update: Thursday, July 28, 2005
-
 * * *
 
 #### Table of Contents

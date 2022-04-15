@@ -9,8 +9,6 @@ sitemap_exclude: true
 
 You need help from the monkeys.
 
-Last update: 18:44 UTC Thursday, July 28, 2005
-
 * * *
 
 #### Table of Contents
