@@ -18,7 +18,7 @@
 <!--To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled -->
 
 <!-- First condition matches www, second matches doc. -->
-{{ if ne .Section "documentation" }}
+{{ if and (hugo.IsProduction) (ne .Section "documentation") }}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
 <script>
 var doNotTrack = true;
@@ -29,7 +29,8 @@ if (!doNotTrack) {
 	gtag('config', 'G-K07ZJQFYSZ', { 'anonymize_ip': true });
 }
 </script>
-{{ else }}
+{{ end }}
+{{ if and (hugo.IsProduction) (eq .Section "documentation") }}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>
 var doNotTrack = true;
@@ -41,6 +42,7 @@ if (!doNotTrack) {
 }
 </script>
 {{ end }}
+
 
   <!-- prefetch and preconnect Google Nunito fonts; load Google font css directly -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
