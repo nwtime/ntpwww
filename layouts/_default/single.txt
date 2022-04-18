@@ -1,0 +1,5 @@
+commit: {{ with .GitInfo }} (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/{{ .Hash }}">{{ .AbbreviatedHash }}</a>){{ end }}
+Author: {{ with .GitInfo }}{{ .AuthorName }} {{ .AuthorEmail }}{{ end }}
+Date: {{ .Lastmod.Format "January 2, 2006 15:04 UTC" }}{{ with .GitInfo }}{{ end }}
+
+Message: {{ with .GitInfo }}{{ .Subject }}{{ end }}
