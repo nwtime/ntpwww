@@ -1,5 +1,6 @@
-commit: {{ with .GitInfo }} (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/{{ .Hash }}">{{ .AbbreviatedHash }}</a>){{ end }}
-Author: {{ with .GitInfo }}{{ .AuthorName }} {{ .AuthorEmail }}{{ end }}
+commit: {{ with .GitInfo }} https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/{{ .AbbreviatedHash }}{{ end }}
+Author: {{ .GitInfo.AuthorName }} {{ .GitInfo.AuthorEmail }}
 Date: {{ .Lastmod.Format "January 2, 2006 15:04 UTC" }}{{ with .GitInfo }}{{ end }}
+Previous tpub: {{ with .Site.GetPage "/publish" }}{{ .Title }}{{ end }}
 
-Message: {{ with .GitInfo }}{{ .Subject }}{{ end }}
+Message: {{ .GitInfo.Subject }}
