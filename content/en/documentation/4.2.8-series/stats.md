@@ -3,10 +3,6 @@ title: "Performance Metrics"
 type: archives
 ---
 
-Last update: 26-Jul-2015 06:29 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Introduction](/documentation/4.2.8-series/stats/#introduction)

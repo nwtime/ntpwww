@@ -1,14 +1,13 @@
 ---
 title: "Miscellaneous Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/boom3.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 We have three, now looking for more.
-
-Last update: 18:50 UTC Monday, January 09, 2006
 
 * * *
 

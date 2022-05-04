@@ -8,8 +8,6 @@ type: archives
 
 We have three, now looking for more.
 
-Last update: 11-Feb-2020 14:00 UTC
-
 * * *
 
 #### Commands and Options

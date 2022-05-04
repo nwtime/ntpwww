@@ -7,8 +7,6 @@ type: archives
 
 Our resident cryptographer; now you see him, now you don't.
 
-Last update: 24-Jul-2018 09:12 UTC
-
 * * *
 
 #### Table of Contents

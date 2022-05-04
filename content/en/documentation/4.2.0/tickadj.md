@@ -1,12 +1,9 @@
 ---
 title: "tickadj - set time-related kernel variables"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
-
-Last update: 20:11 UTC Monday, December 02, 2002
-
-* * *
 
 #### Table of Contents
 

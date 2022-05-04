@@ -3,8 +3,6 @@ title: "Ultralink Clock"
 type: archives
 ---
 
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver34/#synopsis)

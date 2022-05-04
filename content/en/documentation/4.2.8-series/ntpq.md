@@ -7,8 +7,6 @@ type: archives
 
 A typical NTP monitoring packet
 
-Last update: 24-Jan-2018 08:35 UTC
-
 * * *
 
 #### Table of Contents

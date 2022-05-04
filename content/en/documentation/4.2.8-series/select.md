@@ -3,10 +3,6 @@ title: "Clock Select Algorithm"
 type: archives
 ---
 
-Last update: 10-Mar-2014 05:22 UTC
-
-* * *
-
 The clock select algorithm determines from a set of sources , which are correct (_truechimers_) and which are not (_falsetickers_) according to a set of formal correctness assertions. The principles are based on the observation that the maximum error in determining the offset of a candidate cannot exceed one-half the roundtrip delay to the primary reference clock at the time of measurement. This must be increased by the maximum error that can accumulate since then. The selection metric, called the _root distance_, is one-half the roundtrip root delay plus the root dispersion plus minor error contributions not considered here.
 
 First, a number of sanity checks is performed to sift the selectable candidate from among the source population. The sanity checks are sumarized as follows:.

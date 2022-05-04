@@ -7,8 +7,6 @@ type: archives
 
 Alice holds the key.
 
-Last update: 24-Jul-2018 07:27 UTC
-
 * * *
 
 #### Table of Contents

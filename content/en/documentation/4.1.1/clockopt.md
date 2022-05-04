@@ -1,7 +1,8 @@
 ---
 title: "Reference Clock Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/boom4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

@@ -7,8 +7,6 @@ type: archives
 
 The skunk watches for intruders and sprays.
 
-Last update: 7-Jan-2018 23:56 UTC
-
 * * *
 
 #### Commands and Options

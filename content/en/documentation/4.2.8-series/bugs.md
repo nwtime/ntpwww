@@ -7,8 +7,6 @@ type: archives
 
 The rabbit toots to make sure you read this.
 
-Last update: 23-Aug-2014 05:32 UTC
-
 * * *
 
 #### Security Bug Reporting Procedures

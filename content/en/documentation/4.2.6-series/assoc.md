@@ -1,14 +1,13 @@
 ---
 title: "Association Management"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
-
-Last update: 21:56 UTC Friday, December 28, 2007
 
 * * *
 

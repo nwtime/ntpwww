@@ -1,14 +1,13 @@
 ---
 title: "Porting Hints"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 Porting Dorothy in Oz
-
-Last update: 20:17 UTC Monday, December 02, 2002
 
 * * *
 

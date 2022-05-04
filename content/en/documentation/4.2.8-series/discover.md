@@ -8,8 +8,6 @@ type: archives
 
 Make sure who your friends are.
 
-Last update: 10-Mar-2014 05:04 UTC
-
 * * *
 
 #### Table of Contents

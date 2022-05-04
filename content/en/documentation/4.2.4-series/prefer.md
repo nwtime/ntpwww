@@ -1,14 +1,13 @@
 ---
 title: "Mitigation Rules and the prefer Keyword"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice11.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Listen carefully to what I say; it is very complicated.
-
-Last update: 18:49 UTC Thursday, July 28, 2005
 
 * * *
 

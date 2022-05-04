@@ -1,15 +1,14 @@
 ---
 title: "Command Index"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 
 ![gif](/documentation/pic/alice38.gif)[from _Alice's Adventures in Wonderland_, Lewis Carrol](/reflib/pictures/)
 
 The Mad Hatter says "Bring it on".
-
-Last update: 08-Apr-2009 2:56 UTC
 
 * * *
 

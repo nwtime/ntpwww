@@ -7,8 +7,6 @@ type: archives
 
 The skunk watches for intruders and sprays.
 
-Last update: 26-Jul-2017 20:10 UTC
-
 * * *
 
 The <code>ntpd</code> daemon implements a general purpose access control list (ACL) containing address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list. The list is searched in order with the last match found defining the restriction flags associated with the entry.

@@ -1,14 +1,13 @@
 ---
 title: "4.2.0"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Pleased to meet you.
-
-Last update: 03:12 AM UTC Monday, October 13, 2003
 
 * * *
 

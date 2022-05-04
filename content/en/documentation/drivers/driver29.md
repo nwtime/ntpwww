@@ -4,10 +4,6 @@ title: "Trimble Palisade and Thunderbolt Receivers"
 type: archives
 ---
 
-Last update: 13-Sep-2019 08:07 UTC
-
-* * *
-
 ![gif](/documentation/pic/driver29.gif)
 
 ![jpg](/documentation/pic/thunderbolt.jpg)

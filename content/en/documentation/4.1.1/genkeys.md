@@ -1,7 +1,8 @@
 ---
 title: "ntp-genkeys - generate public and private keys"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice23.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

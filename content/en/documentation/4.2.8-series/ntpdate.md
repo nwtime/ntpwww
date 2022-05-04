@@ -7,8 +7,6 @@ type: archives
 
 I told you it was eyeball and wristwatch.
 
-Last update: 21-Jul-2018 04:09 UTC
-
 * * *
 
 > Disclaimer: This program has known bugs and deficiencies and nobody has volunteered to fix them in a long time. The good news is the functionality originally intended for this program is available in the <code>ntpd</code> and <code>sntp</code> programs. See the [Deprecating <code>ntpdate</code> topic](https://support.ntp.org/bin/view/Dev/DeprecatingNtpdate) in the NTP Support wiki for a thorough discussion and analysis of the issues. See the <code>-q</code> command line option in the [<code>ntpd</code> - Network Time Protocol (NTP) daemon](/documentation/4.2.8-series/ntpd/) page and/or the [<code>sntp</code> - Simple Network Time Protocol (SNTP) Client](/documentation/4.2.8-series/sntp/) page. After a suitable period of mourning, the <code>ntpdate</code> program will be retired from this distribution.

@@ -1,6 +1,8 @@
 ---
 title: "Notes for NTPv3"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 This version operates in much the same manner as Version 2 with the following changes and additions:

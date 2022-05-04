@@ -1,14 +1,13 @@
 ---
 title: "NTP Bug Reporting Procedures"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The rabbit toots to make sure you read this.
-
-Last update: 04:05 UTC Sunday, March 02, 2008
 
 * * *
 

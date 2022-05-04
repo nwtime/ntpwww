@@ -1,6 +1,8 @@
 ---
 title: "SGI Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 12 Jan 93

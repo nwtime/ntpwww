@@ -1,11 +1,11 @@
 ---
 title: "Solaris Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 Information on compiling and executing `ntpd` under Solaris.
-
-Last update: 27-Jan-2014 05:31 UTC, John Hawkinson, <jhawk@MIT.EDU>
 
 If you're not running Solaris 2.5.1 or later, it is likely that you will have problems; upgrading would be a really good plan.
 

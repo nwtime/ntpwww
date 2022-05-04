@@ -1,7 +1,8 @@
 ---
 title: "4.2.6-series"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 * * *
@@ -9,8 +10,6 @@ noindex: true
 ![gif](/documentation/pic/barnstable.gif)[_P.T. Bridgeport Bear_; from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Pleased to meet you.
-
-Last update: 	07-Nov-2009 20:43 UTC
 
 A list of all links is on the [Site Map](/documentation/4.2.6-series/sitemap/) page.
 

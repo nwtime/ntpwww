@@ -5,8 +5,6 @@ type: "archives"
 
 **Understanding and using the Network Time Protocol (A first try on a non-technical Mini-HOWTO and FAQ on NTP)**
 
-Last update: 2006-11-21
-
 * * *
 
 #### Table of Contents

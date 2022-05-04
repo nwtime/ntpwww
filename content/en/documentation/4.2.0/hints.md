@@ -1,14 +1,13 @@
 ---
 title: "Hints and Kinks"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice35.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Mother in law has all the answers.
-
-Last update: 20:27 UTC Monday, December 02, 2002
 
 * * *
 

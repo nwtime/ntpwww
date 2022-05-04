@@ -1,14 +1,13 @@
 ---
 title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice47.gif) [from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 The mushroom knows all the command line options.
-
-Last update: 03:15 AM UTC Monday, October 13, 2003
 
 * * *
 

@@ -7,8 +7,6 @@ type: archives
 
 This program is a big, deprecated puppy.
 
-Last update: 31-Jan-2014 06:54 UTC
-
 * * *
 
 #### Table of Contents

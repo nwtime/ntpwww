@@ -1,7 +1,8 @@
 ---
 title: "ntpq - standard NTP query program"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/bustardfly.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

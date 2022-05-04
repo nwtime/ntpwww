@@ -1,12 +1,11 @@
 ---
 title: "Reference Clock Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab/)
-
-Last update: 04-Oct-2009 19:42 UTC
 
 * * *
 

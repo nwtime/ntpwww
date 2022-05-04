@@ -4,29 +4,19 @@
 
 
   
-  <meta name="description" content="Last update: 18:38 UTC Thursday, July 28, 2005
-
-The NTPv4 implementation includes provisions for an external clock, where the system clock is …">
+  <meta name="description" content="The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One …">
 <meta property="og:title" content="External Clock Discipline and the Local Clock Driver" />
-<meta property="og:description" content="Last update: 18:38 UTC Thursday, July 28, 2005
- The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server." />
+<meta property="og:description" content="The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.6-series/extern/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.6-series/extern/" /><meta property="article:section" content="documentation" />
 
-<meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-04-01T13:59:26&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': false });
-}
-</script>
+
+
+
 
 
   
@@ -47,15 +37,15 @@ if (!doNotTrack) {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -63,28 +53,26 @@ if (!doNotTrack) {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
 
 
-<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
-  <div class="gcse-search">
-  </div>
+
 </nav>
 
 
@@ -104,21 +92,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
+	<a href="https://test.doc.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/4.2.6-series/extern/">External Clock Discipline and the Local Clock Driver</a>
+	<a href="https://test.doc.ntp.org/documentation/4.2.6-series/extern/">External Clock Discipline and the Local Clock Driver</a>
 </li>
 
 	</ol>
@@ -129,9 +117,8 @@ if (!doNotTrack) {
   <div class="container">
   	<h1>External Clock Discipline and the Local Clock Driver</h1>
      
-    <p>Last update: 18:38 UTC Thursday, July 28, 2005</p>
-<hr>
-<p>The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server. A third implementation might be a completely separate clock discipline algorithm and synchronization protocol, such as the <code>Lockclock</code> algorithm used with NIST Automated Computer Time Service (ACTS) modem synchronized time.</p>
+    <p style="font-size: small; color: grey;">Last update: April 1, 2022 13:59 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/97374c71e6c098fb37c86f16aed896089927e946">97374c71e</a>)</p>
+	<p>The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server. A third implementation might be a completely separate clock discipline algorithm and synchronization protocol, such as the <code>Lockclock</code> algorithm used with NIST Automated Computer Time Service (ACTS) modem synchronized time.</p>
 <p>When external clocks are used in conjunction with NTP service, some way needs to be provided for the external clock driver and NTP daemon <code>ntpd</code> to communicate and determine which discipline is in control. This is necessary in order to provide backup, for instance if the external clock or protocol were to fail and synchronization service fall back to other means, such as a local reference clock or another NTP server. In addition, when the external clock and driver are in control, some means needs to be provided for the clock driver to pass on status information and error statistics to the NTP daemon.</p>
 <p>Control and monitoring functions for the external clock and driver are implemented using the <a href="/documentation/drivers/driver1/">Local Clock (type 1) driver</a> and the <code>ntp_adjtime()</code> system call. This system call is implemented by special kernel provisions included in the kernel of several operating systems, including Solaris, Tru64, FreeBSD and Linux, and possibly others. When the external clock is disabled or not implemented, the system call is used to pass time and frequency information, as well as error statistics, to the kernel. Besides disciplining the system time, the same interface can be used by other applications to determine the operating parameters of the discipline.</p>
 <p>When the external clock is enabled, <code>ntpd</code> does not discipline the system clock, nor does it maintain the error statistics. In this case, the external clock and driver do this using mechanisms unknown to <code>ntpd</code>; however, in this case the kernel state variables are retrieved at 64-s intervals by the Local Clock driver and used by the clock selection and mitigation algorithms to determine the system variables presented to other NTP clients and peers. In this way, downstream clients and servers in the NTP subnet can make an intelligent choice when more than one server is available.</p>
@@ -151,68 +138,6 @@ if (!doNotTrack) {
 <p>The external clock driver controls the system time and clock selection in the following way. Normally, the driver adjusts the kernel time using the <code>ntp_adjtime()</code> system call in the same way as the daemon. In the case where the kernel discipline is to be used intact, the clock offset is provided in this call and the loop operates as specified. In the case where the driver steers only the frequency, the offset is specified as zero.</p>
 
 	  
-	  <style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn-primary mb-5 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it!</a>
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that.</a>
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-	  <br />
-	
   </div>
 </section>
 <nav class="site-footer navbar navbar-expand-sm mt-auto">

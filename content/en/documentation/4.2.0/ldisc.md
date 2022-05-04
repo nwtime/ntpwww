@@ -1,12 +1,9 @@
 ---
 title: "Line Disciplines and Streams Modules"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
-
-Last update: Monday, January 20, 2003
-
-* * *
 
 #### Table of Contents
 *  [Description](/documentation/4.2.0/ldisc/#description)

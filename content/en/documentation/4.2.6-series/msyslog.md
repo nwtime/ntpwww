@@ -1,14 +1,13 @@
 ---
 title: "ntpd System Log Messages"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The log can be shrill at times.
-
-Last update:  02:22 UTC Monday, March 03, 2008
 
 * * *
 

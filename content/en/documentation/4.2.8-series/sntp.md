@@ -7,8 +7,6 @@ type: archives
 
 S is for snakeoil.
 
-Last update: 1-Apr-2015 11:05 UTC
-
 * * *
 
 #### Table of Contents

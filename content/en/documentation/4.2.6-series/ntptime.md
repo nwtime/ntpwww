@@ -1,14 +1,13 @@
 ---
 title: "ntptime - read and set kernel time variables"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/pogo5.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 The turtle has been swimming in the kernel.
-
-Last update: 16:40 UTC Wednesday, March 12, 2008
 
 * * *
 

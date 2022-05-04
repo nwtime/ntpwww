@@ -3,10 +3,6 @@ title: "MX4200 Receiver Data Format"
 type: archives
 ---
 
-Last update: 21-Oct-2010 23:44 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Control Port Sentences](/documentation/drivers/mx4200data/#control-port-sentences)

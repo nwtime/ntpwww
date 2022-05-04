@@ -1,7 +1,8 @@
 ---
 title: "md5 - generate message digest"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
 
 #### Table of Contents

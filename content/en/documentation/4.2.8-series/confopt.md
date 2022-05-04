@@ -7,8 +7,6 @@ type: archives
 
 The chicken is getting configuration advice.
 
-Last update: 13-Feb-2020 10:08 UTC
-
 * * *
 
 #### Table of Contents

@@ -1,12 +1,11 @@
 ---
 title: "Reference Clock Drivers"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab/)
-
-Last update:  13:06 UTC Wednesday, August 10, 2005
 
 * * *
 

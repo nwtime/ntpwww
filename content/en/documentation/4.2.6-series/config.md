@@ -1,15 +1,14 @@
 ---
 title: "Build Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 
 ![gif](/documentation/pic/pogo3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Gnu autoconfigure tools are in the backpack.
-
-Last update: Monday, December 15, 2008 20:54 UTC
 
 * * *
 

@@ -1,14 +1,13 @@
 ---
 title: "Authentication Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Our resident cryptographer; now you see him, now you don't.
-
-Last update: 	16:25 UTC Monday, April 17, 2006
 
 * * *
 

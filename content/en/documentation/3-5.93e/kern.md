@@ -1,7 +1,8 @@
 ---
 title: "A Kernel Model for Precision Timekeeping"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 The technical memorandum: <cite>A Kernel Model for Precision Timekeeping</cite> [(PDF)](/reflib/memos/memo96b.pdf) describes an engineering model which implements a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model implements a hybrid PLL/FLL discipline algorithm implemented in the kernel. The hybrid loop provides automatic time and frequency steering with update intervals from a few seconds to several hours.

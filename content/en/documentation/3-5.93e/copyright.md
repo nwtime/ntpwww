@@ -1,7 +1,8 @@
 ---
 title: "Copyright Notice"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 The following copyright notice applies to all files collectively called the Network Time Protocol Version 3 Distribution. Unless specifically declared otherwise in an individual file, this notice applies as if the text was explicitly included in the file.

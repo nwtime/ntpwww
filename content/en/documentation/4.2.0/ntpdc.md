@@ -1,14 +1,13 @@
 ---
 title: "ntpdc - special NTP query program"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 This program is a big puppy.
-
-Last update: 21:39 UTC Sunday, January 26, 2003
 
 * * *
 

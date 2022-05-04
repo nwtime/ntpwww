@@ -1,6 +1,8 @@
 ---
 title: "FreeBSD Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 If you are compiling under FreeBSD and see messages in the syslogs that indicate that the `ntpd` process is trying to use unavailable `sched_` calls, it means you are running a kernel that does not have the POSIX scheduling calls enabled.

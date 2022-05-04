@@ -1,7 +1,8 @@
 ---
 title: "Copyright Notice"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![jpg](/documentation/pic/sheepb.jpg) "Clone me," says Dolly sheepishly

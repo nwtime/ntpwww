@@ -1,14 +1,13 @@
 ---
 title: "NTP Version 4 Release Notes"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The rabbit toots to make sure you read this.
-
-Last update: 10:24 PM UTC Tuesday, August 05, 2003
 
 * * *
 

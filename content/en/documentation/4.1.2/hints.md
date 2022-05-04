@@ -1,7 +1,8 @@
 ---
 title: "Hints and Kinks"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice35.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

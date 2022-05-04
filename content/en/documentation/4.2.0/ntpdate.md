@@ -1,14 +1,13 @@
 ---
 title: "ntpdate - set the date and time via NTP"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 I told you it was eyeball and wristwatch.
-
-Last update: 01:13 UTC Sunday, December 22, 2002
 
 * * *
 

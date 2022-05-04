@@ -3,11 +3,6 @@ title: "Autokey Public-Key Authentication"
 type: archives
 ---
 
-
-Last update: 3-Oct-2011 21:51 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Introduction](/documentation/4.2.8-series/autokey/#introduction)

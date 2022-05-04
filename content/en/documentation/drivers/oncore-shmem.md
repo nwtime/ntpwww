@@ -3,10 +3,6 @@ title: "Motorola ONCORE - The Shared Memory Interface"
 type: archives
 ---
 
-Last update: 21-Oct-2010 23:44 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Introduction](/documentation/drivers/oncore-shmem/#introduction)

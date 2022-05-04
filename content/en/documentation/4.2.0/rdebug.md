@@ -1,14 +1,13 @@
 ---
 title: "Debugging Reference Clock Drivers"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 Call the girls and they'll sweep your bugs.
-
-Last update: 21:31 UTC Sunday, January 26, 2003
 
 * * *
 

@@ -5,8 +5,6 @@ type: archives
 
 ![gif](/documentation/pic/tonea.gif)[from _NBS Special Publication 432, 1979_](/reflib/pictures/) (out of print)
 
-Last update: 10-Mar-2014 05:10 UTC
-
 * * *
 
 #### Table of Contents

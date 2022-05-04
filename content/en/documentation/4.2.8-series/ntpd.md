@@ -7,8 +7,6 @@ type: archives
 
 You need help from the monkeys.
 
-Last update: 10-Mar-2014 05:14 UTC
-
 * * *
 
 #### Table of Contents

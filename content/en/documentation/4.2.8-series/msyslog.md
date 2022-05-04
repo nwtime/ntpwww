@@ -7,8 +7,6 @@ type: archives
 
 The log can be shrill at times.
 
-Last update: 10-Mar-2014 05:12 UTC
-
 * * *
 
 #### Table of Contents

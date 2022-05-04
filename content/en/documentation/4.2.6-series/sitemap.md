@@ -1,7 +1,8 @@
 ---
 title: "Site Map"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 #### Build and Install

@@ -3,10 +3,6 @@ title: "tickadj - set time-related kernel variables"
 type: archives
 ---
 
-Last update: 10-Mar-2014 05:24 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/4.2.8-series/tickadj/#synopsis)

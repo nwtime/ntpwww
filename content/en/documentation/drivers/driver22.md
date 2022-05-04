@@ -4,7 +4,6 @@ type: archives
 ---
 
 Author: David L. Mills (mills@udel.edu)
-: Last change: 31-Mar-2014 07:46 UTC
 
 * * *
 

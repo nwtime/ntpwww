@@ -10,8 +10,6 @@ from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 Public transport in Oz
 
-Last update 18-May-2012
-
 * * *
 
 #### Table of Contents

@@ -7,8 +7,6 @@ type: archives
 
 Caterpillar knows all the error codes, which is more than most of us do.
 
-Last update: 26-Jul-2015 06:26 UTC
-
 * * *
 
 #### Table of Contents

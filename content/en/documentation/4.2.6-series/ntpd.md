@@ -1,14 +1,13 @@
 ---
 title: "ntpd - Network Time Protocol (NTP) daemon"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/wingdorothy.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 
 You need help from the monkeys.
-
-Last update: 14-oct-09 22:23
 
 * * *
 

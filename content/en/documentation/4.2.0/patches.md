@@ -1,14 +1,13 @@
 ---
 title: "Patching Procedures"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice38.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 The Mad Hatter needs patches.
-
-Last update: 02:16 UTC Thursday, January 02, 2003
 
 * * *
 

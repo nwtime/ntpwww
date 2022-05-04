@@ -1,14 +1,13 @@
 ---
 title: "Monitoring Options"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Pig was hired to watch the logs.
-
-Last update: 18:43 UTC Thursday, July 28, 2005
 
 * * *
 

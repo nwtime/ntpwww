@@ -10,8 +10,6 @@ from [_The Wizard of Oz_](/reflib/pictures/), L. Frank Baum
 
 Era dynamically aloft
 
-Last update 12-May-2012
-
 * * *
 
 #### Table of Contents

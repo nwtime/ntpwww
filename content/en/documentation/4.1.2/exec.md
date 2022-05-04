@@ -1,7 +1,8 @@
 ---
 title: "Executive Summary - Computer Network Time Synchronization"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice12.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

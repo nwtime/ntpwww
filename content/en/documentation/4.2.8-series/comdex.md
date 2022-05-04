@@ -8,8 +8,6 @@ type: archives
 
 The Mad Hatter says "Bring it on".
 
-Last update: 31-Jan-2014 06:54 UTC
-
 * * *
 
 #### Related Links

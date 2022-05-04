@@ -7,8 +7,6 @@ type: archives
 
 Alice is trying to find the PPS signal connector.
 
-Last update: 10-Mar-2014 05:17 UTC
-
 * * *
 
 #### Table of Contents

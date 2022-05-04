@@ -1,12 +1,11 @@
 ---
 title: "Copyright Notice"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![jpg](/documentation/pic/sheepb.jpg) "Clone me," says Dolly sheepishly
-
-Last update: Tuesday, June 27, 2006</csobj>
 
 * * *
 

@@ -1,11 +1,9 @@
 ---
 title: "A-UX Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
-
-Last revision:  06-Jul-1994
-
-* * *
 
 #### Introduction
 

@@ -1,14 +1,13 @@
 ---
 title: "Event Messages and Status Words"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice47.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Caterpillar knows all the error codes, which is more than most of us do.
-
-Last update: 30-Apr-2010 23:13 UTC
 
 * * *
 

@@ -10,8 +10,6 @@ from [_Alice's Adventures in Wonderland_](/reflib/pictures/), Lewis Carroll
 
 The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.
 
-Last update: 12-May-2012
-
 * * *
 
 #### Table of Contents

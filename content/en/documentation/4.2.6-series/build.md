@@ -1,14 +1,13 @@
 ---
 title: "Building and Installing the Distribution"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/beaver.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 For putting out compiler fires.
-
-Last update: 16:45 UTC Sunday, March 02, 2008
 
 * * *
 

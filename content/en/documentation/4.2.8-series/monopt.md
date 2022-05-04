@@ -7,8 +7,6 @@ type: archives
 
 Pig was hired to watch the logs.
 
-Last update: 7-Dec-2017 10:17 UTC
-
 * * *
 
 #### Table of Contents

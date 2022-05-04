@@ -7,8 +7,6 @@ type: archives
 
 The rabbit toots to make sure you read this.
 
-Last update: 3-Oct-2011 21:51 UTC
-
 #### Table of Contents
 
 *   [New Features](/documentation/4.2.8-series/release/#new-features)

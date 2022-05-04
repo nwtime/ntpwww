@@ -1,14 +1,14 @@
 ---
 title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice32.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Alice is trying to find the PPS signal connector.
 
-Last update: 18:48 UTC Thursday, July 28, 2005
 * * *
 
 #### Table of Contents

@@ -1,14 +1,13 @@
 ---
 title: "NTP Debugging Techniques"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/pogo.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 We make house calls and bring our own bugs.
-
-Last update: 16-Jul-2009 19:36 UTC
 
 * * *
 

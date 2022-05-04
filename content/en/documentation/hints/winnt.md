@@ -1,11 +1,9 @@
 ---
 title: "Windows NT"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
-
-Last update: 6-Apr-2014 23:27
-
-* * *
 
 #### Introduction
 

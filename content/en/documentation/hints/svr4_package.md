@@ -1,6 +1,8 @@
 ---
 title: "Solaris NTPv3 package"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 <pre>Date: Wed, 12 Apr 1995 12:42:03 +0100

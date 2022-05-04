@@ -1,14 +1,13 @@
 ---
 title: "Kernel Model for Precision Timekeeping"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 ![gif](/documentation/pic/alice61.gif) [from _Pogo_, Walt Kelly](/reflib/pictures/)
 
 Alice finds the kernel a house of cards.
-
-Last update: 15:42 UTC Sunday, March 02, 2008
 
 * * *
 

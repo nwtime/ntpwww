@@ -1,11 +1,9 @@
 ---
 title: "HPUX Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
-
-Last update: Sun Mar 13 15:05:31 PST 1994
-
-* * *
 
 This file hopefully describes the whatever and however of how to get `xntp` running on HP-UX 7.0 and later: s300, s400, s700, and s800.
 

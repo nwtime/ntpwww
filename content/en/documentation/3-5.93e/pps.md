@@ -1,7 +1,8 @@
 ---
 title: "Pulse-Per-Second (PPS) Signal Interfacing"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 ---
 
 Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the [Gadget Box PPS Level Converter and CHU Modem](/documentation/3-5.93e/gadget/) page. 

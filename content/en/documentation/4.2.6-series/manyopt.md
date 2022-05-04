@@ -1,15 +1,14 @@
 ---
 title: "Automatic Server Discovery"
 type: archives
-noindex: true
+noindex: true 
+sitemap_exclude: true
 --- 
 
 
 ![gif](/documentation/pic/alice51.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)
 
 Make sure who your friends are.
-
-Last update: 25-Nov-2009 UTC
 
 * * *
 

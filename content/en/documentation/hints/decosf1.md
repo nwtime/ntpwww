@@ -1,6 +1,8 @@
 ---
 title: "DEC OSF/1 Hints"
 type: archives
+noindex: true 
+sitemap_exclude: true
 ---
 
 Some major changes were necessary to make `xntp` v3 run on the DEC Alpha hardware running DEC OSF/1.  All `long` and `u_long` declarations and casts in the code were changed to `LONG` and `U_LONG` and a new header file (`include/ntp_types.h`) was added.  The new header file defines `LONG` as `int` and `U_LONG` as `u_int` for the Alpha hardware and as `long` and `u_long` for anything else.  A couple of `#if`s where changed in `ntpq` and `xntpdc` to get the result of a signal defined correctly.  The `Config.decosf1` file built the programs here with no problems.

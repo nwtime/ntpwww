@@ -6,8 +6,6 @@ type: archives
 
 All in a row.
 
-Last update: 11-Sep-2010 05:55 UTC
-
 * * *
 
 #### Table of Contents

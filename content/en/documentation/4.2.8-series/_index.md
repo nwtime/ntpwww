@@ -9,8 +9,6 @@ type: archives
 
 Pleased to meet you.
 
-Last update: 31-Mar-2014 05:41
-
 A list of all links is on the [Site Map](/documentation/4.2.8-series/sitemap/) page.
 
 * * *

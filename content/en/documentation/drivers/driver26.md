@@ -3,10 +3,6 @@ title: "Hewlett Packard 58503A GPS Receiver and HP Z3801A"
 type: archives
 ---
 
-Last update: 5-Oct-2005 04:37 UTC
-
-* * *
-
 #### Table of Contents
 
 *   [Synopsis](/documentation/drivers/driver26/#synopsis)
