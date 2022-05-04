@@ -11,15 +11,22 @@ This release fixes one security issue in ntpd: …">
 This release fixes one security issue in ntpd:
  MEDIUM: 3565: Crafted null dereference attack from a trusted source with an authenticated mode 6 packet  A crafted malicious authenticated mode 6 (ntpq) packet from a permitted network address can trigger a NULL pointer dereference, crashing ntpd. Note that for this attack to work, the sending system must be on an address that the target&rsquo;s ntpd accepts mode 6 packets from, and must properly authenticate the packet with a private key that is specifically listed as being used for mode 6 authorization." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/4_2_8p13-release-announcement/" /><meta property="article:section" content="support" />
+<meta property="og:url" content="https://doc.ntp.org/support/securitynotice/4_2_8p13-release-announcement/" /><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2019-03-07T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2022-02-11T20:40:51&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
-
-
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = true;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+}
+</script>
 
 
   
@@ -40,15 +47,15 @@ This release fixes one security issue in ntpd:
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -56,25 +63,29 @@ This release fixes one security issue in ntpd:
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
 
 
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
 
 </nav>
 
@@ -95,21 +106,21 @@ This release fixes one security issue in ntpd:
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/support/">Support</a>
+	<a href="https://doc.ntp.org/support/">Support</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/support/securitynotice/">Security</a>
+	<a href="https://doc.ntp.org/support/securitynotice/">Security</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/support/securitynotice/4_2_8p13-release-announcement/">4.2.8p13 Release Announcement</a>
+	<a href="https://doc.ntp.org/support/securitynotice/4_2_8p13-release-announcement/">4.2.8p13 Release Announcement</a>
 </li>
 
 	</ol>

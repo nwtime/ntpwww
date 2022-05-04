@@ -17,20 +17,6 @@
 {{- template "_internal/opengraph.html" . -}}
 <!--To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled -->
 
-<!-- First condition matches www, second matches doc. -->
-{{ if and (hugo.IsProduction) (ne .Section "documentation") }}
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
-<script>
-var doNotTrack = true;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-K07ZJQFYSZ', { 'anonymize_ip': true });
-}
-</script>
-{{ end }}
-{{ if and (hugo.IsProduction) (eq .Section "documentation") }}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>
 var doNotTrack = true;
@@ -41,7 +27,6 @@ if (!doNotTrack) {
 	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
 }
 </script>
-{{ end }}
 
 
   <!-- prefetch and preconnect Google Nunito fonts; load Google font css directly -->

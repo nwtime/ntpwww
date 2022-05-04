@@ -27,15 +27,22 @@ Synopsis …">
  Table of Contents  Synopsis Description Mode-1 Mode-2 Mode-3 Mode-4 Mode-5 Mode-6 Mode-100 Monitor Data Fudge Factors   Synopsis  Address: 127.127.40.u Reference ID: JJY Driver ID: JJY Serial Port: /dev/jjyu; それぞれのJJY受信機、GPS時計、テレフォンJJYを参照して下さい。   Description このドライバーは、以下の、日本で販売されている JJY受信機、GPS時計と、電話回線による時刻配信サービスをサポートしています。
    Model Mode Language     トライステート TS-JJY01, TS-JJY02 1 日本語   シーデックス JST2000 2 日本語   エコー計測器 LT-2000 3    シチズンTIC JJY-200 4 日本語   トライステート TS-GPSclock-01 5 日本語   セイコー タイム システム TDC-300 6 英語と日本語   テレフォンJJY 100 英語と日本語     Mode-1 NTPの設定 (ntp." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/drivers/driver40-ja/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/drivers/driver40-ja/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-01T14:10:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
-
-
+<meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = true;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+}
+</script>
 
 
   
@@ -56,15 +63,15 @@ Synopsis …">
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -72,25 +79,29 @@ Synopsis …">
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
 
 
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
 
 </nav>
 
@@ -111,21 +122,21 @@ Synopsis …">
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/drivers/">Drivers</a>
+	<a href="https://doc.ntp.org/documentation/drivers/">Drivers</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/documentation/drivers/driver40-ja/">JJY Receivers</a>
+	<a href="https://doc.ntp.org/documentation/drivers/driver40-ja/">JJY Receivers</a>
 </li>
 
 	</ol>
@@ -136,7 +147,7 @@ Synopsis …">
   <div class="container">
   	<h1>JJY Receivers</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 14:10 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/2869e92bccab4cd6e726778d1e8ea048da6dabc6">2869e92bc</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><a href="/documentation/drivers/driver40/">ENGLISH（英語）</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>

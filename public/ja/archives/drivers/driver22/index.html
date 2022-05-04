@@ -20,15 +20,22 @@ Additional …">
  Description このドライバーは、セシウム時計、電波時計、または、関連デバイスによって生成される1秒ごとのパルス信号（PPS）のインターフェースを提供します。 使い方の例としては、GPS受信機によって生成されたシリアル・タイムコードを時刻精度を向上させるために使用できます。 混雑した広域ネットワークにあるプライマリ・サーバーに同期しているときに、セカンダリ・サーバーがローカル・クライアントに時間を再配布する前に、 ジッター（時刻情報のゆらぎ）の累積を排除して時間を再設定できます。 このドライバーは、広範な信号の健全性チェックと信号の整備アルゴリズムを持っています。 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。 トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。
 このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。 この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、Mitigation Rules and the prefer Keyword で説明されています。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver22/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/ja/archives/drivers/driver22/" /><meta property="article:section" content="archives" />
 
 <meta property="article:modified_time" content="2022-02-03T14:43:10&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
 
 
 
-
-
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = true;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+}
+</script>
 
 
   
@@ -49,15 +56,15 @@ Additional …">
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -65,25 +72,29 @@ Additional …">
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: ネットワークタイムプロトコル "></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: ネットワークタイムプロトコル "></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">サポート</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">サポート</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">リファレンスライブラリ</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">リファレンスライブラリ</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/archives/">ドキュメンテーション</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/archives/">ドキュメンテーション</a>
         </button>
       
     </div>
 
 
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
 
 </nav>
 
@@ -101,14 +112,14 @@ Additional …">
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/ja/archives/">Archives</a>
+	<a href="https://doc.ntp.org/ja/archives/">Archives</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/ja/archives/drivers/driver22/">PPS Clock Discipline</a>
+	<a href="https://doc.ntp.org/ja/archives/drivers/driver22/">PPS Clock Discipline</a>
 </li>
 
 	</ol>

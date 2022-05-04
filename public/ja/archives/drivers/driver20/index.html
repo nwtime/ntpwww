@@ -17,15 +17,22 @@ About distrusting NMEA date …">
 <meta property="og:description" content="Last update: 13-Jan-2020 07:12 UTC
  Table of Contents  Synopsis Description NMEA Talker IDs The &lsquo;mode&rsquo; byte About distrusting NMEA date stamps Monitor Data Setting up the Garmin GPS-25XL Fudge Factors Additional Information   Synopsis  Address: 127.127.20.u Reference ID: GPS Driver ID: GPS_NMEA Serial Port: /dev/gpsu; 4800 - 115200 bps, 8-bits, パリティーなし Serial Port: /dev/gpsppsu; PPS信号 (/dev/gpsu より先に処理) Serial Port: /dev/gpsu; このドライバー nmead のシンボリック・リンク Features: tty_clk   Description このドライバーは、GPS受信機のNMEAセンテンスの $GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス $GPZDG は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の $GPZDG を受信したら処理を無効にします。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver20/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://doc.ntp.org/ja/archives/drivers/driver20/" /><meta property="article:section" content="archives" />
 
 <meta property="article:modified_time" content="2022-02-03T14:43:10&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
 
 
 
-
-
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = true;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+}
+</script>
 
 
   
@@ -46,15 +53,15 @@ About distrusting NMEA date …">
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -62,25 +69,29 @@ About distrusting NMEA date …">
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: ネットワークタイムプロトコル "></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: ネットワークタイムプロトコル "></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">サポート</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">サポート</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">リファレンスライブラリ</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">リファレンスライブラリ</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/archives/">ドキュメンテーション</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/archives/">ドキュメンテーション</a>
         </button>
       
     </div>
 
 
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
 
 </nav>
 
@@ -98,14 +109,14 @@ About distrusting NMEA date …">
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/ja/archives/">Archives</a>
+	<a href="https://doc.ntp.org/ja/archives/">Archives</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/ja/archives/drivers/driver20/">Generic NMEA GPS Receiver</a>
+	<a href="https://doc.ntp.org/ja/archives/drivers/driver20/">Generic NMEA GPS Receiver</a>
 </li>
 
 	</ol>

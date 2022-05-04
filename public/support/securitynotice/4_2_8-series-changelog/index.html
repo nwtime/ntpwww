@@ -24,15 +24,22 @@ Click to hide release list
 <meta property="og:description" content="Click to hide release list 4.2.8p15 4.2.8p14 4.2.8p13 4.2.8p12 4.2.8p11 4.2.8p10 4.2.8p9-win 4.2.8p9 4.2.8p8 4.2.8p7 4.2.8p6 4.2.8p5 4.2.8p4 4.2.8p3 4.2.8p3-RC3 4.2.8p2 4.2.8p1 4.2.8   4.2.8p15 Release Date: 2020 Jun 23
  Sec 3661: memory leak with AES128CMAC keys Bug 3670: Regression from bad merge of 3592 and 3596  fixed a bad merge that happened before 4.2.8-p14   Bug 3667: decodenetnum fails with numeric port  rewrite decodenetnum() in terms of inet_pton   Bug 3666: avoid unlimited receive buffer allocation  limit number of receive buffers, with an iron reserve for refclocks   Bug 3664: Enable openSSL CMAC support on Windows Bug 3662: Fix build errors on Windows with VS2008 Bug 3660: Manycast orphan mode startup discovery problem  integrated patch from Charles Claggett   Bug 3659: Move definition of psl[] from ntp_config." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/4_2_8-series-changelog/" /><meta property="article:section" content="support" />
+<meta property="og:url" content="https://doc.ntp.org/support/securitynotice/4_2_8-series-changelog/" /><meta property="article:section" content="support" />
 
 <meta property="article:modified_time" content="2022-04-01T15:20:15&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
-
-
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+var doNotTrack = true;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+}
+</script>
 
 
   
@@ -53,15 +60,15 @@ Click to hide release list
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.d583f4e59d35207a473045a722afed7a.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -69,25 +76,29 @@ Click to hide release list
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
 
 
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
 
 </nav>
 
@@ -108,21 +119,21 @@ Click to hide release list
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/support/">Support</a>
+	<a href="https://doc.ntp.org/support/">Support</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/support/securitynotice/">Security</a>
+	<a href="https://doc.ntp.org/support/securitynotice/">Security</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/support/securitynotice/4_2_8-series-changelog/">4.2.8-series Changelog</a>
+	<a href="https://doc.ntp.org/support/securitynotice/4_2_8-series-changelog/">4.2.8-series Changelog</a>
 </li>
 
 	</ol>
