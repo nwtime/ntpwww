@@ -208,7 +208,7 @@ The system offers two classes of precision:
 
     The precision may be further degraded by Selective Availability (SA) which was implemented in 1991, and turned off on May 2, 2000 at 0400 UTC.
 
-Although derived from [UTC](/ntpfaq/ntp-s-time/#22-what-is-utc), as presented by the U.S. Naval Observatory master clock, the UTC(USNO MC), GPS time does not include leap seconds found in UTC, but the data stream provides [the difference from UTC in seconds](https://www.usno.navy.mil/USNO/time/gps/gps-timing-data-and-information/). At the time of writing the difference is 18s. While the difference between UTC and GPS time will change over time, there's a fixed offset between TAI and GPS time (19 seconds).
+Although derived from [UTC](/ntpfaq/ntp-s-time/#22-what-is-utc), as presented by the U.S. Naval Observatory master clock, the UTC(USNO MC), GPS time does not include leap seconds found in UTC, but the data stream provides the difference from UTC in seconds. At the time of writing the difference is 18s. While the difference between UTC and GPS time will change over time, there's a fixed offset between TAI and GPS time (19 seconds).
 
 There is a military document describing the details of GPS, and it is very technical, but unclassified. The document is named [ICD-GPS-200](https://www.navcen.uscg.gov/pdf/gps/ICD200c.pdf) (thanks to [Nicolai E M Plum](mailto:nicolai@esperi.org)). Thanks to [John Sager](mailto:jcs@zoo.bt.co.uk) for the [current version](https://www.navcen.uscg.gov/pubs/gps/icd200/ICD200Cw1234.pdf).
 

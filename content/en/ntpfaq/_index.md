@@ -401,7 +401,7 @@ This is an alphabetical list of contributors:
 * [J&#252;rgen Georgi](mailto:georgi@BelWue.DE)
 * [Tim Granger](mailto:Tim.Granger@cl.cam.ac.uk)
 * [Benjamin Greenwald](mailto:beng@lcs.mit.edu)
-* [James & Charlotte Griffin](mailto:agriffin@cpcug.org)
+* James & Charlotte Griffin]
 * [Richard M. Hambly](mailto:rick@cnssys.com)
 * John Hay
 * [Per Hedeland ](mailto:per@erix.ericsson.se)

@@ -30,7 +30,7 @@ According to a [survey](/reflib/reports/ntp-survey99-minar.pdf), the most popula
 
 While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.
 
-More information on reference clocks can be found in [Reference Clock](/documentation/4.2.8-series/refclock/) and [NIST's list of receiver manufacturers](https://www.nist.gov/time-distribution/radio-station-wwv/manufacturers-time-and-frequency-receivers).
+More information on reference clocks can be found in [Reference Clock](/documentation/4.2.8-series/refclock/) and [NIST's list of receiver manufacturers](https://www.nist.gov/pml/time-and-frequency-division/time-distribution/radio-station-wwv/manufacturers-time-and-frequency).
 
 * * *
 

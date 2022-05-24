@@ -38,7 +38,7 @@ This driver will probably work with the 58503B and 59551A if they are setup appr
 
 To use an HP Z3801A, specify `mode 1` on the server config line to setup the right line parameters.
 
-The timekeeping portion of HP's business was sold to Symmetricom which was later acquired by [Microchip](https://www.microsemi.com/product-directory/3425-timing-synchronization).
+The timekeeping portion of HP's business was sold to Symmetricom which was later acquired by [Microchip](https://www.microchip.com/en-us/products/clock-and-timing).
 
 * * *
 
