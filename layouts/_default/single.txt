@@ -1,6 +1,0 @@
-commit: {{ with .GitInfo }} https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/{{ .AbbreviatedHash }}{{ end }}
-Author: {{ .GitInfo.AuthorName }} {{ .GitInfo.AuthorEmail }}
-Date: {{ .Lastmod.Format "January 2, 2006 15:04 UTC" }}{{ with .GitInfo }}{{ end }}
-Previous tpub: {{ with .Site.GetPage "/publish" }}{{ .Title }}{{ end }}
-
-Message: {{ .GitInfo.Subject }}
