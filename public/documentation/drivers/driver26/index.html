@@ -22,7 +22,7 @@ Serial Port: /dev/hpgpsu; …">
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/drivers/driver26/" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-15T18:51:52&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-05-24T16:19:31&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -129,7 +129,7 @@ Serial Port: /dev/hpgpsu; …">
   <div class="container">
   	<h1>Hewlett Packard 58503A GPS Receiver and HP Z3801A</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:51 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0123dc22bec9c37de0e286232855f264290c6508">0123dc22b</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: May 24, 2022 16:19 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/c7839f65bfdbd8dbf2763533ee5cdc41b867e86e">c7839f65b</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="/documentation/drivers/driver26/#synopsis">Synopsis</a></li>
@@ -154,7 +154,7 @@ Serial Port: /dev/hpgpsu; …">
 <p>The <code>T</code> is the on-time character, at 980 ms before the next 1PPS edge. The <code>#</code> is the timecode format type. We look for format 2. Without any of the CLK or PPS stuff, then, the receiver buffer timestamp at the <code>&lt;cr&gt;</code> is 24 characters later, which is about 25 ms at 9600 bps, so the first approximation for <code>fudge time1</code> is nominally -0.955 seconds. This number probably needs adjusting for each machine and operating system type. So far, -0.955000 on an HP 9000 Model 712/80 HP-UX and 9.05 -0.953175 on an HP 9000 Model 370 HP-UX 9.10.</p>
 <p>This driver will probably work with the 58503B and 59551A if they are setup appropriately.</p>
 <p>To use an HP Z3801A, specify <code>mode 1</code> on the server config line to setup the right line parameters.</p>
-<p>The timekeeping portion of HP&rsquo;s business was sold to Symmetricom which was later acquired by <a href="https://www.microsemi.com/product-directory/3425-timing-synchronization">Microchip</a>.</p>
+<p>The timekeeping portion of HP&rsquo;s business was sold to Symmetricom which was later acquired by <a href="https://www.microchip.com/en-us/products/clock-and-timing">Microchip</a>.</p>
 <hr>
 <h4 id="fudge-factors">Fudge Factors</h4>
 <dl>
