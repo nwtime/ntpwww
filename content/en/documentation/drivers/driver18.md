@@ -75,11 +75,11 @@ MJD YR MO DA H M S ST S UT1 msADV \<OTM>
 
 `MJD, YR, ST, UT1` and `UTC(NIST)` are not used by this driver. The <code>\<OTM></code> on-time character `*` changes to `#` when the delay correction is valid.
 
-[US Naval Observatory (USNO)](https://www.usno.navy.mil/)
+[US Naval Observatory (USNO)](https://www.cnmoc.usff.navy.mil/usno/)
 
 Phone: (202) 762-1594 (Washington, DC); (719) 567-6743 (Colorado Springs, CO)
 
-[Data Format](https://www.usno.navy.mil/USNO/time/telephone-time) (two lines, repeating at one-second intervals)
+Data Format (two lines, repeating at one-second intervals)
 
 `jjjjj nnn hhmmss UTC`
 

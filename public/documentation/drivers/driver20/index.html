@@ -171,44 +171,15 @@ if (!doNotTrack) {
 <p>If the Operating System supports PPSAPI (<a href="/reflib/rfc/rfc2783.txt">RFC 2783</a>), <code>fudge flag1 1</code> enables its use.</p>
 <p>The various GPS sentences that this driver recognises look like this: (others quietly ignored)</p>
 <p><strong>Accepted NMEA sentences</strong></p>
-<table>
-<thead>
-<tr>
-<th>Sentence</th>
-<th>Vendor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>$GPRMC,UTC,POS_STAT,LAT,LAT_REF,LON,LON_REF,SPD,HDG,DATE,MAG_VAR,MAG_REF*CS</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>$GPGLL,LAT,LAT_REF,LON,LON_REF,UTC,POS_STAT*CS</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>$GPGGA,UTC,LAT,LAT_REF,LON,LON_REF,FIX_MODE,SAT_USED,HDOP,ALT,ALT_UNIT,GEO,G_UNIT,D_AGE,D_REF*CS</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>$GPZDA,UTC,DD,MM,YYYY,TH,TM,*CS</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>$GPZDG,GPSTIME,DD,MM,YYYY,AA.BB,V*CS</code></td>
-<td>Accord</td>
-</tr>
-<tr>
-<td><code>$PGRMF,gpsWk,gpsTow,DATE,UTC,LEAPS,LAT,LAT_REF,LON,LON_REF,TYPE,MODE,SPD,HDOP,TDOP*CS</code></td>
-<td>Garmin</td>
-</tr>
-<tr>
-<td><code>$PUBX,04,UTC,DATE,utcTow,utcWk,LEAPS,clkBias,clkDrift,tpGran,*CS</code></td>
-<td>UBLOX</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><code>$GPRMC,UTC,POS_STAT,LAT,LAT_REF,LON,LON_REF,SPD,HDG,DATE,MAG_VAR,MAG_REF*CS</code></li>
+<li><code>$GPGLL,LAT,LAT_REF,LON,LON_REF,UTC,POS_STAT*CS</code></li>
+<li><code>$GPGGA,UTC,LAT,LAT_REF,LON,LON_REF,FIX_MODE,SAT_USED,HDOP,ALT,ALT_UNIT,GEO,G_UNIT,D_AGE,D_REF*CS</code></li>
+<li><code>$GPZDA,UTC,DD,MM,YYYY,TH,TM,*CS</code></li>
+<li><code>$GPZDG,GPSTIME,DD,MM,YYYY,AA.BB,V*CS</code> (Accord)</li>
+<li><code>$PGRMF,gpsWk,gpsTow,DATE,UTC,LEAPS,LAT,LAT_REF,LON,LON_REF,TYPE,MODE,SPD,HDOP,TDOP*CS</code> (Garmin)</li>
+<li><code>$PUBX,04,UTC,DATE,utcTow,utcWk,LEAPS,clkBias,clkDrift,tpGran,*CS</code> (UBLOX}</li>
+</ul>
 <p><strong>NMEA data items</strong></p>
 <table>
 <thead>

@@ -23,7 +23,7 @@ type: archives
 
 #### Description
 
-This driver supports the [Zyfer GPStarplus](http://www.zyfer.com/) receiver.
+This driver supports the [Zyfer GPStarplus](https://fei-zyfer.com/) receiver.
 
 The receiver has a DB15 port on the back which has input TxD and RxD lines for configuration and control, and a separate TxD line for the once-per-second timestamp.
 
