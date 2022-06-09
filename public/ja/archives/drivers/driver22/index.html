@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
-  
-  <meta name="description" content="
-Author: David L. Mills (mills@udel.edu)
-Last change: 31-Mar-2014 07:46 UTC
-
-
-Table of Contents
-
-Synopsis
-Description
-Fudge Factors
-Additional …">
-<meta property="og:title" content="PPS Clock Discipline" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="PPS Clock Discipline" />
 <meta property="og:description" content="Author: David L. Mills (mills@udel.edu) Last change: 31-Mar-2014 07:46 UTC   Table of Contents  Synopsis Description Fudge Factors Additional Information   Synopsis  Address: 127.127.22.u Reference ID: PPS Driver ID: PPS Serial or Parallel Port: /dev/ppsu Requires: PPSAPI signal interface for PPS signal processing.   ノート：　このドライバーは、同じ名前の古いドライバーを置き換えた後継です。 古いドライバーは、いくつかのやや古風なインターフェース・デバイスで動作していて複雑な構成が必要であり、また、文書化が不十分でした。 このドライバーを動作させるためには、１秒パルス信号API (PPSAPI)1 が必要です。 pps 構成コマンドは、このドライバーによって廃止されていることにも注意してください。
  Description このドライバーは、セシウム時計、電波時計、または、関連デバイスによって生成される1秒ごとのパルス信号（PPS）のインターフェースを提供します。 使い方の例としては、GPS受信機によって生成されたシリアル・タイムコードを時刻精度を向上させるために使用できます。 混雑した広域ネットワークにあるプライマリ・サーバーに同期しているときに、セカンダリ・サーバーがローカル・クライアントに時間を再配布する前に、 ジッター（時刻情報のゆらぎ）の累積を排除して時間を再設定できます。 このドライバーは、広範な信号の健全性チェックと信号の整備アルゴリズムを持っています。 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。 トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。
 このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。 この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、Mitigation Rules and the prefer Keyword で説明されています。" />
@@ -23,8 +9,6 @@ Additional …">
 <meta property="og:url" content="https://doc.ntp.org/ja/archives/drivers/driver22/" /><meta property="article:section" content="archives" />
 
 <meta property="article:modified_time" content="2022-02-03T14:43:10&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
-
-
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>

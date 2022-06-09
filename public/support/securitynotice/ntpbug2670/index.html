@@ -1,34 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
-  
-  <meta name="description" content="
-Summary
-
-  
-	
-		Resolved
-		4.2.8
-		18 Dec 2014
-	
-	
-		References
-		Bug 2670
-		CVE-2014-9296
-	
-	
-		Affects
-		All NTP4 releases before …">
-<meta property="og:title" content="NTP BUG 2670: receive(): missing return on error" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="NTP BUG 2670: receive(): missing return on error" />
 <meta property="og:description" content="Summary Resolved4.2.818 Dec 2014ReferencesBug 2670CVE-2014-9296AffectsAll NTP4 releases before 4.2.8.Resolved in 4.2.8.CVSS2 Score5.0AV:N/AC:L/Au:N/C:N/I:N/A:P		 Description Code in ntp_proto.c:receive() is missing a return; in the code path where an error was detected, which meant processing did not stop when a specific rare error occurred. We haven&rsquo;t found a way for this bug to affect system integrity." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/support/securitynotice/ntpbug2670/" /><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2014-12-18T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2022-02-15T20:59:32&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
-
-
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>

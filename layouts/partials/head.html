@@ -1,21 +1,13 @@
 <head>
   <meta charset="UTF-8">
 {{- if .Params.noindex -}}
-  <meta name = "robots" content = "noindex">
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 {{ else }}
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 {{- end -}}
   
   <!-- for search engine optimization and third-party search engines like Elastic App Search-->
-{{ if .Page.Description }}
-  <meta name="description" content="{{ .Page.Description }}">
-{{ else }}
-  {{ $desc := (.Page.Content | safeHTML | truncate 150) }}
-  <meta name="description" content="{{ $desc }}">
-{{ end }}
-
 {{- template "_internal/opengraph.html" . -}}
-<!--To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>
