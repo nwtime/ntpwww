@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="NTP BUG 3661: Memory leak with CMAC keys" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/support/securitynotice/ntpbug3661/" />
+  
+  <meta property="og:title" content="NTP BUG 3661: Memory leak with CMAC keys" />
 <meta property="og:description" content="Summary Resolved4.2.8p15
 Development (4.3.101)23 Jun 2020ReferencesBug 3661CVE-2020-15025Affectsntp-4.2.8p11 up to, but not including ntp-4.2.8p15
 4.3.97 up to, but not including 4.3.101Resolved in 4.2.8p15 and 4.3.101CVSS2 Score6.3AV:N/AC:M/Au:S/C:N/I:N/A:CCVSS3.1 Score4.4CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:H		 Description Systems that use a CMAC algorithm in ntp.keys will not release a bit of memory on each packet that uses a CMAC keyid, eventually causing ntpd to run out of memory and fail." />
