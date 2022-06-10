@@ -5,7 +5,7 @@
 <meta property="og:description" content="I was chief nerd for several projects in the fifteen years I was with U Michigan, first in electrical engineering and then in computer science. This is one of them.
 In the late 60s IBM was the crushing giant, while Digital Equipment Corporation (DEC) was yet a pipsqueak. The U Michigan Computing Center had a giant - a two-processor System 360 Model 67 processor with a dazzling one megabyte of core memory." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/reflib/gallery/gallery7/" /><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://doc.ntp.org/reflib/gallery/gallery7/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-04-01T14:21:28&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -30,7 +30,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -117,7 +117,7 @@ if (!doNotTrack) {
 	<p>I was chief nerd for several projects in the fifteen years I was with U Michigan, first in electrical engineering and then in computer science. This is one of them.</p>
 <p>In the late 60s IBM was the crushing giant, while Digital Equipment Corporation (DEC) was yet a pipsqueak. The U Michigan Computing Center had a giant - a two-processor System 360 Model 67 processor with a dazzling one megabyte of core memory. This machine could support only dumb user terminals made by IBM and Teletype Corporation. I managed to get my hands on a pipsqueak - a DEC PDP8 - to serve as the nucleus for a controller to support other fancier user terminals and remote data communications. I was chief designer for a team that built the thing, which we called the Data Concentrator <sup><a href="#myfootnote5">5</a></sup>. It was hardly a paragon of miniaturization, as evident in the photo below. It consisted of four six-foot racks populated with DEC Flip-Chip modules. We were lucky to get three NAND gates or two flipflops on one 5.25&quot; plug-in card.</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/dataconce.jpg" alt="jpg"  />
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/dataconce.jpg" alt="jpg"  />
 </p></p>
 <p>On the far left is a Teletype Model 35 with paper tape reader/punch. It made a sturdy operator console, but topped out at 10 char/sec. The leftmost rack contains the PDP8, 8192 words of 12-bit core memory and power supplies. The machine had eight instructions and no multiply/divide hardware. We used to say it was the smallest machine just larger than a Turing machine that was potentially useful. The next rack to the right contains an awesomely fast and noisy paper tape punch at the top. Just below that are control panels for the two IBM multiplexor channel interfaces. More about that later. Below that is a high speed (1000 byte/sec) paper tape reader.</p>
 <p>Paper tape was then the modern way to load programs and data. We had to find some way to signal the machine operators, who were normally at the other end of the rather large machine room, to replenish the paper tape. We had two programmable noisemakers, a obnoxiously loud siren and a Ford Model-T ooga horn. We got to use the piercing siren only once.</p>
@@ -126,15 +126,15 @@ if (!doNotTrack) {
 <p>Some idea of the scale of integration is evident in the photo below. Here DEC technicians are working on the PDP8 CPU. The black box near the top contains the core memory. The green cards contain the core memory select and sense amplifiers. The red ones implement a handful of 12-bit data registers, an arithmetic/logic unit and the input/output bus interface. Much later, the entire PDP8 was implemented on a single IC chip.</p>
 <p>The PDP8 instruction set had only seven instructions, a single accumulator and no index registers. Nevertheless, the homegrown operating system called RAMP [7] ran the show with a few cycles left over. Later, RAMP was used in real-time systems for audio switching <sup><a href="#myfootnote4">4</a></sup> and automotive test cell control.</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/dataconcb.jpg" alt="jpg"  />
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/dataconcb.jpg" alt="jpg"  />
 </p></p>
 <p>Just about the only terminal type the Data Concentrator didn&rsquo;t deal with was the IBM 1050 Data Terminal shown below circa 1970. This one had a keyboard, printer and punched card reader. It used the six-bit Binary Coded Decimal (BCD) code at 134.5 bps. A bunch of these shared the same telephone line with each one selected by a special prefix code. It had no internal memory, so the operator had to retype a line of data if the checksum failed. The last one I saw was buried in the Negev Desert in 1971.</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/1052.jpg" alt="jpg"  />
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/1052.jpg" alt="jpg"  />
 </p></p>
 <p>As it happened, the IBM multiplexor channel interface was the first such interface not designed by IBM, so it caused a fair amount of interest <sup><a href="#myfootnote6">6</a></sup>. There were actually two of them, one for each Model 67 processor. It was carefully designed to emulate either of two IBM communications controllers used to connect remote terminals and remote jobstations, but could also emulate the operator console. It could and sometimes did switch in when the operator console broke. The control panels for the two interfaces are shown in the photo below.</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/dataconcc.jpg" alt="jpg"  />
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/dataconcc.jpg" alt="jpg"  />
 </p></p>
 <p>The Data Concentrator shown here operated for some years through the early and middle &rsquo;70s. It was eventually replaced by a more modern PDP11 and microprogrammed interfaces. One of the technicians bought the PDP8 and so far as I know has it still running in his basement. I expect the only extant copies of the 30-year old reports are in my office, but the lessons learned were later bottled in journal and symposium papers <sup><a href="#myfootnote1">1, 2, 3</a></sup>.</p>
 <h4 id="references">References</h4>
@@ -155,19 +155,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

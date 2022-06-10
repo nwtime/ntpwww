@@ -5,7 +5,7 @@
 <meta property="og:description" content="FAX test image for SATNET (1979).
 The baby panda was scanned at University College London and used as a FAX test image for a demonstration of the DARPA Atlantic SATNET Program and the first transatlantic Internet connection in 1978. The computing system used for that demonstration was called the Fuzzball. As it happened, this was also the first Internet multimedia presentation and the first to use a predecessor of NTP in regular operation." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.0/quick/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.0/quick/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -30,7 +30,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -125,19 +125,19 @@ if (!doNotTrack) {
      
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/panda.gif" alt="gif"  />
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/panda.gif" alt="gif"  />
 </p>FAX test image for SATNET (1979).</p>
-<p>The baby panda was scanned at University College London and used as a FAX test image for a demonstration of the DARPA Atlantic SATNET Program and the first transatlantic Internet connection in 1978. The computing system used for that demonstration was called the <a href="/reflib/papers/fuzz.pdf">Fuzzball</a>. As it happened, this was also the first Internet multimedia presentation and the first to use a predecessor of NTP in regular operation. The image was widely copied and used for testing purpose throughout much of the 1980s.</p>
+<p>The baby panda was scanned at University College London and used as a FAX test image for a demonstration of the DARPA Atlantic SATNET Program and the first transatlantic Internet connection in 1978. The computing system used for that demonstration was called the <a href="https://doc.ntp.org/reflib/papers/fuzz.pdf">Fuzzball</a>. As it happened, this was also the first Internet multimedia presentation and the first to use a predecessor of NTP in regular operation. The image was widely copied and used for testing purpose throughout much of the 1980s.</p>
 <hr>
-<p>For the rank amateur the sheer volume of the documentation collection must be intimidating. However, it doesn&rsquo;t take much to fly the <code>ntpd</code> daemon with a simple configuration where a workstation needs to synchronize to some server elsewhere in the Internet. The first thing that needs to be done is to build the distribution for the particular workstation and install in the usual place. The <a href="/documentation/4.1.0/build/">Building and Installing the Distribution</a> page describes how to do this.</p>
+<p>For the rank amateur the sheer volume of the documentation collection must be intimidating. However, it doesn&rsquo;t take much to fly the <code>ntpd</code> daemon with a simple configuration where a workstation needs to synchronize to some server elsewhere in the Internet. The first thing that needs to be done is to build the distribution for the particular workstation and install in the usual place. The <a href="https://doc.ntp.org/documentation/4.1.0/build/">Building and Installing the Distribution</a> page describes how to do this.</p>
 <p>While it is possible that certain configurations do not need a configuration file, most do require one. The file, called by default <code>/etc/ntp.conf</code>, need only contain one line specifying a remote server, for instance</p>
 <p><code>server foo.bar.com</code></p>
 <p>Choosing an appropriate remote server is somewhat of a black art, but a suboptimal choice is seldom a problem. Links to public time servers operated by National Institutes of Science and Technology (NIST), US Naval Observatory (USNO), Canadian Metrology Centre (CMC) and many others are given in the home page of this document collection. The lists are sorted by country and, in the case of the US, by state. Usually, the best choice is the nearest in geographical terms, but the terms of engagement specified in each list entry should be carefully respected.</p>
 <p>During operation <code>ntpd</code> measures and corrects for incidental clock frequency error and writes the current value to a file called by default <code>/etc/ntp.drift</code>. If <code>ntpd</code> is stopped and restarted, it initializes the frequency from this file. In this way the potentially lengthy interval to relearn the frequency error is avoided. Thus, for most applications an additional line should be added to the file of the form</p>
 <p><code>driftfile /etc/ntp.drift</code></p>
 <p>That&rsquo;s all there is to it, unless some problem in network connectivity or local operating system configuration occurs. The most common problem is some firewall between the workstation and server. System administrators should understand NTP uses UDP port 123 as both the source and destination port and that NTP does not involve any operating system interaction other than to set the system clock. While almost all modern Unix systems have included NTP and UDP port 123 defined in the services file, this should be checked if <code>ntpd</code> fails to come up at all.</p>
-<p>The best way to confirm NTP is working is using the <a href="/documentation/4.1.0/ntpq/"><code>ntpq</code></a> utility, although the <a href="/documentation/4.1.0/ntpdc/"><code>ntpdc</code></a> utility may be useful in extreme cases. See the documentation pages for further information. In the most extreme cases the <code>-d</code> option on the <code>ntpd</code> command line results in a blow-by-blow trace of the daemon operations. While the trace output can be cryptic, to say the least, it gives a general idea of what the program is doing and, in particular, details the arriving and departing packets and detected errors, if present.</p>
-<p>Sometimes the <code>ntpd</code>. behavior may seem to violate the Principle of Least Astonishment, but there are good reasons for this. See the <a href="/documentation/4.1.0/ntpd/">Network Time Protocol (NTP) daemon</a> page for revealing insights. See this page and its dependencies for additional configuration and control options. The <a href="/documentation/4.1.0/notes/">Notes on Configuring NTP and Setting up a NTP Subnet</a> page contains an extended discussion of these options.</p>
+<p>The best way to confirm NTP is working is using the <a href="https://doc.ntp.org/documentation/4.1.0/ntpq/"><code>ntpq</code></a> utility, although the <a href="https://doc.ntp.org/documentation/4.1.0/ntpdc/"><code>ntpdc</code></a> utility may be useful in extreme cases. See the documentation pages for further information. In the most extreme cases the <code>-d</code> option on the <code>ntpd</code> command line results in a blow-by-blow trace of the daemon operations. While the trace output can be cryptic, to say the least, it gives a general idea of what the program is doing and, in particular, details the arriving and departing packets and detected errors, if present.</p>
+<p>Sometimes the <code>ntpd</code>. behavior may seem to violate the Principle of Least Astonishment, but there are good reasons for this. See the <a href="https://doc.ntp.org/documentation/4.1.0/ntpd/">Network Time Protocol (NTP) daemon</a> page for revealing insights. See this page and its dependencies for additional configuration and control options. The <a href="https://doc.ntp.org/documentation/4.1.0/notes/">Notes on Configuring NTP and Setting up a NTP Subnet</a> page contains an extended discussion of these options.</p>
 
 	  
   </div>
@@ -148,19 +148,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

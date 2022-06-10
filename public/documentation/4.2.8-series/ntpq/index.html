@@ -7,7 +7,7 @@ A typical NTP monitoring packet
  Table of Contents  Synopsis Description Internal Commands Control Message Commands Status Words and Kiss Codes System Variables Peer Variables Clock Variables   Synopsis ntpq [-46dinp] [-c command] [host] [&hellip;]
  Description The ntpq utility program is used to monitor NTP daemon ntpd operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC 1305." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.8-series/ntpq/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.8-series/ntpq/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -32,7 +32,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -127,32 +127,32 @@ if (!doNotTrack) {
      
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/bustardfly.gif" alt="gif"  />
-</p><a href="/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/bustardfly.gif" alt="gif"  />
+</p><a href="https://doc.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>A typical NTP monitoring packet</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/4.2.8-series/ntpq/#synopsis">Synopsis</a></li>
-<li><a href="/documentation/4.2.8-series/ntpq/#description">Description</a></li>
-<li><a href="/documentation/4.2.8-series/ntpq/#internal-commands">Internal Commands</a></li>
-<li><a href="/documentation/4.2.8-series/ntpq/#control-message-commands">Control Message Commands</a></li>
-<li><a href="/documentation/4.2.8-series/ntpq/#status-words-and-kiss-codes">Status Words and Kiss Codes</a></li>
-<li><a href="/documentation/4.2.8-series/ntpq/#system-variables">System Variables</a></li>
-<li><a href="/documentation/4.2.8-series/ntpq/#peer-variables">Peer Variables</a></li>
-<li><a href="/documentation/4.2.8-series/ntpq/#clock-variables">Clock Variables</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#synopsis">Synopsis</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#description">Description</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#internal-commands">Internal Commands</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#control-message-commands">Control Message Commands</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#status-words-and-kiss-codes">Status Words and Kiss Codes</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#system-variables">System Variables</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#peer-variables">Peer Variables</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#clock-variables">Clock Variables</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
 <p><code>ntpq [-46dinp] [-c <em>command</em>] [<em>host</em>] [&hellip;]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <code>ntpq</code> utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in <a href="/reflib/rfc/rfc1305/rfc1305c.pdf">Appendix B of the NTPv3 specification RFC 1305</a>. The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.</p>
+<p>The <code>ntpq</code> utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in <a href="https://doc.ntp.org/reflib/rfc/rfc1305/rfc1305c.pdf">Appendix B of the NTPv3 specification RFC 1305</a>. The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.</p>
 <p>The program can be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. The <code>ntpq</code> can also obtain and print a list of peers in a common format by sending multiple queries to the server.</p>
 <p>If one or more request options is included on the command line when <code>ntpq</code> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <code>ntpq</code> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <code>ntpq</code> will prompt for commands if the standard input is a terminal device.</p>
 <p><code>ntpq</code> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <code>ntpq</code> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.</p>
 <p>Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.</p>
-<p>For examples and usage, see the <a href="/documentation/4.2.8-series/debug/">NTP Debugging Techniques</a> page.</p>
+<p>For examples and usage, see the <a href="https://doc.ntp.org/documentation/4.2.8-series/debug/">NTP Debugging Techniques</a> page.</p>
 <p>Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.</p>
 <dl>
 <dt><code><strong>-4</strong></code></dt>
@@ -276,7 +276,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>status</code></td>
-<td><a href="/documentation/4.2.8-series/decode/#peer-status-word">peer status word</a></td>
+<td><a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#peer-status-word">peer status word</a></td>
 </tr>
 <tr>
 <td><code>conf</code></td>
@@ -416,7 +416,7 @@ if (!doNotTrack) {
 <tbody>
 <tr>
 <td><code>[tally]</code></td>
-<td>single-character code indicating current value of the <code>select</code> field of the <a href="/documentation/4.2.8-series/decode/#peer-status-word">peer status word</a></td>
+<td>single-character code indicating current value of the <code>select</code> field of the <a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#peer-status-word">peer status word</a></td>
 </tr>
 <tr>
 <td><code>remote</code></td>
@@ -468,7 +468,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>saveconfig <em>filename</em></strong></code></dt>
 <dd>
-<p>Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host&rsquo;s file <code><em>filename</em></code>. This command will be rejected by the server unless <a href="/documentation/4.2.8-series/miscopt/">saveconfigdir</a> appears in the <code>ntpd</code> configuration file. <code><em>filename</em></code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.</p>
+<p>Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host&rsquo;s file <code><em>filename</em></code>. This command will be rejected by the server unless <a href="https://doc.ntp.org/documentation/4.2.8-series/miscopt/">saveconfigdir</a> appears in the <code>ntpd</code> configuration file. <code><em>filename</em></code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.</p>
 </dd>
 <dt><code><strong>writevar <em>assocID</em> <em>name</em> = <em>value</em> [,&hellip;]</strong></code></dt>
 <dd>
@@ -485,8 +485,8 @@ if (!doNotTrack) {
 </dl>
 <hr>
 <h4 id="status-words-and-kiss-codes">Status Words and Kiss Codes</h4>
-<p>The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the <a href="/documentation/4.2.8-series/decode/">Event Messages and Status Words</a> page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.</p>
-<p>Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called <a href="/documentation/4.2.8-series/decode/#kiss-codes">kiss codes</a>. The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.</p>
+<p>The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the <a href="https://doc.ntp.org/documentation/4.2.8-series/decode/">Event Messages and Status Words</a> page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.</p>
+<p>Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called <a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#kiss-codes">kiss codes</a>. The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.</p>
 <hr>
 <h4 id="system-variables">System Variables</h4>
 <p>The following system variables appear in the <code>rv</code> billboard. Not all variables are displayed in some configurations.</p>
@@ -500,7 +500,7 @@ if (!doNotTrack) {
 <tbody>
 <tr>
 <td><code>status</code></td>
-<td><a href="/documentation/4.2.8-series/decode/#system-status-word">system status word</a></td>
+<td><a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#system-status-word">system status word</a></td>
 </tr>
 <tr>
 <td><code>version</code></td>
@@ -552,7 +552,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>refid</code></td>
-<td>reference ID or <a href="/documentation/4.2.8-series/decode/#kiss-codes">kiss code</a></td>
+<td>reference ID or <a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#kiss-codes">kiss code</a></td>
 </tr>
 <tr>
 <td><code>reftime</code></td>
@@ -612,7 +612,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>flags</code></td>
-<td>host flags (see <a href="/reflib/rfc/rfc5906.txt">Autokey specification</a>)</td>
+<td>host flags (see <a href="https://doc.ntp.org/reflib/rfc/rfc5906.txt">Autokey specification</a>)</td>
 </tr>
 <tr>
 <td><code>digest</code></td>
@@ -653,7 +653,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>status</code></td>
-<td><a href="/documentation/4.2.8-series/decode/#peer-status-word">peer status word</a></td>
+<td><a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#peer-status-word">peer status word</a></td>
 </tr>
 <tr>
 <td><code>srcadr</code><br>  <code>srcport</code></td>
@@ -685,7 +685,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>refid</code></td>
-<td>reference ID or <a href="/documentation/4.2.8-series/decode/#kiss-codes">kiss code</a></td>
+<td>reference ID or <a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#kiss-codes">kiss code</a></td>
 </tr>
 <tr>
 <td><code>reftime</code></td>
@@ -717,11 +717,11 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>headway</code></td>
-<td>headway (see <a href="/documentation/4.2.8-series/rate/">Rate Management and the Kiss-o'-Death Packet)</a></td>
+<td>headway (see <a href="https://doc.ntp.org/documentation/4.2.8-series/rate/">Rate Management and the Kiss-o'-Death Packet)</a></td>
 </tr>
 <tr>
 <td><code>flash</code></td>
-<td><a href="/documentation/4.2.8-series/decode/#flash-status-word">flash status word</a></td>
+<td><a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#flash-status-word">flash status word</a></td>
 </tr>
 <tr>
 <td><code>offset</code></td>
@@ -749,7 +749,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>xleave</code></td>
-<td>interleave delay (see <a href="/documentation/4.2.8-series/xleave/">NTP Interleaved Modes</a>)</td>
+<td>interleave delay (see <a href="https://doc.ntp.org/documentation/4.2.8-series/xleave/">NTP Interleaved Modes</a>)</td>
 </tr>
 </tbody>
 </table>
@@ -765,7 +765,7 @@ if (!doNotTrack) {
 <tbody>
 <tr>
 <td><code>flags</code></td>
-<td>peer flags (see <a href="/reflib/rfc/rfc5906.txt">Autokey specification</a>)</td>
+<td>peer flags (see <a href="https://doc.ntp.org/reflib/rfc/rfc5906.txt">Autokey specification</a>)</td>
 </tr>
 <tr>
 <td><code>host</code></td>
@@ -810,7 +810,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td><code>status</code></td>
-<td><a href="/documentation/4.2.8-series/decode/#clock-status-word">clock status word</a></td>
+<td><a href="https://doc.ntp.org/documentation/4.2.8-series/decode/#clock-status-word">clock status word</a></td>
 </tr>
 <tr>
 <td><code>device</code></td>
@@ -868,19 +868,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

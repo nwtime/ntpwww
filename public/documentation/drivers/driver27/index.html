@@ -4,7 +4,7 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="Arcron MSF Receiver" />
 <meta property="og:description" content="Table of Contents  Synopsis Description Monitor Data Fudge Factors Additional Information   Synopsis  Address: 127.127.27.u Reference ID: MSFa / MSF / DCF / WWVB Driver ID: MSF_ARCRON Serial Port: /dev/arcu; 300 baud, 8-bits, 2-stop, no parity Features: tty_clk   Description This driver supports the Arcron MSF, DCF and WWVB receivers. The clock reports its ID as MSFa, MSF, DCF, or WWVB to indicate the time source." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/drivers/driver27/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/drivers/driver27/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -29,7 +29,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -125,11 +125,11 @@ if (!doNotTrack) {
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/drivers/driver27/#synopsis">Synopsis</a></li>
-<li><a href="/documentation/drivers/driver27/#description">Description</a></li>
-<li><a href="/documentation/drivers/driver27/#monitor-data">Monitor Data</a></li>
-<li><a href="/documentation/drivers/driver27/#fudge-factors">Fudge Factors</a></li>
-<li><a href="/documentation/drivers/driver27/#additional-information">Additional Information</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver27/#synopsis">Synopsis</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver27/#description">Description</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver27/#monitor-data">Monitor Data</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver27/#fudge-factors">Fudge Factors</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver27/#additional-information">Additional Information</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -145,7 +145,7 @@ if (!doNotTrack) {
 <p>This driver supports the Arcron MSF, DCF and WWVB receivers. The clock reports its ID as <code>MSFa, MSF, DCF</code>, or <code>WWVB</code> to indicate the time source.</p>
 <p>This documentation describes v1.3 (2003/2/21) of the source and has been tested against ntpd 4.1.0 on linux x86. Changes from v1.1 and v1.2 include patches to work with the new ntp4 code, clock support for DCF and WWVB configurable via mode flag, an option to ignore resync request (for those of us at the fringes of the WWVB signal, for instance), averaging of the signal quality poll and several bug fixes, code cleanup and standardizations. In all other respects, the driver works as per v1.1 if a mode is not specified.</p>
 <p>To use the alternate modes, the <code>mode</code> flag must be specified. If the mode flag is 0, or unspecified, the original MSF version is assumed. This should assure backwards compatibility and should not break existing setups.</p>
-<p>The <a href="/documentation/3-5.93e/driver27/">previous documentation described version V1.1 (1997/06/23)</a> of the source and had been tested (amongst others) against ntpd3-5.90 on Solaris-1 (SunOS 4.1.3_U1 on an SS1 serving as a router and firewall) and against ntpd3-5.90 on Solaris-2.5 (on a SS1+ and TurboSPARC 170MHz). That code claimed increased stability, reduced jitter and more efficiency (fewer context switches) with the <code>tty_clk</code> discipline/STREAMS module installed, but this has not been tested. For a to-do list see the comments at the start of the code.</p>
+<p>The <a href="https://doc.ntp.org/documentation/3-5.93e/driver27/">previous documentation described version V1.1 (1997/06/23)</a> of the source and had been tested (amongst others) against ntpd3-5.90 on Solaris-1 (SunOS 4.1.3_U1 on an SS1 serving as a router and firewall) and against ntpd3-5.90 on Solaris-2.5 (on a SS1+ and TurboSPARC 170MHz). That code claimed increased stability, reduced jitter and more efficiency (fewer context switches) with the <code>tty_clk</code> discipline/STREAMS module installed, but this has not been tested. For a to-do list see the comments at the start of the code.</p>
 <p>This code has been significantly slimmed down since the V1.0 version, roughly halving the memory footprint of its code and data.</p>
 <p>This driver is designed to allow the unit to run from batteries as designed, for something approaching the 2.5 years expected in the usual stand-alone mode, but no battery-life measurements have been taken.</p>
 <p>Much of this code is originally from the other refclock driver files with thanks. The code was originally made to work with the clock by Derek Mulcahy, with modifications by <a href="mailto:d@hd.org">Damon Hart-Davis</a>. Thanks also to <a href="mailto:lyndond@sentinet.co.uk">Lyndon David</a> for some of the specifications of the clock. <a href="mailto:palfille@partners.org">Paul Alfille</a> added support for the WWVB clock. <a href="mailto:cprice@cs-home.com">Christopher Price</a> added enhanced support for the MSF, DCF and WWVB clocks.</p>
@@ -478,7 +478,7 @@ May 10 12:41:34 oolong ntpd[615]: ARCRON: sync finished, signal quality 3: OK, w
 </dl>
 <hr>
 <h4 id="additional-information">Additional Information</h4>
-<p><a href="/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a><br>
+<p><a href="https://doc.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a><br>
 <a href="https://www.exnet.com/NTP/ARC/ARC.html">ARC Rugby MSF Receiver</a></p>
 
 	  
@@ -490,19 +490,19 @@ May 10 12:41:34 oolong ntpd[615]: ARCRON: sync finished, signal quality 3: OK, w
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

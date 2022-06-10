@@ -4,7 +4,7 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="GPSD-NG client driver" />
 <meta property="og:description" content="Table of Contents  Synopsis Description Naming a Device The ‘mode’ word Syslog flood throttle PPS secondary clock unit Clockstats Fudge Factors Additional Information   Synopsis  Address: 127.127.46.u Reference ID: GPSD Driver ID: GPSD_JSON Serial Port: /dev/gpsu as symlink to the true device (not used directly; see below) Features:   Description This driver is a client driver to the GPSD daemon, which over the time became increasingly popular for UN*Xish platforms." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/drivers/driver46/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/drivers/driver46/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -29,7 +29,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -125,15 +125,15 @@ if (!doNotTrack) {
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/drivers/driver46/#synopsis">Synopsis</a></li>
-<li><a href="/documentation/drivers/driver46/#description">Description</a></li>
-<li><a href="/documentation/drivers/driver46/#naming-a-device">Naming a Device</a></li>
-<li><a href="/documentation/drivers/driver46/#the-mode-word">The ‘mode’ word</a></li>
-<li><a href="/documentation/drivers/driver46/#syslog-flood-throttle">Syslog flood throttle</a></li>
-<li><a href="/documentation/drivers/driver46/#pps-secondary-clock-unit">PPS secondary clock unit</a></li>
-<li><a href="/documentation/drivers/driver46/#clockstats">Clockstats</a></li>
-<li><a href="/documentation/drivers/driver46/#fudge-factors">Fudge Factors</a></li>
-<li><a href="/documentation/drivers/driver46/#additional-information">Additional Information</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#synopsis">Synopsis</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#description">Description</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#naming-a-device">Naming a Device</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#the-mode-word">The ‘mode’ word</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#syslog-flood-throttle">Syslog flood throttle</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#pps-secondary-clock-unit">PPS secondary clock unit</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#clockstats">Clockstats</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#fudge-factors">Fudge Factors</a></li>
+<li><a href="https://doc.ntp.org/documentation/drivers/driver46/#additional-information">Additional Information</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -310,7 +310,7 @@ if (!doNotTrack) {
 <h4 id="additional-information">Additional Information</h4>
 <p><a name="myfootnote1">1</a>  Data transmission and decoding is done only once by the primary unit. The decoded data is then processed independently in both clock units. This avoids double transmission over two sockets and decoding the same data twice, but the primary unit is always needed as a downside of this approach.</p>
 <p><a name="myfootnote2">2</a>  The clock driver suppresses the processing PPS records when the TPV/TIME data indicates the receiver has no fix. It can also deal with situations where the PPS signal is not delivered to <em>GPSD</em>. But once it is available, it is also processed and used to create samples. If a receiver cannot be trusted for the precision of its PPS signal, it should not be used to create a possible PPS peer: These get extra clout and can effectively become the sole source of input for the control loop. You do not want to use sloppy data for that.</p>
-<p><a href="/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a></p>
+<p><a href="https://doc.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a></p>
 
 	  
   </div>
@@ -321,19 +321,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

@@ -5,7 +5,7 @@
 <meta property="og:description" content="Master Time Facility at the UDel Internet Research Laboratory
  Table of Contents  Reference Clock Support Reference Clock Commands   Reference Clock Support The NTP Version 4 daemon supports some three dozen different radio, satellite and modem reference clocks plus a special pseudo-clock used for backup or when no other clock source is available. Detailed descriptions of individual device drivers and options can be found in the Reference Clock Drivers page." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.2-series/clockopt/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.2-series/clockopt/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -30,7 +30,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -125,20 +125,20 @@ if (!doNotTrack) {
      
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/stack1a.jpg" alt="gif"  />
-</p> Master Time Facility at the <a href="/reflib/lab/">UDel Internet Research Laboratory</a></p>
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/stack1a.jpg" alt="gif"  />
+</p> Master Time Facility at the <a href="https://doc.ntp.org/reflib/lab/">UDel Internet Research Laboratory</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/4.2.2-series/clockopt/#reference-clock-support">Reference Clock Support</a></li>
-<li><a href="/documentation/4.2.2-series/clockopt/#reference-clock-commands">Reference Clock Commands</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.2-series/clockopt/#reference-clock-support">Reference Clock Support</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.2-series/clockopt/#reference-clock-commands">Reference Clock Commands</a></li>
 </ul>
 <hr>
 <h4 id="reference-clock-support">Reference Clock Support</h4>
-<p>The NTP Version 4 daemon supports some three dozen different radio, satellite and modem reference clocks plus a special pseudo-clock used for backup or when no other clock source is available. Detailed descriptions of individual device drivers and options can be found in the <a href="/documentation/4.2.2-series/refclock/">Reference Clock Drivers</a> page. Additional information can be found in the pages linked there, including the <a href="/documentation/4.2.2-series/rdebug/">Debugging Hints for Reference Clock Drivers</a> and <a href="/documentation/4.2.2-series/howto/">How To Write a Reference Clock Driver</a> pages. In addition, support for a PPS signal is available as described in <a href="/documentation/4.2.2-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. Many drivers support special line discipline/streams modules which can significantly improve the accuracy using the driver. These are described in the <a href="/documentation/4.2.2-series/ldisc/">Line Disciplines and Streams Drivers</a> page.</p>
+<p>The NTP Version 4 daemon supports some three dozen different radio, satellite and modem reference clocks plus a special pseudo-clock used for backup or when no other clock source is available. Detailed descriptions of individual device drivers and options can be found in the <a href="https://doc.ntp.org/documentation/4.2.2-series/refclock/">Reference Clock Drivers</a> page. Additional information can be found in the pages linked there, including the <a href="https://doc.ntp.org/documentation/4.2.2-series/rdebug/">Debugging Hints for Reference Clock Drivers</a> and <a href="https://doc.ntp.org/documentation/4.2.2-series/howto/">How To Write a Reference Clock Driver</a> pages. In addition, support for a PPS signal is available as described in <a href="https://doc.ntp.org/documentation/4.2.2-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. Many drivers support special line discipline/streams modules which can significantly improve the accuracy using the driver. These are described in the <a href="https://doc.ntp.org/documentation/4.2.2-series/ldisc/">Line Disciplines and Streams Drivers</a> page.</p>
 <p>A reference clock will generally (though not always) be a radio timecode receiver which is synchronized to a source of standard time such as the services offered by the NRC in Canada and NIST and USNO in the US. The interface between the computer and the timecode receiver is device dependent, but is usually a serial port. A device driver specific to each reference clock must be selected and compiled in the distribution; however, most common radio, satellite and modem clocks are included by default. Note that an attempt to configure a reference clock when the driver has not been compiled or the hardware port has not been appropriately configured results in a scalding remark to the system log file, but is otherwise non hazardous.</p>
 <p>For the purposes of configuration, <code>ntpd</code> treats reference clocks in a manner analogous to normal NTP peers as much as possible. Reference clocks are identified by a syntactically correct but invalid IP address, in order to distinguish them from normal NTP peers. Reference clock addresses are of the form <code>127.127.t.u</code>, where <code>t</code> is an integer denoting the clock type and <code>u</code> indicates the unit number in the range 0-3. While it may seem overkill, it is in fact sometimes useful to configure multiple reference clocks of the same type, in which case the unit numbers must be unique.</p>
-<p>The <code>server</code> command is used to configure a reference clock, where the <code>address</code> argument in that command is the clock address. The <code>key</code>, <code>version</code> and <code>ttl</code> options are not used for reference clock support. The <code>mode</code> option is added for reference clock support, as described below. The <code>prefer</code> option can be useful to persuade the server to cherish a reference clock with somewhat more enthusiasm than other reference clocks or peers. Further information on this option can be found in the <a href="/documentation/4.2.2-series/prefer/">Mitigation Rules and the prefer Keyword</a> page. The <code>minpoll</code> and <code>maxpoll</code> options have meaning only for selected clock drivers. See the individual clock driver document pages for additional information.</p>
+<p>The <code>server</code> command is used to configure a reference clock, where the <code>address</code> argument in that command is the clock address. The <code>key</code>, <code>version</code> and <code>ttl</code> options are not used for reference clock support. The <code>mode</code> option is added for reference clock support, as described below. The <code>prefer</code> option can be useful to persuade the server to cherish a reference clock with somewhat more enthusiasm than other reference clocks or peers. Further information on this option can be found in the <a href="https://doc.ntp.org/documentation/4.2.2-series/prefer/">Mitigation Rules and the prefer Keyword</a> page. The <code>minpoll</code> and <code>maxpoll</code> options have meaning only for selected clock drivers. See the individual clock driver document pages for additional information.</p>
 <p>The <code>fudge</code> command is used to provide additional information for individual clock drivers and normally follows immediately after the <code>server</code> command. The <code>address</code> argument specifies the clock address. The <code>refid</code> and <code>stratum</code> options control can be used to override the defaults for the device. There are two optional device-dependent time offsets and four flags that can be included in the <code>fudge</code> command as well.</p>
 <p>The stratum number of a reference clock is by default zero. Since the <code>ntpd</code> daemon adds one to the stratum of each peer, a primary server ordinarily displays an external stratum of one. In order to provide engineered backups, it is often useful to specify the reference clock stratum as greater than zero. The <code>stratum</code> option is used for this purpose. Also, in cases involving both a reference clock and a pulse-per-second (PPS) discipline signal, it is useful to specify the reference clock identifier as other than the default, depending on the driver. The <code>refid</code> option is used for this purpose. Except where noted, these options apply to all clock drivers.</p>
 <h4 id="reference-clock-commands">Reference Clock Commands</h4>
@@ -149,7 +149,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code>prefer</code></dt>
 <dd>
-<p>Marks the reference clock as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the <a href="/documentation/4.2.2-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page for further information.</p>
+<p>Marks the reference clock as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See the <a href="https://doc.ntp.org/documentation/4.2.2-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page for further information.</p>
 </dd>
 <dt><code>mode <em>int</em></code></dt>
 <dd>
@@ -162,7 +162,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code><strong>fudge 127.127.<em>t.u</em> [time1 <em>sec</em>] [time2 <em>sec</em>] [stratum <em>int</em>] [refid <em>string</em>] [mode <em>int</em>] [flag1 0|1] [flag2 0|1] [flag3 0|1] [flag4 0|1]</strong></code></dt>
 <dd>
-<p>This command can be used to configure reference clocks in special ways. It must immediately follow the <code>server</code> command which configures the driver. Note that the same capability is possible at run time using the <code><a href="/documentation/4.2.2-series/ntpdc/">ntpdc</a></code> program. The options are interpreted as follows:</p>
+<p>This command can be used to configure reference clocks in special ways. It must immediately follow the <code>server</code> command which configures the driver. Note that the same capability is possible at run time using the <code><a href="https://doc.ntp.org/documentation/4.2.2-series/ntpdc/">ntpdc</a></code> program. The options are interpreted as follows:</p>
 </dd>
 <dt><code>time1 <em>sec</em></code></dt>
 <dd>
@@ -170,12 +170,12 @@ if (!doNotTrack) {
 </dd>
 </dl>
 <blockquote>
-<p><strong>Note:</strong> in order to facilitate calibration when more than one radio clock or PPS signal is supported, a special calibration feature is available. It takes the form of an argument to the <code>enable</code> command described in the <a href="/documentation/4.2.2-series/miscopt/">Miscellaneous Options</a> page and operates as described in the <a href="/documentation/4.2.2-series/refclock/">Reference Clock Drivers</a> page.</p>
+<p><strong>Note:</strong> in order to facilitate calibration when more than one radio clock or PPS signal is supported, a special calibration feature is available. It takes the form of an argument to the <code>enable</code> command described in the <a href="https://doc.ntp.org/documentation/4.2.2-series/miscopt/">Miscellaneous Options</a> page and operates as described in the <a href="https://doc.ntp.org/documentation/4.2.2-series/refclock/">Reference Clock Drivers</a> page.</p>
 </blockquote>
 <dl>
 <dt><code>time2 <em>secs</em></code></dt>
 <dd>
-<p>Specifies a fixed-point decimal number in seconds, which is interpreted in a driver-dependent way. See the descriptions of specific drivers in the <a href="/documentation/4.2.2-series/refclock/">reference clock drivers</a> page.</p>
+<p>Specifies a fixed-point decimal number in seconds, which is interpreted in a driver-dependent way. See the descriptions of specific drivers in the <a href="https://doc.ntp.org/documentation/4.2.2-series/refclock/">reference clock drivers</a> page.</p>
 </dd>
 <dt><code>stratum <em>int</em></code></dt>
 <dd>
@@ -191,7 +191,7 @@ if (!doNotTrack) {
 </dd>
 <dt><code>flag1 flag2 flag3 flag4</code></dt>
 <dd>
-<p>These four flags are used for customizing the clock driver. The interpretation of these values, and whether they are used at all, is a function of the particular clock driver. However, by convention <code>flag4</code> is used to enable recording monitoring data to the <code>clockstats</code> file configured with the <code>filegen</code> command. Further information on the <code>filegen</code> command can be found in the <a href="/documentation/4.2.2-series/monopt/">Monitoring Options</a> page.</p>
+<p>These four flags are used for customizing the clock driver. The interpretation of these values, and whether they are used at all, is a function of the particular clock driver. However, by convention <code>flag4</code> is used to enable recording monitoring data to the <code>clockstats</code> file configured with the <code>filegen</code> command. Further information on the <code>filegen</code> command can be found in the <a href="https://doc.ntp.org/documentation/4.2.2-series/monopt/">Monitoring Options</a> page.</p>
 </dd>
 </dl>
 
@@ -204,19 +204,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

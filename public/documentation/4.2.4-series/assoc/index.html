@@ -6,7 +6,7 @@
 Make sure who your friends are.
  Table of Contents  Association Modes Client/Server Mode Symmetric Active/Passive Mode Broadcast/Multicast Modes Multicasting Manycasting Burst Modes   Association Modes NTP Version 4 (NTPv4) incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms; however, it continues the tradition of backwards compatibility with older versions. A number of new operating modes for automatic server discovery and improved accuracy in occasionally connected networks are provided." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.4-series/assoc/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.4-series/assoc/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -31,7 +31,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -126,25 +126,25 @@ if (!doNotTrack) {
      
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/alice51.gif" alt="gif"  />
-</p> <a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/alice51.gif" alt="gif"  />
+</p> <a href="https://doc.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
 <p>Make sure who your friends are.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/4.2.4-series/assoc/#association-modes">Association Modes</a></li>
-<li><a href="/documentation/4.2.4-series/assoc/#clientserver-mode">Client/Server Mode</a></li>
-<li><a href="/documentation/4.2.4-series/assoc/#symmetric-activepassive-mode">Symmetric Active/Passive Mode</a></li>
-<li><a href="/documentation/4.2.4-series/assoc/#broadcastmulticast-modes">Broadcast/Multicast Modes</a></li>
-<li><a href="/documentation/4.2.4-series/assoc/#multicasting">Multicasting</a></li>
-<li><a href="/documentation/4.2.4-series/assoc/#manycasting">Manycasting</a></li>
-<li><a href="/documentation/4.2.4-series/assoc/#burst-modes">Burst Modes</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.4-series/assoc/#association-modes">Association Modes</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.4-series/assoc/#clientserver-mode">Client/Server Mode</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.4-series/assoc/#symmetric-activepassive-mode">Symmetric Active/Passive Mode</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.4-series/assoc/#broadcastmulticast-modes">Broadcast/Multicast Modes</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.4-series/assoc/#multicasting">Multicasting</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.4-series/assoc/#manycasting">Manycasting</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.4-series/assoc/#burst-modes">Burst Modes</a></li>
 </ul>
 <hr>
 <h4 id="association-modes">Association Modes</h4>
-<p>NTP Version 4 (NTPv4) incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms; however, it continues the tradition of backwards compatibility with older versions. A number of new operating modes for automatic server discovery and improved accuracy in occasionally connected networks are provided. Following is an overview of the new features; additional information is available on the <a href="/documentation/4.2.4-series/confopt/">Configuration Options</a> and <a href="/documentation/4.2.4-series/authopt/">Authentication Options</a> pages and in the papers, reports, memoranda and briefings in the <a href="/reflib/">Reference Library</a>.</p>
+<p>NTP Version 4 (NTPv4) incorporates new features and refinements to the NTP Version 3 (NTPv3) algorithms; however, it continues the tradition of backwards compatibility with older versions. A number of new operating modes for automatic server discovery and improved accuracy in occasionally connected networks are provided. Following is an overview of the new features; additional information is available on the <a href="https://doc.ntp.org/documentation/4.2.4-series/confopt/">Configuration Options</a> and <a href="https://doc.ntp.org/documentation/4.2.4-series/authopt/">Authentication Options</a> pages and in the papers, reports, memoranda and briefings in the <a href="https://doc.ntp.org/reflib/">Reference Library</a>.</p>
 <p>There are two types of associations: persistent associations, which result from configuration file commands, and ephemeral associations, which result from protocol operations described below. A persistent association is never demobilized, although it may become dormant when the associated server becomes unreachable. An ephemeral association is mobilized when a message arrives from a server; for instance, a symmetric passive association is mobilized upon arrival of a symmetric active message. A broadcast client association is mobilized upon arrival of a broadcast server message, while a Manycast client association is mobilized upon arrival of a Manycast server message.</p>
-<p>Ordinarily, successful mobilization of an ephemeral association requires the server to be cryptographically authenticated to the dependent client. This can be done using either symmetric-key or public-key cryptography, as described in the <a href="/documentation/4.2.4-series/authopt/">Authentication Options</a> page. The cryptographic means insure an unbroken chain of trust between the dependent client and the primary servers at the root of the synchronization subnet. We call this chain the <em>provenance</em> of the client and define new vocabulary as to proventicate a client or provide proventic credentials. Once mobilized, ephemeral associations are demobilized when either (a) the server becomes unreachable or (b) the server refreshes the key media without notifying the client.</p>
+<p>Ordinarily, successful mobilization of an ephemeral association requires the server to be cryptographically authenticated to the dependent client. This can be done using either symmetric-key or public-key cryptography, as described in the <a href="https://doc.ntp.org/documentation/4.2.4-series/authopt/">Authentication Options</a> page. The cryptographic means insure an unbroken chain of trust between the dependent client and the primary servers at the root of the synchronization subnet. We call this chain the <em>provenance</em> of the client and define new vocabulary as to proventicate a client or provide proventic credentials. Once mobilized, ephemeral associations are demobilized when either (a) the server becomes unreachable or (b) the server refreshes the key media without notifying the client.</p>
 <p>There are three principal modes of operation: client/server, symmetric active/passive and broadcast. In addition, there are two modes using IP multicast support: multicast and manycast. These modes are selected based on the scope of service, intended flow of time and proventic values and means of configuration. Following is a summary of the operations in each mode.</p>
 <hr>
 <h4 id="clientserver-mode">Client/Server Mode</h4>
@@ -165,7 +165,7 @@ if (!doNotTrack) {
 <p>IP multicasting is a different paradigm. By design, multicast messages travel from the sender via a shortest-path or shared tree to the receivers, which may require these messages emit from one or all interfaces, but carry a common source address. However, it is possible to configure multiple multicast group addresses using multiple <code>broadcast</code> or <code>multicastclient</code> commands. Other than these particulars, multicast messages are processed just like broadcast messages. Note that the calibration feature in broadcast mode is extremely important, since IP multicast messages can travel far different paths through the IP routing fabric than ordinary IP unicast messages.</p>
 <hr>
 <h4 id="manycasting">Manycasting</h4>
-<p>Manycasting is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes client associations with some number of the &ldquo;best&rdquo; of the nearby anycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the <a href="/documentation/4.2.4-series/manyopt/">Automatic NTP Configuration Options</a> page.</p>
+<p>Manycasting is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes client associations with some number of the &ldquo;best&rdquo; of the nearby anycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the <a href="https://doc.ntp.org/documentation/4.2.4-series/manyopt/">Automatic NTP Configuration Options</a> page.</p>
 <hr>
 <h4 id="burst-modes">Burst Modes</h4>
 <p>There are two burst modes where a single poll event triggers a burst of eight packets at 2-s intervals instead of the usual one. The <code>burst</code> mode sends a burst when the server is reachable, while the <code>iburst</code> mode sends a burst when the server is unreachable. Each mode is independently of the other and both can be used if necessary. The <code>calldelay</code> command can be used to increase the interval between the first and second packets in the burst in order to allow a modem to complete a call. Received server packets update the clock filter, which selects the best (most accurate) time values. When the last packet in the burst is sent, the next received packet updates the system variables and sets the system clock in the usual manner, as if only a single client/server cycle had occurred. The result is not only a rapid and reliable setting of the system clock, but a considerable reduction in network jitter.</p>
@@ -181,19 +181,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

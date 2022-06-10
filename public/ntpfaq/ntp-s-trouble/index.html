@@ -9,7 +9,7 @@
 8.1.3 How can I see the Time Difference between Client and Server?
 8.1.4 What does 257 mean as value for reach?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-trouble/" /><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-trouble/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2022-02-14T19:06:33&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -34,7 +34,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -167,7 +167,7 @@ filegen loopstats file loops type day link enable</pre>
 <li><code>ntpdc -c loopinfo</code> will display the combined offset in seconds, as seen at the last poll. If supported, <code>ntpdc -c kerninfo</code> will display the current remaining correction, just as <code>ntptime</code> does.</li>
 </ul>
 <p>The first command can be used to check what <code>ntpd</code> thinks the offset and jitter is currently, relative to the preferred/current server. The second command can tell you something about the estimated offset/error all the way to the stratum 1 source. <a href="#812-how-do-i-use-peerstats-and-loopstats">Q: 8.1.2</a> describes a way to collect such data automatically.</p>
-<p>If a <a href="/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing">PPS</a> source is <a href="/ntpfaq/ntp-s-config-adv/#624-pps-synchronization">active</a>, the offset displayed with the second choice is updated periodically, maybe every second.</p>
+<p>If a <a href="https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/#5231-what-is-pps-processing">PPS</a> source is <a href="https://doc.ntp.org/ntpfaq/ntp-s-config-adv/#624-pps-synchronization">active</a>, the offset displayed with the second choice is updated periodically, maybe every second.</p>
 <p>Sometimes things are wrong and you may want to compare time offsets directly. An easy way is to use <code>ntpdate -d <em>server</em></code> to compare the local system time with the time taken from <code><em>server</em></code>.</p>
 <hr>
 <h4 id="814-what-does-257-mean-as-value-for-reach">8.1.4 What does 257 mean as value for reach?</h4>
@@ -196,13 +196,13 @@ loop 73, -27+/-29.8, rms 6.9, freq 16.81+/-0.327, var 0.140</pre>
 <p>Figure 8.1a was produced with a little more complicated command. It shows <code>yerrorbars</code> with the estimated errors for offset and frequency respectively.</p>
 <p><strong>Figure 8.1a: Plot of estimated Offset and Frequency Error (DCF77)</strong></p>
 <p><p>
-  <img loading="lazy" src="/ntpfaq/loopstat.png" alt=""  />
+  <img loading="lazy" src="https://doc.ntp.org/ntpfaq/loopstat.png" alt=""  />
 </p></p>
 <p>The reference clock, the antenna, and the computer system were located in an office room without air conditioning.</p>
 <p>Now that we are looking at numbers and graphs, let us compare the data of a GPS clock (using PPS) with a typical low-cost clock (not using PPS). Figure 8.1b shows a very small offset for the GPS clock. The frequency is continuously adjusted. In comparison, the DCF77 clock shows a high variation for the offset, but the frequency is adjusted less drastically. Figure 8.1a shows values between those, using a better DCF77 receiver with PPS.</p>
 <p><strong>Figure 8.1b: Comparing Offset and Frequency Error of DCF77 and GPS</strong></p>
 <p><p>
-  <img loading="lazy" src="/ntpfaq/GPSvsDCF.png" alt=""  />
+  <img loading="lazy" src="https://doc.ntp.org/ntpfaq/GPSvsDCF.png" alt=""  />
 </p></p>
 
 	  
@@ -214,19 +214,19 @@ loop 73, -27+/-29.8, rms 6.9, freq 16.81+/-0.327, var 0.140</pre>
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

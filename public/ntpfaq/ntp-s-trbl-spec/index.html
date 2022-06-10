@@ -13,7 +13,7 @@
 8.3.4 Serial Port
 8.3.4.1 Do Multiport Serial Cards cause Trouble?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/" /><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-trbl-spec/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2022-04-01T14:23:03&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -38,7 +38,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -200,7 +200,7 @@ if (!doNotTrack) {
 <h4 id="8342-why-does-my-dcf77-receiver-not-get-power-from-the-serial-port">8.3.4.2 Why does my DCF77 Receiver not get Power from the serial Port?</h4>
 <p>Somewhere in the code cleanup between NTPv3 and NTPv4, the code to set the modem lines of the serial port got lost. The port has to be set up in a special way to provide power to the receiver.</p>
 <p>For my receiver the command <code>setserialbits /dev/refclock-0 -rts</code> turns on power while <code>ntpd</code> is running. Some receivers care about polarity, some don&rsquo;t. You might try substituting <code>-rts</code> with <code>-dtr</code>.</p>
-<p>For the <a href="/documentation/drivers/driver8/">RAWDCF PARSE driver</a> there is a <code>mode 14</code>, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.</p>
+<p>For the <a href="https://doc.ntp.org/documentation/drivers/driver8/">RAWDCF PARSE driver</a> there is a <code>mode 14</code>, that turns on power on the port, but my receiver (and others, too) had errors about every 10 seconds. I have reported the problem to the original author.</p>
 <hr>
 <h4 id="835-oncore-compatibles">8.3.5 Oncore Compatibles</h4>
 <h4 id="8351-will-the-m12-work-with-the-oncore-driver">8.3.5.1 Will the M12 work with the Oncore driver?</h4>
@@ -208,7 +208,7 @@ if (!doNotTrack) {
 <p><a href="mailto:mark.martinec@ijs.si">Mark Martinec</a> contributed: &ldquo;I just stumbled across the specs of the 12-channel GPS receiver Motorola Oncore M12. Its acquisition time (time to first fix) for cold start is less than 60 seconds typical.</p>
 <hr>
 <h4 id="8352-why-is-the-ut-reporting-clk_noreply">8.3.5.2 Why is the UT+ reporting clk_noreply?</h4>
-<p>According to the documentation <a href="/documentation/drivers/driver30/">driver 30</a> should work for the UT+ &ldquo;as long as they support the Motorola Binary Protocol&rdquo;. Furthermore the documentation recommends: &ldquo;When first starting to use the driver you should definitely review the information written to the <code>clockstats</code> file to verify that the driver is running correctly.&rdquo;</p>
+<p>According to the documentation <a href="https://doc.ntp.org/documentation/drivers/driver30/">driver 30</a> should work for the UT+ &ldquo;as long as they support the Motorola Binary Protocol&rdquo;. Furthermore the documentation recommends: &ldquo;When first starting to use the driver you should definitely review the information written to the <code>clockstats</code> file to verify that the driver is running correctly.&rdquo;</p>
 <p>Unfortunately some essential documentation can only be found in the source file (<code>ntpd/refclock_oncore.c</code>). Some anonymous person wrote in news://comp.protocols.time.ntp:</p>
 <p>(&hellip;) When the GPS is in (navigation mode), the driver simply discards the timestamp, resulting in the <code>clk_noreply</code>. The clock <em>did</em> indeed reply, but the driver just threw it away with no messages to inform me about what it was doing.</p>
 <p>(&hellip;) yes, the GPS is indeed in Navigation mode. The Oncore driver <em>does</em> change the mode, even though the code comment quoted above says &ldquo;don&rsquo;t do anything to change it&rdquo; (mode <code>0</code>).</p>
@@ -228,7 +228,7 @@ if (!doNotTrack) {
 <hr>
 <h4 id="837-trimble-clocks">8.3.7 Trimble Clocks</h4>
 <h4 id="8371-only-one-edge-of-my-trimble-acutimes-pps-pulse-is-detected">8.3.7.1 Only one Edge of my Trimble Acutime&rsquo;s PPS Pulse is detected</h4>
-<p>If the device uses very short pulses (like 1 microsecond), the hardware or software may have trouble processing the pulse correctly: see <a href="/ntpfaq/ntp-s-trbl-general/#8222-why-is-the-pps-api-only-detecting-one-edge">Q: 8.2.2.2.</a> and <a href="/ntpfaq/ntp-s-config-adv/#6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface">Q: 6.2.4.6</a>. Recent clocks feature a programmable pulse width. Using 100 or 200 milliseconds as width will assist you finding the right edge, assuming that the first edge is the more accurate one.</p>
+<p>If the device uses very short pulses (like 1 microsecond), the hardware or software may have trouble processing the pulse correctly: see <a href="https://doc.ntp.org/ntpfaq/ntp-s-trbl-general/#8222-why-is-the-pps-api-only-detecting-one-edge">Q: 8.2.2.2.</a> and <a href="https://doc.ntp.org/ntpfaq/ntp-s-config-adv/#6246-what-is-the-shortest-width-for-a-pulse-connected-to-the-dcd-pin-of-an-rs-232-interface">Q: 6.2.4.6</a>. Recent clocks feature a programmable pulse width. Using 100 or 200 milliseconds as width will assist you finding the right edge, assuming that the first edge is the more accurate one.</p>
 
 	  
   </div>
@@ -239,19 +239,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

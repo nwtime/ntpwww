@@ -6,7 +6,7 @@
 Providing or enabling the use of encryption in software was considered harmful by the USA. However electronic commerce is only possibly with safe data exchange, so use of encryption has become a bit more allowed. NTP version 4 includes no cryptography, from the viewpoint of government regulations, and introduces MD5 keys.
 As MD5 is heavily used in digital signatures, MD5 is not considered as cryptography, despite the fact that digital signatures actually do use encryption." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/" /><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-algo-crypt/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2021-10-20T20:50:54&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -31,7 +31,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -160,11 +160,11 @@ if (!doNotTrack) {
 <p>NTP tries to avoid cryptography whenever possibe. MD5 is believed to require almost constant CPU cycles, while public key algorithms are known to require significantly more, and a varying number of CPU cycles.</p>
 <hr>
 <h4 id="542-the-basics-of-autokey">5.4.2 The Basics of Autokey</h4>
-<p>Symmetric key encryption requires a secure channel to exchange secret keys. Every NTP client needs a secret key for authenticating the time messages from a server. Public key cryptography and X.509 version 3 certificates are used for the <a href="/reflib/rfc/rfc5906.txt">Autokey</a> authentication schema that is summarized below. See <a href="/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey">Q: 6.2.2.6</a> for configuration details.</p>
+<p>Symmetric key encryption requires a secure channel to exchange secret keys. Every NTP client needs a secret key for authenticating the time messages from a server. Public key cryptography and X.509 version 3 certificates are used for the <a href="https://doc.ntp.org/reflib/rfc/rfc5906.txt">Autokey</a> authentication schema that is summarized below. See <a href="https://doc.ntp.org/ntpfaq/ntp-s-config-adv/#6226-how-do-i-use-public-key-authentication-autokey">Q: 6.2.2.6</a> for configuration details.</p>
 <p>As public key algorithms are computationally expensive, those algorithms are not used for every packet being exchanged.</p>
 <hr>
 <h4 id="5421-authentic-and-proventic">5.4.2.1 Authentic and Proventic</h4>
-<p>In <a href="/reflib/brief/autokey/autokey.pdf">NTP Security Model</a> the phrases are defined like this:</p>
+<p>In <a href="https://doc.ntp.org/reflib/brief/autokey/autokey.pdf">NTP Security Model</a> the phrases are defined like this:</p>
 <dl>
 <dt>authentic</dt>
 <dd>A client is authentic if it can reliably verify the credentials of at least one server and the integrity of its messages.</dd>
@@ -178,7 +178,7 @@ if (!doNotTrack) {
 <p>A <em>primary group</em> includes at least one trusted primary server (stratum 1).</p>
 <hr>
 <h4 id="5423-identity-schemes">5.4.2.3 Identity Schemes</h4>
-<p><em>Identity Schemes</em> are methods to prove the identity of a remote system, helping to prevent <em>man-in-the-middle attacks</em>. In <a href="/reflib/brief/secalgor/secalgor.pdf">NTP Security Algorithms</a> and <a href="/reflib/brief/autokey/autokey.pdf">NTP Security Model</a> the following identity schemes are mentioned:</p>
+<p><em>Identity Schemes</em> are methods to prove the identity of a remote system, helping to prevent <em>man-in-the-middle attacks</em>. In <a href="https://doc.ntp.org/reflib/brief/secalgor/secalgor.pdf">NTP Security Algorithms</a> and <a href="https://doc.ntp.org/reflib/brief/autokey/autokey.pdf">NTP Security Model</a> the following identity schemes are mentioned:</p>
 <ul>
 <li><strong>Private Certificate (PC):</strong> much like private keys, requiring a secret channel to distribute keys.</li>
 <li><strong>Trusted Certificate (TC):</strong> uses a trusted authority (TA) and certificate chains.</li>
@@ -189,10 +189,10 @@ if (!doNotTrack) {
 <p>All schemes use relatively small keys (few bits), so those keys must be refreshed regularly. Even though certificates are valid for one year after creation, the keys should be re-created on a shorter interval. Using the NTP timestamp as the certificate&rsquo;s serial number ensures uniqueness. Thus signatures are only generated when the host&rsquo;s time is considered synchronized.</p>
 <hr>
 <h4 id="5424-proventic-trail">5.4.2.4 Proventic Trail</h4>
-<p>According to <a href="/reflib/brief/secproto/secproto.pdf">NTP Security Protocol</a>, a <em>proventic trail</em> (certificate trail) is a cryptographically verified sequence of NTP servers ending at a trusted host.</p>
+<p>According to <a href="https://doc.ntp.org/reflib/brief/secproto/secproto.pdf">NTP Security Protocol</a>, a <em>proventic trail</em> (certificate trail) is a cryptographically verified sequence of NTP servers ending at a trusted host.</p>
 <hr>
 <h4 id="5425-session-keys">5.4.2.5 Session Keys</h4>
-<p>According to <a href="/reflib/brief/secproto/secproto.pdf">NTP Security Protocol</a>, <em>session keys</em> are 128 bits (16 octets). Session keys are created as lists of keys, and the last key in the list is digitally signed. See <a href="https://www.rfc-editor.org/rfc/rfc2104">RFC 2104 HMAC: Keyed-Hashing for Message Authentication</a> for basics.</p>
+<p>According to <a href="https://doc.ntp.org/reflib/brief/secproto/secproto.pdf">NTP Security Protocol</a>, <em>session keys</em> are 128 bits (16 octets). Session keys are created as lists of keys, and the last key in the list is digitally signed. See <a href="https://www.rfc-editor.org/rfc/rfc2104">RFC 2104 HMAC: Keyed-Hashing for Message Authentication</a> for basics.</p>
 
 	  
   </div>
@@ -203,19 +203,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

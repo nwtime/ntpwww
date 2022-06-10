@@ -12,7 +12,7 @@
 9.2.1 Selective Availability revisited
  9.1 Miscellaneous 9.1.1 What is Mills-speak? Most people using NTP know that it has been invented by Professor David L." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-related/" /><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-related/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2022-05-24T16:19:31&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -37,7 +37,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -150,7 +150,7 @@ if (!doNotTrack) {
 <p>Computer clocks are like a cat who never remembers where it has been, only steps ahead in more or less random directions. The cat has a general idea in which direction leads to food, just not a precise idea of how to get there. Mathematically, this represents random walk frequency noise. The important fact about this is that predictions of future cat directions get worse more rapidly as future time recedes.</p>
 <p>The &ldquo;after one year&rdquo; has to do with crystal aging characteristics. The cat gets old and starts steering more to one direction than the other. Really clever clock discipline algorithms attempt to learn the particular cat aging characteristic and compensate for it. Unless you are talking about oven controlled quartz or rubidium or cesium, this is not something we do with computer cats.</p>
 <p>This brings up the notion of specifications &ldquo;after one day&rdquo;. Whoever said that doesn&rsquo;t understand cats. The cat forgets just about everything after maybe an hour. Anything said after one day applies equally after one hour as the cat wanders. The really ugly bottom line is that, considering the cat&rsquo;s memory, it doesn&rsquo;t make sense to try to discipline the feline by averaging things over much more than a thousand seconds or so. Lots and lots of professional folks who should know better don&rsquo;t understand this.</p>
-<p>Most folks, including me, characterize each clock oscillator in terms of what is called <a href="/reflib/brief/algor/algor.pdf">Allan deviation</a>. The bottom line is that most computer clocks can steer to something like 1 PPM relative to its intrinsic frequency error and without outside discipline as long as nothing violent temperature-wise is happening.</p>
+<p>Most folks, including me, characterize each clock oscillator in terms of what is called <a href="https://doc.ntp.org/reflib/brief/algor/algor.pdf">Allan deviation</a>. The bottom line is that most computer clocks can steer to something like 1 PPM relative to its intrinsic frequency error and without outside discipline as long as nothing violent temperature-wise is happening.</p>
 <p>Dave</p>
 <blockquote>
 <p>As <a href="mailto:dcraggs@gotadsl.co.uk">David Craggs</a> (and others) pointed out, the calculation is obviously wrong: 12 PPM correspond to 43 ms per hour, and not per day. Likewise an error of 0.602 s per fortnight corresponds to a frequency error of 0.49 PPM.</p>
@@ -232,8 +232,8 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
 <li>There is also the <a href="https://support.ntp.org">NTP Support Wiki</a>.</li>
 <li>One of the oldest sources of useful information is the newsgroup news://comp.protocols.time.ntp. That newsgroup is visited by many beginners as well as a few experts, and occasionally even the father of NTP will post a note there.</li>
 <li>The page <a href="https://www.ijs.si/time/">Time, with focus on NTP and Slovenia</a> contains a good summary of time synchronization using NTP as well as valuable references. The author allowed inclusion of his material into this FAQ. I really appreciate that.</li>
-<li>Technical papers by <a href="mailto:mills@udel.edu">Professor David L. Mills</a> are available in the <a href="/reflib/">Reference Library</a>.</li>
-<li>Various <a href="/reflib/rfc/">RFCs deal with NTP</a>. While newer RFCs obsolete older ones, it might still be interesting to read the older ones.</li>
+<li>Technical papers by <a href="mailto:mills@udel.edu">Professor David L. Mills</a> are available in the <a href="https://doc.ntp.org/reflib/">Reference Library</a>.</li>
+<li>Various <a href="https://doc.ntp.org/reflib/rfc/">RFCs deal with NTP</a>. While newer RFCs obsolete older ones, it might still be interesting to read the older ones.</li>
 </ul>
 <p><strong>Table 9.1a: Some RFCs related to NTP</strong></p>
 <table>
@@ -263,32 +263,32 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
 <tr>
 <td>1059</td>
 <td>July 1988</td>
-<td><a href="/reflib/rfc/rfc1059.txt">Network Time Protocol (version 1) - specification and implementation</a></td>
+<td><a href="https://doc.ntp.org/reflib/rfc/rfc1059.txt">Network Time Protocol (version 1) - specification and implementation</a></td>
 </tr>
 <tr>
 <td>1119</td>
 <td>September 1989</td>
-<td><a href="/reflib/rfc/rfc1119/rfc1119b.pdf">Network Time Protocol (version 2) - specification and implementation</a></td>
+<td><a href="https://doc.ntp.org/reflib/rfc/rfc1119/rfc1119b.pdf">Network Time Protocol (version 2) - specification and implementation</a></td>
 </tr>
 <tr>
 <td>1305</td>
 <td>March 1992</td>
-<td><a href="/reflib/rfc/rfc1305/rfc1305b.pdf">Network Time Protocol (Version 3) - Specification, Implementation and Analysis</a></td>
+<td><a href="https://doc.ntp.org/reflib/rfc/rfc1305/rfc1305b.pdf">Network Time Protocol (Version 3) - Specification, Implementation and Analysis</a></td>
 </tr>
 <tr>
 <td>1589</td>
 <td>March 1994</td>
-<td><a href="/reflib/rfc/rfc1589.txt">A Kernel Model for Precision Timekeeping</a></td>
+<td><a href="https://doc.ntp.org/reflib/rfc/rfc1589.txt">A Kernel Model for Precision Timekeeping</a></td>
 </tr>
 <tr>
 <td>2030</td>
 <td>October 1996</td>
-<td><a href="/reflib/rfc/rfc2030.txt">Simple Network Time Protocol (SNTP) version 4 for IPv4, IPv6 and OSI</a>. Obsoletes <a href="/reflib/rfc/rfc1361.txt">RFC 1361</a> and <a href="/reflib/rfc/rfc1769.txt">RFC 1769</a>.</td>
+<td><a href="https://doc.ntp.org/reflib/rfc/rfc2030.txt">Simple Network Time Protocol (SNTP) version 4 for IPv4, IPv6 and OSI</a>. Obsoletes <a href="https://doc.ntp.org/reflib/rfc/rfc1361.txt">RFC 1361</a> and <a href="https://doc.ntp.org/reflib/rfc/rfc1769.txt">RFC 1769</a>.</td>
 </tr>
 <tr>
 <td>2783</td>
 <td>March 2000</td>
-<td><a href="/reflib/rfc/rfc2783.txt">Pulse-Per-Second API for UNIX-like Operating Systems, Version 1.0</a></td>
+<td><a href="https://doc.ntp.org/reflib/rfc/rfc2783.txt">Pulse-Per-Second API for UNIX-like Operating Systems, Version 1.0</a></td>
 </tr>
 </tbody>
 </table>
@@ -339,7 +339,7 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
 <p>The precision may be further degraded by Selective Availability (SA) which was implemented in 1991, and turned off on May 2, 2000 at 0400 UTC.</p>
 </li>
 </ul>
-<p>Although derived from <a href="/ntpfaq/ntp-s-time/#22-what-is-utc">UTC</a>, as presented by the U.S. Naval Observatory master clock, the UTC(USNO MC), GPS time does not include leap seconds found in UTC, but the data stream provides the difference from UTC in seconds. At the time of writing the difference is 18s. While the difference between UTC and GPS time will change over time, there&rsquo;s a fixed offset between TAI and GPS time (19 seconds).</p>
+<p>Although derived from <a href="https://doc.ntp.org/ntpfaq/ntp-s-time/#22-what-is-utc">UTC</a>, as presented by the U.S. Naval Observatory master clock, the UTC(USNO MC), GPS time does not include leap seconds found in UTC, but the data stream provides the difference from UTC in seconds. At the time of writing the difference is 18s. While the difference between UTC and GPS time will change over time, there&rsquo;s a fixed offset between TAI and GPS time (19 seconds).</p>
 <p>There is a military document describing the details of GPS, and it is very technical, but unclassified. The document is named <a href="https://www.navcen.uscg.gov/pdf/gps/ICD200c.pdf">ICD-GPS-200</a> (thanks to <a href="mailto:nicolai@esperi.org">Nicolai E M Plum</a>). Thanks to <a href="mailto:jcs@zoo.bt.co.uk">John Sager</a> for the <a href="https://www.navcen.uscg.gov/pubs/gps/icd200/ICD200Cw1234.pdf">current version</a>.</p>
 <p><strong>Example 9.2a: A Glance at the GPS Sky</strong></p>
 <p>At the time of writing I could see five out of nine visible satellites, the best candidates being <code>24</code>, <code>5</code>, <code>4</code>, and <code>9</code>. From Table 9.2a you can see that my window is in the east, and that I have a rather nice view out there. From these data, GPS receiver computed my position as <code>49° 11' 42&quot; N<code>, </code>12° 16' 12&quot; E<code>, </code>260m</code>.</p>
@@ -388,15 +388,15 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
 <p><strong>Example 9.2b: The Effects of Selective Availability</strong></p>
 <p>Most GPS receivers are unable to compensate for Selective Availability. As a virtually changing position causes time offsets (roughly 3ns per meter), it&rsquo;s interesting what the effects of SA are. For my GPS167 from Meinberg I examined the <code>gps_position(LLA)</code> that the clock driver showed. The following graphic shows the changing position over time, including a smoothed path.</p>
 <p><p>
-  <img loading="lazy" src="/ntpfaq/GPS167_XY.png" alt=""  />
+  <img loading="lazy" src="https://doc.ntp.org/ntpfaq/GPS167_XY.png" alt=""  />
 </p></p>
 <p>These position changes have a comparatively small effect on time accuracy, but if one considers the computed altitude, the huge changes can accumulate to a few hundred nanoseconds. The following graph shows the varying altitude over time.</p>
 <p><p>
-  <img loading="lazy" src="/ntpfaq/GPS167_Z.png" alt=""  />
+  <img loading="lazy" src="https://doc.ntp.org/ntpfaq/GPS167_Z.png" alt=""  />
 </p></p>
 <p>Finally, the following figure combines the three coordinates in space to give you an impression on how accurate GPS is:</p>
 <p><p>
-  <img loading="lazy" src="/ntpfaq/GPS167_XYZ.png" alt=""  />
+  <img loading="lazy" src="https://doc.ntp.org/ntpfaq/GPS167_XYZ.png" alt=""  />
 </p></p>
 <hr>
 <h4 id="921-selective-availability-revisited">9.2.1 Selective Availability revisited</h4>
@@ -412,19 +412,19 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

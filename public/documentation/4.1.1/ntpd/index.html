@@ -6,7 +6,7 @@
 The mushroom knows all the command line options.
  Table of Contents  Synopsis Description How NTP Operates Frequency Discipline Operating Modes Poll Interval Control The huff-n&#39;-puff Filter Notes Command Line Options The Configuration File Files Bugs   Synopsis ntpd [ -aAbdgLmNPqx ] [ -c conffile ] [ -f driftfile ] [ -g ] [ -k keyfile ] [ -l logfile ] [ -N high ] [ -p pidfile ] [ -r broadcastdelay ] [ -s statsdir ] [ -t key ] [ -v variable ] [ -V variable ] [ -x ]" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.1/ntpd/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.1/ntpd/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -31,7 +31,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -126,24 +126,24 @@ if (!doNotTrack) {
      
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/alice47.gif" alt="gif"  />
-</p> <a href="/reflib/pictures/">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/alice47.gif" alt="gif"  />
+</p> <a href="https://doc.ntp.org/reflib/pictures/">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
 <p>The mushroom knows all the command line options.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/4.1.1/ntpd/#synopsis">Synopsis</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#description">Description</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#how-ntp-operates">How NTP Operates</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#frequency-discipline">Frequency Discipline</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#operating-modes">Operating Modes</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#poll-interval-control">Poll Interval Control</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#the-huff-n-puff-filter">The huff-n'-puff Filter</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#notes">Notes</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#command-line-options">Command Line Options</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#the-configuration-file">The Configuration File</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#files">Files</a></li>
-<li><a href="/documentation/4.1.1/ntpd/#bugs">Bugs</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#synopsis">Synopsis</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#description">Description</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#how-ntp-operates">How NTP Operates</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#frequency-discipline">Frequency Discipline</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#operating-modes">Operating Modes</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#poll-interval-control">Poll Interval Control</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#the-huff-n-puff-filter">The huff-n'-puff Filter</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#notes">Notes</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#command-line-options">Command Line Options</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#the-configuration-file">The Configuration File</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#files">Files</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.1/ntpd/#bugs">Bugs</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -153,7 +153,7 @@ if (!doNotTrack) {
 <p>The <code>ntpd</code> program is an operating system daemon which sets and maintains the system time of day in synchronism with Internet standard time servers. It is a complete implementation of the Network Time Protocol (NTP) version 4, but also retains compatibility with version 3, as defined by RFC-1305, and version 1 and 2, as defined by RFC-1059 and RFC-1119, respectively. <code>ntpd</code> does most computations in 64-bit floating point arithmetic and does relatively clumsy 64-bit fixed point operations only when necessary to preserve the ultimate precision, about 232 picoseconds. While the ultimate precision is not achievable with ordinary workstations and networks of today, it may be required with future gigahertz CPU clocks and gigabit LANs.</p>
 <hr>
 <h4 id="how-ntp-operates">How NTP Operates</h4>
-<p>The <code>ntpd</code> program operates by exchanging messages with one or more configured servers at designated poll intervals. When started, whether for the first or subsequent times, the program requires several exchanges from the majority of these servers so the signal processing and mitigation algorithms can accumulate and groom the data and set the clock. In order to protect the network from bursts, the initial poll interval for each server is delayed an interval randomized over a few seconds. At the default initial poll interval of 64s, several minutes can elapse before the clock is set. The initial delay to set the clock can be reduced using the <code>iburst</code> keyword with the <code>server</code> configuration command, as described on the <a href="/documentation/4.1.1/confopt/">Configuration Options</a> page.</p>
+<p>The <code>ntpd</code> program operates by exchanging messages with one or more configured servers at designated poll intervals. When started, whether for the first or subsequent times, the program requires several exchanges from the majority of these servers so the signal processing and mitigation algorithms can accumulate and groom the data and set the clock. In order to protect the network from bursts, the initial poll interval for each server is delayed an interval randomized over a few seconds. At the default initial poll interval of 64s, several minutes can elapse before the clock is set. The initial delay to set the clock can be reduced using the <code>iburst</code> keyword with the <code>server</code> configuration command, as described on the <a href="https://doc.ntp.org/documentation/4.1.1/confopt/">Configuration Options</a> page.</p>
 <p>Most operating systems and hardware of today incorporate a time-of-year (TOY) chip to maintain the time during periods when the power is off. When the machine is booted, the chip is used to initialize the operating system time. After the machine has synchronized to a NTP server, the operating system corrects the chip from time to time. In case there is no TOY chip or for some reason its time is more than 1000s from the server time, <code>ntpd</code> assumes something must be terribly wrong and the only reliable action is for the operator to intervene and set the clock by hand. This causes <code>ntpd</code> to exit with a panic message to the system log. The <code>-g</code> option overrides this check and the clock will be set to the server time regardless of the chip time. However, and to protect against broken hardware, such as when the CMOS battery fails or the clock counter becomes defective, once the clock has been set, an error greater than 1000s will cause <code>ntpd</code> to exit anyway.</p>
 <p>Under ordinary conditions, <code>ntpd</code> adjusts the clock in small steps so that the timescale is effectively continuous and without discontinuities. Under conditions of extreme network congestion, the roundtrip delay jitter can exceed three seconds and the synchronization distance, which is equal to one-half the roundtrip delay plus error budget terms, can become very large. The <code>ntpd</code> algorithms discard sample offsets exceeding 128 ms, unless the interval during which no sample offset is less than 128 ms exceeds 900s. The first sample after that, no matter what the offset, steps the clock to the indicated time. In practice this reduces the false alarm rate where the clock is stepped in error to a vanishingly low incidence.</p>
 <p>As the result of this behavior, once the clock has been set, it very rarely strays more than 128 ms, even under extreme cases of network path congestion and jitter. Sometimes, in particular when <code>ntpd</code> is first started, the error might exceed 128 ms. This may on occasion cause the clock to be set backwards if the local clock time is more than 128 s in the future relative to the server. In some applications, this behavior may be unacceptable. If the <code>-x</code> option is included on the command line, the clock will never be stepped and only slew corrections will be used.</p>
@@ -164,7 +164,7 @@ if (!doNotTrack) {
 <p>The <code>ntpd</code> behavior at startup depends on whether the frequency file, usually <code>ntp.drift</code>, exists. This file contains the latest estimate of clock frequency error. When the <code>ntpd</code> is started and the file does not exist, the <code>ntpd</code> enters a special mode designed to quickly adapt to the particular system clock oscillator time and frequency error. This takes approximately 15 minutes, after which the time and frequency are set to nominal values and the <code>ntpd</code> enters normal mode, where the time and frequency are continuously tracked relative to the server. After one hour the frequency file is created and the current frequency offset written to it. When the <code>ntpd</code> is started and the file does exist, the <code>ntpd</code> frequency is initialized from the file and enters normal mode immediately. After that the current frequency offset is written to the file at hourly intervals.</p>
 <hr>
 <h4 id="operating-modes">Operating Modes</h4>
-<p><code>ntpd</code> can operate in any of several modes, including symmetric active/passive, client/server broadcast/multicast and manycast, as described in the <a href="/documentation/4.1.1/assoc/">Association Management</a> page. It normally operates continuously while monitoring for small changes in frequency and trimming the clock for the ultimate precision. However, it can operate in a one-time mode where the time is set from an external server and frequency is set from a previously recorded frequency file. A broadcast/multicast or manycast client can discover remote servers, compute server-client propagation delay correction factors and configure itself automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment.</p>
+<p><code>ntpd</code> can operate in any of several modes, including symmetric active/passive, client/server broadcast/multicast and manycast, as described in the <a href="https://doc.ntp.org/documentation/4.1.1/assoc/">Association Management</a> page. It normally operates continuously while monitoring for small changes in frequency and trimming the clock for the ultimate precision. However, it can operate in a one-time mode where the time is set from an external server and frequency is set from a previously recorded frequency file. A broadcast/multicast or manycast client can discover remote servers, compute server-client propagation delay correction factors and configure itself automatically. This makes it possible to deploy a fleet of workstations without specifying configuration details specific to the local environment.</p>
 <p>By default, <code>ntpd</code> runs in continuous mode where each of possibly several external servers is polled at intervals determined by an intricate state machine. The state machine measures the incidental roundtrip delay jitter and oscillator frequency wander and determines the best poll interval using a heuristic algorithm. Ordinarily, and in most operating environments, the state machine will start with 64s intervals and eventually increase in steps to 1024s. A small amount of random variation is introduced in order to avoid bunching at the servers. In addition, should a server become unreachable for some time, the poll interval is increased in steps to 1024s in order to reduce network overhead.</p>
 <p>In some cases it may not be practical for <code>ntpd</code> to run continuously. A common workaround has been to run the <code>ntpdate</code> program from a <code>cron</code> job at designated times. However, this program does not have the crafted signal processing, error checking and mitigation algorithms of <code>ntpd</code>. The <code>-q</code> option is intended for this purpose. Setting this option will cause <code>ntpd</code> to exit just after setting the clock for the first time. The procedure for initially setting the clock is the same as in continuous mode; most applications will probably want to specify the <code>iburst</code> keyword with the <code>server</code> configuration command. With this keyword a volley of messages are exchanged to groom the data and the clock is set in about 10 s. If nothing is heard after a couple of minutes, the daemon times out and exits. After a suitable period of mourning, the <code>ntpdate</code> program may be retired.</p>
 <p>When kernel support is available to discipline the clock frequency, which is the case for stock Solaris, Tru64, Linux and FreeBSD, a useful feature is available to discipline the clock frequency. First, <code>ntpd</code> is run in continuous mode with selected servers in order to measure and record the intrinsic clock frequency offset in the frequency file. It may take some hours for the frequency and offset to settle down. Then the <code>ntpd</code> is stopped and run in one-time mode as required. At each startup, the frequency is read from the file and initializes the kernel frequency.</p>
@@ -176,11 +176,11 @@ if (!doNotTrack) {
 <h4 id="the-huff-n-puff-filter">The huff-n'-puff Filter</h4>
 <p>In scenarios where a considerable amount of data are to be downloaded or uploaded over telephone modems, timekeeping quality can be seriously degraded. This occurs because the differential delays on the two directions of transmission can be quite large. In many cases the apparent time errors are so large as to exceed the step threshold and a step correction can occur during and after the data transfer is in progress.</p>
 <p>The huff-n'-puff filter is designed to correct the apparent time offset in these cases. It depends on knowledge of the propagation delay when no other traffic is present. In common scenarios this occurs during other than work hours. The filter maintains a shift register that remembers the minimum delay over the most recent interval measured usually in hours. Under conditions of severe delay, the filter corrects the apparent offset using the sign of the offset and the difference between the apparent delay and minimum delay. The name of the filter reflects the negative (huff) and positive (puff) correction, which depends on the sign of the offset.</p>
-<p>The filter is activated by the <code>tinker</code> command and <code>huffpuff</code> keyword, as described in the <a href="/documentation/4.1.1/miscopt/">Miscellaneous Options</a> page.</p>
+<p>The filter is activated by the <code>tinker</code> command and <code>huffpuff</code> keyword, as described in the <a href="https://doc.ntp.org/documentation/4.1.1/miscopt/">Miscellaneous Options</a> page.</p>
 <hr>
 <h4 id="notes">Notes</h4>
 <p>If NetInfo support is built into <code>ntpd</code>, then <code>ntpd</code> will attempt to read its configuration from the NetInfo if the default ntp.conf file cannot be read and no file is specified by the <code>-c</code> option.</p>
-<p>Various internal <code>ntpd</code> variables can be displayed and configuration options altered while the <code>ntpd</code> is running using the <code><a href="/documentation/4.1.1/ntpq/">ntpq</a></code> and <a href="/documentation/4.1.1/ntpdc/"><code>ntpdc</code></a> utility programs.</p>
+<p>Various internal <code>ntpd</code> variables can be displayed and configuration options altered while the <code>ntpd</code> is running using the <code><a href="https://doc.ntp.org/documentation/4.1.1/ntpq/">ntpq</a></code> and <a href="https://doc.ntp.org/documentation/4.1.1/ntpdc/"><code>ntpdc</code></a> utility programs.</p>
 <p>When <code>ntpd</code> starts it looks at the value of <code>umask</code>, and if zero <code>ntpd</code> will set the <code>umask</code> to <code>022</code>.</p>
 <hr>
 <h4 id="command-line-options">Command Line Options</h4>
@@ -280,12 +280,12 @@ if (!doNotTrack) {
 <p>Ordinarily, <code>ntpd</code> reads the <code>ntp.conf</code> configuration file at startup time in order to determine the synchronization sources and operating modes. It is also possible to specify a working, although limited, configuration entirely on the command line, obviating the need for a configuration file. This may be particularly useful when the local host is to be configured as a broadcast/multicast client, with all peers being determined by listening to broadcasts at run time.</p>
 <p>Usually, the configuration file is installed in the <code>/etc</code> directory, but could be installed elsewhere (see the <code>-c <em>conffile</em></code> command line option). The file format is similar to other Unix configuration files - comments begin with a <code>#</code> character and extend to the end of the line; blank lines are ignored.</p>
 <p>Configuration commands consist of an initial keyword followed by a list of arguments, some of which may be optional, separated by whitespace. Commands may not be continued over multiple lines. Arguments may be host names, host addresses written in numeric, dotted-quad form, integers, floating point numbers (when specifying times in seconds) and text strings. Optional arguments are delimited by <code>[ ]</code> in the following descriptions, while alternatives are separated by <code>|</code>. The notation <code>[ &hellip; ]</code> means an optional, indefinite repetition of the last item before the <code>[ &hellip; ]</code>.</p>
-<p><a href="/documentation/4.1.1/confopt/">Configuration Options</a><br>
-<a href="/documentation/4.1.1/authopt/">Authentication Options</a><br>
-<a href="/documentation/4.1.1/monopt/">Monitoring Options</a><br>
-<a href="/documentation/4.1.1/accopt/">Access Control Options</a><br>
-<a href="/documentation/4.1.1/clockopt/">Reference Clock Options</a><br>
-<a href="/documentation/4.1.1/miscopt/">Miscellaneous Options</a></p>
+<p><a href="https://doc.ntp.org/documentation/4.1.1/confopt/">Configuration Options</a><br>
+<a href="https://doc.ntp.org/documentation/4.1.1/authopt/">Authentication Options</a><br>
+<a href="https://doc.ntp.org/documentation/4.1.1/monopt/">Monitoring Options</a><br>
+<a href="https://doc.ntp.org/documentation/4.1.1/accopt/">Access Control Options</a><br>
+<a href="https://doc.ntp.org/documentation/4.1.1/clockopt/">Reference Clock Options</a><br>
+<a href="https://doc.ntp.org/documentation/4.1.1/miscopt/">Miscellaneous Options</a></p>
 <hr>
 <h4 id="files">Files</h4>
 <p><code>/etc/ntp.conf</code> - the default name of the configuration file</p>
@@ -304,19 +304,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

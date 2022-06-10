@@ -6,7 +6,7 @@
 Make sure who your friends are.
  Table of Contents  Introduction Association Management Broadcast/Multicast Scheme Manycast Scheme Server Pool Scheme   Introduction This page describes the automatic server discovery schemes provided in NTPv4. Details about the configuration commands and options are described on the Configuration Options page. Details about the cryptographic authentication schemes are described on the Authentication Options page. Details about the other modes not directly involved in these schemes are described on the Association Management page." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.6-series/manyopt/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.6-series/manyopt/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -31,7 +31,7 @@ if (!doNotTrack) {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -126,27 +126,27 @@ if (!doNotTrack) {
      
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/alice51.gif" alt="gif"  />
-</p><a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/alice51.gif" alt="gif"  />
+</p><a href="https://doc.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
 <p>Make sure who your friends are.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/4.2.6-series/manyopt/#introduction">Introduction</a></li>
-<li><a href="/documentation/4.2.6-series/manyopt/#association-management">Association Management</a></li>
-<li><a href="/documentation/4.2.6-series/manyopt/#broadcastmulticast-scheme">Broadcast/Multicast Scheme</a></li>
-<li><a href="/documentation/4.2.6-series/manyopt/#manycast-scheme">Manycast Scheme</a></li>
-<li><a href="/documentation/4.2.6-series/manyopt/#server-pool-scheme">Server Pool Scheme</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/#introduction">Introduction</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/#association-management">Association Management</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/#broadcastmulticast-scheme">Broadcast/Multicast Scheme</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/#manycast-scheme">Manycast Scheme</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/#server-pool-scheme">Server Pool Scheme</a></li>
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>This page describes the automatic server discovery schemes provided in NTPv4. Details about the configuration commands and options are described on the <a href="/documentation/4.2.6-series/confopt/">Configuration Options</a> page. Details about the cryptographic authentication schemes are described on the <a href="/documentation/4.2.6-series/authopt/">Authentication Options</a> page. Details about the other modes not directly involved in these schemes are described on the <a href="/documentation/4.2.6-series/assoc/">Association Management</a> page. Additional information is available in the papers, reports, memoranda and briefings on the <a href="/reflib/ntp/">NTP Project</a> page.</p>
+<p>This page describes the automatic server discovery schemes provided in NTPv4. Details about the configuration commands and options are described on the <a href="https://doc.ntp.org/documentation/4.2.6-series/confopt/">Configuration Options</a> page. Details about the cryptographic authentication schemes are described on the <a href="https://doc.ntp.org/documentation/4.2.6-series/authopt/">Authentication Options</a> page. Details about the other modes not directly involved in these schemes are described on the <a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/">Association Management</a> page. Additional information is available in the papers, reports, memoranda and briefings on the <a href="https://doc.ntp.org/reflib/ntp/">NTP Project</a> page.</p>
 <p>There are three automatic server discovery schemes: broadcast/multicast, manycast and server pool described on this page. The broadcast/multicast and manycast schemes utilize the ubiquitous broadcast or one-to-many paradigm native to IPv4 and IPv6. The server pool scheme uses DNS to resolve addresses of multiple volunteer servers scattered throughout the world. All three schemes work in much the same way and might be described as <em>grab-n'-prune</em>. Through one means or another they grab a number of associations either directly or indirectly from the configuration file, order them from best to worst according to a defined metric, then cast off the associations with the lowest metric until no more than the number specified by the <code>maxclock</code> option of the <code>tos</code> command remain.</p>
 <hr>
 <h4 id="association-management">Association Management</h4>
 <p>All schemes use a stratum filter to select just those servers with stratum considered useful. This can avoid large numbers of clients ganging up on a small number of low-stratum servers and avoid servers below or above specified stratum levels. By default, servers of all strata are acceptable; however, the <code>tos</code> command can be used to restrict the acceptable range from the <code>floor</code> option, inclusive, to the <code>ceiling</code> option, exclusive. Potential servers operating at the same stratum as the client will be avoided, unless the <code>cohort</code> option is present.</p>
 <p>The pruning process is handled using a set of counters, one for each preemptible association. Once each poll interval the counter is increased by one. If the association survives the selection and clustering algorithms; that is, it is a candidate for synchronization, the counter is reset to zero. If not and the counter reaches a defined threshold and the number of assocations is greater than <code>maxclock</code>, the association becomes a candidate for pruning. The pruning algorithm assigns to each association a metric ranging from the lowest, corresponding to no possibility of synchronization, to the highest, corresponding to a very likely possibility of synchronization. Upon reaching the threshold, an association is demobilized if it has the lowest metric of all associations. Operation continues in this way until the number of remaining associations is not greater than <code>maxclock</code>.</p>
-<p>Following is a summary of each scheme. Note that reference to option applies to the commands described on the <a href="/documentation/4.2.6-series/confopt/">Configuration Options</a> page. See that page for applicability and defaults.</p>
+<p>Following is a summary of each scheme. Note that reference to option applies to the commands described on the <a href="https://doc.ntp.org/documentation/4.2.6-series/confopt/">Configuration Options</a> page. See that page for applicability and defaults.</p>
 <hr>
 <h4 id="broadcastmulticast-scheme">Broadcast/Multicast Scheme</h4>
 <p>A broadcast server generates messages continuously at intervals by default 64 s and time-to-live by default 127. These defaults can be overridden by the <code>minpoll</code> and <code>ttl</code> options, respectively. Not all kernels support the <code>ttl</code> option. A broadcast client responds to the first message received by waiting a randomized interval to avoid implosion at the server. It then polls the server in client/server mode using the <code>iburst</code> option in order to quickly authenticate the server, calibrate the propagation delay and set the host clock. This normally results in a volley of six client/server exchanges at 2-s intervals during which both the synchronization and cryptographic protocols run concurrently.</p>
@@ -157,7 +157,7 @@ if (!doNotTrack) {
 <p>It is possible and frequently useful to configure a host as both broadcast client and broadcast server. A number of hosts configured this way and sharing a common broadcast address will automatically organize themselves in an optimum configuration based on stratum and synchronization distance.</p>
 <p>Since an intruder can impersonate a broadcast server and inject false time values, broadcast mode should always be cryptographically authenticated. By default, a broadcast association will not be mobilized unless cryptographically authenticated. If necessary, the <code>auth</code> option of the <code>disable</code> command will disable this feature. The feature can be selectively enabled using the <code>notrust</code> option of the <code>restrict</code> command.</p>
 <p>With symmetric key cryptography each broadcast server can use the same or different keys. In one scenario on a broadcast LAN, a set of broadcast clients and servers share the same key along with another set that share a different key. Only the clients with matching key will respond to a server broadcast.</p>
-<p>Public key cryptography can be used with some restrictions. If multiple servers belonging to different secure groups share the same broadcast LAN, the clients on that LAN must have the client keys for all of them. This scenario is illustrated in the example on the <a href="/documentation/4.2.6-series/authopt/">Authentication Options</a> page.</p>
+<p>Public key cryptography can be used with some restrictions. If multiple servers belonging to different secure groups share the same broadcast LAN, the clients on that LAN must have the client keys for all of them. This scenario is illustrated in the example on the <a href="https://doc.ntp.org/documentation/4.2.6-series/authopt/">Authentication Options</a> page.</p>
 <hr>
 <h4 id="manycast-scheme">Manycast Scheme</h4>
 <p>Manycast is a automatic server discovery and configuration paradigm new to NTPv4. It is intended as a means for a client to troll the nearby network neighborhood to find cooperating servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. It uses the grab-n'-drop paradigm with the additional feature that active means are used to grab additional servers should the number of survivors fall below the <code>minclock</code> option of the <code>tos</code> command.</p>
@@ -181,19 +181,19 @@ if (!doNotTrack) {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        
