@@ -6,7 +6,7 @@
 Public transport in Oz
  Table of Contents  Abstract 1. Introduction 2. Data Formats 3. Datestamps and Timestamps as Finite Groups 4. Time Difference Calculations 5. On-Wire Protocol Implications   Abstract This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by the Network Time Protocol (NTP). The analysis is based on the properties of finite additive groups using two&rsquo;s complement arithmetic." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/reflib/time/" /><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/time/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-04-15T19:06:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -24,7 +24,7 @@ Public transport in Oz
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -105,19 +105,19 @@ Public transport in Oz
      
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 19:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/38ca482188e0ded6612175018a97e6155387365e">38ca48218</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/wingdorothy.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/wingdorothy.gif" alt="gif"  />
 </p></p>
-<p>from <a href="/reflib/pictures/"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
+<p>from <a href="https://test.doc.ntp.org/reflib/pictures/"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
 <p>Public transport in Oz</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/reflib/time/#abstract">Abstract</a></li>
-<li><a href="/reflib/time/#1-introduction">1. Introduction</a></li>
-<li><a href="/reflib/time/#2-data-formats">2. Data Formats</a></li>
-<li><a href="/reflib/time/#3-datestamps-and-timestamps-as-finite-groups">3. Datestamps and Timestamps as Finite Groups</a></li>
-<li><a href="/reflib/time/#4-time-difference-calculations">4. Time Difference Calculations</a></li>
-<li><a href="/reflib/time/#5-on-wire-protocol-implications">5. On-Wire Protocol Implications</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/time/#abstract">Abstract</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/time/#1-introduction">1. Introduction</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/time/#2-data-formats">2. Data Formats</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/time/#3-datestamps-and-timestamps-as-finite-groups">3. Datestamps and Timestamps as Finite Groups</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/time/#4-time-difference-calculations">4. Time Difference Calculations</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/time/#5-on-wire-protocol-implications">5. On-Wire Protocol Implications</a></li>
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
@@ -134,7 +134,7 @@ Public transport in Oz
 <h4 id="2-data-formats">2. Data Formats</h4>
 <p><em>Time</em> is an abstraction that establishes an ordering of events relative to a <em>timescale</em>. In NTP, a <em>date</em> is a point on the timescale expressed in one of two formats, <em>datestamp</em> and <em>timestamp.</em> As shown in Figure 1, a datestamp is a 128-bit, signed fixed-point number in seconds and fraction, with the decimal point to the left of bit 64. Dates are relative to the <em>prime epoch,</em> 0 h, 1 January 1900; dates prior to the prime epoch have negative values, while dates since then have positive values. A timestamp is a 64-bit, unsigned fixed-point number in seconds and fraction with the decimal point to the left of bit 32. Datestamps are used in internal calculations where extended range and freedom from overflow are important, while timestamps are used in packet headers where economy of storage is important.</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/time1.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/time1.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1. NT Data Formats</strong></p>
 <p>Datestamps span the age of the Universe with a precision less than the time light transits an atom. Timestamps span a 136-year interval , called an <em>era</em>, with a precision of 232 ps. The datestamp format includes a timestamp field that specifies the seconds and fraction of an era, together with an era number field that specifies the timestamp origin. There is a special convention in both timestamp and datestamp formats where the value zero represents an undefined or unknown date that should not be used in time related calculations.</p>
@@ -174,19 +174,19 @@ Public transport in Oz
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

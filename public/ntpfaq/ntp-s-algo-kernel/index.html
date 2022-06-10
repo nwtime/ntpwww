@@ -11,7 +11,7 @@
 5.2.3.1 What is PPS Processing?
 5.2.3.2 How is PPS Processing related to the Kernel Discipline?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-algo-kernel/" /><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-algo-kernel/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2021-10-20T20:50:54&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -29,7 +29,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -109,7 +109,7 @@
   	<h1>5.2. The Kernel Discipline</h1>
      
     <p style="font-size: small; color: grey;">Last update: October 20, 2021 20:50 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/5ae6c0e981e4a22e125faa194c78d32ea097e510">5ae6c0e98</a>)</p>
-	<p>In addition to the NTP protocol specification, there exists a description for a kernel clock model (<a href="/reflib/rfc/rfc1589.txt">RFC 1589</a>) that is discussed here.</p>
+	<p>In addition to the NTP protocol specification, there exists a description for a kernel clock model (<a href="https://test.doc.ntp.org/reflib/rfc/rfc1589.txt">RFC 1589</a>) that is discussed here.</p>
 <p>5.2.1 <a href="#521-basic-functionality">Basic Functionality</a><br>
 5.2.1.1 <a href="#5211-what-is-special-about-the-kernel-clock">What is special about the Kernel Clock?</a><br>
 5.2.1.2 <a href="#5212-does-my-operating-system-have-the-kernel-discipline">Does my Operating System have the Kernel Discipline?</a><br>
@@ -122,8 +122,8 @@
 <hr>
 <h4 id="521-basic-functionality">5.2.1 Basic Functionality</h4>
 <h4 id="5211-what-is-special-about-the-kernel-clock">5.2.1.1 What is special about the Kernel Clock?</h4>
-<p>NTP keeps precision time by <a href="/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock">applying small adjustments to system clock periodically</a>. However, some clock implementations do not allow small corrections to be applied to the system clock, and there is no standard interface to monitor the system clock&rsquo;s quality.</p>
-<p><a href="/reflib/rfc/rfc1589.txt">RFC 1589</a> defines a clock model with the following features :</p>
+<p>NTP keeps precision time by <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock">applying small adjustments to system clock periodically</a>. However, some clock implementations do not allow small corrections to be applied to the system clock, and there is no standard interface to monitor the system clock&rsquo;s quality.</p>
+<p><a href="https://test.doc.ntp.org/reflib/rfc/rfc1589.txt">RFC 1589</a> defines a clock model with the following features :</p>
 <ul>
 <li>Two new system calls to query and control the clock: <code>ntp_gettime()</code> and <code>ntp_adjtime()</code>.</li>
 <li>The clock keeps time with a precision of one microsecond. The nanokernel keeps time using even fractional nanoseconds. In real life operating systems there are clocks that are much worse.</li>
@@ -162,7 +162,7 @@
 <p>In very simple words, step 1 means that you measure the error of your clock without any correction. You should see a linear increase for the offset. Step 2 says you should then try a correction with a fixed offset. Finally, step 3 applies corrections using varying frequency corrections.</p>
 <hr>
 <h4 id="522-monitoring">5.2.2 Monitoring</h4>
-<p>Most of the values are described in <a href="/ntpfaq/ntp-s-config-adv/#62421-so-i-think-i-have-all-required-components-ready-how-will-i-see-that-everything-is-working">Q: 6.2.4.2.1</a>. The remaining values of interest are:</p>
+<p>Most of the values are described in <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-config-adv/#62421-so-i-think-i-have-all-required-components-ready-how-will-i-see-that-everything-is-working">Q: 6.2.4.2.1</a>. The remaining values of interest are:</p>
 <dl>
 <dt>time</dt>
 <dd>The current time.</dd>
@@ -212,14 +212,14 @@
 <hr>
 <h4 id="5232-how-is-pps-processing-related-to-the-kernel-discipline">5.2.3.2 How is PPS Processing related to the Kernel Discipline?</h4>
 <p>PPS processing can be done in application programs, but it makes much more sense when done in the operating system kernel. When polling a time source every 20 minutes, an offset of 5ms is rather small, but when polling a signal every second, an offset of 5ms is very high. Therefore a high accuracy is required for PPS processing. Application programs usually can&rsquo;t fulfil these demands.</p>
-<p>The kernel clock model includes algorithms to discipline the clock through an external pulse, the PPS. The additional requirements consist of two mechanisms: capturing an external event with high accuracy, and applying that event to the clock model. The first is solved using the <a href="/ntpfaq/ntp-s-config-adv/#62451-what-is-that-pps-api">PPS API</a>, while the second is implemented mostly in a routine named <code>hardpps()</code> which is called every time when an external PPS event has been detected.</p>
+<p>The kernel clock model includes algorithms to discipline the clock through an external pulse, the PPS. The additional requirements consist of two mechanisms: capturing an external event with high accuracy, and applying that event to the clock model. The first is solved using the <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-config-adv/#62451-what-is-that-pps-api">PPS API</a>, while the second is implemented mostly in a routine named <code>hardpps()</code> which is called every time when an external PPS event has been detected.</p>
 <hr>
 <h4 id="5233-what-does-hardpps-do">5.2.3.3 What does hardpps() do?</h4>
 <p><code>hardpps()</code> is called with two parameters, the absolute time of the event, and the time relative to the last pulse. Both times are measured by the system clock.</p>
 <p>The first value is used to minimize the difference between the system clock&rsquo;s start of a second and the external event, while the second value is used to minimize the difference in clock frequency. Normally <code>hardpps()</code> just monitors (<code>STA_PPSSIGNAL</code>, PPS frequency, stability and jitter) the external events, but does not apply corrections to the system clock.</p>
 <p><strong>Figure 5.2a: PPS Synchronization</strong></p>
 <p><p>
-  <img loading="lazy" src="/ntpfaq/hardpps.png" alt=""  />
+  <img loading="lazy" src="https://test.doc.ntp.org/ntpfaq/hardpps.png" alt=""  />
 </p></p>
 <p><code>hardpps()</code> can minimize the differences of both frequency and offset between the system clock and an external reference.</p>
 <p>Flag <code>STA_PPSFREQ</code> enables periodic updates to the clock&rsquo;s frequency correction. Stable clocks require only small and infrequent updates while bad clocks require frequent and large updates. The value passed as parameter is reduced to be a small value around zero, and then it is added to an accumulated value. After a specific amount of values has been added (at the end of a calibration interval), the total amount is divided by the length of the calibration interval, giving a new frequency correction.</p>
@@ -235,19 +235,19 @@
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

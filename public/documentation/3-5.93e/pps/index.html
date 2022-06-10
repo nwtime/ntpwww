@@ -4,7 +4,7 @@
 <meta property="og:title" content="Pulse-Per-Second (PPS) Signal Interfacing" />
 <meta property="og:description" content="Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the Gadget Box PPS Level Converter and CHU Modem page." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/3-5.93e/pps/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/3-5.93e/pps/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-14T17:54:34&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -22,7 +22,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -112,12 +112,12 @@
   	<h1>Pulse-Per-Second (PPS) Signal Interfacing</h1>
      
     <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:54 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/74f2bb37e81508678aace5de294d77ddd4993bb6">74f2bb37e</a>)</p>
-	<p>Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the <a href="/documentation/3-5.93e/gadget/">Gadget Box PPS Level Converter and CHU Modem</a> page.</p>
+	<p>Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the local clock oscillator to a high degree of precision, typically to the order less than 50 us in time and 0.1 PPM in frequency. The PPS signal can be connected in either of two ways: via the data leads of a serial port or via the modem control leads. Either way requires conversion of the PPS signal, usually at TTL levels, to RS232 levels, which can be done using a circuit such as described in the <a href="https://test.doc.ntp.org/documentation/3-5.93e/gadget/">Gadget Box PPS Level Converter and CHU Modem</a> page.</p>
 <p>The data leads interface requires regenerating the PPS pulse and converting to RS232 signal levels, so that the pulse looks like a legitimate ASCII character. The optional <code>tty_clk</code> line discipline/streams module inserts a timestamp following this character in the input data stream. The driver uses this timestamp to determine the time of arrival of the PPS pulse to within 26 us at 38.4 kbps while eliminating error due to operating system queues and service times. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>TTYCLK</code> defined.</p>
-<p>The modem control leads interface requires converting to RS232 levels and connecting to the data carrier detect (DCD) lead of a serial port. The optional <code>ppsclock</code> streams module captures a timestamp upon transition of the DCD signal. This module can be built from the <a href="/reflib/software/ppsclock.tar.Z"><code>ppsclock.tar.Z</code> distribution.</a> The driver reads the latest timestamp with a designated <code>ioctl()</code> system call to determine the time of arrival of the PPS pulse to within a few tens of microseconds. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>PPS</code> defined.</p>
-<p>Both the <code>tty_clk</code> and <code>ppsclock</code> modules are described in the <a href="/documentation/3-5.93e/ldisc/">Line Disciplines and Streams Drivers</a> page. Directions for building the modules themselves are in the <code>./kernel</code> directory. Directions on how to configure <code>xntpd</code> to operate with these modules is described in <a href="/documentation/3-5.93e/build/">Building and Installing the Distribution</a> page.</p>
-<p>Both of these mechanisms are supported by the <code>ATOM_PPS</code> reference clock driver described in the <a href="/documentation/3-5.93e/refclock/">Reference Clock Drivers</a> page and its dependencies. This driver is ordinarily used in conjunction with another clock driver that supports the radio clock that produces the PPS pulse, as described in the <a href="/documentation/3-5.93e/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page. This driver furnishes the coarse timecode used to disambiguate the seconds numbering of the PPS pulse itself. The NTP daemon mitigates between the radio clock driver and <code>ATOM_PPS</code> driver as described in that page in order to provide the most accurate time, while respecting the various types of equipment failures that could happen.</p>
-<p>For the utmost time quality, a number of Unix system kernel modifications can be made as described in the <a href="/documentation/3-5.93e/kern/">A Kernel Model for Precision Timekeeping</a> page. Specifically, the ppsclock module can be used to interface the PPS signal directly to the kernel for use as discipline sources for both time and frequency. These sources can be separately enabled and monitored using the <code>ntp_adjtime()</code> system call described in that page and the <code>./include/sys/timex.h</code> header file in the <code>xntp3</code> distribution. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>KERNEL_PLL</code> defined.</p>
+<p>The modem control leads interface requires converting to RS232 levels and connecting to the data carrier detect (DCD) lead of a serial port. The optional <code>ppsclock</code> streams module captures a timestamp upon transition of the DCD signal. This module can be built from the <a href="https://test.doc.ntp.org/reflib/software/ppsclock.tar.Z"><code>ppsclock.tar.Z</code> distribution.</a> The driver reads the latest timestamp with a designated <code>ioctl()</code> system call to determine the time of arrival of the PPS pulse to within a few tens of microseconds. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>PPS</code> defined.</p>
+<p>Both the <code>tty_clk</code> and <code>ppsclock</code> modules are described in the <a href="https://test.doc.ntp.org/documentation/3-5.93e/ldisc/">Line Disciplines and Streams Drivers</a> page. Directions for building the modules themselves are in the <code>./kernel</code> directory. Directions on how to configure <code>xntpd</code> to operate with these modules is described in <a href="https://test.doc.ntp.org/documentation/3-5.93e/build/">Building and Installing the Distribution</a> page.</p>
+<p>Both of these mechanisms are supported by the <code>ATOM_PPS</code> reference clock driver described in the <a href="https://test.doc.ntp.org/documentation/3-5.93e/refclock/">Reference Clock Drivers</a> page and its dependencies. This driver is ordinarily used in conjunction with another clock driver that supports the radio clock that produces the PPS pulse, as described in the <a href="https://test.doc.ntp.org/documentation/3-5.93e/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page. This driver furnishes the coarse timecode used to disambiguate the seconds numbering of the PPS pulse itself. The NTP daemon mitigates between the radio clock driver and <code>ATOM_PPS</code> driver as described in that page in order to provide the most accurate time, while respecting the various types of equipment failures that could happen.</p>
+<p>For the utmost time quality, a number of Unix system kernel modifications can be made as described in the <a href="https://test.doc.ntp.org/documentation/3-5.93e/kern/">A Kernel Model for Precision Timekeeping</a> page. Specifically, the ppsclock module can be used to interface the PPS signal directly to the kernel for use as discipline sources for both time and frequency. These sources can be separately enabled and monitored using the <code>ntp_adjtime()</code> system call described in that page and the <code>./include/sys/timex.h</code> header file in the <code>xntp3</code> distribution. In order to use the kernel PPS signal, the <code>xntp3</code> distribution must be compiled with <code>KERNEL_PLL</code> defined.</p>
 <p>In some configurations may have multiple radio clocks, each with PPS outputs, as well as a kernel modified to use the PPS signal. In order to provide the highest degree of redundancy and survivability, the kernel PPS discipline, <code>tty_clk</code> module, <code>ppsclock</code> module and kernel modifications may all be in use at the same time, each backing up the other. The sometimes complicated mitigation rules are described in the Mitigation Rules and the <code>prefer</code> Keyword page.</p>
 
 	  
@@ -129,19 +129,19 @@
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

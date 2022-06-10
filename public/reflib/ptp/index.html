@@ -6,7 +6,7 @@
 Public transport in Oz
  Table of Contents  Abstract Introduction Timestamp Capture On-Wire Protocols Master-Slave Mode Broadcast Mode Routers and Switches Conclusions References   Abstract This document explores the similarities and differences between the Network Time Protocol (NTP) and the IEEE 1588 Precision Time Protocol (PTP). For the configurations considered in this document, these protocols provide clock synchronization in high-speed local area networks." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/reflib/ptp/" /><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/ptp/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-04-15T19:06:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -24,7 +24,7 @@ Public transport in Oz
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -105,22 +105,22 @@ Public transport in Oz
      
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 19:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/38ca482188e0ded6612175018a97e6155387365e">38ca48218</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/alice47.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/alice47.gif" alt="gif"  />
 </p></p>
-<p>from <a href="/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
+<p>from <a href="https://test.doc.ntp.org/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
 <p>Public transport in Oz</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/reflib/ptp/#abstract">Abstract</a></li>
-<li><a href="/reflib/ptp/#introduction">Introduction</a></li>
-<li><a href="/reflib/ptp/#timestamp-capture">Timestamp Capture</a></li>
-<li><a href="/reflib/ptp/#onwire-protocols">On-Wire Protocols</a></li>
-<li><a href="/reflib/ptp/#masterslave-mode">Master-Slave Mode</a></li>
-<li><a href="/reflib/ptp/#broadcast-mode">Broadcast Mode</a></li>
-<li><a href="/reflib/ptp/#routers-and-switches">Routers and Switches</a></li>
-<li><a href="/reflib/ptp/#conclusions">Conclusions</a></li>
-<li><a href="/reflib/ptp/#references">References</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#abstract">Abstract</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#introduction">Introduction</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#timestamp-capture">Timestamp Capture</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#onwire-protocols">On-Wire Protocols</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#masterslave-mode">Master-Slave Mode</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#broadcast-mode">Broadcast Mode</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#routers-and-switches">Routers and Switches</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#conclusions">Conclusions</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/ptp/#references">References</a></li>
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
@@ -133,15 +133,15 @@ Public transport in Oz
 <dl>
 <dt>Harware Timestamps</dt>
 <dd>
-<p>NTP requires no hardware provisions to capture timestamps other than a typical Unix timer interrupt or counter/timer motherboard chip. PTP normally includes hardware provisions in the servers, clients and switches to capture timestamps upon the passage of an Ethernet frame at the physical layer. Further information about timestamping for both NTP and PTP can be found in the white paper <a href="/reflib/stamp/">Timestamp Capture Principles</a>.</p>
+<p>NTP requires no hardware provisions to capture timestamps other than a typical Unix timer interrupt or counter/timer motherboard chip. PTP normally includes hardware provisions in the servers, clients and switches to capture timestamps upon the passage of an Ethernet frame at the physical layer. Further information about timestamping for both NTP and PTP can be found in the white paper <a href="https://test.doc.ntp.org/reflib/stamp/">Timestamp Capture Principles</a>.</p>
 </dd>
 <dt>On-Wire Protocol</dt>
 <dd>
-<p>The PTP on-wire protocol operates primarily in a broadcast mode where a grandmaster provides synchronization to multiple clients sharing the same network. Alternatively, the protocol can operate in a master/slave mode, where each client synchrhronizes to the grandmaster using a separate client/server message exchange. The NTP on-wire protocol can operate in broadcast, as well as master/slave, and symmetric modes where one or more primary servers provide synchronization to multiple clients on the same or different networks. This document is concerned primarily with broadcast configurations. Further information on NTP configurations can be found in the white paper <a href="/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
+<p>The PTP on-wire protocol operates primarily in a broadcast mode where a grandmaster provides synchronization to multiple clients sharing the same network. Alternatively, the protocol can operate in a master/slave mode, where each client synchrhronizes to the grandmaster using a separate client/server message exchange. The NTP on-wire protocol can operate in broadcast, as well as master/slave, and symmetric modes where one or more primary servers provide synchronization to multiple clients on the same or different networks. This document is concerned primarily with broadcast configurations. Further information on NTP configurations can be found in the white paper <a href="https://test.doc.ntp.org/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
 </dd>
 <dt>Timescale</dt>
 <dd>
-<p>The PTP timescale is defined in seconds and nanoseconds. While the PTP specification defines no particular timescale and origin, the common assumption is that the POSIX timescale with origin 1 January 1970 is used, with or without leap seconds. The NTP timescale is defined in seconds and fraction with origin 1 January 1900, as described in the white paper <a href="/reflib/time/">NTP Timestamp Calculations</a>. Discussion on UTC leap seconds is in the white paper <a href="/reflib/leap/">The NTP Timescale and Leap Seconds</a>. Discussion on the extended NTP timescale and era considerations is in the white paper <a href="/reflib/y2k/">The NTP Era and Era Numbering</a>.</p>
+<p>The PTP timescale is defined in seconds and nanoseconds. While the PTP specification defines no particular timescale and origin, the common assumption is that the POSIX timescale with origin 1 January 1970 is used, with or without leap seconds. The NTP timescale is defined in seconds and fraction with origin 1 January 1900, as described in the white paper <a href="https://test.doc.ntp.org/reflib/time/">NTP Timestamp Calculations</a>. Discussion on UTC leap seconds is in the white paper <a href="https://test.doc.ntp.org/reflib/leap/">The NTP Timescale and Leap Seconds</a>. Discussion on the extended NTP timescale and era considerations is in the white paper <a href="https://test.doc.ntp.org/reflib/y2k/">The NTP Era and Era Numbering</a>.</p>
 </dd>
 <dt>Accuracy Expectations</dt>
 <dd>
@@ -161,7 +161,7 @@ Public transport in Oz
 </dd>
 <dt>Security</dt>
 <dd>
-<p>Both NTP and PTP can provide message security in the form of symmetric key cryptography. In addition, NTP can provide a variant of public key cryptography called Autokey <sup><a href="#myfootnote3">3</a></sup>. Further information that applies in part to both PTP and NTP can be found in the white paper <a href="/reflib/security/">NTP Security Analysis</a>.</p>
+<p>Both NTP and PTP can provide message security in the form of symmetric key cryptography. In addition, NTP can provide a variant of public key cryptography called Autokey <sup><a href="#myfootnote3">3</a></sup>. Further information that applies in part to both PTP and NTP can be found in the white paper <a href="https://test.doc.ntp.org/reflib/security/">NTP Security Analysis</a>.</p>
 </dd>
 </dl>
 <p>This document explores the technical issues implicit in the above. It characterizes PTP and NTP; in particular, the timestamp technology, on-wire protocol and discipline algorithms. It concludes with a discussion on NTP and PTP interoperability issues.</p>
@@ -181,7 +181,7 @@ Public transport in Oz
 <hr>
 <h4 id="master-slave-mode">Master-Slave Mode</h4>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/stamp2.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/stamp2.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1. Master-Slave Mode</strong></p>
 <p>Figure 1 illustrates how the NTP on-wire protocol operates in master-slave mode. Let A be the client and B the server. The roles are reversed in broadcast mode. In this and subsequent figures in this document, messages are transmitted in the direction shown with timestamps captured at the beginning and end of transmission. First, A sends a client (mode 3) message to B, then B sends a server (mode 4) message to A. This is called a round. There are four timestamps involved, the <em>origin timestamp</em> <code><em>T</em><sub>1</sub></code> when the client message departs A, the <em>receive timestamp</em> <code><em>T</em><sub>2</sub></code> when this message arrives at B, the <em>transmit timestamp</em> <code><em>T</em><sub>3</sub></code> when the server message departs B, and the <em>destination timestamp</em> <code><em>T</em><sub>4</sub></code> when this message arrives at A.</p>
@@ -194,7 +194,7 @@ Public transport in Oz
 <h4 id="broadcast-mode">Broadcast Mode</h4>
 <p>In broadcast mode for both NTP and PTP, the offset expression has an inverted sign, while the delay calculation is the same. Note that NTP can operate in either basic or interleaved broadcast mode. In this document, only NTP interleaved mode is considered. The on-wire protocol operations in broadcast mode are illustrated in Figure 2.</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/bcst1.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/bcst1.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 2: Broadcast Mode</strong></p>
 <p>In NTP interleaved broadcast mode, broadcast (mode 5) messages at <code><em>T</em><sub>1</sub></code>, <code><em>T</em><sub>3</sub>, <em>T</em><sub>11</sub></code> and <code><em>T</em><sub>13</sub></code> are sent by the broadcast server and received by each broadcast client separately at <code><em>T</em><sub>2</sub>, <em>T</em><sub>4</sub>, <em>T</em><sub>12</sub></code> and <code><em>T</em><sub>14</sub></code>, respectively. Each broadcast message includes the previous broadcast message transmit timestamp in a data field. For instance, the broadcast message sent at <code><em>T</em><sub>3</sub></code> includes the transmit timestamp <code><em>T</em><sub>1</sub></code>. Similarly, the broadcast messages sent at <code><em>T</em><sub>11</sub></code> and <code><em>T</em><sub>13</sub></code> include the transmit timestamps <code><em>T</em><sub>3</sub></code> and <code><em>T</em><sub>11</sub></code>, respectively. In order to calculate the roundtrip delay, a broadcast client can send a master-slave round, for example, beginning at <code><em>T</em><sub>5</sub></code> and ending at <code><em>T</em><sub>8</sub></code>.</p>
@@ -231,9 +231,9 @@ Public transport in Oz
 <p>Since PTP is designed to operate in a relatively benign environment with low jitter and little threat of hostile interference, the paranoid mitigation algorithms used in NTP may not be appropriate for PTP. The PTP best master clock (BMC) algorithm is probably not well suited for NTP, while NTP algorithms to select and combine multiple sources may not be appropriate for PTP. In any case, if PTP is used to discipline the system clock, it would be wholly appropriate to use the precision kernel support originally designed for NTP, but could be used with other synchrotron designs as well.</p>
 <hr>
 <h4 id="references">References</h4>
-<p><a name="myfootnote1">1</a>  Mills, D.L. <a href="/reflib/book/">Network Time Synchronization - the Network Time Protocol on Earth and in Space</a>. CRC Press, 2011, 466 pp.</p>
-<p><a name="myfootnote2">2</a>  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments <a href="/reflib/rfc/rfc5905.txt">RFC 5905</a>, Internet Engineering Task Force, June 2010.</p>
-<p><a name="myfootnote3">3</a>  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments <a href="/reflib/rfc/rfc5906.txt">RFC 5906</a>, Internet Engineering Task Force, June 2010.</p>
+<p><a name="myfootnote1">1</a>  Mills, D.L. <a href="https://test.doc.ntp.org/reflib/book/">Network Time Synchronization - the Network Time Protocol on Earth and in Space</a>. CRC Press, 2011, 466 pp.</p>
+<p><a name="myfootnote2">2</a>  Mills, D., J. Martin (Ed.), et al. Network Time Protocol Version 4: protocol and algorithm specification. Request for Comments <a href="https://test.doc.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>, Internet Engineering Task Force, June 2010.</p>
+<p><a name="myfootnote3">3</a>  Mills, D., B. Haberman (Ed.). Network Time Protocol Version 4: Autokey specification. Request for Comments <a href="https://test.doc.ntp.org/reflib/rfc/rfc5906.txt">RFC 5906</a>, Internet Engineering Task Force, June 2010.</p>
 <p><a name="myfootnote4">4</a>  <a href="https://standards.ieee.org/ieee/1588/4355/">IEEE 1588 Precision Time Protocol (PTP) Version 2 Specification</a>, IEEE, March 2008.</p>
 
 	  
@@ -245,19 +245,19 @@ Public transport in Oz
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

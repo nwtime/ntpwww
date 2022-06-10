@@ -4,7 +4,7 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="Motorola Oncore GPS Receiver" />
 <meta property="og:description" content="Table of Contents  Synopsis Description Monitor Data Fudge Factors Additional Information   Synopsis  Address: 127.127.30.u Reference ID: GPS Driver ID: ONCORE Serial Port: /dev/oncore.serial.u; 9600 baud, 8-bits, no parity. PPS Port: /dev/oncore.pps.u; PPS_CAPTUREASSERT required, PPS_OFFSETASSERT supported. Configuration File: ntp.oncore, or ntp.oncore.u, or ntp.oncore_u_, in /etc/ntp/ or /etc/.   Description This driver supports most models of the Motorola Oncore GPS receivers (Basic, PVT6, VP, UT, UT&#43;, GT, GT&#43;, SL, M12, M12&#43;T), as long as they support the Motorola Binary Protocol." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/drivers/driver30/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/drivers/driver30/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-15T18:51:52&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -22,7 +22,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -114,11 +114,11 @@
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:51 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/0123dc22bec9c37de0e286232855f264290c6508">0123dc22b</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/drivers/driver30/#synopsis">Synopsis</a></li>
-<li><a href="/documentation/drivers/driver30/#description">Description</a></li>
-<li><a href="/documentation/drivers/driver30/#monitor-data">Monitor Data</a></li>
-<li><a href="/documentation/drivers/driver30/#fudge-factors">Fudge Factors</a></li>
-<li><a href="/documentation/drivers/driver30/#additional-information">Additional Information</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/drivers/driver30/#synopsis">Synopsis</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/drivers/driver30/#description">Description</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/drivers/driver30/#monitor-data">Monitor Data</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/drivers/driver30/#fudge-factors">Fudge Factors</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/drivers/driver30/#additional-information">Additional Information</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -136,22 +136,22 @@
 <p>The interesting versions of the Oncore are the VP, the UT+, the Remote which is a prepackaged UT+, and the M12 Timing. The VP is no longer available new, and the UT, GT, and SL are at end-of-life. The Motorola evaluation kit can be recommended. It interfaces to a PC straightaway, using the serial (DCD) or parallel port for PPS input and packs the receiver in a nice and sturdy box. Less expensive interface kits are available from <a href="https://tapr.org/">TAPR</a> and <a href="https://synergy-gps.com/">Synergy</a>.</p>
 <p>UT+ oncore</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/oncore_utplusbig.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/oncore_utplusbig.gif" alt="gif"  />
 </p></p>
 <p>Evaluation kit</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/oncore_evalbig.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/oncore_evalbig.gif" alt="gif"  />
 </p></p>
 <p>Oncore Remote</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/oncore_remoteant.jpg" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/oncore_remoteant.jpg" alt="gif"  />
 </p></p>
-<p>The driver requires a standard <code>PPS</code> interface for the pulse-per-second output from the receiver. The serial data stream alone does not provide precision time stamps (0-50ms variance, according to the manual), whereas the PPS output is precise down to 50 ns (1 sigma) for the VP/UT models and 25 ns for the M12 Timing. If you do not have the PPS signal available, then you should probably be using the <a href="/documentation/drivers/driver20/">NMEA driver</a> rather than the Oncore driver.</p>
+<p>The driver requires a standard <code>PPS</code> interface for the pulse-per-second output from the receiver. The serial data stream alone does not provide precision time stamps (0-50ms variance, according to the manual), whereas the PPS output is precise down to 50 ns (1 sigma) for the VP/UT models and 25 ns for the M12 Timing. If you do not have the PPS signal available, then you should probably be using the <a href="https://test.doc.ntp.org/documentation/drivers/driver20/">NMEA driver</a> rather than the Oncore driver.</p>
 <p>The driver will use the &ldquo;position hold&rdquo; mode with user provided coordinates, the receiver&rsquo;s built-in site-survey, or a similar algorithm implemented in this driver to determine the antenna position.</p>
 <hr>
 <h4 id="monitor-data">Monitor Data</h4>
 <p>The driver always puts a lot of useful information on the <code>clockstats</code> file, and when run with debugging can be quite chatty on <code>stdout</code>. When first starting to use the driver you should definitely review the information written to the <code>clockstats</code> file to verify that the driver is running correctly.</p>
-<p>In addition, on platforms supporting Shared Memory, all of the messages received from the Oncore receiver are made available in shared memory for use by other programs. See the <a href="/documentation/drivers/oncore-shmem/">Oncore-SHMEM</a> manual page for information on how to use this option. For either debugging or using the SHMEM option, an Oncore Reference Manual for the specific receiver in use will be required.</p>
+<p>In addition, on platforms supporting Shared Memory, all of the messages received from the Oncore receiver are made available in shared memory for use by other programs. See the <a href="https://test.doc.ntp.org/documentation/drivers/oncore-shmem/">Oncore-SHMEM</a> manual page for information on how to use this option. For either debugging or using the SHMEM option, an Oncore Reference Manual for the specific receiver in use will be required.</p>
 <hr>
 <h4 id="fudge-factors">Fudge Factors</h4>
 <dl>
@@ -206,19 +206,19 @@
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

@@ -7,7 +7,7 @@ This program is a big, deprecated puppy.
  Table of Contents  Synopsis Description Command Line Options Interactive Commands Control Message Commands Runtime Configuration Requests Bugs   Synopsis ntpdc [ -ilnps ] [ -c command ] [ host ] [ &hellip; ]
  Description ntpdc is used to query the ntpd daemon about its current state and to request changes in that state." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-15T18:34:01&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -25,7 +25,7 @@ This program is a big, deprecated puppy.
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -116,19 +116,19 @@ This program is a big, deprecated puppy.
      
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:34 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3c0d205a8588adbbd06a3a709da5853e5b156dbc">3c0d205a8</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/alice31.gif" alt="gif"  />
-</p> <a href="/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/alice31.gif" alt="gif"  />
+</p> <a href="https://test.doc.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
 <p>This program is a big, deprecated puppy.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/4.2.4-series/ntpdc/#synopsis">Synopsis</a></li>
-<li><a href="/documentation/4.2.4-series/ntpdc/#description">Description</a></li>
-<li><a href="/documentation/4.2.4-series/ntpdc/#command-line-options">Command Line Options</a></li>
-<li><a href="/documentation/4.2.4-series/ntpdc/#interactive-commands">Interactive Commands</a></li>
-<li><a href="/documentation/4.2.4-series/ntpdc/#control-message-commands">Control Message Commands</a></li>
-<li><a href="/documentation/4.2.4-series/ntpdc/#runtime-configuration-requests">Runtime Configuration Requests</a></li>
-<li><a href="/documentation/4.2.4-series/ntpdc/#bugs">Bugs</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/#synopsis">Synopsis</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/#description">Description</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/#command-line-options">Command Line Options</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/#interactive-commands">Interactive Commands</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/#control-message-commands">Control Message Commands</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/#runtime-configuration-requests">Runtime Configuration Requests</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.4-series/ntpdc/#bugs">Bugs</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -312,7 +312,7 @@ This program is a big, deprecated puppy.
 <dt><code><strong>addpeer <em>peer_address</em> [ <em>keyid</em> ] [ <em>version</em> ] [ minpoll# | prefer | iburst | burst | minpoll <em>N</em> | maxpoll <em>N</em> [ dynamic ] [&hellip;] ]</strong></code></dt>
 <dd><code><strong>addpeer <em>peer_address</em> [ prefer | iburst | burst | minpoll <em>N</em> | maxpoll <em>N</em> | keyid <em>N</em> | version <em>N</em> [&hellip;] ]</strong></code></dd>
 <dd>
-<p>Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If ntpdc&rsquo;s key number has not yet been set (<em>e.g.,</em> by the keyid command), it will be set to this value. The <code>version#</code> can be 1 through 4 and defaults to 3. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>iburst</code>, <code>burst</code>, <code>minpoll <em>N</em></code>, <code>keyid <em>N</em></code>, <code>version <em>N</em></code>, or <code>maxpoll <em>N</em></code> (where <code><em>N</em></code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of ntpd. See the <a href="/documentation/4.2.4-series/confopt/">Server Options</a> page for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.</p>
+<p>Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If ntpdc&rsquo;s key number has not yet been set (<em>e.g.,</em> by the keyid command), it will be set to this value. The <code>version#</code> can be 1 through 4 and defaults to 3. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>iburst</code>, <code>burst</code>, <code>minpoll <em>N</em></code>, <code>keyid <em>N</em></code>, <code>version <em>N</em></code>, or <code>maxpoll <em>N</em></code> (where <code><em>N</em></code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of ntpd. See the <a href="https://test.doc.ntp.org/documentation/4.2.4-series/confopt/">Server Options</a> page for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.</p>
 </dd>
 <dt><code><strong>addserver <em>peer_address</em> [ <em>keyid</em> ] [ <em>version</em> ] [ minpoll# | prefer | iburst | burst | minpoll <em>N</em> | maxpoll <em>N</em> [&hellip;] ]</strong></code></dt>
 <dd><code><strong>addserver <em>peer_address</em> [ prefer | iburst | burst | minpoll <em>N</em> | maxpoll <em>N</em> | keyid <em>N</em> | version <em>N</em> [ dynamic } [&hellip;] ]</strong></code></dd>
@@ -334,7 +334,7 @@ This program is a big, deprecated puppy.
 <dt><code><strong>enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</strong></code></dt>
 <dd><code><strong>disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</strong></code></dd>
 <dd>
-<p>These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the <a href="/documentation/4.2.4-series/miscopt/">Miscellaneous Options</a> page for further information.</p>
+<p>These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the <a href="https://test.doc.ntp.org/documentation/4.2.4-series/miscopt/">Miscellaneous Options</a> page for further information.</p>
 </dd>
 <dt><code><strong>restrict <em>address mask flag</em> [ <em>flag</em> ]</strong></code></dt>
 <dd>
@@ -391,19 +391,19 @@ This program is a big, deprecated puppy.
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

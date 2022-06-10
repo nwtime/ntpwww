@@ -5,7 +5,7 @@
 <meta property="og:description" content="Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis tickadj [ -Aqs ] [ -a tickadj ] [ -t tick ]
  Description The tickadj program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision timekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel /dev/kmem. Newer machines with kernel time support, including Solaris, Tru64, FreeBSD and Linux, should NOT use the program, even if it appears to work, as it will destabilize the kernel time support." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/tickadj/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/tickadj/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -23,7 +23,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -115,18 +115,18 @@
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/documentation/4.2.8-series/tickadj/#synopsis">Synopsis</a></li>
-<li><a href="/documentation/4.2.8-series/tickadj/#description">Description</a></li>
-<li><a href="/documentation/4.2.8-series/tickadj/#command-line-options">Command Line Options</a></li>
-<li><a href="/documentation/4.2.8-series/tickadj/#files">Files</a></li>
-<li><a href="/documentation/4.2.8-series/tickadj/#bugs">Bugs</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.8-series/tickadj/#synopsis">Synopsis</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.8-series/tickadj/#description">Description</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.8-series/tickadj/#command-line-options">Command Line Options</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.8-series/tickadj/#files">Files</a></li>
+<li><a href="https://test.doc.ntp.org/documentation/4.2.8-series/tickadj/#bugs">Bugs</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
 <p><code>tickadj [ -Aqs ] [ -a <em>tickadj</em> ] [ -t <em>tick</em> ]</code></p>
 <hr>
 <h4 id="description">Description</h4>
-<p>The <code>tickadj</code> program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision timekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel <code>/dev/kmem</code>. Newer machines with kernel time support, including Solaris, Tru64, FreeBSD and Linux, should NOT use the program, even if it appears to work, as it will destabilize the kernel time support. Use the <a href="/documentation/4.2.8-series/ntptime/"><code>ntptime</code></a> program instead.</p>
+<p>The <code>tickadj</code> program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision timekeeping, including HP-UX, SunOS, Ultrix, SGI and probably others. Those machines provide means to patch the kernel <code>/dev/kmem</code>. Newer machines with kernel time support, including Solaris, Tru64, FreeBSD and Linux, should NOT use the program, even if it appears to work, as it will destabilize the kernel time support. Use the <a href="https://test.doc.ntp.org/documentation/4.2.8-series/ntptime/"><code>ntptime</code></a> program instead.</p>
 <p>The particular variables that can be changed with <code>tickadj</code> include <code>tick</code>, which is the number of microseconds added to the system time for a clock interrupt, <code>tickadj</code>, which sets the slew rate and resolution used by the <code>adjtime</code> system call, and <code>dosynctodr</code>, which indicates to the kernels on some machines whether they should internally adjust the system clock to keep it in line with time-of-day clock or not.</p>
 <p>By default, with no arguments, <code>tickadj</code> reads the variables of interest in the kernel and displays them. At the same time, it determines an &ldquo;optimal&rdquo; value for the value of the <code>tickadj</code> variable if the intent is to run the <code>ntpd</code> Network Time Protocol (NTP) daemon, and prints this as well. Since the operation of <code>tickadj</code> when reading the kernel mimics the operation of similar parts of the <code>ntpd</code> program fairly closely, this can be useful when debugging problems with <code>ntpd</code>.</p>
 <p>Note that <code>tickadj</code> should be run with some caution when being used for the first time on different types of machines. The operations which <code>tickadj</code> tries to perform are not guaranteed to work on all Unix machines and may in rare cases cause the kernel to crash.</p>
@@ -175,19 +175,19 @@
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

@@ -6,7 +6,7 @@
 Era dynamically aloft
  Table of Contents  Abstract 1. Introduction 2. The UTC Timescale 3. The NTP Timescale 4. The NTP Era   Abstract The Network Time Protocol (NTP) specification defines the timescale in terms of timestamps and datestamps. Timestamps define an era spanning 136 years, while datestamps extend over multiple eras spanning the age of the Universe to when the stars grow dim." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/reflib/y2k/" /><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/y2k/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-04-15T19:06:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -24,7 +24,7 @@ Era dynamically aloft
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -105,18 +105,18 @@ Era dynamically aloft
      
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 19:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/38ca482188e0ded6612175018a97e6155387365e">38ca48218</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/wingman.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/wingman.gif" alt="gif"  />
 </p></p>
-<p>from <a href="/reflib/pictures/"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
+<p>from <a href="https://test.doc.ntp.org/reflib/pictures/"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
 <p>Era dynamically aloft</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/reflib/y2k/#abstract">Abstract</a></li>
-<li><a href="/reflib/y2k/#1-introduction">1. Introduction</a></li>
-<li><a href="/reflib/y2k/#2-the-utc-timescale">2. The UTC Timescale</a></li>
-<li><a href="/reflib/y2k/#3-the-ntp-timescale">3. The NTP Timescale</a></li>
-<li><a href="/reflib/y2k/#4-the-ntp-era">4. The NTP Era</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/y2k/#abstract">Abstract</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/y2k/#1-introduction">1. Introduction</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/y2k/#2-the-utc-timescale">2. The UTC Timescale</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/y2k/#3-the-ntp-timescale">3. The NTP Timescale</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/y2k/#4-the-ntp-era">4. The NTP Era</a></li>
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
@@ -234,10 +234,10 @@ Era dynamically aloft
 <p>As required by the NTP specification, the NTP reference implementation operates with four 64-bit raw timestamps to calculate both the clock offset and roundtrip delay. The only arithmetic operation permitted on raw timestamps is subtraction, which produces signed 63-bit timestamp differences from 68 years in the past to 68 years in the future. When computing timestamp differences and the timestamps are in the same era, the differences can be calculated directly. If not, in all credible cases the two eras will be adjacent; that is, if one timestamp is in era <code><em>n</em></code>, the other will be in either era <code><em>n</em></code> or <code><em>n</em> + 1</code>.</p>
 <p>Consider the case in Figure 1, where timestamps are represented as years mod 136. Server clock <code><em>S</em></code> is set to 2056 (timestamp 20 in era 1), while the client clock <code><em>C</em></code> is set to 2006 (timestamp 106 in era 0).</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/era.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/era.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1</strong></p>
-<p>If <code><em>S</em></code> is within 68 years of <code><em>C</em> = 2006</code>, <code><em>S</em></code> can be anywhere between 1938 (timestamp 38 in era 0) and 2074 (timestamp 38 in era 1). If, as in the figure, <code><em>S</em></code> and <code><em>C</em></code> are expressed as datestamps, the offset <code><em>S</em> - <em>C</em> = 2056 - 2006 = 50</code> years. However, if <code><em>S</em></code> and <code><em>C</em></code> are expressed as timestamps, as in the white paper <a href="/reflib/time/">NTP Timestamp Calculations</a>, the offset is <code><em>S</em> +(-<em>C</em>) = 20 + (136 - 106= 50) mod 136</code> years. Thus, even if the timestamps span adjacent eras, the offset compuation is correct.</p>
+<p>If <code><em>S</em></code> is within 68 years of <code><em>C</em> = 2006</code>, <code><em>S</em></code> can be anywhere between 1938 (timestamp 38 in era 0) and 2074 (timestamp 38 in era 1). If, as in the figure, <code><em>S</em></code> and <code><em>C</em></code> are expressed as datestamps, the offset <code><em>S</em> - <em>C</em> = 2056 - 2006 = 50</code> years. However, if <code><em>S</em></code> and <code><em>C</em></code> are expressed as timestamps, as in the white paper <a href="https://test.doc.ntp.org/reflib/time/">NTP Timestamp Calculations</a>, the offset is <code><em>S</em> +(-<em>C</em>) = 20 + (136 - 106= 50) mod 136</code> years. Thus, even if the timestamps span adjacent eras, the offset compuation is correct.</p>
 <p>To convert system time in any format to NTP format requires only that the number of seconds <code><em>s</em></code> from the prime epoch to system time be determined. The era number is <code><em>s</em> / 2<sup>32</sup></code> and the timestamp is <code><em>s</em> mod 2<sup>32</sup></code>. To convert from NTP era number and timestamp to system time requires only the calculation <code><em>s</em> = 2<sup>32</sup> * <em>era</em> + <em>timestamp</em></code> to determine the number of seconds since the prime epoch.</p>
 
 	  
@@ -249,19 +249,19 @@ Era dynamically aloft
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

@@ -15,7 +15,7 @@
 7.4.1 What can make my MSF Receiver fail?
 7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-refclk/" /><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-refclk/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2022-05-24T16:19:31&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -33,7 +33,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -128,19 +128,19 @@
 7.5 <a href="#75-products">Products</a><br>
 7.5.1 <a href="#751-where-can-i-find-a-reference-clock-for-ntp">Where can I find a reference clock for NTP?</a></p>
 <hr>
-<p>The NTP software supports different kinds of <a href="/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock">reference clocks</a>. This section presents various reference clocks.</p>
-<p>According to a <a href="/reflib/reports/ntp-survey99-minar.pdf">survey</a>, the most popular real reference clocks are:</p>
+<p>The NTP software supports different kinds of <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock">reference clocks</a>. This section presents various reference clocks.</p>
+<p>According to a <a href="https://test.doc.ntp.org/reflib/reports/ntp-survey99-minar.pdf">survey</a>, the most popular real reference clocks are:</p>
 <ul>
-<li><a href="/ntpfaq/ntp-s-related/#91-gps/">GPS</a></li>
+<li><a href="https://test.doc.ntp.org/ntpfaq/ntp-s-related/#91-gps/">GPS</a></li>
 <li><a href="https://en.wikipedia.org/wiki/DCF77">DCF77</a></li>
 <li><a href="https://en.wikipedia.org/wiki/WWVB">WWVB</a></li>
 </ul>
 <p>While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.</p>
-<p>More information on reference clocks can be found in <a href="/documentation/4.2.8-series/refclock/">Reference Clock</a> and <a href="https://www.nist.gov/pml/time-and-frequency-division/time-distribution/radio-station-wwv/manufacturers-time-and-frequency">NIST&rsquo;s list of receiver manufacturers</a>.</p>
+<p>More information on reference clocks can be found in <a href="https://test.doc.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock</a> and <a href="https://www.nist.gov/pml/time-and-frequency-division/time-distribution/radio-station-wwv/manufacturers-time-and-frequency">NIST&rsquo;s list of receiver manufacturers</a>.</p>
 <hr>
 <h4 id="71-what-is-lcl-the-local-clock">7.1 What is LCL, the Local Clock?</h4>
-<p>The <a href="/documentation/drivers/driver1/">LCL</a> is not an actual reference clock; instead it simply refers to the system time on the current machine. Therefore it should never be used, except when the system time is synchronized by some means not visible by <code>ntpd</code>.</p>
-<p>On an isolated network one might set the time manually from time to time. Together with a frequency adjustment available as a <a href="/documentation/drivers/driver1/#fudge-factors">fudge factor</a> one may achieve an accuracy of a few seconds per week.</p>
+<p>The <a href="https://test.doc.ntp.org/documentation/drivers/driver1/">LCL</a> is not an actual reference clock; instead it simply refers to the system time on the current machine. Therefore it should never be used, except when the system time is synchronized by some means not visible by <code>ntpd</code>.</p>
+<p>On an isolated network one might set the time manually from time to time. Together with a frequency adjustment available as a <a href="https://test.doc.ntp.org/documentation/drivers/driver1/#fudge-factors">fudge factor</a> one may achieve an accuracy of a few seconds per week.</p>
 <p>If you think you really must use LCL, here is how:</p>
 <pre>server 127.127.1.1		# LCL, local clock
 fudge  127.127.1.1 stratum 12	# increase stratum</pre>
@@ -148,7 +148,7 @@ fudge  127.127.1.1 stratum 12	# increase stratum</pre>
 <h4 id="72-gps-receivers">7.2 GPS Receivers</h4>
 <h4 id="721-what-should-i-know-about-various-gps-receivers">7.2.1 What should I know about various GPS Receivers?</h4>
 <p>GPS receivers have high accuracy, are simple to install, rather immune against electromagnetic noise, and they only need an antenna with free view to the sky, preferrably as much of the hemisphere as possible. Most calibration happens automatically.</p>
-<p><a href="/ntpfaq/ntp-s-related/#91-gps">GPS</a>, the Global Positioning System, a satellite based navigation aid originally developed for military use in the USA, can provide the receiver with accurate data about the current position, elevation, and time. Unfortunately many of these receivers were not designed with accurate time-keeping in mind. Therefore the time information provided in a stream of serial data sometimes is freely floating within one second, thereby losing the precision of the receiver. <a href="/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be">Accurate time</a> is needed in the receiver to calculate the exact position.</p>
+<p><a href="https://test.doc.ntp.org/ntpfaq/ntp-s-related/#91-gps">GPS</a>, the Global Positioning System, a satellite based navigation aid originally developed for military use in the USA, can provide the receiver with accurate data about the current position, elevation, and time. Unfortunately many of these receivers were not designed with accurate time-keeping in mind. Therefore the time information provided in a stream of serial data sometimes is freely floating within one second, thereby losing the precision of the receiver. <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be">Accurate time</a> is needed in the receiver to calculate the exact position.</p>
 <p>Fortunately there are also receivers that were designed for precision timekeeping. Among these are:</p>
 <p><strong>Table 7.2a: Supported GPS receivers</strong></p>
 <table>
@@ -165,77 +165,77 @@ fudge  127.127.1.1 stratum 12	# increase stratum</pre>
 <tr>
 <td>Arbiter</td>
 <td>1088A/B</td>
-<td><a href="/documentation/drivers/driver11/">11</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver11/">11</a></td>
 <td>serial; 9600 baud</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Austron</td>
 <td>GPS-AS2201</td>
-<td><a href="/documentation/drivers/driver10/">10</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a></td>
 <td>serial; 9600 baud</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Garmin</td>
 <td>GPS35(25)</td>
-<td><a href="/documentation/drivers/driver20/">20</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver20/">20</a></td>
 <td>serial, 4800 baud</td>
 <td>Y (TTL)</td>
 </tr>
 <tr>
 <td><a href="http://www.gpsclock.com/">GPSclock</a></td>
 <td>200</td>
-<td><a href="/documentation/drivers/driver20/">20</a> (patched)</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver20/">20</a> (patched)</td>
 <td>serial; 4800 baud</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Hewlett Packard</td>
 <td>58503A</td>
-<td><a href="/documentation/drivers/driver26/">26</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver26/">26</a></td>
 <td>serial; 9600 baud</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Magnavox</td>
 <td>GPS-MX4200</td>
-<td><a href="/documentation/drivers/driver9/">9</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver9/">9</a></td>
 <td>serial; 4800 baud</td>
 <td>Y</td>
 </tr>
 <tr>
 <td><a href="https://www.meinberg.de/">Meinberg</a></td>
 <td>GPS166, GPS167</td>
-<td><a href="/documentation/drivers/driver8/">8</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a></td>
 <td>serial; 9600 baud</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Trak(?)</td>
 <td>8810, 8820</td>
-<td><a href="/documentation/drivers/driver2/">2</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver2/">2</a></td>
 <td>serial; 9600 baud</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Trimble</td>
 <td>Acutime 2000<sup>a</sup></td>
-<td><a href="/documentation/drivers/driver8/">8</a>, <a href="/documentation/drivers/driver10/">10</a>, <a href="/documentation/drivers/driver29/">29</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver29/">29</a></td>
 <td>TSIP</td>
 <td>Y (TTL)</td>
 </tr>
 <tr>
 <td>Trimble</td>
 <td>Palisade<sup>b</sup></td>
-<td><a href="/documentation/drivers/driver8/">8</a>, <a href="/documentation/drivers/driver10/">10</a>, <a href="/documentation/drivers/driver29/">29</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver29/">29</a></td>
 <td>serial;</td>
 <td>?</td>
 </tr>
 <tr>
 <td>Trimble</td>
 <td>SV6<sup>b</sup></td>
-<td><a href="/documentation/drivers/driver8/">8</a>, <a href="/documentation/drivers/driver9/">9</a>, <a href="/documentation/drivers/driver10/">10</a></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver9/">9</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a></td>
 <td>TAIP, TSIP</td>
 <td>Y</td>
 </tr>
@@ -283,7 +283,7 @@ fudge  127.127.1.1 stratum 12	# increase stratum</pre>
 <p>NMEA defines several message types, each message being an ASCII string transmitted at 4800 baud. Each message starts with <code>$</code> char and ends with <code>&lt;CR&gt;&lt;LF&gt;</code>. A five-digit message identifier (for instance <code>$GPRMC</code>) specifies source and type of the message. Parameters for that message are separated by a <code>,</code> (comma).</p>
 <p>For the purpose of keeping time, the <code>GPRMC</code> (GPS recommended minimum data) message contains the current time in second resolution, receiver status, latitude, longitude, speed over ground, heading (track), date, magnetic variation in degrees, and a checksum. That message is either sent automatically every second, or upon request.</p>
 <p>Message type <code>GPGSA</code> contains the receiver&rsquo;s mode, number of satellites, and quality of the solution (dilution of precision, DOP). Precise information about the position can be found in the <code>GPGGA</code> message.</p>
-<p>NMEA is commonly used together with <a href="/ntpfaq/ntp-s-algo-kernel/#523-pps-processing">PPS</a> because the messages seem to be sent with low accuracy regarding the start of a second.</p>
+<p>NMEA is commonly used together with <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-algo-kernel/#523-pps-processing">PPS</a> because the messages seem to be sent with low accuracy regarding the start of a second.</p>
 <hr>
 <h4 id="724-what-is-tsip">7.2.4 What is TSIP?</h4>
 <p>TSIP stands for Trimble Standard Interface Protocol, and it is used in products from <a href="https://www.trimble.com/">Trimble</a>. The documented binary protocol exchanges packets over serial lines. This allows embedded devices to be monitored, queried and controlled exclusively by TSIP, not needing any switches or displays.</p>
@@ -321,7 +321,7 @@ fudge  127.127.1.1 stratum 12	# increase stratum</pre>
 <hr>
 <h4 id="74-other-receivers">7.4 Other Receivers</h4>
 <h4 id="741-what-can-make-my-msf-receiver-fail">7.4.1 What can make my MSF Receiver fail?</h4>
-<p>See <a href="/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail">Q: 7.3.2</a> for some basics.</p>
+<p>See <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail">Q: 7.3.2</a> for some basics.</p>
 <hr>
 <h4 id="742-how-can-i-find-a-low-cost-receiver-for-low-frequency-transmissions">7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?</h4>
 <p><a href="mailto:mgk25@cl.cam.ac.uk">Markus Kuhn</a> has set up a <a href="https://www.cl.cam.ac.uk/~mgk25/time/lf-clocks/">page</a> describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.</p>
@@ -345,19 +345,19 @@ fudge  127.127.1.1 stratum 12	# increase stratum</pre>
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

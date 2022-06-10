@@ -6,7 +6,7 @@
 The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.
  Table of Contents  Abstract Introduction How UTC Reckons with Leap Seconds How NTP and POSIX Reckon with Leap Seconds How NTP and POSIX Number the Seconds How NTP Implements Leap Seconds Parting Shots Appendix A. Specimen NIST leap-seconds.list File   Abstract The timescale used by the Network Time Protocol (NTP) is based on coordinated univeral time (UTC), which itself is based on the Earth rotation about its axis." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/reflib/leap/" /><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/leap/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-04-15T19:06:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -24,7 +24,7 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -105,21 +105,21 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
      
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 19:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/38ca482188e0ded6612175018a97e6155387365e">38ca48218</a>)</p>
 	<p><p>
-  <img loading="lazy" src="/documentation/pic/alice15.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/alice15.gif" alt="gif"  />
 </p></p>
-<p>from <a href="/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
+<p>from <a href="https://test.doc.ntp.org/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
 <p>The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/reflib/leap/#abstract">Abstract</a></li>
-<li><a href="/reflib/leap/#introduction">Introduction</a></li>
-<li><a href="/reflib/leap/#how-utc-reckons-with-leap-seconds">How UTC Reckons with Leap Seconds</a></li>
-<li><a href="/reflib/leap/#how-ntp-and-posix-reckon-with-leap-seconds">How NTP and POSIX Reckon with Leap Seconds</a></li>
-<li><a href="/reflib/leap/#how-ntp-and-posix-number-the-seconds">How NTP and POSIX Number the Seconds</a></li>
-<li><a href="/reflib/leap/#how-ntp-implements-leap-seconds">How NTP Implements Leap Seconds</a></li>
-<li><a href="/reflib/leap/#parting-shots">Parting Shots</a></li>
-<li><a href="/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file">Appendix A. Specimen NIST <tt>leap-seconds.list</tt> File</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#abstract">Abstract</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#introduction">Introduction</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#how-utc-reckons-with-leap-seconds">How UTC Reckons with Leap Seconds</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#how-ntp-and-posix-reckon-with-leap-seconds">How NTP and POSIX Reckon with Leap Seconds</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#how-ntp-and-posix-number-the-seconds">How NTP and POSIX Number the Seconds</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#how-ntp-implements-leap-seconds">How NTP Implements Leap Seconds</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#parting-shots">Parting Shots</a></li>
+<li><a href="https://test.doc.ntp.org/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file">Appendix A. Specimen NIST <tt>leap-seconds.list</tt> File</a></li>
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
@@ -132,7 +132,7 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
 <h4 id="how-utc-reckons-with-leap-seconds">How UTC Reckons with Leap Seconds</h4>
 <p>While UT1 defines the solar day, adopting it would require resetting our clocks some fraction of a second every month or two. On the epoch 0h 1 January 1972, UTC was defined TAI - 10 s, within 0.5 s of UT1, but the offset TAI - UT1 has been slowly increasing since then; in mid 2007 it is 33 s. When the offset UT1 - UTC becomes greater than about 0.5 s, a leap second is inserted in the UTC timescale. The residual difference is called the DUT1 correction in broadcast timecode formats and is represented in deciseconds (0.1 s).</p>
 <p>For the most precise coordination and timestamping of events since 1972, it is necessary to know when leap seconds were implemented in UTC and how the seconds are numbered. This is currently the responsibility of the IERS, which publishes periodic bulletins available on the Internet. As specified in CCIR Report 517 and later revised, a leap second is inserted following second 23:59:59 on the last day of any designated month and becomes second 23:59:60 of that day. A leap second would be deleted by omitting second 23:59:59 on one of these days, although this has never happened.</p>
-<p>A record of leap seconds, both historic and anticipated, is included in the <a href="https://tf.nist.gov/pubs/bulletin/leapsecond.htm">NIST Time Scale Data Archive</a>, which has been updated on a monthly basis since UTC began in 1972. A computer-readable summary is available in the <code>leap-seconds.list</code> file, which includes the NTP time of each leap second, along with the TAI-UTC offset. A specimen <code>leap-seconds.list</code> file is shown in <a href="/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file">Appendix A</a>.</p>
+<p>A record of leap seconds, both historic and anticipated, is included in the <a href="https://tf.nist.gov/pubs/bulletin/leapsecond.htm">NIST Time Scale Data Archive</a>, which has been updated on a monthly basis since UTC began in 1972. A computer-readable summary is available in the <code>leap-seconds.list</code> file, which includes the NTP time of each leap second, along with the TAI-UTC offset. A specimen <code>leap-seconds.list</code> file is shown in <a href="https://test.doc.ntp.org/reflib/leap/#appendix-a-specimen-nist-ttleap-secondslisttt-file">Appendix A</a>.</p>
 <p>The UTC timescale thus ticks in standard SI seconds and was set TAI - 10 s at 0h Modified Julian Day (MJD) 41,317.5 according to the Julian-day calendar or 0h 1 January 1972 according to the Gregorian calendar. This established the first tick of the UTC era and its reckoning with these calendars. Subsequently, the UTC timescale has marched backward relative to the TAI timescale exactly one second on scheduled occasions recorded in the institutional memory of our civilization.</p>
 <p>Note in passing that leap second adjustments affect the number of seconds per day and thus the number of seconds per year. Apparently, should we choose to worry about it, the UTC clock, Gregorian calendar and various cosmic oscillators will inexorably drift apart with time until rationalized by a future papal bull.</p>
 <p>While of less use to the computer timekeeper, the Global Positioning System (GPS), which is widely used to disseminate standard time, has its own timescale. The GPS timescale is syntonic with TAI, but at a fixed time offset of -19 s from TAI, apparently because the final system design review was in 1980. GPS reference clocks typically convert from GPS to UTC for external readings.</p>
@@ -199,10 +199,10 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
 <hr>
 <h4 id="how-ntp-implements-leap-seconds">How NTP Implements Leap Seconds</h4>
 <p>The obvious question raised by the NTP conventions is what happens during the leap second itself when NTP time stops and the clock remains unchanged. The NTP leap bits are set on the leap day, either directly by a reference clock driver or indirectly by the protocol. The leap second is implemented at the end of the normal day of 86,400 s, then the leap bits are reset.</p>
-<p>If the precision time kernel modifications have been implemented, the kernel includes a state machine that implements the actions required by the scenario. The state machine implemented in most recent Unix kernels is described in the <a href="/reflib/software/nanokernel.tar.gz"><code>nanokernel</code></a> software distribution. At the first occurrence of second 3,124,137,600, the system clock is stepped backward one second. The operating system kernel time conversion routines can recognize this condition and show the leap second as number 60.</p>
+<p>If the precision time kernel modifications have been implemented, the kernel includes a state machine that implements the actions required by the scenario. The state machine implemented in most recent Unix kernels is described in the <a href="https://test.doc.ntp.org/reflib/software/nanokernel.tar.gz"><code>nanokernel</code></a> software distribution. At the first occurrence of second 3,124,137,600, the system clock is stepped backward one second. The operating system kernel time conversion routines can recognize this condition and show the leap second as number 60.</p>
 <p>However, the routine that actually reads the clock is constrained never to step backwards, unless the step is significantly larger than one second, which might occur due to explicit operator direction. In this design time stands still during the leap second, but is correct commencing with the next second.</p>
 <p><p>
-  <img loading="lazy" src="/documentation/pic/leap.gif" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/leap.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1. NTP Offset In the Vicinity of a Leap Second</strong></p>
 <p>Figure 1 shows the behavior with the modified design used in most kernels. Unlike the POSIX conventions, the NTP clock is frozen and does not advance during the leap second, so there is no need to set it back one second at the end of the leap second. The chronometric correspondence between the UTC and NTP timescales continues, but NTP has forgotten about all past leap insertions. Thus, determination of UTC time intervals spanning leap seconds will be in error, unless the exact times of insertion are known from the NIST table and its successors.</p>
@@ -456,19 +456,19 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

@@ -4,7 +4,7 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="Leap Second Processing" />
 <meta property="og:description" content="About every eighteen months the International Earth Rotation Service (IERS) issues a bulletin announcing the insertion of a leap second in the Universal Coordinated Time (UTC) timescale. Ordinarily, this happens at the end of the last day of June or December; but, in principle, it could happen at the end of any month. While these bulletins are available on the Internet at IERS, advance notice of leap seconds is also available in signals broadcast from national time and frequency stations, in GPS signals and in telephone modem services." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/leap/" /><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/leap/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -22,7 +22,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -116,7 +116,7 @@
 <p>A leap second is inserted following second 59 of the last minute of the day and becomes second 60 of that day. A leap second is deleted by omitting second 59 of the last minute of the day, although this has never happened and is highly unlikely to happen in future. So far as is known, there are no provisions in the Unix or Windows libraries to account for this occasion other than to affect the conversion of an NTP datestamp or timestamp to conventional civil time.</p>
 <p>When an update is received from a reference clock or downstratum server, the leap bits are inspected for all survivors of the cluster algorithm. If the number of survivors showing a leap bit is greater than half the total number of survivors, a pending leap condition exists until the end of the current month.</p>
 <p>When no means are available to determine the leap bits from a reference clock or downstratum server, a leapseconds file can be downloaded from NIST and installed using the <code>leapfile</code> command. The file includes a list of historic leap seconds and the NTP time of insertion. It is parsed by the <code>ntpd</code> daemon at startup and the latest leap time saved for future reference. Each time the clock is set, the current time is compared with the last leap time. If the current time is later than the last leap time, nothing further is done. If earlier, the leap timer is initialized with the time in seconds until the leap time and counts down from there. When the leap timer is less than one month, a pending leap condition exists until the end of the current month. If the leapseconds file is present, the leap bits for reference clocks and downstratum servers are ignored.</p>
-<p>If the precision time kernel support is available and enabled, at the beginning of the day of the leap event, the leap bits are set by the Unix <code>ntp_adjtime()</code> system call to arm the kernel for the leap at the end of the day. The kernel automatically inserts one second exactly at the time of the leap, after which the leap bits are turned off. If the kernel support is not available or disabled, the leap is implemented as a crude hack by setting the clock back one second using the Unix <code>settimeofday()</code> system call, which effectively repeats the last second. Note however that in any case setting the time backwards by one second does not actually set the system clock backwards, but effectively stalls the clock for one second. These points are expanded in the white paper <a href="/reflib/leap/">The NTP Timescale and Leap Seconds</a>. If the leap timer is less than one day, the leap bits are set for dependent servers and clients.</p>
+<p>If the precision time kernel support is available and enabled, at the beginning of the day of the leap event, the leap bits are set by the Unix <code>ntp_adjtime()</code> system call to arm the kernel for the leap at the end of the day. The kernel automatically inserts one second exactly at the time of the leap, after which the leap bits are turned off. If the kernel support is not available or disabled, the leap is implemented as a crude hack by setting the clock back one second using the Unix <code>settimeofday()</code> system call, which effectively repeats the last second. Note however that in any case setting the time backwards by one second does not actually set the system clock backwards, but effectively stalls the clock for one second. These points are expanded in the white paper <a href="https://test.doc.ntp.org/reflib/leap/">The NTP Timescale and Leap Seconds</a>. If the leap timer is less than one day, the leap bits are set for dependent servers and clients.</p>
 <p>As an additional feature when the NIST leap seconds file is installed, it is possible to determine the number of leap seconds inserted in UTC since UTC began on 1 January 1972. This represents the offset between International Atomic Time (TAI) and UTC. If the precision time kernel modifications are available and enabled, the TAI offset is available to application programs using the <code>antipasti()</code> system call. If the Autokey public-key cryptography feature is installed, the TAI offset is automatically propagated along with other cryptographic media to dependent servers and clients.</p>
 
 	  
@@ -128,19 +128,19 @@
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

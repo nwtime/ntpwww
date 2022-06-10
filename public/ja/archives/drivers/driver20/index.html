@@ -5,7 +5,7 @@
 <meta property="og:description" content="Last update: 13-Jan-2020 07:12 UTC
  Table of Contents  Synopsis Description NMEA Talker IDs The &lsquo;mode&rsquo; byte About distrusting NMEA date stamps Monitor Data Setting up the Garmin GPS-25XL Fudge Factors Additional Information   Synopsis  Address: 127.127.20.u Reference ID: GPS Driver ID: GPS_NMEA Serial Port: /dev/gpsu; 4800 - 115200 bps, 8-bits, パリティーなし Serial Port: /dev/gpsppsu; PPS信号 (/dev/gpsu より先に処理) Serial Port: /dev/gpsu; このドライバー nmead のシンボリック・リンク Features: tty_clk   Description このドライバーは、GPS受信機のNMEAセンテンスの $GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス $GPZDG は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の $GPZDG を受信したら処理を無効にします。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver20/" /><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver20/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="archives" />
 
 <meta property="article:modified_time" content="2022-02-03T14:43:10&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
 
@@ -107,15 +107,15 @@
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="/archives/drivers/driver20/#synopsis">Synopsis</a></li>
-<li><a href="/archives/drivers/driver20/#description">Description</a></li>
-<li><a href="/archives/drivers/driver20/#nmea-talker-ids">NMEA Talker IDs</a></li>
-<li><a href="/archives/drivers/driver20/#the-mode-byte">The &lsquo;mode&rsquo; byte</a></li>
-<li><a href="/archives/drivers/driver20/#about-distrusting-nmea-date-stamps">About distrusting NMEA date stamps</a></li>
-<li><a href="/archives/drivers/driver20/#monitor-data">Monitor Data</a></li>
-<li><a href="/archives/drivers/driver20/#setting-up-the-garmin-gps-25xl">Setting up the Garmin GPS-25XL</a></li>
-<li><a href="/archives/drivers/driver20/#fudge-factors">Fudge Factors</a></li>
-<li><a href="/archives/drivers/driver20/#additional-information">Additional Information</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#synopsis">Synopsis</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#description">Description</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#nmea-talker-ids">NMEA Talker IDs</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#the-mode-byte">The &lsquo;mode&rsquo; byte</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#about-distrusting-nmea-date-stamps">About distrusting NMEA date stamps</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#monitor-data">Monitor Data</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#setting-up-the-garmin-gps-25xl">Setting up the Garmin GPS-25XL</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#fudge-factors">Fudge Factors</a></li>
+<li><a href="https://test.doc.ntp.org/archives/drivers/driver20/#additional-information">Additional Information</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -132,7 +132,7 @@
 <h4 id="description">Description</h4>
 <p>このドライバーは、GPS受信機のNMEAセンテンスの <code>$GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG</code> をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス <code>$GPZDG</code> は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の <tt>$GPZDG</tt> を受信したら処理を無効にします。</p>
 <blockquote>
-<p><strong>注意：</strong> GPS以外のGNSS（衛星測位システム）や複数のGPS受信機を利用するときは、後述の <a href="/archives/drivers/driver20/#nmea-talker-ids">Talker IDs</a> をご参照下さい。</p>
+<p><strong>注意：</strong> GPS以外のGNSS（衛星測位システム）や複数のGPS受信機を利用するときは、後述の <a href="https://test.doc.ntp.org/archives/drivers/driver20/#nmea-talker-ids">Talker IDs</a> をご参照下さい。</p>
 </blockquote>
 <p>GPS受信は このドライバーがサポートしているNMEAセンテンスの少なくとも一つを出力するように設定する必要があります。</p>
 <p>時刻同期の精度は、GPS受信機に依存します。 安価なGPSモジュールでもPPS信号は、NMEAセンテンスの送信情報と比較して精度が良く、１マイクロ秒程度の精度があります。 多くの場合、時刻同期の精度は、時刻情報のシリアル・ラインによる転送遅延時間とシステムの処理時間で制限されます。</p>
@@ -443,11 +443,11 @@
 <td><code>18</code></td>
 <td><code>262144</code></td>
 <td><code>0x40000</code></td>
-<td>NMEAで配信された日付を信頼します。 受信機が本当に信頼できる場合のみ、使用して下さい。 <a href="/archives/drivers/driver20/#about-distrusting-nmea-date-stamps">&gt;参照</a>. <strong>注意：</strong> このビットは移動されています。</td>
+<td>NMEAで配信された日付を信頼します。 受信機が本当に信頼できる場合のみ、使用して下さい。 <a href="https://test.doc.ntp.org/archives/drivers/driver20/#about-distrusting-nmea-date-stamps">&gt;参照</a>. <strong>注意：</strong> このビットは移動されています。</td>
 </tr>
 </tbody>
 </table>
-<p>デフォルトの mode 0 は、シリアル通信速度4800bpsで、このドライバーがサポートする全てのNMEAセンテンスを処理します。 これにより、同期処理の各サイクルで最初に受信および認識されたNMEAセンテンスの結果となります。  もし特定のNMEAセンテンスを処理したい場合は、mode の該当するものだけを有効に設定して下さい。 複数のNMEAセンテンスを処理対象として設定することはできますが、同期処理のサイクルで最初に受信したNMEAセンテンスだけが処理されます。 同期処理のサイクルで複数のNMEAセンテンスを処理することができない理由は、以下のとおりです。 <a href="/archives/drivers/driver20/#fudge-factors">fudge time2</a> でNMEAセンテンスの通信遅延時間を補償・調整しますが、複数のNMEAセンテンスではその時間が異なります。 同期処理のサイクルごとに複数の文を使用すると、内部のデータ・フィルター処理が過剰になります。</p>
+<p>デフォルトの mode 0 は、シリアル通信速度4800bpsで、このドライバーがサポートする全てのNMEAセンテンスを処理します。 これにより、同期処理の各サイクルで最初に受信および認識されたNMEAセンテンスの結果となります。  もし特定のNMEAセンテンスを処理したい場合は、mode の該当するものだけを有効に設定して下さい。 複数のNMEAセンテンスを処理対象として設定することはできますが、同期処理のサイクルで最初に受信したNMEAセンテンスだけが処理されます。 同期処理のサイクルで複数のNMEAセンテンスを処理することができない理由は、以下のとおりです。 <a href="https://test.doc.ntp.org/archives/drivers/driver20/#fudge-factors">fudge time2</a> でNMEAセンテンスの通信遅延時間を補償・調整しますが、複数のNMEAセンテンスではその時間が異なります。 同期処理のサイクルごとに複数の文を使用すると、内部のデータ・フィルター処理が過剰になります。</p>
 <p>このドライバーのデフォルトのシリアル通信速度は 4800 bpsですが、mode のビット 4 から 6 で速い通信速度を指定することができます。</p>
 <blockquote>
 <p><strong>注意：</strong> 早いシリアル通信速度は、時刻同期の精度向上に必須ではなく、このNMEAドライバーにとっても必ずしも役立つとは限りません。  早いシリアル通信速度は、4800bpsで1秒のサイクルに収まらない量のデータに対応するために使用できます。  NMEAはプロトコルでハンドシェイクをサポートしていないため、高速で大量のNMEAデータはシリアル・ライン・ドライバーでバッファー・オーバーフローなどの問題を引き起こす可能性があります。 時間同期の目的でのみ使用されるデバイスは、関連するデータのみを送信するように構成する必要があります。 例えば、<code>$GPRMC</code> あるいは <code>$GPZDA</code> を１秒に１回だけ 4800 bps か 9600 bps で出力する、など。</p>
@@ -555,7 +555,7 @@
 </dl>
 <h4 id="additional-information">Additional Information</h4>
 <p><code>flag1, flag2</code>, and <code>flag3</code> は、Windows においては無視されます。</p>
-<p><a href="/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
+<p><a href="https://test.doc.ntp.org/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
 
 	  
   </div>
@@ -566,19 +566,19 @@
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        
