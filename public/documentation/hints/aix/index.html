@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<meta property="og:title" content="AIX Hints" />
+<link rel="canonical" href="https://test.doc.ntp.org/documentation/hints/aix/" />
+  
+  <meta property="og:title" content="AIX Hints" />
 <meta property="og:description" content="Problem with recent ANSI compilers On some systems, including AIX, the compiler quits on the ntp_refclock.c file when processing the refclock_report() routine. The problem, which is either a feature or a bug, has to do with an unwanted promotion of the u_char argument to an int and a failure of the compiler to recognize the preceding prototype. A workaround is to use ANSI syntax to delare the arguments. Since ANSI compilers are not universally available, this syntax can&rsquo;t be used in the stock distribution." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/documentation/hints/aix/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />

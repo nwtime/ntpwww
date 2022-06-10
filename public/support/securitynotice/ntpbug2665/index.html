@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="NTP BUG 2665: Weak default key in config_auth()" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/support/securitynotice/ntpbug2665/" />
+  
+  <meta property="og:title" content="NTP BUG 2665: Weak default key in config_auth()" />
 <meta property="og:description" content="Summary Resolved4.2.7p1128 Jan 2010ReferencesBug 2665CVE-2014-9293AffectsAll NTP4 releases before 4.2.7p11.Resolved in 4.2.7p11.CVSS2 Score7.3AV:N/AC:L/Au:M/C:P/I:P/A:C		 Description If no auth key is set in the configuration file, ntpd would generate a random key on the fly. There were two problems with this: 1) the generated key was 31 bits in size, and 2) it used the (now weak) ntp_random() function, which was seeded with a 32 bit value and can only provide 32 bits of entropy." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/support/securitynotice/ntpbug2665/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="support" />

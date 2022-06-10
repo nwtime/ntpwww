@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><meta property="og:title" content="NTP BUG 3010: remote configuration trustedkey/requestkey/controlkey values are not properly validated" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/support/securitynotice/ntpbug3010/" />
+  
+  <meta property="og:title" content="NTP BUG 3010: remote configuration trustedkey/requestkey/controlkey values are not properly validated" />
 <meta property="og:description" content="Summary Resolved4.2.8p726 Apr 2016ReferencesBug 3010CVE-2016-2517AffectsAll ntp-4 releases up to, but not including 4.2.8p7,
 and 4.3.0 up to, but not including 4.3.92.Resolved in 4.2.8p7.CVSS2 ScoreMED 4.9AV:N/AC:H/Au:S/C:N/I:N/A:CCVSS3 ScoreMED 4.2CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:H		 Description If ntpd was expressly configured to allow for remote configuration, a malicious user who knows the controlkey for ntpq or the requestkey for ntpdc (if mode7 is expressly enabled) can create a session with ntpd and then send a crafted packet to ntpd that will change the value of the trustedkey, controlkey, or requestkey to a value that will prevent any subsequent authentication with ntpd until ntpd is restarted." />
 <meta property="og:type" content="article" />
