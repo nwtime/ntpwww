@@ -11,7 +11,7 @@
   <!-- for search engine optimization and third-party search engines like Elastic App Search-->
 {{- template "_internal/opengraph.html" . -}}
 
-<!-- First condition matches www, second matches doc. -->
+<!-- First condition matches GA for www, second matches doc. -->
 {{ if and (hugo.IsProduction) (ne .Section "documentation") }}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
 <script>
@@ -37,6 +37,15 @@ if (!doNotTrack) {
 </script>
 {{ end }}
 
+{{ if hugo.IsProduction }}
+<script>
+<!-- Use custom placeholder for search -->
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+{{ end }}
 
   <!-- prefetch and preconnect Google Nunito fonts; load Google font css directly -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
