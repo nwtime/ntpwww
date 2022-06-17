@@ -13,25 +13,25 @@ Our house is surrounded by a grove of self-pruning trees, some of which make goo
 ![jpg](/documentation/pic/newark_mapb.jpg)  
 How To Get Here
 
-![jpg](/documentation/pic/43_front.jpg)  
+![jpg](/documentation/pic/43_front.webp)  
 43 The Horseshoe
 
-![jpg](/documentation/pic/43_box.jpg)  
+![jpg](/documentation/pic/43_box.webp)  
 43 The Mailbox
 
-![jpg](/documentation/pic/43_trees1.jpg)  
+![jpg](/documentation/pic/43_trees1.webp)  
 Front Yard
 
-![jpg](/documentation/pic/43_drive.jpg)  
+![jpg](/documentation/pic/43_drive.webp)  
 Driveway
 
 ![jpg](/documentation/pic/patterns.jpg)  
 Light Patterns
 
-![jpg](/documentation/pic/43_porch.jpg)  
+![jpg](/documentation/pic/43_porch.webp)  
 Back Porch
 
-![jpg](/documentation/pic/43_back.jpg)  
+![jpg](/documentation/pic/43_back.webp)  
 Back Yard
 
 #### Community

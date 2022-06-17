@@ -22,7 +22,7 @@ Now, Sunshine stands watch for breakin attempts.
 When off duty, the two chums serve as bedtime footwarmers.
 ![jpg](/documentation/pic/cat16.jpg)
 
-![jpg](/documentation/pic/43_front.jpg)
+![jpg](/documentation/pic/43_front.webp)
 We live in a [leafy subdivision](/reflib/gallery/gallery1/) about 2.4 km from campus at
 
 David and Beverly Mills
