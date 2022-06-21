@@ -5,7 +5,7 @@ noindex: true
 sitemap_exclude: true
 ---
 
-![jpg](/documentation/pic/radio2.jpg) Make a little noise here.
+![webp](/documentation/pic/radio2.webp) Make a little noise here.
 
 * * *
 
