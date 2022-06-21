@@ -29,7 +29,7 @@ This driver supports the Magnavox MX4200 Navigation Receiver adapted to precisio
 
 [Leica Geosystems](http://www.leica.kiev.ua/) acquired the Magnavox commercial GPS technology business in February of 1994. They now market and support former Magnavox GPS products such as the MX4200 and its successors.
 
-[![Leica MX9400N Navigator](/documentation/pic/9400n.jpg)]
+[![Leica MX9400N Navigator](/documentation/pic/9400n.webp)]
 **Leica MX9400N Navigator**
 
 * * *

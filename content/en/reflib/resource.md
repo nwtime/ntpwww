@@ -73,7 +73,7 @@ This is a compressed archive containing the source code used by the Fuzzball, a 
 
 #### Precision Radio Clock for WWV Transmissions
 
-![jpg](/documentation/pic/dsp93.jpg)
+![webp](/documentation/pic/dsp93.webp)
 
 [wwv.tar.gz](/reflib/software/wwv.tar.gz)
 

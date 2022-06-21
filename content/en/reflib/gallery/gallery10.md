@@ -8,7 +8,7 @@ toc_hide: true
 
 ![jpg](/documentation/pic/periph.jpg)
 
-![jpg](/documentation/pic/fuzzball.jpg)
+![webp](/documentation/pic/fuzzball.webp)
 
 The last known Fuzzball (1990)
 

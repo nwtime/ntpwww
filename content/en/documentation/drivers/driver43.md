@@ -14,7 +14,7 @@ type: archives
 
 * * *
 
-![Trimble Acutime 2000](/documentation/pic/driver43_2.jpg)
+![Trimble Acutime 2000](/documentation/pic/driver43_2.webp)
 
 #### Synopsis
 

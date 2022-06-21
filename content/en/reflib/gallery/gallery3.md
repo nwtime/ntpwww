@@ -6,18 +6,18 @@ toc_hide: true
 
 Evans Hall is home for the Electrical and Computer Engineering Department. Some folks are located in next-door DuPont Hall along with the cleanroom facilities.
 
-![jpg](/documentation/pic/evans2.jpg)  
+![webp](/documentation/pic/evans2.webp)  
 Evans Hall
 
-![jpg](/documentation/pic/evans1.jpg)  
+![webp](/documentation/pic/evans1.webp)  
 Evans Hall  
 102 is just right of the door.
 
-![jpg](/documentation/pic/evans5.jpg)  
+![webp](/documentation/pic/evans5.webp)  
 Evans Hall  
 Classy large windows catch the rays.
 
-![jpg](/documentation/pic/evans4.jpg)  
+![webp](/documentation/pic/evans4.webp)  
 Evans Hall (left) and DuPont Hall  
 Amateur Radio Club W3UD uses the hut and tower on the roof.
 
@@ -30,11 +30,11 @@ Machine Room Front-End Power
 ![jpg](/documentation/pic/racks.jpg)  
 Machine Room Back-End Power
 
-![jpg](/documentation/pic/evans_hall.jpg)  
+![webp](/documentation/pic/evans_hall.webp)  
 Evans Hall hall  
 102 is second door on the left.
 
-![jpg](/documentation/pic/evans_102.jpg)  
+![webp](/documentation/pic/evans_102.webp)  
 102 Evans Hall  
 Note the computer controlled camera in the window. Note the pictures.
 
@@ -42,7 +42,7 @@ Note the computer controlled camera in the window. Note the pictures.
 Office picture: Brooklyn Bridge  
 If you believe this, I have something to sell you.
 
-![jpg](/documentation/pic/goldgate.jpg)  
+![webp](/documentation/pic/goldgate.webp)  
 Office picture: Golden Gate Bridge  
 This is my favorite and I know it well; It's one year older than me.
 

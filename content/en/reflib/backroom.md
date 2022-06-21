@@ -28,7 +28,7 @@ The Backroom Test Facility (BTF) is located at 43 The Horseshoe, Newark, DE 1971
 
 Representative Network Time Protocol (NTP) servers throughout the world are monitored from the BTF on a regular basis and the data recorded for later analysis. Together, the workstations and PCs have 9 GB of RAM and 1900 GB of disk resources. On many occasions, the BTF has been useful in diagnosing improper network configuration and operation.
 
-![jpg](/documentation/pic/fuzzballb.jpg)
+![webp](/documentation/pic/fuzzballb.webp)
 
 This is also the main facility for program development and testing, as well as the final resting place for the last known LSI-11 Fuzzball <sup>[1](#myfootnote1)</sup>, once prominent in Internet research projects.
 

@@ -26,7 +26,7 @@ toc_hide: true
 
 #### General Description
 
-![jpg](/documentation/pic/evans2a.jpg)
+![webp](/documentation/pic/evans2a.webp)
 
 The Internetworking Research Laboratory (IRL) is in 121 [Evans Hall](/reflib/gallery/gallery3/), geographic coordinates 39:40:48.425N, 75:45:02.392W. It includes workstations and laboratory equipment in a configuration specially designed for precision time and frequency measurements with a total of 9.6 GB of RAM and 1900 GB of disk resources. Three Unix file/time/web servers with UPS backup support over a dozen Unix workstations and PCs in 102 and 121 Evans. These machines and four routers are interconnected by a 10/100-Mb Ethernet. The laboratory is generously populated with laser printers, big monitors and high resolution scanners.
 
@@ -50,9 +50,9 @@ GPS receivers are the primary source of UTC time; WWVB receivers function as pri
 
 A distribution panel and multiplexor provide RS232, IRIG and PPS signals from the primary and secondary receivers to several NTP primary (stratum 1) servers for the laboratory, the ECE/CIS departments and the public at large. The multiplexor is used by public primary time server _rackety_ to receive these signals and to control auxiliary devices. We also have a pair of TrueTime GPS primary servers for the public at large.
 
-![jpg](/documentation/pic/ant_farm2.jpg)
+![webp](/documentation/pic/ant_farm2.webp)
 
-There are several other NTP primary and secondary servers used for experiments and program development. By administrative decree all DCnet machines run only on UTC just like the aviation and maritime communities. The primary servers are synchronized by GPS, WWVB, WWV and CHU radio services and the ACTS telephone modem service. The [antenna farm](/documentation/pic/ant_farm1.jpg) for these receivers atop an adjacent utility building is a local campus landmark.
+There are several other NTP primary and secondary servers used for experiments and program development. By administrative decree all DCnet machines run only on UTC just like the aviation and maritime communities. The primary servers are synchronized by GPS, WWVB, WWV and CHU radio services and the ACTS telephone modem service. The [antenna farm](/documentation/pic/ant_farm1.webp) for these receivers atop an adjacent utility building is a local campus landmark.
 
 ![jpg](/documentation/pic/loran1a.jpg)
 
