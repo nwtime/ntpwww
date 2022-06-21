@@ -34,7 +34,7 @@ This is also the main facility for program development and testing, as well as t
 
 ![jpg](/documentation/pic/w3hcf4.jpg) 
 
-The BTF also includes [two-way voice and data radio transmission equipment](/documentation/pic/w3hcf3.jpg) covering HF, VHF and UHF amateur bands. The [antenna farm on the roof](/documentation/pic/43_front.jpg) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
+The BTF also includes [two-way voice and data radio transmission equipment](/documentation/pic/w3hcf3.jpg) covering HF, VHF and UHF amateur bands. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
 
 ![gif](/documentation/pic/stack.gif)
 
