@@ -117,7 +117,7 @@ This is a compressed archive containing sample code segments and documentation f
 
 [loran.tar.gz](/reflib/software/loran.tar.gz)
 
-![jpg](/documentation/pic/loran.gif)
+![gif](/documentation/pic/loran.gif)
 
 ![webp](/documentation/pic/loran1.webp)
 

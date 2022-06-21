@@ -18,7 +18,7 @@ It is an open secret among my correspondents that I on occasion do twitch the En
 
 ![webp](/documentation/pic/w3hcf4.webp)
 
-[My amateur radio station W3HCF](/documentation/pic/w3hcf3.jpg) includes two-way voice and data radio transmission equipment covering HF, VHF and UHF amateur bands. It uses modern solid-state gear that replaced [an older station](/documentation/pic/hr01.webp) using vacuum tubes. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
+[My amateur radio station W3HCF](/documentation/pic/w3hcf3.webp) includes two-way voice and data radio transmission equipment covering HF, VHF and UHF amateur bands. It uses modern solid-state gear that replaced [an older station](/documentation/pic/hr01.webp) using vacuum tubes. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
 
 This is also the location of the [Backroom Test Facility (BTF)](/reflib/backroom/), named for a similar facility once maintained in support of the DARPA Atlantic Satellite Program. The BTF includes computers and specialized radio equipment for network time synchronization. It is connected to campus with ISDN network links.
 

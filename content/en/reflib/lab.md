@@ -34,13 +34,13 @@ The Internetworking Research Laboratory (IRL) is in 121 [Evans Hall](/reflib/gal
 
 The Unix workstations are used for general purpose program development and experiments. Technical staff members and students usually use one workstation for personal mail/web browsing and another for experimental operating system and network software development. The personal workstations are equipped with cameras and microphones to support videoconferencing and related multimedia applications. The view at left is out an office window with a computer-controlled camera.
 
-![jpg](/documentation/pic/radio2.jpg)
+![webp](/documentation/pic/radio2.webp)
 
 A computer-controlled shortwave radio provides entertainment, as well as a reliable source of audio for remote testing. The mixer is not computer-controlled yet. There are several other computer controlled devices to pique students interests.
 
 An integral component of the laboratory is the [DCnet research network](/reflib/dcnet/), including the [Backroom test facility](/reflib/backroom/). DCnet has a rich history in the development of Internet technology and has been the witches brew from which many present day protocols have boiled over. It is probably best known as the home base for the Network Time Protocol (NTP) and a flock of time servers that wind their springs on this network. The various subnets are dedicated to network research functions that can be isolated when necessary for testing. DCnet is directly connected to the EECIS department network and the CAIRN research network.
 
-![jpg](/documentation/pic/stack1a.jpg)
+![webp](/documentation/pic/stack1a.webp)
 
 The [stack on the left](/documentation/pic/stack1b.webp) shows our Master Time Facility (MTF). It includes dual-redundant primary and secondary GPS receivers, dual-redundant primary and secondary WWVB receivers, a primary cesium beam frequency standard and a secondary quartz frequency standard. Another stack including GPS and WWVB receivers and a cesium beam frequency standard is used at the Backroom. The WWVB receivers are twenty years old, but still function as well as new. The frequency standards are even older, but survive with loving care.
 
