@@ -24,7 +24,7 @@ Alice is trying to find the PPS signal connector.
 
 Some radio clocks and related timekeeping gear have a pulse-per-second (PPS) signal that can be used to discipline the system clock to a high degree of precision, typically to the order less than 10 ms in time and 0.01 parts-per-million (PPM) in frequency. This page describes the hardware and software necessary for NTP to use this signal.
 
-![gif](/documentation/pic/gadget.jpg)
+![webp](/documentation/pic/gadget.webp)
 
 A Gadget Box built by Chuck Hanavin
 

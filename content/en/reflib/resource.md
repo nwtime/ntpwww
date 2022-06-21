@@ -85,7 +85,7 @@ This is a program for the DSP-93, a digital signal processor system based on the
 
 #### Gadget Box Level Converter
 
-![jpg](/documentation/pic/gadget.jpg) [gadget.tar.Z](/reflib/software/gadget.tar.Z)
+![webp](/documentation/pic/gadget.webp) [gadget.tar.Z](/reflib/software/gadget.tar.Z)
 
 This is a compressed archive containing the schematics, artwork and related information for (a) a modem for the Canadian time/frequency radio service CHU, which can be used as a primary reference clock for NTP Version 2 and Version 3 daemons, and (b) a pulse shaper and line driver used to provide an external one-pulse-per-second signal from a radio clock to a serial port. See above and the NTP Version 3 distribution for an example of its use.
 

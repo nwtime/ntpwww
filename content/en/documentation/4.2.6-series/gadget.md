@@ -5,7 +5,7 @@ noindex: true
 sitemap_exclude: true
 ---
 
-![gif](/documentation/pic/gadget.jpg)A Gadget Box built by Chuck Hanavin
+![webp](/documentation/pic/gadget.webp)A Gadget Box built by Chuck Hanavin
 
 * * *
 

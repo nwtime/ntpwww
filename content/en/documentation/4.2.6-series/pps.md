@@ -25,7 +25,7 @@ Alice is trying to find the PPS signal connector.
 
 Most radio clocks are connected using a serial port operating at speeds of 9600 bps. The accuracy using typical timecode formats, where the on-time epoch is indicated by a designated ASCII character like carriage-return <code>\<cr></code>, is normally limited to 100 microseconds. Using carefuly crafted averaging techniques, the NTP algorithms can whittle this down to a few tens of microseconds. However, some radios produce a PPS signal which can be used to improve the accuracy to few microseconds. This page describes the hardware and software necessar for NTP to use the PPS signal.
 
-![gif](/documentation/pic/gadget.jpg)
+![webp](/documentation/pic/gadget.webp)
 
 A Gadget Box built by Chuck Hanavin
 

@@ -25,7 +25,7 @@ Most radio clocks are connected using a serial port operating at speeds of 9600 
 
 The PPS signal can be connected in either of two ways. On FreeBSD systems (with the <code>PPS_SYNC</code> and <code>pps kernel</code> options) it can be connected directly to the ACK pin of a parallel port. This is the preferred way, as it requires no additional hardware. Alternatively, it can be connected via the DCD pin of a serial port. However, the PPS signal levels are usually incompatible with the serial port interface signals. Note that NTP no longer supports connection via the RD pin of a serial port.
 
-![gif](/documentation/pic/gadget.jpg)
+![webp](/documentation/pic/gadget.webp)
 
 **A Gadget Box built by Chuck Hanavin**
 
