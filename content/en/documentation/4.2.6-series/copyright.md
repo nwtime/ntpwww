@@ -5,7 +5,7 @@ noindex: true
 sitemap_exclude: true
 ---
 
-![Clone me,](/documentation/pic/sheepb.jpg) Clone me, says Dolly sheepishly.
+![webp](/documentation/pic/sheepb.webp) Clone me, says Dolly sheepishly.
 
 * * *
 
