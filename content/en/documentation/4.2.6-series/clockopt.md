@@ -5,7 +5,7 @@ noindex: true
 sitemap_exclude: true
 ---
 
-![gif](/documentation/pic/stack1a.jpg) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab/)
+![webp](/documentation/pic/stack1a.webp) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab/)
 
 * * *
 
