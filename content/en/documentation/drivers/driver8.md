@@ -100,7 +100,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
 *   **server 127.127.8.0-3 mode 1**
 
     : [Meinberg](https://www.meinberg.de/) PZF5xx receiver family (FM demodulation/OCXO / 50μs)
-    [![Image PZF511](/documentation/pic/pzf511.jpg)](https://www.meinbergglobal.com/english/products/3u-dcf77-correlation-receiver.htm)
+    [![Image PZF511](/documentation/pic/pzf511.webp)](https://www.meinbergglobal.com/english/products/3u-dcf77-correlation-receiver.htm)
 
 *   **server 127.127.8.0-3 mode 2**
 

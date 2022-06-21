@@ -51,7 +51,7 @@ A brief description of the files used by the configuration code is given below:
 
 A high-level description of the configuration process showing where all the files fit in is given below:
 
-![JPEG](/documentation/pic/description.jpg)
+![webp](/documentation/pic/description.webp)
 
 The scanner reads in an NTP configuration file and converts it into tokens. The Bison generated parser reads these tokens and converts them into an AST. The AST traverser consists of a set of functions that configure parts of NTP on the basis of what is on the tree. A more detailed description of these parts and the files used is given below.
 

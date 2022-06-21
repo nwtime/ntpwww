@@ -40,7 +40,7 @@ Evaluation kit
 
 Oncore Remote
 
-![gif](/documentation/pic/oncore_remoteant.jpg)
+![webp](/documentation/pic/oncore_remoteant.webp)
 
 The driver requires a standard `PPS` interface for the pulse-per-second output from the receiver. The serial data stream alone does not provide precision time stamps (0-50ms variance, according to the manual), whereas the PPS output is precise down to 50 ns (1 sigma) for the VP/UT models and 25 ns for the M12 Timing. If you do not have the PPS signal available, then you should probably be using the [NMEA driver](/documentation/drivers/driver20/) rather than the Oncore driver.
 

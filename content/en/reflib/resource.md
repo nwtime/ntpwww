@@ -119,7 +119,7 @@ This is a compressed archive containing sample code segments and documentation f
 
 ![jpg](/documentation/pic/loran.gif)
 
-![jpg](/documentation/pic/loran1.jpg)
+![webp](/documentation/pic/loran1.webp)
 
 **LORAN-C Receiver PC Card and Oscillator Unit**
 

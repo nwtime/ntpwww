@@ -10,22 +10,22 @@ Covered Bridge Farms is on older development about 2.4 km west of campus. It is 
 
 Our house is surrounded by a grove of self-pruning trees, some of which make good antenna towers.
 
-![jpg](/documentation/pic/newark_mapb.jpg)  
+![webp](/documentation/pic/newark_mapb.webp)  
 How To Get Here
 
-![jpg](/documentation/pic/43_front.webp)  
+![webp](/documentation/pic/43_front.webp)  
 43 The Horseshoe
 
-![jpg](/documentation/pic/43_box.webp)  
+![webp](/documentation/pic/43_box.webp)  
 43 The Mailbox
 
-![jpg](/documentation/pic/43_trees1.webp)  
+![webp](/documentation/pic/43_trees1.webp)  
 Front Yard
 
-![jpg](/documentation/pic/43_drive.webp)  
+![webp](/documentation/pic/43_drive.webp)  
 Driveway
 
-![jpg](/documentation/pic/patterns.jpg)  
+![webp](/documentation/pic/patterns.webp)  
 Light Patterns
 
 ![webp](/documentation/pic/43_porch.webp)  
@@ -38,7 +38,7 @@ Back Yard
 
 Our community has twisty rustic streets with lots of foilage and mature trees. The entrance from Wedgewood Road is through a real covered bridge, one of three known in Delaware.
 
-![jpg](/documentation/pic/wedgewood_road.jpg)  
+![webp](/documentation/pic/wedgewood_road.webp)  
 Wedgewood Road off DE 273
 
 ![webp](/documentation/pic/covered_bridge2.webp)  

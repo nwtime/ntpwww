@@ -21,13 +21,13 @@ Classy large windows catch the rays.
 Evans Hall (left) and DuPont Hall  
 Amateur Radio Club W3UD uses the hut and tower on the roof.
 
-![jpg](/documentation/pic/w3ud1.jpg)  
-[W3UD Newly Renovated Ham Shack](/documentation/pic/w3ud2.jpg)
+![webp](/documentation/pic/w3ud1.webp)  
+[W3UD Newly Renovated Ham Shack](/documentation/pic/w3ud2.webp)
 
 ![webp](/documentation/pic/alphae.webp)  
 Machine Room Front-End Power
 
-![jpg](/documentation/pic/racks.jpg)  
+![webp](/documentation/pic/racks.webp)  
 Machine Room Back-End Power
 
 ![webp](/documentation/pic/evans_hall.webp)  
@@ -46,7 +46,7 @@ If you believe this, I have something to sell you.
 Office picture: Golden Gate Bridge  
 This is my favorite and I know it well; It's one year older than me.
 
-![jpg](/documentation/pic/office_window.jpg)  
+![webp](/documentation/pic/office_window.webp)  
 102 Evans Hall  
 The camera watches the park bench as wallpaper for videoconferences.
 					

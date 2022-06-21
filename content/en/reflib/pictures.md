@@ -140,7 +140,7 @@ The [Classic Maya](/reflib/maya/) civilization of southern Mexico, Guatemala and
 
 #### Photography
 
-![jpg](/documentation/pic/yandb1.jpg)
+![webp](/documentation/pic/yandb1.webp)
 
 The unattributed photos on these web pages were taken and retouched by me. They are not copyrighted and you can use them any responsible way you want. Here are some adventures:
 

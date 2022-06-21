@@ -10,15 +10,15 @@ The Michigan Terminal System (MTS), along with Multics at MIT, were the first op
 
 What made the IBM 65 a 67 was a set of eight 32-bit dynamic address translation (DAT) registers between the CPU and memory. Compare this with today's translation lookaside buffer (TLB), typically 16 kB or more. The IBM 67 at Michigan was actually two machines, each with a CPU, two core memory boxes, two I/O channels, eight 16-MB disk packs and sprinkled with tape drives and various controllers. Each six-foot tall corebox held 256 kB of oil-cooled core memory and burned 30,000 BTU. Today we get 64 coreboxes in a thumbnail-sized chip powered by a penlight battery.
 
-![jpg](/documentation/pic/ibm67b.jpg)
+![webp](/documentation/pic/ibm67b.webp)
 
 This is the front panel and operator console of one of the CPUs. As you can see, IBM went nuts on incandescent lights for the various machine registers, but the only one that really mattered was the WAIT light, which lit when the machine wasn't doing anything. That's Mike Alexander sitting in front of the operator's console. He was the principle architect of the executive system, today called the kernel. This was in fact the first virtual memory, multiple processor executive system and a groundbreaking system in its own right.
 
-![jpg](/documentation/pic/ibm67d.jpg)
+![webp](/documentation/pic/ibm67d.webp)
 
 This is the configuration console for the dual CPU system. Either of four coreboxes and four channels could be switched to either CPU in any combination. We could and often did partition the hardware as two independent systems and ran MTS on one and IBM OS/360 on the other. Sometimes we even ran something called TSS/360, which was built by IBM but never finished. The huge book perched on the top is the Systems Reference Library, which held every little detail for maintenance and repair. At that time IBM was the second most prolific paper publisher after only the US Government. Even so, IBM print documentation was far superior in depth and quality compared with today's online tutorials.
 
-![jpg](/documentation/pic/ibm67a.jpg)
+![webp](/documentation/pic/ibm67a.webp)
 
 At that time every IBM mainframe came with a resident hardware engineer who fixed things on the spot, should something break. Before transistors, mostly what he did was replace 12AT7 vacuum tubes. Later as seen here, there wasn't a lot to do except watch the log. By far the biggest worry was the air conditioner system. When it failed you had only a few minutes to kill the machine before alarms started off all over the room. One chilling Michigan night when I was alone with the machine and the air conditioner failed, I just opened the loading dock doors to the night and nature did the rest.
 

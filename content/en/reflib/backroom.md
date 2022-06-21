@@ -32,9 +32,9 @@ Representative Network Time Protocol (NTP) servers throughout the world are moni
 
 This is also the main facility for program development and testing, as well as the final resting place for the last known LSI-11 Fuzzball <sup>[1](#myfootnote1)</sup>, once prominent in Internet research projects.
 
-![jpg](/documentation/pic/w3hcf4.jpg) 
+![webp](/documentation/pic/w3hcf4.webp) 
 
-The BTF also includes [two-way voice and data radio transmission equipment](/documentation/pic/w3hcf3.jpg) covering HF, VHF and UHF amateur bands. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
+The BTF also includes [two-way voice and data radio transmission equipment](/documentation/pic/w3hcf3.webp) covering HF, VHF and UHF amateur bands. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
 
 ![gif](/documentation/pic/stack.gif)
 
@@ -54,7 +54,7 @@ The BTF DCnet subnet is connected to the [campus DCnet subnet](/reflib/dcnet/) v
 
 [_Sunshine_](/reflib/fam/) is our Guard Kitten. If a rogue ICMP Destination Unreachable packet shows up here, he barks. He has his own computer, complete with keyboard and mouse.
 
-![jpg](/documentation/pic/yellow3.jpg)![jpg](/documentation/pic/mouse.jpg)
+![webp](/documentation/pic/yellow3.webp)![webp](/documentation/pic/mouse.webp)
 
 * * *
 

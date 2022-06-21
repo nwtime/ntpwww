@@ -16,7 +16,7 @@ My hobbies include hiking, amateur radio and photography, although I haven't had
 
 It is an open secret among my correspondents that I on occasion do twitch the English language in mail messages and published works. Paper referees have come to agreement on what they call _millsspeak_ to refer to the subtilities with which I personalize my work. If you read my papers or my mail, you know my resonances. If not, you can calibrate my naughtimeter from children's books <sup>[1](#myfootnote1)</sup>, outhouse walls <sup>[2](#myfootnote2)</sup> and old English slang <sup>[3](#myfootnote3)</sup>.
 
-![gif](/documentation/pic/w3hcf4.jpg)
+![webp](/documentation/pic/w3hcf4.webp)
 
 [My amateur radio station W3HCF](/documentation/pic/w3hcf3.jpg) includes two-way voice and data radio transmission equipment covering HF, VHF and UHF amateur bands. It uses modern solid-state gear that replaced [an older station](/documentation/pic/hr01.webp) using vacuum tubes. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
 
@@ -24,9 +24,9 @@ This is also the location of the [Backroom Test Facility (BTF)](/reflib/backroom
 
 ![gif](/documentation/pic/t2a.gif)
 
-![jpg](/documentation/pic/licensea.jpg)
+![webp](/documentation/pic/licensea.webp)
 
-![jpg](/documentation/pic/w3hcf-1.jpg)
+![webp](/documentation/pic/w3hcf-1.webp)
 
 ![webp](/documentation/pic/car_license.webp)
 
