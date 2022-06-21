@@ -28,7 +28,7 @@ This is also the location of the [Backroom Test Facility (BTF)](/reflib/backroom
 
 ![jpg](/documentation/pic/w3hcf-1.jpg)
 
-![jpg](/documentation/pic/car_license.jpg)
+![webp](/documentation/pic/car_license.webp)
 
 Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and Amateur Extra Class License. There is no mistaking me on the road, either. The telegraph ticket requires a proficiency in Morse code sending and receiving of 25 words-per-minute, which may be useful as a MIME type in secret mail. The upper picture is a verification (QSL) card for my current amateur radio station W3HCF. I have been licensed since 1954 and held former callsigns K2GUP (New Jersey), W8EJQ (Michigan), GM5AWF (Scotland) and F0BCX (France).
 
@@ -40,7 +40,7 @@ Above are my current FCC Radiotelegraph and Radiotelephone Operator Licenses and
 
 Call me on CW or SSB phone or on the ham club repeater W3UD 145.31/144.71 MHz FM (I'm the club advisor and station trustee).
 
-![gif](/documentation/pic/qst1.gif)![gif](/documentation/pic/a002.jpg)
+![webp](/documentation/pic/qst1.gif)![gif](/documentation/pic/a002.webp)
 
 In fifty years of sometimes sporadic attention to the hobby, I have worked stations in well over 200 countries of the world, including some geographical extremes, such as these three rare ones at Palmer Station, Antarctica and the South Pole. Careful observers will note that since the pictures on these cards were taken both installations have grown to huge proportions.
 

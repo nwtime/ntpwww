@@ -24,7 +24,7 @@ Amateur Radio Club W3UD uses the hut and tower on the roof.
 ![jpg](/documentation/pic/w3ud1.jpg)  
 [W3UD Newly Renovated Ham Shack](/documentation/pic/w3ud2.jpg)
 
-![jpg](/documentation/pic/alphae.jpg)  
+![webp](/documentation/pic/alphae.webp)  
 Machine Room Front-End Power
 
 ![jpg](/documentation/pic/racks.jpg)  
@@ -38,7 +38,7 @@ Evans Hall hall
 102 Evans Hall  
 Note the computer controlled camera in the window. Note the pictures.
 
-![jpg](/documentation/pic/brooklyn.jpg)  
+![webp](/documentation/pic/brooklyn.webp)  
 Office picture: Brooklyn Bridge  
 If you believe this, I have something to sell you.
 

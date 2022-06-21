@@ -24,7 +24,7 @@ In case of fan failure
 
 The Backroom Test Facility (BTF) is located at 43 The Horseshoe, Newark, DE 19711, geographic coordinates 39:42:02.915N, 75:46:52.046W. The BTF presently includes five Unix workstations, three Windows/XP PCs, a Windows/XP laptop, color laser printer, high resolution scanner and assorted hubs and routers connected together with 100-Mb Ethernet fiber segments and a 54-Mb WiFi backup. Four UPS systems keep the computers afloat during power glitches. This is where we conduct the most dangerous experiments requiring a containment facility. We keep five of the computers quarantined in the basement (below) to resist incidental radiation when a hacker is zapped.
 
-![gif](/documentation/pic/basement.jpg)
+![webp](/documentation/pic/basement.webp)
 
 Representative Network Time Protocol (NTP) servers throughout the world are monitored from the BTF on a regular basis and the data recorded for later analysis. Together, the workstations and PCs have 9 GB of RAM and 1900 GB of disk resources. On many occasions, the BTF has been useful in diagnosing improper network configuration and operation.
 

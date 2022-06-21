@@ -28,10 +28,10 @@ Driveway
 ![jpg](/documentation/pic/patterns.jpg)  
 Light Patterns
 
-![jpg](/documentation/pic/43_porch.webp)  
+![webp](/documentation/pic/43_porch.webp)  
 Back Porch
 
-![jpg](/documentation/pic/43_back.webp)  
+![webp](/documentation/pic/43_back.webp)  
 Back Yard
 
 #### Community
@@ -41,11 +41,11 @@ Our community has twisty rustic streets with lots of foilage and mature trees. T
 ![jpg](/documentation/pic/wedgewood_road.jpg)  
 Wedgewood Road off DE 273
 
-![jpg](/documentation/pic/covered_bridge2.jpg)  
+![webp](/documentation/pic/covered_bridge2.webp)  
 Covered Bridge off Wedgewood Road
 
-![jpg](/documentation/pic/covered_bridge3.jpg)  
+![webp](/documentation/pic/covered_bridge3.webp)  
 Covered Bridge off Bridal Brook Lane
 
-![jpg](/documentation/pic/bridge2.jpg)  
+![webp](/documentation/pic/bridge2.webp)  
 Bridal Brook Lane					

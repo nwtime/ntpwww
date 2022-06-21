@@ -26,7 +26,7 @@ The PDP8 instruction set had only seven instructions, a single accumulator and n
 
 Just about the only terminal type the Data Concentrator didn't deal with was the IBM 1050 Data Terminal shown below circa 1970. This one had a keyboard, printer and punched card reader. It used the six-bit Binary Coded Decimal (BCD) code at 134.5 bps. A bunch of these shared the same telephone line with each one selected by a special prefix code. It had no internal memory, so the operator had to retype a line of data if the checksum failed. The last one I saw was buried in the Negev Desert in 1971.
 
-![jpg](/documentation/pic/1052.jpg)
+![webp](/documentation/pic/1052.webp)
 
 As it happened, the IBM multiplexor channel interface was the first such interface not designed by IBM, so it caused a fair amount of interest <sup>[6](#myfootnote6)</sup>. There were actually two of them, one for each Model 67 processor. It was carefully designed to emulate either of two IBM communications controllers used to connect remote terminals and remote jobstations, but could also emulate the operator console. It could and sometimes did switch in when the operator console broke. The control panels for the two interfaces are shown in the photo below.
 

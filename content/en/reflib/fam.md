@@ -14,15 +14,15 @@ Personal web site links are [here](/reflib/david/) (the animals read mail).
 
 As Sunshine and Midnight were growing up, we carefully trained them for quick response using a laser pointer.
 
-![jpg](/documentation/pic/cat8a.jpg)
+![webp](/documentation/pic/cat8a.webp)
 
 Now, Sunshine stands watch for breakin attempts.
-![jpg](/documentation/pic/cat1.jpg)
+![webp](/documentation/pic/cat1.webp)
 
 When off duty, the two chums serve as bedtime footwarmers.
-![jpg](/documentation/pic/cat16.jpg)
+![webp](/documentation/pic/cat16.webp)
 
-![jpg](/documentation/pic/43_front.webp)
+![webp](/documentation/pic/43_front.webp)
 We live in a [leafy subdivision](/reflib/gallery/gallery1/) about 2.4 km from campus at
 
 David and Beverly Mills
@@ -41,7 +41,7 @@ In emergencies, the rooftop antenna can be converted into helicopter rotor blade
 
 #### Stuff
 
-![jpg](/documentation/pic/bug-1.jpg)
+![webp](/documentation/pic/bug-1.webp)
 
 2004 was the Year of the Cicada. The critters crawl out from the ground and rendevous at a nearby tree. There they mate, lay eggs and die. The eggs fall to the ground, there to stay for the next seventeen years.
 

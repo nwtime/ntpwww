@@ -22,14 +22,14 @@ This is the configuration console for the dual CPU system. Either of four corebo
 
 At that time every IBM mainframe came with a resident hardware engineer who fixed things on the spot, should something break. Before transistors, mostly what he did was replace 12AT7 vacuum tubes. Later as seen here, there wasn't a lot to do except watch the log. By far the biggest worry was the air conditioner system. When it failed you had only a few minutes to kill the machine before alarms started off all over the room. One chilling Michigan night when I was alone with the machine and the air conditioner failed, I just opened the loading dock doors to the night and nature did the rest.
 
-![jpg](/documentation/pic/1410.jpg)
+![webp](/documentation/pic/1410.webp)
 
 This is an IBM Model 1410. At the Computing Center it had only one mission in life: read Hollerith cards to magnetic tape for input to the IBM 67 and print magnetic tape output from that machine. As it happened, the card reader and line printer were really fast, considering the huge quantity of cards and paper then used for program input and output. Before our habits turned to video displays, a large computing center like ours consumed paper in the range of fractional forests per day. See the [Anatomy of a Hollerith Card](/reflib/gallery/gallery9/) gallery for long forgotten technology of that era.
 
-![jpg](/documentation/pic/2250b.jpg)
+![webp](/documentation/pic/2250b.webp)
 
 This is an IBM 2260 Video Display Unit, once the glass teletype of choice for a timesharing system. It had a bilious green phosphor and for some strange reason scanned from top to bottom then from left to right. One of my jobs was to adapt a standard TV set to the 2260 video signal, so we could use it to display current batch job status. It turned out to be more than just rotating the CRT yoke 90 degrees.
 
-![jpg](/documentation/pic/2703.jpg)
+![webp](/documentation/pic/2703.webp)
 
 This is an IBM 2703 Transmission Control Unit, at one time the only choice for an IBM customer to run a moderate to large number of remote terminals. It was clumsy, unforgiving and slow and the timesharing users hated it. I took on the job as chief designer for a team which built something better; see the [Data Concentrator Project](/reflib/gallery/gallery7/) gallery for the results.
