@@ -34,7 +34,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.628523c03b8d13d316307f90d6bec3f6.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -112,8 +112,7 @@
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>External Clock Discipline and the Local Clock Driver</h1>
-     
+  	<h1>External Clock Discipline and the Local Clock Driver</h1> 
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:38 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6197d2cdb4479623c85231302bfbe72be0af0a17">6197d2cdb</a>)</p>
 	<p>The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server. A third implementation might be a completely separate clock discipline algorithm and synchronization protocol, such as the <code>Lockclock</code> algorithm used with NIST Automated Computer Time Service (ACTS) modem synchronized time.</p>
 <p>When external clocks are used in conjunction with NTP service, some way needs to be provided for the external clock driver and NTP daemon <code>ntpd</code> to communicate and determine which discipline is in control. This is necessary in order to provide backup, for instance if the external clock or protocol were to fail and synchronization service fall back to other means, such as a local reference clock or another NTP server. In addition, when the external clock and driver are in control, some means needs to be provided for the clock driver to pass on status information and error statistics to the NTP daemon.</p>

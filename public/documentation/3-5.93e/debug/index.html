@@ -34,7 +34,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.628523c03b8d13d316307f90d6bec3f6.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -112,8 +112,7 @@
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>NTP Debugging Techniques</h1>
-     
+  	<h1>NTP Debugging Techniques</h1> 
     <p style="font-size: small; color: grey;">Last update: April 14, 2022 17:54 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/74f2bb37e81508678aace5de294d77ddd4993bb6">74f2bb37e</a>)</p>
 	<p>Once the NTP software distribution has been compiled and installed and the configuration file constructed, the next step is to verify correct operation and fix any bugs that may result. Usually, the command line that starts the daemon is included in the system startup file, so it is executed only at system boot time; however, the daemon can be stopped and restarted from root at any time. Usually, no command-line arguments are required, unless special actions described in the xntpd.8 man page are required. Once started, the daemon will begin sending messages, as specified in the configuration file, and interpreting received messages.</p>
 <p>The best way to verify correct operation is using the <a href="https://test.doc.ntp.org/documentation/3-5.93e/ntpq/"><code>ntpq</code> - standard NTP query program</a> and <a href="https://test.doc.ntp.org/documentation/3-5.93e/xntpdc/"><code>xntpdc</code> - special NTP query program</a> utility programs, either on the server itself or from another machine elsewhere in the network. The <code>ntpq</code> program implements the management functions specified in Appendix A of the NTP specification <a href="https://test.doc.ntp.org/reflib/rfc/rfc1305/rfc1305c.pdf">RFC-1305, Appendix A</a>. The <code>xntpdc</code> program implements additional functions not provided in the standard. Both programs can be used to inspect the state variables defined in the specification and, in the case of <code>xntpdc</code>, additional ones of interest. In addition, the <code>xntpdc</code> program can be used to selectively enable and disable some functions of the daemon while the daemon is running.</p>

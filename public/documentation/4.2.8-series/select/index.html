@@ -34,7 +34,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.628523c03b8d13d316307f90d6bec3f6.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -112,8 +112,7 @@
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>Clock Select Algorithm</h1>
-     
+  	<h1>Clock Select Algorithm</h1> 
     <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
 	<p>The clock select algorithm determines from a set of sources , which are correct (<em>truechimers</em>) and which are not (<em>falsetickers</em>) according to a set of formal correctness assertions. The principles are based on the observation that the maximum error in determining the offset of a candidate cannot exceed one-half the roundtrip delay to the primary reference clock at the time of measurement. This must be increased by the maximum error that can accumulate since then. The selection metric, called the <em>root distance</em>, is one-half the roundtrip root delay plus the root dispersion plus minor error contributions not considered here.</p>
 <p>First, a number of sanity checks is performed to sift the selectable candidate from among the source population. The sanity checks are sumarized as follows:.</p>
