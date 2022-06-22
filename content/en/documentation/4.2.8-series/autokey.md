@@ -1,5 +1,7 @@
 ---
 title: "Autokey Public-Key Authentication"
+description: "NTPv4 supports the Autokey algorithms and protocol specified in RFC 5906. Autokey is designed to authenticate NTP servers to NTP clients using message digest algorithms and optional cryptographic challenge/response exchanges known as identity schemes."
+images: ["/documentation/pic/flt9.gif"]
 type: archives
 ---
 
@@ -18,7 +20,7 @@ type: archives
 
 #### Introduction
 
-This distribution includes support for the Autokey public key algorithms and protocol specified in [RFC-5906 "Network Time Protocol Version 4: Autokey Specification"](/reflib/rfc/rfc5906.txt). This support is available only if the OpenSSL library has been installed and the <code>-\-enable-autokey</code> option is specified when the distribution is built.
+This distribution includes support for the Autokey public key algorithms and protocol specified in [RFC 5906 "Network Time Protocol Version 4: Autokey Specification"](/reflib/rfc/rfc5906.txt). This support is available only if the OpenSSL library has been installed and the <code>-\-enable-autokey</code> option is specified when the distribution is built.
 
 Public key cryptography is generally considered more secure than symmetric key cryptography. Symmetric key cryptography is based on a shared secret key which must be distributed by secure means to all participants. Public key cryptography is based on a private secret key known only to the originator and a public key known to all participants. A recipient can verify the originator has the correct private key using the public key and any of several digital signature algorithms.
 

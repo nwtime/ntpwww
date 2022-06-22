@@ -1,5 +1,6 @@
 ---
 title: "Building and Installing the Distribution"
+description: "Instructions for building and installing the NTP software distribution from source."
 type: archives
 ---
 
