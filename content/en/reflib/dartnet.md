@@ -32,7 +32,7 @@ Status: This project was completed in 2001. This page is for historic record.
 
 #### Importance of the Problem
 
-![jpg](/documentation/pic/cairn_marquee.jpg)
+![webp](/documentation/pic/cairn_marquee.webp)
 
 Provision of good real-time, multicast services using a best-effort infrastructure like the Internet is generally considered difficult at best. The work now under way in the research community involves a suite of routing and reservation tools, together with enhancements to existing host and router software. However, this approach, which is based on a layered architecture and the existing Internet infrastructure, comes with considerable complexity, overhead and inefficient use of shared resources. The approach favored in this project, which is a collaborative effort with University College London (UCL) and Science Applications International Corporation (SAIC), involves the analysis, implementation and testing of unusual multicast infrastructure models specifically optimized for good performance and efficient resource sharing.
 

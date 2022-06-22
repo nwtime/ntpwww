@@ -93,4 +93,4 @@ Load in the various files, call them in the normal vxWorks function type manner.
             ntptrace("192.168.0.244")
         </pre>
 
-Casey Crellin, casey@csc.co.za
+Casey Crellin

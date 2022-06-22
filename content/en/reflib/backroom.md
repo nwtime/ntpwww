@@ -24,17 +24,17 @@ In case of fan failure
 
 The Backroom Test Facility (BTF) is located at 43 The Horseshoe, Newark, DE 19711, geographic coordinates 39:42:02.915N, 75:46:52.046W. The BTF presently includes five Unix workstations, three Windows/XP PCs, a Windows/XP laptop, color laser printer, high resolution scanner and assorted hubs and routers connected together with 100-Mb Ethernet fiber segments and a 54-Mb WiFi backup. Four UPS systems keep the computers afloat during power glitches. This is where we conduct the most dangerous experiments requiring a containment facility. We keep five of the computers quarantined in the basement (below) to resist incidental radiation when a hacker is zapped.
 
-![gif](/documentation/pic/basement.jpg)
+![webp](/documentation/pic/basement.webp)
 
 Representative Network Time Protocol (NTP) servers throughout the world are monitored from the BTF on a regular basis and the data recorded for later analysis. Together, the workstations and PCs have 9 GB of RAM and 1900 GB of disk resources. On many occasions, the BTF has been useful in diagnosing improper network configuration and operation.
 
-![jpg](/documentation/pic/fuzzballb.jpg)
+![webp](/documentation/pic/fuzzballb.webp)
 
 This is also the main facility for program development and testing, as well as the final resting place for the last known LSI-11 Fuzzball <sup>[1](#myfootnote1)</sup>, once prominent in Internet research projects.
 
-![jpg](/documentation/pic/w3hcf4.jpg) 
+![webp](/documentation/pic/w3hcf4.webp) 
 
-The BTF also includes [two-way voice and data radio transmission equipment](/documentation/pic/w3hcf3.jpg) covering HF, VHF and UHF amateur bands. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
+The BTF also includes [two-way voice and data radio transmission equipment](/documentation/pic/w3hcf3.webp) covering HF, VHF and UHF amateur bands. The [antenna farm on the roof](/documentation/pic/43_front.webp) is a local landmark. Any of four radios and several voice and data modes can be remotely controlled and accessed using standard Internet data and multicast audio tools. The radios can run for extended periods without external power for emergency and disaster communications.
 
 ![gif](/documentation/pic/stack.gif)
 
@@ -54,7 +54,7 @@ The BTF DCnet subnet is connected to the [campus DCnet subnet](/reflib/dcnet/) v
 
 [_Sunshine_](/reflib/fam/) is our Guard Kitten. If a rogue ICMP Destination Unreachable packet shows up here, he barks. He has his own computer, complete with keyboard and mouse.
 
-![jpg](/documentation/pic/yellow3.jpg)![jpg](/documentation/pic/mouse.jpg)
+![webp](/documentation/pic/yellow3.webp)![webp](/documentation/pic/mouse.webp)
 
 * * *
 

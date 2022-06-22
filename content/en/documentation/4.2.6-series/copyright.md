@@ -5,7 +5,7 @@ noindex: true
 sitemap_exclude: true
 ---
 
-![Clone me,](/documentation/pic/sheepb.jpg) Clone me, says Dolly sheepishly.
+![webp](/documentation/pic/sheepb.webp) Clone me, says Dolly sheepishly.
 
 * * *
 
@@ -45,7 +45,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 11.  Jean-Francois Boudreault: IPv6 support
 12.  [Reg Clemens](mailto:reg@dwf.com) Oncore driver (Current maintainer)
 13.  Steve Clift: OMEGA clock driver
-14.  [Casey Crellin](mailto:casey@csc.co.za) vxWorks (Tornado) port and help with target configuration
+14.  Casey Crellin: vxWorks (Tornado) port and help with target configuration
 15.  [Sven Dietrich](mailto:Sven_Dietrich@trimble.COM) Palisade reference clock driver, NT adj. residuals, integrated Greg's Winnt port.
 16.  John A. Dundas III: Apple A/UX port
 17.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux port

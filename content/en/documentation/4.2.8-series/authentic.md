@@ -50,7 +50,7 @@ Each line of the keys file consists of three or four fields: a key ID in the ran
 
 **Figure 1: Typical Symmetric Key File**
 
-![gif](/documentation/pic/md5.png)
+![webp](/documentation/pic/md5.webp)
 
 Figure 1 shows a typical symmetric keys file used by the reference implementation when the OpenSSL library is installed. Each line of the file contains three or four fields. The first field is an integer between 1 and 65535, inclusive, representing the key identifier. The second field is the digest algorithm, which in the absence of the OpenSSL library must be <code>MD5</code>, which designates the MD5 message digest algorithm. The third field is the key. The optional fourth field is one or more comma-separated IPs. An IP may end with an optional <code>/subnetbits</code> suffix, which limits the acceptance of the key identifier to packets claiming to be from the described IP space. In this example, for the key IDs in the range 1-10 the key is interpreted as a printable ASCII string. For the key IDs in the range 11-20, the key is a 40-character hex digit string. In either case, the key is truncated or zero-filled internally to either 128 or 160 bits, depending on the key type. The line can be edited later or new lines can be added to change any field. The key can be changed to a password, such as <code>2late4Me</code> for key ID 10. Note that two or more keys files can be combined in any order as long as the key IDs are distinct.
 

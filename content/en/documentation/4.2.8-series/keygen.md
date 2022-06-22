@@ -164,7 +164,7 @@ The format of the symmetric keys file, ordinarily named <code>ntp.keys,</code> i
 
 **Figure 1: Typical Symmetric Key File**
 
-![png](/documentation/pic/md5.png)
+![webp](/documentation/pic/md5.webp)
 
 Figure 1 shows a typical symmetric keys file used by the reference implementation. Each line of the file contains three or four fields, first an integer between 1 and 65535, inclusive, representing the key identifier used in the <code>server</code> and <code>peer</code> configuration commands. Second is the key type for the message digest algorithm, which in the absence of the OpenSSL library must be <code>MD5</code> to designate the MD5 message digest algorithm. If the OpenSSL library is installed, the key type can be any message digest algorithm supported by that library. However, if compatibility with FIPS 140-2 is required, the key type must be either <code>SHA</code> or <code>SHA1</code>. The key type can be changed using an ASCII text editor.
 

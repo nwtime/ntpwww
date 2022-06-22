@@ -4,11 +4,11 @@ type: archives
 toc_hide: true
 ---
 
-![jpg](/documentation/pic/lsi11.jpg)
+![webp](/documentation/pic/lsi11.webp)
 
-![jpg](/documentation/pic/periph.jpg)
+![webp](/documentation/pic/periph.webp)
 
-![jpg](/documentation/pic/fuzzball.jpg)
+![webp](/documentation/pic/fuzzball.webp)
 
 The last known Fuzzball (1990)
 

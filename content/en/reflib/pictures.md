@@ -104,7 +104,7 @@ The Keen and the Quing
 
 ![gif](/documentation/pic/alice47.gif)
 
-![jpg](/documentation/pic/alice05s.jpg)
+![webp](/documentation/pic/alice05s.webp)
 
 The artwork by Sir John Tenniel (top) was taken from _Alice's Adventures in Wonderland_ and _Through the Looking Glass_, by Lewis Carroll, the pen name of Charles Dodgson. Sir John was a well known illustrator and political cartoonist of the day. His drawings have influenced the perceptions of Alice in books, films, plays and generations of children.
 
@@ -112,7 +112,7 @@ The life and works of Lewis Carroll and the story behind the Alice books have be
 
 Dodgson is the author not only of the Alice books [1-2](/reflib/pictures/#references), but of many delightful poems and puzzles <sup>[3](#myfootnote3)</sup>, the best known of which may be _The Hunting of the Snark_. In them can be found the _Bandersnatch_, _Boojum_, _Snark_, and other creatures of imagination that make wonderful names for computers.
 
-![jpg](/documentation/pic/alice100.jpg)
+![webp](/documentation/pic/alice100.webp)
 
 Curiously, Sir John's rendition of Alice Pleasance Liddel, for whom the Alice books were written, is nothing like the real Alice, whose picture, taken by Dodgson himself and in the style of the day, is above <sup>[2](#myfootnote2)</sup>.
 
@@ -140,7 +140,7 @@ The [Classic Maya](/reflib/maya/) civilization of southern Mexico, Guatemala and
 
 #### Photography
 
-![jpg](/documentation/pic/yandb1.jpg)
+![webp](/documentation/pic/yandb1.webp)
 
 The unattributed photos on these web pages were taken and retouched by me. They are not copyrighted and you can use them any responsible way you want. Here are some adventures:
 

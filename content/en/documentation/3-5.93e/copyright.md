@@ -34,7 +34,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 3.  Karl Berry: syslog to file option  
 4.  [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support  
 5.  Steve Clift: OMEGA clock driver  
-6.  [Casey Crellin](mailto:casey@csc.co.za) vxWorks (Tornado) port and help with target configuration  
+6.  Casey Crellin: vxWorks (Tornado) port and help with target configuration  
 7.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux Port  
 8.  John A. Dundas III: Apple A/UX port  
 9.  Dennis Ferguson: foundation code for NTP Version 2 as specified in RFC-1119  

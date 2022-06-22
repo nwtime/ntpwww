@@ -5,7 +5,7 @@ noindex: true
 sitemap_exclude: true
 ---
 
-![jpg](/documentation/pic/sheepb.jpg) "Clone me," says Dolly sheepishly
+![webp](/documentation/pic/sheepb.webp) "Clone me," says Dolly sheepishly
 
 * * *
 
@@ -43,7 +43,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 9.  [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support
 10.  [Reg Clemens](mailto:reg@dwf.com) Oncore driver (Current maintainer)
 11.  Steve Clift: OMEGA clock driver
-12.  [Casey Crellin](mailto:casey@csc.co.za) vxWorks (Tornado) port and help with target configuration
+12.  Casey Crellin: vxWorks (Tornado) port and help with target configuration
 13.  [Sven Dietrich](mailto:Sven_Dietrich@trimble.COM) Palisade reference clock driver, NT adj. residuals, integrated Greg's Winnt port.
 14.  John A. Dundas III: Apple A/UX port
 15.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux port
