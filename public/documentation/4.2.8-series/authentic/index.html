@@ -10,7 +10,7 @@ Our resident cryptographer; now you see him, now you don&rsquo;t.
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/authentic/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-21T18:56:19&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -116,7 +116,7 @@ Our resident cryptographer; now you see him, now you don&rsquo;t.
   <div class="container">
   	<h1>Authentication Support</h1>
      
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 21, 2022 18:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/90ab71e5606c05ba694f699facf7f8e14816a05e">90ab71e56</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/alice44.gif" alt="gif"  />
 </p><a href="https://test.doc.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
@@ -149,7 +149,7 @@ Our resident cryptographer; now you see him, now you don&rsquo;t.
 <p>Each line of the keys file consists of three or four fields: a key ID in the range 1 to 65,535, inclusive, a key type, a message digest key consisting of a printable ASCII string less than 40 characters or a 40-character hex digit string, and an optional comma-separated list of IPs that are allowed to serve time. If the OpenSSL library is installed, the key type can be any message digest algorithm supported by the library. If the OpenSSL library is not installed, the only permitted key type is MD5.</p>
 <p><strong>Figure 1: Typical Symmetric Key File</strong></p>
 <p><p>
-  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/md5.png" alt="gif"  />
+  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/md5.webp" alt="webp"  />
 </p></p>
 <p>Figure 1 shows a typical symmetric keys file used by the reference implementation when the OpenSSL library is installed. Each line of the file contains three or four fields. The first field is an integer between 1 and 65535, inclusive, representing the key identifier. The second field is the digest algorithm, which in the absence of the OpenSSL library must be <code>MD5</code>, which designates the MD5 message digest algorithm. The third field is the key. The optional fourth field is one or more comma-separated IPs. An IP may end with an optional <code>/subnetbits</code> suffix, which limits the acceptance of the key identifier to packets claiming to be from the described IP space. In this example, for the key IDs in the range 1-10 the key is interpreted as a printable ASCII string. For the key IDs in the range 11-20, the key is a 40-character hex digit string. In either case, the key is truncated or zero-filled internally to either 128 or 160 bits, depending on the key type. The line can be edited later or new lines can be added to change any field. The key can be changed to a password, such as <code>2late4Me</code> for key ID 10. Note that two or more keys files can be combined in any order as long as the key IDs are distinct.</p>
 <p>When <code>ntpd</code> is started, it reads the keys file specified by the <code>keys</code> command and installs the keys in the key cache. However, individual keys must be activated with the <code>trustedkey</code> configuration command before use. This allows, for instance, the installation of possibly several batches of keys and then activating a key remotely using <code>ntpq</code> or <code>ntpdc</code>. The <code>requestkey</code> command selects the key ID used as the password for the <code>ntpdc</code> utility, while the <code>controlkey</code> command selects the key ID used as the password for the <code>ntpq</code> utility.</p>
