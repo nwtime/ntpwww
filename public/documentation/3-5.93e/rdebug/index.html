@@ -62,7 +62,7 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.628523c03b8d13d316307f90d6bec3f6.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -144,8 +144,7 @@ function demo() {
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>Debugging Hints for Reference Clock Drivers</h1>
-     
+  	<h1>Debugging Hints for Reference Clock Drivers</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p>The <a href="https://doc.ntp.org/documentation/3-5.93e/ntpq/"><code>ntpq</code></a> and <a href="https://doc.ntp.org/documentation/3-5.93e/xntpdc/"><code>xntpdc</code></a> utility programs can be used to debug reference clocks, either on the server itself or from another machine elsewhere in the network. The server is compiled, installed and started using the configuration file described in the <a href="https://doc.ntp.org/documentation/3-5.93e/xntpd/"><code>xntpd</code></a> page. The first thing to look for are error messages on the system log. If none occur, the daemon has started, opened the devices specified and waiting for peers and radios to come up.</p>
 <p>The next step is to be sure the RS232 messages, if used, are getting to and from the clock. The most reliable way to do this is with an RS232 tester and to look for data flashes as the driver polls the clock and/or as data arrive from the clock. Our experience is that the overwhelming fraction of problems occurring during installation are due to problems such as miswired connectors or improperly configured device links at this stage.</p>

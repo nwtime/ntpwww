@@ -62,7 +62,7 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.628523c03b8d13d316307f90d6bec3f6.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -144,8 +144,7 @@ function demo() {
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>DEC OSF/1 Hints</h1>
-     
+  	<h1>DEC OSF/1 Hints</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p>Some major changes were necessary to make <code>xntp</code> v3 run on the DEC Alpha hardware running DEC OSF/1.  All <code>long</code> and <code>u_long</code> declarations and casts in the code were changed to <code>LONG</code> and <code>U_LONG</code> and a new header file (<code>include/ntp_types.h</code>) was added.  The new header file defines <code>LONG</code> as <code>int</code> and <code>U_LONG</code> as <code>u_int</code> for the Alpha hardware and as <code>long</code> and <code>u_long</code> for anything else.  A couple of <code>#if</code>s where changed in <code>ntpq</code> and <code>xntpdc</code> to get the result of a signal defined correctly.  The <code>Config.decosf1</code> file built the programs here with no problems.</p>
 <p>I don&rsquo;t have a radio clock here, so none of that code has been tested. I have run <code>xntpd, xntpdc, xntpres, ntpq, ntpdate</code>, and <code>tickadj</code> under DEC OSF/1 v1.2-2 (BL10).</p>

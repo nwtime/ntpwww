@@ -62,7 +62,7 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.628523c03b8d13d316307f90d6bec3f6.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -144,8 +144,7 @@ function demo() {
 
 <section class="section pt-0  pb-auto">
   <div class="container">
-  	<h1>Clock Cluster Algorithm</h1>
-     
+  	<h1>Clock Cluster Algorithm</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p>The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of <em>survivors</em>. These survivors are used by the mitigation algorithms to discipline the system clock. The cluster algorithm operates in a series of rounds, where at each round the truechimer furthest from the offset centroid is pruned from the population. The rounds are continued until a specified termination condition is met. This page discusses the algorithm in detail.</p>
 <p>First, the truechimer associations are saved on an unordered list with each candidate entry identified with index <code><em>i</em></code> (<em>i</em> = 1, &hellip;, <em>n)</em>, where <code><em>n</em></code> is the number of candidates. Let <code>θ(<em>i</em>)</code> be the offset and <code>λ(<em>i</em>)</code> be the root distance of the <code><em>i</em></code>th entry. Recall that the root distance is equal to the root dispersion plus half the root delay. For the <code><em>i</em></code>th candidate on the list, a statistic called the <em>select jitter</em> relative to the <code><em>i</em></code>th candidate is calculated as follows. Let</p>

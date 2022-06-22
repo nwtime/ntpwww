@@ -4,7 +4,7 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/support/securitynotice/" />
   
   <meta property="og:title" content="Security" />
-<meta property="og:description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase." />
+<meta property="og:description" content="NTP security vulnerability notification policy, security patch policy, how to report a security issue, and the archive of known vulnerabilities by release version." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://doc.ntp.org/support/securitynotice/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -51,7 +51,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="NTP security vulnerability notification policy, security patch policy, how to report a security issue, and the archive of known vulnerabilities by release version.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -60,7 +60,7 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.628523c03b8d13d316307f90d6bec3f6.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -132,38 +132,50 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
 	<h1>Security</h1>
-        
-	<h4 id="table-of-contents">Table of Contents</h4>
-<ul>
-<li><a href="#notification-policy">Notification Policy</a></li>
-<li><a href="#security-patch-policy">Security Patch Policy</a></li>
-<li><a href="#reporting-security-issues">Reporting Security Issues</a></li>
-<li><a href="#known-vulnerabilities-by-release-version">Known Vulnerabilities by Release Version</a></li>
-</ul>
-<hr>
-<h4 id="notification-policy">Notification Policy</h4>
-<p>When we discover a security vulnerability in NTP we follow our Phased Vulnerability Process which includes first notifying Institutional members of the <a href="https://www.nwtime.org/membership/">NTP Consortium at Network Time Foundation</a>, then <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally making a public announcement.</p>
-<blockquote>
-<p><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Institutional Members</a> receive advanced notification of security vulnerabilities.</p>
-</blockquote>
-<hr>
-<h4 id="security-patch-policy">Security Patch Policy</h4>
-<p>When security patches are ready, they are first given to Premier and Partner Institutional members of the <a href="https://www.nwtime.org/membership/">NTP Consortium at Network Time Foundation</a>, then access instructions are provided to <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally the public release is made on the embargo date.</p>
-<blockquote>
-<p><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Premier and Partner Members</a> receive early access to security patches.</p>
-</blockquote>
-<hr>
-<h4 id="reporting-security-issues">Reporting Security Issues</h4>
-<p><strong>Security related bugs, confirmed or suspected, are to be reported by email to <a href="mailto:security@ntp.org">security@ntp.org</a>.</strong></p>
-<p><strong>Do not disclose details with unencrypted email. We will exchange PGP keys for further discussion.</strong></p>
-<p>You can use our <a href="https://doc.ntp.org/downloads/NTPSecKey0x0066B2FD.txt">NTP Security Officer Key</a> for reporting issues you have verified as security-related.</p>
-<p>Please refrain from discussing potential security issues in public fora such as <a href="https://groups.google.com/g/comp.protocols.time.ntp">comp.protocols.time.ntp</a>, our Bug Tracking system, <a href="mailto:bugs@ntp.org">bugs@ntp.org</a>, or any mailing list.</p>
-<hr>
+	<div>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3">
+      <div class="col">
+        <div class="card mh-100" style="height: 280px;">
+          <div class="card-body">
+		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Notification Policy</h5>
+            <p>When we discover a security vulnerability in NTP we follow our Phased Vulnerability Process which includes first notifying Institutional members of the <a href="https://www.nwtime.org/membership/benefits/">NTP Consortium at Network Time Foundation</a>, then <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally making a public announcement.</p>
+            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Institutional Members</a> receive advanced notification of security vulnerabilities.</p>			
+              <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mh-100" style="height: 280px;">
+          <div class="card-body">
+		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Security Patch Policy</h5>
+            <p>When security patches are ready, they are first given to Premier and Partner Institutional members of the <a href="https://www.nwtime.org/membership/benefits/">NTP Consortium at Network Time Foundation</a>, then access instructions are provided to <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally the public release is made on the embargo date.</p>
+            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Premier and Partner Members</a> receive early access to security patches.</p>
+              <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+	    <div class="card mh-100" style="height: 280px;">
+          <div class="card-body">
+		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Reporting Security Issues</h5>
+            <p>Please report security related bugs by <strong>encrypted</strong> email to <a href="mailto:security@ntp.org">security@</a>. You can use our <a href="https://doc.ntp.org/downloads/NTPSecKey0x0066B2FD.txt">NTP Security Officer Key</a>.
+            <p>Please refrain from discussing potential security issues in <a href="https://groups.google.com/g/comp.protocols.time.ntp">comp.protocols.time.ntp</a>, our Bug Tracking system, bugs@ntp.org, or any mailing list.</p>			
+              <div class="d-flex justify-content-between align-items-center">
+			</div>
+          </div>
+        </div>
+      </div>
+	</div>
+  </div>
+</div>
 <h4 id="known-vulnerabilities-by-release-version">Known Vulnerabilities by Release Version</h4>
 <p>The following releases provided fixes for at least one security vulnerability. The table for each release provides an entry for each security issue (click its hyperlink to read the details for the vulnerability), indicates the issue&rsquo;s severity, and provides the dates of advance notification to institutional members, advance release to premier and partner institutional members, and public release.</p>
 <p>Refer to the <a href="https://doc.ntp.org/dev/releasetimeline/">Release Timeline</a> for a complete list of all releases, their public release dates, release announcements, and changelogs.</p>
 <details open>
-<summary><b>Click to hide release list</b></summary>
+<summary><strong>Release Version:</strong></summary>
 <ul>
 <li><a href="#428p15">4.2.8p15</a></li>
 <li><a href="#428p14">4.2.8p14</a></li>
