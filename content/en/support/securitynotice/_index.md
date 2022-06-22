@@ -1,44 +1,48 @@
 ---
 title: Security
+description: "NTP security vulnerability notification policy, security patch policy, how to report a security issue, and the archive of known vulnerabilities by release version."
 type: archives
 ---
 
-#### Table of Contents
-
-* [Notification Policy](#notification-policy)
-* [Security Patch Policy](#security-patch-policy)
-* [Reporting Security Issues](#reporting-security-issues)
-* [Known Vulnerabilities by Release Version](#known-vulnerabilities-by-release-version)
-
-* * *
-
-#### Notification Policy
-
-When we discover a security vulnerability in NTP we follow our Phased Vulnerability Process which includes first notifying Institutional members of the [NTP Consortium at Network Time Foundation](https://www.nwtime.org/membership/), then [CERT](https://www.sei.cmu.edu/about/divisions/cert/index.cfm), and finally making a public announcement.
-
-> [Institutional Members](https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships) receive advanced notification of security vulnerabilities.
-
-* * *
-
-#### Security Patch Policy
-
-When security patches are ready, they are first given to Premier and Partner Institutional members of the [NTP Consortium at Network Time Foundation](https://www.nwtime.org/membership/), then access instructions are provided to [CERT](https://www.sei.cmu.edu/about/divisions/cert/index.cfm), and finally the public release is made on the embargo date.
-
-> [Premier and Partner Members](https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships) receive early access to security patches.
-
-* * *
-
-#### Reporting Security Issues
-
-**Security related bugs, confirmed or suspected, are to be reported by email to [security@ntp.org](mailto:security@ntp.org).**
-
-**Do not disclose details with unencrypted email. We will exchange PGP keys for further discussion.**
-
-You can use our [NTP Security Officer Key](/downloads/NTPSecKey0x0066B2FD.txt) for reporting issues you have verified as security-related.
-
-Please refrain from discussing potential security issues in public fora such as [comp.protocols.time.ntp](https://groups.google.com/g/comp.protocols.time.ntp), our Bug Tracking system, bugs@ntp.org, or any mailing list.
-
-* * *
+<div>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3">
+      <div class="col">
+        <div class="card mh-100" style="height: 280px;">
+          <div class="card-body">
+		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Notification Policy</h5>
+            <p>When we discover a security vulnerability in NTP we follow our Phased Vulnerability Process which includes first notifying Institutional members of the <a href="https://www.nwtime.org/membership/benefits/">NTP Consortium at Network Time Foundation</a>, then <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally making a public announcement.</p>
+            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Institutional Members</a> receive advanced notification of security vulnerabilities.</p>			
+              <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mh-100" style="height: 280px;">
+          <div class="card-body">
+		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Security Patch Policy</h5>
+            <p>When security patches are ready, they are first given to Premier and Partner Institutional members of the <a href="https://www.nwtime.org/membership/benefits/">NTP Consortium at Network Time Foundation</a>, then access instructions are provided to <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally the public release is made on the embargo date.</p>
+            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Premier and Partner Members</a> receive early access to security patches.</p>
+              <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+	    <div class="card mh-100" style="height: 280px;">
+          <div class="card-body">
+		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Reporting Security Issues</h5>
+            <p>Please report security related bugs by <strong>encrypted</strong> email to <a href="mailto:security@ntp.org">security@</a>. You can use our <a href="/downloads/NTPSecKey0x0066B2FD.txt">NTP Security Officer Key</a>.
+            <p>Please refrain from discussing potential security issues in <a href="https://groups.google.com/g/comp.protocols.time.ntp">comp.protocols.time.ntp</a>, our Bug Tracking system, bugs@ntp.org, or any mailing list.</p>			
+              <div class="d-flex justify-content-between align-items-center">
+			</div>
+          </div>
+        </div>
+      </div>
+	</div>
+  </div>
+</div>
 
 #### Known Vulnerabilities by Release Version
 
@@ -47,7 +51,7 @@ The following releases provided fixes for at least one security vulnerability. T
 Refer to the [Release Timeline](/dev/releasetimeline/) for a complete list of all releases, their public release dates, release announcements, and changelogs.
 
 <details open>
-<summary><b>Click to hide release list</b></summary>
+<summary><strong>Release Version:</strong></summary>
 
 * [4.2.8p15](#428p15)
 * [4.2.8p14](#428p14)
