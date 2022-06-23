@@ -1,5 +1,6 @@
 ---
 title: "ntp-keygen - generate public and private keys"
+description: "The keygen utility generates cryptographic data files used by the NTPv4 authentication and identity schemes. t can generate message digest keys used in symmetric key cryptography and, using OpenSSL, it can generate the host keys, sign keys, certificates, and identity keys and parameters used by Autokey."
 type: archives
 ---
 

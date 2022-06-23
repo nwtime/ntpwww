@@ -1,5 +1,6 @@
 ---
 title: "Monitoring Options"
+description: "ntpd includes a comprehensive monitoring facility which collects statistical data and writes the data to files at defined events or intervals. "
 type: archives
 ---
 

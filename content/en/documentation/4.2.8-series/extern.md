@@ -1,5 +1,6 @@
 ---
 title: "External Clock Discipline and the Local Clock Driver"
+description: "NTPv4 includes provisions for implementing the system clock using an external hardware device. When external clocks are used, the external clock driver and NTP daemon need to communicate and determine which discipline is in control."
 type: archives
 ---
 

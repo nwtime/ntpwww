@@ -1,5 +1,6 @@
 ---
 title: "Historical Notes"
+description: "This report documents upgrades to the NTPv4 reference implementation code base and documentation, which began in June 2007 and continued until March 2008. It is important to recognize that this historic document describes the status as of 2008."
 type: archives
 ---
 
