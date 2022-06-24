@@ -1,5 +1,6 @@
 ---
 title: "Reference Clock Support"
+description: "NTPv4 supports almost four dozen satellite, radio, and telephone modem reference clocks plus several audio devices for instrumentation signals. A general description of the reference clock support is on this page."
 type: archives
 ---
 

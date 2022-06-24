@@ -1,5 +1,6 @@
 ---
 title: "Quick Start"
+description: "This page provides a quick start for creating a minimum ntpd configuration that allows a system to synchronize to an external NTP server."
 type: archives
 ---
 

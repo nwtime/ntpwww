@@ -1,5 +1,6 @@
 ---
 title: "NTP PARSE clock data formats"
+description: "The parse driver currently supports several clocks with different query mechanisms. This page summarizes the driver's major features and manufacturers of clocks using this driver."
 type: archives
 ---
 

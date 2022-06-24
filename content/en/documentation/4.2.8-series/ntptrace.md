@@ -1,5 +1,6 @@
 ---
 title: "ntptrace - trace a chain of NTP servers back to the primary source"
+description: "ntptrace is a perl script that uses the ntpq utility to follow the chain of NTP servers from a given host back to the primary time source."
 type: archives
 ---
 

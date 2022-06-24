@@ -1,5 +1,6 @@
 ---
 title: "Authentication Commands and Options"
+description: "Descriptions of the available commands and options for configuring NTP authentication."
 type: archives
 ---
 

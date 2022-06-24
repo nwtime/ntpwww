@@ -1,5 +1,6 @@
 ---
 title: "Making PARSE Clocks"
+description: "This page covers the prerequisites for developers who want to add another clock to the parse driver."
 type: archives
 ---
 
@@ -60,7 +61,7 @@ Make a conversion module (`libparse/clk_*.c`)
 
     If the <code>utctime</code> field is nonzero this value will be take as time code value. This allows for conversion routines that already have the utc time value. The <code>utctime</code> field gives the seconds since Jan 1st 1970, 0:00:00. The <code>useconds</code> field gives the respective usec value. The fields for date and time (down to second resolution) will be ignored.
 
-    Conversion is done in the `cvt_*` routine in `parse/clk_*.c` files, look in them for examples. The basic structure is:
+    Conversion is done in the <code>cvt_*</code> routine in <code>parse/clk_*.c</code> files, look in them for examples. The basic structure is:
 
     <pre>     struct clockformat <yourclock>_format = {
                lots of fields for you to fill out (see below)

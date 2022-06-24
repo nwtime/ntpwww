@@ -1,5 +1,6 @@
 ---
 title: "Site Map"
+description: "A categorized list of the documentation pages for the 4.2.8 release of NTPv4."
 type: archives
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "How NTP Works"
+description: "This page provides a technical description of the Network Time Protocol (NTP) architecture and operation."
 type: archives
 ---
 

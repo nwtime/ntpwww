@@ -1,5 +1,6 @@
 ---
 title: "Poll Process"
+description: "The NTP poll process sends packets at intervals determined by the clock discipline algorithm. The process is designed to provide a sufficient update rate to maximize accuracy while minimizing network overhead."
 type: archives
 ---
 

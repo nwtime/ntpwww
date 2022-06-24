@@ -1,5 +1,6 @@
 ---
 title: "ntpq - standard NTP query program"
+description: "The ntpq program is used to monitor NTP daemon operations and determine performance. The program can be run either in interactive mode or controlled using command line arguments."
 type: archives
 ---
 

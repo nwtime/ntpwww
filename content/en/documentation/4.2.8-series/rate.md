@@ -1,5 +1,6 @@
 ---
 title: "Rate Management and the Kiss-o'-Death Packet"
+description: "This page describes the various rate management provisions in NTPv4. There are several features in the reference implementation designed to defend NTP servers and the network against an accidental or intentional flood attack. "
 type: archives
 ---
 
