@@ -1,5 +1,6 @@
 ---
 title: "ntpd - Network Time Protocol (NTP) daemon"
+description: "The ntpd program is an operating system daemon that synchronizes the system clock to remote NTP time servers or local reference clocks. It is a complete implementation of NTP version 4 defined by RFC 5905 and provides backwards compatibility with the RFCs which define NTP versions 1, 2, and 3."
 type: archives
 ---
 

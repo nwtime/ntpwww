@@ -1,5 +1,6 @@
 ---
 title: "ntpdate - set the date and time via NTP"
+description: "ntpdate is a historical program to set the local date and time by polling NTP servers. It has been replaced by the ntpd -q option."
 type: archives
 ---
 
