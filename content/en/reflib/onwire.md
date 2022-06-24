@@ -1,7 +1,7 @@
 ---
 title: "Analysis and Simulation of the NTP On-Wire Protocols"
+description: "This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes. The interleaved modes provide enhanced accuracy over the basic modes by timestamping in the driver, rather than in the application layer code."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/pogo3a.gif)

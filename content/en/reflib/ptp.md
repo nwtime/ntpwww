@@ -1,7 +1,7 @@
 ---
 title: "IEEE 1588 Precision Time Protocol (PTP)"
+description: "This document explores the similarities and differences between the Network Time Protocol (NTP) and the IEEE 1588 Precision Time Protocol (PTP)."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alice47.gif)

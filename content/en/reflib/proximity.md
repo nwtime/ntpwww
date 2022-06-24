@@ -1,7 +1,7 @@
 ---
 title: "Time Synchronization for Space Data Links"
+description: "The Consultive Committee on Space Data Systems has defined the Proximity-1 Protocol for use by space data links between vehicles in the vicinity of Mars or the Moon. However, the means to provide time synchronization require processing by the NASA/JPL Deep Space Network consisting of very large and expensive Earth stations. This document proposes NTP interleaved symmetric mode, which provides time synchronization without requiring Earth resources."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/pogo5.gif)

@@ -1,7 +1,7 @@
 ---
 title: "Collaboration Resources"
+description: "Following is a hodgepodge of programs and other resources which may be helpful for adventuring in computer network time synchronization."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/panda.gif)
@@ -48,7 +48,7 @@ In the case of software distributions, we have stashed Unix-friendly (`gz` file 
 
 #### Network Time Protocol (NTP) Version 4
 
-The Network Time Protocol is used to synchrnize clocks in Unix, VMS and Windows systems in an estimated population of over 25 million computers in most countries and all continents of the world. The current NTP Version 4 and previous versions have been used for over 30 year in almost all computer embedded and software systems currently available.
+The Network Time Protocol is used to synchronize clocks in Unix, VMS and Windows systems in an estimated population of over 25 million computers in most countries and all continents of the world. The current NTP Version 4 and previous versions have been used for over 30 year in almost all computer embedded and software systems currently available.
 
 The NTP Version 4 software distribution, documentation and configuration information is available on thisweb site. An extensive review of the technology and application is available on the [Network Time Synchronization Research Project](/reflib/ntp/) page and the white papers in the [Reference Library](/reflib/).
 

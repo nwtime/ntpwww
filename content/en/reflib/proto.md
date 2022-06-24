@@ -1,7 +1,7 @@
 ---
 title: "Autokey Protocol"
+description: "The Autokey protocol is based on the PKI algorithms of the OpenSSL library, which includes an assortment of message digest, digital signature, and encryption schemes. What makes Autokey special is the way in which these algorithms are used to deflect intruder attacks while maintaining the integrity and accuracy of the time synchronization function."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alautun4a.gif)

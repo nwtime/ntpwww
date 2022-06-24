@@ -1,7 +1,7 @@
 ---
 title: "Timestamp Capture Principles"
+description: "This document summarizes methods to achieve precise timestamp methods when exchanging NTP packets between servers and clients. It includes the definition and measurement of statistical evaluators, as well as classification of timestamp capture methods involving softstamps, drivestamps, and hardstamps."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/oz2.gif)

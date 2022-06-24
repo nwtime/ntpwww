@@ -1,7 +1,8 @@
 ---
 title: "Network Time Synchronization Research Project"
+description: "We consider the NTP project and ongoing development a basically mature project, although there is always the opportunity for incremental advances.
+There have been significant changes and additions to the NTPv4 protocol specification and the Autokey specification since their RFCs were published in 2010."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alautun4a.gif)

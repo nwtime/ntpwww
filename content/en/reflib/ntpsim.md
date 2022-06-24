@@ -1,7 +1,7 @@
 ---
 title: "NTP Discrete Event Simulator"
+description: "A discrete event simulator (DES) is a computer program that can emulate the behavior of an interconnected network of real processes in response to designated inputs, or events. We have constructed a prototype DES for NTP. It includes all of the algorithms used to mitigate the time and discipline the local clock."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/pogo6.gif)
