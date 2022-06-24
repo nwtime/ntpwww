@@ -4,11 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/documentation/4.2.8-series/autokey/" />
   
   <meta property="og:title" content="Autokey Public-Key Authentication" />
-<meta property="og:description" content="Table of Contents  Introduction Autokey Subnets Subnet Group Names Secure Groups Configuration - Authentication Schemes Configuration - Identity Schemes Identity Schemes and Cryptotypes Files   Introduction This distribution includes support for the Autokey public key algorithms and protocol specified in RFC-5906 &ldquo;Network Time Protocol Version 4: Autokey Specification&rdquo;. This support is available only if the OpenSSL library has been installed and the --enable-autokey option is specified when the distribution is built." />
+<meta property="og:description" content="NTPv4 supports the Autokey algorithms and protocol specified in RFC 5906. Autokey is designed to authenticate NTP servers to NTP clients using message digest algorithms and optional cryptographic challenge/response exchanges known as identity schemes." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/autokey/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/autokey/" /><meta property="og:image" content="https://test.doc.ntp.org/documentation/pic/flt9.gif" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-22T20:36:01&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -25,7 +25,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="NTPv4 supports the Autokey algorithms and protocol specified in RFC 5906. Autokey is designed to authenticate NTP servers to NTP clients using message digest algorithms and optional cryptographic challenge/response exchanges known as identity schemes.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -113,7 +113,7 @@
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Autokey Public-Key Authentication</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 22, 2022 20:36 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/bc7092678a3185c744e38996558e9e30f99f2677">bc7092678</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://test.doc.ntp.org/documentation/4.2.8-series/autokey/#introduction">Introduction</a></li>
@@ -127,7 +127,7 @@
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>This distribution includes support for the Autokey public key algorithms and protocol specified in <a href="https://test.doc.ntp.org/reflib/rfc/rfc5906.txt">RFC-5906 &ldquo;Network Time Protocol Version 4: Autokey Specification&rdquo;</a>. This support is available only if the OpenSSL library has been installed and the <code>--enable-autokey</code> option is specified when the distribution is built.</p>
+<p>This distribution includes support for the Autokey public key algorithms and protocol specified in <a href="https://test.doc.ntp.org/reflib/rfc/rfc5906.txt">RFC 5906 &ldquo;Network Time Protocol Version 4: Autokey Specification&rdquo;</a>. This support is available only if the OpenSSL library has been installed and the <code>--enable-autokey</code> option is specified when the distribution is built.</p>
 <p>Public key cryptography is generally considered more secure than symmetric key cryptography. Symmetric key cryptography is based on a shared secret key which must be distributed by secure means to all participants. Public key cryptography is based on a private secret key known only to the originator and a public key known to all participants. A recipient can verify the originator has the correct private key using the public key and any of several digital signature algorithms.</p>
 <p>The Autokey Version 2 protocol described on the <a href="https://test.doc.ntp.org/reflib/proto/">Autokey Protocol</a> page verifies packet integrity using message digest algorithms, such as MD5 or SHA, and verifies the source using digital signature schemes, such as RSA or DSA. As used in Autokey, message digests are exceptionally difficult to cryptanalyze, as the keys are used only once.</p>
 <p>Optional identity schemes described on the <a href="https://test.doc.ntp.org/reflib/ident/">Autokey Identity Schemes</a> page are based on cryptographic challenge/response exchanges. Optional identity schemes provide strong security against masquerade and most forms of clogging attacks. These schemes are exceptionally difficult to cryptanalyze, as the challenge/response exchange data are used only once. They are described along with an executive summary, current status, briefing slides and reading list on the <a href="https://test.doc.ntp.org/reflib/autokey/">Autonomous Authentication</a> page.</p>

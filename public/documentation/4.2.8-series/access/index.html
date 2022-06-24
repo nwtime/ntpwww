@@ -4,13 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/documentation/4.2.8-series/access/" />
   
   <meta property="og:title" content="Access Control Support" />
-<meta property="og:description" content="from Pogo, Walt Kelly
-The skunk watches for intruders and sprays.
- The ntpd daemon implements a general purpose access control list (ACL) containing address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list. The list is searched in order with the last match found defining the restriction flags associated with the entry." />
+<meta property="og:description" content="ntpd implements a general purpose access control list specified as a list of restrict commands. While this facility can keep unwanted clients from congesting NTP servers, it is not an alternative to the NTP authentication facilities as source address-based restrictions are easily circumvented." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/access/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-14T20:43:22&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-22T20:36:01&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -27,7 +25,7 @@ The skunk watches for intruders and sprays.
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="ntpd implements a general purpose access control list specified as a list of restrict commands. While this facility can keep unwanted clients from congesting NTP servers, it is not an alternative to the NTP authentication facilities as source address-based restrictions are easily circumvented.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -115,7 +113,7 @@ The skunk watches for intruders and sprays.
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Access Control Support</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 14, 2022 20:43 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/46daccfc007ad1f158ea6bec99d47e646b2068a8">46daccfc0</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 22, 2022 20:36 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/bc7092678a3185c744e38996558e9e30f99f2677">bc7092678</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/pogo6.gif" alt="gif"  />
 </p><a href="https://test.doc.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>

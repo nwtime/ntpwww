@@ -4,11 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/documentation/4.2.8-series/leap/" />
   
   <meta property="og:title" content="Leap Second Processing" />
-<meta property="og:description" content="About every eighteen months the International Earth Rotation Service (IERS) issues a bulletin announcing the insertion of a leap second in the Universal Coordinated Time (UTC) timescale. Ordinarily, this happens at the end of the last day of June or December; but, in principle, it could happen at the end of any month. While these bulletins are available on the Internet at IERS, advance notice of leap seconds is also available in signals broadcast from national time and frequency stations, in GPS signals and in telephone modem services." />
+<meta property="og:description" content="About every eighteen months the International Earth Rotation Service announces the insertion of a leap second in the UTC timescale. Many, but not all, reference clocks recognize these signals and many, but not all, drivers can decode the signals and properly set the leap bits." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/leap/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-23T21:01:17&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -25,7 +25,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="About every eighteen months the International Earth Rotation Service announces the insertion of a leap second in the UTC timescale. Many, but not all, reference clocks recognize these signals and many, but not all, drivers can decode the signals and properly set the leap bits.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -113,7 +113,7 @@
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Leap Second Processing</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 23, 2022 21:01 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8a8ec7d01a73a8da9e3208d93d89e9db91be9903">8a8ec7d01</a>)</p>
 	<p>About every eighteen months the International Earth Rotation Service (IERS) issues a bulletin announcing the insertion of a leap second in the Universal Coordinated Time (UTC) timescale. Ordinarily, this happens at the end of the last day of June or December; but, in principle, it could happen at the end of any month. While these bulletins are available on the Internet at <a href="https://www.iers.org/IERS/EN/Home/home_node.html">IERS</a>, advance notice of leap seconds is also available in signals broadcast from national time and frequency stations, in GPS signals and in telephone modem services. Many, but not all, reference clocks recognize these signals and many, but not all, drivers for them can decode the signals and set the leap bits in the timecode accordingly. This means that many, but not all, primary servers can pass on these bits in the NTP packet heard to dependent secondary servers and clients. Secondary servers can pass these bits to their dependents and so on throughout the NTP subnet.</p>
 <p>A leap second is inserted following second 59 of the last minute of the day and becomes second 60 of that day. A leap second is deleted by omitting second 59 of the last minute of the day, although this has never happened and is highly unlikely to happen in future. So far as is known, there are no provisions in the Unix or Windows libraries to account for this occasion other than to affect the conversion of an NTP datestamp or timestamp to conventional civil time.</p>
 <p>When an update is received from a reference clock or downstratum server, the leap bits are inspected for all survivors of the cluster algorithm. If the number of survivors showing a leap bit is greater than half the total number of survivors, a pending leap condition exists until the end of the current month.</p>

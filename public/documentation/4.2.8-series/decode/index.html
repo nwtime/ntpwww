@@ -4,13 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/documentation/4.2.8-series/decode/" />
   
   <meta property="og:title" content="Event Messages and Status Words" />
-<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
-Caterpillar knows all the error codes, which is more than most of us do.
- Table of Contents  Introduction System Status Word Peer Status Word Clock Status Word Flash Status Word Kiss Codes Crypto Messages   Introduction This page lists the status words, event messages and error codes used for ntpd reporting and monitoring. Status words are used to display the current status of the running program." />
+<meta property="og:description" content="This page lists the status words, event messages, and error codes used for ntpd reporting and monitoring. Status words are used to display the current status of the running program. " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.8-series/decode/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-04-15T18:16:43&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-23T21:01:17&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -27,7 +25,7 @@ Caterpillar knows all the error codes, which is more than most of us do.
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="This page lists the status words, event messages, and error codes used for ntpd reporting and monitoring. Status words are used to display the current status of the running program. ">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -115,7 +113,7 @@ Caterpillar knows all the error codes, which is more than most of us do.
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Event Messages and Status Words</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbecbb609ce02f119e8b552a850931148f19e711">dbecbb609</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 23, 2022 21:01 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8a8ec7d01a73a8da9e3208d93d89e9db91be9903">8a8ec7d01</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/alice47.gif" alt="gif"  />
 </p> <a href="https://test.doc.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
@@ -133,7 +131,7 @@ Caterpillar knows all the error codes, which is more than most of us do.
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>This page lists the status words, event messages and error codes used for <code>ntpd</code> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the <a href="https://test.doc.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> program.</p>
+<p>This page lists the status words, event messages, and error codes used for <code>ntpd</code> reporting and monitoring. Status words are used to display the current status of the running program. There is one system status word and a peer status word for each association. There is a clock status word for each association that supports a reference clock. There is a flash code for each association which shows errors found in the last packet received (pkt) and during protocol processing (peer). These are commonly viewed using the <a href="https://test.doc.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> program.</p>
 <p>Significant changes in program state are reported as events. There is one set of system events and a set of peer events for each association. In addition, there is a set of clock events for each association that supports a reference clock. Events are normally reported to the <code>protostats</code> monitoring file and optionally to the system log. In addition, if the trap facility is configured, events can be reported to a remote program that can page an administrator.</p>
 <p>This page also includes a description of the error messages produced by the Autokey protocol. These messages are normally sent to the <code>cryptostats</code> monitoring file.</p>
 <p>In the following tables the Code is the status or event code assigned and the Message is a short string used for display and event reporting. The Description contains a longer explanation of the status or event. Some messages include additional information useful for error diagnosis and performance assessment.</p>
