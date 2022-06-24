@@ -1,5 +1,6 @@
 ---
 title: "ntpd System Log Messages"
+description: "A listing of common error messages and their meanings."
 type: archives
 ---
 

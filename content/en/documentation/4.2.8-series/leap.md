@@ -1,5 +1,6 @@
 ---
 title: "Leap Second Processing"
+description: "About every eighteen months the International Earth Rotation Service announces the insertion of a leap second in the UTC timescale. Many, but not all, reference clocks recognize these signals and many, but not all, drivers can decode the signals and properly set the leap bits."
 type: archives
 ---
 

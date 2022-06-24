@@ -4,9 +4,7 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/documentation/4.2.8-series/access/" />
   
   <meta property="og:title" content="Access Control Support" />
-<meta property="og:description" content="from Pogo, Walt Kelly
-The skunk watches for intruders and sprays.
- The ntpd daemon implements a general purpose access control list (ACL) containing address/match entries sorted first by increasing address values and then by increasing mask values. A match occurs when the bitwise AND of the mask and the packet source address is equal to the bitwise AND of the mask and address in the list. The list is searched in order with the last match found defining the restriction flags associated with the entry." />
+<meta property="og:description" content="ntpd implements a general purpose access control list specified as a list of restrict commands. While this facility can keep unwanted clients from congesting NTP servers, it is not an alternative to the NTP authentication facilities as source address-based restrictions are easily circumvented." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/documentation/4.2.8-series/access/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
@@ -17,13 +15,10 @@ The skunk watches for intruders and sprays.
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>
-var doNotTrack = true;
-if (!doNotTrack) {
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
-}
 </script>
 
 
@@ -55,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="ntpd implements a general purpose access control list specified as a list of restrict commands. While this facility can keep unwanted clients from congesting NTP servers, it is not an alternative to the NTP authentication facilities as source address-based restrictions are easily circumvented.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 

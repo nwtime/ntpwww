@@ -1,5 +1,6 @@
 ---
 title: "The Huff-n'-Puff Filter"
+description: "In scenarios where data is downloaded or uploaded using DSL or telephone modem lines, timekeeping quality can be seriously degraded. In many cases the apparent time errors are so large as to exceed the step threshold and a step correction can occur during and after the data transfer. The huff-n'-puff filter is designed to correct this apparent time offset."
 type: archives
 ---
 

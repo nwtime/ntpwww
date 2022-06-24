@@ -1,5 +1,6 @@
 ---
 title: "NTP Bug Reporting Procedures"
+description: "Instructions for reporting a security-related bug to the NTP security officer and reporting a non-security bug to the NTP bug tracker."
 type: archives
 ---
 
@@ -11,7 +12,7 @@ The rabbit toots to make sure you read this.
 
 #### Security Bug Reporting Procedures
 
-If you find or suspect a security related program bug in this distribution, please send a report to [security@ntp.org](mailto:security@ntp.org). Please do not contact developers directly.
+If you find or suspect a security-related program bug in this distribution, please send a report to [security@ntp.org](mailto:security@ntp.org). Please do not contact developers directly.
 
 * * *
 

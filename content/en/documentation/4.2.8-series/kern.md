@@ -1,5 +1,6 @@
 ---
 title: "Kernel Model for Precision Timekeeping"
+description: "The technical report describes an engineering model for a precision clock discipline function for a generic operating system. The model is the same hybrid phase/frequecy-lock feedback loop used by ntpd, but implemented in the kernel. "
 type: archives
 ---
 

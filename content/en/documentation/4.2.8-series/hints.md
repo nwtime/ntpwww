@@ -1,5 +1,6 @@
 ---
 title: "Hints and Kinks"
+description: "This is a historical index for a set of troubleshooting notes for older hardware and operating systems."
 type: archives
 ---
 

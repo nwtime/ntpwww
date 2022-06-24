@@ -4,7 +4,7 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/documentation/4.2.8-series/extern/" />
   
   <meta property="og:title" content="External Clock Discipline and the Local Clock Driver" />
-<meta property="og:description" content="The NTPv4 implementation includes provisions for an external clock, where the system clock is implemented by some external hardware device. One implementation might take the form of a bus peripheral with a high resolution counter disciplined by a GPS receiver, for example. Another implementation might involve another synchronization protocol, such as the Digital Time Synchronization Service (DTSS), where the system time is disciplined to this protocol and NTP clients of the server obtain synchronization indirectly via the server." />
+<meta property="og:description" content="NTPv4 includes provisions for implementing the system clock using an external hardware device. When external clocks are used, the external clock driver and NTP daemon need to communicate and determine which discipline is in control." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://doc.ntp.org/documentation/4.2.8-series/extern/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
 
@@ -15,13 +15,10 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>
-var doNotTrack = true;
-if (!doNotTrack) {
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
-}
 </script>
 
 
@@ -53,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="NTPv4 includes provisions for implementing the system clock using an external hardware device. When external clocks are used, the external clock driver and NTP daemon need to communicate and determine which discipline is in control.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
