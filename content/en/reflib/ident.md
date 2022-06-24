@@ -1,7 +1,7 @@
 ---
 title: "Autokey Identity Schemes"
+description: "Five identity schemes are implemented in Autokey to prove identity: trusted certificates (TC), private certificates (PC), a modified Schnorr algorithm (IFF), a modified Guillou-Quisquater algorithm (GQ), and a modified Mu-Varadharajan algorithm (MV)."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alautun4a.gif)

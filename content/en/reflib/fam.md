@@ -1,7 +1,7 @@
 ---
 title: "The Mills Pages"
+description: "Personal page of Prof. David L. Mills from his University of Delaware home page."
 type: archives
-toc_hide: true
 ---
 
 ![webp](/documentation/pic/family.webp)

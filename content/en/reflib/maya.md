@@ -1,12 +1,12 @@
 ---
 title: "The Classic Maya Calendar and Day Numbering System"
+description: "The Classic Maya civilization of southern Mexico, Guatemala, and Belize flourished in the fourth through tenth century CE. They were accomplished astronomers and crafted a fascinating calendar system. They used a base-20 number system which included the concept of zero."
 type: archives
-toc_hide: true
 ---
 
 ![kin](/documentation/pic/kin1.gif)
 
-[one of the Maya day-glyphs for _Kin_](/reflib/pictures/)
+[One of the Maya day-glyphs for _Kin_](/reflib/pictures/)
 
 * * *
 

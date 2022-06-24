@@ -1,7 +1,7 @@
 ---
 title: "Bibliography on Computer Network Time Synchronization"
+description: "The following citations have at least some relevance to the field of computer network time synchronization. Where multiple citations to the same work occur, only the latest should be used; earlier ones are included only for record."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alice47.gif)
@@ -19,7 +19,7 @@ It isn't clear whether the mushroom is a controlled substance or a food item.
 
 * * *
 
-The following citations have at least some relevance to the field of computer network time synchronization. Where multiple citations to the same work occur, only the latest should be used; earlier ones are included only for record. Those documents available online are indicated following the citation. Send additions or corrections to [Dave Mills](mailto:mills@udel.edu).
+The following citations have at least some relevance to the field of computer network time synchronization. Where multiple citations to the same work occur, only the latest should be used; earlier ones are included only for record. Those documents available online are indicated following the citation.
 
 * * *
 

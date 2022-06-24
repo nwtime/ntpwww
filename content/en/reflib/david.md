@@ -1,7 +1,8 @@
 ---
 title: "Personal Stuff"
+description: "Personal page of Prof. David L Mills from his University of Delaware home page."
+images: ["/documentation/pic/a002.webp"]
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/trail.gif)

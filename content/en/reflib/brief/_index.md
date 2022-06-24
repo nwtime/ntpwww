@@ -1,6 +1,7 @@
 
 ---
 title: "Briefs"
+description: "NTP technical briefs written by Prof. David L. Mills, PhD. from 1996 to 2010."
 type: archives
 ---
 

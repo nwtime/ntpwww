@@ -1,7 +1,7 @@
 ---
 title: "Executive Summary: Computer Network Time Synchronization"
+description: "The Network Time Protocol (NTP) is used to synchronize the clocks of millions of systems on the public Internet and private networks. This document contains an overview and functional description of NTP and its design principles."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alice12.gif)

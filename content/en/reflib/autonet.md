@@ -1,7 +1,7 @@
 ---
 title: "Autonomous Networks"
+description: "NTP is widely used to synchronize computer clocks with well over 100,000 servers and clients scattered all over the globe. This paper describes a means to automatically configure and authenticate the hierarchy in response to changing network topology and available server and network resources."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/rabbit.gif)

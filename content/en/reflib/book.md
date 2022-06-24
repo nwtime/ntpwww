@@ -1,7 +1,7 @@
 ---
 title: "Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition"
+description: "This book, written by Prof. David L. Mills, speaks to the technological infrastructure of time dissemination, distribution and synchronization, specifically the architecture, protocols and algorithms of the Network Time Protocol (NTP). "
 type: archives
-toc_hide: true
 ---
 
 ![webp](/documentation/pic/10753_cover.webp)

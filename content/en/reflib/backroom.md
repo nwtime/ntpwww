@@ -1,7 +1,8 @@
 ---
 title: "Backroom Test Facility"
+description: "Historical notes on the backroom NTP test facility used by Prof. David L. Mills."
+images: ["/documentation/pic/w3hcf4.webp"]
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/beaver.gif)
