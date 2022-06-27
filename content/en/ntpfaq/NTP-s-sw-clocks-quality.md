@@ -1,5 +1,6 @@
 ---
 title: "3.3 Clock Quality"
+description: "This section of the NTP FAQ introduces the quality factors which are helpful when discussing clocks."
 type: "archives"
 --- 
 

@@ -1,5 +1,6 @@
 ---
 title: "9. Background and Related Information"
+description: "This section of the NTP FAQ presents some background information and other related stuff that one may find interesting or entertaining."
 type: "archives"
 ---
 

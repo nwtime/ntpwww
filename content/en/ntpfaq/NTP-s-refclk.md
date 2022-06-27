@@ -1,5 +1,6 @@
 ---
 title: "7. Reference Clocks"
+description: "The NTP software supports different kinds of reference clocks. This section of the NTP FAQ presents various reference clocks."
 type: "archives"
 ---
 

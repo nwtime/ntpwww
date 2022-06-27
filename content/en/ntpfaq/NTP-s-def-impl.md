@@ -1,5 +1,6 @@
 ---
 title: "4.3. Implementations and Platforms"
+description: "This section of the NTP FAQ discusses implementations of NTP for various platforms."
 type: "archives"
 --- 
 

@@ -1,5 +1,6 @@
 ---
 title: "6.2. Advanced Configuration"
+description: "This section of the NTP FAQ discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics."
 type: "archives"
 ---
 

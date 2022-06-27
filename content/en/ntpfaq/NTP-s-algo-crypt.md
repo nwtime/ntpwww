@@ -1,5 +1,6 @@
 ---
 title: "5.4. Encryption"
+description: "This section of the NTP FAQ discusses the use of encryption and related technology for NTP."
 type: "archives"
 ---
 

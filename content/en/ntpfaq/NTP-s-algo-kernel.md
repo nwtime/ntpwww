@@ -1,5 +1,6 @@
 ---
 title: "5.2. The Kernel Discipline"
+description: "In addition to the NTP protocol specification, there exists a description for a kernel clock model (RFC 1589) that is discussed in this section of the NTP FAQ."
 type: "archives"
 --- 
 
