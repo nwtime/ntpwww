@@ -1,7 +1,7 @@
 ---
 title: "Covered Bridge Farms"
+description: "Description of Covered Bridge Farms from Prof. David L. Mills' personal page at the University of Delaware."
 type: archives
-toc_hide: true
 ---
 
 Covered Bridge Farms is on older development about 2.4 km west of campus. It is nestled in a corner of the state next to Maryland and Pennsylvania where the state boundaries come together.

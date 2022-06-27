@@ -1,14 +1,14 @@
 ---
 title: "Anatomy of a Hollerith Card"
+description: "In 1896 Herman Hollerith organized the Tabulating Machines Company, which eventually became IBM. The Hollerith punched card was the principle means for recording, accounting, and archiving functions. In the early 1960s Hollerith cards were the only practical means to input programs for a IBM mainframe."
 type: archives
-toc_hide: true
 ---
  
 ![gif](/documentation/pic/ibmcarda.gif)  
 
 [A Hollerith Card](/documentation/pic/ibmcard.webp)  
 
-In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The Hollerith punched card was the principal means for recording, accounting and archiving functions, not to mention the US census, until recently. In the early 1960's Hollerith cards were the only practical means to input programs for a IBM mainframe, but today these cards are seldom seen.
+In 1896 Herman Hollerith organized the Tabulating Machines Company, which grew in subsequent mergers to become the IBM of today. The Hollerith punched card was the principle means for recording, accounting and archiving functions, not to mention the US census, until recently. In the early 1960's Hollerith cards were the only practical means to input programs for a IBM mainframe, but today these cards are seldom seen.
 
 Hollerith cards have 12 rows and 80 columns. Decimal digits are encoded in rows 0-9, one per column as shown above. Other characters are encoded using these rows plus rows 11-12 above row 0. Programmers prepared input using the IBM 407 Printing Calculator and IBM 026 Card Punch, which were entirely mechanical. The 026 produced copious amounts of rectangular chad which we used in place of rice at weddings.
 

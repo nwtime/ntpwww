@@ -1,7 +1,7 @@
 ---
 title: "Autonomous Configuration"
+description: "Brief description of a project to develop appropriate algorithms and protocols which facilitate automatic, quasi-optimal configuration of sensor applications in response to network damage and repair and without requiring external management intervention."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/rabbit.gif)

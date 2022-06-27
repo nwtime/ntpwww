@@ -1,7 +1,7 @@
 ---
 title: "Data Concentrator Project"
+description: "Technical overview of one of the projects designed by Prof. David L. Mills while he was at the University of Michigan during the late 1960s."
 type: archives
-toc_hide: true
 ---
 
 I was chief nerd for several projects in the fifteen years I was with U Michigan, first in electrical engineering and then in computer science. This is one of them.

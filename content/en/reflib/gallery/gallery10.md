@@ -1,7 +1,8 @@
 ---
 title: "The Fuzzball"
+description: "The Fuzzball is an operating system and package of applications for the DEC PDP11. The package was conceived in 1971 as a replacement for the RAMP operating system for the DEC PDP8. It later evolved as a virtual machine supporting the DEC RT-11 operating system and early developmental versions of TCP/IP. Prototype versions of Telnet, FTP, DNS, EGP, and SMTP were first implemented and tested on the Fuzzball."
+images: ["/documentation/pic/lsi11.webp"]
 type: archives
-toc_hide: true
 ---
 
 ![webp](/documentation/pic/lsi11.webp)

@@ -1,7 +1,7 @@
 ---
 title: "Evans Hall"
+description: "Description of Evans Hall, the home for the Electrical and Computer Engineering Department, from Prof. David L. Mills' personal page at the University of Delaware."
 type: archives
-toc_hide: true
 ---
 
 Evans Hall is home for the Electrical and Computer Engineering Department. Some folks are located in next-door DuPont Hall along with the cleanroom facilities.
