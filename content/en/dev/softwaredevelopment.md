@@ -1,5 +1,6 @@
 ---
 title: "NTP Software Development"
+description: "Developer instructions for using the NTP bug tracker, obtaining source code, building code, and using the BitKeeper client."
 type: archives
 date: 2019-02-12
 ---

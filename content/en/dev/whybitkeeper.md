@@ -1,5 +1,6 @@
 ---
 title: "Why BitKeeper?"
+description: " Over a period of 2 years’ time, all open source Source Code Management (SCM) Systems were explored and tested and several commercial solutions were examined as well. It became obvious that BitKeeper was, hands-down and very clearly, the best SCM available for NTP."
 type: archives
 ---
 

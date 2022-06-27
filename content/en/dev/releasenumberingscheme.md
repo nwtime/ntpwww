@@ -1,5 +1,6 @@
 ---
 title: "Release Numbering Scheme"
+description: "An explanation of the current release numbering scheme and the new release numbering scheme for the upcoming 4.3.x releases."
 type: archives
 ---
 
