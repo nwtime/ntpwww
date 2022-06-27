@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3072: Attack on interface selection"
+description: "If ntpd is running on a host with multiple interfaces in separate networks and the operating system doesn’t check the source address in received packets, an attacker can send a spoofed source address, causing ntpd to select the wrong interface for the source and preventing it from sending new requests until the list of interfaces is refreshed. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

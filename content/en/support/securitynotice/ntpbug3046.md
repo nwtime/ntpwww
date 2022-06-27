@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3046: CRYPTO_NAK crash"
+description: "This bug could cause ntpd to crash. This bug was resolved in NTP 4.2.8p8."
 type: archives
 date: "2016-06-02"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3376: Makefile does not enforce Security Flags"
+description: "The build process for NTP has not, by default, provided compile or link flags to offer hardened security options. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

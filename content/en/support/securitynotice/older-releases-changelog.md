@@ -1,5 +1,6 @@
 ---
 title: "Older Releases Changelog"
+description: "The changelogs for NTP versions 4.0.72 through 4.2.0."
 type: archives
 ---
 

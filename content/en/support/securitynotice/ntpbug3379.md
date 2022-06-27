@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3379: Potential Overflows in ctl_put() functions"
+description: "If somebody explicitly created any unusually long variable names in ntpd and if any of the affected variables are added to the response list it would overflow a buffer. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

@@ -1,5 +1,6 @@
 ---
-title: "NTP BUG 3384: Privileged execution of User Library code (WINDOWS PPSAPI ONLY) "
+title: "NTP BUG 3384: Privileged execution of User Library code (WINDOWS PPSAPI ONLY)"
+description: "Depending on how securely the Windows NT system is setup and configured, if ntpd is configured to use the PPSAPI under Windows this can easily lead to a code injection. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

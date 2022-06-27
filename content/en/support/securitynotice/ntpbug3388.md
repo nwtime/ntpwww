@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3388: Buffer Overflow in DPTS Clock"
+description: "There is a potential for a buffer overflow in the legacy Datum Programmable Time Server refclock driver. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3454: Unauthenticated packet can reset authenticated interleaved association"
+description: "This bug allows a non-authenticated zero-origin (reset) packet to reset an authenticated interleaved peer association. This bug was resolved in 4.2.8p11."
 type: archives
 date: "2018-02-27"
 ---

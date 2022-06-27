@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3505: NTPQ/NTPDC: Buffer Overflow in openhost()"
+description: "The openhost() function used by ntpq and ntpdc is vulnerable to a buffer overflow. This bug was resolved in NTP 4.2.8p12."
 type: archives
 date: "2018-08-14"
 ---

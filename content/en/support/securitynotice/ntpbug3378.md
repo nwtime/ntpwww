@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3378: Improper use of snprintf() in mx4200_send()"
+description: "The legacy MX4200 refclock driver uses the libc function snprintf() / vsnprintf() incorrectly, which can lead to an out-of-bounds memory write due to an improper handling of the return value of snprintf() / vsnprintf(). This bug was fixed in NTP 4.2.8p10." 
 type: archives
 date: "2017-03-21"
 ---

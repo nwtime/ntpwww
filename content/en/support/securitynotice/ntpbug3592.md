@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3592: DoS Attack on Unauthenticated Client"
+description: "A system that is running NTP 4.2.8p12 or p13 that only has one unauthenticated time source can be attacked in a way that causes the victim’s next poll to its source to be delayed, for as long as the attack is maintained. This bug was resolved in NTP 4.2.8p14."
 type: archives
 date: "2020-03-03"
 ---

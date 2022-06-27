@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3114: Broadcast Mode Replay Prevention DoS"
+description: "The broadcast mode of NTP is expected to only be used in a trusted network. If the broadcast network is accessible to an attacker, a potentially exploitable denial of service vulnerability in ntpd’s broadcast mode replay prevention functionality can be abused. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

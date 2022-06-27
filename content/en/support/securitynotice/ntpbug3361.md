@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3361: 0rigin DoS"
+description: "An exploitable denial of service vulnerability exists in the origin timestamp check functionality where a specially crafted unauthenticated network packet can be used to reset the expected origin timestamp for target peers. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

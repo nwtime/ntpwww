@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3377: Buffer Overflow in ntpq when fetching reslist from a malicious ntpd"
+description: "A stack buffer overflow in ntpq can be triggered by a malicious ntpd server when ntpq requests the restriction list from the server due to a missing length check in the reslist() function. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

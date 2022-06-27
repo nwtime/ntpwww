@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3082: read_mru_list() does inadequate incoming packet checks"
+description: "If ntpd is configured to allow mrulist query requests from a server that sends a crafted malicious packet, ntpd will crash on receipt of that crafted malicious mrulist query packet. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

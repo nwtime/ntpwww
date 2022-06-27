@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3045: Bad authentication demobilizes ephemeral associations"
+description: "An attacker who knows the origin timestamp and can send a spoofed packet containing a CRYPTO-NAK to an ephemeral peer target before any other response is sent can demobilize that association. This bug was resolved in NTP 4.2.8p8."
 type: archives
 date: "2016-06-02"
 ---

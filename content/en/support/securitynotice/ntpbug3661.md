@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3661: Memory leak with CMAC keys"
+description: "Systems that use a CMAC algorithm in ntp.keys will not release a bit of memory on each packet that uses a CMAC keyid, eventually causing ntpd to run out of memory and fail. This bug was resolved in NTP 4.2.8p15."
 type: archives
 date: "2020-06-23"
 ---

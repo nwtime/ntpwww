@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3119: Mode 6 unauthenticated trap information disclosure and DDoS vector"
+description: "ntpd does not enable trap service by default. If trap service has been explicitly enabled, an attacker can send a specially crafted packet to cause a null pointer dereference that will crash ntpd, resulting in a denial of service. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

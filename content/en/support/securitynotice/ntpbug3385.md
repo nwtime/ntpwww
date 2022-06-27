@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3385: ereallocarray() / eallocarray() underused"
+description: "Although no considerable threat was identified as tied to a lack of use of this function, it is recommended to correctly apply oreallocarray() as a preferred option across all of the locations where it is possible. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

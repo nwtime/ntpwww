@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3380: Off-by-one in Oncore GPS Receiver"
+description: "There is a fencepost error in a recovery branch of the code for the Oncore GPS receiver if the communication link to the ONCORE is weak or distorted and the decoding doesn’t work. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---
