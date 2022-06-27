@@ -1,5 +1,6 @@
 ---
 title: "Trak 8820 GPS Receiver"
+description: "The Trak 8820 GPS Receiver driver supports the Trak 8820 GPS Station Clock."
 type: archives
 ---
 

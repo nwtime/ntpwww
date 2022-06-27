@@ -1,6 +1,8 @@
 
 ---
 title: "Trimble Palisade and Thunderbolt Receivers"
+description: "The Trimble Palisade and Thunderbolt Receivers driver supports Trimble Navigation’s Palisade Smart Antenna GPS receiver."
+images: ["/documentation/pic/thunderbolt.jpg"]
 type: archives
 ---
 

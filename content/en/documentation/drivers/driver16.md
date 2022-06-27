@@ -1,5 +1,6 @@
 ---
 title: "Bancomm bc635VME Time and Frequency Processor"
+description: "The Bancomm bc635VME Time and Frequency Processor driver for the Bancomm bc635VME Time and Frequency Processor. It requires the BANCOMM bc635VME bc350VXI Time and Frequency Processor Module Driver for SunOS 4.x/SunOS 5.x UNIX Systems."
 type: archives
 ---
 

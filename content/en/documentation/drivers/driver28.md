@@ -1,5 +1,6 @@
 ---
 title: "Shared Memory Driver"
+description: "The Shared Memory Driver receives its reference clock info from a shared memory segment."
 type: archives
 ---
 

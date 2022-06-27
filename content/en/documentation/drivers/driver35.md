@@ -1,5 +1,6 @@
 ---
 title: "Conrad parallel port radio clock"
+description: "The Conrad parallel port radio clock driver supports the parallel port radio clock sold by Conrad Electronic under order numbers 967602 and 642002. It receives the legal German time from the DCF77 transmitter located near Frankfurt/Main and uses it to set its internal quartz clock."
 type: archives
 ---
 

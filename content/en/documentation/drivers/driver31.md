@@ -1,5 +1,6 @@
 ---
 title: "Rockwell Jupiter GPS Receiver"
+description: "The Rockwell Jupiter GPS Receiver driver supports models of the Rockwell Jupiter GPS receivers that support the Zodiac Binary Protocol."
 type: archives
 ---
 

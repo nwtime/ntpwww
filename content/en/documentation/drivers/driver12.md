@@ -1,9 +1,10 @@
 ---
 title: "KSI/Odetics TPRO/S IRIG Interface"
+description: "The KSI/Odetics TPRO/S IRIG Interface driver supports the KSI/Odetics TPRO and TPRO-SAT IRIG-B Decoder, which is a module connected directly to the SBus of a Sun workstation."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

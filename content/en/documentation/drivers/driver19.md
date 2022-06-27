@@ -1,9 +1,10 @@
 ---
 title: "Heath WWV/WWVH Receiver"
+description: "The Heath WWV/WWVH Receiver driver supports the Heath GC-1000 Most Accurate Clock, with RS232C Output Accessory."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

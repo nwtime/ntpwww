@@ -1,9 +1,10 @@
 ---
 title: "Radio WWV/H Audio Demodulator/Decoder"
+description: "The Radio WWV/H Audio Demodulator/Decoder driver synchronizes the computer time using shortwave radio transmissions from NIST time/frequency stations WWV in Ft. Collins, CO, and WWVH in Kauai, HI."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

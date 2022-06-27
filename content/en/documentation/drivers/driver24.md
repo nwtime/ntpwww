@@ -1,5 +1,6 @@
 ---
 title: "USNO Modem Time Service"
+description: "Overview of the USNO Modem Time Service reference clock driver."
 type: archives
 ---
 

@@ -1,9 +1,10 @@
 ---
 title: "Undisciplined Local Clock"
+description: "The Undisciplined Local Clock driver is intended for use in an isolated network where no external source of synchronization such as a radio clock or modem is available. It allows a designated time server to act as a primary server to provide synchronization to other clients on the network."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

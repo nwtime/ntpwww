@@ -1,5 +1,6 @@
 ---
 title: "hopf GPS/DCF77 6021/komp for Serial Line"
+description: "The hopf GPS/DCF77 6021/komp for Serial Line driver supports hopf electronic receivers with serial Interface kompatibel 6021."
 type: archives
 ---
 

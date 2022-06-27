@@ -1,5 +1,6 @@
 ---
 title: "Zyfer GPStarplus Receiver"
+description: "The Zyfer GPStarplus Receiver reference clock driver supports the Zyfer GPStarplus receiver."
 type: archives
 ---
 

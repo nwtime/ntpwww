@@ -1,5 +1,6 @@
 ---
 title: "RIPE NCC interface for Trimble Palisade"
+description: "The RIPE NCC interface for Trimble Palisade driver was developed to be used in conjunction with the RIPE NCC clock card in the RIPE NCC Test Traffic Measurements project."
 type: archives
 ---
 

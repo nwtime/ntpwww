@@ -1,5 +1,6 @@
 ---
 title: "Generic NMEA GPS Receiver"
+description: "The Generic NMEA GPS Receiver driver supports GPS receivers with the $GPRMC, $GPGLL, $GPGGA, $GPZDA and $GPZDG NMEA sentences."
 type: archives
 ---
 

@@ -1,9 +1,10 @@
 ---
 title: "Austron 2200A/2201A GPS Receivers"
+description: "The Austron 2200A/2201A GPS Receivers driver supports the Austron 2200A/2201A GPS/LORAN Synchronized Clock and Timing Receiver connected via a serial port. It requires the RS232 Buffered Serial Interface module for communication with the driver."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

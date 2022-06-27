@@ -1,5 +1,6 @@
 ---
 title: "Chrono-log K-series WWVB receiver"
+description: "The Chrono-log K-series WWVB receiver driver supports the Chrono-log K-series WWVB receiver. This is a very old receiver without provisions for leap seconds or quality codes."
 type: archives
 ---
 
