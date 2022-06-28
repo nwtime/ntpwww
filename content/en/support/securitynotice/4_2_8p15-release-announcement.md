@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p15 Release Announcement"
+description: "The NTP Project at Network Time Foundation publicly released NTP 4.2.8p15 on June 23, 2020. This release fixes one security issue in ntpd and provides 13 bugfixes."
 type: archives
 date: "2020-06-23"
 ---

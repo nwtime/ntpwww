@@ -1,5 +1,6 @@
 ---
 title: "4.2.6 Release Announcement"
+description: "NTP 4.2.6 was released on December 9, 2009. This release resolved 1 vulnerability."
 type: archives
 date: "2009-12-09"
 ---
@@ -25,11 +26,3 @@ each other error responses, for as long as those packets get through.
 consuming CPU and logging excessively.
 
 Credit for finding this vulnerability goes to Robin Park and Dmitri Vinokurov of Alcatel-Lucent.
-
-> THIS IS A STRONGLY RECOMMENDED UPGRADE.
-
-* * *
-
-Please [report](https://bugs.ntp.org/) any bugs, issues, or desired enhancements.
-
-The NTP (Network Time Protocol) Public Services Project, which is hosted by [Internet Systems Consortium, Inc.](https://www.isc.org/), provides support and additional development resources for the Reference Implementation of NTP produced by the NTP Project.

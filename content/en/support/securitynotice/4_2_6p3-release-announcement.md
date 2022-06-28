@@ -1,5 +1,6 @@
 ---
 title: "4.2.6p3 Release Announcement"
+description: "The release announcement for NTP 4.2.6p3, which was released on January 3, 2011."
 type: archives
 date: "2011-01-03"
 ---
@@ -99,9 +100,3 @@ New features / changes in this release:
 * Logging cleanup.
 * Use `tv_usec` correctly in `set_time()`.
 * Documentation cleanup.
-
-* * *
-
-Please [report](https://bugs.ntp.org/) any bugs, issues, or desired enhancements.
-
-The NTP (Network Time Protocol) Public Services Project, which is hosted by [Internet Systems Consortium, Inc.](https://www.isc.org/), provides support and additional development resources for the Reference Implementation of NTP produced by the NTP Project.

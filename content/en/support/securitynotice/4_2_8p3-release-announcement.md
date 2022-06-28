@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p3 Release Announcement"
+description: "The NTP Project at Network Time Foundation released NTP 4.2.8p3 on June 29, 2015. This release addresses a minor vulnerability in the processing of a crafted remote-configuration packet."
 type: archives
 date: "2015-06-29"
 ---

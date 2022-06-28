@@ -1,5 +1,6 @@
 ---
 title: "Vendor Links"
+description: "A listing of vendors selling NTP servers and timing products. Contact the NTP webmaster to add or edit a vendor description."
 type: archives
 ---
 

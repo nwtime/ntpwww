@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p14 Release Announcement"
+description: "The NTP Project at Network Time Foundation publicly released NTP 4.2.8p14 on March 3, 2020. This release fixes three security issues in ntpd and provides 46 bugfixes and addresses 4 other issues."
 type: archives
 date: "2020-03-03"
 ---
