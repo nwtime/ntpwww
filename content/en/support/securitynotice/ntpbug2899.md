@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2899: Incomplete autokey data packet length checks"
+description: "A packet with particular autokey operations that contained malicious data was not always completely validated. Receipt of these packets can crash ntpd. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

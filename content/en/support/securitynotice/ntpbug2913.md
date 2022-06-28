@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2913: mode 7 loop counter underrun"
+description: "If ntpd is configured to enable mode 7 packets without using any available mode 7 authentication and restriction mechanisms, and the source IP address is allowed to send mode 7 queries, then an attacker can send a crafted packet to crash ntpd. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2781: Authentication doesn't protect symmetric associations against DoS attacks"
+description: "NTP authentication is supposed to protect symmetric associations against this type of attack, but that doesn’t seem to be the case. The state variables are updated even when authentication fails and the peers are sending packets with originate timestamps that don’t match the transmit timestamps on the receiving side. This bug was resolved in NTP 4.2.8p2."
 type: archives
 date: "2015-04-07"
 ---

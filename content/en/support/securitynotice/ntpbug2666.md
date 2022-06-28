@@ -1,5 +1,6 @@
 ---
-title: "NTP BUG 2666: non-cryptographic random number generator with weak seed used by ntp-keygen to generate symmetric keys"
+title: "NTP BUG 2666: random number generator with weak seed used to generate keys"
+description: "ntp-keygen used a weak seed to prepare a random number generator that was of good quality in the 1990s. The random number was used to generate symmetric keys. This bug was resolved in NTP 4.2.7p230."
 type: archives
 date: "2011-11-01"
 ---

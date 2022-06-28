@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2779: ntpd accepts unauthenticated packets with symmetric key crypto"
+description: "Packets without a MAC are accepted as if they had a valid MAC. This allows a MITM attacker to send false packets that are accepted by the client/peer without having to know the symmetric key. This bug was resolved in NTP 4.2.8p2."
 type: archives
 date: "2015-04-07"
 ---

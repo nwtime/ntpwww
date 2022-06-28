@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2920: Invalid length data provided by a custom refclock driver could cause a buffer overflow"
+description: "If you are running a custom refclock driver and that driver incorrectly supplies a negative value for datalen, ntpd will overflow a data buffer. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

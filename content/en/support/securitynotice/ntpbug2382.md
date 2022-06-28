@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2382: Peer precision < -31 gives division by zero"
+description: "If MINPOLL is set to 3 then it’s possible to crash some versions of ntpd. This bug was resolved in NTP 4.2.8."
 type: archives
 date: "2015-10-23"
 sitemap_exclude: true

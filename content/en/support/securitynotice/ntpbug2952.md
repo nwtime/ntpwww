@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2952: Original fix for NTP Bug 2901 broke peer associations"
+description: "The fix for NTP Bug 2901 in 4.2.8p4 went too far, breaking peer associations. This bug was fixed in 4.2.8p7."
 type: archives
 date: "2016-04-27"
 ---

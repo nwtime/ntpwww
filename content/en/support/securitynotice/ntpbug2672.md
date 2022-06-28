@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2672: ::1 can be spoofed on some OSes, so ACLs based on IPv6 ::1 addresses can be bypassed"
+description: "Some kernels do not prevent ::1 source addresses from appearing on non-localhost IPv6 interfaces. Since NTP’s access control is based on source address and localhost addresses generally have no restrictions, an attacker can send malicious control and configuration packets by spoofing ::1 addresses from the outside. This bug was resolved in NTP 4.2.8p1."
 type: archives
 date: "2015-02-04"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2670: receive(): missing return on error"
+description: "Code in ntp_proto.c:receive() is missing a return; in the code path where an error was detected, which meant processing did not stop when a specific rare error occurred. This bug was resolved in NTP 4.2.8."
 type: archives
 date: "2014-12-18"
 ---

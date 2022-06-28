@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2938: ntpq saveconfig command allows dangerous characters in filenames"
+description: "The ntpq saveconfig command does not do adequate filtering of special characters from the supplied filename. This bug was resolved in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

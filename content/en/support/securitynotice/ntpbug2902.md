@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2902: Configuration directives to change pidfile and driftfile should only be allowed locally"
+description: "If ntpd is configured to allow remote configuration, and the source IP address is allowed to send remote configuration requests, and the attacker knows the remote configuration password, it’s possible to use the pidfile or driftfile directives to overwrite other files. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

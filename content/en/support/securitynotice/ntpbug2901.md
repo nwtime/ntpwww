@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2901: Clients that receive a KoD should validate the origin timestamp field"
+description: "An ntpd client that honors Kiss-of-Death responses will honor KoD messages that have been forged by an attacker, causing it to delay or stop querying its servers for time updates. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

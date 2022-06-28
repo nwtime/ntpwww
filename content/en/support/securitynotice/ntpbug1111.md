@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 1111: Multiple OpenSSL signature verification API misuse"
+description: "Affected versions do not properly check the return value from the OpenSSL EVP_VerifyFinal function, which allows remote attackers to bypass validation of the certificate chain via a malformed SSL/TLS signature. This bug was resolved in NTP 4.2.4p6."
 type: archives
 date: "2009-01-08"
 ---

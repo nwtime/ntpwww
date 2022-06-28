@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3008: ctl_getitem() return value not always checked"
+description: "If one has permission to store data values larger than the buffer size used by ctl_getitem() and one stores a value that is too large, then ntpd will abort if an attempt is made to read that oversized value. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

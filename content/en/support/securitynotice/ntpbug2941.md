@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2941: NAK to the Future: Symmetric association authentication bypass via crypto-NAK"
+description: "Crypto-NAK packets can be used to cause ntpd to accept time from unauthenticated ephemeral symmetric peers by bypassing the authentication required to mobilize peer associations. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

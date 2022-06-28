@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2668: Buffer overflow in ctl_putdata()"
+description: "A remote attacker can send a carefully crafted packet that can overflow a stack buffer and potentially allow malicious code to be executed with the privilege level of the ntpd process. This bug was resolved in NTP 4.2.8."
 type: archives
 date: "2014-12-18"
 ---

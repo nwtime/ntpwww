@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2947: ntpq protocol vulnerable to replay attacks"
+description: "The sequence number included under the signature fails to prevent replay attacks. Commands that don’t require authentication can be used to move the sequence number forward and NTP doesn’t care what sequence number is used so a packet can be replayed at any time. This bug was resolved in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

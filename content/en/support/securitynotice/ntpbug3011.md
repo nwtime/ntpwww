@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3011: Duplicate IPs on unconfig directives will cause an assertion botch in ntpd"
+description: "If ntpd was configured to allow for remote configuration, a malicious user who knows the controlkey for ntpq or the requestkey for ntpdc can create a session with ntpd and if an existing association is unconfigured using the same IP twice on the unconfig directive line, ntpd will abort. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016Y-04-26"
 ---

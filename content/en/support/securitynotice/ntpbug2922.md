@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2922: decodenetnum() will ASSERT botch instead of returning FAIL on some bogus values"
+description: "If ntpd is fed a crafted mode 6 or mode 7 packet containing an unusually long data value where a network address is expected, the decodenetnum() function will abort with an assertion failure instead of simply returning a failure condition. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

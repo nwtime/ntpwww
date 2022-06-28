@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 1593: ntpd abort in free() with logconfig syntax error"
+description: "If ntpd is not built with OpenSSL cryptography and ntpd is told to configure cryptography statistics, ntpd will crash. This bug was resolved in NTP 4.2.8."
 type: archives
 date: "2015-10-23"
 sitemap_exclude: true

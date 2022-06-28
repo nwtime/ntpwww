@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3012: Sybil vulnerability: ephemeral association attack"
+description: "If a system is set up to use a trustedkey without the optional 4th field in the ntp.keys file to specify which IPs can serve time, a malicious authenticated peer that knows the private symmetric key can create arbitrarily-many ephemeral associations in order to win the clock selection of ntpd and modify a victim’s clock. The resolution for this bug was improved in NTP 4.2.8p11."
 type: archives
 date: "2016-04-26"
 ---

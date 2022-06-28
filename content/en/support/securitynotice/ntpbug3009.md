@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3009: Crafted addpeer with hmode > 7 causes array wraparound with MATCH_ASSOC"
+description: "Using a crafted packet to create a peer association with hmode > 7 causes the MATCH_ASSOC() lookup to make an out-of-bounds reference. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

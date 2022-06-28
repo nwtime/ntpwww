@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3007: CRYPTO-NAK DoS"
+description: "An off-path attacker can cause a preemptable client association to be demobilized by sending a crypto NAK packet to a victim client with a spoofed source address of an existing associated peer. This is true even if authentication is enabled. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

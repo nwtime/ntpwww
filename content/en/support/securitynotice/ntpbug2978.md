@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2978: Interleave-pivot"
+description: "It is possible to change the time of an ntpd client or deny service to an ntpd client by forcing it to change from basic client/server mode to interleaved symmetric mode. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

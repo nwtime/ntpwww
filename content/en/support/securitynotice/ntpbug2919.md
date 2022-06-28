@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2919: ntpq atoascii() potential memory corruption"
+description: "If an attacker can figure out the precise moment that ntpq is listening for data and the port number it is listening on or if the attacker can provide a malicious instance ntpd that victims will connect to then an attacker can send a set of crafted mode 6 response packets that can cause ntpq to crash. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---
