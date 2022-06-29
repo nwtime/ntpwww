@@ -4,15 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/support/securitynotice/ntpbug2899/" />
   
   <meta property="og:title" content="NTP BUG 2899: Incomplete autokey data packet length checks" />
-<meta property="og:description" content="Summary Resolved4.2.8p421 Oct 2015ReferencesBug 2899CVE-2015-7691
-CVE-2015-7692
-CVE-2015-7702AffectsAll ntp-4 releases up to, but not including 4.2.8p4,
-and 4.3.0 up to, but not including 4.3.77.Resolved in 4.2.8p4.CVSS2 Score4.6AV:N/AC:H/Au:M/C:N/I:N/A:C		 Description Incorrect patch for 2671, in crypto_xmit(). Missing length checks for autokey with GQ identity scheme.
-The fix for CVE-2014-9750 was incomplete in that there were certain code paths where a packet with particular autokey operations that contained malicious data was not always being completely validated." />
+<meta property="og:description" content="A packet with particular autokey operations that contained malicious data was not always completely validated. Receipt of these packets can crash ntpd. This bug was resolved in NTP 4.2.8p4." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug2899/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="support" />
+<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug2899/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2015-10-21T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-04-01T15:20:15&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-28T20:06:51&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -29,7 +25,7 @@ The fix for CVE-2014-9750 was incomplete in that there were certain code paths w
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="A packet with particular autokey operations that contained malicious data was not always completely validated. Receipt of these packets can crash ntpd. This bug was resolved in NTP 4.2.8p4.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -117,7 +113,7 @@ The fix for CVE-2014-9750 was incomplete in that there were certain code paths w
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP BUG 2899: Incomplete autokey data packet length checks</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 1, 2022 15:20 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3e558b47f92604f1d38bc35e82e79a91a5c7253e">3e558b47f</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 28, 2022 20:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/57417e17ca850c794f486e3cd79e927c9a2607ba">57417e17c</a>)</p>
 	<hr>
 <h4 id="summary">Summary</h4>
 <table>

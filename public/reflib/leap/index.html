@@ -4,13 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/reflib/leap/" />
   
   <meta property="og:title" content="The NTP Timescale and Leap Seconds" />
-<meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
-The Mad Hatter and the March Hare are discussing whether the Teapot serial number should have two or four digits.
- Table of Contents  Abstract Introduction How UTC Reckons with Leap Seconds How NTP and POSIX Reckon with Leap Seconds How NTP and POSIX Number the Seconds How NTP Implements Leap Seconds Parting Shots Appendix A. Specimen NIST leap-seconds.list File   Abstract The timescale used by the Network Time Protocol (NTP) is based on coordinated univeral time (UTC), which itself is based on the Earth rotation about its axis." />
+<meta property="og:description" content="The timescale used by NTP is based on UTC, which is based on the earth&#39;s rotation about its axis. As this rotation is slowing gradually, a leap second is inserted in the timescale at approximately eighteen month intervals. This document describes the mechanics of insertion and how it affects the timescale shortly before, during, and after the leap second." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/reflib/leap/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/leap/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
 
-<meta property="article:modified_time" content="2022-04-15T19:06:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-24T20:19:23&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -27,7 +25,7 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="The timescale used by NTP is based on UTC, which is based on the earth&#39;s rotation about its axis. As this rotation is slowing gradually, a leap second is inserted in the timescale at approximately eighteen month intervals. This document describes the mechanics of insertion and how it affects the timescale shortly before, during, and after the leap second.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -105,7 +103,7 @@ The Mad Hatter and the March Hare are discussing whether the Teapot serial numbe
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>The NTP Timescale and Leap Seconds</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 19:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/38ca482188e0ded6612175018a97e6155387365e">38ca48218</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 24, 2022 20:19 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/fc65ae47b457eb7e2aba16200d475733495a226d">fc65ae47b</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/alice15.gif" alt="gif"  />
 </p></p>

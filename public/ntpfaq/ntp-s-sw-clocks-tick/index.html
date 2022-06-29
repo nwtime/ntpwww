@@ -4,13 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/" />
   
   <meta property="og:title" content="3.2 Making Time go on" />
-<meta property="og:description" content="The number of bits together with a definition of resolution and epoch are used to store time stamps. For a real clock, time must advance automatically.
-A defined resolution of nanoseconds is useless if the value is updated once per minute. If you are still not convinced, consider reading such a clock three times a minute, and compare the time you would get.
-So we want a frequent update of the time bits." />
+<meta property="og:description" content="This section of the NTP FAQ describes how timer interrupts are used to advance time in a clock." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-sw-clocks-tick/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2022-02-11T14:23:31&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -27,7 +25,7 @@ So we want a frequent update of the time bits." />
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="This section of the NTP FAQ describes how timer interrupts are used to advance time in a clock.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -105,7 +103,7 @@ So we want a frequent update of the time bits." />
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>3.2 Making Time go on</h1> 
-    <p style="font-size: small; color: grey;">Last update: February 11, 2022 14:23 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/850e124a4fc6c9e85e727b0d255b2cefcc067855">850e124a4</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
 	<p>The number of bits together with a definition of resolution and epoch are used to store time stamps. For a real clock, time must advance automatically.</p>
 <p>A defined resolution of nanoseconds is useless if the value is updated once per minute. If you are still not convinced, consider reading such a clock three times a minute, and compare the time you would get.</p>
 <p>So we want a frequent update of the time bits. In most cases such an update is done in an <em>interrupt service routine</em>, and the interrupt is triggered by a programmable timer chip. Unfortunately updating the clock bits compared to generating a timer interrupt is slow After all, most processors have other work to do as well. Popular values for the interrupt frequency are 18.2, 50, 60, and 100Hz. DEC Alpha machines typically use 1024Hz.</p>

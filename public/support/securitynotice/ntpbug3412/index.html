@@ -4,11 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/support/securitynotice/ntpbug3412/" />
   
   <meta property="og:title" content="NTP BUG 3412: ctl_getitem(): buffer read overrun leads to undefined behavior and information leak" />
-<meta property="og:description" content="Summary Resolved4.2.8p1127 Feb 2018ReferencesBug 3412CVE-2018-7182Affectsntp-4.2.8p6, up to but not including ntp-4.2.8p11.Resolved in 4.2.8p11.CVSS2 ScoreINFO 0.0 - MED 5.0AV:N/AC:L/Au:N/C:P/I:N/A:N 0.0 if C:N CVSS3 ScoreNONE 0.0 - MED 5.3CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N 0.0 if C:N		 Description ctl_getitem() is used by ntpd to process incoming mode 6 packets." />
+<meta property="og:description" content="A malicious mode 6 packet can be sent to an ntpd instance, and if the ntpd instance is from 4.2.8p6 thru 4.2.8p10, that will cause ctl_getitem() to read past the end of its buffer. This bug was resolved in NTP 4.2.8p11." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug3412/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="support" />
+<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug3412/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2018-02-27T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-02-15T15:25:41&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-27T20:45:29&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -25,7 +25,7 @@
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="A malicious mode 6 packet can be sent to an ntpd instance, and if the ntpd instance is from 4.2.8p6 thru 4.2.8p10, that will cause ctl_getitem() to read past the end of its buffer. This bug was resolved in NTP 4.2.8p11.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -113,7 +113,7 @@
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP BUG 3412: ctl_getitem(): buffer read overrun leads to undefined behavior and information leak</h1> 
-    <p style="font-size: small; color: grey;">Last update: February 15, 2022 15:25 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/b158e7036d994d06570e8bcaa5bbfe919b4bf452">b158e7036</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 27, 2022 20:45 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/51d68a4aa2e1e83353ea0d34c3d4604c4d95f1e2">51d68a4aa</a>)</p>
 	<hr>
 <h4 id="summary">Summary</h4>
 <table>

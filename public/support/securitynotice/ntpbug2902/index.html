@@ -4,12 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/support/securitynotice/ntpbug2902/" />
   
   <meta property="og:title" content="NTP BUG 2902: Configuration directives to change pidfile and driftfile should only be allowed locally" />
-<meta property="og:description" content="Summary Resolved4.2.8p421 Oct 2015ReferencesBug 2902CVE-2015-7703AffectsAll ntp-4 releases up to, but not including 4.2.8p4,
-and 4.3.0 up to, but not including 4.3.77.Resolved in 4.2.8p4CVSS2 Score6.2 worst caseAV:N/AC:H/Au:M/C:N/I:C/A:C		 Description If ntpd is configured to allow for remote configuration, and if the (possibly spoofed) source IP address is allowed to send remote configuration requests, and if the attacker knows the remote configuration password, it&rsquo;s possible for an attacker to use the pidfile or driftfile directives to potentially overwrite other files." />
+<meta property="og:description" content="If ntpd is configured to allow remote configuration, and the source IP address is allowed to send remote configuration requests, and the attacker knows the remote configuration password, it’s possible to use the pidfile or driftfile directives to overwrite other files. This bug was resolved in NTP 4.2.8p4." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug2902/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="support" />
+<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug2902/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2015-10-21T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-03-02T17:28:34&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-28T20:06:51&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -26,7 +25,7 @@ and 4.3.0 up to, but not including 4.3.77.Resolved in 4.2.8p4CVSS2 Score6.2
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="If ntpd is configured to allow remote configuration, and the source IP address is allowed to send remote configuration requests, and the attacker knows the remote configuration password, it’s possible to use the pidfile or driftfile directives to overwrite other files. This bug was resolved in NTP 4.2.8p4.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -114,7 +113,7 @@ and 4.3.0 up to, but not including 4.3.77.Resolved in 4.2.8p4CVSS2 Score6.2
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP BUG 2902: Configuration directives to change pidfile and driftfile should only be allowed locally</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 2, 2022 17:28 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/616623bea5416e7a0cbd7f264448e7c01ba1f5e4">616623bea</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 28, 2022 20:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/57417e17ca850c794f486e3cd79e927c9a2607ba">57417e17c</a>)</p>
 	<hr>
 <h4 id="summary">Summary</h4>
 <table>

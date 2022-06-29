@@ -7,7 +7,7 @@
 <meta property="og:description" content="Problems with DEC OSF/1 V2.0 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h include files.
 cowbird:/usr/include/sys# diff -c wait.h.orig wait.h*** wait.h.orig Tue Feb 22 02:41:38 1994--- wait.h Thu Aug 25 14:52:57 1994****************** 298,304 ****#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, id_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */--- 298,304 ----#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, pid_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */cowbird:/usr/include/sys# diff -c procset." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/decosf2/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/decosf2/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-15T18:58:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 

@@ -4,13 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/support/securitynotice/ntpbug1151/" />
   
   <meta property="og:title" content="NTP BUG 1151: Remote exploit if autokey is enabled" />
-<meta property="og:description" content="Summary ResolvedStable (4.2.4p7)
-Development (4.2.5p74)4 Mar 2009
-10 Sep 2007ReferencesBug 1151CVE-2009-1252AffectsAll releases from 4.0.99m/4.1.70 (2001-08-15) through 4.2.4 before 4.2.4p7 and 4.2.5 before 4.2.5p74.Resolved in 4.2.4p and 4.2.5p74.		 Description When Autokey Authentication is enabled (i.e. the ntp.conf file contains a crypto pw ... directive) a remote attacker can send a carefully crafted packet that can overflow a stack buffer and potentially allow malicious code to be executed with the privilege level of the ntpd process." />
+<meta property="og:description" content="When Autokey Authentication is enabled, a remote attacker can send a carefully crafted packet that can overflow a stack buffer and potentially allow malicious code to be executed with the privilege level of the ntpd process. This bug was resolved in NTP 4.2.4p7." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug1151/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="support" />
+<meta property="og:url" content="https://test.doc.ntp.org/support/securitynotice/ntpbug1151/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2009-03-04T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-02-11T20:40:51&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-28T20:06:51&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -27,7 +25,7 @@ Development (4.2.5p74)4 Mar 2009
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="When Autokey Authentication is enabled, a remote attacker can send a carefully crafted packet that can overflow a stack buffer and potentially allow malicious code to be executed with the privilege level of the ntpd process. This bug was resolved in NTP 4.2.4p7.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -115,7 +113,7 @@ Development (4.2.5p74)4 Mar 2009
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP BUG 1151: Remote exploit if autokey is enabled</h1> 
-    <p style="font-size: small; color: grey;">Last update: February 11, 2022 20:40 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/b879545441bfdb8c102a3d0b806d040a8ac7880c">b87954544</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 28, 2022 20:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/57417e17ca850c794f486e3cd79e927c9a2607ba">57417e17c</a>)</p>
 	<hr>
 <h4 id="summary">Summary</h4>
 <table>
@@ -133,7 +131,7 @@ Development (4.2.5p74)4 Mar 2009
 	<tr>
 		<th><b>Affects</b></th>
 		<td>All releases from 4.0.99m/4.1.70 (2001-08-15) through 4.2.4 before 4.2.4p7 and 4.2.5 before 4.2.5p74.</td>
-		<td>Resolved in 4.2.4p and 4.2.5p74.</td>
+		<td>Resolved in 4.2.4p7 and 4.2.5p74.</td>
 	</tr>	
   </tbody>	
 </table>

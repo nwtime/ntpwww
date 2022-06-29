@@ -7,7 +7,7 @@
 <meta property="og:description" content="Last update: 13-Jan-2020 07:12 UTC
  Table of Contents  Synopsis Description NMEA Talker IDs The &lsquo;mode&rsquo; byte About distrusting NMEA date stamps Monitor Data Setting up the Garmin GPS-25XL Fudge Factors Additional Information   Synopsis  Address: 127.127.20.u Reference ID: GPS Driver ID: GPS_NMEA Serial Port: /dev/gpsu; 4800 - 115200 bps, 8-bits, パリティーなし Serial Port: /dev/gpsppsu; PPS信号 (/dev/gpsu より先に処理) Serial Port: /dev/gpsu; このドライバー nmead のシンボリック・リンク Features: tty_clk   Description このドライバーは、GPS受信機のNMEAセンテンスの $GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス $GPZDG は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の $GPZDG を受信したら処理を無効にします。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver20/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://test.doc.ntp.org/ja/archives/drivers/driver20/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="archives" />
 
 <meta property="article:modified_time" content="2022-02-03T14:43:10&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
 

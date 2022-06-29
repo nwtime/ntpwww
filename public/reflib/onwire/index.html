@@ -4,13 +4,11 @@
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/reflib/onwire/" />
   
   <meta property="og:title" content="Analysis and Simulation of the NTP On-Wire Protocols" />
-<meta property="og:description" content="from Pogo, Walt Kelly
-If it walks like a duck&hellip;
- Table of Contents  Abstract Introduction Preliminaries Basic Symmetric Mode Interleaved Symmetric Mode Interleaved Broadcast Mode Error Detection and Recovery Measured Performance Appendix A. NTP Protocol State Machines Appendix B. The NTP Simulator Program xlev.c Command Line Options   Abstract This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes." />
+<meta property="og:description" content="This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes. The interleaved modes provide enhanced accuracy over the basic modes by timestamping in the driver, rather than in the application layer code." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/reflib/onwire/" /><meta property="og:image" content="https://test.doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://test.doc.ntp.org/reflib/onwire/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
 
-<meta property="article:modified_time" content="2022-04-15T19:06:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-24T21:25:30&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 
@@ -27,7 +25,7 @@ If it walks like a duck&hellip;
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="This document presents a detailed analysis of the NTP on-wire protocols, including basic and interleaved, symmetric and broadcast modes. The interleaved modes provide enhanced accuracy over the basic modes by timestamping in the driver, rather than in the application layer code.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -105,7 +103,7 @@ If it walks like a duck&hellip;
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Analysis and Simulation of the NTP On-Wire Protocols</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 19:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/38ca482188e0ded6612175018a97e6155387365e">38ca48218</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 24, 2022 21:25 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3a8d52d62692686d4ba8ecfd2203c562b5e7a30f">3a8d52d62</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/pogo3a.gif" alt="gif"  />
 </p></p>
