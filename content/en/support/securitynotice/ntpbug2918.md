@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2918: Potential path traversal vulnerability in the config file saving of ntpd on VMS"
+description: "If ntpd is configured to allow remote configuration, and the IP address is allowed to send remote configuration requests, and the attacker knows the remote configuration password or ntpd was configured to disable authentication, then an attacker can send a set of packets that may cause ntpd to overwrite files. This bug was resolved in NTP 4.2.8p4." 
 type: archives
 date: "2015-10-21"
 ---

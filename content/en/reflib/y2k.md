@@ -1,7 +1,7 @@
 ---
 title: "The NTP Era and Era Numbering"
+description: "The NTP specification defines the timescale in terms of timestamps (an era spanning 136 years) and datestamps, which extend over multiple eras. This document clarifies the interpretation of timestamps and datestamps and their relationship with the UTC timescale."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/wingman.gif)

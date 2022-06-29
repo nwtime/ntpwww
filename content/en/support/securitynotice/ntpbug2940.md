@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2940: Stack exhaustion in recursive traversal of restriction list"
+description: "An unauthenticated ntpdc reslist command can cause a segmentation fault in ntpd by exhausting the call stack. This bug was resolved in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

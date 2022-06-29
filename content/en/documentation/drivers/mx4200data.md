@@ -1,5 +1,6 @@
 ---
 title: "MX4200 Receiver Data Format"
+description: "This page provides an overview of the MX4200 Receiver Data Format, including the supported control port sentences, control port input sentences, and control port output sentences." 
 type: archives
 ---
 

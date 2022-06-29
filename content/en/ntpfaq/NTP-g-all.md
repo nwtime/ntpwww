@@ -1,5 +1,6 @@
 ---
 title: "Common Terms and Acronyms"
+description: "This section of the NTP FAQ provides definitions of common terms and acronyms."
 type: "archives"
 ---
 

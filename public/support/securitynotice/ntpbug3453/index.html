@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/support/securitynotice/ntpbug3453/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/support/securitynotice/ntpbug3453/" />
   
   <meta property="og:title" content="NTP BUG 3453: Interleaved symmetric mode cannot recover from bad state" />
-<meta property="og:description" content="Summary Resolved4.2.8p1127 Feb 2018ReferencesBug 3453CVE-2018-7184Affectsntpd in ntp-4.2.8p4, up to but not including ntp-4.2.8p11.Resolved in 4.2.8p11.CVSS2 ScoreMED 4.3AV:N/AC:M/Au:N/C:P/I:N/A:N
-Could score between 2.9 and 6.8.CVSS3 ScoreLOW 3.1CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L
-Could score between 2.6 and 6.0.		 Description The fix for NTP Bug 2952 was incomplete, and while it fixed one problem it created another." />
+<meta property="og:description" content="A third-party can inject a packet with a zero-origin timestamp, meaning the sender wants to reset the association, and the transmit timestamp in this bogus packet will be saved as the most recent received timestamp. This bug was resolved in NTP 4.2.8p11." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/support/securitynotice/ntpbug3453/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="support" />
+<meta property="og:url" content="https://www.ntp.org/support/securitynotice/ntpbug3453/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2018-02-27T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2022-02-15T15:25:41&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -52,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="A third-party can inject a packet with a zero-origin timestamp, meaning the sender wants to reset the association, and the transmit timestamp in this bogus packet will be saved as the most recent received timestamp. This bug was resolved in NTP 4.2.8p11.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -61,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -77,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -120,21 +118,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/support/">Support</a>
+	<a href="https://www.ntp.org/support/">Support</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/support/securitynotice/">Security</a>
+	<a href="https://www.ntp.org/support/securitynotice/">Security</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/support/securitynotice/ntpbug3453/">NTP BUG 3453: Interleaved symmetric mode cannot recover from bad state</a>
+	<a href="https://www.ntp.org/support/securitynotice/ntpbug3453/">NTP BUG 3453: Interleaved symmetric mode cannot recover from bad state</a>
 </li>
 
 	</ol>
@@ -151,7 +149,7 @@ function demo() {
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="https://doc.ntp.org/support/securitynotice/4_2_8p11-release-announcement/">4.2.8p11</a></td>
+		<td><a href="https://www.ntp.org/support/securitynotice/4_2_8p11-release-announcement/">4.2.8p11</a></td>
 		<td>27 Feb 2018</td>
 	</tr>
 	<tr>
@@ -178,12 +176,12 @@ function demo() {
 </table>
 <hr>
 <h4 id="description">Description</h4>
-<p>The fix for <a href="https://doc.ntp.org/support/securitynotice/ntpbug2952/">NTP Bug 2952</a> was incomplete, and while it fixed one problem it created another. Specifically, it drops bad packets before updating the &ldquo;received&rdquo; timestamp. This means a third-party can inject a packet with a zero-origin timestamp, meaning the sender wants to reset the association, and the transmit timestamp in this bogus packet will be saved as the most recent &ldquo;received&rdquo; timestamp. The real remote peer does not know this value and this will disrupt the association until the association resets.</p>
+<p>The fix for <a href="https://www.ntp.org/support/securitynotice/ntpbug2952/">NTP Bug 2952</a> was incomplete, and while it fixed one problem it created another. Specifically, it drops bad packets before updating the &ldquo;received&rdquo; timestamp. This means a third-party can inject a packet with a zero-origin timestamp, meaning the sender wants to reset the association, and the transmit timestamp in this bogus packet will be saved as the most recent &ldquo;received&rdquo; timestamp. The real remote peer does not know this value and this will disrupt the association until the association resets.</p>
 <hr>
 <h4 id="mitigation">Mitigation</h4>
 <ul>
 <li>Implement <a href="http://www.bcp38.info/index.php/Main_Page">BCP-38</a>.</li>
-<li>Upgrade to <a href="https://doc.ntp.org/downloads/">4.2.8p11 or later</a>.</li>
+<li>Upgrade to <a href="https://www.ntp.org/downloads/">4.2.8p11 or later</a>.</li>
 <li>Use authentication with peer mode.</li>
 <li>Have enough sources of time.</li>
 <li>Properly monitor your <code>ntpd</code> instances.</li>
@@ -210,19 +208,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

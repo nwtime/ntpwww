@@ -1,5 +1,6 @@
 ---
 title: "PTB Modem Time Service and other European Laboratories Time Services"
+description: "The TB Modem Time Service driver supports the PTB Automated Computer Time Service (ACTS) and is a modified version of the NIST ACTS driver."
 type: archives
 ---
 

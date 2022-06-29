@@ -1,5 +1,6 @@
 ---
 title: "Magnavox MX4200 GPS Receiver"
+description: "The Magnavox MX4200 GPS Receiver driver supports the Magnavox MX4200 Navigation Receiver adapted to precision timing applications. This driver supports all compatible receivers such as the 6-channel MX4200, MX4200D, and the 12-channel MX9212, MX9012R, MX9112."
 type: archives
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Internet Research Laboratory"
+description: "Historical information about the Internetworking Research Laboratory at the University of Delaware. It included workstations and laboratory equipment in a configuration specially designed for precision time and frequency measurements."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/pogo1a.gif)[_The Okefenokee Swamp_, Walt Kelly](/reflib/pictures/)

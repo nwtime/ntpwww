@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/" />
   
   <meta property="og:title" content="3.3 Clock Quality" />
-<meta property="og:description" content="3.3.1 Frequency Error
-3.3.1.1 How bad is a Frequency Error of 500 PPM?
-3.3.1.2 What is the Frequency Error of a good Clock?
- When discussing clocks, the following quality factors are helpful:
-  The smallest possible increase of time the clock model allows is called resolution. If a clock increments its value once per second, the resolution is one second.
-  A high resolution does not help if you can&rsquo;t read the clock." />
+<meta property="og:description" content="This section of the NTP FAQ introduces the quality factors which are helpful when discussing clocks." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://www.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2022-02-14T19:06:33&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -55,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="This section of the NTP FAQ introduces the quality factors which are helpful when discussing clocks.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -64,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -80,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -120,14 +115,14 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+	<a href="https://www.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/">3.3 Clock Quality</a>
+	<a href="https://www.ntp.org/ntpfaq/ntp-s-sw-clocks-quality/">3.3 Clock Quality</a>
 </li>
 
 	</ol>
@@ -175,7 +170,7 @@ function demo() {
 <p>It&rsquo;s not sufficient to correct the clock once. Figure 3.3a illustrates the problem. The offset of a precision reference pulse has been measured with the free-running system clock. The figure shows that the system clock gains about 50 milliseconds per hour (red line). Even if the frequency error is taken into account, the error spans a few milliseconds within a few hours (blue line).</p>
 <p><strong>Figure 3.3a: Offset for a free-running Clock</strong></p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/ntpfaq/clockdrift.png" alt=""  />
+  <img loading="lazy" src="https://www.ntp.org/ntpfaq/clockdrift.png" alt=""  />
 </p></p>
 <p>Even if the offset seems to drift in a linear way, a closer examination reveals that the drift is not linear.</p>
 <p><strong>Example 3.3a: Quartz Oscillators in IBM compatible PCs</strong></p>
@@ -184,7 +179,7 @@ function demo() {
 <p>As a consequence, without continuous adjustments the clock must be expected to drift away at roughly one second per day in the worst case. Even worse, the values quoted above may increase significantly for other circuits, or even more for extreme environmental conditions.</p>
 <p><strong>Figure 3.3b: Frequency Correction within a Week</strong></p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/ntpfaq/f-tick1b.png" alt=""  />
+  <img loading="lazy" src="https://www.ntp.org/ntpfaq/f-tick1b.png" alt=""  />
 </p></p>
 <p>Some spikes may be due to the fact that the DCF77 signal failed several times during the observation, causing the receiver to resynchronize with an unknown phase.</p>
 <hr>
@@ -194,7 +189,7 @@ function demo() {
 <h4 id="3312-what-is-the-frequency-error-of-a-good-clock">3.3.1.2 What is the Frequency Error of a good Clock?</h4>
 <p>I&rsquo;m not sure, but but I think a chronometer is allowed to drift mostly by six seconds a day when the temperature doesn&rsquo;t change by more than 15° Celsius from room temperature. That corresponds to a frequency error of 69 PPM.</p>
 <p>I read about a temperature compensated quartz that should guarantee a clock error of less than 15 seconds per year, but I think they were actually talking about the frequency variation instead of absolute frequency error. In any case that would be 0.47 PPM. As I actually own a wrist watch that should include that quartz, I can state that the absolute frequency error is about 2.78 PPM, or 6 seconds in 25 days.</p>
-<p>For the Meinberg GPS 167 the frequency error of the free running oven-controlled quartz is specified as 0.5 PPM after one year, or 43 milliseconds per day (roughly 16 seconds per year). See the examples in <a href="https://doc.ntp.org/ntpfaq/ntp-s-related/#91-what-is-mills-speak">Mills-speak</a>.</p>
+<p>For the Meinberg GPS 167 the frequency error of the free running oven-controlled quartz is specified as 0.5 PPM after one year, or 43 milliseconds per day (roughly 16 seconds per year). See the examples in <a href="https://www.ntp.org/ntpfaq/ntp-s-related/#91-what-is-mills-speak">Mills-speak</a>.</p>
 
 	  
   </div>
@@ -205,19 +200,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

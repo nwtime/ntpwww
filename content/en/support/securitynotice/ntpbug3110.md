@@ -1,5 +1,6 @@
 ---
-title: "NTP BUG 3110: Windows: ntpd DoS by oversized UDP packet "
+title: "NTP BUG 3110: Windows: ntpd DoS by oversized UDP packet"
+description: "If a vulnerable instance of ntpd on Windows receives a crafted malicious packet that is too big, ntpd will stop working. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

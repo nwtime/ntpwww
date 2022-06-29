@@ -1,9 +1,10 @@
 ---
 title: "PSTI/Traconex 1020 WWV/WWVH Receiver"
+description: "The PSTI/Traconex 1020 WWV/WWVH Receiver driver supports the PSTI 1010 and Traconex 1020 WWV/WWVH Receivers."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2948: Potential Infinite Loop in ntpq"
+description: "ntpq processes incoming packets in a loop which only stops upon receiving a complete correct response or specific error conditions. If the packet contains incorrect values but doesn't trigger an error condition, the loop continues to receive new packets. This bug was fixed in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

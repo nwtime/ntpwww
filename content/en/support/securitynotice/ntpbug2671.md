@@ -1,5 +1,6 @@
 ---
-title: "NTP BUG 2671: vallen is not validated in several places in ntp_crypto.c, leading to a potential info leak or possibly crashing ntpd"
+title: "NTP BUG 2671: vallen is not validated in several places in ntp_crypto.c"
+description: "The vallen packet value is not validated in several code paths in ntp_crypto.c which can lead to information leakage or a possible crash of ntpd. This bug was resolved in NTP 4.2.8p1."
 type: archives
 date: "2015-02-04"
 ---

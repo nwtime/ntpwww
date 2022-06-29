@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3414: ntpq: decodearr() can write beyond its buf limits"
+description: "This is a problem in affected versions of ntpq if a maliciously-altered ntpd returns an array result that will trip this bug, or if a bad actor is able to read an ntpq request on its way to a remote ntpd server and forge and send a response before the remote ntpd sends its response. This bug was resolved in NTP 4.2.8p11."
 type: archives
 date: "2018-02-27"
 ---

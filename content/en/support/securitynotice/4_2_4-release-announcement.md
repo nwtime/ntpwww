@@ -1,5 +1,6 @@
 ---
 title: "4.2.4 Release Announcement"
+description: "The release announcement for NTP 4.2.4, which was released on December 18, 2006."
 type: archives
 date: "2006-12-18"
 ---

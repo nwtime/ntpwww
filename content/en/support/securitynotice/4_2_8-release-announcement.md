@@ -1,5 +1,6 @@
 ---
 title: "4.2.8 Release Announcement"
+description: "NTP 4.2.8 was released on December 18, 2014. This release addresses a number of vulnerabilities reported by Neel Mehta and Stephen Roettger of Google’s Security Team."
 type: archives
 date: "2014-12-18"
 ---
@@ -26,13 +27,4 @@ These are the vulnerabilities from Neel Mehta and Stephen Roettger of Google's S
 * In several places, the `vallen` packet value in `ntp_crypto.c` is not validated, which can lead to information leakage.
 * If ::1 is spoofed on some OSes, the packet is processed instead of being dropped, so ACLs based on IPv6 ::1 addresses can be bypassed. This could allow an attacker to tell your `ntpd` to, among other things, reconfigure itself. 
 
-Additionally, we are working to patch the known deficiencies in NTP's Autokey protocol, as a stop-gap measure until the Network Time Security draft (which will replace Autokey) is ready to be deployed. These weaknesses were discovered by Dieter Sibold, PhD of PTB, and Stephen Roettger of the Google Security Team. 
-
-* * *
-
-**Timeline:**
-
-* 2014 Dec 18: Public release
-* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
-* : Initial notification received; analysis begins
+Additionally, we are working to patch the known deficiencies in NTP's Autokey protocol, as a stop-gap measure until the Network Time Security draft (which will replace Autokey) is ready to be deployed. These weaknesses were discovered by Dieter Sibold, PhD of PTB, and Stephen Roettger of the Google Security Team.

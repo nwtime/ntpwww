@@ -1,5 +1,6 @@
 ---
 title: "Dumb Clock"
+description: "The Dumb Clock driver supports a dumb ASCII clock that only emits localtime at a reliable interval. This driver has no provisions for leap seconds or quality codes."
 type: archives
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2936: Skeleton Key: Any trusted key system can serve time"
+description: "We have treated this as an enhancement request, and NTP 4.2.8p6 includes other checks and tests to strengthen clients against attacks coming from broadcast servers."
 type: archives
 date: "2016-01-19"
 ---

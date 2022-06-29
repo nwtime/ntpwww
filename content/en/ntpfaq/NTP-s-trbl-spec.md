@@ -1,5 +1,6 @@
 ---
 title: "8.3. Troubleshooting Specific Products"
+description: "This section of the NTP FAQ covers troubleshooting specific products and operating systems."
 type: "archives"
 ---
 

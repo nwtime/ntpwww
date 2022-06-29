@@ -1,5 +1,6 @@
 ---
 title: "RFCs"
+description: "Request for Comments (RFCs) pertaining to NTP, many of them written by Prof. David L. Mills, PhD., ranging from 1981-2020."
 type: archives
 ---
 

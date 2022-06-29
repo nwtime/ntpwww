@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p10 Release Announcement"
+description: "The NTP Project at Network Time Foundation released NTP 4.2.8p10 on March 21, 2017. This release addresses 15 vulnerabilities and 15 other non-security fixes and improvements."
 type: archives
 date: "2017-03-21"
 ---

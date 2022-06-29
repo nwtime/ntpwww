@@ -1,5 +1,6 @@
 ---
 title: "Debugging Reference Clock Drivers"
+description: "This page describes how the ntpq and ntpdc programs can be used to debug reference clocks, either on the server itself or from another system in the network."
 type: archives
 ---
 

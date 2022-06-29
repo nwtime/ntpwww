@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/documentation/4.2.8-series/accopt/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/4.2.8-series/accopt/" />
   
   <meta property="og:title" content="Access Control Commands and Options" />
-<meta property="og:description" content="from Pogo, Walt Kelly
-The skunk watches for intruders and sprays.
- Commands and Options Unless noted otherwise, further information about these commands is on the Access Control Support page.
- discard [ average avg ][ minimum min ] [ monitor prob ]  Set the parameters of the rate control facility which protects the server from client abuse. If the limited flag is present in the ACL, packets that violate these limits are discarded." />
+<meta property="og:description" content="Descriptions of the available commands and options for configuring NTP access control." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.8-series/accopt/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/accopt/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -53,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="Descriptions of the available commands and options for configuring NTP access control.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -62,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -78,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -121,21 +118,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://www.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
+	<a href="https://www.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/4.2.8-series/accopt/">Access Control Commands and Options</a>
+	<a href="https://www.ntp.org/documentation/4.2.8-series/accopt/">Access Control Commands and Options</a>
 </li>
 
 	</ol>
@@ -147,16 +144,16 @@ function demo() {
   	<h1>Access Control Commands and Options</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/pogo6.gif" alt="gif"  />
-</p><a href="https://doc.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/pogo6.gif" alt="gif"  />
+</p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>The skunk watches for intruders and sprays.</p>
 <hr>
 <h4 id="commands-and-options">Commands and Options</h4>
-<p>Unless noted otherwise, further information about these commands is on the <a href="https://doc.ntp.org/documentation/4.2.8-series/access/">Access Control Support</a> page.</p>
+<p>Unless noted otherwise, further information about these commands is on the <a href="https://www.ntp.org/documentation/4.2.8-series/access/">Access Control Support</a> page.</p>
 <dl>
 <dt><code><strong>discard [ average <em>avg</em> ][ minimum <em>min</em> ] [ monitor <em>prob</em> ]</strong></code></dt>
 <dd>
-<p>Set the parameters of the rate control facility which protects the server from client abuse. If the <code>limited</code> flag is present in the ACL, packets that violate these limits are discarded. If, in addition, the <code>kod</code> flag is present, a kiss-o'-death packet is returned. See the <a href="https://doc.ntp.org/documentation/4.2.8-series/rate/">Rate Management</a> page for further information. The options are:</p>
+<p>Set the parameters of the rate control facility which protects the server from client abuse. If the <code>limited</code> flag is present in the ACL, packets that violate these limits are discarded. If, in addition, the <code>kod</code> flag is present, a kiss-o'-death packet is returned. See the <a href="https://www.ntp.org/documentation/4.2.8-series/rate/">Rate Management</a> page for further information. The options are:</p>
 </dd>
 <dt><code><strong>average <em>avg</em></strong></code></dt>
 <dd>
@@ -259,19 +256,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

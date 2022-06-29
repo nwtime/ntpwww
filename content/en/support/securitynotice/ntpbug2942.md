@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2942: Off-path Denial of Service (DoS) attack on authenticated broadcast mode"
+description: "An off-path attacker can send broadcast packets with bad authentication parameters to broadcast clients. The broadcast client tears down the association with the broadcast server upon receiving just one bad packet. This bug was resolved in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

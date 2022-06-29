@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2935: Deja Vu: Replay attack on authenticated broadcast mode"
+description: "If an NTP network is configured for broadcast operations, then either a man-in-the-middle attacker or a malicious participant that has the same trusted keys as the victim can replay time packets. This bug was resolved in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Hewlett Packard 58503A GPS Receiver and HP Z3801A"
+description: "The Hewlett Packard 58503A GPS Receiver and HP Z3801A driver supports the HP 58503A Time and Frequency Reference Receiver and HP Z3801A GPS Receiver which use HP SmartClock (TM) to implement an Enhanced GPS receiver."
 type: archives
 ---
 

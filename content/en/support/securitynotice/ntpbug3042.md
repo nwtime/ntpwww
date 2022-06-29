@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3042: Broadcast interleave"
+description: "Broadcast clients can be triggered to flip into interleave mode. This bug was resolved in NTP 4.2.8p8."
 type: archives
 date: "2016-06-02"
 ---

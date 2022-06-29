@@ -1,5 +1,6 @@
 ---
 title: "6.4. Compatibility"
+description: "This section of the NTP FAQ deals with known incompatibilities."
 type: "archives"
 ---
 

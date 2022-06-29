@@ -1,5 +1,6 @@
 ---
 title: "Access Control Commands and Options"
+description: "Descriptions of the available commands and options for configuring NTP access control."
 type: archives
 ---
 

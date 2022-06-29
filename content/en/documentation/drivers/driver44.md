@@ -1,5 +1,6 @@
 ---
 title: "NeoClock4X"
+description: "The NeoClock4X driver supports the NeoClock4X receiver available from Linum Software GmbH. The receiver is available as a DCF77 or TDF receiver."
 type: archives
 ---
 

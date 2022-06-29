@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3453: Interleaved symmetric mode cannot recover from bad state"
+description: "A third-party can inject a packet with a zero-origin timestamp, meaning the sender wants to reset the association, and the transmit timestamp in this bogus packet will be saved as the most recent received timestamp. This bug was resolved in NTP 4.2.8p11."
 type: archives
 date: "2018-02-27"
 ---

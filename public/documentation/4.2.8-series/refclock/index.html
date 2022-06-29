@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/documentation/4.2.8-series/refclock/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/4.2.8-series/refclock/" />
   
   <meta property="og:title" content="Reference Clock Support" />
-<meta property="og:description" content="Master Time Facility at the UDel Internet Research Laboratory
- Table of Contents  Introduction Special Considerations List of Reference Clock Drivers   Introduction NTP Version 4 supports almost four dozen satellite, radio and telephone modem reference clocks plus several audio devices for instrumentation signals. A general description of the reference clock support is on this page. Additional information about each reference clock driver can be found via links from this page." />
+<meta property="og:description" content="NTPv4 supports almost four dozen satellite, radio, and telephone modem reference clocks plus several audio devices for instrumentation signals. A general description of the reference clock support is on this page." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.8-series/refclock/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/refclock/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-06-21T20:05:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -51,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="NTPv4 supports almost four dozen satellite, radio, and telephone modem reference clocks plus several audio devices for instrumentation signals. A general description of the reference clock support is on this page.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -60,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -76,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -119,21 +118,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://www.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
+	<a href="https://www.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Support</a>
+	<a href="https://www.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Support</a>
 </li>
 
 	</ol>
@@ -145,80 +144,80 @@ function demo() {
   	<h1>Reference Clock Support</h1> 
     <p style="font-size: small; color: grey;">Last update: June 21, 2022 20:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/09eee53b797a87987c221ac487fb016f52e8bb10">09eee53b7</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/stack1a.webp" alt="webp"  />
-</p> Master Time Facility at the <a href="https://doc.ntp.org/reflib/lab/">UDel Internet Research Laboratory</a></p>
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/stack1a.webp" alt="webp"  />
+</p> Master Time Facility at the <a href="https://www.ntp.org/reflib/lab/">UDel Internet Research Laboratory</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/documentation/4.2.8-series/refclock/#introduction">Introduction</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.8-series/refclock/#special-considerations">Special Considerations</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.8-series/refclock/#list-of-reference-clock-drivers">List of Reference Clock Drivers</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/refclock/#introduction">Introduction</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/refclock/#special-considerations">Special Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/refclock/#list-of-reference-clock-drivers">List of Reference Clock Drivers</a></li>
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>NTP Version 4 supports almost four dozen satellite, radio and telephone modem reference clocks plus several audio devices for instrumentation signals. A general description of the reference clock support is on this page. Additional information about each reference clock driver can be found via links from this page. Additional information is on the <a href="https://doc.ntp.org/documentation/4.2.8-series/rdebug/">Debugging Hints for Reference Clock Drivers</a> and <a href="https://doc.ntp.org/documentation/4.2.8-series/howto/">How To Write a Reference Clock Driver</a> pages. Information on how to support pulse-per-second (PPS) signals produced by some devices is on the <a href="https://doc.ntp.org/documentation/4.2.8-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. All reference clock drivers require that the reference clock use only Coordinated Universal Time (UTC). Timezone and standard/daylight adjustments are performed by the operating system kernel.</p>
+<p>NTP Version 4 supports almost four dozen satellite, radio and telephone modem reference clocks plus several audio devices for instrumentation signals. A general description of the reference clock support is on this page. Additional information about each reference clock driver can be found via links from this page. Additional information is on the <a href="https://www.ntp.org/documentation/4.2.8-series/rdebug/">Debugging Hints for Reference Clock Drivers</a> and <a href="https://www.ntp.org/documentation/4.2.8-series/howto/">How To Write a Reference Clock Driver</a> pages. Information on how to support pulse-per-second (PPS) signals produced by some devices is on the <a href="https://www.ntp.org/documentation/4.2.8-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. All reference clock drivers require that the reference clock use only Coordinated Universal Time (UTC). Timezone and standard/daylight adjustments are performed by the operating system kernel.</p>
 <p>A reference clock will generally (though not always) be a radio timecode receiver synchronized to standard time as provided by NIST and USNO in the US, NRC in Canada and their counterparts elsewhere in the world. A device driver specific to each reference clock must be compiled in the distribution; however, most common radio, satellite and telephone modem clocks are included by default and are activated by configuration commands.</p>
 <p>Reference clocks are supported in the same way as ordinary NTP clients and use the same filter, select, cluster and combine algorithms. Drivers have addresses in the form <code>127.127.<em>t.u</em></code>, where <code><em>t</em></code> is the driver type and <code><em>u</em></code> is a unit number in the range 0-3 to distinguish multiple instances of the same driver. The connection to the computer is device-dependent, usually a serial port, parallel port or special bus peripheral, but some can work directly from an audio codec or sound card. The particular device is specified by adding a soft link from the name used by the driver to the particular device name.</p>
-<p>The <code>server</code> command is used to configure a reference clock. Only the <code>mode</code>, <code>minpoll</code>, <code>maxpoll</code>, and <code>prefer</code> options are supported for reference clocks, as described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/clockopt/">Reference Clock Commands</a> page. The <code>prefer</code> option is discussed on the <a href="https://doc.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page. Some of these options have meaning only for selected clock drivers.</p>
+<p>The <code>server</code> command is used to configure a reference clock. Only the <code>mode</code>, <code>minpoll</code>, <code>maxpoll</code>, and <code>prefer</code> options are supported for reference clocks, as described on the <a href="https://www.ntp.org/documentation/4.2.8-series/clockopt/">Reference Clock Commands</a> page. The <code>prefer</code> option is discussed on the <a href="https://www.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page. Some of these options have meaning only for selected clock drivers.</p>
 <p>The <code>fudge</code> command can be used to provide additional information for individual drivers and normally follows immediately after the <code>server</code> command. The reference clock stratum is by default 0, so that the server stratum appears to clients as 1. The <code>stratum</code> option can be used to set the stratum to any value in the range 0 through 15. The <code>refid</code> option can be used to change the reference identifier, as might in the case when the driver is disciplined by a pulse-per-second (PPS) source. The device-dependent <code>mode</code>, <code>time</code> and <code>flag</code> options can provide additional driver customization.</p>
 <hr>
 <h4 id="special-considerations">Special Considerations</h4>
-<p>The <a href="https://doc.ntp.org/documentation/4.2.8-series/audio/">Audio Drivers</a> page describes three software drivers that process audio signals from an audio codec or sound card. One is for the NIST time and frequency stations WWV and WWVH, another for the Canadian time and frequency station CHU. These require an external shortwave radio and antenna. A third is for the generic IRIG signal produced by some timing devices. Currently, these are supported in FreeBSD, Solaris and SunOS and likely in other systems as well.</p>
-<p>The <a href="https://doc.ntp.org/documentation/drivers/driver1/">Undisciplined Local Clock</a> driver can simulate a reference clock when no external synchronization sources are available. If a server with this driver is connected directly or indirectly to the public Internet, there is some danger that it can destabilize other clients. It is not recommended that the local clock driver be used in this way, as the orphan mode described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/assoc/">Association Management</a> page provides a generic backup capability.</p>
-<p>The local clock driver can also be used when an external synchronization source such as the <a href="https://doc.ntp.org/reflib/ptp/">IEEE 1588 Precision Time Protocol</a> or NIST Lockclock directly synchronizes the computer time. Further information is on the <a href="https://doc.ntp.org/documentation/4.2.8-series/extern/">External Clock Discipline and the Local Clock Driver</a> page.</p>
-<p>Several drivers make use of the pulse-per-second (PPS) signal discipline, which is part of the generic driver interface, so require no specific configuration. For those drivers that do not use this interface, the <a href="https://doc.ntp.org/documentation/drivers/driver22/">PPS Clock Discipline</a> driver can provide this function. It normally works in conjunction with the reference clock that produces the timecode signal, but can work with another driver or remote server. When PPS kernel features are present, the driver can redirect the PPS signal to the kernel.</p>
-<p>Some drivers depending on longwave or shortwave radio services need to know the radio propagation time from the transmitter to the receiver. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the <a href="https://doc.ntp.org/reflib/qth/">Time and Frequency Standard Station Information</a> page. Receiver coordinates can be obtained locally or from <a href="https://earth.google.com/web/">Google Earth</a>. The actual calculations are beyond the scope of this document.</p>
-<p>Depending on interface type, port speed, etc., a reference clock can have a small residual offset relative to another. To reduce the effects of jitter when switching from one driver to another, it is useful to calibrate the drivers to a common ensemble offset. The <code>enable calibrate</code> configuration command described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/miscopt/">Miscellaneous Options</a> page activates a special feature which automatically calculates a correction factor for each driver relative to an association designated the prefer peer.</p>
+<p>The <a href="https://www.ntp.org/documentation/4.2.8-series/audio/">Audio Drivers</a> page describes three software drivers that process audio signals from an audio codec or sound card. One is for the NIST time and frequency stations WWV and WWVH, another for the Canadian time and frequency station CHU. These require an external shortwave radio and antenna. A third is for the generic IRIG signal produced by some timing devices. Currently, these are supported in FreeBSD, Solaris and SunOS and likely in other systems as well.</p>
+<p>The <a href="https://www.ntp.org/documentation/drivers/driver1/">Undisciplined Local Clock</a> driver can simulate a reference clock when no external synchronization sources are available. If a server with this driver is connected directly or indirectly to the public Internet, there is some danger that it can destabilize other clients. It is not recommended that the local clock driver be used in this way, as the orphan mode described on the <a href="https://www.ntp.org/documentation/4.2.8-series/assoc/">Association Management</a> page provides a generic backup capability.</p>
+<p>The local clock driver can also be used when an external synchronization source such as the <a href="https://www.ntp.org/reflib/ptp/">IEEE 1588 Precision Time Protocol</a> or NIST Lockclock directly synchronizes the computer time. Further information is on the <a href="https://www.ntp.org/documentation/4.2.8-series/extern/">External Clock Discipline and the Local Clock Driver</a> page.</p>
+<p>Several drivers make use of the pulse-per-second (PPS) signal discipline, which is part of the generic driver interface, so require no specific configuration. For those drivers that do not use this interface, the <a href="https://www.ntp.org/documentation/drivers/driver22/">PPS Clock Discipline</a> driver can provide this function. It normally works in conjunction with the reference clock that produces the timecode signal, but can work with another driver or remote server. When PPS kernel features are present, the driver can redirect the PPS signal to the kernel.</p>
+<p>Some drivers depending on longwave or shortwave radio services need to know the radio propagation time from the transmitter to the receiver. This must be calculated for each specific receiver location and requires the geographic coordinates of both the transmitter and receiver. The transmitter coordinates for various radio services are given in the <a href="https://www.ntp.org/reflib/qth/">Time and Frequency Standard Station Information</a> page. Receiver coordinates can be obtained locally or from <a href="https://earth.google.com/web/">Google Earth</a>. The actual calculations are beyond the scope of this document.</p>
+<p>Depending on interface type, port speed, etc., a reference clock can have a small residual offset relative to another. To reduce the effects of jitter when switching from one driver to another, it is useful to calibrate the drivers to a common ensemble offset. The <code>enable calibrate</code> configuration command described on the <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">Miscellaneous Options</a> page activates a special feature which automatically calculates a correction factor for each driver relative to an association designated the prefer peer.</p>
 <hr>
 <h4 id="list-of-reference-clock-drivers">List of Reference Clock Drivers</h4>
-<p>Following is a list showing the type and title of each driver currently implemented. The compile-time identifier for each is shown in parentheses. Click on a selected type for specific description and configuration documentation, including the clock address, reference ID, driver ID, device name and serial line speed. For those drivers without specific documentation, please contact the author listed in the <a href="https://doc.ntp.org/documentation/4.2.8-series/copyright/">Copyright Notice</a> page.</p>
+<p>Following is a list showing the type and title of each driver currently implemented. The compile-time identifier for each is shown in parentheses. Click on a selected type for specific description and configuration documentation, including the clock address, reference ID, driver ID, device name and serial line speed. For those drivers without specific documentation, please contact the author listed in the <a href="https://www.ntp.org/documentation/4.2.8-series/copyright/">Copyright Notice</a> page.</p>
 <ul>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver1/">Type 1</a> Undisciplined Local Clock (<code>LOCAL</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver1/">Type 1</a> Undisciplined Local Clock (<code>LOCAL</code>)</li>
 <li>Type 2 Deprecated: was Trak 8820 GPS Receiver</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver3/">Type 3</a> PSTI/Traconex 1020 WWV/WWVH Receiver (<code>WWV_PST</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver4/">Type 4</a> Spectracom WWVB/GPS Receivers (<code>WWVB_SPEC</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver5/">Type 5</a> TrueTime GPS/GOES/OMEGA Receivers (<code>TRUETIME</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver6/">Type 6</a> IRIG Audio Decoder (<code>IRIG_AUDIO</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/">Type 7</a> Radio CHU Audio Demodulator/Decoder (<code>CHU</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver8/">Type 8</a> Generic Reference Driver (<code>PARSE</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver9/">Type 9</a> Magnavox MX4200 GPS Receiver (<code>GPS_MX4200</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver10/">Type 10</a> Austron 2200A/2201A GPS Receivers (<code>GPS_AS2201</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver11/">Type 11</a> Arbiter 1088A/B GPS Receiver (<code>GPS_ARBITER</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver12/">Type 12</a> KSI/Odetics TPRO/S IRIG Interface (<code>IRIG_TPRO</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver3/">Type 3</a> PSTI/Traconex 1020 WWV/WWVH Receiver (<code>WWV_PST</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver4/">Type 4</a> Spectracom WWVB/GPS Receivers (<code>WWVB_SPEC</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver5/">Type 5</a> TrueTime GPS/GOES/OMEGA Receivers (<code>TRUETIME</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver6/">Type 6</a> IRIG Audio Decoder (<code>IRIG_AUDIO</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/">Type 7</a> Radio CHU Audio Demodulator/Decoder (<code>CHU</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver8/">Type 8</a> Generic Reference Driver (<code>PARSE</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver9/">Type 9</a> Magnavox MX4200 GPS Receiver (<code>GPS_MX4200</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver10/">Type 10</a> Austron 2200A/2201A GPS Receivers (<code>GPS_AS2201</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver11/">Type 11</a> Arbiter 1088A/B GPS Receiver (<code>GPS_ARBITER</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver12/">Type 12</a> KSI/Odetics TPRO/S IRIG Interface (<code>IRIG_TPRO</code>)</li>
 <li>Type 13 Leitch CSD 5300 Master Clock Controller (<code>ATOM_LEITCH</code>)</li>
 <li>Type 14 EES M201 MSF Receiver (<code>MSF_EES</code>)</li>
 <li>Type 15 reserved</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver16/">Type 16</a> Bancomm GPS/IRIG Receiver (<code>GPS_BANCOMM</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver16/">Type 16</a> Bancomm GPS/IRIG Receiver (<code>GPS_BANCOMM</code>)</li>
 <li>Type 17 Datum Precision Time System (<code>GPS_DATUM</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver18/">Type 18</a> NIST/USNO/PTB Modem Time Services (<code>ACTS_MODEM</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver19/">Type 19</a> Heath WWV/WWVH Receiver (<code>WWV_HEATH</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver20/">Type 20</a> Generic NMEA GPS Receiver (<code>NMEA</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver18/">Type 18</a> NIST/USNO/PTB Modem Time Services (<code>ACTS_MODEM</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver19/">Type 19</a> Heath WWV/WWVH Receiver (<code>WWV_HEATH</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver20/">Type 20</a> Generic NMEA GPS Receiver (<code>NMEA</code>)</li>
 <li>Type 21 TrueTime GPS-VME Interface (<code>GPS_VME</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver22/">Type 22</a> PPS Clock Discipline (<code>PPS</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver22/">Type 22</a> PPS Clock Discipline (<code>PPS</code>)</li>
 <li>Type 23 reserved</li>
 <li>Type 24 reserved</li>
 <li>Type 25 reserved</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver26/">Type 26</a> Hewlett Packard 58503A GPS Receiver (<code>GPS_HP</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver27/">Type 27</a> Arcron MSF Receiver (<code>MSF_ARCRON</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver28/">Type 28</a> Shared Memory Driver (<code>SHM</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver29/">Type 29</a> Trimble Navigation Palisade GPS (<code>GPS_PALISADE</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver30/">Type 30</a> Motorola UT Oncore GPS <code>GPS_ONCORE</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver31/">Type 31</a> Rockwell Jupiter GPS (<code>GPS_JUPITER</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver32/">Type 32</a> Chrono-log K-series WWVB receiver (<code>CHRONOLOG</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver33/">Type 33</a> Dumb Clock (<code>DUMBCLOCK</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver34/">Type 34</a> Ultralink WWVB Receivers (<code>ULINK</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver35/">Type 35</a> Conrad Parallel Port Radio Clock (<code>PCF</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver36/">Type 36</a> Radio WWV/H Audio Demodulator/Decoder (<code>WWV</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver37/">Type 37</a> Forum Graphic GPS Dating station (<code>FG</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver38/">Type 38</a> hopf GPS/DCF77 6021/komp for Serial Line (<code>HOPF_S</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver39/">Type 39</a> hopf GPS/DCF77 6039 for PCI-Bus (<code>HOPF_P</code>)</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver40/">Type 40</a> JJY Receivers (<code>JJY</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver26/">Type 26</a> Hewlett Packard 58503A GPS Receiver (<code>GPS_HP</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver27/">Type 27</a> Arcron MSF Receiver (<code>MSF_ARCRON</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver28/">Type 28</a> Shared Memory Driver (<code>SHM</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver29/">Type 29</a> Trimble Navigation Palisade GPS (<code>GPS_PALISADE</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver30/">Type 30</a> Motorola UT Oncore GPS <code>GPS_ONCORE</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver31/">Type 31</a> Rockwell Jupiter GPS (<code>GPS_JUPITER</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver32/">Type 32</a> Chrono-log K-series WWVB receiver (<code>CHRONOLOG</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver33/">Type 33</a> Dumb Clock (<code>DUMBCLOCK</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver34/">Type 34</a> Ultralink WWVB Receivers (<code>ULINK</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver35/">Type 35</a> Conrad Parallel Port Radio Clock (<code>PCF</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver36/">Type 36</a> Radio WWV/H Audio Demodulator/Decoder (<code>WWV</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver37/">Type 37</a> Forum Graphic GPS Dating station (<code>FG</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver38/">Type 38</a> hopf GPS/DCF77 6021/komp for Serial Line (<code>HOPF_S</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver39/">Type 39</a> hopf GPS/DCF77 6039 for PCI-Bus (<code>HOPF_P</code>)</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver40/">Type 40</a> JJY Receivers (<code>JJY</code>)</li>
 <li>Type 41 TrueTime 560 IRIG-B Decoder</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver42/">Type 42</a> Zyfer GPStarplus Receiver</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver43/">Type 43</a> RIPE NCC interface for Trimble Palisade</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver44/">Type 44</a> NeoClock4X - DCF77 / TDF serial line</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver45/">Type 45</a> Spectracom TSYNC PCI</li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver46/">Type 46</a> GPSD NG client protocol</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver42/">Type 42</a> Zyfer GPStarplus Receiver</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver43/">Type 43</a> RIPE NCC interface for Trimble Palisade</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver44/">Type 44</a> NeoClock4X - DCF77 / TDF serial line</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver45/">Type 45</a> Spectracom TSYNC PCI</li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver46/">Type 46</a> GPSD NG client protocol</li>
 </ul>
 
 	  
@@ -230,19 +229,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

@@ -1,5 +1,6 @@
 ---
 title: "Generic Reference Driver"
+description: "The Generic Reference Driver (PARSE) driver supports 20 different clock types and configurations. PARSE is actually a multi-clock driver."
 type: archives
 ---
 

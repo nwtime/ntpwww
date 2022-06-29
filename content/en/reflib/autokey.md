@@ -1,7 +1,7 @@
 ---
 title: "Autonomous Authentication"
+description: "The goal of Autokey is to develop and test security protocols which resist attacks on the hosts deployed in the network. Hosts must determine that received NTP messages are authentic and be able to verify the authenticity of any message using only public information and without requiring external management intervention."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/rabbit.gif)

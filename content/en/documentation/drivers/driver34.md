@@ -1,5 +1,6 @@
 ---
 title: "Ultralink Clock"
+description: "The Ultralink Clock driver supports the Ultralink Model 325 RS-232 powered WWVB receiver."
 type: archives
 ---
 

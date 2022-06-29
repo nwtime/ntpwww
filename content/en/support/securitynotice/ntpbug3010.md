@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3010: remote configuration trustedkey/requestkey/controlkey values are not properly validated"
+description: "If ntpd was expressly configured to allow for remote configuration, a malicious user who knows the controlkey for ntpq or the requestkey for ntpdc can create a session with ntpd and then send a crafted packet to change the value of the trustedkey, controlkey, or requestkey to a value that will prevent any subsequent authentication with ntpd until ntpd is restarted. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

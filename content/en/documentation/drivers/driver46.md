@@ -1,5 +1,6 @@
 ---
 title: "GPSD-NG client driver"
+description: "The GPSD-NG client driver is a client driver to the GPSD daemon. This driver works best using a GPS device with PPS support."
 type: archives
 ---
 

@@ -1,9 +1,10 @@
 ---
 title: "NIST/USNO/PTB Modem Time Services"
+description: "The NIST/USNO/PTB Modem Time Services driver supports the US (NIST and USNO), Germany (PTB), and UK (NPL) modem time services, as well as Spectracom GPS and WWVB receivers connected via a modem."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

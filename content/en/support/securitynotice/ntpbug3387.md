@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3387: Authenticated DoS via Malicious Config Option"
+description: "A vulnerability found in the NTP server allows an authenticated remote attacker to crash the daemon by sending an invalid setting via the :config directive. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

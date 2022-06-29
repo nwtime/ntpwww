@@ -1,5 +1,6 @@
 ---
 title: "Download NTP"
+description: "Download links for the current release of NTP (4.2.8p15) which was released on June 23, 2020."
 type: archives
 date: 2021-10-26T01:48:02+00:00
 --- 

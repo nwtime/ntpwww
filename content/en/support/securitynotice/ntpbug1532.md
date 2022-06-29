@@ -1,5 +1,6 @@
 ---
-title: "NTP BUG 1532: DRDoS / Amplification Attack using ntpdc monlist command"
+title: "NTP BUG 1532: DRDoS/Amplification Attack using ntpdc monlist command"
+description: "Unrestricted access to the monlist feature in ntp_request.c in ntpd allows remote attackers to cause a denial of service (traffic amplification) via forged REQ_MON_GETLIST or REQ_MON_GETLIST_1 requests. This bug was resolved in NTP 4.2.7p26."
 type: archives
 date: "2010-04-24"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "5.3. NTP in real Life"
+description: "This section of the NTP FAQ discusses how well theory applies to real life situations."
 type: "archives"
 ---
 

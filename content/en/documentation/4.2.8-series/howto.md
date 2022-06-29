@@ -1,5 +1,6 @@
 ---
 title: "How to Write a Reference Clock Driver"
+description: "Instructions for developers who wish to create a new reference clock driver."
 type: archives
 ---
 

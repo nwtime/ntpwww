@@ -1,6 +1,7 @@
 ---
 title: "NTP BUG 3610: process_control() should bail earlier on short packets"
 type: archives
+description: "Fuzz testing detected that on systems that override the default and enable ntpdc (mode 7) packets, a short packet will cause ntpd to read uninitialized data. This bug was resolved in NTP 4.2.8p14."
 date: "2020-03-03"
 ---
 

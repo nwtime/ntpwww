@@ -1,5 +1,6 @@
 ---
 title: "2. Time, what Time?"
+description: "This section of the NTP FAQ discusses general topics related to time and time-keeping."
 type: "archives"
 ---
 

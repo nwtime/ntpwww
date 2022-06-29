@@ -1,5 +1,6 @@
 ---
 title: "5. How does it work?"
+description: "This section of the NTP FAQ explains how NTP constructs and maintains a working time synchronization network."
 type: "archives"
 --- 
 

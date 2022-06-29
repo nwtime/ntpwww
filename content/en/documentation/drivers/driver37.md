@@ -1,5 +1,6 @@
 ---
 title: "Forum Graphic GPS Dating station"
+description: "The Forum Graphic GPS Dating station reference clock driver supports the Forum Graphic GPS Dating station sold by EMR company."
 type: archives
 ---
 

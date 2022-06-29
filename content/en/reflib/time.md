@@ -1,7 +1,7 @@
 ---
 title: "NTP Timestamp Calculations"
+description: "This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by NTP. The analysis is based on the properties of finite additive groups using two’s complement arithmetic. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/wingdorothy.gif)

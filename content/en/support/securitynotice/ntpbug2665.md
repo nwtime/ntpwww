@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2665: Weak default key in config_auth()"
+description: "If no auth key is set in the configuration file, ntpd generated a random key that was 31 bits in size and used the weak ntp_random() function, which was seeded with a 32 bit value and can only provide 32 bits of entropy. This bug was resolved in NTP 4.2.7p11."
 type: archives
 date: "2010-01-28"
 ---

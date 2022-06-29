@@ -1,5 +1,6 @@
 ---
 title: "Motorola Oncore GPS Receiver"
+description: "The Motorola Oncore GPS Receiver driver supports most models of the Motorola Oncore GPS receivers, as long as they support the Motorola Binary Protocol."
 type: archives
 ---
 

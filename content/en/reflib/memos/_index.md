@@ -1,6 +1,7 @@
 
 ---
 title: "Memos"
+description: "NTP technical memos written by Prof. David L. Mills, PhD. from 1991 to 2001."
 type: archives
 ---
 

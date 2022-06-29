@@ -1,5 +1,6 @@
 ---
 title: "hopf PCI-Bus Receiver (6039 GPS/DCF77)"
+description: "The hopf PCI-Bus Receiver driver supports the hopf PCI-bus interface 6039 GPS/DCF77."
 type: archives
 ---
 

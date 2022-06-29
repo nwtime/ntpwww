@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p5 Release Announcement"
+description: "The NTP Project at Network Time Foundation released NTP 4.2.8p5 on January 7, 2016. This release addresses 1 vulnerability and 14 bug fixes."
 type: archives
 date: "2016-01-07"
 ---

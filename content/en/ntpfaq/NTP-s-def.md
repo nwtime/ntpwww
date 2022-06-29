@@ -1,5 +1,6 @@
 ---
 title: "4. What is NTP?"
+description: "This section of the NTP FAQ introduces and explains the basic features of NTP, the Network Time Protocol. The discussion is limited to the more theroretical aspects of NTP."
 type: "archives"
 --- 
 

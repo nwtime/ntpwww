@@ -1,7 +1,8 @@
 ---
 title: "Time and Standard Frequency Station TDF (France)"
+description: "Information about TDF, an amplitude modulated longwave broadcasting station, transmitting the programs of the France-Inter Network of Telediffusion
+de France (TDF)."
 type: archives
-toc_hide: true
 ---
 
 Information provided by Richard B. Langley, University of New Brunswick

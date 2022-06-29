@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2909: Slow memory leak in CRYPTO_ASSOC"
+description: "If ntpd is configured to use autokey, an attacker can send packets to ntpd that will, after several days of ongoing attack, cause it to run out of memory. This bug was resolved in NTP 4.2.8p4."
 type: archives
 date: "2015-10-21"
 ---

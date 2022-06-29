@@ -1,5 +1,6 @@
 ---
 title: "4.2.4p5 Release Announcement"
+description: "The release announcement for NTP 4.2.4p5, which was released on August 17, 2008."
 type: archives
 date: "2008-08-17"
 ---
@@ -11,12 +12,4 @@ This release fixes a number of Windows-specific `ntpd` bugs and platform-indepen
 The `dynamic` keyword is now obsolete and deferred binding to local interfaces is the new default. The minimum time restriction for the     
 interface update interval has been dropped.                             
 
-A number of minor build system and documentation fixes are included. 
-
-This is a recommended upgrade for Windows.
-
-* * *
-
-Please [report](https://bugs.ntp.org/) any bugs, issues, or desired enhancements.
-
-The NTP (Network Time Protocol) Public Services Project, which is hosted by [Internet Systems Consortium, Inc.](https://www.isc.org/), provides support and additional development resources for the Reference Implementation of NTP produced by the NTP Project.
+A number of minor build system and documentation fixes are included.

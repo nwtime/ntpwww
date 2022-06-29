@@ -1,9 +1,10 @@
 ---
 title: "Spectracom WWVB/GPS Receivers"
+description: "The Spectracom WWVB/GPS Receivers driver supports all known Spectracom radio and satellite clocks, including the Model 8170 and Netclock/2 WWVB Synchronized Clocks and the Netclock/GPS GPS Master Clock. "
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu) 
+Author: [David L. Mills](mailto:mills@udel.edu) 
 
 * * *
 

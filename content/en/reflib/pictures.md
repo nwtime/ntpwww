@@ -1,5 +1,6 @@
 ---
 title: "About the Pictures"
+description: "Descriptions about the artwork and pictures that appear in the NTP documentation."
 type: archives
 ---
 

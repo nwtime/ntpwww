@@ -1,5 +1,6 @@
 ---
 title: "4.2 History"
+description: "This section of the NTP FAQ summarizes the history of NTP in a few words. Most material has been taken from a draft of A Brief History of NTP Time: Confessions of an Internet Timekeeper by Professor David L. Mills."
 type: "archives"
 --- 
 

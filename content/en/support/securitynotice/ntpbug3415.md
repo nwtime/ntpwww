@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3415: Provide a way to prevent authenticated symmetric passive peering"
+description: "A malicious authenticated peer – one where the attacker knows the private symmetric key – can create arbitrarily-many ephemeral associations in order to win the clock selection of ntpd and modify a victim’s clock. This bug was resolved in NTP 4.2.8p11."
 type: archives
 date: "2018-02-27"
 ---

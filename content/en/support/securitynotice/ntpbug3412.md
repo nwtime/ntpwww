@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3412: ctl_getitem(): buffer read overrun leads to undefined behavior and information leak"
+description: "A malicious mode 6 packet can be sent to an ntpd instance, and if the ntpd instance is from 4.2.8p6 thru 4.2.8p10, that will cause ctl_getitem() to read past the end of its buffer. This bug was resolved in NTP 4.2.8p11."
 type: archives
 date: "2018-02-27"
 ---

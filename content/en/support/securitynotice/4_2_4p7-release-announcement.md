@@ -1,5 +1,6 @@
 ---
 title: "4.2.4p7 Release Announcement"
+description: "The release announcement for NTP 4.2.4p7, which was released on May 18, 2009."
 type: archives
 date: "2009-05-18"
 ---
@@ -26,9 +27,3 @@ NTP Project, is now available.
 * Adds support for AIX 6.1
 * Resolves some issues under MacOS X and Solaris
 * Improved logging
-
-* * *
-
-Please [report](https://bugs.ntp.org/) any bugs, issues, or desired enhancements.
-
-The NTP (Network Time Protocol) Public Services Project, which is hosted by [Internet Systems Consortium, Inc.](https://www.isc.org/), provides support and additional development resources for the Reference Implementation of NTP produced by the NTP Project.

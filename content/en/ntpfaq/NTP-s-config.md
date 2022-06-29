@@ -1,5 +1,6 @@
 ---
 title: "6. Configuration"
+description: "This section of the NTP FAQ discussed the manual configuration  necessary to get a running NTP system."
 type: "archives"
 ---
 

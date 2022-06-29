@@ -1,5 +1,6 @@
 ---
 title: "Reference Clock Commands and Options"
+description: "Descriptions of the commands and options available to reference clocks."
 type: archives
 ---
 

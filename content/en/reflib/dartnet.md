@@ -1,7 +1,7 @@
 ---
 title: "CAIRN/DARTnet Collaboration"
+description: "Historical overview of the 2001 DARPA-funded project to research the technology needed to automatically launch, deploy, and authenticate time sources in a very large, survivable network."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/pogo6.gif)

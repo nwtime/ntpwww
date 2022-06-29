@@ -1,9 +1,10 @@
 ---
 title: "Arbiter 1088A/B GPS Receiver"
+description: "The Arbiter 1088A/B GPS Receiver driver supports the Arbiter 1088A/B Satellite Controlled Clock."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

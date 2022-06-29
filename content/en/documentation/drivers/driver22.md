@@ -1,9 +1,10 @@
 ---
 title: "PPS Clock Discipline"
+description: "The PPS Clock Discipline driver furnishes an interface for the pulse-per-second (PPS) signal produced by a cesium clock, radio clock, or related devices."
 type: archives
 ---
 
-Author: David L. Mills (mills@udel.edu)
+Author: [David L. Mills](mailto:mills@udel.edu)
 
 * * *
 

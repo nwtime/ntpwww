@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/support/securitynotice/ntpbug3592/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/support/securitynotice/ntpbug3592/" />
   
   <meta property="og:title" content="NTP BUG 3592: DoS Attack on Unauthenticated Client" />
-<meta property="og:description" content="Summary Resolved4.2.8p1403 Mar 2020ReferencesBug 3592CVE-2020-11868Affectsntp-4.2.8p12 (possibly earlier) and ntp-4.2.8p13,
-and 4.3.98 up to, but not including 4.3.100.Resolved in 4.2.8p14 and 4.3.100.CVSS2 Score5.4AV:N/AC:H/Au:N/C:N/I:N/A:CCVSS3 Score5.9CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H		 Description The fix for 3445 introduced a bug whereby a system that is running ntp-4.2.8p12 or p13 that only has one unauthenticated time source can be attacked in a way that causes the victim&rsquo;s next poll to its source to be delayed, for as long as the attack is maintained." />
+<meta property="og:description" content="A system that is running NTP 4.2.8p12 or p13 that only has one unauthenticated time source can be attacked in a way that causes the victim’s next poll to its source to be delayed, for as long as the attack is maintained. This bug was resolved in NTP 4.2.8p14." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/support/securitynotice/ntpbug3592/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="support" />
+<meta property="og:url" content="https://www.ntp.org/support/securitynotice/ntpbug3592/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 <meta property="article:published_time" content="2020-03-03T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2022-02-15T15:25:41&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -51,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="A system that is running NTP 4.2.8p12 or p13 that only has one unauthenticated time source can be attacked in a way that causes the victim’s next poll to its source to be delayed, for as long as the attack is maintained. This bug was resolved in NTP 4.2.8p14.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -60,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -76,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -119,21 +118,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/support/">Support</a>
+	<a href="https://www.ntp.org/support/">Support</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/support/securitynotice/">Security</a>
+	<a href="https://www.ntp.org/support/securitynotice/">Security</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/support/securitynotice/ntpbug3592/">NTP BUG 3592: DoS Attack on Unauthenticated Client</a>
+	<a href="https://www.ntp.org/support/securitynotice/ntpbug3592/">NTP BUG 3592: DoS Attack on Unauthenticated Client</a>
 </li>
 
 	</ol>
@@ -150,7 +149,7 @@ function demo() {
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td><a href="https://doc.ntp.org/support/securitynotice/4_2_8p14-release-announcement/">4.2.8p14</a></td>
+		<td><a href="https://www.ntp.org/support/securitynotice/4_2_8p14-release-announcement/">4.2.8p14</a></td>
 		<td>03 Mar 2020</td>
 	</tr>
 	<tr>
@@ -183,7 +182,7 @@ function demo() {
 <ul>
 <li>Use authentication with symmetric peers.</li>
 <li>Have enough sources of time.</li>
-<li>Upgrade to <a href="https://doc.ntp.org/downloads/">4.2.8p14 or later</a>.</li>
+<li>Upgrade to <a href="https://www.ntp.org/downloads/">4.2.8p14 or later</a>.</li>
 </ul>
 <hr>
 <h4 id="credit">Credit</h4>
@@ -206,19 +205,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

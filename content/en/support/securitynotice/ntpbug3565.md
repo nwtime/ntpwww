@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3565: Crafted null dereference attack from a trusted source with an authenticated mode 6 packet"
+description: "A crafted malicious authenticated mode 6 (ntpq) packet from a permitted network address can trigger a NULL pointer dereference, crashing ntpd. This bug was resolved in NTP 4.2.8p13."
 type: archives
 date: "2019-03-07"
 ---

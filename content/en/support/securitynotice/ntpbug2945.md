@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2945: 0rigin: Zero Origin Timestamp Bypass"
+description: "To distinguish legitimate peer responses from forgeries, NTP clients check that the origin timestamp in a response packet matches the origin timestamp transmitted in the last request. A logic error allowed packets with an origin timestamp of zero to bypass this check whenever there is not an outstanding request to the server. This bug was resolved in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

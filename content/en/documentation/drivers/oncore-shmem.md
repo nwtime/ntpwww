@@ -1,5 +1,6 @@
 ---
 title: "Motorola ONCORE - The Shared Memory Interface"
+description: "An overview of the shared memory interface used by the Motorola Oncore GPS receiver."
 type: archives
 ---
 

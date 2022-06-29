@@ -1,5 +1,6 @@
 ---
 title: "Orphan Mode"
+description: "Orphan mode provides a single simulated UTC source with multiple servers and provides seamless switching as local reference clocks or Internet time servers fail and recover."
 type: archives
 ---
 

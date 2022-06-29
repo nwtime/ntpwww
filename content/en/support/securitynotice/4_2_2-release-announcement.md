@@ -1,5 +1,6 @@
 ---
 title: "4.2.2 Release Announcement"
+description: "The release announcement for NTP 4.2.2, which was released on June 8, 2006."
 type: archives
 date: "2006-06-08"
 ---
@@ -14,5 +15,3 @@ This is primarily a bug fix and minor enhancements release.  Important new featu
 * Improved IPv6 support
 * Multicast mode now works on more platforms.
 * New version numbering scheme
-
-Please [report](https://bugs.ntp.org/) any bugs, issues, or desired enhancements.

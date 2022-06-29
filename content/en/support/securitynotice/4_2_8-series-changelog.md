@@ -1,10 +1,11 @@
 ---
 title: "4.2.8-series Changelog"
+description: "The changelogs for NTP versions 4.2.8 through 4.2.8p15."
 type: archives
 ---
 
 <details open>
-<summary><b>Click to hide release list</b></summary>
+<summary><b>Release versions:</b></summary>
 
 * [4.2.8p15](#428p15)
 * [4.2.8p14](#428p14)

@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3071: Client rate limiting and server responses"
+description: "An attacker who knows a system is misconfigured with rate limiting for all associations can periodically send packets with a spoofed source address to keep the rate limiting activated and prevent ntpd from accepting valid responses from its sources. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

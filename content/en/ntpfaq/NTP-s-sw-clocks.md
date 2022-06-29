@@ -1,5 +1,6 @@
 ---
 title: "3. How do Computer Clocks work?"
+description: "This section of the NTP FAQ tries to explain the basics of software clocks used in computers. In principle, such clocks just consist of an oscillator and a counter."
 type: "archives"
 --- 
 

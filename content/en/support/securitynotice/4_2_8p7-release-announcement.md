@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p7 Release Announcement"
+description: "The NTP Project at Network Time Foundation released NTP 4.2.8p7 on April 26, 2016. This release addresses 11 vulnerabilities."
 type: archives
 date: "2016-04-26"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Miscellaneous Commands and Options"
+description: "Descriptions of miscellaneous commands and options for configuring NTP."
 type: archives
 ---
 

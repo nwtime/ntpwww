@@ -1,5 +1,6 @@
 ---
 title: "4.2.6p2 Release Announcement"
+description: "The release announcement for NTP 4.2.6p2, which was released on July 9, 2010."
 type: archives
 date: "2010-07-09"
 ---
@@ -43,9 +44,3 @@ New features / changes in this release include:
 * MD5 authentication of an `ntpd`
 * Broadcast and crypto
 * OpenSSL support
-
-* * *
-
-Please [report](https://bugs.ntp.org/) any bugs, issues, or desired enhancements.
-
-The NTP (Network Time Protocol) Public Services Project, which is hosted by [Internet Systems Consortium, Inc.](https://www.isc.org/), provides support and additional development resources for the Reference Implementation of NTP produced by the NTP Project.

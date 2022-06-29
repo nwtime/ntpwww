@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3118: Mode 6 unauthenticated trap information disclosure and DDoS vector"
+description: "An exploitable configuration modification vulnerability exists in the control mode functionality of ntpd. If, against long-standing BCP recommendations, restrict default noquery ... is not specified, a specially crafted control mode packet can set ntpd traps, providing information disclosure and DDoS amplification, and unset ntpd traps, disabling legitimate monitoring. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

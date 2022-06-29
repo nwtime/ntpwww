@@ -1,5 +1,6 @@
 ---
 title: "4.2.4-series Changelog"
+description: "The changelogs for NTP versions 4.2.4 through 4.2.4p8."
 type: archives
 ---
 

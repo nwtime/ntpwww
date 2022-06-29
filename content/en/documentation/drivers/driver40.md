@@ -1,5 +1,6 @@
 ---
 title: "JJY Receivers"
+description: "The JJY Receivers driver supports several JJY receivers and the GPS clock sold in Japan, and the Japanese time service through a telephone line."
 type: archives
 ---
        

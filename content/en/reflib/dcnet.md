@@ -1,7 +1,7 @@
 ---
 title: "DCnet Research Network"
+description: "Historical overview of the DCnet laboratory network used for NTP protocol development, experiments, and performance evaluation."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/dartlogoa.gif)

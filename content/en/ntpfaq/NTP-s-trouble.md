@@ -1,5 +1,6 @@
 ---
 title: "8. Troubleshooting"
+description: "This section of the NTP FAQ discusses topics related to configuration, monitoring, troubleshooting, and debugging of NTP."
 type: "archives"
 ---
 

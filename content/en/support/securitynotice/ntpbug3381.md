@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3381: Copious amounts of Unused Code"
+description: "Statically included external projects potentially introduce several problems and the issue of having extensive amounts of dead code in the resulting binary must clearly be pointed out. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

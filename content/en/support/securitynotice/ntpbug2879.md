@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2879: Improve NTP security against buffer comparison timing attacks"
+description: "It is potentially possible for a local or LAN-based attacker to send a packet with an authentication payload and indirectly observe how much of the digest has matched. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

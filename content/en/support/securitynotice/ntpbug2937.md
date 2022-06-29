@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2937: nextvar() missing length check in ntpq"
+description: "ntpq may call nextvar() which executes a memcpy() into the name buffer without a proper length check against its maximum length of 256 bytes. This bug was resolved in NTP 4.2.8p6."
 type: archives
 date: "2016-01-19"
 ---

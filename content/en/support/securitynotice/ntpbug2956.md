@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2956: Small-step/big-step"
+description: "There is a window of opportunity where an attacker can cause ntpd to set the time to an arbitrary value. This bug was resolved in NTP 4.2.8p5."
 type: archives
 date: "2016-01-07"
 ---

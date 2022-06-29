@@ -1,7 +1,7 @@
 ---
 title: "Time and Frequency Standard Station Information"
+description: "Historical listing of stations which broadcast time, with their station frequencies and coordinates."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/tonea.gif)

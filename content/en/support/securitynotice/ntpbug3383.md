@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3383: Stack Buffer Overflow from Command Line (WINDOWS installer ONLY)"
+description: "The Windows installer for NTP calls strcat(), blindly appending the string passed to the stack buffer in the addSourceToRegistry() function. Together with the initially copied Registry path, the combination causes a stack buffer overflow and effectively overwrites the stack frame. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

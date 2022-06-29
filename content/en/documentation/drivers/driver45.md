@@ -1,5 +1,6 @@
 ---
 title: "Spectracom TSYNC PCI"
+description: "The Spectracom TSYNC PCI reference clock driver supports the Spectracom TSYNC PCI receiver."
 type: archives
 ---
 

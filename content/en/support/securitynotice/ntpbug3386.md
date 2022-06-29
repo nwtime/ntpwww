@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3386: ntpq_stripquotes() returns incorrect value"
+description: "Although the return value of the ntpq_stripquotes() function is never used in the code, this flaw could lead to a vulnerability in the future. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

@@ -1,5 +1,6 @@
 ---
-title: "NTP BUG 3596: Unauthenticated and unmonitored ntpd may be susceptible to IPv4 attack from highly predictable transmit timestamps "
+title: "NTP BUG 3596: Unauthenticated and unmonitored ntpd may be susceptible to IPv4 attack from highly predictable transmit timestamps"
+description: "A high-performance ntpd instance that gets its time from unauthenticated IPv4 time sources may be vulnerable to an off-path attacker who can query time from the victim’s ntpd instance. This bug was resolved in NTP 4.2.8p14."
 type: archives
 date: "2020-03-03"
 ---

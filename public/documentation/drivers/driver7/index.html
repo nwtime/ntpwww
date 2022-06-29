@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/documentation/drivers/driver7/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/drivers/driver7/" />
   
   <meta property="og:title" content="Radio CHU Audio Demodulator/Decoder" />
-<meta property="og:description" content="Author: David L. Mills (mills@udel.edu)
- Table of Contents  Synopsis Description Technical Overview Baseband Signal Processing Majority Decoder Autotune Debugging Aids Monitor Data Fudge Factors   Synopsis  Address: 127.127.7.u Reference ID: CHU Driver ID: CHU Modem Port: /dev/chuu; 300 baud, 8-bits, no parity Autotune Port: /dev/icom; 1200/9600 baud, 8-bits, no parity Audio Device: /dev/audio and /dev/audioctl   Description This driver synchronizes the computer time using shortwave radio transmissions from Canadian time/frequency station CHU in Ottawa, Ontario." />
+<meta property="og:description" content="The Radio CHU Audio Demodulator/Decoder driver synchronizes the computer time using shortwave radio transmissions from Canadian time/frequency station CHU in Ottawa, Ontario." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/drivers/driver7/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver7/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -51,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="The Radio CHU Audio Demodulator/Decoder driver synchronizes the computer time using shortwave radio transmissions from Canadian time/frequency station CHU in Ottawa, Ontario.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -60,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -76,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -119,21 +118,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://www.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/drivers/">Drivers</a>
+	<a href="https://www.ntp.org/documentation/drivers/">Drivers</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder</a>
+	<a href="https://www.ntp.org/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder</a>
 </li>
 
 	</ol>
@@ -144,19 +143,19 @@ function demo() {
   <div class="container">
   	<h1>Radio CHU Audio Demodulator/Decoder</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
-	<p>Author: David L. Mills (<a href="mailto:mills@udel.edu">mills@udel.edu</a>)</p>
+	<p>Author: <a href="mailto:mills@udel.edu">David L. Mills</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#synopsis">Synopsis</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#description">Description</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#technical-overview">Technical Overview</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#baseband-signal-processing">Baseband Signal Processing</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#majority-decoder">Majority Decoder</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#autotune">Autotune</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#debugging-aids">Debugging Aids</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#monitor-data">Monitor Data</a></li>
-<li><a href="https://doc.ntp.org/documentation/drivers/driver7/#fudge-factors">Fudge Factors</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#synopsis">Synopsis</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#description">Description</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#technical-overview">Technical Overview</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#baseband-signal-processing">Baseband Signal Processing</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#majority-decoder">Majority Decoder</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#autotune">Autotune</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#debugging-aids">Debugging Aids</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#monitor-data">Monitor Data</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver7/#fudge-factors">Fudge Factors</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -171,11 +170,11 @@ function demo() {
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver synchronizes the computer time using shortwave radio transmissions from Canadian time/frequency station <a href="https://nrc.canada.ca/en/certifications-evaluations-standards/canadas-official-time/nrc-shortwave-station-broadcasts-chu">CHU</a> in Ottawa, Ontario. CHU transmissions are made continuously on 3.330, 7.850 and 14.670 MHz in upper sideband, compatible AM mode. An ordinary shortwave receiver can be tuned manually to one of these frequencies or, in the case of ICOM receivers, the receiver can be tuned automatically as propagation conditions change throughout the day and season.</p>
-<p>The driver can be compiled to use either an audio codec or soundcard, or a Bell 103-compatible, 300-b/s modem or modem chip, as described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. If compiled for a modem, the driver uses it to receive the radio signal and demodulate the data. If compiled for the audio codec, it requires a sampling rate of 8 kHz and μ-law companding to demodulate the data. This is the same standard as used by the telephone industry and is supported by most hardware and operating systems, including Solaris, FreeBSD and Linux, among others. The radio is connected via an optional attenuator and cable to either the microphone or line-in port of a workstation or PC. In this implementation, only one audio driver and codec can be supported on a single machine.</p>
+<p>The driver can be compiled to use either an audio codec or soundcard, or a Bell 103-compatible, 300-b/s modem or modem chip, as described on the <a href="https://www.ntp.org/documentation/4.2.8-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. If compiled for a modem, the driver uses it to receive the radio signal and demodulate the data. If compiled for the audio codec, it requires a sampling rate of 8 kHz and μ-law companding to demodulate the data. This is the same standard as used by the telephone industry and is supported by most hardware and operating systems, including Solaris, FreeBSD and Linux, among others. The radio is connected via an optional attenuator and cable to either the microphone or line-in port of a workstation or PC. In this implementation, only one audio driver and codec can be supported on a single machine.</p>
 <p>In general and without calibration, the driver is accurate within 1 ms relative to the broadcast time when tracking a station. However, variations up to 0.3 ms can be expected due to diurnal variations in ionospheric layer height and ray geometry. In Newark DE, 625 km from the transmitter, the predicted one-hop propagation delay varies from 2.8 ms in sunlight to 2.6 ms in moonlight. When not tracking the station the accuracy depends on the computer clock oscillator stability, ordinarily better than 0.5 PPM.</p>
 <p>After calibration relative to the PPS signal from a GPS receiver, the mean offset with a 2.4-GHz P4 running FreeBSD 6.1 is generally within 0.2 ms short-term with 0.4 ms jitter. The long-term mean offset varies up to 0.3 ms due to propagation path geometry variations. The processor load due to the driver is 0.4 percent on the P4.</p>
 <p>The driver performs a number of error checks to protect against overdriven or underdriven input signal levels, incorrect signal format or improper hardware configuration. The specific checks are detailed later in this page. Note that additional checks are done elsewhere in the reference clock interface routines.</p>
-<p>This driver incorporates several features in common with other audio drivers such as described in the <a href="https://doc.ntp.org/documentation/drivers/driver36/">Radio WWV/H Audio Demodulator/Decoder</a> and the <a href="https://doc.ntp.org/documentation/drivers/driver6/">IRIG Audio Decoder</a> pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the <a href="https://doc.ntp.org/documentation/4.2.8-series/audio/">Reference Clock Audio Drivers</a> page.</p>
+<p>This driver incorporates several features in common with other audio drivers such as described in the <a href="https://www.ntp.org/documentation/drivers/driver36/">Radio WWV/H Audio Demodulator/Decoder</a> and the <a href="https://www.ntp.org/documentation/drivers/driver6/">IRIG Audio Decoder</a> pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the <a href="https://www.ntp.org/documentation/4.2.8-series/audio/">Reference Clock Audio Drivers</a> page.</p>
 <hr>
 <h4 id="technical-overview">Technical Overview</h4>
 <p>The driver processes 8-kHz μ-law companded codec samples using maximum-likelihood techniques which exploit the considerable degree of redundancy available in each broadcast message or burst. As described below, every character is sent twice and, in the case of format A bursts, the burst is sent eight times every minute. The single format B burst is considered correct only if every character matches its repetition in the burst. For the eight format A bursts, a majority decoder requires more than half of the 16 repetitions for each digit decode to the same value. Every character in every burst provides an independent timestamp upon arrival with a potential total of 60 timestamps for each minute.</p>
@@ -197,7 +196,7 @@ function demo() {
 <p>If the timecode is valid, it is passed to the reference clock interface along with the backdated timestamps accumulated over the minute. A perfect set of eight bursts could generate as many as 80 timestamps, but the maximum the interface can handle is 60. These are processed using a median filter and trimmed-mean average, so the resulting system clock correction is usually much better than would otherwise be the case with radio noise, UART jitter and occasional burst errors.</p>
 <hr>
 <h4 id="autotune">Autotune</h4>
-<p>The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the <a href="https://doc.ntp.org/documentation/4.2.8-series/audio/">Reference Clock Audio Drivers</a> page.</p>
+<p>The driver includes provisions to automatically tune the radio in response to changing radio propagation conditions throughout the day and night. The radio interface is compatible with the ICOM CI-V standard, which is a bidirectional serial bus operating at TTL levels. The bus can be connected to a standard serial port using a level converter such as the CT-17. Further details are on the <a href="https://www.ntp.org/documentation/4.2.8-series/audio/">Reference Clock Audio Drivers</a> page.</p>
 <p>If specified, the driver will attempt to open the device <code>/dev/icom</code> and, if successful will tune the radio to 3.331 MHz. The 1-kHz offset is useful with a narrowband SSB filter where the passband includes the carrier and modem signals. However, the driver is liberal in what it assumes of the configuration. If the <code>/dev/icom</code> link is not present or the open fails or the CI-V bus is inoperative, the driver continues in single-frequency mode.</p>
 <p>As long as no bursts are received, the driver cycles over the three frequencies in turn, one minute for each station. When bursts are received from one or more stations, the driver operates in a five-minute cycle. During the first four minutes it tunes to the station with the highest metric. During the last minute it alternates between the other two stations in turn in order to measure the metric.</p>
 <hr>
@@ -350,19 +349,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

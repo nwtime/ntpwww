@@ -1,5 +1,6 @@
 ---
 title: "NTP Interleaved Modes"
+description: "In interleaved mode, the transmit drivestamp for one packet is carried in the immediately following packet. Interleaved mode can be used only in NTP symmetric and broadcast modes. It is activated by the xleave option with the peer or broadcast configuration commands."
 type: archives
 ---
 

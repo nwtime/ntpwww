@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 1331: DoS attack from certain NTP mode 7 packets"
+description: "If an attacker spoofs the source address in a mode 7 response packet, both systems will continuously send each other error responses. If an attacker spoofs the recipient's address in a mode 7 response packet, the recipient will respond endlessly, consuming CPU and logging excessively. This bug was resolved in NTP 4.2.4p8."
 type: archives
 date: "2009-12-08"
 ---

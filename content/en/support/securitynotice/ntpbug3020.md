@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3020: Refclock impersonation vulnerability"
+description: "If ntpd is configured to use a reference clock on operating systems which allow packets claiming to be from 127.0.0.0/8 that arrive over the physical network, an attacker can inject packets over the network that look like they are coming from that reference clock. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

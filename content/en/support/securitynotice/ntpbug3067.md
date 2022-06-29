@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3067: Fix for bug 2085 broke initial sync calculations"
+description: "This bug results in a root distance that does not include the peer dispersion. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

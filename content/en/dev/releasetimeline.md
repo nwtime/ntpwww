@@ -1,5 +1,6 @@
 ---
 title: NTP Release Timeline
+description: "A listing of every NTP release with links to their release announcements and changelogs and an overview of each release's number of security fixes, bug fixes, and improvements."
 type: archives
 ---
 

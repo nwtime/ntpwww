@@ -1,5 +1,6 @@
 ---
 title: "sntp - Simple Network Time Protocol (SNTP) Client"
+description: "The Simple Network Time Protocol (SNTP) client can be used to query an NTP server in order to display the time offset of the system clock relative to the server clock."
 type: archives
 ---
 

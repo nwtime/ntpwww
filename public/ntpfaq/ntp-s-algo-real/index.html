@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/ntpfaq/ntp-s-algo-real/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/ntpfaq/ntp-s-algo-real/" />
   
   <meta property="og:title" content="5.3. NTP in real Life" />
-<meta property="og:description" content="This section discusses how well the theory applies to real life situations.
-5.3.1 What if I write my own SNTP Server?
-5.3.2 Why should I have more than one clock?
-5.3.3 Does the reference time depend on all configured servers, or is it based on which ever responds first?
-5.3.4 What happens during a Leap Second?
- 5.3.1 What if I write my own SNTP Server? There is a quote (with partial omissions) on that subject by Professor David L." />
+<meta property="og:description" content="This section of the NTP FAQ discusses how well theory applies to real life situations." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ntpfaq/ntp-s-algo-real/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="ntpfaq" />
+<meta property="og:url" content="https://www.ntp.org/ntpfaq/ntp-s-algo-real/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
 <meta property="article:modified_time" content="2022-02-14T19:06:33&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -55,7 +50,7 @@ function demo() {
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  <meta name="description" content="This section of the NTP FAQ discusses how well theory applies to real life situations.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -64,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -80,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -120,14 +115,14 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+	<a href="https://www.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/ntpfaq/ntp-s-algo-real/">5.3. NTP in real Life</a>
+	<a href="https://www.ntp.org/ntpfaq/ntp-s-algo-real/">5.3. NTP in real Life</a>
 </li>
 
 	</ol>
@@ -154,8 +149,8 @@ function demo() {
 <hr>
 <h4 id="532-why-should-i-have-more-than-one-clock">5.3.2 Why should I have more than one clock?</h4>
 <p>NTP likes to estimate the errors of all clocks. Therefore all NTP servers return the time together with an estimate of the current error. When using multiple time servers, NTP also wants these servers to agree on some time, meaning there must be one error interval where the correct time must be.</p>
-<p><a href="https://doc.ntp.org/reflib/reports/ntp-survey99-minar.pdf">The 1999 survey</a> suggests that not all NTP servers work as designed in theory. In fact there was a high percentage of stratum-1 servers with a bad time. Over 30% of the active stratum-1 servers had a clock error of over 10 seconds, and a few even had an error of more than a year. The author of the survey says: &ldquo;Only 28% of the stratum 1 clocks found appear to actually be useful.&rdquo;</p>
-<p>Time sources that are reachable and have a <em>dispersion</em> smaller than the maximum become <em>candidates</em> for time synchronization, thus contributing an error interval. In <a href="https://doc.ntp.org/reflib/rfc/rfc1305/rfc1305b.pdf">RFC 1305</a> section 4.2 the algorithms are treated in greater detail.</p>
+<p><a href="https://www.ntp.org/reflib/reports/ntp-survey99-minar.pdf">The 1999 survey</a> suggests that not all NTP servers work as designed in theory. In fact there was a high percentage of stratum-1 servers with a bad time. Over 30% of the active stratum-1 servers had a clock error of over 10 seconds, and a few even had an error of more than a year. The author of the survey says: &ldquo;Only 28% of the stratum 1 clocks found appear to actually be useful.&rdquo;</p>
+<p>Time sources that are reachable and have a <em>dispersion</em> smaller than the maximum become <em>candidates</em> for time synchronization, thus contributing an error interval. In <a href="https://www.ntp.org/reflib/rfc/rfc1305/rfc1305b.pdf">RFC 1305</a> section 4.2 the algorithms are treated in greater detail.</p>
 <p>If these candidates pass another validation test, they become <em>survivors</em>. Basically all values must lie within the error interval the majority of candidates defines. All other time sources are called <em>falsetickers</em> subsequently.</p>
 <p>Among the survivors those with significant high dispersion are removed and tagged as <em>outlyers</em>.</p>
 <p>The final synchronization source is the survivor with the smallest dispersion.</p>
@@ -175,9 +170,9 @@ function demo() {
 </ul>
 <hr>
 <h4 id="534-what-happens-during-a-leap-second">5.3.4 What happens during a Leap Second?</h4>
-<p>The theory of leap seconds in explained in <a href="https://doc.ntp.org/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second">Q: 2.4</a>. In reality there are two cases to consider:</p>
+<p>The theory of leap seconds in explained in <a href="https://www.ntp.org/ntpfaq/ntp-s-time/#24-what-happens-during-a-leap-second">Q: 2.4</a>. In reality there are two cases to consider:</p>
 <ul>
-<li>If the operating system implements the <a href="https://doc.ntp.org/ntpfaq/ntp-s-algo-kernel/">kernel discipline</a>, <code>ntpd</code> will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.</li>
+<li>If the operating system implements the <a href="https://www.ntp.org/ntpfaq/ntp-s-algo-kernel/">kernel discipline</a>, <code>ntpd</code> will announce insertion and deletion of leap seconds to the kernel. The kernel will handle the leap seconds without further action necessary.</li>
 <li>If the operating system does not implement the kernel discipline, the clock will show an error of one second relative to NTP&rsquo;s time immediately after the leap second. The situation will be handled just like an unexpected change of time: the operating system will continue with the wrong time for some time, but eventually <code>ntpd</code> will <em>step</em> the time. Effectively this will cause the correction for leap seconds to be applied too late.</li>
 </ul>
 
@@ -190,19 +185,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

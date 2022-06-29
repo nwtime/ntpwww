@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3382: Data Structure terminated insufficiently (Windows installer ONLY)"
+description: "The Windows installer for NTP calls strcpy() which copies a single terminating null character into the target buffer instead of copying the required double null bytes in the addKeysToRegistry() function. As a consequence, a garbage registry entry can be created. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-02-21"
 ---

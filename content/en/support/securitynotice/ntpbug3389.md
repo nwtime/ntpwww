@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3389: Denial of Service via Malformed Config"
+description: "A vulnerability found in the NTP server makes it possible for an authenticated remote user to crash ntpd via a malformed mode configuration directive. This bug was resolved in NTP 4.2.8p10."
 type: archives
 date: "2017-03-21"
 ---

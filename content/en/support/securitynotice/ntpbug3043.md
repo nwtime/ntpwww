@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3043: Autokey association reset"
+description: "An attacker who is able to spoof a packet with a correct origin timestamp before the expected response packet arrives at the target machine can send a CRYPTO_NAK or a bad MAC and cause the association’s peer variables to be cleared. If this can be done often enough, it will prevent that association from working. This bug was resolved in NTP 4.2.8p8."
 type: archives
 date: "2016-06-02"
 ---

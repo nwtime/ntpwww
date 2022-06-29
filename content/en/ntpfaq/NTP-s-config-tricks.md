@@ -1,5 +1,6 @@
 ---
 title: "6.3. Various Tricks"
+description: "This section of the NTP FAQ demonstrates a few configuration tricks."
 type: "archives"
 ---
 

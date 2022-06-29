@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2853: ntpd control message crash: Crafted NUL-byte in configuration directive"
+description: "Under limited and specific circumstances an attacker can send a crafted packet to cause a vulnerable ntpd instance to crash. This bug was resolved in NTP 4.2.8p3."
 type: archives
 date: "2015-06-29"
 ---

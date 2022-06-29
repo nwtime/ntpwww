@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p12 Release Announcement"
+description: "The NTP Project at Network Time Foundation publicly released  NTP 4.2.8p13 on August 14, 2018. This release improves on one security issue in ntpd and provides 27 bugfixes and 4 other improvements."
 type: archives
 date: "2018-08-14"
 ---

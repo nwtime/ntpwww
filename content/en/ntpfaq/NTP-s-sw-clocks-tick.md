@@ -1,5 +1,6 @@
 ---
 title: "3.2 Making Time go on"
+description: "This section of the NTP FAQ describes how timer interrupts are used to advance time in a clock."
 type: "archives"
 --- 
 

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://doc.ntp.org/documentation/4.2.4-series/kern/" />
+<link rel="canonical" href="https://www.ntp.org/documentation/4.2.4-series/kern/" />
   
   <meta property="og:title" content="Kernel Model for Precision Timekeeping" />
 <meta property="og:description" content="from Pogo, Walt Kelly
 Alice finds the kernel a house of cards.
  The technical report 2, which is a major revision and update of RFC-1589 3, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model uses a hybrid PLL/FLL discipline algorithm implemented in the kernel." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.4-series/kern/" /><meta property="og:image" content="https://doc.ntp.org/images/sundial.jpg"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://www.ntp.org/documentation/4.2.4-series/kern/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -61,15 +61,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -77,20 +77,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -120,21 +120,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://www.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/4.2.4-series/">4.2.4-series</a>
+	<a href="https://www.ntp.org/documentation/4.2.4-series/">4.2.4-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/4.2.4-series/kern/">Kernel Model for Precision Timekeeping</a>
+	<a href="https://www.ntp.org/documentation/4.2.4-series/kern/">Kernel Model for Precision Timekeeping</a>
 </li>
 
 	</ol>
@@ -146,17 +146,17 @@ function demo() {
   	<h1>Kernel Model for Precision Timekeeping</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/alice61.gif" alt="gif"  />
-</p> <a href="https://doc.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice61.gif" alt="gif"  />
+</p> <a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>Alice finds the kernel a house of cards.</p>
 <hr>
 <p>The technical report <sup><a href="#myfootnote2">2</a></sup>, which is a major revision and update of RFC-1589 <sup><a href="#myfootnote3">3</a></sup>, describes an engineering model for a precision time-of-day function for a generic operating system. The model is based on the principles of disciplined oscillators using phase-lock loops (PLL) and frequency-lock loops (FLL) often found in the engineering literature. The model uses a hybrid PLL/FLL discipline algorithm implemented in the kernel. The algorithm, which is very similar to the algorithm implemented in the NTP daemon, provides automatic time and frequency steering with update intervals from a few seconds to tens of minutes.</p>
-<p>The hybrid PLL/FLL code described in <sup><a href="#myfootnote2">2</a></sup> is included in Solaris and Digital/Compaq/HP Tru64. It includes two system calls <code>ntp_gettime()</code> and <code>ntp_adjtime()</code> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup><a href="#myfootnote1">1</a></sup> is available for Linux, FreeBSD, SunOS and Tru64; however, only the Linux and FreeBSD implementations, which do not include licensed code, are readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available at <a href="https://doc.ntp.org/reflib/software/nanokernel.tar.gz">nanokernel.tar.gz</a>.</p>
-<p>The model also changes the way the system clock is adjusted in time and frequency relative to an external precision timing source, such as described in the <a href="https://doc.ntp.org/documentation/4.2.4-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. The NTP software daemon uses the PPS to provide synchronization limited in principle only by the accuracy and stability of the external timing source.</p>
+<p>The hybrid PLL/FLL code described in <sup><a href="#myfootnote2">2</a></sup> is included in Solaris and Digital/Compaq/HP Tru64. It includes two system calls <code>ntp_gettime()</code> and <code>ntp_adjtime()</code> and can discipline the system clock with microsecond resolution. However, newer hardware and kernels with the same system calls can discipline the clock with nanosecond resolution. The new code described in <sup><a href="#myfootnote1">1</a></sup> is available for Linux, FreeBSD, SunOS and Tru64; however, only the Linux and FreeBSD implementations, which do not include licensed code, are readily available. The software and documentation, including a simulator used to verify correct behavior, but not involving licensed code, is available at <a href="https://www.ntp.org/reflib/software/nanokernel.tar.gz">nanokernel.tar.gz</a>.</p>
+<p>The model also changes the way the system clock is adjusted in time and frequency relative to an external precision timing source, such as described in the <a href="https://www.ntp.org/documentation/4.2.4-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. The NTP software daemon uses the PPS to provide synchronization limited in principle only by the accuracy and stability of the external timing source.</p>
 <h4 id="footnotes">Footnotes</h4>
-<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="https://doc.ntp.org/reflib/papers/nano/nano2.ps">PostScript</a> | <a href="https://doc.ntp.org/reflib/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="https://doc.ntp.org/reflib/brief/nano/nano.ps">PostScript</a> | <a href="https://doc.ntp.org/reflib/brief/nano/nano.pdf">PDF</a> | <a href="https://doc.ntp.org/reflib/brief/nano/nano.ppt">PowerPoint</a></p>
-<p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="https://doc.ntp.org/reflib/reports/kern/kerna.ps">PostScript</a> | <a href="https://doc.ntp.org/reflib/reports/kern/kerna.pdf">PDF</a>, Body: <a href="https://doc.ntp.org/reflib/reports/kern/kernb.ps">PostScript</a> | <a href="https://doc.ntp.org/reflib/reports/kern/kernb.pdf">PDF</a></p>
-<p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="https://doc.ntp.org/reflib/rfc/rfc1589.txt">ASCII</a></p>
+<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="https://www.ntp.org/reflib/papers/nano/nano2.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="https://www.ntp.org/reflib/brief/nano/nano.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/brief/nano/nano.pdf">PDF</a> | <a href="https://www.ntp.org/reflib/brief/nano/nano.ppt">PowerPoint</a></p>
+<p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="https://www.ntp.org/reflib/reports/kern/kerna.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/reports/kern/kerna.pdf">PDF</a>, Body: <a href="https://www.ntp.org/reflib/reports/kern/kernb.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/reports/kern/kernb.pdf">PDF</a></p>
+<p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="https://www.ntp.org/reflib/rfc/rfc1589.txt">ASCII</a></p>
 
 	  
   </div>
@@ -167,19 +167,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

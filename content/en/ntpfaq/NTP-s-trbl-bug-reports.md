@@ -1,5 +1,6 @@
 ---
 title: "8.4. Reporting Bugs"
+description: "This section of the NTP FAQ provides instructions for submitting a bug report to the NTP bugs database."
 type: "archives"
 ---
 

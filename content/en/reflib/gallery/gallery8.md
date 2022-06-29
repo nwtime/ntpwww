@@ -1,7 +1,7 @@
 ---
 title: "Michigan Terminal System"
+description: "The Michigan Terminal System (MTS), along with Multics at MIT, were the first operational virtual memory operating systems in the world. On this page, Prof. David L. Mills describes the MTS while he was a staff member at the U Michigan Computing Center in the 1960s."
 type: archives
-toc_hide: true
 ---
 
 During much of the 1960s I was a staff member at the U Michigan Computing Center. I worked with a bunch of other guys on various hardward and software projects, one of which is described on this page.

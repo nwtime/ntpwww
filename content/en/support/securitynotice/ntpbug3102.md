@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3102: Zero Origin timestamp regression"
+description: "Timestamp validation checks introduced a regression in the handling of some Zero origin timestamp checks. This bug was resolved in NTP 4.2.8p9."
 type: archives
 date: "2016-11-21"
 ---

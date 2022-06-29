@@ -1,5 +1,6 @@
 ---
 title: "ntptime - read and set kernel time variables"
+description: "The ntptime program reads and displays time-related kernel variables on systems which support the ntp_gettime() system call. A similar display can be obtained using the ntpdc program and kerninfo command."
 type: archives
 ---
 

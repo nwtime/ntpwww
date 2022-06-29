@@ -1,7 +1,7 @@
 ---
 title: "NTP Security Analysis"
+description: "This document describes security enhancements to NTP, including the use of symmetric-key and public-key cryptography to avoid wiretap and middleman attacks. Where detailed analysis exposes subtle vulnerabilities, we propose solutions."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alice44.gif)

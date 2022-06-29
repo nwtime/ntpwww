@@ -1,6 +1,7 @@
 
 ---
 title: "White Papers"
+description: "Publications and miscellaneous items from the University of Delaware homepage for Professor David L. Mills. It is a treasure trove of information from the 1950s to the present by the father of NTP."
 type: archives
 ---
 

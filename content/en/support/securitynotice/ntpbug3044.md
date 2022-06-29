@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 3044: Processing spoofed server packets"
+description: "An attacker who is able to spoof packets with correct origin timestamps from enough servers before the expected response packets arrive at the target machine can affect some peer variables and, for example, cause a false leap indication to be set. This bug was resolved in NTP 4.2.8p8."
 type: archives
 date: "2016-06-02"
 ---

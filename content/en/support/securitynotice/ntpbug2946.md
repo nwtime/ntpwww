@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 2946: Origin Leak: ntpq and ntpdc Disclose Origin Timestamp to Unauthenticated Clients"
+description: "To prevent off-path attackers from impersonating legitimate peers, clients require that the origin timestamp in a received response packet match the transmit timestamp from its last request to a given peer. The assumption is that only the recipient of the request packet will know the value of the transmit timestamp. This bug was resolved in NTP 4.2.8p7."
 type: archives
 date: "2016-04-26"
 ---

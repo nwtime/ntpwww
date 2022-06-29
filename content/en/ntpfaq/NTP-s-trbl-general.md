@@ -1,5 +1,6 @@
 ---
 title: "8.2. General Issues"
+description: "This section of the NTP FAQ discusses general problems that are independent of a specific operating system."
 type: "archives"
 ---
 

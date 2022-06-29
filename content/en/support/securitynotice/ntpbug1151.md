@@ -1,5 +1,6 @@
 ---
 title: "NTP BUG 1151: Remote exploit if autokey is enabled"
+description: "When Autokey Authentication is enabled, a remote attacker can send a carefully crafted packet that can overflow a stack buffer and potentially allow malicious code to be executed with the privilege level of the ntpd process. This bug was resolved in NTP 4.2.4p7."
 type: archives
 date: "2009-03-04"
 ---
@@ -23,7 +24,7 @@ date: "2009-03-04"
 	<tr>
 		<th><b>Affects</b></th>
 		<td>All releases from 4.0.99m/4.1.70 (2001-08-15) through 4.2.4 before 4.2.4p7 and 4.2.5 before 4.2.5p74.</td>
-		<td>Resolved in 4.2.4p and 4.2.5p74.</td>
+		<td>Resolved in 4.2.4p7 and 4.2.5p74.</td>
 	</tr>	
   </tbody>	
 </table>

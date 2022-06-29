@@ -1,5 +1,6 @@
 ---
 title: "4.2.8p11 Release Announcement"
+description: "The NTP Project at Network Time Foundation released NTP 4.2.8p11 on February 27, 2018. This release addresses five security issues in ntpd, one security issue in ntpq, and provides over 33 bugfixes and 32 other improvements." 
 type: archives
 date: "2018-02-27"
 ---

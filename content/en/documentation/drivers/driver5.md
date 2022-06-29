@@ -1,5 +1,6 @@
 ---
 title: "TrueTime GPS/GOES/OMEGA/WWV Receivers"
+description: "The TrueTime GPS/GOES/OMEGA/WWV Receivers driver supports several models of Kinemetrics/TrueTime timing receivers, including 468-DC MK III GOES Synchronized Clock, GPS- DC MK III and GPS/TM-TMD GPS Synchronized Clock, XL-DC, GPS-800 TCU, OM-DC OMEGA Synchronized Clock, the TL-3 WWV receiver, and likely others in the same model families that use the same timecode formats."
 type: archives
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "The NTP Timescale and Leap Seconds"
+description: "The timescale used by NTP is based on UTC, which is based on the earth's rotation about its axis. As this rotation is slowing gradually, a leap second is inserted in the timescale at approximately eighteen month intervals. This document describes the mechanics of insertion and how it affects the timescale shortly before, during, and after the leap second."
 type: archives
-toc_hide: true
 ---
 
 ![gif](/documentation/pic/alice15.gif)
