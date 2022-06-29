@@ -11,8 +11,8 @@ NTPv4 provides drivers for almost four dozen satellite, radio, and telephone mod
 * [driver3](/documentation/drivers/driver3/): PSTI/Traconex 1020 WWV/WWVH Receiver
 * [driver4](/documentation/drivers/driver4/): Spectracom WWVB/GPS Receivers
 * [driver5](/documentation/drivers/driver5/): TrueTime GPS/GOES/OMEGA/WWV Receivers
-* [driver6](/documentation/drivers/driver6): IRIG Audio Decoder
-* [driver7](/documentation/drivers/driver7): Radio CHU Audio Demodulator/Decoder
+* [driver6](/documentation/drivers/driver6/): IRIG Audio Decoder
+* [driver7](/documentation/drivers/driver7/): Radio CHU Audio Demodulator/Decoder
 * [driver8](/documentation/drivers/driver8/): Generic Reference Driver
 * [driver9](/documentation/drivers/driver9/): Magnavox MX4200 GPS Receiver
 * [driver10](/documentation/drivers/driver10/): Austron 2200A/2201A GPS Receivers

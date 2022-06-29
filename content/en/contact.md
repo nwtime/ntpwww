@@ -1,5 +1,6 @@
 ---
 title: "NTP Contact Information"
+description: "Resources for getting NTP help: documentation, Google group, mailing lists, FAQ, and IRC. Includes the mailing addresses for the Security Officer and webmaster."
 type: archives
 ---
 
