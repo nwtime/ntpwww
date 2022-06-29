@@ -331,7 +331,7 @@ The date and time are requested separately. The time is requested before and aft
 
 The leap second is not handled, and only written in the `clockstats` file as information.
 
-The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from [http://www.nict.go.jp/](http://www.nict.go.jp/) (English and Japanese) and https://jjy.nict.go.jp/ (English and Japanese).
+The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from [https://www.nict.go.jp/](http://www.nict.go.jp/) (English and Japanese) and https://jjy.nict.go.jp/ (English and Japanese).
 
 The user is expected to provide a symbolic link to an available serial port device. This is typically performed by a command such as:
 
