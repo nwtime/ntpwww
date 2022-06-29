@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://www.ntp.org/documentation/4.1.0/tickadj/" />
+<link rel="canonical" href="https://doc.ntp.org/documentation/4.1.0/tickadj/" />
   
   <meta property="og:title" content="tickadj - set time-related kernel variables" />
 <meta property="og:description" content="Table of Contents  Synopsis Description Command Line Options Files Bugs   Synopsis tickadj [ -Aqs ] [ -a tickadj ] [ -t tick ]
  Description The tickadj program reads, and optionally modifies, several timekeeping-related variables in the running kernel in some machines, via /dev/kmem. The particular variables it is concerned with are tick, which is the number of microseconds added to the system time for a clock interrupt, tickadj, which sets the slew rate and resolution used by the adjtime system call, and dosynctodr, which indicates to the kernels on some machines whether they should internally adjust the system clock to keep it in line with time-of-day clock or not." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.ntp.org/documentation/4.1.0/tickadj/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.0/tickadj/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -60,15 +60,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -76,20 +76,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -119,21 +119,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://www.ntp.org/documentation/">Documentation</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://www.ntp.org/documentation/4.1.0/">4.1.0</a>
+	<a href="https://doc.ntp.org/documentation/4.1.0/">4.1.0</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://www.ntp.org/documentation/4.1.0/tickadj/">tickadj - set time-related kernel variables</a>
+	<a href="https://doc.ntp.org/documentation/4.1.0/tickadj/">tickadj - set time-related kernel variables</a>
 </li>
 
 	</ol>
@@ -146,11 +146,11 @@ function demo() {
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://www.ntp.org/documentation/4.1.0/tickadj/#synopsis">Synopsis</a></li>
-<li><a href="https://www.ntp.org/documentation/4.1.0/tickadj/#description">Description</a></li>
-<li><a href="https://www.ntp.org/documentation/4.1.0/tickadj/#command-line-options">Command Line Options</a></li>
-<li><a href="https://www.ntp.org/documentation/4.1.0/tickadj/#files">Files</a></li>
-<li><a href="https://www.ntp.org/documentation/4.1.0/tickadj/#bugs">Bugs</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.0/tickadj/#synopsis">Synopsis</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.0/tickadj/#description">Description</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.0/tickadj/#command-line-options">Command Line Options</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.0/tickadj/#files">Files</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.1.0/tickadj/#bugs">Bugs</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -158,7 +158,7 @@ function demo() {
 <hr>
 <h4 id="description">Description</h4>
 <p>The <code>tickadj</code> program reads, and optionally modifies, several timekeeping-related variables in the running kernel in some machines, via <code>/dev/kmem</code>. The particular variables it is concerned with are <code>tick</code>, which is the number of microseconds added to the system time for a clock interrupt, <code>tickadj</code>, which sets the slew rate and resolution used by the <code>adjtime</code> system call, and <code>dosynctodr</code>, which indicates to the kernels on some machines whether they should internally adjust the system clock to keep it in line with time-of-day clock or not.</p>
-<p>Note that this program does NOT work in some kernels, in particular Solaris 2.6 or later. See the <a href="https://www.ntp.org/documentation/hints/solaris-dosynctodr/">report</a>.</p>
+<p>Note that this program does NOT work in some kernels, in particular Solaris 2.6 or later. See the <a href="https://doc.ntp.org/documentation/hints/solaris-dosynctodr/">report</a>.</p>
 <p>By default, with no arguments, <code>tickadj</code> reads the variables of interest in the kernel and displays them. At the same time, it determines an &ldquo;optimal&rdquo; value for the value of the <code>tickadj</code> variable if the intent is to run the <code>ntpd</code> Network Time Protocol (NTP) daemon, and prints this as well. Since the operation of <code>tickadj</code> when reading the kernel mimics the operation of similar parts of the <code>ntpd</code> program fairly closely, this can be useful when debugging problems with <code>ntpd</code>.</p>
 <p>Note that <code>tickadj</code> should be run with some caution when being used for the first time on different types of machines. The operations which <code>tickadj</code> tries to perform are not guaranteed to work on all Unix machines and may in rare cases cause the kernel to crash.</p>
 <hr>
@@ -204,19 +204,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/4.2.8-series/stats/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/documentation/4.2.8-series/stats/" />
   
   <meta property="og:title" content="Performance Metrics" />
 <meta property="og:description" content="This page describes several statistics provided in the NTP specification and reference implementation and how they determine the accuracy and error measured during routine and exceptional operation." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/stats/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.8-series/stats/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-06-24T18:39:18&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -59,15 +59,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -75,20 +75,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -118,21 +118,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://www.ntp.org/documentation/">Documentation</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://www.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
+	<a href="https://doc.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://www.ntp.org/documentation/4.2.8-series/stats/">Performance Metrics</a>
+	<a href="https://doc.ntp.org/documentation/4.2.8-series/stats/">Performance Metrics</a>
 </li>
 
 	</ol>
@@ -145,9 +145,9 @@ function demo() {
     <p style="font-size: small; color: grey;">Last update: June 24, 2022 18:39 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/49e34905fdad00fae7e03f8d76cb229a9cc64c3c">49e34905f</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/stats/#introduction">Introduction</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/stats/#statistics-summary">Statistics Summary</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/stats/#quality-of-service">Quality of Service</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/stats/#introduction">Introduction</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/stats/#statistics-summary">Statistics Summary</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.8-series/stats/#quality-of-service">Quality of Service</a></li>
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
@@ -160,19 +160,19 @@ function demo() {
 </ul>
 <p>Figure 1 shows how the various measured statistics are collected and compiled to calibrate NTP performance.</p>
 <p><p>
-  <img loading="lazy" src="https://www.ntp.org/documentation/pic/stats.gif" alt="gif"  />
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/stats.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1: Statistics Budget</strong></p>
 <p>The data represented in boxes labeled Server are contained in fields in packet received from the server. The data represented in boxes labeled Peer are computed by the on-wire protocol, as described below. The algorithms of the box labeled Selection and Combining Algorithms process the peer data to select a system peer. The System box represents summary data inherited from the system peer. These data are available to application programs and dependent downstream clients.</p>
 <hr>
 <h4 id="statistics-summary">Statistics Summary</h4>
-<p>Each NTP synchronization source is characterized by the offset <code>θ</code> and delay <code>δ</code> samples measured by the on-wire protocol, as described on the <a href="https://www.ntp.org/documentation/4.2.8-series/warp/">How NTP Works</a> page. In addition, the dispersion <code>ε</code> sample is initialized with the sum of the source precision <code>ρ<sub>R</sub></code> and the client precision <code>ρ</code> (not shown) as each source packet is received. The dispersion increases at a rate of 15 μs/s after that. For this purpose, the precision is equal to the latency to read the system clock. The offset, delay and dispersion are called the sample statistics.</p>
+<p>Each NTP synchronization source is characterized by the offset <code>θ</code> and delay <code>δ</code> samples measured by the on-wire protocol, as described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/warp/">How NTP Works</a> page. In addition, the dispersion <code>ε</code> sample is initialized with the sum of the source precision <code>ρ<sub>R</sub></code> and the client precision <code>ρ</code> (not shown) as each source packet is received. The dispersion increases at a rate of 15 μs/s after that. For this purpose, the precision is equal to the latency to read the system clock. The offset, delay and dispersion are called the sample statistics.</p>
 <blockquote>
 <p><strong>NOTE:</strong> In very fast networks where the client clock frequency is not within 1 PPM or so of the server clock frequency, the roundtrip delay may have small negative values. This is usually a temporary condition when the client is first started. When using the roundtrip delay in calculations, negative values are assumed zero.</p>
 </blockquote>
-<p>In a window of eight (offset, delay, dispersion) samples, the algorithm described on the <a href="https://www.ntp.org/documentation/4.2.8-series/filter/">Clock Filter Algorithm</a> page selects the sample with minimum delay, which generally represents the most accurate offset statistic. The selected offset sample determines the <em>peer offset</em> and <em>peer delay</em> statistics. The <em>peer dispersion</em> is a weighted average of the dispersion samples in the window. These quantities are recalculated as each update is received from the source. Between updates, both the sample dispersion and peer dispersion continue to grow at the same rate, 15 μs/s. Finally, the <em>peer jitter</em> <code>φ</code> is determined as the RMS differences between the offset samples in the window relative to the selected offset sample. The peer statistics are recorded by the <code>peerstats</code> option of the <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/#monitoring-commands-and-options"><code>filegen</code></a> command. Peer variables are displayed by the <code>rv</code> command of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/#peer-variables"><code>ntpq</code></a> program.</p>
+<p>In a window of eight (offset, delay, dispersion) samples, the algorithm described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/filter/">Clock Filter Algorithm</a> page selects the sample with minimum delay, which generally represents the most accurate offset statistic. The selected offset sample determines the <em>peer offset</em> and <em>peer delay</em> statistics. The <em>peer dispersion</em> is a weighted average of the dispersion samples in the window. These quantities are recalculated as each update is received from the source. Between updates, both the sample dispersion and peer dispersion continue to grow at the same rate, 15 μs/s. Finally, the <em>peer jitter</em> <code>φ</code> is determined as the RMS differences between the offset samples in the window relative to the selected offset sample. The peer statistics are recorded by the <code>peerstats</code> option of the <a href="https://doc.ntp.org/documentation/4.2.8-series/monopt/#monitoring-commands-and-options"><code>filegen</code></a> command. Peer variables are displayed by the <code>rv</code> command of the <a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#peer-variables"><code>ntpq</code></a> program.</p>
 <p>The clock filter algorithm continues to process updates in this way until the source is no longer reachable. Reachability is determined by an eight-bit shift register, which is shifted left by one bit as each poll packet is sent, with 0 replacing the vacated rightmost bit. Each time a valid update is received, the rightmost bit is set to 1. The source is considered reachable if any bit is set to 1 in the register; otherwise, it is considered unreachable. When a source becomes unreachable, a dummy sample with &ldquo;infinite&rdquo; dispersion is inserted in the filter window at each poll, thus displacing old samples. This causes the peer dispersion to increase eventually to infinity.</p>
-<p>The composition of the source population and the system peer selection is redetermined as each update from each source is received. The system peer and system variables are determined as described on the <a href="https://www.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page. The system variables <code>Θ, Δ, Ε</code> and <code>Φ</code> are updated from the system peer variables of the same name and the system stratum set one greater than the system peer stratum. The system statistics are recorded by the <code>loopstats</code> option of the <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/#monitoring-commands-and-options"><code>filegen</code></a> command. System variables are displayed by the <code>rv</code> command of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/#system-variables"><code>ntpq</code></a> program.</p>
+<p>The composition of the source population and the system peer selection is redetermined as each update from each source is received. The system peer and system variables are determined as described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page. The system variables <code>Θ, Δ, Ε</code> and <code>Φ</code> are updated from the system peer variables of the same name and the system stratum set one greater than the system peer stratum. The system statistics are recorded by the <code>loopstats</code> option of the <a href="https://doc.ntp.org/documentation/4.2.8-series/monopt/#monitoring-commands-and-options"><code>filegen</code></a> command. System variables are displayed by the <code>rv</code> command of the <a href="https://doc.ntp.org/documentation/4.2.8-series/ntpq/#system-variables"><code>ntpq</code></a> program.</p>
 <p>Although it might seem counterintuitive, a cardinal rule in the selection process is, once a sample has been selected by the clock filter algorithm, older samples are no longer selectable. This applies also to the clock select algorithm. Once the peer variables for a source have been selected, older variables of the same or other sources are no longer selectable. The reason for these rules is to limit the time delay in the clock discipline algorithm. This is necessary to preserve the optimum impulse response and thus the risetime and overshoot.</p>
 <p>This means that not every sample can be used to update the peer variables, and up to seven samples can be ignored between selected samples. This fact has been carefully considered in the discipline algorithm design with due consideration for feedback loop delay and minimum sampling rate. In engineering terms, even if only one sample in eight survives, the resulting sample rate is twice the Nyquist rate at any time constant and poll interval.</p>
 <hr>
@@ -181,9 +181,9 @@ function demo() {
 <p>The root distance statistic is computed as one-half the <em>root delay</em> of the primary source of time; i.e., the reference clock, plus the <em>root dispersion</em> of that source. The root variables are included in the NTP packet header received from each source. At each update the root delay is recomputed as the sum of the root delay in the packet plus the peer delay, while the root dispersion is recomputed as the sum of the root dispersion in the packet plus the peer dispersion.</p>
 <blockquote>
 <p><strong>NOTE:</strong>
-In order to avoid timing loops, the root distance is adjusted to the maximum of the above computation and a <em>minimum threshold.</em> The minimum threshold defaults to 1 ms, but can be changed according to client preference using the <code>mindist</code> option of the <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/"><code>tos</code></a> command.</p>
+In order to avoid timing loops, the root distance is adjusted to the maximum of the above computation and a <em>minimum threshold.</em> The minimum threshold defaults to 1 ms, but can be changed according to client preference using the <code>mindist</code> option of the <a href="https://doc.ntp.org/documentation/4.2.8-series/miscopt/"><code>tos</code></a> command.</p>
 </blockquote>
-<p>A source is considered selectable only if its root distance is less than the <em>select threshold</em>, by default 1.5 s, but can be changed according to client preference using the <code>maxdist</code> option of the <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/"><code>tos</code></a> command. When an upstream server loses all sources, its root distance apparent to dependent clients continues to increase. The clients are not aware of this condition and continue to accept synchronization as long as the root distance is less than the select threshold.</p>
+<p>A source is considered selectable only if its root distance is less than the <em>select threshold</em>, by default 1.5 s, but can be changed according to client preference using the <code>maxdist</code> option of the <a href="https://doc.ntp.org/documentation/4.2.8-series/miscopt/"><code>tos</code></a> command. When an upstream server loses all sources, its root distance apparent to dependent clients continues to increase. The clients are not aware of this condition and continue to accept synchronization as long as the root distance is less than the select threshold.</p>
 <p>The root distance statistic is used by the select, cluster and mitigation algorithms. In this respect, it is sometimes called the <em>synchronization distance</em> often shortened simply to <em>distance</em>. The root distance is also used in the following ways.</p>
 <ul>
 <li>Root distance defines the maximum error of the clock offset estimate due to all causes as long as the source remains reachable.</li>
@@ -193,8 +193,8 @@ In order to avoid timing loops, the root distance is adjusted to the maximum of 
 <li>Root distance is used by the mitigation algorithm to select the system peer from among the cluster algorithm survivors.</li>
 </ul>
 <p>The root distance thus functions as a metric in the selection and weighting of the various available sources. The strategy is to select the system peer as the source with the minimum root distance and thus the minimum maximum error. The reference implementation uses the <a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman-Ford algorithm</a>, where the goal is to minimize the root distance. The algorithm selects the <em>system peer</em>, from which the system root delay and system root dispersion are inherited.</p>
-<p>The algorithms described on the <a href="https://www.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page deliver several important statistics. The <em>system offset</em> and <em>system jitter</em> are weighted averages computed by the clock combine algorithm. System offset is best interpreted as the maximum-likelihood estimate of the system clock offset, while system jitter, also called estimated error, is best interpreted as the expected error of this estimate. <em>System delay</em> is the root delay inherited from the system peer, while <em>system dispersion</em> is the root dispersion plus contributions due to jitter and the absolute value of the system offset.</p>
-<p>The maximum system error, or <em>system distance</em>, is computed as one-half the system delay plus the system dispersion. In order to simplify discussion, certain minor contributions to the maximum error statistic are ignored. If the precision time kernel support is available, both the estimated error and maximum error are reported to user programs via the <code>ntp_adjtime()</code> kernel system call. See the <a href="https://www.ntp.org/documentation/4.2.8-series/kern/">Kernel Model for Precision Timekeeping</a> page for further information.</p>
+<p>The algorithms described on the <a href="https://doc.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the <code>prefer</code> Keyword</a> page deliver several important statistics. The <em>system offset</em> and <em>system jitter</em> are weighted averages computed by the clock combine algorithm. System offset is best interpreted as the maximum-likelihood estimate of the system clock offset, while system jitter, also called estimated error, is best interpreted as the expected error of this estimate. <em>System delay</em> is the root delay inherited from the system peer, while <em>system dispersion</em> is the root dispersion plus contributions due to jitter and the absolute value of the system offset.</p>
+<p>The maximum system error, or <em>system distance</em>, is computed as one-half the system delay plus the system dispersion. In order to simplify discussion, certain minor contributions to the maximum error statistic are ignored. If the precision time kernel support is available, both the estimated error and maximum error are reported to user programs via the <code>ntp_adjtime()</code> kernel system call. See the <a href="https://doc.ntp.org/documentation/4.2.8-series/kern/">Kernel Model for Precision Timekeeping</a> page for further information.</p>
 
 	  
   </div>
@@ -205,19 +205,19 @@ In order to avoid timing loops, the root distance is adjusted to the maximum of 
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

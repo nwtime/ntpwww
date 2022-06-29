@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/" />
+<link rel="canonical" href="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/" />
   
   <meta property="og:title" content="Configuration File Definition (Advanced)" />
 <meta property="og:description" content="from Pogo, Walt Kelly
 Racoon is shooting configuration bugs.
  Table of Contents  Synopsis Files High-Level Description Detailed Description Guidelines for Adding Configuration Commands   Synopsis The NTP configuration process is driven by a phrase-structure grammar which is used to specify the format of the configuration commands and the actions needed to build an abstract syntax tree (AST). The grammar is fed to a parser generator (Bison) which produces a parser for the configuration file." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-06-21T18:56:19&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
@@ -61,15 +61,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -77,20 +77,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/documentation/">Documentation</a>
         </button>
       
     </div>
@@ -120,21 +120,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://www.ntp.org/documentation/">Documentation</a>
+	<a href="https://doc.ntp.org/documentation/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://www.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
+	<a href="https://doc.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/">Configuration File Definition (Advanced)</a>
+	<a href="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/">Configuration File Definition (Advanced)</a>
 </li>
 
 	</ol>
@@ -146,17 +146,17 @@ function demo() {
   	<h1>Configuration File Definition (Advanced)</h1> 
     <p style="font-size: small; color: grey;">Last update: June 21, 2022 18:56 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/90ab71e5606c05ba694f699facf7f8e14816a05e">90ab71e56</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://www.ntp.org/documentation/pic/pogo7.gif" alt="gif"  />
-</p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/pogo7.gif" alt="gif"  />
+</p><a href="https://doc.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>Racoon is shooting configuration bugs.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/#synopsis">Synopsis</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/#files">Files</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/#high-level-description">High-Level Description</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/#detailed-description">Detailed Description</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntp_conf/#guidelines-for-adding-configuration-commands">Guidelines for Adding Configuration Commands</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/#synopsis">Synopsis</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/#files">Files</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/#high-level-description">High-Level Description</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/#detailed-description">Detailed Description</a></li>
+<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntp_conf/#guidelines-for-adding-configuration-commands">Guidelines for Adding Configuration Commands</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -208,7 +208,7 @@ function demo() {
 <h4 id="high-level-description">High-Level Description</h4>
 <p>A high-level description of the configuration process showing where all the files fit in is given below:</p>
 <p><p>
-  <img loading="lazy" src="https://www.ntp.org/documentation/pic/description.webp" alt="webp"  />
+  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/description.webp" alt="webp"  />
 </p></p>
 <p>The scanner reads in an NTP configuration file and converts it into tokens. The Bison generated parser reads these tokens and converts them into an AST. The AST traverser consists of a set of functions that configure parts of NTP on the basis of what is on the tree. A more detailed description of these parts and the files used is given below.</p>
 <hr>
@@ -350,19 +350,19 @@ tos_option_list
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        
