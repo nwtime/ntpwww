@@ -1,5 +1,6 @@
 ---
 title: "Contributors List"
+description: "Listing of current and past NTP contributors, including their area of contribution."
 type: archives
 ---
 

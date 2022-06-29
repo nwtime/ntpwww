@@ -1,5 +1,6 @@
 ---
 title: "Bug Reporting"
+description: "Instructions for reporting security issues to the NTP Security Officer as well as how to report non-security software bugs and documentation bugs."
 type: archives
 ---
 

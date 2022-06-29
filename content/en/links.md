@@ -1,5 +1,6 @@
 ---
 title: "Links"
+description: "A (mostly) historical listing of NTP-related commercial products, hardware, software, time-related websites, and online time services."
 type: archives
 ---
 
