@@ -8,7 +8,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://test.doc.ntp.org/documentation/drivers/driver40/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2022-06-29T15:38:23&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="JJY Receivers"/>
+<meta name="twitter:description" content="The JJY Receivers driver supports several JJY receivers and the GPS clock sold in Japan, and the Japanese time service through a telephone line."/>
+
 
 
 
@@ -34,7 +42,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -113,7 +121,7 @@
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>JJY Receivers</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 29, 2022 15:38 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/81cb14640bbb40fcbd4d77dc167817a7e0709fdc">81cb14640</a>)</p>
 	<p><a href="https://test.doc.ntp.org/documentation/drivers/driver40-ja/">JAPANESE</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
@@ -601,7 +609,7 @@
 </table>
 <p>The date and time are requested separately. The time is requested before and after the date request to check uncertainty of the date whether it&rsquo;s before or after midnight.</p>
 <p>The leap second is not handled, and only written in the <code>clockstats</code> file as information.</p>
-<p>The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from <a href="http://www.nict.go.jp/">http://www.nict.go.jp/</a> (English and Japanese) and <a href="https://jjy.nict.go.jp/">https://jjy.nict.go.jp/</a> (English and Japanese).</p>
+<p>The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from <a href="http://www.nict.go.jp/">https://www.nict.go.jp/</a> (English and Japanese) and <a href="https://jjy.nict.go.jp/">https://jjy.nict.go.jp/</a> (English and Japanese).</p>
 <p>The user is expected to provide a symbolic link to an available serial port device. This is typically performed by a command such as:</p>
 <p><code>ln -s /dev/ttyS0 /dev/jjy0</code></p>
 <p>Using an RS-232C to USB converter cable, the clock or a modem can be connected to a USB port instead of a serial port. In this case, the typical symbolic link command is as follows;</p>

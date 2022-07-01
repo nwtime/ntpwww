@@ -12,6 +12,15 @@
 <meta property="article:modified_time" content="2022-04-14T17:54:34&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="Shared Memory Driver"/>
+<meta name="twitter:description" content="Table of Contents  Synopsis Description Structure of shared memory-segment Operation mode=0 Operation mode=1 Fudge Factors Additional Information   Synopsis  Address: 127.127.28.u Reference ID: SHM Driver ID: SHM   Description This driver receives its reference clock info from a shared memory-segment. The shared memory-segment is created with owner-only access for unit 0 and 1, and world access for unit 2 and 3.
+ Structure of shared memory-segment struct shmTime {int mode; /* 0 - if valid set* use values, * clear valid* 1 - if valid set * if count before and after read of * values is equal,* use values * clear valid*/int count;time_t clockTimeStampSec; /* external clock */int clockTimeStampUSec; /* external clock */time_t receiveTimeStampSec; /* internal clock, when external value was received */int receiveTimeStampUSec; /* internal clock, when external value was received */int leap;int precision;int nsamples;int valid;int dummy[10]; }; Operation mode=0 When the poll-method of the driver is called, the valid-flag of the shared memory-segment is checked:"/>
+
+
+
 
 
 
@@ -35,7 +44,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">

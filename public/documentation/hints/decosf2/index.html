@@ -12,6 +12,15 @@
 <meta property="article:modified_time" content="2022-04-15T18:58:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="DEC OSF/1 V2.0 Hints"/>
+<meta name="twitter:description" content="Problems with DEC OSF/1 V2.0 Compilation using gcc fails with ntp_config.c. The problem is an apparent error in the /usr/include/sys/procset.h and /usr/include/sys/wait.h include files.
+cowbird:/usr/include/sys# diff -c wait.h.orig wait.h*** wait.h.orig Tue Feb 22 02:41:38 1994--- wait.h Thu Aug 25 14:52:57 1994****************** 298,304 ****#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, id_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */--- 298,304 ----#else_BEGIN_CPLUSPLUS! extern int waitid(idtype_t, pid_t, siginfo_t *, int);_END_CPLUSPLUS#endif /* _NO_PROTO */cowbird:/usr/include/sys# diff -c procset."/>
+
+
+
 
 
 
@@ -35,7 +44,7 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.1de55a903767bacfaee426f1958345df.css" media="screen">
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
