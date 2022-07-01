@@ -11,6 +11,9 @@
   <!-- for search engine optimization and third-party search engines like Elastic App Search-->
 {{- template "_internal/opengraph.html" . -}}
 
+<!-- Twitter card support -->
+{{ template "_internal/twitter_cards.html" . }}
+
 <!-- First condition matches GA for www, second matches doc. -->
 {{ if and (hugo.IsProduction) (ne .Section "documentation") }}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>

@@ -11,6 +11,14 @@
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="AIX Hints"/>
+<meta name="twitter:description" content="Problem with recent ANSI compilers On some systems, including AIX, the compiler quits on the ntp_refclock.c file when processing the refclock_report() routine. The problem, which is either a feature or a bug, has to do with an unwanted promotion of the u_char argument to an int and a failure of the compiler to recognize the preceding prototype. A workaround is to use ANSI syntax to delare the arguments. Since ANSI compilers are not universally available, this syntax can&rsquo;t be used in the stock distribution."/>
+
+
+
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>

@@ -11,6 +11,14 @@
 <meta property="article:modified_time" content="2022-06-28T20:06:51&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="NTP BUG 2672: ::1 can be spoofed on some OSes, so ACLs based on IPv6 ::1 addresses can be bypassed"/>
+<meta name="twitter:description" content="Some kernels do not prevent ::1 source addresses from appearing on non-localhost IPv6 interfaces. Since NTP’s access control is based on source address and localhost addresses generally have no restrictions, an attacker can send malicious control and configuration packets by spoofing ::1 addresses from the outside. This bug was resolved in NTP 4.2.8p1."/>
+
+
+
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
 <script>
