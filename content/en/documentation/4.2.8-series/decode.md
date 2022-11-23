@@ -2,6 +2,8 @@
 title: "Event Messages and Status Words"
 description: "This page lists the status words, event messages, and error codes used for ntpd reporting and monitoring. Status words are used to display the current status of the running program. "
 type: archives
+aliases:
+    - /current-stable/decode/
 ---
 
 ![gif](/documentation/pic/alice47.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

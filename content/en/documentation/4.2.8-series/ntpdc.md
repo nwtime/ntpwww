@@ -2,6 +2,8 @@
 title: "ntpdc - special NTP query program"
 description: "ntpdc is a deprecated program that was historically used to query the ntpd daemon about its current state and to request changes in that state. This functionality is now provided by the ntpq command."
 type: archives
+aliases:
+    - /current-stable/ntpdc/
 ---
 
 ![gif](/documentation/pic/alice31.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

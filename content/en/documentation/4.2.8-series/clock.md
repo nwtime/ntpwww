@@ -2,6 +2,8 @@
 title: "Clock State Machine"
 description: "In the NTPv4 specification and reference implementation a state machine is used to manage the system clock under exceptional conditions, as when the daemon is first started or when encountering severe network congestion. This page describes the design and operation of the state machine."
 type: archives
+aliases:
+    - /current-stable/clock/
 ---
 
 #### Table of Contents

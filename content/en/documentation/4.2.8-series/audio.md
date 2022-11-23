@@ -2,6 +2,8 @@
 title: "Reference Clock Audio Drivers"
 description: "The suite of NTP reference clock drivers includes three drivers for applications which discipline computer time to an audio signal. The radio drivers are designed to work with ordinary inexpensive shortwave radios and may be one of the least expensive ways to build a good primary time server."
 type: archives
+aliases:
+    - /current-stable/audio/
 ---
 
 ![webp](/documentation/pic/radio2.webp) ICOM R-72 shortwave receiver and Sure audio mixer

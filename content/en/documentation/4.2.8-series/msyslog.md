@@ -2,6 +2,8 @@
 title: "ntpd System Log Messages"
 description: "A listing of common error messages and their meanings."
 type: archives
+aliases:
+    - /current-stable/msyslog/
 ---
 
 ![gif](/documentation/pic/flatheads.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

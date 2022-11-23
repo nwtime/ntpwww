@@ -2,6 +2,8 @@
 title: "Clock Select Algorithm"
 description: "The clock select algorithm determines from a set of sources , which are correct (truechimers) and which are not (falsetickers) according to a set of formal correctness assertions. The principles are based on the observation that the maximum error in determining the offset of a candidate cannot exceed one-half the roundtrip delay to the primary reference clock at the time of measurement."
 type: archives
+aliases:
+    - /current-stable/select/
 ---
 
 The clock select algorithm determines from a set of sources , which are correct (_truechimers_) and which are not (_falsetickers_) according to a set of formal correctness assertions. The principles are based on the observation that the maximum error in determining the offset of a candidate cannot exceed one-half the roundtrip delay to the primary reference clock at the time of measurement. This must be increased by the maximum error that can accumulate since then. The selection metric, called the _root distance_, is one-half the roundtrip root delay plus the root dispersion plus minor error contributions not considered here.

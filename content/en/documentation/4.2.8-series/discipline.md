@@ -2,6 +2,8 @@
 title: "Clock Discipline Algorithm"
 description: "At the heart of the NTP specification and reference implementation is the clock discipline algorithm, an intricately crafted algorithm that automatically adapts for optimum performance while minimizing network overhead."
 type: archives
+aliases:
+    - /current-stable/discipline/
 ---
 
 #### Table of Contents

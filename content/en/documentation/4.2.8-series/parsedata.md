@@ -2,6 +2,8 @@
 title: "NTP PARSE clock data formats"
 description: "The parse driver currently supports several clocks with different query mechanisms. This page summarizes the driver's major features and manufacturers of clocks using this driver."
 type: archives
+aliases:
+    - /current-stable/parsedata/
 ---
 
 The parse driver currently supports several clocks with different query mechanisms. In order for you to find a sample that might be similar to a clock you might want to integrate into parse I'll sum up the major features of the clocks (this information is distributed in the `parse/clk_*.c` and `ntpd/refclock_parse.c` files).

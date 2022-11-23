@@ -2,6 +2,8 @@
 title: "Server Commands and Options"
 description: "Following is a description of the server configuration commands in NTPv4. There are two classes of commands: configuration commands that configure an association with a remote server, peer, or reference clock, and auxiliary commands that specify environment variables that control various related operations."
 type: archives
+aliases:
+    - /current-stable/confopt/
 ---
 
 ![gif](/documentation/pic/boom3a.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

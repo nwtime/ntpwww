@@ -2,6 +2,8 @@
 title: "Access Control Commands and Options"
 description: "Descriptions of the available commands and options for configuring NTP access control."
 type: archives
+aliases:
+    - /current-stable/accopt/
 ---
 
 ![gif](/documentation/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

@@ -2,6 +2,8 @@
 title: "Command Index"
 description: "A listing of commands and options pages for: access control, authentication, NTP server, monitoring, reference clocks, and miscellaneous."
 type: archives
+aliases:
+    - /current-stable/comdex/
 ---
 
 

@@ -2,6 +2,8 @@
 title: "Access Control Support"
 description: "ntpd implements a general purpose access control list specified as a list of restrict commands. While this facility can keep unwanted clients from congesting NTP servers, it is not an alternative to the NTP authentication facilities as source address-based restrictions are easily circumvented."
 type: archives
+aliases:
+    - /current-stable/access/
 ---
 
 ![gif](/documentation/pic/pogo6.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

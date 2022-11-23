@@ -2,6 +2,8 @@
 title: "Performance Metrics"
 description: "This page describes several statistics provided in the NTP specification and reference implementation and how they determine the accuracy and error measured during routine and exceptional operation."
 type: archives
+aliases:
+    - /current-stable/stats/
 ---
 
 #### Table of Contents

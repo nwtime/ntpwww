@@ -2,6 +2,8 @@
 title: "ntpdsim - Network Time Protocol (NTP) Simulator"
 description: "The ntpdsim program is used to simulate and study the behavior of an NTP daemon that derives its time from a number of different simulated time servers. Each simulated server can be configured to have a different time offset, frequency offset, propagation delay, processing delay, network jitter, and oscillator wander."
 type: archives
+aliases:
+    - /current-stable/ntpdsim_new/
 ---
 
 ![gif](/documentation/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)

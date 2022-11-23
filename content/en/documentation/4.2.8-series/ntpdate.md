@@ -2,6 +2,8 @@
 title: "ntpdate - set the date and time via NTP"
 description: "ntpdate is a historical program to set the local date and time by polling NTP servers. It has been replaced by the ntpd -q option."
 type: archives
+aliases:
+    - /current-stable/ntpdate/
 ---
 
 ![gif](/documentation/pic/rabbit.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

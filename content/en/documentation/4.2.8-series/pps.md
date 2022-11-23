@@ -3,6 +3,8 @@ title: "Pulse-Per-Second (PPS) Signal Interfacing"
 description: "Some radios produce a pulse-per-second (PPS) signal which can be used to improve time accuracy to a few microseconds. This page describes the hardware and software necessary for NTP to use the PPS signal."
 images: ["/documentation/pic/gadget.webp"]
 type: archives
+aliases:
+    - /current-stable/pps/
 ---
 
 ![gif](/documentation/pic/alice32.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

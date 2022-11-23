@@ -2,6 +2,8 @@
 title: "NTP Version 4 Release Notes"
 description: "An overview of the features in the 4.2.8 release of the NTPv4 distribution for Unix, VMS, and Windows. This release incorporates new features and refinements, while retaining backwards compatibility with older versions, including NTPv3 and NTPv2, but not NTPv1. Support for NTPv1 has been discontinued because of certain security vulnerabilities."
 type: archives
+aliases:
+    - /current-stable/release/
 ---
 
 ![gif](/documentation/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

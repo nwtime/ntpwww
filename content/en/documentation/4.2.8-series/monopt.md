@@ -2,6 +2,8 @@
 title: "Monitoring Options"
 description: "ntpd includes a comprehensive monitoring facility which collects statistical data and writes the data to files at defined events or intervals. "
 type: archives
+aliases:
+    - /current-stable/monopt/
 ---
 
 ![gif](/documentation/pic/pogo8.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

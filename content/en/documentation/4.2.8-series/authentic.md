@@ -2,6 +2,8 @@
 title: "Authentication Support"
 description: "Authentication allows an NTP client to verify the authenticity of an NTP server. Several authentication schemes are supported in NTPv4: symmetric key cryptography, Autokey, Windows MS-SNTP authentication using Active Directory, and public key cryptography."
 type: archives
+aliases:
+    - /current-stable/authentic/
 ---
 
 ![gif](/documentation/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

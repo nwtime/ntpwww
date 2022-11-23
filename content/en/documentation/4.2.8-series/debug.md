@@ -2,6 +2,8 @@
 title: "NTP Debugging Techniques"
 description: "This page discusses ntpd program monitoring and debugging techniques using ntpq, the standard NTP query program, either on the local server or from a remote machine. "
 type: archives
+aliases:
+    - /current-stable/debug/
 ---
 
 ![gif](/documentation/pic/pogo.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

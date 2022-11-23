@@ -3,6 +3,8 @@ title: "Autokey Public-Key Authentication"
 description: "NTPv4 supports the Autokey algorithms and protocol specified in RFC 5906. Autokey is designed to authenticate NTP servers to NTP clients using message digest algorithms and optional cryptographic challenge/response exchanges known as identity schemes."
 images: ["/documentation/pic/flt9.gif"]
 type: archives
+aliases:
+    - /current-stable/autokey/
 ---
 
 #### Table of Contents

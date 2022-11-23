@@ -2,6 +2,8 @@
 title: "Mitigation Rules and the prefer Keyword"
 description: "This page summarizes the criteria for choosing from among the survivors of the clock cluster algorithm a set of contributors to the clock discipline algorithm. The criteria are meticulous, since they have to handle many different scenarios that may be optimized for special circumstances, including support for planetary and deep space missions."
 type: archives
+aliases:
+    - /current-stable/prefer/
 ---
 
 ![gif](/documentation/pic/alice11.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

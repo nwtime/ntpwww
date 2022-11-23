@@ -2,6 +2,8 @@
 title: "ntpdsim - Network Time Protocol (NTP) simulator"
 description: "The ntpdsim program is a discrete time simulator of the ntpd  daemon. The simulator includes all the mitigation and discipline algorithms of the actual daemon, as well as the monitoring, statistics recording, trace, and host name resolution features."
 type: archives
+aliases:
+    - /current-stable/ntpdsim/
 ---
 ![gif](/documentation/pic/oz2.gif)[from _The Wizard of Oz_, L. Frank Baum](/reflib/pictures/)
 

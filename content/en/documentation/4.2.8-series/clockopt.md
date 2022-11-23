@@ -2,6 +2,8 @@
 title: "Reference Clock Commands and Options"
 description: "Descriptions of the commands and options available to reference clocks."
 type: archives
+aliases:
+    - /current-stable/clockopt/
 ---
 
 ![webp](/documentation/pic/stack1a.webp) Master Time Facility at the [UDel Internet Research Laboratory](/reflib/lab/)

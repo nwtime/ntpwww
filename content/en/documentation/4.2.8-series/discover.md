@@ -2,6 +2,8 @@
 title: "Automatic Server Discovery Schemes"
 description: "NTPv4 provides three automatic server discovery schemes: broadcast/multicast, many cast, and server pool. The broadcast/multicast and many cast schemes are native to IPv4 and IPv6 while the server pool scheme uses DNS to resolve NTP server addresses."
 type: archives
+aliases:
+    - /current-stable/discover/
 ---
 
 

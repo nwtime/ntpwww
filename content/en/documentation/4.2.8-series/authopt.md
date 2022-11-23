@@ -2,6 +2,8 @@
 title: "Authentication Commands and Options"
 description: "Descriptions of the available commands and options for configuring NTP authentication."
 type: archives
+aliases:
+    - /current-stable/authopt/
 ---
 
 ![gif](/documentation/pic/alice44.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

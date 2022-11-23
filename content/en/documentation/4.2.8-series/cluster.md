@@ -2,6 +2,8 @@
 title: "Clock Cluster Algorithm"
 description: "The clock cluster algorithm processes the truechimers (correct time sources) produced by the clock select algorithm to produce a list of survivors. These survivors are used by the mitigation algorithms to discipline the system clock."
 type: archives
+aliases:
+    - /current-stable/cluster/
 ---
 
 The clock cluster algorithm processes the truechimers produced by the clock select algorithm to produce a list of _survivors_. These survivors are used by the mitigation algorithms to discipline the system clock. The cluster algorithm operates in a series of rounds, where at each round the truechimer furthest from the offset centroid is pruned from the population. The rounds are continued until a specified termination condition is met. This page discusses the algorithm in detail.
