@@ -2,6 +2,8 @@
 title: "ntp-wait - waits until ntpd is in synchronized state"
 description: "The ntp-wait program blocks until ntpd is in a synchronized state. This can be useful at boot time, to delay the boot sequence until after ntpd -g has set the time."
 type: archives
+aliases:
+    - /current-stable/ntp-wait/
 ---
 
 #### Synopsis

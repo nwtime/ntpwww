@@ -2,6 +2,8 @@
 title: "Poll Process"
 description: "The NTP poll process sends packets at intervals determined by the clock discipline algorithm. The process is designed to provide a sufficient update rate to maximize accuracy while minimizing network overhead."
 type: archives
+aliases:
+    - /current-stable/poll/
 ---
 
 The poll process sends NTP packets at intervals determined by the clock discipline algorithm. The process is designed to provide a sufficient update rate to maximize accuracy while minimizing network overhead. The process is designed to operate over a poll exponent range between 3 (8 s) and 17 (36 hr). The minimum and maximum poll exponent within this range can be set using the <code>minpoll</code> and <code>maxpoll</code> options of the [<code>server</code>](/documentation/4.2.8-series/confopt/#server-command-options) command, with default 6 (64 s) and 10 (1024 s), respectively.

@@ -2,6 +2,8 @@
 title: "Copyright Notice"
 description: "The following copyright notice applies to all files collectively called the Network Time Protocol Version 4 Distribution. Unless specifically declared otherwise in an individual file, this entire notice applies as if the text was explicitly included in the file."
 type: archives
+aliases:
+    - /current-stable/copyright/
 ---
 
 ![webp](/documentation/pic/sheepb.webp) Clone me, says Dolly sheepishly.

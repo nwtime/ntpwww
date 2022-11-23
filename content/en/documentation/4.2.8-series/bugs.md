@@ -2,6 +2,8 @@
 title: "NTP Bug Reporting Procedures"
 description: "Instructions for reporting a security-related bug to the NTP security officer and reporting a non-security bug to the NTP bug tracker."
 type: archives
+aliases:
+    - /current-stable/bugs/
 ---
 
 ![gif](/documentation/pic/hornraba.gif)[from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

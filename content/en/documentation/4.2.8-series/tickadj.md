@@ -2,6 +2,8 @@
 title: "tickadj - set time-related kernel variables"
 description: "The tickadj program reads, and optionally modifies, several timekeeping-related variables in older kernels that do not have support for precision timekeeping, including HP-UX, SunOS, Ultrix, and SGI. Newer machines with kernel time support, including Solaris, Tru64, FreeBSD, and Linux, should instead use the ntptime program."
 type: archives
+aliases:
+    - /current-stable/tickadj/
 ---
 
 #### Table of Contents

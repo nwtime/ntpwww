@@ -2,6 +2,8 @@
 title: "How to Write a Reference Clock Driver"
 description: "Instructions for developers who wish to create a new reference clock driver."
 type: archives
+aliases:
+    - /current-stable/howto/
 ---
 
 ![gif](/documentation/pic/pogo4.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

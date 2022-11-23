@@ -2,6 +2,8 @@
 title: "Build Options"
 description: "When building NTP from source, configure is used to customize the build and install configuration according to the specific hardware, operating system, and file system conventions. The --help switch is used to display the available options."
 type: archives
+aliases:
+    - /current-stable/config/
 ---
 
 

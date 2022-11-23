@@ -2,6 +2,8 @@
 title: "Hints and Kinks"
 description: "This is a historical index for a set of troubleshooting notes for older hardware and operating systems."
 type: archives
+aliases:
+    - /current-stable/hints/
 ---
 
 ![gif](/documentation/pic/alice35.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

@@ -2,6 +2,8 @@
 title: "Building and Installing the Distribution"
 description: "Instructions for building and installing the NTP software distribution from source."
 type: archives
+aliases:
+    - /current-stable/build/
 ---
 
 ![gif](/documentation/pic/beaver.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)

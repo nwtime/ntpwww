@@ -2,6 +2,8 @@
 title: "Association Management"
 description: "There are three types of associations in NTPv4: persistent, preemptable and ephemeral. The type of association determines when a command is mobilized and demobilized."
 type: archives
+aliases:
+    - /current-stable/assoc/
 ---
 
 ![gif](/documentation/pic/alice51.gif) [from _Alice's Adventures in Wonderland_, Lewis Carroll](/reflib/pictures/)

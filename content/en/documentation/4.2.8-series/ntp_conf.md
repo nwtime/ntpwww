@@ -2,6 +2,8 @@
 title: "Configuration File Definition (Advanced)"
 description: "This document is intended for developers who wish to modify the configuration code or add configuration commands and options. It contains a description of the files used in the configuration process as well as guidelines on how to construct them."
 type: archives
+aliases:
+    - /current-stable/ntp_conf/
 ---
 
 ![gif](/documentation/pic/pogo7.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
