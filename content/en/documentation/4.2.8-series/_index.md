@@ -13,7 +13,7 @@ aliases:
 
 Pleased to meet you.
 
-A list of all links is on the [Site Map](/documentation/4.2.8-series/sitemap/) page.
+> A list of all links for the current documentation is on the [Site Map](/documentation/4.2.8-series/sitemap/) page. Documentation for older software versions can be found in the [documentation archives](/documentation/).
 
 * * *
 
