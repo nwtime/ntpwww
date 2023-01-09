@@ -1,25 +1,18 @@
 ---
-title: "Documentation"
+title: "Documentation Archives"
 description: "Links to the current NTP documentation, documentation archives for older NTP releases, and additional informational resources."
 type: archives
 ---
 
-<div>
-<a class="btn btn-primary" href="/documentation/4.2.8-series/" role="button">Click here</a> to read the current documentation, applicable to NTP version 4.2.8 through 4.2.8p15.
-</div>
-
-* * *
-
-<div class="container">
   <div class="row row-cols-1 row-cols-md-2 g-3">
     <div class="col">
-      <div class="card mh-100" style="height: 330px; margin-top: 20px;">
+      <div class="card mh-100" margin-top: 20px;">
         <div class="card-header" style="padding-top: 1px;">
-		  <h4 class="card-text" style="text-align: center;">Documentation Archives</h4>
+		  <h4 class="card-text" style="text-align: center;">Documentation by Release </h4>
  	    </div>  
         <div class="card-body">
-		  <p>Archived documentation for older major NTP releases is available:</p>
 		  <ul>
+		    <li style="color:green;"><a href="/current-stable/">4.2.8-series: </a>CURRENT RELEASE: applicable to NTP version 4.2.8 through 4.2.8p15.</li>
 		    <li><a href="/documentation/4.2.6-series/">4.2.6-series: </a> applicable to NTP version 4.2.6 through 4.2.6p5.</li>
 			<li><a href="/documentation/4.2.4-series/">4.2.4-series:</a> applicable to NTP version 4.2.4 through 4.2.4p8.</li>
 			<li><a href="/documentation/4.2.2-series/">4.2.2-series:</a> applicable to NTP version 4.2.2 through 4.2.2p4.</li>
@@ -33,7 +26,7 @@ type: archives
       </div>
     </div>
     <div class="col">
-	  <div class="card mh-100" style="height: 330px; margin-top: 20px;">
+	  <div class="card mh-100" margin-top: 20px;">
 	    <div class="card-header" style="padding-top: 1px;">
 		  <h4 class="card-text" style="text-align: center;">Additional Information</h4>
 	    </div>
@@ -43,7 +36,7 @@ type: archives
 		  <li><a href="https://support.ntp.org/bin/view/Main/WebHome">NTP Wiki:</a> Community-contributed documentation.</li>
 		  <li><a href="/ntpfaq/">NTP FAQ:</a>Frequently Asked Questions about the NTP protocol and software distribution.</li>
 		  <li><a href="https://support.ntp.org/bin/view/Servers/WebHome">Public Time Server Lists:</a> Browse or search for a public primary or secondary time server.</li>
-		  <li><a href="https://groups.google.com/g/comp.protocols.time.ntp">NTP Google group:</a> Includes postings from original Usenet newsgroup going back to June, 1990.</li>
+		  <li><a href="https://groups.google.com/g/comp.protocols.time.ntp">NTP Google group:</a> Includes postings from original Usenet newsgroup going back to June, 1990.</li><br>
 	    </ul>
       </div>
     </div>
