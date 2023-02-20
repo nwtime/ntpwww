@@ -1,5 +1,5 @@
 ---
-title: "Documentation Archives"
+title: "NTP Documentation"
 description: "Links to the current NTP documentation, documentation archives for older NTP releases, and additional informational resources."
 type: archives
 ---
