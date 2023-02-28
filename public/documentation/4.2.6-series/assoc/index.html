@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://doc.ntp.org/documentation/4.2.6-series/assoc/" />
+<link rel="canonical" href="https://www.ntp.org/documentation/4.2.6-series/assoc/" />
   
   <meta property="og:title" content="Association Management" />
 <meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Make sure who your friends are.
  Table of Contents  Association Modes Client/Server Mode Symmetric Active/Passive Mode Broadcast/Multicast Modes Manycast Mode Orphan Mode Burst Options   Association Modes This page describes the various modes of operation provided in NTPv4. Details about the configuration commands and options are given on the Configuration Options page. Details about the cryptographic authentication schemes are given on the Authentication Options page." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.6-series/assoc/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://www.ntp.org/documentation/4.2.6-series/assoc/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="Association Management"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
@@ -71,15 +71,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -87,20 +87,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/current-stable/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
         </button>
       
     </div>
@@ -130,21 +130,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">NTP Documentation</a>
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
+	<a href="https://www.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/">Association Management</a>
+	<a href="https://www.ntp.org/documentation/4.2.6-series/assoc/">Association Management</a>
 </li>
 
 	</ol>
@@ -156,27 +156,27 @@ function demo() {
   	<h1>Association Management</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/alice51.gif" alt="gif"  />
-</p><a href="https://doc.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice51.gif" alt="gif"  />
+</p><a href="https://www.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
 <p>Make sure who your friends are.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/#association-modes">Association Modes</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/#clientserver-mode">Client/Server Mode</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/#symmetric-activepassive-mode">Symmetric Active/Passive Mode</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/#broadcastmulticast-modes">Broadcast/Multicast Modes</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/#manycast-mode">Manycast Mode</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/#orphan-mode">Orphan Mode</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/assoc/#burst-options">Burst Options</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/assoc/#association-modes">Association Modes</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/assoc/#clientserver-mode">Client/Server Mode</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/assoc/#symmetric-activepassive-mode">Symmetric Active/Passive Mode</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/assoc/#broadcastmulticast-modes">Broadcast/Multicast Modes</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/assoc/#manycast-mode">Manycast Mode</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/assoc/#orphan-mode">Orphan Mode</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/assoc/#burst-options">Burst Options</a></li>
 </ul>
 <hr>
 <h4 id="association-modes">Association Modes</h4>
-<p>This page describes the various modes of operation provided in NTPv4. Details about the configuration commands and options are given on the <a href="https://doc.ntp.org/documentation/4.2.6-series/confopt/">Configuration Options</a> page. Details about the cryptographic authentication schemes are given on the <a href="https://doc.ntp.org/documentation/4.2.6-series/authopt/">Authentication Options</a> page. Details about the automatic server discovery schemes are described on the <a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/">Automatic Server Discovery Schemes</a> page. Additional information is available in the papers, reports, memoranda and briefings on the <a href="https://doc.ntp.org/reflib/ntp/">NTP Project</a> page.</p>
+<p>This page describes the various modes of operation provided in NTPv4. Details about the configuration commands and options are given on the <a href="https://www.ntp.org/documentation/4.2.6-series/confopt/">Configuration Options</a> page. Details about the cryptographic authentication schemes are given on the <a href="https://www.ntp.org/documentation/4.2.6-series/authopt/">Authentication Options</a> page. Details about the automatic server discovery schemes are described on the <a href="https://www.ntp.org/documentation/4.2.6-series/manyopt/">Automatic Server Discovery Schemes</a> page. Additional information is available in the papers, reports, memoranda and briefings on the <a href="https://www.ntp.org/reflib/ntp/">NTP Project</a> page.</p>
 <p>There are three types of associations in NTP: persistent, preemptable and ephemeral. Persistent associations are mobilized by a configuration command and never demobilized. Preemptable associations, which are new to NTPv4, are mobilized by a configuration command which includes the prempt option and are demobilized by a &ldquo;better&rdquo; server or by timeout, but only if the number of survivors exceeds the threshold set by the tos maxclock configuration command. Ephemeral associations are mobilized upon arrival of designated messages and demobilized by timeout.</p>
-<p>Ordinarily, successful mobilization of ephemeral associations requires the server to be cryptographically authenticated to the client. This can be done using either symmetric key or Autokey public key cryptography, as described in the <a href="https://doc.ntp.org/documentation/4.2.6-series/authopt/">Authentication Options</a> page.</p>
-<p>There are three principal modes of operation in NTP: client/server, symmetric active/passive and broadcast/multicast. There are three automatic server discovery schemes in NTP: broadcast/multicast, manycast and pool described on the <a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/">Automatic Server Discovery Schemes</a> page. In addition, the orphan mode and burst options described on this page can be used in appropriate cases.</p>
-<p>Following is a summary of the operations in each mode. Note that reference to option applies to the commands described on the <a href="https://doc.ntp.org/documentation/4.2.6-series/confopt/">Configuration Options</a> page. See that page for applicability and defaults.</p>
+<p>Ordinarily, successful mobilization of ephemeral associations requires the server to be cryptographically authenticated to the client. This can be done using either symmetric key or Autokey public key cryptography, as described in the <a href="https://www.ntp.org/documentation/4.2.6-series/authopt/">Authentication Options</a> page.</p>
+<p>There are three principal modes of operation in NTP: client/server, symmetric active/passive and broadcast/multicast. There are three automatic server discovery schemes in NTP: broadcast/multicast, manycast and pool described on the <a href="https://www.ntp.org/documentation/4.2.6-series/manyopt/">Automatic Server Discovery Schemes</a> page. In addition, the orphan mode and burst options described on this page can be used in appropriate cases.</p>
+<p>Following is a summary of the operations in each mode. Note that reference to option applies to the commands described on the <a href="https://www.ntp.org/documentation/4.2.6-series/confopt/">Configuration Options</a> page. See that page for applicability and defaults.</p>
 <hr>
 <h4 id="clientserver-mode">Client/Server Mode</h4>
 <p>Client/server mode is the most common configuration in the Internet today. It operates in the classic remote-procedure-call (RPC) paradigm with stateless servers and stateful clients. In this mode a host sends a client (mode 3) request to the specified server and expects a server (mode 4) reply at some future time. In some contexts this would be described as a &ldquo;pull&rdquo; operation, in that the host pulls the time and related values from the server.</p>
@@ -190,10 +190,10 @@ function demo() {
 <p>As symmetric modes are most often used as root servers for moderate to large subnets where rapid response is required, it is generally best to set the minimum and maximum poll intervals of each root server to the same value using the <code>minpoll</code> and <code>maxpoll</code> options.</p>
 <hr>
 <h4 id="broadcastmulticast-modes">Broadcast/Multicast Modes</h4>
-<p>NTP broadcast and multicast modes are intended for configurations involving one or a few servers and a possibly very large client population. Broadcast mode can be used with Ethernet, FDDI and WiFi spans interconnected by hubs or switches. Ordinarily, broadcast packets do not extend beyond a level-3 router. Where service is intended beyond a level-3 router, multicast mode can be used. Additional information is on the <a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/">Automatic NTP Configuration Options</a> page.</p>
+<p>NTP broadcast and multicast modes are intended for configurations involving one or a few servers and a possibly very large client population. Broadcast mode can be used with Ethernet, FDDI and WiFi spans interconnected by hubs or switches. Ordinarily, broadcast packets do not extend beyond a level-3 router. Where service is intended beyond a level-3 router, multicast mode can be used. Additional information is on the <a href="https://www.ntp.org/documentation/4.2.6-series/manyopt/">Automatic NTP Configuration Options</a> page.</p>
 <hr>
 <h4 id="manycast-mode">Manycast Mode</h4>
-<p>Manycast mode is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes ephemeral client associations with some number of the &ldquo;best&rdquo; of the nearby manycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the <a href="https://doc.ntp.org/documentation/4.2.6-series/manyopt/">Automatic NTP Configuration Options</a> page.</p>
+<p>Manycast mode is a automatic discovery and configuration paradigm new to NTPv4. It is intended as a means for a multicast client to troll the nearby network neighborhood to find cooperating manycast servers, validate them using cryptographic means and evaluate their time values with respect to other servers that might be lurking in the vicinity. The intended result is that each manycast client mobilizes ephemeral client associations with some number of the &ldquo;best&rdquo; of the nearby manycast servers, yet automatically reconfigures to sustain this number of servers should one or another fail. Additional information is on the <a href="https://www.ntp.org/documentation/4.2.6-series/manyopt/">Automatic NTP Configuration Options</a> page.</p>
 <hr>
 <h4 id="orphan-mode">Orphan Mode</h4>
 <p>Sometimes an NTP subnet becomes isolated from all UTC sources such as local reference clocks or Internet time servers. In such cases it may be necessary that the subnet servers and clients remain synchronized to a common timescale, not necessarily the UTC timescale. Previously, this function was provided by the local clock driver to simulate a UTC source. A server with this driver could be used to synchronize other hosts in the subnet directly or indirectly.</p>
@@ -204,11 +204,11 @@ function demo() {
 <p>A orphan parent with no sources shows reference ID <code>LOOP</code> if operating at stratum 1 and 127.0.0.1 (Unix loopback address) otherwise. While ordinary NTP clients use a selection metric based on delay and dispersion, orphan children use a metric computed from the IP address of each core server. Each orphan child chooses the orphan parent as the root server with the smallest metric.</p>
 <p>For orphan mode to work well, each core server with available sources should operate at the same stratum. All core servers and orphan children should include the same <code>tos</code> command in the configuration file. Each orphan child should include in the configuration file all root servers.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/peer.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/peer.gif" alt="gif"  />
 </p></p>
 <p>For example, consider the peer network configuration above, where two or more campus primary or secondary (stratum 2) servers are configured with reference clocks or public Internet primary servers and with each other using symmetric modes. With this configuration a server that loses all sources continues to discipline the system clock using the other servers as backup. Only the core servers and orphan children need to be enabled for orphan mode.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/broad.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/broad.gif" alt="gif"  />
 </p></p>
 <p>For broadcast networks each core server is configured in both broadcast server and broadcast client modes as shown above. Orphan children operate as broadcast clients of all core servers. As in peer networks, the core servers back up each other and only they and the orphan children need to be enabled for orphan mode.</p>
 <p>In normal operation subnet hosts operate below stratum 5, so the subnet is automatically configured as described in the NTP specification. If all UTC sources are lost, all core servers become orphans and the orphan children will select the same root server to become the orphan parent.</p>
@@ -228,19 +228,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

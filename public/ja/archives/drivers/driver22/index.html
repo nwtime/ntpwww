@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/ja/archives/drivers/driver22/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/ja/archives/drivers/driver22/" />
   
   <meta property="og:title" content="PPS Clock Discipline" />
 <meta property="og:description" content="Author: David L. Mills (mills@udel.edu) Last change: 31-Mar-2014 07:46 UTC   Table of Contents  Synopsis Description Fudge Factors Additional Information   Synopsis  Address: 127.127.22.u Reference ID: PPS Driver ID: PPS Serial or Parallel Port: /dev/ppsu Requires: PPSAPI signal interface for PPS signal processing.   ノート：　このドライバーは、同じ名前の古いドライバーを置き換えた後継です。 古いドライバーは、いくつかのやや古風なインターフェース・デバイスで動作していて複雑な構成が必要であり、また、文書化が不十分でした。 このドライバーを動作させるためには、１秒パルス信号API (PPSAPI)1 が必要です。 pps 構成コマンドは、このドライバーによって廃止されていることにも注意してください。
  Description このドライバーは、セシウム時計、電波時計、または、関連デバイスによって生成される1秒ごとのパルス信号（PPS）のインターフェースを提供します。 使い方の例としては、GPS受信機によって生成されたシリアル・タイムコードを時刻精度を向上させるために使用できます。 混雑した広域ネットワークにあるプライマリ・サーバーに同期しているときに、セカンダリ・サーバーがローカル・クライアントに時間を再配布する前に、 ジッター（時刻情報のゆらぎ）の累積を排除して時間を再設定できます。 このドライバーは、広範な信号の健全性チェックと信号の整備アルゴリズムを持っています。 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。 トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。
 このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。 この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、Mitigation Rules and the prefer Keyword で説明されています。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/ja/archives/drivers/driver22/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://www.ntp.org/ja/archives/drivers/driver22/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="archives" />
 
 <meta property="article:modified_time" content="2022-02-03T14:43:10&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="PPS Clock Discipline"/>
 <meta name="twitter:description" content="Author: David L. Mills (mills@udel.edu) Last change: 31-Mar-2014 07:46 UTC   Table of Contents  Synopsis Description Fudge Factors Additional Information   Synopsis  Address: 127.127.22.u Reference ID: PPS Driver ID: PPS Serial or Parallel Port: /dev/ppsu Requires: PPSAPI signal interface for PPS signal processing.   ノート：　このドライバーは、同じ名前の古いドライバーを置き換えた後継です。 古いドライバーは、いくつかのやや古風なインターフェース・デバイスで動作していて複雑な構成が必要であり、また、文書化が不十分でした。 このドライバーを動作させるためには、１秒パルス信号API (PPSAPI)1 が必要です。 pps 構成コマンドは、このドライバーによって廃止されていることにも注意してください。
@@ -71,15 +71,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -87,20 +87,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: ネットワークタイムプロトコル "></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: ネットワークタイムプロトコル "></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">サポート</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">サポート</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">リファレンスライブラリ</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">リファレンスライブラリ</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/archives/">ドキュメンテーション</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/archives/">ドキュメンテーション</a>
         </button>
       
     </div>
@@ -127,14 +127,14 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/ja/archives/">Archives</a>
+	<a href="https://www.ntp.org/ja/archives/">Archives</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/ja/archives/drivers/driver22/">PPS Clock Discipline</a>
+	<a href="https://www.ntp.org/ja/archives/drivers/driver22/">PPS Clock Discipline</a>
 </li>
 
 	</ol>
@@ -152,10 +152,10 @@ function demo() {
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/archives/drivers/driver22/#synopsis">Synopsis</a></li>
-<li><a href="https://doc.ntp.org/archives/drivers/driver22/#description">Description</a></li>
-<li><a href="https://doc.ntp.org/archives/drivers/driver22/#fudge-factors">Fudge Factors</a></li>
-<li><a href="https://doc.ntp.org/archives/drivers/driver22/#additional-information">Additional Information</a></li>
+<li><a href="https://www.ntp.org/archives/drivers/driver22/#synopsis">Synopsis</a></li>
+<li><a href="https://www.ntp.org/archives/drivers/driver22/#description">Description</a></li>
+<li><a href="https://www.ntp.org/archives/drivers/driver22/#fudge-factors">Fudge Factors</a></li>
+<li><a href="https://www.ntp.org/archives/drivers/driver22/#additional-information">Additional Information</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -174,9 +174,9 @@ function demo() {
 <p>このドライバーは、セシウム時計、電波時計、または、関連デバイスによって生成される1秒ごとのパルス信号（PPS）のインターフェースを提供します。 使い方の例としては、GPS受信機によって生成されたシリアル・タイムコードを時刻精度を向上させるために使用できます。 混雑した広域ネットワークにあるプライマリ・サーバーに同期しているときに、セカンダリ・サーバーがローカル・クライアントに時間を再配布する前に、 ジッター（時刻情報のゆらぎ）の累積を排除して時間を再設定できます。 このドライバーは、広範な信号の健全性チェックと信号の整備アルゴリズムを持っています。
 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。  トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。</p>
 <p>このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。
-この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、<a href="https://doc.ntp.org/archives/4.2.8-series/prefer">Mitigation Rules and the <code>prefer</code> Keyword</a> で説明されています。</p>
+この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、<a href="https://www.ntp.org/archives/4.2.8-series/prefer">Mitigation Rules and the <code>prefer</code> Keyword</a> で説明されています。</p>
 <p>ドライバーには、IETF標準に提案されているPPSAPIインターフェイス<sup><a href="#myfootnote1">1</a></sup>が必要です。 インターフェースは、<code>timepps.h</code> ヘッダー・ファイルと関連するカーネル・サポートで構成されています。 
-このインターフェースのサポートは、現在のバージョンのSolaris、FreeBSD、Linux、および、商用バージョンのTru64（Alpha）とSunOSに含まれています。 詳細については、<a href="https://doc.ntp.org/archives/4.2.8-series/pps">Pulse-per-second (PPS) Signal Interfacing</a> を参照して下さい。</p>
+このインターフェースのサポートは、現在のバージョンのSolaris、FreeBSD、Linux、および、商用バージョンのTru64（Alpha）とSunOSに含まれています。 詳細については、<a href="https://www.ntp.org/archives/4.2.8-series/pps">Pulse-per-second (PPS) Signal Interfacing</a> を参照して下さい。</p>
 <p>PPS信号は、ハードウェアとオペレーティング・システムに応じて、シリアルポートまたはパラレルポートに接続できます。 シリアルポートは、PPS信号専用、または、別のデバイスと共有のいずれもできます。
 ただし、専用の場合は、ノイズや予期しない信号により ntpd が終了する可能性があるので、他の信号線を接続しないで下さい。</p>
 <p>電波時計は、通常、シリアルポートに接続され、PPS信号はレベル・コンバータを介して同じコネクタのデータ・キャリア検出（DCD）ピン（DB-9のピン1、DB-25のピン8）に接続されます。 パラレルポートとドライバーが利用可能な一部のシステムでは、PPS信号は、コネクタのACKピン（DB25のピン10）に直接接続できます。 PS信号が専用ポートに接続されているか、別のデバイスと共有されているポートに接続されているかに関係なく、
@@ -212,8 +212,8 @@ function demo() {
 <dd>0（デフォルト）： １秒ごとのタイムスタンプは記録しない　／　1： １秒ごとのタイムスタンプは記録する  アラン偏差プロットの作成に役立ちます。</dd>
 </dl>
 <h4 id="additional-information">Additional Information</h4>
-<p><a href="https://doc.ntp.org/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
-<p><a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments <a href="https://doc.ntp.org/reflib/rfc/rfc2783.txt">RFC 2783</a>, Internet Engineering Task Force, March 2000, 31 pp.</p>
+<p><a href="https://www.ntp.org/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
+<p><a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments <a href="https://www.ntp.org/reflib/rfc/rfc2783.txt">RFC 2783</a>, Internet Engineering Task Force, March 2000, 31 pp.</p>
 
 	  
   </div>
@@ -224,19 +224,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

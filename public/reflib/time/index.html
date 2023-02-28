@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/reflib/time/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/reflib/time/" />
   
   <meta property="og:title" content="NTP Timestamp Calculations" />
 <meta property="og:description" content="This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by NTP. The analysis is based on the properties of finite additive groups using two’s complement arithmetic. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/reflib/time/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://www.ntp.org/reflib/time/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-06-24T21:25:30&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="NTP Timestamp Calculations"/>
 <meta name="twitter:description" content="This document presents a mathematical analysis of the principles of clock offset and roundtrip delay calculations used by NTP. The analysis is based on the properties of finite additive groups using two’s complement arithmetic. An important conclusion is that the correct time synchronization is assured if the NTP client is set reliably within 68 years when first started."/>
@@ -67,15 +67,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -83,20 +83,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/current-stable/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
         </button>
       
     </div>
@@ -123,14 +123,14 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
+	<a href="https://www.ntp.org/reflib/">Reference Library</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/reflib/time/">NTP Timestamp Calculations</a>
+	<a href="https://www.ntp.org/reflib/time/">NTP Timestamp Calculations</a>
 </li>
 
 	</ol>
@@ -142,19 +142,19 @@ function demo() {
   	<h1>NTP Timestamp Calculations</h1> 
     <p style="font-size: small; color: grey;">Last update: June 24, 2022 21:25 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3a8d52d62692686d4ba8ecfd2203c562b5e7a30f">3a8d52d62</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/wingdorothy.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/wingdorothy.gif" alt="gif"  />
 </p></p>
-<p>from <a href="https://doc.ntp.org/reflib/pictures/"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
+<p>from <a href="https://www.ntp.org/reflib/pictures/"><em>The Wizard of Oz</em></a>, L. Frank Baum</p>
 <p>Public transport in Oz</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/reflib/time/#abstract">Abstract</a></li>
-<li><a href="https://doc.ntp.org/reflib/time/#1-introduction">1. Introduction</a></li>
-<li><a href="https://doc.ntp.org/reflib/time/#2-data-formats">2. Data Formats</a></li>
-<li><a href="https://doc.ntp.org/reflib/time/#3-datestamps-and-timestamps-as-finite-groups">3. Datestamps and Timestamps as Finite Groups</a></li>
-<li><a href="https://doc.ntp.org/reflib/time/#4-time-difference-calculations">4. Time Difference Calculations</a></li>
-<li><a href="https://doc.ntp.org/reflib/time/#5-on-wire-protocol-implications">5. On-Wire Protocol Implications</a></li>
+<li><a href="https://www.ntp.org/reflib/time/#abstract">Abstract</a></li>
+<li><a href="https://www.ntp.org/reflib/time/#1-introduction">1. Introduction</a></li>
+<li><a href="https://www.ntp.org/reflib/time/#2-data-formats">2. Data Formats</a></li>
+<li><a href="https://www.ntp.org/reflib/time/#3-datestamps-and-timestamps-as-finite-groups">3. Datestamps and Timestamps as Finite Groups</a></li>
+<li><a href="https://www.ntp.org/reflib/time/#4-time-difference-calculations">4. Time Difference Calculations</a></li>
+<li><a href="https://www.ntp.org/reflib/time/#5-on-wire-protocol-implications">5. On-Wire Protocol Implications</a></li>
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
@@ -171,7 +171,7 @@ function demo() {
 <h4 id="2-data-formats">2. Data Formats</h4>
 <p><em>Time</em> is an abstraction that establishes an ordering of events relative to a <em>timescale</em>. In NTP, a <em>date</em> is a point on the timescale expressed in one of two formats, <em>datestamp</em> and <em>timestamp.</em> As shown in Figure 1, a datestamp is a 128-bit, signed fixed-point number in seconds and fraction, with the decimal point to the left of bit 64. Dates are relative to the <em>prime epoch,</em> 0 h, 1 January 1900; dates prior to the prime epoch have negative values, while dates since then have positive values. A timestamp is a 64-bit, unsigned fixed-point number in seconds and fraction with the decimal point to the left of bit 32. Datestamps are used in internal calculations where extended range and freedom from overflow are important, while timestamps are used in packet headers where economy of storage is important.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/time1.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/time1.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1. NT Data Formats</strong></p>
 <p>Datestamps span the age of the Universe with a precision less than the time light transits an atom. Timestamps span a 136-year interval , called an <em>era</em>, with a precision of 232 ps. The datestamp format includes a timestamp field that specifies the seconds and fraction of an era, together with an era number field that specifies the timestamp origin. There is a special convention in both timestamp and datestamp formats where the value zero represents an undefined or unknown date that should not be used in time related calculations.</p>
@@ -211,19 +211,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

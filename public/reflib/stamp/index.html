@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/reflib/stamp/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/reflib/stamp/" />
   
   <meta property="og:title" content="Timestamp Capture Principles" />
 <meta property="og:description" content="This document summarizes methods to achieve precise timestamp methods when exchanging NTP packets between servers and clients. It includes the definition and measurement of statistical evaluators, as well as classification of timestamp capture methods involving softstamps, drivestamps, and hardstamps." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/reflib/stamp/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://www.ntp.org/reflib/stamp/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-06-24T21:25:30&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="Timestamp Capture Principles"/>
 <meta name="twitter:description" content="This document summarizes methods to achieve precise timestamp methods when exchanging NTP packets between servers and clients. It includes the definition and measurement of statistical evaluators, as well as classification of timestamp capture methods involving softstamps, drivestamps, and hardstamps."/>
@@ -67,15 +67,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -83,20 +83,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/current-stable/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
         </button>
       
     </div>
@@ -123,14 +123,14 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
+	<a href="https://www.ntp.org/reflib/">Reference Library</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/reflib/stamp/">Timestamp Capture Principles</a>
+	<a href="https://www.ntp.org/reflib/stamp/">Timestamp Capture Principles</a>
 </li>
 
 	</ol>
@@ -142,30 +142,30 @@ function demo() {
   	<h1>Timestamp Capture Principles</h1> 
     <p style="font-size: small; color: grey;">Last update: June 24, 2022 21:25 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3a8d52d62692686d4ba8ecfd2203c562b5e7a30f">3a8d52d62</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/oz2.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/oz2.gif" alt="gif"  />
 </p></p>
-<p>from <a href="https://doc.ntp.org/reflib/pictures/"><em>Wizard of Oz</em></a>, L. Frank Baum</p>
+<p>from <a href="https://www.ntp.org/reflib/pictures/"><em>Wizard of Oz</em></a>, L. Frank Baum</p>
 <p>Ya gotta salute the principles.</p>
 <p>David L. Mills and Stuart Venters</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/reflib/stamp/#abstract">Abstract</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#1-introduction">1. Introduction</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#2-application-clock-interface">2. Application Clock Interface</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#21-structural-metrics">2.1 Structural Metrics</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#22-application-clock-interface-algorithm">2.2. Application Clock Interface Algorithm</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#23-entropy-mask-algorithm">2.3. Entropy Mask Algorithm</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#3-improving-the-system-clock">3. Improving the System Clock</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#4-requirements-and-principles-of-hardware-timestamping">4. Requirements and Principles of Hardware Timestamping</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#5-timestamp-transposition">5. Timestamp Transposition</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#6-error-analysis">6. Error Analysis</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#7-reciprocity-errors">7. Reciprocity Errors</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#8-hardware-timestamping">8. Hardware Timestamping</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#9-driver-timestamping">9. Driver Timestamping</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#10-interworking-errors">10. Interworking Errors</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#11-store-and-forward-delay-errors">11. Store and Forward Delay Errors</a></li>
-<li><a href="https://doc.ntp.org/reflib/stamp/#12-nonreciprocal-rate-errors">12. Nonreciprocal Rate Errors</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#abstract">Abstract</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#1-introduction">1. Introduction</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#2-application-clock-interface">2. Application Clock Interface</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#21-structural-metrics">2.1 Structural Metrics</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#22-application-clock-interface-algorithm">2.2. Application Clock Interface Algorithm</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#23-entropy-mask-algorithm">2.3. Entropy Mask Algorithm</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#3-improving-the-system-clock">3. Improving the System Clock</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#4-requirements-and-principles-of-hardware-timestamping">4. Requirements and Principles of Hardware Timestamping</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#5-timestamp-transposition">5. Timestamp Transposition</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#6-error-analysis">6. Error Analysis</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#7-reciprocity-errors">7. Reciprocity Errors</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#8-hardware-timestamping">8. Hardware Timestamping</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#9-driver-timestamping">9. Driver Timestamping</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#10-interworking-errors">10. Interworking Errors</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#11-store-and-forward-delay-errors">11. Store and Forward Delay Errors</a></li>
+<li><a href="https://www.ntp.org/reflib/stamp/#12-nonreciprocal-rate-errors">12. Nonreciprocal Rate Errors</a></li>
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
@@ -178,7 +178,7 @@ function demo() {
 <hr>
 <h4 id="2-application-clock-interface">2. Application Clock Interface</h4>
 <p>The system clock interface (SCI) is the only source of time used by the NTP process and dependent applications. In Unix operating systems the SCI provides two data types, <code>timeval</code> (<code>gettimeofday()</code>) and<code><em>timespec</em></code> (<code>getclock()</code>). Both data types represent the time in seconds past 0h, 1 January 1970. In <code>timeval</code> format the second is represented in microseconds, while in <code>timespec</code> format the second is represented in nanoseconds. In either format, the Unix time must be converted to an NTP data type before use by NTP application programs.</p>
-<p>As described in the white paper <a href="https://doc.ntp.org/reflib/time/">NTP Timestamp Calculations</a>, there are two NTP data types, <em>datestamp</em> and <em>timestamp</em>. Datestamps have 128 bits, including a 64-bit seconds field followed by a 64-bit fraction field. Timestamps have 64 bits, including a 32-bit seconds field followd by a 32-bit fraction field. The datestamp is relative to the base epoch, 0h, 1 January 1900. The timestamp data type is relative to the era number, as described in the white paper <a href="https://doc.ntp.org/reflib/y2k/">The NTP Era and Era Numbering</a>. For the purposes of this section, either data type is acceptable.</p>
+<p>As described in the white paper <a href="https://www.ntp.org/reflib/time/">NTP Timestamp Calculations</a>, there are two NTP data types, <em>datestamp</em> and <em>timestamp</em>. Datestamps have 128 bits, including a 64-bit seconds field followed by a 64-bit fraction field. Timestamps have 64 bits, including a 32-bit seconds field followd by a 32-bit fraction field. The datestamp is relative to the base epoch, 0h, 1 January 1900. The timestamp data type is relative to the era number, as described in the white paper <a href="https://www.ntp.org/reflib/y2k/">The NTP Era and Era Numbering</a>. For the purposes of this section, either data type is acceptable.</p>
 <p>The NTP on-wire protocol reads the SCI on two occasions: when a packet arrives and when a packet departs. In either case the SCI is subject to operating system and hardware latencies. The operating system latency typically involves a context switch in order to map the kernel address space, as well as hardware latencies to either lock the system clock variable or read the clock registers.</p>
 <p>The SCI is not always directly usable by the NTP process and applications, and often must be augmented by a wrapper called the application clock interface (ACI). This interface provides additional functionality in order to conform to rules established by the computer science theory community and to provide additional resilience to hostile attacks. The interface conforms to the following rules.</p>
 <ul>
@@ -230,14 +230,14 @@ function demo() {
 <p>Stochastic errors are generally mitigated by the NTP mitigation and discipline algorithms. In general, these errors can be further reduced using some kind of hardware assist or special provisions in the network interface card (NIC) or device driver. Improved means to do this are discussed in this section.</p>
 <p>To better understand the issues, consider the ultimate case where the server and client implement clocks that can be read with exquisite accuracy. The object is to measure the time offset of a server relative to the client.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/stamp2.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/stamp2.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1</strong></p>
 <p>As shown in Figure 1, the NTP on-wire specification uses what is called here the reference timestamps <code><em>T</em><sub>1</sub>, <em>T</em><sub>2</sub>, <em>T</em><sub>3</sub>,</code> and <code><em>T</em><sub>4</sub></code>, respectively called the origin, receive, transmit and destination timestamps. <code><em>T</em><sub>1</sub></code> and <code><em>T</em><sub>4</sub></code> are struck by peer A from its clock, while <code><em>T</em><sub>2</sub></code> and <code><em>T</em><sub>3</sub></code> are struck by peer B from its clock. The object of the protocol is to determine the time offset of B relative to A and the roundtrip delay ABA:</p>
 <p><code>offset θ = [(<em>T</em><sub>2</sub> − <em>T</em><sub>1</sub>) + (<em>T</em><sub>3</sub> − <em>T</em><sub>4</sub>)] / 2</code> (<a name="myfootnote1">Example 1</a>)</p>
 <p><code>delay δ = (<em>T</em><sub>4</sub> − <em>T</em><sub>1</sub>) − (<em>T</em><sub>3</sub> − <em>T</em><sub>2</sub>)</code> (<a name="myfootnote2">Example 2</a>)</p>
 <p>The precision to which the offset and delay can be calculated depends on the precision with which the timestamps can be struck. In general, it is best to strike the timestamps as close to the physical media as possible in order to avoid various queuing and buffering latencies. In this case the physical data media block is properly called a frame, but for clarity in the following discussion and for consistency with other documents in this collection, it will be called a packet.</p>
-<p>Timestamps are categoized by the point in the code flow that they are captured. <em>Softstamps</em> are captured in the mainline code before a packet is sent or after a packet is received. <em>Drivestamps</em> are captured in the packet interrupt routine after a packet is sent or received. <em>Hardstamps</em> are captured by the hardware upon passage of a designated symbol in the media interface. This document does not consider hardstamps, as this requires special purpose network interfaces unavailable in the general population. By default, the NTPv4 reference implementation uses softstamps for transmitted packets and drivestamps for received packets. If interleaved mode is enabled in symmmetric and broadcast modes, drivestamps are used for transmitted packets as well. Additional information on interleaved modes is in the white paper <a href="https://doc.ntp.org/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
+<p>Timestamps are categoized by the point in the code flow that they are captured. <em>Softstamps</em> are captured in the mainline code before a packet is sent or after a packet is received. <em>Drivestamps</em> are captured in the packet interrupt routine after a packet is sent or received. <em>Hardstamps</em> are captured by the hardware upon passage of a designated symbol in the media interface. This document does not consider hardstamps, as this requires special purpose network interfaces unavailable in the general population. By default, the NTPv4 reference implementation uses softstamps for transmitted packets and drivestamps for received packets. If interleaved mode is enabled in symmmetric and broadcast modes, drivestamps are used for transmitted packets as well. Additional information on interleaved modes is in the white paper <a href="https://www.ntp.org/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>.</p>
 <p>The timestamp scheme used by the NTP reference implementation attempts to approximate the reference timestamps as follows:</p>
 <ol>
 <li>
@@ -295,7 +295,7 @@ function demo() {
 <p>The random variables <code>ε<sub><em>t</em></sub></code> and <code>ε<sub><em>r</em></sub></code> represent samples from a continuous distribution, However, the clock discipline algorithm averages many measurements to determine the clock adjustment. Therefore, a useful simplification in this document is to represent the random variables by their expectations. Thus, we assume <code><em>T</em><sub>1</sub> = <em>t</em><sub>1</sub> + ε<sub><em>t</em></sub></code> and <code><em>T</em><sub>3</sub> = <em>t</em><sub>3</sub> + ε<sub><em>t</em></sub></code>.</p>
 <p>In anticipation of a packet arrival, the NTP implementation allocates an input buffer in user space. When a complete packet (chain of kernel mbufs) arrives, the driver copies the mbufs to the buffer. The <code><em>t</em><sub>2</sub></code> or <code><em>t</em><sub>4</sub></code> (receive) drivestamp is struck from the system clock and copied to the buffer. The drivestamp is delayed by various device driver and operating system latencies represented by the random variable <code>ε<sub><em>r</em></sub></code>. Thus, <code><em>T</em><sub>2</sub> = <em>t</em><sub>2</sub>− ε<sub><em>r</em></sub></code> and <code><em>T</em><sub>4</sub> = <em>t</em><sub>4</sub> − ε<sub><em>r</em></sub></code>. The interrupt routine then copies the drivestamp to a preallocated field in the buffer.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/stamp1.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/stamp1.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 5</strong></p>
 <p>As shown in Figure 5, the NTP on-wire protocol performs the same calculations as <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a> but using the actual timestamps. After substitution we have</p>
@@ -311,7 +311,7 @@ function demo() {
 <p>Some idea of the errors introduced by nonreciprocal paths is illustrated in Figure 6, where the reference timestamps represent a network with zero delays and then add an outbound delay <code><em>d<sub>AB</sub></em></code> and inbound delay <code><em>d<sub>BA</sub></em></code>.</p>
 <p><strong>Figure 6</strong></p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/stamp3.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/stamp3.gif" alt="gif"  />
 </p></p>
 <p>As shown in Figure 6, the NTP on-wire protocol performs the same calculations as <a href="#myfootnote1">Example 1</a> and <a href="#myfootnote2">Example 2</a> using the reference timestamps but ignoring the latencies discussed in the preceding section. After substitution we have</p>
 <p><code>θ = {[(<em>T</em><sub>2</sub> + <em>d<sub>AB</sub></em>) − <em>T</em><sub>1</sub>] + [<em>T</em><sub>3</sub> − (<em>T</em><sub>4</sub> + <em>d<sub>BA</sub></em>)]} / 2</code></p>
@@ -353,7 +353,7 @@ function demo() {
 <h4 id="11-store-and-forward-delay-errors">11. Store and Forward Delay Errors</h4>
 <p>Consider a scenario with two LAN segments connected by a switch or router, where one segment operates at 10 Mb and the other at 100 Mb. Even with hardware timestamps errors can occur due to the different packet transmission times.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/stamp7.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/stamp7.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 7</strong></p>
 <p>In Figure 7 let <code><em>d</em><sub>A</sub></code> be the packet time for A and <code><em>d</em><sub>B</sub></code> be the packet time for B. The router sends the packet to B only after the packet has been received from A, assuming the switch is not capable of cut-through switching. With hardware (preamble) timestamps,</p>
@@ -391,19 +391,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

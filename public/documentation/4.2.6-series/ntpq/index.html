@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/" />
+<link rel="canonical" href="https://www.ntp.org/documentation/4.2.6-series/ntpq/" />
   
   <meta property="og:title" content="ntpq - standard NTP query program" />
 <meta property="og:description" content="from Pogo, Walt Kelly
@@ -9,13 +9,13 @@ A typical NTP monitoring packet
  Table of Contents  Synopsis Description Internal Commands Control Message Commands Status Words and Kiss Codes System Variables Peer Variables Clock Variables   Synopsis ntpq [-46dinp] [-c command] [host] [&hellip;]
  Description The ntpq utility program is used to monitor NTP daemon ntpd operations and determine performance. It uses the standard NTP mode 6 control message formats defined in Appendix B of the NTPv3 specification RFC1305." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.2.6-series/ntpq/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://www.ntp.org/documentation/4.2.6-series/ntpq/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="ntpq - standard NTP query program"/>
 <meta name="twitter:description" content="from Pogo, Walt Kelly
@@ -73,15 +73,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -89,20 +89,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/current-stable/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
         </button>
       
     </div>
@@ -132,21 +132,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">NTP Documentation</a>
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
+	<a href="https://www.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/">ntpq - standard NTP query program</a>
+	<a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/">ntpq - standard NTP query program</a>
 </li>
 
 	</ol>
@@ -158,20 +158,20 @@ function demo() {
   	<h1>ntpq - standard NTP query program</h1> 
     <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/bustardfly.gif" alt="gif"  />
-</p><a href="https://doc.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/bustardfly.gif" alt="gif"  />
+</p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
 <p>A typical NTP monitoring packet</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#synopsis">Synopsis</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#description">Description</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#internal-commands">Internal Commands</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#control-message-commands">Control Message Commands</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#status-words-and-kiss-codes">Status Words and Kiss Codes</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#system-variables">System Variables</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#peer-variables">Peer Variables</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#clock-variables">Clock Variables</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#synopsis">Synopsis</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#description">Description</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#internal-commands">Internal Commands</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#control-message-commands">Control Message Commands</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#status-words-and-kiss-codes">Status Words and Kiss Codes</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#system-variables">System Variables</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#peer-variables">Peer Variables</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#clock-variables">Clock Variables</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -183,7 +183,7 @@ function demo() {
 <p>If one or more request options is included on the command line when <code>ntpq</code> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <code>ntpq</code> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <code>ntpq</code> will prompt for commands if the standard input is a terminal device.</p>
 <p><code>ntpq</code> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <code>ntpq</code> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.</p>
 <p>Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.</p>
-<p>For examples and usage, see the <a href="https://doc.ntp.org/documentation/4.2.6-series/debug/">NTP Debugging Techniques</a> page.</p>
+<p>For examples and usage, see the <a href="https://www.ntp.org/documentation/4.2.6-series/debug/">NTP Debugging Techniques</a> page.</p>
 <p>Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.</p>
 <dl>
 <dt><code><strong>-4</strong></code></dt>
@@ -303,7 +303,7 @@ function demo() {
 </tr>
 <tr>
 <td><code>status</code></td>
-<td><a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#peer-status-word">peer status word</a></td>
+<td><a href="https://www.ntp.org/documentation/4.2.6-series/decode/#peer-status-word">peer status word</a></td>
 </tr>
 <tr>
 <td><code>conf</code></td>
@@ -335,7 +335,7 @@ function demo() {
 <dt><code><strong>clockvar <em>assocID</em> [<em>name</em> [ = <em>value</em> [&hellip;]] [&hellip;]</strong></code></dt>
 <dd><code><strong>cv <em>assocID</em> [<em>name</em> [ = <em>value</em> [&hellip;] ][&hellip;]</strong></code></dd>
 <dd>
-<p>Display a list of <a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#clock-variables">clock variables</a> for those associations supporting a reference clock.</p>
+<p>Display a list of <a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#clock-variables">clock variables</a> for those associations supporting a reference clock.</p>
 </dd>
 <dt><code><strong>:config [&hellip;]</strong></code></dt>
 <dd>
@@ -382,7 +382,7 @@ function demo() {
 <tbody>
 <tr>
 <td><code>[tally]</code></td>
-<td>single-character code indicating current value of the <code>select</code> field of the <a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#peer-status-word">peer status word</a></td>
+<td>single-character code indicating current value of the <code>select</code> field of the <a href="https://www.ntp.org/documentation/4.2.6-series/decode/#peer-status-word">peer status word</a></td>
 </tr>
 <tr>
 <td><code>remote</code></td>
@@ -430,21 +430,21 @@ function demo() {
 <dt><code><strong>readvar <em>assocID</em> <em>name</em> [ = <em>value</em> ] [,&hellip;]</strong></code></dt>
 <dd><code><strong>rv <em>assocID</em> [ <em>name</em> ] [,&hellip;]</strong></code></dd>
 <dd>
-<p>Display the specified variables. If <code><em>assocID</em></code> is zero, the variables are from the <a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#system-variables">system variables</a> name space, otherwise they are from the <a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#peer-variables">peer variables</a> name space. The <code><em>assocID</em></code> is required, as the same name can occur in both spaces. If no <code><em>name</em></code> is included, all operative variables in the name space are displayed. In this case only, if the <code><em>assocID</em></code> is omitted, it is assumed zero. Multiple names are specified with comma separators and without whitespace. Note that time values are represented in milliseconds and frequency values in parts-per-million (PPM). Some NTP timestamps are represented in the format <code>YYYYMMDDTTTT</code>, where <code>YYYY</code> is the year, <code>MM</code> the month of year, <code>DD</code> the day of month and <code>TTTT</code> the time of day.</p>
+<p>Display the specified variables. If <code><em>assocID</em></code> is zero, the variables are from the <a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#system-variables">system variables</a> name space, otherwise they are from the <a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#peer-variables">peer variables</a> name space. The <code><em>assocID</em></code> is required, as the same name can occur in both spaces. If no <code><em>name</em></code> is included, all operative variables in the name space are displayed. In this case only, if the <code><em>assocID</em></code> is omitted, it is assumed zero. Multiple names are specified with comma separators and without whitespace. Note that time values are represented in milliseconds and frequency values in parts-per-million (PPM). Some NTP timestamps are represented in the format <code>YYYYMMDDTTTT</code>, where <code>YYYY</code> is the year, <code>MM</code> the month of year, <code>DD</code> the day of month and <code>TTTT</code> the time of day.</p>
 </dd>
 <dt><code><strong>saveconfig <em>filename</em></strong></code></dt>
 <dd>
-<p>Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host&rsquo;s file <code><em>filename</em></code>. This command will be rejected by the server unless <a href="https://doc.ntp.org/documentation/4.2.6-series/miscopt/#saveconfigdir">saveconfigdir</a> appears in the <code>ntpd</code> configuration file. <code><em>filename</em></code> can use <code>strftime()</code> format specifiers to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.</p>
+<p>Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host&rsquo;s file <code><em>filename</em></code>. This command will be rejected by the server unless <a href="https://www.ntp.org/documentation/4.2.6-series/miscopt/#saveconfigdir">saveconfigdir</a> appears in the <code>ntpd</code> configuration file. <code><em>filename</em></code> can use <code>strftime()</code> format specifiers to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.</p>
 </dd>
 <dt><code><strong>writevar <em>assocID</em> <em>name</em> = <em>value</em> [,&hellip;]</strong></code></dt>
 <dd>
-<p>Write the specified variables. If the <code><em>assocID</em></code> is zero, the variables are from the <a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#system-variables">system variables</a> name space, otherwise they are from the <a href="https://doc.ntp.org/documentation/4.2.6-series/ntpq/#peer-variables">peer variables</a> name space. The <code><em>assocID</em></code> is required, as the same name can occur in both spaces.</p>
+<p>Write the specified variables. If the <code><em>assocID</em></code> is zero, the variables are from the <a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#system-variables">system variables</a> name space, otherwise they are from the <a href="https://www.ntp.org/documentation/4.2.6-series/ntpq/#peer-variables">peer variables</a> name space. The <code><em>assocID</em></code> is required, as the same name can occur in both spaces.</p>
 </dd>
 </dl>
 <hr>
 <h4 id="status-words-and-kiss-codes">Status Words and Kiss Codes</h4>
-<p>The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the <a href="https://doc.ntp.org/documentation/4.2.6-series/decode/">Event Messages and Status Words</a> page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.</p>
-<p>Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called <a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#kiss-codes">kiss codes</a>. The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.</p>
+<p>The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the <a href="https://www.ntp.org/documentation/4.2.6-series/decode/">Event Messages and Status Words</a> page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.</p>
+<p>Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called <a href="https://www.ntp.org/documentation/4.2.6-series/decode/#kiss-codes">kiss codes</a>. The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.</p>
 <hr>
 <h4 id="system-variables">System Variables</h4>
 <p>The following system variables appear in the <code>rv</code> billboard. Not all variables are displayed in some configurations.</p>
@@ -458,7 +458,7 @@ function demo() {
 <tbody>
 <tr>
 <td><code>status</code></td>
-<td><a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#system-status-word">system status word</a></td>
+<td><a href="https://www.ntp.org/documentation/4.2.6-series/decode/#system-status-word">system status word</a></td>
 </tr>
 <tr>
 <td><code>version</code></td>
@@ -510,7 +510,7 @@ function demo() {
 </tr>
 <tr>
 <td><code>refid</code></td>
-<td>reference ID or <a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#kiss-codes">kiss code</a></td>
+<td>reference ID or <a href="https://www.ntp.org/documentation/4.2.6-series/decode/#kiss-codes">kiss code</a></td>
 </tr>
 <tr>
 <td><code>reftime</code></td>
@@ -611,7 +611,7 @@ function demo() {
 </tr>
 <tr>
 <td><code>status</code></td>
-<td><a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#peer-status-word">peer status word</a></td>
+<td><a href="https://www.ntp.org/documentation/4.2.6-series/decode/#peer-status-word">peer status word</a></td>
 </tr>
 <tr>
 <td><code>srcadr</code><br>  <code>srcport</code></td>
@@ -643,7 +643,7 @@ function demo() {
 </tr>
 <tr>
 <td><code>refid</code></td>
-<td>reference ID or <a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#kiss-codes">kiss code</a></td>
+<td>reference ID or <a href="https://www.ntp.org/documentation/4.2.6-series/decode/#kiss-codes">kiss code</a></td>
 </tr>
 <tr>
 <td><code>reftime</code></td>
@@ -675,11 +675,11 @@ function demo() {
 </tr>
 <tr>
 <td><code>headway</code></td>
-<td>headway (see <a href="https://doc.ntp.org/documentation/4.2.6-series/rate/">Rate Management and the Kiss-o'-Death Packet)</a></td>
+<td>headway (see <a href="https://www.ntp.org/documentation/4.2.6-series/rate/">Rate Management and the Kiss-o'-Death Packet)</a></td>
 </tr>
 <tr>
 <td><code>flash</code></td>
-<td><a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#flash-status-word">flash status word</a></td>
+<td><a href="https://www.ntp.org/documentation/4.2.6-series/decode/#flash-status-word">flash status word</a></td>
 </tr>
 <tr>
 <td><code>offset</code></td>
@@ -703,7 +703,7 @@ function demo() {
 </tr>
 <tr>
 <td><code>xleave</code></td>
-<td>interleave delay (see <a href="https://doc.ntp.org/documentation/4.2.6-series/xleave/">NTP Interleaved Modes</a>)</td>
+<td>interleave delay (see <a href="https://www.ntp.org/documentation/4.2.6-series/xleave/">NTP Interleaved Modes</a>)</td>
 </tr>
 </tbody>
 </table>
@@ -760,7 +760,7 @@ function demo() {
 </tr>
 <tr>
 <td><code>status</code></td>
-<td><a href="https://doc.ntp.org/documentation/4.2.6-series/decode/#clock-status-word">clock status word</a></td>
+<td><a href="https://www.ntp.org/documentation/4.2.6-series/decode/#clock-status-word">clock status word</a></td>
 </tr>
 <tr>
 <td><code>device</code></td>
@@ -818,19 +818,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

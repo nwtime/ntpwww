@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://doc.ntp.org/documentation/4.1.2/gadget/" />
+<link rel="canonical" href="https://www.ntp.org/documentation/4.1.2/gadget/" />
   
   <meta property="og:title" content="Gadget Box PPS Level Converter and CHU Modem" />
 <meta property="og:description" content="A Gadget Box built by Chuck Hanavin
  Table of Contents  Introduction Circuit Description Files   Introduction Many radio clocks used as a primary reference source for NTP servers produce a pulse-per-second (PPS) signal that can be used to improve accuracy to a high degree. However, the signals produced are usually incompatible with the modem interface signals on the serial ports used to connect the signal to the host." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/documentation/4.1.2/gadget/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://www.ntp.org/documentation/4.1.2/gadget/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-06-21T19:14:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="Gadget Box PPS Level Converter and CHU Modem"/>
 <meta name="twitter:description" content="A Gadget Box built by Chuck Hanavin
@@ -69,15 +69,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -85,20 +85,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/current-stable/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
         </button>
       
     </div>
@@ -128,21 +128,21 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/">NTP Documentation</a>
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/documentation/4.1.2/">4.1.2</a>
+	<a href="https://www.ntp.org/documentation/4.1.2/">4.1.2</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/documentation/4.1.2/gadget/">Gadget Box PPS Level Converter and CHU Modem</a>
+	<a href="https://www.ntp.org/documentation/4.1.2/gadget/">Gadget Box PPS Level Converter and CHU Modem</a>
 </li>
 
 	</ol>
@@ -154,19 +154,19 @@ function demo() {
   	<h1>Gadget Box PPS Level Converter and CHU Modem</h1> 
     <p style="font-size: small; color: grey;">Last update: June 21, 2022 19:14 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/68fb77aea0d78bb39e4487432d4293e5afe7b9bc">68fb77aea</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/gadget.webp" alt="webp"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/gadget.webp" alt="webp"  />
 </p> A Gadget Box built by Chuck Hanavin</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/documentation/4.1.2/gadget/#introduction">Introduction</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.1.2/gadget/#circuit-description">Circuit Description</a></li>
-<li><a href="https://doc.ntp.org/documentation/4.1.2/gadget/#files">Files</a></li>
+<li><a href="https://www.ntp.org/documentation/4.1.2/gadget/#introduction">Introduction</a></li>
+<li><a href="https://www.ntp.org/documentation/4.1.2/gadget/#circuit-description">Circuit Description</a></li>
+<li><a href="https://www.ntp.org/documentation/4.1.2/gadget/#files">Files</a></li>
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
-<p>Many radio clocks used as a primary reference source for NTP servers produce a pulse-per-second (PPS) signal that can be used to improve accuracy to a high degree. However, the signals produced are usually incompatible with the modem interface signals on the serial ports used to connect the signal to the host. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional radio modem designed to decode the radio timecode signals transmitted by the Canadian time and frequency station CHU. A complete set of schematics, PCB artwork, drill templates can be obrtained via the web as the distribution <a href="https://doc.ntp.org/reflib/software/gadget.tar.Z">gadget.tar.Z</a>.</p>
-<p>The gadget box is assembled in a 5&quot;x3&quot;x2&quot; aluminum minibox containing the level converter and modem circuitry. It includes two subcircuits. One of these converts a TTL positive edge into a fixed-width pulse at EIA levels and is for use with a timecode receiver or oscillator including a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the <a href="https://doc.ntp.org/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder</a> driver.</p>
+<p>Many radio clocks used as a primary reference source for NTP servers produce a pulse-per-second (PPS) signal that can be used to improve accuracy to a high degree. However, the signals produced are usually incompatible with the modem interface signals on the serial ports used to connect the signal to the host. The gadget box consists of a handful of electronic components assembled in a small aluminum box. It includes level converters and a optional radio modem designed to decode the radio timecode signals transmitted by the Canadian time and frequency station CHU. A complete set of schematics, PCB artwork, drill templates can be obrtained via the web as the distribution <a href="https://www.ntp.org/reflib/software/gadget.tar.Z">gadget.tar.Z</a>.</p>
+<p>The gadget box is assembled in a 5&quot;x3&quot;x2&quot; aluminum minibox containing the level converter and modem circuitry. It includes two subcircuits. One of these converts a TTL positive edge into a fixed-width pulse at EIA levels and is for use with a timecode receiver or oscillator including a TTL PPS output. The other converts the timecode modulation broadcast by Canadian time/frequency standard station CHU into a 300-bps serial character stream at EIA levels and is for use with the <a href="https://www.ntp.org/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder</a> driver.</p>
 <p>This archive contains complete construction details for the gadget box, including schematic, parts list and artwork for a two-sided, printed-circuit board. All files are in PostScript, with the exception of this file and an information file, which are in ASCII. The artwork is in the 1:1 scale and is suitable for direct printing on photographic resist for each side of the board. While a plated-through-holes process is most convenient, it is possible to bridge the two sides using soldered wires where necessary.</p>
 <hr>
 <h4 id="circuit-description">Circuit Description</h4>
@@ -198,19 +198,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        

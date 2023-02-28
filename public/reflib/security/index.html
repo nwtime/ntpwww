@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://doc.ntp.org/reflib/security/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/reflib/security/" />
   
   <meta property="og:title" content="NTP Security Analysis" />
 <meta property="og:description" content="This document describes security enhancements to NTP, including the use of symmetric-key and public-key cryptography to avoid wiretap and middleman attacks. Where detailed analysis exposes subtle vulnerabilities, we propose solutions." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doc.ntp.org/reflib/security/" /><meta property="og:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
+<meta property="og:url" content="https://www.ntp.org/reflib/security/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
 
 <meta property="article:modified_time" content="2022-06-24T21:25:30&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="NTP Security Analysis"/>
 <meta name="twitter:description" content="This document describes security enhancements to NTP, including the use of symmetric-key and public-key cryptography to avoid wiretap and middleman attacks. Where detailed analysis exposes subtle vulnerabilities, we propose solutions."/>
@@ -67,15 +67,15 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -83,20 +83,20 @@ function demo() {
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://doc.ntp.org/"><img height="80" width="80" src="https://doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/support/">Support</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/reflib/">Reference Library</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://doc.ntp.org/current-stable/">Documentation</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
         </button>
       
     </div>
@@ -123,14 +123,14 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://doc.ntp.org/reflib/">Reference Library</a>
+	<a href="https://www.ntp.org/reflib/">Reference Library</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://doc.ntp.org/reflib/security/">NTP Security Analysis</a>
+	<a href="https://www.ntp.org/reflib/security/">NTP Security Analysis</a>
 </li>
 
 	</ol>
@@ -142,34 +142,34 @@ function demo() {
   	<h1>NTP Security Analysis</h1> 
     <p style="font-size: small; color: grey;">Last update: June 24, 2022 21:25 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3a8d52d62692686d4ba8ecfd2203c562b5e7a30f">3a8d52d62</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/alice44.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice44.gif" alt="gif"  />
 </p></p>
-<p>from <a href="https://doc.ntp.org/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
+<p>from <a href="https://www.ntp.org/reflib/pictures/"><em>Alice&rsquo;s Adventures in Wonderland</em></a>, Lewis Carroll</p>
 <p>The Cheshire Cat is our resident cryptographer.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://doc.ntp.org/reflib/security/#abstract">Abstract</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#1-introduction">1. Introduction</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#11-threats-and-countermeasures">1.1 Threats and Countermeasures</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#12-protocol-layers">1.2 Protocol Layers</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#2-on-wire-protocol-layer">2. On-Wire Protocol Layer</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#3-message-digest-layer">3. Message Digest Layer</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">4. Autokey Sequence Layer</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#41-clientserver-mode">4.1. Client/Server Mode</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#42-symmetric-modes">4.2. Symmetric Modes</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#43-broadcast-modes">4.3 Broadcast Modes</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#5-autokey-protocol-layer">5. Autokey Protocol Layer</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#51-clientserver-and-symmetric-modes">5.1. Client/Server and Symmetric Modes</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#52-broadcast-modes">5.2. Broadcast Modes</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#6-conclusions">6. Conclusions</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#7-parting-shots">7. Parting Shots</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#71-cookie-size">7.1 Cookie Size</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#72-cookie-snatcher-attack">7.2. Cookie Snatcher Attack</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#73-certificate-validation">7.3. Certificate Validation</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#74-reference-implementation-improvements">7.4. Reference Implementation Improvements</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#8-references">8. References</a></li>
-<li><a href="https://doc.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A. Autokey Extension Fields</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#abstract">Abstract</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#1-introduction">1. Introduction</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#11-threats-and-countermeasures">1.1 Threats and Countermeasures</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#12-protocol-layers">1.2 Protocol Layers</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#2-on-wire-protocol-layer">2. On-Wire Protocol Layer</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#3-message-digest-layer">3. Message Digest Layer</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">4. Autokey Sequence Layer</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#41-clientserver-mode">4.1. Client/Server Mode</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#42-symmetric-modes">4.2. Symmetric Modes</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#43-broadcast-modes">4.3 Broadcast Modes</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#5-autokey-protocol-layer">5. Autokey Protocol Layer</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#51-clientserver-and-symmetric-modes">5.1. Client/Server and Symmetric Modes</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#52-broadcast-modes">5.2. Broadcast Modes</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#6-conclusions">6. Conclusions</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#7-parting-shots">7. Parting Shots</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#71-cookie-size">7.1 Cookie Size</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#72-cookie-snatcher-attack">7.2. Cookie Snatcher Attack</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#73-certificate-validation">7.3. Certificate Validation</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#74-reference-implementation-improvements">7.4. Reference Implementation Improvements</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#8-references">8. References</a></li>
+<li><a href="https://www.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A. Autokey Extension Fields</a></li>
 </ul>
 <hr>
 <h4 id="abstract">Abstract</h4>
@@ -195,16 +195,16 @@ function demo() {
 <hr>
 <h4 id="12-protocol-layers">1.2 Protocol Layers</h4>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/sx1.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/sx1.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 1. NTP Security Model</strong></p>
-<p>The NTP security model has the hierarchical structure shown in Figure 1. Defense against intruder attack starts at the bottom layer of the hierarchy, the <em>On-Wire Protocol</em> layer. Successful attacks on this layer, if there are any, are defended by the next upward layer, the <em>Message Digest</em> layer, using symmetric key cryptography. Successful attacks on this layer, if there are any, are defended by the <em>Autokey Sequence</em> layer, which uses a hash or pseudo-random sequence technique to bind packets to digital signatures. The Autokey architecture, protocol and algorithms are described in <a href="https://doc.ntp.org/reflib/rfc/rfc5906.txt">Network Time Protocol Version 4: Autokey Specification RFC 5906</a>. Defense against a masquerade attack depends on the <em>Autokey Protocol</em> layer, which uses public key cryptography to securely bind the server credentials to digital signatures.</p>
+<p>The NTP security model has the hierarchical structure shown in Figure 1. Defense against intruder attack starts at the bottom layer of the hierarchy, the <em>On-Wire Protocol</em> layer. Successful attacks on this layer, if there are any, are defended by the next upward layer, the <em>Message Digest</em> layer, using symmetric key cryptography. Successful attacks on this layer, if there are any, are defended by the <em>Autokey Sequence</em> layer, which uses a hash or pseudo-random sequence technique to bind packets to digital signatures. The Autokey architecture, protocol and algorithms are described in <a href="https://www.ntp.org/reflib/rfc/rfc5906.txt">Network Time Protocol Version 4: Autokey Specification RFC 5906</a>. Defense against a masquerade attack depends on the <em>Autokey Protocol</em> layer, which uses public key cryptography to securely bind the server credentials to digital signatures.</p>
 <p>Note that, if a particular threat is successfully defended at one layer, it is assumed defended at higher layers. However, if a particular threat is successfully defended at one layer, it may or may not be defended at lower layers. In general, the layers above the On-Wire Protocol layer are optional. Symmetric key cryptography uses only the bottom two layers; public key cryptography uses all four layers.</p>
 <hr>
 <h4 id="2-on-wire-protocol-layer">2. On-Wire Protocol Layer</h4>
-<p>The on-wire protocol is used to transport packets from client to server and from server to client. It is described in detail in the white paper <a href="https://doc.ntp.org/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>. The protocols use the transmit timestamp in the NTP packet as a nonce for bogus and duplicate detection and in what is called the <em>loopback test</em>. For this purpose a random fuzz is inserted in the non-significant bits of the 64-bit transmit timestamp. It is highly unlikely that an intruder could predict the transmit timestamp in advance. It is not necessary that the transmit timestamp be correct, or monotone-definite increasing; just that each transmit timestamp is different and could not be predicted precisely to within 0.232 ns.</p>
+<p>The on-wire protocol is used to transport packets from client to server and from server to client. It is described in detail in the white paper <a href="https://www.ntp.org/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>. The protocols use the transmit timestamp in the NTP packet as a nonce for bogus and duplicate detection and in what is called the <em>loopback test</em>. For this purpose a random fuzz is inserted in the non-significant bits of the 64-bit transmit timestamp. It is highly unlikely that an intruder could predict the transmit timestamp in advance. It is not necessary that the transmit timestamp be correct, or monotone-definite increasing; just that each transmit timestamp is different and could not be predicted precisely to within 0.232 ns.</p>
 <p>In all protocol modes a duplicate packet is detected if the transmit timestamp matches the transmit timestamp of the previous packet. In this case the duplicate is discarded without further effect on the timestamp calculations. In client/server and symmetric modes, the loopback test compares the transmit timestamp in the client request packet to the origin timestamp in the server reply packet. A discrepancy indicates that the server packet is bogus, an old duplicate, or lost in transit. In symmetric modes, the discrepancy could be due to a protocol restart or packets crossed in flight.</p>
-<p>Using the loopback test in client/server and symmetric modes, all the wiretap attacks described in <a href="https://doc.ntp.org/reflib/security/#1-introduction">Section 1</a> are defended. In broadcast modes the on-wire protocol does not detect bogus or old duplicate packets, as the loopback test is not possible. However, these scenarios assume that the packet is not modified during transmission and that the server is authentic and not a middleman attempting to masquerade as a legitimate server. These attacks are discussed in the next section.</p>
+<p>Using the loopback test in client/server and symmetric modes, all the wiretap attacks described in <a href="https://www.ntp.org/reflib/security/#1-introduction">Section 1</a> are defended. In broadcast modes the on-wire protocol does not detect bogus or old duplicate packets, as the loopback test is not possible. However, these scenarios assume that the packet is not modified during transmission and that the server is authentic and not a middleman attempting to masquerade as a legitimate server. These attacks are discussed in the next section.</p>
 <blockquote>
 <p>Note: In basic and interleaved symmetric modes, a replay, lost or bogus packet, or protocol restart causes a protocol recovery cycle which delays protocol product delivery one or two rounds. If the intruder maintains an assault rate greater than one packet per round, the delivery rate falls to zero and the synchronization service is effectively disabled. Defense against this type of attack requires additional measures, as described in the next section.</p>
 </blockquote>
@@ -213,11 +213,11 @@ function demo() {
 <p>The assumption made so far is that packets cannot be modified in transit. A rogue or compromised router or even a compromised server, could modify any field of a packet except the transmit timestamp field. This can cause the packet to be incorrectly classified or to deliver incorrect time. To defend against this type of attack, the message digest layer uses symmetric key cryptography to compute a message digest.</p>
 <p>The message digest is a cryptographic hash computed by an algorithm such as MD5 or SHA. When authentication is specified, the reference implementation appends a message authentication code (MAC) following the NTP packet header and extension fields, if present. The MAC consists of a 32-bit key identifier (key ID) followed by a 128- or 160-bit message digest. The algorithm computes the message digest as the hash of a 128- or 160- bit secret message digest key concatenated with the NTP packet header fields and extension fields, if present, with the exception of the MAC itself. On transmit, the digest is computed and inserted in the MAC. On receive, the digest is computed and compared with the digest in the MAC. The packet is accepted only if the two digests are identical. If a discrepancy is found, the client ignores the packet, but raises an alarm. If this happens at the server, the server returns a special message called a <em>crypto-NAK</em>.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/sx5.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/sx5.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 2. Typical Symmetric Key File</strong></p>
 <p>The security of the message digest layer depends on the <em>message digest key</em>. In symmetric key cryptography, a set of secret message digest keys is defined in a keys file such as shown in Figure 2. A file such as this is loaded by the reference implementation when the program is started. Each line consists of a key ID used in the packet header, a digest algorithm identifier and the key. In the case of MD5, the key is restricted to a maximum of 16 ASCII printing characters, either a given string, such as <code>2late4Me</code> for key ID 10, or a random string. In other digest algorithms the key is a 20-octet random string represented as 40 hex digits.</p>
-<p>A tabular definition is not the only method to define message digest keys. In the Autokey sequence layer described in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>, the message digest key is computed by a crafted algorithm involving shared secrets.</p>
+<p>A tabular definition is not the only method to define message digest keys. In the Autokey sequence layer described in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>, the message digest key is computed by a crafted algorithm involving shared secrets.</p>
 <p>On the assumption that the message digest key is shared only between the intended server and client, the message digest layer successfully defends against the threats described in the previous section, as well as a middleman attack or masquerade. It is generally agreed that symmetric key cryptography is extremely reliable and difficult to circumvent. While recent developments suggest it may be possible to synthesize a packet with given MD5 hash, the additional requirement that the packet has a valid NTP format and transmit timestamp makes even MD5 a cryptographically strong algorithm.</p>
 <p>However, for a national time server with many thousands of clients, the requirement for shared message digest keys scales awkwardly, at least if each user or user group must have a different message digest key. The key ID space assigned for symmetric key cryptography is limited to 65,534 distinct keys. While a key population of this size is technically possible using the NTPv4 reference implementation, managing such a large population would be awkward at best. Provisions must be made for secure key assignment, distribution and revocation, as well as regular key refreshment.</p>
 <p>Possibly, the best application for symmetric key cryptography is for broadcast modes or automatic server discovery schemes such as manycast. In these cases, a small number of keys could serve a proportionately large population.</p>
@@ -227,26 +227,26 @@ function demo() {
 <blockquote>
 <p>Note: That digital signatures are used only in protocol responses from the server to the client, and then only if the server is synchronized to an authentic source.</p>
 </blockquote>
-<p>The protocol design takes two approaches, one for client/server and symmetric modes; the other for broadcast modes. Both are based on the <em>autokey</em> described in <a href="https://doc.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a>. Autokeys are used when constructing client and server cookies and message digest keys, also described in Appendix A.</p>
+<p>The protocol design takes two approaches, one for client/server and symmetric modes; the other for broadcast modes. Both are based on the <em>autokey</em> described in <a href="https://www.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a>. Autokeys are used when constructing client and server cookies and message digest keys, also described in Appendix A.</p>
 <hr>
 <h4 id="41-clientserver-mode">4.1. Client/Server Mode</h4>
 <p>In client/server mode, the server has a <em>server cookie</em> that is used to generate a <em>client cookie</em> unique to each client separately. The server cookie is a nonce and is refreshed at intervals of about one day. The server computes the client cookie as the MD5 hash of the autokey with client and server IP addresses, a key ID of zero and the server cookie. On request, the server returns the client cookie encrypted using the client public host key provided in the request. In order to avoid counterfeit, the response is signed using the server private sign key. The client decrypts the client cookie and verifies the signature using the server public sign key contained on its certificate. The client cookie is a shared secret retained by the client and regenerated by the server when a client packet arrives. Once the client cookie has been obtained, extension fields are no longer required.</p>
-<p>The client generates a nonce to be used as the key ID included in both the client and server packets and is used only once. When sending or receiving an NTP packet, both the client and server calculate the message digest key as described in <a href="https://doc.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a>. Both the client and server verify the message digest as in <a href="https://doc.ntp.org/reflib/security/#3-message-digest-layer">Section 3</a>. Without the client cookie, an intruder cannot produce a packet acceptable to either the server or client. In this way, each NTP packet is bound to the client cookie which itself is bound to the server signature.</p>
+<p>The client generates a nonce to be used as the key ID included in both the client and server packets and is used only once. When sending or receiving an NTP packet, both the client and server calculate the message digest key as described in <a href="https://www.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a>. Both the client and server verify the message digest as in <a href="https://www.ntp.org/reflib/security/#3-message-digest-layer">Section 3</a>. Without the client cookie, an intruder cannot produce a packet acceptable to either the server or client. In this way, each NTP packet is bound to the client cookie which itself is bound to the server signature.</p>
 <p>As long as the client cookie is not compromised, a middleman cannot manufacture bogus packets or modify legitimate packets acceptable to either the server or client. However, a significant <em>cookie snatcher</em> vulnerability exists where a middleman is able to wiretap the client cookie request to learn the client and server IP addresses. The middleman then launches a client cookie request using its own public encryption key. Using the client cookie, the middleman can masquerade as the legitimate server and inject bogus packets acceptable to the client.</p>
 <blockquote>
-<p>Note: A modification to this design which does not have this hazard is described in <a href="https://doc.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
+<p>Note: A modification to this design which does not have this hazard is described in <a href="https://www.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
 </blockquote>
 <hr>
 <h4 id="42-symmetric-modes">4.2. Symmetric Modes</h4>
 <p>In symmetric modes, each peer operates as a server for the other peer as client; however, each peer has a unique certificate, private/public sign key pair and private/public host key pair. Each peer independently obtains a client cookie as described above. Once the client cookie has been obtained, each peer calculates the shared peer cookie as the exclusive OR of its client cookie and the client cookie obtained from the other peer.</p>
 <blockquote>
-<p>Note: Close inspection of the symmetric modes protocol reveal that the protocol has the same cookie snatcher vulnerability as in the client/server mode. The middleman sends a cookie request to both peers and forms the exclusive OR of the two client cookies. The middleman can now masquerade as either peer. A modification to this design which does not have this hazard is described in <a href="https://doc.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
+<p>Note: Close inspection of the symmetric modes protocol reveal that the protocol has the same cookie snatcher vulnerability as in the client/server mode. The middleman sends a cookie request to both peers and forms the exclusive OR of the two client cookies. The middleman can now masquerade as either peer. A modification to this design which does not have this hazard is described in <a href="https://www.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
 </blockquote>
 <hr>
 <h4 id="43-broadcast-modes">4.3. Broadcast Modes</h4>
 <p>In broadcast modes the design is more complex, since a two-way exchange is not possible. The Autokey layer defense in broadcast modes uses a variant of the S-KEY scheme to bind a batch of packets to a digitally signed packet. A typical scenario is illustrated in Figure 3.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/sx2.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/sx2.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure 3. Autokey Sequence in Broadcast Modes</strong></p>
 <p>Here, <code><em>T<sub>i</sub></em></code> represents the transmit timestamp in the NTP header and <code><em>T<sub>i</sub></em> &lt; <em>T</em><sub><em>i</em>+1</sub></code>. The broadcast server constructs a key list, where each entry represents the key ID and corresponding message digest key of an autokey with the server source IP address, the broadcast destination IP address, a key ID <code><em>x</em></code> and a cookie zero. Let <code><em>y</em> = S(<em>x</em>)</code> be the first four octets of the message digest key <code><em>x</em></code>.</p>
@@ -258,12 +258,12 @@ function demo() {
 <h4 id="5-autokey-protocol-layer">5. Autokey Protocol Layer</h4>
 <p>The Autokey protocol layer is used to retrieve and update cryptographic media such as certificates and identity keys. It is designed to operate without any additional infrastructure, such as TSL <sup><a href="#myfootnote2">2</a></sup>. Provisions are included, but not tested, to utilize industry standard certificate authorities. Once the initial exchanges have been completed, there is no packet header overhead for authentication purposes.</p>
 <p>Cryptographic media fall into two categories, private values and public/private key pairs. Private values are nonces with a limited lifetime. They include the autokey values seed and the server cookie. Private values are routinely regenerated and are always obscured by a hash computation.</p>
-<p>Public/private key pairs include the host keys, sign keys and identity keys. Host keys are used to encrypt the client cookie, as described in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. New host keys can be generated at any time without affecting other servers or client. Sign keys are used on certificates to verify signatures on extension fields, as described in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. If sign keys are changed, all certificates dependent on them must be regenerated. Certificates have a limited lifetime, by default one year, and must be regenerated as required. Identity keys are used to avoid middleman masquerade attacks. Their primary use is to authenticate sign keys when certificates cannot be reliably obtained, as in complex security configurations not discussed in this document. By design, identity keys have a very long lifetime and are used in algorithms that are extremely difficult to cryptanalyze.</p>
+<p>Public/private key pairs include the host keys, sign keys and identity keys. Host keys are used to encrypt the client cookie, as described in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. New host keys can be generated at any time without affecting other servers or client. Sign keys are used on certificates to verify signatures on extension fields, as described in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. If sign keys are changed, all certificates dependent on them must be regenerated. Certificates have a limited lifetime, by default one year, and must be regenerated as required. Identity keys are used to avoid middleman masquerade attacks. Their primary use is to authenticate sign keys when certificates cannot be reliably obtained, as in complex security configurations not discussed in this document. By design, identity keys have a very long lifetime and are used in algorithms that are extremely difficult to cryptanalyze.</p>
 <blockquote>
-<p>Note: Identity keys are necessary only if an identity scheme is configured. Host keys and the server cookie are not necessary if the protocol changes proposed in <a href="https://doc.ntp.org/reflib/security/#7-parting-shots">Section 7</a> are adopted.</p>
+<p>Note: Identity keys are necessary only if an identity scheme is configured. Host keys and the server cookie are not necessary if the protocol changes proposed in <a href="https://www.ntp.org/reflib/security/#7-parting-shots">Section 7</a> are adopted.</p>
 </blockquote>
 <p>While not strictly necessary in all configurations, the reference implementation requires the servers and clients to load the RSA host key pair, RSA or DSA sign key pair, corresponding RSA or DSA trusted certificate, and optional identity key pair from files when NTP is first started. The client obtains the public component of these keys as the protocol proceeds.</p>
-<p>Autokey protocol messages are contained in extension fields, as described in <a href="https://doc.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a>. Each extension field is signed by the server private sign key and verified using the server public sign key included in the server certificate. An Autokey packet includes the NTP header followed by one or more extension fields and then the MAC. The message digest key is determined as in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a> with a cookie value of zero.</p>
+<p>Autokey protocol messages are contained in extension fields, as described in <a href="https://www.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a>. Each extension field is signed by the server private sign key and verified using the server public sign key included in the server certificate. An Autokey packet includes the NTP header followed by one or more extension fields and then the MAC. The message digest key is determined as in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a> with a cookie value of zero.</p>
 <blockquote>
 <p>Note: While the extension field signature protects against modification, it does not prevent middleman cut-and-paste attacks where one extension field is exchanged with another. Since the key ID and cookie are exposed. It also does not protect against modification of the packet header fields, so these fields should not be used when extension fields are present. As the Autokey protocol exchanges in the various modes are brief and the on-wire protocol can tolerate moderate packet loss, this has not been a problem.</p>
 </blockquote>
@@ -287,9 +287,9 @@ function demo() {
 <blockquote>
 <p>Note: The association exchange is also used as an access control filter for named secure groups that share a common broadcast media network in server discovery schemes.</p>
 </blockquote>
-<p>In the current protocol client/server dance the client next sends a cookie request message including its client RSA public key. The server responds with the client cookie encrypted with this key and signed with the server private key. The client verifies the signature using the public key in the server certificate and decrypts the client cookie. This exchange is vulnerable to the cookie snatcher attack described in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. A modification to this design which does not have this hazard is described in <a href="https://doc.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
+<p>In the current protocol client/server dance the client next sends a cookie request message including its client RSA public key. The server responds with the client cookie encrypted with this key and signed with the server private key. The client verifies the signature using the public key in the server certificate and decrypts the client cookie. This exchange is vulnerable to the cookie snatcher attack described in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. A modification to this design which does not have this hazard is described in <a href="https://www.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
 <p>The optional identity exchange is designed to defend against an attack where the intruder masquerades as the legitimate server and/or the certificate authority (CA). To begin the identity exchange, the client sends a nonce to the server. The server performs a mathematical computation involving the client nonce, a server nonce and a private identity key. The server sends the result to the client, along with a confirming hash, signed by the server private sign key. The client performs a second mathematical computation involving the public identity key to confirm the server has the correct private identity key and correct certificate. Once the identity exchange is complete, there is no need for further extension fields until the server cookie is refreshed or the association is remobilized.</p>
-<p>The security analysis in symmetric modes is similar to client/server mode, except that each peer must run the Autokey protocol independently of the other. In practice, when unsynchronized peer A finds synchronized peer B, peer A runs the protocol until receiving the cookie of B; but, while this is going on, peer B responds to requests, but idles until A is able to provide a valid signature. Once this occurs, B can run the protocol until receiving the cookie of A, at which point both A and B have no further need for extension fields. This exchange has the cookie snatcher vulnerability described in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. A modification to this design which does not have this hazard is described in <a href="https://doc.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
+<p>The security analysis in symmetric modes is similar to client/server mode, except that each peer must run the Autokey protocol independently of the other. In practice, when unsynchronized peer A finds synchronized peer B, peer A runs the protocol until receiving the cookie of B; but, while this is going on, peer B responds to requests, but idles until A is able to provide a valid signature. Once this occurs, B can run the protocol until receiving the cookie of A, at which point both A and B have no further need for extension fields. This exchange has the cookie snatcher vulnerability described in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. A modification to this design which does not have this hazard is described in <a href="https://www.ntp.org/reflib/security/#7-parting-shots">Section 7</a>.</p>
 <hr>
 <h4 id="52-broadcast-modes">5.2. Broadcast Modes</h4>
 <p>The service model in broadcast mode is considerably different than in the other modes. In common configurations there are from one to several broadcast servers and perhaps several hundred broadcast clients sharing a multi-segment Ethernet LAN interconnected by switches. The identity of the broadcast servers is not configured in advance; they are discovered when the first broadcast packet is received by the client.</p>
@@ -297,15 +297,15 @@ function demo() {
 <p>With Autokey, each potential server is associated with a distinct public/private sign key pair and certificate. The certificate is ordinarily obtained via an Autokey exchange. However, if obtained by an Autokey exchange, it might be necessary to execute the exchange for every broadcast packet received, only to refuse the actual broadcast packet.</p>
 <p>An autokey values response packet is sent when the key list is regenerated. It includes the three media values, the association ID, timestamp and filestamp. This is sufficient to initialize the autokey sequence, so that subsequent packets can be verified. However, the extension field signature cannot be verified until the client obtains the server certificate. This can be done using a two-way exchange at the same time the propagation delay is calibrated.</p>
 <p>A complication occurs when a client shows up between autokey values packets. One approach might be to force the client to wait until the next autokey values packet, but that could take up to an hour. The solution is to include an unsigned association message in every packet sent by the server, except the autokey values packet. The association message includes the association ID and the X.509 distinguished name of the server. Upon receipt, the client runs the client/server dance in order to retrieve the server certificate used to validate subsequent autokey values packets.</p>
-<p>The security analysis in broadcast mode has two components. The first is to defend the calibration round that validates the server certificate and calculates the roundtrip delay. The second is to validate the autokey values packet with respect to the server certificate. The calibration round has the same vulnerabilities as in <a href="https://doc.ntp.org/reflib/security/#51-clientserver-and-symmetric-modes">Section 5.1</a>, including the cookie snatcher attack. While a cookie snatcher attack can compromise the roundtrip delay calculation, it cannot in general compromise the server certificate. Once the calibration round is complete, the client reverts to listen-only mode and behaves as described in <a href="https://doc.ntp.org/reflib/security/#43-broadcast-modes">Section 4.3</a>.</p>
+<p>The security analysis in broadcast mode has two components. The first is to defend the calibration round that validates the server certificate and calculates the roundtrip delay. The second is to validate the autokey values packet with respect to the server certificate. The calibration round has the same vulnerabilities as in <a href="https://www.ntp.org/reflib/security/#51-clientserver-and-symmetric-modes">Section 5.1</a>, including the cookie snatcher attack. While a cookie snatcher attack can compromise the roundtrip delay calculation, it cannot in general compromise the server certificate. Once the calibration round is complete, the client reverts to listen-only mode and behaves as described in <a href="https://www.ntp.org/reflib/security/#43-broadcast-modes">Section 4.3</a>.</p>
 <hr>
 <h4 id="6-conclusions">6. Conclusions</h4>
-<p>The security threats today are far different than those when the Autokey scheme was first designed in 1996. Routers of that day were extraordinarily dumb by today&rsquo;s standards, so the threat of an intelligent middleman was not considered significant. Among the conclusions reached from the discussion in this document are the following. Further discussion of the vulnerabilities found are in <a href="https://doc.ntp.org/reflib/security/#7-parting-shots">Section 7</a>. These conclusions are based primarily on an assumed configuration of a national time server with thousands of clients.</p>
+<p>The security threats today are far different than those when the Autokey scheme was first designed in 1996. Routers of that day were extraordinarily dumb by today&rsquo;s standards, so the threat of an intelligent middleman was not considered significant. Among the conclusions reached from the discussion in this document are the following. Further discussion of the vulnerabilities found are in <a href="https://www.ntp.org/reflib/security/#7-parting-shots">Section 7</a>. These conclusions are based primarily on an assumed configuration of a national time server with thousands of clients.</p>
 <ul>
 <li>In client/server and symmetric modes, the on-wire protocol defends against wiretap attacks, including bogus packets, replay packets and lost packets. In symmetric modes the protocol defends against protocol restarts and packets crossed in flight. In broadcast modes it defends against all but bogus packets and old duplicate packets. In all modes it does not defend against middleman attacks or DoS attacks.</li>
 <li>The rate management provisions in the reference implementation defend against most forms of DoS attacks, including those targeted on expensive cryptographic algorithms. However, as in other ubiquitous, public applications, the servers are vulnerable in distributed DoS warfare.</li>
 <li>The message digest layer using symmetric key cryptography defends against middleman attacks, including bogus, message modification and masquerade. However, these provisions are not practical when large numbers of clients are involved.</li>
-<li>The Autokey protocol is vulnerable in client/server and symmetric modes to the cookie snatcher attack described in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. This vulnerability results from the ability of a middleman to wiretap client requests, obtain the client cookie and masquerade as the legitimate server. One conclusion reached from this study is that a private message digest key cannot be protected if the server is required to be stateless.</li>
+<li>The Autokey protocol is vulnerable in client/server and symmetric modes to the cookie snatcher attack described in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>. This vulnerability results from the ability of a middleman to wiretap client requests, obtain the client cookie and masquerade as the legitimate server. One conclusion reached from this study is that a private message digest key cannot be protected if the server is required to be stateless.</li>
 <li>The Autokey protocol may be vulnerable in broadcast modes to NTP packet header modification by a middleman; however, this vulnerability does not exist when the client and server are on the same network, even if on different segments connected by switches.</li>
 <li>The NTP packet header is vulnerable to modification when extension fields are used. Extension fields are used only briefly in the Autokey exchanges that initialize the cryptographic media. Prudent design suggests the NTP packet header data should not be used during these exchanges.</li>
 </ul>
@@ -314,12 +314,12 @@ function demo() {
 <p>The analysis in this document has exposed a number of deficiencies in the existing specification and reference implementation. This section suggests a number of changes designed to remedy these deficiencies.</p>
 <hr>
 <h4 id="71-cookie-size">7.1 Cookie Size</h4>
-<p>In the design described below, the autokey of <a href="https://doc.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a> is used for all modes. However, the cookie size of 4 octets is way too small. The size should be increased to match the message digest size, 16 octets with MD5 or 20 octets with SHA.</p>
+<p>In the design described below, the autokey of <a href="https://www.ntp.org/reflib/security/#appendix-a-autokey-extension-fields">Appendix A</a> is used for all modes. However, the cookie size of 4 octets is way too small. The size should be increased to match the message digest size, 16 octets with MD5 or 20 octets with SHA.</p>
 <hr>
 <h4 id="72-cookie-snatcher-attack">7.2. Cookie Snatcher Attack</h4>
-<p>The cookie snatcher attack described in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a> is the most serious vulnerability exploitable by a middleman. The vulnerability exposes the client cookie, and thus the message digest key. The fundamental problem creating this vulnerability is that the server is required to be stateless. The analysis in this document shows that it is not possible to protect the message digest key unless the server includes some form of private state memory for each client.</p>
+<p>The cookie snatcher attack described in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a> is the most serious vulnerability exploitable by a middleman. The vulnerability exposes the client cookie, and thus the message digest key. The fundamental problem creating this vulnerability is that the server is required to be stateless. The analysis in this document shows that it is not possible to protect the message digest key unless the server includes some form of private state memory for each client.</p>
 <p>A defense against the cookie snatcher attack is to adopt a key agreement scheme such as used by the TLS handshake protocol. In this scheme the cookie is not used and the client sets the message digest key as a nonce. The client then encrypts the key using the server public sign key on its certificate and sends the encrypted key to the server in an agreement exchange. The server decrypts the key and saves it for future use. This might be a topic for future standardization.</p>
-<p>As mentioned in <a href="https://doc.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>, the cookie snatcher vulnerability exists in symmetric modes. This vulnerability can be mitigated using an agreement exchange as in client/server mode. However, since the peers maintain persistent state in symmetric modes, an alternate approach might be the Station-to-Station (StS) protocol in <sup><a href="#myfootnote1">1</a></sup> or some modification of it, as suggested in Photures, Oackley or ISAKMP using the Diffie-Hellman (D-H) key agreement algorithm. This might be a topic for future standardization.</p>
+<p>As mentioned in <a href="https://www.ntp.org/reflib/security/#4-autokey-sequence-layer">Section 4</a>, the cookie snatcher vulnerability exists in symmetric modes. This vulnerability can be mitigated using an agreement exchange as in client/server mode. However, since the peers maintain persistent state in symmetric modes, an alternate approach might be the Station-to-Station (StS) protocol in <sup><a href="#myfootnote1">1</a></sup> or some modification of it, as suggested in Photures, Oackley or ISAKMP using the Diffie-Hellman (D-H) key agreement algorithm. This might be a topic for future standardization.</p>
 <p>The following design considerations apply.</p>
 <ul>
 <li>The server maintains a message digest key list with an entry for each Autokey client. The entry includes the IP source and destination addresses, the message digest key, and a timeout counter. The entry is updated upon arrival of an agreement request. The timeout counter is initialized upon arrival of an NTP packet and then decrements once per second. The initial counter value is determined from the peer poll interval in the most recent NTP packet . The entry is expunged and garbage collected if the counter reaches zero.</li>
@@ -345,7 +345,7 @@ function demo() {
 <hr>
 <h4 id="appendix-a-autokey-extension-fields">Appendix A. Autokey Extension Fields</h4>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/sx3.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/sx3.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure A1. Autokey</strong></p>
 <p>The autokey function is used to map a packet header to a message digest key of 16 or 20 octets, depending on the hash algorithm. The function is used for all modes, including client/server, symmetric and broadcast modes. As shown in Figure A1, the autokey function includes four arguments, a 4-octet IPv4 or 16-octet IPv6 source address, a 4-octet IPv4 or 16-octet IPv6 destination address, a 4-octet key ID and a 4-octet <em>cookie</em>. It is likely in future that the cookie size will be increased to at least the message digest size.</p>
@@ -353,7 +353,7 @@ function demo() {
 <p>Extension fields are normally used only in the Autokey dances before the system clock is synchronized. For packets with extension fields, the cookie value is zero and thus a public value. Extension fields are individually protected by digital signatures. Since in principle an intruder could change the packet header and recompute the message digest, packets with extension fields should not be used for timestamp calculations. For packets without extension fields, the cookie is a private value mutually agreed between server and client.</p>
 <p>The Autokey protocol uses one or more extension fields inserted between the NTP packet header and the MAC. The general format of the extension field is shown in Figure A2.</p>
 <p><p>
-  <img loading="lazy" src="https://doc.ntp.org/documentation/pic/sx4.gif" alt="gif"  />
+  <img loading="lazy" src="https://www.ntp.org/documentation/pic/sx4.gif" alt="gif"  />
 </p></p>
 <p><strong>Figure A2. Extension Field Format</strong></p>
 <p>The ER, VN and Code fields specify the operation code and modifiers. The Length field specifies the overall extension field length, including the Length field. The Association ID field specifies the association mobilized in the configuration. The Timestamp field specifies the NTP seconds that the signature was computed, while the Filestamp field specifies the NTP seconds that the associated cryptographic media was created. The optional Value and Value Length fields specify a value, such as a certificate, client cookie or autokey values.</p>
@@ -369,19 +369,19 @@ function demo() {
         
         <li class="nav-item" title="Twitter" aria-label="Twitter">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
         <li class="nav-item" title="Facebook" aria-label="Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        
