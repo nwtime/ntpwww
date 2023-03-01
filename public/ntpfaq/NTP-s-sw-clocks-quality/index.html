@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/ntpfaq/NTP-s-sw-clocks-quality/" />
+  
+  <meta property="og:title" content="3.3 Clock Quality" />
+<meta property="og:description" content="This section of the NTP FAQ introduces the quality factors which are helpful when discussing clocks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-sw-clocks-quality/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
+
+<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="3.3 Clock Quality"/>
+<meta name="twitter:description" content="This section of the NTP FAQ introduces the quality factors which are helpful when discussing clocks."/>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-K07ZJQFYSZ', { 'anonymize_ip': true });
+</script>
+
+
+
+
+
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c33igkoodm");
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>3.3 Clock Quality</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This section of the NTP FAQ introduces the quality factors which are helpful when discussing clocks.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://www.ntp.org/ntpfaq/NTP-s-sw-clocks-quality/">3.3 Clock Quality</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>3.3 Clock Quality</h1> 
+    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+	<p>3.3.1 <a href="#331-frequency-error">Frequency Error</a><br>
+3.3.1.1 <a href="#3311-how-bad-is-a-frequency-error-of-500-ppm">How bad is a Frequency Error of 500 PPM?</a><br>
+3.3.1.2 <a href="#3312-what-is-the-frequency-error-of-a-good-clock">What is the Frequency Error of a good Clock?</a></p>
+<hr>
+<p>When discussing clocks, the following quality factors are helpful:</p>
+<ul>
+<li>
+<p>The smallest possible increase of time the clock model allows is called <em>resolution</em>. If a clock increments its value once per second, the resolution is one second.</p>
+</li>
+<li>
+<p>A high resolution does not help if you can&rsquo;t read the clock. Therefore the smallest possible increase of time that can be experienced by a program is called <em>precision</em>.</p>
+<p>In NTP precision is determined automatically, and is measured as a power of two. For example when <code>ntpq -c rl</code> prints <code>precision=-16</code>, the precision is about 15 microseconds (2<sup>^</sup>-16 s).</p>
+<p>If you like formal definitions, consider this one: &ldquo;Precision is the random uncertainty of a measured value, expressed by the standard deviation or by a multiple of the standard deviation.&rdquo;</p>
+</li>
+<li>
+<p>When repeatedly reading the time, the difference may vary almost randomly. The difference of these differences (second derivation) is called <em>jitter</em>.</p>
+</li>
+<li>
+<p>A clock not only needs to be read, it must be set. The <em>accuracy</em> determines how close the clock is to an official time reference like UTC.</p>
+<p>Again, if you prefer a formal definition: &ldquo;Accuracy is the closeness of the agreement between the result of a measurement and a true value of the measurand.&rdquo;</p>
+</li>
+<li>
+<p>Unfortunately, common clock hardware is not very accurate. This is because the frequency that makes time increase is never exactly right. Even an error of only 0.001% would make a clock be off by almost one second per day. This is why discussing clock problems uses very fine measures: One PPM (Part Per Million) is 0.0001% (1E-6).</p>
+<p>Real clocks have a <em>frequency error</em> of several PPM quite frequently. Some of the best clocks available still have errors of about 1E-8 PPM. For example, one of the clocks that is behind the German DCF77 has a stability of 1.5 ns/day (1.7E-8 PPM)</p>
+</li>
+<li>
+<p>Even if the systematic error of a clock model is known, the clock will never be perfect. This is because the frequency varies over time, mostly influenced by temperature, but it could be due to other factors such as air pressure or magnetic fields. <em>Reliability</em> determines how long a clock can keep time within a specified accuracy.</p>
+</li>
+<li>
+<p>For long-term observation one may also notice variations in the clock frequency. The difference of the frequency is called <em>wander</em>. Therefore there can be clocks with poor short-term stability, but with good long-term stability, and vice versa.</p>
+</li>
+</ul>
+<hr>
+<h4 id="331-frequency-error">3.3.1 Frequency Error</h4>
+<p>It&rsquo;s not sufficient to correct the clock once. Figure 3.3a illustrates the problem. The offset of a precision reference pulse has been measured with the free-running system clock. The figure shows that the system clock gains about 50 milliseconds per hour (red line). Even if the frequency error is taken into account, the error spans a few milliseconds within a few hours (blue line).</p>
+<p><strong>Figure 3.3a: Offset for a free-running Clock</strong></p>
+<p><p>
+  <img loading="lazy" src="https://www.ntp.org/ntpfaq/clockdrift.png" alt=""  />
+</p></p>
+<p>Even if the offset seems to drift in a linear way, a closer examination reveals that the drift is not linear.</p>
+<p><strong>Example 3.3a: Quartz Oscillators in IBM compatible PCs</strong></p>
+<p>In my experiments with PCs running Linux I found out that the frequency of the oscillator&rsquo;s correction value increases by about 11 PPM after powering up the system. This is quite likely due to the increase of temperature. A typical quartz is expected to drift about 1 PPM per °C.</p>
+<p>Even for a system that has been running for several days in a non-air-conditioned office, the correction value changed by more than 1 PPM within a week (see Figure 3.3b for a snapshot from that machine). It is possible that a change in supply voltage also changes the drift value of the quartz.</p>
+<p>As a consequence, without continuous adjustments the clock must be expected to drift away at roughly one second per day in the worst case. Even worse, the values quoted above may increase significantly for other circuits, or even more for extreme environmental conditions.</p>
+<p><strong>Figure 3.3b: Frequency Correction within a Week</strong></p>
+<p><p>
+  <img loading="lazy" src="https://www.ntp.org/ntpfaq/f-tick1b.png" alt=""  />
+</p></p>
+<p>Some spikes may be due to the fact that the DCF77 signal failed several times during the observation, causing the receiver to resynchronize with an unknown phase.</p>
+<hr>
+<h4 id="3311-how-bad-is-a-frequency-error-of-500-ppm">3.3.1.1 How bad is a Frequency Error of 500 PPM?</h4>
+<p>As most people have some trouble with that abstract PPM (parts per million, 0.0001%), I&rsquo;ll simply state that 12 PPM correspond to one second per day roughly. So 500 PPM means the clock is off by about 43 seconds per day. Only poor old mechanical wristwatches are worse.</p>
+<hr>
+<h4 id="3312-what-is-the-frequency-error-of-a-good-clock">3.3.1.2 What is the Frequency Error of a good Clock?</h4>
+<p>I&rsquo;m not sure, but but I think a chronometer is allowed to drift mostly by six seconds a day when the temperature doesn&rsquo;t change by more than 15° Celsius from room temperature. That corresponds to a frequency error of 69 PPM.</p>
+<p>I read about a temperature compensated quartz that should guarantee a clock error of less than 15 seconds per year, but I think they were actually talking about the frequency variation instead of absolute frequency error. In any case that would be 0.47 PPM. As I actually own a wrist watch that should include that quartz, I can state that the absolute frequency error is about 2.78 PPM, or 6 seconds in 25 days.</p>
+<p>For the Meinberg GPS 167 the frequency error of the free running oven-controlled quartz is specified as 0.5 PPM after one year, or 43 milliseconds per day (roughly 16 seconds per year). See the examples in <a href="https://www.ntp.org/ntpfaq/ntp-s-related/#91-what-is-mills-speak">Mills-speak</a>.</p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2023 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

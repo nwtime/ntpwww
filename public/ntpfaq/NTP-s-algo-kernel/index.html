@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/ntpfaq/NTP-s-algo-kernel/" />
+  
+  <meta property="og:title" content="5.2. The Kernel Discipline" />
+<meta property="og:description" content="In addition to the NTP protocol specification, there exists a description for a kernel clock model (RFC 1589) that is discussed in this section of the NTP FAQ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-algo-kernel/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
+
+<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="5.2. The Kernel Discipline"/>
+<meta name="twitter:description" content="In addition to the NTP protocol specification, there exists a description for a kernel clock model (RFC 1589) that is discussed in this section of the NTP FAQ."/>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-K07ZJQFYSZ', { 'anonymize_ip': true });
+</script>
+
+
+
+
+
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c33igkoodm");
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>5.2. The Kernel Discipline</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="In addition to the NTP protocol specification, there exists a description for a kernel clock model (RFC 1589) that is discussed in this section of the NTP FAQ.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://www.ntp.org/ntpfaq/NTP-s-algo-kernel/">5.2. The Kernel Discipline</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>5.2. The Kernel Discipline</h1> 
+    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+	<p>In addition to the NTP protocol specification, there exists a description for a kernel clock model (<a href="https://www.ntp.org/reflib/rfc/rfc1589.txt">RFC 1589</a>) that is discussed here.</p>
+<p>5.2.1 <a href="#521-basic-functionality">Basic Functionality</a><br>
+5.2.1.1 <a href="#5211-what-is-special-about-the-kernel-clock">What is special about the Kernel Clock?</a><br>
+5.2.1.2 <a href="#5212-does-my-operating-system-have-the-kernel-discipline">Does my Operating System have the Kernel Discipline?</a><br>
+5.2.1.3 <a href="#5213-how-can-i-verify-the-kernel-discipline">How can I verify the Kernel Discipline?</a>  <br>
+5.2.2 <a href="#522-monitoring">Monitoring</a><br>
+5.2.3 <a href="#523-pps-processing">PPS Processing</a><br>
+5.2.3.1 <a href="#5231-what-is-pps-processing">What is PPS Processing?</a><br>
+5.2.3.2 <a href="#5232-how-is-pps-processing-related-to-the-kernel-discipline">How is PPS Processing related to the Kernel Discipline?</a><br>
+5.2.3.3 <a href="#5233-what-does-hardpps-do">What does hardpps() do?</a></p>
+<hr>
+<h4 id="521-basic-functionality">5.2.1 Basic Functionality</h4>
+<h4 id="5211-what-is-special-about-the-kernel-clock">5.2.1.1 What is special about the Kernel Clock?</h4>
+<p>NTP keeps precision time by <a href="https://www.ntp.org/ntpfaq/ntp-s-algo/#5161-how-will-ntp-discipline-my-clock">applying small adjustments to system clock periodically</a>. However, some clock implementations do not allow small corrections to be applied to the system clock, and there is no standard interface to monitor the system clock&rsquo;s quality.</p>
+<p><a href="https://www.ntp.org/reflib/rfc/rfc1589.txt">RFC 1589</a> defines a clock model with the following features :</p>
+<ul>
+<li>Two new system calls to query and control the clock: <code>ntp_gettime()</code> and <code>ntp_adjtime()</code>.</li>
+<li>The clock keeps time with a precision of one microsecond. The nanokernel keeps time using even fractional nanoseconds. In real life operating systems there are clocks that are much worse.</li>
+<li>Time can be corrected in quantities of one microsecond, or even fractional microseconds using the nanokernel, and repetitive corrections accumulate. The UNIX system call <code>adjtime()</code> does not accumulate successive corrections.</li>
+<li>The clock model maintains additional parameters that can be queried or controlled. Among these are:
+<ul>
+<li>A <em>clock synchronization status</em> that shows the state of the clock machinery (<code>TIME_OK</code>).</li>
+<li>Several <em>clock control and status bits</em> that control and show the state of the machinery (<code>STA_PLL</code>). This includes automatic handling of announced leap seconds.</li>
+<li>Correction values for <em>clock offset</em> and <em>frequency</em> that are automatically applied.</li>
+<li>Other control and monitoring values like <em>precision</em>, <em>estimated error</em>, and <em>frequency tolerance</em>.</li>
+</ul>
+</li>
+<li>Corrections to the clock can be automatically maintained and applied.</li>
+</ul>
+<p>Applying corrections automatically within the operating system kernel no longer requires periodic corrections through an application program.</p>
+<hr>
+<h4 id="5212-does-my-operating-system-have-the-kernel-discipline">5.2.1.2 Does my Operating System have the Kernel Discipline?</h4>
+<p>If you can find an include file named <code>timex.h</code> that contains a structure named <code>timex</code> and constants like <code>STA_PLL</code> and <code>STA_UNSYNC</code>, you probably have the kernel discipline implemented. To make sure, try using the <code>ntp_gettime()</code> system call.</p>
+<hr>
+<h4 id="5213-how-can-i-verify-the-kernel-discipline">5.2.1.3 How can I verify the Kernel Discipline?</h4>
+<p>The following guidelines were presented by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>Feedback loops and in particular phase-lock loops and I go way, way back since the first time I built one as part of a frequency synthesizer project as a grad student in 1959. All the theory I could dredge up then convinced me they were evil, non-linear things and tamed only by experiment, breadboard and cut-and-try. Not so now, of course, but the cut-and-try still lives on. The essential lessons I learned back then and have forgotten and relearned every ten years or so are:</p>
+<ol>
+<li>Carefully calibrate the frequency to the control voltage and never forget it.</li>
+<li>Don&rsquo;t try to improve performance by cranking up the gain beyond the phase crossover.</li>
+<li>Keep the loop delay much smaller than the time constant.</li>
+<li>For the first couple of decade re-learns, the critters were analog and with short time constants so I could watch it with a scope. The last couple of re-learns were digital with time constants of days. So, another lesson:</li>
+</ol>
+<p>There is nothing in an analog loop that can&rsquo;t be done in a digital loop except debug it with a pair of headphones and a good test oscillator. Yes, I did say headphones.</p>
+<p>So, this nonsense leads me to a couple of simple experiments:</p>
+<ol>
+<li>First, open the loop (<code>kill ntpd</code>). Using <code>ntptime</code>, zero the frequency and offset. Measure the frequency offset, which could take a day.</li>
+<li>Then, do the same thing with a known offset via <code>ntptime</code> of say 50 PPM. You now have really and truly calibrated the VFO gain.</li>
+<li>Next, close the loop after forcing the local clock maybe 100 ms offset. Watch the offset-time characteristic. Make sure it crosses zero in about 3000 s and overshoots about 5 percent. That with a time constant of 6 in the current nanokernel.</li>
+</ol>
+<p>In very simple words, step 1 means that you measure the error of your clock without any correction. You should see a linear increase for the offset. Step 2 says you should then try a correction with a fixed offset. Finally, step 3 applies corrections using varying frequency corrections.</p>
+<hr>
+<h4 id="522-monitoring">5.2.2 Monitoring</h4>
+<p>Most of the values are described in <a href="https://www.ntp.org/ntpfaq/ntp-s-config-adv/#62421-so-i-think-i-have-all-required-components-ready-how-will-i-see-that-everything-is-working">Q: 6.2.4.2.1</a>. The remaining values of interest are:</p>
+<dl>
+<dt>time</dt>
+<dd>The current time.</dd>
+<dt>maxerror</dt>
+<dd>The maximum error (set by an application program, increases automatically).</dd>
+<dt>esterror</dt>
+<dd>The estimated error (set by an application program like <code>ntpd</code>).</dd>
+<dt>offset</dt>
+<dd>The additional remaining correction to the system clock.</dd>
+<dt>freq</dt>
+<dd>The automatic periodic correction to the system clock. Positive values make the clock go faster while negative values slow it down.</dd>
+<dt>constant</dt>
+<dd>Stiffness of the control loop. This value controls how a correction to the system clock is weighted. Large values cause only small corrections to be made.</dd>
+<dt>status</dt>
+<dd>The set of control bits in effect. Some bits can only be read, while others can be also set by a privileged application. The most important bits are:</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>STA_PLL</code></td>
+<td>The PLL (Phase Locked Loop) is enabled. Automatic corrections are applied only if this flag is set.</td>
+</tr>
+<tr>
+<td><code>STA_FLL</code></td>
+<td>The FLL (Frequency Locked Loop) is enabled. This flag is set when the time offset is not believed to be good. Usually this is the case for long sampling intervals or after a bad sample has been detected by <code>xntpd</code>.</td>
+</tr>
+<tr>
+<td><code>STA_UNSYNC</code></td>
+<td>The system time is not synchronized. This flag is usually controlled by an application program, but the operating system may also set it.</td>
+</tr>
+<tr>
+<td><code>STA_FREQHOLD</code></td>
+<td>This flag disables updates to the <code>freq</code> component. The flag is usually set during initial synchronization.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="523-pps-processing">5.2.3 PPS Processing</h4>
+<h4 id="5231-what-is-pps-processing">5.2.3.1 What is PPS Processing?</h4>
+<p>During normal time synchronization, the server time stamps are compared about every 20 minutes to compute the required corrections for frequency and offset. With PPS processing, a similar thing is done every second. Therefore it&rsquo;s just time synchronization on a smaller scale. The idea is to keep the system clock tightly coupled with the external reference clock providing the PPS signal.</p>
+<hr>
+<h4 id="5232-how-is-pps-processing-related-to-the-kernel-discipline">5.2.3.2 How is PPS Processing related to the Kernel Discipline?</h4>
+<p>PPS processing can be done in application programs, but it makes much more sense when done in the operating system kernel. When polling a time source every 20 minutes, an offset of 5ms is rather small, but when polling a signal every second, an offset of 5ms is very high. Therefore a high accuracy is required for PPS processing. Application programs usually can&rsquo;t fulfil these demands.</p>
+<p>The kernel clock model includes algorithms to discipline the clock through an external pulse, the PPS. The additional requirements consist of two mechanisms: capturing an external event with high accuracy, and applying that event to the clock model. The first is solved using the <a href="https://www.ntp.org/ntpfaq/ntp-s-config-adv/#62451-what-is-that-pps-api">PPS API</a>, while the second is implemented mostly in a routine named <code>hardpps()</code> which is called every time when an external PPS event has been detected.</p>
+<hr>
+<h4 id="5233-what-does-hardpps-do">5.2.3.3 What does hardpps() do?</h4>
+<p><code>hardpps()</code> is called with two parameters, the absolute time of the event, and the time relative to the last pulse. Both times are measured by the system clock.</p>
+<p>The first value is used to minimize the difference between the system clock&rsquo;s start of a second and the external event, while the second value is used to minimize the difference in clock frequency. Normally <code>hardpps()</code> just monitors (<code>STA_PPSSIGNAL</code>, PPS frequency, stability and jitter) the external events, but does not apply corrections to the system clock.</p>
+<p><strong>Figure 5.2a: PPS Synchronization</strong></p>
+<p><p>
+  <img loading="lazy" src="https://www.ntp.org/ntpfaq/hardpps.png" alt=""  />
+</p></p>
+<p><code>hardpps()</code> can minimize the differences of both frequency and offset between the system clock and an external reference.</p>
+<p>Flag <code>STA_PPSFREQ</code> enables periodic updates to the clock&rsquo;s frequency correction. Stable clocks require only small and infrequent updates while bad clocks require frequent and large updates. The value passed as parameter is reduced to be a small value around zero, and then it is added to an accumulated value. After a specific amount of values has been added (at the end of a calibration interval), the total amount is divided by the length of the calibration interval, giving a new frequency correction.</p>
+<p>When flag <code>STA_PPSTIME</code> is set, the start of a second is moved towards the PPS event, reducing the needed offset correction. The time offset given as argument to the routine will be put into a three-stage median filter to reduce spikes and to compute the jitter. Then an averaged value is applied as offset correction.</p>
+<p>In addition to these direct manipulations, <code>hardpps()</code> also detects, signals, and filters various error conditions. The length of the calibration interval is also adjusted automatically. As the limit for a bad calibration is ridiculously high (about 500 PPM per calibration), the calibration interval normally is always at its configured maximum.</p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2023 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>
