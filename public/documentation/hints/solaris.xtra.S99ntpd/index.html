@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<link rel="canonical" href="https://test.doc.ntp.org/documentation/hints/solaris.xtra.s99ntpd/" />
+  
+  <meta property="og:title" content="Solaris S99 script for NTPv3" />
+<meta property="og:description" content="\#!/bin/shif [ $1 = &#34;start&#34; ]; thenif [ -x /usr/local/bin/xntpd ]; thenecho &#34;Starting NTP daemon, takes about 1 minute... &#34;# dosynctodr may need to be left alone as of with Solaris 2.6# The following line is unnecessary if you turn off# dosynctodr in /etc/system./usr/local/bin/tickadj -s/usr/local/bin/ntpdate -v server1 server2sleep 5/usr/local/bin/xntpdfielseif [ $1 = &#34;stop&#34; ]; thenpid=`/usr/bin/ps -e | /usr/bin/grep xntpd | /usr/bin/sed -e &#39;s/^ *//&#39; -e &#39;s/ ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/documentation/hints/solaris.xtra.s99ntpd/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+
+<meta property="article:modified_time" content="2022-04-15T18:58:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="Solaris S99 script for NTPv3"/>
+<meta name="twitter:description" content="\#!/bin/shif [ $1 = &#34;start&#34; ]; thenif [ -x /usr/local/bin/xntpd ]; thenecho &#34;Starting NTP daemon, takes about 1 minute... &#34;# dosynctodr may need to be left alone as of with Solaris 2.6# The following line is unnecessary if you turn off# dosynctodr in /etc/system./usr/local/bin/tickadj -s/usr/local/bin/ntpdate -v server1 server2sleep 5/usr/local/bin/xntpdfielseif [ $1 = &#34;stop&#34; ]; thenpid=`/usr/bin/ps -e | /usr/bin/grep xntpd | /usr/bin/sed -e &#39;s/^ *//&#39; -e &#39;s/ ."/>
+
+
+
+
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Solaris S99 script for NTPv3</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The NTP Project conducts Research and Development in NTP, a protocol designed to synchronize the clocks of computers over a network to a common timebase.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/documentation/hints/">Hints</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/documentation/hints/solaris.xtra.s99ntpd/">Solaris S99 script for NTPv3</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Solaris S99 script for NTPv3</h1> 
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:58 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/726cddc70b0ee8948d301123e9a89790fe343816">726cddc70</a>)</p>
+	<pre>
+\#!/bin/sh
+if [ $1 = "start" ]; then
+        if [ -x /usr/local/bin/xntpd ]; then
+                echo "Starting NTP daemon, takes about 1 minute... "
+		# dosynctodr may need to be left alone as of with Solaris 2.6
+		# The following line is unnecessary if you turn off
+		# dosynctodr in /etc/system.
+                /usr/local/bin/tickadj -s
+                /usr/local/bin/ntpdate -v server1 server2
+                sleep 5
+                /usr/local/bin/xntpd
+        fi
+else
+        if [ $1 = "stop" ]; then
+                pid=`/usr/bin/ps -e | /usr/bin/grep xntpd | /usr/bin/sed -e 's/^  *//' -e 's/ .*//'`
+                if [ "${pid}" != "" ]; then
+                        echo "Stopping Network Time Protocol daemon "
+                        /usr/bin/kill ${pid}
+                fi
+        fi
+fi
+</pre><blockquote>
+</blockquote>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

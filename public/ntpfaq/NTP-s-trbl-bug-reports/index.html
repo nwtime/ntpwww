@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/" />
+  
+  <meta property="og:title" content="8.4. Reporting Bugs" />
+<meta property="og:description" content="This section of the NTP FAQ provides instructions for submitting a bug report to the NTP bugs database." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
+
+<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="8.4. Reporting Bugs"/>
+<meta name="twitter:description" content="This section of the NTP FAQ provides instructions for submitting a bug report to the NTP bugs database."/>
+
+
+
+
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>8.4. Reporting Bugs</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This section of the NTP FAQ provides instructions for submitting a bug report to the NTP bugs database.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/ntpfaq/ntp-s-trbl-bug-reports/">8.4. Reporting Bugs</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>8.4. Reporting Bugs</h1> 
+    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+	<p>8.4.1 <a href="#841-when-should-i-report-a-problem">When should I report a Problem?</a><br>
+8.4.2 <a href="#842-what-should-i-report">What should I report?</a></p>
+<hr>
+<h4 id="841-when-should-i-report-a-problem">8.4.1 When should I report a Problem?</h4>
+<p>Before <a href="https://test.doc.ntp.org/bugs/">reporting a problem</a>, make sure that it is not a known bug or already requested feature. Also try to make sure that the mistake is not at your side.</p>
+<p><a href="https://bugs.ntp.org/query.cgi">Search the bugs database</a> to see whether the problem has been reported or if there is an existing solution. An Internet search may also help determine if there is a known solution.</p>
+<p>If it turns out that there is a newer version of the software, try it! The new version might solve your problem.</p>
+<hr>
+<h4 id="842-what-should-i-report">8.4.2 What should I report?</h4>
+<p>If it turns out that noone has reported the bug yet, <a href="https://bugs.ntp.org/enter_bug.cgi">report a bug</a> and include these details in the <strong>Description:</strong> hardware, operating system (name, vendor, version, patch revision), NTP software release, what steps are needed to recreate the error, and the exact text of any error messages or monitoring data.</p>
+<p>To make it easier for other users searching for a similar issue, use a short, keyword description for the <strong>Summary</strong>. For example, &ldquo;NTP bug&rdquo; is not helpful for searching but &ldquo;ntp client sending traps even after configuring &ldquo;restrict default notrap&rdquo;&rdquo; is quite descriptive.</p>
+<blockquote>
+<p><strong>NOTE:</strong> If you are using a pre-compiled binary, and you can contact the vendor or maker of it, do so. This is specifically true if you have a support contract or warranty.</p>
+</blockquote>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

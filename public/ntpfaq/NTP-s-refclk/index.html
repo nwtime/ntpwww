@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://test.doc.ntp.org/ntpfaq/ntp-s-refclk/" />
+  
+  <meta property="og:title" content="7. Reference Clocks" />
+<meta property="og:description" content="The NTP software supports different kinds of reference clocks. This section of the NTP FAQ presents various reference clocks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://test.doc.ntp.org/ntpfaq/ntp-s-refclk/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
+
+<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="7. Reference Clocks"/>
+<meta name="twitter:description" content="The NTP software supports different kinds of reference clocks. This section of the NTP FAQ presents various reference clocks."/>
+
+
+
+
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>7. Reference Clocks</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The NTP software supports different kinds of reference clocks. This section of the NTP FAQ presents various reference clocks.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://test.doc.ntp.org/ntpfaq/">The NTP FAQ and HOWTO</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://test.doc.ntp.org/ntpfaq/ntp-s-refclk/">7. Reference Clocks</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>7. Reference Clocks</h1> 
+    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+	<p>7.1 <a href="#71-what-is-lcl-the-local-clock">What is LCL, the Local Clock?</a><br>
+7.2 <a href="#72-gps-receivers">GPS Receivers</a><br>
+7.2.1 <a href="#721-what-should-i-know-about-various-gps-receivers">What should I know about various GPS Receivers?</a><br>
+7.2.2 <a href="#722-what-are-pdop-tdop-and-gdop">What are PDOP, TDOP, and GDOP?</a><br>
+7.2.3 <a href="#723-what-is-nmea">What is NMEA?</a><br>
+7.2.4 <a href="#724-what-is-tsip">What is TSIP?</a><br>
+7.3 <a href="#73-dcf77-receivers">DCF77 Receivers</a><br>
+7.3.1 <a href="#731-what-should-i-know-about-dcf77-receivers">What should I know about DCF77 Receivers?</a><br>
+7.3.2 <a href="#732-what-can-make-my-dcf77-receiver-fail">What can make my DCF77 Receiver fail?</a><br>
+7.4 <a href="#74-other-receivers">Other Receivers</a><br>
+7.4.1 <a href="#741-what-can-make-my-msf-receiver-fail">What can make my MSF Receiver fail?</a><br>
+7.4.2 <a href="#742-how-can-i-find-a-low-cost-receiver-for-low-frequency-transmissions">How can I find a low-cost Receiver for Low-Frequency Transmissions?</a><br>
+7.5 <a href="#75-products">Products</a><br>
+7.5.1 <a href="#751-where-can-i-find-a-reference-clock-for-ntp">Where can I find a reference clock for NTP?</a></p>
+<hr>
+<p>The NTP software supports different kinds of <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-algo/#5111-what-is-a-reference-clock">reference clocks</a>. This section presents various reference clocks.</p>
+<p>According to a <a href="https://test.doc.ntp.org/reflib/reports/ntp-survey99-minar.pdf">survey</a>, the most popular real reference clocks are:</p>
+<ul>
+<li><a href="https://test.doc.ntp.org/ntpfaq/ntp-s-related/#91-gps/">GPS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/DCF77">DCF77</a></li>
+<li><a href="https://en.wikipedia.org/wiki/WWVB">WWVB</a></li>
+</ul>
+<p>While not the cheapest solution, GPS offers high accuracy without a lot of trickery. DCF77 on the other hand offers very cheap solutions at moderate accuracy.</p>
+<p>More information on reference clocks can be found in <a href="https://test.doc.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock</a> and <a href="https://www.nist.gov/pml/time-and-frequency-division/time-distribution/radio-station-wwv/manufacturers-time-and-frequency">NIST&rsquo;s list of receiver manufacturers</a>.</p>
+<hr>
+<h4 id="71-what-is-lcl-the-local-clock">7.1 What is LCL, the Local Clock?</h4>
+<p>The <a href="https://test.doc.ntp.org/documentation/drivers/driver1/">LCL</a> is not an actual reference clock; instead it simply refers to the system time on the current machine. Therefore it should never be used, except when the system time is synchronized by some means not visible by <code>ntpd</code>.</p>
+<p>On an isolated network one might set the time manually from time to time. Together with a frequency adjustment available as a <a href="https://test.doc.ntp.org/documentation/drivers/driver1/#fudge-factors">fudge factor</a> one may achieve an accuracy of a few seconds per week.</p>
+<p>If you think you really must use LCL, here is how:</p>
+<pre>server 127.127.1.1		# LCL, local clock
+fudge  127.127.1.1 stratum 12	# increase stratum</pre>
+<hr>
+<h4 id="72-gps-receivers">7.2 GPS Receivers</h4>
+<h4 id="721-what-should-i-know-about-various-gps-receivers">7.2.1 What should I know about various GPS Receivers?</h4>
+<p>GPS receivers have high accuracy, are simple to install, rather immune against electromagnetic noise, and they only need an antenna with free view to the sky, preferrably as much of the hemisphere as possible. Most calibration happens automatically.</p>
+<p><a href="https://test.doc.ntp.org/ntpfaq/ntp-s-related/#91-gps">GPS</a>, the Global Positioning System, a satellite based navigation aid originally developed for military use in the USA, can provide the receiver with accurate data about the current position, elevation, and time. Unfortunately many of these receivers were not designed with accurate time-keeping in mind. Therefore the time information provided in a stream of serial data sometimes is freely floating within one second, thereby losing the precision of the receiver. <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-algo/#5131-how-accurate-will-my-clock-be">Accurate time</a> is needed in the receiver to calculate the exact position.</p>
+<p>Fortunately there are also receivers that were designed for precision timekeeping. Among these are:</p>
+<p><strong>Table 7.2a: Supported GPS receivers</strong></p>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Driver/Mode</th>
+<th>Interface</th>
+<th>PPS available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arbiter</td>
+<td>1088A/B</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver11/">11</a></td>
+<td>serial; 9600 baud</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Austron</td>
+<td>GPS-AS2201</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a></td>
+<td>serial; 9600 baud</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Garmin</td>
+<td>GPS35(25)</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver20/">20</a></td>
+<td>serial, 4800 baud</td>
+<td>Y (TTL)</td>
+</tr>
+<tr>
+<td><a href="http://www.gpsclock.com/">GPSclock</a></td>
+<td>200</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver20/">20</a> (patched)</td>
+<td>serial; 4800 baud</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Hewlett Packard</td>
+<td>58503A</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver26/">26</a></td>
+<td>serial; 9600 baud</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Magnavox</td>
+<td>GPS-MX4200</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver9/">9</a></td>
+<td>serial; 4800 baud</td>
+<td>Y</td>
+</tr>
+<tr>
+<td><a href="https://www.meinberg.de/">Meinberg</a></td>
+<td>GPS166, GPS167</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a></td>
+<td>serial; 9600 baud</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Trak(?)</td>
+<td>8810, 8820</td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver2/">2</a></td>
+<td>serial; 9600 baud</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Trimble</td>
+<td>Acutime 2000<sup>a</sup></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver29/">29</a></td>
+<td>TSIP</td>
+<td>Y (TTL)</td>
+</tr>
+<tr>
+<td>Trimble</td>
+<td>Palisade<sup>b</sup></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver29/">29</a></td>
+<td>serial;</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Trimble</td>
+<td>SV6<sup>b</sup></td>
+<td><a href="https://test.doc.ntp.org/documentation/drivers/driver8/">8</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver9/">9</a>, <a href="https://test.doc.ntp.org/documentation/drivers/driver10/">10</a></td>
+<td>TAIP, TSIP</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<p><strong><sup>a</sup></strong> This SmartAntenna is the replacement for both, the SV6 and the  Palisade.</p>
+<p><strong><sup>b</sup></strong> The device is no longer manufactured.</p>
+<hr>
+<h4 id="722-what-are-pdop-tdop-and-gdop">7.2.2 What are PDOP, TDOP, and GDOP?</h4>
+<p>These dilution parameters qualify the accuracy of a GPS receiver. The following is a translation of an explanation given by Martin Burnicki: &ldquo;The <em>dilution</em> values have no units, and they are computed from the position of the satellites relative to the position of the receiver&rsquo;s antenna. Small values express high precision. The values are computed using an inversion of a 4x4 matrix containing the cosinus values of the angles between the antenna and the satellites. There are four values <code>dx</code>, <code>dy</code>, <code>dz</code>, and <code>dt</code> that contribute to the dilution values in the following manner:&rdquo;</p>
+<p><strong>Table 7.2b: Dilution of Precision</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horizontal</td>
+<td>HDOP = sqrt(dx<sup>^</sup>2 + dy<sup>^</sup>2)</td>
+</tr>
+<tr>
+<td>Vertical</td>
+<td>VDOP = dz</td>
+</tr>
+<tr>
+<td>Position</td>
+<td>PDOP = sqrt(dx<sup>^</sup>2 + dy<sup>^</sup>2 + dz<sup>^</sup>2)</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>TDOP = dt</td>
+</tr>
+<tr>
+<td>General</td>
+<td>GDOP = sqrt(dx<sup>^</sup>2 + dy<sup>^</sup>2 + dz<sup>^</sup>2 + dt<sup>^</sup>2)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="723-what-is-nmea">7.2.3 What is NMEA?</h4>
+<p>Many GPS receivers use a standardized format of output called <a href="https://en.wikipedia.org/wiki/NMEA_0183">NMEA 0183</a>. The acronym stands for National Marine Electronics Association which indicates the intended purpose of the protocol: the navigation of ships.</p>
+<p>NMEA defines several message types, each message being an ASCII string transmitted at 4800 baud. Each message starts with <code>$</code> char and ends with <code>&lt;CR&gt;&lt;LF&gt;</code>. A five-digit message identifier (for instance <code>$GPRMC</code>) specifies source and type of the message. Parameters for that message are separated by a <code>,</code> (comma).</p>
+<p>For the purpose of keeping time, the <code>GPRMC</code> (GPS recommended minimum data) message contains the current time in second resolution, receiver status, latitude, longitude, speed over ground, heading (track), date, magnetic variation in degrees, and a checksum. That message is either sent automatically every second, or upon request.</p>
+<p>Message type <code>GPGSA</code> contains the receiver&rsquo;s mode, number of satellites, and quality of the solution (dilution of precision, DOP). Precise information about the position can be found in the <code>GPGGA</code> message.</p>
+<p>NMEA is commonly used together with <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-algo-kernel/#523-pps-processing">PPS</a> because the messages seem to be sent with low accuracy regarding the start of a second.</p>
+<hr>
+<h4 id="724-what-is-tsip">7.2.4 What is TSIP?</h4>
+<p>TSIP stands for Trimble Standard Interface Protocol, and it is used in products from <a href="https://www.trimble.com/">Trimble</a>. The documented binary protocol exchanges packets over serial lines. This allows embedded devices to be monitored, queried and controlled exclusively by TSIP, not needing any switches or displays.</p>
+<hr>
+<h4 id="73-dcf77-receivers">7.3 DCF77 Receivers</h4>
+<h4 id="731-what-should-i-know-about-dcf77-receivers">7.3.1 What should I know about DCF77 Receivers?</h4>
+<p>In comparison to GPS, DCF77 receivers are inexpensive and they don&rsquo;t need an antenna with a view at the sky.</p>
+<p>Germany has a highly accurate clock and a long-wave transmitter that sends out time data at 77.5kHz. This service is commonly known as DCF77. Time is taken from the German UTC contributor <a href="https://www.ptb.de/cms/en.html">PTB</a> (Physikalisch Technische Bundesanstalt) in Braunschweig. The sender located in Mainflingen (50:01N 9:00E) (near Frankfurt am Main) can be received even in a distance of up to 1000km as the waves easily pass obstacles in the line of sight. The delay of the signal, a few milliseconds, caused by the distance between transmitter and receiver should be compensated manually.</p>
+<p>Since the demodulation of the time signal can be done easily using cheap receivers, these receivers are quite popular in Germany. Receivers are typically powered from a serial port. The output signal carries pulses of 100 and 200ms, starting at the beginning of a second, and encoding one bit. There is no pulse for the last second of each minute. Those can be fed into an UART that decodes the pulses as characters received at 50 baud. The best signal quality can be achieved if the antenna of the receiver is oriented tangential to the transmitter&rsquo;s antenna.</p>
+<p>Because of the simple AM modulation, the demodulation is sensitive to spikes and varying receive conditions. Accuracy is typically only around 3ms. Trying to make the resolution higher will increase the receiver&rsquo;s sensitivity to noise and spikes. There&rsquo;s also a FM modulation (pseudo-random phase noise) in the signal that can be decoded by sophisticated and expensive receivers. These receivers can achieve a resolution of 50μs.</p>
+<blockquote>
+<p>As <a href="mailto:mark.martinec@ijs.si">Mark Martinec</a> points out, it&rsquo;s actually PSK (phase shift keying). Refer to <a href="https://www.ptb.de/cms/fileadmin/internet/fachabteilungen/abteilung_4/4.4_zeit_und_frequenz/pdf/2011_PTBMitt_50a_DCF77_engl.pdf">Time and Frequency Dissemination with DCF77</a> for the technical details.</p>
+</blockquote>
+<p>The data format transmits 59 bits per minute: one every second, except for the last second of the minute. Therefore it takes at least one minute until the time and date have been successfully transmitted. As the data format has little redundancy, most receivers wait until two consistent time messages have been decoded without error. Typically it takes between two and three minutes until the receiver is synchronized.</p>
+<hr>
+<h4 id="732-what-can-make-my-dcf77-receiver-fail">7.3.2 What can make my DCF77 Receiver fail?</h4>
+<p>Occasionally the huge antenna and its backup are turned off for maintenance. There are a few other reasons why DCF77 reception may be impossible. The following list possibly applies to other low-frequency receivers (like MSF) as well:</p>
+<ul>
+<li>The sending antenna may be turned off during thunderstorms to avoid the risk of electrical damage.</li>
+<li>Lightning itself may cause spikes on the received signal.</li>
+<li>High-power devices like refrigerators or ovens may cause spikes on the received signal when turned on or off.</li>
+<li>Changes in the atmosphere or ionosphere, especially during sunrise and sunset, can influence the signal.</li>
+<li>Electrical equipment close to the receiver&rsquo;s antenna may distort the signal. Such equipment can be:
+<ul>
+<li>video recorders (even when operating in standby mode)</li>
+<li>TV sets</li>
+<li>computer monitors operating at lower resolutions; specifically multi-sync monitors when switching frequencies can cause short spikes on the signal</li>
+<li>uninterruptible power supplies (especially those made by MGE UPS Systems, like the Comet S31 10kVA)</li>
+<li>switching power supplies (operating near 60kHz)</li>
+</ul>
+</li>
+<li>Metal parts close to the ferrite loopstick may detune it.</li>
+<li>Huge metal constructions can have a negative impact on the signal reception inside (Faraday shield).</li>
+</ul>
+<hr>
+<h4 id="74-other-receivers">7.4 Other Receivers</h4>
+<h4 id="741-what-can-make-my-msf-receiver-fail">7.4.1 What can make my MSF Receiver fail?</h4>
+<p>See <a href="https://test.doc.ntp.org/ntpfaq/ntp-s-refclk/#732-what-can-make-my-dcf77-receiver-fail">Q: 7.3.2</a> for some basics.</p>
+<hr>
+<h4 id="742-how-can-i-find-a-low-cost-receiver-for-low-frequency-transmissions">7.4.2 How can I find a low-cost Receiver for Low-Frequency Transmissions?</h4>
+<p><a href="mailto:mgk25@cl.cam.ac.uk">Markus Kuhn</a> has set up a <a href="https://www.cl.cam.ac.uk/~mgk25/time/lf-clocks/">page</a> describing low-frequency time standards (WWVB, MSF, DCF77) and receiver designs.</p>
+<hr>
+<h4 id="75-products">7.5 Products</h4>
+<p>This section will provide rudimentary resources to find a reference clock for NTP.</p>
+<hr>
+<h4 id="751-where-can-i-find-a-reference-clock-for-ntp">7.5.1 Where can I find a reference clock for NTP?</h4>
+<p>The easiest way to find a suitable reference clock seems to be the following:</p>
+<ul>
+<li>Use one of the models mentioned in the documentation or <a href="#721-what-should-i-know-about-various-gps-receivers">Table 7.2a</a>.</li>
+<li>Use a model that someone else is already using with success.</li>
+</ul>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>
