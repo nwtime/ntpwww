@@ -2,6 +2,8 @@
 title: "The NTP FAQ and HOWTO"
 description: "This document tries to explain the basic features of NTP, and to answer many frequently asked questions. The intention is to help the average user get a quick start with a working configuation for the official implementation of NTP. Technical issues and mathematics are avoided where possible."
 type: "archives"
+aliases:
+    - /ntpfaq/NTP-a-faq/
 ---
 
 **Understanding and using the Network Time Protocol (A first try on a non-technical Mini-HOWTO and FAQ on NTP)**
