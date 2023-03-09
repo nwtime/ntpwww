@@ -16,7 +16,7 @@ type: archives
 
 Once ntp-4.2.8 has been released we will be changing to a new numbering system, one that is much closer to the one used before ntp-4.2.2.
 
-Discussion on the release numbering scheme should be done at [ReleaseNumberingSchemeDiscussion](https://support.ntp.org/bin/view/Dev/ReleaseNumberingSchemeDiscussion).
+Discussion on the release numbering scheme should be done at [ReleaseNumberingSchemeDiscussion](https://support.ntp.org/Dev/ReleaseNumberingSchemeDiscussion).
 
 Releases after 4.2.8:
 : * The first development release will be ntp-4.3.0

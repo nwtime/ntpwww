@@ -147,7 +147,7 @@ Yes and No. You can dynamically add servers that use authentication keys, and yo
 
 Refer to the examples in [Autokey Public-Key-Authentication](/documentation/4.2.8-series/autokey/) and [Q: 6.1.4.6](/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey). 
 
-The following example includes [advice](https://support.ntp.org/bin/view/Support/ConfiguringAutokeyDev) from [Professor David L. Mills](mailto:mills@udel.edu):
+The following example includes [advice](https://support.ntp.org/Support/ConfiguringAutokeyDev) from [Professor David L. Mills](mailto:mills@udel.edu):
 
 > Ensure you have a working NTP configuration before configuring Autokey!
 
