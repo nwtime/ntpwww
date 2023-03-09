@@ -10,7 +10,7 @@ type: "archives"
       <div class="col">
 	    <div class="card mh-100" style="height: 180px;">
           <div class="card-body">
-		    <h5 class="card-text" style="text-align: center;"><a href="https://support.ntp.org/bin/view/Main/WebHome">NTP Wiki</a></h5>
+		    <h5 class="card-text" style="text-align: center;"><a href="https://support.ntp.org">NTP Wiki</a></h5>
             <p>Community-contributed documentation.</p>
               <div class="d-flex justify-content-between align-items-center">
 			</div>
@@ -20,7 +20,7 @@ type: "archives"
       <div class="col">
         <div class="card mh-100" style="height: 180px;">
           <div class="card-body">
-		    <h5 class="card-text" style="text-align: center;"><a href="https://support.ntp.org/bin/view/Servers/WebHome">Time Servers</a></h5>
+		    <h5 class="card-text" style="text-align: center;"><a href="https://support.ntp.org/Servers">Time Servers</a></h5>
             <p>Provides an interface to browse or search for a public primary or secondary time server.</p>
               <div class="d-flex justify-content-between align-items-center">
             </div>
@@ -57,7 +57,7 @@ type: "archives"
       <div class="col">
         <div class="card mh-100" style="height: 180px;">
           <div class="card-body">
-		    <h5 class="card-text" style="text-align: center;"><a href="https://support.ntp.org/bin/view/Dev/WebHome">Developer Resources</a></h5>
+		    <h5 class="card-text" style="text-align: center;"><a href="https://support.ntp.org/Dev">Developer Resources</a></h5>
             <p>Wiki area with NTP developer resources.</p>			
               <div class="d-flex justify-content-between align-items-center">
             </div>

@@ -174,7 +174,7 @@ If the 0x10000 mode bit is on and clockstats is enabled, several extra counters 
 
 Sentences like `$GPGSV` that don't contain the time will get counted in the total but are otherwise ignored.
 
-[Configuring NMEA Refclocks](https://support.ntp.org/bin/view/Support/ConfiguringNMEARefclocks) might give further useful hints for specific hardware devices that exhibit strange or curious behaviour.
+[Configuring NMEA Refclocks](https://support.ntp.org/Support/ConfiguringNMEARefclocks) might give further useful hints for specific hardware devices that exhibit strange or curious behaviour.
 
 To make a specific setting, select the corresponding decimal values from the mode byte table, add them all together and enter the resulting decimal value into the clock configuration line.
 

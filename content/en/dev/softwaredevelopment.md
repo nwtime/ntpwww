@@ -56,7 +56,7 @@ The NTP Project uses the open-source BitKeeper product.
 
 You can get pre-compiled or source tarballs from https://www.bitkeeper.org/download.html.
 
-There is more information available to NTP Project Committers [here](https://support.ntp.org/committers/bin/view/Info/GettingBk).
+More information is available to NTP Project Committers.
 
 Once you have installed BitKeeper, you can clone the NTP repositories using the following commands:
 
@@ -70,7 +70,7 @@ For the ntp-dev repository:
 
 Once you have obtained the sources, `cd` to the directory the repository was downloaded to and run `./bootstrap` to generate the `configure` and `Makefile.in` files.
 
-For information about hacking on the codebase, please see [MaintainerIssues](https://support.ntp.org/bin/view/Dev/MaintainerIssues).
+For information about hacking on the codebase, please see [MaintainerIssues](https://support.ntp.org/Dev/MaintainerIssues).
 
 You can keep your `bk` repository up to date by running this command in the repository directory:
 
