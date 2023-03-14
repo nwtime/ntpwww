@@ -4,6 +4,7 @@ description: "The following copyright notice applies to all files collectively c
 type: archives
 aliases:
     - /current-stable/copyright/
+    - /license/
 ---
 
 ![webp](/documentation/pic/sheepb.webp) Clone me, says Dolly sheepishly.
