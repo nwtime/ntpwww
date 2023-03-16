@@ -155,9 +155,9 @@ This configuration will list all clock information and synchronization informati
 
 : This command is used in conjunction with the ACTS modem driver (type 18) or the JJY driver (type 40 mode 100 - 180). For the ACTS modem driver (type 18), the arguments consist of a maximum of 10 telephone numbers used to dial USNO, NIST or European time services. For the JJY driver (type 40 mode 100 - 180), the argument is one telephone number used to dial the telephone JJY service. The Hayes command ATDT is normally prepended to the number, which can contain other modem control codes as well.
 
-<code>**pollskewlist [_poll_ _value_ | _value_]...[default _value_ | _value_]**</code>
+<code>**pollskewlist [_poll_ _early late_]...[default _early late_]**</code>
 
-: Enable skewing of our poll requests to our servers. <code>_poll_</code> is a number between 3 and 17 inclusive, identifying a specific poll interval. A poll interval is 2<sup>^</sup>n seconds in duration, so a poll value of 3 corresponds to 8 seconds and a poll interval of 17 corresponds to 131,072 seconds, or about a day and a half. The next two numbers must be between 0 and one-half of the poll interval, inclusive. The first number specifies how early the poll may start, while the second number specifies how late the poll may be delayed. With no arguments, internally specified default values are chosen.
+: Enable skewing of our poll requests to our servers. <code>_poll_</code> is a number between 3 and 17 inclusive, identifying a specific poll interval. A poll interval is 2<sup>^</sup>n seconds in duration, so a poll value of 3 corresponds to 8 seconds and a poll interval of 17 corresponds to 131,072 seconds, or about a day and a half. The next two numbers must be between 0 and one-half of the poll interval, inclusive. `early` specifies how early the poll may start, while `late` specifies how late the poll may be delayed. With no arguments, internally specified default values are chosen.
 
 <code>**reset [allpeers] [auth] [ctl] [io] [mem] [sys] [timer]**</code>
 
