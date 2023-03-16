@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/miscopt/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-16T20:37:19&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-16T20:58:23&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Miscellaneous Commands and Options</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 16, 2023 20:37 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/cda008a5764dcf03895d7cc9e03b5ee3c8ce40d0">cda008a57</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 16, 2023 20:58 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/abd3c1e1261fb43897f57a53f9ba3ef25398bbec">abd3c1e12</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/boom3.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
@@ -179,50 +179,28 @@ function demo() {
 <dd>
 <p>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> utility program&rsquo;s <code>:config</code> and <code>config-from-file</code> commands.</p>
 </dd>
-<dt><code>auth</code></dt>
-<dd>
-<p>Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is enable.</p>
-</dd>
-<dt><code>bclient</code></dt>
-<dd>
-<p>Enables the server to listen for a message from a broadcast or multicast server, as in the <code>multicastclient</code> command with default address. The default for this flag is disable.</p>
-</dd>
-<dt><code>calibrate</code></dt>
-<dd>
-<p>Enables the calibrate feature for reference clocks. The default for this flag is disable.</p>
-</dd>
-<dt><code>kernel</code></dt>
-<dd>
-<p>Enables the kernel time discipline, if available. The default for this flag is enable if support is available, otherwise disable.</p>
-</dd>
-<dt><code>mode7</code></dt>
-<dd>
-<p>Enables processing of NTP mode 7 implementation-specific requests which are used by the deprecated <code>ntpdc</code> program. The default for this flag is disable. This flag is excluded from runtime configuration using <code>ntpq</code>. The <code>ntpq</code> program provides the same capabilities as <code>ntpdc</code> using standard mode 6 requests.</p>
-</dd>
-<dt><code>monitor</code></dt>
-<dd>
-<p>Enables the monitoring facility. See the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code> program</a> and the <code>monstats</code> and <code>mrulist</code> commands, as well as the <a href="https://www.ntp.org/documentation/4.2.8-series/accopt/">Access Control Options</a> for details. The monitoring facility is also enabled by the presence of <a href="https://www.ntp.org/documentation/4.2.8-series/accopt/"><code>limited</code></a> in any <code>restrict</code> commands. The default for this flag is enable.</p>
-</dd>
-<dt><code>ntp</code></dt>
-<dd>
-<p>Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is enable.</p>
-</dd>
-<dt><code>stats</code></dt>
-<dd>
-<p>Enables the statistics facility. See the <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Options</a> page for further information. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</p>
-</dd>
-<dt><code>unpeer_crypto_early</code></dt>
-<dd>
-<p>Enables the early resetting of an association in case of a crypto failure. This is generally a feature, but it can be used in a DoS attack. If you are seeing these packets being used as a DoS attack against your server, you should disable this flag. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</p>
-</dd>
-<dt><code>unpeer_crypto_nak_early</code></dt>
-<dd>
-<p>Enables the early resetting of an association in case of a crypto_NAK message. This is generally a feature, but it can be used in a DoS attack. If you are seeing these packets being used as a DoS attack against your server, you should disable this flag. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</p>
-</dd>
-<dt><code>unpeer_digest_early</code></dt>
-<dd>
-<p>Enables the early resetting of an association in case of an autokey digest failur. This is generally a feature, but it can be used in a DoS attack. If you are seeing these packets being used as a DoS attack against your server, you should disable this flag. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</p>
-</dd>
+<dt> <code>auth</code></dt>
+<dd> Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is enable.</dd>
+<dt> <code>bclient</code></dt>
+<dd> Enables the server to listen for a message from a broadcast or multicast server, as in the <code>multicastclient</code> command with default address. The default for this flag is disable.</dd>
+<dt> <code>calibrate</code></dt>
+<dd> Enables the calibrate feature for reference clocks. The default for this flag is disable.</dd>
+<dt> <code>kernel</code></dt>
+<dd> Enables the kernel time discipline, if available. The default for this flag is enable if support is available, otherwise disable.</dd>
+<dt> <code>mode7</code></dt>
+<dd> Enables processing of NTP mode 7 implementation-specific requests which are used by the deprecated <code>ntpdc</code> program. The default for this flag is disable. This flag is excluded from runtime configuration using <code>ntpq</code>. The <code>ntpq</code> program provides the same capabilities as <code>ntpdc</code> using standard mode 6 requests.</dd>
+<dt> <code>monitor</code></dt>
+<dd> Enables the monitoring facility. See the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code> program</a> and the <code>monstats</code> and <code>mrulist</code> commands, as well as the <a href="https://www.ntp.org/documentation/4.2.8-series/accopt/">Access Control Options</a> for details. The monitoring facility is also enabled by the presence of <a href="https://www.ntp.org/documentation/4.2.8-series/accopt/"><code>limited</code></a> in any <code>restrict</code> commands. The default for this flag is enable.</dd>
+<dt> <code>ntp</code></dt>
+<dd> Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is enable.</dd>
+<dt> <code>stats</code></dt>
+<dd> Enables the statistics facility. See the <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Options</a> page for further information. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</dd>
+<dt> <code>unpeer_crypto_early</code></dt>
+<dd> Enables the early resetting of an association in case of a crypto failure. This is generally a feature, but it can be used in a DoS attack. If you are seeing these packets being used as a DoS attack against your server, you should disable this flag. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</dd>
+<dt> <code>unpeer_crypto_nak_early</code></dt>
+<dd> Enables the early resetting of an association in case of a crypto_NAK message. This is generally a feature, but it can be used in a DoS attack. If you are seeing these packets being used as a DoS attack against your server, you should disable this flag. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</dd>
+<dt> <code>unpeer_digest_early</code></dt>
+<dd> Enables the early resetting of an association in case of an autokey digest failur. This is generally a feature, but it can be used in a DoS attack. If you are seeing these packets being used as a DoS attack against your server, you should disable this flag. The default for this flag is enabled. This flag is excluded from runtime configuration using <code>ntpq</code>.</dd>
 <dt><code><strong>includefile <em>includefile</em></strong></code></dt>
 <dd>
 <p>This command allows additional configuration commands to be included from a separate file. Include files may be nested to a depth of five; upon reaching the end of any include file, command processing resumes in the previous configuration file. This option is useful for sites that run <code>ntpd</code> on multiple hosts, with (mostly) common options (e.g., a restriction list).</p>
@@ -250,9 +228,9 @@ function demo() {
 </dl>
 <p>Configuration keywords are formed by concatenating the message class with the event class. The <code>all</code> prefix can be used instead of a message class. A message class may also be followed by the <code>all</code> keyword to enable/disable all messages of the respective message class. By default, <code>logconfig</code> output is set to <code>allsync</code>.</p>
 <p>Thus, a minimal log configuration could look like this:</p>
-<p><code>logconfig=syncstatus +sysevents</code></p>
+<p> <code>logconfig=syncstatus +sysevents</code></p>
 <p>This would just list the synchronizations state of <code>ntpd</code> and the major system events. For a simple reference server, the following minimum message configuration could be useful:</p>
-<p><code>logconfig=syncall +clockall</code></p>
+<p> <code>logconfig=syncall +clockall</code></p>
 <p>This configuration will list all clock information and synchronization information. All other events and messages about peers, system events and so on is suppressed.</p>
 <dl>
 <dt><code><strong>logfile <em>logfile</em></strong></code></dt>
@@ -263,29 +241,19 @@ function demo() {
 <dd>
 <p>Controls size limits of the monitoring facility Most Recently Used <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/#control-message-commands">(MRU) list</a> of client addresses, which is also used by the <a href="https://www.ntp.org/documentation/4.2.8-series/accopt/">rate control facility</a>.</p>
 </dd>
-<dt><code>maxdepth <em>count</em></code></dt>
-<dd><code>maxmem <em>kilobytes</em></code></dd>
-<dd>
-<p>Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The actual limit will be up to <code>incalloc</code> entries or <code>incmem</code> kilobytes larger. As with all of the <code>mru</code> options offered in units of entries or kilobytes, if both <code>maxdepth</code> and <code>maxmem</code> are used, the last one used controls. The default is 1024 kilobytes.</p>
-</dd>
-<dt><code>mindepth <em>count</em></code></dt>
-<dd>
-<p>Lower limit on the MRU list size. When the MRU list has fewer than <code>mindepth</code> entries, existing entries are never removed to make room for newer ones, regardless of their age. The default is 600 entries.</p>
-</dd>
-<dt><code>maxage <em>seconds</em></code></dt>
-<dd>
-<p>Once the MRU list has <code>mindepth</code> entries and an additional client address is to be added to the list, if the oldest entry was updated more than <code>maxage</code> seconds ago, that entry is removed and its storage reused. If the oldest entry was updated more recently, the MRU list is grown, subject to <code>maxdepth</code>/<code>maxmem</code>. The default is 64 seconds.</p>
-</dd>
-<dt><code>initalloc <em>count</em></code></dt>
-<dd><code>initmem <em>kilobytes</em></code></dd>
-<dd>
-<p>Initial memory allocation at the time the monitoring facility is first enabled, in terms of entries or kilobytes. The default is 4 kilobytes.</p>
-</dd>
-<dt><code>incalloc <em>count</em></code></dt>
-<dd><code>incmem <em>kilobytes</em></code></dd>
-<dd>
-<p>Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.</p>
-</dd>
+<dt> <code>maxdepth <em>count</em></code></dt>
+<dd> <code>maxmem <em>kilobytes</em></code></dd>
+<dd> Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The actual limit will be up to <code>incalloc</code> entries or <code>incmem</code> kilobytes larger. As with all of the <code>mru</code> options offered in units of entries or kilobytes, if both <code>maxdepth</code> and <code>maxmem</code> are used, the last one used controls. The default is 1024 kilobytes.</dd>
+<dt> <code>mindepth <em>count</em></code></dt>
+<dd> Lower limit on the MRU list size. When the MRU list has fewer than <code>mindepth</code> entries, existing entries are never removed to make room for newer ones, regardless of their age. The default is 600 entries.</dd>
+<dt> <code>maxage <em>seconds</em></code></dt>
+<dd> Once the MRU list has <code>mindepth</code> entries and an additional client address is to be added to the list, if the oldest entry was updated more than <code>maxage</code> seconds ago, that entry is removed and its storage reused. If the oldest entry was updated more recently, the MRU list is grown, subject to <code>maxdepth</code>/<code>maxmem</code>. The default is 64 seconds.</dd>
+<dt> <code>initalloc <em>count</em></code></dt>
+<dd> <code>initmem <em>kilobytes</em></code></dd>
+<dd> Initial memory allocation at the time the monitoring facility is first enabled, in terms of entries or kilobytes. The default is 4 kilobytes.</dd>
+<dt> <code>incalloc <em>count</em></code></dt>
+<dd> <code>incmem <em>kilobytes</em></code></dd>
+<dd> Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.</dd>
 <dt><code><strong>nonvolatile <em>threshold</em></strong></code></dt>
 <dd>
 <p>Specify the <code><em>threshold</em></code> in seconds to write the frequency file, with default of 1e-7 (0.1 PPM). The frequency file is inspected each hour. If the difference between the current frequency and the last value written exceeds the threshold, the file is written and the <code><em>threshold</em></code> becomes the new threshold value. If the threshold is not exceeded, it is reduced by half. This is intended to reduce the frequency of unnecessary file writes for embedded systems with nonvolatile memory.</p>
@@ -306,18 +274,12 @@ function demo() {
 <dd>
 <p>This command alters certain process storage allocation limits, and is only available on some operating systems. Options are as follows:</p>
 </dd>
-<dt><code>memlock <em>Nmegabytes</em></code></dt>
-<dd>
-<p>Specify the number of megabytes of memory that should be allocated and locked. Probably only available under Linux, this option may be useful when dropping root (the <code>-i</code> option). The default is 32 megabytes on non-Linux machines, and -1 under Linux. -1 means &ldquo;do not lock the process into memory&rdquo;. 0 means &ldquo;lock whatever memory the process wants into memory&rdquo;.</p>
-</dd>
-<dt><code>stacksize <em>N4kPages</em></code></dt>
-<dd>
-<p>Specifies the maximum size of the process stack on systems with the <code>mlockall()</code> function. Defaults to 50 4k pages (200 4k pages in OpenBSD).</p>
-</dd>
-<dt><code>filenum <em>Nfiledescriptors</em></code></dt>
-<dd>
-<p>Specifies the maximum number of file descriptors ntp may have open at the same time. Defaults to system default.</p>
-</dd>
+<dt> <code>memlock <em>Nmegabytes</em></code></dt>
+<dd> Specify the number of megabytes of memory that should be allocated and locked. Probably only available under Linux, this option may be useful when dropping root (the <code>-i</code> option). The default is 32 megabytes on non-Linux machines, and -1 under Linux. -1 means &ldquo;do not lock the process into memory&rdquo;. 0 means &ldquo;lock whatever memory the process wants into memory&rdquo;.</dd>
+<dt> <code>stacksize <em>N4kPages</em></code></dt>
+<dd> Specifies the maximum size of the process stack on systems with the <code>mlockall()</code> function. Defaults to 50 4k pages (200 4k pages in OpenBSD).</dd>
+<dt> <code>filenum <em>Nfiledescriptors</em></code></dt>
+<dd> Specifies the maximum number of file descriptors ntp may have open at the same time. Defaults to system default.</dd>
 <dt><code><strong>saveconfigdir <em>directory_path</em></strong></code></dt>
 <dd>
 <p>Specify the directory in which to write configuration snapshots requested with <code>ntpq</code>&rsquo;s <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/#control-message-commands">saveconfig</a> command. If <code>saveconfigdir</code> does not appear in the configuration file, saveconfig requests are rejected by ntpd.</p>
@@ -330,97 +292,57 @@ function demo() {
 <dd>
 <p>This command alters certain system variables used by the clock discipline algorithm. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can&rsquo;t resist twisting the knobs. Options are as follows:</p>
 </dd>
-<dt><code>allan <em>allan</em></code></dt>
-<dd>
-<p>Specifies the Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm, in log2 seconds with default 11 (2048 s).</p>
-</dd>
-<dt><code>dispersion <em>dispersion</em></code></dt>
-<dd>
-<p>Specifies the dispersion increase rate in parts-per-million (PPM) with default 15 PPM.</p>
-</dd>
-<dt><code>freq <em>freq</em></code></dt>
-<dd>
-<p>Specifies the frequency offset in parts-per-million (PPM). This option is mutually exclusive with the driftfile command.</p>
-</dd>
-<dt><code>huffpuff <em>huffpuff</em></code></dt>
-<dd>
-<p>Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 min), but a more reasonable value is 7200 (2 hours). See the <a href="https://www.ntp.org/documentation/4.2.8-series/huffpuff/">Huff-n'-Puff Filter</a> page for further information.</p>
-</dd>
-<dt><code>panic <em>panic</em></code></dt>
-<dd>
-<p>Specifies the panic threshold in seconds with default 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.</p>
-</dd>
-<dt><code>step <em>step</em></code></dt>
-<dd>
-<p>Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s. Further details are on the <a href="https://www.ntp.org/documentation/4.2.8-series/clock/">Clock State Machine</a> page.</p>
-</dd>
-<dt><code>stepout <em>stepout</em></code></dt>
-<dd>
-<p>Specifies the stepout threshold in seconds. The default without this command is 300 s. Since this option also affects the training and startup intervals, it should not be set less than the default. Further details are on the <a href="https://www.ntp.org/documentation/4.2.8-series/clock/">Clock State Machine</a> page.</p>
-</dd>
+<dt> <code>allan <em>allan</em></code></dt>
+<dd> Specifies the Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm, in log2 seconds with default 11 (2048 s).</dd>
+<dt> <code>dispersion <em>dispersion</em></code></dt>
+<dd> Specifies the dispersion increase rate in parts-per-million (PPM) with default 15 PPM.</dd>
+<dt> <code>freq <em>freq</em></code></dt>
+<dd> Specifies the frequency offset in parts-per-million (PPM). This option is mutually exclusive with the driftfile command.</dd>
+<dt> <code>huffpuff <em>huffpuff</em></code></dt>
+<dd> Specifies the huff-n'-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 min), but a more reasonable value is 7200 (2 hours). See the <a href="https://www.ntp.org/documentation/4.2.8-series/huffpuff/">Huff-n'-Puff Filter</a> page for further information.</dd>
+<dt> <code>panic <em>panic</em></code></dt>
+<dd> Specifies the panic threshold in seconds with default 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.</dd>
+<dt> <code>step <em>step</em></code></dt>
+<dd> Specifies the step threshold in seconds. The default without this command is 0.128 s. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than 0.5 s. Further details are on the <a href="https://www.ntp.org/documentation/4.2.8-series/clock/">Clock State Machine</a> page.</dd>
+<dt> <code>stepout <em>stepout</em></code></dt>
+<dd> Specifies the stepout threshold in seconds. The default without this command is 300 s. Since this option also affects the training and startup intervals, it should not be set less than the default. Further details are on the <a href="https://www.ntp.org/documentation/4.2.8-series/clock/">Clock State Machine</a> page.</dd>
 <dt><code><strong>tos [basedate <em>date</em> | bcpollbstep <em>poll-gate</em> | beacon <em>beacon</em> | ceiling <em>ceiling</em> | cohort {0 | 1} | floor <em>floor</em> | maxclock <em>maxclock</em> | maxdist <em>maxdist</em> | minclock <em>minclock</em> | mindist <em>mindist</em> | minsane <em>minsane</em> | orphan <em>stratum</em> | orphanwait <em>delay</em>]</strong></code></dt>
 <dd>
 <p>This command alters certain system variables used by the the clock selection and clustering algorithms. The default values of these variables have been carefully optimized for a wide range of network speeds and reliability expectations. Very rarely is it necessary to change the default values; but, some folks can&rsquo;t resist twisting the knobs. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in dynamic server discovery schemes. The options are as follows:</p>
 </dd>
-<dt><code>basedate <em>date</em></code></dt>
-<dd>
-<p>Set NTP and GPS era anchor. <code><em>date</em></code> is either a date in ISO8601 format (<code><em>YYYY-MM-DD</em></code>) or an integer giving the days since 1900-01-01, the start of the NTP epoch. <code>ntpd</code> will clamp the system time to an era starting with the begin of this this day (00:00:00Z), covering a range of 2<sup>32</sup> seconds or roughly 136 years. The lowest accepted value is effectively 1970-01-02.</p>
-</dd>
+<dt> <code>basedate <em>date</em></code></dt>
+<dd> Set NTP and GPS era anchor. <code><em>date</em></code> is either a date in ISO8601 format (<code><em>YYYY-MM-DD</em></code>) or an integer giving the days since 1900-01-01, the start of the NTP epoch. <code>ntpd</code> will clamp the system time to an era starting with the begin of this this day (00:00:00Z), covering a range of 2<sup>32</sup> seconds or roughly 136 years. The lowest accepted value is effectively 1970-01-02.</dd>
 </dl>
-<p>The GPS era base is the next Sunday on or following the base date, but obviously not before 1980-01-06. GPS time stamps are mapped into the 1024 weeks following the GPS base.</p>
-<p>The default value is derived from the repository or build time stamp, minus 11 days. 1970-01-02 was chosen as lower bound so the <em>local</em> time is always after 1970-01-01,00:00. Some systems get into trouble if this is not the case.</p>
+<p> The GPS era base is the next Sunday on or following the base date, but obviously not before 1980-01-06. GPS time stamps are mapped into the 1024 weeks following the GPS base.</p>
+<p> The default value is derived from the repository or build time stamp, minus 11 days. 1970-01-02 was chosen as lower bound so the <em>local</em> time is always after 1970-01-01,00:00. Some systems get into trouble if this is not the case.</p>
 <blockquote>
-<p><strong>ATTENTION:</strong> If the system clock is before the effective (implied or specific) basedate, the system clock will be set to the base date once and immediately when <code>ntpd</code> starts. This helps systems that have lost time completely to recover. Though not noticeable under normal conditions, it <em>can</em> happen. Check the logs if starting <code>ntpd</code> causes sudden clock moves.</p>
+<p> <strong>ATTENTION:</strong> If the system clock is before the effective (implied or specific) basedate, the system clock will be set to the base date once and immediately when <code>ntpd</code> starts. This helps systems that have lost time completely to recover. Though not noticeable under normal conditions, it <em>can</em> happen. Check the logs if starting <code>ntpd</code> causes sudden clock moves.</p>
 </blockquote>
 <dl>
-<dt><code>bcpollbstep <em>poll-gate</em></code></dt>
-<dd>
-<p>This option will cause the client to delay believing backward time steps from a broadcast server for <code>bcpollbstep</code> poll intervals. NTP Broadcast networks are expected to be trusted, and if the server&rsquo;s time gets stepped backwards then it&rsquo;s desireable that the clients follow this change as soon as possible. However, in spite of various protections built-in to the broadcast protocol, it is possible that an attacker could perform a carefully-constructed replay attack and cause clients to erroneously step their clocks backward. If the risk of a successful broadcast replay attack is greater than the risk of the clients being out of sync in the event that there is a backward step on the broadcast time servers, this option may be used to cause the clients to delay beliveving backward time steps until <em>poll-gate</em> consecutive polls have been received. The default is 0, which means the client will accept these steps upon receipt. Any value from 0 to 4 can be specified.</p>
-</dd>
-<dt><code>beacon <em>beacon</em></code></dt>
-<dd>
-<p>The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the <code><em>beacon</em></code> interval in seconds. The default is 3600 s. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
-</dd>
-<dt><code>ceiling <em>ceiling</em></code></dt>
-<dd>
-<p>Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
-</dd>
-<dt><code>cohort { 0 | 1 }</code></dt>
-<dd>
-<p>Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
-</dd>
-<dt><code>floor <em>floor</em></code></dt>
-<dd>
-<p>Specify the minimum stratum (inclusive) for acceptable server packets. The default is 1. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
-</dd>
-<dt><code>maxclock <em>maxclock</em></code></dt>
-<dd>
-<p>Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</p>
-</dd>
-<dt><code>maxdist <em>maxdistance</em></code></dt>
-<dd>
-<p>Specify the synchronization distance threshold used by the clock selection algorithm. The default is 1.5 s. This determines both the minimum number of packets to set the system clock and the maximum roundtrip delay. It can be decreased to improve reliability or increased to synchronize clocks on the Moon or planets.</p>
-</dd>
-<dt><code>minclock <em>minclock</em></code></dt>
-<dd>
-<p>Specify the number of servers used by the clustering algorithm as the minimum to include on the candidate list. The default is 3. This is also the number of servers to be averaged by the combining algorithm.</p>
-</dd>
-<dt><code>mindist <em>mindistance</em></code></dt>
-<dd>
-<p>Specify the minimum distance used by the selection and anticlockhop algorithm. Larger values increase the tolerance for outliers; smaller values increase the selectivity. The default is .001 s. In some cases, such as reference clocks with high jitter and a PPS signal, it is useful to increase the value to insure the intersection interval is always nonempty.</p>
-</dd>
-<dt><code>minsane <em>minsane</em></code></dt>
-<dd>
-<p>Specify the number of servers used by the selection algorithm as the minimum to set the system clock. The default is 1 for legacy purposes; however, for critical applications the value should be somewhat higher but less than <code>minclock</code>.</p>
-</dd>
-<dt><code>orphan <em>stratum</em></code></dt>
-<dd>
-<p>Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the <a href="https://www.ntp.org/documentation/4.2.8-series/orphan/">Orphan Mode</a> page for further details.</p>
-</dd>
-<dt><code>orphanwait <em>delay</em></code></dt>
-<dd>
-<p>Specify the delay in seconds from the time all sources are lost until orphan parent mode is enabled with default 300 s (five minutes). During this period, the local clock driver and the modem driver are not selectable, unless marked with the <code>prefer</code> keyword. This allows time for one or more primary sources to become reachable and selectable before using backup sources, and avoids transient use of the backup sources at startup.</p>
-</dd>
+<dt> <code>bcpollbstep <em>poll-gate</em></code></dt>
+<dd> This option will cause the client to delay believing backward time steps from a broadcast server for <code>bcpollbstep</code> poll intervals. NTP Broadcast networks are expected to be trusted, and if the server&rsquo;s time gets stepped backwards then it&rsquo;s desireable that the clients follow this change as soon as possible. However, in spite of various protections built-in to the broadcast protocol, it is possible that an attacker could perform a carefully-constructed replay attack and cause clients to erroneously step their clocks backward. If the risk of a successful broadcast replay attack is greater than the risk of the clients being out of sync in the event that there is a backward step on the broadcast time servers, this option may be used to cause the clients to delay beliveving backward time steps until <em>poll-gate</em> consecutive polls have been received. The default is 0, which means the client will accept these steps upon receipt. Any value from 0 to 4 can be specified.</dd>
+<dt> <code>beacon <em>beacon</em></code></dt>
+<dd> The manycast server sends packets at intervals of 64 s if less than <code>maxclock</code> servers are available. Otherwise, it sends packets at the <code><em>beacon</em></code> interval in seconds. The default is 3600 s. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</dd>
+<dt> <code>ceiling <em>ceiling</em></code></dt>
+<dd> Specify the maximum stratum (exclusive) for acceptable server packets. The default is 16. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</dd>
+<dt> <code>cohort { 0 | 1 }</code></dt>
+<dd> Specify whether (1) or whether not (0) a server packet will be accepted for the same stratum as the client. The default is 0. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</dd>
+<dt> <code>floor <em>floor</em></code></dt>
+<dd> Specify the minimum stratum (inclusive) for acceptable server packets. The default is 1. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</dd>
+<dt> <code>maxclock <em>maxclock</em></code></dt>
+<dd> Specify the maximum number of servers retained by the server discovery schemes. The default is 10. See the <a href="https://www.ntp.org/documentation/4.2.8-series/discover/">Automatic Server Discovery</a> page for further details.</dd>
+<dt> <code>maxdist <em>maxdistance</em></code></dt>
+<dd> Specify the synchronization distance threshold used by the clock selection algorithm. The default is 1.5 s. This determines both the minimum number of packets to set the system clock and the maximum roundtrip delay. It can be decreased to improve reliability or increased to synchronize clocks on the Moon or planets.</dd>
+<dt> <code>minclock <em>minclock</em></code></dt>
+<dd> Specify the number of servers used by the clustering algorithm as the minimum to include on the candidate list. The default is 3. This is also the number of servers to be averaged by the combining algorithm.</dd>
+<dt> <code>mindist <em>mindistance</em></code></dt>
+<dd> Specify the minimum distance used by the selection and anticlockhop algorithm. Larger values increase the tolerance for outliers; smaller values increase the selectivity. The default is .001 s. In some cases, such as reference clocks with high jitter and a PPS signal, it is useful to increase the value to insure the intersection interval is always nonempty.</dd>
+<dt> <code>minsane <em>minsane</em></code></dt>
+<dd> Specify the number of servers used by the selection algorithm as the minimum to set the system clock. The default is 1 for legacy purposes; however, for critical applications the value should be somewhat higher but less than <code>minclock</code>.</dd>
+<dt> <code>orphan <em>stratum</em></code></dt>
+<dd> Specify the orphan stratum with default 16. If less than 16 this is the stratum assumed by the root servers. See the <a href="https://www.ntp.org/documentation/4.2.8-series/orphan/">Orphan Mode</a> page for further details.</dd>
+<dt> <code>orphanwait <em>delay</em></code></dt>
+<dd> Specify the delay in seconds from the time all sources are lost until orphan parent mode is enabled with default 300 s (five minutes). During this period, the local clock driver and the modem driver are not selectable, unless marked with the <code>prefer</code> keyword. This allows time for one or more primary sources to become reachable and selectable before using backup sources, and avoids transient use of the backup sources at startup.</dd>
 <dt><code><strong>trap <em>host_address</em> [port <em>port_number</em>] [interface <em>interfSace_address</em>]</strong></code></dt>
 <dd>
 <p>This command configures a trap receiver at the given host address and port number for sending messages with the specified local interface address. If the port number is unspecified, a value of 18447 is used. If the interface address is not specified, the message is sent with a source address of the local interface the message is sent through. Note that on a multihomed host the interface used may vary from time to time with routing changes.</p>
