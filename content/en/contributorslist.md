@@ -14,6 +14,7 @@ type: archives
 * Bruce Korb - AutoGen Wizard, GSoC Mentor
 * Claas Hilbrecht - Neoclock Refclock Maintainer
 * Danny Mayer - Network I/O, Windows Port, Code Maintenance
+* Dave Hart - General maintenance, IPv6 cleanup, Windows serial PPSAPI
 * David Mills - Research and Development, Documentation, Codebase
 * Fernando Hauscarriaga - Palisade Refclock Maintainer
 * Frank Kardel - PARSE Refclock Maintainer, Code Maintenance
@@ -31,6 +32,7 @@ type: archives
 * Martin Burnicki - PARSE Refclock Maintainer
 * Nigel Roles - ARCRON Refclock Maintainer
 * Philip Prindeville - Code Maintenance
+* Philippe De Muyter - Wharton reference clock driver, sysV68 and AIX modifications
 * Poul-Henning Kamp
 * Rahul Kumar - GSoC (Student in 2008, Mentor in 2012, 2013, 2015, OrgAdmin 2015)
 * Rainer Orth - NTP and OpenSolaris
@@ -46,6 +48,7 @@ Anyone who wishes to be added to or has questions about this list should contact
 
 #### In Memoriam
 
+* GervaseMarkham
 * Marc Brett - Magnavox MX4200 GPS Refclock Maintainer 
 
 * * *
@@ -56,7 +59,6 @@ Anyone who wishes to be added to or has questions about this list should contact
 * Amar Takhar - Q/A and Testing, GSoC Mentor
 * Alan Watson - ULINK Refclock
 * Anil Gunturu - SNTP Maintainer
-* Dave Hart - Windows Port, Code Maintenance, GSoC Mentor
 * Hal Murray - HPGPS Refclock Maintainer, SHM Refclock Maintainer
 * Harish Nair (University of Delaware) - ntpsim, IPv6 testing
 * Peter Ekberg - Jupiter Refclock Maintainer
