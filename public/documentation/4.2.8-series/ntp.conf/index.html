@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntp.conf/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-16T20:37:19&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-21T17:48:27&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Configuration File User’s Manual</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 16, 2023 20:37 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/cda008a5764dcf03895d7cc9e03b5ee3c8ce40d0">cda008a57</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 21, 2023 17:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/df25ae3831b252e628c6a6bf91e46b1bc455eb9e">df25ae383</a>)</p>
 	<p>This document describes the configuration file for the NTP Project’s <code>ntpd</code> program. This software is released under the <a href="https://www.ntp.org/documentation/4.2.8-series/copyright/">NTP license</a>.</p>
 <h4 id="description">Description</h4>
 <p>The behavior of <code>ntpd</code> can be changed by a configuration file, by default <code>ntp.conf</code>.</p>
@@ -540,7 +540,8 @@ function demo() {
 <h5 id="access-control-commands">Access Control Commands</h5>
 <dl>
 <dt><code><strong>discard [average <em>avg</em>] [minimum <em>min</em>] [monitor <em>prob</em>]</strong></code></dt>
-<dd>Set the parameters of the <code>limited</code> facility which protects the server from client abuse. The <code>average</code> subcommand specifies the minimum average packet spacing, while the <code>minimum</code> subcommand specifies the minimum packet spacing. Packets that violate these minima are discarded and a kiss-o’-death packet returned if enabled. The default minimum average and minimum are 5 and 2, respectively. The <code>monitor</code> subcommand specifies the probability of discard for packets that overflow the rate-control window.</dd>
+<dd>Set the parameters of the <code>limited</code> facility which protects the server from client abuse. The <code>average</code> subcommand specifies the minimum average packet spacing in log2 seconds, defaulting to 3 (8s), while the <code>minimum</code> subcommand specifies the minimum packet spacing in seconds, default 2. Packets that violate these minima are discarded and a kiss-o’-death packet returned if enabled.</dd>
+<dd>The <code>monitor</code> subcommand indirectly specifies the probability of replacing the oldest entry from the monitor (MRU) list of recent requests used to enforce rate controls, when that list is at its maximum size. The probability of replacing the oldest entry is the age of that entry in seconds divided by the <code>monitor</code> value, default 3000. For example, if the oldest entry in the MRU list represents a request 300 seconds ago, by default the probability of replacing it with an entry representing the client request being processed now is 10%. Conversely, if the oldest entry is more than 3000 seconds old, the probability is 100%.</dd>
 <dt><code><strong>restrict address [mask <em>mask</em>] [ippeerlimit <em>int</em>] [<em>flag</em> <em>&hellip;</em>]</strong></code></dt>
 <dd>The <code>address</code> argument expressed in dotted-quad form is the address of a host or network. Alternatively, the <code>address</code> argument can be a valid host DNS name. The <code>mask</code> argument expressed in dotted-quad form defaults to <code>255.255.255.255</code>, meaning that the <code>address</code> is treated as the address of an individual host. A default entry (address <code>0.0.0.0</code>, mask <code>0.0.0.0</code>) is always included and is always the first entry in the list. Note that text string <code>default</code>, with no mask option, may be used to indicate the default entry. The <code>ippeerlimit</code> directive limits the number of peer requests for each IP to <code>int</code>, where a value of -1 means &ldquo;unlimited&rdquo;, the current default. A value of 0 means &ldquo;none&rdquo;. There would usually be at most 1 peering request per IP, but if the remote peering requests are behind a proxy there could well be more than 1 per IP. In the current implementation, <code>flag</code> always restricts access, i.e., an entry with no flags indicates that free access to the server is to be given. The flags are not orthogonal, in that more restrictive flags will often make less restrictive ones redundant. The flags can generally be classed into two categories, those which restrict time service and those which restrict informational queries and attempts to do run-time reconfiguration of the server. One or more of the following flags may be specified:</dd>
 <dt> <code><strong>ignore</strong></code></dt>
