@@ -8,6 +8,7 @@ aliases:
 
 #### Build and Install
 
+* [Basic Installation](/documentation/4.2.8-series/install/)
 * [Building and Installing the Distribution](/documentation/4.2.8-series/build/)
 * [Build Options](/documentation/4.2.8-series/config/)
 * [Debugging Reference Clock Drivers](/documentation/4.2.8-series/rdebug/)
