@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/4.2.8-series/install/" />
+  
+  <meta property="og:title" content="Basic Installation" />
+<meta property="og:description" content="Generic *nix installation instructions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/install/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+
+<meta property="article:modified_time" content="2023-03-21T19:30:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="Basic Installation"/>
+<meta name="twitter:description" content="Generic *nix installation instructions."/>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+</script>
+
+
+
+
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c33igkoodm");
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Basic Installation</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Generic *nix installation instructions.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
+        </button>
+      
+    </div>
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/4.2.8-series/">4.2.8-series</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://www.ntp.org/documentation/4.2.8-series/install/">Basic Installation</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Basic Installation</h1> 
+    <p style="font-size: small; color: grey;">Last update: March 21, 2023 19:30 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/001a25414f9b3304bbfd4552d5a81aca4aa7cd59">001a25414</a>)</p>
+	<p>These are generic *nix installation instructions.</p>
+<p>For Windows/NT, please see the <a href="https://www.ntp.org/documentation/hints/winnt/">Windows NT Hints</a>.</p>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="#using-configure">Using Configure</a></li>
+<li><a href="#compilers-and-options">Compilers and Options</a></li>
+<li><a href="#compiling-for-multiple-architectures">Compiling For Multiple Architectures</a></li>
+<li><a href="#installation-names">Installation Names</a></li>
+<li><a href="#optional-features">Optional Features</a></li>
+<li><a href="#specifying-the-system-type">Specifying the System Type</a></li>
+<li><a href="#sharing-defaults">Sharing Defaults</a></li>
+<li><a href="#operation-controls">Operation Controls</a></li>
+</ul>
+<hr>
+<h4 id="using-configure">Using Configure</h4>
+<p>The <code>configure</code> shell script attempts to guess correct values for various system-dependent variables used during compilation.  It uses those values to create a <code>Makefile</code> in each directory of the package. It may also create one or more <code>.h</code> files containing system-dependent definitions.  Finally, it creates a shell script <code>config.status</code> that you can run in the future to recreate the current configuration, a file <code>config.cache</code> that saves the results of its tests to speed up reconfiguring, and a file <code>config.log</code> containing compiler output (useful mainly for debugging <code>configure</code>).</p>
+<p>If you need to do unusual things to compile the package, please try to figure out how <code>configure</code> could check whether to do them, and mail diffs or instructions to the address given in the <code>README</code> so they can be considered for the next release.  If at some point <code>config.cache</code> contains results you don&rsquo;t want to keep, you may remove or edit it.</p>
+<p>The file <code>configure.in</code> is used to create <code>configure</code> by a program called <code>autoconf</code>.  You only need <code>configure.in</code> if you want to change it or regenerate <code>configure</code> using a newer version of <code>autoconf</code>.</p>
+<p>The simplest way to compile this package is:</p>
+<ol>
+<li>
+<p><code>cd</code> to the directory containing the package&rsquo;s source code and type <code>./configure</code> to configure the package for your system.  If you&rsquo;re using <code>csh</code> on an old version of System V, you might need to type <code>sh ./configure</code> instead to prevent <code>csh</code> from trying to execute <code>configure</code> itself.</p>
+<p>Running <code>configure</code> takes a while.  While running, it prints some messages telling which features it is checking for.</p>
+</li>
+<li>
+<p>Type <code>make</code> to compile the package.</p>
+</li>
+<li>
+<p>Optionally, type <code>make check</code> to run any self-tests that come with the package.</p>
+</li>
+<li>
+<p>Type <code>make install</code> to install the programs and any data files and documentation.</p>
+</li>
+<li>
+<p>You can remove the program binaries and object files from the source code directory by typing <code>make clean</code>.  To also remove the files that <code>configure</code> created (so you can compile the package for a different kind of computer), type <code>make distclean</code>.  There is also a <code>make maintainer-clean</code> target, but that is intended mainly for the package&rsquo;s developers.  If you use it, you may have to get all sorts of other programs in order to regenerate files that came with the distribution.</p>
+</li>
+</ol>
+<hr>
+<h4 id="compilers-and-options">Compilers and Options</h4>
+<p>Some systems require unusual options for compilation or linking that the <code>configure</code> script does not know about.  You can give <code>configure</code> initial values for variables by setting them in the environment.  Using a Bourne-compatible shell, you can do that on the command line like
+this:</p>
+<p><code>CC=c89 CFLAGS=-O2 LIBS=-lposix ./configure</code></p>
+<p>Or on systems that have the <code>env</code> program, you can do it like this:</p>
+<p><code>env CPPFLAGS=-I/usr/local/include LDFLAGS=-s ./configure</code></p>
+<hr>
+<h4 id="compiling-for-multiple-architectures">Compiling For Multiple Architectures</h4>
+<p>You can compile the package for more than one kind of computer at the same time, by placing the object files for each architecture in their own directory.  To do this, you must use a version of <code>make</code> that supports the <code>VPATH</code> variable, such as GNU <code>make</code>.  <code>cd</code> to the directory where you want the object files and executables to go and run the <code>configure</code> script.  <code>configure</code> automatically checks for the source code in the directory that <code>configure</code> is in and in <code>..</code>.</p>
+<p>If you have to use a <code>make</code> that does not support the <code>VPATH</code> variable, you have to compile the package for one architecture at a time in the source code directory.  After you have installed the package for one architecture, use <code>make distclean</code> before reconfiguring for another architecture.</p>
+<hr>
+<h4 id="installation-names">Installation Names</h4>
+<p>By default, <code>make install</code> will install the package&rsquo;s files in <code>/usr/local/bin</code>, <code>/usr/local/man</code>, etc.  You can specify an installation prefix other than <code>/usr/local</code> by giving <code>configure</code> the option <code>--prefix=PATH</code>.</p>
+<p>You can specify separate installation prefixes for architecture-specific files and architecture-independent files.  If you give <code>configure</code> the option <code>--exec-prefix=PATH</code>, the package will use PATH as the prefix for installing programs and libraries. Documentation and other data files will still use the regular prefix.</p>
+<p>If the package supports it, you can cause programs to be installed with an extra prefix or suffix on their names by giving <code>configure</code> the option <code>--program-prefix=PREFIX</code> or <code>--program-suffix=SUFFIX</code>.</p>
+<hr>
+<h4 id="optional-features">Optional Features</h4>
+<p>Some packages pay attention to <code>--enable-FEATURE</code> options to <code>configure</code>, where FEATURE indicates an optional part of the package. They may also pay attention to <code>--with-PACKAGE</code> options, where PACKAGE is something like <code>gnu-as</code> or <code>x</code> (for the X Window System).  The <code>README</code> should mention any <code>--enable-</code> and <code>--with-</code> options that the package recognizes.</p>
+<p>For packages that use the X Window System, <code>configure</code> can usually find the X include and library files automatically, but if it doesn&rsquo;t, you can use the <code>configure</code> options <code>--x-includes=DIR</code> and
+<code>--x-libraries=DIR</code> to specify their locations.</p>
+<hr>
+<h4 id="specifying-the-system-type">Specifying the System Type</h4>
+<p>There may be some features <code>configure</code> can not figure out automatically, but needs to determine by the type of host the package will run on.  Usually <code>configure</code> can figure that out, but if it prints a message saying it can not guess the host type, give it the <code>--host=TYPE</code> option.  TYPE can either be a short name for the system type, such as <code>sun4</code>, or a canonical name with three fields:</p>
+<p><code>CPU-COMPANY-SYSTEM</code></p>
+<p>See the file <code>config.sub</code> for the possible values of each field.  If <code>config.sub</code> isn&rsquo;t included in this package, then this package doesn&rsquo;t need to know the host type.</p>
+<p>If you are building compiler tools for cross-compiling, you can also use the <code>--target=TYPE</code> option to select the type of system they will produce code for and the <code>--build=TYPE</code> option to select the type of system on which you are compiling the package.</p>
+<hr>
+<h4 id="sharing-defaults">Sharing Defaults</h4>
+<p>If you want to set default values for <code>configure</code> scripts to share, you can create a site shell script called <code>config.site</code> that gives default values for variables like <code>CC</code>, <code>cache_file</code>, and <code>prefix</code>. <code>configure</code> looks for <code>PREFIX/share/config.site</code> if it exists, then <code>PREFIX/etc/config.site</code> if it exists.  Or, you can set the <code>CONFIG_SITE</code> environment variable to the location of the site script.</p>
+<blockquote>
+<p>A warning: not all <code>configure</code> scripts look for a site script.</p>
+</blockquote>
+<hr>
+<h4 id="operation-controls">Operation Controls</h4>
+<p><code>configure</code> recognizes the following options to control how it operates.</p>
+<dl>
+<dt><code>--cache-file=FILE</code></dt>
+<dd>Use and save the results of the tests in FILE instead of <code>./config.cache</code>.  Set FILE to <code>/dev/null</code> to disable caching, for debugging <code>configure</code>.</dd>
+<dt><code>--help</code></dt>
+<dd>Print a summary of the options to <code>configure</code>, and exit.</dd>
+<dt><code>--quiet</code></dt>
+<dd><code>--silent</code></dd>
+<dd><code>-q</code></dd>
+<dd>Do not print messages saying which checks are being made.</dd>
+<dt><code>--srcdir=DIR</code></dt>
+<dd>Look for the package&rsquo;s source code in directory DIR.  Usually <code>configure</code> can determine that directory automatically.</dd>
+<dt><code>--version</code></dt>
+<dd>Print the version of Autoconf used to generate the <code>configure</code> script, and exit.</dd>
+</dl>
+<p><code>configure</code> also accepts some other, not widely useful, options.</p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Twitter" aria-label="Twitter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
+          <img src="https://www.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2023 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>
