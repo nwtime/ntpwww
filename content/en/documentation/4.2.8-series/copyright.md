@@ -81,48 +81,49 @@ The following individuals contributed in part to the Network Time Protocol Distr
 12.  [Reg Clemens](mailto:reg@dwf.com) Oncore driver (Current maintainer)
 13.  Steve Clift: OMEGA clock driver
 14.  Casey Crellin: vxWorks (Tornado) port and help with target configuration
-15.  [Sven Dietrich](mailto:Sven_Dietrich@trimble.COM) Palisade reference clock driver, NT adj. residuals, integrated Greg's Winnt port.
-16.  John A. Dundas III: Apple A/UX port
-17.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux port
-18.  Dennis Ferguson: foundation code for NTP Version 2 as specified in RFC-1119
-19.  John Hay: IPv6 support and testing
-20.  Dave Hart: General maintenance, Windows port interpolation rewrite
-21.  [Claas Hilbrecht](mailto:neoclock4x@linum.com) NeoClock4X clock driver
-22.  Glenn Hollinger: GOES clock driver
-23.  [Mike Iglesias](mailto:iglesias@uci.edu) DEC Alpha port
-24.  Jim Jagielski: A/UX port
-25.  [Jeff Johnson](mailto:jbj@chatham.usdesign.com) massive prototyping overhaul
-26.  [Hans Lambermont](mailto:H.Lambermont@chello.nl) ntpsweep
-27.  [Poul-Henning Kamp](mailto:phk@FreeBSD.ORG) Oncore driver (Original author)
-28.  [Frank Kardel](https://www4.cs.fau.de/~kardel/) [email](mailto:kardel@ntp.org) PARSE <GENERIC> (driver 14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup, dynamic interface handling
-29.  [Johannes Maximilian Kuehn](mailto:kuehn@ntp.org) Rewrote <code>sntp</code> to comply with NTPv4 specification, <code>ntpq saveconfig</code>
-30.  William L. Jones: RS/6000 AIX modifications, HPUX modifications
-31.  [Dave Katz](mailto:dkatz@cisco.com) RS/6000 AIX port
-32.  [Craig Leres](mailto:leres@ee.lbl.gov) 4.4BSD port, ppsclock, Magnavox GPS clock driver
-33.  [George Lindholm](mailto:lindholm@ucs.ubc.ca) SunOS 5.1 port
-34.  Louis A. Mamakos: MD5-based authentication
-35.  [Lars H. Mathiesen](mailto:thorinn@diku.dk) adaptation of foundation code for Version 3 as specified in RFC-1305
-36.  [Danny Mayer](mailto:mayer@ntp.org) Network I/O, Windows Port, Code Maintenance
-37.  [David L. Mills](mailto:mills@udel.edu) Version 4 foundation, precision kernel; clock drivers: 1, 3, 4, 6, 7, 11, 13, 18, 19, 22, 36
-38.  Wolfgang Moeller: VMS port
-39.  Jeffrey Mogul: ntptrace utility
-40.  Tom Moore: i386 svr4 port
-41.  [Kamal A Mostafa](mailto:kamal@whence.com) SCO OpenServer port
-42.  Derek Mulcahy and [Damon Hart-Davis](mailto:d@hd.org) ARCRON MSF clock driver
-43.  [Rob Neal](mailto:neal@ntp.org) Bancomm refclock and config/parse code maintenance
-44.  [Rainer Pruy](mailto:Rainer.Pruy@informatik.uni-erlangen.de) monitoring/trap scripts, statistics file handling
-45.  Dirce Richards: Digital UNIX V4.0 port
-46.  [Wilfredo Sánchez](mailto:wsanchez@apple.com) added support for NetInfo
-47.  Nick Sayer: SunOS streams modules
-48.  [Jack Sasportas](mailto:jack@innovativeinternet.com) Saved a Lot of space on the stuff in the html/pic/ subdirectory
-49.  [Ray Schnitzler](mailto:schnitz@unipress.com) Unixware1 port
-50.  [Michael Shields](mailto:shields@tembel.org) USNO clock driver
-51.  Jeff Steinman: Datum PTS clock driver
-52.  [Harlan Stenn](mailto:harlan@pfcs.com) GNU automake/autoconfigure makeover, various other bits (see the ChangeLog)
-53.  [Kenneth Stone](mailto:ken@sdd.hp.com) HP-UX port
-54.  [Ajit Thyagarajan](mailto:ajit@ee.udel.edu) IP multicast/anycast support
-55.  Tomoaki TSURUOKA: TRAK clock driver
-56.  [Brian Utterback](mailto:brian.utterback@oracle.com) General codebase, Solaris issues
-57.  [Loganaden Velvindron](mailto:loganaden@gmail.com) Sandboxing (libseccomp) support
-58.  [Paul A Vixie](mailto:vixie@vix.com) TrueTime GPS driver, generic TrueTime clock driver
-59.  [Ulrich Windl](mailto:Ulrich.Windl@rz.uni-regensburg.de) corrected and validated HTML documents according to the HTML DTD
+15.  [Philippe De Muyter](mailto:phdm@macqel.be) Wharton reference clock driver, sysV68 and AIX modifications
+16.  [Sven Dietrich](mailto:Sven_Dietrich@trimble.COM) Palisade reference clock driver, NT adj. residuals, integrated Greg's Winnt port.
+17.  John A. Dundas III: Apple A/UX port
+18.  [Torsten Duwe](mailto:duwe@immd4.informatik.uni-erlangen.de) Linux port
+19.  Dennis Ferguson: foundation code for NTP Version 2 as specified in RFC-1119
+20.  John Hay: IPv6 support and testing
+21.  [Dave Hart](mailto:davehart@gmail.com) General maintenance, IPv6 cleanup, Windows serial PPSAPI
+22.  [Claas Hilbrecht](mailto:neoclock4x@linum.com) NeoClock4X clock driver
+23.  Glenn Hollinger: GOES clock driver
+24.  [Mike Iglesias](mailto:iglesias@uci.edu) DEC Alpha port
+25.  Jim Jagielski: A/UX port
+26.  [Jeff Johnson](mailto:jbj@chatham.usdesign.com) massive prototyping overhaul
+27.  [Hans Lambermont](mailto:H.Lambermont@chello.nl) ntpsweep
+28.  [Poul-Henning Kamp](mailto:phk@FreeBSD.ORG) Oncore driver (Original author)
+29.  [Frank Kardel](https://www4.cs.fau.de/~kardel/) [email](mailto:kardel@ntp.org) PARSE <GENERIC> (driver 14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup, dynamic interface handling
+30.  [Johannes Maximilian Kuehn](mailto:kuehn@ntp.org) Rewrote <code>sntp</code> to comply with NTPv4 specification, <code>ntpq saveconfig</code>
+31.  William L. Jones: RS/6000 AIX modifications, HPUX modifications
+32.  [Dave Katz](mailto:dkatz@cisco.com) RS/6000 AIX port
+33.  [Craig Leres](mailto:leres@ee.lbl.gov) 4.4BSD port, ppsclock, Magnavox GPS clock driver
+34.  [George Lindholm](mailto:lindholm@ucs.ubc.ca) SunOS 5.1 port
+35.  Louis A. Mamakos: MD5-based authentication
+36.  [Lars H. Mathiesen](mailto:thorinn@diku.dk) adaptation of foundation code for Version 3 as specified in RFC-1305
+37.  [Danny Mayer](mailto:mayer@ntp.org) Network I/O, Windows Port, Code Maintenance
+38.  [David L. Mills](mailto:mills@udel.edu) Version 4 foundation, precision kernel; clock drivers: 1, 3, 4, 6, 7, 11, 13, 18, 19, 22, 36
+39.  Wolfgang Moeller: VMS port
+40.  Jeffrey Mogul: ntptrace utility
+41.  Tom Moore: i386 svr4 port
+42.  [Kamal A Mostafa](mailto:kamal@whence.com) SCO OpenServer port
+43.  Derek Mulcahy and [Damon Hart-Davis](mailto:d@hd.org) ARCRON MSF clock driver
+44.  [Rob Neal](mailto:neal@ntp.org) Bancomm refclock and config/parse code maintenance
+45.  [Rainer Pruy](mailto:Rainer.Pruy@informatik.uni-erlangen.de) monitoring/trap scripts, statistics file handling
+46.  Dirce Richards: Digital UNIX V4.0 port
+47.  [Wilfredo Sánchez](mailto:wsanchez@apple.com) added support for NetInfo
+48.  Nick Sayer: SunOS streams modules
+49.  [Jack Sasportas](mailto:jack@innovativeinternet.com) Saved a Lot of space on the stuff in the html/pic/ subdirectory
+50.  [Ray Schnitzler](mailto:schnitz@unipress.com) Unixware1 port
+51.  [Michael Shields](mailto:shields@tembel.org) USNO clock driver
+52.  Jeff Steinman: Datum PTS clock driver
+53.  [Harlan Stenn](mailto:harlan@pfcs.com) GNU automake/autoconfigure makeover, various other bits (see the ChangeLog)
+54.  [Kenneth Stone](mailto:ken@sdd.hp.com) HP-UX port
+55.  [Ajit Thyagarajan](mailto:ajit@ee.udel.edu) IP multicast/anycast support
+56.  Tomoaki TSURUOKA: TRAK clock driver
+57.  [Brian Utterback](mailto:brian.utterback@oracle.com) General codebase, Solaris issues
+58.  [Loganaden Velvindron](mailto:loganaden@gmail.com) Sandboxing (libseccomp) support
+59.  [Paul A Vixie](mailto:vixie@vix.com) TrueTime GPS driver, generic TrueTime clock driver
+60.  [Ulrich Windl](mailto:Ulrich.Windl@rz.uni-regensburg.de) corrected and validated HTML documents according to the HTML DTD
