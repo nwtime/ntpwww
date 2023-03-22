@@ -66,7 +66,7 @@ Additional information on trusted groups and identity schemes is on the [Autokey
 
 <code>**-b _modulus_**</code>
 
-: Set the modulus for generating identity keys to _modulus_ bits. The modulus defaults to 256, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.
+: Set the modulus for generating identity keys to _modulus_ bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.
 
 <code>**-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]**</code>
 
@@ -106,9 +106,9 @@ Additional information on trusted groups and identity schemes is on the [Autokey
 
 <code>**-m _modulus_**</code>
 
-: Set the modulus for generating files to _modulus_ bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.
+: Set the modulus for generating files to _modulus_ bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.
 
-<coe>**-M**</code>
+<code>**-M**</code>
 
 Generate a new keys file containing 10 MD5 keys and 10 SHA keys. An MD5 key is a string of 20 random printable ASCII characters, while a SHA key is a string of 40 random hex digits. The file can be edited using a text editor to change the key type or key content. This option is mutually exclusive with all other options.
 
