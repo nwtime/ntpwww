@@ -233,31 +233,31 @@ Certificates imported from OpenSSL or public certificate authorities have certia
 : This command requires the OpenSSL library. It activates public key cryptography, selects the message digest and signature encryption scheme and loads the required private and public values described above. If one or more files are left unspecified, the default names are used as described above. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the `keysdir` command or default `/usr/local/etc`. Following are the subcommands:
 
 &emsp;<code><b>cert</b> <i>file</i></code>
-: &emsp;Specifies the location of the required host public certificate file. This overrides the link <code>ntpkey_cert\__hostname_</code> in the keys directory.
+: Specifies the location of the required host public certificate file. This overrides the link <code>ntpkey_cert\__hostname_</code> in the keys directory.
 
 &emsp;<code>**gqpar _file_**</code>
-: &emsp;Specifies the location of the optional GQ parameters file. This overrides the link <code>ntpkey_gq\__hostname_</code> in the keys directory.
+: Specifies the location of the optional GQ parameters file. This overrides the link <code>ntpkey_gq\__hostname_</code> in the keys directory.
 
 &emsp;<code>**host _file_**</code>
-: &emsp;Specifies the location of the required host key file. This overrides the link <code>ntpkey_key\__hostname_</code> in the keys directory.
+: Specifies the location of the required host key file. This overrides the link <code>ntpkey_key\__hostname_</code> in the keys directory.
 
 &emsp;<code>**iffpar _file_**</code>
-: &emsp;Specifies the location of the optional IFF parameters file. This overrides the link <code>ntpkey_iff\__hostname_</code> in the keys directory.
+: Specifies the location of the optional IFF parameters file. This overrides the link <code>ntpkey_iff\__hostname_</code> in the keys directory.
 
 &emsp;<code>**leap _file_**</code>
-: &emsp;Specifies the location of the optional leapsecond file. This overrides the link `ntpkey_leap` in the keys directory.
+: Specifies the location of the optional leapsecond file. This overrides the link `ntpkey_leap` in the keys directory.
 
 &emsp;<code>**mvpar _file_**</code>
-: &emsp;Specifies the location of the optional MV parameters file. This overrides the link <code>ntpkey_mv\__hostname_</code> in the keys directory.
+: Specifies the location of the optional MV parameters file. This overrides the link <code>ntpkey_mv\__hostname_</code> in the keys directory.
 
 &emsp;<code>**pw _password_**</code>
-: &emsp;Specifies the password to decrypt files containing private keys and identity parameters. This is required only if these files have been encrypted.
+: Specifies the password to decrypt files containing private keys and identity parameters. This is required only if these files have been encrypted.
 
 &emsp;<code>**randfile _file_**</code>
-: &emsp;Specifies the location of the random seed file used by the OpenSSL library. The defaults are described in the main text above.
+: Specifies the location of the random seed file used by the OpenSSL library. The defaults are described in the main text above.
 
 &emsp;<code>**sign _file_**</code>
-: &emsp;Specifies the location of the optional sign key file. This overrides the link <code>ntpkey_sign\__hostname_</code> in the keys directory. If this file is not found, the host key is also the sign key.
+: Specifies the location of the optional sign key file. This overrides the link <code>ntpkey_sign\__hostname_</code> in the keys directory. If this file is not found, the host key is also the sign key.
 
 <code>**keys _keyfile_**</code>
 : Specifies the complete path and location of the MD5 key file containing the keys and key identifiers used by [`ntpd`](/documentation/4.2.8-series/ntpd/), [`ntpq`](/documentation/4.2.8-series/ntpq/), and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) when operating with symmetric key cryptography. This is the same operation as the `-k` command line option.
