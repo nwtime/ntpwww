@@ -95,7 +95,7 @@ These five commands specify the time server name or address to be used and the m
 <code>**manycastclient**</code>
 : For type m addresses (only), this command mobilizes a manycast client mode association for the multicast address specified. In this case a specific address must be supplied which matches the address used on the `manycastserver` command for the designated manycast servers. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to avoid spraying large areas of the Internet with these messages and causing a possibly massive implosion of replies at the sender. The `manycastserver` command specifies that the local server is to operate in client mode with the remote servers that are discovered as the result of broadcast/multicast messages. The client broadcasts a request message to the group address associated with the specified `address` and specifically enabled servers respond to these messages. The client selects the servers providing the best time and continues as with the `server` command. The remaining servers are discarded as if never heard.
 
-Options:
+**Options:**
 
 <code>**autokey**</code>
 : All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in [Autokey Public-Key Authentication](/documentation/4.2.8-series/autokey/).
@@ -110,7 +110,9 @@ Options:
 : All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified `key` identifier with values from 1 to 65535, inclusive. The default is to include no encryption field.
 
 <code>**minpoll _minpoll_**</code>
-: <code>**maxpoll _maxpoll_**</code>
+
+<code>**maxpoll _maxpoll_**</code>
+
 : These options specify the minimum and maximum poll intervals for NTP messages, as a power of 2 in seconds The maximum poll interval defaults to 10 (1,024 s), but can be increased by the `maxpoll` option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the `minpoll` option to a lower limit of 4 (16 s).
 
 <code>**noselect**</code>
@@ -296,8 +298,8 @@ The following error codes are reported via the NTP control and monitoring protoc
 
 <code>**107**</code>
 : (bad signature length) The signature length does not match the current public key.
-<code>**108**</code>
 
+<code>**108**</code>
 : (signature not verified) The message fails the signature check. It could be bogus or signed by a different private key.
 
 <code>**109**</code>
@@ -329,87 +331,67 @@ The following error codes are reported via the NTP control and monitoring protoc
 ##### Monitoring Commands
 
 <code>**statistics _name_ _..._**</code>
-
-Enables writing of statistics records. Currently, eight kinds of `name` statistics are supported.
+: Enables writing of statistics records. Currently, eight kinds of `name` statistics are supported.
 
 &emsp;<code>**clockstats**</code>
-: &emsp;Enables recording of clock driver statistics information. Each update received from a clock driver appends a line of the following form to the file generation set named `clockstats`: 
-
-: &emsp;<code>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</code>
-: &emsp;The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the clock address in dotted-quad notation. The final field shows the last timecode received from the clock in decoded ASCII format, where meaningful. In some clock drivers a good deal of additional information can be gathered and displayed as well. See information specific to each clock for further details.
+: Enables recording of clock driver statistics information. Each update received from a clock driver appends a line of the following form to the file generation set named `clockstats`: 
+: &emsp;<code>**49213 525.624 127.127.4.1 93 226 00:08:29.606 D**</code>
+: The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the clock address in dotted-quad notation. The final field shows the last timecode received from the clock in decoded ASCII format, where meaningful. In some clock drivers a good deal of additional information can be gathered and displayed as well. See information specific to each clock for further details.
 
 &emsp;<code>**cryptostats**</code>
-: &emsp;This option requires the OpenSSL cryptographic software library. It enables recording of cryptographic public key protocol information. Each message received by the protocol module appends a line of the following form to the file generation set named `cryptostats`:
-
-: &emsp;<code>49213 525.624 127.127.4.1 message</code>
-: &emsp;The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the peer address in dotted-quad notation, The final message field includes the message type and certain ancillary information. See [Autokey Public-Key Authentication](/documentation/4.2.8-series/autokey/) for further information.
+: This option requires the OpenSSL cryptographic software library. It enables recording of cryptographic public key protocol information. Each message received by the protocol module appends a line of the following form to the file generation set named `cryptostats`:
+: &emsp;<code>**49213 525.624 127.127.4.1 message**</code>
+: The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the peer address in dotted-quad notation, The final message field includes the message type and certain ancillary information. See [Autokey Public-Key Authentication](/documentation/4.2.8-series/autokey/) for further information.
 
 &emsp;<code>**loopstats**</code>
-: &emsp;Enables recording of loop filter statistics information. Each update of the local clock outputs a line of the following form to the file generation set named `loopstats`:
-
-: &emsp;<code>50935 75440.031 0.000006019 13.778190 0.000351733 0.0133806</code>
-: &emsp;The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next five fields show time offset (seconds), frequency offset (parts per million - PPM), RMS jitter (seconds), Allan deviation (PPM) and clock discipline time constant.
+: Enables recording of loop filter statistics information. Each update of the local clock outputs a line of the following form to the file generation set named `loopstats`:
+: &emsp;<code>**50935 75440.031 0.000006019 13.778190 0.000351733 0.0133806**</code>
+: The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next five fields show time offset (seconds), frequency offset (parts per million - PPM), RMS jitter (seconds), Allan deviation (PPM) and clock discipline time constant.
 
 &emsp;<code>**peerstats**</code>
-: &emsp;Enables recording of peer statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each valid update appends a line of the following form to the current element of a file generation set named `peerstats`:
-
-&emsp;<code>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</code>
-
-&emsp;The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix A of the NTP specification RFC 1305. The final four fields show the offset, delay, dispersion and RMS jitter, all in seconds.
+: Enables recording of peer statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each valid update appends a line of the following form to the current element of a file generation set named `peerstats`:
+: &emsp;<code>**48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674**</code>
+: The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix A of the NTP specification RFC 1305. The final four fields show the offset, delay, dispersion and RMS jitter, all in seconds.
 
 &emsp;<code>**rawstats**</code>
-: &emsp;Enables recording of raw-timestamp statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each NTP message received from a peer or clock driver appends a line of the following form to the file generation set named `rawstats`:
-
-&emsp;<code>50928 2132.543 128.4.1.1 128.4.1.20 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000</code>
-
-&emsp;The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the remote peer or clock address followed by the local address in dotted-quad notation. The final four fields show the originate, receive, transmit and final NTP timestamps in order. The timestamp values are as received and before processing by the various data smoothing and mitigation algorithms.
+: Enables recording of raw-timestamp statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each NTP message received from a peer or clock driver appends a line of the following form to the file generation set named `rawstats`:
+: &emsp;<code>**50928 2132.543 128.4.1.1 128.4.1.20 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000**</code>
+: The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the remote peer or clock address followed by the local address in dotted-quad notation. The final four fields show the originate, receive, transmit and final NTP timestamps in order. The timestamp values are as received and before processing by the various data smoothing and mitigation algorithms.
 
 &emsp;<code>**sysstats**</code>
-: &emsp;Enables recording of ntpd statistics counters on a periodic basis. Each hour a line of the following form is appended to the file generation set named `sysstats`:
+: Enables recording of ntpd statistics counters on a periodic basis. Each hour a line of the following form is appended to the file generation set named `sysstats`:
+: &emsp;<code>50928 2132.543 36000 81965 0 9546 56 71793 512 540 10 147</code>
+: The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The remaining ten fields show the statistics counter values accumulated since the last generated line.
+: * Time since restart `36000`
 
-&emsp;<code>50928 2132.543 36000 81965 0 9546 56 71793 512 540 10 147</code>
+    Time in hours since the system was last rebooted.
+: * Packets received `81965`
 
-&emsp;The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The remaining ten fields show the statistics counter values accumulated since the last generated line.
+    Total number of packets received.
+: * Packets processed `0`
+  
+    Number of packets received in response to previous packets sent
+: * Current version `9546`
 
-* Time since restart `36000`
+    Number of packets matching the current NTP version.
+: * Previous version `56`
 
-  Time in hours since the system was last rebooted.
+    Number of packets matching the previous NTP version.
+: * Bad version `71793`
 
-* Packets received `81965`
+    Number of packets matching neither NTP version.
+: * Access denied `512`
 
-  Total number of packets received.
+    Number of packets denied access for any reason.
+: * Bad length or format `540`
 
-* Packets processed `0`
+    Number of packets with invalid length, format or port number.
+: * Bad authentication `10`
 
-  Number of packets received in response to previous packets sent
+    Number of packets not verified as authentic.
+: * Rate exceeded `147`
 
-* Current version `9546`
-
-  Number of packets matching the current NTP version.
-
-* Previous version `56`
-
-  Number of packets matching the previous NTP version.
-
-* Bad version `71793`
-
-  Number of packets matching neither NTP version.
-
-* Access denied `512`
-
-  Number of packets denied access for any reason.
-
-* Bad length or format `540`
-
-  Number of packets with invalid length, format or port number.
-
-* Bad authentication `10`
-
-  Number of packets not verified as authentic.
-
-* Rate exceeded `147`
-
-  Number of packets discarded due to rate limitation.
+    Number of packets discarded due to rate limitation.
 
 <code>**statsdir _directory_path_**</code>
 : Indicates the full path of a directory where statistics files should be created (see below). This keyword allows the (otherwise constant) `filegen` filename prefix to be modified for file generation sets, which is useful for handling statistics logs.
@@ -427,54 +409,42 @@ Note that this command can be sent from the [`ntpdc`](/documentation/4.2.8-serie
 : &emsp;This is the file name for the statistics records. Filenames of set members are built from three concatenated elements `prefix`, `filename` and `suffix`:
 
 &emsp;&emsp;<code>**prefix**</code>
-
-: &emsp;&emsp;This is a constant filename path. It is not subject to modifications via the `filegen` option. It is defined by the server, usually specified as a compile-time constant. It may, however, be configurable for individual file generation sets via other commands. For example, the prefix used with `loopstats` and `peerstats` generation can be configured using the `statsdir` option explained above.
+: &emsp;This is a constant filename path. It is not subject to modifications via the `filegen` option. It is defined by the server, usually specified as a compile-time constant. It may, however, be configurable for individual file generation sets via other commands. For example, the prefix used with `loopstats` and `peerstats` generation can be configured using the `statsdir` option explained above.
 
 &emsp;&emsp;<code>**filename**</code>
-
 : &emsp;&emsp;This string is directly concatenated to the prefix mentioned above (no intervening `/`). This can be modified using the file argument to the `filegen` statement. No `..` elements are allowed in this component to prevent filenames referring to parts outside the filesystem hierarchy denoted by `prefix`.
 
 &emsp;&emsp;<code>**suffix**</code>
-
 : &emsp;&emsp;This part is reflects individual elements of a file set. It is generated according to the type of a file set.
 
 &emsp;<code>**type _typename_**</code>
 : &emsp;A file generation set is characterized by its type. The following types are supported:
 
 &emsp;&emsp;<code>**none**</code>
-
 : &emsp;&emsp;The file set is actually a single plain file.
 
 &emsp;&emsp;<code>**pid**</code>
-
 : &emsp;&emsp;One element of file set is used per incarnation of a ntpd server. This type does not perform any changes to file set members during runtime, however it provides an easy way of separating files belonging to different [`ntpd`](/documentation/4.2.8-series/ntpd/) server incarnations. The set member filename is built by appending a `.` to concatenated `prefix` and `filename` strings, and appending the decimal representation of the process ID of the [`ntpd`](/documentation/4.2.8-series/ntpd/) server process.
 
 &emsp;&emsp;<code>**day**</code>
-
 : &emsp;&emsp;One file generation set element is created per day. A day is defined as the period between 00:00 and 24:00 UTC. The file set member suffix consists of a `.` and a day specification in the form `YYYYMMdd`. `YYYY` is a 4-digit year number (e.g., 1992). `MM` is a two digit month number. `dd` is a two digit day number. Thus, all information written at 10 December 1992 would end up in a file named `prefix filename.19921210`.
 
 &emsp;&emsp;<code>**week**</code>
-
 : &emsp;&emsp;Any file set member contains data related to a certain week of a year. The term week is defined by computing day-of-year modulo 7. Elements of such a file generation set are distinguished by appending the following suffix to the file set filename base: A dot, a 4-digit year number, the letter `W`, and a 2-digit week number. For example, information from January, 10th 1992 would end up in a file with suffix `1992W1`.
 
 &emsp;&emsp;<code>**month**</code>
-
 : &emsp;&emsp;One generation file set element is generated per month. The file name suffix consists of a dot, a 4-digit year number, and a 2-digit month.
 
 &emsp;&emsp;<code>**year**</code>
-
 : &emsp;&emsp;One generation file element is generated per year. The filename suffix consists of a dot and a 4 digit year number.
 
 &emsp;&emsp;<code>**age**</code>
-
 : &emsp;&emsp;This type of file generation sets changes to a new element of the file set every 24 hours of server operation. The filename suffix consists of a dot, the letter `a`, and an 8-digit number. This number is taken to be the number of seconds the server is running at the start of the corresponding 24-hour period. Information is only written to a file generation by specifying `enable`; output is prevented by specifying `disable`.
 
 &emsp;<code>**link | nolink**</code>
-
-: &emsp;It is convenient to be able to access the current element of a file generation set by a fixed name. This feature is enabled by specifying `link` and disabled using `nolink`. If link is specified, a hard link from the current file set element to a file without suffix is created. When there is already a file with this name and the number of links of this file is one, it is renamed appending a dot, the letter `C`, and the pid of the [`ntpd`](/documentation/4.2.8-series/ntpd/) server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.
+: &emsp; It is convenient to be able to access the current element of a file generation set by a fixed name. This feature is enabled by specifying `link` and disabled using `nolink`. If link is specified, a hard link from the current file set element to a file without suffix is created. When there is already a file with this name and the number of links of this file is one, it is renamed appending a dot, the letter `C`, and the pid of the [`ntpd`](/documentation/4.2.8-series/ntpd/) server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.
 
 &emsp;<code>**enable | disable**</code>
-
 : &emsp;Enables or disables the recording function.
 
 * * *
@@ -503,46 +473,46 @@ A client receiving a KoD performs a set of sanity checks to minimize security ex
 : The `address` argument expressed in dotted-quad form is the address of a host or network. Alternatively, the `address` argument can be a valid host DNS name. The `mask` argument expressed in dotted-quad form defaults to `255.255.255.255`, meaning that the `address` is treated as the address of an individual host. A default entry (address `0.0.0.0`, mask `0.0.0.0`) is always included and is always the first entry in the list. Note that text string `default`, with no mask option, may be used to indicate the default entry. The `ippeerlimit` directive limits the number of peer requests for each IP to `int`, where a value of -1 means "unlimited", the current default. A value of 0 means "none". There would usually be at most 1 peering request per IP, but if the remote peering requests are behind a proxy there could well be more than 1 per IP. In the current implementation, `flag` always restricts access, i.e., an entry with no flags indicates that free access to the server is to be given. The flags are not orthogonal, in that more restrictive flags will often make less restrictive ones redundant. The flags can generally be classed into two categories, those which restrict time service and those which restrict informational queries and attempts to do run-time reconfiguration of the server. One or more of the following flags may be specified:
 
 &emsp;<code>**ignore**</code>
-: &emsp;Deny packets of all kinds, including [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries.
+: Deny packets of all kinds, including [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries.
 
 &emsp;<code>**kod**</code>
-: &emsp;If this flag is set when an access violation occurs, a kiss-o’-death (KoD) packet is sent. KoD packets are rate limited to no more than one per second. If another KoD packet occurs within one second after the last one, the packet is dropped.
+: If this flag is set when an access violation occurs, a kiss-o’-death (KoD) packet is sent. KoD packets are rate limited to no more than one per second. If another KoD packet occurs within one second after the last one, the packet is dropped.
 
 &emsp;<code>**limited**</code>
-: &emsp;Deny service if the packet spacing violates the lower limits specified in the `discard` command. A history of clients is kept using the monitoring capability of [`ntpd`](/documentation/4.2.8-series/ntpd/). Thus, monitoring is always active as long as there is a restriction entry with the `limited` flag.
+: Deny service if the packet spacing violates the lower limits specified in the `discard` command. A history of clients is kept using the monitoring capability of [`ntpd`](/documentation/4.2.8-series/ntpd/). Thus, monitoring is always active as long as there is a restriction entry with the `limited` flag.
 
 &emsp;<code>**lowpriotrap**</code>
-: &emsp;Declare traps set by matching hosts to be low priority. The number of traps a server can maintain is limited (the current limit is 3). Traps are usually assigned on a first come, first served basis, with later trap requestors being denied service. This flag modifies the assignment algorithm by allowing low priority traps to be overridden by later requests for normal priority traps.
+: Declare traps set by matching hosts to be low priority. The number of traps a server can maintain is limited (the current limit is 3). Traps are usually assigned on a first come, first served basis, with later trap requestors being denied service. This flag modifies the assignment algorithm by allowing low priority traps to be overridden by later requests for normal priority traps.
 
 &emsp;<code>**noepeer**</code>
-: &emsp;Deny ephemeral peer requests, even if they come from an authenticated source. Note that the ability to use a symmetric key for authentication may be restricted to one or more IPs or subnets via the third field of the `ntp.keys` file. This restriction is not enabled by default, to maintain backward compatability. Expect `noepeer` to become the default in ntp-4.4.
+: Deny ephemeral peer requests, even if they come from an authenticated source. Note that the ability to use a symmetric key for authentication may be restricted to one or more IPs or subnets via the third field of the `ntp.keys` file. This restriction is not enabled by default, to maintain backward compatability. Expect `noepeer` to become the default in ntp-4.4.
 
 &emsp;<code>**nomodify**</code>
-: &emsp;Deny [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries which attempt to modify the state of the server (i.e., run time reconfiguration). Queries which return information are permitted.
+: Deny [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries which attempt to modify the state of the server (i.e., run time reconfiguration). Queries which return information are permitted.
 
 &emsp;<code>**noquery**</code>
-: &emsp;Deny [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries. Time service is not affected.
+: Deny [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries. Time service is not affected.
 
 &emsp;<code>**nopeer**</code>
-: &emsp;Deny unauthenticated packets which would result in mobilizing a new association. This includes broadcast and symmetric active packets when a configured association does not exist. It also includes `pool` associations, so if you want to use servers from a `pool` directive and also want to use `nopeer` by default, you’ll want a `restrict source ...` line as well that does _not_ include the `nopeer` directive.
+: Deny unauthenticated packets which would result in mobilizing a new association. This includes broadcast and symmetric active packets when a configured association does not exist. It also includes `pool` associations, so if you want to use servers from a `pool` directive and also want to use `nopeer` by default, you’ll want a `restrict source ...` line as well that does _not_ include the `nopeer` directive.
 
 &emsp;<code>**noserve**</code>
-: &emsp;Deny all packets except [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries.
+: Deny all packets except [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries.
 
 &emsp;<code>**notrap**</code>
-: &emsp;Decline to provide mode 6 control message trap service to matching hosts. The trap service is a subsystem of the [`ntpq`](/documentation/4.2.8-series/ntpq/) control message protocol which is intended for use by remote event logging programs.
+: Decline to provide mode 6 control message trap service to matching hosts. The trap service is a subsystem of the [`ntpq`](/documentation/4.2.8-series/ntpq/) control message protocol which is intended for use by remote event logging programs.
 
 &emsp;<code>**notrust**</code>
-: &emsp;Deny service unless the packet is cryptographically authenticated.
+: Deny service unless the packet is cryptographically authenticated.
 
 &emsp;<code>**ntpport**</code>
-: &emsp;This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). Both `ntpport` and `non-ntpport` may be specified. The `ntpport` is considered more specific and is sorted later in the list.
+: This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). Both `ntpport` and `non-ntpport` may be specified. The `ntpport` is considered more specific and is sorted later in the list.
 
 &emsp;<code>**serverresponse fuzz**</code>
-: &emsp;When reponding to server requests, fuzz the low order bits of the `reftime`.
+: When reponding to server requests, fuzz the low order bits of the `reftime`.
 
 &emsp;<code>**version**</code>
-: &emsp;Deny packets that do not match the current NTP version.
+: Deny packets that do not match the current NTP version.
 
 Default restriction list entries with the flags ignore, interface, ntpport, for each of the local host’s interface addresses are inserted into the table at startup to prevent the server from attempting to synchronize to its own time. A default entry is also always present, though if it is otherwise unconfigured; no flags are associated with the default entry (i.e., everything besides your own NTP server is unrestricted).
 
@@ -604,27 +574,25 @@ About once an hour or less often if the poll interval exceeds this, the client r
 ##### Manycast Options
 
 <code>**tos [ceiling _ceiling_ | cohort { 0 | 1 } | floor _floor_ | minclock _minclock_ | minsane _minsane_]**</code>
-:This command affects the clock selection and clustering algorithms. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in manycast mode. The variables operate as follows:
+: This command affects the clock selection and clustering algorithms. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in manycast mode. The variables operate as follows:
 
 &emsp;<code>**ceiling _ceiling_**</code>
-
-: &emsp;Peers with strata above `ceiling` will be discarded if there are at least `minclock` peers remaining. This value defaults to 15, but can be changed to any number from 1 to 15.
+: Peers with strata above `ceiling` will be discarded if there are at least `minclock` peers remaining. This value defaults to 15, but can be changed to any number from 1 to 15.
 
 &emsp;<code>**cohort {0 | 1}**</code>
-: &emsp;This is a binary flag which enables (0) or disables (1) manycast server replies to manycast clients with the same stratum level. This is useful to reduce implosions where large numbers of clients with the same stratum level are present. The default is to enable these replies.
+: This is a binary flag which enables (0) or disables (1) manycast server replies to manycast clients with the same stratum level. This is useful to reduce implosions where large numbers of clients with the same stratum level are present. The default is to enable these replies.
 
 &emsp;<code>**floor _floor_**</code>
-: &emsp;Peers with strata below `floor` will be discarded if there are at least `minclock` peers remaining. This value defaults to 1, but can be changed to any number from 1 to 15.
+: Peers with strata below `floor` will be discarded if there are at least `minclock` peers remaining. This value defaults to 1, but can be changed to any number from 1 to 15.
 
 &emsp;<code>**minclock _minclock_**</code>
-: &emsp;The clustering algorithm repeatedly casts out outlier associations until no more than `minclock` associations remain. This value defaults to 3, but can be changed to any number from 1 to the number of configured sources.
+: The clustering algorithm repeatedly casts out outlier associations until no more than `minclock` associations remain. This value defaults to 3, but can be changed to any number from 1 to the number of configured sources.
 
 &emsp;<code>**minsane _minsane_**</code>
-: &emsp;This is the minimum number of candidates available to the clock selection algorithm in order to produce one or more truechimers for the clustering algorithm. If fewer than this number are available, the clock is undisciplined and allowed to run free. The default is 1 for legacy purposes. However, according to principles of Byzantine agreement, `minsane` should be at least 4 in order to detect and discard a single falseticker.
+: This is the minimum number of candidates available to the clock selection algorithm in order to produce one or more truechimers for the clustering algorithm. If fewer than this number are available, the clock is undisciplined and allowed to run free. The default is 1 for legacy purposes. However, according to principles of Byzantine agreement, `minsane` should be at least 4 in order to detect and discard a single falseticker.
 
 <code>**ttl _hop_ _..._**</code>
-
-This command specifies a list of TTL values in increasing order, up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.
+: This command specifies a list of TTL values in increasing order, up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.
 
 * * *
 
@@ -650,38 +618,42 @@ The stratum number of a reference clock is by default zero. Since the [`ntpd`](/
 : This command can be used to configure reference clocks in special ways. The options are interpreted as follows:
 
 &emsp;<code>**prefer**</code>
-: &emsp;Marks the reference clock as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See [Mitigation Rules and the prefer Keyword](/documentation/4.2.8-series/prefer/) for further information.
+: Marks the reference clock as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See [Mitigation Rules and the prefer Keyword](/documentation/4.2.8-series/prefer/) for further information.
 
 &emsp;<code>**mode _int_**</code>
-: &emsp;Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.
+: Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.
 
 &emsp;<code>**minpoll _int_**</code>
-: &emsp;<code>**maxpoll _int_**</code>
-: &emsp;These options specify the minimum and maximum polling interval for reference clock messages, as a power of 2 in seconds For most directly connected reference clocks, both `minpoll` and `maxpoll` default to 6 (64 s). For modem reference clocks, `minpoll` defaults to 10 (17.1 m) and `maxpoll` defaults to 14 (4.5 h). The allowable range is 4 (16 s) to 17 (36.4 h) inclusive.
+
+&emsp;<code>**maxpoll _int_**</code>
+: These options specify the minimum and maximum polling interval for reference clock messages, as a power of 2 in seconds For most directly connected reference clocks, both `minpoll` and `maxpoll` default to 6 (64 s). For modem reference clocks, `minpoll` defaults to 10 (17.1 m) and `maxpoll` defaults to 14 (4.5 h). The allowable range is 4 (16 s) to 17 (36.4 h) inclusive.
 
 <code>**fudge 127.127._t_._u_ [time1 _sec_] [time2 _sec_] [stratum _int_] [refid _string_] [mode _int_] [flag1 0 | 1] [flag2 0 | 1] [flag3 0 | 1] [flag4 0 | 1]**</code>
 : This command can be used to configure reference clocks in special ways. It must immediately follow the `server` command which configures the driver. Note that the same capability is possible at run time using the [`ntpdc`](/documentation/4.2.8-series/ntpdc/) program. The options are interpreted as follows:
 
 &emsp;<code>**time1 _sec_**</code>
-: &emsp;Specifies a constant to be added to the time offset produced by the driver, a fixed-point decimal number in seconds. This is used as a calibration constant to adjust the nominal time offset of a particular clock to agree with an external standard, such as a precision PPS signal. It also provides a way to correct a systematic error or bias due to serial port or operating system latencies, different cable lengths or receiver internal delay. The specified offset is in addition to the propagation delay provided by other means, such as internal DIPswitches. Where a calibration for an individual system and driver is available, an approximate correction is noted in the driver documentation pages. Note: in order to facilitate calibration when more than one radio clock or PPS signal is supported, a special calibration feature is available. It takes the form of an argument to the `enable` command described in [Miscellaneous Options](#miscellaneous-options) and operates as described in [Reference Clock Drivers](/documentation/4.2.8-series/refclock/).
+: Specifies a constant to be added to the time offset produced by the driver, a fixed-point decimal number in seconds. This is used as a calibration constant to adjust the nominal time offset of a particular clock to agree with an external standard, such as a precision PPS signal. It also provides a way to correct a systematic error or bias due to serial port or operating system latencies, different cable lengths or receiver internal delay. The specified offset is in addition to the propagation delay provided by other means, such as internal DIPswitches. Where a calibration for an individual system and driver is available, an approximate correction is noted in the driver documentation pages. Note: in order to facilitate calibration when more than one radio clock or PPS signal is supported, a special calibration feature is available. It takes the form of an argument to the `enable` command described in [Miscellaneous Options](#miscellaneous-options) and operates as described in [Reference Clock Drivers](/documentation/4.2.8-series/refclock/).
 
 &emsp;<code>**time2 _secs_**</code>
-: &emsp;Specifies a fixed-point decimal number in seconds, which is interpreted in a driver-dependent way. See the descriptions of specific drivers in [Reference Clock Drivers](/documentation/4.2.8-series/refclock/).
+: Specifies a fixed-point decimal number in seconds, which is interpreted in a driver-dependent way. See the descriptions of specific drivers in [Reference Clock Drivers](/documentation/4.2.8-series/refclock/).
 
 &emsp;<code>**stratum _int_**</code>
-: &emsp;Specifies the stratum number assigned to the driver, an integer between 0 and 15. This number overrides the default stratum number ordinarily assigned by the driver itself, usually zero.
+: Specifies the stratum number assigned to the driver, an integer between 0 and 15. This number overrides the default stratum number ordinarily assigned by the driver itself, usually zero.
 
 &emsp;<code>**refid _string_**</code>
-: &emsp;Specifies an ASCII string of from one to four characters which defines the reference identifier used by the driver. This string overrides the default identifier ordinarily assigned by the driver itself.
+: Specifies an ASCII string of from one to four characters which defines the reference identifier used by the driver. This string overrides the default identifier ordinarily assigned by the driver itself.
 
 &emsp;<code>**mode _int_**</code>
-: &emsp;Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.
+: Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.
 
 &emsp;<code>**flag1 0 | 1**</code>
-: &emsp;<code>**flag2 0 | 1**</code>
-: &emsp;**flag3 0 | 1**</code>
-: &emsp;**flag4 0 | 1**</code>
-: &emsp;These four flags are used for customizing the clock driver. The interpretation of these values, and whether they are used at all, is a function of the particular clock driver. However, by convention `flag4` is used to enable recording monitoring data to the `clockstats` file configured with the `filegen` command. Further information on the `filegen` command can be found in [Monitoring Options](/documentation/4.2.8-series/monopt/).
+
+&emsp;<code>**flag2 0 | 1**</code>
+
+&emsp;<code>**flag3 0 | 1**</code>
+
+&emsp;<code>**flag4 0 | 1**</code>
+: These four flags are used for customizing the clock driver. The interpretation of these values, and whether they are used at all, is a function of the particular clock driver. However, by convention `flag4` is used to enable recording monitoring data to the `clockstats` file configured with the `filegen` command. Further information on the `filegen` command can be found in [Monitoring Options](/documentation/4.2.8-series/monopt/).
 
 * * *
 
@@ -695,51 +667,51 @@ The stratum number of a reference clock is by default zero. Since the [`ntpd`](/
 
 <code>**driftfile _driftfile_**</code>
 : This command specifies the complete path and name of the file used to record the frequency of the local clock oscillator. This is the same operation as the `-f` command line option. If the file exists, it is read at startup in order to set the initial frequency and then updated once per hour with the current frequency computed by the daemon. If the file name is specified, but the file itself does not exist, the starts with an initial frequency of zero and creates the file when writing it for the first time. If this command is not given, the daemon will always start with an initial frequency of zero.
-
-The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that [`ntpd`](/documentation/4.2.8-series/ntpd/) must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.
+: The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that [`ntpd`](/documentation/4.2.8-series/ntpd/) must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.
 
 <code>**dscp _value_**</code>
 : This option specifies the Differentiated Services Control Point (DSCP) value, a 6-bit code. The default value is 46, signifying Expedited Forwarding.
 
 <code>**enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
-: <code>**disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
+
+<code>**disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
 : Provides a way to enable or disable various server options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [`ntpdc`](/documentation/4.2.8-series/ntpdc/) utility program.
 
 &emsp;<code>**auth**</code>
-: &emsp;Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is `enable`.
+: Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is `enable`.
 
 &emsp;<code>**bclient**</code>
-: &emsp;Enables the server to listen for a message from a broadcast or multicast server, as in the `multicastclient` command with default address. The default for this flag is `disable`.
+: Enables the server to listen for a message from a broadcast or multicast server, as in the `multicastclient` command with default address. The default for this flag is `disable`.
 
 &emsp;<code>**calibrate**</code>
-: &emsp;Enables the calibrate feature for reference clocks. The default for this flag is `disable`.
+: Enables the calibrate feature for reference clocks. The default for this flag is `disable`.
 
 &emsp;<code>**kernel**</code>
-: &emsp;Enables the kernel time discipline, if available. The default for this flag is `enable` if support is available, otherwise `disable`.
+: Enables the kernel time discipline, if available. The default for this flag is `enable` if support is available, otherwise `disable`.
 
 &emsp;<code>**mode7**</code>
-: &emsp;Enables processing of NTP mode 7 implementation-specific requests which are used by the deprecated [`ntpdc`](/documentation/4.2.8-series/ntpdc/) program. The default for this flag is disable. This flag is excluded from runtime configuration using [`ntpq`](/documentation/4.2.8-series/ntpq/). The [`ntpq`](/documentation/4.2.8-series/ntpq/) program provides the same capabilities as [`ntpdc`](/documentation/4.2.8-series/ntpdc/) using standard mode 6 requests.
+: Enables processing of NTP mode 7 implementation-specific requests which are used by the deprecated [`ntpdc`](/documentation/4.2.8-series/ntpdc/) program. The default for this flag is disable. This flag is excluded from runtime configuration using [`ntpq`](/documentation/4.2.8-series/ntpq/). The [`ntpq`](/documentation/4.2.8-series/ntpq/) program provides the same capabilities as [`ntpdc`](/documentation/4.2.8-series/ntpdc/) using standard mode 6 requests.
 
 &emsp;<code>**monitor**</code>
-: &emsp;Enables the monitoring facility. See the [`ntpdc`](/documentation/4.2.8-series/ntpdc/) program and the `monlist` command or further information. The default for this flag is `enable`.
+: Enables the monitoring facility. See the [`ntpdc`](/documentation/4.2.8-series/ntpdc/) program and the `monlist` command or further information. The default for this flag is `enable`.
 
 &emsp;<code>**ntp**</code>
-: &emsp;Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is `enable`.
+: Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is `enable`.
 
 &emsp;<code>**peer_clear_digest_early**</code>
-: &emsp;By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) is using autokey and it receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the peer variables are immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
+: By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) is using autokey and it receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the peer variables are immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
 
 &emsp;<code>**stats**</code>
-: &emsp;Enables the statistics facility. See [Monitoring Options](/documentation/4.2.8-series/monopt/) for further information. The default for this flag is `disable`.
+: Enables the statistics facility. See [Monitoring Options](/documentation/4.2.8-series/monopt/) for further information. The default for this flag is `disable`.
 
 &emsp;<code>**unpeer_crypto_early**</code>
-: &emsp;By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) receives an autokey packet that fails TEST9, a crypto failure, the association is immediately cleared. This is almost certainly a feature, but if, in spite of the current recommendation of not using autokey, you are .B still using autokey .B and you are seeing this sort of DoS attack disabling this flag will delay tearing down the association until the reachability counter becomes zero. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
+: By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) receives an autokey packet that fails TEST9, a crypto failure, the association is immediately cleared. This is almost certainly a feature, but if, in spite of the current recommendation of not using autokey, you are .B still using autokey .B and you are seeing this sort of DoS attack disabling this flag will delay tearing down the association until the reachability counter becomes zero. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
 
 &emsp;<code>**unpeer_crypto_nak_early**</code>
-: &emsp;By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the association is immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
+: By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the association is immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
 
 &emsp;<code>**unpeer_digest_early**</code>
-: &emsp;By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) receives what should be an authenticated packet that passes other packet sanity checks but contains an invalid digest the association is immediately cleared. While this is generally a feature as it allows for quick recovery, if this type of packet is carefully forged and sent during an appropriate window it can be used for a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
+: By default, if [`ntpd`](/documentation/4.2.8-series/ntpd/) receives what should be an authenticated packet that passes other packet sanity checks but contains an invalid digest the association is immediately cleared. While this is generally a feature as it allows for quick recovery, if this type of packet is carefully forged and sent during an appropriate window it can be used for a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your `peerstats` file for evidence of any of these attacks. The default for this flag is `enable`.
 
 <code>**includefile _includefile_**</code>
 : This command allows additional configuration commands to be included from a separate file. Include files may be nested to a depth of five; upon reaching the end of any include file, command processing resumes in the previous configuration file. This option is useful for sites that run [`ntpd`](/documentation/4.2.8-series/ntpd/) on multiple hosts, with (mostly) common options (e.g., a restriction list).
@@ -770,26 +742,28 @@ This configuration will list all clock information and synchronization informati
 : This command specifies the location of an alternate log file to be used instead of the default system `syslog(3)` facility. This is the same operation as the `-l` command line option.
 
 <code>**mru [maxdepth _count_ | maxmem _kilobytes_ | mindepth _count_ | maxage _seconds_ | initialloc _count_ | initmem _kilobytes_ | incalloc _count_ | incmem _kilobytes_]**</code>
-
 : Controls size limite of the monitoring facility’s Most Recently Used (MRU) list of client addresses, which is also used by the rate control facility.
 
 &emsp;<code>**maxdepth _count_**</code>
-: &emsp;<code>**maxmem _kilobytes_**</code>
-: &emsp;Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The acutal limit will be up to `incalloc` entries or `incmem` kilobytes larger. As with all of the `mru` options offered in units of entries or kilobytes, if both `maxdepth` and `maxmem` `are` `used,` `the` `last` `one` `used` `controls.` The default is 1024 kilobytes.
+
+&emsp;<code>**maxmem _kilobytes_**</code>
+: Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The acutal limit will be up to `incalloc` entries or `incmem` kilobytes larger. As with all of the `mru` options offered in units of entries or kilobytes, if both `maxdepth` and `maxmem` `are` `used,` `the` `last` `one` `used` `controls.` The default is 1024 kilobytes.
 
 &emsp;<code>**mindepth _count_**</code>
-: &emsp;Lower limit on the MRU list size. When the MRU list has fewer than `mindepth` entries, existing entries are never removed to make room for newer ones, regardless of their age. The default is 600 entries.
+: Lower limit on the MRU list size. When the MRU list has fewer than `mindepth` entries, existing entries are never removed to make room for newer ones, regardless of their age. The default is 600 entries.
 
 &emsp;<code>**maxage _seconds_**</code>
-: &emsp;Once the MRU list has `mindepth` entries and an additional client is to ba added to the list, if the oldest entry was updated more than `maxage` seconds ago, that entry is removed and its storage is reused. If the oldest entry was updated more recently the MRU list is grown, subject to `maxdepth` `/` `moxmem`. The default is 64 seconds.
+: Once the MRU list has `mindepth` entries and an additional client is to ba added to the list, if the oldest entry was updated more than `maxage` seconds ago, that entry is removed and its storage is reused. If the oldest entry was updated more recently the MRU list is grown, subject to `maxdepth` `/` `moxmem`. The default is 64 seconds.
 
 &emsp;<code>**initalloc _count_**</code>
-: &emsp;<code>**initmem _kilobytes_**</code>
-: &emsp;Initial memory allocation at the time the monitoringfacility is first enabled, in terms of the number of entries or kilobytes. The default is 4 kilobytes.
+
+&emsp;<code>**initmem _kilobytes_**</code>
+: Initial memory allocation at the time the monitoringfacility is first enabled, in terms of the number of entries or kilobytes. The default is 4 kilobytes.
 
 &emsp;<code>**incalloc _count_**</code>
-: &emsp;<code>**incmem _kilobytes_**</code>
-: &emsp;Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.
+
+&emsp;<code>**incmem _kilobytes_**</code>
+: Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.
 
 <code>**nonvolatile _threshold_**</code>
 : Specify the `threshold` delta in seconds before an hourly change to the `driftfile` (frequency file) will be written, with a default value of 1e-7 (0.1 PPM). The frequency file is inspected each hour. If the difference between the current frequency and the last value written exceeds the threshold, the file is written and the `threshold` becomes the new threshold value. If the threshold is not exceeeded, it is reduced by half. This is intended to reduce the number of file writes for embedded systems with nonvolatile memory.
@@ -805,13 +779,13 @@ This configuration will list all clock information and synchronization informati
 
 <code>**rlimit [memlock _Nmegabytes_ | stacksize _N4kPages_ filenum _Nfiledescriptors_]**</code>
 : &emsp;<code>**memlock _Nmegabytes_**</code>
-: &emsp;Specify the number of megabytes of memory that should be allocated and locked. Probably only available under Linux, this option may be useful when dropping root (the `-i` option). The default is 32 megabytes on non-Linux machines, and -1 under Linux. -1 means "do not lock the process into memory". 0 means "lock whatever memory the process wants into memory".
+: Specify the number of megabytes of memory that should be allocated and locked. Probably only available under Linux, this option may be useful when dropping root (the `-i` option). The default is 32 megabytes on non-Linux machines, and -1 under Linux. -1 means "do not lock the process into memory". 0 means "lock whatever memory the process wants into memory".
 
 &emsp;<code>**stacksize _N4kPages_**</code>
-: &emsp;Specifies the maximum size of the process stack on systems with the `mlockall()` function. Defaults to 50 4k pages (200 4k pages in OpenBSD).
+: Specifies the maximum size of the process stack on systems with the `mlockall()` function. Defaults to 50 4k pages (200 4k pages in OpenBSD).
 
 &emsp;<code>**filenum _Nfiledescriptors_**</code>
-: &emsp;Specifies the maximum number of file descriptors ntpd may have open at once. Defaults to the system default.
+: Specifies the maximum number of file descriptors ntpd may have open at once. Defaults to the system default.
 
 <code>**saveconfigdir _directory_path_**</code>
 : Specify the directory in which to write configuration snapshots requested with `ntpq` ’s `saveconfig` command. If `saveconfigdir` does not appear in the configuration file, `saveconfig` requests are rejected by `ntpd`.
@@ -834,31 +808,31 @@ This configuration will list all clock information and synchronization informati
 The variables operate as follows:
 
 &emsp;<code>**allan _allan_**</code>
-: &emsp;The argument becomes the new value for the minimum Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm. The value in log2 seconds defaults to 7 (1024 s), which is also the lower limit.
+: The argument becomes the new value for the minimum Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm. The value in log2 seconds defaults to 7 (1024 s), which is also the lower limit.
 
 &emsp;<code>**dispersion _dispersion_**</code>
-: &emsp;The argument becomes the new value for the dispersion increase rate, normally .000015 s/s.
+: The argument becomes the new value for the dispersion increase rate, normally .000015 s/s.
 
 &emsp;<code>**freq _freq_**</code>
-: &emsp;The argument becomes the initial value of the frequency offset in parts-per-million. This overrides the value in the frequency file, if present, and avoids the initial training state if it is not.
+: The argument becomes the initial value of the frequency offset in parts-per-million. This overrides the value in the frequency file, if present, and avoids the initial training state if it is not.
 
 &emsp;<code>**huffpuff _huffpuff_**</code>
-: &emsp;The argument becomes the new value for the experimental huff-n’-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 m), but a more reasonable value is 7200 (2 hours). There is no default, since the filter is not enabled unless this command is given.
+: The argument becomes the new value for the experimental huff-n’-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 m), but a more reasonable value is 7200 (2 hours). There is no default, since the filter is not enabled unless this command is given.
 
 &emsp;<code>**panic _panic_**</code>
-: &emsp;The argument is the panic threshold, normally 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.
+: The argument is the panic threshold, normally 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.
 
 &emsp;<code>**step _step_**</code>
-: &emsp;The argument is the step threshold, which by default is 0.128 s. It can be set to any positive number in seconds. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than the default.
+: The argument is the step threshold, which by default is 0.128 s. It can be set to any positive number in seconds. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than the default.
 
 &emsp;<code>**stepback _stepback_**</code>
-: &emsp;The argument is the step threshold for the backward direction, which by default is 0.128 s. It can be set to any positive number in seconds. If both the forward and backward step thresholds are set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if each direction of step threshold are either set to zero or greater than .5 second.
+: The argument is the step threshold for the backward direction, which by default is 0.128 s. It can be set to any positive number in seconds. If both the forward and backward step thresholds are set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if each direction of step threshold are either set to zero or greater than .5 second.
 
 &emsp;<code>**stepfwd _stepfwd_**</code>
-: &emsp;As for stepback, but for the forward direction.
+: As for stepback, but for the forward direction.
 
 &emsp;<code>**stepout _stepout_**</code>
-: &emsp;The argument is the stepout timeout, which by default is 900 s. It can be set to any positive number in seconds. If set to zero, the stepout pulses will not be suppressed.
+: The argument is the stepout timeout, which by default is 900 s. It can be set to any positive number in seconds. If set to zero, the stepout pulses will not be suppressed.
 
 <code>**writevar _assocID\ name_ _=_ _value_ _[,...]_**</code>
 : Write (create or update) the specified variables. If the `assocID` is zero, the variablea re from the system variables name space, otherwise they are from the peer variables name space. The `assocID` is required, as the same name can occur in both name spaces.
