@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntp.conf/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-21T17:48:27&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-22T18:37:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -67,7 +67,7 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.39a1242f7e1274cf9913f2f9252dd4b5.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.a5efbbfbaa08b24019d7dc707039f57c.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Configuration File User’s Manual</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 21, 2023 17:48 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/df25ae3831b252e628c6a6bf91e46b1bc455eb9e">df25ae383</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 22, 2023 18:37 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/c46104eb500910efb6c494de4975d4b0d16a9126">c46104eb5</a>)</p>
 	<p>This document describes the configuration file for the NTP Project’s <code>ntpd</code> program. This software is released under the <a href="https://www.ntp.org/documentation/4.2.8-series/copyright/">NTP license</a>.</p>
 <h4 id="description">Description</h4>
 <p>The behavior of <code>ntpd</code> can be changed by a configuration file, by default <code>ntp.conf</code>.</p>
@@ -233,7 +233,7 @@ function demo() {
 <dt><code><strong>manycastclient</strong></code></dt>
 <dd>For type m addresses (only), this command mobilizes a manycast client mode association for the multicast address specified. In this case a specific address must be supplied which matches the address used on the <code>manycastserver</code> command for the designated manycast servers. The NTP multicast address 224.0.1.1 assigned by the IANA should NOT be used, unless specific means are taken to avoid spraying large areas of the Internet with these messages and causing a possibly massive implosion of replies at the sender. The <code>manycastserver</code> command specifies that the local server is to operate in client mode with the remote servers that are discovered as the result of broadcast/multicast messages. The client broadcasts a request message to the group address associated with the specified <code>address</code> and specifically enabled servers respond to these messages. The client selects the servers providing the best time and continues as with the <code>server</code> command. The remaining servers are discarded as if never heard.</dd>
 </dl>
-<p>Options:</p>
+<p><strong>Options:</strong></p>
 <dl>
 <dt><code><strong>autokey</strong></code></dt>
 <dd>All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in <a href="https://www.ntp.org/documentation/4.2.8-series/autokey/">Autokey Public-Key Authentication</a>.</dd>
@@ -243,9 +243,13 @@ function demo() {
 <dd>When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first two packets can be changed with the <code>calldelay</code> command to allow additional time for a modem or ISDN call to complete. This is designed to speed the initial synchronization acquisition with the <code>server</code> command and s addresses and when <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> is started with the <code>-q</code> option.</dd>
 <dt><code><strong>key <em>key</em></strong></code></dt>
 <dd>All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified <code>key</code> identifier with values from 1 to 65535, inclusive. The default is to include no encryption field.</dd>
-<dt><code><strong>minpoll <em>minpoll</em></strong></code></dt>
-<dd><code><strong>maxpoll <em>maxpoll</em></strong></code></dd>
-<dd>These options specify the minimum and maximum poll intervals for NTP messages, as a power of 2 in seconds The maximum poll interval defaults to 10 (1,024 s), but can be increased by the <code>maxpoll</code> option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the <code>minpoll</code> option to a lower limit of 4 (16 s).</dd>
+</dl>
+<p><code><strong>minpoll <em>minpoll</em></strong></code></p>
+<dl>
+<dt><code><strong>maxpoll <em>maxpoll</em></strong></code></dt>
+<dd>
+<p>These options specify the minimum and maximum poll intervals for NTP messages, as a power of 2 in seconds The maximum poll interval defaults to 10 (1,024 s), but can be increased by the <code>maxpoll</code> option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the <code>minpoll</code> option to a lower limit of 4 (16 s).</p>
+</dd>
 <dt><code><strong>noselect</strong></code></dt>
 <dd>Marks the server as unused, except for display purposes. The server is discarded by the selection algroithm.</dd>
 <dt><code><strong>preempt</strong></code></dt>
@@ -361,11 +365,9 @@ function demo() {
 <dt><code><strong>106</strong></code></dt>
 <dd>(mismatched digest types) Not used.</dd>
 <dt><code><strong>107</strong></code></dt>
-<dd>(bad signature length) The signature length does not match the current public key.
-<code><strong>108</strong></code></dd>
-<dd>
-<p>(signature not verified) The message fails the signature check. It could be bogus or signed by a different private key.</p>
-</dd>
+<dd>(bad signature length) The signature length does not match the current public key.</dd>
+<dt><code><strong>108</strong></code></dt>
+<dd>(signature not verified) The message fails the signature check. It could be bogus or signed by a different private key.</dd>
 <dt><code><strong>109</strong></code></dt>
 <dd>(certificate not verified) The certificate is invalid or signed with the wrong key.</dd>
 <dt><code><strong>110</strong></code></dt>
@@ -384,87 +386,103 @@ function demo() {
 <p><a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> includes a comprehensive monitoring facility suitable for continuous, long term recording of server and client timekeeping performance. See the <code>statistics</code> command below for a listing and example of each type of statistics currently supported. Statistic files are managed using file generation sets and scripts in the <code>./scripts&lt;</code> directory of the source code distribution. Using these facilities and <small>UNIX</small> <code>cron(8)</code> jobs, the data can be automatically summarized and archived for retrospective analysis.</p>
 <hr>
 <h5 id="monitoring-commands">Monitoring Commands</h5>
-<p><code><strong>statistics <em>name</em> <em>&hellip;</em></strong></code></p>
-<p>Enables writing of statistics records. Currently, eight kinds of <code>name</code> statistics are supported.</p>
 <dl>
+<dt><code><strong>statistics <em>name</em> <em>&hellip;</em></strong></code></dt>
+<dd>Enables writing of statistics records. Currently, eight kinds of <code>name</code> statistics are supported.</dd>
 <dt> <code><strong>clockstats</strong></code></dt>
-<dd> Enables recording of clock driver statistics information. Each update received from a clock driver appends a line of the following form to the file generation set named <code>clockstats</code>:</dd>
-<dd>
-<p> <code>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</code></p>
-</dd>
-<dd> The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the clock address in dotted-quad notation. The final field shows the last timecode received from the clock in decoded ASCII format, where meaningful. In some clock drivers a good deal of additional information can be gathered and displayed as well. See information specific to each clock for further details.</dd>
+<dd>Enables recording of clock driver statistics information. Each update received from a clock driver appends a line of the following form to the file generation set named <code>clockstats</code>:</dd>
+<dd> <code><strong>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</strong></code></dd>
+<dd>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the clock address in dotted-quad notation. The final field shows the last timecode received from the clock in decoded ASCII format, where meaningful. In some clock drivers a good deal of additional information can be gathered and displayed as well. See information specific to each clock for further details.</dd>
 <dt> <code><strong>cryptostats</strong></code></dt>
-<dd> This option requires the OpenSSL cryptographic software library. It enables recording of cryptographic public key protocol information. Each message received by the protocol module appends a line of the following form to the file generation set named <code>cryptostats</code>:</dd>
-<dd>
-<p> <code>49213 525.624 127.127.4.1 message</code></p>
-</dd>
-<dd> The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the peer address in dotted-quad notation, The final message field includes the message type and certain ancillary information. See <a href="https://www.ntp.org/documentation/4.2.8-series/autokey/">Autokey Public-Key Authentication</a> for further information.</dd>
+<dd>This option requires the OpenSSL cryptographic software library. It enables recording of cryptographic public key protocol information. Each message received by the protocol module appends a line of the following form to the file generation set named <code>cryptostats</code>:</dd>
+<dd> <code><strong>49213 525.624 127.127.4.1 message</strong></code></dd>
+<dd>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next field shows the peer address in dotted-quad notation, The final message field includes the message type and certain ancillary information. See <a href="https://www.ntp.org/documentation/4.2.8-series/autokey/">Autokey Public-Key Authentication</a> for further information.</dd>
 <dt> <code><strong>loopstats</strong></code></dt>
-<dd> Enables recording of loop filter statistics information. Each update of the local clock outputs a line of the following form to the file generation set named <code>loopstats</code>:</dd>
-<dd>
-<p> <code>50935 75440.031 0.000006019 13.778190 0.000351733 0.0133806</code></p>
-</dd>
-<dd> The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next five fields show time offset (seconds), frequency offset (parts per million - PPM), RMS jitter (seconds), Allan deviation (PPM) and clock discipline time constant.</dd>
+<dd>Enables recording of loop filter statistics information. Each update of the local clock outputs a line of the following form to the file generation set named <code>loopstats</code>:</dd>
+<dd> <code><strong>50935 75440.031 0.000006019 13.778190 0.000351733 0.0133806</strong></code></dd>
+<dd>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next five fields show time offset (seconds), frequency offset (parts per million - PPM), RMS jitter (seconds), Allan deviation (PPM) and clock discipline time constant.</dd>
 <dt> <code><strong>peerstats</strong></code></dt>
-<dd> Enables recording of peer statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each valid update appends a line of the following form to the current element of a file generation set named <code>peerstats</code>:</dd>
-</dl>
-<p> <code>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</code></p>
-<p> The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix A of the NTP specification RFC 1305. The final four fields show the offset, delay, dispersion and RMS jitter, all in seconds.</p>
-<dl>
+<dd>Enables recording of peer statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each valid update appends a line of the following form to the current element of a file generation set named <code>peerstats</code>:</dd>
+<dd> <code><strong>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</strong></code></dd>
+<dd>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the peer address in dotted-quad notation and status, respectively. The status field is encoded in hex in the format described in Appendix A of the NTP specification RFC 1305. The final four fields show the offset, delay, dispersion and RMS jitter, all in seconds.</dd>
 <dt> <code><strong>rawstats</strong></code></dt>
-<dd> Enables recording of raw-timestamp statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each NTP message received from a peer or clock driver appends a line of the following form to the file generation set named <code>rawstats</code>:</dd>
-</dl>
-<p> <code>50928 2132.543 128.4.1.1 128.4.1.20 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000</code></p>
-<p> The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the remote peer or clock address followed by the local address in dotted-quad notation. The final four fields show the originate, receive, transmit and final NTP timestamps in order. The timestamp values are as received and before processing by the various data smoothing and mitigation algorithms.</p>
-<dl>
+<dd>Enables recording of raw-timestamp statistics information. This includes statistics records of all peers of a NTP server and of special signals, where present and configured. Each NTP message received from a peer or clock driver appends a line of the following form to the file generation set named <code>rawstats</code>:</dd>
+<dd> <code><strong>50928 2132.543 128.4.1.1 128.4.1.20 3102453281.584327000 3102453281.58622800031 02453332.540806000 3102453332.541458000</strong></code></dd>
+<dd>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The next two fields show the remote peer or clock address followed by the local address in dotted-quad notation. The final four fields show the originate, receive, transmit and final NTP timestamps in order. The timestamp values are as received and before processing by the various data smoothing and mitigation algorithms.</dd>
 <dt> <code><strong>sysstats</strong></code></dt>
-<dd> Enables recording of ntpd statistics counters on a periodic basis. Each hour a line of the following form is appended to the file generation set named <code>sysstats</code>:</dd>
-</dl>
-<p> <code>50928 2132.543 36000 81965 0 9546 56 71793 512 540 10 147</code></p>
-<p> The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The remaining ten fields show the statistics counter values accumulated since the last generated line.</p>
-<ul>
+<dd>Enables recording of ntpd statistics counters on a periodic basis. Each hour a line of the following form is appended to the file generation set named <code>sysstats</code>:</dd>
+<dd> <code>50928 2132.543 36000 81965 0 9546 56 71793 512 540 10 147</code></dd>
+<dd>The first two fields show the date (Modified Julian Day) and time (seconds and fraction past UTC midnight). The remaining ten fields show the statistics counter values accumulated since the last generated line.</dd>
+<dd><ul>
 <li>
 <p>Time since restart <code>36000</code></p>
 <p>Time in hours since the system was last rebooted.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Packets received <code>81965</code></p>
 <p>Total number of packets received.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Packets processed <code>0</code></p>
 <p>Number of packets received in response to previous packets sent</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Current version <code>9546</code></p>
 <p>Number of packets matching the current NTP version.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Previous version <code>56</code></p>
 <p>Number of packets matching the previous NTP version.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Bad version <code>71793</code></p>
 <p>Number of packets matching neither NTP version.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Access denied <code>512</code></p>
 <p>Number of packets denied access for any reason.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Bad length or format <code>540</code></p>
 <p>Number of packets with invalid length, format or port number.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Bad authentication <code>10</code></p>
 <p>Number of packets not verified as authentic.</p>
 </li>
+</ul>
+</dd>
+<dd><ul>
 <li>
 <p>Rate exceeded <code>147</code></p>
 <p>Number of packets discarded due to rate limitation.</p>
 </li>
 </ul>
-<dl>
+</dd>
 <dt><code><strong>statsdir <em>directory_path</em></strong></code></dt>
 <dd>Indicates the full path of a directory where statistics files should be created (see below). This keyword allows the (otherwise constant) <code>filegen</code> filename prefix to be modified for file generation sets, which is useful for handling statistics logs.</dd>
 <dt><code><strong>filegen <em>name</em> [file <em>filename</em>] [type <em>typename</em>] [link | nolink] [enable | disable]</strong></code></dt>
@@ -479,55 +497,31 @@ function demo() {
 <p> This is the file name for the statistics records. Filenames of set members are built from three concatenated elements <code>prefix</code>, <code>filename</code> and <code>suffix</code>:</p>
 </dd>
 <dt>  <code><strong>prefix</strong></code></dt>
-<dd>
-<p>  This is a constant filename path. It is not subject to modifications via the <code>filegen</code> option. It is defined by the server, usually specified as a compile-time constant. It may, however, be configurable for individual file generation sets via other commands. For example, the prefix used with <code>loopstats</code> and <code>peerstats</code> generation can be configured using the <code>statsdir</code> option explained above.</p>
-</dd>
+<dd> This is a constant filename path. It is not subject to modifications via the <code>filegen</code> option. It is defined by the server, usually specified as a compile-time constant. It may, however, be configurable for individual file generation sets via other commands. For example, the prefix used with <code>loopstats</code> and <code>peerstats</code> generation can be configured using the <code>statsdir</code> option explained above.</dd>
 <dt>  <code><strong>filename</strong></code></dt>
-<dd>
-<p>  This string is directly concatenated to the prefix mentioned above (no intervening <code>/</code>). This can be modified using the file argument to the <code>filegen</code> statement. No <code>..</code> elements are allowed in this component to prevent filenames referring to parts outside the filesystem hierarchy denoted by <code>prefix</code>.</p>
-</dd>
+<dd>  This string is directly concatenated to the prefix mentioned above (no intervening <code>/</code>). This can be modified using the file argument to the <code>filegen</code> statement. No <code>..</code> elements are allowed in this component to prevent filenames referring to parts outside the filesystem hierarchy denoted by <code>prefix</code>.</dd>
 <dt>  <code><strong>suffix</strong></code></dt>
-<dd>
-<p>  This part is reflects individual elements of a file set. It is generated according to the type of a file set.</p>
-</dd>
+<dd>  This part is reflects individual elements of a file set. It is generated according to the type of a file set.</dd>
 <dt> <code><strong>type <em>typename</em></strong></code></dt>
 <dd> A file generation set is characterized by its type. The following types are supported:</dd>
 <dt>  <code><strong>none</strong></code></dt>
-<dd>
-<p>  The file set is actually a single plain file.</p>
-</dd>
+<dd>  The file set is actually a single plain file.</dd>
 <dt>  <code><strong>pid</strong></code></dt>
-<dd>
-<p>  One element of file set is used per incarnation of a ntpd server. This type does not perform any changes to file set members during runtime, however it provides an easy way of separating files belonging to different <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> server incarnations. The set member filename is built by appending a <code>.</code> to concatenated <code>prefix</code> and <code>filename</code> strings, and appending the decimal representation of the process ID of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> server process.</p>
-</dd>
+<dd>  One element of file set is used per incarnation of a ntpd server. This type does not perform any changes to file set members during runtime, however it provides an easy way of separating files belonging to different <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> server incarnations. The set member filename is built by appending a <code>.</code> to concatenated <code>prefix</code> and <code>filename</code> strings, and appending the decimal representation of the process ID of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> server process.</dd>
 <dt>  <code><strong>day</strong></code></dt>
-<dd>
-<p>  One file generation set element is created per day. A day is defined as the period between 00:00 and 24:00 UTC. The file set member suffix consists of a <code>.</code> and a day specification in the form <code>YYYYMMdd</code>. <code>YYYY</code> is a 4-digit year number (e.g., 1992). <code>MM</code> is a two digit month number. <code>dd</code> is a two digit day number. Thus, all information written at 10 December 1992 would end up in a file named <code>prefix filename.19921210</code>.</p>
-</dd>
+<dd>  One file generation set element is created per day. A day is defined as the period between 00:00 and 24:00 UTC. The file set member suffix consists of a <code>.</code> and a day specification in the form <code>YYYYMMdd</code>. <code>YYYY</code> is a 4-digit year number (e.g., 1992). <code>MM</code> is a two digit month number. <code>dd</code> is a two digit day number. Thus, all information written at 10 December 1992 would end up in a file named <code>prefix filename.19921210</code>.</dd>
 <dt>  <code><strong>week</strong></code></dt>
-<dd>
-<p>  Any file set member contains data related to a certain week of a year. The term week is defined by computing day-of-year modulo 7. Elements of such a file generation set are distinguished by appending the following suffix to the file set filename base: A dot, a 4-digit year number, the letter <code>W</code>, and a 2-digit week number. For example, information from January, 10th 1992 would end up in a file with suffix <code>1992W1</code>.</p>
-</dd>
+<dd>  Any file set member contains data related to a certain week of a year. The term week is defined by computing day-of-year modulo 7. Elements of such a file generation set are distinguished by appending the following suffix to the file set filename base: A dot, a 4-digit year number, the letter <code>W</code>, and a 2-digit week number. For example, information from January, 10th 1992 would end up in a file with suffix <code>1992W1</code>.</dd>
 <dt>  <code><strong>month</strong></code></dt>
-<dd>
-<p>  One generation file set element is generated per month. The file name suffix consists of a dot, a 4-digit year number, and a 2-digit month.</p>
-</dd>
+<dd>  One generation file set element is generated per month. The file name suffix consists of a dot, a 4-digit year number, and a 2-digit month.</dd>
 <dt>  <code><strong>year</strong></code></dt>
-<dd>
-<p>  One generation file element is generated per year. The filename suffix consists of a dot and a 4 digit year number.</p>
-</dd>
+<dd>  One generation file element is generated per year. The filename suffix consists of a dot and a 4 digit year number.</dd>
 <dt>  <code><strong>age</strong></code></dt>
-<dd>
-<p>  This type of file generation sets changes to a new element of the file set every 24 hours of server operation. The filename suffix consists of a dot, the letter <code>a</code>, and an 8-digit number. This number is taken to be the number of seconds the server is running at the start of the corresponding 24-hour period. Information is only written to a file generation by specifying <code>enable</code>; output is prevented by specifying <code>disable</code>.</p>
-</dd>
+<dd>  This type of file generation sets changes to a new element of the file set every 24 hours of server operation. The filename suffix consists of a dot, the letter <code>a</code>, and an 8-digit number. This number is taken to be the number of seconds the server is running at the start of the corresponding 24-hour period. Information is only written to a file generation by specifying <code>enable</code>; output is prevented by specifying <code>disable</code>.</dd>
 <dt> <code><strong>link | nolink</strong></code></dt>
-<dd>
-<p> It is convenient to be able to access the current element of a file generation set by a fixed name. This feature is enabled by specifying <code>link</code> and disabled using <code>nolink</code>. If link is specified, a hard link from the current file set element to a file without suffix is created. When there is already a file with this name and the number of links of this file is one, it is renamed appending a dot, the letter <code>C</code>, and the pid of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</p>
-</dd>
+<dd>  It is convenient to be able to access the current element of a file generation set by a fixed name. This feature is enabled by specifying <code>link</code> and disabled using <code>nolink</code>. If link is specified, a hard link from the current file set element to a file without suffix is created. When there is already a file with this name and the number of links of this file is one, it is renamed appending a dot, the letter <code>C</code>, and the pid of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</dd>
 <dt> <code><strong>enable | disable</strong></code></dt>
-<dd>
-<p> Enables or disables the recording function.</p>
-</dd>
+<dd> Enables or disables the recording function.</dd>
 </dl>
 <hr>
 <h4 id="access-control-support">Access Control Support</h4>
@@ -545,33 +539,33 @@ function demo() {
 <dt><code><strong>restrict address [mask <em>mask</em>] [ippeerlimit <em>int</em>] [<em>flag</em> <em>&hellip;</em>]</strong></code></dt>
 <dd>The <code>address</code> argument expressed in dotted-quad form is the address of a host or network. Alternatively, the <code>address</code> argument can be a valid host DNS name. The <code>mask</code> argument expressed in dotted-quad form defaults to <code>255.255.255.255</code>, meaning that the <code>address</code> is treated as the address of an individual host. A default entry (address <code>0.0.0.0</code>, mask <code>0.0.0.0</code>) is always included and is always the first entry in the list. Note that text string <code>default</code>, with no mask option, may be used to indicate the default entry. The <code>ippeerlimit</code> directive limits the number of peer requests for each IP to <code>int</code>, where a value of -1 means &ldquo;unlimited&rdquo;, the current default. A value of 0 means &ldquo;none&rdquo;. There would usually be at most 1 peering request per IP, but if the remote peering requests are behind a proxy there could well be more than 1 per IP. In the current implementation, <code>flag</code> always restricts access, i.e., an entry with no flags indicates that free access to the server is to be given. The flags are not orthogonal, in that more restrictive flags will often make less restrictive ones redundant. The flags can generally be classed into two categories, those which restrict time service and those which restrict informational queries and attempts to do run-time reconfiguration of the server. One or more of the following flags may be specified:</dd>
 <dt> <code><strong>ignore</strong></code></dt>
-<dd> Deny packets of all kinds, including <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries.</dd>
+<dd>Deny packets of all kinds, including <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries.</dd>
 <dt> <code><strong>kod</strong></code></dt>
-<dd> If this flag is set when an access violation occurs, a kiss-o’-death (KoD) packet is sent. KoD packets are rate limited to no more than one per second. If another KoD packet occurs within one second after the last one, the packet is dropped.</dd>
+<dd>If this flag is set when an access violation occurs, a kiss-o’-death (KoD) packet is sent. KoD packets are rate limited to no more than one per second. If another KoD packet occurs within one second after the last one, the packet is dropped.</dd>
 <dt> <code><strong>limited</strong></code></dt>
-<dd> Deny service if the packet spacing violates the lower limits specified in the <code>discard</code> command. A history of clients is kept using the monitoring capability of <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a>. Thus, monitoring is always active as long as there is a restriction entry with the <code>limited</code> flag.</dd>
+<dd>Deny service if the packet spacing violates the lower limits specified in the <code>discard</code> command. A history of clients is kept using the monitoring capability of <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a>. Thus, monitoring is always active as long as there is a restriction entry with the <code>limited</code> flag.</dd>
 <dt> <code><strong>lowpriotrap</strong></code></dt>
-<dd> Declare traps set by matching hosts to be low priority. The number of traps a server can maintain is limited (the current limit is 3). Traps are usually assigned on a first come, first served basis, with later trap requestors being denied service. This flag modifies the assignment algorithm by allowing low priority traps to be overridden by later requests for normal priority traps.</dd>
+<dd>Declare traps set by matching hosts to be low priority. The number of traps a server can maintain is limited (the current limit is 3). Traps are usually assigned on a first come, first served basis, with later trap requestors being denied service. This flag modifies the assignment algorithm by allowing low priority traps to be overridden by later requests for normal priority traps.</dd>
 <dt> <code><strong>noepeer</strong></code></dt>
-<dd> Deny ephemeral peer requests, even if they come from an authenticated source. Note that the ability to use a symmetric key for authentication may be restricted to one or more IPs or subnets via the third field of the <code>ntp.keys</code> file. This restriction is not enabled by default, to maintain backward compatability. Expect <code>noepeer</code> to become the default in ntp-4.4.</dd>
+<dd>Deny ephemeral peer requests, even if they come from an authenticated source. Note that the ability to use a symmetric key for authentication may be restricted to one or more IPs or subnets via the third field of the <code>ntp.keys</code> file. This restriction is not enabled by default, to maintain backward compatability. Expect <code>noepeer</code> to become the default in ntp-4.4.</dd>
 <dt> <code><strong>nomodify</strong></code></dt>
-<dd> Deny <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries which attempt to modify the state of the server (i.e., run time reconfiguration). Queries which return information are permitted.</dd>
+<dd>Deny <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries which attempt to modify the state of the server (i.e., run time reconfiguration). Queries which return information are permitted.</dd>
 <dt> <code><strong>noquery</strong></code></dt>
-<dd> Deny <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries. Time service is not affected.</dd>
+<dd>Deny <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries. Time service is not affected.</dd>
 <dt> <code><strong>nopeer</strong></code></dt>
-<dd> Deny unauthenticated packets which would result in mobilizing a new association. This includes broadcast and symmetric active packets when a configured association does not exist. It also includes <code>pool</code> associations, so if you want to use servers from a <code>pool</code> directive and also want to use <code>nopeer</code> by default, you’ll want a <code>restrict source ...</code> line as well that does <em>not</em> include the <code>nopeer</code> directive.</dd>
+<dd>Deny unauthenticated packets which would result in mobilizing a new association. This includes broadcast and symmetric active packets when a configured association does not exist. It also includes <code>pool</code> associations, so if you want to use servers from a <code>pool</code> directive and also want to use <code>nopeer</code> by default, you’ll want a <code>restrict source ...</code> line as well that does <em>not</em> include the <code>nopeer</code> directive.</dd>
 <dt> <code><strong>noserve</strong></code></dt>
-<dd> Deny all packets except <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries.</dd>
+<dd>Deny all packets except <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> queries.</dd>
 <dt> <code><strong>notrap</strong></code></dt>
-<dd> Decline to provide mode 6 control message trap service to matching hosts. The trap service is a subsystem of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> control message protocol which is intended for use by remote event logging programs.</dd>
+<dd>Decline to provide mode 6 control message trap service to matching hosts. The trap service is a subsystem of the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> control message protocol which is intended for use by remote event logging programs.</dd>
 <dt> <code><strong>notrust</strong></code></dt>
-<dd> Deny service unless the packet is cryptographically authenticated.</dd>
+<dd>Deny service unless the packet is cryptographically authenticated.</dd>
 <dt> <code><strong>ntpport</strong></code></dt>
-<dd> This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). Both <code>ntpport</code> and <code>non-ntpport</code> may be specified. The <code>ntpport</code> is considered more specific and is sorted later in the list.</dd>
+<dd>This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). Both <code>ntpport</code> and <code>non-ntpport</code> may be specified. The <code>ntpport</code> is considered more specific and is sorted later in the list.</dd>
 <dt> <code><strong>serverresponse fuzz</strong></code></dt>
-<dd> When reponding to server requests, fuzz the low order bits of the <code>reftime</code>.</dd>
+<dd>When reponding to server requests, fuzz the low order bits of the <code>reftime</code>.</dd>
 <dt> <code><strong>version</strong></code></dt>
-<dd> Deny packets that do not match the current NTP version.</dd>
+<dd>Deny packets that do not match the current NTP version.</dd>
 </dl>
 <p>Default restriction list entries with the flags ignore, interface, ntpport, for each of the local host’s interface addresses are inserted into the table at startup to prevent the server from attempting to synchronize to its own time. A default entry is also always present, though if it is otherwise unconfigured; no flags are associated with the default entry (i.e., everything besides your own NTP server is unrestricted).</p>
 <hr>
@@ -605,24 +599,22 @@ function demo() {
 </dl>
 <hr>
 <h5 id="manycast-options">Manycast Options</h5>
-<p><code><strong>tos [ceiling <em>ceiling</em> | cohort { 0 | 1 } | floor <em>floor</em> | minclock <em>minclock</em> | minsane <em>minsane</em>]</strong></code>
-:This command affects the clock selection and clustering algorithms. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in manycast mode. The variables operate as follows:</p>
 <dl>
+<dt><code><strong>tos [ceiling <em>ceiling</em> | cohort { 0 | 1 } | floor <em>floor</em> | minclock <em>minclock</em> | minsane <em>minsane</em>]</strong></code></dt>
+<dd>This command affects the clock selection and clustering algorithms. It can be used to select the quality and quantity of peers used to synchronize the system clock and is most useful in manycast mode. The variables operate as follows:</dd>
 <dt> <code><strong>ceiling <em>ceiling</em></strong></code></dt>
-<dd>
-<p> Peers with strata above <code>ceiling</code> will be discarded if there are at least <code>minclock</code> peers remaining. This value defaults to 15, but can be changed to any number from 1 to 15.</p>
-</dd>
+<dd>Peers with strata above <code>ceiling</code> will be discarded if there are at least <code>minclock</code> peers remaining. This value defaults to 15, but can be changed to any number from 1 to 15.</dd>
 <dt> <code><strong>cohort {0 | 1}</strong></code></dt>
-<dd> This is a binary flag which enables (0) or disables (1) manycast server replies to manycast clients with the same stratum level. This is useful to reduce implosions where large numbers of clients with the same stratum level are present. The default is to enable these replies.</dd>
+<dd>This is a binary flag which enables (0) or disables (1) manycast server replies to manycast clients with the same stratum level. This is useful to reduce implosions where large numbers of clients with the same stratum level are present. The default is to enable these replies.</dd>
 <dt> <code><strong>floor <em>floor</em></strong></code></dt>
-<dd> Peers with strata below <code>floor</code> will be discarded if there are at least <code>minclock</code> peers remaining. This value defaults to 1, but can be changed to any number from 1 to 15.</dd>
+<dd>Peers with strata below <code>floor</code> will be discarded if there are at least <code>minclock</code> peers remaining. This value defaults to 1, but can be changed to any number from 1 to 15.</dd>
 <dt> <code><strong>minclock <em>minclock</em></strong></code></dt>
-<dd> The clustering algorithm repeatedly casts out outlier associations until no more than <code>minclock</code> associations remain. This value defaults to 3, but can be changed to any number from 1 to the number of configured sources.</dd>
+<dd>The clustering algorithm repeatedly casts out outlier associations until no more than <code>minclock</code> associations remain. This value defaults to 3, but can be changed to any number from 1 to the number of configured sources.</dd>
 <dt> <code><strong>minsane <em>minsane</em></strong></code></dt>
-<dd> This is the minimum number of candidates available to the clock selection algorithm in order to produce one or more truechimers for the clustering algorithm. If fewer than this number are available, the clock is undisciplined and allowed to run free. The default is 1 for legacy purposes. However, according to principles of Byzantine agreement, <code>minsane</code> should be at least 4 in order to detect and discard a single falseticker.</dd>
+<dd>This is the minimum number of candidates available to the clock selection algorithm in order to produce one or more truechimers for the clustering algorithm. If fewer than this number are available, the clock is undisciplined and allowed to run free. The default is 1 for legacy purposes. However, according to principles of Byzantine agreement, <code>minsane</code> should be at least 4 in order to detect and discard a single falseticker.</dd>
+<dt><code><strong>ttl <em>hop</em> <em>&hellip;</em></strong></code></dt>
+<dd>This command specifies a list of TTL values in increasing order, up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.</dd>
 </dl>
-<p><code><strong>ttl <em>hop</em> <em>&hellip;</em></strong></code></p>
-<p>This command specifies a list of TTL values in increasing order, up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.</p>
 <hr>
 <h4 id="reference-clock-support">Reference Clock Support</h4>
 <p>The NTP Version 4 daemon supports some three dozen different radio, satellite and modem reference clocks plus a special pseudo-clock used for backup or when no other clock source is available. Detailed descriptions of individual device drivers and options can be found in the <a href="https://www.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a>. Additional information can be found in the pages linked there, including the <a href="https://www.ntp.org/documentation/4.2.8-series/rdebug/">Debugging Hints for Reference Clock Drivers</a> and <a href="https://www.ntp.org/documentation/4.2.8-series/howto/">How To Write a Reference Clock Driver</a>. In addition, support for a PPS signal is available as described in the <a href="https://www.ntp.org/documentation/4.2.8-series/pps/">Pulse-per-second (PPS) Signal Interfacing</a>. Many drivers support special line discipline/streams modules which can significantly improve the accuracy using the driver. These are described in the <a href="https://www.ntp.org/documentation/4.2.8-series/discipline/">Clock Discipline Algorithm</a>.</p>
@@ -637,29 +629,33 @@ function demo() {
 <dt><code><strong>server 127.127.<em>t.u</em> [prefer] [mode <em>int</em>] [minpoll <em>int</em>] [maxpoll <em>int</em>]</strong></code></dt>
 <dd>This command can be used to configure reference clocks in special ways. The options are interpreted as follows:</dd>
 <dt> <code><strong>prefer</strong></code></dt>
-<dd> Marks the reference clock as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See <a href="https://www.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the prefer Keyword</a> for further information.</dd>
+<dd>Marks the reference clock as preferred. All other things being equal, this host will be chosen for synchronization among a set of correctly operating hosts. See <a href="https://www.ntp.org/documentation/4.2.8-series/prefer/">Mitigation Rules and the prefer Keyword</a> for further information.</dd>
 <dt> <code><strong>mode <em>int</em></strong></code></dt>
-<dd> Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.</dd>
-<dt> <code><strong>minpoll <em>int</em></strong></code></dt>
-<dd> <code><strong>maxpoll <em>int</em></strong></code></dd>
-<dd> These options specify the minimum and maximum polling interval for reference clock messages, as a power of 2 in seconds For most directly connected reference clocks, both <code>minpoll</code> and <code>maxpoll</code> default to 6 (64 s). For modem reference clocks, <code>minpoll</code> defaults to 10 (17.1 m) and <code>maxpoll</code> defaults to 14 (4.5 h). The allowable range is 4 (16 s) to 17 (36.4 h) inclusive.</dd>
+<dd>Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.</dd>
+</dl>
+<p> <code><strong>minpoll <em>int</em></strong></code></p>
+<dl>
+<dt> <code><strong>maxpoll <em>int</em></strong></code></dt>
+<dd>These options specify the minimum and maximum polling interval for reference clock messages, as a power of 2 in seconds For most directly connected reference clocks, both <code>minpoll</code> and <code>maxpoll</code> default to 6 (64 s). For modem reference clocks, <code>minpoll</code> defaults to 10 (17.1 m) and <code>maxpoll</code> defaults to 14 (4.5 h). The allowable range is 4 (16 s) to 17 (36.4 h) inclusive.</dd>
 <dt><code><strong>fudge 127.127.<em>t</em>.<em>u</em> [time1 <em>sec</em>] [time2 <em>sec</em>] [stratum <em>int</em>] [refid <em>string</em>] [mode <em>int</em>] [flag1 0 | 1] [flag2 0 | 1] [flag3 0 | 1] [flag4 0 | 1]</strong></code></dt>
 <dd>This command can be used to configure reference clocks in special ways. It must immediately follow the <code>server</code> command which configures the driver. Note that the same capability is possible at run time using the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> program. The options are interpreted as follows:</dd>
 <dt> <code><strong>time1 <em>sec</em></strong></code></dt>
-<dd> Specifies a constant to be added to the time offset produced by the driver, a fixed-point decimal number in seconds. This is used as a calibration constant to adjust the nominal time offset of a particular clock to agree with an external standard, such as a precision PPS signal. It also provides a way to correct a systematic error or bias due to serial port or operating system latencies, different cable lengths or receiver internal delay. The specified offset is in addition to the propagation delay provided by other means, such as internal DIPswitches. Where a calibration for an individual system and driver is available, an approximate correction is noted in the driver documentation pages. Note: in order to facilitate calibration when more than one radio clock or PPS signal is supported, a special calibration feature is available. It takes the form of an argument to the <code>enable</code> command described in <a href="#miscellaneous-options">Miscellaneous Options</a> and operates as described in <a href="https://www.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a>.</dd>
+<dd>Specifies a constant to be added to the time offset produced by the driver, a fixed-point decimal number in seconds. This is used as a calibration constant to adjust the nominal time offset of a particular clock to agree with an external standard, such as a precision PPS signal. It also provides a way to correct a systematic error or bias due to serial port or operating system latencies, different cable lengths or receiver internal delay. The specified offset is in addition to the propagation delay provided by other means, such as internal DIPswitches. Where a calibration for an individual system and driver is available, an approximate correction is noted in the driver documentation pages. Note: in order to facilitate calibration when more than one radio clock or PPS signal is supported, a special calibration feature is available. It takes the form of an argument to the <code>enable</code> command described in <a href="#miscellaneous-options">Miscellaneous Options</a> and operates as described in <a href="https://www.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a>.</dd>
 <dt> <code><strong>time2 <em>secs</em></strong></code></dt>
-<dd> Specifies a fixed-point decimal number in seconds, which is interpreted in a driver-dependent way. See the descriptions of specific drivers in <a href="https://www.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a>.</dd>
+<dd>Specifies a fixed-point decimal number in seconds, which is interpreted in a driver-dependent way. See the descriptions of specific drivers in <a href="https://www.ntp.org/documentation/4.2.8-series/refclock/">Reference Clock Drivers</a>.</dd>
 <dt> <code><strong>stratum <em>int</em></strong></code></dt>
-<dd> Specifies the stratum number assigned to the driver, an integer between 0 and 15. This number overrides the default stratum number ordinarily assigned by the driver itself, usually zero.</dd>
+<dd>Specifies the stratum number assigned to the driver, an integer between 0 and 15. This number overrides the default stratum number ordinarily assigned by the driver itself, usually zero.</dd>
 <dt> <code><strong>refid <em>string</em></strong></code></dt>
-<dd> Specifies an ASCII string of from one to four characters which defines the reference identifier used by the driver. This string overrides the default identifier ordinarily assigned by the driver itself.</dd>
+<dd>Specifies an ASCII string of from one to four characters which defines the reference identifier used by the driver. This string overrides the default identifier ordinarily assigned by the driver itself.</dd>
 <dt> <code><strong>mode <em>int</em></strong></code></dt>
-<dd> Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.</dd>
-<dt> <code><strong>flag1 0 | 1</strong></code></dt>
-<dd> <code><strong>flag2 0 | 1</strong></code></dd>
-<dd> <strong>flag3 0 | 1</strong></code></dd>
-<dd> <strong>flag4 0 | 1</strong></code></dd>
-<dd> These four flags are used for customizing the clock driver. The interpretation of these values, and whether they are used at all, is a function of the particular clock driver. However, by convention <code>flag4</code> is used to enable recording monitoring data to the <code>clockstats</code> file configured with the <code>filegen</code> command. Further information on the <code>filegen</code> command can be found in <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Options</a>.</dd>
+<dd>Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.</dd>
+</dl>
+<p> <code><strong>flag1 0 | 1</strong></code></p>
+<p> <code><strong>flag2 0 | 1</strong></code></p>
+<p> <code><strong>flag3 0 | 1</strong></code></p>
+<dl>
+<dt> <code><strong>flag4 0 | 1</strong></code></dt>
+<dd>These four flags are used for customizing the clock driver. The interpretation of these values, and whether they are used at all, is a function of the particular clock driver. However, by convention <code>flag4</code> is used to enable recording monitoring data to the <code>clockstats</code> file configured with the <code>filegen</code> command. Further information on the <code>filegen</code> command can be found in <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Options</a>.</dd>
 </dl>
 <hr>
 <h4 id="miscellaneous-options">Miscellaneous Options</h4>
@@ -670,38 +666,38 @@ function demo() {
 <dd>This option controls the delay in seconds between the first and second packets sent in burst or iburst mode to allow additional time for a modem or ISDN call to complete.</dd>
 <dt><code><strong>driftfile <em>driftfile</em></strong></code></dt>
 <dd>This command specifies the complete path and name of the file used to record the frequency of the local clock oscillator. This is the same operation as the <code>-f</code> command line option. If the file exists, it is read at startup in order to set the initial frequency and then updated once per hour with the current frequency computed by the daemon. If the file name is specified, but the file itself does not exist, the starts with an initial frequency of zero and creates the file when writing it for the first time. If this command is not given, the daemon will always start with an initial frequency of zero.</dd>
-</dl>
-<p>The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.</p>
-<dl>
+<dd>The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.</dd>
 <dt><code><strong>dscp <em>value</em></strong></code></dt>
 <dd>This option specifies the Differentiated Services Control Point (DSCP) value, a 6-bit code. The default value is 46, signifying Expedited Forwarding.</dd>
-<dt><code><strong>enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dt>
-<dd><code><strong>disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dd>
+</dl>
+<p><code><strong>enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></p>
+<dl>
+<dt><code><strong>disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dt>
 <dd>Provides a way to enable or disable various server options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> utility program.</dd>
 <dt> <code><strong>auth</strong></code></dt>
-<dd> Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is <code>enable</code>.</dd>
+<dd>Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>bclient</strong></code></dt>
-<dd> Enables the server to listen for a message from a broadcast or multicast server, as in the <code>multicastclient</code> command with default address. The default for this flag is <code>disable</code>.</dd>
+<dd>Enables the server to listen for a message from a broadcast or multicast server, as in the <code>multicastclient</code> command with default address. The default for this flag is <code>disable</code>.</dd>
 <dt> <code><strong>calibrate</strong></code></dt>
-<dd> Enables the calibrate feature for reference clocks. The default for this flag is <code>disable</code>.</dd>
+<dd>Enables the calibrate feature for reference clocks. The default for this flag is <code>disable</code>.</dd>
 <dt> <code><strong>kernel</strong></code></dt>
-<dd> Enables the kernel time discipline, if available. The default for this flag is <code>enable</code> if support is available, otherwise <code>disable</code>.</dd>
+<dd>Enables the kernel time discipline, if available. The default for this flag is <code>enable</code> if support is available, otherwise <code>disable</code>.</dd>
 <dt> <code><strong>mode7</strong></code></dt>
-<dd> Enables processing of NTP mode 7 implementation-specific requests which are used by the deprecated <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> program. The default for this flag is disable. This flag is excluded from runtime configuration using <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a>. The <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> program provides the same capabilities as <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> using standard mode 6 requests.</dd>
+<dd>Enables processing of NTP mode 7 implementation-specific requests which are used by the deprecated <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> program. The default for this flag is disable. This flag is excluded from runtime configuration using <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a>. The <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> program provides the same capabilities as <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> using standard mode 6 requests.</dd>
 <dt> <code><strong>monitor</strong></code></dt>
-<dd> Enables the monitoring facility. See the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> program and the <code>monlist</code> command or further information. The default for this flag is <code>enable</code>.</dd>
+<dd>Enables the monitoring facility. See the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> program and the <code>monlist</code> command or further information. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>ntp</strong></code></dt>
-<dd> Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is <code>enable</code>.</dd>
+<dd>Enables time and frequency discipline. In effect, this switch opens and closes the feedback loop, which is useful for testing. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>peer_clear_digest_early</strong></code></dt>
-<dd> By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> is using autokey and it receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the peer variables are immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
+<dd>By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> is using autokey and it receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the peer variables are immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>stats</strong></code></dt>
-<dd> Enables the statistics facility. See <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Options</a> for further information. The default for this flag is <code>disable</code>.</dd>
+<dd>Enables the statistics facility. See <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Options</a> for further information. The default for this flag is <code>disable</code>.</dd>
 <dt> <code><strong>unpeer_crypto_early</strong></code></dt>
-<dd> By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives an autokey packet that fails TEST9, a crypto failure, the association is immediately cleared. This is almost certainly a feature, but if, in spite of the current recommendation of not using autokey, you are .B still using autokey .B and you are seeing this sort of DoS attack disabling this flag will delay tearing down the association until the reachability counter becomes zero. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
+<dd>By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives an autokey packet that fails TEST9, a crypto failure, the association is immediately cleared. This is almost certainly a feature, but if, in spite of the current recommendation of not using autokey, you are .B still using autokey .B and you are seeing this sort of DoS attack disabling this flag will delay tearing down the association until the reachability counter becomes zero. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>unpeer_crypto_nak_early</strong></code></dt>
-<dd> By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the association is immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
+<dd>By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the association is immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>unpeer_digest_early</strong></code></dt>
-<dd> By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives what should be an authenticated packet that passes other packet sanity checks but contains an invalid digest the association is immediately cleared. While this is generally a feature as it allows for quick recovery, if this type of packet is carefully forged and sent during an appropriate window it can be used for a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
+<dd>By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives what should be an authenticated packet that passes other packet sanity checks but contains an invalid digest the association is immediately cleared. While this is generally a feature as it allows for quick recovery, if this type of packet is carefully forged and sent during an appropriate window it can be used for a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
 <dt><code><strong>includefile <em>includefile</em></strong></code></dt>
 <dd>This command allows additional configuration commands to be included from a separate file. Include files may be nested to a depth of five; upon reaching the end of any include file, command processing resumes in the previous configuration file. This option is useful for sites that run <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> on multiple hosts, with (mostly) common options (e.g., a restriction list).</dd>
 <dt><code><strong>interface [listen | ignore | drop] [all | ipv4 | ipv6 | wildcard <em>name</em> | <em>address</em> [/ <em>prefixlen</em>]]</strong></code></dt>
@@ -722,22 +718,26 @@ function demo() {
 <dt><code><strong>logfile <em>logfile</em></strong></code></dt>
 <dd>This command specifies the location of an alternate log file to be used instead of the default system <code>syslog(3)</code> facility. This is the same operation as the <code>-l</code> command line option.</dd>
 <dt><code><strong>mru [maxdepth <em>count</em> | maxmem <em>kilobytes</em> | mindepth <em>count</em> | maxage <em>seconds</em> | initialloc <em>count</em> | initmem <em>kilobytes</em> | incalloc <em>count</em> | incmem <em>kilobytes</em>]</strong></code></dt>
-<dd>
-<p>Controls size limite of the monitoring facility’s Most Recently Used (MRU) list of client addresses, which is also used by the rate control facility.</p>
-</dd>
-<dt> <code><strong>maxdepth <em>count</em></strong></code></dt>
-<dd> <code><strong>maxmem <em>kilobytes</em></strong></code></dd>
-<dd> Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The acutal limit will be up to <code>incalloc</code> entries or <code>incmem</code> kilobytes larger. As with all of the <code>mru</code> options offered in units of entries or kilobytes, if both <code>maxdepth</code> and <code>maxmem</code> <code>are</code> <code>used,</code> <code>the</code> <code>last</code> <code>one</code> <code>used</code> <code>controls.</code> The default is 1024 kilobytes.</dd>
+<dd>Controls size limite of the monitoring facility’s Most Recently Used (MRU) list of client addresses, which is also used by the rate control facility.</dd>
+</dl>
+<p> <code><strong>maxdepth <em>count</em></strong></code></p>
+<dl>
+<dt> <code><strong>maxmem <em>kilobytes</em></strong></code></dt>
+<dd>Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The acutal limit will be up to <code>incalloc</code> entries or <code>incmem</code> kilobytes larger. As with all of the <code>mru</code> options offered in units of entries or kilobytes, if both <code>maxdepth</code> and <code>maxmem</code> <code>are</code> <code>used,</code> <code>the</code> <code>last</code> <code>one</code> <code>used</code> <code>controls.</code> The default is 1024 kilobytes.</dd>
 <dt> <code><strong>mindepth <em>count</em></strong></code></dt>
-<dd> Lower limit on the MRU list size. When the MRU list has fewer than <code>mindepth</code> entries, existing entries are never removed to make room for newer ones, regardless of their age. The default is 600 entries.</dd>
+<dd>Lower limit on the MRU list size. When the MRU list has fewer than <code>mindepth</code> entries, existing entries are never removed to make room for newer ones, regardless of their age. The default is 600 entries.</dd>
 <dt> <code><strong>maxage <em>seconds</em></strong></code></dt>
-<dd> Once the MRU list has <code>mindepth</code> entries and an additional client is to ba added to the list, if the oldest entry was updated more than <code>maxage</code> seconds ago, that entry is removed and its storage is reused. If the oldest entry was updated more recently the MRU list is grown, subject to <code>maxdepth</code> <code>/</code> <code>moxmem</code>. The default is 64 seconds.</dd>
-<dt> <code><strong>initalloc <em>count</em></strong></code></dt>
-<dd> <code><strong>initmem <em>kilobytes</em></strong></code></dd>
-<dd> Initial memory allocation at the time the monitoringfacility is first enabled, in terms of the number of entries or kilobytes. The default is 4 kilobytes.</dd>
-<dt> <code><strong>incalloc <em>count</em></strong></code></dt>
-<dd> <code><strong>incmem <em>kilobytes</em></strong></code></dd>
-<dd> Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.</dd>
+<dd>Once the MRU list has <code>mindepth</code> entries and an additional client is to ba added to the list, if the oldest entry was updated more than <code>maxage</code> seconds ago, that entry is removed and its storage is reused. If the oldest entry was updated more recently the MRU list is grown, subject to <code>maxdepth</code> <code>/</code> <code>moxmem</code>. The default is 64 seconds.</dd>
+</dl>
+<p> <code><strong>initalloc <em>count</em></strong></code></p>
+<dl>
+<dt> <code><strong>initmem <em>kilobytes</em></strong></code></dt>
+<dd>Initial memory allocation at the time the monitoringfacility is first enabled, in terms of the number of entries or kilobytes. The default is 4 kilobytes.</dd>
+</dl>
+<p> <code><strong>incalloc <em>count</em></strong></code></p>
+<dl>
+<dt> <code><strong>incmem <em>kilobytes</em></strong></code></dt>
+<dd>Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.</dd>
 <dt><code><strong>nonvolatile <em>threshold</em></strong></code></dt>
 <dd>Specify the <code>threshold</code> delta in seconds before an hourly change to the <code>driftfile</code> (frequency file) will be written, with a default value of 1e-7 (0.1 PPM). The frequency file is inspected each hour. If the difference between the current frequency and the last value written exceeds the threshold, the file is written and the <code>threshold</code> becomes the new threshold value. If the threshold is not exceeeded, it is reduced by half. This is intended to reduce the number of file writes for embedded systems with nonvolatile memory.</dd>
 <dt><code><strong>phone <em>dial</em> <em>&hellip;</em></strong></code></dt>
@@ -748,11 +748,11 @@ function demo() {
 <dd>Reset one or more groups of counters maintained by <code>ntpd</code> and exposed by <code>ntpq</code> and <code>ntpdc</code>.</dd>
 <dt><code><strong>rlimit [memlock <em>Nmegabytes</em> | stacksize <em>N4kPages</em> filenum <em>Nfiledescriptors</em>]</strong></code></dt>
 <dd> <code><strong>memlock <em>Nmegabytes</em></strong></code></dd>
-<dd> Specify the number of megabytes of memory that should be allocated and locked. Probably only available under Linux, this option may be useful when dropping root (the <code>-i</code> option). The default is 32 megabytes on non-Linux machines, and -1 under Linux. -1 means &ldquo;do not lock the process into memory&rdquo;. 0 means &ldquo;lock whatever memory the process wants into memory&rdquo;.</dd>
+<dd>Specify the number of megabytes of memory that should be allocated and locked. Probably only available under Linux, this option may be useful when dropping root (the <code>-i</code> option). The default is 32 megabytes on non-Linux machines, and -1 under Linux. -1 means &ldquo;do not lock the process into memory&rdquo;. 0 means &ldquo;lock whatever memory the process wants into memory&rdquo;.</dd>
 <dt> <code><strong>stacksize <em>N4kPages</em></strong></code></dt>
-<dd> Specifies the maximum size of the process stack on systems with the <code>mlockall()</code> function. Defaults to 50 4k pages (200 4k pages in OpenBSD).</dd>
+<dd>Specifies the maximum size of the process stack on systems with the <code>mlockall()</code> function. Defaults to 50 4k pages (200 4k pages in OpenBSD).</dd>
 <dt> <code><strong>filenum <em>Nfiledescriptors</em></strong></code></dt>
-<dd> Specifies the maximum number of file descriptors ntpd may have open at once. Defaults to the system default.</dd>
+<dd>Specifies the maximum number of file descriptors ntpd may have open at once. Defaults to the system default.</dd>
 <dt><code><strong>saveconfigdir <em>directory_path</em></strong></code></dt>
 <dd>Specify the directory in which to write configuration snapshots requested with <code>ntpq</code> ’s <code>saveconfig</code> command. If <code>saveconfigdir</code> does not appear in the configuration file, <code>saveconfig</code> requests are rejected by <code>ntpd</code>.</dd>
 <dt><code><strong>saveconfig <em>filename</em></strong></code></dt>
@@ -769,23 +769,23 @@ function demo() {
 <p>The variables operate as follows:</p>
 <dl>
 <dt> <code><strong>allan <em>allan</em></strong></code></dt>
-<dd> The argument becomes the new value for the minimum Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm. The value in log2 seconds defaults to 7 (1024 s), which is also the lower limit.</dd>
+<dd>The argument becomes the new value for the minimum Allan intercept, which is a parameter of the PLL/FLL clock discipline algorithm. The value in log2 seconds defaults to 7 (1024 s), which is also the lower limit.</dd>
 <dt> <code><strong>dispersion <em>dispersion</em></strong></code></dt>
-<dd> The argument becomes the new value for the dispersion increase rate, normally .000015 s/s.</dd>
+<dd>The argument becomes the new value for the dispersion increase rate, normally .000015 s/s.</dd>
 <dt> <code><strong>freq <em>freq</em></strong></code></dt>
-<dd> The argument becomes the initial value of the frequency offset in parts-per-million. This overrides the value in the frequency file, if present, and avoids the initial training state if it is not.</dd>
+<dd>The argument becomes the initial value of the frequency offset in parts-per-million. This overrides the value in the frequency file, if present, and avoids the initial training state if it is not.</dd>
 <dt> <code><strong>huffpuff <em>huffpuff</em></strong></code></dt>
-<dd> The argument becomes the new value for the experimental huff-n’-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 m), but a more reasonable value is 7200 (2 hours). There is no default, since the filter is not enabled unless this command is given.</dd>
+<dd>The argument becomes the new value for the experimental huff-n’-puff filter span, which determines the most recent interval the algorithm will search for a minimum delay. The lower limit is 900 s (15 m), but a more reasonable value is 7200 (2 hours). There is no default, since the filter is not enabled unless this command is given.</dd>
 <dt> <code><strong>panic <em>panic</em></strong></code></dt>
-<dd> The argument is the panic threshold, normally 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.</dd>
+<dd>The argument is the panic threshold, normally 1000 s. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.</dd>
 <dt> <code><strong>step <em>step</em></strong></code></dt>
-<dd> The argument is the step threshold, which by default is 0.128 s. It can be set to any positive number in seconds. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than the default.</dd>
+<dd>The argument is the step threshold, which by default is 0.128 s. It can be set to any positive number in seconds. If set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if the step threshold is set to zero or greater than the default.</dd>
 <dt> <code><strong>stepback <em>stepback</em></strong></code></dt>
-<dd> The argument is the step threshold for the backward direction, which by default is 0.128 s. It can be set to any positive number in seconds. If both the forward and backward step thresholds are set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if each direction of step threshold are either set to zero or greater than .5 second.</dd>
+<dd>The argument is the step threshold for the backward direction, which by default is 0.128 s. It can be set to any positive number in seconds. If both the forward and backward step thresholds are set to zero, step adjustments will never occur. Note: The kernel time discipline is disabled if each direction of step threshold are either set to zero or greater than .5 second.</dd>
 <dt> <code><strong>stepfwd <em>stepfwd</em></strong></code></dt>
-<dd> As for stepback, but for the forward direction.</dd>
+<dd>As for stepback, but for the forward direction.</dd>
 <dt> <code><strong>stepout <em>stepout</em></strong></code></dt>
-<dd> The argument is the stepout timeout, which by default is 900 s. It can be set to any positive number in seconds. If set to zero, the stepout pulses will not be suppressed.</dd>
+<dd>The argument is the stepout timeout, which by default is 900 s. It can be set to any positive number in seconds. If set to zero, the stepout pulses will not be suppressed.</dd>
 <dt><code><strong>writevar <em>assocID\ name</em> <em>=</em> <em>value</em> <em>[,&hellip;]</em></strong></code></dt>
 <dd>Write (create or update) the specified variables. If the <code>assocID</code> is zero, the variablea re from the system variables name space, otherwise they are from the peer variables name space. The <code>assocID</code> is required, as the same name can occur in both name spaces.</dd>
 <dt><code><strong>trap <em>host_address</em> [port <em>port_number</em>] [interface <em>interface_address</em>]</strong></code></dt>
