@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/keygen/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-11-23T17:49:36&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-22T16:20:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>ntp-keygen - generate public and private keys</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 23, 2022 17:49 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1b4d24aef65c630791ad0f89d6c09ec258781c2c">1b4d24aef</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 22, 2023 16:20 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/4747640e38fcbfb65ece47fd27db6d536e7baaba">4747640e3</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice23.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
@@ -190,7 +190,7 @@ function demo() {
 <dl>
 <dt><code><strong>-b <em>modulus</em></strong></code></dt>
 <dd>
-<p>Set the modulus for generating identity keys to <em>modulus</em> bits. The modulus defaults to 256, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
+<p>Set the modulus for generating identity keys to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
 </dd>
 <dt><code><strong>-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]</strong></code></dt>
 <dd>
@@ -230,10 +230,10 @@ function demo() {
 </dd>
 <dt><code><strong>-m <em>modulus</em></strong></code></dt>
 <dd>
-<p>Set the modulus for generating files to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 256 (32 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
+<p>Set the modulus for generating files to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
 </dd>
 </dl>
-<p><coe><strong>-M</strong></code></p>
+<p><code><strong>-M</strong></code></p>
 <p>Generate a new keys file containing 10 MD5 keys and 10 SHA keys. An MD5 key is a string of 20 random printable ASCII characters, while a SHA key is a string of 40 random hex digits. The file can be edited using a text editor to change the key type or key content. This option is mutually exclusive with all other options.</p>
 <dl>
 <dt><code><strong>-P</strong></code></dt>
