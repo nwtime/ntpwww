@@ -93,7 +93,7 @@ Unless noted otherwise, further information about these commands is on the [Asso
 : Send and receive packets authenticated by the symmetric key scheme described in the [Authentication Support](/documentation/4.2.8-series/authentic/) page. The _<code>key</code>_ specifies the key identifier with values from 1 to 65535, inclusive. This option is mutually exclusive with the <code>autokey</code> option.
 
 <code>**minpoll _minpoll_**</code>
-:<code>**maxpoll _maxpoll_**</code>
+: <code>**maxpoll _maxpoll_**</code>
 
 : These options specify the minimum and maximum poll intervals for NTP messages, in seconds as a power of two. The maximum poll interval defaults to 10 (1024 s), but can be increased by the <code>maxpoll</code> option to an upper limit of 17 (36 hr). The minimum poll interval defaults to 6 (64 s), but can be decreased by the <code>minpoll</code> option to a lower limit of 3 (8 s). Additional information about this option is on the [Poll Program](/documentation/4.2.8-series/poll/) page.
 
