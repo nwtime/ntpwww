@@ -41,132 +41,100 @@ The <code>ntpd</code> program normally operates continuously while adjusting the
 #### Command Line Options
 
 <code>**-4**</code>
-
 : Force DNS resolution of host names to the IPv4 namespace.
 
 <code>**-6**</code>
-
 : Force DNS resolution of host names to the IPv6 namespace.
 
 <code>**-a**</code>
-
 : Require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is the same operation as the <code>enable auth</code> command and is the default.
 
 <code>**-A**</code>
-
 : Do not require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is the same operation as the <code>disable auth</code> command and almost never a good idea.
 
 <code>**-b**</code>
-
 : Enable the client to synchronize to broadcast servers.
 
 <code>**-c _conffile_**</code>
-
 : Specify the name and path of the configuration file. Without the option the default is <code>/etc/ntp.conf</code>.
 
 <code>**-d**</code>
-
 : Disable switching into daemon mode, so <code>ntpd</code> stays attached to the starting terminal which will get all the debugging printout. Also, <code>^C</code> will kill it. This option may occur more than once, with each occurrence indicating greater detail of display.
 
 <code>**-D _level_**</code>
-
 : Specify debugging level directly, with <code>level</code> corresponding to the number of <code>-d</code> options..
 
 <code>**-f _driftfile_**</code>
-
 : Specify the name and path of the frequency file. This is the same operation as the <code>driftfile _driftfile_</code> configuration command.
 
 <code>**-g**</code>
-
 : Normally, <code>ntpd</code> exits with a message to the system log if the offset exceeds the panic threshold, which is 1000 s by default. This option allows the time to be set to any value without restriction; however, this can happen only once. If the threshold is exceeded after that, <code>ntpd</code> will exit with a message to the system log. This option can be used with the <code>-q</code> and <code>-x</code> options. See the <code>tinker</code> command for other options.
 
 <code>**-i _jaildir_**</code>
-
 : Chroot the server to the directory _<code>jaildir</code>_. This option also implies that the server attempts to drop root privileges at startup (otherwise, chroot gives very little additional security), and it is only available if the OS supports to run the server without full root privileges. You may need to also specify a <code>-u</code> option.
 
 <code>**-I [_address_ | _interface name_]**</code>
-
 : Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file [interface](/documentation/4.2.8-series/miscopt/) command, which is more versatile.
 
 <code>**-k _keyfile_**</code>
-
 : Specify the name and path of the symmetric key file. This is the same operation as the <code>keys _keyfile_</code> command.
 
 <code>**-l _logfile_**</code>
-
 : Specify the name and path of the log file. The default is the system log file. This is the same operation as the <code>logfile _logfile_</code> command.
 
 <code>**-m**</code>
-
 : Once the system clock is synchronized, register with mDNS as an available server.
 
 <code>**-L**</code>
-
 : Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file [interface](/documentation/4.2.8-series/miscopt/) command, which is more versatile.
 
 <code>**-M**</code>
-
 : Raise scheduler precision to its maximum (1 ms) using <code>timeBeginPeriod</code>. (Windows only)
 
 <code>**-n**</code>
-
 : Don't fork.
 
 <code>**-N**</code>
-
 : To the extent permitted by the operating system, run the <code>ntpd</code> at the highest priority.
 
 <code>**-p _pidfile_**</code>
-
 : Specify the name and path of the file used to record the <code>ntpd</code> process ID. This is the same operation as the <code>pidfile _pidfile_</code> command.
 
 <code>**-P _priority_**</code>
-
 : To the extent permitted by the operating system, run the <code>ntpd</code> at the specified priority.
 
 <code>**-q**</code>
-
 : Exit the <code>ntpd</code> just after the first time the clock is set. This behavior mimics that of the <code>ntpdate</code> program, which is to be retired. The <code>-g</code> and <code>-x</code> options can be used with this option.
-
-> Note: The kernel time discipline is disabled with this option.
+: > Note: The kernel time discipline is disabled with this option.
 
 <code>**-r _broadcastdelay_**</code>
-
 : Specify the default propagation delay from the broadcast/multicast server to this client. This is necessary only if the delay cannot be computed automatically by the protocol.
 
 <code>**-s _statsdir_**</code>
-
 : Specify the directory path for files created by the statistics facility. This is the same operation as the <code>statsdir _statsdir_</code> command.
 
 <code>**-t _key_**</code>
-
 : Add a key number to the trusted key list. This option can occur more than once. This is the same operation as the <code>trustedkey _key_</code> command.
 
 <code>**-u _user[:group]_**</code>
-
 : Specify a user, and optionally a group, to switch to. This option is only available if the OS supports running the server without full root privileges. Currently, this option is supported under NetBSD (configure with <code>-\-enable-clockctl</code>) and Linux (configure with <code>-\-enable-linuxcaps</code>).
 
 <code>**-U _interface update interval_**</code>
-
 : Number of seconds to wait between interface list scans to pick up old and delete network interface. Set to 0 to disable dynamic interface list updating. The default is to scan every 5 minutes.
 
 <code>**-v _variable_**</code>
-: <code>**-V _variable_**</code>
-
+<code>**-V _variable_**</code>
 : Add a system variable listed by default.
 
 <code>**-x**</code>
-
 : Normally, the time is slewed if the offset is less than the step threshold, which is 128 ms by default, and stepped if above the threshold. This option sets the threshold to 600 s, which is well within the accuracy window to set the clock manually. Note: Since the slew rate of typical Unix kernels is limited to 0.5 ms/s, each second of adjustment requires an amortization interval of 2000 s. Thus, an adjustment as much as 600 s will take almost 14 days to complete. This option can be used with the <code>-g</code> and <code>-q</code> options. See the <code>tinker</code> command for other options.
 
-> Note: The kernel time discipline is disabled with this option.
+: > Note: The kernel time discipline is disabled with this option.
 
 <code>**-\-pccfreq _frequency_**</code>
-
 : Substitute processor cycle counter for QueryPerformanceCounter unconditionally using the given frequency (in Hz). <code>-\-pccfreq</code> can be used on systems which do not use the PCC to implement QueryPerformanceCounter and have a fixed PCC frequency. The frequency specified must be accurate within 0.5 percent. <code>-\-usepcc</code> is equivalent on many systems and should be tried first, as it does not require determining the frequency of the processor cycle counter. For x86-compatible processors, the PCC is also referred to as <code>RDTSC</code>, which is the assembly-language instruction to retrieve the current value.  (Windows only)
 
 <code>**-\-usepcc**</code>
-
 : Substitute processor cycle counter for QueryPerformanceCounter if they appear equivalent. This option should be used only if the PCC frequency is fixed. Power-saving functionality on many laptops varies the PCC frequency. (Windows only)
 
 * * *

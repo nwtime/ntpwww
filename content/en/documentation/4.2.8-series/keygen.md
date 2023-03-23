@@ -65,83 +65,63 @@ Additional information on trusted groups and identity schemes is on the [Autokey
 #### Command Line Options
 
 <code>**-b _modulus_**</code>
-
 : Set the modulus for generating identity keys to _modulus_ bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.
 
 <code>**-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]**</code>
-
 : Select certificate digital signature and message digest scheme. Note that RSA schemes must be used with an RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <code>RSA-MD5</code>. If compatibility with FIPS 140-2 is required, either the <code>DSA-SHA</code> or <code>DSA-SHA1</code> scheme must be used.
 
 <code>**-C _cipher_**</code>
-
 : Select the OpenSSL cipher to use for password-protected keys. The <code>openssl -h</code> command provided with OpenSSL displays available ciphers. The default without this option is <code>des-ede3-cbc</code>.
 
 <code>**-d**</code>
-
 : Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.
 
 <code>**-e**</code>
-
 : Extract the IFF or GQ public parameters from the <code>IFFkey</code> or <code>GQkey</code> keys file previously specified. Send the unencrypted data to the standard output stream <code>stdout</code>.
 
 <code>**-G**</code>
-
 : Generate a new encrypted GQ key file for the Guillou-Quisquater (GQ) identity scheme. This option is mutually exclusive with the <code>-I</code> and <code>-V</code> options.
 
 <code>**-H**</code>
-
 : Generate a new encrypted RSA public/private host key file.
 
 <code>**-i _group_**</code>
-
 : Set the optional Autokey group name to <code>_group_</code>. This is used in the identity scheme parameter file names. In that role, the default is the host name if no group is provided. The group name, if specified using <code>-i</code> or using <code>-s</code> following an <code>@</code> character, is also used in certificate subject and issuer names in the form <code>_host_@_group_</code> and should match the group specified via <code>crypto ident</code> or <code>server ident</code> in <code>ntpd</code>'s configuration file.
 
 <code>**-I**</code>
-
 : Generate a new encrypted IFF key file for the Schnorr (IFF) identity scheme. This option is mutually exclusive with the <code>-G</code> and <code>-V</code> options.
 
 <code>**-l _days_**</code>
-
 : Set the lifetime for certificates to <code>_days_</code>. The default lifetime is one year (365 d).
 
 <code>**-m _modulus_**</code>
-
 : Set the modulus for generating files to _modulus_ bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.
 
 <code>**-M**</code>
-
 Generate a new keys file containing 10 MD5 keys and 10 SHA keys. An MD5 key is a string of 20 random printable ASCII characters, while a SHA key is a string of 40 random hex digits. The file can be edited using a text editor to change the key type or key content. This option is mutually exclusive with all other options.
 
 <code>**-P**</code>
-
 : Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates.
-> Note: the PC identity scheme is not recommended for new installations.
+: > Note: the PC identity scheme is not recommended for new installations.
 
 <code>**-p _passwd_**</code>
-
 : Set the password for reading and writing encrypted files to <code>_passwd_</code>. These include the host, sign and identify key files. By default, the password is the string returned by the Unix <code>gethostname()</code> routine.
 
 <code>**-q _passwd_**</code>
-
 : Set the password for writing encrypted IFF, GQ and MV identity files redirected to <code>stdout</code> to <code>_passwd_=</code>. In effect, these files are decrypted with the <code>-p</code> password, then encrypted with the <code>-q</code> password. By default, the password is the string returned by the Unix <code>gethostname()</code> routine.
 
 <code>**-S [ RSA | DSA ]**</code>
-
 : Generate a new encrypted public/private sign key file of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <code>DSA</code>.
 
 <code>**-s _host_[@_group_]**</code>
-
 : Specify the Autokey host name, where <code>_host_</code> is the host name and <code>_group_</code> is the optional group name. The host name, and if provided, group name are used in <code>_host_@_group_</code> form as certificate subject and issuer. Specifying <code>-s @_group_</code> is allowed, and results in leaving the host name unchanged, as with <code>-i _group_</code>. The group name, or if no group is provided, the host name are also used in the file names of IFF, GQ, and MV identity scheme parameter files. If <code>_host_</code> is not specified, the default host name is the string returned by the <code>gethostname()</code> routine.
 
 <code>**-T**</code>
-
 : Generate a trusted certificate. By default, the program generates nontrusted certificates.
 
 <code>**-V _nkeys_**</code>
-
 : Generate <code>nkeys</code> encrypted server keys for the Mu-Varadharajan (MV) identity scheme. This option is mutually exclusive with the <code>-I</code> and <code>-G</code> options.
-
-> Note: support for this option should be considered a work in progress.
+: > Note: support for this option should be considered a work in progress.
 
 * * *
 
