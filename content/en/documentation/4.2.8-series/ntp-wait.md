@@ -21,13 +21,10 @@ The `ntp-wait` program blocks until `ntpd` is in synchronized state. This can be
 #### Command Line Options
 
 <code>**-n _tries_**</code>
-
 : Number of tries before giving up. The default is 1000.
 
 <code>**-s _seconds_**</code>
-
 : Seconds to sleep between tries. The default is 6 seconds.
 
 <code>**-v**</code>
-
 : Be verbose.

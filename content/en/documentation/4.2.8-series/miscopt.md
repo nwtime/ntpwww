@@ -32,8 +32,7 @@ We have three, now looking for more.
 : This command specifies the Differentiated Services Code Point (DSCP) value that is used in sent NTP packets. The default value is 46 for Expedited Forwarding (EF).
 
 <code>**enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
-: <code>**disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
-
+<code>**disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
 : Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using [<code>ntpq</code>](/documentation/4.2.8-series/ntpq/) utility program's <code>:config</code> and <code>config-from-file</code> commands.
 
 &emsp;<code>auth</code>
@@ -113,7 +112,6 @@ We have three, now looking for more.
 : Controls size limits of the monitoring facility Most Recently Used [(MRU) list](/documentation/4.2.8-series/ntpq/#control-message-commands) of client addresses, which is also used by the [rate control facility](/documentation/4.2.8-series/accopt/).
 
 &emsp;<code>maxdepth _count_</code>  
-
 &emsp;<code>maxmem _kilobytes_</code>
 : Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The actual limit will be up to <code>incalloc</code> entries or <code>incmem</code> kilobytes larger. As with all of the <code>mru</code> options offered in units of entries or kilobytes, if both <code>maxdepth</code> and <code>maxmem</code> are used, the last one used controls. The default is 1024 kilobytes.
 
@@ -124,12 +122,10 @@ We have three, now looking for more.
 : Once the MRU list has <code>mindepth</code> entries and an additional client address is to be added to the list, if the oldest entry was updated more than <code>maxage</code> seconds ago, that entry is removed and its storage reused. If the oldest entry was updated more recently, the MRU list is grown, subject to <code>maxdepth</code>/<code>maxmem</code>. The default is 64 seconds.
 
 &emsp;<code>initalloc _count_</code> 
-
 &emsp;<code>initmem _kilobytes_</code>
 : Initial memory allocation at the time the monitoring facility is first enabled, in terms of entries or kilobytes. The default is 4 kilobytes.
 
 &emsp;<code>incalloc _count_</code>  
-
 &emsp;<code>incmem _kilobytes_</code>
 : Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.
 
@@ -197,7 +193,7 @@ We have three, now looking for more.
 
 : The default value is derived from the repository or build time stamp, minus 11 days. 1970-01-02 was chosen as lower bound so the _local_ time is always after 1970-01-01,00:00. Some systems get into trouble if this is not the case.
 
-> &emsp;**ATTENTION:** If the system clock is before the effective (implied or specific) basedate, the system clock will be set to the base date once and immediately when <code>ntpd</code> starts. This helps systems that have lost time completely to recover. Though not noticeable under normal conditions, it _can_ happen. Check the logs if starting <code>ntpd</code> causes sudden clock moves.
+: > &emsp;**ATTENTION:** If the system clock is before the effective (implied or specific) basedate, the system clock will be set to the base date once and immediately when <code>ntpd</code> starts. This helps systems that have lost time completely to recover. Though not noticeable under normal conditions, it _can_ happen. Check the logs if starting <code>ntpd</code> causes sudden clock moves.
 
 &emsp;<code>bcpollbstep _poll-gate_</code>
 : This option will cause the client to delay believing backward time steps from a broadcast server for <code>bcpollbstep</code> poll intervals. NTP Broadcast networks are expected to be trusted, and if the server's time gets stepped backwards then it's desireable that the clients follow this change as soon as possible. However, in spite of various protections built-in to the broadcast protocol, it is possible that an attacker could perform a carefully-constructed replay attack and cause clients to erroneously step their clocks backward. If the risk of a successful broadcast replay attack is greater than the risk of the clients being out of sync in the event that there is a backward step on the broadcast time servers, this option may be used to cause the clients to delay beliveving backward time steps until _poll-gate_ consecutive polls have been received. The default is 0, which means the client will accept these steps upon receipt. Any value from 0 to 4 can be specified.

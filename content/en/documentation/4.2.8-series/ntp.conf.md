@@ -69,16 +69,11 @@ If the Basic Socket Interface Extensions for IPv6 (RFC 2553) is detected, suppor
 Note that in contexts where a host name is expected, a `-4` qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a `-6` qualifier forces DNS resolution to the IPv6 namespace. See IPv6 references for the equivalent classes for that address family.
 
 <code>**dpool _address_ [burst] [iburst] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [xmtnonce]**</code>
-
 <code>**server _address_ [key _key_ _|_ autokey] [burst] [iburst] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [true] [xmtnonce]**</code>
-
 <code>**peer _address_ [key _key_ _|_ autokey] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [true] [xleave]**</code>
-
 <code>**broadcast _address_ [key _key_ _|_ autokey] [version _version_] [prefer] [minpoll _minpoll_] [ttl _ttl_] [xleave]**</code>
-
 <code>**manycastclient _address_ [key _key_ _|_ autokey] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [ttl _ttl_]**</code>
-
-These five commands specify the time server name or address to be used and the mode in which to operate. The `address` can be either a DNS name or an IP address in dotted-quad notation. Additional information on association behavior can be found in [Association Management](/documentation/4.2.8-series/assoc/).
+: These five commands specify the time server name or address to be used and the mode in which to operate. The `address` can be either a DNS name or an IP address in dotted-quad notation. Additional information on association behavior can be found in [Association Management](/documentation/4.2.8-series/assoc/).
 
 <code>**pool**</code>
 : For type s addresses, this command mobilizes a persistent client mode association with a number of remote servers. In this mode the local clock can synchronized to the remote server, but the remote server can never be synchronized to the local clock.
@@ -110,9 +105,7 @@ These five commands specify the time server name or address to be used and the m
 : All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified `key` identifier with values from 1 to 65535, inclusive. The default is to include no encryption field.
 
 <code>**minpoll _minpoll_**</code>
-
 <code>**maxpoll _maxpoll_**</code>
-
 : These options specify the minimum and maximum poll intervals for NTP messages, as a power of 2 in seconds The maximum poll interval defaults to 10 (1,024 s), but can be increased by the `maxpoll` option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the `minpoll` option to a lower limit of 4 (16 s).
 
 <code>**noselect**</code>
@@ -624,7 +617,6 @@ The stratum number of a reference clock is by default zero. Since the [`ntpd`](/
 : Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.
 
 &emsp;<code>**minpoll _int_**</code>
-
 &emsp;<code>**maxpoll _int_**</code>
 : These options specify the minimum and maximum polling interval for reference clock messages, as a power of 2 in seconds For most directly connected reference clocks, both `minpoll` and `maxpoll` default to 6 (64 s). For modem reference clocks, `minpoll` defaults to 10 (17.1 m) and `maxpoll` defaults to 14 (4.5 h). The allowable range is 4 (16 s) to 17 (36.4 h) inclusive.
 
@@ -647,11 +639,8 @@ The stratum number of a reference clock is by default zero. Since the [`ntpd`](/
 : Specifies a mode number which is interpreted in a device-specific fashion. For instance, it selects a dialing protocol in the ACTS driver and a device subtype in the parse drivers.
 
 &emsp;<code>**flag1 0 | 1**</code>
-
 &emsp;<code>**flag2 0 | 1**</code>
-
 &emsp;<code>**flag3 0 | 1**</code>
-
 &emsp;<code>**flag4 0 | 1**</code>
 : These four flags are used for customizing the clock driver. The interpretation of these values, and whether they are used at all, is a function of the particular clock driver. However, by convention `flag4` is used to enable recording monitoring data to the `clockstats` file configured with the `filegen` command. Further information on the `filegen` command can be found in [Monitoring Options](/documentation/4.2.8-series/monopt/).
 
@@ -673,7 +662,6 @@ The stratum number of a reference clock is by default zero. Since the [`ntpd`](/
 : This option specifies the Differentiated Services Control Point (DSCP) value, a 6-bit code. The default value is 46, signifying Expedited Forwarding.
 
 <code>**enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
-
 <code>**disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | peer_clear_digest_early | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]**</code>
 : Provides a way to enable or disable various server options. Flags not mentioned are unaffected. Note that all of these flags can be controlled remotely using the [`ntpdc`](/documentation/4.2.8-series/ntpdc/) utility program.
 
@@ -745,7 +733,6 @@ This configuration will list all clock information and synchronization informati
 : Controls size limite of the monitoring facility’s Most Recently Used (MRU) list of client addresses, which is also used by the rate control facility.
 
 &emsp;<code>**maxdepth _count_**</code>
-
 &emsp;<code>**maxmem _kilobytes_**</code>
 : Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The acutal limit will be up to `incalloc` entries or `incmem` kilobytes larger. As with all of the `mru` options offered in units of entries or kilobytes, if both `maxdepth` and `maxmem` `are` `used,` `the` `last` `one` `used` `controls.` The default is 1024 kilobytes.
 
@@ -756,12 +743,10 @@ This configuration will list all clock information and synchronization informati
 : Once the MRU list has `mindepth` entries and an additional client is to ba added to the list, if the oldest entry was updated more than `maxage` seconds ago, that entry is removed and its storage is reused. If the oldest entry was updated more recently the MRU list is grown, subject to `maxdepth` `/` `moxmem`. The default is 64 seconds.
 
 &emsp;<code>**initalloc _count_**</code>
-
 &emsp;<code>**initmem _kilobytes_**</code>
 : Initial memory allocation at the time the monitoringfacility is first enabled, in terms of the number of entries or kilobytes. The default is 4 kilobytes.
 
 &emsp;<code>**incalloc _count_**</code>
-
 &emsp;<code>**incmem _kilobytes_**</code>
 : Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.
 
