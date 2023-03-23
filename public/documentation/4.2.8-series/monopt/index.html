@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/monopt/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-11-23T17:49:36&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-23T21:05:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Monitoring Options</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 23, 2022 17:49 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1b4d24aef65c630791ad0f89d6c09ec258781c2c">1b4d24aef</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 23, 2023 21:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6ad51a76fca51293c00a6b47090bb4a18efcaa06">6ad51a76f</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/pogo8.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
@@ -168,90 +168,58 @@ function demo() {
 <p>File sets have names specific to the type and generation epoch. The names are constructed from three concatenated elements <em><code>prefix</code></em>, <em><code>filename</code></em> and <em><code>suffix</code></em>:</p>
 <dl>
 <dt><code><strong><em>prefix</em></strong></code></dt>
-<dd>
-<p>The directory path specified in the <code>statsdir</code> command.</p>
-</dd>
+<dd>The directory path specified in the <code>statsdir</code> command.</dd>
 <dt><code><strong><em>name</em></strong></code></dt>
-<dd>
-<p>The name specified by the <code>file</code> option of the <code>filegen</code> command.</p>
-</dd>
+<dd>The name specified by the <code>file</code> option of the <code>filegen</code> command.</dd>
 <dt><code><strong><em>suffix</em></strong></code></dt>
-<dd>
-<p>A string of elements beginning with . (dot) followed by a number of elements depending on the file set type.</p>
-</dd>
+<dd>A string of elements beginning with . (dot) followed by a number of elements depending on the file set type.</dd>
 </dl>
 <p>Statistics files can be managed using scripts, examples of which are in the <code>./scripts</code> directory. Using these or similar scripts and Unix <code>cron</code> jobs, the files can be automatically summarized and archived for retrospective analysis.</p>
 <hr>
 <h4 id="monitoring-commands-and-options">Monitoring Commands and Options</h4>
 <p>Unless noted otherwise, further information about these commands is on the <a href="https://www.ntp.org/documentation/4.2.8-series/decode/">Event Messages and Status Codes</a> page.</p>
+<p><code><strong>filegen <em>name</em> [file <em>filename</em>] [type <em>type</em>] [link | nolink] [enable | disable] <em>name</em></strong></code></p>
 <dl>
-<dt><code><strong>filegen <em>name</em> [file <em>filename</em>] [type <em>type</em>] [link | nolink] [enable | disable] <em>name</em></strong></code></dt>
-<dd>
-<p>Specifies the file set type from the list in the next section.</p>
-</dd>
-<dt><code><strong>file <em>filename</em></strong></code></dt>
-<dd>
-<p>Specifies the filename prefix. The default is the file set type, such as <code>loopstats</code>.</p>
-</dd>
-<dt><code><strong>type <em>typename</em></strong></code></dt>
-<dd>
-<p>Specifies the file set interval. The following intervals are supported with default <code>day</code>:</p>
-</dd>
-<dt><code>none</code></dt>
-<dd>
-<p>The file set is actually a single plain file.</p>
-</dd>
-<dt><code>pid</code></dt>
-<dd>
-<p>One file set member is created for every incarnation of <code>ntpd</code>. The file name suffix is the string .<code>n</code>, where <code>n</code> is the process ID of the <code>ntpd</code> server process.</p>
-</dd>
-<dt><code>day</code></dt>
-<dd>
-<p>One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<code>yyyymmdd</code>, where <code>yyyy</code> is the year, <code>mm</code> the month of the year and <code>dd</code> the day of the month. Thus, member created on 10 December 1992 would have suffix <code>.19921210</code>.</p>
-</dd>
-<dt><code>week</code></dt>
-<dd>
-<p>One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<code>yyyyWww</code>, where <code>yyyy</code> is the year, <code>W</code> stands for itself and <code>ww</code> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <code>.1992W1</code>.</p>
-</dd>
-<dt><code>month</code></dt>
-<dd>
-<p>One file set member is created per month. The file name suffix is the string .<code>yyyymm</code>, where <code>yyyy</code> is the year and <code>mm</code> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <code>.199201</code>.</p>
-</dd>
-<dt><code>year</code></dt>
-<dd>
-<p>One file set member is generated per year. The file name suffix is the string .<code>yyyy</code>, where <code>yyyy</code> is the year. For example, The member created on 1 January 1992 would have suffix <code>.1992</code>.</p>
-</dd>
-<dt><code>age</code></dt>
-<dd>
-<p>One file set member is generated every 24 hours of <code>ntpd</code> operation. The filename suffix is the string <code>.adddddddd</code>, where <code>a</code> stands for itself and <code>dddddddd</code> is the <code>ntpd</code> running time in seconds at the start of the corresponding 24-hour period.</p>
-</dd>
-<dt><code><strong>link | nolink</strong></code></dt>
-<dd>
-<p>It is convenient to be able to access the current file set members by file name, but without the suffix. This feature is enabled by <code>link</code> and disabled by <code>nolink</code>. If enabled, which is the default, a hard link from the current file set member to a file without suffix is created. When there is already a file with this name and the number of links to this file is one, it is renamed by appending a dot, the letter <code>C</code>, and the pid of the <code>ntpd</code> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</p>
-</dd>
-<dt><code><strong>enable | disable</strong></code></dt>
-<dd>
-<p>Enable or disable the recording function, with default <code>enable</code>. These options are intended for remote configuration commands.</p>
-</dd>
+<dt> <code><strong><em>name</em></strong></code></dt>
+<dd>Specifies the file set type from the list in the next section.</dd>
+<dt> <code><strong>file <em>filename</em></strong></code></dt>
+<dd>Specifies the filename prefix. The default is the file set type, such as <code>loopstats</code>.</dd>
+<dt> <code><strong>type <em>typename</em></strong></code></dt>
+<dd>Specifies the file set interval. The following intervals are supported with default <code>day</code>:</dd>
+<dt>  <code>none</code></dt>
+<dd> The file set is actually a single plain file.</dd>
+<dt>  <code>pid</code></dt>
+<dd> One file set member is created for every incarnation of <code>ntpd</code>. The file name suffix is the string .<code>n</code>, where <code>n</code> is the process ID of the <code>ntpd</code> server process.</dd>
+<dt>  <code>day</code></dt>
+<dd> One file set member is created per day. A day is defined as the period between 00:00 and 23:59 UTC. The file name suffix is the string .<code>yyyymmdd</code>, where <code>yyyy</code> is the year, <code>mm</code> the month of the year and <code>dd</code> the day of the month. Thus, member created on 10 December 1992 would have suffix <code>.19921210</code>.</dd>
+<dt>  <code>week</code></dt>
+<dd> One file set member is created per week. The week is defined as the day of year modulo 7. The file name suffix is the string .<code>yyyyWww</code>, where <code>yyyy</code> is the year, <code>W</code> stands for itself and <code>ww</code> the week number starting from 0. For example, The member created on 10 January 1992 would have suffix <code>.1992W1</code>.</dd>
+</dl>
+<p>  <code>month</code>
+  One file set member is created per month. The file name suffix is the string .<code>yyyymm</code>, where <code>yyyy</code> is the year and <code>mm</code> the month of the year starting from 1. For example, The member created on 10 January 1992 would have suffix <code>.199201</code>.</p>
+<dl>
+<dt>  <code>year</code></dt>
+<dd> One file set member is generated per year. The file name suffix is the string .<code>yyyy</code>, where <code>yyyy</code> is the year. For example, The member created on 1 January 1992 would have suffix <code>.1992</code>.</dd>
+<dt>  <code>age</code></dt>
+<dd> One file set member is generated every 24 hours of <code>ntpd</code> operation. The filename suffix is the string <code>.adddddddd</code>, where <code>a</code> stands for itself and <code>dddddddd</code> is the <code>ntpd</code> running time in seconds at the start of the corresponding 24-hour period.</dd>
+<dt> <code><strong>link | nolink</strong></code></dt>
+<dd>It is convenient to be able to access the current file set members by file name, but without the suffix. This feature is enabled by <code>link</code> and disabled by <code>nolink</code>. If enabled, which is the default, a hard link from the current file set member to a file without suffix is created. When there is already a file with this name and the number of links to this file is one, it is renamed by appending a dot, the letter <code>C</code>, and the pid of the <code>ntpd</code> server process. When the number of links is greater than one, the file is unlinked. This allows the current file to be accessed by a constant name.</dd>
+<dt> <code><strong>enable | disable</strong></code></dt>
+<dd>Enable or disable the recording function, with default <code>enable</code>. These options are intended for remote configuration commands.</dd>
 <dt><code><strong>statistics <em>name</em>&hellip;</strong></code></dt>
-<dd>
-<p>Enables writing of statistics records. Currently, eight kinds of statistics are supported: <em>names</em> specify the file set type(s) from the list in the next section.</p>
-</dd>
+<dd>Enables writing of statistics records. Currently, eight kinds of statistics are supported: <em>names</em> specify the file set type(s) from the list in the next section.</dd>
 <dt><code><strong>statsdir <em>directory_path</em></strong></code></dt>
-<dd>
-<p>Specify the directory path prefix for statistics file names.</p>
-</dd>
+<dd>Specify the directory path prefix for statistics file names.</dd>
 </dl>
 <hr>
 <h4 id="file-set-types">File Set Types</h4>
 <dl>
 <dt><code><strong>clockstats</strong></code></dt>
+<dd>Record reference clock statistics. Each update received from a reference clock driver appends one line to the <code>clockstats</code> file set:</dd>
 <dd>
-<p>Record reference clock statistics. Each update received from a reference clock driver appends one line to the <code>clockstats</code> file set:</p>
-</dd>
-</dl>
 <p><code>49213 525.624 127.127.4.1 93 226 00:08:29.606 D</code></p>
-<table>
+</dd>
+<dd><table>
 <thead>
 <tr>
 <th>Item</th>
@@ -282,14 +250,16 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<p>The <code><em>message</em></code> field includes the last timecode received in decoded ASCII format, where meaningful. In some cases a good deal of additional information is displayed. See information specific to each reference clock for further details.</p>
-<dl>
-<dt><code><strong>cryptostats</strong></code></dt>
-<dd>
-<p>Record significant events in the Autokey protocol. This option requires the OpenSSL cryptographic software library. Each event appends one line to the <code>cryptostats</code> file set:</p>
 </dd>
-</dl>
+<dd>
+<p>The <code><em>message</em></code> field includes the last timecode received in decoded ASCII format, where meaningful. In some cases a good deal of additional information is displayed. See information specific to each reference clock for further details.</p>
+</dd>
+<dt><code><strong>cryptostats</strong></code></dt>
+<dd>Record significant events in the Autokey protocol. This option requires the OpenSSL cryptographic software library. Each event appends one line to the <code>cryptostats</code> file set:</dd>
+<dd>
 <p><code>49213 525.624 128.4.1.1 <em>message</em></code></p>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -321,14 +291,16 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<p>The <code><em>message</em></code> field includes the message type and certain ancillary information. See the <a href="https://www.ntp.org/documentation/4.2.8-series/authopt/">Authentication Options</a> page for further information.</p>
-<dl>
-<dt><code><strong>loopstats</strong></code></dt>
-<dd>
-<p>Record clock discipline loop statistics. Each system clock update appends one line to the <code>loopstats</code> file set:</p>
 </dd>
-</dl>
+<dd>
+<p>The <code><em>message</em></code> field includes the message type and certain ancillary information. See the <a href="https://www.ntp.org/documentation/4.2.8-series/authopt/">Authentication Options</a> page for further information.</p>
+</dd>
+<dt><code><strong>loopstats</strong></code></dt>
+<dd>Record clock discipline loop statistics. Each system clock update appends one line to the <code>loopstats</code> file set:</dd>
+<dd>
 <p><code>50935 75440.031 0.000006019 13.778 0.000351733 0.013380 6</code></p>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -375,13 +347,13 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<dl>
-<dt><code><strong>peerstats</strong></code></dt>
-<dd>
-<p>Record peer statistics. Each NTP packet or reference clock update received appends one line to the <code>peerstats</code> file set:</p>
 </dd>
-</dl>
+<dt><code><strong>peerstats</strong></code></dt>
+<dd>Record peer statistics. Each NTP packet or reference clock update received appends one line to the <code>peerstats</code> file set:</dd>
+<dd>
 <p><code>48773 10847.650 127.127.4.1 9714 -0.001605376 0.000000000 0.001424877 0.000958674</code></p>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -433,14 +405,16 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<p>The status field is encoded in hex format as described in <a href="https://www.ntp.org/reflib/rfc/rfc1305/rfc1305c.pdf">Appendix B of the NTP specification RFC 1305</a>.</p>
-<dl>
-<dt><code><strong>protostats</strong></code></dt>
-<dd>
-<p>Record significant peer, system and protocol events. Each significant event appends one line to the <code>protostats</code> file set:</p>
 </dd>
-</dl>
+<dd>
+<p>The status field is encoded in hex format as described in <a href="https://www.ntp.org/reflib/rfc/rfc1305/rfc1305c.pdf">Appendix B of the NTP specification RFC 1305</a>.</p>
+</dd>
+<dt><code><strong>protostats</strong></code></dt>
+<dd>Record significant peer, system and protocol events. Each significant event appends one line to the <code>protostats</code> file set:</dd>
+<dd>
 <p><code>49213 525.624 128.4.1.1 963a 8a <em>message</em></code></p>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -482,15 +456,19 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<p>The event message code and <code><em>message</em></code> field are described on the <a href="https://www.ntp.org/documentation/4.2.8-series/decode/">Event Messages and Status Words</a> page.</p>
-<dl>
-<dt><code><strong>rawstats</strong></code></dt>
-<dd>
-<p>Record timestamp statistics. Each NTP packet received appends one line to the <code>rawstats</code> file set. As of ntp-4.2.8p11, each NTP packet written appends one line to the <code>rawstats</code> file set, as well. The format of this line is:</p>
 </dd>
-</dl>
+<dd>
+<p>The event message code and <code><em>message</em></code> field are described on the <a href="https://www.ntp.org/documentation/4.2.8-series/decode/">Event Messages and Status Words</a> page.</p>
+</dd>
+<dt><code><strong>rawstats</strong></code></dt>
+<dd>Record timestamp statistics. Each NTP packet received appends one line to the <code>rawstats</code> file set. As of ntp-4.2.8p11, each NTP packet written appends one line to the <code>rawstats</code> file set, as well. The format of this line is:</dd>
+<dd>
 <p><code>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS.</code></p>
+</dd>
+<dd>
 <p><code>56285 54575.160 128.4.1.1 192.168.1.5 3565350574.400229473 3565350574.442385200 3565350574.442436000 3565350575.154505763 0 4 4 1 8 -21 0.000000 0.000320 .PPS. 4: 0000</code></p>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -602,13 +580,13 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<dl>
-<dt><code><strong>sysstats</strong></code></dt>
-<dd>
-<p>Record system statistics. Each hour one line is appended to the <code>sysstats</code> file set in the following format:</p>
 </dd>
-</dl>
+<dt><code><strong>sysstats</strong></code></dt>
+<dd>Record system statistics. Each hour one line is appended to the <code>sysstats</code> file set in the following format:</dd>
+<dd>
 <p><code>50928 2132.543 3600 81965 0 9546 56 512 540 10 4 147 1</code></p>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -685,13 +663,13 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<dl>
-<dt><code><strong>timingstats</strong></code></dt>
-<dd>
-<p>(Only available when the daemon is compiled with process time debugging support (<code>--enable-debug-timing</code> - costs performance). Record processing time statistics for various selected code paths.</p>
 </dd>
-</dl>
+<dt><code><strong>timingstats</strong></code></dt>
+<dd>(Only available when the daemon is compiled with process time debugging support (<code>--enable-debug-timing</code> - costs performance). Record processing time statistics for various selected code paths.</dd>
+<dd>
 <p><code>53876 36.920 10.0.3.5 1 0.000014592 input processing delay</code></p>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -733,6 +711,8 @@ function demo() {
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
 
 	  
   </div>

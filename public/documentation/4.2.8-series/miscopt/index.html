@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/miscopt/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-22T19:16:33&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-23T21:05:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Miscellaneous Commands and Options</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 22, 2023 19:16 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/2b12a6f2d56a5af0232e0d73d27c351310642541">2b12a6f2d</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 23, 2023 21:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6ad51a76fca51293c00a6b47090bb4a18efcaa06">6ad51a76f</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/boom3.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
@@ -177,10 +177,8 @@ function demo() {
 <p>This command specifies the Differentiated Services Code Point (DSCP) value that is used in sent NTP packets. The default value is 46 for Expedited Forwarding (EF).</p>
 </dd>
 <dt><code><strong>enable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dt>
-<dd><code><strong>disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dd>
-<dd>
-<p>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> utility program&rsquo;s <code>:config</code> and <code>config-from-file</code> commands.</p>
-</dd>
+<dt><code><strong>disable [auth | bclient | calibrate | kernel | mode7 | monitor | ntp | stats | unpeer_crypto_early | unpeer_crypto_nak_early | unpeer_digest_early]</strong></code></dt>
+<dd>Provides a way to enable or disable various system options. Flags not mentioned are unaffected. Note that most of these flags can be modified remotely using <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> utility program&rsquo;s <code>:config</code> and <code>config-from-file</code> commands.</dd>
 <dt> <code>auth</code></dt>
 <dd>Enables the server to synchronize with unconfigured peers only if the peer has been correctly authenticated using either public key or private key cryptography. The default for this flag is enable.</dd>
 <dt> <code>bclient</code></dt>
@@ -253,23 +251,17 @@ function demo() {
 <dd>
 <p>Controls size limits of the monitoring facility Most Recently Used <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/#control-message-commands">(MRU) list</a> of client addresses, which is also used by the <a href="https://www.ntp.org/documentation/4.2.8-series/accopt/">rate control facility</a>.</p>
 </dd>
-</dl>
-<p> <code>maxdepth <em>count</em></code></p>
-<dl>
+<dt> <code>maxdepth <em>count</em></code></dt>
 <dt> <code>maxmem <em>kilobytes</em></code></dt>
 <dd>Equivalent upper limits on the size of the MRU list, in terms of entries or kilobytes. The actual limit will be up to <code>incalloc</code> entries or <code>incmem</code> kilobytes larger. As with all of the <code>mru</code> options offered in units of entries or kilobytes, if both <code>maxdepth</code> and <code>maxmem</code> are used, the last one used controls. The default is 1024 kilobytes.</dd>
 <dt> <code>mindepth <em>count</em></code></dt>
 <dd>Lower limit on the MRU list size. When the MRU list has fewer than <code>mindepth</code> entries, existing entries are never removed to make room for newer ones, regardless of their age. The default is 600 entries.</dd>
 <dt> <code>maxage <em>seconds</em></code></dt>
 <dd>Once the MRU list has <code>mindepth</code> entries and an additional client address is to be added to the list, if the oldest entry was updated more than <code>maxage</code> seconds ago, that entry is removed and its storage reused. If the oldest entry was updated more recently, the MRU list is grown, subject to <code>maxdepth</code>/<code>maxmem</code>. The default is 64 seconds.</dd>
-</dl>
-<p> <code>initalloc <em>count</em></code></p>
-<dl>
+<dt> <code>initalloc <em>count</em></code></dt>
 <dt> <code>initmem <em>kilobytes</em></code></dt>
 <dd>Initial memory allocation at the time the monitoring facility is first enabled, in terms of entries or kilobytes. The default is 4 kilobytes.</dd>
-</dl>
-<p> <code>incalloc <em>count</em></code></p>
-<dl>
+<dt> <code>incalloc <em>count</em></code></dt>
 <dt> <code>incmem <em>kilobytes</em></code></dt>
 <dd>Size of additional memory allocations when growing the MRU list, in entries or kilobytes. The default is 4 kilobytes.</dd>
 <dt><code><strong>nonvolatile <em>threshold</em></strong></code></dt>
@@ -318,11 +310,11 @@ function demo() {
 <dd>
 <p>The default value is derived from the repository or build time stamp, minus 11 days. 1970-01-02 was chosen as lower bound so the <em>local</em> time is always after 1970-01-01,00:00. Some systems get into trouble if this is not the case.</p>
 </dd>
-</dl>
+<dd>
 <blockquote>
 <p> <strong>ATTENTION:</strong> If the system clock is before the effective (implied or specific) basedate, the system clock will be set to the base date once and immediately when <code>ntpd</code> starts. This helps systems that have lost time completely to recover. Though not noticeable under normal conditions, it <em>can</em> happen. Check the logs if starting <code>ntpd</code> causes sudden clock moves.</p>
 </blockquote>
-<dl>
+</dd>
 <dt> <code>bcpollbstep <em>poll-gate</em></code></dt>
 <dd>This option will cause the client to delay believing backward time steps from a broadcast server for <code>bcpollbstep</code> poll intervals. NTP Broadcast networks are expected to be trusted, and if the server&rsquo;s time gets stepped backwards then it&rsquo;s desireable that the clients follow this change as soon as possible. However, in spite of various protections built-in to the broadcast protocol, it is possible that an attacker could perform a carefully-constructed replay attack and cause clients to erroneously step their clocks backward. If the risk of a successful broadcast replay attack is greater than the risk of the clients being out of sync in the event that there is a backward step on the broadcast time servers, this option may be used to cause the clients to delay beliveving backward time steps until <em>poll-gate</em> consecutive polls have been received. The default is 0, which means the client will accept these steps upon receipt. Any value from 0 to 4 can be specified.</dd>
 <dt> <code>beacon <em>beacon</em></code></dt>

@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntpdsim_new/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-11-23T17:49:36&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-23T21:05:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>ntpdsim - Network Time Protocol (NTP) Simulator</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 23, 2022 17:49 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1b4d24aef65c630791ad0f89d6c09ec258781c2c">1b4d24aef</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 23, 2023 21:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6ad51a76fca51293c00a6b47090bb4a18efcaa06">6ad51a76f</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/oz2.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
@@ -172,16 +172,16 @@ function demo() {
 <p>The <code>ntpdsim</code> program is configured by providing a configuration file at startup. The crux of the simulator configuration is specified using a <code>simulate</code> command, the syntax of which is given below. Note that all time quantities are in seconds and all frequency quantities are in parts per million (PPM):</p>
 <dl>
 <dt><code>&lt;<em>simulate_command</em>&gt; ::= simulate { &lt;<em>init_statement_list</em>&gt; &lt;<em>server_list</em>&gt; }</code></dt>
-<dd><code>&lt;<em>init_statement_list</em>&gt; ::= &lt;init_statement_list&gt; &lt;init_statement&gt; ; | &lt;init_statement&gt; ;</code></dd>
-<dd><code>&lt;<em>init_statement</em>&gt; ::= beep_delay = &lt;number&gt; | simulation_duration = &lt;number&gt;</code></dd>
-<dd><code>&lt;<em>server_list</em>&gt; ::= &lt;<em>server_list</em>&gt; &lt;server&gt; | &lt;server&gt;</code></dd>
-<dd><code>&lt;<em>server_list</em>&gt; ::= server = &lt;address&gt; { server_offset = &lt;number&gt; ; &lt;act_list&gt; }</code></dd>
-<dd><code>&lt;<em>act_list</em>&gt; ::= &lt;<em>act_list</em>&gt; &lt;<em>act</em>&gt; | &lt;<em>act</em>&gt;</code></dd>
-<dd><code>&lt;<em>act</em>&gt; ::= duration = &lt;number&gt; { &lt;<em>act_stmt_list</em>&gt; }</code></dd>
-<dd><code>&lt;<em>act_stmt_list</em>&gt; ::= &lt;<em>act_stmt_list</em>&gt; &lt;<em>act_stmt</em>&gt; ; | &lt;<em>act_stmt</em>&gt; ;</code></dd>
-<dd><code>&lt;<em>act_stmt</em>&gt; ::= freq_offset = &lt;number&gt; | wander = &lt;number&gt; | jitter = &lt;number&gt; | prop_delay = &lt;number&gt; | proc_delay = &lt;number&gt;</code></dd>
+<dt><code>&lt;<em>init_statement_list</em>&gt; ::= &lt;init_statement_list&gt; &lt;init_statement&gt; ; | &lt;init_statement&gt; ;</code></dt>
+<dt><code>&lt;<em>init_statement</em>&gt; ::= beep_delay = &lt;number&gt; | simulation_duration = &lt;number&gt;</code></dt>
+<dt><code>&lt;<em>server_list</em>&gt; ::= &lt;<em>server_list</em>&gt; &lt;server&gt; | &lt;server&gt;</code></dt>
+<dt><code>&lt;<em>server_list</em>&gt; ::= server = &lt;address&gt; { server_offset = &lt;number&gt; ; &lt;act_list&gt; }</code></dt>
+<dt><code>&lt;<em>act_list</em>&gt; ::= &lt;<em>act_list</em>&gt; &lt;<em>act</em>&gt; | &lt;<em>act</em>&gt;</code></dt>
+<dt><code>&lt;<em>act</em>&gt; ::= duration = &lt;number&gt; { &lt;<em>act_stmt_list</em>&gt; }</code></dt>
+<dt><code>&lt;<em>act_stmt_list</em>&gt; ::= &lt;<em>act_stmt_list</em>&gt; &lt;<em>act_stmt</em>&gt; ; | &lt;<em>act_stmt</em>&gt; ;</code></dt>
+<dt><code>&lt;<em>act_stmt</em>&gt; ::= freq_offset = &lt;number&gt; | wander = &lt;number&gt; | jitter = &lt;number&gt; | prop_delay = &lt;number&gt; | proc_delay = &lt;number&gt;</code></dt>
+<dd>In addition to the <code>simulate</code> command, other standard NTP configuration commands can be specified. These commands have the same meaning as in the <code>ntpd</code> configuration. Note that newlines are <strong>not</strong> significant within the <code>simulate</code> command even though they are used to mark the end of a normal NTP configuration command. While a newline is an &ldquo;end of command&rdquo; terminator for other configuration commands, in the <code>simulate</code> stanza <code>;</code> (the semicolon) is the &ldquo;end of command&rdquo; terminator.</dd>
 </dl>
-<p>In addition to the <code>simulate</code> command, other standard NTP configuration commands can be specified. These commands have the same meaning as in the <code>ntpd</code> configuration. Note that newlines are <strong>not</strong> significant within the <code>simulate</code> command even though they are used to mark the end of a normal NTP configuration command. While a newline is an &ldquo;end of command&rdquo; terminator for other configuration commands, in the <code>simulate</code> stanza <code>;</code> (the semicolon) is the &ldquo;end of command&rdquo; terminator.</p>
 <hr>
 <h4 id="sample-configuration-file">Sample Configuration File</h4>
 <p>A sample <code>ntpdsim</code> configuration file is given below. It specifies two simulated servers, each of which has two acts.</p>

@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntpdc/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-11-23T17:49:36&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-23T21:05:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>ntpdc - special NTP query program</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 23, 2022 17:49 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1b4d24aef65c630791ad0f89d6c09ec258781c2c">1b4d24aef</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 23, 2023 21:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6ad51a76fca51293c00a6b47090bb4a18efcaa06">6ad51a76f</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice31.gif" alt="gif"  />
 </p> <a href="https://www.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
@@ -184,42 +184,23 @@ function demo() {
 <p>Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpdc</code> will attempt to read interactive format commands from the standard input.</p>
 <dl>
 <dt><code><strong>-4</strong></code></dt>
-<dd>
-<p>Force DNS resolution of following host names on the command line to the IPv4 namespace.</p>
-</dd>
+<dd>Force DNS resolution of following host names on the command line to the IPv4 namespace.</dd>
 <dt><code><strong>-6</strong></code></dt>
-<dd>
-<p>Force DNS resolution of following host names on the command line to the IPv6 namespace.</p>
-</dd>
+<dd>Force DNS resolution of following host names on the command line to the IPv6 namespace.</dd>
 <dt><code><strong>-c <em>command</em></strong></code></dt>
-<dd>
-<p>The following argument is interpreted as an interactive format command and is added to the list of commands to be executed on the specified host(s). Multiple <code>-c</code> options may be given.</p>
-</dd>
+<dd>The following argument is interpreted as an interactive format command and is added to the list of commands to be executed on the specified host(s). Multiple <code>-c</code> options may be given.</dd>
 <dt><code><strong>-d</strong></code></dt>
-<dd>
-<p>Turn on debugging mode.</p>
-</dd>
+<dd>Turn on debugging mode.</dd>
 <dt><code><strong>-i</strong></code></dt>
-<dd>
-<p>Force <code>ntpdc</code> to operate in interactive mode. Prompts will be written to the standard output and commands read from the standard input.</p>
-</dd>
+<dd>Force <code>ntpdc</code> to operate in interactive mode. Prompts will be written to the standard output and commands read from the standard input.</dd>
 <dt><code><strong>-l</strong></code></dt>
-<dd>
-<p>Obtain a list of peers which are known to the server(s). This switch is equivalent to <code>-c listpeers</code>.</p>
-</dd>
+<dd>Obtain a list of peers which are known to the server(s). This switch is equivalent to <code>-c listpeers</code>.</dd>
 <dt><code><strong>-n</strong></code></dt>
-<dd>
-<p>Output all host addresses in dotted-quad numeric format rather than converting to the canonical host names.</p>
-</dd>
+<dd>Output all host addresses in dotted-quad numeric format rather than converting to the canonical host names.</dd>
 <dt><code><strong>-p</strong></code></dt>
-<dd>
-<p>Print a list of the peers known to the server as well as a summary of their state. This is equivalent to <code>-c peers</code>.</p>
-</dd>
+<dd>Print a list of the peers known to the server as well as a summary of their state. This is equivalent to <code>-c peers</code>.</dd>
 <dt><code><strong>-s</strong></code></dt>
-<dd>
-<p>Print a list of the peers known to the server as well as a summary of their state, but in a slightly different format than the <code>-p</code> switch. This is equivalent to <code>-c dmpeers</code>.</p>
-</dd>
-</dl>
+<dd>Print a list of the peers known to the server as well as a summary of their state, but in a slightly different format than the <code>-p</code> switch. This is equivalent to <code>-c dmpeers</code>.</dd>
 </dl>
 <hr>
 <h4 id="interactive-commands">Interactive Commands</h4>
@@ -227,128 +208,79 @@ function demo() {
 <p>A number of interactive format commands are executed entirely within the <code>ntpdc</code> program itself and do not result in NTP mode 7 requests being sent to a server. These are described following.</p>
 <dl>
 <dt><code><strong>? [ <em>command_keyword</em> ]</strong></code></dt>
-<dd><code><strong>help [ <em>command_keyword</em> ]</strong></code></dd>
-<dd>
-<p>A <code>?</code> by itself will print a list of all the command keywords known to this incarnation of <code>ntpq</code>. A <code>?</code> followed by a command keyword will print function and usage information about the command. This command is probably a better source of information about <code>ntpq</code> than this manual page.</p>
-</dd>
+<dt><code><strong>help [ <em>command_keyword</em> ]</strong></code></dt>
+<dd>A <code>?</code> by itself will print a list of all the command keywords known to this incarnation of <code>ntpq</code>. A <code>?</code> followed by a command keyword will print function and usage information about the command. This command is probably a better source of information about <code>ntpq</code> than this manual page.</dd>
 <dt><code><strong>delay <em>milliseconds</em></strong></code></dt>
-<dd>
-<p>Specify a time interval to be added to timestamps included in requests which require authentication. This is used to enable (unreliable) server reconfiguration over long delay network paths or between machines whose clocks are unsynchronized. Actually the server does not now require timestamps in authenticated requests, so this command may be obsolete.</p>
-</dd>
+<dd>Specify a time interval to be added to timestamps included in requests which require authentication. This is used to enable (unreliable) server reconfiguration over long delay network paths or between machines whose clocks are unsynchronized. Actually the server does not now require timestamps in authenticated requests, so this command may be obsolete.</dd>
 <dt><code><strong>host <em>hostname</em></strong></code></dt>
-<dd>
-<p>Set the host to which future queries will be sent. <code><em>hostname</em></code> may be either a host name or a numeric address.</p>
-</dd>
+<dd>Set the host to which future queries will be sent. <code><em>hostname</em></code> may be either a host name or a numeric address.</dd>
 <dt><code><strong>hostnames [ yes | no ]</strong></code></dt>
-<dd>
-<p>If <code>yes</code> is specified, host names are printed in information displays. If <code>no</code> is specified, numeric addresses are printed instead. The default is <code>yes</code>, unless modified using the command line <code>-n</code> switch.</p>
-</dd>
+<dd>If <code>yes</code> is specified, host names are printed in information displays. If <code>no</code> is specified, numeric addresses are printed instead. The default is <code>yes</code>, unless modified using the command line <code>-n</code> switch.</dd>
 <dt><code><strong>keyid <em>keyid</em></strong></code></dt>
-<dd>
-<p>This command allows the specification of a key number to be used to authenticate configuration requests from <code>ntpdc</code> to the host(s). This must correspond to a key number which the host/server has been configured to use for this purpose (server options: <code>trustedkey</code>, and <code>requestkey</code>). If authentication is not enabled on the host(s) for <code>ntpdc</code> commands, the command <code>keyid 0</code> should be given; otherwise the <code><em>keyid</em></code> of the next subsequent <code>addpeer/addserver/broadcast</code> command will be used.</p>
-</dd>
+<dd>This command allows the specification of a key number to be used to authenticate configuration requests from <code>ntpdc</code> to the host(s). This must correspond to a key number which the host/server has been configured to use for this purpose (server options: <code>trustedkey</code>, and <code>requestkey</code>). If authentication is not enabled on the host(s) for <code>ntpdc</code> commands, the command <code>keyid 0</code> should be given; otherwise the <code><em>keyid</em></code> of the next subsequent <code>addpeer/addserver/broadcast</code> command will be used.</dd>
 <dt><code><strong>quit</strong></code></dt>
-<dd>
-<p>Exit <code>ntpdc</code>.</p>
-</dd>
+<dd>Exit <code>ntpdc</code>.</dd>
 <dt><code><strong>passwd</strong></code></dt>
-<dd>
-<p>This command prompts you to type in a password (which will not be echoed) which will be used to authenticate configuration requests. The password must correspond to the key configured for use by the NTP server for this purpose if such requests are to be successful.</p>
-</dd>
+<dd>This command prompts you to type in a password (which will not be echoed) which will be used to authenticate configuration requests. The password must correspond to the key configured for use by the NTP server for this purpose if such requests are to be successful.</dd>
 <dt><code><strong>timeout <em>milliseconds</em></strong></code></dt>
-<dd>
-<p>Specify a timeout period for responses to server queries. The default is about 8000 milliseconds. Note that since <code>ntpdc</code> retries each query once after a timeout, the total waiting time for a timeout will be twice the timeout value set.</p>
-</dd>
+<dd>Specify a timeout period for responses to server queries. The default is about 8000 milliseconds. Note that since <code>ntpdc</code> retries each query once after a timeout, the total waiting time for a timeout will be twice the timeout value set.</dd>
 </dl>
 <hr>
 <h4 id="control-message-commands">Control Message Commands</h4>
 <p>Query commands result in NTP mode 7 packets containing requests for information being sent to the server. These are read-only commands in that they make no modification of the server configuration state.</p>
 <dl>
 <dt><code><strong>listpeers</strong></code></dt>
-<dd>
-<p>Obtains and prints a brief list of the peers for which the server is maintaining state. These should include all configured peer associations as well as those peers whose stratum is such that they are considered by the server to be possible future synchronization candidates.</p>
-</dd>
+<dd>Obtains and prints a brief list of the peers for which the server is maintaining state. These should include all configured peer associations as well as those peers whose stratum is such that they are considered by the server to be possible future synchronization candidates.</dd>
 <dt><code><strong>peers</strong></code></dt>
-<dd>
-<p>Obtains a list of peers for which the server is maintaining state, along with a summary of that state. Summary information includes the address of the remote peer, the local interface address (<code>0.0.0.0</code> if a local address has yet to be determined), the stratum of the remote peer (a stratum of <code>16</code> indicates the remote peer is unsynchronized), the polling interval, in seconds, the reachability register, in octal, and the current estimated delay, offset and dispersion of the peer, all in seconds.</p>
-</dd>
-</dl>
-<p>The character in the left margin indicates the mode this peer entry is operating in. A <code>+</code> denotes symmetric active, a <code>-</code> indicates symmetric passive, a <code>=</code> means the remote server is being polled in client mode, a <code>^</code> indicates that the server is broadcasting to this address, a <code>~</code> denotes that the remote peer is sending broadcasts and a <code>*</code> marks the peer the server is currently synchronizing to.</p>
-<p>The contents of the host field may be one of four forms. It may be a host name, an IP address, a reference clock implementation name with its parameter or <code>REFCLK(<em>implementation number</em>, <em>parameter</em>)</code>. On <code>hostnames no</code> only IP addresses will be displayed.</p>
-<dl>
+<dd>Obtains a list of peers for which the server is maintaining state, along with a summary of that state. Summary information includes the address of the remote peer, the local interface address (<code>0.0.0.0</code> if a local address has yet to be determined), the stratum of the remote peer (a stratum of <code>16</code> indicates the remote peer is unsynchronized), the polling interval, in seconds, the reachability register, in octal, and the current estimated delay, offset and dispersion of the peer, all in seconds.</dd>
+<dd>The character in the left margin indicates the mode this peer entry is operating in. A <code>+</code> denotes symmetric active, a <code>-</code> indicates symmetric passive, a <code>=</code> means the remote server is being polled in client mode, a <code>^</code> indicates that the server is broadcasting to this address, a <code>~</code> denotes that the remote peer is sending broadcasts and a <code>*</code> marks the peer the server is currently synchronizing to.</dd>
+<dd>The contents of the host field may be one of four forms. It may be a host name, an IP address, a reference clock implementation name with its parameter or <code>REFCLK(<em>implementation number</em>, <em>parameter</em>)</code>. On <code>hostnames no</code> only IP addresses will be displayed.</dd>
 <dt><code><strong>dmpeers</strong></code></dt>
-<dd>
-<p>A slightly different peer summary list. Identical to the output of the <code>peers</code> command, except for the character in the leftmost column. Characters only appear beside peers which were included in the final stage of the clock selection algorithm. A <code>.</code> indicates that this peer was cast off in the falseticker detection, while a <code>+</code> indicates that the peer made it through. A <code>*</code> denotes the peer the server is currently synchronizing with.</p>
-</dd>
+<dd>A slightly different peer summary list. Identical to the output of the <code>peers</code> command, except for the character in the leftmost column. Characters only appear beside peers which were included in the final stage of the clock selection algorithm. A <code>.</code> indicates that this peer was cast off in the falseticker detection, while a <code>+</code> indicates that the peer made it through. A <code>*</code> denotes the peer the server is currently synchronizing with.</dd>
 <dt><code><strong>showpeer <em>peer_address</em> [&hellip;]</strong></code></dt>
-<dd>
-<p>Shows a detailed display of the current peer variables for one or more peers. Most of these values are described in the NTP Version 2 specification.</p>
-</dd>
+<dd>Shows a detailed display of the current peer variables for one or more peers. Most of these values are described in the NTP Version 2 specification.</dd>
 <dt><code><strong>pstats <em>peer_address</em> [&hellip;]</strong></code></dt>
-<dd>
-<p>Show per-peer statistic counters associated with the specified peer(s).</p>
-</dd>
+<dd>Show per-peer statistic counters associated with the specified peer(s).</dd>
 <dt><code><strong>clockstat <em>clock_peer_address</em> [&hellip;]</strong></code></dt>
-<dd>
-<p>Obtain and print information concerning a peer clock. The values obtained provide information on the setting of fudge factors and other clock performance information.</p>
-</dd>
+<dd>Obtain and print information concerning a peer clock. The values obtained provide information on the setting of fudge factors and other clock performance information.</dd>
 <dt><code><strong>kerninfo</strong></code></dt>
-<dd>
-<p>Obtain and print kernel phase-lock loop operating parameters. This information is available only if the kernel has been specially modified for a precision timekeeping function.</p>
-</dd>
+<dd>Obtain and print kernel phase-lock loop operating parameters. This information is available only if the kernel has been specially modified for a precision timekeeping function.</dd>
 <dt><code><strong>loopinfo [ oneline | multiline ]</strong></code></dt>
-<dd>
-<p>Print the values of selected loop filter variables. The loop filter is the part of NTP which deals with adjusting the local system clock. The <code>offset</code> is the last offset given to the loop filter by the packet processing code. The <code>frequency</code> is the frequency error of the local clock in parts-per-million (ppm). The <code>time_const</code> controls the stiffness of the phase-lock loop and thus the speed at which it can adapt to oscillator drift. The <code>watchdog timer</code> value is the number of seconds which have elapsed since the last sample offset was given to the loop filter. The <code>oneline</code> and <code>multiline</code> options specify the format in which this information is to be printed, with <code>multiline</code> as the default.</p>
-</dd>
+<dd>Print the values of selected loop filter variables. The loop filter is the part of NTP which deals with adjusting the local system clock. The <code>offset</code> is the last offset given to the loop filter by the packet processing code. The <code>frequency</code> is the frequency error of the local clock in parts-per-million (ppm). The <code>time_const</code> controls the stiffness of the phase-lock loop and thus the speed at which it can adapt to oscillator drift. The <code>watchdog timer</code> value is the number of seconds which have elapsed since the last sample offset was given to the loop filter. The <code>oneline</code> and <code>multiline</code> options specify the format in which this information is to be printed, with <code>multiline</code> as the default.</dd>
 <dt><code><strong>sysinfo</strong></code></dt>
-<dd>
-<p>Print a variety of system state variables, i.e., state related to the local server. All except the last four lines are described in the <a href="https://www.ntp.org/reflib/rfc/rfc1305/rfc1305b.pdf">NTP Version 3 specification, RFC 1305</a>.</p>
-</dd>
-</dl>
-<p>The <code>system flags</code> show various system flags, some of which can be set and cleared by the <code>enable</code> and <code>disable</code> configuration commands, respectively. These are the <code>auth</code>, <code>bclient</code>, <code>monitor</code>, <code>pll</code>, <code>pps</code> and <code>stats</code> flags. See the <code>ntpd</code> documentation for the meaning of these flags. There are two additional flags which are read only, the <code>kernel_pll</code> and <code>kernel_pps</code>. These flags indicate the synchronization status when the precision time kernel modifications are in use. The <code>kernel_pll</code> indicates that the local clock is being disciplined by the kernel, while the <code>kernel_pps</code> indicates the kernel discipline is provided by the PPS signal.</p>
-<blockquote>
+<dd>Print a variety of system state variables, i.e., state related to the local server. All except the last four lines are described in the <a href="https://www.ntp.org/reflib/rfc/rfc1305/rfc1305b.pdf">NTP Version 3 specification, RFC 1305</a>.</dd>
+<dd>The <code>system flags</code> show various system flags, some of which can be set and cleared by the <code>enable</code> and <code>disable</code> configuration commands, respectively. These are the <code>auth</code>, <code>bclient</code>, <code>monitor</code>, <code>pll</code>, <code>pps</code> and <code>stats</code> flags. See <a href="https://www.ntp.org/documentation/4.2.8-series/ntp.conf#miscellaneous-options"><code>ntp.conf</code></a> for the meaning of these flags. There are two additional flags which are read only, the <code>kernel_pll</code> and <code>kernel_pps</code>. These flags indicate the synchronization status when the precision time kernel modifications are in use. The <code>kernel_pll</code> indicates that the local clock is being disciplined by the kernel, while the <code>kernel_pps</code> indicates the kernel discipline is provided by the PPS signal.</dd>
+<dd><blockquote>
 <p>Note that some directives, like <code>enable pps</code>, are only supported on certain versions of <code>ntpd</code>.</p>
 </blockquote>
+</dd>
+<dd>
 <p>The <code>stability</code> is the residual frequency error remaining after the system frequency correction is applied and is intended for maintenance and debugging. In most architectures, this value will initially decrease from as high as 500 ppm to a nominal value in the range .01 to 0.1 ppm. If it remains high for some time after starting the daemon, something may be wrong with the local clock, or the value of the kernel variable <code>tick</code> may be incorrect.</p>
+</dd>
+<dd>
 <p>The <code>broadcastdelay</code> shows the default broadcast delay, as set by the <code>broadcastdelay</code> configuration command.</p>
+</dd>
+<dd>
 <p>The <code>authdelay</code> shows the default authentication delay, as set by the <code>authdelay</code> configuration command.</p>
-<dl>
+</dd>
 <dt><code><strong>sysstats</strong></code></dt>
-<dd>
-<p>Print statistics counters maintained in the protocol module.</p>
-</dd>
+<dd>Print statistics counters maintained in the protocol module.</dd>
 <dt><code><strong>memstats</strong></code></dt>
-<dd>
-<p>Print statistics counters related to memory allocation code.</p>
-</dd>
+<dd>Print statistics counters related to memory allocation code.</dd>
 <dt><code><strong>iostats</strong></code></dt>
-<dd>
-<p>Print statistics counters maintained in the input-output module.</p>
-</dd>
+<dd>Print statistics counters maintained in the input-output module.</dd>
 <dt><code><strong>timerstats</strong></code></dt>
-<dd>
-<p>Print statistics counters maintained in the timer/event queue support code.</p>
-</dd>
+<dd>Print statistics counters maintained in the timer/event queue support code.</dd>
 <dt><code><strong>reslist</strong></code></dt>
-<dd>
-<p>Obtain and print the server&rsquo;s restriction list. This list is (usually) printed in sorted order and may help to understand how the restrictions are applied.</p>
-</dd>
+<dd>Obtain and print the server&rsquo;s restriction list. This list is (usually) printed in sorted order and may help to understand how the restrictions are applied.</dd>
 <dt><code><strong>ifstats</strong></code></dt>
-<dd>
-<p>List interface statistics for interfaces used by <code>ntpd</code> for network communication.</p>
-</dd>
+<dd>List interface statistics for interfaces used by <code>ntpd</code> for network communication.</dd>
 <dt><code><strong>ifreload</strong></code></dt>
-<dd>
-<p>Force rescan of current system interfaces. Outputs interface statistics for interfaces that could possibly change. Marks unchanged interfaces with <code>.</code>, added interfaces with <code>+</code> and deleted interfaces with <code>-</code>.</p>
-</dd>
+<dd>Force rescan of current system interfaces. Outputs interface statistics for interfaces that could possibly change. Marks unchanged interfaces with <code>.</code>, added interfaces with <code>+</code> and deleted interfaces with <code>-</code>.</dd>
 <dt><code><strong>monlist [ <em>version</em> ]</strong></code></dt>
-<dd>
-<p>Obtain and print traffic counts collected and maintained by the monitor facility. The version number should not normally need to be specified. At most, 600 entries are displayed by <code>monlist</code>. To display the entire MRU list, use the <code>ntpq</code> program&rsquo;s <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/#control-message-commands"><code>mrulist</code></a> command.</p>
-</dd>
+<dd>Obtain and print traffic counts collected and maintained by the monitor facility. The version number should not normally need to be specified. At most, 600 entries are displayed by <code>monlist</code>. To display the entire MRU list, use the <code>ntpq</code> program&rsquo;s <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/#control-message-commands"><code>mrulist</code></a> command.</dd>
 <dt><code><strong>clkbug <em>clock_peer_address</em> [&hellip;]</strong></code></dt>
-<dd>
-<p>Obtain debugging information for a reference clock driver. This information is provided only by some clock drivers and is mostly undecodable without a copy of the driver source in hand.</p>
-</dd>
+<dd>Obtain debugging information for a reference clock driver. This information is provided only by some clock drivers and is mostly undecodable without a copy of the driver source in hand.</dd>
 </dl>
 <hr>
 <h4 id="runtime-configuration-requests">Runtime Configuration Requests</h4>
@@ -357,72 +289,40 @@ function demo() {
 <p>The following commands all make authenticated requests.</p>
 <dl>
 <dt><code><strong>addpeer <em>peer_address</em> [ <em>keyid</em> ] [ <em>version</em> ] [ minpoll# | prefer | minpoll <em>N</em> | maxpoll <em>N</em> [&hellip;] ]</strong></code></dt>
-<dd><code><strong>addpeer <em>peer_address</em> [ prefer | minpoll <em>N</em> | maxpoll <em>N</em> | keyid <em>N</em> | version <em>N</em> [&hellip;] ]</strong></code></dd>
-<dd>
-<p>Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If <code>ntpdc</code>&rsquo;s key number has not yet been set (<em>e.g.,</em> by the <code>keyid</code> command), it will be set to this value. The <code>version#</code> can be <code>1</code> through <code>4</code> and defaults to <code>3</code>. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>burst</code>, <code>minpoll <em>N</em></code>, <code>keyid <em>N</em></code>, <code>version <em>N</em></code>, or <code>maxpoll <em>N</em></code> (where <code><em>N</em></code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of <code>ntpd</code>. See the <a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-command-options">Server Options</a> page for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.</p>
-</dd>
+<dt><code><strong>addpeer <em>peer_address</em> [ prefer | minpoll <em>N</em> | maxpoll <em>N</em> | keyid <em>N</em> | version <em>N</em> [&hellip;] ]</strong></code></dt>
+<dd>Add a configured peer association at the given address and operating in symmetric active mode. Note that an existing association with the same peer may be deleted when this command is executed, or may simply be converted to conform to the new configuration, as appropriate. If the <code>keyid</code> is nonzero, all outgoing packets to the remote server will have an authentication field attached encrypted with this key. If the value is 0 (or not given) no authentication will be done. If <code>ntpdc</code>&rsquo;s key number has not yet been set (<em>e.g.,</em> by the <code>keyid</code> command), it will be set to this value. The <code>version#</code> can be <code>1</code> through <code>4</code> and defaults to <code>3</code>. The remaining options are either a numeric value for <code>minpoll</code> or literals <code>prefer</code>, <code>burst</code>, <code>minpoll <em>N</em></code>, <code>keyid <em>N</em></code>, <code>version <em>N</em></code>, or <code>maxpoll <em>N</em></code> (where <code><em>N</em></code> is a numeric value), and have the action as specified in the <code>peer</code> configuration file command of <code>ntpd</code>. See <a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-command-options">Server Options</a> for further information. Each flag (or its absence) replaces the previous setting. The <code>prefer</code> keyword indicates a preferred peer (and thus will be used primarily for clock synchronisation if possible). The preferred peer also determines the validity of the PPS signal - if the preferred peer is suitable for synchronisation so is the PPS signal. The <code>dynamic</code> keyword allows association configuration even when no suitable network interface is found at configuration time. The dynamic interface update mechanism may complete the configuration when new interfaces appear (e.g. WLAN/PPP interfaces) at a later time and thus render the association operable.</dd>
 <dt><code><strong>addserver <em>peer_address</em> [ <em>address</em> [ <em>keyid</em> ] [ <em>version</em> ] [ minpoll | prefer | iburst | burst | minpoll <em>N</em> | maxpoll <em>N</em> [&hellip;] ] prefer | iburst | burst | minpoll <em>N</em> | maxpoll <em>N</em> | keyid <em>N</em> | version <em>N</em> [&hellip;] ]</strong></code></dt>
-<dd>
-<p>Identical to the <code>addpeer</code> command, except that the operating mode is client.</p>
-</dd>
+<dd>Identical to the <code>addpeer</code> command, except that the operating mode is client.</dd>
 <dt><code><strong>broadcast <em>peer_address</em> [ <em>keyid</em> ] [ <em>version</em> ] [ <em>prefer</em> ]</strong></code></dt>
-<dd>
-<p>Identical to the <code>addpeer</code> command, except that the operating mode is broadcast. In this case a valid non-zero key identifier and key are required. The <code>peer_address</code> parameter can be the broadcast address of the local network or a multicast group address assigned to NTP. If a multicast address, a multicast-capable kernel is required.</p>
-</dd>
+<dd>Identical to the <code>addpeer</code> command, except that the operating mode is broadcast. In this case a valid non-zero key identifier and key are required. The <code>peer_address</code> parameter can be the broadcast address of the local network or a multicast group address assigned to NTP. If a multicast address, a multicast-capable kernel is required.</dd>
 <dt><code><strong>unconfig <em>peer_address</em> [&hellip;]</strong></code></dt>
-<dd>
-<p>This command causes the configured bit to be removed from the specified peer(s). In many cases this will cause the peer association to be deleted. When appropriate, however, the association may persist in an unconfigured mode if the remote peer is willing to continue on in this fashion.</p>
-</dd>
+<dd>This command causes the configured bit to be removed from the specified peer(s). In many cases this will cause the peer association to be deleted. When appropriate, however, the association may persist in an unconfigured mode if the remote peer is willing to continue on in this fashion.</dd>
 <dt><code><strong>fudge <em>peer_address</em> [ <em>time1</em> ] [ <em>time2</em> ] [ <em>stratum</em> ] [ <em>refid</em> ]</strong></code></dt>
-<dd>
-<p>This command provides a way to set certain data for a reference clock. See the source listing for further information.</p>
-</dd>
+<dd>This command provides a way to set certain data for a reference clock. See the source listing for further information.</dd>
 <dt><code><strong>enable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</strong></code></dt>
-<dd><code><strong>disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</strong></code></dd>
-<dd>
-<p>These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">Miscellaneous Options</a> page for further information.</p>
-</dd>
+<dt><code><strong>disable [ auth | bclient | calibrate | kernel | monitor | ntp | pps | stats]</strong></code></dt>
+<dd>These commands operate in the same way as the <code>enable</code> and <code>disable</code> configuration file commands of <code>ntpd</code>. See the <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">Miscellaneous Options</a> page for further information.</dd>
 <dt><code><strong>restrict <em>address mask flag</em> [ <em>flag</em> ]</strong></code></dt>
-<dd>
-<p>This command operates in the same way as the <code>restrict</code> configuration file commands of <code>ntpd</code>.</p>
-</dd>
+<dd>This command operates in the same way as the <code>restrict</code> configuration file commands of <code>ntpd</code>.</dd>
 <dt><code><strong>unrestrict <em>address mask flag</em> [ <em>flag</em> ]</strong></code></dt>
-<dd>
-<p>Unrestrict the matching entry from the restrict list.</p>
-</dd>
+<dd>Unrestrict the matching entry from the restrict list.</dd>
 <dt><code><strong>delrestrict <em>address mask [ ntpport ]</em></strong></code></dt>
-<dd>
-<p>Delete the matching entry from the restrict list.</p>
-</dd>
+<dd>Delete the matching entry from the restrict list.</dd>
 <dt><code><strong>readkeys</strong></code></dt>
-<dd>
-<p>Causes the current set of authentication keys to be purged and a new set to be obtained by rereading the keys file (which must have been specified in the <code>ntpd</code> configuration file). This allows encryption keys to be changed without restarting the server.</p>
-</dd>
+<dd>Causes the current set of authentication keys to be purged and a new set to be obtained by rereading the keys file (which must have been specified in the <code>ntpd</code> configuration file). This allows encryption keys to be changed without restarting the server.</dd>
 <dt><code><strong>trustedkey <em>keyid</em> [&hellip;]</strong></code></dt>
-<dd><code><strong>untrustedkey <em>keyid</em> [&hellip;]</strong></code></dd>
-<dd>
-<p>These commands operate in the same way as the <code>trustedkey</code> and <code>untrustedkey</code> configuration file commands of <code>ntpd</code>.</p>
-</dd>
+<dt><code><strong>untrustedkey <em>keyid</em> [&hellip;]</strong></code></dt>
+<dd>These commands operate in the same way as the <code>trustedkey</code> and <code>untrustedkey</code> configuration file commands of <code>ntpd</code>.</dd>
 <dt><code><strong>authinfo</strong></code></dt>
-<dd>
-<p>Returns information concerning the authentication module, including known keys and counts of encryptions and decryptions which have been done.</p>
-</dd>
+<dd>Returns information concerning the authentication module, including known keys and counts of encryptions and decryptions which have been done.</dd>
 <dt><code><strong>traps</strong></code></dt>
-<dd>
-<p>Display the traps set in the server. See the source listing for further information.</p>
-</dd>
+<dd>Display the traps set in the server. See the source listing for further information.</dd>
 <dt><code><strong>addtrap [ <em>address</em> [ <em>port</em> ] [ <em>interface</em> ]</strong></code></dt>
-<dd>
-<p>Set a trap for asynchronous messages. See the source listing for further information.</p>
-</dd>
+<dd>Set a trap for asynchronous messages. See the source listing for further information.</dd>
 <dt><code><strong>clrtrap [ <em>address</em> [ <em>port</em> ] [ <em>interface</em>]</strong></code></dt>
-<dd>
-<p>Clear a trap for asynchronous messages. See the source listing for further information.</p>
-</dd>
+<dd>Clear a trap for asynchronous messages. See the source listing for further information.</dd>
 <dt><code><strong>reset</strong></code></dt>
-<dd>
-<p>Clear the statistics counters in various modules of the server. See the source listing for further information.</p>
-</dd>
+<dd>Clear the statistics counters in various modules of the server. See the source listing for further information.</dd>
 </dl>
 <hr>
 <h4 id="bugs">Bugs</h4>

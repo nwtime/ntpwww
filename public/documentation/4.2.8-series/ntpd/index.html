@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntpd/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-11-23T17:49:36&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-23T21:05:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>ntpd - Network Time Protocol (NTP) daemon</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 23, 2022 17:49 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1b4d24aef65c630791ad0f89d6c09ec258781c2c">1b4d24aef</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 23, 2023 21:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6ad51a76fca51293c00a6b47090bb4a18efcaa06">6ad51a76f</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/wingdorothy.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>The Wizard of Oz</em>, L. Frank Baum</a></p>
@@ -176,140 +176,77 @@ function demo() {
 <h4 id="command-line-options">Command Line Options</h4>
 <dl>
 <dt><code><strong>-4</strong></code></dt>
-<dd>
-<p>Force DNS resolution of host names to the IPv4 namespace.</p>
-</dd>
+<dd>Force DNS resolution of host names to the IPv4 namespace.</dd>
 <dt><code><strong>-6</strong></code></dt>
-<dd>
-<p>Force DNS resolution of host names to the IPv6 namespace.</p>
-</dd>
+<dd>Force DNS resolution of host names to the IPv6 namespace.</dd>
 <dt><code><strong>-a</strong></code></dt>
-<dd>
-<p>Require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is the same operation as the <code>enable auth</code> command and is the default.</p>
-</dd>
+<dd>Require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is the same operation as the <code>enable auth</code> command and is the default.</dd>
 <dt><code><strong>-A</strong></code></dt>
-<dd>
-<p>Do not require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is the same operation as the <code>disable auth</code> command and almost never a good idea.</p>
-</dd>
+<dd>Do not require cryptographic authentication for broadcast client, multicast client and symmetric passive associations. This is the same operation as the <code>disable auth</code> command and almost never a good idea.</dd>
 <dt><code><strong>-b</strong></code></dt>
-<dd>
-<p>Enable the client to synchronize to broadcast servers.</p>
-</dd>
+<dd>Enable the client to synchronize to broadcast servers.</dd>
 <dt><code><strong>-c <em>conffile</em></strong></code></dt>
-<dd>
-<p>Specify the name and path of the configuration file. Without the option the default is <code>/etc/ntp.conf</code>.</p>
-</dd>
+<dd>Specify the name and path of the configuration file. Without the option the default is <code>/etc/ntp.conf</code>.</dd>
 <dt><code><strong>-d</strong></code></dt>
-<dd>
-<p>Disable switching into daemon mode, so <code>ntpd</code> stays attached to the starting terminal which will get all the debugging printout. Also, <code>^C</code> will kill it. This option may occur more than once, with each occurrence indicating greater detail of display.</p>
-</dd>
+<dd>Disable switching into daemon mode, so <code>ntpd</code> stays attached to the starting terminal which will get all the debugging printout. Also, <code>^C</code> will kill it. This option may occur more than once, with each occurrence indicating greater detail of display.</dd>
 <dt><code><strong>-D <em>level</em></strong></code></dt>
-<dd>
-<p>Specify debugging level directly, with <code>level</code> corresponding to the number of <code>-d</code> options..</p>
-</dd>
+<dd>Specify debugging level directly, with <code>level</code> corresponding to the number of <code>-d</code> options..</dd>
 <dt><code><strong>-f <em>driftfile</em></strong></code></dt>
-<dd>
-<p>Specify the name and path of the frequency file. This is the same operation as the <code>driftfile <em>driftfile</em></code> configuration command.</p>
-</dd>
+<dd>Specify the name and path of the frequency file. This is the same operation as the <code>driftfile <em>driftfile</em></code> configuration command.</dd>
 <dt><code><strong>-g</strong></code></dt>
-<dd>
-<p>Normally, <code>ntpd</code> exits with a message to the system log if the offset exceeds the panic threshold, which is 1000 s by default. This option allows the time to be set to any value without restriction; however, this can happen only once. If the threshold is exceeded after that, <code>ntpd</code> will exit with a message to the system log. This option can be used with the <code>-q</code> and <code>-x</code> options. See the <code>tinker</code> command for other options.</p>
-</dd>
+<dd>Normally, <code>ntpd</code> exits with a message to the system log if the offset exceeds the panic threshold, which is 1000 s by default. This option allows the time to be set to any value without restriction; however, this can happen only once. If the threshold is exceeded after that, <code>ntpd</code> will exit with a message to the system log. This option can be used with the <code>-q</code> and <code>-x</code> options. See the <code>tinker</code> command for other options.</dd>
 <dt><code><strong>-i <em>jaildir</em></strong></code></dt>
-<dd>
-<p>Chroot the server to the directory <em><code>jaildir</code></em>. This option also implies that the server attempts to drop root privileges at startup (otherwise, chroot gives very little additional security), and it is only available if the OS supports to run the server without full root privileges. You may need to also specify a <code>-u</code> option.</p>
-</dd>
+<dd>Chroot the server to the directory <em><code>jaildir</code></em>. This option also implies that the server attempts to drop root privileges at startup (otherwise, chroot gives very little additional security), and it is only available if the OS supports to run the server without full root privileges. You may need to also specify a <code>-u</code> option.</dd>
 <dt><code><strong>-I [<em>address</em> | <em>interface name</em>]</strong></code></dt>
-<dd>
-<p>Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">interface</a> command, which is more versatile.</p>
-</dd>
+<dd>Open the network address given, or all the addresses associated with the given interface name. This option may appear multiple times. This option also implies not opening other addresses, except wildcard and localhost. This option is deprecated. Please consider using the configuration file <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">interface</a> command, which is more versatile.</dd>
 <dt><code><strong>-k <em>keyfile</em></strong></code></dt>
-<dd>
-<p>Specify the name and path of the symmetric key file. This is the same operation as the <code>keys <em>keyfile</em></code> command.</p>
-</dd>
+<dd>Specify the name and path of the symmetric key file. This is the same operation as the <code>keys <em>keyfile</em></code> command.</dd>
 <dt><code><strong>-l <em>logfile</em></strong></code></dt>
-<dd>
-<p>Specify the name and path of the log file. The default is the system log file. This is the same operation as the <code>logfile <em>logfile</em></code> command.</p>
-</dd>
+<dd>Specify the name and path of the log file. The default is the system log file. This is the same operation as the <code>logfile <em>logfile</em></code> command.</dd>
 <dt><code><strong>-m</strong></code></dt>
-<dd>
-<p>Once the system clock is synchronized, register with mDNS as an available server.</p>
-</dd>
+<dd>Once the system clock is synchronized, register with mDNS as an available server.</dd>
 <dt><code><strong>-L</strong></code></dt>
-<dd>
-<p>Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">interface</a> command, which is more versatile.</p>
-</dd>
+<dd>Do not listen to virtual interfaces, defined as those with names containing a colon. This option is deprecated. Please consider using the configuration file <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">interface</a> command, which is more versatile.</dd>
 <dt><code><strong>-M</strong></code></dt>
-<dd>
-<p>Raise scheduler precision to its maximum (1 ms) using <code>timeBeginPeriod</code>. (Windows only)</p>
-</dd>
+<dd>Raise scheduler precision to its maximum (1 ms) using <code>timeBeginPeriod</code>. (Windows only)</dd>
 <dt><code><strong>-n</strong></code></dt>
-<dd>
-<p>Don&rsquo;t fork.</p>
-</dd>
+<dd>Don&rsquo;t fork.</dd>
 <dt><code><strong>-N</strong></code></dt>
-<dd>
-<p>To the extent permitted by the operating system, run the <code>ntpd</code> at the highest priority.</p>
-</dd>
+<dd>To the extent permitted by the operating system, run the <code>ntpd</code> at the highest priority.</dd>
 <dt><code><strong>-p <em>pidfile</em></strong></code></dt>
-<dd>
-<p>Specify the name and path of the file used to record the <code>ntpd</code> process ID. This is the same operation as the <code>pidfile <em>pidfile</em></code> command.</p>
-</dd>
+<dd>Specify the name and path of the file used to record the <code>ntpd</code> process ID. This is the same operation as the <code>pidfile <em>pidfile</em></code> command.</dd>
 <dt><code><strong>-P <em>priority</em></strong></code></dt>
-<dd>
-<p>To the extent permitted by the operating system, run the <code>ntpd</code> at the specified priority.</p>
-</dd>
+<dd>To the extent permitted by the operating system, run the <code>ntpd</code> at the specified priority.</dd>
 <dt><code><strong>-q</strong></code></dt>
-<dd>
-<p>Exit the <code>ntpd</code> just after the first time the clock is set. This behavior mimics that of the <code>ntpdate</code> program, which is to be retired. The <code>-g</code> and <code>-x</code> options can be used with this option.</p>
-</dd>
-</dl>
-<blockquote>
+<dd>Exit the <code>ntpd</code> just after the first time the clock is set. This behavior mimics that of the <code>ntpdate</code> program, which is to be retired. The <code>-g</code> and <code>-x</code> options can be used with this option.</dd>
+<dd><blockquote>
 <p>Note: The kernel time discipline is disabled with this option.</p>
 </blockquote>
-<dl>
+</dd>
 <dt><code><strong>-r <em>broadcastdelay</em></strong></code></dt>
-<dd>
-<p>Specify the default propagation delay from the broadcast/multicast server to this client. This is necessary only if the delay cannot be computed automatically by the protocol.</p>
-</dd>
+<dd>Specify the default propagation delay from the broadcast/multicast server to this client. This is necessary only if the delay cannot be computed automatically by the protocol.</dd>
 <dt><code><strong>-s <em>statsdir</em></strong></code></dt>
-<dd>
-<p>Specify the directory path for files created by the statistics facility. This is the same operation as the <code>statsdir <em>statsdir</em></code> command.</p>
-</dd>
+<dd>Specify the directory path for files created by the statistics facility. This is the same operation as the <code>statsdir <em>statsdir</em></code> command.</dd>
 <dt><code><strong>-t <em>key</em></strong></code></dt>
-<dd>
-<p>Add a key number to the trusted key list. This option can occur more than once. This is the same operation as the <code>trustedkey <em>key</em></code> command.</p>
-</dd>
+<dd>Add a key number to the trusted key list. This option can occur more than once. This is the same operation as the <code>trustedkey <em>key</em></code> command.</dd>
 <dt><code><strong>-u <em>user[:group]</em></strong></code></dt>
-<dd>
-<p>Specify a user, and optionally a group, to switch to. This option is only available if the OS supports running the server without full root privileges. Currently, this option is supported under NetBSD (configure with <code>--enable-clockctl</code>) and Linux (configure with <code>--enable-linuxcaps</code>).</p>
-</dd>
+<dd>Specify a user, and optionally a group, to switch to. This option is only available if the OS supports running the server without full root privileges. Currently, this option is supported under NetBSD (configure with <code>--enable-clockctl</code>) and Linux (configure with <code>--enable-linuxcaps</code>).</dd>
 <dt><code><strong>-U <em>interface update interval</em></strong></code></dt>
-<dd>
-<p>Number of seconds to wait between interface list scans to pick up old and delete network interface. Set to 0 to disable dynamic interface list updating. The default is to scan every 5 minutes.</p>
-</dd>
+<dd>Number of seconds to wait between interface list scans to pick up old and delete network interface. Set to 0 to disable dynamic interface list updating. The default is to scan every 5 minutes.</dd>
 <dt><code><strong>-v <em>variable</em></strong></code></dt>
-<dd><code><strong>-V <em>variable</em></strong></code></dd>
-<dd>
-<p>Add a system variable listed by default.</p>
-</dd>
+<dt><code><strong>-V <em>variable</em></strong></code></dt>
+<dd>Add a system variable listed by default.</dd>
 <dt><code><strong>-x</strong></code></dt>
+<dd>Normally, the time is slewed if the offset is less than the step threshold, which is 128 ms by default, and stepped if above the threshold. This option sets the threshold to 600 s, which is well within the accuracy window to set the clock manually. Note: Since the slew rate of typical Unix kernels is limited to 0.5 ms/s, each second of adjustment requires an amortization interval of 2000 s. Thus, an adjustment as much as 600 s will take almost 14 days to complete. This option can be used with the <code>-g</code> and <code>-q</code> options. See the <code>tinker</code> command for other options.</dd>
 <dd>
-<p>Normally, the time is slewed if the offset is less than the step threshold, which is 128 ms by default, and stepped if above the threshold. This option sets the threshold to 600 s, which is well within the accuracy window to set the clock manually. Note: Since the slew rate of typical Unix kernels is limited to 0.5 ms/s, each second of adjustment requires an amortization interval of 2000 s. Thus, an adjustment as much as 600 s will take almost 14 days to complete. This option can be used with the <code>-g</code> and <code>-q</code> options. See the <code>tinker</code> command for other options.</p>
-</dd>
-</dl>
 <blockquote>
 <p>Note: The kernel time discipline is disabled with this option.</p>
 </blockquote>
-<dl>
+</dd>
 <dt><code><strong>--pccfreq <em>frequency</em></strong></code></dt>
-<dd>
-<p>Substitute processor cycle counter for QueryPerformanceCounter unconditionally using the given frequency (in Hz). <code>--pccfreq</code> can be used on systems which do not use the PCC to implement QueryPerformanceCounter and have a fixed PCC frequency. The frequency specified must be accurate within 0.5 percent. <code>--usepcc</code> is equivalent on many systems and should be tried first, as it does not require determining the frequency of the processor cycle counter. For x86-compatible processors, the PCC is also referred to as <code>RDTSC</code>, which is the assembly-language instruction to retrieve the current value.  (Windows only)</p>
-</dd>
+<dd>Substitute processor cycle counter for QueryPerformanceCounter unconditionally using the given frequency (in Hz). <code>--pccfreq</code> can be used on systems which do not use the PCC to implement QueryPerformanceCounter and have a fixed PCC frequency. The frequency specified must be accurate within 0.5 percent. <code>--usepcc</code> is equivalent on many systems and should be tried first, as it does not require determining the frequency of the processor cycle counter. For x86-compatible processors, the PCC is also referred to as <code>RDTSC</code>, which is the assembly-language instruction to retrieve the current value.  (Windows only)</dd>
 <dt><code><strong>--usepcc</strong></code></dt>
-<dd>
-<p>Substitute processor cycle counter for QueryPerformanceCounter if they appear equivalent. This option should be used only if the PCC frequency is fixed. Power-saving functionality on many laptops varies the PCC frequency. (Windows only)</p>
-</dd>
+<dd>Substitute processor cycle counter for QueryPerformanceCounter if they appear equivalent. This option should be used only if the PCC frequency is fixed. Power-saving functionality on many laptops varies the PCC frequency. (Windows only)</dd>
 </dl>
 <hr>
 <h4 id="the-configuration-file">The Configuration File</h4>

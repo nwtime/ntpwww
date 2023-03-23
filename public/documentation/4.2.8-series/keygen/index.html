@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/keygen/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-22T16:20:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-23T21:05:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>ntp-keygen - generate public and private keys</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 22, 2023 16:20 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/4747640e38fcbfb65ece47fd27db6d536e7baaba">4747640e3</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 23, 2023 21:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6ad51a76fca51293c00a6b47090bb4a18efcaa06">6ad51a76f</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice23.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
@@ -189,90 +189,54 @@ function demo() {
 <h4 id="command-line-options">Command Line Options</h4>
 <dl>
 <dt><code><strong>-b <em>modulus</em></strong></code></dt>
-<dd>
-<p>Set the modulus for generating identity keys to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
-</dd>
+<dd>Set the modulus for generating identity keys to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</dd>
 <dt><code><strong>-c [ RSA-MD2 | RSA-MD5 | RSA-SHA | RSA-SHA1 | RSA-MDC2 | RSA-RIPEMD160 | DSA-SHA | DSA-SHA1 ]</strong></code></dt>
-<dd>
-<p>Select certificate digital signature and message digest scheme. Note that RSA schemes must be used with an RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <code>RSA-MD5</code>. If compatibility with FIPS 140-2 is required, either the <code>DSA-SHA</code> or <code>DSA-SHA1</code> scheme must be used.</p>
-</dd>
+<dd>Select certificate digital signature and message digest scheme. Note that RSA schemes must be used with an RSA sign key and DSA schemes must be used with a DSA sign key. The default without this option is <code>RSA-MD5</code>. If compatibility with FIPS 140-2 is required, either the <code>DSA-SHA</code> or <code>DSA-SHA1</code> scheme must be used.</dd>
 <dt><code><strong>-C <em>cipher</em></strong></code></dt>
-<dd>
-<p>Select the OpenSSL cipher to use for password-protected keys. The <code>openssl -h</code> command provided with OpenSSL displays available ciphers. The default without this option is <code>des-ede3-cbc</code>.</p>
-</dd>
+<dd>Select the OpenSSL cipher to use for password-protected keys. The <code>openssl -h</code> command provided with OpenSSL displays available ciphers. The default without this option is <code>des-ede3-cbc</code>.</dd>
 <dt><code><strong>-d</strong></code></dt>
-<dd>
-<p>Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.</p>
-</dd>
+<dd>Enable debugging. This option displays the cryptographic data produced for eye-friendly billboards.</dd>
 <dt><code><strong>-e</strong></code></dt>
-<dd>
-<p>Extract the IFF or GQ public parameters from the <code>IFFkey</code> or <code>GQkey</code> keys file previously specified. Send the unencrypted data to the standard output stream <code>stdout</code>.</p>
-</dd>
+<dd>Extract the IFF or GQ public parameters from the <code>IFFkey</code> or <code>GQkey</code> keys file previously specified. Send the unencrypted data to the standard output stream <code>stdout</code>.</dd>
 <dt><code><strong>-G</strong></code></dt>
-<dd>
-<p>Generate a new encrypted GQ key file for the Guillou-Quisquater (GQ) identity scheme. This option is mutually exclusive with the <code>-I</code> and <code>-V</code> options.</p>
-</dd>
+<dd>Generate a new encrypted GQ key file for the Guillou-Quisquater (GQ) identity scheme. This option is mutually exclusive with the <code>-I</code> and <code>-V</code> options.</dd>
 <dt><code><strong>-H</strong></code></dt>
-<dd>
-<p>Generate a new encrypted RSA public/private host key file.</p>
-</dd>
+<dd>Generate a new encrypted RSA public/private host key file.</dd>
 <dt><code><strong>-i <em>group</em></strong></code></dt>
-<dd>
-<p>Set the optional Autokey group name to <code><em>group</em></code>. This is used in the identity scheme parameter file names. In that role, the default is the host name if no group is provided. The group name, if specified using <code>-i</code> or using <code>-s</code> following an <code>@</code> character, is also used in certificate subject and issuer names in the form <code><em>host</em>@<em>group</em></code> and should match the group specified via <code>crypto ident</code> or <code>server ident</code> in <code>ntpd</code>&rsquo;s configuration file.</p>
-</dd>
+<dd>Set the optional Autokey group name to <code><em>group</em></code>. This is used in the identity scheme parameter file names. In that role, the default is the host name if no group is provided. The group name, if specified using <code>-i</code> or using <code>-s</code> following an <code>@</code> character, is also used in certificate subject and issuer names in the form <code><em>host</em>@<em>group</em></code> and should match the group specified via <code>crypto ident</code> or <code>server ident</code> in <code>ntpd</code>&rsquo;s configuration file.</dd>
 <dt><code><strong>-I</strong></code></dt>
-<dd>
-<p>Generate a new encrypted IFF key file for the Schnorr (IFF) identity scheme. This option is mutually exclusive with the <code>-G</code> and <code>-V</code> options.</p>
-</dd>
+<dd>Generate a new encrypted IFF key file for the Schnorr (IFF) identity scheme. This option is mutually exclusive with the <code>-G</code> and <code>-V</code> options.</dd>
 <dt><code><strong>-l <em>days</em></strong></code></dt>
-<dd>
-<p>Set the lifetime for certificates to <code><em>days</em></code>. The default lifetime is one year (365 d).</p>
-</dd>
+<dd>Set the lifetime for certificates to <code><em>days</em></code>. The default lifetime is one year (365 d).</dd>
 <dt><code><strong>-m <em>modulus</em></strong></code></dt>
-<dd>
-<p>Set the modulus for generating files to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</p>
-</dd>
+<dd>Set the modulus for generating files to <em>modulus</em> bits. The modulus defaults to 512, but can be set from 512 (64 octets) to 2048 (256 octets). Use the larger moduli with caution, as this can consume considerable computing resources and increases the size of authenticated packets.</dd>
 </dl>
-<p><code><strong>-M</strong></code></p>
-<p>Generate a new keys file containing 10 MD5 keys and 10 SHA keys. An MD5 key is a string of 20 random printable ASCII characters, while a SHA key is a string of 40 random hex digits. The file can be edited using a text editor to change the key type or key content. This option is mutually exclusive with all other options.</p>
+<p><code><strong>-M</strong></code>
+Generate a new keys file containing 10 MD5 keys and 10 SHA keys. An MD5 key is a string of 20 random printable ASCII characters, while a SHA key is a string of 40 random hex digits. The file can be edited using a text editor to change the key type or key content. This option is mutually exclusive with all other options.</p>
 <dl>
 <dt><code><strong>-P</strong></code></dt>
-<dd>
-<p>Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates.</p>
-</dd>
-</dl>
-<blockquote>
+<dd>Generate a new private certificate used by the PC identity scheme. By default, the program generates public certificates.</dd>
+<dd><blockquote>
 <p>Note: the PC identity scheme is not recommended for new installations.</p>
 </blockquote>
-<dl>
+</dd>
 <dt><code><strong>-p <em>passwd</em></strong></code></dt>
-<dd>
-<p>Set the password for reading and writing encrypted files to <code><em>passwd</em></code>. These include the host, sign and identify key files. By default, the password is the string returned by the Unix <code>gethostname()</code> routine.</p>
-</dd>
+<dd>Set the password for reading and writing encrypted files to <code><em>passwd</em></code>. These include the host, sign and identify key files. By default, the password is the string returned by the Unix <code>gethostname()</code> routine.</dd>
 <dt><code><strong>-q <em>passwd</em></strong></code></dt>
-<dd>
-<p>Set the password for writing encrypted IFF, GQ and MV identity files redirected to <code>stdout</code> to <code><em>passwd</em>=</code>. In effect, these files are decrypted with the <code>-p</code> password, then encrypted with the <code>-q</code> password. By default, the password is the string returned by the Unix <code>gethostname()</code> routine.</p>
-</dd>
+<dd>Set the password for writing encrypted IFF, GQ and MV identity files redirected to <code>stdout</code> to <code><em>passwd</em>=</code>. In effect, these files are decrypted with the <code>-p</code> password, then encrypted with the <code>-q</code> password. By default, the password is the string returned by the Unix <code>gethostname()</code> routine.</dd>
 <dt><code><strong>-S [ RSA | DSA ]</strong></code></dt>
-<dd>
-<p>Generate a new encrypted public/private sign key file of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <code>DSA</code>.</p>
-</dd>
+<dd>Generate a new encrypted public/private sign key file of the specified type. By default, the sign key is the host key and has the same type. If compatibly with FIPS 140-2 is required, the sign key type must be <code>DSA</code>.</dd>
 <dt><code><strong>-s <em>host</em>[@<em>group</em>]</strong></code></dt>
-<dd>
-<p>Specify the Autokey host name, where <code><em>host</em></code> is the host name and <code><em>group</em></code> is the optional group name. The host name, and if provided, group name are used in <code><em>host</em>@<em>group</em></code> form as certificate subject and issuer. Specifying <code>-s @<em>group</em></code> is allowed, and results in leaving the host name unchanged, as with <code>-i <em>group</em></code>. The group name, or if no group is provided, the host name are also used in the file names of IFF, GQ, and MV identity scheme parameter files. If <code><em>host</em></code> is not specified, the default host name is the string returned by the <code>gethostname()</code> routine.</p>
-</dd>
+<dd>Specify the Autokey host name, where <code><em>host</em></code> is the host name and <code><em>group</em></code> is the optional group name. The host name, and if provided, group name are used in <code><em>host</em>@<em>group</em></code> form as certificate subject and issuer. Specifying <code>-s @<em>group</em></code> is allowed, and results in leaving the host name unchanged, as with <code>-i <em>group</em></code>. The group name, or if no group is provided, the host name are also used in the file names of IFF, GQ, and MV identity scheme parameter files. If <code><em>host</em></code> is not specified, the default host name is the string returned by the <code>gethostname()</code> routine.</dd>
 <dt><code><strong>-T</strong></code></dt>
-<dd>
-<p>Generate a trusted certificate. By default, the program generates nontrusted certificates.</p>
-</dd>
+<dd>Generate a trusted certificate. By default, the program generates nontrusted certificates.</dd>
 <dt><code><strong>-V <em>nkeys</em></strong></code></dt>
-<dd>
-<p>Generate <code>nkeys</code> encrypted server keys for the Mu-Varadharajan (MV) identity scheme. This option is mutually exclusive with the <code>-I</code> and <code>-G</code> options.</p>
-</dd>
-</dl>
-<blockquote>
+<dd>Generate <code>nkeys</code> encrypted server keys for the Mu-Varadharajan (MV) identity scheme. This option is mutually exclusive with the <code>-I</code> and <code>-G</code> options.</dd>
+<dd><blockquote>
 <p>Note: support for this option should be considered a work in progress.</p>
 </blockquote>
+</dd>
+</dl>
 <hr>
 <h4 id="random-seed-file">Random Seed File</h4>
 <p>All cryptographically sound key generation schemes must have means to randomize the entropy seed used to initialize the internal pseudo-random number generator used by the OpenSSL library routines. If a site supports <code>ssh</code>, it is very likely that means to do this are already available. The entropy seed used by the OpenSSL library is contained in a file, usually called <code>.rnd</code>, which must be available when starting the <code>ntp-keygen</code> program or <code>ntpd</code> daemon.</p>
