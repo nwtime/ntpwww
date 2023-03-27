@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver18/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-27T22:34:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NIST/USNO/PTB Modem Time Services</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 27, 2023 22:34 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/39505daf645a80169339bf27ac2605732d2f5fdd">39505daf6</a>)</p>
 	<p>Author: <a href="mailto:mills@udel.edu">David L. Mills</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
@@ -164,14 +164,12 @@ function demo() {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<dl>
-<dt><strong>Address:</strong> <code>127.127.18.<em>u</em></code></dt>
-<dd><strong>Reference ID:</strong> <code>NIST | USNO | PTB | WWVB</code></dd>
-<dd><strong>Driver ID:</strong> <code>ACTS_MODEM</code></dd>
-<dd><strong>Serial Port:</strong> <code>/dev/acts<em>u</em></code>; 9600 baud, 8-bits, no parity</dd>
-<dd><strong>Features:</strong> <code>tty_clk</code></dd>
-<dd><strong>Requires:</strong> <code>/usr/include/sys/termios.h</code> header file with modem control and a dial-out (cua) device.</dd>
-</dl>
+<p><strong>Address:</strong> <code>127.127.18.<em>u</em></code></p>
+<p><strong>Reference ID:</strong> <code>NIST | USNO | PTB | WWVB</code></p>
+<p><strong>Driver ID:</strong> <code>ACTS_MODEM</code></p>
+<p><strong>Serial Port:</strong> <code>/dev/acts<em>u</em></code>; 9600 baud, 8-bits, no parity</p>
+<p><strong>Features:</strong> <code>tty_clk</code></p>
+<p><strong>Requires:</strong> <code>/usr/include/sys/termios.h</code> header file with modem control and a dial-out (cua) device.</p>
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver supports the US (NIST and USNO) and European (PTB (Germany), NPL (UK), etc.) modem time services, as well as Spectracom GPS and WWVB receivers connected via a modem. The driver periodically dials a number from a telephone list, receives the timecode data and calculates the local clock correction. It is designed primarily for backup when neither a radio clock nor connectivity to Internet time servers are available. It can also be configured to operate full period.</p>
@@ -190,14 +188,15 @@ function demo() {
 <p><a href="https://www.nist.gov/pml/time-and-frequency-division/time-distribution/automated-computer-time-service-acts">National Institute of Science and Technology (NIST)</a></p>
 <p>Phone: (303) 494-4774 (Boulder, CO); (808) 335-4721 (Hawaii)</p>
 <p>Data Format:</p>
-<p><code>National Institute of Standards and Technology</p>
-<p>Telephone Time Service, Generator 3B</p>
-<p>Enter question mark &ldquo;?&rdquo; for HELP</p>
-<p>MJD YR MO DA H M S ST S UT1 msADV &lt;OTM&gt;</p>
-<p>47999 90-04-18 21:39:15 50 0 +.1 045.0 UTC(NIST) *</p>
-<p>47999 90-04-18 21:39:16 50 0 +.1 045.0 UTC(NIST) #</p>
-<p>&hellip;</code></p>
+<pre>National Institute of Standards and Technology
+Telephone Time Service, Generator 3B
+Enter question mark "?" for HELP
+MJD YR MO DA H M S ST S UT1 msADV &lt;OTM>
+47999 90-04-18 21:39:15 50 0 +.1 045.0 UTC(NIST) *
+47999 90-04-18 21:39:16 50 0 +.1 045.0 UTC(NIST) #
+...</pre>
 <p><code>MJD, YR, ST, UT1</code> and <code>UTC(NIST)</code> are not used by this driver. The <code>&lt;OTM&gt;</code> on-time character <code>*</code> changes to <code>#</code> when the delay correction is valid.</p>
+<hr>
 <p><a href="https://www.cnmoc.usff.navy.mil/usno/">US Naval Observatory (USNO)</a></p>
 <p>Phone: (202) 762-1594 (Washington, DC); (719) 567-6743 (Colorado Springs, CO)</p>
 <p>Data Format (two lines, repeating at one-second intervals)</p>
@@ -206,6 +205,7 @@ function demo() {
 <p><code>jjjjj</code> modified Julian day number (not used)</p>
 <p><code>nnn</code> day of year</p>
 <p><code>hhmmss</code> second of day</p>
+<hr>
 <p><a href="https://www.ntp.org/documentation/drivers/tf582_4/">European Phone Numbers and Formats</a></p>
 <p><a href="https://www.orolia.com/">Spectracom GPS and WWVB Receivers</a></p>
 <p>If a modem is connected to a Spectracom receiver, this driver will call it and retrieve the time in one of two formats, 0 and 2. Ordinarily, the receiver requires a <code>T</code> in order to return the timecode. As this driver does not send data via the modem, it must either be configured in continuous mode or be polled by another local driver.</p>

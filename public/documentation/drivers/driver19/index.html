@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver19/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-27T22:34:57&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Heath WWV/WWVH Receiver</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 27, 2023 22:34 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/39505daf645a80169339bf27ac2605732d2f5fdd">39505daf6</a>)</p>
 	<p>Author: <a href="mailto:mills@udel.edu">David L. Mills</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
@@ -162,14 +162,12 @@ function demo() {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<dl>
-<dt><strong>Address:</strong> <code>127.127.19.<em>u</em></code></dt>
-<dd><strong>Reference ID:</strong> <code>WWV</code></dd>
-<dd><strong>Driver ID:</strong> <code>WWV_HEATH</code></dd>
-<dd><strong>Serial Port:</strong> <code>/dev/heath<em>u</em></code>; 1200 baud, 8-bits, no parity</dd>
-<dd><strong>Features:</strong> <code>tty_clk</code></dd>
-<dd><strong>Requires:</strong> <code>/usr/include/sys/termios.h</code> header file with modem control</dd>
-</dl>
+<p><strong>Address:</strong> <code>127.127.19.<em>u</em></code></p>
+<p><strong>Reference ID:</strong> <code>WWV</code></p>
+<p><strong>Driver ID:</strong> <code>WWV_HEATH</code></p>
+<p><strong>Serial Port:</strong> <code>/dev/heath<em>u</em></code>; 1200 baud, 8-bits, no parity</p>
+<p><strong>Features:</strong> <code>tty_clk</code></p>
+<p><strong>Requires:</strong> <code>/usr/include/sys/termios.h</code> header file with modem control</p>
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver supports the Heath GC-1000 Most Accurate Clock, with RS232C Output Accessory. This is a WWV/WWVH receiver somewhat less robust than other supported receivers. It&rsquo;s claimed accuracy is 100 ms when actually synchronized to the broadcast signal, but this doesn&rsquo;t happen even most of the time, due to propagation conditions, ambient noise sources, etc. When not synchronized, the accuracy is at the whim of the internal clock oscillator, which can wander into the sunset without warning. Since the indicated precision is 100 ms, expect a host synchronized only to this thing to wander to and fro, occasionally being rudely stepped when the offset exceeds the default <code>CLOCK_MAX</code> of 128 ms.</p>
@@ -177,6 +175,7 @@ function demo() {
 <p>In MANUAL mode the clock responds to a rising edge of the request to send (RTS) modem control line by sending the timecode. Therefore, it is necessary that the operating system implement the <code>TIOCMBIC</code> and <code>TIOCMBIS</code> ioctl system calls and <code>TIOCM_RTS</code> control bit. Present restrictions require the use of a POSIX-compatible programming interface, although other interfaces may work as well.</p>
 <p>The clock message consists of 23 ASCII printing characters in the following format:</p>
 <p><code>hh:mm:ss.f     dd/mm/yr&lt;cr&gt;</code></p>
+<p>where:</p>
 <p><code>hh:mm:ss.f</code> = hours, minutes, seconds</p>
 <p><code>f</code> = deciseconds (<code>?</code> when out of spec)</p>
 <p><code>dd/mm/yr</code> = day, month, year</p>
