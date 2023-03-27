@@ -21,12 +21,18 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.20._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `GPS_NMEA`
-: **Serial Port:** <code>/dev/gps*u*</code>; 4800 - 115200 bps, 8-bits, no parity
-: **Serial Port:** <code>/dev/gpspps*u*</code>; for just the PPS signal (this is tried first for PPS, before <code>/dev/gps*u*</code>)
-: **Serial Port:** <code>/dev/gps*u*</code>; symlink to server:port (for nmead)
-: **Features:** `tty_clk`
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `GPS_NMEA`
+
+**Serial Port:** <code>/dev/gps*u*</code>; 4800 - 115200 bps, 8-bits, no parity
+
+**Serial Port:** <code>/dev/gpspps*u*</code>; for just the PPS signal (this is tried first for PPS, before <code>/dev/gps*u*</code>)
+
+**Serial Port:** <code>/dev/gps*u*</code>; symlink to server:port (for nmead)
+
+**Features:** `tty_clk`
 
 * * *
 

@@ -21,8 +21,10 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.1._u_</code>
-: **Reference ID:** `LOCL`
-: **Driver ID:** `LOCAL`
+
+**Reference ID:** `LOCL`
+
+**Driver ID:** `LOCAL`
 
 * * *
 

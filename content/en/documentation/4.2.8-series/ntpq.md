@@ -33,47 +33,41 @@ A typical NTP monitoring packet
 
 #### Description
 
-The <code>ntpq</code> utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in [Appendix B of the NTPv3 specification RFC 1305](/reflib/rfc/rfc1305/rfc1305c.pdf). The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.
+The `ntpq` utility program is used to monitor NTP daemon <code>ntpd</code> operations and determine performance. It uses the standard NTP mode 6 control message formats defined in [Appendix B of the NTPv3 specification RFC 1305](/reflib/rfc/rfc1305/rfc1305c.pdf). The same formats are used in NTPv4, although some of the variable names have changed and new ones added. The description on this page is for the NTPv4 variables.
 
-The program can be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. The <code>ntpq</code> can also obtain and print a list of peers in a common format by sending multiple queries to the server.
+The program can be run either in interactive mode or controlled using command line arguments. Requests to read and write arbitrary variables can be assembled, with raw and pretty-printed output options being available. The `ntpq` can also obtain and print a list of peers in a common format by sending multiple queries to the server.
 
-If one or more request options is included on the command line when <code>ntpq</code> is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, <code>ntpq</code> will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. <code>ntpq</code> will prompt for commands if the standard input is a terminal device.
+If one or more request options is included on the command line when `ntpq` is executed, each of the requests will be sent to the NTP servers running on each of the hosts given as command line arguments, or on localhost by default. If no request options are given, `ntpq` will attempt to read commands from the standard input and execute these on the NTP server running on the first host given on the command line, again defaulting to localhost when no other host is specified. `ntpq` will prompt for commands if the standard input is a terminal device.
 
-<code>ntpq</code> uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. <code>ntpq</code> makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.
+`ntpq` uses NTP mode 6 packets to communicate with the NTP server, and hence can be used to query any compatible server on the network which permits it. Note that since NTP is a UDP protocol this communication will be somewhat unreliable, especially over large distances in terms of network topology. `ntpq` makes one attempt to retransmit requests, and will time requests out if the remote host is not heard from within a suitable timeout time.
 
-Note that in contexts where a host name is expected, a <code>-4</code> qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a <code>-6</code> qualifier forces DNS resolution to the IPv6 namespace.
+Note that in contexts where a host name is expected, a `-4` qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a `-6` qualifier forces DNS resolution to the IPv6 namespace.
 
 For examples and usage, see the [NTP Debugging Techniques](/documentation/4.2.8-series/debug/) page.
 
-Command line options are described following. Specifying a command line option other than <code>-i</code> or <code>-n</code> will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, <code>ntpq</code> will attempt to read interactive format commands from the standard input.
+Command line options are described following. Specifying a command line option other than `-i` or `-n` will cause the specified query (queries) to be sent to the indicated host(s) immediately. Otherwise, `ntpq` will attempt to read interactive format commands from the standard input.
 
 <code>**-4**</code>
-
 : Force DNS resolution of following host names on the command line to the IPv4 namespace.
 
 <code>**-6**</code>
-
 : Force DNS resolution of following host names on the command line to the IPv6 namespace.
 
 <code>**-c**</code>
-
-: The following argument is interpreted as an interactive format command and is added to the list of commands to be executed on the specified host(s). Multiple <code>-c</code> options may be given.
+: The following argument is interpreted as an interactive format command and is added to the list of commands to be executed on the specified host(s). Multiple `-c` options may be given.
 
 <code>**-d**</code>
-
 : Turn on debugging mode.
 
 <code>**-i**</code>
-
-: Force <code>ntpq</code> to operate in interactive mode. Prompts will be written to the standard output and commands read from the standard input.
+: Force `ntpq` to operate in interactive mode. Prompts will be written to the standard output and commands read from the standard input.
 
 <code>**-n**</code>
-
 : Output all host addresses in dotted-quad numeric format rather than converting to the canonical host names.
 
 <code>**-p**</code>
 
-: Print a list of the peers known to the server as well as a summary of their state. This is equivalent to the <code>peers</code> interactive command.
+: Print a list of the peers known to the server as well as a summary of their state. This is equivalent to the `peers` interactive command.
 
 * * *
 
@@ -82,77 +76,62 @@ Command line options are described following. Specifying a command line option o
 Interactive format commands consist of a keyword followed by zero to four arguments. Only enough characters of the full keyword to uniquely identify the command need be typed. The output of a command is normally sent to the standard output, but optionally the output of individual commands may be sent to a file by appending a `>`, followed by a file name, to the command line. A number of interactive format commands are executed entirely within the <code>ntpq</code> program itself and do not result in NTP mode-6 requests being sent to a server. These are described following.
 
 <code>**? [_command_keyword_]**</code>
-: <code>**help [_command_keyword_]**</code>
-
-: A <code>?</code> by itself will print a list of all the command keywords known to <code>ntpq</code>. A <code>?</code> followed by a command keyword will print function and usage information about the command.
+<code>**help [_command_keyword_]**</code>
+: A `?` by itself will print a list of all the command keywords known to `ntpq`. A `?` followed by a command keyword will print function and usage information about the command.
 
 <code>**addvars _name_ [ = _value_] [...]**</code>
-: <code>**rmvars _name_ [...]**</code>
-: <code>**clearvars**</code>
-
-: The arguments to this command consist of a list of items of the form <code>_name_ = _value_</code>, where the <code>= _value_</code> is ignored, and can be omitted in read requests. <code>ntpq</code> maintains an internal list in which data to be included in control messages can be assembled, and sent using the <code>readlist</code> and <code>writelist</code> commands described below. The <code>addvars</code> command allows variables and optional values to be added to the list. If more than one variable is to be added, the list should be comma-separated and not contain white space. The <code>rmvars</code> command can be used to remove individual variables from the list, while the <code>clearlist</code> command removes all variables from the list.
+<code>**rmvars _name_ [...]**</code>
+<code>**clearvars**</code>
+: The arguments to this command consist of a list of items of the form <code>_name_ = _value_</code>, where the <code>= _value_</code> is ignored, and can be omitted in read requests. `ntpq` maintains an internal list in which data to be included in control messages can be assembled, and sent using the `readlist` and `writelist` commands described below. The `addvars` command allows variables and optional values to be added to the list. If more than one variable is to be added, the list should be comma-separated and not contain white space. The `rmvars` command can be used to remove individual variables from the list, while the `clearlist` command removes all variables from the list.
 
 <code>**cooked**</code>
-
 : Display server messages in prettyprint format.
 
 <code>**debug more | less | off**</code>
-
 : Turns internal query program debugging on and off.
 
 <code>**delay _milliseconds_**</code>
-
 : Specify a time interval to be added to timestamps included in requests which require authentication. This is used to enable (unreliable) server reconfiguration over long delay network paths or between machines whose clocks are unsynchronized. Actually the server does not now require timestamps in authenticated requests, so this command may be obsolete.
 
 <code>**host _name_**</code>
-
 : Set the host to which future queries will be sent. The name may be either a DNS name or a numeric address.
 
 <code>**hostnames [yes | no]**</code>
-
-: If <code>yes</code> is specified, host names are printed in information displays. If <code>no</code> is specified, numeric addresses are printed instead. The default is <code>yes</code>, unless modified using the command line <code>-n</code> switch.
+: If `yes` is specified, host names are printed in information displays. If `no` is specified, numeric addresses are printed instead. The default is `yes`, unless modified using the command line `-n` switch.
 
 <code>**keyid _keyid_**</code>
-
-: This command specifies the key number to be used to authenticate configuration requests. This must correspond to a key ID configured in <code>ntp.conf</code> for this purpose.
+: This command specifies the key number to be used to authenticate configuration requests. This must correspond to a key ID configured in `ntp.conf` for this purpose.
 
 <code>**keytype**</code>
-
-: Specify the digest algorithm to use for authenticated requests, with default <code>MD5</code>. If the OpenSSL library is installed, digest can be any message digest algorithm supported by the library. The current selections are: <code>MD2</code>, <code>MD4</code>, <code>MD5</code>, <code>MDC2</code>, <code>RIPEMD160</code>, <code>SHA</code>, <code>SHA1</code>, and <code>AES128CMAC</code>.
+: Specify the digest algorithm to use for authenticated requests, with default `MD5`. If the OpenSSL library is installed, digest can be any message digest algorithm supported by the library. The current selections are: `MD2`, `MD4`, `MD5`, `MDC2`, `RIPEMD160`, `SHA`, `SHA1`, and `AES128CMAC`.
 
 <code>**ntpversion 1 | 2 | 3 | 4**</code>
-
-: Sets the NTP version number which <code>ntpq</code> claims in packets. Defaults to <code>2</code>, Note that mode-6 control messages (and modes, for that matter) didn't exist in NTP version 1.
+: Sets the NTP version number which `ntpq` claims in packets. Defaults to `2`, Note that mode-6 control messages (and modes, for that matter) didn't exist in NTP version 1.
 
 <code>**passwd**</code>
-
-: This command prompts for a password to authenticate requests. The password must correspond to the key ID configured in <code>ntp.conf</code> for this purpose.
+: This command prompts for a password to authenticate requests. The password must correspond to the key ID configured in `ntp.conf` for this purpose.
 
 <code>**quit**</code>
-
-: Exit <code>ntpq</code>.
+: Exit `ntpq`.
 
 <code>**raw**</code>
-
 : Display server messages as received and without reformatting.
 
 <code>**timeout _millseconds_**</code>
-
-: Specify a timeout period for responses to server queries. The default is about 5000 milliseconds. Note that since <code>ntpq</code> retries each query once after a timeout, the total waiting time for a timeout will be twice the timeout value set.
+: Specify a timeout period for responses to server queries. The default is about 5000 milliseconds. Note that since `ntpq` retries each query once after a timeout, the total waiting time for a timeout will be twice the timeout value set.
 
 * * *
 
 #### Control Message Commands
 
-Association IDs are used to identify system, peer and clock variables. System variables are assigned an association ID of zero and system name space, while each association is assigned a nonzero association ID and peer namespace. Most control commands send a single mode-6 message to the server and expect a single response message. The exceptions are the <code>peers</code> command, which sends a series of messages, and the <code>mreadlist</code> and <code>mreadvar</code> commands, which iterate over a range of associations.
+Association IDs are used to identify system, peer and clock variables. System variables are assigned an association ID of zero and system name space, while each association is assigned a nonzero association ID and peer namespace. Most control commands send a single mode-6 message to the server and expect a single response message. The exceptions are the `peers` command, which sends a series of messages, and the `mreadlist` and `mreadvar` commands, which iterate over a range of associations.
 
 <code>**associations**</code>
-
 : Display a list of mobilized associations in the form
 
-`ind assid status conf reach auth condition last_event cnt`
+: `ind assid status conf reach auth condition last_event cnt`
 
-| Variable | Description |
+: | Variable | Description |
 | ----- | ----- |
 | `ind` | index on this list |
 | `assid` | association ID |
@@ -165,45 +144,36 @@ Association IDs are used to identify system, peer and clock variables. System va
 | `cnt` | event count (see the `count` field of the peer status word) |
 
 <code>**clockvar _assocID_ [_name_ [ = _value_ [...]] [...]**</code>
-: <code>**cv _assocID_ [_name_ [ = _value_ [...] ][...]**</code>
-
+<code>**cv _assocID_ [_name_ [ = _value_ [...] ][...]**</code>
 : Display a list of clock variables for those associations supporting a reference clock.
 
 <code>**:config [...]**</code>
-
 : Send the remainder of the command line, including whitespace, to the server as a run-time configuration command in the same format as the configuration file. This command is experimental until further notice and clarification. Authentication is of course required.
 
 <code>**config-from-file _filename_**</code>
-
 : Send each line of <code>_filename_</code> to the server as run-time configuration commands in the same format as the configuration file. This command is experimental until further notice and clarification. Authentication is required.
 
 <code>**ifstats**</code>
-
 : Display statistics for each local network address. Authentication is required.
 
 <code>**iostats**</code>
-
 : Display network and reference clock I/O statistics.
 
 <code>**kerninfo**</code>
-
-: Display kernel loop and PPS statistics. As with other <code>ntpq</code> output, times are in milliseconds. The precision value displayed is in milliseconds as well, unlike the precision system variable.
+: Display kernel loop and PPS statistics. As with other `ntpq` output, times are in milliseconds. The precision value displayed is in milliseconds as well, unlike the precision system variable.
 
 <code>**lassociations**</code>
-
-: Perform the same function as the <code>associations</code> command, except display mobilized and unmobilized associations.
+: Perform the same function as the `associations` command, except display mobilized and unmobilized associations.
 
 <code>**monstats**</code>
-
 : Display monitor facility statistics.
 
 <code>**mrulist [limited | kod | mincount=_count_ | laddr=_localaddr_ | sort=_sortorder_ | resany=_hexmask_ | resall=_hexmask_]**</code>
+: Obtain and print traffic counts collected and maintained by the monitor facility. With the exception of <code>sort=_sortorder_</code>, the options filter the list returned by `ntpd`. The `limited` and `kod` options return only entries representing client addresses from which the last packet received triggered either discarding or a KoD response. The <code>mincount=_count_</code> option filters entries representing less than <code>_count_</code> packets. The <code>laddr=_localaddr_</code> option filters entries for packets received on any local address other than <code>_localaddr_</code>. <code>resany=_hexmask_</code> and <code>resall=_hexmask_</code> filter entries containing none or less than all, respectively, of the bits in <code>_hexmask_</code>, which must begin with <code>0x</code>.
 
-: Obtain and print traffic counts collected and maintained by the monitor facility. With the exception of <code>sort=_sortorder_</code>, the options filter the list returned by <code>ntpd</code>. The <code>limited</code> and <code>kod</code> options return only entries representing client addresses from which the last packet received triggered either discarding or a KoD response. The <code>mincount=_count_</code> option filters entries representing less than <code>_count_</code> packets. The <code>laddr=_localaddr_</code> option filters entries for packets received on any local address other than <code>_localaddr_</code>. <code>resany=_hexmask_</code> and <code>resall=_hexmask_</code> filter entries containing none or less than all, respectively, of the bits in <code>_hexmask_</code>, which must begin with <code>0x</code>.
+: The <code>_sortorder_</code> defaults to `lstint` and may be any of `addr`, `count`, `avgint`, `lstint`, or any of those preceded by a minus sign (hyphen) to reverse the sort order. The output columns are:
 
-The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <code>addr</code>, <code>count</code>, <code>avgint</code>, <code>lstint</code>, or any of those preceded by a minus sign (hyphen) to reverse the sort order. The output columns are:
-
-| Column | Description |
+: | Column | Description |
 | ----- | ----- |
 | `lstint` | Interval in s between the receipt of the most recent packet from this address and the completion of the retrieval of the MRU list by `ntpq`. |
 | `avgint` | Average interval in s between packets from this address. |
@@ -216,21 +186,18 @@ The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <
 | `remote address` | DNS name, numeric address, or address followed by claimed DNS name which could not be verified in parentheses. |
 
 <code>**mreadvar _assocID_ _assocID_ [ _variable_name_ [ = _value_[ ... ]**</code>
-: <code>**mrv _assocID_ _assocID_ [ _variable_name_ [ = _value_[ ... ]**</code>
-
-: Perform the same function as the <code>readvar</code> command, except for a range of association IDs. This range is determined from the association list cached by the most recent <code>associations</code> command.
+<code>**mrv _assocID_ _assocID_ [ _variable_name_ [ = _value_[ ... ]**</code>
+: Perform the same function as the `readvar` command, except for a range of association IDs. This range is determined from the association list cached by the most recent `associations` command.
 
 <code>**passociations**</code>
-
-: Perform the same function as the <code>associations command</code>, except that it uses previously stored data rather than making a new query.
+: Perform the same function as the `associations command`, except that it uses previously stored data rather than making a new query.
 
 <code>**peers**</code>
-
 : Display a list of peers in the form
 
-`[tally]remote refid st t when pool reach delay offset jitter`
+: `[tally]remote refid st t when pool reach delay offset jitter`
 
-| Variable | Description |
+: | Variable | Description |
 | ----- | ----- |
 | `[tally]` | single-character code indicating current value of the `select` field of the [peer status word](/documentation/4.2.8-series/decode/#peer-status-word) |
 | `remote` | host name (or IP number) of peer |
@@ -245,31 +212,26 @@ The <code>_sortorder_</code> defaults to <code>lstint</code> and may be any of <
 | `jitter` | jitter |
 
 <code>**readvar _assocID_ _name_ [ = _value_ ] [,...]**</code>
-: <code>**rv _assocID_ [ _name_ ] [,...]**</code>
-
-: Display the specified variables. If <code>_assocID_</code> is zero, the variables are from the system variables name space, otherwise they are from the peer variables name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces. If no <code>_name_</code> is included, all operative variables in the name space are displayed. In this case only, if the <code>_assocID_</code> is omitted, it is assumed zero. Multiple names are specified with comma separators and without whitespace. Note that time values are represented in milliseconds and frequency values in parts-per-million (PPM). Some NTP timestamps are represented in the format <code>YYYYMMDDTTTT</code>, where <code>YYYY</code> is the year, <code>MM</code> the month of year, <code>DD</code> the day of month and <code>TTTT</code> the time of day.
+<code>**rv _assocID_ [ _name_ ] [,...]**</code>
+: Display the specified variables. If <code>_assocID_</code> is zero, the variables are from the system variables name space, otherwise they are from the peer variables name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces. If no <code>_name_</code> is included, all operative variables in the name space are displayed. In this case only, if the <code>_assocID_</code> is omitted, it is assumed zero. Multiple names are specified with comma separators and without whitespace. Note that time values are represented in milliseconds and frequency values in parts-per-million (PPM). Some NTP timestamps are represented in the format `YYYYMMDDTTTT`, where `YYYY` is the year, `MM` the month of year, `DD` the day of month and `TTTT` the time of day.
 
 <code>**saveconfig _filename_**</code>
-
-: Write the current configuration, including any runtime modifications given with <code>:config</code> or <code>config-from-file</code>, to the <code>ntpd</code> host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/documentation/4.2.8-series/miscopt/) appears in the <code>ntpd</code> configuration file. <code>_filename_</code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, <code>saveconfig ntp-%Y%m%d-%H%M%S.conf</code>. The filename used is stored in system variable <code>savedconfig</code>. Authentication is required.
+: Write the current configuration, including any runtime modifications given with `:config` or `config-from-file`, to the `ntpd` host's file <code>_filename_</code>. This command will be rejected by the server unless [saveconfigdir](/documentation/4.2.8-series/miscopt/) appears in the `ntpd` configuration file. <code>_filename_</code> can use <code>strftime()</code> format specifies to substitute the current date and time, for example, `saveconfig ntp-%Y%m%d-%H%M%S.conf`. The filename used is stored in system variable `savedconfig`. Authentication is required.
 
 <code>**writevar _assocID_ _name_ = _value_ [,...]**</code>
-
 : Write the specified variables. If the <code>_assocID_</code> is zero, the variables are from the system variables name space, otherwise they are from the peer variables name space. The <code>_assocID_</code> is required, as the same name can occur in both spaces.
 
 <code>**sysinfo**</code>
-
 : Display operational summary.
 
 <code>**sysstats**</code>
-
 : Print statistics counters maintained in the protocol module.
 
 * * *
 
 #### Status Words and Kiss Codes
 
-The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the <code>rv</code> and <code>as</code> commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the [Event Messages and Status Words](/documentation/4.2.8-series/decode/) page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.
+The current state of the operating program is shown in a set of status words maintained by the system and each association separately. These words are displayed in the `rv` and `as` commands both in hexadecimal and decoded short tip strings. The codes, tips and short explanations are on the [Event Messages and Status Words](/documentation/4.2.8-series/decode/) page. The page also includes a list of system and peer messages, the code for the latest of which is included in the status word.
 
 Information resulting from protocol machine state transitions is displayed using an informal set of ASCII strings called [kiss codes](/documentation/4.2.8-series/decode/#kiss-codes). The original purpose was for kiss-o'-death (KoD) packets sent by the server to advise the client of an unusual condition. They are now displayed, when appropriate, in the reference identifier field in various billboards.
 
@@ -277,7 +239,7 @@ Information resulting from protocol machine state transitions is displayed using
 
 #### System Variables
 
-The following system variables appear in the <code>rv</code> billboard. Not all variables are displayed in some configurations.
+The following system variables appear in the `rv` billboard. Not all variables are displayed in some configurations.
 
 | Variable | Description |
 | ----- | ----- |
@@ -324,7 +286,7 @@ When the NTPv4 daemon is compiled with the OpenSSL software library, additional 
 
 #### Peer Variables
 
-The following peer variables appear in the <code>rv</code> billboard for each association. Not all variables are displayed in some configurations.
+The following peer variables appear in the `rv` billboard for each association. Not all variables are displayed in some configurations.
 
 | Variable | Description |
 | ----- | ----- |
@@ -373,7 +335,7 @@ When the NTPv4 daemon is compiled with the OpenSSL software library, additional 
 
 #### Clock Variables
 
-The following clock variables appear in the <code>cv</code> billboard for each association with a reference clock. Not all variables are displayed in some configurations.
+The following clock variables appear in the `cv` billboard for each association with a reference clock. Not all variables are displayed in some configurations.
 
 | Variable | Description |
 | ----- | ----- |

@@ -3,7 +3,7 @@ title: "Configuration File Definition (Advanced)"
 description: "This document is intended for developers who wish to modify the configuration code or add configuration commands and options. It contains a description of the files used in the configuration process as well as guidelines on how to construct them."
 type: archives
 aliases:
-    - /current-stable/ntp_conf/
+    - /current-stable/ntp_config/
 ---
 
 ![gif](/documentation/pic/pogo7.gif)[from _Pogo_, Walt Kelly](/reflib/pictures/)
@@ -14,11 +14,11 @@ Racoon is shooting configuration bugs.
 
 #### Table of Contents
 
-*   [Synopsis](/documentation/4.2.8-series/ntp_conf/#synopsis)
-*   [Files](/documentation/4.2.8-series/ntp_conf/#files)
-*   [High-Level Description](/documentation/4.2.8-series/ntp_conf/#high-level-description)
-*   [Detailed Description](/documentation/4.2.8-series/ntp_conf/#detailed-description)
-*   [Guidelines for Adding Configuration Commands](/documentation/4.2.8-series/ntp_conf/#guidelines-for-adding-configuration-commands)
+*   [Synopsis](/documentation/4.2.8-series/ntp.conf-advanced/#synopsis)
+*   [Files](/documentation/4.2.8-series/ntp.conf-advanced/#files)
+*   [High-Level Description](/documentation/4.2.8-series/ntp.conf-advanced/#high-level-description)
+*   [Detailed Description](/documentation/4.2.8-series/ntp.conf-advanced/#detailed-description)
+*   [Guidelines for Adding Configuration Commands](/documentation/4.2.8-series/ntp.conf-advanced/#guidelines-for-adding-configuration-commands)
 
 * * *
 
@@ -61,62 +61,50 @@ The scanner reads in an NTP configuration file and converts it into tokens. The 
 #### Detailed Description
 
 <code>**ntp_scanner.c**</code>
-
 : This file contains the scanner. The scanner is a small program that converts an input NTP configuration file into a set of _tokens_ that correspond to _lexemes_ in the input. Lexemes are strings in the input, delimited by whitespace and/or special characters. Tokens are basically unique integers that represent these lexemes. A different token is generated for each reserved word and special character in the input. There are two main functions in the public interface of this file:
 
-<code>**int yylex**</code>
-
+: <code>**int yylex**</code>
 : This function is called `yylex` for historical reasons; `lex` is a program that takes a set of regular expressions and generates a scanner that returns tokens corresponding to those regular expressions. The name of the generated function is called `yylex`. We aren't using `lex` because it requires linking against an external library and we didn't want to increase the compile-time requirements of NTP.
 
-History lessons aside, this function basically checks to see if the next input character is a special character as defined in the array `char special_char[]`. (The function `int is_special(char ch)`, can be used for this.) If yes, the special character is returned as the token. If not, a set of characters is read until the next whitespace or special character is encountered. This set of characters forms the lexeme; `yylex` then checks whether this lexeme is an integer, a double, an IP address or a reserved word. If yes, the corresponding token is returned. If not, a token for a string is returned as the default token.
+: History lessons aside, this function basically checks to see if the next input character is a special character as defined in the array `char special_char[]`. (The function `int is_special(char ch)`, can be used for this.) If yes, the special character is returned as the token. If not, a set of characters is read until the next whitespace or special character is encountered. This set of characters forms the lexeme; `yylex` then checks whether this lexeme is an integer, a double, an IP address or a reserved word. If yes, the corresponding token is returned. If not, a token for a string is returned as the default token.
 
-<code>**struct state *create_keyword_scanner(struct key_tok *_keyword\_list_)**</code>
-
+: <code>**struct state *create_keyword_scanner(struct key_tok *_keyword\_list_)**</code>
 : This function takes a list of <code>(_keyword, token_)</code> pairs and converts them into a trie that can recognize the keywords (reserved words). Every time the scanner reads a lexeme, it compares it against the list of reserved words. If it finds a match, it returns the corresponding token for that keyword.
 
 <code>**ntp_data_structures.c**</code>
-
 : This file contains an implementation of a generic priority queue and FIFO queue. By generic, we mean that these queues can hold element of any type (integers, user-defined structs, etc.), provided that these elements are allocated on the heap using the function `void *get_node(size_t size)`. Note that the prototype for this function is exactly the same as that of `malloc` and that it can be used in the exact same way. Behind the scenes, `get_node` calls `malloc` to allocate <code>_size_</code> plus some extra memory needed for bookkeeping. The allocated memory can be freed using the function <code>void free_node (void \*_my\_node_)</code>. In addition to these two functions, the public interface of this file contains the following functions:
 
-<code>**queue \*create_priority_queue(int (\*get_order)(void \*, void\*))**</code>
-
+: <code>**queue \*create_priority_queue(int (\*get_order)(void \*, void\*))**</code>
 : This function creates a priority queue in which the order of the elements is determined by the `get_order` function that is passed as input to the priority queue. The `get_order` function should return positive if the priority of the first element is less than the priority of the second element.
 
-<code>**queue \*create_queue(void)**</code>
-
+: <code>**queue \*create_queue(void)**</code>
 : This function creates a FIFO queue. It basically calls the `create_priority_queue` function with the `get_fifo_order` function as its argument.
 
-<code>**void destroy_queue(queue \*_my\_queue_)**</code>
-
+: <code>**void destroy_queue(queue \*_my\_queue_)**</code>
 : This function deletes <code>_my\_queue_</code> and frees up all the memory allocated to it an its elements.
 
-<code>**int empty(queue \*_my\_queue_)**</code>
-
+: <code>**int empty(queue \*_my\_queue_)**</code>
 : This function checks to see if <code>_my\_queue_</code> is empty. Returns `true` if <code>_my\_queue_</code> does not have any elements, else it returns false.
 
-<code>**queue \*enqueue(queue \*_my\_queue_, void \*_my\_node_)**</code>
-
+: <code>**queue \*enqueue(queue \*_my\_queue_, void \*_my\_node_)**</code>
 : This function adds an element, <code>_my\_node_</code>, to a queue, <code>_my\_queue_</code>. <code>_my\_node_</code> must be allocated on the heap using the `get_node` function instead of `malloc`.
 
-<code>**void \*dequeue(queue \*_my\_queue_)**</code>
-
+: <code>**void \*dequeue(queue \*_my\_queue_)**</code>
 : This function returns the element at the front of the queue. This element will be element with the highest priority.
 
-<code>**int get_no_of_elements(queue \*_my\_queue_)**</code>
-
+: <code>**int get_no_of_elements(queue \*_my\_queue_)**</code>
 : This function returns the number of elements in <code>_my\_queue_</code>.
 
-<code>**void append_queue(queue \**q*1, queue \**q*2)**</code>
-
+: <code>**void append_queue(queue \**q*1, queue \**q*2)**</code>
 : This function adds all the elements of<code>*q*2</code> to <code>*q*1</code>. The queue <code>*q*2</code> is destroyed in the process.
 
 <code>**ntp_config.y**</code>
 
 : This file is structured as a standard Bison file and consists of three main parts, separated by `%%`:
 
-1.  The prologue and bison declarations: This section contains a list of the terminal symbols, the non-terminal symbols and the types of these symbols.
-2.  The rules section: This section contains a description of the actual phrase-structure rules that are used to parse the configuration commands. Each rule consists of a left-hand side (LHS), a right-hand side (RHS) and an optional action. As is standard with phrase-structure grammars, the LHS consists of a single non-terminal symbol. The RHS can contain both terminal and non-terminal symbols, while the optional action can consist of any arbitrary C code.
-3.  The epilogue: This section is left empty on purpose. It is traditionally used to code the support functions needed to build the ASTs. Since we have moved all the support functions to `ntp_config.c`, this section is left empty.
+: 1.  The prologue and bison declarations: This section contains a list of the terminal symbols, the non-terminal symbols and the types of these symbols.
+: 2.  The rules section: This section contains a description of the actual phrase-structure rules that are used to parse the configuration commands. Each rule consists of a left-hand side (LHS), a right-hand side (RHS) and an optional action. As is standard with phrase-structure grammars, the LHS consists of a single non-terminal symbol. The RHS can contain both terminal and non-terminal symbols, while the optional action can consist of any arbitrary C code.
+: 3.  The epilogue: This section is left empty on purpose. It is traditionally used to code the support functions needed to build the ASTs. Since we have moved all the support functions to `ntp_config.c`, this section is left empty.
 
 #### Prologue and Bison Declarations
 
@@ -150,7 +138,7 @@ Note that the declaration given in the angled brackets is not `double` but `Doub
 Finally, non-terminal symbols may also have values associated with them, which have types. This is because Bison allows non-terminal symbols to have actions associated with them. Actions may be thought of as small functions which get executed whenever the RHS of a non-terminal is detected. The return values of these functions are the values associated with the non-terminals. The types of the non-terminals are specified with a `%type` declaration as shown below:
 
 <code>%type \<Queue> address_list</code>  
-: <code>%type \<Integer> boolean</code>
+<code>%type \<Integer> boolean</code>
 
 The `%type` declaration may be omitted for non-terminals that do not return any value and do not have type information associated with them.
 
@@ -190,11 +178,12 @@ If Bison reports shift-reduce errors or reduce-reduce errors, it means that the 
 For more information, refer to the [Bison manual](https://www.gnu.org/software/bison/manual/bison.html).
 
 <code>**ntp_config.c**</code>
-
 : This file contains the major chunk of the configuration code including all the support functions needed for building and traversing the ASTs. As such, most of the functions in this file can be divided into two groups:
 
-1.  Functions that have a `create_` prefix. These functions are used to build a node of the AST.
-2.  Functions that have a `config_` prefix. These functions are used to traverse the AST and configure NTP according to the nodes present on the tree.
+: 1.  Functions that have a `create_` prefix. These functions are used to build a node of the AST.
+: 2.  Functions that have a `config_` prefix. These functions are used to traverse the AST and configure NTP according to the nodes present on the tree.
+
+***
 
 #### Guidelines for Adding Configuration Commands
 

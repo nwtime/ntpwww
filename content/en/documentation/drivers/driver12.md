@@ -20,10 +20,14 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.12._u_</code>
-: **Reference ID:** `IRIG`
-: **Driver ID:** `IRIG_TPRO`
-: **TPRO Device:** <code>/dev/tpro*u*</code>
-: **Requires:** KSI/Odetics device driver, `/usr/include/sys/tpro.h` header file
+
+**Reference ID:** `IRIG`
+
+**Driver ID:** `IRIG_TPRO`
+
+**TPRO Device:** <code>/dev/tpro*u*</code>
+
+**Requires:** KSI/Odetics device driver, `/usr/include/sys/tpro.h` header file
 
 * * *
 

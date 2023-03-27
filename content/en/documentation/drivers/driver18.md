@@ -22,11 +22,16 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.18._u_</code>
-: **Reference ID:** `NIST | USNO | PTB | WWVB`
-: **Driver ID:** `ACTS_MODEM`
-: **Serial Port:** <code>/dev/acts*u*</code>; 9600 baud, 8-bits, no parity
-: **Features:** `tty_clk`
-: **Requires:** `/usr/include/sys/termios.h` header file with modem control and a dial-out (cua) device.
+
+**Reference ID:** `NIST | USNO | PTB | WWVB`
+
+**Driver ID:** `ACTS_MODEM`
+
+**Serial Port:** <code>/dev/acts*u*</code>; 9600 baud, 8-bits, no parity
+
+**Features:** `tty_clk`
+
+**Requires:** `/usr/include/sys/termios.h` header file with modem control and a dial-out (cua) device.
 
 * * *
 
@@ -60,21 +65,17 @@ Phone: (303) 494-4774 (Boulder, CO); (808) 335-4721 (Hawaii)
 
 Data Format:
 
-<code>National Institute of Standards and Technology
-
+<pre>National Institute of Standards and Technology
 Telephone Time Service, Generator 3B
-
 Enter question mark "?" for HELP
-
-MJD YR MO DA H M S ST S UT1 msADV \<OTM>
-
+MJD YR MO DA H M S ST S UT1 msADV &lt;OTM>
 47999 90-04-18 21:39:15 50 0 +.1 045.0 UTC(NIST) *
-
 47999 90-04-18 21:39:16 50 0 +.1 045.0 UTC(NIST) #
-
-...</code>
+...</pre>
 
 `MJD, YR, ST, UT1` and `UTC(NIST)` are not used by this driver. The <code>\<OTM></code> on-time character `*` changes to `#` when the delay correction is valid.
+
+***
 
 [US Naval Observatory (USNO)](https://www.cnmoc.usff.navy.mil/usno/)
 
@@ -91,6 +92,8 @@ Data Format (two lines, repeating at one-second intervals)
 `nnn` day of year
 
 `hhmmss` second of day
+
+***
 
 [European Phone Numbers and Formats](/documentation/drivers/tf582_4/)
 
