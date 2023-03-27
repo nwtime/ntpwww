@@ -20,11 +20,16 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.19._u_</code>
-: **Reference ID:** `WWV`
-: **Driver ID:** `WWV_HEATH`
-: **Serial Port:** <code>/dev/heath*u*</code>; 1200 baud, 8-bits, no parity
-: **Features:** `tty_clk`
-: **Requires:** `/usr/include/sys/termios.h` header file with modem control
+
+**Reference ID:** `WWV`
+
+**Driver ID:** `WWV_HEATH`
+
+**Serial Port:** <code>/dev/heath*u*</code>; 1200 baud, 8-bits, no parity
+
+**Features:** `tty_clk`
+
+**Requires:** `/usr/include/sys/termios.h` header file with modem control
 
 * * *
 
@@ -39,6 +44,8 @@ In MANUAL mode the clock responds to a rising edge of the request to send (RTS) 
 The clock message consists of 23 ASCII printing characters in the following format:
 
 <code>hh:mm:ss.f     dd/mm/yr\<cr></code>
+
+where:
 
 `hh:mm:ss.f` = hours, minutes, seconds
 

@@ -15,10 +15,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.16._u_</code>
-: **Reference ID:** `BTFP`
-: **Driver ID:** `GPS_BANCOMM`
-: **Bancomm Device:** `/dev/btfp0`
-: **Requires:** Bancomm `bc635` TFP device module driver for SunOS 4.x/SunOS 5.x
+
+**Reference ID:** `BTFP`
+
+**Driver ID:** `GPS_BANCOMM`
+
+**Bancomm Device:** `/dev/btfp0`
+
+**Requires:** Bancomm `bc635` TFP device module driver for SunOS 4.x/SunOS 5.x
 
 * * *
 

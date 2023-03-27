@@ -21,10 +21,14 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.10._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `GPS_AS2201`
-: **Serial Port:** <code>/dev/gps*u*</code>; 9600 baud, 8-bits, no parity
-: **Features:** `tty_clk`
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `GPS_AS2201`
+
+**Serial Port:** <code>/dev/gps*u*</code>; 9600 baud, 8-bits, no parity
+
+**Features:** `tty_clk`
 
 * * *
 
