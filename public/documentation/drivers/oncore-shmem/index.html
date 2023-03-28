@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/oncore-shmem/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-28T21:06:33&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Motorola ONCORE - The Shared Memory Interface</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 28, 2023 21:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/4798c81ce52b916af3864edc4b52cbf36c629fcd">4798c81ce</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://www.ntp.org/documentation/drivers/oncore-shmem/#introduction">Introduction</a></li>
@@ -166,7 +166,7 @@ function demo() {
 <p>In particular, you can ask for satellite positions, satellite health, signal levels, the ephemeris and the almanac, and you can set many operational parameters. In the case of the VP, you can get the pseudorange corrections necessary to act as a DGPS base station, and you can see the raw satellite data messages themselves.</p>
 <p>When using the Oncore GPS receiver with NTP, this additional information is usually not available since the receiver is only talking to the oncore driver in NTPD. To make this information available for use in other programs, (say graphic displays of satellites positions, plots of SA, etc.), a shared memory interface (SHMEM) has been added to the <code>refclock_oncore</code> driver on those operating systems that support shared memory.</p>
 <p>To make use of this information you will need an Oncore Reference Manual for the Oncore GPS receiver that you have. The Manual for the VP only exists as a paper document, the UT+/GT+/M12 manuals are available at <a href="https://synergy-gps.com/motorola/">Synergy</a>.</p>
-<p>This interface was written by Poul-Henning Kamp (<a href="mailto:phk@FreeBSD.org">phk@FreeBSD.org</a>), and modified by Reg Clemens (<a href="mailto:reg@dwf.com">reg@dwf.com</a>). The interface is known to work in FreeBSD, Linux, and Solaris.</p>
+<p>This interface was written by Poul-Henning Kamp (<a href="mailto:phk@FreeBSD.org">phk@FreeBSD.org</a>), and modified by Reg Clemens. The interface is known to work in FreeBSD, Linux, and Solaris.</p>
 <hr>
 <h4 id="activating-the-interface">Activating the Interface</h4>
 <p>Although the Shared Memory Interface will be compiled into the Oncore driver on those systems where Shared Memory is supported, to activate this interface you must include a <code>STATUS</code> or <code>SHMEM</code> line in the <code>/etc/ntp.oncore</code> data file that looks like</p>
@@ -301,7 +301,7 @@ function demo() {
 <p>There are two complete examples available. The first plots satellite positions and the station position as affected by SA, and keeps track of the mean station position, so you can run it for periods of days to get a better station position. The second shows the effective horizon by watching satellite tracks. The examples will be found in the <a href="https://www.ntp.org/reflib/software/OncorePlot.tar.gz">GNU-zipped tar file</a>.</p>
 <p>Try the new interface, enjoy.</p>
 <hr>
-<p><a href="mailto:reg@dwf.com">Reg.Clemens</a></p>
+<p>Reg.Clemens</p>
 <p><a href="mailto:phk@FreeBSD.org">Poul-Henning Kamp</a></p>
 
 	  

@@ -9,7 +9,7 @@ Users should note that the stock Windows client sends requests as mode-1 packets
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/hints/winnt/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-28T21:06:33&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -152,10 +152,10 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Windows NT</h1> 
-    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 28, 2023 21:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/4798c81ce52b916af3864edc4b52cbf36c629fcd">4798c81ce</a>)</p>
 	<h4 id="introduction">Introduction</h4>
 <p>The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from <a href="https://www.meinbergglobal.com/english/sw/ntp.htm">Meinberg</a>.</p>
-<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
+<p>Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a>. A less desirable alternative that avoids changing registry keys is to use the <code>--with-wintime</code> option when building the executable.</p>
 <hr>
 <h4 id="authentication-keys">Authentication Keys</h4>
 <p>With this release <code>ntp-keygen</code> is supported. See the <a href="https://www.ntp.org/documentation/4.2.8-series/keygen/">ntp keygen documentation</a> for details on how to use <code>ntp-keygen</code>.</p>
