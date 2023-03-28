@@ -32,7 +32,8 @@ aliases:
 * [ntp-keygen - generate public and private keys](/documentation/4.2.8-series/keygen/)
 * [ntpdsim - Network Time Protocol (NTP) simulator](/documentation/4.2.8-series/ntpdsim/)
 * [ntp-wait -waits until ntpd is in synchronized state](/documentation/4.2.8-series/ntp-wait/)
-* [ntp_conf - Configuration File Definition (Advanced)](/documentation/4.2.8-series/ntp_conf/)
+* [ntp.conf - NTP Configuration File User’s Manual](/documentation/4.2.8-series/ntp.conf/)
+* [ntp.conf-advanced - Configuration File Definition (Advanced)](/documentation/4.2.8-series/ntp.conf-advanced/)
 
 * * *
 

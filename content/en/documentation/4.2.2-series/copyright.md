@@ -41,7 +41,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 7.  [Greg Brackley ](mailto:greg.brackley@bigfoot.com) Major rework of WINNT port. Clean up recvbuf and iosignal code into separate modules.
 8.  Marc Brett: Magnavox GPS clock driver
 9.  [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support
-10.  [Reg Clemens](mailto:reg@dwf.com) Oncore driver (Current maintainer)
+10.  Reg Clemens Oncore driver (Current maintainer)
 11.  Steve Clift: OMEGA clock driver
 12.  Casey Crellin: vxWorks (Tornado) port and help with target configuration
 13.  [Sven Dietrich](mailto:Sven_Dietrich@trimble.COM) Palisade reference clock driver, NT adj. residuals, integrated Greg's Winnt port.
