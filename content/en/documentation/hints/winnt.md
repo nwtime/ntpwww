@@ -9,7 +9,7 @@ sitemap_exclude: true
 
 The NTP 4 distribution runs as service on Windows 2000 and later. It will NOT run on Windows 95, 98, ME, etc. Lately it has been run the most on Windows-7 and later. The binaries work on multi-processor systems. This port has not been tested on the Alpha platform. This release now uses OpenSSL for authentication. A ready-to-run install distribution is available from [Meinberg](https://www.meinbergglobal.com/english/sw/ntp.htm).
 
-Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in [Microsoft KB 875424](https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp). A less desirable alternative that avoids changing registry keys is to use the `--with-wintime` option when building the executable.
+Users should note that the stock Windows client sends requests as mode-1 packets, which can have unintended consequences and create a security risk. The client should send requests as mode-3 (client) packets, which conform to the protocol specification. The issues and resolution are described in [Microsoft KB 875424](https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp). A less desirable alternative that avoids changing registry keys is to use the `--with-wintime` option when building the executable.
 
 * * *
 

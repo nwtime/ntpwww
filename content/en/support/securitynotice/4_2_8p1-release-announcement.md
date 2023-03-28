@@ -32,6 +32,6 @@ Additionally, we are working to patch the known deficiencies in NTP's Autokey pr
 **Timeline:**
 
 * 2015 Feb 4: Public release
-* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
-* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits)
+* : [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
+* : [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/)
 * : Initial notification received; analysis begins

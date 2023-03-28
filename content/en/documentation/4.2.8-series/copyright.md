@@ -78,7 +78,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 * [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support
 * [Nelson B Bolyard](mailto:nelson@bolyard.me) update and complete broadcast and crypto features in sntp
 * Jean-Francois Boudreault: IPv6 support
-* [Reg Clemens](mailto:reg@dwf.com) Oncore driver (Current maintainer)
+* Reg Clemens: Oncore driver (Current maintainer)
 * Steve Clift: OMEGA clock driver
 * Casey Crellin: vxWorks (Tornado) port and help with target configuration
 * [Philippe De Muyter](mailto:phdm@macqel.be) Wharton reference clock driver, sysV68 and AIX modifications

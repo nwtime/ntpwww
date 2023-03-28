@@ -39,7 +39,7 @@ Additionally, three bugs that have already been fixed in ntp-4.2.8 but were not 
 * 2015 Oct 17: Advance notification of NAK bug being added was sent to Institutional members
 * 2015 Oct 14: pre-release patch availability announced to CERT
 * 2015 Oct 9: notification of public release date change to 21 Oct sent to members and reporters and Mitre
-* 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits)
+* 2015 Oct 6: [Early Access Program Release: Premier and Partner Institutional Members](https://www.nwtime.org/membership/benefits/)
 * 2015 Aug 26: Initial notification of [2909](/support/securitynotice/ntpbug2909/); analysis begins
 * 2015 Aug 26: CVE number clarification requested from Mitre
 * 2015 Aug 26: [Notification to Institutional Members](https://www.nwtime.org/membership/benefits/) for [1593](/support/securitynotice/ntpbug1593/), [1774](/support/securitynotice/ntpbug1774/), [2382](/support/securitynotice/ntpbug2382/), [2899](/support/securitynotice/ntpbug2899/), and [2902](/support/securitynotice/ntpbug2902/)

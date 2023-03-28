@@ -39,7 +39,7 @@ type: archives
 | Model | Mode | Language |
 | ----- | ----- | ----- |
 | [トライステート   TS-JJY01, TS-JJY02](http://www.tristate.ne.jp/) | [1](/documentation/drivers/driver40-ja/#mode-1) | 日本語 |
-| [シーデックス   JST2000](http://www.c-dex.co.jp/) | [2](/documentation/drivers/driver40-ja/#mode-2) | 日本語 | 
+| [シーデックス   JST2000](https://www.cdex.co.jp/) | [2](/documentation/drivers/driver40-ja/#mode-2) | 日本語 | 
 | エコー計測器   LT-2000 | [3](/documentation/drivers/driver40-ja/#mode-3) | |
 | [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/documentation/drivers/driver40-ja/#mode-4) | 日本語 |
 | [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/documentation/drivers/driver40-ja/#mode-5) | 日本語 |
@@ -318,7 +318,7 @@ RS-232C 又は USB, 2400 BPS, 8ビット, パリティなし, 1ストップ・�
 日付と時刻は、別々に問い合わせます。日付が深夜０時の前か後かの不確定をチェックするため、日付の問い合わせの前後に時刻を問い合わせています。
 うるう秒は、処理していません。情報として clockstats ファイルに記録しているだけです。
 
-JJY は、長波で日本標準時(JST)を送信している無線局で、国立研究開発法人　情報通信研究機構が運用しています。JJY の運用情報などは、 [https://www.nict.go.jp/](http://www.nict.go.jp/)（英語と日本語）や https://jjy.nict.go.jp/ （英語と日本語）で提供されています。
+JJY は、長波で日本標準時(JST)を送信している無線局で、国立研究開発法人　情報通信研究機構が運用しています。JJY の運用情報などは、 https://www.nict.go.jp/ （英語と日本語）や https://jjy.nict.go.jp/ （英語と日本語）で提供されています。
 
 実際のシリアル・ポートのデバイスにシンボリック・リンクを作成して下さい。シンボリック・リンクを作成するコマンドは、以下のとおりです。
 

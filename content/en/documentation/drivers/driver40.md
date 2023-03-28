@@ -40,7 +40,7 @@ This driver supports the following JJY receivers and the GPS clock sold in Japan
 | Model | Mode | Language |
 | ----- | ----- | ----- |
 | [Tristate Ltd.   TS-JJY01, TS-JJY02](http://www.tristate.ne.jp/) | [1](/documentation/drivers/driver40/#mode-1) | Japanese only |
-| [C-DEX Co.,Ltd.   JST2000](http://www.c-dex.co.jp/) | [2](/documentation/drivers/driver40/#mode-2) | Japanese only |
+| [C-DEX Co.,Ltd.   JST2000](https://www.cdex.co.jp/) | [2](/documentation/drivers/driver40/#mode-2) | Japanese only |
 | Echo Keisokuki Co.,Ltd.   LT-2000 | [3](/documentation/drivers/driver40/#mode-3) | |
 | [CITIZEN T.I.C. CO.,LTD.   JJY-200](https://tic.citizen.co.jp/english/index.html) | [4](/documentation/drivers/driver40/#mode-4) | Japanese only |
 | [Tristate Ltd.   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/documentation/drivers/driver40/#mode-5) | Japanese only |
@@ -331,7 +331,7 @@ The date and time are requested separately. The time is requested before and aft
 
 The leap second is not handled, and only written in the `clockstats` file as information.
 
-The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from [https://www.nict.go.jp/](http://www.nict.go.jp/) (English and Japanese) and https://jjy.nict.go.jp/ (English and Japanese).
+The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from https://www.nict.go.jp/ (English and Japanese) and https://jjy.nict.go.jp/ (English and Japanese).
 
 The user is expected to provide a symbolic link to an available serial port device. This is typically performed by a command such as:
 

@@ -25,7 +25,7 @@ When using the Oncore GPS receiver with NTP, this additional information is usua
 
 To make use of this information you will need an Oncore Reference Manual for the Oncore GPS receiver that you have. The Manual for the VP only exists as a paper document, the UT+/GT+/M12 manuals are available at [Synergy](https://synergy-gps.com/motorola/).
 
-This interface was written by Poul-Henning Kamp (phk@FreeBSD.org), and modified by Reg Clemens (reg@dwf.com). The interface is known to work in FreeBSD, Linux, and Solaris.
+This interface was written by Poul-Henning Kamp (phk@FreeBSD.org), and modified by Reg Clemens. The interface is known to work in FreeBSD, Linux, and Solaris.
 
 * * *
 
@@ -198,6 +198,6 @@ Try the new interface, enjoy.
 
 * * *
 
-[Reg.Clemens](mailto:reg@dwf.com)
+Reg.Clemens
 
 [Poul-Henning Kamp](mailto:phk@FreeBSD.org)

@@ -442,7 +442,7 @@ Pin 1 is to the left of the notch. Pins 2 - 8 wrap around the bottom, counterclo
 
 #### Notes on the Thunderbolt Receiver's Firmware
 
-The Thunderbolt Receiver in the Palisade driver doesn't support (for now) event-polling since the Thunderbolt receiver the patch is written for doesn't support time-on-request, so you just have to sit and wait for PPS support. We tried to contact Trimble because there's presumably a firmware update that supports it, but we didn't have much luck. Here is a [link explaining the situation](https://lists.ntp.org/pipermail/hackers/2006-April/002218.html).
+The Thunderbolt Receiver in the Palisade driver doesn't support (for now) event-polling since the Thunderbolt receiver the patch is written for doesn't support time-on-request, so you just have to sit and wait for PPS support. We tried to contact Trimble because there's presumably a firmware update that supports it, but we didn't have much luck. Here is a [link explaining the situation](https://marc.info/?l=ntp-hackers&m=114615551826066).
 
 * * *
 
