@@ -22,10 +22,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.8._u_</code>
-: **Reference ID:** `PARSE`
-: **Driver ID:** `GENERIC`
-: **Serial Port:** <code>/dev/refclock-_u_</code>; TTY mode according to clock type
-: **PPS device:** <code>/dev/refclockpps-_u_</code>; alternate PPS device (if not available via the serial port)
+
+**Reference ID:** `PARSE`
+
+**Driver ID:** `GENERIC`
+
+**Serial Port:** <code>/dev/refclock-_u_</code>; TTY mode according to clock type
+
+**PPS device:** <code>/dev/refclockpps-_u_</code>; alternate PPS device (if not available via the serial port)
 
 * * *
 
@@ -81,142 +85,117 @@ A note on the implementations: These implementations were mainly done without ac
 Verified implementations are:
 
 *   RAWDCF variants
-
     : These variants have been tested for correct decoding with my own homegrown receivers. Interfacing with specific commercial products may involve some fiddling with cables. In particular, commercial RAWDCF receivers have a seemingly unlimited number of ways to draw power from the RS-232 port and to encode the DCF77 datastream. You are mainly on your own here unless I have a sample of the receiver.
 
 *   [Meinberg clocks](https://www.meinberg.de/)
-
     : These implementations have been verified by the Meinberg people themselves and I have access to one of these clocks.
 
 *   [Schweitzer Engineering Laboratories](https://selinc.com/) SEL-240x clocks
-
     : This implementation was provided and verified by SEL and [Network Time Foundation](https://www.nwtime.org/) has an SEL-2407 in one of its development labs.
 
 The pictures below have been taken from and are linked to the vendors' web pages.
 
 *   **server 127.127.8.0-3 mode 0**
-
     : [Meinberg](https://www.meinberg.de/) PZF5xx receiver family (FM demodulation/TCXO / 50μs)
 
 *   **server 127.127.8.0-3 mode 1**
-
     : [Meinberg](https://www.meinberg.de/) PZF5xx receiver family (FM demodulation/OCXO / 50μs)
     [![Image PZF511](/documentation/pic/pzf511.webp)](https://www.meinbergglobal.com/english/products/3u-dcf77-correlation-receiver.htm)
 
 *   **server 127.127.8.0-3 mode 2**
-
     : [Meinberg](https://www.meinberg.de/) [DCF C51 receiver and similar](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) (AM demodulation / 4ms)
-    [![Image C51](/documentation/pic/c51.webp)](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) This mode expects the Meinberg standard time string format with 9600/7E2.
+    [![Image C51](/documentation/pic/c51.webp)](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) 
+	: This mode expects the Meinberg standard time string format with 9600/7E2.
 
-    > **Note:** mode 2 must also be used for Meinberg PCI cards under Linux, e.g. [the GPS PCI card](https://www.meinbergglobal.com/english/products/pci-gps-clock.htm) or [the DCF77 PCI card](https://www.meinbergglobal.com/english/products/pci-dcf77-clock.htm). Please note the [Meinberg Linux driver](https://www.meinbergglobal.com/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
+    : > **Note:** mode 2 must also be used for Meinberg PCI cards under Linux, e.g. [the GPS PCI card](https://www.meinbergglobal.com/english/products/pci-gps-clock.htm) or [the DCF77 PCI card](https://www.meinbergglobal.com/english/products/pci-dcf77-clock.htm). Please note the [Meinberg Linux driver](https://www.meinbergglobal.com/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
 
 *   **server 127.127.8.0-3 mode 3**
-
     : [ELV](https://de.elv.com/) DCF7000 (sloppy AM demodulation / 50ms)
 
 *   **server 127.127.8.0-3 mode 4**
-
     : Walter Schmid DCF receiver Kit (AM demodulation / 1ms)  
 
 *   **server 127.127.8.0-3 mode 5**
-
     : RAW DCF77 100/200ms pulses (Conrad DCF77 receiver module / 5ms)
 
 *   **server 127.127.8.0-3 mode 6**
-
     : RAW DCF77 100/200ms pulses (TimeBrick DCF77 receiver module / 5ms)
 
 *   **server 127.127.8.0-3 mode 7**
-
     : [Meinberg](https://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / <<1μs)
     [![Image GPS167](/documentation/pic/gps167.webp)](https://www.meinbergglobal.com/english/products/3u-gps-clock-lc-display.htm)
 
-    This mode expects either the University of Erlangen time string format or the Meinberg standard time string format at 19200/8N1.
+    : This mode expects either the University of Erlangen time string format or the Meinberg standard time string format at 19200/8N1.
 
-    The University of Erlangen format is preferred. Newer Meinberg GPS receivers can be configured to transmit that format; for older devices, a special firmware version may be available.
+    : The University of Erlangen format is preferred. Newer Meinberg GPS receivers can be configured to transmit that format; for older devices, a special firmware version may be available.
 
-    In this mode some additional GPS receiver status information is also read. However, this requires a point-to-point connection. Mode 18 should be used if the device is accessed by a multidrop connection.
+    : In this mode some additional GPS receiver status information is also read. However, this requires a point-to-point connection. Mode 18 should be used if the device is accessed by a multidrop connection.
 
-    > **NOTE:** mode 7 must not be used with Meinberg PCI cards; use mode 2 instead.
+    : > **NOTE:** mode 7 must not be used with Meinberg PCI cards; use mode 2 instead.
 
 *   **server 127.127.8.0-3 mode 8**
-
     : [IGEL](https://www.igel.de) clock
     ![Image IGEL clock](/documentation/pic/igclock.gif)]
 
 *   **server 127.127.8.0-3 mode 9**
-
     : [Trimble](https://www.trimble.com) SVeeSix GPS receiver TAIP protocol (GPS / \<<1μs)
 
 *   **server 127.127.8.0-3 mode 10**
-
     : [Trimble](https://www.trimble.com) SVeeSix GPS receiver TSIP protocol (GPS / \<<1μs) (no kernel support yet)
-    ![Image SVeeSix-CM3](/documentation/pic/pd_om011.gif)
+    
+	![Image SVeeSix-CM3](/documentation/pic/pd_om011.gif)
+	
     ![Image Lassen-SK8](/documentation/pic/pd_om006.gif) 
 
 *   **server 127.127.8.0-3 mode 11**
-
     : Radiocode Clocks Ltd RCC 8000 Intelligent Off-Air Master Clock support
 
 *   **server 127.127.8.0-3 mode 12**
-
     : [HOPF](https://www.hopf.com/index.php) Funkuhr 6021
     ![Image DCF77 Interface Board](/documentation/pic/fg6021.gif)  
 
 *   **server 127.127.8.0-3 mode 13**
-
     : Diem's Computime Radio Clock
 
 *   **server 127.127.8.0-3 mode 14**
-
     : RAWDCF receiver (DTR=high/RTS=low)
 
 *   **server 127.127.8.0-3 mode 15**
-
     : WHARTON 400A Series Clocks with a 404.2 Serial Interface
 
 *   **server 127.127.8.0-3 mode 16**
-
     : RAWDCF receiver (DTR=low/RTS=high)
 
 *   **server 127.127.8.0-3 mode 17**
-
     : VARITEXT Receiver (MSF)
 
 *   **server 127.127.8.0-3 mode 18**
-
     : [Meinberg](https://www.meinberg.de/) GPS16x/GPS17x receivers (GPS / \<<1μs)
 
-    This mode works without additional data communication (version, GPS status etc.) and thus should be used with multidrop, heterogeneous multiclient operation.
+    : This mode works without additional data communication (version, GPS status etc.) and thus should be used with multidrop, heterogeneous multiclient operation.
 
-    > **Note:** mode 18 must not be used with Meinberg PCI cards, use mode 2 instead.
+    : > **Note:** mode 18 must not be used with Meinberg PCI cards, use mode 2 instead.
 
 *   **server 127.127.8.0-3 mode 19**
-
     : Gude Analog- und Digitalsystem GmbH 'Expert mouseCLOCK USB v2.0'
 
 *   **server 127.127.8.0-3 mode 20**
-
     : RAWDCF receiver similar to mode 14, but operating @ 75 baud (DTR=high/RTS=low)
 
-    Driving the DCF clocks at 75 baud may help to get them to work with a bunch of common USB serial converters that do 75 but cannot do 50 baud at all, e.g. those based on Prolific PL2303.
+    : Driving the DCF clocks at 75 baud may help to get them to work with a bunch of common USB serial converters that do 75 but cannot do 50 baud at all, e.g. those based on Prolific PL2303.
 
 *   **server 127.127.8.0-3 mode 21**
-
     : RAWDCF receiver similar to mode 16, but operating @ 75 baud (DTR=low/RTS=high)
 
-    See comment from mode 20 clock.
+    : See comment from mode 20 clock.
 
 *   **server 127.127.8.0-3 mode 22**
-
     : MEINBERG, mode 2 but with POWERUP trust
 
 *   **server 127.127.8.0-3 mode 23**
-
     : MEINBERG, mode 7 but with POWERUP trust
 
 *   **server 127.127.8.0-3 mode 24**
-
     : [Schweitzer Engineering Laboratories](https://selinc.com/)
 
 Actual data formats and setup requirements of the various clocks can be found in [NTP PARSE clock data formats](/documentation/4.2.8-series/parsedata/).
@@ -307,39 +286,31 @@ SIGNAL OK",    gps_cfg[4]="[0x9] BLOCK II", gps_health[6]="[0x0] OK;SIGNAL OK", 
 #### Fudge Factors
 
 <code>**time1 _time_**</code>
-
 : Specifies the time offset calibration factor, in seconds and fraction. The default value depends on the clock type.
 
 <code>**time2 _time_**</code>
-
 : If `flag1` is 0, `time2` specifies the offset of the PPS signal from the actual time (PPS fine tuning).
 
-If `flag1` is 1, `time2` specifies the number of seconds a receiver with a premium local oscillator can be trusted after losing synchronisation.
+: If `flag1` is 1, `time2` specifies the number of seconds a receiver with a premium local oscillator can be trusted after losing synchronisation.
 
 <code>**stratum _stratum_**</code>
-
 : The stratum for this reference clock.
 
 <code>**refid _refid_**</code>
-
 : The refid for this reference clock.
 
 <code>**flag1 { 0 | 1 }**</code>
-
 : If 0, the fudge factor `time2` refers to the PPS offset.
 
-If 1, `time2` refers to the TRUST TIME.
+: If 1, `time2` refers to the TRUST TIME.
 
 <code>**flag2 { 0 | 1 }**</code>
-
 : If `flag2` is 1, sample PPS on CLEAR instead of on ASSERT.
 
 <code>**flag3 { 0 | 1 }**</code>
-
 : If `flag3` is 1, link kernel PPS tracking to this refclock instance.
 
 <code>**flag4 { 0 | 1 }**</code>
-
 : Delete next leap second instead of adding it. (You'll need to wait a bit for that to happen.)
 
 > **Note about auxiliary Sun STREAMS modules (SunOS and Solaris):** The timecode of these receivers can be sampled via a STREAMS module in the kernel. (The STREAMS module has been designed for use with Sun systems under SunOS 4.1.x or Solaris 2.3 - 2.8. It can be linked directly into the kernel or loaded via the loadable driver mechanism.) This STREAMS module can be adapted to convert different time code formats. Nowadays the PPSAPI mechanism is usually used.

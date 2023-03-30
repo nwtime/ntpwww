@@ -21,9 +21,12 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.6._u_</code>
-: **Reference ID:** `IRIG`
-: **Driver ID:** `IRIG_AUDIO`
-: **Audio Device:** `/dev/audio` and `/dev/audioctl`
+
+**Reference ID:** `IRIG`
+
+**Driver ID:** `IRIG_AUDIO`
+
+**Audio Device:** `/dev/audio` and `/dev/audioctl`
 
 * * *
 

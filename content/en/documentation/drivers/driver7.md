@@ -24,11 +24,16 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.7._u_</code>
-: **Reference ID:** `CHU`
-: **Driver ID:** `CHU`
-: **Modem Port:** <code>/dev/chu*u*</code>; 300 baud, 8-bits, no parity
-: **Autotune Port:** `/dev/icom`; 1200/9600 baud, 8-bits, no parity
-: **Audio Device:** `/dev/audio` and `/dev/audioctl`
+
+**Reference ID:** `CHU`
+
+**Driver ID:** `CHU`
+
+**Modem Port:** <code>/dev/chu*u*</code>; 300 baud, 8-bits, no parity
+
+**Autotune Port:** `/dev/icom`; 1200/9600 baud, 8-bits, no parity
+
+**Audio Device:** `/dev/audio` and `/dev/audioctl`
 
 * * *
 
@@ -143,14 +148,14 @@ The fields beginning with `year` and extending through `dut` are decoded from th
 
 : The quality character is a four-bit hexadecimal code showing which alarms have been raised during the most recent minute. Each bit is associated with a specific alarm condition according to the following:
 
-| Bit | Description |
+: | Bit | Description |
 | ----- | ----- |
 | `8` | Timestamp alarm. Fewer than 20 timestamps have been determined. |
 | `4` | Decoder alarm. A majority of repetitions for at least one digit of the timecode fails to agree. |
 | `2` | Format alarm. One or more bursts contained invalid data or was improperly formatted. |
 | `1` | Frame alarm. One or more bursts was improperly framed or contained too many repetition errors. |
 
-The timestamp and decoder alarms are fatal; the data accumulated during the minute are not used to set the clock. The format and frame alarm are nonfatal; only the data in the burst are discarded.
+: The timestamp and decoder alarms are fatal; the data accumulated during the minute are not used to set the clock. The format and frame alarm are nonfatal; only the data in the burst are discarded.
 
 <code>**yyyy ddd hh:mm:ss**</code>
 

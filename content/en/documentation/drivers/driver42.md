@@ -15,10 +15,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.42._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `Zyfer GPStarplus`
-: **Serial Port:** <code>/dev/zyfer*u*</code>; 9600 baud, 8-bits, no parity
-: **Features:** none
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `Zyfer GPStarplus`
+
+**Serial Port:** <code>/dev/zyfer*u*</code>; 9600 baud, 8-bits, no parity
+
+**Features:** none
 
 * * *
 

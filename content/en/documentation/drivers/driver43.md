@@ -20,8 +20,10 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.43._u_</code>
-: **Reference ID:** `RIPENCC`
-: **Driver ID:** `RIPENCC`
+
+**Reference ID:** `RIPENCC`
+
+**Driver ID:** `RIPENCC`
 
 * * *
 

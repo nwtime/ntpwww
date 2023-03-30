@@ -21,11 +21,16 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.4._u_</code>
-: **Reference ID:** `WWVB`
-: **Driver ID:** `WWVB_SPEC`
-: **Serial Port:** <code>/dev/wwvb*u*</code>; 9600 baud, 8-bits, no parity
-: **Features:** Optional PPS signal processing, `tty_clk`
-: **Requires:** Optional PPS signal processing requires the PPSAPI signal interface.
+
+**Reference ID:** `WWVB`
+
+**Driver ID:** `WWVB_SPEC`
+
+**Serial Port:** <code>/dev/wwvb*u*</code>; 9600 baud, 8-bits, no parity
+
+**Features:** Optional PPS signal processing, `tty_clk`
+
+**Requires:** Optional PPS signal processing requires the PPSAPI signal interface.
 
 * * *
 

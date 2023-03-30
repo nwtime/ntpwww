@@ -14,10 +14,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.32._u_</code>
-: **Reference ID:** `CHRONOLOG`
-: **Driver ID:** `CHRONOLOG`
-: **Serial Port:** <code>/dev/chronolog*u*</code>; 2400 bps, 8-bits, no parity
-: **Features:** none
+
+**Reference ID:** `CHRONOLOG`
+
+**Driver ID:** `CHRONOLOG`
+
+**Serial Port:** <code>/dev/chronolog*u*</code>; 2400 bps, 8-bits, no parity
+
+**Features:** none
 
 * * *
 

@@ -21,10 +21,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.46._u_</code>
-: **Reference ID:** `GPSD`
-: **Driver ID:** `GPSD_JSON`
-: **Serial Port:** <code>/dev/gps*u*</code> as symlink to the true device (not used directly; see below)  
-: **Features:**
+
+**Reference ID:** `GPSD`
+
+**Driver ID:** `GPSD_JSON`
+
+**Serial Port:** <code>/dev/gps*u*</code> as symlink to the true device (not used directly; see below)  
+
+**Features:**
 
 * * *
 

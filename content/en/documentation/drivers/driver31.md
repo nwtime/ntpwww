@@ -17,9 +17,12 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.31._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `JUPITER`
-: **Serial Port:** <code>/dev/gps*u*</code>;  9600 baud, 8-bits, no parity.
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `JUPITER`
+
+**Serial Port:** <code>/dev/gps*u*</code>;  9600 baud, 8-bits, no parity.
 
 * * *
 

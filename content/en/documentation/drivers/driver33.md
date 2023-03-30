@@ -14,10 +14,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.33._u_</code>
-: **Reference ID:** `DUMBCLOCK`
-: **Driver ID:** `DUMBCLOCK`
-: **Serial Port:** <code>/dev/dumbclock*u*</code>; 9600 bps, 8-bits, no parity
-: **Features:** none
+
+**Reference ID:** `DUMBCLOCK`
+
+**Driver ID:** `DUMBCLOCK`
+
+**Serial Port:** <code>/dev/dumbclock*u*</code>; 9600 bps, 8-bits, no parity
+
+**Features:** none
 
 * * *
 

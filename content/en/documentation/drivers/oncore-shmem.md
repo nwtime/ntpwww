@@ -25,7 +25,7 @@ When using the Oncore GPS receiver with NTP, this additional information is usua
 
 To make use of this information you will need an Oncore Reference Manual for the Oncore GPS receiver that you have. The Manual for the VP only exists as a paper document, the UT+/GT+/M12 manuals are available at [Synergy](https://synergy-gps.com/motorola/).
 
-This interface was written by Poul-Henning Kamp (phk@FreeBSD.org), and modified by Reg Clemens. The interface is known to work in FreeBSD, Linux, and Solaris.
+This interface was written by [Poul-Henning Kamp](mailto:phk@FreeBSD.org), and modified by Reg Clemens. The interface is known to work in FreeBSD, Linux, and Solaris.
 
 * * *
 
@@ -195,9 +195,3 @@ The structure Hdr contains the Identifying string for each of the messages that 
 There are two complete examples available. The first plots satellite positions and the station position as affected by SA, and keeps track of the mean station position, so you can run it for periods of days to get a better station position. The second shows the effective horizon by watching satellite tracks. The examples will be found in the [GNU-zipped tar file](/reflib/software/OncorePlot.tar.gz).
 
 Try the new interface, enjoy.
-
-* * *
-
-Reg.Clemens
-
-[Poul-Henning Kamp](mailto:phk@FreeBSD.org)
