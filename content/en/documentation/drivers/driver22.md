@@ -20,10 +20,14 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.22._u_</code>
-: **Reference ID:** `PPS`
-: **Driver ID:** `PPS`
-: **Serial or Parallel Port:** <code>/dev/pps*u*</code>
-: **Requires:** PPSAPI signal interface for PPS signal processing.
+
+**Reference ID:** `PPS`
+
+**Driver ID:** `PPS`
+
+**Serial or Parallel Port:** <code>/dev/pps*u*</code>
+
+**Requires:** PPSAPI signal interface for PPS signal processing.
 
 > **NOTE:** This driver supersedes an older one of the same name. The older driver operated with several somewhat archaic signal interface devices, required intricate configuration and was poorly documented. This driver requires the Pulse per Second API (PPSAPI)<sup>[1](#myfootnote1)</sup>. Note also that the `pps` configuration command has been obsoleted by this driver.
 

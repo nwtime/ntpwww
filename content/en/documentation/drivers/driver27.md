@@ -17,10 +17,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.27._u_</code>
-: **Reference ID:** `MSFa` / `MSF` / `DCF` / `WWVB`
-: **Driver ID:** `MSF_ARCRON`
-: **Serial Port:** <code>/dev/arc*u*</code>; 300 baud, 8-bits, 2-stop, no parity
-: **Features:** `tty_clk`
+
+**Reference ID:** `MSFa` / `MSF` / `DCF` / `WWVB`
+
+**Driver ID:** `MSF_ARCRON`
+
+**Serial Port:** <code>/dev/arc*u*</code>; 300 baud, 8-bits, 2-stop, no parity
+
+**Features:** `tty_clk`
 
 * * *
 
@@ -75,7 +79,7 @@ Three commands are sent to the clock by this driver. Each command consists of a 
 g CR
 : Request for signal quality. Answer only valid during (late part of) resync to MSF signal. The response consists of two characters as follows:
 
-| First Bit Number | Description | Second Bit Number | Description |
+: | First Bit Number | Description | Second Bit Number | Description |
 | ----- | ----- | ----- | ----- |
 | 7 | parity | 7 | parity |
 | 6 | always 0 | 6 | always 0 |
@@ -92,46 +96,46 @@ h CR
 o CR
 : Request timestamp. Start bit of first byte of response is on-time, so may be delayed up to 1 second. Note that the driver will convert time to GMT, if required. The response data is as follows:
 
-1.  hours tens (hours range from 00 to 23)
-2.  hours units
-3.  minutes tens (minutes range from 00 to 59)
-4.  minutes units
-5.  seconds tens (seconds presumed to range from 00 to 60 to allow for leap second)
-6.  seconds units
-7.  day of week 1 (Monday) to 7 (Sunday)
-8.  day of month tens (day ranges from 01 to 31)
-9.  day of month units
-10.  month tens (months range from 01 to 12)
-11.  month units
-12.  year tens (years range from 00 to 99)
-13.  year units
-14. BST/UTC status (Ignored in WWVB version)
+: 1.  hours tens (hours range from 00 to 23)
+: 2.  hours units
+: 3.  minutes tens (minutes range from 00 to 59)
+: 4.  minutes units
+: 5.  seconds tens (seconds presumed to range from 00 to 60 to allow for leap second)
+: 6.  seconds units
+: 7.  day of week 1 (Monday) to 7 (Sunday)
+: 8.  day of month tens (day ranges from 01 to 31)
+: 9.  day of month units
+: 10.  month tens (months range from 01 to 12)
+: 11.  month units
+: 12.  year tens (years range from 00 to 99)
+: 13.  year units
+: 14. BST/UTC status (Ignored in WWVB version)
 
-    | Bit Number | Description |
-    | ----- | ----- |
-    | 7 | parity |
-    | 6 | always 0 |
-    | 5 | always 1 |
-    | 4 | always 1 |
-    | 3 | MSF: always 0<br> WWVB: Leap year indicator bit<br> 0 = non-leap year<br> 1 = leap year |
-    | 2 | MSF: 1 if UTC is in effect (reverse of bit 1)<br> WWVB: Leap second warning bit |
-    | 1 | MSF: 1 if BST is in effect (reverse of bit 2)<br> WWVB: 0 if ST is in effect<br> 1 if DST is in effect<br> 1 if transition from ST with bit 0 is set to 0 |
-    | 0 | MSF: 1 if BST/UTC change pending<br> WWVB: 0 if ST is in effect<br> 1 if DST is in effect<br> 0 if transition from DST with bit 1 is set to 0 |
+: | Bit Number | Description |
+| ----- | ----- |
+| 7 | parity |
+| 6 | always 0 |
+| 5 | always 1 |
+| 4 | always 1 |
+| 3 | MSF: always 0<br> WWVB: Leap year indicator bit<br> 0 = non-leap year<br> 1 = leap year |
+| 2 | MSF: 1 if UTC is in effect (reverse of bit 1)<br> WWVB: Leap second warning bit |
+| 1 | MSF: 1 if BST is in effect (reverse of bit 2)<br> WWVB: 0 if ST is in effect<br> 1 if DST is in effect<br> 1 if transition from ST with bit 0 is set to 0 |
+| 0 | MSF: 1 if BST/UTC change pending<br> WWVB: 0 if ST is in effect<br> 1 if DST is in effect<br> 0 if transition from DST with bit 1 is set to 0 |
 
-15. clock status
+: 15. clock status
 
-    | Bit Number | Description |
-    | ----- | ----- |
-    | 7 | parity |
-    | 6 | always 0 |
-    | 5 | always 1 |
-    | 4 | always 1 |
-    | 3 | `1` if low battery is detected |
-    | 2 | `1` if last resync failed (though officially undefined for the MSF clock, officially defined for WWVB) |
-    | 1 | `1` if at least one reception attempt was successful<br> MSF: since 0230<br> DCF: since 0300<br> WWVB: resets if not successful between 0300-0400 |
-    | 0 | `1` if the clock has valid time---reset to zero when clock is reset (eg at power-up), and set to 1 after first successful resync attempt. |
+: | Bit Number | Description |
+| ----- | ----- |
+| 7 | parity |
+| 6 | always 0 |
+| 5 | always 1 |
+| 4 | always 1 |
+| 3 | `1` if low battery is detected |
+| 2 | `1` if last resync failed (though officially undefined for the MSF clock, officially defined for WWVB) |
+| 1 | `1` if at least one reception attempt was successful<br> MSF: since 0230<br> DCF: since 0300<br> WWVB: resets if not successful between 0300-0400 |
+| 0 | `1` if the clock has valid time---reset to zero when clock is reset (eg at power-up), and set to 1 after first successful resync attempt. |
 
-The driver only accepts time from the clock if the bottom three bits of the status byte are `011` or `flag2` is set to 1 to ignore resync requests. For the MSF clock, if the UK parliament decides to move us to +0100/+0200 time as opposed to the current +0000/+0100 time, it is not clear what effect that will have on the time broadcast by MSF, and therefore on this driver's usefulness.
+: The driver only accepts time from the clock if the bottom three bits of the status byte are `011` or `flag2` is set to 1 to ignore resync requests. For the MSF clock, if the UK parliament decides to move us to +0100/+0200 time as opposed to the current +0000/+0100 time, it is not clear what effect that will have on the time broadcast by MSF, and therefore on this driver's usefulness.
 
 A typical `ntp.conf` configuration file for this driver might be:
 

@@ -15,9 +15,12 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.26._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `GPS_HP`
-: **Serial Port:** <code>/dev/hpgps*u*</code>; 9600 baud, 8-bits, no parity, 19200 baud 7-bits, odd parity for the HP Z3801A
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `GPS_HP`
+
+**Serial Port:** <code>/dev/hpgps*u*</code>; 9600 baud, 8-bits, no parity, 19200 baud 7-bits, odd parity for the HP Z3801A
 
 * * *
 
