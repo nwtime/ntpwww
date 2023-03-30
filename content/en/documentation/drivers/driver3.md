@@ -21,10 +21,14 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.3._u_</code>
-: **Reference ID:** `WWV`
-: **Driver ID:** `WWV_PST`
-: **Serial Port:** <code>/dev/wwv*u*</code>; 9600 baud, 8-bits, no parity
-: **Features:** `tty_clk`
+
+**Reference ID:** `WWV`
+
+**Driver ID:** `WWV_PST`
+
+**Serial Port:** <code>/dev/wwv*u*</code>; 9600 baud, 8-bits, no parity
+
+**Features:** `tty_clk`
 
 * * *
 

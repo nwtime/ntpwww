@@ -24,8 +24,10 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.28._u_</code>
-: **Reference ID:** `SHM`
-: **Driver ID:** `SHM`
+
+**Reference ID:** `SHM`
+
+**Driver ID:** `SHM`
 
 * * *
 
