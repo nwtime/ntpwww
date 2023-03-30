@@ -17,11 +17,16 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.30._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `ONCORE`
-: **Serial Port:** <code>/dev/oncore.serial._u_</code>;  9600 baud, 8-bits, no parity.
-: **PPS Port:** <code>/dev/oncore.pps._u_</code>;  `PPS_CAPTUREASSERT` required,  `PPS_OFFSETASSERT` supported.
-: **Configuration File:** `ntp.oncore`, or <code>ntp.oncore.*u*</code>, or <code>ntp.oncore_u_</code>, in `/etc/ntp/` or `/etc/`.
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `ONCORE`
+
+**Serial Port:** <code>/dev/oncore.serial._u_</code>;  9600 baud, 8-bits, no parity.
+
+**PPS Port:** <code>/dev/oncore.pps._u_</code>;  `PPS_CAPTUREASSERT` required,  `PPS_OFFSETASSERT` supported.
+
+**Configuration File:** `ntp.oncore`, or <code>ntp.oncore.*u*</code>, or <code>ntp.oncore_u_</code>, in `/etc/ntp/` or `/etc/`.
 
 * * *
 

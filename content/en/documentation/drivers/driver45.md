@@ -15,10 +15,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.45._u_</code>
-: **Reference ID:** one of `GPS, IRIG, HVQ, FREQ, ACTS, PPS, PTP, ACT, USR`, or `LOCL`
-: **Driver ID:** `Spectracom TSYNC PCI`
-: **Driver Port:** <code>/dev/tsyncpci*u*</code>
-: **Features:** none
+
+**Reference ID:** one of `GPS, IRIG, HVQ, FREQ, ACTS, PPS, PTP, ACT, USR`, or `LOCL`
+
+**Driver ID:** `Spectracom TSYNC PCI`
+
+**Driver Port:** <code>/dev/tsyncpci*u*</code>
+
+**Features:** none
 
 * * *
 

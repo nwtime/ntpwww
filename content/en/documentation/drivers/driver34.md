@@ -18,10 +18,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.34._u_</code>
-: **Reference ID:** `WWVB`
-: **Driver ID:** `ULINK`
-: **Serial Port:** <code>/dev/wwvb*u*</code>; 9600 bps, 8-bits, no parity
-: **Features:** none
+
+**Reference ID:** `WWVB`
+
+**Driver ID:** `ULINK`
+
+**Serial Port:** <code>/dev/wwvb*u*</code>; 9600 bps, 8-bits, no parity
+
+**Features:** none
 
 * * *
 
@@ -39,7 +43,7 @@ This driver also supports the Model 320, 330, 331, and 332 decoders in both poll
 
 <code>\<cr>\<lf>RQ_1C00LYYYY+DDDUTCS_HH:MM:SSL+5</code>
 
-| Value | Description |
+: | Value | Description |
 | ----- | ----- |
 | `RQ` | Signal readability indicator, ranging from R1 to R5 where R1 is unreadable, R5 is best reception |
 | `_` | Space |
@@ -68,7 +72,7 @@ Note that Model 325 reports a very similar output like Model 33X series. The dri
 
 <code>\<cr>\<lf>SQRYYYYDDD+HH:MM:SS.mmLT\<cr></code>
 
-| Value | Description |
+: | Value | Description |
 | ----- | ----- |
 | `S` | `S`: sync'd in last hour<br> 0-9: hours x 10 since last update<br> else `?` |
 | `Q` | Number of correlating timeframes, from 0 to 5 |
@@ -90,7 +94,7 @@ Note that this driver does not do anything with the `T` flag. The M320 also has 
 
 `S9+D 00 YYYY+DDDUTCS HH:MM:SSl+5`
 
-| Value | Description |
+: | Value | Description |
 | ----- | ----- |
 | `S` | sync indicator<br> `S` insync<br> `N` not in sync<br> the sync flag is WWVB decoder<br> sync has nothing to do with time being correct |
 | `9+` | signal level 0 thru 9+<br> If over 9, indicated as 9 |

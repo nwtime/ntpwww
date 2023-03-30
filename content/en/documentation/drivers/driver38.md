@@ -19,10 +19,14 @@ type: archives
 #### Synopsis
 
 **Address:**  <code>127.127.38._X_</code>
-: **Reference ID:** `hopf` (default), `GPS, DCF`
-: **Driver ID:** `HOPF_S`
-: **Serial Port:**  <code>/dev/hopfclock*X*</code>
-: **Serial I/O:** 9600 baud, 8-bits, 1-stop, no parity
+
+**Reference ID:** `hopf` (default), `GPS, DCF`
+
+**Driver ID:** `HOPF_S`
+
+**Serial Port:**  <code>/dev/hopfclock*X*</code>
+
+**Serial I/O:** 9600 baud, 8-bits, 1-stop, no parity
 
 ![gif](/documentation/pic/fg6021.gif)
 
@@ -86,4 +90,6 @@ As specified in clock manual in section "Data String for NTP (Network Time Proto
 
 #### Questions or Comments
 
-[Bernd Altmeier](mailto:altmeier@atlsoft.de), [Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)
+[Bernd Altmeier](mailto:altmeier@atlsoft.de)
+
+[Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)

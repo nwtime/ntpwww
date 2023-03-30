@@ -17,10 +17,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.9._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `GPS_MX4200`
-: **Serial Port:** <code>/dev/gps*u*</code>; 4800 baud, 8-bits, no parity
-: **Features:** `ppsclock` (required)
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `GPS_MX4200`
+
+**Serial Port:** <code>/dev/gps*u*</code>; 4800 baud, 8-bits, no parity
+
+**Features:** `ppsclock` (required)
 
 * * *
 
@@ -30,7 +34,7 @@ This driver supports the Magnavox MX4200 Navigation Receiver adapted to precisio
 
 [Leica Geosystems](http://www.leica.kiev.ua/) acquired the Magnavox commercial GPS technology business in February of 1994. They now market and support former Magnavox GPS products such as the MX4200 and its successors.
 
-[![Leica MX9400N Navigator](/documentation/pic/9400n.webp)]
+![Leica MX9400N Navigator](/documentation/pic/9400n.webp)
 **Leica MX9400N Navigator**
 
 * * *

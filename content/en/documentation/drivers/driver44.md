@@ -18,9 +18,12 @@ type: archives
 ![NeoClock4X - DCF77 receiver](/documentation/pic/neoclock4x.gif) 
 
 **Address:** <code>127.127.44.u</code>
-: **Reference ID:** `neol`
-: **Driver ID:**  `NEOCLK4X`
-: **Serial Port:**  `/dev/neoclock4x-u`
+
+**Reference ID:** `neol`
+
+**Driver ID:**  `NEOCLK4X`
+
+**Serial Port:**  `/dev/neoclock4x-u`
 
 * * *
 

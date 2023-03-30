@@ -18,8 +18,10 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.39._X_</code>
-: **Reference ID:** `hopf` (default), `GPS`, `DCF`
-: **Driver ID:** `HOPF_P`
+
+**Reference ID:** `hopf` (default), `GPS`, `DCF`
+
+**Driver ID:** `HOPF_P`
 
 ![gif](/documentation/pic/fg6039.jpg)
 
@@ -47,13 +49,11 @@ The hopf clock driver has been tested on the following software and hardware pla
 
 #### O/S System Configuration
 
-**UNIX**
+UNIX
+: The driver attempts to open the device `/dev/hopf6039 REFID`. The device entry will be made by the installation process of the kernel module for the PCI-bus board. The driver sources belongs to the delivery equipment of the PCI-board.
 
-The driver attempts to open the device `/dev/hopf6039 REFID`. The device entry will be made by the installation process of the kernel module for the PCI-bus board. The driver sources belongs to the delivery equipment of the PCI-board.
-
-**Windows NT/2000**
-
-The driver attempts to open the device by calling the function `OpenHopfDevice()`. This function will be installed by the Device Driver for the PCI-bus board. The driver belongs to the delivery equipment of the PCI-board.
+Windows NT/2000
+: The driver attempts to open the device by calling the function `OpenHopfDevice()`. This function will be installed by the Device Driver for the PCI-bus board. The driver belongs to the delivery equipment of the PCI-board.
 
 * * *
 
@@ -71,4 +71,6 @@ The driver attempts to open the device by calling the function `OpenHopfDevice()
 
 #### Questions or Comments
 
-[Bernd Altmeier](mailto:altmeier@atlsoft.de), [Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)
+[Bernd Altmeier](mailto:altmeier@atlsoft.de)
+
+[Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)

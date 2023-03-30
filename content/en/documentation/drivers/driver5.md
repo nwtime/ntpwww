@@ -19,10 +19,14 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.5._u_</code>
-: **Reference ID:** `GPS, OMEGA, GOES, WWV`
-: **Driver ID:** `TRUETIME`
-: **Serial Port:** <code>/dev/true*u*</code>; 9600 baud, 8-bits, no parity
-: **Features:** `tty_clk`
+
+**Reference ID:** `GPS, OMEGA, GOES, WWV`
+
+**Driver ID:** `TRUETIME`
+
+**Serial Port:** <code>/dev/true*u*</code>; 9600 baud, 8-bits, no parity
+
+**Features:** `tty_clk`
 
 * * *
 
@@ -33,31 +37,37 @@ This driver supports several models of Kinemetrics/TrueTime timing receivers, in
 Most of this code is originally from `refclock_wwvb.c` with thanks. It has been so mangled that wwvb is not a recognizable ancestor.
 
 Timecode format: `ADDD:HH:MM:SSQCL`
-: * `A` - control A (this is stripped before we see it)
-: * `Q` - Quality indication (see below)
-: * `C` - Carriage return
-: * `L` - Line feed
+: `A` - control A (this is stripped before we see it)
+: `Q` - Quality indication (see below)
+: `C` - Carriage return
+: `L` - Line feed
 
 Quality codes indicate possible error of:
 
-**468-DC GOES Receiver**
-: **GPS-TM/TMD Receiver**
-: * `?` +/- 500 milliseconds
-: * `#` +/- 50 milliseconds
-: * `*` +/- 5 milliseconds
-: * `.` +/- 1 millisecond
-: * space: less than 1 millisecond
+**468-DC GOES Receiver or GPS-TM/TMD Receiver**
 
-**OM-DC OMEGA Receiver:**
-: * `>` +/- 5 seconds
-: * `?` +/- 500 milliseconds # +/- 50 milliseconds
-: * `*` +/- 5 milliseconds . +/- 1 millisecond
-: * `A-H` less than 1 millisecond. Character indicates which station is being received as follows:  `A` = Norway, `B` = Liberia, `C` = Hawaii, `D` = North Dakota, `E` = La Reunion, `F` = Argentina, `G` = Australia, `H` = Japan
-: * The carriage return start bit begins on 0 seconds and extends to 1 bit time.
+: | **Code** | **Error** |
+| --- | --- |
+| `?` | +/- 500 milliseconds |
+| `#` | +/- 50 milliseconds |
+| `*` | +/- 5 milliseconds |
+| `.` | +/- 1 millisecond |
+| space | less than 1 millisecond |
 
-**TL-3 WWV Receiver:**
-: * `?` receiver is unlocked
-: * space +/- 5 milliseconds
+**OM-DC OMEGA Receiver**
+: | **Code** | **Error** |
+| --- | --- |
+| `>` | +/- 5 seconds |
+| `?` | +/- 500 milliseconds # +/- 50 milliseconds |
+| `*` | +/- 5 milliseconds . +/- 1 millisecond |
+| `A-H` | less than 1 millisecond. Character indicates which station is being received:<br>  `A` = Norway<br> `B` = Liberia<br> `C` = Hawaii<br> `D` = North Dakota<br> `E` = La Reunion<br> `F` = Argentina<br> `G` = Australia<br> `H` = Japan |
+|  | The carriage return start bit begins on 0 seconds and extends to 1 bit time. |
+
+**TL-3 WWV Receiver**
+: | **Code** | **Error** |
+| --- | --- |
+| `?` | receiver is unlocked |
+| space | +/- 5 milliseconds |
 
 **Notes on 468-DC and OMEGA receiver:**
 : Send the clock a `R` or `C` and once per second a timestamp will appear. Send a `R` to get the satellite position once (GOES only).

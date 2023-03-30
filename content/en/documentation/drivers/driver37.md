@@ -16,9 +16,12 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.37._u_</code>
-: **Reference ID:** `GPS`
-: **Driver ID:** `GPS`
-: **Parallel Port:** <code>/dev/fgclock*u*</code>
+
+**Reference ID:** `GPS`
+
+**Driver ID:** `GPS`
+
+**Parallel Port:** <code>/dev/fgclock*u*</code>
 
 * * *
 

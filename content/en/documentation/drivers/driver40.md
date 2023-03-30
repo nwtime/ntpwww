@@ -27,9 +27,12 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.40._u_</code>
-: **Reference ID:** `JJY`
-: **Driver ID:** `JJY`
-: **Serial Port:** <code>/dev/jjy*u*</code>; See corresponding receiver
+
+**Reference ID:** `JJY`
+
+**Driver ID:** `JJY`
+
+**Serial Port:** <code>/dev/jjy*u*</code>; See corresponding receiver
 
 * * *
 
@@ -57,35 +60,28 @@ This driver supports the following JJY receivers and the GPS clock sold in Japan
 
 `fudge   127.127.40.X   time1 0.NNN   flag1 0|1   flag2 0|1   time2 H`
 
-`time1` may specify a constant to be added to the time offset for the time from the receiver, a fixed-point decimal number in seconds. You may specify the time offset from several tens of ms (0.0NN seconds) to a hundred and several tens of ms (0.1NN seconds) for this clock.
+: `time1` may specify a constant to be added to the time offset for the time from the receiver, a fixed-point decimal number in seconds. You may specify the time offset from several tens of ms (0.0NN seconds) to a hundred and several tens of ms (0.1NN seconds) for this clock.
 
-`time2` may specify a grace period in hours after the adjusted reply of the `STUS` command stopped coming.  This hours is effective when both `flag1` and `flag2` are set to 1.
+: `time2` may specify a grace period in hours after the adjusted reply of the `STUS` command stopped coming.  This hours is effective when both `flag1` and `flag2` are set to 1.
 
-`flag1` has no effect for time synchronization unless `flag2` is set to 1.  When `flag1` is set to 1, status commands are issued before `DATE` and `STIM` commands, and write a response text into the `clockstats` file.
-
-**fudge flag1**
-
-| Value | Description |
+: `flag1` has no effect for time synchronization unless `flag2` is set to 1.  When `flag1` is set to 1, status commands are issued before `DATE` and `STIM` commands, and write a response text into the `clockstats` file.
+: | Value | Description |
 | ----- | ----- |
 | `0` (Default) | DCST and STUS commands are not issued |
 | `1` | DCST and STUS commands are issued |
 
-`flag2` enables the time synchronization only when the reply of the STUS is adjusted. When this functionality is used, `flag1` must also be set to 1.
-
-**fudge flag2**
-
-| Value | Description |
+: `flag2` enables the time synchronization only when the reply of the STUS is adjusted. When this functionality is used, `flag1` must also be set to 1.
+: | Value | Description |
 | ----- | ----- |
 | `0` (Default) | Always |
 | `1` | adjusted only |
 
 **Interface**
-
-RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
+: RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
 
 **Time code format**
 
-| Command | Reply |
+: | Command | Reply |
 | ----- | ----- |
 | `dcst{CR}{LF}` | `valid{CR}{LF}` \| <code>invalid{CR}{LF}</code> |
 | `stus{CR}{LF}` | `adjusted{CR}{LF}` \| <code>unadjusted{CR}{LF}</code> |
@@ -93,7 +89,7 @@ RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
 | `date{CR}{LF}` | `YYYY/MM/DD WWW{CR}{LF}` |
 | `stim{CR}{LF}` | `HH:MM:SS{CR}{LF}` |
 
-The date and time are requested separately. The time is requested before and after the date request to check uncertainty of the date whether it's before or after midnight.
+: The date and time are requested separately. The time is requested before and after the date request to check uncertainty of the date whether it's before or after midnight.
 
 * * *
 
@@ -106,12 +102,11 @@ The date and time are requested separately. The time is requested before and aft
 `fudge   127.127.40.X   time1 0.NNN`
 
 **Interface**
-
-RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
+: RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
 
 **Time code format**
 
-|Command | Reply |
+: |Command | Reply |
 | ----- | ----- |
 | `{ENQ}1J{ETX}` | `{STX}JYYMMDDWHHMMSSS{ETX}` |
 
@@ -128,12 +123,11 @@ Echo Keisokuki was dissolved. Some business of the company was taken over by Fre
 `fudge   127.127.40.X   time1 0.NNN`
 
 **Interface**
-
-RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
+: RS-232C, 9600 BPS, 8-bits, no parity, 1 stop bit
 
 **Time code format**
 
-|Command | Reply |
+: |Command | Reply |
 | ----- | ----- |
 | `C` | (Mode 2 : Continuous) |
 | (Every second before 0.5 second) | `YYMMDDWHHMMSS{ST1}{ST2}{ST3}{ST4}{CR}` |
@@ -152,12 +146,11 @@ The JJY-200 became end-of-sales in 2013.
 `fudge   127.127.40.X   time1 0.NNN`
 
 **Interface**
-
-RS-232C, 4800 BPS, 8-bits, no parity, 1 stop bit
+: RS-232C, 4800 BPS, 8-bits, no parity, 1 stop bit
 
 **Time code format**
 
-|Command | Reply |
+: |Command | Reply |
 | ----- | ----- |
 | (Every second) | `'XX YY/MM/DD W HH:MM:SS{CR}` |
 
@@ -175,30 +168,27 @@ Besides this driver (Type 40), [the generic NMEA GPS driver (Type 20)](/document
 
 `fudge   127.127.40.X   time1 0.NNN   flag1 0|1`
 
-`time1` may specify a constant to be added to the time offset for the time from the receiver, a fixed-point decimal number in seconds.
+: `time1` may specify a constant to be added to the time offset for the time from the receiver, a fixed-point decimal number in seconds.
 
-`flag1` has no effect for time synchronization. When `flag1` is set to 1, the status command is issued before the DATE and TIME commands and a response text is written to a `clockstats` file.
+: `flag1` has no effect for time synchronization. When `flag1` is set to 1, the status command is issued before the DATE and TIME commands and a response text is written to a `clockstats` file.
 
-**fudge flag1**
-
-| Value | Description |
+: | Value | Description |
 | ----- | ----- |
 | `0` (Default) | STUS command is not issued |
 | `1` | STUS command is issued |
 
 **Interface**
-
-USB (<code>/dev/ttyACM*0*</code>)
+: USB (<code>/dev/ttyACM*0*</code>)
 
 **Time code format**
 
-|Command | Reply |
+: |Command | Reply |
 | ----- | ----- |
 | `stus{CR}{LF}` | `*R{CR}{LF}\|*G{CR}{LF}\|*U{CR}{LF}\|+U{CR}{LF}` |
 | `time{CR}{LF}` | `HH:MM:SS{CR}{LF}` |
 | `date{CR}{LF}` | `YYYY/MM/DD{CR}{LF}` |
 
-The date and time are requested separately. The time is requested before and after the date request to check uncertainty of the date whether it's before or after midnight.
+: The date and time are requested separately. The time is requested before and after the date request to check uncertainty of the date whether it's before or after midnight.
 
 * * *
 
@@ -213,15 +203,14 @@ The TDC-300 must be set to the type 3 data format using the front panel menu dis
 `fudge   127.127.40.X   time1 0.NNN`
 
 **Interface**
-
-RS-232C, 2400 BPS, 8-bits, no parity, 1 stop bit
+: RS-232C, 2400 BPS, 8-bits, no parity, 1 stop bit
 
 **Time code format**
 
-|Command | Reply |
+: |Command | Reply |
 | ----- | ----- |
 | | `{STX}YYMMDDWHHMMSS{ETX}` |
-(5 to 10 ms before second) | `{STX}{xE5}{ETX}` |
+| (5 to 10 ms before second) | `{STX}{xE5}{ETX}` |
 
 * * *
 
@@ -236,87 +225,72 @@ The service is provided by the National Institute of Information and Communicati
 **NTP configuration (ntp.conf)**
 
 `server   127.127.40.X   mode (100, 101 to 180)   minpoll N`
+: When `mode` 100 is specified, this driver does not issue the loopback command in order to measure the delay, and the delay of the telephone line and the system processing is not adjusted.
 
-When `mode` 100 is specified, this driver does not issue the loopback command in order to measure the delay, and the delay of the telephone line and the system processing is not adjusted.
+: When `mode` 101 to 180 is specified, this driver issues the loopback command and measures the delay of the telephone line and the system processing through the Telphone JJY loopback circuit.
 
-When `mode` 101 to 180 is specified, this driver issues the loopback command and measures the delay of the telephone line and the system processing through the Telphone JJY loopback circuit.
+: The round trip time through the Telphone JJY loopback circuit is measured 5 times, and each delay time is greater than 700 ms, that delay time is ignored during average delay time calculation. Also, if the valid delay time ( <= 700 ms.) is measured more than 3 times, the maximum delay time among the valid delay times is ignored, and if the valid delay time is measured more than 4 times, the minimum delay time among them is ignored, like marking/grading sports judgment.
 
-The round trip time through the Telphone JJY loopback circuit is measured 5 times, and each delay time is greater than 700 ms, that delay time is ignored during average delay time calculation. Also, if the valid delay time ( <= 700 ms.) is measured more than 3 times, the maximum delay time among the valid delay times is ignored, and if the valid delay time is measured more than 4 times, the minimum delay time among them is ignored, like marking/grading sports judgment.
-
-The adjustment time is calculated by the formula `multiply (the measured round trip time) by ( ( the mode number ) - 100) %`, and the adjustment delay time is added to the syncronizing time.
+: The adjustment time is calculated by the formula `multiply (the measured round trip time) by ( ( the mode number ) - 100) %`, and the adjustment delay time is added to the syncronizing time.
     
-If you choose the automatic delay adjustment, in other words, the `mode` 101 to 180 is specifed, the recommended `mode` number is 145 to 165.
+: If you choose the automatic delay adjustment, in other words, the `mode` 101 to 180 is specifed, the recommended `mode` number is 145 to 165.
 
-The default polling interval 6 (64 seconds) is too short for this mode. The `minpoll` should be set to greater than or equal to 8 (256 seconds, about 4 minutes).
+: The default polling interval 6 (64 seconds) is too short for this mode. The `minpoll` should be set to greater than or equal to 8 (256 seconds, about 4 minutes).
 
-The interval time is given the value in second power of 2. The `minpoll` value 12 is 4096 seconds interval (about 1 hour), 14 is 16384 seconds interval (about 4.5 hours), 16 is 65536 seconds (about 18 hours), respectively.
+: The interval time is given the value in second power of 2. The `minpoll` value 12 is 4096 seconds interval (about 1 hour), 14 is 16384 seconds interval (about 4.5 hours), 16 is 65536 seconds (about 18 hours), respectively.
 
 `fudge   127.127.40.X   flag1 0|1   flag2 0|1   flag3 0|1   flag4 0|1`
+: `time1` may specify a constant to be added to the time offset for the time from the receiver, a fixed-point decimal number in seconds.
 
-`time1` may specify a constant to be added to the time offset for the time from the receiver, a fixed-point decimal number in seconds.
+: When `mode` 100 is specified, `time1` may be specified in order to adjust the time offset.
 
-When `mode` 100 is specified, `time1` may be specified in order to adjust the time offset.
+: When `mode` 101 to 180 is specified, `time1` should not be specified because this driver adds some percentage of the measured loopback delay, depending on the value of the `mode` number.
 
-When `mode` 101 to 180 is specified, `time1` should not be specified because this driver adds some percentage of the measured loopback delay, depending on the value of the `mode` number.
-
-`flag1` is the modem dialing type.
-
-**fudge flag1**
-
-| Value | Description | AT Command |
+: `flag1` is the modem dialing type.
+: | Value | Description | AT Command |
 | ----- | ----- | ----- |
 | `0` (Default) | Tone | `ATDWTnn...nn` |
 | `1` | Pulse | `ATDWPnn...nn` |
 
-`flag2` is the modem error correction type.
-
-**fudge flag2**
-
-| Value | Description | AT Command |
+: `flag2` is the modem error correction type.
+: | Value | Description | AT Command |
 | ----- | ----- | ----- |
 | `0` (Default) | Normal | `AT\N0` |
 | `1` | Auto V42, MNP, Normal | `AT\N3` |
 
-`flag3` is the modem speaker switch.
-
-**fudge flag3**
-
-| Value | Description | AT Command |
+: `flag3` is the modem speaker switch.
+: | Value | Description | AT Command |
 | ----- | ----- | ----- |
 | `0` (Default) | Off | `ATM0Ln` |
 | `1` | On | `ATM2Ln` |
 
-`flag4` is the modem speaker volume.
-
-**fudge flag4**
-
-| Value | Description | AT Command |
+: `flag4` is the modem speaker volume.
+: | Value | Description | AT Command |
 | ----- | ----- | ----- |
 | `0` (Default) | Low | `ATMnL1`
 | `1` | Middle | `ATMnL2`
 
-**phone 042NNNNNNN**
+: **phone 042NNNNNNN**
 
-The phone number is available at https://jjy.nict.go.jp/.
+: The phone number is available at https://jjy.nict.go.jp/.
 
-The number of digits of the phone number is checked. If the international access number and the country number are added in order to call from outside of Japan, the number of digits is over the limit.
+: The number of digits of the phone number is checked. If the international access number and the country number are added in order to call from outside of Japan, the number of digits is over the limit.
 
-The first 2 or 3 digits are checked. The emergency service number and the special service number in Japan are not allowed.
+: The first 2 or 3 digits are checked. The emergency service number and the special service number in Japan are not allowed.
 
-When calling from an extension line, the number for an outside line should be prefix `0,` (zero comma). The prefix is also checked, and no other outside access number is allowed.
+: When calling from an extension line, the number for an outside line should be prefix `0,` (zero comma). The prefix is also checked, and no other outside access number is allowed.
 
 **Interface**
+: RS-232C or USB, 2400 BPS, 8-bits, no parity, 1 stop bit
 
-RS-232C or USB, 2400 BPS, 8-bits, no parity, 1 stop bit
+: **Modem control commands:**
 
-**Modem control commands:**
-
-`ATE0Q0V1, ATMnLn, AT&K4, AT+MS=V22B, AT%C0, AT\Nn, ATH1, ATDWxnn...nn`
+: `ATE0Q0V1, ATMnLn, AT&K4, AT+MS=V22B, AT%C0, AT\Nn, ATH1, ATDWxnn...nn`
 `+++, ATH0`
 
 **Time code format**
 
-| Prompt | Command | Reply |
+: | Prompt | Command | Reply |
 | ----- | ----- | ----- |
 | `Name{SP}?{SP}` | `TJJY{CR}` | Welcome messages |
 | `>` | `LOOP{CR}` | Switch to the loopback circuit |
@@ -327,9 +301,9 @@ RS-232C or USB, 2400 BPS, 8-bits, no parity, 1 stop bit
 | `>` | `LEAPSEC{CR}` | `{SP}0{CR} \| +1{CR} \| -1{CR}` |
 | `>` | `BYE{CR}` | Sayounara messages |
 
-The date and time are requested separately. The time is requested before and after the date request to check uncertainty of the date whether it's before or after midnight.
+: The date and time are requested separately. The time is requested before and after the date request to check uncertainty of the date whether it's before or after midnight.
 
-The leap second is not handled, and only written in the `clockstats` file as information.
+: The leap second is not handled, and only written in the `clockstats` file as information.
 
 The JJY is the radio station which transmits the JST (Japan Standard Time) in long wave radio. The station JJY is operated by the National Institute of Information and Communications Technology. An operating announcement and some information are available from https://www.nict.go.jp/ (English and Japanese) and https://jjy.nict.go.jp/ (English and Japanese).
 

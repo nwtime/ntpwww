@@ -29,10 +29,14 @@ Author: [David L. Mills](mailto:mills@udel.edu)
 #### Synopsis
 
 **Address:** <code>127.127.36._u_</code>
-: **Reference ID:** <code>WV*f*</code> or <code>WH*f*</code>
-: **Driver ID:** `WWV_AUDIO`
-: **Autotune Port:** `/dev/icom`; 1200/9600 baud, 8-bits, no parity
-: **Audio Device:** `/dev/audio` and `/dev/audioctl`
+
+**Reference ID:** <code>WV*f*</code> or <code>WH*f*</code>
+
+**Driver ID:** `WWV_AUDIO`
+
+**Autotune Port:** `/dev/icom`; 1200/9600 baud, 8-bits, no parity
+
+**Audio Device:** `/dev/audio` and `/dev/audioctl`
 
 * * *
 

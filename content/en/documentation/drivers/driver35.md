@@ -16,9 +16,12 @@ type: archives
 #### Synopsis
 
 **Address:** <code>127.127.35._u_</code>
-: **Reference ID:** `PCF`
-: **Driver ID:** `PCF`
-: **Parallel Port:** <code>/dev/pcfclocks/*u*</code> or <code>/dev/pcfclock*u*</code>
+
+**Reference ID:** `PCF`
+
+**Driver ID:** `PCF`
+
+**Parallel Port:** <code>/dev/pcfclocks/*u*</code> or <code>/dev/pcfclock*u*</code>
 
 * * *
 
