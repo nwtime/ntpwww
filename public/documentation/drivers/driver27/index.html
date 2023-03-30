@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver27/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-30T12:24:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Arcron MSF Receiver</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 30, 2023 12:24 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/abc48700f7ed1c614f2e541b8db5962fd3f4c9f4">abc48700f</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://www.ntp.org/documentation/drivers/driver27/#synopsis">Synopsis</a></li>
@@ -161,13 +161,11 @@ function demo() {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<dl>
-<dt><strong>Address:</strong> <code>127.127.27.<em>u</em></code></dt>
-<dd><strong>Reference ID:</strong> <code>MSFa</code> / <code>MSF</code> / <code>DCF</code> / <code>WWVB</code></dd>
-<dd><strong>Driver ID:</strong> <code>MSF_ARCRON</code></dd>
-<dd><strong>Serial Port:</strong> <code>/dev/arc<em>u</em></code>; 300 baud, 8-bits, 2-stop, no parity</dd>
-<dd><strong>Features:</strong> <code>tty_clk</code></dd>
-</dl>
+<p><strong>Address:</strong> <code>127.127.27.<em>u</em></code></p>
+<p><strong>Reference ID:</strong> <code>MSFa</code> / <code>MSF</code> / <code>DCF</code> / <code>WWVB</code></p>
+<p><strong>Driver ID:</strong> <code>MSF_ARCRON</code></p>
+<p><strong>Serial Port:</strong> <code>/dev/arc<em>u</em></code>; 300 baud, 8-bits, 2-stop, no parity</p>
+<p><strong>Features:</strong> <code>tty_clk</code></p>
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver supports the Arcron MSF, DCF and WWVB receivers. The clock reports its ID as <code>MSFa, MSF, DCF</code>, or <code>WWVB</code> to indicate the time source.</p>
@@ -197,7 +195,7 @@ function demo() {
 <dl>
 <dt>g CR</dt>
 <dd>Request for signal quality. Answer only valid during (late part of) resync to MSF signal. The response consists of two characters as follows:</dd>
-</dl>
+<dd>
 <table>
 <thead>
 <tr>
@@ -258,54 +256,69 @@ function demo() {
 </tr>
 </tbody>
 </table>
-<dl>
+</dd>
 <dt>h CR</dt>
 <dd>Request to resync to signal. Can take up from about 30s to 360s. Drains batteries so should not be used excessively. After this the clock time and date should be correct and the phase within 20ms of time as transmitted from the source signal (remember to allow for propagation time). By default the clock resyncs once per day in the late evening/early morning (presumably to catch transitions to/from daylight saving time quickly). This driver code, by default, resyncs at least once per hour to minimise clock wander.</dd>
 <dt>o CR</dt>
 <dd>Request timestamp. Start bit of first byte of response is on-time, so may be delayed up to 1 second. Note that the driver will convert time to GMT, if required. The response data is as follows:</dd>
-</dl>
+<dd>
 <ol>
-<li>
-<p>hours tens (hours range from 00 to 23)</p>
-</li>
-<li>
-<p>hours units</p>
-</li>
-<li>
-<p>minutes tens (minutes range from 00 to 59)</p>
-</li>
-<li>
-<p>minutes units</p>
-</li>
-<li>
-<p>seconds tens (seconds presumed to range from 00 to 60 to allow for leap second)</p>
-</li>
-<li>
-<p>seconds units</p>
-</li>
-<li>
-<p>day of week 1 (Monday) to 7 (Sunday)</p>
-</li>
-<li>
-<p>day of month tens (day ranges from 01 to 31)</p>
-</li>
-<li>
-<p>day of month units</p>
-</li>
-<li>
-<p>month tens (months range from 01 to 12)</p>
-</li>
-<li>
-<p>month units</p>
-</li>
-<li>
-<p>year tens (years range from 00 to 99)</p>
-</li>
-<li>
-<p>year units</p>
-</li>
-<li>
-<p>BST/UTC status (Ignored in WWVB version)</p>
+<li>hours tens (hours range from 00 to 23)</li>
+</ol>
+</dd>
+<dd><ol start="2">
+<li>hours units</li>
+</ol>
+</dd>
+<dd><ol start="3">
+<li>minutes tens (minutes range from 00 to 59)</li>
+</ol>
+</dd>
+<dd><ol start="4">
+<li>minutes units</li>
+</ol>
+</dd>
+<dd><ol start="5">
+<li>seconds tens (seconds presumed to range from 00 to 60 to allow for leap second)</li>
+</ol>
+</dd>
+<dd><ol start="6">
+<li>seconds units</li>
+</ol>
+</dd>
+<dd><ol start="7">
+<li>day of week 1 (Monday) to 7 (Sunday)</li>
+</ol>
+</dd>
+<dd><ol start="8">
+<li>day of month tens (day ranges from 01 to 31)</li>
+</ol>
+</dd>
+<dd><ol start="9">
+<li>day of month units</li>
+</ol>
+</dd>
+<dd><ol start="10">
+<li>month tens (months range from 01 to 12)</li>
+</ol>
+</dd>
+<dd><ol start="11">
+<li>month units</li>
+</ol>
+</dd>
+<dd><ol start="12">
+<li>year tens (years range from 00 to 99)</li>
+</ol>
+</dd>
+<dd><ol start="13">
+<li>year units</li>
+</ol>
+</dd>
+<dd><ol start="14">
+<li>BST/UTC status (Ignored in WWVB version)</li>
+</ol>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -348,9 +361,13 @@ function demo() {
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>clock status</p>
+</dd>
+<dd>
+<ol start="15">
+<li>clock status</li>
+</ol>
+</dd>
+<dd>
 <table>
 <thead>
 <tr>
@@ -393,9 +410,11 @@ function demo() {
 </tr>
 </tbody>
 </table>
-</li>
-</ol>
+</dd>
+<dd>
 <p>The driver only accepts time from the clock if the bottom three bits of the status byte are <code>011</code> or <code>flag2</code> is set to 1 to ignore resync requests. For the MSF clock, if the UK parliament decides to move us to +0100/+0200 time as opposed to the current +0000/+0100 time, it is not clear what effect that will have on the time broadcast by MSF, and therefore on this driver&rsquo;s usefulness.</p>
+</dd>
+</dl>
 <p>A typical <code>ntp.conf</code> configuration file for this driver might be:</p>
 <pre># hostname(n) means we expect (n) to be the stratum at which hostname runs.
 

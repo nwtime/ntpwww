@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver29/" /><meta property="og:image" content="https://www.ntp.org/documentation/pic/thunderbolt.jpg" /><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-28T21:06:33&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-30T12:24:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Trimble Palisade and Thunderbolt Receivers</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 28, 2023 21:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/4798c81ce52b916af3864edc4b52cbf36c629fcd">4798c81ce</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 30, 2023 12:24 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/abc48700f7ed1c614f2e541b8db5962fd3f4c9f4">abc48700f</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/driver29.gif" alt="gif"  />
 </p></p>
@@ -179,15 +179,13 @@ function demo() {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<dl>
-<dt><strong>Address:</strong> <code>127.127.29.<em>u</em></code></dt>
-<dd><strong>Reference ID:</strong> <code>GPS</code></dd>
-<dd><strong>Driver ID:</strong> <code>GPS_PALISADE</code></dd>
-<dd><strong>Serial Port:</strong> <code>/dev/palisade<em>u</em></code></dd>
-<dd><strong>Serial I/O:</strong> 9600 baud, 8-bits, 1-stop, odd parity</dd>
-<dd><strong>Serial I/O (Thunderbolt):</strong> 9600 baud, 8-bits, 1-stop, no parity</dd>
-<dd><strong>Serial I/O (Copernicus II):</strong> 38400 baud, 8-bits, 1-stop, no parity</dd>
-</dl>
+<p><strong>Address:</strong> <code>127.127.29.<em>u</em></code></p>
+<p><strong>Reference ID:</strong> <code>GPS</code></p>
+<p><strong>Driver ID:</strong> <code>GPS_PALISADE</code></p>
+<p><strong>Serial Port:</strong> <code>/dev/palisade<em>u</em></code></p>
+<p><strong>Serial I/O:</strong> 9600 baud, 8-bits, 1-stop, odd parity</p>
+<p><strong>Serial I/O (Thunderbolt):</strong> 9600 baud, 8-bits, 1-stop, no parity</p>
+<p><strong>Serial I/O (Copernicus II):</strong> 38400 baud, 8-bits, 1-stop, no parity</p>
 <hr>
 <h4 id="description">Description</h4>
 <p>The <code>refclock_palisade</code> driver supports <a href="https://timing.trimble.com/">Trimble</a> Navigation&rsquo;s Palisade Smart Antenna GPS receiver.</p>
@@ -400,7 +398,7 @@ server 127.127.29.0 mode 7 # Trimble Copernicus II GPS (Stratum 1).
 <dd>
 <p>The mode parameter to the server command specifies the specific hardware this driver is for. The default is 0 for a normal Trimble Palisade. The other options are:</p>
 </dd>
-</dl>
+<dd>
 <table>
 <thead>
 <tr>
@@ -435,6 +433,8 @@ server 127.127.29.0 mode 7 # Trimble Copernicus II GPS (Stratum 1).
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
 <hr>
 <h4 id="defines">DEFINEs</h4>
 <p>The following constants are defined in the driver source code. These defines may be modified to improve performance or adapt to new operating systems.</p>

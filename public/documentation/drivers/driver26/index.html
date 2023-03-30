@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver26/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-30T12:24:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Hewlett Packard 58503A GPS Receiver and HP Z3801A</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 30, 2023 12:24 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/abc48700f7ed1c614f2e541b8db5962fd3f4c9f4">abc48700f</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://www.ntp.org/documentation/drivers/driver26/#synopsis">Synopsis</a></li>
@@ -159,12 +159,10 @@ function demo() {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<dl>
-<dt><strong>Address:</strong> <code>127.127.26.<em>u</em></code></dt>
-<dd><strong>Reference ID:</strong> <code>GPS</code></dd>
-<dd><strong>Driver ID:</strong> <code>GPS_HP</code></dd>
-<dd><strong>Serial Port:</strong> <code>/dev/hpgps<em>u</em></code>; 9600 baud, 8-bits, no parity, 19200 baud 7-bits, odd parity for the HP Z3801A</dd>
-</dl>
+<p><strong>Address:</strong> <code>127.127.26.<em>u</em></code></p>
+<p><strong>Reference ID:</strong> <code>GPS</code></p>
+<p><strong>Driver ID:</strong> <code>GPS_HP</code></p>
+<p><strong>Serial Port:</strong> <code>/dev/hpgps<em>u</em></code>; 9600 baud, 8-bits, no parity, 19200 baud 7-bits, odd parity for the HP Z3801A</p>
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver supports the HP 58503A Time and Frequency Reference Receiver and HP Z3801A GPS Receiver which use HP SmartClock (TM) to implement an Enhanced GPS receiver. The receiver accuracy when locked to GPS in normal operation is better than 1 μs. The accuracy when operating in holdover is typically better than 10 μs per day. Its receiver should be operated with factory default settings. Initial driver operation expects the receiver to be already locked to GPS, configured and able to output timecode format 2 messages.</p>
