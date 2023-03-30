@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver7/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-30T19:10:58&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Radio CHU Audio Demodulator/Decoder</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 30, 2023 19:10 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/33276df3ba7c7a55f63d92b2cc8afab211f65e36">33276df3b</a>)</p>
 	<p>Author: <a href="mailto:mills@udel.edu">David L. Mills</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
@@ -167,14 +167,12 @@ function demo() {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<dl>
-<dt><strong>Address:</strong> <code>127.127.7.<em>u</em></code></dt>
-<dd><strong>Reference ID:</strong> <code>CHU</code></dd>
-<dd><strong>Driver ID:</strong> <code>CHU</code></dd>
-<dd><strong>Modem Port:</strong> <code>/dev/chu<em>u</em></code>; 300 baud, 8-bits, no parity</dd>
-<dd><strong>Autotune Port:</strong> <code>/dev/icom</code>; 1200/9600 baud, 8-bits, no parity</dd>
-<dd><strong>Audio Device:</strong> <code>/dev/audio</code> and <code>/dev/audioctl</code></dd>
-</dl>
+<p><strong>Address:</strong> <code>127.127.7.<em>u</em></code></p>
+<p><strong>Reference ID:</strong> <code>CHU</code></p>
+<p><strong>Driver ID:</strong> <code>CHU</code></p>
+<p><strong>Modem Port:</strong> <code>/dev/chu<em>u</em></code>; 300 baud, 8-bits, no parity</p>
+<p><strong>Autotune Port:</strong> <code>/dev/icom</code>; 1200/9600 baud, 8-bits, no parity</p>
+<p><strong>Audio Device:</strong> <code>/dev/audio</code> and <code>/dev/audioctl</code></p>
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver synchronizes the computer time using shortwave radio transmissions from Canadian time/frequency station <a href="https://nrc.canada.ca/en/certifications-evaluations-standards/canadas-official-time/nrc-shortwave-station-broadcasts-chu">CHU</a> in Ottawa, Ontario. CHU transmissions are made continuously on 3.330, 7.850 and 14.670 MHz in upper sideband, compatible AM mode. An ordinary shortwave receiver can be tuned manually to one of these frequencies or, in the case of ICOM receivers, the receiver can be tuned automatically as propagation conditions change throughout the day and season.</p>
@@ -245,7 +243,7 @@ function demo() {
 <dd>
 <p>The quality character is a four-bit hexadecimal code showing which alarms have been raised during the most recent minute. Each bit is associated with a specific alarm condition according to the following:</p>
 </dd>
-</dl>
+<dd>
 <table>
 <thead>
 <tr>
@@ -272,8 +270,10 @@ function demo() {
 </tr>
 </tbody>
 </table>
+</dd>
+<dd>
 <p>The timestamp and decoder alarms are fatal; the data accumulated during the minute are not used to set the clock. The format and frame alarm are nonfatal; only the data in the burst are discarded.</p>
-<dl>
+</dd>
 <dt><code><strong>yyyy ddd hh:mm:ss</strong></code></dt>
 <dd>
 <p>The timecode format itself is self explanatory. Note that the Gregorian year is decoded directly from the transmitted timecode.</p>

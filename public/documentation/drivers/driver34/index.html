@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver34/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-06-27T19:03:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-03-30T19:10:58&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Ultralink Clock</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 19:03 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/8df55e5db86116a5f65794da6db3a93af5321d63">8df55e5db</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 30, 2023 19:10 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/33276df3ba7c7a55f63d92b2cc8afab211f65e36">33276df3b</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://www.ntp.org/documentation/drivers/driver34/#synopsis">Synopsis</a></li>
@@ -162,20 +162,20 @@ function demo() {
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
-<dl>
-<dt><strong>Address:</strong> <code>127.127.34.<em>u</em></code></dt>
-<dd><strong>Reference ID:</strong> <code>WWVB</code></dd>
-<dd><strong>Driver ID:</strong> <code>ULINK</code></dd>
-<dd><strong>Serial Port:</strong> <code>/dev/wwvb<em>u</em></code>; 9600 bps, 8-bits, no parity</dd>
-<dd><strong>Features:</strong> none</dd>
-</dl>
+<p><strong>Address:</strong> <code>127.127.34.<em>u</em></code></p>
+<p><strong>Reference ID:</strong> <code>WWVB</code></p>
+<p><strong>Driver ID:</strong> <code>ULINK</code></p>
+<p><strong>Serial Port:</strong> <code>/dev/wwvb<em>u</em></code>; 9600 bps, 8-bits, no parity</p>
+<p><strong>Features:</strong> none</p>
 <hr>
 <h4 id="description">Description</h4>
 <p>This driver supports the Ultralink Model 325 (replacement for Model 320) RS-232 powered WWVB receiver.</p>
 <p>This driver also supports the Model 320, 330, 331, and 332 decoders in both polled or continous time code mode. Leap second and quality are supported. Most of this code is originally from <code>refclock_wwvb.c</code> with thanks. Any mistakes are mine. Any improvements are welcome.</p>
 <hr>
 <h4 id="model-325-timecode-format">Model 325 timecode format</h4>
-<p><code>&lt;cr&gt;&lt;lf&gt;RQ_1C00LYYYY+DDDUTCS_HH:MM:SSL+5</code></p>
+<dl>
+<dt><code>&lt;cr&gt;&lt;lf&gt;RQ_1C00LYYYY+DDDUTCS_HH:MM:SSL+5</code></dt>
+<dd>
 <table>
 <thead>
 <tr>
@@ -258,10 +258,14 @@ function demo() {
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
 <p>Note that Model 325 reports a very similar output like Model 33X series. The driver for this clock is similar to Model 33X behavior. On a unmodified new ULM325 clock, the polling flag (<code>flag1 =1</code>) needs to be set.</p>
 <hr>
 <h4 id="model-320-timecode-format">Model 320 timecode format</h4>
-<p><code>&lt;cr&gt;&lt;lf&gt;SQRYYYYDDD+HH:MM:SS.mmLT&lt;cr&gt;</code></p>
+<dl>
+<dt><code>&lt;cr&gt;&lt;lf&gt;SQRYYYYDDD+HH:MM:SS.mmLT&lt;cr&gt;</code></dt>
+<dd>
 <table>
 <thead>
 <tr>
@@ -316,10 +320,14 @@ function demo() {
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
 <p>Note that this driver does not do anything with the <code>T</code> flag. The M320 also has a <code>U</code> command which returns UT1 correction information. It is not used in this driver.</p>
 <hr>
 <h4 id="model-33x-timecode-format">Model 33x timecode format</h4>
-<p><code>S9+D 00 YYYY+DDDUTCS HH:MM:SSl+5</code></p>
+<dl>
+<dt><code>S9+D 00 YYYY+DDDUTCS HH:MM:SSl+5</code></dt>
+<dd>
 <table>
 <thead>
 <tr>
@@ -382,6 +390,8 @@ function demo() {
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
 <p>This driver ignores UT1 correction, DST indicator, Leap year, and signal level.</p>
 <hr>
 <h4 id="fudge-factors">Fudge factors</h4>
