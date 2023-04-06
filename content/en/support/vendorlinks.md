@@ -14,7 +14,7 @@ type: archives
 * [Masterclock, Inc.](https://www.masterclock.com/) <button class="btn badge btn-lg">ASSOCIATE<br> since 2019</button>
   : A U.S. manufacturer of master clocks, [NTP servers](https://www.masterclock.com/products/ntp-time-servers/), and time displays integrating GPS, GLONASS, IRIG, SMPTE, IEEE1588 PTP to synchronize facilities, processes and people.
 
-* [Meinberg Radio Clocks](https://www.meinbergglobal.com/) <button class="btn badge btn-lg">PREMIER<br> since 2013</button>
+* [Meinberg Radio Clocks](https://www.meinbergglobal.com/) <button class="btn badge btn-lg">PREMIER<br> since 2011</button>
   : A manufacturer of NTP refclocks like [GPS radio clocks](https://www.meinbergglobal.com/english/products/3u-gps-clock-lc-display.htm) and standalone NTP-compatible [time server](https://www.meinbergglobal.com/english/products/ntp-time-server.htm) appliances with integrated GPS, IRIG, PTP/IEEE1588 or DCF77 reference clocks. If you need a refclock or a NTP server "out-of-the-box".
 
 * [Microchip](https://www.microsemi.com/product-directory/3425-timing-synchronization) <button class="btn badge btn-lg">CONTRIBUTOR<br> since 2014</button>
