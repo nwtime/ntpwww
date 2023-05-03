@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver27/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-30T12:24:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-05-03T17:13:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,7 +150,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Arcron MSF Receiver</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 30, 2023 12:24 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/abc48700f7ed1c614f2e541b8db5962fd3f4c9f4">abc48700f</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: May 3, 2023 17:13 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/e8077bcf69e59dfa15456e620ae92c5781aaf9aa">e8077bcf6</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://www.ntp.org/documentation/drivers/driver27/#synopsis">Synopsis</a></li>
@@ -171,7 +171,7 @@ function demo() {
 <p>This driver supports the Arcron MSF, DCF and WWVB receivers. The clock reports its ID as <code>MSFa, MSF, DCF</code>, or <code>WWVB</code> to indicate the time source.</p>
 <p>This documentation describes v1.3 (2003/2/21) of the source and has been tested against ntpd 4.1.0 on linux x86. Changes from v1.1 and v1.2 include patches to work with the new ntp4 code, clock support for DCF and WWVB configurable via mode flag, an option to ignore resync request (for those of us at the fringes of the WWVB signal, for instance), averaging of the signal quality poll and several bug fixes, code cleanup and standardizations. In all other respects, the driver works as per v1.1 if a mode is not specified.</p>
 <p>To use the alternate modes, the <code>mode</code> flag must be specified. If the mode flag is 0, or unspecified, the original MSF version is assumed. This should assure backwards compatibility and should not break existing setups.</p>
-<p>The <a href="https://www.ntp.org/documentation/3-5.93e/driver27/">previous documentation described version V1.1 (1997/06/23)</a> of the source and had been tested (amongst others) against ntpd3-5.90 on Solaris-1 (SunOS 4.1.3_U1 on an SS1 serving as a router and firewall) and against ntpd3-5.90 on Solaris-2.5 (on a SS1+ and TurboSPARC 170MHz). That code claimed increased stability, reduced jitter and more efficiency (fewer context switches) with the <code>tty_clk</code> discipline/STREAMS module installed, but this has not been tested. For a to-do list see the comments at the start of the code.</p>
+<p>The previous documentation described version V1.1 (1997/06/23) of the source and had been tested (amongst others) against ntpd3-5.90 on Solaris-1 (SunOS 4.1.3_U1 on an SS1 serving as a router and firewall) and against ntpd3-5.90 on Solaris-2.5 (on a SS1+ and TurboSPARC 170MHz). That code claimed increased stability, reduced jitter and more efficiency (fewer context switches) with the <code>tty_clk</code> discipline/STREAMS module installed, but this has not been tested. For a to-do list see the comments at the start of the code.</p>
 <p>This code has been significantly slimmed down since the V1.0 version, roughly halving the memory footprint of its code and data.</p>
 <p>This driver is designed to allow the unit to run from batteries as designed, for something approaching the 2.5 years expected in the usual stand-alone mode, but no battery-life measurements have been taken.</p>
 <p>Much of this code is originally from the other refclock driver files with thanks. The code was originally made to work with the clock by Derek Mulcahy, with modifications by <a href="mailto:d@hd.org">Damon Hart-Davis</a>. Thanks also to <a href="mailto:lyndond@sentinet.co.uk">Lyndon David</a> for some of the specifications of the clock. <a href="mailto:palfille@partners.org">Paul Alfille</a> added support for the WWVB clock. <a href="mailto:cprice@cs-home.com">Christopher Price</a> added enhanced support for the MSF, DCF and WWVB clocks.</p>

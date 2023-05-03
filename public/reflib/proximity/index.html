@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/reflib/proximity/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="reflib" />
 
-<meta property="article:modified_time" content="2022-06-24T21:25:30&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-05-03T17:13:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -140,7 +140,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Time Synchronization for Space Data Links</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 24, 2022 21:25 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/3a8d52d62692686d4ba8ecfd2203c562b5e7a30f">3a8d52d62</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: May 3, 2023 17:13 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/e8077bcf69e59dfa15456e620ae92c5781aaf9aa">e8077bcf6</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/pogo5.gif" alt="gif"  />
 </p></p>
@@ -192,7 +192,7 @@ function demo() {
 <p>Timestamp SPDUs are exchanged over the link several times each pass for redundancy and in order to discipline the rate offset, if needed. The Timestamp SPDU has two 8-octet fields, one for the last transmit timestamp, the other for the last receive timestamp, both converted to coordinate time. At each end of the link this results in four timestamps which can be used by the PITS protocol described in the next section to compute the relative offset and roundtrip delay as in NTP and the <a href="https://www.ntp.org/reflib/ptp/">IEEE 1588 Precision Time Protocol (PTP)</a>.</p>
 <hr>
 <h4 id="pits-protocol-operations">PITS Protocol Operations</h4>
-<p>The PITS state machine is very similar to the NTP interleaved symmetric mode state machine as described in the white paper <a href="https://www.ntp.org/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>. Pseudo-code is contained in a companion S briefing document <a href="https://www.ntp.org/reflib/brief/onwire/onwire.ppt">NTP Interleaved Protocol for LANs and Space Data Links</a>. While NTP supports an interleaved broadcast mode, this mode is not appropriate for the current Mars space fleet configuration, but could be considered in a future study.</p>
+<p>The PITS state machine is very similar to the NTP interleaved symmetric mode state machine as described in the white paper <a href="https://www.ntp.org/reflib/onwire/">Analysis and Simulation of the NTP On-Wire Protocols</a>. Pseudo-code is contained in a companion S briefing document <a href="https://www.ntp.org/reflib/brief/onwire/onwire.pdf">NTP Interleaved Protocol for LANs and Space Data Links</a>. While NTP supports an interleaved broadcast mode, this mode is not appropriate for the current Mars space fleet configuration, but could be considered in a future study.</p>
 <p>The basic idea is that the PITS primary servers synchronize to Earth by some means and in the process determines the coordinate time <code><em>t</em><sub>0</sub></code> and the offset <code><em>T</em> = <em>t</em><sub>0</sub> - <em>S</em></code>, where <code><em>S</em></code> is the SCLK time at <code><em>t</em><sub>0</sub></code>. Each time the SCLK is read, <code><em>T</em></code> is added to its value <code><em>S</em></code> to determine the coordinate time <code><em>t</em></code>. If necessary, the SCLK rate can be disciplined as in NTP. Coordinate time values are used in Timestamp SPDU fields, so operation continues as in NTP.</p>
 <p>Note that the Timestamp SPDU packet has room for only two timestamp fields, while NTP headers require three. The need for this limitation is to avoid fracturing the Proximity-1 existing packet data formats. In PITS the origin timestamp field is not used, as its only function is to detect bogus packets, which are highly unlikely in the space environment where transmissions are point-to-point and there is no possibility of retransmission of the same packet. Where bogus detecting is required, the timestamps can be integrated with an ordinary NTP protocol implementation.</p>
 <p>Implicit in this discussion is the need to convert coordinate time as received over the space data link to proper time as used by each spacecraft. The details on how to do this and correct for orbit mechanics, relativistic time dilation and red shift effects are beyond the scope of this document, but can be found in Chapter 17 of <sup><a href="#myfootnote3">3</a></sup>.</p>
