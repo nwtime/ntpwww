@@ -20,8 +20,8 @@ The kernel model also provides support for an external precision timing source, 
 
 #### Footnotes
 
-<a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Reston VA, November 2000). Paper: [PostScript](/reflib/papers/nano/nano2.ps) | [PDF](/reflib/papers/nano/nano2.pdf), Slides: [PostScript](/reflib/brief/nano/nano.ps) | [PDF](/reflib/brief/nano/nano.pdf) | [PowerPoint](/reflib/brief/nano/nano.ppt)
+<a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Reston VA, November 2000). Paper: [PDF](/reflib/papers/nano/nano2.pdf), Slides: [PDF](/reflib/brief/nano/nano.pdf)
 
-<a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: [PostScript](/reflib/reports/kern/kerna.ps) | [PDF](/reflib/reports/kern/kerna.pdf), Body: [PostScript](/reflib/reports/kern/kernb.ps) | [PDF](/reflib/reports/kern/kernb.pdf)
+<a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: [PDF](/reflib/reports/kern/kerna.pdf), Body: [PDF](/reflib/reports/kern/kernb.pdf)
 
 <a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. [ASCII](/reflib/rfc/rfc1589.txt)

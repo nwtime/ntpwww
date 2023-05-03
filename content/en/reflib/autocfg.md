@@ -67,5 +67,5 @@ It is likely that some sort of whisper campaign protocol will be necessary in or
 
 #### Selected Publications
 
-1.  Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000\. 23 pp. Abstract: [PostScript](/reflib/reports/pkey/pkeya.ps) | [PDF](/reflib/reports/pkey/pkeya.pdf), Body: [PostScript](/reflib/reports/pkey/pkeyb.ps) | [PDF](/reflib/reports/pkey/pkeyb.pdf)
-2.  Mills, D.L., and A. Thyagarajan. Network time protocol version 4 proposed changes. Electrical Engineering Department Report 94-10-2, University of Delaware, October 1994, 32 pp. Abstract: [PostScript](/reflib/reports/acts/actsa.ps) | [PDF](/reflib/reports/acts/actsa.pdf), Body: [PostScript](/reflib/reports/acts/actsb.ps) | [PDF](/reflib/reports/acts/actsb.pdf)
+1.  Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000. 23 pp. Abstract: [PDF](/reflib/reports/pkey/pkeya.pdf), Body: [PDF](/reflib/reports/pkey/pkeyb.pdf)
+2.  Mills, D.L., and A. Thyagarajan. Network time protocol version 4 proposed changes. Electrical Engineering Department Report 94-10-2, University of Delaware, October 1994, 32 pp. Abstract: [PDF](/reflib/reports/acts/actsa.pdf), Body: [PDF](/reflib/reports/acts/actsb.pdf)
