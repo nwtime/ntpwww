@@ -61,6 +61,6 @@ The BTF DCnet subnet is connected to the [campus DCnet subnet](/reflib/dcnet/) v
 
 #### References
 
-<a name="myfootnote1">1</a>  Mills, D.L. The Fuzzball. _Proc. ACM SIGCOMM 88 Symposium_ (Palo Alto CA, August 1988), 115-122\. [PostScript](/reflib/papers/fuzz.ps) | [PDF](/reflib/papers/fuzz.pdf)
+<a name="myfootnote1">1</a>  Mills, D.L. The Fuzzball. _Proc. ACM SIGCOMM 88 Symposium_ (Palo Alto CA, August 1988), 115-122. [PDF](/reflib/papers/fuzz.pdf)
 
 <a name="myfootnote2">2</a>  Mills, D.L. A precision radio clock for WWV transmissions. Electrical Engineering Report 97-8-1, University of Delaware, August 1997, 25 pp. Abstract: [PDF](/reflib/reports/wwv/wwva.pdf), Body: [PDF](/reflib/reports/wwv/wwvb.pdf)

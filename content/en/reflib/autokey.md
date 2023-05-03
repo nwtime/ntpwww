@@ -99,14 +99,14 @@ The Internet draft on the Autokey protocol specification has been under major re
 
 4.  Levine, J., and D. Mills. Using the Network Time Protocol to transmit International Atomic Time (TAI). _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Reston VA, November 2000). Paper: [PDF](/reflib/papers/leapsecond.pdf)
 
-5.  Mills, D.L., and P.-H. Kamp. The nanokernel. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Reston VA, November 2000). Paper: [PostScript](/reflib/papers/nano/nano2.ps) | [PDF](/reflib/papers/nano/nano2.pdf), Slides: [PostScript](/reflib/brief/nano/nano.ps) | [PowerPoint](/reflib/brief/nano/nano.ppt)
+5.  Mills, D.L., and P.-H. Kamp. The nanokernel. _Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting_ (Reston VA, November 2000). Paper: [PDF](/reflib/papers/nano/nano2.pdf)
 
-6.  Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000. 23 pp. Abstract: [PostScript](/reflib/reports/pkey/pkeya.ps) | [PDF](/reflib/reports/pkey/pkeya.pdf), Body: [PostScript](/reflib/reports/pkey/pkeyb.ps) | [PDF](/reflib/reports/pkey/pkeyb.pdf)
+6.  Mills, D.L. Public key cryptography for the Network Time Protocol. Electrical Engineering Report 00-5-1, University of Delaware, May 2000. 23 pp. Abstract: [PDF](/reflib/reports/pkey/pkeya.pdf), Body: [PDF](/reflib/reports/pkey/pkeyb.pdf)
 
-7.  Mills, D.L. Cryptographic authentication for real-time network protocols. In: _AMS DIMACS Series in Discrete Mathematics and Theoretical Computer Science, Vol. 45_ (1999), 135-144. Paper: [PostScript](/reflib/papers/dimacs.ps) | [PDF](/reflib/papers/dimacs.pdf), Slides: [PDF](/reflib/brief/dimacs/dimacs.pdf)
+7.  Mills, D.L. Cryptographic authentication for real-time network protocols. In: _AMS DIMACS Series in Discrete Mathematics and Theoretical Computer Science, Vol. 45_ (1999), 135-144. Paper: [PDF](/reflib/papers/dimacs.pdf), Slides: [PDF](/reflib/brief/dimacs/dimacs.pdf)
 
-8.  Mills, D.L. Authentication scheme for distributed, ubiquitous, real-time protocols. _Proc. Advanced Telecommunications/Information Distribution Research Program (ATIRP) Conference_ (College Park MD, January 1997), 293-298. Paper: [PostScript](/reflib/papers/atirp.ps) | [PDF](/reflib/papers/atirp.pdf), Slides: [PDF](/reflib/brief/atirp/atirp.pdf)
+8.  Mills, D.L. Authentication scheme for distributed, ubiquitous, real-time protocols. _Proc. Advanced Telecommunications/Information Distribution Research Program (ATIRP) Conference_ (College Park MD, January 1997), 293-298. Paper: [PDF](/reflib/papers/atirp.pdf), Slides: [PDF](/reflib/brief/atirp/atirp.pdf)
 
-9.  Mills, D.L. Proposed authentication enhancements for the Network Time Protocol version 4. Electrical Engineering Report 96-10-3, University of Delaware, October 1996, 36 pp. Abstract: [PostScript](/reflib/reports/secure/securea.ps) | [PDF](/reflib/reports/secure/securea.pdf), Body: [PostScript](/reflib/reports/secure/secureb.ps) | [PDF](/reflib/reports/secure/secureb.pdf)
+9.  Mills, D.L. Proposed authentication enhancements for the Network Time Protocol version 4. Electrical Engineering Report 96-10-3, University of Delaware, October 1996, 36 pp. Abstract: [PDF](/reflib/reports/secure/securea.pdf), Body: [PDF](/reflib/reports/secure/secureb.pdf)
 
-10.  Mills, D.L, and A. Thyagarajan. Network time protocol version 4 proposed changes. Electrical Engineering Department Report 94-10-2, University of Delaware, October 1994, 32 pp. Abstract: [PostScript](/reflib/reports/acts/actsa.ps) | [PDF](/reflib/reports/acts/actsa.pdf), Body: [PostScript](/reflib/reports/acts/actsb.ps) | [PDF](/reflib/reports/acts/actsb.pdf)
+10.  Mills, D.L, and A. Thyagarajan. Network time protocol version 4 proposed changes. Electrical Engineering Department Report 94-10-2, University of Delaware, October 1994, 32 pp. Abstract: [PDF](/reflib/reports/acts/actsa.pdf), Body: [PDF](/reflib/reports/acts/actsb.pdf)

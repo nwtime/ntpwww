@@ -25,7 +25,7 @@ The Fuzzball itself is described in <sup>[1](#myfootnote1)</sup> while the lesso
 
 #### References
 
-<a name="myfootnote1">1</a>  Mills, D.L. The Fuzzball. _Proc. ACM SIGCOMM 88 Symposium_ (Palo Alto CA, August 1988), 115-122. [PostScript](/reflib/papers/fuzz.ps) | [PDF](/reflib/papers/fuzz.pdf)
+<a name="myfootnote1">1</a>  Mills, D.L. The Fuzzball. _Proc. ACM SIGCOMM 88 Symposium_ (Palo Alto CA, August 1988), 115-122. [PDF](/reflib/papers/fuzz.pdf)
 
 <a name="myfootnote2">2</a>  Mills, D.L., and H.-W. Braun. The NSFNET Backbone Network. _Proc. ACM SIGCOMM 87 Symposium_ (Stoweflake VT, August 1987), 191-196. [PDF](/reflib/papers/bone.pdf)
 

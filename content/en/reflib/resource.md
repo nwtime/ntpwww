@@ -40,7 +40,7 @@ We participate in many network experiments with our international partners in se
 
 Following is a hodgepodge of programs and other resources which may be helpful for adventuring in computer network time synchronization.
 
-In the case of software distributions, we have stashed Unix-friendly (`gz` file extensions) compressed tar archives. Many documents are available in PostScript (`.ps`) and Adobe PDF (`.pdf`) formats. Beware, some of these files, especially the PostScript ones, are rather large.
+In the case of software distributions, we have stashed Unix-friendly (`gz` file extensions) compressed tar archives. Many documents are available in  Adobe PDF (`.pdf`) formats.
 
 **Important: Respect the copyright information included in each distribution.**
 
@@ -97,7 +97,7 @@ This is a compressed archive containing the schematics, artwork and related info
 
 This is a compressed archive containing sample code segments and documentation for Unix kernel modifications which implement a precision, disciplined clock. The sample code segments, which involve no licensed code, can be incorporated in the timer interrupt routine of Unix workstations. Complete kernels with these modifications have been constructed for SunOS, Ultrix, HP-UX, Digital OSF/1 and Linux kernels. Since these modifications involve licensed code, they are available only from the manufacturer's representatives. A technical report is also available:
 
-*   Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: [PostScript](/reflib/reports/kern/kerna.ps) | [PDF](/reflib/reports/kern/kerna.pdf), Body: [PostScript](/reflib/reports/kern/kernb.ps) | [PDF](/reflib/reports/kern/kernb.pdf) Major revision and update of: Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. [ASCII](/reflib/rfc/rfc1589.txt)
+*   Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: [PDF](/reflib/reports/kern/kerna.pdf), Body:  [PDF](/reflib/reports/kern/kernb.pdf) Major revision and update of: Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. [ASCII](/reflib/rfc/rfc1589.txt)
 
 * * *
 

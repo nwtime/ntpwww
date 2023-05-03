@@ -96,4 +96,4 @@ When enabled by the `flag4` fudge flag, every received timecode is written as-is
 
 #### Additional Information
 
-[Reference Clock Drivers](/documentation/4.2.6-series/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

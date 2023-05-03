@@ -128,4 +128,4 @@ Example:
 
 #### Additional Information
 
-[Reference Clock Drivers](/documentation/4.2.0/refclock/)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)
