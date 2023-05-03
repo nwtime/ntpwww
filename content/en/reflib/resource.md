@@ -67,7 +67,7 @@ NTP servers and clients can be protected using symmetric key cryptography and al
 
 This is a compressed archive containing the source code used by the Fuzzball, a prototyping and test system used in the early Internet. The archive consists of four directories containing the source code in PDP11 assembler format. It can be built under the RT-11 operating system, either directly or in simulation. The system is described in:
 
-*   Mills, D.L. The Fuzzball. _Proc. ACM SIGCOMM 88 Symposium_ (Palo Alto CA, August 1988), 115-122. [](/reflib/papers/fuzz.ps)[PDF](/reflib/papers/fuzz.pdf)
+*   Mills, D.L. The Fuzzball. _Proc. ACM SIGCOMM 88 Symposium_ (Palo Alto CA, August 1988), 115-122. [PDF](/reflib/papers/fuzz.pdf)
 
 * * *
 
