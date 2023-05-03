@@ -5,7 +5,7 @@ type: archives
 ---
 
 {{% pageinfo %}}
-The information in this section was originally hosted on the University of Delaware homepage for Professor David L. Mills, PhD. While much of it can be considered historical, it provides an overview of the design principles for NTP and related time synchronization technology.
+Software archives for certain features introduced from 1993-2002. Note that most of this software is for the deprecated NTPv3 and is for historical purposes only.
 {{% /pageinfo %}}
 
 #### Software

@@ -62,16 +62,6 @@ The information in the Reference Library was originally hosted on the University
         </div>
       </div>
       <div class="col">
-        <div class="card mh-100" style="height: 200px;">
-          <div class="card-body">
-		    <h5 class="card-text" style="text-align: center; margin-top: 10px;"><a href="/reflib/software/">Software</a></h5>
-            <p>Software archives for certain features introduced from 1993-2002. Note that most of this software is for the deprecated NTPv3 and is for historical purposes only.</p>
-              <div class="d-flex justify-content-between align-items-center">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
 	    <div class="card mh-100" style="height: 200px;">
           <div class="card-body">
 		    <h5 class="card-text" style="text-align: center; margin-top: 10px;"><a href="/reflib/papers/">White Papers</a></h5>
