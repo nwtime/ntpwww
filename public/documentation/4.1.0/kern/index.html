@@ -10,7 +10,7 @@ Exploding kernel
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.1.0/kern/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-05-04T17:44:19&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -154,7 +154,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Kernel Model for Precision Timekeeping</h1> 
-    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: May 4, 2023 17:44 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/2aeb55be33578e178adbfe13ca5a38494bd4e8a5">2aeb55be3</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice61.gif" alt="gif"  />
 </p> <a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
@@ -166,8 +166,8 @@ function demo() {
 <p>The model changes the way the system clock is adjusted in time and frequency, as well as provides mechanisms to discipline its time and frequency to an external precision timing source, such as described in the <a href="https://www.ntp.org/documentation/4.1.0/pps/">Pulse-per-second (PPS) Signal Interfacing</a> page. The model incorporates a generic system call interface for use with the NTP or similar time synchronization protocol. The NTP software daemons for Version 3 <code>xntpd</code> and Version 4 <code>ntpd</code> use this API to provide synchronization limited in principle only by the accuracy and stability of the external timing source. There are two new system calls defined in <code>timex.h</code>, <code>ntp_gettime()</code>, which returns a structure including the current time, estimated error and maximum error, and <code>ntp_adjtime()</code>, which provides a means to adjust kernel variables, including the current time and frequency offsets.</p>
 <p>These kernel modifications are normally used in conjunction with a kernel hardware interface such as described in the <a href="https://www.ntp.org/documentation/4.1.0/kernpps/">Kernel Programming Interface for Precision Time Signals</a> page.</p>
 <h4 id="footnotes">Footnotes</h4>
-<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="https://www.ntp.org/reflib/papers/nano/nano2.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="https://www.ntp.org/reflib/brief/nano/nano.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/brief/nano/nano.pdf">PDF</a> | <a href="https://www.ntp.org/reflib/brief/nano/nano.ppt">PowerPoint</a></p>
-<p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="https://www.ntp.org/reflib/reports/kern/kerna.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/reports/kern/kerna.pdf">PDF</a>, Body: <a href="https://www.ntp.org/reflib/reports/kern/kernb.ps">PostScript</a> | <a href="https://www.ntp.org/reflib/reports/kern/kernb.pdf">PDF</a></p>
+<p><a name="myfootnote1">1</a> Mills, D.L., and P.-H. Kamp. The nanokernel. <em>Proc. Precision Time and Time Interval (PTTI) Applications and Planning Meeting</em> (Reston VA, November 2000). Paper: <a href="https://www.ntp.org/reflib/papers/nano/nano2.pdf">PDF</a>, Slides: <a href="https://www.ntp.org/reflib/brief/nano/nano.pdf">PDF</a></p>
+<p><a name="myfootnote2">2</a>  Mills, D.L. Unix kernel modifications for precision time synchronization. Electrical Engineering Department Report 94-10-1, University of Delaware, October 1994, 24 pp. Abstract: <a href="https://www.ntp.org/reflib/reports/kern/kerna.pdf">PDF</a>, Body: <a href="https://www.ntp.org/reflib/reports/kern/kernb.pdf">PDF</a></p>
 <p><a name="myfootnote3">3</a>  Mills, D.L. A kernel model for precision timekeeping. Network Working Group Report RFC-1589, University of Delaware, March 1994. 31 pp. <a href="https://www.ntp.org/reflib/rfc/rfc1589.txt">ASCII</a></p>
 
 	  
