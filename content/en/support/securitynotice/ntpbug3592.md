@@ -34,7 +34,7 @@ date: "2020-03-03"
 	<tr>
 		<th><b>CVSS3 Score<b></th>
 		<td>5.9</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H">CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H</a></td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H&version=3.0">CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H</a></td>
 	</tr>	
   </tbody>	
 </table>
