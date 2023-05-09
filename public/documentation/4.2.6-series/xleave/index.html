@@ -10,7 +10,7 @@ You need a little magic.
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.6-series/xleave/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-05-09T14:31:07&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -154,7 +154,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Interleaved Modes</h1> 
-    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: May 9, 2023 14:31 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/f9b99126117ce79d7507b04385a608b50b9aafbc">f9b991261</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/pogo4.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
@@ -165,7 +165,7 @@ function demo() {
 <p>Currently, the reference implementation uses only software timestamps (softstamps). The receive softstamp is captured at software interrupt time and before the buffer is queued for later processing. The reference implementation captures a softstamp before the message digest routine and another after the send-packet routine. In this design the latter timestamp can be considered most accurate, as it avoids the kernel latencies and queueing mechanisms. The difference, called the interleaved or output delay, varies from 16 ms for a dual-core, 2.8 GHz Pentium 4 running FreeBSD 6.1 to 1100 ms for a Sun Blade 1500 running Solaris 10.</p>
 <p>Performacne varies widely between machines and network interface cards on a 100-Mb switched Ethernet where the NTP packet is about 1000 bits or 10 ms. On two identical Pentium 4 machines in symmetric mode, the measured output delay is 16 ms and remaining one-way delay components 45-150 ms. Two LAN segments account for 20 ms, which leaves 25-130 ms for input delay. On two identical UltraSPARC machines running Solaris 10 in symmetric mode, the measured output delay is 160 ms and remaining one-way delay components 195 ms. Two LAN segments account for 20 ms, which leaves 175 ms for input delay.</p>
 <p>Performance with the Pentia show a residual jitter of about 20 ms, which is by far the best performance so far. However, much better performance could result if the input delay could be reduced or elminated with driver or hardware timestamps. Should that be done, performance should be in the same order as the PPS and kernel discipline, which is in the order of 2 ms.</p>
-<p>Interleaved modes can be used only in NTP symmetric and broadcast modes. It is activated by the <code>xleave</code> option with the <code>peer or</code> <code>broadcast</code> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved broadcast clients at the same time. Further details are in the white paper <a href="https://www.ntp.org/reflib/onwire/">NTP Interleaved On-Wire Protocol</a> and the briefing <a href="https://www.ntp.org/reflib/brief/onwire/onwire.ppt">Interleaved Synchronization Protocols for LANs and Space Data Links</a>.</p>
+<p>Interleaved modes can be used only in NTP symmetric and broadcast modes. It is activated by the <code>xleave</code> option with the <code>peer or</code> <code>broadcast</code> configuration commands. The NTP protocol automatically reconfigures in normal or interleaved mode as required. Ordinary broadcast clients can use the same servers as interleaved broadcast clients at the same time. Further details are in the white paper <a href="https://www.ntp.org/reflib/onwire/">NTP Interleaved On-Wire Protocol</a> and the briefing <a href="https://www.ntp.org/reflib/brief/onwire/onwire.pdf">Interleaved Synchronization Protocols for LANs and Space Data Links</a>.</p>
 <hr>
 <p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/pogo1a.gif" alt="gif"  />
