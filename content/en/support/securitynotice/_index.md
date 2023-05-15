@@ -33,8 +33,8 @@ type: archives
 	    <div class="card mh-100">
           <div class="card-body">
 		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Reporting Security Issues</h5>
-            <p>Please report security related bugs by <strong>encrypted</strong> email to <a href="mailto:security@ntp.org">security@</a>. You can use our <a href="/downloads/NTFDailyUsePublicKey.txt">NTF Daily Use Key</a>.
-            <p>Please refrain from discussing potential security issues in <a href="https://groups.google.com/g/comp.protocols.time.ntp">comp.protocols.time.ntp</a>, our Bug Tracking system, bugs@ntp.org, or any mailing list.</p><br>		
+            <p>Please report security related bugs by <strong>PGP-encrypted</strong> email to the <a href="mailto:security@ntp.org">NTF Security Officer Team</a>. You can use our <a href="/downloads/NTFSecurityOfficerKey.txt">NTF Security Officer Key</a>.
+            <p>Please refrain from discussing potential security issues in <a href="https://groups.google.com/g/comp.protocols.time.ntp">comp.protocols.time.ntp</a>, our Bug Tracking system, bugs@ntp.org, or any mailing list.</p>		
               <div class="d-flex justify-content-between align-items-center">
 			</div>
           </div>
