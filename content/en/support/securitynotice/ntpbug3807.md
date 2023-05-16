@@ -19,7 +19,7 @@ type: archives
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/3807">Bug 3807</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-26554">CVE-2023-26554</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-26555">CVE-2023-26555</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
