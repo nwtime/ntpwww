@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 
-<meta property="article:modified_time" content="2022-06-28T21:06:17&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-06-01T11:28:50&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,10 +150,11 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>4.2.8-series Changelog</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 28, 2022 21:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/1f97faf40ebfcdfdee0201c3d607f8c2c9649d7b">1f97faf40</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 1, 2023 11:28 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/d2a7faef2fea5f10b28cc2ee1d842e4b241f414f">d2a7faef2</a>)</p>
 	<details open>
 <summary><b>Release versions:</b></summary>
 <ul>
+<li><a href="#428p16">4.2.8p16</a></li>
 <li><a href="#428p15">4.2.8p15</a></li>
 <li><a href="#428p14">4.2.8p14</a></li>
 <li><a href="#428p13">4.2.8p13</a></li>
@@ -174,6 +175,165 @@ function demo() {
 <li><a href="#428">4.2.8</a></li>
 </ul>
 </details>
+<hr>
+<h4 id="428p16">4.2.8p16</h4>
+<p><strong>Release Date:</strong> 2023 May 30</p>
+<ul>
+<li><a href="https://www.ntp.org/support/securitynotice/ntpbug3808/">Sec 3808: Assertion failure in <code>ntpq</code> on malformed RT-11 date</a>. perlinger@</li>
+<li><a href="https://www.ntp.org/support/securitynotice/ntpbug3807/">Sec 3807: <code>praecis_parse()</code> in <code>ntpd/refclock_palisade.c</code> can write out-of-bounds </a>. Reported by stenn@</li>
+<li><a href="https://www.ntp.org/support/securitynotice/ntpbug3806/">Sec 3806: <code>libntp/mstolfp.c</code> needs bounds checking</a>. perlinger@
+<ul>
+<li>solved numerically instead of using string manipulation</li>
+</ul>
+</li>
+<li><a href="https://www.ntp.org/support/securitynotice/ntpbug3767/">Sec 3767: An out-of-bounds KoD RATE <code>ppoll</code> value triggers an assertion abort in debug-enabled <code>ntpd</code></a>. stenn@</li>
+<li><a href="https://bugs.ntp.org/3817">Bug 3817: Bounds-check <code>tos floor</code> configuration</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3814">Bug 3814: First poll delay of new or cleared associations miscalculated</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3802">Bug 3802: <code>ntp-keygen -I</code> default identity modulus bits too small for OpenSSL 3</a>. Reported by <a href="mailto:rmsh1216@163.com">rmsh1216@163.com</a> hart@</li>
+<li><a href="https://bugs.ntp.org/3801">Bug 3801: <code>gpsdjson</code> refclock <code>gps_open()</code> device name mishandled</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3800">Bug 3800: libopts-42.1.17 does not compile with Microsoft C</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3799">Bug 3799: Enable <code>libopts</code> noreturn compiler advice for MSC</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3797">Bug 3797: Windows <code>getaddrinfo w/AI_ADDRCONFIG</code> fails for localhost when disconnected, breaking <code>ntpq</code> and <code>ntpdc</code></a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3795">Bug 3795: <code>pollskewlist</code> documentation uses <code>|</code> when it shouldn&rsquo;t</a>.
+<ul>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/ntp.conf/"><code>ntp.conf</code> manual page</a> and <a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">miscopt.html</a> corrections. hart@</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3793">Bug 3793: Wrong variable type passed to <code>record_raw_stats()</code></a>. hart@
+<ul>
+<li>Report and patch by <a href="mailto:wei6410@sina.com">Yuezhen LUAN</a>.</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3786">Bug 3786: Timer starvation on high-load Windows <code>ntpd</code></a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3784">Bug 3784: high-load <code>ntpd</code> on Windows deaf after enough ICMP TTL exceeded</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3781">Bug 3781: log &ldquo;Unable to listen for broadcasts&rdquo; for IPv4</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3774">Bug 3774: mode 6 packets corrupted in <code>rawstats</code> file</a>. hart@
+<ul>
+<li>Reported by Edward McGuire, fix identified by <a href="mailto:wei6410@sina.com">Yuezhen LUAN</a>.</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3758">Bug 3758: Provide a <code>device</code> config statement for refclocks</a>. perlinger@</li>
+<li><a href="https://bugs.ntp.org/3757">Bug 3757: Improve handling of Linux-PPS in NTPD</a>. perlinger@</li>
+<li><a href="https://bugs.ntp.org/3741">Bug 3741: 4.2.8p15 can&rsquo;t build with glibc 2.34</a>. perlinger@</li>
+<li><a href="https://bugs.ntp.org/3725">Bug 3725: Make copyright of <code>clk_wharton.c</code> compatible with Debian</a>. <a href="mailto:phdm@macqel.be">Philippe De Muyter</a></li>
+<li><a href="https://bugs.ntp.org/3724">Bug 3724: <code>ntp-keygen</code> with openSSL 1.1.1 fails on Windows</a>. perlinger@
+<ul>
+<li>openssl applink needed again for openSSL-1.1.1</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3719">Bug 3719: <code>configure.ac</code> checks for <code>closefrom()</code> and <code>getdtablesize()</code> missing</a>. Reported by Brian Utterback, broken in 2010 by hart@.</li>
+<li><a href="https://bugs.ntp.org/3699">Bug 3699: Problems handling drift file and restoring previous drifts</a>. perlinger@
+<ul>
+<li>command line options override config statements where applicable</li>
+<li>make initial frequency settings idempotent and reversible</li>
+<li>make sure kernel PLL gets a recovered drift componsation</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3695">Bug 3695: Fix memory leak with <code>ntpq</code> on Windows Server 2019</a>. perlinger@</li>
+<li><a href="https://bugs.ntp.org/3694">Bug 3694: NMEA refclock seems to unnecessarily require location in messages</a>.
+<ul>
+<li>misleading title; essentially a request to ignore the receiver status. Added a mode bit for this. perlinger@</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3693">Bug 3693: Improvement of error handling key lengths</a>. perlinger@
+<ul>
+<li>original patch by Richard Schmidt, with mods &amp; unit test fixes</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3692">Bug 3692: <code>/dev/gpsN</code> requirement prevents KPPS</a>. perlinger@
+<ul>
+<li>implement/wrap <code>realpath()</code> to resolve symlinks in device names</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3691">Bug 3691: Buffer Overflow reading GPSD output</a>.
+<ul>
+<li>original patch by <a href="mailto:ntpbr@mattcorallo.com">matt</a></li>
+<li>increased max PDU size to 4k to avoid truncation</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3690">Bug 3690: newline in ntp clock variable (<code>parse</code>)</a>. perlinger@
+<ul>
+<li>patch by Frank Kardel</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3689">Bug 3689: Extension for MD5, SHA-1 and other keys</a>. perlinger@
+<ul>
+<li><code>ntpq</code> and <code>ntpdc</code> now use the same password processing as <code>ntpd</code> does in the key file, so having a binary secret &gt;= 11 bytes is possible for all keys. (This is a different approach to the problem than suggested)</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3688">Bug 3688: GCC 10 build errors in testsuite</a>. perlinger@</li>
+<li><a href="https://bugs.ntp.org/3687">Bug 3687: <code>ntp_crypto_rand</code> RNG status not known</a>. perlinger@
+<ul>
+<li>patch by Gerry Garvey</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3682">Bug 3682: Fixes for warnings when compiled without OpenSSL</a>. perlinger@
+<ul>
+<li>original patch by Gerry Garvey</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3677">Bug 3677: additional peer events not decoded in associations listing</a>. perlinger@
+<ul>
+<li>original patch by Gerry Garvey</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3676">Bug 3676: compiler warnings (<code>CMAC</code>, <code>interrupt_buf</code>, <code>typo</code>, <code>fallthrough</code>)</a>.
+<ul>
+<li>applied patches by Gerry Garvey</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3675">Bug 3675: <code>ntpq ccmds[]</code> stores pointer to non-persistent storage</a>.</li>
+<li><a href="https://bugs.ntp.org/3674">Bug 3674: <code>ntpq</code> command <code>execute only</code> using <code>~</code> prefix</a>. perlinger@
+<ul>
+<li>idea+patch by Gerry Garvey</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3672">Bug 3672: fix biased selection in median cut</a>. perlinger@</li>
+<li><a href="https://bugs.ntp.org/3666">Bug 3666: avoid unlimited receive buffer allocation</a>. perlinger@
+<ul>
+<li>follow-up: fix inverted sense in check, reset shortfall counter</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3660">Bug 3660: Revert 4.2.8p15 change to manycast</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/3640">Bug 3640: document <code>discard monitor</code> and fix the code</a>. hart@
+<ul>
+<li>fixed bug identified by Edward McGuire perlinger@</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3626">Bug 3626: (SNTP) UTC offset calculation needs <code>dst</code> flag</a>. perlinger@
+<ul>
+<li>applied patch by Gerry Garvey</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3432">Bug 3432: refclocks that <code>write()</code> should check the result</a>. perlinger@
+<ul>
+<li>backport from -dev, plus some more work on warnings for unchecked results</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3428">Bug 3428: <code>ntpd</code> spinning consuming CPU on Linux router with full table</a>. Reported by Israel G. Lugo. hart@</li>
+<li><a href="https://bugs.ntp.org/3103">Bug 3103: <code>libopts zsave_warn</code> format string too few arguments</a>. <a href="mailto:bkorb@gnu.org">Bruce Korb</a></li>
+<li><a href="https://bugs.ntp.org/2990">Bug 2990: multicastclient incorrectly causes bind to broadcast address</a>. Integrated patch from Brian Utterback. hart@</li>
+<li><a href="https://bugs.ntp.org/2525">Bug 2525: Turn on <code>automake subdir-objects</code> across the project</a>. hart@</li>
+<li><a href="https://bugs.ntp.org/2410">Bug 2410: <code>syslog</code> an error message on panic exceeded</a>. <a href="mailto:brian.utterback@oracle.com">Brian Utterback</a></li>
+<li>Use correct rounding in <code>mstolfp()</code>. perlinger/hart</li>
+<li><code>M_ADDF</code> should use <code>u_int32</code>. hart@</li>
+<li>Only define <code>tv_fmt_libbuf()</code> if we will use it. stenn@</li>
+<li>Use <code>recv_buffer</code> instead of the longer <code>recv_space.X_recv_buffer</code>. hart/stenn</li>
+<li>Make sure the value returned by <code>refid_str()</code> prints cleanly. stenn@</li>
+<li>If DEBUG is enabled, the startup banner now says that debug assertions are in force and that <code>ntpd</code> will abort if any are violated. stenn@</li>
+<li><code>syslog</code> valid incoming KoDs. stenn@</li>
+<li>Rename a poorly-named variable. stenn@</li>
+<li>Disable &ldquo;embedded NUL in string&rdquo; messages in <code>libopts</code>, when we can. stenn@</li>
+<li>Use https in the <code>AC_INIT URLs</code> in <code>configure.ac</code>. stenn@</li>
+<li>Implement <code>NTP_FUNC_REALPATH</code>. stenn@</li>
+<li>Lose a <code>gmake</code> construct in <code>ntpd/Makefile.am</code>. stenn@</li>
+<li>upgrade to: autogen-5.18.16</li>
+<li>upgrade to: libopts-42.1.17</li>
+<li>upgrade to: autoconf-2.71</li>
+<li>upgrade to: automake-1.16.15</li>
+<li>Upgrade to libevent-2.1.12-stable. stenn@</li>
+<li>Support OpenSSL-3.0</li>
+</ul>
 <hr>
 <h4 id="428p15">4.2.8p15</h4>
 <p><strong>Release Date:</strong> 2020 Jun 23</p>

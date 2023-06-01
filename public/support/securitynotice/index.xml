@@ -6,6 +6,48 @@
     <description>Recent content in Security on NTP: Network Time Protocol</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://www.ntp.org/support/securitynotice/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>NTP BUG 3767: An out-of-bounds KoD RATE ppoll value triggers an assertion abort in debug-enabled ntpd</title>
+      <link>https://www.ntp.org/support/securitynotice/ntpbug3767/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ntp.org/support/securitynotice/ntpbug3767/</guid>
+      <description>Summary Resolved4.2.8p1630 May 2023ReferencesBug 3767Affectsntp-4.2.8p14 up to, but not including ntp-4.2.8p16.Resolved in 4.2.8p16.CVSS3.1 Score2.2 LowCVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L		 Description By default, the NTP software builds with debugging enabled. We expect most folks who build from source to be using NTP for development purposes, where it makes sense to enable debugging.</description>
+    </item>
+    
+    <item>
+      <title>NTP BUG 3806: libntp/mstolfp() needs bounds checking</title>
+      <link>https://www.ntp.org/support/securitynotice/ntpbug3806/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ntp.org/support/securitynotice/ntpbug3806/</guid>
+      <description>Summary Resolved4.2.8p1630 May 2023ReferencesBug 3806CVE-2023-26551
+CVE-2023-26552
+CVE-2023-26553
+CVE-2023-26554Affectsntp-3 (and likely earlier) up to, but not including ntp-4.2.8p16.Resolved in ntp-4.2.8p16.CVSS3.1 Score
+between2.0 LowCVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:L (likely)
+and:3.9 LowCVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:L/A:L (improbable) 		 Description This vulnerability only affects ntpq and does NOT affect ntpd. This vulnerability could have been reported via a single CVE.</description>
+    </item>
+    
+    <item>
+      <title>NTP BUG 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds </title>
+      <link>https://www.ntp.org/support/securitynotice/ntpbug3807/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ntp.org/support/securitynotice/ntpbug3807/</guid>
+      <description>Summary Resolved4.2.8p1630 May 2023ReferencesBug 3807CVE-2023-26555Affectsntp-4.1.2 up to, but not including ntp-4.2.8p16.Resolved in 4.2.8p16.CVSS3.1 Score
+between:1.6 LowCVSS:3.1/AV:P/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L (likely)and: 3.6 LowCVSS:3.1/AV:P/AC:H/PR:H/UI:N/S:U/C:L/I:L/A:L (potentially)		 Description The Praecis reference clock gets time information from 3G CDMA cellphone towers, and relays it to ntpd over a serial port.</description>
+    </item>
+    
+    <item>
+      <title>NTP BUG 3808: ntpq will abort with an assertion failure if given a malformed RT-11 date</title>
+      <link>https://www.ntp.org/support/securitynotice/ntpbug3808/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ntp.org/support/securitynotice/ntpbug3808/</guid>
+      <description>Summary Resolved4.2.8p1630 May 2023ReferencesBug 3808Affectsntpq from ntp-4.2.6 up to, but not including ntp-4.2.8p16.Resolved in 4.2.8p16.CVSS3.1 Score:Unsure - this vulnerability requires conditions that do not seem to exist.		 Description Ancient versions of NTP (pre-dating ntp3, which first came out in June of 1993) used an RT-11 date format for certain limited purposes.</description>
+    </item>
+    
+    <item>
       <title>4.2.8p15 Release Announcement</title>
       <link>https://www.ntp.org/support/securitynotice/4_2_8p15-release-announcement/</link>
       <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
@@ -1343,8 +1385,20 @@ No changes from 4.2.6p5-RC3.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/</guid>
-      <description>Release versions: 4.2.8p15 4.2.8p14 4.2.8p13 4.2.8p12 4.2.8p11 4.2.8p10 4.2.8p9-win 4.2.8p9 4.2.8p8 4.2.8p7 4.2.8p6 4.2.8p5 4.2.8p4 4.2.8p3 4.2.8p3-RC3 4.2.8p2 4.2.8p1 4.2.8   4.2.8p15 Release Date: 2020 Jun 23
- Sec 3661: memory leak with AES128CMAC keys Bug 3670: Regression from bad merge of 3592 and 3596  fixed a bad merge that happened before 4.2.8-p14   Bug 3667: decodenetnum fails with numeric port  rewrite decodenetnum() in terms of inet_pton   Bug 3666: avoid unlimited receive buffer allocation  limit number of receive buffers, with an iron reserve for refclocks   Bug 3664: Enable openSSL CMAC support on Windows Bug 3662: Fix build errors on Windows with VS2008 Bug 3660: Manycast orphan mode startup discovery problem  integrated patch from Charles Claggett   Bug 3659: Move definition of psl[] from ntp_config.</description>
+      <description>Release versions: 4.2.8p16 4.2.8p15 4.2.8p14 4.2.8p13 4.2.8p12 4.2.8p11 4.2.8p10 4.2.8p9-win 4.2.8p9 4.2.8p8 4.2.8p7 4.2.8p6 4.2.8p5 4.2.8p4 4.2.8p3 4.2.8p3-RC3 4.2.8p2 4.2.8p1 4.2.8   4.2.8p16 Release Date: 2023 May 30
+ Sec 3808: Assertion failure in ntpq on malformed RT-11 date. perlinger@ Sec 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds . Reported by stenn@ Sec 3806: libntp/mstolfp.c needs bounds checking. perlinger@  solved numerically instead of using string manipulation   Sec 3767: An out-of-bounds KoD RATE ppoll value triggers an assertion abort in debug-enabled ntpd.</description>
+    </item>
+    
+    <item>
+      <title>4.2.8p16 Release Announcement</title>
+      <link>https://www.ntp.org/support/securitynotice/4_2_8p16-release-announcement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ntp.org/support/securitynotice/4_2_8p16-release-announcement/</guid>
+      <description>The NTP Project at Network Time Foundation publicly released ntp-4.2.8p16 on Tuesday, 30 May 2023.
+This release fixes two security issues in ntpd:
+  Low: Sec 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds
+The Praecis reference clock gets time information from 3G CDMA cellphone towers, and relays it to ntpd over a serial port. Support for the Praecis refclock was added in November of 2002, before &amp;ldquo;defensive programming&amp;rdquo; was the norm.</description>
     </item>
     
     <item>
@@ -1353,7 +1407,7 @@ No changes from 4.2.6p5-RC3.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.ntp.org/support/securitynotice/ntpbug_template/</guid>
-      <description> Summary ResolvedRELEASEDATEReferencesBug XXXXCVE-XXXXAffectsRELEASENAMEResolved in XXXXCVSS2 ScoreX.XAV:XXXXCVSS3 ScoreX.XCVSS:3.0/AV:XXXX		 Description  Mitigation  Credit  Timeline  XXXX: Public release XXXX: Early Access Program Release: Premier and Partner Institutional Members XXXX: Notification to Institutional Members XXXX: Notification from reporter  </description>
+      <description> Summary ResolvedRELEASEDATEReferencesBug XXXXCVE-XXXXAffectsRELEASENAMEResolved in XXXXCVSS3.1 ScoreX.XCVSS:3.1/AV:XXXX		 Description  Mitigation  Credit  Timeline  XXXX: Public release XXXX: Early Access Program Release: Premier and Partner Institutional Members XXXX: Notification to Institutional Members XXXX: Notification from reporter  </description>
     </item>
     
     <item>
@@ -1364,30 +1418,6 @@ No changes from 4.2.6p5-RC3.
       <guid>https://www.ntp.org/support/securitynotice/ntpbug3011/</guid>
       <description>Summary Resolved4.2.8p7/26 Apr 2016ReferencesBug 3011CVE-2016-2516AffectsAll ntp-4 releases up to, but not including 4.2.8p7,
 and 4.3.0 up to, but not including 4.3.92.Resolved in 4.2.8p7.CVSS2 ScoreMED 6.3AV:N/AC:M/Au:S/C:N/I:N/A:CCVSS3 ScoreMED 4.2CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:H		 Description If ntpd was expressly configured to allow for remote configuration, a malicious user who knows the controlkey for ntpq or the requestkey for ntpdc (if mode7 is expressly enabled) can create a session with ntpd and if an existing association is unconfigured using the same IP twice on the unconfig directive line, ntpd will abort.</description>
-    </item>
-    
-    <item>
-      <title>NTP BUG 3806: mstolfp() needs bounds checking</title>
-      <link>https://www.ntp.org/support/securitynotice/ntpbug3806/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.ntp.org/support/securitynotice/ntpbug3806/</guid>
-      <description>Summary Resolved4.2.8p1630 May 2023ReferencesBug 3806CVE-2023-26551
-CVE-2023-26552
-CVE-2023-26553
-CVE-2023-26554Affectsntp-3 (and likely earlier) up to, but not including ntp-4.2.8p16.Resolved in ntp-4.2.8p16.CVSS3.1 Score
-between2.0 LowCVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:L (likely)
-and:3.9 LowCVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:L/I:L/A:L (improbable) 		 Description This vulnerability only affects ntpq and does NOT affect ntpd. This vulnerability could have been reported via a single CVE.</description>
-    </item>
-    
-    <item>
-      <title>NTP BUG 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds </title>
-      <link>https://www.ntp.org/support/securitynotice/ntpbug3807/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.ntp.org/support/securitynotice/ntpbug3807/</guid>
-      <description>Summary Resolved4.2.8p1630 May 2023ReferencesBug 3807CVE-2023-26555Affectsntp-4.1.2 up to, but not including ntp-4.2.8p16.Resolved in 4.2.8p16.CVSS3.1 Score
-between:1.6 LowCVSS:3.1/AV:P/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L (likely)and: 3.6 LowCVSS:3.1/AV:P/AC:H/PR:H/UI:N/S:U/C:L/I:L/A:L (potentially)		 Description The Praecis reference clock gets time information from 3G CDMA cellphone towers, and relays it to ntpd over a serial port.</description>
     </item>
     
     <item>
