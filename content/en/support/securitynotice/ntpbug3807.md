@@ -1,7 +1,7 @@
 ---
 title: "NTP BUG 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds "
 description: "The vulnerability described here relies on an attacker gaining physical access to the Praecis unit."
-#date: "2023-05-30"
+date: "2023-05-30"
 type: archives
 ---
 
@@ -13,7 +13,7 @@ type: archives
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td>4.2.8p16</td>
+		<td><a href="/support/securitynotice/4_2_8p16-release-announcement/">4.2.8p16</a></td>
 		<td>30 May 2023</td>
 	</tr>
 	<tr>
@@ -49,13 +49,13 @@ The Praecis reference clock gets time information from 3G CDMA cellphone towers,
     
 #### Mitigation
 
-* If you are using a Praecis refclock and are worried about this vulnerability, upgrade to 4.2.8p16, or later, from the [NTP Project download site](/downloads/).  A patch to ntp-4.2.8p15 is [available](https://archive.ntp.org/ntp4/ntp-4.2.8p15-3806-3807.patch). 
+* If you are using a Praecis refclock and are worried about this vulnerability, upgrade to 4.2.8p16, or later, from the [NTP Project download site](/downloads/).  A patch to ntp-4.2.8p15 is [available](https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p15-3806-3807.patch). 
 
 * * *
 
 #### Credit
 
-Reported by "spwpun".
+Reported by Ping Lee (spwpun).
 
 * * *
 

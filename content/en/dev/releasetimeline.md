@@ -15,11 +15,13 @@ type: archives
 #### 4.2.8-series
 
 {{% pageinfo %}}
-<p style="text-align: center;">4.2.8p15 is the latest stable and recommended version of NTP.</p>
+<p style="text-align: center;">4.2.8p16 is the latest stable and recommended version of NTP.</p>
 {{% /pageinfo %}}
+<br>
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
+| 2023 May 30 |[4.2.8p16](/support/securitynotice/4_2_8p16-release-announcement/) | [4.2.8p16](/support/securitynotice/4_2_8-series-changelog/#428p16) | 3 <span style="color:green">LOW</span><br> 1 <span style="color:green">NONE</span><br> | 46 bugs<br> 15 improvements |
 | 2020 Jun 23 |[4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement/) | [4.2.8p15](/support/securitynotice/4_2_8-series-changelog/#428p15) | 1 <span style="color:orange">MEDIUM</span> | 13 bugs |
 | 2020 Mar 3|[4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement/) | [4.2.8p14](/support/securitynotice/4_2_8-series-changelog/#428p14) | 2 <span style="color:orange">MEDIUM</span><br> 1 <span style="color:green">NONE</span> | 46 bugs<br> 5 improvements |
 | 2019 Mar 7|[4.2.8p13](/support/securitynotice/4_2_8p13-release-announcement/) | [4.2.8p13](/support/securitynotice/4_2_8-series-changelog/#428p13) | 1 <span style="color:orange">MEDIUM</span> | 17 bugs<br> 1 improvement |

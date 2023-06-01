@@ -1,8 +1,8 @@
 ---
 title: "NTP BUG ####: DESCRIPTION"
+description: "ADDME"
+date: "202X-MM-DD"
 type: archives
-date: "20YY-MM-DD"
-sitemap_exclude: true
 ---
 
 * * *
@@ -27,14 +27,9 @@ sitemap_exclude: true
 		<td>Resolved in XXXX</td>
 	</tr>
 	<tr>
-		<th><b>CVSS2 Score</b></th>
+		<th><b>CVSS3.1 Score<b></th>
 		<td>X.X</td>
-		<td><a href="">AV:XXXX</a></td>
-	</tr>
-	<tr>
-		<th><b>CVSS3 Score<b></th>
-		<td>X.X</td>
-		<td><a href="">CVSS:3.0/AV:XXXX</a></td>
+		<td><a href="">CVSS:3.1/AV:XXXX</a></td>
 	</tr>	
   </tbody>	
 </table>
