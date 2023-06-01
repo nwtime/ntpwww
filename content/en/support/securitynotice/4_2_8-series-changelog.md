@@ -7,6 +7,7 @@ type: archives
 <details open>
 <summary><b>Release versions:</b></summary>
 
+* [4.2.8p16](#428p16)
 * [4.2.8p15](#428p15)
 * [4.2.8p14](#428p14)
 * [4.2.8p13](#428p13)
@@ -29,6 +30,104 @@ type: archives
 </details>
 
 * * *
+
+#### 4.2.8p16
+
+**Release Date:** 2023 May 30
+
+* [Sec 3808: Assertion failure in `ntpq` on malformed RT-11 date](/support/securitynotice/ntpbug3808/). perlinger@
+* [Sec 3807: `praecis_parse()` in `ntpd/refclock_palisade.c` can write out-of-bounds ](/support/securitynotice/ntpbug3807/). Reported by stenn@
+* [Sec 3806: `libntp/mstolfp.c` needs bounds checking](/support/securitynotice/ntpbug3806/). perlinger@
+  * solved numerically instead of using string manipulation
+* [Sec 3767: An out-of-bounds KoD RATE `ppoll` value triggers an assertion abort in debug-enabled `ntpd`](/support/securitynotice/ntpbug3767/). stenn@
+* [Bug 3817: Bounds-check `tos floor` configuration](https://bugs.ntp.org/3817). hart@
+* [Bug 3814: First poll delay of new or cleared associations miscalculated](https://bugs.ntp.org/3814). hart@
+* [Bug 3802: `ntp-keygen -I` default identity modulus bits too small for OpenSSL 3](https://bugs.ntp.org/3802). Reported by rmsh1216@163.com hart@
+* [Bug 3801: `gpsdjson` refclock `gps_open()` device name mishandled](https://bugs.ntp.org/3801). hart@
+* [Bug 3800: libopts-42.1.17 does not compile with Microsoft C](https://bugs.ntp.org/3800). hart@
+* [Bug 3799: Enable `libopts` noreturn compiler advice for MSC](https://bugs.ntp.org/3799). hart@
+* [Bug 3797: Windows `getaddrinfo w/AI_ADDRCONFIG` fails for localhost when disconnected, breaking `ntpq` and `ntpdc`](https://bugs.ntp.org/3797). hart@
+* [Bug 3795: `pollskewlist` documentation uses `|` when it shouldn't](https://bugs.ntp.org/3795).
+  * [`ntp.conf` manual page](/documentation/4.2.8-series/ntp.conf/) and [miscopt.html](/documentation/4.2.8-series/miscopt/) corrections. hart@
+* [Bug 3793: Wrong variable type passed to `record_raw_stats()`](https://bugs.ntp.org/3793). hart@
+  * Report and patch by [Yuezhen LUAN](mailto:wei6410@sina.com).
+* [Bug 3786: Timer starvation on high-load Windows `ntpd`](https://bugs.ntp.org/3786). hart@
+* [Bug 3784: high-load `ntpd` on Windows deaf after enough ICMP TTL exceeded](https://bugs.ntp.org/3784). hart@
+* [Bug 3781: log "Unable to listen for broadcasts" for IPv4](https://bugs.ntp.org/3781). hart@
+* [Bug 3774: mode 6 packets corrupted in `rawstats` file](https://bugs.ntp.org/3774). hart@
+  * Reported by Edward McGuire, fix identified by [Yuezhen LUAN](mailto:wei6410@sina.com).
+* [Bug 3758: Provide a `device` config statement for refclocks](https://bugs.ntp.org/3758). perlinger@
+* [Bug 3757: Improve handling of Linux-PPS in NTPD](https://bugs.ntp.org/3757). perlinger@
+* [Bug 3741: 4.2.8p15 can't build with glibc 2.34](https://bugs.ntp.org/3741). perlinger@
+* [Bug 3725: Make copyright of `clk_wharton.c` compatible with Debian](https://bugs.ntp.org/3725). [Philippe De Muyter](mailto:phdm@macqel.be)
+* [Bug 3724: `ntp-keygen` with openSSL 1.1.1 fails on Windows](https://bugs.ntp.org/3724). perlinger@
+  * openssl applink needed again for openSSL-1.1.1
+* [Bug 3719: `configure.ac` checks for `closefrom()` and `getdtablesize()` missing](https://bugs.ntp.org/3719). Reported by Brian Utterback, broken in 2010 by hart@.
+* [Bug 3699: Problems handling drift file and restoring previous drifts](https://bugs.ntp.org/3699). perlinger@
+  * command line options override config statements where applicable
+  * make initial frequency settings idempotent and reversible
+  * make sure kernel PLL gets a recovered drift componsation
+* [Bug 3695: Fix memory leak with `ntpq` on Windows Server 2019](https://bugs.ntp.org/3695). perlinger@
+* [Bug 3694: NMEA refclock seems to unnecessarily require location in messages](https://bugs.ntp.org/3694).
+  * misleading title; essentially a request to ignore the receiver status. Added a mode bit for this. perlinger@
+* [Bug 3693: Improvement of error handling key lengths](https://bugs.ntp.org/3693). perlinger@
+  * original patch by Richard Schmidt, with mods & unit test fixes
+* [Bug 3692: `/dev/gpsN` requirement prevents KPPS](https://bugs.ntp.org/3692). perlinger@
+  * implement/wrap `realpath()` to resolve symlinks in device names
+* [Bug 3691: Buffer Overflow reading GPSD output](https://bugs.ntp.org/3691).
+  * original patch by [matt](mailto:ntpbr@mattcorallo.com)
+  * increased max PDU size to 4k to avoid truncation
+* [Bug 3690: newline in ntp clock variable (`parse`)](https://bugs.ntp.org/3690). perlinger@
+  * patch by Frank Kardel
+* [Bug 3689: Extension for MD5, SHA-1 and other keys](https://bugs.ntp.org/3689). perlinger@
+  * `ntpq` and `ntpdc` now use the same password processing as `ntpd` does in the key file, so having a binary secret >= 11 bytes is possible for all keys. (This is a different approach to the problem than suggested)
+* [Bug 3688: GCC 10 build errors in testsuite](https://bugs.ntp.org/3688). perlinger@
+* [Bug 3687: `ntp_crypto_rand` RNG status not known](https://bugs.ntp.org/3687). perlinger@
+  * patch by Gerry Garvey
+* [Bug 3682: Fixes for warnings when compiled without OpenSSL](https://bugs.ntp.org/3682). perlinger@
+  * original patch by Gerry Garvey
+* [Bug 3677: additional peer events not decoded in associations listing](https://bugs.ntp.org/3677). perlinger@
+  * original patch by Gerry Garvey
+* [Bug 3676: compiler warnings (`CMAC`, `interrupt_buf`, `typo`, `fallthrough`)](https://bugs.ntp.org/3676).
+  * applied patches by Gerry Garvey
+* [Bug 3675: `ntpq ccmds[]` stores pointer to non-persistent storage](https://bugs.ntp.org/3675).
+* [Bug 3674: `ntpq` command `execute only` using `~` prefix](https://bugs.ntp.org/3674). perlinger@
+  * idea+patch by Gerry Garvey
+* [Bug 3672: fix biased selection in median cut](https://bugs.ntp.org/3672). perlinger@
+* [Bug 3666: avoid unlimited receive buffer allocation](https://bugs.ntp.org/3666). perlinger@
+  * follow-up: fix inverted sense in check, reset shortfall counter
+* [Bug 3660: Revert 4.2.8p15 change to manycast](https://bugs.ntp.org/3660). hart@
+* [Bug 3640: document `discard monitor` and fix the code](https://bugs.ntp.org/3640). hart@
+  * fixed bug identified by Edward McGuire perlinger@
+* [Bug 3626: (SNTP) UTC offset calculation needs `dst` flag](https://bugs.ntp.org/3626). perlinger@
+  * applied patch by Gerry Garvey
+* [Bug 3432: refclocks that `write()` should check the result](https://bugs.ntp.org/3432). perlinger@
+  * backport from -dev, plus some more work on warnings for unchecked results
+* [Bug 3428: `ntpd` spinning consuming CPU on Linux router with full table](https://bugs.ntp.org/3428). Reported by Israel G. Lugo. hart@
+* [Bug 3103: `libopts zsave_warn` format string too few arguments](https://bugs.ntp.org/3103). [Bruce Korb](mailto:bkorb@gnu.org)
+* [Bug 2990: multicastclient incorrectly causes bind to broadcast address](https://bugs.ntp.org/2990). Integrated patch from Brian Utterback. hart@
+* [Bug 2525: Turn on `automake subdir-objects` across the project](https://bugs.ntp.org/2525). hart@
+* [Bug 2410: `syslog` an error message on panic exceeded](https://bugs.ntp.org/2410). [Brian Utterback](mailto:brian.utterback@oracle.com)
+* Use correct rounding in `mstolfp()`. perlinger/hart
+* `M_ADDF` should use `u_int32`. hart@
+* Only define `tv_fmt_libbuf()` if we will use it. stenn@
+* Use `recv_buffer` instead of the longer `recv_space.X_recv_buffer`. hart/stenn
+* Make sure the value returned by `refid_str()` prints cleanly. stenn@
+* If DEBUG is enabled, the startup banner now says that debug assertions are in force and that `ntpd` will abort if any are violated. stenn@
+* `syslog` valid incoming KoDs. stenn@
+* Rename a poorly-named variable. stenn@
+* Disable "embedded NUL in string" messages in `libopts`, when we can. stenn@
+* Use https in the `AC_INIT URLs` in `configure.ac`. stenn@
+* Implement `NTP_FUNC_REALPATH`. stenn@
+* Lose a `gmake` construct in `ntpd/Makefile.am`. stenn@
+* upgrade to: autogen-5.18.16
+* upgrade to: libopts-42.1.17
+* upgrade to: autoconf-2.71
+* upgrade to: automake-1.16.15
+* Upgrade to libevent-2.1.12-stable. stenn@
+* Support OpenSSL-3.0
+
+***
 
 #### 4.2.8p15
 

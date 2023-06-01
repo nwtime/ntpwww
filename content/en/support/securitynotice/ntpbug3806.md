@@ -1,7 +1,7 @@
 ---
-title: "NTP BUG 3806: mstolfp() needs bounds checking"
+title: "NTP BUG 3806: libntp/mstolfp() needs bounds checking"
 description: "This vulnerability only affects ntpq and does NOT affect ntpd."
-#date: "2023-05-30"
+date: "2023-05-30"
 type: archives
 ---
 
@@ -13,7 +13,7 @@ type: archives
   <tbody>
 	<tr>
 		<th><b>Resolved</b></th>
-		<td>4.2.8p16</td>
+		<td><a href="/support/securitynotice/4_2_8p16-release-announcement/">4.2.8p16</a></td>
 		<td>30 May 2023</td>
 	</tr>
 	<tr>
@@ -50,14 +50,14 @@ This vulnerability only affects `ntpq` and does **NOT** affect `ntpd`. This vuln
 #### Mitigation
 
 * Use `ntpq -c raw ...` .
-* Apply the [patch](https://archive.ntp.org/ntp4/ntp-4.2.8p15-3806-3807.patch) to 4.2.8p15 (or earlier, perhaps with some modifications), and build and install `ntpq`.
+* Apply the [patch](https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p15-3806-3807.patch) to 4.2.8p15 (or earlier, perhaps with some modifications), and build and install `ntpq`.
 * Upgrade to 4.2.8p16, or later, from the [NTP Project download site](/downloads/). 
 
 * * *
 
 #### Credit
 
-Reported by "spwpun".
+Reported by Ping Lee (spwpun).
 
 * * *
 

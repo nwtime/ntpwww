@@ -53,6 +53,7 @@ Refer to the [Release Timeline](/dev/releasetimeline/) for a complete list of al
 <details open>
 <summary><strong>Release Version:</strong></summary>
 
+* [4.2.8p16](#428p16)
 * [4.2.8p15](#428p15)
 * [4.2.8p14](#428p14)
 * [4.2.8p13](#428p13)
@@ -77,6 +78,17 @@ Refer to the [Release Timeline](/dev/releasetimeline/) for a complete list of al
 * [4.2.4p5](#424p5)
 
 </details>
+
+* * *
+
+#### 4.2.8p16
+
+| Security Issue | Severity |  Advance Release | Public Release |
+| -------------- | -------- |  --------------- | -------------- |
+| [3808: ntpq will abort with an assertion failure given a malformed RT-11 date ](/support/securitynotice/ntpbug3808/) | NONE | 2023 May 10 | 2023 May 30 |
+| [3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds](/support/securitynotice/ntpbug3807/) | <span style="color:green">LOW</span> | 2023 May 10 | 2023 May 30 |
+| [3806: libntp/mstolfp() needs bounds checking ](/support/securitynotice/ntpbug3806/) | <span style="color:green">LOW</span> | 2023 May 10 | 2023 May 30 |
+| [3767: An out-of-bounds KoD RATE ppoll value triggers an assertion abort in debug-enabled ntpd](/support/securitynotice/ntpbug3767/) | <span style="color:green">LOW</span> | 2023 May 10 | 2023 May 30 |
 
 * * *
 
