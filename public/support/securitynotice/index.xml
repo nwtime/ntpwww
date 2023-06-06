@@ -1385,8 +1385,8 @@ No changes from 4.2.6p5-RC3.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/</guid>
-      <description>Release versions: 4.2.8p16 4.2.8p15 4.2.8p14 4.2.8p13 4.2.8p12 4.2.8p11 4.2.8p10 4.2.8p9-win 4.2.8p9 4.2.8p8 4.2.8p7 4.2.8p6 4.2.8p5 4.2.8p4 4.2.8p3 4.2.8p3-RC3 4.2.8p2 4.2.8p1 4.2.8   4.2.8p16 Release Date: 2023 May 30
- Sec 3808: Assertion failure in ntpq on malformed RT-11 date. perlinger@ Sec 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds . Reported by stenn@ Sec 3806: libntp/mstolfp.c needs bounds checking. perlinger@  solved numerically instead of using string manipulation   Sec 3767: An out-of-bounds KoD RATE ppoll value triggers an assertion abort in debug-enabled ntpd.</description>
+      <description>Release versions: 4.2.8p17 4.2.8p16 4.2.8p15 4.2.8p14 4.2.8p13 4.2.8p12 4.2.8p11 4.2.8p10 4.2.8p9-win 4.2.8p9 4.2.8p8 4.2.8p7 4.2.8p6 4.2.8p5 4.2.8p4 4.2.8p3 4.2.8p3-RC3 4.2.8p2 4.2.8p1 4.2.8   4.2.8p17 Release Date: 2023 Jun 06
+ Bug 3824: Spurious &amp;ldquo;ntpd: daemon failed to notify parent!&amp;rdquo; logged at event_sync. Reported by Edward McGuire. hart@ Bug 3822: ntpd significantly delays first poll of servers specified by name. hart@  Miroslav Lichvar identified regression in 4.2.8p16.   Bug 3821 4.</description>
     </item>
     
     <item>
@@ -1399,6 +1399,18 @@ No changes from 4.2.6p5-RC3.
 This release fixes two security issues in ntpd:
   Low: Sec 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds
 The Praecis reference clock gets time information from 3G CDMA cellphone towers, and relays it to ntpd over a serial port. Support for the Praecis refclock was added in November of 2002, before &amp;ldquo;defensive programming&amp;rdquo; was the norm.</description>
+    </item>
+    
+    <item>
+      <title>4.2.8p17 Release Announcement</title>
+      <link>https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/</guid>
+      <description>The NTP Project at Network Time Foundation publicly released ntp-4.2.8p17 on Tuesday, 06 Jun 2023.
+This release fixes a regression which was reported in ntp-4.2.8p16. The regression only affects people who are running p16:
+ Bug 3822: ntpd significantly delays first poll of servers specified by name.  This release also fixes 2 bugs:
+ Bug 3824: Spurious &amp;ldquo;ntpd: daemon failed to notify parent!&amp;rdquo; logged at event_sync. Bug 3821 4.2.8p16 misreads hex authentication keys, won&amp;rsquo;t interop with 4.</description>
     </item>
     
     <item>

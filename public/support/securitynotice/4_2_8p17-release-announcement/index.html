@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/downloads/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/" />
   
-  <meta property="og:title" content="Download NTP" />
-<meta property="og:description" content="Download links for the current release of NTP (4.2.8p16) which was released on May 30, 2023." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.ntp.org/downloads/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="og:site_name" content="NTP: Network Time Protocol" />
+  <meta property="og:title" content="4.2.8p17 Release Announcement" />
+<meta property="og:description" content="The NTP Project at Network Time Foundation publicly released NTP 4.2.8p17 on June 6, 2023. This release fixes three bugs and provides 1 improvement." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
+
+<meta property="article:modified_time" content="2023-06-06T20:33:21&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
 
-<meta name="twitter:title" content="Download NTP"/>
-<meta name="twitter:description" content="Download links for the current release of NTP (4.2.8p16) which was released on May 30, 2023."/>
+<meta name="twitter:title" content="4.2.8p17 Release Announcement"/>
+<meta name="twitter:description" content="The NTP Project at Network Time Foundation publicly released NTP 4.2.8p17 on June 6, 2023. This release fixes three bugs and provides 1 improvement."/>
 
 
 
@@ -52,11 +54,11 @@ function demo() {
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
    
-  <title>Download NTP</title>
+  <title>4.2.8p17 Release Announcement</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Download links for the current release of NTP (4.2.8p16) which was released on May 30, 2023.">
+  <meta name="description" content="The NTP Project at Network Time Foundation publicly released NTP 4.2.8p17 on June 6, 2023. This release fixes three bugs and provides 1 improvement.">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -117,49 +119,55 @@ function demo() {
 
 
 
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/support/">Support</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/support/securitynotice/">Security</a>
+</li>
+
+
+
+
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://www.ntp.org/downloads/">Download NTP</a>
+	<a href="https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/">4.2.8p17 Release Announcement</a>
 </li>
 
 	</ol>
 </nav	>
 
+
 <section class="section pt-0  pb-auto">
   <div class="container">
-	<h1>Download NTP</h1>
-	<p>The current release of NTP is <a href="https://www.ntp.org/support/securitynotice/4_2_8p17-release-announcement/">4.2.8p17</a> which was released on June 6, 2023.<br></p>
-<table>
-<thead>
-<tr>
-<th>Software Type</th>
-<th>Download Links</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Source code</td>
-<td><a href="https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p17.tar.gz">tar.gz</a> with <a href="https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p17.tar.gz.md5">md5</a> and <a href="https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/#428p17">Changelog</a></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>Looking for older NTP releases?
+  	<h1>4.2.8p17 Release Announcement</h1> 
+    <p style="font-size: small; color: grey;">Last update: June 6, 2023 20:33 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/5dfbccbc3e407cddf329b56e22340a0af15291d2">5dfbccbc3</a>)</p>
+	<p>The NTP Project at Network Time Foundation publicly released ntp-4.2.8p17 on Tuesday, 06 Jun 2023.</p>
+<p>This release fixes a regression which was reported in ntp-4.2.8p16. The regression only affects people who are running p16:</p>
+<ul>
+<li><a href="https://bugs.ntp.org/3822">Bug 3822: <code>ntpd</code> significantly delays first poll of servers specified by name</a>.</li>
+</ul>
+<p>This release also fixes 2 bugs:</p>
+<ul>
+<li><a href="https://bugs.ntp.org/3824">Bug 3824: Spurious &ldquo;ntpd: daemon failed to notify parent!&rdquo; logged at <code>event_sync</code></a>.</li>
+<li><a href="https://bugs.ntp.org/3821">Bug 3821 4.2.8p16 misreads hex authentication keys, won&rsquo;t interop with 4.2.8p15 or earlier</a>.</li>
+</ul>
+<p>and adds 1 improvement:</p>
+<ul>
+<li>Add <code>tests/libntp/digests.c</code> to catch regressions reading keys file or with symmetric authentication digest output.</li>
+</ul>
 <br>
-<button class="btn btn-primary btn-lg">
-<a class="btn btn-primary btn-lg" href="https://archive.ntp.org/ntp4/ntp-4.2/">Browse the Download Archives</a>
-</button></p>
-<br>
-<div><span style="width: 100%;text-align: center">
-
-
-<div class="pageinfo pageinfo-primary">
-<p>NTP users are strongly urged to <a href="http://www.bcp38.info/index.php/Main_Page">implement Ingress and Egress filtering through BCP38</a> to ensure that their NTP daemon is not susceptible to use in a <a href="https://doc.ntp.org/support/securitynotice/ntpbug1532/">reflected denial-of-service (DRDoS) attack</a>. Please see this <a href="https://www.nwtime.org/news/ntp-winter-2013-network-drdos-attacks/">Network Time Foundation Post</a> for more information.</p>
-
-</div>
-
-</span></div><br>
-	
-</div>
+	  
+  </div>
 </section>
 <nav class="site-footer navbar navbar-expand-sm mt-auto">
   <div class="container">

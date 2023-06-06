@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 
-<meta property="article:modified_time" content="2023-06-01T11:28:50&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-06-06T20:33:21&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -150,10 +150,11 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>4.2.8-series Changelog</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 1, 2023 11:28 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/d2a7faef2fea5f10b28cc2ee1d842e4b241f414f">d2a7faef2</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: June 6, 2023 20:33 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/5dfbccbc3e407cddf329b56e22340a0af15291d2">5dfbccbc3</a>)</p>
 	<details open>
 <summary><b>Release versions:</b></summary>
 <ul>
+<li><a href="#428p17">4.2.8p17</a></li>
 <li><a href="#428p16">4.2.8p16</a></li>
 <li><a href="#428p15">4.2.8p15</a></li>
 <li><a href="#428p14">4.2.8p14</a></li>
@@ -175,6 +176,19 @@ function demo() {
 <li><a href="#428">4.2.8</a></li>
 </ul>
 </details>
+<hr>
+<h4 id="428p17">4.2.8p17</h4>
+<p><strong>Release Date:</strong> 2023 Jun 06</p>
+<ul>
+<li><a href="https://bugs.ntp.org/3824">Bug 3824: Spurious &ldquo;ntpd: daemon failed to notify parent!&rdquo; logged at <code>event_sync</code></a>.  Reported by Edward McGuire.  hart@</li>
+<li><a href="https://bugs.ntp.org/3822">Bug 3822: <code>ntpd</code> significantly delays first poll of servers specified by name</a>. hart@
+<ul>
+<li>Miroslav Lichvar identified regression in 4.2.8p16.</li>
+</ul>
+</li>
+<li><a href="https://bugs.ntp.org/3821">Bug 3821 4.2.8p16 misreads hex authentication keys, won&rsquo;t interop with 4.2.8p15 or earlier</a>.  Reported by Matt Nordhoff, thanks to Miroslav Lichvar and Matt for rapid testing and identifying the problem. hart@</li>
+<li>Add <code>tests/libntp/digests.c</code> to catch regressions reading keys file or with symmetric authentication digest output.</li>
+</ul>
 <hr>
 <h4 id="428p16">4.2.8p16</h4>
 <p><strong>Release Date:</strong> 2023 May 30</p>
@@ -303,10 +317,6 @@ function demo() {
 <li><a href="https://bugs.ntp.org/3626">Bug 3626: (SNTP) UTC offset calculation needs <code>dst</code> flag</a>. perlinger@
 <ul>
 <li>applied patch by Gerry Garvey</li>
-</ul>
-</li>
-<li><a href="https://bugs.ntp.org/3432">Bug 3432: refclocks that <code>write()</code> should check the result</a>. perlinger@
-<ul>
 <li>backport from -dev, plus some more work on warnings for unchecked results</li>
 </ul>
 </li>
@@ -384,6 +394,7 @@ function demo() {
 <li>applied patch by Takao Abe</li>
 </ul>
 </li>
+<li><a href="https://bugs.ntp.org/3432">Bug 3432: refclocks that <code>write()</code> should check the result</a>. perlinger@</li>
 </ul>
 <hr>
 <h4 id="428p14">4.2.8p14</h4>
