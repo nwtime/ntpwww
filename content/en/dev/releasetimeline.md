@@ -21,6 +21,7 @@ type: archives
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
+| 2023 Jun 06 |[4.2.8p17](/support/securitynotice/4_2_8p17-release-announcement/) | [4.2.8p17](/support/securitynotice/4_2_8-series-changelog/#428p17) |  | 3 bugs<br> 1 improvement |
 | 2023 May 30 |[4.2.8p16](/support/securitynotice/4_2_8p16-release-announcement/) | [4.2.8p16](/support/securitynotice/4_2_8-series-changelog/#428p16) | 3 <span style="color:green">LOW</span><br> 1 <span style="color:green">NONE</span><br> | 46 bugs<br> 15 improvements |
 | 2020 Jun 23 |[4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement/) | [4.2.8p15](/support/securitynotice/4_2_8-series-changelog/#428p15) | 1 <span style="color:orange">MEDIUM</span> | 13 bugs |
 | 2020 Mar 3|[4.2.8p14](/support/securitynotice/4_2_8p14-release-announcement/) | [4.2.8p14](/support/securitynotice/4_2_8-series-changelog/#428p14) | 2 <span style="color:orange">MEDIUM</span><br> 1 <span style="color:green">NONE</span> | 46 bugs<br> 5 improvements |

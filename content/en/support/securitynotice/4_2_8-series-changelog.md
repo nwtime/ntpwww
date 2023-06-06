@@ -7,6 +7,7 @@ type: archives
 <details open>
 <summary><b>Release versions:</b></summary>
 
+* [4.2.8p17](#428p17)
 * [4.2.8p16](#428p16)
 * [4.2.8p15](#428p15)
 * [4.2.8p14](#428p14)
@@ -30,6 +31,18 @@ type: archives
 </details>
 
 * * *
+
+#### 4.2.8p17
+
+**Release Date:** 2023 Jun 06
+
+* [Bug 3824: Spurious "ntpd: daemon failed to notify parent!" logged at `event_sync`](https://bugs.ntp.org/3824).  Reported by Edward McGuire.  hart@
+* [Bug 3822: `ntpd` significantly delays first poll of servers specified by name](https://bugs.ntp.org/3822). hart@
+  * Miroslav Lichvar identified regression in 4.2.8p16.
+* [Bug 3821 4.2.8p16 misreads hex authentication keys, won't interop with 4.2.8p15 or earlier](https://bugs.ntp.org/3821).  Reported by Matt Nordhoff, thanks to Miroslav Lichvar and Matt for rapid testing and identifying the problem. hart@
+* Add `tests/libntp/digests.c` to catch regressions reading keys file or with symmetric authentication digest output.
+
+***
 
 #### 4.2.8p16
 
@@ -101,7 +114,6 @@ type: archives
   * fixed bug identified by Edward McGuire perlinger@
 * [Bug 3626: (SNTP) UTC offset calculation needs `dst` flag](https://bugs.ntp.org/3626). perlinger@
   * applied patch by Gerry Garvey
-* [Bug 3432: refclocks that `write()` should check the result](https://bugs.ntp.org/3432). perlinger@
   * backport from -dev, plus some more work on warnings for unchecked results
 * [Bug 3428: `ntpd` spinning consuming CPU on Linux router with full table](https://bugs.ntp.org/3428). Reported by Israel G. Lugo. hart@
 * [Bug 3103: `libopts zsave_warn` format string too few arguments](https://bugs.ntp.org/3103). [Bruce Korb](mailto:bkorb@gnu.org)
@@ -155,6 +167,7 @@ type: archives
 * [Bug 3644: Unsynchronized server [...] selected as candidate](https://bugs.ntp.org/show_bug.cgi?id=3644)
 * [Bug 3639: refclock_jjy: TS-JJY0x can skip time sync depending on the STUS reply](https://bugs.ntp.org/show_bug.cgi?id=3639)
   - applied patch by Takao Abe
+* [Bug 3432: refclocks that `write()` should check the result](https://bugs.ntp.org/3432). perlinger@
 
 * * *
 

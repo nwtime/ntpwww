@@ -5,13 +5,21 @@ type: archives
 date: 2023-05-30
 --- 
 
-The current release of NTP is [4.2.8p16](/support/securitynotice/4_2_8p16-release-announcement/) which was released on May 30, 2023. 
+The current release of NTP is [4.2.8p17](/support/securitynotice/4_2_8p17-release-announcement/) which was released on June 6, 2023.<br>
 
-| Software Type | Download Link |
+| Software Type | Download Links |
 | ----- | ----- |
-| Source code | [tar.gz](https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p16.tar.gz) with [md5](https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p16.tar.gz.md5) and [Changelog](/support/securitynotice/4_2_8-series-changelog/#428p16) |
+| Source code | [tar.gz](https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p17.tar.gz) with [md5](https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p17.tar.gz.md5) and [Changelog](/support/securitynotice/4_2_8-series-changelog/#428p17) |
 
+***
 
+Looking for older NTP releases?
+<br>
+<button class="btn btn-primary btn-lg">
+  <a class="btn btn-primary btn-lg" href="https://archive.ntp.org/ntp4/ntp-4.2/">Browse the Download Archives</a>
+</button>
+
+<br>
 <div><span style="width: 100%;text-align: center">
 {{% pageinfo color="primary" %}}
 
