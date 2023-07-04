@@ -97,7 +97,7 @@ Data Format (two lines, repeating at one-second intervals)
 
 [European Phone Numbers and Formats](/documentation/drivers/tf582_4/)
 
-[Spectracom GPS and WWVB Receivers](https://www.orolia.com/)
+[Spectracom GPS and WWVB Receivers](https://safran-navigation-timing.com/)
 
 If a modem is connected to a Spectracom receiver, this driver will call it and retrieve the time in one of two formats, 0 and 2. Ordinarily, the receiver requires a `T` in order to return the timecode. As this driver does not send data via the modem, it must either be configured in continuous mode or be polled by another local driver.
 

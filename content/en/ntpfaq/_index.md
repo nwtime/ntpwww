@@ -412,7 +412,7 @@ This is an alphabetical list of contributors:
 * Martin Herbener
 * [Doug Hogarth](mailto:DougHo@niceties.com)
 * Andrew Hood
-* [Theo Jakobus](mailto:jakobus@iaf.fhg.de)
+* Theo Jakobus
 * Nicholas Jenkins
 * [Poul-Henning Kamp](mailto:phk@freebsd.dk)
 * [James Kirkpatrick](mailto:jimkirk@uwyo.edu)

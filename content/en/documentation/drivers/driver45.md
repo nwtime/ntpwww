@@ -28,7 +28,7 @@ type: archives
 
 #### Description
 
-This driver supports the [Spectracom TSYNC PCI](https://www.orolia.com/new-rugged-compact-pci-time-code-processor/) receiver.
+This driver supports the [Spectracom TSYNC PCI](https://safran-navigation-timing.com/new-rugged-compact-pci-time-code-processor/) receiver.
 
 * * *
 

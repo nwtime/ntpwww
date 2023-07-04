@@ -113,7 +113,7 @@ NMEA is commonly used together with [PPS](/ntpfaq/ntp-s-algo-kernel/#523-pps-pro
 
 #### 7.2.4 What is TSIP?
 
-TSIP stands for Trimble Standard Interface Protocol, and it is used in products from [Trimble](https://www.trimble.com/). The documented binary protocol exchanges packets over serial lines. This allows embedded devices to be monitored, queried and controlled exclusively by TSIP, not needing any switches or displays.
+TSIP stands for Trimble Standard Interface Protocol, and it is used in products from [Trimble](https://www.trimble.com/en). The documented binary protocol exchanges packets over serial lines. This allows embedded devices to be monitored, queried and controlled exclusively by TSIP, not needing any switches or displays.
 
 * * *
 
