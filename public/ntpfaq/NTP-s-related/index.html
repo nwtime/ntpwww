@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-related/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2023-03-28T21:06:33&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-07-04T16:28:21&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -99,6 +99,9 @@ function demo() {
 		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
         </button>
       
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/donate/">Support NTP<br>Donate Today!</a>
+      </button>
     </div>
 
 
@@ -140,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>9. Background and Related Information</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 28, 2023 21:06 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/4798c81ce52b916af3864edc4b52cbf36c629fcd">4798c81ce</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: July 4, 2023 16:28 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/fd17d3567b5058729431cb8644929c68278416ec">fd17d3567</a>)</p>
 	<p>This section presents some background information and other related stuff that one may find interesting or entertaining.</p>
 <hr>
 <p>9.1 <a href="#91-miscellaneous">Miscellaneous</a><br>
@@ -318,7 +321,7 @@ printf("%d-%02d-%02d %02d:%02d:%06.3f\n",
 <hr>
 <h4 id="92-gps">9.2 GPS</h4>
 <p>This section tries to give some information about GPS.</p>
-<p>The Navstar Global Positioning System (GPS) was developed in the seventies by U.S. military forces to supply position and time information all over the world. The system (to be precise: the GPS Space Segment) consists of 28 satellites (also termed Space Vehicles) orbiting the earth in six groups with four satellites in each group, roughly 20000km above the surface (12 hour orbits). Current Kepler data can be found <a href="https://celestrak.org/NORAD/elements/gps-ops.txt">here</a>. There is also some visualization software named <a href="http://www.satsignal.net">WXtrack</a>.</p>
+<p>The Navstar Global Positioning System (GPS) was developed in the seventies by U.S. military forces to supply position and time information all over the world. The system (to be precise: the GPS Space Segment) consists of 28 satellites (also termed Space Vehicles) orbiting the earth in six groups with four satellites in each group, roughly 20000km above the surface (12 hour orbits). Current Kepler data can be found <a href="https://celestrak.org/NORAD/elements/gps-ops.txt">here</a>. There is also some visualization software named <a href="https://www.satsignal.eu/software/wxtrack.htm">WXtrack</a>.</p>
 <p>Each satellite has four atomic clocks (two Cesium, two Rubidium) for very high precision timing on board. (The very first and the latest satellites lack one Cesium clock.) Currently it is controlled by the United States Air Force Space Command, Second Space Wing, Satellite Control Squadron located at the Falcon Air Force Base in Colorado. The satellites are monitored and controlled from four additional terrestial stations: Hawaii, Ascension Island, Kwajalein, and Diego Garcia.</p>
 <p>To maintain the specified accuracy, most of the satellites require daily updates of their data, but some of them can receive and store corrections for several days. Under normal conditions the attitude error of the satellites is within 0.5°, and the error on the surface is 16m. If no corrections are uploaded for 14 days, the positioning error on the surface will increase to 425m. After 180 days the error will be 10km. If a satellite operates without current correction data, it is in <em>extended operation</em>.</p>
 <p>The carrier used by the satellites to broadcast is 1.57542GHz, and the basic information consists of a pseudo-random noise code of 1023 bits, sent within 1ms (clocked at 1.023MHz). The noise code is specific for each satellite, modulating the base carrier to produce a spread-spectrum signal. Transmission starts at the beginning of a new millisecond. This allows setting the receiver&rsquo;s clock modulo to 1ms. The pseudo code can be used to lock the receiver within up to 10ns, depending on the noise of the signal. When using the carrier phase, the phase in the receiver could be correlated as close as 1ps.</p>
