@@ -138,10 +138,10 @@ The pictures below have been taken from and are linked to the vendors' web pages
     ![Image IGEL clock](/documentation/pic/igclock.gif)]
 
 *   **server 127.127.8.0-3 mode 9**
-    : [Trimble](https://www.trimble.com) SVeeSix GPS receiver TAIP protocol (GPS / \<<1μs)
+    : [Trimble](https://www.trimble.com/en) SVeeSix GPS receiver TAIP protocol (GPS / \<<1μs)
 
 *   **server 127.127.8.0-3 mode 10**
-    : [Trimble](https://www.trimble.com) SVeeSix GPS receiver TSIP protocol (GPS / \<<1μs) (no kernel support yet)
+    : [Trimble](https://www.trimble.com/en) SVeeSix GPS receiver TSIP protocol (GPS / \<<1μs) (no kernel support yet)
     
 	![Image SVeeSix-CM3](/documentation/pic/pd_om011.gif)
 	

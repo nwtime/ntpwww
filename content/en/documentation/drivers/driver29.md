@@ -53,7 +53,7 @@ type: archives
 
 #### Description
 
-The `refclock_palisade` driver supports [Trimble](https://timing.trimble.com/) Navigation's Palisade Smart Antenna GPS receiver.
+The `refclock_palisade` driver supports Trimble Navigation's Palisade Smart Antenna GPS receiver.
 
 This documentation describes version 7.12 of the GPS Firmware and version 2.46 (July 15, 1999) and later, of the driver source.
 
@@ -454,6 +454,6 @@ The Thunderbolt Receiver in the Palisade driver doesn't support (for now) event-
 
 Questions or Comments:  
 
-[Sven Dietrich](mailto:sven_dietrich@trimble.com), [Trimble Navigation Ltd.](https://www.trimble.com/)
+[Sven Dietrich](mailto:sven_dietrich@trimble.com), [Trimble Navigation Ltd.](https://www.trimble.com/en)
 
 [Fernando P. Hauscarriaga](mailto:fernandoph@iar.unlp.edu.ar)

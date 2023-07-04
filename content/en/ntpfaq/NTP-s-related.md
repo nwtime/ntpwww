@@ -171,7 +171,7 @@ There are various sources of information about NTP. The following list is defini
 
 This section tries to give some information about GPS.
 
-The Navstar Global Positioning System (GPS) was developed in the seventies by U.S. military forces to supply position and time information all over the world. The system (to be precise: the GPS Space Segment) consists of 28 satellites (also termed Space Vehicles) orbiting the earth in six groups with four satellites in each group, roughly 20000km above the surface (12 hour orbits). Current Kepler data can be found [here](https://celestrak.org/NORAD/elements/gps-ops.txt). There is also some visualization software named [WXtrack](http://www.satsignal.net).
+The Navstar Global Positioning System (GPS) was developed in the seventies by U.S. military forces to supply position and time information all over the world. The system (to be precise: the GPS Space Segment) consists of 28 satellites (also termed Space Vehicles) orbiting the earth in six groups with four satellites in each group, roughly 20000km above the surface (12 hour orbits). Current Kepler data can be found [here](https://celestrak.org/NORAD/elements/gps-ops.txt). There is also some visualization software named [WXtrack](https://www.satsignal.eu/software/wxtrack.htm).
 
 Each satellite has four atomic clocks (two Cesium, two Rubidium) for very high precision timing on board. (The very first and the latest satellites lack one Cesium clock.) Currently it is controlled by the United States Air Force Space Command, Second Space Wing, Satellite Control Squadron located at the Falcon Air Force Base in Colorado. The satellites are monitored and controlled from four additional terrestial stations: Hawaii, Ascension Island, Kwajalein, and Diego Garcia.
 
