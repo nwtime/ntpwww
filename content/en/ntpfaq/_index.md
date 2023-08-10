@@ -321,7 +321,7 @@ In addition to just answering user questions, this document also tries to give a
 
 #### 1.3 Where is the source of this document?
 
-The source files for the FAQ can be found [here](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/content/en/ntpfaq). The repository also contains the [HTML files for the FAQ](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/public/ntpfaq) and a [README](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/README.md) for obtaining the source files.
+The source files for the FAQ can be found [here](https://git.nwtime.org/websites/ntpwww/src/branch/testing/content/en/ntpfaq). The repository also contains the [HTML files for the FAQ](https://git.nwtime.org/websites/ntpwww/src/branch/testing/public/ntpfaq) and a [README](https://git.nwtime.org/websites/ntpwww/src/branch/testing/README.md) for obtaining the source files.
 
 * * *
 
