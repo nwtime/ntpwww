@@ -28,5 +28,5 @@ You do not need to register for an account in order to search for existing bugs.
 
 #### Documentation Bugs
 
-The source for the NTP implementation documentation, FAQ, reference library, and other pages of this website is in the [ntpwww git repository](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse). The [README](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/browse/README.md) provides instructions for obtaining and building the source as well as how to create a pull request.
+The source for the NTP implementation documentation, FAQ, reference library, and other pages of this website is in the [ntpwww git repository](https://git.nwtime.org/websites/ntpwww/src/branch/testing/). The [README](https://git.nwtime.org/websites/ntpwww/src/branch/testing/README.md) provides instructions for obtaining and building the source as well as how to create a pull request.
 
