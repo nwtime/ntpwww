@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Orphan Mode</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 22, 2023 15:33 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/cb0c400a024eb4036f04c49721c0ff04758a302a">cb0c400a0</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: March 22, 2023 15:33 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/cb0c400a024eb4036f04c49721c0ff04758a302a">cb0c400a0</a>)</p>
 	<p>Sometimes an NTP subnet becomes isolated from all UTC sources such as local reference clocks or Internet time servers. In such cases it may be necessary that the subnet servers and clients remain synchronized to a common timescale, not necessarily the UTC timescale. Previously, this function was provided by the local clock driver to simulate a UTC source. A server with this driver could be used to synchronize other hosts in the subnet directly or indirectly.</p>
 <p>There are many disadvantages using the local clock driver, primarily that the subnet is vulnerable to single-point failures and multiple-server redundancy is not possible. Orphan mode is intended to replace the local clock driver. It provides a single simulated UTC source with multiple servers and provides seamless switching as servers fail and recover.</p>
 <p>A common configuration for private networks includes one or more core servers operating at the lowest stratum. Good practice is to configure each of these servers as backup for the others using symmetric or broadcast modes. As long as at least one core server can reach a UTC source, the entire subnet can synchronize to it.</p>

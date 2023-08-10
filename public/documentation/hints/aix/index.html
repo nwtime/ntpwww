@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>AIX Hints</h1> 
-    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
 	<h4 id="problem-with-recent-ansi-compilers">Problem with recent ANSI compilers</h4>
 <p>On some systems, including AIX, the compiler quits on the <code>ntp_refclock.c</code> file when processing the <code>refclock_report()</code> routine. The problem, which is either a feature or a bug, has to do with an unwanted promotion of the <code>u_char</code> argument to an <code>int</code> and a failure of the compiler to recognize the preceding prototype. A workaround is to use ANSI syntax to delare the arguments. Since ANSI compilers are not universally available, this syntax can&rsquo;t be used in the stock distribution.</p>
 <pre>
