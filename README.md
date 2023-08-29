@@ -1,52 +1,11 @@
-[Network Time Foundation](https://www.nwtime.org/) is converting the official NTP documentation websites to Hugo and Markdown. Anyone can download the documentation source and generate their own HTML copy of the documentation. Users with a github account can also edit the documentation and generate git pull requests for their edits to be reviewed. This README contains instructions for getting the NTP documentation source, generating a copy of the documentation, and issuing a git pull request.
+This repository contains the source code for the website of the [Network Time Protocol (NTP) Project](https://www.ntp.org/).
 
-## Requirements
+Website content is written in [extended markdown](https://www.markdownguide.org/extended-syntax/) and [Hugo](https://gohugo.io/) is used to generate the HTML. A framework is available for translations; contact [webmaster](mailto:webmaster@nwtime.org) if you are interested in working on a translation.
 
-In order to render the Markdown into HTML using Hugo (recommended), the following software needs to be installed:
+Website content is located in `content/en` as follows:
+* `dev`: Content for NTP developers. These pages were converted to markdown from the [Dev Wiki](https://support.ntp.org/Dev). Work is ongoing to finish converting that content and retire that wiki.
+* `documentation`: The NTP documentation, per version. This includes the handbook, man pages, drivers, and hints.
+* `ntpfaq`: The NTP FAQ.
+* `reflib`: Historical content from Dave Mills' NTP pages at the University of Delaware. This includes his briefs, memos, papers, reports, and RFCs.
+* `support`: Pages converted to markdown from the [Support Wiki](https://support.ntp.org/Support). Work is ongoing to finish converting that content and retire that wiki.
 
-* [Hugo (Extended version)](https://github.com/gohugoio/hugo/releases)
-* [Node.js](https://nodejs.org/en/download/)
-
-Add the following Node packages:
-
-```
-npm install -D autoprefixer
-npm install -D postcss-cli
-npm install -D postcss
-```
-
-Grab the [ntpwww repository](https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww):
-
-```
-git clone https://bitbucket.nwtime.org/scm/websites/ntpwww.git
-
-```
-
-## Building the Documentation
-
-Once you've installed the requirements, start Hugo from the `ntpwww` directory:
-
-```
-hugo server
-```
-
-This message indicates success and you can view the ntpwww website by opening the specified URL in a web browser:
-
-```
-Web Server is available at //localhost:1313/ (bind address 127.0.0.1)
-Press Ctrl+C to stop
-```
-
-If you instead get this error:
-
-```
-Error: Error building site: TOCSS: failed to transform "scss/main.scss" (text/x-scss): resource "scss/scss/main.scss_9fadf33d895a46083cdd64396b57ef68" not found in file cache
-```
-
-you have not installed the extended version of Hugo.
-
-## Editing the Documentation
-
-If Hugo is running as you save edits to an ntpwww file, it should automatically display the changes--occasionally you will need to refresh your browser to see the changes.
-
-To issue a git pull request for your edits, use [these instructions](https://support.atlassian.com/bitbucket-cloud/docs/tutorial-learn-about-bitbucket-pull-requests/).
