@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/ja/archives/drivers/driver20/" />
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/ja/documentation/drivers/driver20/" />
   
   <meta property="og:title" content="Generic NMEA GPS Receiver" />
 <meta property="og:description" content="Last update: 13-Jan-2020 07:12 UTC
  Table of Contents  Synopsis Description NMEA Talker IDs The &lsquo;mode&rsquo; byte About distrusting NMEA date stamps Monitor Data Setting up the Garmin GPS-25XL Fudge Factors Additional Information   Synopsis  Address: 127.127.20.u Reference ID: GPS Driver ID: GPS_NMEA Serial Port: /dev/gpsu; 4800 - 115200 bps, 8-bits, パリティーなし Serial Port: /dev/gpsppsu; PPS信号 (/dev/gpsu より先に処理) Serial Port: /dev/gpsu; このドライバー nmead のシンボリック・リンク Features: tty_clk   Description このドライバーは、GPS受信機のNMEAセンテンスの $GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス $GPZDG は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の $GPZDG を受信したら処理を無効にします。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.ntp.org/ja/archives/drivers/driver20/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="archives" />
+<meta property="og:url" content="https://www.ntp.org/ja/documentation/drivers/driver20/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-02-03T14:43:10&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
+<meta property="article:modified_time" content="2023-09-04T17:28:32&#43;01:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -22,14 +22,14 @@
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K07ZJQFYSZ"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
 <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
-	gtag('config', 'G-K07ZJQFYSZ', { 'anonymize_ip': true });
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
 </script>
-
 
 
 
@@ -98,7 +98,7 @@ function demo() {
 		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">リファレンスライブラリ</a>
         </button>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/archives/">ドキュメンテーション</a>
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">ドキュメンテーション</a>
         </button>
       
 	
@@ -128,14 +128,14 @@ function demo() {
 
 
 <li class="breadcrumb-item" >
-	<a href="https://www.ntp.org/ja/archives/">Archives</a>
+	<a href="https://www.ntp.org/ja/documentation/">Documentations</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://www.ntp.org/ja/archives/drivers/driver20/">Generic NMEA GPS Receiver</a>
+	<a href="https://www.ntp.org/ja/documentation/drivers/driver20/">Generic NMEA GPS Receiver</a>
 </li>
 
 	</ol>
@@ -145,7 +145,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Generic NMEA GPS Receiver</h1> 
-    <p style="font-size: small; color: grey;">Last update: February 3, 2022 14:43 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/7cc23370f9d30883a742bb1847ac5b899a93c2c8">7cc23370f</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: September 4, 2023 17:28 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/2c2a07096599a413cc7e36fdb40d0eb178f2e8b4">2c2a07096</a>)</p>
 	<p>Last update: 13-Jan-2020 07:12 UTC</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
