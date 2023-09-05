@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntp.conf/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-09-04T17:28:32&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-09-05T16:28:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Configuration File User’s Manual</h1> 
-    <p style="font-size: small; color: grey;">Last update: September 4, 2023 17:28 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/2c2a07096599a413cc7e36fdb40d0eb178f2e8b4">2c2a07096</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: September 5, 2023 16:28 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/733390b3c0d147285940db988a6bc357c69077ae">733390b3c</a>)</p>
 	<p>This document describes the configuration file for the NTP Project’s <code>ntpd</code> program. This software is released under the <a href="https://www.ntp.org/documentation/4.2.8-series/copyright/">NTP license</a>.</p>
 <h4 id="description">Description</h4>
 <p>The behavior of <code>ntpd</code> can be changed by a configuration file, by default <code>ntp.conf</code>.</p>
@@ -241,9 +241,9 @@ function demo() {
 <dt><code><strong>autokey</strong></code></dt>
 <dd>All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in <a href="https://www.ntp.org/documentation/4.2.8-series/autokey/">Autokey Public-Key Authentication</a>.</dd>
 <dt><code><strong>burst</strong></code></dt>
-<dd>When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the <code>calldelay</code> command to allow additional time for a modem or ISDN call to complete. This is designed to improve timekeeping quality with the <code>server</code> command and s addresses.</dd>
+<dd>When the server is reachable, send a burst of six packets instead of the usual one. The packet spacing is 2 s. This is designed to improve timekeeping quality with the <code>server</code> command and s addresses.</dd>
 <dt><code><strong>iburst</strong></code></dt>
-<dd>When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first two packets can be changed with the <code>calldelay</code> command to allow additional time for a modem or ISDN call to complete. This is designed to speed the initial synchronization acquisition with the <code>server</code> command and s addresses and when <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> is started with the <code>-q</code> option.</dd>
+<dd>When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is 2 s. This is designed to speed the initial synchronization acquisition with the <code>server</code> command and s addresses and when <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> is started with the <code>-q</code> option.</dd>
 <dt><code><strong>key <em>key</em></strong></code></dt>
 <dd>All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified <code>key</code> identifier with values from 1 to 65535, inclusive. The default is to include no encryption field.</dd>
 <dt><code><strong>minpoll <em>minpoll</em></strong></code></dt>
@@ -657,8 +657,6 @@ function demo() {
 <dl>
 <dt><code><strong>broadcastdelay <em>seconds</em></strong></code></dt>
 <dd>The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example. This command specifies the default delay to be used under these circumstances. Typically (for Ethernet), a number between 0.003 and 0.007 seconds is appropriate. The default when this command is not used is 0.004 seconds.</dd>
-<dt><code><strong>calldelay <em>delay</em></strong></code></dt>
-<dd>This option controls the delay in seconds between the first and second packets sent in burst or iburst mode to allow additional time for a modem or ISDN call to complete.</dd>
 <dt><code><strong>driftfile <em>driftfile</em></strong></code></dt>
 <dd>This command specifies the complete path and name of the file used to record the frequency of the local clock oscillator. This is the same operation as the <code>-f</code> command line option. If the file exists, it is read at startup in order to set the initial frequency and then updated once per hour with the current frequency computed by the daemon. If the file name is specified, but the file itself does not exist, the starts with an initial frequency of zero and creates the file when writing it for the first time. If this command is not given, the daemon will always start with an initial frequency of zero.</dd>
 <dd>The file format consists of a single line containing a single floating point number, which records the frequency offset measured in parts-per-million (PPM). The file is updated by first writing the current drift value into a temporary file and then renaming this file to replace the old version. This implies that <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> must have write permission for the directory the drift file is located in, and that file system links, symbolic or otherwise, should be avoided.</dd>
