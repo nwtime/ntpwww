@@ -15,7 +15,7 @@ type: archives
 #### 4.2.8-series
 
 {{% pageinfo %}}
-<p style="text-align: center;">4.2.8p16 is the latest stable and recommended version of NTP.</p>
+<p style="text-align: center;">4.2.8p17 is the latest stable and recommended version of NTP.</p>
 {{% /pageinfo %}}
 <br>
 
