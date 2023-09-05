@@ -96,10 +96,10 @@ Note that in contexts where a host name is expected, a `-4` qualifier preceding 
 : All packets sent to and received from the server or peer are to include authentication fields encrypted using the autokey scheme described in [Autokey Public-Key Authentication](/documentation/4.2.8-series/autokey/).
 
 <code>**burst**</code>
-: When the server is reachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first and second packets can be changed with the `calldelay` command to allow additional time for a modem or ISDN call to complete. This is designed to improve timekeeping quality with the `server` command and s addresses.
+: When the server is reachable, send a burst of six packets instead of the usual one. The packet spacing is 2 s. This is designed to improve timekeeping quality with the `server` command and s addresses.
 
 <code>**iburst**</code>
-: When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is normally 2 s; however, the spacing between the first two packets can be changed with the `calldelay` command to allow additional time for a modem or ISDN call to complete. This is designed to speed the initial synchronization acquisition with the `server` command and s addresses and when [`ntpd`](/documentation/4.2.8-series/ntpd/) is started with the `-q` option.
+: When the server is unreachable, send a burst of eight packets instead of the usual one. The packet spacing is 2 s. This is designed to speed the initial synchronization acquisition with the `server` command and s addresses and when [`ntpd`](/documentation/4.2.8-series/ntpd/) is started with the `-q` option.
 
 <code>**key _key_**</code>
 : All packets sent to and received from the server or peer are to include authentication fields encrypted using the specified `key` identifier with values from 1 to 65535, inclusive. The default is to include no encryption field.
@@ -650,9 +650,6 @@ The stratum number of a reference clock is by default zero. Since the [`ntpd`](/
 
 <code>**broadcastdelay _seconds_**</code>
 : The broadcast and multicast modes require a special calibration to determine the network delay between the local and remote servers. Ordinarily, this is done automatically by the initial protocol exchanges between the client and server. In some cases, the calibration procedure may fail due to network or server access controls, for example. This command specifies the default delay to be used under these circumstances. Typically (for Ethernet), a number between 0.003 and 0.007 seconds is appropriate. The default when this command is not used is 0.004 seconds.
-
-<code>**calldelay _delay_**</code>
-: This option controls the delay in seconds between the first and second packets sent in burst or iburst mode to allow additional time for a modem or ISDN call to complete.
 
 <code>**driftfile _driftfile_**</code>
 : This command specifies the complete path and name of the file used to record the frequency of the local clock oscillator. This is the same operation as the `-f` command line option. If the file exists, it is read at startup in order to set the initial frequency and then updated once per hour with the current frequency computed by the daemon. If the file name is specified, but the file itself does not exist, the starts with an initial frequency of zero and creates the file when writing it for the first time. If this command is not given, the daemon will always start with an initial frequency of zero.
