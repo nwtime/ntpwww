@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntp.conf/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-09-05T16:28:08&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2023-09-07T13:21:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Configuration File User’s Manual</h1> 
-    <p style="font-size: small; color: grey;">Last update: September 5, 2023 16:28 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/733390b3c0d147285940db988a6bc357c69077ae">733390b3c</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: September 7, 2023 13:21 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/39a2d6a682fb86178d005cf4af126148df28dc1f">39a2d6a68</a>)</p>
 	<p>This document describes the configuration file for the NTP Project’s <code>ntpd</code> program. This software is released under the <a href="https://www.ntp.org/documentation/4.2.8-series/copyright/">NTP license</a>.</p>
 <h4 id="description">Description</h4>
 <p>The behavior of <code>ntpd</code> can be changed by a configuration file, by default <code>ntp.conf</code>.</p>
@@ -317,7 +317,7 @@ function demo() {
 <dd>Specifies the interval between regenerations of the session key list used with the Autokey protocol. Note that the size of the key list for each association depends on this interval and the current poll interval. The default value is 12 (4096 s or about 1.1 hours). For poll intervals above the specified interval, a session key list with a single entry will be regenerated for every message sent.</dd>
 <dt><code><strong>controlkey <em>key</em></strong></code></dt>
 <dd>Specifies the key identifier to use with the <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a> utility, which uses the standard protocol defined in RFC-1305. The <code>key</code> argument is the key identifier for a trusted key, where the value can be in the range 1 to 65,535, inclusive.</dd>
-<dt><code><strong>crypto [cert <em>file</em>] [leap <em>file</em>] [randfile <em>file</em>] [host <em>file</em>] [sign <em>file</em>] [gq <em>file</em>] [gqpar <em>file</em>] [iffpar <em>file</em>] [mvpar <em>file</em>] [pw <em>password</em>]</strong></code></dt>
+<dt><code><strong>crypto [cert <em>file</em>] [leap <em>file</em>] [randfile <em>file</em>] [host <em>file</em>] [gq <em>file</em>] [gqpar <em>file</em>] [iffpar <em>file</em>] [mvpar <em>file</em>] [pw <em>password</em>]</strong></code></dt>
 <dd>This command requires the OpenSSL library. It activates public key cryptography, selects the message digest and signature encryption scheme and loads the required private and public values described above. If one or more files are left unspecified, the default names are used as described above. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the <code>keysdir</code> command or default <code>/usr/local/etc</code>. Following are the subcommands:</dd>
 <dt> <code><b>cert</b> <i>file</i></code></dt>
 <dd>Specifies the location of the required host public certificate file. This overrides the link <code>ntpkey_cert_<em>hostname</em></code> in the keys directory.</dd>
@@ -335,8 +335,6 @@ function demo() {
 <dd>Specifies the password to decrypt files containing private keys and identity parameters. This is required only if these files have been encrypted.</dd>
 <dt> <code><strong>randfile <em>file</em></strong></code></dt>
 <dd>Specifies the location of the random seed file used by the OpenSSL library. The defaults are described in the main text above.</dd>
-<dt> <code><strong>sign <em>file</em></strong></code></dt>
-<dd>Specifies the location of the optional sign key file. This overrides the link <code>ntpkey_sign_<em>hostname</em></code> in the keys directory. If this file is not found, the host key is also the sign key.</dd>
 <dt><code><strong>keys <em>keyfile</em></strong></code></dt>
 <dd>Specifies the complete path and location of the MD5 key file containing the keys and key identifiers used by <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a>, <a href="https://www.ntp.org/documentation/4.2.8-series/ntpq/"><code>ntpq</code></a>, and <a href="https://www.ntp.org/documentation/4.2.8-series/ntpdc/"><code>ntpdc</code></a> when operating with symmetric key cryptography. This is the same operation as the <code>-k</code> command line option.</dd>
 <dt><code><strong>keysdir <em>path</em></strong></code></dt>
