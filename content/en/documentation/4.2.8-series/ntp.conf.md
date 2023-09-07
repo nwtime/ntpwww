@@ -222,7 +222,7 @@ Certificates imported from OpenSSL or public certificate authorities have certia
 <code>**controlkey _key_**</code>
 : Specifies the key identifier to use with the [`ntpq`](/documentation/4.2.8-series/ntpq/) utility, which uses the standard protocol defined in RFC-1305. The `key` argument is the key identifier for a trusted key, where the value can be in the range 1 to 65,535, inclusive.
 
-<code>**crypto [cert _file_] [leap _file_] [randfile _file_] [host _file_] [sign _file_] [gq _file_] [gqpar _file_] [iffpar _file_] [mvpar _file_] [pw _password_]**</code>
+<code>**crypto [cert _file_] [leap _file_] [randfile _file_] [host _file_] [gq _file_] [gqpar _file_] [iffpar _file_] [mvpar _file_] [pw _password_]**</code>
 : This command requires the OpenSSL library. It activates public key cryptography, selects the message digest and signature encryption scheme and loads the required private and public values described above. If one or more files are left unspecified, the default names are used as described above. Unless the complete path and name of the file are specified, the location of a file is relative to the keys directory specified in the `keysdir` command or default `/usr/local/etc`. Following are the subcommands:
 
 &emsp;<code><b>cert</b> <i>file</i></code>
@@ -248,9 +248,6 @@ Certificates imported from OpenSSL or public certificate authorities have certia
 
 &emsp;<code>**randfile _file_**</code>
 : Specifies the location of the random seed file used by the OpenSSL library. The defaults are described in the main text above.
-
-&emsp;<code>**sign _file_**</code>
-: Specifies the location of the optional sign key file. This overrides the link <code>ntpkey_sign\__hostname_</code> in the keys directory. If this file is not found, the host key is also the sign key.
 
 <code>**keys _keyfile_**</code>
 : Specifies the complete path and location of the MD5 key file containing the keys and key identifiers used by [`ntpd`](/documentation/4.2.8-series/ntpd/), [`ntpq`](/documentation/4.2.8-series/ntpq/), and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) when operating with symmetric key cryptography. This is the same operation as the `-k` command line option.
