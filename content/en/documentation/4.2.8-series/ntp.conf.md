@@ -459,14 +459,18 @@ A client receiving a KoD performs a set of sanity checks to minimize security ex
 : Set the parameters of the `limited` facility which protects the server from client abuse. The `average` subcommand specifies the minimum average packet spacing in log2 seconds, defaulting to 3 (8s), while the `minimum` subcommand specifies the minimum packet spacing in seconds, default 2. Packets that violate these minima are discarded and a kiss-o’-death packet returned if enabled. 
 : The `monitor` subcommand indirectly specifies the probability of replacing the oldest entry from the monitor (MRU) list of recent requests used to enforce rate controls, when that list is at its maximum size. The probability of replacing the oldest entry is the age of that entry in seconds divided by the `monitor` value, default 3000. For example, if the oldest entry in the MRU list represents a request 300 seconds ago, by default the probability of replacing it with an entry representing the client request being processed now is 10%. Conversely, if the oldest entry is more than 3000 seconds old, the probability is 100%.
 
-<code>**restrict address [mask _mask_] [ippeerlimit _int_] [_flag_ _..._]**</code>
-: The `address` argument expressed in dotted-quad form is the address of a host or network. Alternatively, the `address` argument can be a valid host DNS name. The `mask` argument expressed in dotted-quad form defaults to `255.255.255.255`, meaning that the `address` is treated as the address of an individual host. A default entry (address `0.0.0.0`, mask `0.0.0.0`) is always included and is always the first entry in the list. Note that text string `default`, with no mask option, may be used to indicate the default entry. The `ippeerlimit` directive limits the number of peer requests for each IP to `int`, where a value of -1 means "unlimited", the current default. A value of 0 means "none". There would usually be at most 1 peering request per IP, but if the remote peering requests are behind a proxy there could well be more than 1 per IP. In the current implementation, `flag` always restricts access, i.e., an entry with no flags indicates that free access to the server is to be given. The flags are not orthogonal, in that more restrictive flags will often make less restrictive ones redundant. The flags can generally be classed into two categories, those which restrict time service and those which restrict informational queries and attempts to do run-time reconfiguration of the server. One or more of the following flags may be specified:
+<code>**restrict _address_ [mask _mask_] [ippeerlimit _int_] [_flag_ _..._]**</code>
+: The `address` argument expressed in numeric form is the address of a host or network. Alternatively, the `address` argument can be a valid hostname. When a hostname is provided, a restriction entry is created for each address the hostname resolves to, and any provided `mask` is ignored and an individual host mask is used for each entry.
+
+: The `mask` argument expressed in numeric form defaults to all bits lit, meaning that the `address` is treated as the address of an individual host. A default entry with address and mask all zeroes is always included and is always the first entry in the list. Note that text string `default`, with no mask option, may be used to indicate the default entry. 
+
+: The `ippeerlimit` directive limits the number of peer requests for each IP to `int`, where a value of -1 means "unlimited", the current default. A value of 0 means "none". There would usually be at most 1 peering request per IP, but if the remote peering requests are behind a proxy there could well be more than 1 per IP. In the current implementation, `flag` always restricts access, i.e., an entry with no flags indicates that free access to the server is to be given. The flags are not orthogonal, in that more restrictive flags will often make less restrictive ones redundant. The flags can generally be classed into two categories, those which restrict time service and those which restrict informational queries and attempts to do run-time reconfiguration of the server. One or more of the following flags may be specified:
 
 &emsp;<code>**ignore**</code>
 : Deny packets of all kinds, including [`ntpq`](/documentation/4.2.8-series/ntpq/) and [`ntpdc`](/documentation/4.2.8-series/ntpdc/) queries.
 
 &emsp;<code>**kod**</code>
-: If this flag is set when an access violation occurs, a kiss-o’-death (KoD) packet is sent. KoD packets are rate limited to no more than one per second. If another KoD packet occurs within one second after the last one, the packet is dropped.
+: If this flag is set when a rate violation occurs, a kiss-o’-death (KoD) packet is sometimes sent. KoD packets are rate limited to no more than one per minimum average interpacket spacing, set by `discard average` defaulting to 8s.  Otherwise, no response is sent.
 
 &emsp;<code>**limited**</code>
 : Deny service if the packet spacing violates the lower limits specified in the `discard` command. A history of clients is kept using the monitoring capability of [`ntpd`](/documentation/4.2.8-series/ntpd/). Thus, monitoring is always active as long as there is a restriction entry with the `limited` flag.
@@ -496,15 +500,18 @@ A client receiving a KoD performs a set of sanity checks to minimize security ex
 : Deny service unless the packet is cryptographically authenticated.
 
 &emsp;<code>**ntpport**</code>
-: This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). Both `ntpport` and `non-ntpport` may be specified. The `ntpport` is considered more specific and is sorted later in the list.
+: This is actually a match algorithm modifier, rather than a restriction flag. Its presence causes the restriction entry to be matched only if the source port in the packet is the standard NTP UDP port (123). There can be two restriction entries with the same IP address if one specifies `ntpport` and the other does not. The `ntpport` entry is considered more specific and is sorted later in the list.
 
 &emsp;<code>**serverresponse fuzz**</code>
 : When reponding to server requests, fuzz the low order bits of the `reftime`.
 
 &emsp;<code>**version**</code>
-: Deny packets that do not match the current NTP version.
+: Deny packets that do not match the current NTP version. 
 
-Default restriction list entries with the flags ignore, interface, ntpport, for each of the local host’s interface addresses are inserted into the table at startup to prevent the server from attempting to synchronize to its own time. A default entry is also always present, though if it is otherwise unconfigured; no flags are associated with the default entry (i.e., everything besides your own NTP server is unrestricted).
+: Default restriction list entries with the flags ignore, interface, ntpport, for each of the local host’s interface addresses are inserted into the table at startup to prevent `ntpd` from attempting to synchronize to itself, such as with `manycastclient` when `manycast` is also specified with the same multicast address. A default entry is also always present, though if it is otherwise unconfigured; no flags are associated with the default entry (i.e., everything besides your own NTP server is unrestricted).
+
+<code>**delrestrict [source] _address_**</code>
+: Remove a previously-set restriction.  This is useful for runtime configuration via [`ntpq`](/documentation/4.2.8-series/ntpq/). If `source` is specified, a dynamic restriction created from the `restrict source` template at the time an association was added is removed.  Without `source`, a static restriction is removed.
 
 * * *
 
