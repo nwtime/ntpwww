@@ -12,7 +12,7 @@ type: archives
           <div class="card-body">
 		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Notification Policy</h5>
             <p>When we discover a security vulnerability in NTP we follow our Phased Vulnerability Process which includes first notifying Institutional members of the <a href="https://www.nwtime.org/membership/benefits/">NTP Consortium at Network Time Foundation</a>, then <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally making a public announcement.</p>
-            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Institutional Members</a> receive advanced notification of security vulnerabilities.</p>			
+            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Institutional Members</a> receive advanced notification of security vulnerabilities.</p><br><br><br><br>
               <div class="d-flex justify-content-between align-items-center">
             </div>
           </div>
@@ -23,7 +23,7 @@ type: archives
           <div class="card-body">
 		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Security Patch Policy</h5>
             <p>When security patches are ready, they are first given to Premier and Partner Institutional members of the <a href="https://www.nwtime.org/membership/benefits/">NTP Consortium at Network Time Foundation</a>, then access instructions are provided to <a href="https://www.sei.cmu.edu/about/divisions/cert/index.cfm">CERT</a>, and finally the public release is made on the embargo date.</p>
-            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Premier and Partner Members</a> receive early access to security patches.</p>
+            <p style="text-align: center;"><a href="https://www.nwtime.org/membership/benefits/#institutional-consortia-memberships">Premier and Partner Members</a> receive early access to security patches.</p><br><br><br><br>
               <div class="d-flex justify-content-between align-items-center">
             </div>
           </div>
@@ -33,8 +33,8 @@ type: archives
 	    <div class="card mh-100">
           <div class="card-body">
 		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Reporting Security Issues</h5>
-            <p>Please report security related bugs by <strong>PGP-encrypted</strong> email to the <a href="mailto:security@ntp.org">NTF Security Officer Team</a>. You can use our <a href="/downloads/NTFSecurityOfficerKey.txt">NTF Security Officer Key</a>.
-            <p>Please refrain from discussing potential security issues in <a href="https://groups.google.com/g/comp.protocols.time.ntp">comp.protocols.time.ntp</a>, our <a href="https://bugs.ntp.org">bug tracking system</a>, or any mailing list.</p>		
+            <p class="card-text">If you find a security vulnerability in the NTP codebase, please report it by <b>PGP-encrypted</b> email to the NTF Security Officer Team. You can use our <a href="https://www.nwtime.org/downloads/NTFSecurityOfficerPGPKey.txt">NTF Security Officer PGP Key</a>. Please refrain from discussing potential security issues in any mailing lists or public forums.</p>
+			<p><b>NOTE:</b> Non-code vulnerabilities (such as a website issue) should instead be reported to <a href="mailto:webmaster@nwtime.org">webmaster.</a> Issues for subdomains of "pool.ntp.org" should be reported to the <a href="https://www.ntppool.org/en/mailinglists.html">NTP Pool Project</a>.</p>		
               <div class="d-flex justify-content-between align-items-center">
 			</div>
           </div>
@@ -43,6 +43,8 @@ type: archives
 	</div>
   </div>
 </div>
+
+***
 
 #### Known Vulnerabilities by Release Version
 
