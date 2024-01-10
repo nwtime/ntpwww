@@ -4,13 +4,8 @@
 
   {{ range .Data.Pages }}{{ if ne .Params.sitemap_exclude true }}
   <url>
-  {{ if ne .Section "documentation" }}
-   <loc>{{ .Permalink }}</loc>	
-  {{else }}
-    <loc>https://doc.ntp.org{{ .RelPermalink }}</loc> 
-  {{ end }}   
+   <loc>{{ .Permalink }}</loc>	  
     <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}{{ with .GitInfo }}{{ end }}</lastmod>
-
   </url>
     {{ range .Resources.ByType "application" }}{{ if (in .MediaType.Suffixes "pdf") }}
 	<url>
