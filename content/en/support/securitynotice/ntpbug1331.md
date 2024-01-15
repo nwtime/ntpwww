@@ -26,6 +26,11 @@ date: "2009-12-08"
 		<td>All releases from xntp2 (1989) (possibly earlier) through 4.2.4 before 4.2.4p8 and all versions of 4.2.5.</td>
 		<td>Resolved in 4.2.4p8 and 4.2.6.</td>
 	</tr>
+	<tr>
+		<th><b>CVSS2 Score</b></th>
+		<td>6.4</td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:L/Au:N/C:N/I:P/A:P)">AV:N/AC:L/Au:N/C:N/I:P/A:P</a></td>
+	</tr>
   </tbody>	
 </table>
 

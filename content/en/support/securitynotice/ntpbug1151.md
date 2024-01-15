@@ -26,6 +26,11 @@ date: "2009-03-04"
 		<td>All releases from 4.0.99m/4.1.70 (2001-08-15) through 4.2.4 before 4.2.4p7 and 4.2.5 before 4.2.5p74.</td>
 		<td>Resolved in 4.2.4p7 and 4.2.5p74.</td>
 	</tr>	
+	<tr>
+		<th><b>CVSS2 Score</b></th>
+		<td>6.8</td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:M/Au:N/C:P/I:P/A:P)">AV:N/AC:M/Au:N/C:P/I:P/A:P</a></td>
+	</tr>
   </tbody>	
 </table>
 
