@@ -26,6 +26,16 @@ date: "2016-04-27"
 		<td>4.2.8p4 up to but not including 4.2.8p7, and 4.3.77 up to, but not including 4.3.92.</td>
 		<td>Resolved in 4.2.8p7.</td>
 	</tr>	
+	<tr>
+		<th><b>CVSS2 Score</b></th>
+		<td>5.0</td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:L/Au:N/C:N/I:N/A:P)">AV:N/AC:L/Au:N/C:N/I:N/A:P</a></td>
+	</tr>
+	<tr>
+		<th><b>CVSS3 Score<b></th>
+		<td>7.5</td>
+		<td><a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H">CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</a></td>
+	</tr>
   </tbody>	
 </table>
 

@@ -235,7 +235,7 @@ Public Release: 2016 Jun 02
 | [3008:  <code>ctl_getitem()</code> return value not always checked ](/support/securitynotice/ntpbug3008/) |<span style="color:orange">MEDIUM</span>|
 | [3007:  <code>CRYPTO-NAK</code> DoS ](/support/securitynotice/ntpbug3007/) |<span style="color:orange">MEDIUM/LOW</span>|
 | [2978: Interleave-pivot ](/support/securitynotice/ntpbug2978/) |<span style="color:orange">MEDIUM</span>|
-| [2952: Original fix for NTP Bug 2901 broke peer associations](/support/securitynotice/ntpbug2952/) |
+| [2952: Original fix for NTP Bug 2901 broke peer associations](/support/securitynotice/ntpbug2952/) |<span style="color:orange">MEDIUM</span>|
 | [2946: Origin Leak: <code>ntpq</code> and <code>ntpdc</code> Disclose Origin Timestamp to Unauthenticated Clients](/support/securitynotice/ntpbug2946/) |<span style="color:orange">MEDIUM</span>|
 | [2879: Improve NTP security against buffer comparison timing attacks](/support/securitynotice/ntpbug2879/) |<span style="color:orange">LOW/MEDIUM</span>|
 
@@ -300,7 +300,7 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [2853: ntpd control message crash: Crafted NUL-byte in configuration directive](/support/securitynotice/ntpbug2853/) ||
+| [2853: ntpd control message crash: Crafted NUL-byte in configuration directive](/support/securitynotice/ntpbug2853/) |<span style="color:green">LOW</span>|
 
 * * *
 
@@ -312,8 +312,8 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [2781: Authentication doesn't protect symmetric associations against DoS attacks](/support/securitynotice/ntpbug2781/) | |
-| [2779: ntpd accepts unauthenticated packets with symmetric key crypto](/support/securitynotice/ntpbug2779/) | |
+| [2781: Authentication doesn't protect symmetric associations against DoS attacks](/support/securitynotice/ntpbug2781/) |<span style="color:orange">MEDIUM</span>|
+| [2779: ntpd accepts unauthenticated packets with symmetric key crypto](/support/securitynotice/ntpbug2779/) |<span style="color:green">LOW</span>|
 
 * * *
 
@@ -323,7 +323,7 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [2672: ::1 can be spoofed on some OSes, so ACLs based on IPv6 ::1 addresses can be bypassed](/support/securitynotice/ntpbug2672/) | |
+| [2672: ::1 can be spoofed on some OSes, so ACLs based on IPv6 ::1 addresses can be bypassed](/support/securitynotice/ntpbug2672/) |<span style="color:orange">MEDIUM</span>|
 | [2671: <code>vallen</code> is not validated in several places in <code>ntp_crypto.c</code>, leading to a potential info leak or possibly crashing <code>ntpd</code>](/support/securitynotice/ntpbug2671/) |<span style="color:green">LOW</span>|
 
 * * *
@@ -334,10 +334,10 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [2670: receive(): missing return on error](/support/securitynotice/ntpbug2670/) | |
-| [2669: Buffer overflow in configure()](/support/securitynotice/ntpbug2669/) | |
-| [2668: Buffer overflow in ctl_putdata()](/support/securitynotice/ntpbug2668/) | |
-| [2667: Buffer overflow in crypto_recv()](/support/securitynotice/ntpbug2667/) | |
+| [2670: receive(): missing return on error](/support/securitynotice/ntpbug2670/) |<span style="color:orange">MEDIUM</span>|
+| [2669: Buffer overflow in configure()](/support/securitynotice/ntpbug2669/) |<span style="color:red">HIGH</span>|
+| [2668: Buffer overflow in ctl_putdata()](/support/securitynotice/ntpbug2668/) |<span style="color:red">HIGH</span>|
+| [2667: Buffer overflow in crypto_recv()](/support/securitynotice/ntpbug2667/) |<span style="color:red">HIGH</span>|
 
 * * *
 
@@ -347,7 +347,7 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [2666: non-cryptographic random number generator with weak seed used by ntp-keygen to generate symmetric keys](/support/securitynotice/ntpbug2666/) | |
+| [2666: non-cryptographic random number generator with weak seed used by ntp-keygen to generate symmetric keys](/support/securitynotice/ntpbug2666/) |<span style="color:red">HIGH</span>|
 
 * * *
 
@@ -357,7 +357,7 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [1532: DRDoS / Amplification Attack using ntpdc monlist command](/support/securitynotice/ntpbug1532/) | |
+| [1532: DRDoS / Amplification Attack using ntpdc monlist command](/support/securitynotice/ntpbug1532/) |<span style="color:orange">MEDIUM</span>|
 
 * * *
 
@@ -367,7 +367,7 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [2665 :Weak default key in config_auth()](/support/securitynotice/ntpbug2665/) | |
+| [2665 :Weak default key in config_auth()](/support/securitynotice/ntpbug2665/) |<span style="color:red">HIGH</span>|
 
 * * *
 
@@ -377,7 +377,7 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [1331: DoS attack from certain NTP mode 7 packets](/support/securitynotice/ntpbug1331/) | |
+| [1331: DoS attack from certain NTP mode 7 packets](/support/securitynotice/ntpbug1331/) |<span style="color:orange">MEDIUM</span>|
 
 * * *
 
@@ -387,7 +387,7 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [1151: Remote exploit if autokey is enabled](/support/securitynotice/ntpbug1151/) | |
+| [1151: Remote exploit if autokey is enabled](/support/securitynotice/ntpbug1151/) |<span style="color:orange">MEDIUM</span>|
 
 #### 4.2.4p5
 
@@ -395,5 +395,5 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [Multiple OpenSSL signature verification API misuse](https://nvd.nist.gov/vuln/detail/CVE-2009-0021) | |
+| [Multiple OpenSSL signature verification API misuse](https://nvd.nist.gov/vuln/detail/CVE-2009-0021) |<span style="color:orange">MEDIUM</span>|
 

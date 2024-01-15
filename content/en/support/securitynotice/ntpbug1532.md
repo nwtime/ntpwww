@@ -26,6 +26,11 @@ date: "2010-04-24"
 		<td>All releases prior to 4.2.7p26.</td>
 		<td>Resolved in 4.2.7p26.</td>
 	</tr>	
+	<tr>
+		<th><b>CVSS2 Score</b></th>
+		<td>5.0</td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?calculator&version=2.0&vector=(AV:N/AC:L/Au:N/C:N/I:N/A:P)">AV:N/AC:L/Au:N/C:N/I:N/A:P</a></td>
+	</tr>	
   </tbody>	
 </table>
 
