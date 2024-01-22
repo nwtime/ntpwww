@@ -15,16 +15,15 @@ type: archives
 * Claas Hilbrecht - Neoclock Refclock Maintainer
 * Danny Mayer - Network I/O, Windows Port, Code Maintenance
 * Dave Hart - General maintenance, IPv6 cleanup, Windows serial PPSAPI
-* David Mills - Research and Development, Documentation, Codebase
 * Fernando Hauscarriaga - Palisade Refclock Maintainer
 * Frank Kardel - PARSE Refclock Maintainer, Code Maintenance
 * Frederick Bruckman - Advocacy, Code Maintenance
 * George DM Ross - Palisade Refclock Maintainer
-* Harlan Stenn - Project Manager, Release Engineer, bug wrangler, auto* dude, GSoC Admin & Mentor
+* [Harlan Stenn](https://www.nwtime.org/bio/harlan-stenn/) - Project Manager, Release Engineer, bug wrangler, auto* dude, GSoC Admin & Mentor
 * Heiko Gerstung - NTPv4 SNMP MIB (GSoC 2008)
 * Johannes Maximilian Kuehn - SNTP (GSoC 2009, GSoC 2010)
 * John Hay - NMEA Refclock Maintainer
-* Juergen Perlinger - Code Maintenance
+* [Juergen Perlinger](https://www.nwtime.org/bio/juergen-perlinger/) - Code Maintenance
 * Kapila Bogahapitiya - Documentation Framework (GSoC 2009, GSoC 2010)
 * Linus Karlsson - Q/A (GSoC 2010)
 * Loganaden Velvindron - Sandboxing support (`libseccomp`)
@@ -48,8 +47,10 @@ Anyone who wishes to be added to or has questions about this list should contact
 
 #### In Memoriam
 
-* GervaseMarkham
 * Marc Brett - Magnavox MX4200 GPS Refclock Maintainer 
+* Gervase Markham
+* [David Mills](https://www.nwtime.org/bio/david-l-mills/) - Research and Development, Documentation, Codebase
+
 
 * * *
 
