@@ -14,7 +14,7 @@ type: archives
 * Bruce Korb - AutoGen Wizard, GSoC Mentor
 * Claas Hilbrecht - Neoclock Refclock Maintainer
 * Danny Mayer - Network I/O, Windows Port, Code Maintenance
-* Dave Hart - General maintenance, IPv6 cleanup, Windows serial PPSAPI
+* [Dave Hart](https://www.nwtime.org/bio/dave-hart/) - General maintenance, IPv6 cleanup, Windows serial PPSAPI
 * Fernando Hauscarriaga - Palisade Refclock Maintainer
 * Frank Kardel - PARSE Refclock Maintainer, Code Maintenance
 * Frederick Bruckman - Advocacy, Code Maintenance
