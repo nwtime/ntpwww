@@ -21,16 +21,13 @@ type: archives
 * George DM Ross - Palisade Refclock Maintainer
 * [Harlan Stenn](https://www.nwtime.org/bio/harlan-stenn/) - Project Manager, Release Engineer, bug wrangler, auto* dude, GSoC Admin & Mentor
 * Heiko Gerstung - NTPv4 SNMP MIB (GSoC 2008)
-* Johannes Maximilian Kuehn - SNTP (GSoC 2009, GSoC 2010)
 * John Hay - NMEA Refclock Maintainer
 * [Juergen Perlinger](https://www.nwtime.org/bio/juergen-perlinger/) - Code Maintenance
 * Kapila Bogahapitiya - Documentation Framework (GSoC 2009, GSoC 2010)
 * Linus Karlsson - Q/A (GSoC 2010)
-* Loganaden Velvindron - Sandboxing support (`libseccomp`)
 * Mark Martinec
 * Martin Burnicki - PARSE Refclock Maintainer
 * Nigel Roles - ARCRON Refclock Maintainer
-* Philip Prindeville - Code Maintenance
 * Philippe De Muyter - Wharton reference clock driver, sysV68 and AIX modifications
 * Poul-Henning Kamp
 * Rahul Kumar - GSoC (Student in 2008, Mentor in 2012, 2013, 2015, OrgAdmin 2015)
@@ -62,7 +59,10 @@ Anyone who wishes to be added to or has questions about this list should contact
 * Anil Gunturu - SNTP Maintainer
 * Hal Murray - HPGPS Refclock Maintainer, SHM Refclock Maintainer
 * Harish Nair (University of Delaware) - ntpsim, IPv6 testing
+* Johannes Maximilian Kuehn - SNTP (GSoC 2009, GSoC 2010)
+* Loganaden Velvindron - Sandboxing support (`libseccomp`)
 * Peter Ekberg - Jupiter Refclock Maintainer
+* Philip Prindeville - Code Maintenance
 * Rajul Srivastava - Logging/Debugging API (GSoC 2012)
 * Ray VanTassle - ntpdc Maintainer
 * Sachin Kamboj - Code Maintenance
