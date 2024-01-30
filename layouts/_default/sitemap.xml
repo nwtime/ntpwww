@@ -12,5 +12,10 @@
 	 <loc>{{ .Permalink }}</loc>
 	</url> 
    {{ end }}{{ end }}
+    {{ range .Resources.ByType "text" }}{{ if (in .MediaType.Suffixes "txt") }}
+	<url>
+	 <loc>{{ .Permalink }}</loc>
+	</url> 
+   {{ end }}{{ end }}
   {{ end }}{{ end }}
 </urlset>
