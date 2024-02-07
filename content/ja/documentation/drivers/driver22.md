@@ -10,10 +10,10 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver22/#synopsis)
-*   [Description](/archives/drivers/driver22/#description)
-*   [Fudge Factors](/archives/drivers/driver22/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver22/#additional-information)
+*   [Synopsis](/documentation/drivers/driver22/#synopsis)
+*   [Description](/documentation/drivers/driver22/#description)
+*   [Fudge Factors](/documentation/drivers/driver22/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver22/#additional-information)
 
 * * *
 
@@ -35,10 +35,10 @@ Author: David L. Mills (mills@udel.edu)
 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。  トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。
 
 このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。
-この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、[Mitigation Rules and the `prefer` Keyword](/archives/4.2.8-series/prefer) で説明されています。
+この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、[Mitigation Rules and the `prefer` Keyword](/documentation/4.2.8-series/prefer) で説明されています。
 
 ドライバーには、IETF標準に提案されているPPSAPIインターフェイス<sup>[1](#myfootnote1)</sup>が必要です。 インターフェースは、`timepps.h` ヘッダー・ファイルと関連するカーネル・サポートで構成されています。 
-このインターフェースのサポートは、現在のバージョンのSolaris、FreeBSD、Linux、および、商用バージョンのTru64（Alpha）とSunOSに含まれています。 詳細については、[Pulse-per-second (PPS) Signal Interfacing](/archives/4.2.8-series/pps) を参照して下さい。 
+このインターフェースのサポートは、現在のバージョンのSolaris、FreeBSD、Linux、および、商用バージョンのTru64（Alpha）とSunOSに含まれています。 詳細については、[Pulse-per-second (PPS) Signal Interfacing](/documentation/4.2.8-series/pps) を参照して下さい。 
 
 PPS信号は、ハードウェアとオペレーティング・システムに応じて、シリアルポートまたはパラレルポートに接続できます。 シリアルポートは、PPS信号専用、または、別のデバイスと共有のいずれもできます。
 ただし、専用の場合は、ノイズや予期しない信号により ntpd が終了する可能性があるので、他の信号線を接続しないで下さい。
@@ -90,6 +90,6 @@ PPS信号は、ハードウェアとオペレーティング・システムに�
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock)
 
 <a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments [RFC 2783](/reflib/rfc/rfc2783.txt), Internet Engineering Task Force, March 2000, 31 pp.
