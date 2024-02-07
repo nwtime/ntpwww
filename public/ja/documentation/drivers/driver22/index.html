@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ja/documentation/drivers/driver22/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-09-04T17:28:32&#43;01:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
+<meta property="article:modified_time" content="2024-02-07T16:41:38&#43;00:00" /><meta property="og:site_name" content="NTP: ネットワークタイムプロトコル " />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -147,7 +147,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>PPS Clock Discipline</h1> 
-    <p style="font-size: small; color: grey;">Last update: September 4, 2023 17:28 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/2c2a07096599a413cc7e36fdb40d0eb178f2e8b4">2c2a07096</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: February 7, 2024 16:41 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/14013a7606203ffc7b4a42a575602714b490490c">14013a760</a>)</p>
 	<dl>
 <dt>Author: David L. Mills (<a href="mailto:mills@udel.edu">mills@udel.edu</a>)</dt>
 <dd>Last change: 31-Mar-2014 07:46 UTC</dd>
@@ -155,10 +155,10 @@ function demo() {
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://www.ntp.org/archives/drivers/driver22/#synopsis">Synopsis</a></li>
-<li><a href="https://www.ntp.org/archives/drivers/driver22/#description">Description</a></li>
-<li><a href="https://www.ntp.org/archives/drivers/driver22/#fudge-factors">Fudge Factors</a></li>
-<li><a href="https://www.ntp.org/archives/drivers/driver22/#additional-information">Additional Information</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver22/#synopsis">Synopsis</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver22/#description">Description</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver22/#fudge-factors">Fudge Factors</a></li>
+<li><a href="https://www.ntp.org/documentation/drivers/driver22/#additional-information">Additional Information</a></li>
 </ul>
 <hr>
 <h4 id="synopsis">Synopsis</h4>
@@ -177,9 +177,9 @@ function demo() {
 <p>このドライバーは、セシウム時計、電波時計、または、関連デバイスによって生成される1秒ごとのパルス信号（PPS）のインターフェースを提供します。 使い方の例としては、GPS受信機によって生成されたシリアル・タイムコードを時刻精度を向上させるために使用できます。 混雑した広域ネットワークにあるプライマリ・サーバーに同期しているときに、セカンダリ・サーバーがローカル・クライアントに時間を再配布する前に、 ジッター（時刻情報のゆらぎ）の累積を排除して時間を再設定できます。 このドライバーは、広範な信号の健全性チェックと信号の整備アルゴリズムを持っています。
 レンジ・ゲートと周波数弁別器は、雑音や１秒パルスでない誤った信号を排除します。 多段メディアン・フィルターは、ハードウェア割り込みとオペレーティング・システムの遅延によるジッターを排除します。  トリム平均アルゴリズムは、最適な時刻抽出を決定します。 一般的なワーク・ステーションと処理負荷では、偶発的なジッターを数マイクロ秒程度に減らすことができます。</p>
 <p>このドライバーは、PPSソースに関連する時間と頻度を制御できますが、秒数を数えることはできません。 この目的のために、補助の時刻ソースが必要で、通常、電波時計を参照します。 あるいは、別のNTPサーバーを使用することもできます。
-この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、<a href="https://www.ntp.org/archives/4.2.8-series/prefer">Mitigation Rules and the <code>prefer</code> Keyword</a> で説明されています。</p>
+この目的のために、補助の時刻ソースを優先ピアとして指定する必要があります。 詳しくは、<a href="https://www.ntp.org/documentation/4.2.8-series/prefer">Mitigation Rules and the <code>prefer</code> Keyword</a> で説明されています。</p>
 <p>ドライバーには、IETF標準に提案されているPPSAPIインターフェイス<sup><a href="#myfootnote1">1</a></sup>が必要です。 インターフェースは、<code>timepps.h</code> ヘッダー・ファイルと関連するカーネル・サポートで構成されています。 
-このインターフェースのサポートは、現在のバージョンのSolaris、FreeBSD、Linux、および、商用バージョンのTru64（Alpha）とSunOSに含まれています。 詳細については、<a href="https://www.ntp.org/archives/4.2.8-series/pps">Pulse-per-second (PPS) Signal Interfacing</a> を参照して下さい。</p>
+このインターフェースのサポートは、現在のバージョンのSolaris、FreeBSD、Linux、および、商用バージョンのTru64（Alpha）とSunOSに含まれています。 詳細については、<a href="https://www.ntp.org/documentation/4.2.8-series/pps">Pulse-per-second (PPS) Signal Interfacing</a> を参照して下さい。</p>
 <p>PPS信号は、ハードウェアとオペレーティング・システムに応じて、シリアルポートまたはパラレルポートに接続できます。 シリアルポートは、PPS信号専用、または、別のデバイスと共有のいずれもできます。
 ただし、専用の場合は、ノイズや予期しない信号により ntpd が終了する可能性があるので、他の信号線を接続しないで下さい。</p>
 <p>電波時計は、通常、シリアルポートに接続され、PPS信号はレベル・コンバータを介して同じコネクタのデータ・キャリア検出（DCD）ピン（DB-9のピン1、DB-25のピン8）に接続されます。 パラレルポートとドライバーが利用可能な一部のシステムでは、PPS信号は、コネクタのACKピン（DB25のピン10）に直接接続できます。 PS信号が専用ポートに接続されているか、別のデバイスと共有されているポートに接続されているかに関係なく、
@@ -215,7 +215,7 @@ function demo() {
 <dd>0（デフォルト）： １秒ごとのタイムスタンプは記録しない　／　1： １秒ごとのタイムスタンプは記録する  アラン偏差プロットの作成に役立ちます。</dd>
 </dl>
 <h4 id="additional-information">Additional Information</h4>
-<p><a href="https://www.ntp.org/archives/4.2.8-series/refclock">Reference Clock Drivers</a></p>
+<p><a href="https://www.ntp.org/documentation/4.2.8-series/refclock">Reference Clock Drivers</a></p>
 <p><a name="myfootnote1">1</a>  Mogul, J., D. Mills, J. Brittenson, J. Stone and U. Windl. Pulse-per-second API for Unix-like operating systems, version 1. Request for Comments <a href="https://www.ntp.org/reflib/rfc/rfc2783.txt">RFC 2783</a>, Internet Engineering Task Force, March 2000, 31 pp.</p>
 
 	  
