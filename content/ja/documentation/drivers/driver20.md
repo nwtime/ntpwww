@@ -9,15 +9,15 @@ Last update: 13-Jan-2020 07:12 UTC
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver20/#synopsis)
-*   [Description](/archives/drivers/driver20/#description)
-*   [NMEA Talker IDs](/archives/drivers/driver20/#nmea-talker-ids)
-*   [The 'mode' byte](/archives/drivers/driver20/#the-mode-byte)
-*   [About distrusting NMEA date stamps](/archives/drivers/driver20/#about-distrusting-nmea-date-stamps)
-*   [Monitor Data](/archives/drivers/driver20/#monitor-data)
-*   [Setting up the Garmin GPS-25XL](/archives/drivers/driver20/#setting-up-the-garmin-gps-25xl)
-*   [Fudge Factors](/archives/drivers/driver20/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver20/#additional-information)
+*   [Synopsis](/documentation/drivers/driver20/#synopsis)
+*   [Description](/documentation/drivers/driver20/#description)
+*   [NMEA Talker IDs](/documentation/drivers/driver20/#nmea-talker-ids)
+*   [The 'mode' byte](/documentation/drivers/driver20/#the-mode-byte)
+*   [About distrusting NMEA date stamps](/documentation/drivers/driver20/#about-distrusting-nmea-date-stamps)
+*   [Monitor Data](/documentation/drivers/driver20/#monitor-data)
+*   [Setting up the Garmin GPS-25XL](/documentation/drivers/driver20/#setting-up-the-garmin-gps-25xl)
+*   [Fudge Factors](/documentation/drivers/driver20/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver20/#additional-information)
 
 * * *
 
@@ -37,7 +37,7 @@ Last update: 13-Jan-2020 07:12 UTC
 
 このドライバーは、GPS受信機のNMEAセンテンスの `$GPRMC, $GPGLL, $GPGGA, $GPZDA, $GPZDG` をデフォルトで処理対象にしています。 Accord社のNMEAセンテンス `$GPZDG` は、他のセンテンスがUTC時刻を通知するのに対し、GPS時刻を通知することに注意して下さい。 UTC時刻とGPS時刻の違いは、UTC時刻にはうるう秒が挿入されることです。 UTC時刻とGPS時刻の混在による問題を回避するため、このドライバーは、UTC時刻の <tt>$GPZDG</tt> を受信したら処理を無効にします。
 
-> **注意：** GPS以外のGNSS（衛星測位システム）や複数のGPS受信機を利用するときは、後述の [Talker IDs](/archives/drivers/driver20/#nmea-talker-ids) をご参照下さい。
+> **注意：** GPS以外のGNSS（衛星測位システム）や複数のGPS受信機を利用するときは、後述の [Talker IDs](/documentation/drivers/driver20/#nmea-talker-ids) をご参照下さい。
 
 GPS受信は このドライバーがサポートしているNMEAセンテンスの少なくとも一つを出力するように設定する必要があります。
 
@@ -136,10 +136,10 @@ GNSS受信機（衛星測位システム受信機）は、処理するGNSS固有
 | `10-15` |  | `0xFC00` | 予約（0 に設定） |
 | `16` | `65536` | `0x10000` | 追加の統計情報を clockstats 行に出力。後述。 |
 | `17` | `131072` | `0x20000` | "Silent PPS" モード。 PPS信号（`fudge flag1` で有効に設定している場合）を使用して、正確な受信タイムスタンプを取得します。 クロックはPPSピアとは見なさないため、クロック・ステータスにPPSフラグを設定しないで下さい。 |
-| `18` | `262144` | `0x40000` | NMEAで配信された日付を信頼します。 受信機が本当に信頼できる場合のみ、使用して下さい。 [>参照](/archives/drivers/driver20/#about-distrusting-nmea-date-stamps). **注意：** このビットは移動されています。 |
+| `18` | `262144` | `0x40000` | NMEAで配信された日付を信頼します。 受信機が本当に信頼できる場合のみ、使用して下さい。 [>参照](/documentation/drivers/driver20/#about-distrusting-nmea-date-stamps). **注意：** このビットは移動されています。 |
 
 
-デフォルトの mode 0 は、シリアル通信速度4800bpsで、このドライバーがサポートする全てのNMEAセンテンスを処理します。 これにより、同期処理の各サイクルで最初に受信および認識されたNMEAセンテンスの結果となります。  もし特定のNMEAセンテンスを処理したい場合は、mode の該当するものだけを有効に設定して下さい。 複数のNMEAセンテンスを処理対象として設定することはできますが、同期処理のサイクルで最初に受信したNMEAセンテンスだけが処理されます。 同期処理のサイクルで複数のNMEAセンテンスを処理することができない理由は、以下のとおりです。 [fudge time2](/archives/drivers/driver20/#fudge-factors) でNMEAセンテンスの通信遅延時間を補償・調整しますが、複数のNMEAセンテンスではその時間が異なります。 同期処理のサイクルごとに複数の文を使用すると、内部のデータ・フィルター処理が過剰になります。
+デフォルトの mode 0 は、シリアル通信速度4800bpsで、このドライバーがサポートする全てのNMEAセンテンスを処理します。 これにより、同期処理の各サイクルで最初に受信および認識されたNMEAセンテンスの結果となります。  もし特定のNMEAセンテンスを処理したい場合は、mode の該当するものだけを有効に設定して下さい。 複数のNMEAセンテンスを処理対象として設定することはできますが、同期処理のサイクルで最初に受信したNMEAセンテンスだけが処理されます。 同期処理のサイクルで複数のNMEAセンテンスを処理することができない理由は、以下のとおりです。 [fudge time2](/documentation/drivers/driver20/#fudge-factors) でNMEAセンテンスの通信遅延時間を補償・調整しますが、複数のNMEAセンテンスではその時間が異なります。 同期処理のサイクルごとに複数の文を使用すると、内部のデータ・フィルター処理が過剰になります。
       
 このドライバーのデフォルトのシリアル通信速度は 4800 bpsですが、mode のビット 4 から 6 で速い通信速度を指定することができます。
 
@@ -228,4 +228,4 @@ mode のビット 0x10000 をオンにすると clockstats ファイルのログ
 
 `flag1, flag2`, and `flag3` は、Windows においては無視されます。
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock)

@@ -10,11 +10,11 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Table of Contents
 
-*   [Synopsis](/archives/drivers/driver1/#synopsis)
-*   [Description](/archives/drivers/driver1/#description)
-*   [Monitor Data](/archives/drivers/driver1/#monitor-data)
-*   [Fudge Factors](/archives/drivers/driver1/#fudge-factors)
-*   [Additional Information](/archives/drivers/driver1/#additional-information)
+*   [Synopsis](/documentation/drivers/driver1/#synopsis)
+*   [Description](/documentation/drivers/driver1/#description)
+*   [Monitor Data](/documentation/drivers/driver1/#monitor-data)
+*   [Fudge Factors](/documentation/drivers/driver1/#fudge-factors)
+*   [Additional Information](/documentation/drivers/driver1/#additional-information)
 
 * * *
 
@@ -28,7 +28,7 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Description
 
-> **ノート： このドライバーの使用はお勧めしません。** もっと柔軟な代替方法については、[Orphan Mode](/archives/4.2.8-series/orphan) をご参照下さい。
+> **ノート： このドライバーの使用はお勧めしません。** もっと柔軟な代替方法については、[Orphan Mode](/documentation/4.2.8-series/orphan) をご参照下さい。
 
 このドライバーは、電波時計やモデムなどの外部同期ソースが利用できない隔離されたネットワークでの使用を目的としていました。
 このドライバーを指定されたタイム・サーバーがプライマリ・サーバーとして機能し、ネットワーク上の他のクライアントに同期時刻を提供できます。
@@ -80,4 +80,4 @@ Author: David L. Mills (mills@udel.edu)
 
 #### Additional Information
 
-[Reference Clock Drivers](/archives/4.2.8-series/refclock)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock)
