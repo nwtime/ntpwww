@@ -13,6 +13,7 @@ The information in this section was originally hosted on the University of Delaw
 
 | Title | Publication Date | Format |
 | ----- | ----- | ----- |
+| Suggestions for Protocol and Security Enhancements for the Network Time Protocol | July 22, 2023 | [HTML](/reflib/enhancements/suggestions-protocol-and-security-enhancements-ntp/)|
 | Interplanetary Internet (IPN) | June 4, 2001 | [TXT](/reflib/memos/IPN.TXT) |
 | Public-Key Cryptography for the Network Time Protocol Version 1 (Internet Draft) | April, 2001 | [TXT](/reflib/memos/draft-ietf-stime-ntpauth-01.txt) |
 | PPS Signal Transfer via Broadcast Television Stations | January 1, 2001 | [TXT](/reflib/memos/TV.TXT) |
