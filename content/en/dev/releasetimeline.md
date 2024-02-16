@@ -116,8 +116,8 @@ type: archives
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
-| 2003 Oct 15 | [4.2.0](https://groups.google.com/g/comp.protocols.time.ntp/c/80odfFbbSY4/m/Nbh7xv6XCC4J) | [4.2.0](/support/securitynotice/older-releases-changelog/#420)  | | 22 bugs<br> 101 improvements |
-| 2003 Jul 17 | [4.1.2](https://groups.google.com/g/comp.protocols.time.ntp/c/XVoMXZEypgE/m/CzOJ72kw5h4J) | [4.1.2](/support/securitynotice/older-releases-changelog/#412) | | 5 bugs<br> 9 improvements|
+| 2003 Oct 15 | [4.2.0](https://lists.ntp.org/old-archives/announce/2003-October/000006.html) | [4.2.0](/support/securitynotice/older-releases-changelog/#420)  | | 22 bugs<br> 101 improvements |
+| 2003 Jul 17 | [4.1.2](https://lists.ntp.org/old-archives/announce/2003-July/000003.html) | [4.1.2](/support/securitynotice/older-releases-changelog/#412) | | 5 bugs<br> 9 improvements|
 | 2002 Feb 26 | [4.1.1](https://groups.google.com/g/comp.protocols.time.ntp/c/3K9oYavHIVA/m/hHmxFKOuD0EJ) | [4.1.1](/support/securitynotice/older-releases-changelog/#411) | | 20 improvements |
 | 2001 Aug 1 | [4.1.0](https://groups.google.com/g/comp.protocols.time.ntp/c/-rqLOBoTb14/m/mv4UItEWBgAJ) | [4.1.0](/support/securitynotice/older-releases-changelog/#410)| | 19 improvements |
 | 2000 Jan 12 | [4.0.99](https://groups.google.com/g/comp.protocols.time.ntp/c/I0zHLkqqT1o/m/02ED2Up_NywJ) | [4.0.99](/support/securitynotice/older-releases-changelog/#4099)| | 19 improvements |
