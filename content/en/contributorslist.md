@@ -68,4 +68,4 @@ Anyone who wishes to be added to or has questions about this list should contact
 * Sachin Kamboj - Code Maintenance
 * Steve Kostecke - Web Services Developer & Manager, GSoC Org. Admin
 * Sven Dietricht (Trimble) - Palisade Refclock Maintainer
-* Thiagode Freitas - Alternative Clock Models (GSoC 2011, 2012) 
+* Thiago de Freitas - Alternative Clock Models (GSoC 2011, 2012) 
