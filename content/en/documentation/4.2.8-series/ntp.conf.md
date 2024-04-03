@@ -68,7 +68,7 @@ If the Basic Socket Interface Extensions for IPv6 (RFC 2553) is detected, suppor
 
 Note that in contexts where a host name is expected, a `-4` qualifier preceding the host name forces DNS resolution to the IPv4 namespace, while a `-6` qualifier forces DNS resolution to the IPv6 namespace. See IPv6 references for the equivalent classes for that address family.
 
-<code>**dpool _address_ [burst] [iburst] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [xmtnonce]**</code>
+<code>**pool _address_ [burst] [iburst] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [xmtnonce]**</code>
 <code>**server _address_ [key _key_ _|_ autokey] [burst] [iburst] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [true] [xmtnonce]**</code>
 <code>**peer _address_ [key _key_ _|_ autokey] [version _version_] [prefer] [minpoll _minpoll_] [maxpoll _maxpoll_] [true] [xleave]**</code>
 <code>**broadcast _address_ [key _key_ _|_ autokey] [version _version_] [prefer] [minpoll _minpoll_] [ttl _ttl_] [xleave]**</code>
