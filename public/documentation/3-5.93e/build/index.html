@@ -9,7 +9,7 @@ Note that the automatic build process inspects the machine environment and tests
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/3-5.93e/build/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -155,7 +155,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Building and Installing the Distribution</h1> 
-    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://www.ntp.org/documentation/3-5.93e/build/#building-and-installing-under-unix">Building and Installing under Unix</a></li>
@@ -186,7 +186,7 @@ function demo() {
 <h4 id="installation">Installation</h4>
 <p>As root, use the <code>make install</code> command to install the binaries in the destination directory. You must of course have write permission on the install in the destination directory. This includes the programs <a href="https://www.ntp.org/documentation/3-5.93e/xntpd/">xntpd</a> (the daemon), <a href="https://www.ntp.org/documentation/3-5.93e/xntpdc/">xntpdc</a> (an <code>xntpd</code>-dependent query program), <a href="https://www.ntp.org/documentation/3-5.93e/ntpq/">ntpq</a> (a standard query program), <a href="https://www.ntp.org/documentation/3-5.93e/ntpdate/">ntpdate</a> (an <code>rdate</code> replacement for boot time date setting and sloppy time keeping) and <a href="https://www.ntp.org/documentation/3-5.93e/ntptrace/">ntptrace</a> (a utility useful to find the primary (stratum-1) servers). In some systems, the <a href="https://www.ntp.org/documentation/3-5.93e/tickadj/">tickadj</a> (a utility useful to adjust kernel variables) is installed. If the precision time kernel modifications are present, the <a href="https://www.ntp.org/documentation/3-5.93e/ntptime/">ntptime</a> (a utility useful to debug kernel time functions) is installed.</p>
 <p>You are now ready to configure the daemon and start it. You will need to create a NTP configuration file <code>ntp.conf</code> and possibly a cryptographic key file <code>ntp.keys</code>. Directions for doing that are in the <a href="https://www.ntp.org/documentation/3-5.93e/notes/">Notes on Configuring NTP and Setting up a NTP Subnet</a>. A tutorial on debugging technique is in <a href="https://www.ntp.org/documentation/3-5.93e/debug/">NTP Debugging Technique</a> page. If problems peculiar to the particular hardware and software environment are suspected, browse the <a href="https://www.ntp.org/documentation/3-5.93e/hints/">Hints and Kinks</a> page.</p>
-<p>Bug reports of a general nature can be sent to David Mills (<a href="mailto:mills@udel.edu">mills@udel.edu</a>). Bug reports of a specific nature on features implemented by the programmer corps mentioned in the <a href="https://www.ntp.org/documentation/3-5.93e/copyright/">Copyright</a> page should be sent directly to the implementor listed in that page, with copy to <a href="mailto:mills@udel.edu">mills@udel.edu</a>.</p>
+<p>Bug reports of a general nature should be <a href="https://bugs.ntp.org/">reported</a>. Bug reports of a specific nature on features implemented by the programmer corps mentioned in the <a href="https://www.ntp.org/documentation/3-5.93e/copyright/">Copyright</a> page should be sent directly to the implementor listed in that page.</p>
 <p><strong>Please include the version of the source distribution (e.g., xntp3-5.87) in your bug report.</strong></p>
 <p><strong>Please include the output of <code>config.guess</code> in your bug report.</strong></p>
 <p><strong>It will look something like: <code>pdp11-dec-fuzzos3.4</code></strong></p>

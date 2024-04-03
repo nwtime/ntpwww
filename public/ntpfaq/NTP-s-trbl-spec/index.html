@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-trbl-spec/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -143,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>8.3. Troubleshooting Specific Products</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>8.3.1 <a href="#831-pc-hardware">PC Hardware</a><br>
 8.3.1.1 <a href="#8311-how-accurate-is-the-cmos-clock">How accurate is the CMOS clock?</a><br>
 8.3.1.2 <a href="#8312-how-can-i-set-the-cmos-clock">How can I set the CMOS clock?</a><br>
@@ -192,7 +192,7 @@ function demo() {
 <hr>
 <h4 id="8314-how-can-smm-affect-interrupt-processing">8.3.1.4 How can SMM affect Interrupt Processing?</h4>
 <p>Let me quote an explanation written by <a href="mailto:phk@freebsd.dk">Poul-Henning Kamp</a> from the newsgroup:</p>
-<p>I was gathering some data for <a href="mailto:mills@udel.edu">Professor David L. Mills</a> today and they looked lousy to put it mildly; every 300-400 seconds I had a 40-50 microsecond peak in my data. After some debugging I know know what it was: the SMM mode interrupts to the BIOS.</p>
+<p>I was gathering some data for <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a> today and they looked lousy to put it mildly; every 300-400 seconds I had a 40-50 microsecond peak in my data. After some debugging I know know what it was: the SMM mode interrupts to the BIOS.</p>
 <p>This machine is brand new, and I had never put a PPS signal on it before. It uses the PIIX4 chip from Intel and appearantly the SMM BIOS gets called at regular (but not very precise) intervals to monitor temperatures and fans and whats not.</p>
 <p>Needless to say, this could not be disabled in the BIOS setup.</p>
 <p>I found out I could disable the SMI output from the PIIX4 to the CPU by clearing bit zero in the <code>GLBCTL</code> register in the third function of the 82371AB chip. You need to find the IO base address from register <code>0x40</code> in the PCI header, and add the <code>0x28</code> to that address. For my motherboard that ended up being <code>0xe428</code>, your mileage will vary, and you should &ldquo;Do The Right Thing&rdquo; to find this location.</p>

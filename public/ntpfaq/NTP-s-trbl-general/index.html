@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-trbl-general/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -143,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>8.2. General Issues</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>This section discusses problems that are independent of a specific operating system.</p>
 <p>8.2.1 <a href="#821-starting-running-querying">Starting, running, querying</a><br>
 8.2.1.1 <a href="#8211-how-can-i-check-that-ntpd-is-up-and-running">How can I check that ntpd is up and running?</a><br>
@@ -394,7 +394,7 @@ tickadj 10003</pre>
 <p>For the Solaris operating system the variable <code>nsec_per_tick</code> is in nanoseconds and can be modified using <code>adb</code> (thanks to Thomas Tornblom):</p>
 <p>The command <code>echo 'nsec_per_tick/W 0t10000900' |adb -w -k</code> makes the clock faster by 90 PPM, i.e. a drift value of 97 can be reduced to 7.</p>
 <p>For FreeBSD there are two sysctls that you can use, <code>machdep.i8254_freq</code> and <code>machdep.tsc_freq</code>. Use the one that is being used on your machine to tell FreeBSD what the frequency of your clock is. (according to John Hay)</p>
-<p>Changing the value of <code>tick</code> is considered an obsolete technology by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>, and the <code>tickadj</code> utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of <code>tick</code> to the default value when a PPS signal is detected.</p>
+<p>Changing the value of <code>tick</code> is considered an obsolete technology by <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a>, and the <code>tickadj</code> utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of <code>tick</code> to the default value when a PPS signal is detected.</p>
 <p>With this new strategy clock errors of up to 500 PPM can be corrected by the kernel clock machinery. Severely broken machines that really need <code>tickadj</code> should probably not run NTP.</p>
 <hr>
 <h4 id="8262-how-do-i-set-the-precision">8.2.6.2 How do I set the precision?</h4>
@@ -460,7 +460,7 @@ fi</pre>
 <hr>
 <h4 id="8276-sendto-overlapped-io-operation-is-in-progress">8.2.7.6 sendto: Overlapped I/O operation is in progress.</h4>
 <p>The exact cause of this message is not clear, but it seems some non-NTP applications also use port <code>123</code>. The IP address <code>192.0.0.192</code> is a strong indication for this.</p>
-<p>John Hay contributed the output of <code>nslookup 192.0.0.192</code>, namely <code>192.0.0.0-is-used-for-printservices-discovery----illegally.iana.net</code>, and <a href="mailto:mills@udel.edu">Professor David L. Mills</a> stated: &ldquo;Port 123 was assigned well before 1985 as per documented, but was in use probably from 1982.&rdquo; This means the address is not registered officially, and it should not be used. Also it seems some software for printers or printing is using that address together with NTP&rsquo;s port number.</p>
+<p>John Hay contributed the output of <code>nslookup 192.0.0.192</code>, namely <code>192.0.0.0-is-used-for-printservices-discovery----illegally.iana.net</code>, and <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a> stated: &ldquo;Port 123 was assigned well before 1985 as per documented, but was in use probably from 1982.&rdquo; This means the address is not registered officially, and it should not be used. Also it seems some software for printers or printing is using that address together with NTP&rsquo;s port number.</p>
 <p>Despite worrying some system administrator the message indicates no trouble. Specifically no printer is known to need a NTP server to operate, nor do printers and NTP servers harm each other.</p>
 
 	  

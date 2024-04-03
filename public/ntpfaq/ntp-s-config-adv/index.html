@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-config-adv/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2023-03-09T16:30:29&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -143,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>6.2. Advanced Configuration</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 9, 2023 16:30 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1bcba4b19beaee20e1c36047783993023ebfd20a">1bcba4b19</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>This section discusses advanced configuration options that are probably not needed for the average user. If you want to provide time service to a larger community, consider some of these topics.</p>
 <p>6.2.1 <a href="#621-server-selection">Server Selection</a><br>
 6.2.1.1 <a href="#6211-what-is-the-rule-of-thumb-for-number-of-servers-to-synchronize-to">What is the rule of thumb for number of servers to synchronize to?</a><br>
@@ -243,7 +243,7 @@ controlkey 15    # key (6) for accessing server variables</pre>
 <hr>
 <h4 id="6226-how-do-i-use-public-key-authentication-autokey">6.2.2.6. How do I use Public-Key Authentication (autokey)?</h4>
 <p>Refer to the examples in <a href="https://www.ntp.org/documentation/4.2.8-series/autokey/">Autokey Public-Key-Authentication</a> and <a href="https://www.ntp.org/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey">Q: 6.1.4.6</a>.</p>
-<p>The following example includes <a href="https://support.ntp.org/Support/ConfiguringAutokeyDev">advice</a> from <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>The following example includes <a href="https://support.ntp.org/Support/ConfiguringAutokeyDev">advice</a> from <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a>:</p>
 <blockquote>
 <p>Ensure you have a working NTP configuration before configuring Autokey!</p>
 </blockquote>
@@ -288,7 +288,7 @@ controlkey 15    # key (6) for accessing server variables</pre>
 <p>Multicasting is configured just like broadcasting, but instead of using a broadcast address, a <em>multicast group address</em> (class D) is used.</p>
 <hr>
 <h4 id="6235-what-is-manycasting">6.2.3.5 What is Manycasting?</h4>
-<p>This is an explanation by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>: &ldquo;Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn&rsquo;t make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list.&rdquo; (&hellip;) &ldquo;Only the <code>*</code> and <code>+</code> tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all.&rdquo;</p>
+<p>This is an explanation by <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a>: &ldquo;Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn&rsquo;t make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list.&rdquo; (&hellip;) &ldquo;Only the <code>*</code> and <code>+</code> tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all.&rdquo;</p>
 <p>So basically it&rsquo;s a mechanism to automatically configure servers on a nearby network. Compared to broadcasting and multicasting, manycasting uses the normal <code>server</code> keyword, but with a multicast group address (class D) on the client. Manycast servers use the keyword <code>manycastserver</code>. As for broadcasts and multicasts, manycast associations on the client may come and go over time.</p>
 <hr>
 <h4 id="624-pps-synchronization">6.2.4. PPS Synchronization</h4>

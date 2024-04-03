@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-compat/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -143,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>6.4. Compatibility</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>An ideal world has no compatibility issues. This section deals with known incompatibilities.</p>
 <p>6.4.1 <a href="#641-the-kernel-pll">The Kernel PLL</a><br>
 6.4.1.1 <a href="#6411-how-many-different-kernel-models-and-implementations-exist">How many different kernel models and implementations exist?</a><br>
@@ -172,12 +172,12 @@ function demo() {
 <p>The most recent version known as nanokernel has different semantics for the <code>time_constant</code>. When used with the old version 3 <code>xntpd</code> daemon, the PLL has a tendency to oscillate, because the damping is too low.</p>
 <p>When the old kernel implementation is used with the new version 4 daemon, the PLL is too stiff, causing a slow adjustment to frequency changes.</p>
 <p>When the NTPv4 daemon sets the <code>STA_NANO</code> bit, the old NTPv3 daemon gets completely confused by nanoseconds which are believed to be microseconds. As it seems, the daemon does not clear <code>STA_NANO</code> during startup, so the only solution is to reboot or clear that flag by other means.</p>
-<p><a href="mailto:mills@udel.edu">Professor David L. Mills</a> wrote:</p>
+<p><a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a> wrote:</p>
 <p>The old and new kernel code use different time constant ranges. The current <code>ntpd</code> and API do understand and adjust accordingly. The old <code>xntpd</code> will probably be off by a factor of 16 in the time constant. That is absolutely certain to cause unstable operation.</p>
 <p>If you have an even older implementation, you probably can&rsquo;t compile the daemon, or the daemon will not use the kernel PLL.</p>
 <hr>
 <h4 id="6414-is-the-linux-implementation-different">6.4.1.4 Is the Linux implementation different?</h4>
-<p>Yes, it is. One reason is that the original nanokernel was found to be broken with respect to <code>STA_PPSWANDER</code>. According to <a href="mailto:mills@udel.edu">Professor David L. Mills</a> the current nanokernel is no longer showing that defect:</p>
+<p>Yes, it is. One reason is that the original nanokernel was found to be broken with respect to <code>STA_PPSWANDER</code>. According to <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a> the current nanokernel is no longer showing that defect:</p>
 <p>Professor David L. Mills wrote: &ldquo;<code>MAXWANDER</code> is 100 in the current nanokernel, not 500. This value was adjusted due to simulation experience.&rdquo;</p>
 <p>When used with a PPS signal, the Linux implementation (as of PPSkit-0.7) also computes uncommon values for <code>tolerance</code> as I explained to Professor David L. Mills:</p>
 <p>Another feature is that the maximum error is limited in Linux: it&rsquo;s either 16s or 2s, depending on your version of the kernel. Whenever that value is reached, the <code>STA_UNSYNC</code> flag is set in the kernel clock.</p>

@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-algo-kernel/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -143,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>5.2. The Kernel Discipline</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>In addition to the NTP protocol specification, there exists a description for a kernel clock model (<a href="https://www.ntp.org/reflib/rfc/rfc1589.txt">RFC 1589</a>) that is discussed here.</p>
 <p>5.2.1 <a href="#521-basic-functionality">Basic Functionality</a><br>
 5.2.1.1 <a href="#5211-what-is-special-about-the-kernel-clock">What is special about the Kernel Clock?</a><br>
@@ -179,7 +179,7 @@ function demo() {
 <p>If you can find an include file named <code>timex.h</code> that contains a structure named <code>timex</code> and constants like <code>STA_PLL</code> and <code>STA_UNSYNC</code>, you probably have the kernel discipline implemented. To make sure, try using the <code>ntp_gettime()</code> system call.</p>
 <hr>
 <h4 id="5213-how-can-i-verify-the-kernel-discipline">5.2.1.3 How can I verify the Kernel Discipline?</h4>
-<p>The following guidelines were presented by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>The following guidelines were presented by <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a>:</p>
 <p>Feedback loops and in particular phase-lock loops and I go way, way back since the first time I built one as part of a frequency synthesizer project as a grad student in 1959. All the theory I could dredge up then convinced me they were evil, non-linear things and tamed only by experiment, breadboard and cut-and-try. Not so now, of course, but the cut-and-try still lives on. The essential lessons I learned back then and have forgotten and relearned every ten years or so are:</p>
 <ol>
 <li>Carefully calibrate the frequency to the control voltage and never forget it.</li>

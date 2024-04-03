@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-algo-real/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2022-06-27T16:22:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -143,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>5.3. NTP in real Life</h1> 
-    <p style="font-size: small; color: grey;">Last update: June 27, 2022 16:22 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1a7aee0a0bed1662a9f219fcaea42e57cff5d0b3">1a7aee0a0</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>This section discusses how well the theory applies to real life situations.</p>
 <p>5.3.1 <a href="#531-what-if-i-write-my-own-sntp-server">What if I write my own SNTP Server?</a><br>
 5.3.2 <a href="#532-why-should-i-have-more-than-one-clock">Why should I have more than one clock?</a><br>
@@ -151,7 +151,7 @@ function demo() {
 5.3.4 <a href="#534-what-happens-during-a-leap-second">What happens during a Leap Second?</a></p>
 <hr>
 <h4 id="531-what-if-i-write-my-own-sntp-server">5.3.1 What if I write my own SNTP Server?</h4>
-<p>There is a quote (with partial omissions) on that subject by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>There is a quote (with partial omissions) on that subject by <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a>:</p>
 <p>(&hellip;) The SNTP specification forbids operation as a server unless a primary server connected to a reference clock. (&hellip;)</p>
 <p>Running SNTP as a server is probably the single most serious hazard in the universe. You might not agree with the particular engineering design in my clock mitigation and discipline algorithms and security model but it is absolutely imperative that the correctness assertions be religiously observed. Even so, folks have come to expect a certain level of performance from the &ldquo;standard&rdquo; distribution which the algorithms are designed to achieve. These algorithms have purposely been omitted from the SNTP specification on the understanding that a SNTP server will always have a reference source and a SNTP client will never function as a server to dependent clients.</p>
 <p>I&rsquo;ve had a lotta years thinking about these models. There should be only two models. One, represented by SNTP, is intended for casual PCs and workstations where simplicity and ubiquity is intended. It has similar functionality as <code>date</code> and <code>rdate</code> and is totally stateless. The other, represented by NTP, is a widely understood, thoroughly researched and verified engineering design. The design should include a definitive specification and be rigidly implemented to spec so folks have a high level of confidence it does what the spec requires. I want only one such spec, not a plurality of specs and implementations that are not completely interoperable. The NTP subnet is not a community of distinct servers, but a intimately intertwined real-time coupled oscillators. Get one of these things wrong and large portions of the subnet could become unstable. Heck it happens once in a while, notwithstanding the recent bug.</p>

@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/debug/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-11-23T17:49:36&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Debugging Techniques</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 23, 2022 17:49 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1b4d24aef65c630791ad0f89d6c09ec258781c2c">1b4d24aef</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/pogo.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Pogo</em>, Walt Kelly</a></p>
@@ -175,7 +175,7 @@ function demo() {
 <p>The <code>ntpd</code> daemon can operate in two modes, depending on the presence of the <code>-d</code> command-line option. Without the option the daemon detaches from the controlling terminal and proceeds autonomously. With one or more <code>-d</code> options the daemon does not detach and generates special trace output useful for debugging. In general, interpretation of this output requires reference to the sources. However, a single <code>-d</code> does produce only mildly cryptic output and can be very useful in finding problems with configuration and network troubles.</p>
 <p>Some problems are immediately apparent when the daemon first starts running. The most common of these are the lack of a UDP port for NTP (123) in the Unix <code>/etc/services</code> file (or equivalent in some systems). <strong>Note that NTP does not use TCP in any form. Also note that NTP requires port 123 for both source and destination ports.</strong> These facts should be pointed out to firewall administrators.</p>
 <p>Other problems are apparent in the system log, which ordinarily shows the startup banner, some cryptic initialization data and the computed precision value. Event messages at startup and during regular operation are sent to the optional <code>protostats</code> monitor file, as described on the <a href="https://www.ntp.org/documentation/4.2.8-series/decode/">Event Messages and Status Words</a> page. These and other error messages are sent to the system log, as described on the <a href="https://www.ntp.org/documentation/4.2.8-series/msyslog/"><code>ntpd</code> System Log Messages</a> page. In real emergencies the daemon will send a terminal error message to the system log and then cease operation.</p>
-<p>The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file exists and that the address responds to the Unix <code>ping</code> command. The Unix <code>traceroute</code> or Windows <code>tracert</code> utility can be used to verify a partial or complete path exists. Most problems reported to the NTP newsgroup are not NTP problems, but problems with the network or firewall configuration.</p>
+<p>The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file exists and that the address responds to the Unix <code>ping</code> command. The Unix <code>traceroute</code> or Windows <code>tracert</code> utility can be used to verify a partial or complete path exists. Most problems reported to the <a href="https://lists.ntp.org/questions/">NTP questions mailing list</a> are not NTP problems, but problems with the network or firewall configuration.</p>
 <hr>
 <h4 id="verifying-correct-operation">Verifying Correct Operation</h4>
 <p>Unless using the <code>iburst</code> option, the client normally takes a few minutes to synchronize to a server. If the client time at startup happens to be more than 1000 s distant from NTP time, the daemon exits with a message to the system log directing the operator to manually set the time within 1000 s and restart. If the time is less than 1000 s but more than 128 s distant, a step correction occurs and the daemon restarts automatically.</p>

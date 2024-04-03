@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/ntpfaq/NTP-s-config/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="ntpfaq" />
 
-<meta property="article:modified_time" content="2023-03-09T16:30:29&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -143,7 +143,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>6. Configuration</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 9, 2023 16:30 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1bcba4b19beaee20e1c36047783993023ebfd20a">1bcba4b19</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>Configuration is a manual procedure that is necessary to get a running NTP system.</p>
 <p>6.1 <a href="#61-basic-configuration">Basic Configuration</a><br>
 6.1.1 <a href="#611-cant-i-just-run-ntpdate">Can&rsquo;t I just run ntpdate?</a><br>
@@ -173,7 +173,7 @@ function demo() {
 <h4 id="611-cant-i-just-run-ntpdate">6.1.1 Can&rsquo;t I just run ntpdate?</h4>
 <p><code>ntpdate</code> sets the system clock once and mostly in a brute way. As real clocks drift, you need periodic corrections. You can run <code>ntpdate</code> in a <code>cron</code> job hourly or daily, but your machine won&rsquo;t be an NTP server.</p>
 <p>In contrast, <code>ntpd</code> learns and remembers the clock drift and corrects it autonomously, even if there is no reachable server. Therefore large clock steps can be avoided while the machine is synchronized to some reference clock. In addition <code>ntpd</code> will maintain error estimates and statistics, and can offer NTP service for other machines. Last, but not least, <code>ntpdate</code> cannot query a local reference clock.</p>
-<p>In addition, there are plans to put the functionality of <code>ntpdate</code> into <code>ntpd</code>. Let me quote <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>In addition, there are plans to put the functionality of <code>ntpdate</code> into <code>ntpd</code>. Let me quote <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a>:</p>
 <p>Our zeal to deprecate <code>ntpdate</code> and friends like that is based entirely on our wish to eliminate redundant maintenance. The <code>ntpdate</code> program was crafted many years ago as a ripoff of <code>xntpd</code> with poorly adapted I/O, outdated algorithms and poor debugging support. If we can satisfy folks that <code>ntpd</code> with appropriate command line switch is the answer to their collective prayers, then we will scrap <code>ntpdate</code> and friend. It is in principle easy to modify <code>ntpd</code> to &ldquo;quickly&rdquo; set the clock; however, please do understand our reluctance to do that for the following reasons.</p>
 <p>Most folks who use <code>ntpdate</code> call it from a <code>cron</code> job at intervals of maybe a day. You would be surprised at how many do this at the stroke of midnight. We have observed little fireballs of congestion when that occurs, especially at the NIST and USNO servers which even in the best of times with polite <code>xntpd/ntpd</code> suffer an aggregate load of well over 40 packets per second. We really don&rsquo;t want clients to create volleys of congestion by transmitting as fast as the network will allow.</p>
 <p>The thrust of recent work on the NTPv4 protocols has not (with emphasis) been to improve accuracy - the nanokernel development is tangential and the only interlocking agenda has been to adapt the PPS interface to a standard acceptable to the kernel-mongers for the Alpha, SPARC and Intel platforms. However, it is indeed fair to characterize the work specific to NTPv4 as concentrating on the error mitigation algorithms to deal with the extraordinary range of network path characteristics encountered today. There also have been many incremental improvements, such as burst mode, that have resulted from various bug reports and suggestions.</p>
@@ -287,11 +287,11 @@ controlkey 15</pre>
 <p>To prevent everybody from changing the configuration of an NTP server, configuration items are protected by an authentication algorithm.</p>
 <hr>
 <h4 id="6145-what-are-all-the-different-keys-used-for">6.1.4.5 What are all the different Keys used for?</h4>
-<p>In addition to the example given in <a href="#6143-how-do-i-configure-remote-administration">Q: 6.1.4.3</a>, <a href="mailto:mills@udel.edu">Professor David L. Mills</a> states:</p>
+<p>In addition to the example given in <a href="#6143-how-do-i-configure-remote-administration">Q: 6.1.4.3</a>, <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a> states:</p>
 <p>Control keys are for the <code>ntpq</code> program and request keys are for the <code>ntpdc</code> program. The key file(s) define the cryptographic keys, but these must be activated individually using the <code>trustedkey</code> command. That last is so a single key file can be shared among a bunch of servers, but only certain ones used between pairwise symmetric mode servers. You are invited to cut this paragraph and paste it on the refrigerator door if it eases confusion.</p>
 <hr>
 <h4 id="6146-how-do-i-use-autokey">6.1.4.6 How do I use autokey?</h4>
-<p>NTPv4 manages authentication keys using the autokey mechanism. The following procedure had been given by <a href="mailto:mills@udel.edu">Professor David L. Mills</a>:</p>
+<p>NTPv4 manages authentication keys using the autokey mechanism. The following procedure had been given by <a href="https://www.nwtime.org/tribute-to-david-l-mills/">Professor David L. Mills</a>:</p>
 <ol>
 <li>A broadcast server needs to have a line like <code>broadcast 128.4.2.255 autokey</code>.</li>
 <li>The clients simply have <code>broadcastclient</code>.</li>

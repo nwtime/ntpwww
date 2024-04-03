@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/hints/decosf1/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-05-04T17:05:38&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>DEC OSF/1 Hints</h1> 
-    <p style="font-size: small; color: grey;">Last update: May 4, 2022 17:05 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/dbea9b7d4daf047a65cdfd64d621e7efa23484da">dbea9b7d4</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
 	<p>Some major changes were necessary to make <code>xntp</code> v3 run on the DEC Alpha hardware running DEC OSF/1.  All <code>long</code> and <code>u_long</code> declarations and casts in the code were changed to <code>LONG</code> and <code>U_LONG</code> and a new header file (<code>include/ntp_types.h</code>) was added.  The new header file defines <code>LONG</code> as <code>int</code> and <code>U_LONG</code> as <code>u_int</code> for the Alpha hardware and as <code>long</code> and <code>u_long</code> for anything else.  A couple of <code>#if</code>s where changed in <code>ntpq</code> and <code>xntpdc</code> to get the result of a signal defined correctly.  The <code>Config.decosf1</code> file built the programs here with no problems.</p>
 <p>I don&rsquo;t have a radio clock here, so none of that code has been tested. I have run <code>xntpd, xntpdc, xntpres, ntpq, ntpdate</code>, and <code>tickadj</code> under DEC OSF/1 v1.2-2 (BL10).</p>
 <pre>
@@ -167,10 +167,9 @@ hand.</p>
 <p>Don&rsquo;t use the <code>setup</code> utility to install or configure the <code>xntpd</code> installation, as it will cheerfully clobber your painstakingly crafted <code>ntp.conf</code> program. However, assuming you put this file in <code>/etc/ntp.conf</code>, you can use the <code>/sbin/init.d/xntpd</code> script to start and stop the daemon.</p>
 <p>This distribution compiles with nominal murmur with the stock <code>cc</code> compiler that comes with OSF/1.</p>
 <dl>
-<dt>Dave Mills</dt>
+<dt><a href="https://www.nwtime.org/tribute-to-david-l-mills/">Dave Mills</a></dt>
 <dd>Electrical Engineering Department</dd>
 <dd>Unibergisty of Delabunch</dd>
-<dd><a href="mailto:mills@udel.edu">mills@udel.edu</a></dd>
 </dl>
 
 	  
