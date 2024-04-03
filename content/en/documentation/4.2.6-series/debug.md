@@ -33,7 +33,7 @@ Some problems are immediately apparent when the daemon first starts running. The
 
 Other problems are apparent in the system log, which ordinarily shows the startup banner, some cryptic initialization data and the computed precision value. Event messages at startup and during regular operation are sent to the optional <code>protostats</code> monitor file, as described on the [Event Messages and Status Words](/documentation/4.2.6-series/decode/) page. These and other error messages are sent to the system log, as described on the [<code>ntpd</code> System Log Messages](/documentation/4.2.6-series/msyslog/) page. In real emergencies the daemon will sent a terminal error message to the system log and then cease operation.
 
-The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file exists and that the address responds to the Unix <code>ping</code> command. The Unix <code>traceroute</code> or Windows <code>tracert</code> utility can be used to verify a partial or complete path exists. Most problems reported to the NTP newsgroup are not NTP problems, but problems with the network or firewall configuration.
+The next most common problem is incorrect DNS names. Check that each DNS name used in the configuration file exists and that the address responds to the Unix <code>ping</code> command. The Unix <code>traceroute</code> or Windows <code>tracert</code> utility can be used to verify a partial or complete path exists. Most problems reported to the [NTP questions mailing list](https://lists.ntp.org/questions/) are not NTP problems, but problems with the network or firewall configuration.
 
 * * *
 

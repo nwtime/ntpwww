@@ -49,7 +49,7 @@ When the old kernel implementation is used with the new version 4 daemon, the PL
 
 When the NTPv4 daemon sets the `STA_NANO` bit, the old NTPv3 daemon gets completely confused by nanoseconds which are believed to be microseconds. As it seems, the daemon does not clear `STA_NANO` during startup, so the only solution is to reboot or clear that flag by other means.
 
-[Professor David L. Mills](mailto:mills@udel.edu) wrote:
+[Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) wrote:
 
 The old and new kernel code use different time constant ranges. The current `ntpd` and API do understand and adjust accordingly. The old `xntpd` will probably be off by a factor of 16 in the time constant. That is absolutely certain to cause unstable operation.
 
@@ -59,7 +59,7 @@ If you have an even older implementation, you probably can't compile the daemon,
 
 #### 6.4.1.4 Is the Linux implementation different?
 
-Yes, it is. One reason is that the original nanokernel was found to be broken with respect to `STA_PPSWANDER`. According to [Professor David L. Mills](mailto:mills@udel.edu) the current nanokernel is no longer showing that defect:
+Yes, it is. One reason is that the original nanokernel was found to be broken with respect to `STA_PPSWANDER`. According to [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) the current nanokernel is no longer showing that defect:
 
 Professor David L. Mills wrote: "`MAXWANDER` is 100 in the current nanokernel, not 500. This value was adjusted due to simulation experience."
 

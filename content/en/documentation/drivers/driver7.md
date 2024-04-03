@@ -3,7 +3,7 @@ title: "Radio CHU Audio Demodulator/Decoder"
 description: "The Radio CHU Audio Demodulator/Decoder driver synchronizes the computer time using shortwave radio transmissions from Canadian time/frequency station CHU in Ottawa, Ontario."
 type: archives
 ---
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

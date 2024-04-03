@@ -104,7 +104,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 * Louis A. Mamakos: MD5-based authentication
 * [Lars H. Mathiesen](mailto:thorinn@diku.dk) adaptation of foundation code for Version 3 as specified in RFC-1305
 * [Danny Mayer](mailto:mayer@ntp.org) Network I/O, Windows Port, Code Maintenance
-* [David L. Mills](mailto:mills@udel.edu) Version 4 foundation, precision kernel; clock drivers: 1, 3, 4, 6, 7, 11, 13, 18, 19, 22, 36
+* [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) Version 4 foundation, precision kernel; clock drivers: 1, 3, 4, 6, 7, 11, 13, 18, 19, 22, 36
 * Wolfgang Moeller: VMS port
 * Jeffrey Mogul: ntptrace utility
 * Tom Moore: i386 svr4 port

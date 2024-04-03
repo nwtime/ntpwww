@@ -66,7 +66,7 @@ There are several possibilities for Linux besides using the BIOS:
 
 Let me quote an explanation written by [Poul-Henning Kamp](mailto:phk@freebsd.dk) from the newsgroup:
 
-I was gathering some data for [Professor David L. Mills](mailto:mills@udel.edu) today and they looked lousy to put it mildly; every 300-400 seconds I had a 40-50 microsecond peak in my data. After some debugging I know know what it was: the SMM mode interrupts to the BIOS.
+I was gathering some data for [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) today and they looked lousy to put it mildly; every 300-400 seconds I had a 40-50 microsecond peak in my data. After some debugging I know know what it was: the SMM mode interrupts to the BIOS.
 
 This machine is brand new, and I had never put a PPS signal on it before. It uses the PIIX4 chip from Intel and appearantly the SMM BIOS gets called at regular (but not very precise) intervals to monitor temperatures and fans and whats not.
 

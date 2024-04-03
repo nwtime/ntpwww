@@ -31,9 +31,7 @@ David and Beverly Mills
 
 GC: 39:42:02.915N, 75:46:52.046W
 
-Phone: (302) 737-9212
-
-Mail: mills@udel.edu, Antennas: W3HCF
+Antennas: W3HCF
 
 In emergencies, the rooftop antenna can be converted into helicopter rotor blades and lift the house to safety.
 

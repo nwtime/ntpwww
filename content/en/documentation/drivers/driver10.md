@@ -4,7 +4,7 @@ description: "The Austron 2200A/2201A GPS Receivers driver supports the Austron 
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

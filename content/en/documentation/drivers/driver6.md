@@ -4,7 +4,7 @@ description: "The IRIG Audio Decoder driver synchronizes the computer time using
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

@@ -42,7 +42,7 @@ This section discusses basic configuration issues for `ntpd`, hopefully covering
 
 In contrast, `ntpd` learns and remembers the clock drift and corrects it autonomously, even if there is no reachable server. Therefore large clock steps can be avoided while the machine is synchronized to some reference clock. In addition `ntpd` will maintain error estimates and statistics, and can offer NTP service for other machines. Last, but not least, `ntpdate` cannot query a local reference clock.
 
-In addition, there are plans to put the functionality of `ntpdate` into `ntpd`. Let me quote [Professor David L. Mills](mailto:mills@udel.edu):
+In addition, there are plans to put the functionality of `ntpdate` into `ntpd`. Let me quote [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/):
 
 Our zeal to deprecate `ntpdate` and friends like that is based entirely on our wish to eliminate redundant maintenance. The `ntpdate` program was crafted many years ago as a ripoff of `xntpd` with poorly adapted I/O, outdated algorithms and poor debugging support. If we can satisfy folks that `ntpd` with appropriate command line switch is the answer to their collective prayers, then we will scrap `ntpdate` and friend. It is in principle easy to modify `ntpd` to "quickly" set the clock; however, please do understand our reluctance to do that for the following reasons.
 
@@ -230,7 +230,7 @@ To prevent everybody from changing the configuration of an NTP server, configura
 
 #### 6.1.4.5 What are all the different Keys used for?
 
-In addition to the example given in [Q: 6.1.4.3](#6143-how-do-i-configure-remote-administration), [Professor David L. Mills](mailto:mills@udel.edu) states:
+In addition to the example given in [Q: 6.1.4.3](#6143-how-do-i-configure-remote-administration), [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) states:
 
 Control keys are for the `ntpq` program and request keys are for the `ntpdc` program. The key file(s) define the cryptographic keys, but these must be activated individually using the `trustedkey` command. That last is so a single key file can be shared among a bunch of servers, but only certain ones used between pairwise symmetric mode servers. You are invited to cut this paragraph and paste it on the refrigerator door if it eases confusion.
 
@@ -238,7 +238,7 @@ Control keys are for the `ntpq` program and request keys are for the `ntpdc` pro
 
 #### 6.1.4.6 How do I use autokey?
 
-NTPv4 manages authentication keys using the autokey mechanism. The following procedure had been given by [Professor David L. Mills](mailto:mills@udel.edu):
+NTPv4 manages authentication keys using the autokey mechanism. The following procedure had been given by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/):
 
 1.  A broadcast server needs to have a line like `broadcast 128.4.2.255 autokey`.
 2.  The clients simply have `broadcastclient`.

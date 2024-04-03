@@ -4,7 +4,7 @@ description: "The NIST/USNO/PTB Modem Time Services driver supports the US (NIST
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

@@ -4,7 +4,7 @@ description: "The PPS Clock Discipline driver furnishes an interface for the pul
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

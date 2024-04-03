@@ -4,7 +4,7 @@ description: "The Undisciplined Local Clock driver is intended for use in an iso
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

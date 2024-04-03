@@ -424,7 +424,7 @@ This is an alphabetical list of contributors:
 * [Mark Martinec](mailto:mark.martinec@ijs.si)
 * [Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com)
 * [Frank Mayhar](mailto:frank@exit.com)
-* [Professor David L. Mills](mailto:mills@udel.edu)
+* [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 * [Nelson Minar](mailto:nelson@media.mit.edu)
 * Jeffrey Mogul
 * Hal Murray

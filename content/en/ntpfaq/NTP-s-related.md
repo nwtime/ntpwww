@@ -22,11 +22,11 @@ This section presents some background information and other related stuff that o
 
 #### 9.1.1 What is Mills-speak?
 
-Most people using NTP know that it has been invented by [Professor David L. Mills](mailto:mills@udel.edu). So they frequently address him to solve their problems. Unfortunately they mostly don't know about Mills-speak, the language used by the aforementioned person. To avoid some disappointment, I'll give a small example of Mills-speak.
+Most people using NTP know that it has been invented by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/). So they frequently address him to solve their problems. Unfortunately they mostly don't know about Mills-speak, the language used by the aforementioned person. To avoid some disappointment, I'll give a small example of Mills-speak.
 
 **Example 9.1a: Mills-speak**
 
-Someone once had the misconception that the thing referred to as "nanokernel" was a kernel even smaller than a "microkernel". Forwarding the problem to [Professor David L. Mills](mailto:mills@udel.edu), the answer was:
+Someone once had the misconception that the thing referred to as "nanokernel" was a kernel even smaller than a "microkernel". Forwarding the problem to [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/), the answer was:
 
 "A nanokernel is a species of korn. Korn is grown on Jupiter as a dietary supplement by the Nanos, a prehistoric people of predominantly aquatic descent. The ancient enemy of the Nanos are the Micros, who also grow a variety of korn. Their variety is closely related to the eggplant of today, although we know the eggplant is distantly related to chickens. In Micro mythology, chickens farm fields of eggplants that are specially grafted to korn and eventually evolve and emerge as hackers. Both Nanos and Micros prize hackers, which when planted in fields of chicken manure greatly vex the environmental authorities, since the confluence of the two peoples generally degenerate to clouds of messy, smelly swamp gas."
 
@@ -144,9 +144,9 @@ There are various sources of information about NTP. The following list is defini
 
 *   This NTP website has a lot of information about NTP and related topics.
 *   There is also the [NTP Support Wiki](https://support.ntp.org).
-*   One of the oldest sources of useful information is the newsgroup news://comp.protocols.time.ntp. That newsgroup is visited by many beginners as well as a few experts, and occasionally even the father of NTP will post a note there.
+*   One of the oldest sources of useful information is the [NTP questions mailing list](https://lists.ntp.org/questions/). That list is visited by many beginners as well as a few experts, and occasionally even the father of NTP posted a note there.
 *   The page [Time, with focus on NTP and Slovenia](https://www.ijs.si/time/) contains a good summary of time synchronization using NTP as well as valuable references. The author allowed inclusion of his material into this FAQ. I really appreciate that.
-*   Technical papers by [Professor David L. Mills](mailto:mills@udel.edu) are available in the [Reference Library](/reflib/).
+*   Technical papers by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) are available in the [Reference Library](/reflib/).
 *   Various [RFCs deal with NTP](/reflib/rfc/). While newer RFCs obsolete older ones, it might still be interesting to read the older ones.
 
 **Table 9.1a: Some RFCs related to NTP**

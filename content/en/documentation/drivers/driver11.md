@@ -4,7 +4,7 @@ description: "The Arbiter 1088A/B GPS Receiver driver supports the Arbiter 1088A
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

@@ -4,7 +4,7 @@ description: "The Spectracom WWVB/GPS Receivers driver supports all known Spectr
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu) 
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) 
 
 * * *
 

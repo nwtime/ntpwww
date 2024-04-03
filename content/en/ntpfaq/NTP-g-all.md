@@ -5,7 +5,7 @@ type: "archives"
 ---
 
 anal-retentive programmer
-: Probably the opposite of the famous "real programmer", used by [Professor David L. Mills](mailto:mills@udel.edu).
+: Probably the opposite of the famous "real programmer", used by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/).
 
 AM
 : Amplitude Modulation. Information is encoded in the strength of the signal.

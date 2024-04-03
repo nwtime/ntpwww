@@ -49,7 +49,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 18.  Louis A. Mamakos: MD5-based authentication  
 19.  Derek Mulcahy and [Damon Hart-Davis](mailto:d@hd.org) ARCRON MSF clock driver  
 20.  [Lars H. Mathiesen](mailto:thorinn@diku.dk) adaptation of foundation code for Version 3 as specified in RFC-1305  
-21.  [David L. Mills](mailto:mills@udel.edu) Spectractom WWVB, Austron GPS, Arbiter GPS, Heath, ATOM, ACTS, KSI/Odetics IRIG-B clock drivers; PPS support  
+21.  [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) Spectractom WWVB, Austron GPS, Arbiter GPS, Heath, ATOM, ACTS, KSI/Odetics IRIG-B clock drivers; PPS support  
 22.  Wolfgang Moeller: VMS port  
 23.  Jeffrey Mogul: ntptrace utility  
 24.  Tom Moore: i386 svr4 port  
