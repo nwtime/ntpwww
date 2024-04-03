@@ -4,7 +4,7 @@ description: "The PSTI/Traconex 1020 WWV/WWVH Receiver driver supports the PSTI 
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

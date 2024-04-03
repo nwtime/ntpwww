@@ -21,7 +21,7 @@ This section tries to introduce and explain the most basic features of NTP, the 
 
 #### 4.1.1 What is NTP?
 
-NTP stands for Network Time Protocol, and it is an Internet protocol used to synchronize the clocks of computers to some time reference. NTP is an Internet standard protocol originally developed by [Professor David L. Mills](mailto:mills@udel.edu) at the University of Delaware.
+NTP stands for Network Time Protocol, and it is an Internet protocol used to synchronize the clocks of computers to some time reference. NTP is an Internet standard protocol originally developed by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) at the University of Delaware.
 
 * * *
 
@@ -91,7 +91,7 @@ See also [Section 6.4 Compatibility](/ntpfaq/ntp-s-compat/).
 
 #### 4.1.8 What's the difference between xntp and ntp?
 
-Obviously the difference is an `x`, and its meaning some years ago was (according to [Professor David L. Mills](mailto:mills@udel.edu)):
+Obviously the difference is an `x`, and its meaning some years ago was (according to [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)):
 
 Dennis Fergusson intended the `x` as "experimental". I got maybe twenty messages over the years suggesting the `x` was not appropriate for code in use over a decade and I dropped it for NTPv4. See the paper on [NTP history](/reflib/memos/hist.txt).
 

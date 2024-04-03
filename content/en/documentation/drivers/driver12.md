@@ -4,7 +4,7 @@ description: "The KSI/Odetics TPRO/S IRIG Interface driver supports the KSI/Odet
 type: archives
 ---
 
-Author: [David L. Mills](mailto:mills@udel.edu)
+Author: [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 
 * * *
 

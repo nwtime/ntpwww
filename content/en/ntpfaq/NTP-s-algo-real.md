@@ -15,7 +15,7 @@ This section discusses how well the theory applies to real life situations.
 
 #### 5.3.1 What if I write my own SNTP Server?
 
-There is a quote (with partial omissions) on that subject by [Professor David L. Mills](mailto:mills@udel.edu):
+There is a quote (with partial omissions) on that subject by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/):
 
 (...) The SNTP specification forbids operation as a server unless a primary server connected to a reference clock. (...)
 

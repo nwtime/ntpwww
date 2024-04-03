@@ -13,4 +13,4 @@ is to replace the 4.1.1 binary `clock.o` with the corresponding 4.1.3 binary. Wi
 The `tickadj` option will work in all cases except when the kernel has been modified to correct the CPU clock oscillator frequency using a 1-pps signal from a precision source. The bugfix must be installed for
 this wrinkle to work properly.
 
-Dave Mills (mills@udel.edu)
+[Dave Mills](https://www.nwtime.org/tribute-to-david-l-mills/)

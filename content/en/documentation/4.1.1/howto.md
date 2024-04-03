@@ -40,7 +40,7 @@ The general organization of a typical clock driver includes a receive-interrupt 
 
 The <code>refclock_transmit()</code> routine in the interface is called by the system at intervals defined by the poll interval in the peer structure, generally 64 s. This routine in turn calls the transmit poll routine in the driver. In the intended design, the driver calls the <code>refclock_receive()</code> to process the offset samples that have accumulated since the last poll and produce the final offset and variance. The samples are processed by recursively discarding median outlyers until about 60 percent of samples remain, then averaging the surviving samples. When a reference clock must be explicitly polled to produce a timecode, the driver can reset the poll interval so that the poll routine is called a specified number of times at 1-s intervals.
 
-The interface code and this documentation have been developed over some time and required not a little hard work converting old drivers, etc. Should you find success writing a driver for a new radio or modem service, please consider contributing it to the common good. Send the driver file itself and patches for the other files to Dave Mills (mills@udel.edu).
+The interface code and this documentation have been developed over some time and required not a little hard work converting old drivers, etc. Should you find success writing a driver for a new radio or modem service, please consider contributing it to the common good.
 
 #### Conventions, Fudge Factors and Flags
 

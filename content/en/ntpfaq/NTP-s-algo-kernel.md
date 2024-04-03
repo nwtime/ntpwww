@@ -48,7 +48,7 @@ If you can find an include file named `timex.h` that contains a structure named 
 
 #### 5.2.1.3 How can I verify the Kernel Discipline?
 
-The following guidelines were presented by [Professor David L. Mills](mailto:mills@udel.edu):
+The following guidelines were presented by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/):
 
 Feedback loops and in particular phase-lock loops and I go way, way back since the first time I built one as part of a frequency synthesizer project as a grad student in 1959. All the theory I could dredge up then convinced me they were evil, non-linear things and tamed only by experiment, breadboard and cut-and-try. Not so now, of course, but the cut-and-try still lives on. The essential lessons I learned back then and have forgotten and relearned every ten years or so are:
 

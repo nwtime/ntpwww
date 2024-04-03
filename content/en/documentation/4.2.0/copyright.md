@@ -63,7 +63,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 29.  Louis A. Mamakos: MD5-based authentication
 30.  [Lars H. Mathiesen](mailto:thorinn@diku.dk) adaptation of foundation code for Version 3 as specified in RFC-1305
 31.  [Danny Mayer](mailto:mayer@ntp.org)Network I/O, Windows Port, Code Maintenance
-32.  [David L. Mills](mailto:mills@udel.edu) Version 4 foundation: clock discipline, authentication, precision kernel; clock drivers: Spectracom, Austron, Arbiter, Heath, ATOM, ACTS, KSI/Odetics; audio clock drivers: CHU, WWV/H, IRIG
+32.  [David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) Version 4 foundation: clock discipline, authentication, precision kernel; clock drivers: Spectracom, Austron, Arbiter, Heath, ATOM, ACTS, KSI/Odetics; audio clock drivers: CHU, WWV/H, IRIG
 33.  Wolfgang Moeller: VMS port
 34.  Jeffrey Mogul: ntptrace utility
 35.  Tom Moore: i386 svr4 port

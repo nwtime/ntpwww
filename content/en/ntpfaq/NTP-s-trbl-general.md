@@ -334,7 +334,7 @@ The command `echo 'nsec_per_tick/W 0t10000900' |adb -w -k` makes the clock faste
 
 For FreeBSD there are two sysctls that you can use, `machdep.i8254_freq` and `machdep.tsc_freq`. Use the one that is being used on your machine to tell FreeBSD what the frequency of your clock is. (according to John Hay)
 
-Changing the value of `tick` is considered an obsolete technology by [Professor David L. Mills](mailto:mills@udel.edu), and the `tickadj` utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of `tick` to the default value when a PPS signal is detected.
+Changing the value of `tick` is considered an obsolete technology by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/), and the `tickadj` utility will probably be missing in future releases of the NTP software. Even now the latest kernel clock model silently resets the values of `tick` to the default value when a PPS signal is detected.
 
 With this new strategy clock errors of up to 500 PPM can be corrected by the kernel clock machinery. Severely broken machines that really need `tickadj` should probably not run NTP.
 
@@ -442,6 +442,6 @@ Using `adjtime()` your system clock can be corrected by [some amount of time](/n
 
 The exact cause of this message is not clear, but it seems some non-NTP applications also use port `123`. The IP address `192.0.0.192` is a strong indication for this.
 
-John Hay contributed the output of `nslookup 192.0.0.192`, namely `192.0.0.0-is-used-for-printservices-discovery----illegally.iana.net`, and [Professor David L. Mills](mailto:mills@udel.edu) stated: "Port 123 was assigned well before 1985 as per documented, but was in use probably from 1982." This means the address is not registered officially, and it should not be used. Also it seems some software for printers or printing is using that address together with NTP's port number.
+John Hay contributed the output of `nslookup 192.0.0.192`, namely `192.0.0.0-is-used-for-printservices-discovery----illegally.iana.net`, and [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/) stated: "Port 123 was assigned well before 1985 as per documented, but was in use probably from 1982." This means the address is not registered officially, and it should not be used. Also it seems some software for printers or printing is using that address together with NTP's port number.
 
 Despite worrying some system administrator the message indicates no trouble. Specifically no printer is known to need a NTP server to operate, nor do printers and NTP servers harm each other.

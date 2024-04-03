@@ -99,7 +99,7 @@ bf: Bill Foster <bill@kryten.kryten.com>
 jmj: Jim Jagielski
 kd: Frank Kardel
 tl: Tony Lill <ajlill@tlill.hookup.net>
-dm: David Mills <mills@udel.edu>
+dm: David Mills
 tm: Tom Moore
 ao: Alexandre Oliva <oliva@dcc.unicamp.br>
 ras: Ray Schnitzler <schnitz@unipress.com>

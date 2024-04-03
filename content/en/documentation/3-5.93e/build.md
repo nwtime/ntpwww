@@ -51,7 +51,7 @@ As root, use the <code>make install</code> command to install the binaries in th
 
 You are now ready to configure the daemon and start it. You will need to create a NTP configuration file <code>ntp.conf</code> and possibly a cryptographic key file <code>ntp.keys</code>. Directions for doing that are in the [Notes on Configuring NTP and Setting up a NTP Subnet](/documentation/3-5.93e/notes/). A tutorial on debugging technique is in [NTP Debugging Technique](/documentation/3-5.93e/debug/) page. If problems peculiar to the particular hardware and software environment are suspected, browse the [Hints and Kinks](/documentation/3-5.93e/hints/) page. 
 
-Bug reports of a general nature can be sent to David Mills (mills@udel.edu). Bug reports of a specific nature on features implemented by the programmer corps mentioned in the [Copyright](/documentation/3-5.93e/copyright/) page should be sent directly to the implementor listed in that page, with copy to mills@udel.edu.
+Bug reports of a general nature should be [reported](https://bugs.ntp.org/). Bug reports of a specific nature on features implemented by the programmer corps mentioned in the [Copyright](/documentation/3-5.93e/copyright/) page should be sent directly to the implementor listed in that page.
 
 **Please include the version of the source distribution (e.g., xntp3-5.87) in your bug report.** 
  

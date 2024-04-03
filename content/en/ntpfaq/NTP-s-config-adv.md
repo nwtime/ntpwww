@@ -147,7 +147,7 @@ Yes and No. You can dynamically add servers that use authentication keys, and yo
 
 Refer to the examples in [Autokey Public-Key-Authentication](/documentation/4.2.8-series/autokey/) and [Q: 6.1.4.6](/ntpfaq/ntp-s-config/#6146-how-do-i-use-autokey). 
 
-The following example includes [advice](https://support.ntp.org/Support/ConfiguringAutokeyDev) from [Professor David L. Mills](mailto:mills@udel.edu):
+The following example includes [advice](https://support.ntp.org/Support/ConfiguringAutokeyDev) from [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/):
 
 > Ensure you have a working NTP configuration before configuring Autokey!
 
@@ -201,7 +201,7 @@ Multicasting is configured just like broadcasting, but instead of using a broadc
 
 #### 6.2.3.5 What is Manycasting?
 
-This is an explanation by [Professor David L. Mills](mailto:mills@udel.edu): "Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn't make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list." (...) "Only the `*` and `+` tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all."
+This is an explanation by [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/): "Manycast only works in multicast mode. It uses an expanding-ring search by adjusting the TTL field. This doesn't make sense in broadcast mode, since broadcast packets do not span subnets. It might in fact be useful to implement manycast in broadcast mode without the search, but that is rather far down the to-do list." (...) "Only the `*` and `+` tattletales indicate a candidate survivor. Note that one of your servers is in process of going away, another coming onboard. This is a normal situation when first coming up and when the signatures are refreshed once per day. I assume you are using autokey; if not, no promises at all."
 
 So basically it's a mechanism to automatically configure servers on a nearby network. Compared to broadcasting and multicasting, manycasting uses the normal `server` keyword, but with a multicast group address (class D) on the client. Manycast servers use the keyword `manycastserver`. As for broadcasts and multicasts, manycast associations on the client may come and go over time.
 

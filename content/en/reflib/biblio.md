@@ -35,7 +35,7 @@ Abali, B.
 : [Marzullo, Keith](mailto:marzullo@cs.cornell.edu)
 : Mattern, Friedemann
 : McCallum, Doug
-: [Mills, Dave](mailto:mills@udel.edu)
+: [Mills, Dave](https://www.nwtime.org/tribute-to-david-l-mills/)
 : [Neiger, Gil](mailto:gil@cc.gatech.edu)
 : [Partridge. Craig](mailto:craig@sics.se)
 : Plumb, Colin

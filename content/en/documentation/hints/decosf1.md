@@ -24,7 +24,6 @@ Don't use the `setup` utility to install or configure the `xntpd` installation, 
 
 This distribution compiles with nominal murmur with the stock `cc` compiler that comes with OSF/1.
 
-Dave Mills
+[Dave Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 : Electrical Engineering Department
 : Unibergisty of Delabunch
-: mills@udel.edu
