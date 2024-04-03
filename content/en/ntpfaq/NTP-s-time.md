@@ -21,7 +21,7 @@ This quote from a fortune cookie from Edition 7: "Time has been invented in the 
 
 There's another interesting relation between time and change: There is no change without the concept of time, and there is no movement without time.
 
-[Philippe Eveque](mailto:philippe_eveque@grenoble.hp.com) contributed:
+Philippe Eveque contributed:
 
 Nobody can tell what Time is. However everybody does know its effects. Time implies memory and this is specially strange to consider this, in the context of computer science. Reversely does memory implies time in some way?
 

@@ -34,7 +34,7 @@ date: "2018-02-27"
 	<tr>
 		<th><b>CVSS3 Score<b></th>
 		<td>LOW 3.1</td>
-		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=(AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L)">CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L</a><br> This could score between 2.6 and 3.1.</td>
+		<td><a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L">CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L</a><br> This could score between 2.6 and 3.1.</td>
 	</tr>	
   </tbody>	
 </table>

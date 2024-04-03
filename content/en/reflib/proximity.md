@@ -118,7 +118,7 @@ Questions remain on how to implement this method as a practical matter. Computin
 
 #### Further Reading
 
-[Basics of Space Flight](https://solarsystem.nasa.gov/basics/)
+[Basics of Space Flight](https://science.nasa.gov/learn/basics-of-space-flight/)
 
 [Rocket and Space Technology: Orbital Mechanics](http://www.braeunig.us/space/orbmech.htm)
 

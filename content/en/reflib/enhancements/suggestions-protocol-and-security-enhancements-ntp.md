@@ -7,7 +7,7 @@ type: archives
 
 **[David L. Mills](https://www.nwtime.org/bio/david-l-mills/) (author)**
 
-**[Harlan Stenn](https://www.nwtime.org/bio/harlan-stenn) (editor)**
+**[Harlan Stenn](https://www.nwtime.org/bio/harlan-stenn/) (editor)**
 
 #### Abstract
 
@@ -475,7 +475,7 @@ The virtual timescale should never be used for transmitted packets; to do so can
 
 5. Mills, D.L. [Network Time Protocol (Version 3) Specification, Implementation and Analysis. Network Working Group Report RFC 1305](/reflib/rfc/rfc1305/rfc1305b.pdf), University of Delaware, March 1992, 113 pp.
 
-6. [White papers](/reflib/papers) on the design and implementation of NTP servers and clients.
+6. [White papers](/reflib/papers/) on the design and implementation of NTP servers and clients.
 
 7. Mills, D.L. [A kernel model for precision timekeeping. Network Working Group Report RFC 1589](/reflib/rfc/rfc1589.txt), University of Delaware, March 1994. 31 pp. ASCII.
 

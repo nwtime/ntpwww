@@ -400,7 +400,7 @@ This is an alphabetical list of contributors:
 * John K. Doyle, Jr.
 * [Daniel Drucker](mailto:ddrucker@easylink.com)
 * [Arthur Darren Dunham](mailto:add@netcom.com)
-* [Philippe Eveque](mailto:philippe_eveque@grenoble.hp.com)
+* Philippe Eveque
 * [J&#252;rgen Georgi](mailto:georgi@BelWue.DE)
 * [Tim Granger](mailto:Tim.Granger@cl.cam.ac.uk)
 * [Benjamin Greenwald](mailto:beng@lcs.mit.edu)

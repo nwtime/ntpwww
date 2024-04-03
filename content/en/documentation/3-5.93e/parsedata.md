@@ -290,7 +290,7 @@ The ELV DCF7000 is a cheap DCF77 receiver sending each second a time code (thoug
 
 #### HOPF 6021 und Kompatible
 
-HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl <frank@comsys.dofn.de> from clk_rcc8000.c Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.
+HOPF Funkuhr 6021 mit serieller Schnittstelle Created by F.Schnekenbuehl from clk_rcc8000.c Nortel DASA Network Systems GmbH, Department: ND250 A Joint venture of Daimler-Benz Aerospace and Nortel.
 
 <pre> hopf Funkuhr 6021 
       used with 9600,8N1,
