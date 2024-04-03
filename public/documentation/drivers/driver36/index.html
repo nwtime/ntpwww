@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver36/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2024-04-03T16:42:24&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T18:24:45&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Radio WWV/H Audio Demodulator/Decoder</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 3, 2024 16:42 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/f170361b72193f7af81935c6c0a4afda96793f0d">f170361b7</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 18:24 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/fe4830d85fe98bb3fb95b9340cbf3960bc54411a">fe4830d85</a>)</p>
 	<p>Author: <a href="https://www.nwtime.org/tribute-to-david-l-mills/">David L. Mills</a></p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
@@ -189,7 +189,7 @@ function demo() {
 <p>This driver incorporates several features in common with other audio drivers such as described in the <a href="https://www.ntp.org/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder</a> and the <a href="https://www.ntp.org/documentation/drivers/driver6/">IRIG Audio Decoder</a> pages. They include automatic gain control (AGC), selectable audio codec port and signal monitoring capabilities. For a discussion of these common features, as well as a guide to hookup, debugging and monitoring, see the <a href="https://www.ntp.org/documentation/4.2.8-series/audio/">Reference Clock Audio Drivers</a> page.</p>
 <hr>
 <h4 id="technical-overview">Technical Overview</h4>
-<p>The driver processes 8-kHz μ-law companded codec samples using maximum-likelihood techniques which exploit the considerable degree of redundancy available in the broadcast signal. The WWV signal format is described in <a href="https://www.nist.gov/system/files/documents/2017/04/28/SP-432-NIST-Time-and-Frequency-Services-2012-02-13.pdf">NIST Special Publication 432</a> and at the <a href="https://www.nist.gov/time-distribution/radio-station-wwv/wwv-and-wwvh-digital-time-code-and-broadcast-format">WWV/H web site</a>. It consists of three elements, a 5-ms, 1000-Hz pulse, which occurs at the beginning of each second, a 800-ms, 1000-Hz pulse, which occurs at the beginning of each minute, and a pulse-width modulated 100-Hz subcarrier for the data bits, one bit per second. The WWVH format is identical, except that the 1000-Hz pulses are sent at 1200 Hz. Each minute encodes nine BCD digits for the time of century plus seven bits for the daylight savings time (DST) indicator, leap warning indicator and DUT1 correction.</p>
+<p>The driver processes 8-kHz μ-law companded codec samples using maximum-likelihood techniques which exploit the considerable degree of redundancy available in the broadcast signal. The WWV signal format is described in <a href="https://www.nist.gov/system/files/documents/2017/04/28/SP-432-NIST-Time-and-Frequency-Services-2012-02-13.pdf">NIST Special Publication 432</a> and at the <a href="https://www.nist.gov/pml/time-and-frequency-division/time-distribution/radio-station-wwv/wwv-and-wwvh-digital-time-code">WWV/H web site</a>. It consists of three elements, a 5-ms, 1000-Hz pulse, which occurs at the beginning of each second, a 800-ms, 1000-Hz pulse, which occurs at the beginning of each minute, and a pulse-width modulated 100-Hz subcarrier for the data bits, one bit per second. The WWVH format is identical, except that the 1000-Hz pulses are sent at 1200 Hz. Each minute encodes nine BCD digits for the time of century plus seven bits for the daylight savings time (DST) indicator, leap warning indicator and DUT1 correction.</p>
 <p>The demodulation and decoding algorithms used by this driver are based on a machine language program developed for the TAPR DSP93 DSP unit, which uses the TI 320C25 DSP chip. The analysis, design and performance of the program for this unit is described in: Mills, D.L. <a href="https://www.ntp.org/reflib/reports/wwv/wwv.pdf">A precision radio clock for WWV transmissions</a>. Electrical Engineering Report 97-8-1, University of Delaware, August 1997, 25 pp. For use in this driver, the original program was rebuilt in the C language and adapted to the NTP driver interface. The algorithms have been modified to improve performance, especially under weak signal conditions and to provide an automatic frequency and station selection feature.</p>
 <p>As in the original program, the clock discipline is modelled as a Markov process, with probabilistic state transitions corresponding to a conventional clock and the probabilities of received decimal digits. The result is a performance level with very high accuracy and reliability, even under conditions when the minute beep of the signal, normally its most prominent feature, can barely be detected by ear using a communications receiver.</p>
 <hr>

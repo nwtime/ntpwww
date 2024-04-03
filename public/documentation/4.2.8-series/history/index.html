@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/history/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-28T21:06:33&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T18:24:45&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Historical Notes</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 28, 2023 21:06 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/4798c81ce52b916af3864edc4b52cbf36c629fcd">4798c81ce</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 18:24 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/fe4830d85fe98bb3fb95b9340cbf3960bc54411a">fe4830d85</a>)</p>
 	<h4 id="historical-notes-on-ntp-upgrades">Historical Notes on NTP Upgrades</h4>
 <p>This is an interim report on recent upgrades to the NTPv4 reference implementation code base and documentation. This report documents the upgrade program, which began in June 2007 and continued until March 2008. It is very important to recognize that this historic document describes the upgrade status as of 2008. Additional upgrades have been implemented since then. As of mid 2011, the additional upgrades are documented on the <a href="https://www.ntp.org/documentation/4.2.8-series/release/">NTP Version 4 Release Notes</a> page.</p>
 <p>The motivation for this project was the overhaul and refinement of the code, some of which dates back twenty years. Some four dozen sets of fingers have introduced sometimes incompatible &ldquo;improvements&rdquo; that to some degree enhance or burden the product. There has been a continuing effort over the years to maintain the briar patch and pluck the more flagrant weeds, but it now requires a more systematic and thorough examination of purpose, design and implementation. The project is not complete, but far enough along to present a status report and review of significant changes.</p>
@@ -213,7 +213,7 @@ function demo() {
 <p>A detailed study of the timestamp capture opportunities for both hardware and software timestamping revealed that the most accurate and interoperable design involves the transmit timestamp at the beginning of the packet and then receive timestamp at the end. This makes it possible to accurately measure the offset and delay even if the ends of the synchronization path operate at different rates. It is described on the <a href="https://www.ntp.org/reflib/stamp/">Timestamp Capture Principles</a> page.</p>
 <hr>
 <h4 id="12-windows-client-bug">12. Windows client bug</h4>
-<p>The Windows XP and Vista clients send the NTP request in symmetric active mode rather than client mode. An unsuspecting server could mobilize a symmetric passive association, which is a serious security vulnerability. The NTPv4 servers, including those at NIST and USNO, discard symmetric active requests unless cryptographically authenticated, so Windows clients do not work. The <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a> discusses the preferred workaround; however, an optional workaround is now available so that, if the request is not authenticated, the server responds with symmetric passive mode, but without mobilize an association. The workaround is enabled with the <code>WINTIME</code> build option.</p>
+<p>The Windows XP and Vista clients send the NTP request in symmetric active mode rather than client mode. An unsuspecting server could mobilize a symmetric passive association, which is a serious security vulnerability. The NTPv4 servers, including those at NIST and USNO, discard symmetric active requests unless cryptographically authenticated, so Windows clients do not work. The <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/time-synchronization-not-succeed-non-ntp">Microsoft KB 875424</a> discusses the preferred workaround; however, an optional workaround is now available so that, if the request is not authenticated, the server responds with symmetric passive mode, but without mobilize an association. The workaround is enabled with the <code>WINTIME</code> build option.</p>
 <p>The spec assumes that either peer in symmetric modes can synchronize the other should a peer lose all sources. The workaround violates that assumption and some legitimate configuration might be badly misused. It should be used only with this understanding.</p>
 <hr>
 <h4 id="13-autonomous-configuration">13. Autonomous configuration</h4>

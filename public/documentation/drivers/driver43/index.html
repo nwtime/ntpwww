@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/drivers/driver43/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2023-03-30T19:10:58&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-04-03T18:24:45&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>RIPE NCC interface for Trimble Palisade</h1> 
-    <p style="font-size: small; color: grey;">Last update: March 30, 2023 19:10 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/33276df3ba7c7a55f63d92b2cc8afab211f65e36">33276df3b</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 3, 2024 18:24 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/fe4830d85fe98bb3fb95b9340cbf3960bc54411a">fe4830d85</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
 <li><a href="https://www.ntp.org/documentation/drivers/driver43/#synopsis">Synopsis</a></li>
@@ -178,7 +178,7 @@ function demo() {
 <h4 id="why-this-driver">Why this driver?</h4>
 <p>The reason we created a separate driver for an antenna for which a (vendor supplied) driver already exists is a design decision. To be more specific, the standard Trimble interface uses a 12 pin connector. The cable sold by Trimble to connect to this wire is a very thick cable. Certainly not something you wish to run for several 100 meters through your building. And if you wanted to run it for 100 meters, you always would have to really run the cable, and didn&rsquo;t have the option to use existing wiring.</p>
 <p>This is where we wanted more flexibility. We wanted to be able to use existing wiring in buildings. That lead us to CAT-5(UTP) which only gives us 8 wires. Therefore we decided to redesign the use of the Trimble antenna. The Trimble supports two modes: EVENT driver and PPS mode. The default is to use the EVENT mode which needs all 12 wires. We only use the PPS timestamps for which we have enough with 8 wires. For our purposes this is more than fine.</p>
-<p>More information about the project can be found on the <a href="https://www.ripe.net/analyse/archived-projects/ttm">Test Traffic Measurements</a> website.</p>
+<p>More information about the project can be found on the <a href="https://www.ripe.net/analyse/archived-projects/ttm/">Test Traffic Measurements</a> website.</p>
 <p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/driver43_1.gif" alt="RIPE NCC clock card"  />
 </p></p>
