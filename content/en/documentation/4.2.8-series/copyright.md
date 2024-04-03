@@ -76,7 +76,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 * [Greg Brackley](mailto:greg.brackley@bigfoot.com) Major rework of WINNT port. Clean up recvbuf and iosignal code into separate modules.
 * Marc Brett: Magnavox GPS clock driver
 * [Piete Brooks](mailto:Piete.Brooks@cl.cam.ac.uk) MSF clock driver, Trimble PARSE support
-* [Nelson B Bolyard](mailto:nelson@bolyard.me) update and complete broadcast and crypto features in sntp
+* Nelson B Bolyard: update and complete broadcast and crypto features in sntp
 * Jean-Francois Boudreault: IPv6 support
 * Reg Clemens: Oncore driver (Current maintainer)
 * Steve Clift: OMEGA clock driver
