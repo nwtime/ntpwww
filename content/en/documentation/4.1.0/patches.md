@@ -13,7 +13,7 @@ The Mad Hatter needs patches.
 
 A distribution so widely used as this one eventually develops numerous barnacles as the result of [porting](/documentation/4.1.0/porting/) to new systems, idiosyncratic new features and just plain bugs. In order to help keep order and make maintenance bearable, we ask that proposed changes to the distribution be submitted in the following form.
 
-1.  Please submit patches to [bugs@mail.ntp.org](mailto:bugs@mail.ntp.org) in the form of either unified-diffs (<code>diff -u</code>) or context-diffs (<code>diff -c</code>).
+1.  Please submit patches to the [Bug Tracker](https://bugs.ntp.org/) in the form of either unified-diffs (<code>diff -u</code>) or context-diffs (<code>diff -c</code>).
 2.  Please include the **output** from <code>config.guess</code> in the description of your patch. If <code>config.guess</code> does not produce any output for your machine, please fix that, too!
 3.  Please base the patch on the root directory of the distribution. The preferred procedure here is to copy your patch to the root directory and mumble
 

@@ -48,7 +48,7 @@ In the following a `?` character stands for text in the message. The meaning sho
 
 <code>**proto_config: illegal item ?, value ?**</code>
 
-: Program error. Please report to bugs@ntp.org. 
+: Program error. Please report to https://bugs.ntp.org/. 
 
 <code>**pps sync enabled**</code>
 
@@ -83,7 +83,7 @@ In the following a `?` character stands for text in the message. The meaning sho
 <code>**sigaction() fails to save SIGSYS trap: ?**</code>
 :<code>**sigaction() fails to restore SIGSYS trap: ?**</code>
 
-: Program error. Please report to bugs@ntp.org.
+: Program error. Please report to https://bugs.ntp.org/.
 
 <code>**LOG_NOTICE**</code>
 
