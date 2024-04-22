@@ -45,7 +45,7 @@ If `ntpd` is configured to use autokey, then an attacker can send packets to `nt
 #### Mitigation
 
 * Don't use autokey.
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Monitor your `ntpd` instances. 
 
 * * *

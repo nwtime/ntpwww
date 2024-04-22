@@ -51,7 +51,7 @@ A stack buffer overflow in `ntpq` can be triggered by a malicious `ntpd` server 
     
 #### Mitigation
 
-* Upgrade to [4.2.8p10 or later.](/downloads/) 
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/) 
 * If you can't upgrade your version of `ntpq` then if you want to know the `reslist` of an instance of `ntpd` that you do not control, know that if the target `ntpd` is malicious that it can send back a response that intends to crash your `ntpq` process.
 
 * * *

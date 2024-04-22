@@ -45,7 +45,7 @@ By default, the NTP software builds with debugging enabled. We expect most folks
 #### Mitigation
 
 * Use `configure --disable-debugging ...` when building the NTP software for production deployments.
-* Upgrade to 4.2.8p16, or later, from the [NTP Project download site](/downloads/).
+* Upgrade to 4.2.8p16, or later, from the [NTP Project download site](https://downloads.nwtime.org/ntp/4.2.8/).
 
 * * *
 

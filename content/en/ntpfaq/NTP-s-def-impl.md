@@ -26,7 +26,7 @@ Several national time keepers allow reading the time via NTP:
 
 #### 4.3.2 UNIX Systems
 
-The reference implementation of the NTP client and server is [available for free](/downloads/). The software is available as C source and it runs on most UNIX-compatible operating systems. The software consists of the following components:
+The reference implementation of the NTP client and server is [available for free](https://downloads.nwtime.org/ntp/). The software is available as C source and it runs on most UNIX-compatible operating systems. The software consists of the following components:
 
 ntpd
 : A daemon process that is both client and server.

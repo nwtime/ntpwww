@@ -49,7 +49,7 @@ There is a fencepost error in a "recovery branch" of the code for the Oncore GPS
     
 #### Mitigation
 
-* Upgrade to [4.2.8p10 or later.](/downloads/)
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *

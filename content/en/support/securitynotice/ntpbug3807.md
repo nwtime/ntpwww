@@ -49,7 +49,7 @@ The Praecis reference clock gets time information from 3G CDMA cellphone towers,
     
 #### Mitigation
 
-* If you are using a Praecis refclock and are worried about this vulnerability, upgrade to 4.2.8p16, or later, from the [NTP Project download site](/downloads/).  A patch to ntp-4.2.8p15 is [available](https://archive.ntp.org/ntp4/ntp-4.2/ntp-4.2.8p15-3806-3807.patch). 
+* If you are using a Praecis refclock and are worried about this vulnerability, upgrade to 4.2.8p16, or later, from the [NTP Project download site](https://downloads.nwtime.org/ntp/4.2.8/).  A patch to ntp-4.2.8p15 is [available](https://downloads.nwtime.org/ntp/4.2.8/ntp-4.2.8p15-3806-3807.patch). 
 
 * * *
 

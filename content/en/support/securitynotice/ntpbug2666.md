@@ -46,7 +46,7 @@ Prior to ntp-4.2.7p230 `ntp-keygen` used a weak seed to prepare a random number 
 
 Any of:
 
-* Upgrade to [4.2.7p230 or later](/downloads/).
+* Upgrade to [4.2.7p230 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Put `restrict ... noquery` in your `ntp.conf` file, for non-trusted senders. 
 
 * * *

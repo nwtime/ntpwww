@@ -46,7 +46,7 @@ When Autokey Authentication is enabled (i.e. the `ntp.conf` file contains a `cry
 
 Any of:
 
-* Upgrade to [4.2.8 or later.](/downloads/)
+* Upgrade to [4.2.8 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Disable Autokey Authentication by removing, or commenting out, all configuration directives beginning with the `crypto` keyword in your `ntp.conf` file.
 * Put `restrict ... noquery` in your `ntp.conf` file, for non-trusted senders.
 

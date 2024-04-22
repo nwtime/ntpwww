@@ -45,7 +45,7 @@ An off-path attacker can send broadcast packets with bad authentication (wrong k
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
-* Upgrade to 4.2.8p6 or later.](/downloads/)
+* Upgrade to 4.2.8p6 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Monitor your `ntpd` instances.
 * If this sort of attack is an active problem for you, you have deeper problems to investigate. Also consider having smaller NTP broadcast domains.
 

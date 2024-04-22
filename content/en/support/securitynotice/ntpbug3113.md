@@ -50,7 +50,7 @@ The broadcast mode of NTP is expected to only be used in a trusted network. If t
 #### Mitigation
 
 * Only use broadcast mode on trusted networks.
-* Upgrade to [4.2.8p9 or later.](/downloads/)
+* Upgrade to [4.2.8p9 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *

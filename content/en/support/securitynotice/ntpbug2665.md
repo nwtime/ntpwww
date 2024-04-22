@@ -46,7 +46,7 @@ If no `auth` key is set in the configuration file, `ntpd` would generate a rando
 
 Any of:
 
-* Upgrade to [4.2.7p11 or later](/downloads/).
+* Upgrade to [4.2.7p11 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Put `restrict ... noquery` in your `ntp.conf file`, for non-trusted senders. 
 
 * * *

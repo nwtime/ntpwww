@@ -49,7 +49,7 @@ Packet authentication tests have been performed using `memcmp()` or possibly `bc
     
 #### Mitigation
 
-* Upgrade to [4.2.8p7 or later.](/downloads/)
+* Upgrade to [4.2.8p7 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Properly monitor your `ntpd` instances. 
 
 * * *

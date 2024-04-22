@@ -46,7 +46,7 @@ If `ntpd` is not built with OpenSSL cryptography and `ntpd` is told to configure
 #### Mitigation
 
 * Don't specify cryptography statistics directives in unpatched releases of `ntpd` if your `ntpd` doesn't support cryptography.
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Monitor your `ntpd` instances. 
 
 * * *

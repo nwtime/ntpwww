@@ -46,7 +46,7 @@ While available kernels will prevent 127.0.0.1 addresses from "appearing" on non
     
 #### Mitigation
 
-* Upgrade to [4.2.8p1 or later](/downloads/).
+* Upgrade to [4.2.8p1 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 *  Install firewall rules to block packets claiming to come from ::1 from inappropriate network interfaces.
 
 * * *

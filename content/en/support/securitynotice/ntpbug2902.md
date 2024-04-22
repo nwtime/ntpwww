@@ -45,7 +45,7 @@ If `ntpd` is configured to allow for remote configuration, and if the (possibly 
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 *  If you cannot upgrade, don't enable remote configuration.
 * If you must enable remote configuration and cannot upgrade, remote configuration of NTF's `ntpd` requires:
   * an explicitly configured `trustedkey`, and you should also configure a `controlkey`.

@@ -53,7 +53,7 @@ Fuzz testing detected that on systems that override the default and enable `ntpd
 * Pay attention to error messages logged by `ntpd`.
 * Monitor your `ntpd` instances. 
 
-Upgrade to [4.2.8p14 or later](/downloads/).
+Upgrade to [4.2.8p14 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 
 * * *
 

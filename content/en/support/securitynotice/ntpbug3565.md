@@ -51,7 +51,7 @@ A crafted malicious authenticated mode 6 (`ntpq`) packet from a permitted networ
 
 * Use `restrict noquery` to limit addresses that can send mode 6 queries.
 * Limit access to the private controlkey in `ntp.keys`.
-* Upgrade to [4.2.8p13 or later.](/downloads/)
+* Upgrade to [4.2.8p13 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 
 * * *
 

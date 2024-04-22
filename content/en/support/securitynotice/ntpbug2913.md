@@ -45,7 +45,7 @@ If `ntpd` is configured to enable mode 7 packets, and if the use of mode 7 packe
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * If you are unable to upgrade:
   * In ntp-4.2.8, mode 7 is disabled by default. Don't enable it.
   * If you must enable mode 7:

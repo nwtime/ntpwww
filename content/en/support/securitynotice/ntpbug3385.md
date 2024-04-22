@@ -39,7 +39,7 @@ NTP makes use of several wrappers around the standard heap memory allocation fun
     
 #### Mitigation
 
-* Upgrade to [4.2.8p10 or later.](/downloads/)
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 
 * * *
 

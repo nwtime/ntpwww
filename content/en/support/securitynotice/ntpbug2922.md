@@ -45,7 +45,7 @@ If `ntpd` is fed a crafted mode 6 or mode 7 packet containing an unusually long 
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * If you are unable to upgrade:
   * mode 7 is disabled by default. Don't enable it.
   * Use `restrict noquery` to limit who can send mode 6 and mode 7 requests.

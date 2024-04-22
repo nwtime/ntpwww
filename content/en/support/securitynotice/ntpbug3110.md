@@ -51,7 +51,7 @@ If a vulnerable instance of `ntpd` on Windows receives a crafted malicious packe
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page) 
 * Implement a firewall rule blocking oversized NTP packets.
-* Upgrade to [4.2.8p9 or later.](/downloads/)
+* Upgrade to [4.2.8p9 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *

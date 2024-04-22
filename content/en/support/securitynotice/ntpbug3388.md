@@ -49,7 +49,7 @@ There is a potential for a buffer overflow in the legacy Datum Programmable Time
     
 #### Mitigation
 
-* If you have a Datum reference clock installed and think somebody may maliciously change the device, upgrade to [4.2.8p10 or later.](/downloads/)
+* If you have a Datum reference clock installed and think somebody may maliciously change the device, upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Properly monitor your `ntpd `instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *

@@ -50,7 +50,7 @@ The Windows NT port has the added capability to preload DLLs defined in the inhe
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [4.2.8p10 or later.](/downloads/)
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 
 * * *
 

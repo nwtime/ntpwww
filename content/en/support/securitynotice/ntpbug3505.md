@@ -49,7 +49,7 @@ The `openhost()` function used by `ntpq` and `ntpdc` is vulnerable to a buffer o
     
 #### Mitigation
 
-Upgrade to [4.2.8p12 or later.](/downloads/)
+Upgrade to [4.2.8p12 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 
 * * *
 

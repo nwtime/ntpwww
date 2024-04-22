@@ -50,7 +50,7 @@ To distinguish legitimate peer responses from forgeries, a client attempts to ve
 #### Mitigation
 
 * Configure `ntpd` to get time from multiple sources.
-* Upgrade to 4.2.8p6 or later.](/downloads/)
+* Upgrade to 4.2.8p6 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Monitor your `ntpd` instances.
 
 * * *

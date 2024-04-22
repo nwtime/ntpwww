@@ -50,7 +50,7 @@ It is possible to change the time of an `ntpd` client or deny service to an `ntp
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [4.2.8p7 or later](/downloads/), which prevents `ntpd` from dynamically enabling interleave mode.
+* Upgrade to [4.2.8p7 or later](https://downloads.nwtime.org/ntp/4.2.8/), which prevents `ntpd` from dynamically enabling interleave mode.
 * Properly monitor your `ntpd` instances. 
 
 * * *
