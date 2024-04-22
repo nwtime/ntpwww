@@ -50,7 +50,7 @@ The NTP Mode 6 monitoring and control client, `ntpq`, uses the function `ntpq_st
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [4.2.8p10 or later.](/downloads/)
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *

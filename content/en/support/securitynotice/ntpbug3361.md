@@ -51,7 +51,7 @@ An exploitable denial of service vulnerability exists in the origin timestamp ch
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Configure enough servers/peers that an attacker cannot target all of your time sources.
-* Upgrade to [4.2.8p10 or later.](/downloads/) 
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/) 
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running.
 
 * * *

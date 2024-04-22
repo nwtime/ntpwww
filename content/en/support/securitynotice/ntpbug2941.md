@@ -45,7 +45,7 @@ Crypto-NAK packets can be used to cause `ntpd` to accept time from unauthenticat
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * If you are unable to upgrade:
   * Apply the patch to the bottom of the `authentic` check block around line 1136 of `ntp_proto.c`. 
 * Monitor your `ntpd` instances. 

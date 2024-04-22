@@ -45,7 +45,7 @@ Ancient versions of NTP (pre-dating ntp3, which first came out in June of 1993) 
     
 #### Mitigation
 
-* Upgrade to 4.2.8p16, or later, from the [NTP Project download site](/downloads/).
+* Upgrade to 4.2.8p16, or later, from the [NTP Project download site](https://downloads.nwtime.org/ntp/4.2.8/).
 
 * * *
 

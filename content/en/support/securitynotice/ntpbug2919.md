@@ -45,7 +45,7 @@ If an attacker can figure out the precise moment that `ntpq` is listening for da
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * If you are unable to upgrade and you run `ntpq` against a server and `ntpq` crashes, try again using raw mode. Build or get a patched `ntpq` and see if that fixes the problem. Report new bugs in `ntpq` or abusive servers appropriately.
 * If you use `ntpq` in scripts, make sure `ntpq` does what you expect in your scripts. 
 

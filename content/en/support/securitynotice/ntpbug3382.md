@@ -49,7 +49,7 @@ The Windows installer for NTP calls `strcpy()` with an argument that specificall
     
 #### Mitigation
 
-* Upgrade to [4.2.8p10 or later.](/downloads/)
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 
 * * *
 

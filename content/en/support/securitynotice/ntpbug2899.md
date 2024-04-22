@@ -47,7 +47,7 @@ The fix for [CVE-2014-9750](https://nvd.nist.gov/vuln/detail/CVE-2014-9750) was 
 #### Mitigation
 
 * Don't use autokey.
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Monitor your `ntpd` instances. 
 
 * * *

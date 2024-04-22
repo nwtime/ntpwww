@@ -47,7 +47,7 @@ Under limited and specific circumstances an attacker can send a crafted packet t
     
 #### Mitigation
 
-* Upgrade to [4.2.8p3 or later.](/downloads/)
+* Upgrade to [4.2.8p3 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Be prudent when deciding what IP addresses can perform remote configuration of an `ntpd` instance.
 * Monitor your `ntpd` instances.
 

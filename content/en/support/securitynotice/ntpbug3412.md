@@ -50,7 +50,7 @@ date: "2018-02-27"
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [ntp-4.2.8p11 or later](/downloads/).
+* Upgrade to [ntp-4.2.8p11 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Have enough sources of time.
 * Properly monitor your `ntpd` instances.
 * If `ntpd` stops running, auto-restart it without `-g`. 

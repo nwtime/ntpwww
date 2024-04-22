@@ -50,7 +50,7 @@ Systems that use a CMAC algorithm in `ntp.keys` will not release a bit of memory
 #### Mitigation
 
 * If you are using ntp-4.2.8p11 through ntp-4.2.8p14 or ntp-4.3.97 through ntp-4.3.100, either don't use CMAC keys, or make sure you have a way to restart `ntpd` if/when it crashes.
-* Upgrade to [4.2.8p15 or later](/downloads/).
+* Upgrade to [4.2.8p15 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 
 * * *
 

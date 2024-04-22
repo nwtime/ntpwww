@@ -50,7 +50,7 @@ When `ntpd` receives a server response on a socket that corresponds to a differe
 #### Mitigation
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page) 
-* Upgrade to [4.2.8p9 or later.](/downloads/)
+* Upgrade to [4.2.8p9 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * If you are going to configure your OS to disable source address checks, also configure your firewall configuration to control what interfaces can receive packets from what networks. 
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 

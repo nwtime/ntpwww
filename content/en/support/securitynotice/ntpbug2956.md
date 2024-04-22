@@ -45,7 +45,7 @@ If `ntpd` is always started with the `-g` option, which is common and against lo
 #### Mitigation
 
 * Configure `ntpd` to get time from multiple sources.
-* Upgrade to [4.2.8p5 or later.](/downloads/)
+* Upgrade to [4.2.8p5 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * As we've long documented, only use the `-g` option to `ntpd` in cold-start situations.
 * Monitor your `ntpd` instances.
 

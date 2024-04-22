@@ -50,7 +50,7 @@ date: "2018-02-27"
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [ntp-4.2.8p11 or later](/downloads/).
+* Upgrade to [ntp-4.2.8p11 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Use the `noepeer` directive to prohibit symmetric passive ephemeral associations.
 * Use the `ippeerlimit` directive to limit the number of peers that can be created from an IP.
 * Use the 4th argument in the `ntp.keys` file to limit the IPs and subnets that can be time servers.

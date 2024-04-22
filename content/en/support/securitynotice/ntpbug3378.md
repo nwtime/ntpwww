@@ -50,7 +50,7 @@ The legacy MX4200 refclock is only built if is specifically enabled, and further
 #### Mitigation
 
 If you have a Magnavox MX4200 refclock:
-* Upgrade to [4.2.8p10 or later.](/downloads/) 
+* Upgrade to [4.2.8p10 or later.](https://downloads.nwtime.org/ntp/4.2.8/) 
 * Properly monitor your `ntpd` instances, and auto-restart `ntpd` (without `-g`) if it stops running. 
 
 * * *

@@ -51,7 +51,7 @@ The fix for [3445](https://bugs.ntp.org/show_bug.cgi?id=3445) introduced a bug w
 
 *  Use authentication with symmetric peers.
 * Have enough sources of time.
-* Upgrade to [4.2.8p14 or later](/downloads/).
+* Upgrade to [4.2.8p14 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 
 * * *
 

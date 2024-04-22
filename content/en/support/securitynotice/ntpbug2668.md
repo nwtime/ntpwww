@@ -46,7 +46,7 @@ A remote attacker can send a carefully crafted packet that can overflow a stack 
 
 Any of:
 
-* Upgrade to [4.2.8 or later.](/downloads/)
+* Upgrade to [4.2.8 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Put `restrict ... noquery` in your `ntp.conf` file, for non-trusted senders.
 
 * * *

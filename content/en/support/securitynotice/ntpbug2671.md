@@ -46,7 +46,7 @@ The `vallen` packet value is not validated in several code paths in `ntp_crypto.
 
 Any of:
 
-* Upgrade to [4.2.8p1 or later](/downloads/).
+* Upgrade to [4.2.8p1 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Disable Autokey Authentication by removing, or commenting out, all configuration directives beginning with the `crypto` keyword in your `ntp.conf` file. 
 
 * * *

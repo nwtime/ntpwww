@@ -46,7 +46,7 @@ Authentication using autokey doesn't have this problem as there is a check that 
     
 #### Mitigation
 
-* Upgrade to [4.2.8p2 or later.](/downloads/)
+* Upgrade to [4.2.8p2 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Configure `ntpd` with enough time sources and monitor it properly. 
 
 * * *

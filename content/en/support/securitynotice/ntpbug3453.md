@@ -50,7 +50,7 @@ The fix for [NTP Bug 2952](/support/securitynotice/ntpbug2952/) was incomplete, 
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [4.2.8p11 or later](/downloads/).
+* Upgrade to [4.2.8p11 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Use authentication with peer mode.
 * Have enough sources of time.
 * Properly monitor your `ntpd` instances.

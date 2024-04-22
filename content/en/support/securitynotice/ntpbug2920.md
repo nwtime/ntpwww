@@ -44,7 +44,7 @@ A negative value for the `datalen` parameter will overflow a data buffer. NTF's 
     
 #### Mitigation
 
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * If you are unable to upgrade:
   *  If you are running custom refclock drivers, make sure the signed `datalen` value is either zero or positive.
 * Monitor your `ntpd` instances. 

@@ -48,7 +48,7 @@ This seems to be a very old problem, dating back to at least xntp3.3wy. It's als
     
 #### Mitigation
 
-* Upgrade to [4.2.8p2 or later.](/downloads/)
+* Upgrade to [4.2.8p2 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Note that for users of autokey, this specific style of MITM attack is simply a long-known potential problem. 
 * Configure `ntpd` with appropriate time sources and monitor `ntpd`. Alert your staff if problems are detected.
 

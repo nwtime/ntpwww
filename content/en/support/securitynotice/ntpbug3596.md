@@ -56,7 +56,7 @@ A high-performance `ntpd` instance that gets its time from unauthenticated IPv4 
 * Monitor your `ntpd` instances. If the `pstats` command of `ntpq` shows the value for "bogus origin" is increasing then that association is likely under attack.
 * If you must get unauthenticated time over IPv4 on a hostile network:
   * Use `restrict ... noserve` to prevent this attack (note that this is a heavy-handed protection), which blocks time service to the specified network.
-  * Upgrade to [4.2.8p14 or later](/downloads/) and appropriately use some or all of the following in your `ntp.conf` file:
+  * Upgrade to [4.2.8p14 or later](https://downloads.nwtime.org/ntp/4.2.8/) and appropriately use some or all of the following in your `ntp.conf` file:
     * `server ... xmtnonce`
     * `pool ... xmtnonce`
     * `restrict ... serverresponse fuzz`

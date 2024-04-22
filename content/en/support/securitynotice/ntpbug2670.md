@@ -44,7 +44,7 @@ Code in `ntp_proto.c:receive()` is missing a `return;` in the code path where an
     
 #### Mitigation
 
-* Upgrade to [4.2.8 or later](/downloads/), or
+* Upgrade to [4.2.8 or later](https://downloads.nwtime.org/ntp/4.2.8/), or
 * Remove or comment out all configuration directives beginning with the `crypto` keyword in your `ntp.conf` file. 
 
 * * *

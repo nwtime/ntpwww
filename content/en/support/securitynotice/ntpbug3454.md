@@ -50,7 +50,7 @@ The NTP Protocol allows for both non-authenticated and authenticated association
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [4.2.8p11 or later](/downloads/).
+* Upgrade to [4.2.8p11 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * If you are unable to upgrade to 4.2.8p11 or later and have `peer HOST xleave` lines in your `ntp.conf` file, remove the `xleave` option.
 * Have enough sources of time.
 * Properly monitor your `ntpd` instances.

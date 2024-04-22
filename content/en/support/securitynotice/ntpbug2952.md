@@ -49,7 +49,7 @@ The fix for [NTP Bug 2901](https://bugs.ntp.org/show_bug.cgi?id=2901) in ntp-4.2
     
 #### Mitigation
 
-* Upgrade to [4.2.8p7 or later](/downloads/).
+* Upgrade to [4.2.8p7 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Don't connect to ntp-4.2.8p4 thru p6 instances of `ntpd` using a `peer` association.
 * If you are running ntp-4.2.8p4 thru p6 instances of `ntpd` don't expect clients that connect to you with `peer` associations to work.
 * Properly monitor your `ntpd` instances. 

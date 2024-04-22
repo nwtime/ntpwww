@@ -47,7 +47,7 @@ The `ntpq saveconfig` command does not do adequate filtering of special characte
 
 * Implement [BCP-38.](http://www.bcp38.info/index.php/Main_Page)
 * Use `restrict default nomodify` in your `ntp.conf` file.
-* Upgrade to 4.2.8p6 or later.](/downloads/)
+* Upgrade to 4.2.8p6 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * If you are unable to upgrade:
   * build NTP with `configure --disable-saveconfig` if you will never need this capability, or
   * use `restrict default nomodify` in your `ntp.conf file`. Be careful about what IPs have the ability to send modify requests to `ntpd`. 

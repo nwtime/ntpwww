@@ -49,7 +49,7 @@ date: "2016-01-19"
     
 #### Mitigation
 
-* Upgrade to 4.2.8p6 or later.](/downloads/)
+* Upgrade to 4.2.8p6 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * If you are unable to upgrade:
   * If you have scripts that feed input to `ntpq` make sure there are some sanity checks on the input received from the "outside".
   * This is potentially more dangerous if `ntpq` is run as root. 

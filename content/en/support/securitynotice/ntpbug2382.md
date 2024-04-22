@@ -46,7 +46,7 @@ If `MINPOLL` is set to 3 then it's possible to crash some versions of `ntpd`.
 #### Mitigation
 
 * If you decide to override the default value of `minpoll`, make sure you use a value of 4 or more.
-* Upgrade to [4.2.8p4 or later](/downloads/).
+* Upgrade to [4.2.8p4 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Monitor your `ntpd` instances. 
 
 * * *

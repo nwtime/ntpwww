@@ -54,7 +54,7 @@ For ntp-4.2.8 thru ntp-4.2.8p6 there is less risk because more stringent checks 
 #### Mitigation
 
 * Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
-* Upgrade to [4.2.8p7 or later.](/downloads/)
+* Upgrade to [4.2.8p7 or later.](https://downloads.nwtime.org/ntp/4.2.8/)
 * Properly monitor your `ntpd` instances. 
 
 * * *
