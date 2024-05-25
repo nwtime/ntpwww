@@ -1,6 +1,6 @@
 ---
 title: "4.2.8-series"
-description: "The introduction to the documentation for the 4.2.8-series which applies to NTP versions 4.2.8 through 4.2.8p15."
+description: "The introduction to the documentation for the 4.2.8-series which applies to NTP versions 4.2.8 through 4.2.8p18."
 type: archives
 aliases:
     - /current-stable/
