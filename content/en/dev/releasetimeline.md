@@ -21,6 +21,7 @@ type: archives
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
+| 2024 May 25 | [4.2.8p18](/support/securitynotice/4_2_8p18-release-announcement/) | [4.2.8p18](/support/securitynotice/4_2_8-series-changelog/#428p18) |  | 40 bugs<br> 40 improvements |
 | 2023 Jun 06 |[4.2.8p17](/support/securitynotice/4_2_8p17-release-announcement/) | [4.2.8p17](/support/securitynotice/4_2_8-series-changelog/#428p17) |  | 3 bugs<br> 1 improvement |
 | 2023 May 30 |[4.2.8p16](/support/securitynotice/4_2_8p16-release-announcement/) | [4.2.8p16](/support/securitynotice/4_2_8-series-changelog/#428p16) | 3 <span style="color:green">LOW</span><br> 1 <span style="color:green">NONE</span><br> | 46 bugs<br> 15 improvements |
 | 2020 Jun 23 |[4.2.8p15](/support/securitynotice/4_2_8p15-release-announcement/) | [4.2.8p15](/support/securitynotice/4_2_8-series-changelog/#428p15) | 1 <span style="color:orange">MEDIUM</span> | 13 bugs |
@@ -116,8 +117,8 @@ type: archives
 
 | Release Date | Release Announcement | Changelog | # of Security Fixes | # of Bug Fixes/Improvements |
 | ----- | ----- | ----- | ----- | ----- |
-| 2003 Oct 15 | [4.2.0](https://lists.ntp.org/old-archives/announce/2003-October/000006.html) | [4.2.0](/support/securitynotice/older-releases-changelog/#420)  | | 22 bugs<br> 101 improvements |
-| 2003 Jul 17 | [4.1.2](https://lists.ntp.org/old-archives/announce/2003-July/000003.html) | [4.1.2](/support/securitynotice/older-releases-changelog/#412) | | 5 bugs<br> 9 improvements|
+| 2003 Oct 15 | [4.2.0](https://lists.ntp.org/sympa/arc/announce/2003-10/msg00000.html) | [4.2.0](/support/securitynotice/older-releases-changelog/#420)  | | 22 bugs<br> 101 improvements |
+| 2003 Jul 17 | [4.1.2](https://lists.ntp.org/sympa/arc/announce/2003-07/msg00000.html) | [4.1.2](/support/securitynotice/older-releases-changelog/#412) | | 5 bugs<br> 9 improvements|
 | 2002 Feb 26 | [4.1.1](https://groups.google.com/g/comp.protocols.time.ntp/c/3K9oYavHIVA/m/hHmxFKOuD0EJ) | [4.1.1](/support/securitynotice/older-releases-changelog/#411) | | 20 improvements |
 | 2001 Aug 1 | [4.1.0](https://groups.google.com/g/comp.protocols.time.ntp/c/-rqLOBoTb14/m/mv4UItEWBgAJ) | [4.1.0](/support/securitynotice/older-releases-changelog/#410)| | 19 improvements |
 | 2000 Jan 12 | [4.0.99](https://groups.google.com/g/comp.protocols.time.ntp/c/I0zHLkqqT1o/m/02ED2Up_NywJ) | [4.0.99](/support/securitynotice/older-releases-changelog/#4099)| | 19 improvements |

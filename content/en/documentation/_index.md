@@ -12,7 +12,7 @@ type: archives
  	    </div>  
         <div class="card-body">
 		  <ul>
-		    <li style="color:green;"><a href="/current-stable/">4.2.8-series: </a>CURRENT RELEASE: applicable to NTP version 4.2.8 through 4.2.8p17.</li>
+		    <li style="color:green;"><a href="/current-stable/">4.2.8-series: </a>CURRENT RELEASE: applicable to NTP version 4.2.8 through 4.2.8p18.</li>
 		    <li><a href="/documentation/4.2.6-series/">4.2.6-series: </a> applicable to NTP version 4.2.6 through 4.2.6p5.</li>
 			<li><a href="/documentation/4.2.4-series/">4.2.4-series:</a> applicable to NTP version 4.2.4 through 4.2.4p8.</li>
 			<li><a href="/documentation/4.2.2-series/">4.2.2-series:</a> applicable to NTP version 4.2.2 through 4.2.2p4.</li>

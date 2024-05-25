@@ -55,6 +55,8 @@ Refer to the [Release Timeline](/dev/releasetimeline/) for a complete list of al
 <details open>
 <summary><strong>Release Version:</strong></summary>
 
+* [4.2.8p18](#428p18)
+* [4.2.8p17](#428p17)
 * [4.2.8p16](#428p16)
 * [4.2.8p15](#428p15)
 * [4.2.8p14](#428p14)
@@ -82,6 +84,22 @@ Refer to the [Release Timeline](/dev/releasetimeline/) for a complete list of al
 </details>
 
 * * *
+
+#### 4.2.8p18
+
+* Public Release: 2024 May 25
+
+No security fixes in this release.
+
+***
+
+#### 4.2.8p17
+
+* Public Release: 2023 Jun 06
+
+No security fixes in this release.
+
+***
 
 #### 4.2.8p16
 
