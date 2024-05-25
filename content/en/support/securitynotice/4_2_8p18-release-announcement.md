@@ -4,7 +4,7 @@ description: "The NTP Project at Network Time Foundation publicly released NTP 4
 type: archives
 ---
 
-The NTP Project, part of Network Time Foundation (NTF), is pleased to announce the release candidate for NTP 4.2.8p18, a Point Release of the Reference Implementation of the Network Time Protocol (NTP) software. It is available at https://downloads.nwtime.org/ntp/ or by pointing your ftp client to anonymous@ftp.nwtime.org.
+The NTP Project, part of Network Time Foundation (NTF), is pleased to announce the release of NTP 4.2.8p18, a Point Release of the Reference Implementation of the Network Time Protocol (NTP) software. It is available at  https://downloads.nwtime.org/ntp/ or by pointing your ftp client to anonymous@ftp.nwtime.org.
 
 * File-size: 7210799 bytes
 * MD5 (ntp-4.2.8p18.tar.gz) = 516bdabd94ab7c824e9771390761a46c
