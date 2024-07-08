@@ -6,4 +6,4 @@ The NTP Project conducts Research and Development in NTP, a protocol designed to
 
 The NTP Project produces an [open source Reference Implementation](https://bk.ntp.org/) of the NTP standard, maintains the implementation [Documentation](/documentation/4.2.8-series/), and develops the protocol and algorithmic standard that is used to communicate time between systems. Background information about NTP can be found in the [Reference Library](/reflib/). 
 
-Network Time Foundation provides support for the NTP Project. Learn more about the Foundation's work at https://www.nwtime.org/.
+Network Time Foundation provides support for the NTP Project. Learn more about the [Foundation's work](https://www.nwtime.org/).
