@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntp.conf/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2024-09-14T16:17:26&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-09-14T16:22:11&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Configuration File User’s Manual</h1> 
-    <p style="font-size: small; color: grey;">Last update: September 14, 2024 16:17 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/c8053fd5905a3fbd889e624647eae43e1c047e57">c8053fd59</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: September 14, 2024 16:22 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/53ea3ca0c3df4192197c4b78efa86c394d4649fd">53ea3ca0c</a>)</p>
 	<p>This document describes the configuration file for the NTP Project’s <code>ntpd</code> program. This software is released under the <a href="https://www.ntp.org/documentation/4.2.8-series/copyright/">NTP license</a>.</p>
 <h4 id="description">Description</h4>
 <p>The behavior of <code>ntpd</code> can be changed by a configuration file, by default <code>ntp.conf</code>.</p>
@@ -692,7 +692,7 @@ function demo() {
 <dt> <code><strong>stats</strong></code></dt>
 <dd>Enables the statistics facility. See <a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Options</a> for further information. The default for this flag is <code>disable</code>.</dd>
 <dt> <code><strong>unpeer_crypto_early</strong></code></dt>
-<dd>By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives an autokey packet that fails TEST9, a crypto failure, the association is immediately cleared. This is almost certainly a feature, but if, in spite of the current recommendation of not using autokey, you are .B still using autokey .B and you are seeing this sort of DoS attack disabling this flag will delay tearing down the association until the reachability counter becomes zero. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
+<dd>By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives an autokey packet that fails TEST9, a crypto failure, the association is immediately cleared. This is almost certainly a feature, but if, in spite of the current recommendation of not using autokey, you are still using autokey and you are seeing this sort of DoS attack disabling this flag will delay tearing down the association until the reachability counter becomes zero. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>unpeer_crypto_nak_early</strong></code></dt>
 <dd>By default, if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> receives a crypto-NAK packet that passes the duplicate packet and origin timestamp checks the association is immediately cleared. While this is generally a feature as it allows for quick recovery if a server key has changed, a properly forged and appropriately delivered crypto-NAK packet can be used in a DoS attack. If you have active noticable problems with this type of DoS attack then you should consider disabling this option. You can check your <code>peerstats</code> file for evidence of any of these attacks. The default for this flag is <code>enable</code>.</dd>
 <dt> <code><strong>unpeer_digest_early</strong></code></dt>
