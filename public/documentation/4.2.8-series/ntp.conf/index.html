@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/ntp.conf/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2024-04-03T14:11:48&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-09-14T16:17:26&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>NTP Configuration File User’s Manual</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 3, 2024 14:11 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/cc451e4df7a809274514a09bc6e93360c62e88a8">cc451e4df</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: September 14, 2024 16:17 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/c8053fd5905a3fbd889e624647eae43e1c047e57">c8053fd59</a>)</p>
 	<p>This document describes the configuration file for the NTP Project’s <code>ntpd</code> program. This software is released under the <a href="https://www.ntp.org/documentation/4.2.8-series/copyright/">NTP license</a>.</p>
 <h4 id="description">Description</h4>
 <p>The behavior of <code>ntpd</code> can be changed by a configuration file, by default <code>ntp.conf</code>.</p>
@@ -704,7 +704,7 @@ function demo() {
 <dt><code><strong>leapfile <em>leapfile</em></strong></code></dt>
 <dd>This command loads the IERS leapseconds file and initializes the leapsecond values for the next leapsecond event, leapfile expiration time, and TAI offset. The file can be obtained <a href="https://hpiers.obspm.fr/iers/bul/bulc/ntp/leap-seconds.list">directly from the IERS</a>. The <code>leapfile</code> is scanned when <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> processes the <code>leapfile</code> directive or when <code>ntpd</code> detects that the <code>leapfile</code> has changed. <code>ntpd</code> checks once a day to see if the <code>leapfile</code> has changed. The <code>update-leap</code> script can be run to see if the <code>leapfile</code> should be updated.</dd>
 <dt><code><strong>leapsmearinterval <em>seconds</em></strong></code></dt>
-<dd>This EXPERIMENTAL option is only available if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> was built with the <code>--enable-leap-smear</code> option to the <code>configure</code> script. It specifies the interval over which a leap second correction will be applied. Recommended values for this option are between 7200 (2 hours) and 86400 (24 hours). .Sy DO NOT USE THIS OPTION ON PUBLIC-ACCESS SERVERS! See <a href="https://bugs.ntp.org/2855">https://bugs.ntp.org/2855</a> for more information.</dd>
+<dd>This EXPERIMENTAL option is only available if <a href="https://www.ntp.org/documentation/4.2.8-series/ntpd/"><code>ntpd</code></a> was built with the <code>--enable-leap-smear</code> option to the <code>configure</code> script. It specifies the interval over which a leap second correction will be applied. Recommended values for this option are between 7200 (2 hours) and 86400 (24 hours). DO NOT USE THIS OPTION ON PUBLIC-ACCESS SERVERS! See <a href="https://bugs.ntp.org/2855">https://bugs.ntp.org/2855</a> for more information.</dd>
 <dt><code><strong>logconfig <em>configkeyword</em></strong></code></dt>
 <dd>This command controls the amount and type of output written to the system <code>syslog(3)</code> facility or the alternate <code>logfile</code> log file. By default, all output is turned on. All <code>configkeyword</code> keywords can be prefixed with <code>=</code>, <code>+</code> and <code>-</code>, where <code>=</code> sets the <code>syslog(3)</code> priority mask, <code>+</code> adds and <code>-</code> removes messages. <code>syslog(3)</code> messages can be controlled in four classes (<code>clock</code>, <code>peer</code>, <code>sys</code> and <code>sync</code>). Within these classes four types of messages can be controlled: informational messages (<code>info</code>), event messages (<code>events</code>), statistics messages (<code>statistics</code>) and status messages (<code>status</code>).</dd>
 </dl>
