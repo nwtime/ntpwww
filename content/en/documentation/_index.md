@@ -2,6 +2,8 @@
 title: "NTP Documentation"
 description: "Links to the current NTP documentation, documentation archives for older NTP releases, and additional informational resources."
 type: archives
+aliases:
+    - /settings/
 ---
 
   <div class="row row-cols-1 row-cols-md-2 g-3">

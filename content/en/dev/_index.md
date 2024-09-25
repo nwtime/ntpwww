@@ -2,6 +2,8 @@
 title: Developers
 description: ""
 type: archives
+aliases:
+    - /development/
 ---
 
 <div>
