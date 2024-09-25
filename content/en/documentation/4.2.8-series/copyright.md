@@ -5,6 +5,7 @@ type: archives
 aliases:
     - /current-stable/copyright/
     - /license/
+    - /copyright/
 ---
 
 ![webp](/documentation/pic/sheepb.webp) Clone me, says Dolly sheepishly.
