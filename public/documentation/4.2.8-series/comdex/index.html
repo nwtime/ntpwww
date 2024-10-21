@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/4.2.8-series/comdex/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2022-11-23T17:49:36&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2024-10-21T19:29:20&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,20 +153,73 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Command Index</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 23, 2022 17:49 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/1b4d24aef65c630791ad0f89d6c09ec258781c2c">1b4d24aef</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: October 21, 2024 19:29 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/5621b4540b23703d459b656b9f659e70b8f14066">5621b4540</a>)</p>
 	<p><p>
   <img loading="lazy" src="https://www.ntp.org/documentation/pic/alice38.gif" alt="gif"  />
 </p><a href="https://www.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carrol</a></p>
 <p>The Mad Hatter says &ldquo;Bring it on&rdquo;.</p>
 <hr>
 <h4 id="related-links">Related Links</h4>
+<h4 id="access-control-commands-and-options">Access Control Commands and Options</h4>
 <ul>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/accopt/">Access Control Commands and Options</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/">Authentication Commands and Options</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/">Server Commands and Options</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/monopt/">Monitoring Commands and Options</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/clockopt/">Reference Clock Commands and Options</a></li>
-<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/">Miscellaneous Commands and Options</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/accopt/#commands-and-options">discard - specify headway parameters</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/accopt/#commands-and-options">restrict - specify access restrictions</a></li>
+</ul>
+<h4 id="authentication-commands-and-options">Authentication Commands and Options</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">automax - specify Autokey regeneration interval</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">controlkey - specify control key ID</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">crypto - configure Autokey parameters</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">ident - specify Autokey ephemeral group name</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">keys - specify symmetric keys filename</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">keysdir - specify Autokey key directory</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">requestkey - specify request key ID</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">revoke - specify Autokey randomization interval</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/authopt/#commands-and-options">trustedkey - specify trusted key IDs</a></li>
+</ul>
+<h4 id="server-commands-and-options">Server Commands and Options</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-commands">server - configure client association</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-commands">peer - configure symmetric peer association</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-commands">broadcast - configure broadcast server association</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-commands">manycastclient - configure manycast client association</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-commands">pool - configure pool association</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#server-commands">unpeer - remove association</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#auxiliary-commands">broadcastclient - enable broadcast client</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#auxiliary-commands">manycastserver - enable manycast server</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/confopt/#auxiliary-commands">multicastclient - enable multicast client</a></li>
+</ul>
+<h4 id="monitoring-commands-and-options">Monitoring Commands and Options</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/monopt/#monitoring-commands-and-options">filegen - specify monitor files</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/monopt/monitoring-commands-and-options">statistics - enable writing of statistics records</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/monopt/#monitoring-commands-and-options">statsdir - specify monitor files directory</a></li>
+</ul>
+<h4 id="reference-clock-commands-and-options">Reference Clock Commands and Options</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/clockopt/#commands-and-options">fudge - specify fudge parameters</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/clockopt/#commands-and-options">server - specify reference clock server</a></li>
+</ul>
+<h4 id="miscellaneous-commands-and-options">Miscellaneous Commands and Options</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">broadcastdelay - specify broadcast delay</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">driftfile - specify frequency file</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">enable - enable options</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">disable - disable options</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">includefile - specify include file</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">interface - specify which local network addresses to use</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">leapfile - specify leapseconds file</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">logconfig - configure log file</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">mru - control monitor MRU list limits</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">phone - specify modem phone numbers</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">reset - reset groups of counters</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">saveconfigdir - specify saveconfig directory</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">setvar - set system variables</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">tinker - modify sacred system parameters (dangerous)</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">rlimit - alters certain process storage allocation limits</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">tos - modify service parameters</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">trap - set trap address</a></li>
+<li><a href="https://www.ntp.org/documentation/4.2.8-series/miscopt/#commands-and-options">ttl - set time to live</a></li>
 </ul>
 
 	  
