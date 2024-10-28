@@ -29,7 +29,7 @@ type: archives
 
 #### Description
 
-The `refclock_neoclock4x` driver supports the NeoClock4X receiver available from Linum Software GmbH. The receiver is available as a DCF77 or TDF receiver. Both receivers have the same output string. For more information about the NeoClock4X receiver please visit https://linux-funkuhr.de/.
+The `refclock_neoclock4x` driver supports the [NeoClock4X receiver](https://www.neol.com/en/products/neoclock/) available from Neol S.A.S. The receiver is available as a DCF77 or TDF receiver. Both receivers have the same output string.
 
 * * *
 
@@ -66,7 +66,3 @@ Default setting is 0 (don't synchronize to unsynchronized CMOS clock).
 : It is recommended to allow extensive logging while you setup the NeoClock4X receiver. If you activate `flag4`, every received data is logged. You should turn off `flag4` as soon as the clock works as expected to reduce logfile cluttering.
 
 Default setting is 0 (don't log received data and converted UTC time).
-
-* * *
-
-Please send any comments or questions to [neoclock4x@linum.com](mailto:neoclock4@linum.com).
