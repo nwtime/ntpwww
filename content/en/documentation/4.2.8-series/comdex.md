@@ -47,7 +47,7 @@ The Mad Hatter says "Bring it on".
 #### Monitoring Commands and Options
 
 *  [filegen - specify monitor files](/documentation/4.2.8-series/monopt/#monitoring-commands-and-options)
-* [statistics - enable writing of statistics records](/documentation/4.2.8-series/monopt/monitoring-commands-and-options)
+* [statistics - enable writing of statistics records](/documentation/4.2.8-series/monopt/#monitoring-commands-and-options)
 *  [statsdir - specify monitor files directory](/documentation/4.2.8-series/monopt/#monitoring-commands-and-options)
 
 #### Reference Clock Commands and Options
