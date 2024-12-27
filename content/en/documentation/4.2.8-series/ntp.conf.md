@@ -824,14 +824,9 @@ The variables operate as follows:
 : Write (create or update) the specified variables. If the `assocID` is zero, the variablea re from the system variables name space, otherwise they are from the peer variables name space. The `assocID` is required, as the same name can occur in both name spaces.
 
 <code>**trap _host_address_ [port _port_number_] [interface _interface_address_]**</code>
-: This command configures a trap receiver at the given host address and port number for sending messages with the specified local interface address. If the port number is unspecified, a value of 18447 is used. If the interface address is not specified, the message is sent with a source address of the local interface the message is sent through. Note that on a multihomed host the interface used may vary from time to time with routing changes.
+: This command configures a trap receiver at the given host address and port number for sending messages with the specified local interface address. If the port number is unspecified, a value of 18447 is used. If the interface address is not specified, the message is sent with a source address of the local interface the message is sent through. Note that on a multihomed host the interface used may vary from time to time with routing changes. The trap receiver will generally log event messages and other information from the server in a log file. While such monitor programs may also request their own trap dynamically, configuring a trap receiver will ensure that no messages are lost when the server is started.
 
-<code>**ttl _hop_ _..._**</code>
-: This command specifies a list of TTL values in increasing order. Up to 8 values can be specified. In `manycast` mode these values are used in-turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.
-
-The trap receiver will generally log event messages and other information from the server in a log file. While such monitor programs may also request their own trap dynamically, configuring a trap receiver will ensure that no messages are lost when the server is started.
-
-<code>**hop _..._**</code>
+<code>**ttl hop _..._**</code>
 
 : This command specifies a list of TTL values in increasing order, up to 8 values can be specified. In manycast mode these values are used in turn in an expanding-ring search. The default is eight multiples of 32 starting at 31.
 
