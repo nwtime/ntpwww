@@ -20,7 +20,7 @@ Several national time keepers allow reading the time via NTP:
 
 * [NIST](https://www.nist.gov/time-frequency) (USA)
 * [USNO](https://www.cnmoc.usff.navy.mil/Our-Commands/United-States-Naval-Observatory/Precise-Time-Department/Network-Time-Protocol-NTP/) (USA)
-* [PTB](https://www.ptb.de/cms/en/ptb/fachabteilungen/abtq/gruppe-q4/ref-q42/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html) (Germany)
+* [PTB](https://www.ptb.de/cms/en/ptb/fachabteilungen/abt9/gruppe-95/ref-952/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html) (Germany)
 
 * * *
 

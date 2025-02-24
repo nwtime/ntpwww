@@ -107,7 +107,7 @@ The pictures below have been taken from and are linked to the vendors' web pages
     [![Image C51](/documentation/pic/c51.webp)](https://www.meinbergglobal.com/english/products/dcf77-clock-serial-interface.htm) 
 	: This mode expects the Meinberg standard time string format with 9600/7E2.
 
-    : > **Note:** mode 2 must also be used for Meinberg PCI cards under Linux, e.g. [the GPS PCI card](https://www.meinbergglobal.com/english/products/pci-gps-clock.htm) or [the DCF77 PCI card](https://www.meinbergglobal.com/english/products/pci-dcf77-clock.htm). Please note the [Meinberg Linux driver](https://www.meinbergglobal.com/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
+    : > **Note:** mode 2 must also be used for Meinberg PCI cards under Linux, e.g. the GPS PCI card or [the DCF77 PCI card](https://www.meinbergglobal.com/english/products/pci-dcf77-clock.htm). Please note the [Meinberg Linux driver](https://www.meinbergglobal.com/english/sw/#linux) must be installed. That driver emulates a refclock device in order to allow `ntpd` to access those cards. For details, please refer to the README file that comes with the Meinberg driver package.
 
 *   **server 127.127.8.0-3 mode 3**
     : [ELV](https://de.elv.com/) DCF7000 (sloppy AM demodulation / 50ms)

@@ -65,7 +65,7 @@ Fortunately there are also receivers that were designed for precision timekeepin
 | Arbiter | 1088A/B | [11](/documentation/drivers/driver11/) | serial; 9600 baud | Y |
 | Austron | GPS-AS2201 | [10](/documentation/drivers/driver10/) | serial; 9600 baud | Y
 | Garmin | GPS35(25) | [20](/documentation/drivers/driver20/) | serial, 4800 baud | Y (TTL) |
-| [GPSclock](http://www.gpsclock.com/) | 200 | [20](/documentation/drivers/driver20/) (patched) | serial; 4800 baud | Y |
+| GPSclock | 200 | [20](/documentation/drivers/driver20/) (patched) | serial; 4800 baud | Y |
 | Hewlett Packard | 58503A | [26](/documentation/drivers/driver26/) | serial; 9600 baud | Y |
 | Magnavox | GPS-MX4200 | [9](/documentation/drivers/driver9/) | serial; 4800 baud | Y |
 | [Meinberg](https://www.meinberg.de/) | GPS166, GPS167 | [8](/documentation/drivers/driver8/) | serial; 9600 baud | Y |

@@ -36,9 +36,9 @@ type: archives
 
 The `refclock_hopf_serial` driver supports [hopf electronic receivers](https://www.hopf.com/index.php) with serial Interface kompatibel 6021.
 
-Additional software and information about the software driver is available from: http://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
+Additional software and information about the software driver is available from: https://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
 
-Latest NTP driver source, executables and documentation is maintained at: http://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
+Latest NTP driver source, executables and documentation is maintained at: https://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
 
 * * *
 
@@ -92,4 +92,4 @@ As specified in clock manual in section "Data String for NTP (Network Time Proto
 
 [Bernd Altmeier](mailto:altmeier@atlsoft.de)
 
-[Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)
+[Ing.-Büro für Software www.ATLSoft.de](https://www.atlsoft.de/)

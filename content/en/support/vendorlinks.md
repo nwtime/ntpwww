@@ -31,7 +31,7 @@ type: archives
 * [ArkTime](https://www.arktime.com/)
   : Providers of correct time solutions for PCs, network servers, GPS based NTP time servers, and wall clocks.
 
-* [ELPROMA](https://elpromatime.com/)
+* [ELPROMA](https://www.elpromaelectronics.com/elpromatime/)
   : EU manufacturer of precision NTP time servers and custom build time systems, including monitoring and remote time auditing.
 
 * [ESE](https://www.ese-web.com/ntp.htm)
@@ -44,7 +44,7 @@ type: archives
   : A German manufacturer of Industrial Timing Solutions since 1972. hopf provides a wide range of Master Clocks with integrated GPS, IRIG-B, DCF77 or NTP reference clocks and NTP time servers for synchronization of NTP/SNTP (IEC61850), IRIG-B, DCF77, and other industrial and network appliances. hopf offers standard and customized solutions for accurate timing.
 
 * [Oscilloquartz SA](https://www.oscilloquartz.com/)
-  : A manufacturer of network time and frequency solutions as well as [NTP time servers](https://www.oscilloquartz.com/en/products-and-services/ntp-servers) with integrated single or dual GPS receivers to synchronize any networks requiring reliability and security.
+  : A manufacturer of network time and frequency solutions as well as [NTP time servers](https://www.oscilloquartz.com/en/products-and-services/ntp-network-time-servers) with integrated single or dual GPS receivers to synchronize any networks requiring reliability and security.
 
 * [Polynet Ltd](https://www.polynet.hu/)
   : A manufacturer of network time and frequency solutions as well as [NTP servers](https://www.polynet.hu/network-synchronization/ntp-server/) and [PTP servers](https://www.polynet.hu/network-synchronization/ptpgm1010-ieee-1588v2-grandmaster-clock-tdm-sync-support/), with integrated GNSS receivers and rubidium modules.

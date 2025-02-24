@@ -68,7 +68,7 @@ Z on time marker (* - assumed delay / # measured delay)
 
 This format is an ITU-R Recommendation (ITU-R TF583.4) and is now available from the primary timing centres of the following countries: Austria, Belgium, Germany, Italy, The Netherlands, Poland, Portugal, Romania, Spain, Sweden, Switzerland, Turkey, United Kingdom. Some examples are:
 
-*   In Germany by [Physikalisch-Technische Bundesanstalt (PTB)'s timecode service](https://www.ptb.de/cms/en/ptb/fachabteilungen/abtq/gruppe-q4/ref-q42/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html). Phone number: +49 5 31 51 20 38.
+*   In Germany by [Physikalisch-Technische Bundesanstalt (PTB)'s timecode service](https://www.ptb.de/cms/en/ptb/fachabteilungen/abt9/gruppe-95/ref-952/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html). Phone number: +49 5 31 51 20 38.
 
 *   In the UK by [National Physical Laboratory (NPL)'s TRUETIME service](https://www.npl.co.uk/products-services/time-frequency). Phone number: 0891 516 333
 
@@ -76,7 +76,7 @@ This format is an ITU-R Recommendation (ITU-R TF583.4) and is now available from
 
 *   In Switzerland by [Swiss Federal Office of Metrology 's timecode service](https://www.metas.ch/metas/en/home/fabe/zeit-und-frequenz.html). Phone number: 031 323 32 25
 
-*   In Sweden by [SP Swedish National Testing and Research Institute's timecode service](https://www.ri.se/en/what-we-do/expertises/position-navigation-and-time). Phone number: +46 33 415783.
+*   In Sweden by [SP Swedish National Testing and Research Institute's timecode service](https://www.ri.se/en/expertise-areas/expertises/position-navigation-and-time). Phone number: +46 33 415783.
 
 * * *
 
