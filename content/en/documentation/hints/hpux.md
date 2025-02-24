@@ -64,8 +64,6 @@ Possible problems:
 * `xntpd` has been known to get really ticked off when `adjtime()` fails which is usually only while running the emulation code on HP-UX. When it gets mad, it usually jumps the clock into never never land.
  Possible reasons for this are `adjtimed` being killed or just never started or `adjtimed` being completely swapped out on a really busy machine (newer `adjtimed` try to lock themselves in memory to prevent this one).
 
-Anything else ... just drop me a line at ken@sdd.hp.com
-
 * * *
 
 <pre>

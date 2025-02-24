@@ -61,7 +61,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 30.  [Michael Shields](mailto:shields@tembel.org) USNO clock driver  
 31.  Jeff Steinman: Datum PTS clock driver  
 32.  [Harlan Stenn](mailto:harlan@pfcs.com) GNU automake/autoconfigure makeover  
-33.  [Kenneth Stone](mailto:ken@sdd.hp.com) HP-UX port  
+33.  Kenneth Stone: HP-UX port  
 34.  [Ajit Thyagarajan](mailto:ajit@ee.udel.edu) IP multicast support  
 35.  Tomoaki TSURUOKA: TRAK clock driver  
 36.  [Paul A Vixie](mailto:vixie@vix.com) TrueTime GPS driver, generic TrueTime clock driver

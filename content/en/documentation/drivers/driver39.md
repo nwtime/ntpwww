@@ -31,7 +31,7 @@ type: archives
 
 The `refclock_hopf_pci` driver supports the [hopf](https://www.hopf.com/index.php) PCI-bus interface 6039 GPS/DCF77.
 
-Additional software and information about the software drivers as well as the latest NTP driver source, executables, and documentation is maintained at http://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
+Additional software and information about the software drivers as well as the latest NTP driver source, executables, and documentation is maintained at https://www.atlsoft.de/ntp-tcp-netzwerkzeit/.
 
 * * *
 
@@ -73,4 +73,4 @@ Windows NT/2000
 
 [Bernd Altmeier](mailto:altmeier@atlsoft.de)
 
-[Ing.-Büro für Software www.ATLSoft.de](http://www.ATLSoft.de)
+[Ing.-Büro für Software www.ATLSoft.de](https://www.atlsoft.de/)

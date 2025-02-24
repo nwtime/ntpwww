@@ -57,5 +57,4 @@ Commercial NTP related products are listed on the [Vendor Links](/support/vendor
 
 #### Online Time Services
 
-* [NIST Official Time](https://www.time.gov/)
-* [U.S. Navy Time](https://www.usno.navy.mil/USNO/time/)
+* [NIST/USNO Official U.S. Time](https://www.time.gov/)

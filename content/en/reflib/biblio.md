@@ -50,7 +50,7 @@ Abali, B.
 
 #### Bibliography
 
-1.  Abali, B., C.B. Stunkel and C. Benveniste. [Clock synchronization on a multicomputer.](https://dominoweb.draco.res.ibm.com/18ca32ec74fd593e85256593006ffc0d.html) _J. Parallel Distributed Computing 40, 1_ (1997), 118-130. 
+1.  Abali, B., C.B. Stunkel and C. Benveniste. _Clock synchronization on a multicomputer._ _J. Parallel Distributed Computing 40, 1_ (1997), 118-130. 
 
 2.  Allan, D.W. Time and frequency (time-domain) estimation and prediction of precision clocks and oscillators. _IEEE Trans. on Ultrasound, Ferroelectrics, and Frequency Control UFFC-34, 6_ (November 1987), 647-654. Also in: Sullivan, D.B., D.W. Allan, D.A. Howe and F.L. Walls (Eds.). _Characterization of Clocks and Oscillators_. NIST Technical Note 1337, U.S. Department of Commerce, 1990, 121-128.
 3.  Allan, D.W., J.E. Gray and H.E. Machlan. The National Bureau of Standards atomic time scale: generation, stability, accuracy and accessibility. In: Blair, B.E. (Ed.). _Time and Frequency Theory and Fundamentals_. National Bureau of Standards Monograph 140, U.S. Department of Commerce, 1974, 205-231.
