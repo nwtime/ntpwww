@@ -31,7 +31,7 @@ type: "archives"
 			<ul>
               <li><a href="https://support.ntp.org/Servers">Time Servers</a></li>
 			  <li><a href="https://support.ntp.org/Dev">Developer Resources</a></li>
-			  <li><a href="/contributorslist/">Contributors List</a></li>
+			  <li><a href="/contributorslist/">Contributors</a> and <a href="/support/vendorlinks/">Vendors</a></li>
 			  <li><a href="/contact/">Contacts</a></li>
 			</ul>
               <div class="d-flex justify-content-between align-items-center">
