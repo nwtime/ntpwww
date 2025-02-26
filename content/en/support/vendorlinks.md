@@ -2,6 +2,8 @@
 title: "Vendors of Time Products"
 description: "A listing of vendors selling NTP servers and timing products. Contact the NTP webmaster to add or edit a vendor description."
 type: archives
+aliases:
+    - /software/
 ---
 
 > Inclusion on this list does constitute an endorsement of the vendor, or their products, by anyone associated with the NTP Project. Contact the [webmaster](mailto:webmaster@ntp.org) to add or edit a vendor description. To learn more about the benefits of institutional membership, visit [Network Time Foundation](https://www.nwtime.org/membership/).
