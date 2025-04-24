@@ -512,7 +512,7 @@ type: archives
 * [Bug 3404: Fix openSSL DLL usage under Windows](https://bugs.ntp.org/show_bug.cgi?id=3404)
   - fix/drop assumptions on OpenSSL libs directory layout
 * [Bug 3399: NTP: linker error in 4.2.8p10 during Linux cross-compilation](https://bugs.ntp.org/show_bug.cgi?id=3399)
-  - initial patch by timeflies@mail2tor.com
+  - initial patch by `timeflies@mail2tor.com`
 * [Bug 3398: tests fail with core dump](https://bugs.ntp.org/show_bug.cgi?id=3398)
   - patch contributed by Alexander Bluhm
 * [Bug 3397: ctl_putstr() asserts that data fits in its buffer](https://bugs.ntp.org/show_bug.cgi?id=3397)
