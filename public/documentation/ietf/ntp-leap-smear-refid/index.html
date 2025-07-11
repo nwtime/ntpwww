@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/" />
+  
+  <meta property="og:title" content="Network Time Protocol Leap Smear REFID" />
+<meta property="og:description" content="This proposal offers a mechanism that provides a simple and clean method for NTP clients to trivially ask for leap-smeared time and detect a server that is offering leap-smeared time." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+
+<meta property="article:modified_time" content="2025-07-11T16:08:13&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="Network Time Protocol Leap Smear REFID"/>
+<meta name="twitter:description" content="This proposal offers a mechanism that provides a simple and clean method for NTP clients to trivially ask for leap-smeared time and detect a server that is offering leap-smeared time."/>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+</script>
+
+
+
+
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c33igkoodm");
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Network Time Protocol Leap Smear REFID</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This proposal offers a mechanism that provides a simple and clean method for NTP clients to trivially ask for leap-smeared time and detect a server that is offering leap-smeared time.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.33139960351778bcc5aee21b22a8ddf3.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
+        </button>
+      
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/donate/">Donate</a>
+      </button>
+    </div>
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/ietf/">IETF Drafts</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/">Network Time Protocol Leap Smear REFID</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Network Time Protocol Leap Smear REFID</h1> 
+    <p style="font-size: small; color: grey;">Last update: July 11, 2025 16:08 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/c5b1023d81d31843b908b31514bf2623223721ec">c5b1023d8</a>)</p>
+	<pre><code>Workgroup:		Internet Engineering Task Force
+Internet-Draft:		draft-stenn-ntp-leap-smear-refid-02
+Published:    		11 July 2019 
+Intended Status:	Standards Track
+Expires:		12 January 2020
+Author:			H. Stenn
+			Network Time Foundation
+</code></pre><h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#11-requirements-language">1.1. Requirements Language</a></li>
+</ul>
+</li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#2-leap-smear-refid">2. Leap smear REFID</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#3-acknowledgements">3 Acknowledgements</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#4-iana-considerations">4. IANA Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#5-security-considerations">5. Security Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#6-normative-references">6. Normative References</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid/#authors-address">Author&rsquo;s address</a></li>
+</ul>
+<hr>
+<h4 id="1-introduction">1. Introduction</h4>
+<p>Leap Seconds are applied as needed to UTC in order to keep its time of day close to UT1&rsquo;s mean solar time.</p>
+<p><a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a> and earlier versions of NTP are the overwhelming method of distributing time on networks. The timescale used by NTP is based on POSIX which, for better or worse, ignores any instances where there are not the ordinary 86,400 seconds per day.</p>
+<p>Leap Seconds will continue to exist for the foreseeable future, and similarly, POSIX can be expected to ignore leap seconds for the foreseeable future.</p>
+<p>Different applications have different requirements for the stability of time during the application of a leap second. Some applications are tolerant of a fast application of the correction, while other applications prefer to &ldquo;smear&rdquo; the leap second over a longer period, where the time reported by leap-second aware servers is gradually applied so there is no abrupt change to time during the processing of a leap second.</p>
+<p>While leap second processing can be expected to be properly handled by up-to-date software and by time servers, there are large numbers of out-of-date software installations and client systems that are just not able to properly handle a leap second correction.</p>
+<p>Additionally, some use-cases for calculating elapsed time (a &ldquo;difference clock&rdquo;) that use POSIX timestamps are greatly complicated in the possible presence of a leap-second corrections. If the presence of leap-smeared time is of greater value than legally-correct time, leap smearing is the choice some administrators will take.</p>
+<p>This proposal offers a way for a system to generate a REFID that indicates that the time being supplied in the NTP packet already contains an amount of leap smear correction, and what that amount is. It also provides part of a solution whereby a client can receive leap-smeared time in the case where part of the leap smear occurs before the actual leap second, and the remainder of the leap smear occurs after the actual leap second.</p>
+<hr>
+<h5 id="11-requirements-language">1.1. Requirements Language</h5>
+<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
+<hr>
+<h4 id="2-leap-smear-refid">2. Leap Smear REFID</h4>
+<p><a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a> defines the data type of NTP time values in Section 6, &ldquo;Data Types&rdquo;:</p>
+<p><em>All NTP time values are represented in twos-complement format, with bits numbered in big-endian (as described in Appendix A of [RFC0791]) fashion from zero starting at the left, or high-order, position. &hellip;</em></p>
+<p>The 32 bit signed integer seconds portion and the 32 bit unsigned fractional seconds portion, or 32:32 format is:</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                            Seconds                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                            Fraction                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre><p><em>Figure 1: NTP Timestamp Format (32:32)</em></p>
+<p>This format provides coverage for 136 years' time to a precision of 232 picoseconds. If a leap-second addition is being completely smeared just before before the stroke of the next POSIX second then the smear correction will be (0,1). If this was the only way to apply a leap smear correction then we could simply use an unsigned value to represent the correction. But while the first popular leap smear implementation applied the correction over an appropriate number of hours' time before the actual leap second so the system time was corrected at the stroke of 00:00, that meant that the difference between system time and UTC spent half of the duration of the smear application at [.5,1) &ldquo;off&rdquo; of correct time. The second popular implementation of the leap smear applied the first half-second correction before the stroke of 00:00 for a correction range of (0,.5] and the last half-second correction starting at the stroke of 00:00 for a [-.5,0) correction range. This also means we need a signed value to represent the amount of correction.</p>
+<p>If a system implements the leap-smear REFID, the REFID of a system that is supplying smeared time to client requests while leap-smear correction is active would be 254.b1.b2.b3, where the three octets (b1, b2, and b3) are a 2:22 formatted value, yielding precision to 238 nanoseconds, or about a quarter of a microsecond.</p>
+<p>Note that if an NTP server decides to offer smeared time corrections to clients, it SHOULD only offer this time in response to CLIENT time requests. There is something to be said for further only offering smeared time to CLIENT time requests that show an LI value of 0, and perhaps 3. The reason for this is that if a client knows a leap second is pending, it can be expected to know how to process that leap second. An NTP server that is offering smeared time SHOULD NOT send smeared time in any peer exchanges. Also, CLIENT machines SHOULD NOT be distributing time (smeared or otherwise) to other systems.</p>
+<p>We also note that during the application of a leap smear, the REFID from a system offering smeared time cannot provide detection of a timing loop. This is not expected to be a problem because time server systems are not expected to make CLIENT connections with each other, so they should not be receiving smeared time. Moreso, if a time server is configured to make CLIENT connections to a server that offers smeared time, with the mechanism described here it can detect when it is getting smeared time, and either ignore time from that source, or &ldquo;undo&rdquo; the leap smear correction and use the corrected time for that sample.</p>
+<p>This proposal is not an attempt to justify servers offering leap smeared time. Its purpose is to make it easy to identify when a client is receiving smeared time, and provide the client a way to know the amount of smear correction as of the latest successful poll.</p>
+<hr>
+<h4 id="3-acknowledgements">3. Acknowledgements</h4>
+<p>The author wishes to acknowledge the contributions of Juergen Perlinger.</p>
+<hr>
+<h4 id="4-iana-considerations">4. IANA Considerations</h4>
+<p>This memo requests that IANA allocate a pseudo Extension Field Type of 0xFEFF so the proposed &ldquo;I-Do&rdquo; exchange can report whether or not this server can offer leap smeared time in response to CLIENT time requests, identifying the amount of correction using the above REFID.</p>
+<hr>
+<h4 id="5-security-considerations">5. Security Considerations</h4>
+<p>No special or unusual security issues have been identified that are directly related to this proposal.</p>
+<p>Additional information TBD.</p>
+<hr>
+<h4 id="6-normative-references">6. Normative References</h4>
+<dl>
+<dt>[RFC2119]</dt>
+<dd>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels&rdquo;, BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>.</dd>
+<dt>[RFC5905]</dt>
+<dd>Mills, D., Martin, J., Ed., Burbank, J., and W. Kasch, &ldquo;Network Time Protocol Version 4: Protocol and Algorithms Specification&rdquo;, RFC 5905, DOI 10.17487/RFC5905, June 2010, <a href="https://www.rfc-editor.org/info/rfc5905">https://www.rfc-editor.org/info/rfc5905</a>.</dd>
+</dl>
+<hr>
+<h4 id="authors-address">Author&rsquo;s Address</h4>
+<dl>
+<dt>Harlan Stenn</dt>
+<dd>Network Time Foundation</dd>
+<dd>P.O. Box 918</dd>
+<dd>Talent, OR, 97540</dd>
+<dd>United States of America</dd>
+<dd>Email: <a href="mailto:stenn@nwtime.org">stenn@nwtime.org</a></dd>
+</dl>
+<hr>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2025 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

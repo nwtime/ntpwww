@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/" />
+  
+  <meta property="og:title" content="Network Time Protocol Extended Information Extension Field" />
+<meta property="og:description" content="The core network packet used by NTP has no spare bits available for reporting additional state information and no larger data areas available for larger amounts of information. This proposal offers a new extension field that would contain this additional information." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+
+<meta property="article:modified_time" content="2025-07-11T16:08:13&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="Network Time Protocol Extended Information Extension Field"/>
+<meta name="twitter:description" content="The core network packet used by NTP has no spare bits available for reporting additional state information and no larger data areas available for larger amounts of information. This proposal offers a new extension field that would contain this additional information."/>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+</script>
+
+
+
+
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c33igkoodm");
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Network Time Protocol Extended Information Extension Field</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The core network packet used by NTP has no spare bits available for reporting additional state information and no larger data areas available for larger amounts of information. This proposal offers a new extension field that would contain this additional information.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.33139960351778bcc5aee21b22a8ddf3.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
+        </button>
+      
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/donate/">Donate</a>
+      </button>
+    </div>
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/ietf/">IETF Drafts</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/">Network Time Protocol Extended Information Extension Field</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Network Time Protocol Extended Information Extension Field</h1> 
+    <p style="font-size: small; color: grey;">Last update: July 11, 2025 16:08 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/c5b1023d81d31843b908b31514bf2623223721ec">c5b1023d8</a>)</p>
+	<pre><code>Workgroup:		Internet Engineering Task Force
+Internet-Draft:		draft-stenn-ntp-extended-information-04
+Published:    		10 July 2019 
+Intended Status:	Standards Track
+Expires:		11 January 2020
+Author:			H. Stenn
+			Network Time Foundation
+</code></pre><h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#11-requirements-language">1.1. Requirements Language</a></li>
+</ul>
+</li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#2-the-extended-information-extension-field">2. The Extended Information Extension Field</a>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#21-version-0-content-descriptor-and-content-data-fields">2.1. Version 0 Content Descriptor and Content Data Fields</a></li>
+</ul>
+</li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#3-acknowledgements">3. Acknowledgements</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#4-iana-considerations">4. IANA Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#5-security-considerations">5. Security Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#6-normative-references">6. Normative References</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-extended-information-ef/#authors-address">Author&rsquo;s address</a></li>
+</ul>
+<hr>
+<h4 id="1-introduction">1. Introduction</h4>
+<p>The core NTP packet format has changed little since <a href="https://www.ntp.org/reflib/rfc/rfc958.txt">RFC 958</a> was published in 1985. Since then, there has been demonstrated need to convey additional information about NTP&rsquo;s state in an NTP packet but no backward-compatible way to usurp the few otherwise potentially available bits has been found, and no larger data areas are available in the core packet structure. This proposal offers a new extension field that would contain this additional information.</p>
+<hr>
+<h5 id="11-requirements-language">1.1. Requirements Language</h5>
+<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
+<hr>
+<h4 id="2-the-extended-information-extension-field">2. The Extended Information Extension Field</h4>
+<p>The Field Type of the Extended Information EF includes a version number field in the low-order bits of the first octet, to make it easier to evolve this specification. The initial specification for this proposal uses Version 0, which equates to 0x0009 [ADJUST AS NEEDED BASED ON IANA, IF AN IANA REGISTRY IS USED]. A future revision for Version 1 would use 0x0109 [IBID].
+The payload for Version 0 is comprised of a two octet Content Descriptor followed by a two octet Content Data field, as described below.</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------+---------------+-------------------------------+
+|          Field Type           |        Field Length           |
++-------------------------------+-------------------------------+
+|     Content Descriptor 1      |       Content Data 1          |
++---------------------------------------------------------------+
+</code></pre><p><em>Figure 1: NTP Extension Field: Extended Information</em></p>
+<dl>
+<dt>Field Type:</dt>
+<dd>TBD (Recommendation for IANA: 0x0009 (Extended-Information, Version 0))</dd>
+<dt>Field Length:</dt>
+<dd>as needed</dd>
+</dl>
+<hr>
+<h5 id="21-version-0-content-descriptor-and-content-data-fields">2.1. Version 0 Content Descriptor and Content Data fields</h5>
+<p>There are 16 bits available for state information in the Version 0 Extended Information Content Descriptor. These bits are allocated as follows:</p>
+<dl>
+<dt>0x0001:</dt>
+<dd>TAI Offset is stored in the low-order 8 bits (the second octet) of the Content Data.</dd>
+<dt>0x0002:</dt>
+<dd>Interleave Mode indicator in the low order bit of the first octet of the Content Data. [NOTE: this may not be useful, and it can be removed if desired. It can serve as a belt-and-suspenders way to identify when a packet contains interleaved timestamps.]</dd>
+<dt>0xFFFD:</dt>
+<dd>Reserved for future versions. SHOULD be zeroes for Version 0, and the meaning of any nonzero values is unspecified.</dd>
+</dl>
+<p>The Content Data field of the Version 0 Extended Information extension field is comprised of two octets, with the contents allocated as follows:</p>
+<dl>
+<dt>0xXXNN:</dt>
+<dd>The low-order 8 bits (NNNN) are the TAI Offset. Any data in the high-order 8 bits (XXXX) are not part of the TAI Offset.</dd>
+<dt>0xX0XX:</dt>
+<dd>A value of 0 in the low-order bit of the first octet indicates that the timestamps in the base packet are not interleave-mode timestamps.</dd>
+<dt>0xX1XX:</dt>
+<dd>A value of 1 in the low-order bit of the first octet indicates that the timestamps in the base packet are interleave-mode timestamps.</dd>
+<dt>0xN2XX:</dt>
+<dd>thru</dd>
+<dt>0xNDXX:</dt>
+<dd>Any of the seven high-order bits in the first octet are reserved for future versions and SHOULD be zero for Version 0. The meaning of any nonzero values is unspecified.</dd>
+</dl>
+<pre><code> Content Descriptor 1     Content Data 1
+         0x0001         TAI offset in the low-order 8 bits, 24-31
+         0x0002         Interleave Mode indicator in Bit 23
+         0xFFFD         Reserved (Zeroes)
+
+ Interleave Mode: 1 if the sender is in interleave mode, 0 otherwise
+</code></pre><p><em>Figure 2: NTP Extension Field: Extended Information, Version 0 Content Fields</em></p>
+<p>Example: A system that wants to convey an offset to TAI of 36 seconds, and show it is in interleave mode.</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------+---------------+-------------------------------+
+|    Field Type (0x0009)        |   Field Length (0x0008)       |
++-------------------------------+-------------------------------+
+|            0x0003             |           0x0124              |
++-------------------------------+-------------------------------+
+</code></pre><p><em>Figure 3: NTP Extension Field: Extended Information V0, Example</em></p>
+<hr>
+<h4 id="3-acknowledgements">3. Acknowledgements</h4>
+<p>The author wishes to acknowledge the contributions of Martin Burnicki and Sam Weiler.</p>
+<hr>
+<h4 id="4-iana-considerations">4. IANA Considerations</h4>
+<p>This memo requests IANA to allocate NTP Extension Field Type</p>
+<p><code>0x0009 (Extended-Information, Version 0)</code></p>
+<p>for this proposal.</p>
+<h4 id="5-security-considerations">5. Security Considerations</h4>
+<p>No unusual or special security considerations are known to be associated with this proposal.</p>
+<hr>
+<h4 id="6-normative-references">6. Normative References</h4>
+<dl>
+<dt>[RFC0958]</dt>
+<dd>Mills, D., &ldquo;Network Time Protocol (NTP)&rdquo;, RFC 958, DOI 10.17487/RFC0958, September 1985, <a href="https://www.rfc-editor.org/info/rfc958">https://www.rfc-editor.org/info/rfc958</a>.</dd>
+<dt>[RFC2119]</dt>
+<dd>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels&rdquo;, BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>.</dd>
+<dt>[RFC5905]</dt>
+<dd>Mills, D., Martin, J., Ed., Burbank, J., and W. Kasch, &ldquo;Network Time Protocol Version 4: Protocol and Algorithms Specification&rdquo;, RFC 5905, DOI 10.17487/RFC5905, June 2010, <a href="https://www.rfc-editor.org/info/rfc5905">https://www.rfc-editor.org/info/rfc5905</a>.</dd>
+</dl>
+<hr>
+<h4 id="authors-address">Author&rsquo;s Address</h4>
+<dl>
+<dt>Harlan Stenn</dt>
+<dd>Network Time Foundation</dd>
+<dd>P.O. Box 918</dd>
+<dd>Talent, OR, 97540</dd>
+<dd>United States of America</dd>
+<dd>Email: <a href="mailto:stenn@nwtime.org">stenn@nwtime.org</a></dd>
+</dl>
+<hr>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2025 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

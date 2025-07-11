@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/" />
+  
+  <meta property="og:title" content="Network Time Protocol MAC/Last Extension Fields" />
+<meta property="og:description" content="NTP packets can be authenticated by a Message Authentication Code (MAC) if a MAC is present at the end of an NTP packet. The legacy format for this MAC is not formatted as an NTP Extension Field, and its presence may cause some implementations a parsing ambiguity. This proposal introduces two ways to resolve this problem." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+
+<meta property="article:modified_time" content="2025-07-11T16:08:13&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="Network Time Protocol MAC/Last Extension Fields"/>
+<meta name="twitter:description" content="NTP packets can be authenticated by a Message Authentication Code (MAC) if a MAC is present at the end of an NTP packet. The legacy format for this MAC is not formatted as an NTP Extension Field, and its presence may cause some implementations a parsing ambiguity. This proposal introduces two ways to resolve this problem."/>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+</script>
+
+
+
+
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c33igkoodm");
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Network Time Protocol MAC/Last Extension Fields</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NTP packets can be authenticated by a Message Authentication Code (MAC) if a MAC is present at the end of an NTP packet. The legacy format for this MAC is not formatted as an NTP Extension Field, and its presence may cause some implementations a parsing ambiguity. This proposal introduces two ways to resolve this problem.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.33139960351778bcc5aee21b22a8ddf3.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
+        </button>
+      
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/donate/">Donate</a>
+      </button>
+    </div>
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/ietf/">IETF Drafts</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/">Network Time Protocol MAC/Last Extension Fields</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Network Time Protocol MAC/Last Extension Fields</h1> 
+    <p style="font-size: small; color: grey;">Last update: July 11, 2025 16:08 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/c5b1023d81d31843b908b31514bf2623223721ec">c5b1023d8</a>)</p>
+	<pre><code>Workgroup:		Internet Engineering Task Force
+Internet-Draft:		draft-stenn-ntp-mac-last-ef-04
+Published:    		11 July 2019 
+Intended Status:	Standards Track
+Expires:		12 January 2020
+Author:			H. Stenn, Network Time Foundation
+			D. Mayer, Network Time Foundation
+</code></pre><h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#11-requirements-language">1.1. Requirements Language</a></li>
+</ul>
+</li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#2-the-last-extension-field-extension-field-last-ef">2 The Last Extension Field Extension Field: LAST-EF</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#3-mac-extension-field">3 MAC Extension Field</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#4-acknowledgements">4. Acknowledgements</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#5-iana-considerations">5. IANA Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#6-security-considerations">6. Security Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#7-normative-references">7. Normative References</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/#authors-addresses">Authors' addresses</a></li>
+</ul>
+<hr>
+<h4 id="1-introduction">1. Introduction</h4>
+<p>NTPv4 is defined by <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>, and it and earlier versions of the NTP Protocol have supported symmetric private key Message Authentication Code (MAC) authentication. MACs were first described in Appendix C of <a href="https://www.ntp.org/reflib/rfc/rfc1305/rfc1305b.pdf">RFC 1305</a> and are further described in <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>. As the number of Extension Fields grows there is an increasing chance some implementations will find a parsing ambiguity when deciding if the &ldquo;next&rdquo; set of data is an Extension Field or a legacy MAC. This proposal defines two new Extension Fields to avoid this potential ambiguity. One, LAST-EF, is used to signify that it is the last Extension Field in the packet. If the LAST-EF is present, any subsequent data MUST be considered to be a legacy MAC, or if you prefer, any subsequent data MUST NOT be considered to be an EF. The other, MAC-EF, allows one or more MACs to be encapsulated in an Extension Field. If all parties in an association support MAC-EF, the use of a legacy MAC may be avoided.</p>
+<hr>
+<h4 id="11-requirements-language">1.1. Requirements Language</h4>
+<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
+<hr>
+<h4 id="2-the-last-extension-field-extension-field-last-ef">2. The Last Extension Field Extension Field: LAST-EF</h4>
+<p>Now that multiple extension fields are a possibility, additional packet data could be either an Extension Field or a legacy MAC. Having a means to indicate that there are no more Extension Fields in an NTP packet and any subsequent data MUST be something else, almost certainly a legacy MAC, is a valuable facility.</p>
+<p>The format of a LAST-EF is an Extension Field comprised of an identified Field Type and an appropriate Field Length.</p>
+<p>In the example below the Field Length in the LAST-EF is 4, because there is clearly no need in this case for the 28 octets required by <a href="https://datatracker.ietf.org/doc/html/rfc7822">RFC 7822</a>. But the LAST-EF could have any supported length, as any payload is ignored.</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------+---------------+-------------------------------+
+|          Field Type           |        Field Length           |
++-------------------------------+-------------------------------+
+</code></pre><p><em>Figure 1: NTP Extension Field: Last Extension Field - LAST-EF</em></p>
+<dl>
+<dt>Field Type:</dt>
+<dd>TBD (Recommendation for IANA: 0x0008 (Last Extension Field))</dd>
+<dt>Field Length:</dt>
+<dd>4 (minimum)</dd>
+<dt>Payload:</dt>
+<dd>Ignored if present - none needed. SHOULD be zeroes.</dd>
+</dl>
+<p>Example:</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------+---------------+-------------------------------+
+|     Field Type (0x0008)       |    Field Length (0x0004)      |
++-------------------------------+-------------------------------+
+|                          MAC Key ID                           |
++-------------------------------+-------------------------------+
+|                            Sixteen                            |
++-------------------------------+-------------------------------+
+|                             Octets                            |
++-------------------------------+-------------------------------+
+|                              of                               |
++-------------------------------+-------------------------------+
+|                              MAC                              |
++-------------------------------+-------------------------------+
+</code></pre><p><em>Figure 2: Example: NTP Extension Field: Last Extension Field, followed by a Legacy MAC</em></p>
+<hr>
+<h4 id="3-mac-extension-field">3. MAC Extension Field</h4>
+<p>Now that multiple extension fields are a possibility, there is a chance that additional packet data could be either an Extension Field or a legacy MAC. There is benefit to encapsulating the MAC in an extension field. By encapsulating the MAC in an EF, we also have the option to include multiple MACs in a packet, which may be of use in broadcast scenarios, for example.</p>
+<p>There are two forms of this extension field. The first supports a single MAC, requiring 4 octets' overhead for the EF header. The second form supports one or more MACs in the EF payload, and requires at least 8 octets.</p>
+<p>The format of a MAC-EF is an Extension Field comprised of an identified Field Type and an appropriate Field Length.</p>
+<p>A Field Type value of TBD (0x0003 is suggested) identifies this extension field as a MAC Extension field for a single MAC. In this case, the payload consists of the four octet MAC Key ID followed by the MAC digest, and any desired (possibly random data) padding.</p>
+<p>A Field Type value of TBD (0x0103 is suggested) identifies this extension field as a MAC extension field for one or more MACs. In this case, the payload consists of an unsigned 16-bit MAC Count (N) followed by N unsigned 16-bit MAC length fields. If there are an even number of MACs specified there is an unused 16-bit field which SHOULD be 0x0000 at the end of the set of MAC length values so that the subsequent MAC data is longword (4-octet) aligned. Each MAC SHALL be padded so that any subsequent MAC starts on a 4-octet boundary. Optional (possibly random data) padding is allowed.</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------+---------------+-------------------------------+
+|     Field Type (0x0003)       |        Field Length           |
++-------------------------------+-------------------------------+
+.                         MAC 1 Key ID                          .
+.                                       +-+-+-+-+-+-+-+-+-+-+-+-.
+.         MAC 1 Key Data                | Random Data Padding   .
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre><p><em>Figure 3: NTP Extension Field: MAC EF Format (Single MAC)</em></p>
+<dl>
+<dt>Field Type:</dt>
+<dd>TBD (Recommendation for IANA: 0x0003 (MAC-EF: Single MAC))</dd>
+<dt>Field Length:</dt>
+<dd>As needed.</dd>
+<dt>Payload:</dt>
+<dd>As described.</dd>
+</dl>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------+---------------+-------------------------------+
+|     Field Type (0x0103)       |        Field Length           |
++-------------------------------+-------------------------------+
+|          MAC Count            |        MAC 1 Length           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          MAC 2 Length         |        MAC 3 Length           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+.                         MAC 1 Key ID                          .
+.                                       +-+-+-+-+-+-+-+-+-+-+-+-.
+.         MAC 1 Key Data                | Random Data Padding   .
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+.                         MAC 2 Key ID                          .
+.                                     +-+-+-+-+-+-+-+-+-+-+-+-+-.
+.        MAC 2 Key Data               | Random Data Padding     .
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+.                         MAC 3 Key ID                          .
+.                                           +-+-+-+-+-+-+-+-+-+-.
+.          MAC 3 Key Data                   |Random Data Padding.
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Padding (as needed)                     |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre><p><em>Figure 4: NTP Extension Field: MAC EF Format (1 or more MACs)</em></p>
+<dl>
+<dt>Field Type:</dt>
+<dd>TBD (Recommendation for IANA: 0x0103 (MAC-EF: 1 or more MACs))</dd>
+<dt>Field Length:</dt>
+<dd>As needed.</dd>
+<dt>Payload:</dt>
+<dd>As described.</dd>
+</dl>
+<p>A MAC consisting of 4 octets of zeros means the MAC is a crypto-NAK, as defined by <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>.</p>
+<p>Additional MACs SHOULD NOT be present if there is a crypto-NAK present in the packet.</p>
+<p>Each MAC within the extension field consists of a 32-bit key identifier which SHOULD be unique to the set of key identifiers in this MAC extension field followed by ((MAC Length) - 4) octets of data, optionally followed by random octets to pad the key data to the length specified earlier in the extension field. That key identifier is a shared secret which defines the algorithm to be used and a cookie or secret to be used in generating the digest. The MAC digest is produced by hashing the data from the beginning of the NTP packet up to but not including the start of the MAC extension field. The calculation of the digest SHOULD be a hash of this data concatenated with the 32-bit keyid (in network-order), and the key. When sending or receiving a key identifier each side needs to agree on the key identifier, algorithm and the cookie or secret used to produce the digest along with the digest lengths. Note that the sender may send more bytes than are required by the digest algorithm. This would be done to make it more difficult for a casual observer to identify the algorithm being used based on the length of the data. The digest data begins immediately after the key ID, and any padding octets SHOULD be random.</p>
+<hr>
+<h4 id="4-acknowledgements">4. Acknowledgements</h4>
+<p>MAC-EF: The authors gratefully acknowledge Dave Mills for his insightful comments. Hal Murray asked if there was a way for the MAC-EF to require only 4 octets of overhead if there was only a single MAC in the payload.</p>
+<hr>
+<h4 id="5-iana-considerations">5. IANA Considerations</h4>
+<p>This memo requests IANA to allocate NTP Extension Field Types:</p>
+<ul>
+<li>
+<p>0x0003 MAC-EF (Single MAC)</p>
+</li>
+<li>
+<p>0x0103 MAC-EF (1 or more MACs)</p>
+</li>
+<li>
+<p>0x0008 LAST-EF</p>
+</li>
+</ul>
+<hr>
+<h4 id="6-security-considerations">6. Security Considerations</h4>
+<p>The security considerations of time protocols in general are discussed in <a href="https://www.rfc-editor.org/rfc/rfc7384.html">RFC 7384</a>, and the security considerations of NTP are discussed in <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>.</p>
+<p>Digests MD5, DES and SHA-1 are considered compromised and should not be used [COMP].</p>
+<p>[DISCUSS] Each MAC length should be at least 20 octets long to allow for 4 octets of key ID and at least 16 octets of digest and random padding. For a 128-bit digest, there would be 4 octets of key ID, 16 octets of digest, plus any desired octets of random padding. For SHA-256 digests there are 4 octets of key ID, 32 octets digest, plus any desired octets of random padding. Using MAC lengths that include random padding may make it more difficult for an attacker to know which digest algorithms are used.</p>
+<hr>
+<h4 id="7-normative-references">7. Normative References</h4>
+<dl>
+<dt>[RFC1305]</dt>
+<dd>Mills, D., &ldquo;Network Time Protocol (Version 3) Specification, Implementation and Analysis&rdquo;, RFC 1305, DOI 10.17487/RFC1305, March 1992, <a href="https://www.rfc-editor.org/info/rfc1305">https://www.rfc-editor.org/info/rfc1305</a>.</dd>
+<dt>[RFC2119]</dt>
+<dd>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels&rdquo;, BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>.</dd>
+<dt>[RFC5905]</dt>
+<dd>Mills, D., Martin, J., Ed., Burbank, J., and W. Kasch, &ldquo;Network Time Protocol Version 4: Protocol and Algorithms Specification&rdquo;, RFC 5905, DOI 10.17487/RFC5905, June 2010, <a href="https://www.rfc-editor.org/info/rfc5905">https://www.rfc-editor.org/info/rfc5905</a>.</dd>
+<dt>[RFC7384]</dt>
+<dd>Mizrahi, T., &ldquo;Security Requirements of Time Protocols in Packet Switched Networks&rdquo;, RFC 7384, DOI 10.17487/RFC7384, October 2014, <a href="https://www.rfc-editor.org/info/rfc7384">https://www.rfc-editor.org/info/rfc7384</a>.</dd>
+<dt>[RFC7822]</dt>
+<dd>Mizrahi, T. and D. Mayer, &ldquo;Network Time Protocol Version 4 (NTPv4) Extension Fields&rdquo;, RFC 7822, DOI 10.17487/RFC7822, March 2016, <a href="https://www.rfc-editor.org/info/rfc7822">https://www.rfc-editor.org/info/rfc7822</a>.</dd>
+</dl>
+<hr>
+<h4 id="authors-addresses">Authors' Addresses</h4>
+<dl>
+<dt>Harlan Stenn</dt>
+<dd>Network Time Foundation</dd>
+<dd>P.O. Box 918</dd>
+<dd>Talent, OR, 97540</dd>
+<dd>United States of America</dd>
+<dd>Email: <a href="mailto:stenn@nwtime.org">stenn@nwtime.org</a></dd>
+<dt>Danny Mayer</dt>
+<dd>Network Time Foundation</dd>
+<dd>P.O. Box 918</dd>
+<dd>Talent, OR, 97540</dd>
+<dd>United States of America</dd>
+<dd>Email: <a href="mailto:mayer@ntp.org">mayer@ntp.org</a></dd>
+</dl>
+<hr>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2025 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

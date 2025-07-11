@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/" />
+  
+  <meta property="og:title" content="Network Time Protocol Suggested REFID Extension Field" />
+<meta property="og:description" content="NTP&#39;s Reference ID, or REFID, identifies the source of time in a timestamp or time packet. The SUGGESTED-REFID NTP Extension Field proposal is a backward-compatible way for a time source to tell its peers or clients: If you use me as your system peer, use this nonce as your REFID." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+
+<meta property="article:modified_time" content="2025-07-11T16:08:13&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="Network Time Protocol Suggested REFID Extension Field"/>
+<meta name="twitter:description" content="NTP&#39;s Reference ID, or REFID, identifies the source of time in a timestamp or time packet. The SUGGESTED-REFID NTP Extension Field proposal is a backward-compatible way for a time source to tell its peers or clients: If you use me as your system peer, use this nonce as your REFID."/>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BN61ZTDHBP"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BN61ZTDHBP', { 'anonymize_ip': true });
+</script>
+
+
+
+
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c33igkoodm");
+</script>
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>Network Time Protocol Suggested REFID Extension Field</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NTP&#39;s Reference ID, or REFID, identifies the source of time in a timestamp or time packet. The SUGGESTED-REFID NTP Extension Field proposal is a backward-compatible way for a time source to tell its peers or clients: If you use me as your system peer, use this nonce as your REFID.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.33139960351778bcc5aee21b22a8ddf3.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://www.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://www.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://www.ntp.org/"><img height="80" width="80" src="https://www.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">Support</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">Reference Library</a>
+        </button>
+      
+		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/current-stable/">Documentation</a>
+        </button>
+      
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/donate/">Donate</a>
+      </button>
+    </div>
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=bb3c9b3e375d856be"></script>
+  <div class="gcse-search">
+  </div>
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/">NTP Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://www.ntp.org/documentation/ietf/">IETF Drafts</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/">Network Time Protocol Suggested REFID Extension Field</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>Network Time Protocol Suggested REFID Extension Field</h1> 
+    <p style="font-size: small; color: grey;">Last update: July 11, 2025 16:08 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/c5b1023d81d31843b908b31514bf2623223721ec">c5b1023d8</a>)</p>
+	<pre><code>Workgroup:		Internet Engineering Task Force
+Internet-Draft:		draft-stenn-ntp-suggest-refid-05
+Published:    		10 July 2019 
+Intended Status:	Standards Track
+Expires:		11 January 2020
+Author:			H. Stenn
+			Network Time Foundation
+</code></pre><h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#11-requirements-language">1.1. Requirements Language</a></li>
+</ul>
+</li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#2-the-refid">2. The REFID</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#3-the-suggested-refid-extension-field">3. The Suggested REFID Extension Field</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#4-generating-and-sending-a-nonce-as-the-suggested-refid-extension-field">4. Generating and Sending a Nonce as the Suggested REFID Extension Field</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#5-remembering-a-nonce-suggested-refid-extension-field">5. Remembering a Nonce Suggested REFID Extension Field</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#6-the-suggested-refid-extension-field-and-leap-smear-refids">6. The Suggested REFID Extension Field and Leap Smear REFIDs</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#7-acknowledgements">7. Acknowledgements</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#8-iana-considerations">8. IANA Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#9-security-considerations">9. Security Considerations</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#10-references">10. References</a>
+<ul>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#101-normative-references">10.1. Normative References</a></li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#102-informative-references">10.2. Informative References</a></li>
+</ul>
+</li>
+<li><a href="https://www.ntp.org/documentation/ietf/ntp-suggest-refid/#authors-address">Author&rsquo;s address</a></li>
+</ul>
+<hr>
+<h4 id="1-introduction">1. Introduction</h4>
+<p>NTP has been widely used through several revisions, with the latest being <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>. A core component of the protocol and the algorithms is the Reference ID, or REFID, which is used to identify the time source. Traditionally, when the source of time was another system the REFID was the IPv4 address of that other system. If the remote system was using IPv6 for its connection, a 4 octet digest value of the IPv6 address was used. The general case core purpose of the REFID is to prevent a one-degree timing loop (where if A has several timing sources that include B, if B decides to get its time from A we don&rsquo;t want A then deciding to get its time from B). The REFID is considered to be &ldquo;public data&rdquo; and is a vital core-component of the base NTP packet. In an increasingly hostile Internet, knowledge of a system&rsquo;s time source is abusable information. If a system&rsquo;s REFID is the IPv4 address of its system peer, an attacker can try to use that information to send spoofed time packets to either or both the target or the target&rsquo;s server, attempting to cause a disruption in time service. There is also a clear use-case for having a special REFID for use if systems are exchanging leap-smeared time. This proposal is a backward-compatible way for a time source to tell its peers or clients &ldquo;If you use me as your system peer, use this nonce as your REFID.&rdquo; This nonce, a Suggested REFID, SHOULD be untraceable to the sending system. When used to hide the identity of a server, if the receiving system uses this Suggested REFID nonce instead of the IPv4 address as its REFID, this type of attack and information disclosure is prevented. When used to indicate that a system is either offering leap-smeared time or is synchronized to a leap-smeared time source, this information can be used to prevent unwanted synchronization to a source that is not offering the &ldquo;flavor&rdquo; of time we want, and, in the case where a leap smear correction continues into the next day, the second half of a leap smear correction can be applied in the expected manner.</p>
+<p>This SUGGESTED-REFID NTP Extension Field proposal is a simple, clean, backward-compatible way for an external time soure to request that the receiving system use the provided nonce in the case where the receiving system uses the sending system as its system peer.</p>
+<hr>
+<h5 id="11-requirements-language">1.1. Requirements Language</h5>
+<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
+<hr>
+<h4 id="2-the-refid">2. The REFID</h4>
+<p>The core reason for the REFID in the NTP Protocol is to prevent a timing loop of degree 1. Put another way, if servers A and B are exchanging time with each other and server B decides to follow A as its system peer, the REFID that B will use must be able to identify server A. The interpretation of a REFID is based on the stratum, as documented in <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>, section 7.3, &ldquo;Packet Header Variables&rdquo;. At Stratum 2+, which will be the case if servers A and B are exchanging packets over IPv4, if server B follows A, then B will have A&rsquo;s IPv4 address as its REFID. When A asks B for its time, A will see that B is synchronized to A because B will tell A that its REFID is A&rsquo;s IPv4 address, so when A sees its IP address as B&rsquo;s REFID, A knows that if it were to follow B for its time then there would be a timing loop. In this case, A will not select B as a potential source of time.</p>
+<p>Another related use case for the REFID centers around the increasing use of leap-smearing time servers when the insertion (or any eventual deleiton) of a leap second occurs. It is critical that operators and client systems be able to identify when a server is offering leap-smeared time. Futhermore, with the current practice of smearing the insertion of a leap second starting at noon UTC on the day of the leap event and completing the smear at noon UTC on the day after the leap event, a server that is operating during a leap smear event must be able to immediately identify if it should respond with either correct or leap-smeared time.</p>
+<hr>
+<h4 id="3-the-suggested-refid-extension-field">3. The Suggested REFID Extension Field</h4>
+<p>Since there is no way in the base NTP packet for &ldquo;this&rdquo; instance of an NTP server to tell the &ldquo;other&rdquo; instance what REFID it should use if the &ldquo;other&rdquo; instance decides to use &ldquo;this&rdquo; instance as its system peer, the best available way to convey this information is via an extension field.</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------+---------------+-------------------------------+
+|          Field Type           |        Field Length           |
++-------------------------------+-------------------------------+
+|                        Suggested REFID                        |
++---------------------------------------------------------------+
+</code></pre><p><em>Figure 1: NTP Extension Field: REFID Suggestion</em></p>
+<dl>
+<dt>Field Type:</dt>
+<dd>TBD (Recommendation for IANA: 0x0006 (Suggested REFID))</dd>
+<dt>Field Length:</dt>
+<dd>0x0008</dd>
+<dt>Suggested REFID:</dt>
+<dd>The 4 octets of the suggested REFID. Random nonce REFID values SHOULD be 0xFDxxxxxx, where the bottom 3 octets SHOULD be random values.</dd>
+</dl>
+<p>Examples: When decoded as an IPv4 address, a random nonce suggested REFID would decode as 253.0.0.0 thru 253.255.255.255.</p>
+<hr>
+<h4 id="4-generating-and-sending-a-nonce-as-the-suggested-refid-extension-field">4. Generating and Sending a Nonce as the Suggested REFID Extension Field</h4>
+<p>A system that decides to send a nonce as a Suggested REFID extension field SHOULD generate a new Suggested REFID nonce for each new association. It MAY generate a new Suggested REFID nonce for any association in any response. In addition to remembering the IP-based REFID, the sender MUST also remember its most-recent Suggested REFID nonce.</p>
+<p>Since the core NTPv4 and earlier protocols do not contain any way to tell the recipient what to use as a REFID and <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a> uses the IPv4 address of the sender as the REFID if the association is effected over an IPv4 connection, this means that an attacker can simply send an NTP client request to a server knowing that server&rsquo;s system peer will be returned as the REFID in the response packet. At this point, an attacker can, if that REFID is an IPv4 address, begin to launch attacks at the target forging the putative IP of the target&rsquo;s time source, or the attacker can start forging packets to the putative time server claiming to be from the target, in an attempt to cause the time server to limit or deny time service to the target.</p>
+<p>Using a nonce for the REFID that is only recognized by the sending machine effectively prevents this type of attack.</p>
+<p>If servers S1, S2, and S3 are all exchanging time with each other and are all using the Suggested REFID mechanism, there is a 3 in 16,777,216 (2^24) chance that two different servers in the same group will happen to choose the same nonce, and that would produce a false-positive timing loop detection. If a nonce Suggested REFID is never changed, this false-positive condition will occur for potentially a long time. This small risk can be reduced by periodically generating a new Suggested REFID.</p>
+<hr>
+<h4 id="5-remembering-a-nonce-suggested-refid-extension-field">5. Remembering a Nonce Suggested REFID Extension Field</h4>
+<p>An NTP server keeps track of the IP address it uses to talk to its peers. If an NTP server chooses to send a Suggested REFID to an associated peer, the server MUST remember this value. When checking for a timing loop, the Suggested REFID must also be included in the list of tested REFID values.</p>
+<p>A set of NTP servers that are acting as a group of time servers SHOULD be using peer associations (NTP mode 1 and 2 packets), and SHOULD NOT be using client/server (NTP mode 3 and 4) exchanges. Nevertheless, implementors should be aware that the recommendation against using client/server associations for time groups may be ignored, and should be conscious of the choices they make and the configuration options they offer in order to accomodate (or at least document) this situation.</p>
+<hr>
+<h4 id="6-the-suggested-refid-extension-field-and-leap-smear-refids">6. The Suggested REFID Extension Field and Leap Smear REFIDs</h4>
+<p>The Suggested REFID can play an important part when a server has a client population that receives leap-smeared time.</p>
+<p>The current preferred behavior for servers that offer leap-smeared time is to offer leap-smeared time in response to appropriate client (mode 3) requests. There are two competing forces at play during this time:</p>
+<ul>
+<li>
+<p>Clients that want correct time should get correct time.</p>
+</li>
+<li>
+<p>Clients that want leap-smeared time should get leap-smeared time.</p>
+</li>
+</ul>
+<p>An additional complication is that a leap-second insertion event begins at noon UTC, when the Leap Indicator is 1, but the smear is only halfway applied at midnight UTC, when the Leap Indicator changes back to 0. There is no simple way for the client to let its server(s) know that it is using leap-smeared time.</p>
+<p>One simple way for the client to let its server(s) know that it is using and wants leap-smeared time is for the client to use a <a href="https://www.ntp.org/documents/ietf/ntp-leap-smear-refid">Leap Smear REFID</a> in its client (mode 3) requests during the entire leap smear period.</p>
+<hr>
+<h4 id="7-acknowledgements">7. Acknowledgements</h4>
+<p>The author wishes to acknowledge the contributions of Martin Burnicki and Sam Weiler.</p>
+<hr>
+<h4 id="8-iana-considerations">8. IANA Considerations</h4>
+<p>This memo requests IANA to allocate NTP Extension Field Type 0x0006 (Suggested REFID) for this proposal.</p>
+<hr>
+<h4 id="9-security-considerations">9. Security Considerations</h4>
+<p>Adopting this proposal will provide a much needed mechanism by which cooperating systems can agree on a less trackable and less identifiable nonce for the REFID. It will also provide a means to properly and better handle leap-smearing events with populations where some clients want correct time and other clients want leap-smeared time, thus enabling better time synchronization.</p>
+<p>No reports of adverse consequences of adopting this proposal have been received.</p>
+<hr>
+<h4 id="10-references">10. References</h4>
+<h5 id="101-normative-references">10.1. Normative References</h5>
+<dl>
+<dt>[RFC2119]</dt>
+<dd>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels&rdquo;, BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>.</dd>
+<dt>[RFC5905]</dt>
+<dd>Mills, D., Martin, J., Ed., Burbank, J., and W. Kasch, &ldquo;Network Time Protocol Version 4: Protocol and Algorithms Specification&rdquo;, RFC 5905, DOI 10.17487/RFC5905, June 2010, <a href="https://www.rfc-editor.org/info/rfc5905">https://www.rfc-editor.org/info/rfc5905</a>.</dd>
+<dt>[RFC7384]</dt>
+<dd>Mizrahi, T., &ldquo;Security Requirements of Time Protocols in Packet Switched Networks&rdquo;, RFC 7384, DOI 10.17487/RFC7384, October 2014, <a href="https://www.rfc-editor.org/info/rfc7384">https://www.rfc-editor.org/info/rfc7384</a>.</dd>
+</dl>
+<hr>
+<h5 id="102-informative-references">10.2. Informative References</h5>
+<dl>
+<dt><a href="https://www.ntp.org/documentation/ietf/ntp-i-do">DRAFT-I-DO</a></dt>
+<dd>Stenn, H., &ldquo;draft-stenn-ntp-i-do&rdquo;, 2018.</dd>
+<dt><a href="https://www.ntp.org/documentation/ietf/ntp-leap-smear-refid">DRAFT-LEAP-SMEAR-REFID</a></dt>
+<dd>Stenn, H., &ldquo;draft-stenn-ntp-leap-smear-refid&rdquo;, 2018.</dd>
+</dl>
+<hr>
+<h4 id="authors-address">Author&rsquo;s Address</h4>
+<dl>
+<dt>Harlan Stenn</dt>
+<dd>Network Time Foundation</dd>
+<dd>P.O. Box 918</dd>
+<dd>Talent, OR, 97540</dd>
+<dd>United States of America</dd>
+<dd>Email: <a href="mailto:stenn@nwtime.org">stenn@nwtime.org</a></dd>
+</dl>
+<hr>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://www.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Facebook" aria-label="Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://www.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2025 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>
