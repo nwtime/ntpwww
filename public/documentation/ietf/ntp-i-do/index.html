@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/ietf/ntp-i-do/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2025-07-11T16:08:13&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2025-08-13T15:11:11&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Network Time Protocol I-Do Extension Field</h1> 
-    <p style="font-size: small; color: grey;">Last update: July 11, 2025 16:08 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/c5b1023d81d31843b908b31514bf2623223721ec">c5b1023d8</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: August 13, 2025 15:11 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/3d2d13b37ea60c5eacdff5417cd2e899bfeaba44">3d2d13b37</a>)</p>
 	<pre><code>Workgroup:		Internet Engineering Task Force
 Internet-Draft:		draft-stenn-ntp-i-do-06
 Published:    		11 July 2019 
@@ -191,7 +191,7 @@ Author:			H. Stenn
 <p>The first implementation of NTPv4 was released in 2003, and was defined by <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>. It contains an optional and now obsolete public-key security protocol, Autokey, which is defined by <a href="https://www.ntp.org/reflib/rfc/rfc5906.txt">RFC 5906</a>. Until very recently, Autokey has been the only implemented use of NTP packet Extension Fields. New proposals for extension fields are being written and there is currently no convenient way to learn if a remote instance of NTP supports any extension fields or not. This proposal contains a method to tell a remote instance of NTP what we (are willing to admit we) support, and ask what they (are willing to admit they) support.</p>
 <hr>
 <h4 id="11-requirements-language">1.1. Requirements Language</h4>
-<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in RFC <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
+<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
 <hr>
 <h4 id="2-the-i-do-extension-field">2. The I-Do Extension Field</h4>
 <h5 id="21-overview">2.1. Overview</h5>
@@ -211,7 +211,7 @@ Author:			H. Stenn
 <p>The content of the I-DO extension field is an ordinary four octet Extension Field header followed by a payload consisting of an appropriate number of two octet I-DO values that use nonzero values to indicate a supported feature. An I-DO value of zero is ignored. The payload section must end on a four-octet boundary.</p>
 <p>There are two types of nonzero I-DO values that may be used. They are both defined in the <a href="https://www.iana.org/assignments/ntp-parameters/ntp-parameters.xhtml#ntp-parameters-3">IANA NTP Extension Field Table (Section 4)</a>. These values are either Extension Field Types, where only the low-order values (0x01 thru 0xFE) are used, or I-DO Types, where all 16 bits are used and the bottom octet is currently always 0xFF. The examples below are built using information from the following Standards and proposals:</p>
 <p><a href="https://www.ntp.org/reflib/rfc/rfc5906.txt">RFC 5906</a></p>
-<p><a href="https://www.ntp.org/documentation/ietf/ntp-extension-field">NTP-EXTENSION-FIELDS</a></p>
+<p><a href="https://www.ntp.org/documentation/ietf/ntp-extension-fields/">NTP-EXTENSION-FIELDS</a></p>
 <p><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef">MAC-LAST-EF</a></p>
 <pre><code> 0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
