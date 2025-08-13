@@ -40,7 +40,7 @@ The first implementation of NTPv4 was released in 2003, and was defined by [RFC 
 
 #### 1.1. Requirements Language
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 
 ***
 
@@ -80,7 +80,7 @@ There are two types of nonzero I-DO values that may be used. They are both defin
 
 [RFC 5906](/reflib/rfc/rfc5906.txt)
 
-[NTP-EXTENSION-FIELDS](/documentation/ietf/ntp-extension-field)
+[NTP-EXTENSION-FIELDS](/documentation/ietf/ntp-extension-fields/)
 
 [MAC-LAST-EF](/documentation/ietf/ntp-mac-last-ef)
 

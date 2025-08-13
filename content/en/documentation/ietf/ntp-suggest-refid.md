@@ -116,7 +116,7 @@ The current preferred behavior for servers that offer leap-smeared time is to of
 
 An additional complication is that a leap-second insertion event begins at noon UTC, when the Leap Indicator is 1, but the smear is only halfway applied at midnight UTC, when the Leap Indicator changes back to 0. There is no simple way for the client to let its server(s) know that it is using leap-smeared time. 
 
-One simple way for the client to let its server(s) know that it is using and wants leap-smeared time is for the client to use a [Leap Smear REFID](/documents/ietf/ntp-leap-smear-refid) in its client (mode 3) requests during the entire leap smear period.
+One simple way for the client to let its server(s) know that it is using and wants leap-smeared time is for the client to use a [Leap Smear REFID](/documentation/ietf/ntp-leap-smear-refid/) in its client (mode 3) requests during the entire leap smear period.
 
 ***
 
@@ -160,7 +160,7 @@ No reports of adverse consequences of adopting this proposal have been received.
 [DRAFT-I-DO](/documentation/ietf/ntp-i-do)
 : Stenn, H., "draft-stenn-ntp-i-do", 2018. 
 
-[DRAFT-LEAP-SMEAR-REFID](/documentation/ietf/ntp-leap-smear-refid)
+[DRAFT-LEAP-SMEAR-REFID](/documentation/ietf/ntp-leap-smear-refid/)
 : Stenn, H., "draft-stenn-ntp-leap-smear-refid", 2018. 
 
 ***
