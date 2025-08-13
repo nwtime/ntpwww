@@ -18,7 +18,7 @@ type: "archives"
 			  <li><a href="/support/securitynotice/">NTP Security Notices</a></li>
               <li><a href="https://support.ntp.org">NTP Wiki</li>
 			  <li><a href="/ntpfaq/">NTP FAQ</a></li>
-			</ul>
+			</ul><br>
               <div class="d-flex justify-content-between align-items-center">
 			</div>
 		  </div>
@@ -30,7 +30,7 @@ type: "archives"
 		    <h5 class="card-text" style="text-align: center; margin-top: 5px;"">Other Resources</h5>
 			<ul>
               <li><a href="https://support.ntp.org/Servers">Time Servers</a></li>
-			  <li><a href="https://support.ntp.org/Dev">Developer Resources</a></li>
+			  <li><a href="https://support.ntp.org/Dev">Developer Resources</a> and <a href="https://bugs.ntp.org">Bug Tracker</a></li>
 			  <li><a href="/contributorslist/">Contributors</a> and <a href="/support/vendorlinks/">Vendors</a></li>
 			  <li><a href="/contact/">Contacts</a></li>
 			</ul>
