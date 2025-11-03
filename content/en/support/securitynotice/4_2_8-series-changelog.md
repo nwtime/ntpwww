@@ -2304,7 +2304,7 @@ type: archives
 * Fix leak in `refclock_datum.c` start failure path.
 * Coverity Scan cleanups and error checking fixes.
 * Detect `vsnprintf()` support for `%m` and disable our `%m` expansion.
-* On systems without C99-compliant `(v)snprintf()`, use `C99-snprintf` [replacements](http://www.jhweiss.de/software/snprintf.html)
+* On systems without C99-compliant `(v)snprintf()`, use `C99-snprintf` [replacements](https://www.jhweiss.de/software/snprintf.html)
 * Remove remaining `sprintf()` calls except `refclock_ripencc.c` (which is kept out of `--enable-all-clocks` as a result), upstream libs which use `sprintf()` only after careful buffer sizing.
 * `ntp_crypto.c` string buffer safety.
 * Buffer safety and sign extension fixes (thanks Coverity Scan).

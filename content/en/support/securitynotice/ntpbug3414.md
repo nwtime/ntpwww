@@ -34,7 +34,7 @@ date: "2018-02-27"
 	<tr>
 		<th><b>CVSS3 Score<b></th>
 		<td>MED 5.0</td>
-		<td><a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L">CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L</a></td>
+		<td><a href="https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L">CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L</a></td>
 	</tr>	
   </tbody>	
 </table>

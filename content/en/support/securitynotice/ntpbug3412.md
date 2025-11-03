@@ -34,7 +34,7 @@ date: "2018-02-27"
 	<tr>
 		<th><b>CVSS3 Score<b></th>
 		<td>NONE 0.0 - MED 5.3</td>
-		<td><a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N">CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N 0.0 if C:N</a></td>
+		<td><a href="https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N">CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N 0.0 if C:N</a></td>
 	</tr>	
   </tbody>	
 </table>

@@ -228,4 +228,4 @@ mode のビット 0x10000 をオンにすると clockstats ファイルのログ
 
 `flag1, flag2`, and `flag3` は、Windows においては無視されます。
 
-[Reference Clock Drivers](/documentation/4.2.8-series/refclock)
+[Reference Clock Drivers](/documentation/4.2.8-series/refclock/)

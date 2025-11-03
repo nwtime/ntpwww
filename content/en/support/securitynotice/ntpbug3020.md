@@ -34,7 +34,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>CVSS3 Score<b></th>
 		<td>LOW 3.7</td>
-		<td><a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N">CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N</a></td>
+		<td><a href="https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N">CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N</a></td>
 	</tr>	
   </tbody>	
 </table>

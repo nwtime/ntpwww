@@ -29,7 +29,7 @@ date: "2016-01-07"
 	<tr>
 		<th><b>CVSS2 Score</b></th>
 		<td>MED 4.0</td>
-		<td><a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:C/C:L/I:N/A:L">AV:N/AC:H/PR:H/UI:R/S:C/C:L/I:N/A:L</a></td>
+		<td><a href="https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:C/C:L/I:N/A:L">AV:N/AC:H/PR:H/UI:R/S:C/C:L/I:N/A:L</a></td>
 	</tr>	
   </tbody>	
 </table>

@@ -157,7 +157,7 @@ No reports of adverse consequences of adopting this proposal have been received.
 
 ##### 10.2. Informative References
 
-[DRAFT-I-DO](/documentation/ietf/ntp-i-do)
+[DRAFT-I-DO](/documentation/ietf/ntp-i-do/)
 : Stenn, H., "draft-stenn-ntp-i-do", 2018. 
 
 [DRAFT-LEAP-SMEAR-REFID](/documentation/ietf/ntp-leap-smear-refid/)
