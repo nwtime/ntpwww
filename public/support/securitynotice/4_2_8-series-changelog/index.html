@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
 
-<meta property="article:modified_time" content="2025-04-24T19:50:22&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2025-11-03T16:09:53&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -153,7 +153,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>4.2.8-series Changelog</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 24, 2025 19:50 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/8a4b53a185c3c64cf15201208b702b7bb3ed9eaa">8a4b53a18</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: November 3, 2025 16:09 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/9cbb45cb6676797715378c0af18f1298e03ab7cb">9cbb45cb6</a>)</p>
 	<details open>
 <summary><b>Release versions:</b></summary>
 <ul>
@@ -3188,7 +3188,7 @@ struct <code>refclockproc</code>.  These provide a way to schedule a callback so
 <li>Fix leak in <code>refclock_datum.c</code> start failure path.</li>
 <li>Coverity Scan cleanups and error checking fixes.</li>
 <li>Detect <code>vsnprintf()</code> support for <code>%m</code> and disable our <code>%m</code> expansion.</li>
-<li>On systems without C99-compliant <code>(v)snprintf()</code>, use <code>C99-snprintf</code> <a href="http://www.jhweiss.de/software/snprintf.html">replacements</a></li>
+<li>On systems without C99-compliant <code>(v)snprintf()</code>, use <code>C99-snprintf</code> <a href="https://www.jhweiss.de/software/snprintf.html">replacements</a></li>
 <li>Remove remaining <code>sprintf()</code> calls except <code>refclock_ripencc.c</code> (which is kept out of <code>--enable-all-clocks</code> as a result), upstream libs which use <code>sprintf()</code> only after careful buffer sizing.</li>
 <li><code>ntp_crypto.c</code> string buffer safety.</li>
 <li>Buffer safety and sign extension fixes (thanks Coverity Scan).</li>
