@@ -42,7 +42,7 @@ aliases:
 * [hopf Elektronik](https://www.hopf.com/index.php)
   : A German manufacturer of Industrial Timing Solutions since 1972. hopf provides a wide range of Master Clocks with integrated GPS, IRIG-B, DCF77 or NTP reference clocks and NTP time servers for synchronization of NTP/SNTP (IEC61850), IRIG-B, DCF77, and other industrial and network appliances. hopf offers standard and customized solutions for accurate timing.
 
-* [Oscilloquartz SA](https://www.oscilloquartz.com/)
+* [Oscilloquartz SA](https://www.oscilloquartz.com/en)
   : A manufacturer of network time and frequency solutions as well as [NTP time servers](https://www.oscilloquartz.com/en/products-and-services/ntp-network-time-servers) with integrated single or dual GPS receivers to synchronize any networks requiring reliability and security.
 
 * [Polynet Ltd](https://www.polynet.hu/)

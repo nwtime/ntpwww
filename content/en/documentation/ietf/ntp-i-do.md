@@ -82,7 +82,7 @@ There are two types of nonzero I-DO values that may be used. They are both defin
 
 [NTP-EXTENSION-FIELDS](/documentation/ietf/ntp-extension-fields/)
 
-[MAC-LAST-EF](/documentation/ietf/ntp-mac-last-ef)
+[MAC-LAST-EF](/documentation/ietf/ntp-mac-last-ef/)
 
 ```
  0                   1                   2                   3
