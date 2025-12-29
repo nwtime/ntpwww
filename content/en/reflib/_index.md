@@ -71,6 +71,16 @@ The information in the Reference Library was originally hosted on the University
           </div>
         </div>
       </div>
+      <div class="col">
+	    <div class="card mh-100" style="height: 200px;">
+          <div class="card-body">
+		    <h5 class="card-text" style="text-align: center; margin-top: 10px;">Publications</h5>
+            <p><a href="/reflib/book/">Network Time Synchronization: the Network Time Protocol on Earth and in Space, Second Edition</a></p>			
+              <div class="d-flex justify-content-between align-items-center">
+			</div>
+          </div>
+        </div>
+      </div>
 	</div>
   </div>
 </div>
