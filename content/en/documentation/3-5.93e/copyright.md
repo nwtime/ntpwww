@@ -41,7 +41,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 10.  Glenn Hollinger: GOES clock driver  
 11.  [Mike Iglesias](mailto:iglesias@uci.edu) DEC Alpha port  
 12.  Jim Jagielski: A/UX port  
-13.  [Jeff Johnson](mailto:jbj@chatham.usdesign.com) massive prototyping overhaul  
+13.  Jeff Johnson: massive prototyping overhaul  
 14.  William L. Jones: RS/6000 AIX modifications, HPUX modifications  
 15.  [Dave Katz](mailto:dkatz@cisco.com) RS/6000 AIX port  
 16.  [Craig Leres](mailto:leres@ee.lbl.gov) 4.4BSD port, ppsclock, Maganavox GPS clock driver  
@@ -57,7 +57,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 26.  Dirce Richards: Digital UNIX V4.0 port  
 27.  Nick Sayer: SunOS streams modules  
 28.  [Frank Kardel](https://www4.cs.fau.de/~kardel/) [email](mailto:Frank.Kardel@informatik.uni-erlangen.de) PARSE <GENERIC> driver (14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup  
-29.  [Ray Schnitzler](mailto:schnitz@unipress.com) Unixware1 port  
+29.  Ray Schnitzler: Unixware1 port  
 30.  [Michael Shields](mailto:shields@tembel.org) USNO clock driver  
 31.  Jeff Steinman: Datum PTS clock driver  
 32.  [Harlan Stenn](mailto:harlan@pfcs.com) GNU automake/autoconfigure makeover  
