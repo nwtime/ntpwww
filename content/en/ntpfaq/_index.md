@@ -423,7 +423,7 @@ This is an alphabetical list of contributors:
 * Judah Levine
 * [Mark Martinec](mailto:mark.martinec@ijs.si)
 * [Terje Mathisen](mailto:Terje.Mathisen@hda.hydro.com)
-* [Frank Mayhar](mailto:frank@exit.com)
+* Frank Mayhar
 * [Professor David L. Mills](https://www.nwtime.org/tribute-to-david-l-mills/)
 * [Nelson Minar](mailto:nelson@media.mit.edu)
 * Jeffrey Mogul

@@ -56,7 +56,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 22.  Glenn Hollinger: GOES clock driver
 23.  [Mike Iglesias](mailto:iglesias@uci.edu) DEC Alpha port
 24.  Jim Jagielski: A/UX port
-25.  [Jeff Johnson](mailto:jbj@chatham.usdesign.com) massive prototyping overhaul
+25.  Jeff Johnson: massive prototyping overhaul
 26.  [Hans Lambermont](mailto:H.Lambermont@chello.nl) ntpsweep
 27.  [Poul-Henning Kamp](mailto:phk@FreeBSD.ORG) Oncore driver (Original author)
 28.  [Frank Kardel](https://www4.cs.fau.de/~kardel/) ([email](mailto:kardel@ntp.org)) PARSE <GENERIC> driver (>14 reference clocks), STREAMS modules for PARSE, support scripts, syslog cleanup, dynamic interface handling
@@ -79,7 +79,7 @@ The following individuals contributed in part to the Network Time Protocol Distr
 45.  [Wilfredo Sánchez](mailto:wsanchez@apple.com) added support for NetInfo
 46.  Nick Sayer: SunOS streams modules
 47.  [Jack Sasportas](mailto:jack@innovativeinternet.com) Saved a Lot of space on the stuff in the html/pic/ subdirectory
-48.  [Ray Schnitzler](mailto:schnitz@unipress.com) Unixware1 port
+48.  Ray Schnitzler: Unixware1 port
 49.  [Michael Shields](mailto:shields@tembel.org) USNO clock driver
 50.  Jeff Steinman: Datum PTS clock driver
 51.  [Harlan Stenn](mailto:harlan@pfcs.com) GNU automake/autoconfigure makeover, various other bits (see the ChangeLog)
