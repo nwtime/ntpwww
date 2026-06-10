@@ -4,6 +4,8 @@ description: "Links to the current NTP documentation, documentation archives for
 type: archives
 aliases:
     - /settings/
+    - /ntpdocs/
+    - /docs/
 ---
 
   <div class="row row-cols-1 row-cols-md-2 g-3">
