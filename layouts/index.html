@@ -1,30 +1,53 @@
 {{ define "main" }}
-<body style="--bs-body-text-align: center;">
-  <section class="min-vh-100 mt-auto">
+
+<div class="card-group">
+  <div class="card" style="z-index: 1">
+    <div class="card-body">
+      <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;">Welcome to the Network Time Protocol (NTP) Project!</h3><br>
+      <p class="card-text" style="margin-left: 3rem;">The NTP Project conducts Research and Development in NTP, a protocol designed to 
+	  synchronize the clocks of computers over a network to a common timebase. NTP is what ensures the reliability of billions of devices 
+	  around the world, under the sea, and even in space. Accurate timekeeping is vital to the many applications which have revolutionized 
+	  and are essential to our daily lives: satellites, GPS, 5G, financial services, healthcare, and more.</p>
+	  <p class="card-text" style="margin-left: 3rem;">The NTP Project produces an open source Reference Implementation of the NTP standard, maintains the implementation, and 
+	  develops the protocol and algorithmic standard that is used to communicate time between systems.</p>
+	  <p class="card-text" style="margin-left: 3rem;"><a href="https://www.nwtime.org/">Network Time Foundation</a> provides support for the NTP Project.</p>
+	</div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;">NTP Documentation and Resources</h3><br><br>
+      <ul>
+	    <li><a href="/documentation/4.2.8-series/">Documentation for NTP Stable Release</a></li>
+		<li><a href="/support/securitynotice/">NTP Security Notices and Security Contacts</a></li>
+		<li><a href="/reflib/">David Mills Reference Library</a></li>
+		<li><a href="https://support.ntp.org/Servers">Public Primary and Secondary Time Servers</a></li>
+		<li><a href="https://lists.ntp.org/sympa/lists">NTP Mailing Lists</a></li>
+		<li><a href="/contact">NTP Contacts</a></li>
+		<li><a href="/contributorslist/">NTP Contributors</a></li>
+		<li><a href="/support/vendorlinks/">Time Product Vendors</a></li>
+    </div>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-body">
-    <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;"><a href="/donate/">Your Donations Help Support NTP -- Donate Today!</a></h3>
+    <div class="btn-center">
+      <button class="btn btn-primary btn-lg">
+        <a class="btn btn-primary btn-lg" href="https://downloads.nwtime.org/ntp/">Download NTP <img src="/images/icons/download.svg"></img></a>
+      </button>	
+      <button class="btn btn-primary btn-lg">
+        <a class="btn btn-primary btn-lg" href="/bugs/">Report a Bug <img src="/images/icons/bug.svg"></img></a>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;"><a href="/donate/">Your Donations Help Support NTP!</a></h3>
 	<img src="https://www.nwtime.org/images/support.jpg" class="figure-img img-fluid">
   </div>
 </div>
-<div class="container" style="--bs-body-text-align: start;">
-  	<h3>{{ .Title }}</h3></br>
-    {{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }} 
 
-  <div class="row">
-	  <p>{{.Content}}</p>
-  </div>
-</div>
-
-	<hr class="mt-5">
-<br />
-<button class="btn btn-primary btn-lg">
-  <a class="btn btn-primary btn-lg" href="https://downloads.nwtime.org/ntp/">Download NTP <img src="/images/icons/download.svg"></img></a>
-    </button>	
-<button class="btn btn-primary btn-lg">
-  <a class="btn btn-primary btn-lg" href="/bugs/">Report a Bug <img src="/images/icons/bug.svg"></img></a>
-</button>
-<br /><br />
-  </section>
-</body>
 {{ end }}
