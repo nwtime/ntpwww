@@ -32,16 +32,18 @@ aliases:
     <div class="col">
 	  <div class="card mh-100" margin-top: 20px;">
 	    <div class="card-header" style="padding-top: 1px;">
-		  <h4 class="card-text" style="text-align: center;">Additional Information</h4>
+		  <h4 class="card-text" style="text-align: center;">Additional Resources</h4>
 	    </div>
       <div class="card-body">
         <ul>
+		  <li><a href="/support/securitynotice/">NTP Security Notices and Security Policy</a></li>
+		  <li><a href="https://bugs.ntp.org">NTP Bug Tracker</a></li>
+		  <li><a href="/contact/">NTP Contacts</a></li>
 		  <li><a href="/reflib/">Reference Library:</a> Whitepapers, RFCs, and other technical documents written by Professor David L. Mills, inventor of NTP.</li>
 		  <li><a href="/documentation/ietf/">IETF Drafts:</a> Proposed additions to IETF’s NTP specification.</li>
-		  <li><a href="https://support.ntp.org">NTP Wiki:</a> Community-contributed documentation.</li>
-		  <li><a href="/ntpfaq/">NTP FAQ:</a>Frequently Asked Questions about the NTP protocol and software distribution.</li>
-		  <li><a href="https://support.ntp.org/Servers">Public Time Server Lists:</a> Browse or search for a public primary or secondary time server.</li>
-		  <li><a href="https://lists.ntp.org">NTP mailing lists:</a> Includes postings going back to June, 2003.</li><br>
+		  <li><a href="https://support.ntp.org/Servers">Public Time Server Lists:</a> Listings of public primary and secondary time servers.</li>
+		  <li><a href="https://lists.ntp.org/sympa/lists">NTP mailing lists</a></li>
+		  <li><a href="/ntpfaq/">NTP FAQ:</a>(Mostly historical) Frequently Asked Questions</li>
 	    </ul>
       </div>
     </div>
