@@ -65,7 +65,7 @@ function demo() {
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.33139960351778bcc5aee21b22a8ddf3.css" media="screen">
+  <link rel="stylesheet" href="https://www.ntp.org/scss/nwtime.min.ae1d5c07cd13e892cfcd5091bb2030d2.css" media="screen">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://www.ntp.org/favicons/favicon.ico" type="image/x-icon">
@@ -88,19 +88,10 @@ function demo() {
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/support/">サポート</a>
-        </button>
-      
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/reflib/">リファレンスライブラリ</a>
-        </button>
-      
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/documentation/">ドキュメンテーション</a>
-        </button>
-      
 	
-	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/donate/">Donate</a>
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://www.ntp.org/donate/"><img src="https://www.ntp.org/images/icons/heart.svg" alt="" width="24" height="24">&emsp; Donate</a>
       </button>
-    </div>
+	</div>
 
 
 
@@ -114,37 +105,57 @@ function demo() {
   <div class="header-border">
   </div>
 <!-- /navigation -->
-<body style="--bs-body-text-align: center;">
-  <section class="min-vh-100 mt-auto">
+
+<div class="card-group">
+  <div class="card" style="z-index: 1">
+    <div class="card-body">
+      <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;">Welcome to the Network Time Protocol (NTP) Project!</h3><br>
+      <p class="card-text" style="margin-left: 3rem;">The NTP Project conducts Research and Development in NTP, a protocol designed to 
+	  synchronize the clocks of computers over a network to a common timebase. NTP is what ensures the reliability of billions of devices 
+	  around the world, under the sea, and even in space. Accurate timekeeping is vital to the many applications which have revolutionized 
+	  and are essential to our daily lives: satellites, GPS, 5G, financial services, healthcare, and more.</p>
+	  <p class="card-text" style="margin-left: 3rem;">The NTP Project produces an open source Reference Implementation of the NTP standard, maintains the implementation, and 
+	  develops the protocol and algorithmic standard that is used to communicate time between systems.</p>
+	  <p class="card-text" style="margin-left: 3rem;"><a href="https://www.nwtime.org/">Network Time Foundation</a> provides support for the NTP Project.</p>
+	</div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;">NTP Documentation and Resources</h3><br><br>
+      <ul>
+	    <li><a href="https://www.ntp.org/documentation/4.2.8-series/">Documentation for NTP Stable Release</a></li>
+		<li><a href="https://www.ntp.org/support/securitynotice/">NTP Security Notices and Security Contacts</a></li>
+		<li><a href="https://www.ntp.org/reflib/">David Mills Reference Library</a></li>
+		<li><a href="https://support.ntp.org/Servers">Public Primary and Secondary Time Servers</a></li>
+		<li><a href="https://lists.ntp.org/sympa/lists">NTP Mailing Lists</a></li>
+		<li><a href="https://www.ntp.org/contact">NTP Contacts</a></li>
+		<li><a href="https://www.ntp.org/contributorslist/">NTP Contributors</a></li>
+		<li><a href="https://www.ntp.org/support/vendorlinks/">Time Product Vendors</a></li>
+    </div>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-body">
-    <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;"><a href="https://www.ntp.org/donate/">Your Donations Help Support NTP -- Donate Today!</a></h3>
+    <div class="btn-center">
+      <button class="btn btn-primary btn-lg">
+        <a class="btn btn-primary btn-lg" href="https://downloads.nwtime.org/ntp/">Download NTP <img src="https://www.ntp.org/images/icons/download.svg"></img></a>
+      </button>	
+      <button class="btn btn-primary btn-lg">
+        <a class="btn btn-primary btn-lg" href="https://www.ntp.org/bugs/">Report a Bug <img src="https://www.ntp.org/images/icons/bug.svg"></img></a>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title" style="color: #1a79c0;  margin-top: 1rem; text-align: center;"><a href="https://www.ntp.org/donate/">Your Donations Help Support NTP!</a></h3>
 	<img src="https://www.nwtime.org/images/support.jpg" class="figure-img img-fluid">
   </div>
 </div>
-<div class="container" style="--bs-body-text-align: start;">
-  	<h3>ネットワークタイムプロトコル（NTP）プロジェクトの本拠地へようこそ。</h3></br>
-     
 
-  <div class="row">
-	  <p><p>NTPプロジェクトは、ネットワークを介してコンピューターのクロックを共通のタイムベースに同期するように設計されたプロトコルであるNTPで研究開発を行っています。 NTPは、世界中、海中、さらには宇宙でも、何十億ものデバイスの信頼性を保証するものです。 正確な計時は、衛星、GPS、5G、金融サービス、ヘルスケアなど、革命を起こし、私たちの日常生活に不可欠な多くのアプリケーションにとって不可欠です。</p>
-<p>NTPプロジェクトは  <a href="https://bk.ntp.org/">ソフトウェアリファレンス実装</a> NTP標準の、実装を維持します  <a href="https://www.ntp.org/documentation/4.2.8-series/">ドキュメンテーション</a>, システム間で時間を通信するために使用されるプロトコルとアルゴリズム標準を開発します。 NTPに関する背景情報は、<a href="https://www.ntp.org/reflib/">リファレンスライブラリ</a>.</p>
-<p>Network Time Foundationは、NTPプロジェクトのサポートを提供します。 財団の活動について詳しくは、 <a href="https://www.nwtime.org/">https://www.nwtime.org/</a>.</p>
-</p>
-  </div>
-</div>
-
-	<hr class="mt-5">
-<br />
-<button class="btn btn-primary btn-lg">
-  <a class="btn btn-primary btn-lg" href="https://downloads.nwtime.org/ntp/">Download NTP <img src="https://www.ntp.org/images/icons/download.svg"></img></a>
-    </button>	
-<button class="btn btn-primary btn-lg">
-  <a class="btn btn-primary btn-lg" href="https://www.ntp.org/bugs/">Report a Bug <img src="https://www.ntp.org/images/icons/bug.svg"></img></a>
-</button>
-<br /><br />
-  </section>
-</body>
 <nav class="site-footer navbar navbar-expand-sm mt-auto">
   <div class="container">
       <ul class="navbar-nav">
