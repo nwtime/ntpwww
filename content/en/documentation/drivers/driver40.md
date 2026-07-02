@@ -47,7 +47,7 @@ This driver supports the following JJY receivers and the GPS clock sold in Japan
 | Echo Keisokuki Co.,Ltd.   LT-2000 | [3](/documentation/drivers/driver40/#mode-3) | |
 | [CITIZEN T.I.C. CO.,LTD.   JJY-200](https://tic.citizen.co.jp/english/index.html) | [4](/documentation/drivers/driver40/#mode-4) | Japanese only |
 | [Tristate Ltd.   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/documentation/drivers/driver40/#mode-5) | Japanese only |
-| [SEIKO TIME SYSTEMS INC.   TDC-300](https://www.seiko-sts.co.jp/) | [6](/documentation/drivers/driver40/#mode-6) | English and Japanese |
+| [SEIKO TIME SYSTEMS INC.   TDC-300](https://www.seiko-stc.co.jp/) | [6](/documentation/drivers/driver40/#mode-6) | English and Japanese |
 | [Telephone JJY](https://jjy.nict.go.jp/) | [100](/documentation/drivers/driver40/#mode-100) | English and Japanese |
 
 * * *

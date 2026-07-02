@@ -49,7 +49,7 @@ date: "2018-08-14"
     
 #### Mitigation
 
-* Implement [BCP-38](http://bcp38.info/).
+* Implement [BCP-38](http://www.bcp38.info/index.php/Main_Page).
 * Upgrade to [4.2.8p12 or later](https://downloads.nwtime.org/ntp/4.2.8/).
 * Use the `noepeer` directive to prohibit symmetric passive ephemeral associations.
 * Use the `ippeerlimit` directive to limit the number of peer associations from an IP.
