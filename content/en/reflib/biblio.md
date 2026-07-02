@@ -29,7 +29,7 @@ Abali, B.
 : [Ahamad, Mustaq](mailto:mustaq%bay@gatech.edu)
 : Bubenik, Rick
 : Downing, Alan
-: [Dunigan, Tom](mailto:dunigan@cs.utk.edu)
+: Dunigan, Tom
 : Graham, P.
 : Malczewski, Frank D.
 : [Marzullo, Keith](mailto:marzullo@cs.cornell.edu)

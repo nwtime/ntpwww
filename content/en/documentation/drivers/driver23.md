@@ -76,7 +76,7 @@ This format is an ITU-R Recommendation (ITU-R TF583.4) and is now available from
 
 *   In Switzerland by [Swiss Federal Office of Metrology 's timecode service](https://www.metas.ch/metas/en/home/fabe/zeit-und-frequenz.html). Phone number: 031 323 32 25
 
-*   In Sweden by [SP Swedish National Testing and Research Institute's timecode service](https://www.ri.se/en/expertise-areas/expertises/position-navigation-and-time). Phone number: +46 33 415783.
+*   In Sweden by [SP Swedish National Testing and Research Institute's timecode service](https://www.ri.se/en/metrology/expertise/position-navigation-and-time). Phone number: +46 33 415783.
 
 * * *
 

@@ -18,7 +18,7 @@ For platforms and operating systems other than those mentioned here, there may b
 
 Several national time keepers allow reading the time via NTP:
 
-* [NIST](https://www.nist.gov/time-frequency) (USA)
+* [NIST](https://www.nist.gov/time-and-frequency) (USA)
 * [USNO](https://www.cnmoc.usff.navy.mil/Our-Commands/United-States-Naval-Observatory/Precise-Time-Department/Network-Time-Protocol-NTP/) (USA)
 * [PTB](https://www.ptb.de/cms/en/ptb/fachabteilungen/abt9/gruppe-95/ref-952/time-synchronization-of-computers-using-the-network-time-protocol-ntp.html) (Germany)
 

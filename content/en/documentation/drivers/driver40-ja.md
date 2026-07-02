@@ -46,7 +46,7 @@ type: archives
 | エコー計測器   LT-2000 | [3](/documentation/drivers/driver40-ja/#mode-3) | |
 | [シチズンTIC   JJY-200](https://tic.citizen.co.jp/index.html) | [4](/documentation/drivers/driver40-ja/#mode-4) | 日本語 |
 | [トライステート   TS-GPSclock-01](http://www.tristate.ne.jp/) | [5](/documentation/drivers/driver40-ja/#mode-5) | 日本語 |
-| [セイコー タイム システム   TDC-300](https://www.seiko-sts.co.jp/) | [6](/documentation/drivers/driver40-ja/#mode-6) | 英語と日本語 |
+| [セイコー タイム システム   TDC-300](https://www.seiko-stc.co.jp/) | [6](/documentation/drivers/driver40-ja/#mode-6) | 英語と日本語 |
 [テレフォンJJY](https://jjy.nict.go.jp/) | [100](/documentation/drivers/driver40-ja/#mode-100) | 英語と日本語 |
 
 * * *
