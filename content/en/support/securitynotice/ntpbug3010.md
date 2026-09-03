@@ -19,7 +19,7 @@ date: "2016-04-26"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3010">Bug 3010</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-2517">CVE-2016-2517</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2016-2517">CVE-2016-2517</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

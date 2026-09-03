@@ -1268,7 +1268,7 @@ type: archives
 
 **Release Date:** 2014 Dec 19
 
-* [Sec 730: Increase `RSA_generate_key` modulus](https://bugs.ntp.org/show_bug.cgi?id=730) / [CVE-2006-4339](https://nvd.nist.gov/vuln/detail/CVE-2006-4339)
+* [Sec 730: Increase `RSA_generate_key` modulus](https://bugs.ntp.org/show_bug.cgi?id=730) / [CVE-2006-4339](https://nvd.nist.gov/vuln/detail/cve-2006-4339)
 * [Sec 2666: Use cryptographic random numbers for md5 key generation](/support/securitynotice/ntpbug2666/)
 * [Sec 2667: buffer overflow in `crypto_recv()`](/support/securitynotice/ntpbug2667/)
 * [Sec 2668: buffer overflow in `ctl_putdata()`](/support/securitynotice/ntpbug2668/)

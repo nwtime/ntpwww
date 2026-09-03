@@ -19,7 +19,7 @@ date: "2009-01-08"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=1111">Bug 1111</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2009-0021">CVE-2009-0021</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2009-0021">CVE-2009-0021</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -33,7 +33,7 @@ date: "2009-01-08"
     
 #### Description 
 
-Affected versions do not properly check the return value from the OpenSSL `EVP_VerifyFinal` function, which allows remote attackers to bypass validation of the certificate chain via a malformed SSL/TLS signature, a different vulnerability than [CVE-2008-5077](https://nvd.nist.gov/vuln/detail/CVE-2008-5077) and [CVE-2009-0025](https://nvd.nist.gov/vuln/detail/CVE-2009-0025).
+Affected versions do not properly check the return value from the OpenSSL `EVP_VerifyFinal` function, which allows remote attackers to bypass validation of the certificate chain via a malformed SSL/TLS signature, a different vulnerability than [CVE-2008-5077](https://nvd.nist.gov/vuln/detail/cve-2008-5077) and [CVE-2009-0025](https://nvd.nist.gov/vuln/detail/cve-2009-0025).
 
 * * *
     

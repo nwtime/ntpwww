@@ -19,7 +19,7 @@ date: "2009-03-04"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=1151">Bug 1151</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2009-1252">CVE-2009-1252</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2009-1252">CVE-2009-1252</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

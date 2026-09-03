@@ -19,7 +19,7 @@ type: archives
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=XXXX">Bug XXXX</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-XXXX">CVE-XXXX</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-XXXX">CVE-XXXX</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

@@ -19,7 +19,7 @@ date: "2014-12-18"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2670">Bug 2670</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2014-9296">CVE-2014-9296</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2014-9296">CVE-2014-9296</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

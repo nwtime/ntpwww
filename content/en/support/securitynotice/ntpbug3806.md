@@ -19,7 +19,7 @@ type: archives
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/3806">Bug 3806</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-26551">CVE-2023-26551</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-26552">CVE-2023-26552</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-26553">CVE-2023-26553</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-26554">CVE-2023-26554</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2023-26551">CVE-2023-26551</a><br><a href="https://nvd.nist.gov/vuln/detail/cve-2023-26552">CVE-2023-26552</a><br><a href="https://nvd.nist.gov/vuln/detail/cve-2023-26553">CVE-2023-26553</a><br><a href="https://nvd.nist.gov/vuln/detail/cve-2023-26554">CVE-2023-26554</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

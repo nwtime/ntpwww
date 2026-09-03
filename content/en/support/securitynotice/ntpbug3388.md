@@ -19,7 +19,7 @@ date: "2017-03-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=3388">Bug 3388</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-6462">CVE-2017-6462</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2017-6462">CVE-2017-6462</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
