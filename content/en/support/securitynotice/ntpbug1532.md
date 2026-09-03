@@ -19,7 +19,7 @@ date: "2010-04-24"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=1532">Bug 1532</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2013-5211">CVE-2013-5211</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2013-5211">CVE-2013-5211</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>

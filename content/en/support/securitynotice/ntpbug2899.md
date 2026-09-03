@@ -19,7 +19,7 @@ date: "2015-10-21"
 	<tr>
 		<th><b>References</b></th>
 		<td><a href="https://bugs.ntp.org/show_bug.cgi?id=2899">Bug 2899</a></td>
-		<td><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7691">CVE-2015-7691</a><br> <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7692">CVE-2015-7692</a><br> <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-7702">CVE-2015-7702</a></td>
+		<td><a href="https://nvd.nist.gov/vuln/detail/cve-2015-7691">CVE-2015-7691</a><br> <a href="https://nvd.nist.gov/vuln/detail/cve-2015-7692">CVE-2015-7692</a><br> <a href="https://nvd.nist.gov/vuln/detail/cve-2015-7702">CVE-2015-7702</a></td>
 	</tr>
 	<tr>
 		<th><b>Affects</b></th>
@@ -40,7 +40,7 @@ date: "2015-10-21"
 
 Incorrect patch for [2671](/support/securitynotice/ntpbug2671/), in `crypto_xmit()`. Missing length checks for autokey with GQ identity scheme.
 
-The fix for [CVE-2014-9750](https://nvd.nist.gov/vuln/detail/CVE-2014-9750) was incomplete in that there were certain code paths where a packet with particular autokey operations that contained malicious data was not always being completely validated. Receipt of these packets can cause `ntpd` to crash.
+The fix for [CVE-2014-9750](https://nvd.nist.gov/vuln/detail/cve-2014-9750) was incomplete in that there were certain code paths where a packet with particular autokey operations that contained malicious data was not always being completely validated. Receipt of these packets can cause `ntpd` to crash.
 
 * * *
     

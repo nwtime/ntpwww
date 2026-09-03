@@ -7,7 +7,7 @@ date: "2016-01-07"
 
 NTF's NTP Project has been notified of the following 1 medium-severity vulnerability that is fixed in ntp-4.2.8p5, released on Thursday, 7 January 2016:
 
-* [2956: Small-step/Big-step](/support/securitynotice/ntpbug2956/) / [CVE-2015-5300](https://nvd.nist.gov/vuln/detail/CVE-2015-5300)
+* [2956: Small-step/Big-step](/support/securitynotice/ntpbug2956/) / [CVE-2015-5300](https://nvd.nist.gov/vuln/detail/cve-2015-5300)
 
 ntp-4.2.8p5 also fixes:
 
@@ -17,7 +17,7 @@ ntp-4.2.8p5 also fixes:
 * [2932: Update leapsecond file info in miscopt.html](https://bugs.ntp.org/show_bug.cgi?id=2932)
 * [2934: tests/ntpd/t-ntp_scanner.c has a magic constant wired in](https://bugs.ntp.org/show_bug.cgi?id=2934)
 * [2944: errno is not preserved properly in ntpdate after sendto call](https://bugs.ntp.org/show_bug.cgi?id=2944)
-* [2952: peer associations were broken by the fix for 2901](https://bugs.ntp.org/show_bug.cgi?id=2952) / [CVE-2015-7704](https://nvd.nist.gov/vuln/detail/CVE-2015-7704)
+* [2952: peer associations were broken by the fix for 2901](https://bugs.ntp.org/show_bug.cgi?id=2952) / [CVE-2015-7704](https://nvd.nist.gov/vuln/detail/cve-2015-7704)
 * [2954: Version 4.2.8p4 crashes on startup on some OSes](https://bugs.ntp.org/show_bug.cgi?id=2954)
 * [2957: 'unsigned int' vs 'size_t' format clash](https://bugs.ntp.org/show_bug.cgi?id=2957)
 * [2958: ntpq: fatal error messages need a final newline](https://bugs.ntp.org/show_bug.cgi?id=2958)
