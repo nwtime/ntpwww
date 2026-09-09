@@ -63,8 +63,12 @@ institutional membership, visit [Network Time Foundation](https://www.nwtime.org
   industrial and network appliances. hopf offers standard and customized solutions for accurate timing.
 
 * [ONAIR](https://onair.com.tr/en)
-  : ONAIR designs and manufactures professional broadcast, network timing and synchronization equipment and has supplied its products to customers in
-  numerous countries worldwide. Its timing product portfolio includes GPS/GNSS-based Stratum-1 Network Time Servers.
+  : ONAIR designs and manufactures professional broadcast, network timing, and synchronization equipment. Established in 1996, the 
+  company has supplied its products to customers in more than 80 countries worldwide. Its timing product portfolio includes 
+  GPS/GNSS-based Stratum-1 Network Time Servers. ONAIR NTP Time Servers are widely used in DVB-T2 digital television transmission 
+  systems and FM Single Frequency Network (SFN) applications. ONAIR also designs and manufactures Digital Clocks synchronized with its 
+  NTP Time Servers for applications including airports, railway stations, energy systems, industrial automation systems, hospitals, 
+  schools, and other facilities requiring accurate and synchronized time.
 
 * [Oscilloquartz SA](https://www.oscilloquartz.com/en)
   : A manufacturer of network time and frequency solutions as well as
