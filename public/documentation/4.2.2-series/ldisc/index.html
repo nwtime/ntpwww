@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/" />
+<link rel="canonical" href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/" />
   
   <meta property="og:title" content="Line Disciplines and Streams Modules" />
 <meta property="og:description" content="Table of Contents  Description tty_clk Line Discipline/Streams Module TIOCDCDTIMESTAMP ioctl in FreeBSD ppsclock Streams Module (deprecated) TIOCSPPS and TIOCGETPPSEV ioctls in Solaris tty_chu Line Discipline/Streams Module (deprecated)  Description Most radio and modem clocks used for a primary (stratum-1) NTP server utilize serial ports operating at speeds of 9600 baud or greater. The intrinsic delay and jitter contributed by the serial port hardware and software driver can accumulate up to a millisecond in newer Unix systems and tens of milliseconds in older ones." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/" /><meta property="og:image" content="https://qqq.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-15T18:38:45&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://qqq.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="Line Disciplines and Streams Modules"/>
 <meta name="twitter:description" content="Table of Contents  Description tty_clk Line Discipline/Streams Module TIOCDCDTIMESTAMP ioctl in FreeBSD ppsclock Streams Module (deprecated) TIOCSPPS and TIOCGETPPSEV ioctls in Solaris tty_chu Line Discipline/Streams Module (deprecated)  Description Most radio and modem clocks used for a primary (stratum-1) NTP server utilize serial ports operating at speeds of 9600 baud or greater. The intrinsic delay and jitter contributed by the serial port hardware and software driver can accumulate up to a millisecond in newer Unix systems and tens of milliseconds in older ones."/>
@@ -42,15 +42,15 @@
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://qqq.ntp.org/scss/nwtime.min.ae1d5c07cd13e892cfcd5091bb2030d2.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://qqq.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://qqq.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -58,23 +58,17 @@
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://qqq.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://qqq.ntp.org/"><img height="80" width="80" src="https://qqq.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
-        </button>
-      
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
-        </button>
-      
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
-        </button>
-      
-    </div>
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://qqq.ntp.org/donate/"><img src="https://qqq.ntp.org/images/icons/heart.svg" alt="" width="24" height="24">&emsp; Donate</a>
+      </button>
+	</div>
 
 
 
@@ -97,21 +91,21 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://qqq.ntp.org/documentation/">NTP Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/4.2.2-series/">4.2.2-series</a>
+	<a href="https://qqq.ntp.org/documentation/4.2.2-series/">4.2.2-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/">Line Disciplines and Streams Modules</a>
+	<a href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/">Line Disciplines and Streams Modules</a>
 </li>
 
 	</ol>
@@ -121,15 +115,15 @@
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Line Disciplines and Streams Modules</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:38 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/6197d2cdb4479623c85231302bfbe72be0af0a17">6197d2cdb</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:38 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/6197d2cdb4479623c85231302bfbe72be0af0a17">6197d2cdb</a>)</p>
 	<h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/#description">Description</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/#tttty_clktt-line-disciplinestreams-module"><tt>tty_clk</tt> Line Discipline/Streams Module</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/#tttiocdcdtimestamptt-ioctl-in-freebsd"><tt>TIOCDCDTIMESTAMP</tt> ioctl in FreeBSD</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/#ttppsclocktt-streams-module-deprecated"><tt>ppsclock</tt> Streams Module (deprecated)</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/#tttiocsppstt-and-tttiocgetppsevtt-ioctls-in-solaris"><tt>TIOCSPPS</tt> and <tt>TIOCGETPPSEV</tt> ioctls in Solaris</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.2-series/ldisc/#tttty_chutt-line-disciplinestreams-module-deprecated"><tt>tty_chu</tt> Line Discipline/Streams Module (deprecated)</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/#description">Description</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/#tttty_clktt-line-disciplinestreams-module"><tt>tty_clk</tt> Line Discipline/Streams Module</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/#tttiocdcdtimestamptt-ioctl-in-freebsd"><tt>TIOCDCDTIMESTAMP</tt> ioctl in FreeBSD</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/#ttppsclocktt-streams-module-deprecated"><tt>ppsclock</tt> Streams Module (deprecated)</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/#tttiocsppstt-and-tttiocgetppsevtt-ioctls-in-solaris"><tt>TIOCSPPS</tt> and <tt>TIOCGETPPSEV</tt> ioctls in Solaris</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.2-series/ldisc/#tttty_chutt-line-disciplinestreams-module-deprecated"><tt>tty_chu</tt> Line Discipline/Streams Module (deprecated)</a></li>
 </ul>
 <h4 id="description">Description</h4>
 <p>Most radio and modem clocks used for a primary (stratum-1) NTP server utilize serial ports operating at speeds of 9600 baud or greater. The intrinsic delay and jitter contributed by the serial port hardware and software driver can accumulate up to a millisecond in newer Unix systems and tens of milliseconds in older ones. In order to reduce the effects of delay and jitter, a set of special line disciplines, stream modules and operating system calls (<code>ioctls</code>) can be configured in some Unix kernels. These routines intercept special characters or signals provided by the radio or modem clock and save a timestamp for later processing.</p>
@@ -155,7 +149,7 @@
 <p>These ioctls are included in Solaris 2.4 and later. They implement the same function as the <code>ppsclock</code> streams module, but are implemented as integrated system calls independent of the streams facility. They are normally used in connection with a pulse-per-second (PPS) signal generated by some radio clocks. However, these ioctls are normally used only by the PPSAPI interface and should be avoided in other contexts. See the Sun documentation for the calling sequence and return values.</p>
 <p>Users are cautioned that these ioctls function improperly in Solaris versions prior to 2.8 with patch Generic_108528-02.</p>
 <h4 id="tttty_chutt-line-disciplinestreams-module-deprecated"><tt>tty_chu</tt> Line Discipline/Streams Module (deprecated)</h4>
-<p>This routine is a special purpose line discipline for receiving a special timecode broadcast by Canadian time and frequency standard station CHU. It has been removed from the distribution since its function has been replaced by the <a href="https://test.doc.ntp.org/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder (type 7)</a> clock driver.</p>
+<p>This routine is a special purpose line discipline for receiving a special timecode broadcast by Canadian time and frequency standard station CHU. It has been removed from the distribution since its function has been replaced by the <a href="https://qqq.ntp.org/documentation/drivers/driver7/">Radio CHU Audio Demodulator/Decoder (type 7)</a> clock driver.</p>
 
 	  
   </div>
@@ -164,27 +158,33 @@
   <div class="container">
       <ul class="navbar-nav">
         
-        <li class="nav-item" title="Twitter" aria-label="Twitter">
-          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+        <li class="nav-item" title="Join the Community on Discourse" aria-label="Join the Community on Discourse">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://community.nwtime.org">
+          <img src="https://qqq.ntp.org/images/icons/discourse.svg" width="20" height="20"></img>
           </a>
        </li>
        
-        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+        <li class="nav-item" title="Subscribe to NTF&#39;s Newsletter" aria-label="Subscribe to NTF&#39;s Newsletter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.nwtime.org/subscribe/">
+          <img src="https://qqq.ntp.org/images/icons/newspaper.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Follow us on LinkedIn" aria-label="Follow us on LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://qqq.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
-        <li class="nav-item" title="Facebook" aria-label="Facebook">
+        <li class="nav-item" title="Follow us on Facebook" aria-label="Follow us on Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://qqq.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        
 	  </ul>
 	  <ul class="mx-auto pt-3">
-        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+        <p>&copy; 2026 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
       </ul>
     </div>
 </nav>

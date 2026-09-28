@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"><link rel="canonical" href="https://qqq.ntp.org/support/securitynotice/4_2_8p16-release-announcement/" />
+  
+  <meta property="og:title" content="4.2.8p16 Release Announcement" />
+<meta property="og:description" content="The NTP Project at Network Time Foundation publicly released NTP 4.2.8p16 on May 30, 2023. This release fixes four security issues and provides 46 bugfixes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qqq.ntp.org/support/securitynotice/4_2_8p16-release-announcement/" /><meta property="og:image" content="https://qqq.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="support" />
+
+<meta property="article:modified_time" content="2023-06-01T11:28:50&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://qqq.ntp.org/images/NTPLogo800x418.webp"/>
+
+<meta name="twitter:title" content="4.2.8p16 Release Announcement"/>
+<meta name="twitter:description" content="The NTP Project at Network Time Foundation publicly released NTP 4.2.8p16 on May 30, 2023. This release fixes four security issues and provides 46 bugfixes."/>
+
+
+
+
+
+
+
+
+  
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
+   
+  <title>4.2.8p16 Release Announcement</title>
+
+  <!-- Mobile Responsive Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The NTP Project at Network Time Foundation publicly released NTP 4.2.8p16 on May 30, 2023. This release fixes four security issues and provides 46 bugfixes.">
+  
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <!-- Plugins -->
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://qqq.ntp.org/scss/nwtime.min.ae1d5c07cd13e892cfcd5091bb2030d2.css" media="screen">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://qqq.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://qqq.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+<body><!-- navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+
+	<div>
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://qqq.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://qqq.ntp.org/"><img height="80" width="80" src="https://qqq.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+    </div>
+
+
+    <div>
+      
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://qqq.ntp.org/donate/"><img src="https://qqq.ntp.org/images/icons/heart.svg" alt="" width="24" height="24">&emsp; Donate</a>
+      </button>
+	</div>
+
+
+
+</nav>
+
+
+  <div class="header-border">
+  </div>
+<!-- /navigation --><nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://qqq.ntp.org/support/">Support</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://qqq.ntp.org/support/securitynotice/">Security</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://qqq.ntp.org/support/securitynotice/4_2_8p16-release-announcement/">4.2.8p16 Release Announcement</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+<section class="section pt-0  pb-auto">
+  <div class="container">
+  	<h1>4.2.8p16 Release Announcement</h1> 
+    <p style="font-size: small; color: grey;">Last update: June 1, 2023 11:28 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/d2a7faef2fea5f10b28cc2ee1d842e4b241f414f">d2a7faef2</a>)</p>
+	<p>The NTP Project at Network Time Foundation publicly released ntp-4.2.8p16 on Tuesday, 30 May 2023.</p>
+<p>This release fixes two security issues in <code>ntpd</code>:</p>
+<ul>
+<li>
+<p>Low: <a href="https://qqq.ntp.org/support/securitynotice/ntpbug3807/">Sec 3807: praecis_parse() in ntpd/refclock_palisade.c can write out-of-bounds</a></p>
+<p>The Praecis reference clock gets time information from 3G CDMA cellphone towers, and relays it to <code>ntpd</code> over a serial port. Support for the Praecis refclock was added in November of 2002, before &ldquo;defensive programming&rdquo; was the norm. While once a useful means to transmit time, because CDMA signals have better building penetration than GPS, the use of CDMA networks are rapidly dwindling. At one time, there were 59 3G CDMA networks deployed around the world. As of now 49 have already shut down, and 5 of the remaining 10 are scheduled to shut down between now and 2025. The vulnerability described here relies on an attacker gaining physical access to the Praecis unit and, for example, uploading maliciously altered firmware that will send a response line of more than 100 bytes to an unpatched <code>ntpd</code> that is configured to get time from that serial connection using the Praecis driver, thus causing an overflow of an internal buffer.</p>
+<p>Reported by Ping Lee (spwpun).</p>
+</li>
+<li>
+<p>Low: <a href="https://qqq.ntp.org/support/securitynotice/ntpbug3767/">Sec 3767: An out-of-bounds KoD RATE ppoll value triggers an assertion abort in debug-enabled ntpd</a></p>
+<p>By default, the NTP software builds with debugging enabled. We expect most folks who build from source to be using NTP for development purposes, where it makes sense to enable debugging. Similarly, we expect production release engineers to build production releases with debugging disabled. An attacker who has control over an <code>ntpd</code> instance the victim queries, or who is &ldquo;lucky enough&rdquo; to guess the packet transmit timestamp of an unauthenticated client request and inject their response before the real server responds, can send a response with a KoD (kiss-of-death) RATE packet with an out-of-bounds value that will cause a debug-enabled victim&rsquo;s <code>ntpd</code> to abort with an assertion failure.</p>
+<p>Reported by Miroslav Lichvar.</p>
+</li>
+</ul>
+<p>two security issues in <code>ntpq</code>:</p>
+<ul>
+<li>
+<p>None: <a href="https://qqq.ntp.org/support/securitynotice/ntpbug3808/">Sec 3808: ntpq will abort with an assertion failure given a malformed RT-11 date</a></p>
+<p>By default, the NTP software builds with debugging enabled. We expect most folks who build from source to be using NTP for development purposes, where it makes sense to enable debugging. Similarly, we expect production release engineers to build production releases with debugging disabled. An attacker who has control over an <code>ntpd</code> instance the victim queries, or who is &ldquo;lucky enough&rdquo; to guess the packet transmit timestamp of an unauthenticated client request and inject their response before the real server responds, can send a response with a KoD (kiss-of-death) RATE packet with an out-of-bounds value that will cause a debug-enabled victim&rsquo;s <code>ntpd</code> to abort with an assertion failure.</p>
+<p>Reported by Miroslav Lichvar.</p>
+</li>
+<li>
+<p>Low: <a href="https://qqq.ntp.org/support/securitynotice/ntpbug3806/">Sec 3806: libntp/mstolfp() needs bounds checking</a></p>
+<p>This vulnerability only affects <code>ntpq</code> and does <strong>NOT</strong> affect <code>ntpd</code>. This vulnerability could have been reported via a single CVE. <code>ntpq</code> makes requests of a target <code>ntpd</code> from a short-lived random high port and displays the results to the user. An attacker can send a crafted response if they either control the queried <code>ntpd</code> or become a &ldquo;man-in-the-middle&rdquo; (MITM) on the network path. This crafted response causes a buffer overflow in the victim&rsquo;s <code>ntpq</code> client if it consists of a long ASCII character string that matches the pattern: <code>[+-]DIGIT*[.]DIGIT*</code>.</p>
+<p>Reported by Ping Lee (spwpun).</p>
+</li>
+</ul>
+<p>adds OpenSSL-3 support, provides 46 bugfixes, and 15 general improvements.</p>
+<p>ENotification of these issues were delivered to our Institutional members on a rolling basis as they were reported and as progress was made.</p>
+
+	  
+  </div>
+</section>
+<nav class="site-footer navbar navbar-expand-sm mt-auto">
+  <div class="container">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item" title="Join the Community on Discourse" aria-label="Join the Community on Discourse">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://community.nwtime.org">
+          <img src="https://qqq.ntp.org/images/icons/discourse.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Subscribe to NTF&#39;s Newsletter" aria-label="Subscribe to NTF&#39;s Newsletter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.nwtime.org/subscribe/">
+          <img src="https://qqq.ntp.org/images/icons/newspaper.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Follow us on LinkedIn" aria-label="Follow us on LinkedIn">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
+          <img src="https://qqq.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Follow us on Facebook" aria-label="Follow us on Facebook">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
+          <img src="https://qqq.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+	  </ul>
+	  <ul class="mx-auto pt-3">
+        <p>&copy; 2026 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+      </ul>
+    </div>
+</nav>
+</body>
+</html>

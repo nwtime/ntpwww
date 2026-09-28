@@ -1,0 +1,362 @@
+<html>
+<pre>
+% Richard Guy <guy@cs.ucla.edu>
+% 
+% Contributors include:
+% 
+% emv@ox.com (Ed Vielmetti)
+% Craig Partridge <craig@sics.se>
+% mustaq%bay@gatech.edu (Mustaq Ahamad)
+% gil@cc.gatech.edu (Gil Neiger)
+% rick@wucs1.wustl.edu (Rick Bubenik)
+% reiher@onyx.Jpl.Nasa.Gov (Peter Reiher)
+% pgraham@gold.cs.UManitoba.CA
+% Alan Downing <downing@erg.sri.com>
+% fdm@WLV.IMSD.CONTEL.COM (Frank D. Malczewski)
+% yih%albion@cs.utah.edu (Benny Yih)
+% marzullo@cs.cornell.edu (Keith Marzullo)
+% STROM@IBM.COM (Rob Strom)
+% Doug McCallum <dougm@ico.isc.com>
+% Colin Plumb <ccplumb@rose.waterloo.edu>
+% Friedemann Mattern <mattern@uklirb.informatik.uni-kl.de>
+% vera%chook.adelaide.edu.au@augean.ua.OZ.AU (Vera M)
+% B. Abali, IBM,  abali@watson.ibm.com
+%
+% (warning: some entries include locally-defined strings, i.e. 'acm-toplas')
+%
+% Abstract/logical time/clocks:
+
+<a href="http://www.tno.nl/instit/fel/refs/pub96_nl.html"> an article
+(Word for Windows 6.0)</a> can be found about Time Synchronization
+in Distributed Interactive Simulations. Part of it is a stepwise
+description on how to installe and configure NTP.
+NTP was used to synchronize systems across the ocean using ISDN-links.
+
+The article has been written by IST, TNO-FEL and VEDA.
+
+@inproceedings{abali95a,
+        author="B. Abali and C. B. Stunkel",
+        title="Time Synchronization on SP1 and SP2 Parallel Systems",
+        booktitle="Proc. 9th International Parallel Processing
+                Symposium IPPS--95",
+        year=1995,
+        pages="666--672"
+}<br>
+also see <a href="http://ibm.tc.cornell.edu/ibm/pps/doc/">IBM Parallel System</A>
+
+  @article{lamport78
+  author = "Leslie Lamport",
+  title = "Time, Clocks, and the Ordering of Events in a Distributed System",
+  journal = "Communications of the ACM",
+  year = 1978,
+  volume = 21,
+  number = 7,
+  month = "July",
+  pages = "558--565",
+  keywords = "classic paper on logical clocks"
+  }
+
+  @article{morgan85
+  author = "C. Morgan",
+  title = "Global and Logical Time in distributed algorithms",
+  journal = "Information Processing Letters",
+  year = 1985,
+  volume = 20,
+  pages = "189--194",
+  keywords = "good example on the use of logical clocks"
+  }
+
+  @article{Jefferson85,
+  author = "David R. Jefferson",
+  title = "Virtual Time",
+  journal = acm-toplas,
+  year =  1985,
+  volume = 7,
+  number = 3,
+  pages = "404-425",
+  month = jul,
+  keywords = "virtual time, simulation, time warp",
+  }
+
+  @incollection{mattern89
+  author = "Friedemann Mattern",
+  title = "Virtual Time and Global States of Distributed Systems",
+  booktitle = "Parallel and Distributed Algorithms: proceedings of the
+                 International Workshop on Parallel & Distributed Algorithms",
+  editor = "M. Cosnard et. al.",
+  year = 1989,
+  publisher = "Elsevier Science Publishers B. V.",
+  pages = "215--226",
+  keywords = "summary about the current rage in logical clocks (vector clocks)"
+  }
+
+  @article{sy:OR,
+  author = "Robert E. Strom and Shaula A. Yemini",
+  title = "Optimistic Recovery in Distributed Systems",
+  journal = "ACM Transactions on Computer Systems",
+  year = "1985",
+  volume = "3",
+  number = "3",
+  pages = "204--226",
+  month = "August",
+  keywords = "combines the optimistic principle underlying Jefferson's work
+                 with the time-as-partial-order ideas of Lamport"
+  }
+
+  @conference{peterson87,
+  author = "Larry L. Peterson",
+  title = "Preserving Context Information in an {IPC} Abstraction",
+  booktitle = "Proceedings of the 6th symposium on Reliability in Distributed
+    Software and Database Systems",
+  month = "March",
+  year = 1987,
+  pages = "22--31",
+  keywords = "example on the use of vector clocks"
+  }
+
+  @conference{neiger87,
+  author = "Gil Neiger and Sam Toueg",
+  title = "Substituting for Real Time and Common Knowledge in Asynchronous
+             Distributed Systems",
+  booktitle = "Proceedings of the Symposium on Principles of Distributed
+    Computing",
+  year = 1987,
+  organization = {ACM SIGPLAN/SIGOPS},
+  pages = "281--293",
+  keywords = "shows how standard Lamport logical clocks (with simple
+                modifications) can be used to simulate synchronized clocks"
+  }
+
+  @article{Welch87,
+  author = "Jennifer Lundelius Welch",
+  title = "Simulating Synchronous Processors",
+  journal = "Information and Computation",
+  year = 1987,
+  month = aug,
+  volume = 74,
+  number = 2,
+  pages = "159--171",
+  keywords = "similar results to Neiger and Toueg"
+  }
+
+
+% Concrete/synchronization of "real" clocks:
+% (cf. comp.protocols.time.ntp and ftp-able archives on louie.udel.edu)
+
+  @conference{Cristian86,
+  author = "F. Cristian, H. Aghili and R. Strong",
+  title = "Clock synchronization in the presence of omission and performance
+             faults, and processor joins",
+  booktitle = "Proceedings of the Sixteenth International Symposium on
+     Fault-Tolerant Computing",
+  year = 1986,
+  pages = "218-223",
+  month = "July",
+  }
+
+  @article{Cristian89,
+  author = "F. Cristian",
+  title = "A probabilistic approach to distributed clock synchronization",
+  journal = "Distributed Computing",
+  year = 1989,
+  volume = "3",
+  pages = "146-158",
+  }
+
+  @conference{Lundelius84,
+  author = "J. Lundelius and N. Lynch",
+  title = "A new fault-tolerant algorithm for clock synchronization",
+  booktitle = "Proceedings of the Third ACM SIGACT/SIGOPS
+     Symposium on Principles of Distributed Computing",
+  year = 1984,
+  pages = "75-88",
+  month = "August",
+  }
+
+  @conference{Dolev83,
+  author = "D. Dolev and N. Lynch and S. Pinter and E. Stark and W. Weihl",
+  title = "Reaching approximate agreement in the presence of faults",
+  booktitle = "Proceedings of the Third Symposium on Reliability in
+                Distributed Software and Database Systems",
+  year = 1983,
+  pages = "145-154",
+  month = "October",
+  }
+
+  @techreport{schneider87,
+  author = "Fred B. Schneider",
+  title = "Understanding Protocols for {B}yzantine Clock Synchronization",
+  institution = "Cornell University",
+  address = "Dept. of Computer Science, Upson Hall, Ithaca, NY 14853",
+  month = "August",
+  number = "TR 87--859"
+  year = 1987,
+  keywords = "survey on clock synchronization algorithms,
+               including lots of references"
+  }
+
+  @conference{marzullo83,
+  author = "Keith Marzullo and Susan Owicki",
+  title = "Maintaining the Time in a Distributed System",
+  booktitle = "Proceedings of the Second Symposium on Principles of
+    Distributed Computing",
+  year = 1983,
+  organization = {ACM SIGPLAN/SIGOPS},
+  pages = "295--305",
+  keywords = "example of a practical clock synchronization service"
+  }
+
+  @conference{lamport84,
+  author = "Leslie Lamport and Peter M. Melliar-Smith",
+  title = "Byzantine clock synchronization.",
+  booktitle = "Proceedings of the Symposium on Principles of Distributed
+    Computing",
+  year = 1984,
+  organization = {ACM SIGPLAN/SIGOPS},
+  pages = "68--74"
+  }
+
+  @conference{halpern84,
+  author = "Joseph Halpern and Barbara Simons and Ray Strong and Danny Dolev",
+  title = "Fault-tolerant clock synchronization",
+  booktitle = "Proceedings of Symposium on Principles of Distributed Computing",
+  month = "August",
+  year = 1984,
+  organization = {ACM SIGPLAN/SIGOPS},
+  pages = "89--102"
+  }
+
+  @conference{Zhang90,
+  author = "Lixia Zhang",
+  title = "VirtualClock: A new traffic control algorithm for Packet
+                switching networks",
+  booktitle = "SIGCOMM '90 Symposium: Communications Architectures & Protocols",
+  year = 1990,
+  month = sep,
+  pages = "19--29"
+  }
+
+  @article{Kopetz87,
+  author = "Hermann Kopetz and Wilhelm Ochsenreiter",
+  title = "Clock synchronization in distributed real-time computer systems",
+  journal = "IEEE Transactions on Computers",
+  volume = "C-36",
+  number = 8,
+  year = 1987,
+  month = aug,
+  pages = "933--940"
+  }
+
+  @article{Ramanathan90,
+  author = "P Ramanathan and D. D. Kandlur and K. G. Shin",
+  title = "Hardware-assisted software clock synchronization for homogeneous
+             distributed systems",
+  journal = "IEEE Transactions on Computers",
+  volume = "C-39",
+  number = 4,
+  year = 1990,
+  month = apr,
+  pages = "514--524"
+  }
+
+  @article{Rothke98,
+  author = "Ben Rothke",
+  title = "The Criticality of Network Time Synchronization & its Effect on Information Systems Security",
+  journal = "Computer Security Institute Journal",
+  year = 1998,
+  volume = xx,
+  number = xx,
+  month = "Summer",
+  pages = "xx--xx"
+  }
+
+  @article{srikanth87,
+  author = "T. K. Srikanth and Sam Toueg",
+  title = "Optimal Clock Synchronization",
+  journal = "Journal of the ACM",
+  year = 1987,
+  volume = 34,
+  number = 3,
+  month = "July",
+  pages = "626--645"
+  }
+
+  @misc{RFC1165,
+  author = "J. Crowcroft and J. P. Onions",
+  title = "Network Time Protocol (NTP) over the OSI Remote Operations Service",
+  howpublished = "{Network Working Group Request for Comments: 1165}",
+  year = 1990,
+  month = jun,
+  pages = "1--10"
+  }
+
+  @misc{RFC1129,
+  author = "Dave L. Mills",
+  title =  "Internet time synchronization: The Network Time Protocol",
+  howpublished = "{Network Working Group Request for Comments: 1129}",
+  year = 1989,
+  month = oct,
+  pages = "1--29"
+  }
+
+  @misc{RFC1128,
+  author = "Dave L. Mills",
+  title = "Measured performance of the Network Time Protocol in the
+             Internet system",
+  howpublished = "{Network Working Group Request for Comments: 1128}",
+  year = 1989,
+  month = oct,
+  pages = "1--20"
+  }
+
+  @misc{RFC1119,
+  author = "Dave L. Mills",
+  title =  "Network Time Protocol (version 2) specification and
+               implementation",
+  howpublished = "{Network Working Group Request for Comments: 1119}",
+  year = 1989,
+  month = sep,
+  pages = "1--64",
+  keywords = "(Obsoletes RFC 1059, RFC 958)"
+  }
+
+  @misc{RFC1059,
+  author = "Dave L. Mills",
+  title =  "Network Time Protocol (version 1) specification and
+                implementation",
+  howpublished = "{Network Working Group Request for Comments: 1059}",
+  year = 1988,
+  month = jul,
+  pages = "1--58",
+  keywords = "(Obsoleted by RFC 1119)"
+  }
+
+  @misc{RFC958,
+  author = "Dave L. Mills",
+  title =  "Network Time Protocol (NTP)",
+  howpublished = "{Network Working Group Request for Comments: 958}",
+  year = 1985,
+  month = sep,
+  pages = "1--14",
+  keywords = "(Obsoleted by RFC 1119)"
+  }
+
+  @misc{RFC957,
+  author = "Dave L. Mills",
+  title =  "Experiments in network clock synchronization",
+  howpublished = "{Network Working Group Request for Comments: 957}",
+  year = 1985,
+  month = sep,
+  pages = "1--27"
+  }
+
+  @misc{RFC956,
+  author = "Dave L. Mills",
+  title =  "Algorithms for synchronizing network clocks",
+  howpublished = "{Network Working Group Request for Comments: 956}",
+  year = 1985,
+  month = sep,
+  pages = "1--26"
+  }
+</pre>
+</html>

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8"><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<link rel="canonical" href="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/" />
+<link rel="canonical" href="https://qqq.ntp.org/documentation/4.2.6-series/prefer/" />
   
   <meta property="og:title" content="Mitigation Rules and the prefer Keyword" />
 <meta property="og:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
 Listen carefully to what I say; it is very complicated.
  Table of Contents  Introduction Peer Classification The prefer Peer Mitigation Rules The minsane Option   Introduction This page summarizes the criteria for choosing from among a number of potential sources suitable contributors to the clock discipline algorithm. The criteria are very meticulous, since they have to handle many different scenarios that may be optimized for peculiar circumstances, including some scenarios designed to support planetary and deep space missions." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/" /><meta property="og:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
+<meta property="og:url" content="https://qqq.ntp.org/documentation/4.2.6-series/prefer/" /><meta property="og:image" content="https://qqq.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
 <meta property="article:modified_time" content="2022-04-15T18:28:22&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://test.doc.ntp.org/images/NTPLogo800x418.webp"/>
+<meta name="twitter:image" content="https://qqq.ntp.org/images/NTPLogo800x418.webp"/>
 
 <meta name="twitter:title" content="Mitigation Rules and the prefer Keyword"/>
 <meta name="twitter:description" content="from Alice&rsquo;s Adventures in Wonderland, Lewis Carroll
@@ -46,15 +46,15 @@ Listen carefully to what I say; it is very complicated.
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://test.doc.ntp.org/scss/nwtime.min.4076252e84f6b88920097824ca49d445.css" media="screen">
+  <link rel="stylesheet" href="https://qqq.ntp.org/scss/nwtime.min.ae1d5c07cd13e892cfcd5091bb2030d2.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://test.doc.ntp.org/favicons/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://test.doc.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="https://test.doc.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
+  <link rel="shortcut icon" href="https://qqq.ntp.org/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://qqq.ntp.org/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://qqq.ntp.org/favicons/android-chrome-512x512.png" sizes="512x512"></head>
 <body><!-- navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -62,23 +62,17 @@ Listen carefully to what I say; it is very complicated.
 
 
 	<div>
-	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://test.doc.ntp.org/images/logo.png" alt=""></a>
-	  <a class="navbar-brand" href="https://test.doc.ntp.org/"><img height="80" width="80" src="https://test.doc.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
+	  <a class="navbar-brand" href="https://www.nwtime.org"><img height="80" width="80" src="https://qqq.ntp.org/images/logo.png" alt=""></a>
+	  <a class="navbar-brand" href="https://qqq.ntp.org/"><img height="80" width="80" src="https://qqq.ntp.org/images/ntp_logo.jpg" alt="NTP: Network Time Protocol"></a> 
     </div>
 
 
     <div>
       
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/support/">Support</a>
-        </button>
-      
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/reflib/">Reference Library</a>
-        </button>
-      
-		<button class="btn btn-light btn-lg" type="button" aria-expanded="false"><a class="nav-item" style="text-decoration: none; text-transform: uppercase" href="https://test.doc.ntp.org/documentation/">Documentation</a>
-        </button>
-      
-    </div>
+	
+	  <button class="btn btn-primary btn-lg" type="button"><a class="nav-item btn btn-primary btn-lg" style="text-decoration: none; text-transform: uppercase" href="https://qqq.ntp.org/donate/"><img src="https://qqq.ntp.org/images/icons/heart.svg" alt="" width="24" height="24">&emsp; Donate</a>
+      </button>
+	</div>
 
 
 
@@ -101,21 +95,21 @@ Listen carefully to what I say; it is very complicated.
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/">Documentation</a>
+	<a href="https://qqq.ntp.org/documentation/">NTP Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="https://test.doc.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
+	<a href="https://qqq.ntp.org/documentation/4.2.6-series/">4.2.6-series</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/">Mitigation Rules and the prefer Keyword</a>
+	<a href="https://qqq.ntp.org/documentation/4.2.6-series/prefer/">Mitigation Rules and the prefer Keyword</a>
 </li>
 
 	</ol>
@@ -125,19 +119,19 @@ Listen carefully to what I say; it is very complicated.
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Mitigation Rules and the prefer Keyword</h1> 
-    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:28 UTC (<a href="https://bitbucket.nwtime.org/projects/WEBSITES/repos/ntpwww/commits/ccc2d1e85650f914a85d08abe67d10163d733da2">ccc2d1e85</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: April 15, 2022 18:28 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/ccc2d1e85650f914a85d08abe67d10163d733da2">ccc2d1e85</a>)</p>
 	<p><p>
-  <img loading="lazy" src="https://test.doc.ntp.org/documentation/pic/alice11.gif" alt="gif"  />
-</p> <a href="https://test.doc.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
+  <img loading="lazy" src="https://qqq.ntp.org/documentation/pic/alice11.gif" alt="gif"  />
+</p> <a href="https://qqq.ntp.org/reflib/pictures/">from <em>Alice&rsquo;s Adventures in Wonderland</em>, Lewis Carroll</a></p>
 <p>Listen carefully to what I say; it is very complicated.</p>
 <hr>
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/#introduction">Introduction</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/#peer-classification">Peer Classification</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/#the-ttprefertt-peer">The <tt>prefer</tt> Peer</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/#mitigation-rules">Mitigation Rules</a></li>
-<li><a href="https://test.doc.ntp.org/documentation/4.2.6-series/prefer/#the-ttminsanett-option">The <tt>minsane</tt> Option</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.6-series/prefer/#introduction">Introduction</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.6-series/prefer/#peer-classification">Peer Classification</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.6-series/prefer/#the-ttprefertt-peer">The <tt>prefer</tt> Peer</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.6-series/prefer/#mitigation-rules">Mitigation Rules</a></li>
+<li><a href="https://qqq.ntp.org/documentation/4.2.6-series/prefer/#the-ttminsanett-option">The <tt>minsane</tt> Option</a></li>
 </ul>
 <hr>
 <h4 id="introduction">Introduction</h4>
@@ -149,7 +143,7 @@ Listen carefully to what I say; it is very complicated.
 <li>A loop error occurs if the source is synchronized to the client of if the source is synchronized to the same source as the client.</li>
 <li>An unreachable error occurs if the source is unreachable or if the <code>server</code> or <code>peer</code> command for the source includes the <code>noselect</code> option.</li>
 </ol>
-<p>Phase three uses an intersection algorithm to select the truechimers from among the candidates, leaving behind the falsetickers. A server or peer configured with the <code>true</code> option is ipso facto a truechimer independent of this algorithm. Phase four uses a clustering algorithm to cast off statistical outliers from the truechimers until a set of survivors not less than the number specified as the <code>minclock</code> option of the <code>tos</code> command, with default 3. Phase five uses a set of mitigation rules to select from among the survivors a system peer from which a set of system statistics can be inherited and passed along to a dependent client population. The clock offset developed from these algorithms can discipline the system clock either using the <code>ntpd</code> clock discipline algorithm or enable the kernel to discipline the system clock directly, as described on the <a href="https://test.doc.ntp.org/documentation/4.2.6-series/kern/">A Kernel Model for Precision Timekeeping</a> page. Phase five is the topic of this page.</p>
+<p>Phase three uses an intersection algorithm to select the truechimers from among the candidates, leaving behind the falsetickers. A server or peer configured with the <code>true</code> option is ipso facto a truechimer independent of this algorithm. Phase four uses a clustering algorithm to cast off statistical outliers from the truechimers until a set of survivors not less than the number specified as the <code>minclock</code> option of the <code>tos</code> command, with default 3. Phase five uses a set of mitigation rules to select from among the survivors a system peer from which a set of system statistics can be inherited and passed along to a dependent client population. The clock offset developed from these algorithms can discipline the system clock either using the <code>ntpd</code> clock discipline algorithm or enable the kernel to discipline the system clock directly, as described on the <a href="https://qqq.ntp.org/documentation/4.2.6-series/kern/">A Kernel Model for Precision Timekeeping</a> page. Phase five is the topic of this page.</p>
 <hr>
 <h4 id="peer-classification">Peer Classification</h4>
 <p>The behavior of the various algorithms and mitigation rules involved depends on how the various synchronization sources are classified. This depends on whether the source is local or remote and if local the type of source. The following classes are defined:</p>
@@ -199,27 +193,33 @@ Listen carefully to what I say; it is very complicated.
   <div class="container">
       <ul class="navbar-nav">
         
-        <li class="nav-item" title="Twitter" aria-label="Twitter">
-          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ntp">
-          <img src="https://test.doc.ntp.org/images/icons/twitter.svg" width="20" height="20"></img>
+        <li class="nav-item" title="Join the Community on Discourse" aria-label="Join the Community on Discourse">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://community.nwtime.org">
+          <img src="https://qqq.ntp.org/images/icons/discourse.svg" width="20" height="20"></img>
           </a>
        </li>
        
-        <li class="nav-item" title="LinkedIn" aria-label="LinkedIn">
+        <li class="nav-item" title="Subscribe to NTF&#39;s Newsletter" aria-label="Subscribe to NTF&#39;s Newsletter">
+          <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.nwtime.org/subscribe/">
+          <img src="https://qqq.ntp.org/images/icons/newspaper.svg" width="20" height="20"></img>
+          </a>
+       </li>
+       
+        <li class="nav-item" title="Follow us on LinkedIn" aria-label="Follow us on LinkedIn">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4651343">
-          <img src="https://test.doc.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
+          <img src="https://qqq.ntp.org/images/icons/linkedin.svg" width="20" height="20"></img>
           </a>
        </li>
        
-        <li class="nav-item" title="Facebook" aria-label="Facebook">
+        <li class="nav-item" title="Follow us on Facebook" aria-label="Follow us on Facebook">
           <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/networktimeprotocol">
-          <img src="https://test.doc.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
+          <img src="https://qqq.ntp.org/images/icons/facebook.svg" width="20" height="20"></img>
           </a>
        </li>
        
 	  </ul>
 	  <ul class="mx-auto pt-3">
-        <p>&copy; 2022 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
+        <p>&copy; 2026 <a class="navbar-text text-white" href="https://www.nwtime.org/">Network Time Foundation</a></p>	
       </ul>
     </div>
 </nav>
