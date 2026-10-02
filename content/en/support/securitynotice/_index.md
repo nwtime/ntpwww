@@ -415,5 +415,5 @@ Public Release: 2016 Jun 02
 
 | Security Issue | Severity |
 | -------------- | -------- |
-| [Multiple OpenSSL signature verification API misuse](https://nvd.nist.gov/vuln/detail/CVE-2009-0021) |<span style="color:orange">MEDIUM</span>|
+| [Multiple OpenSSL signature verification API misuse](https://nvd.nist.gov/vuln/detail/cve-2009-0021) |<span style="color:orange">MEDIUM</span>|
 
