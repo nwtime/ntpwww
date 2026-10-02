@@ -8,7 +8,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.ntp.org/documentation/ietf/ntp-i-do/" /><meta property="og:image" content="https://www.ntp.org/images/NTPLogo800x418.webp"/><meta property="article:section" content="documentation" />
 
-<meta property="article:modified_time" content="2025-11-03T16:09:53&#43;00:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
+<meta property="article:modified_time" content="2026-10-02T17:48:52&#43;01:00" /><meta property="og:site_name" content="NTP: Network Time Protocol" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -144,7 +144,7 @@ function demo() {
 <section class="section pt-0  pb-auto">
   <div class="container">
   	<h1>Network Time Protocol I-Do Extension Field</h1> 
-    <p style="font-size: small; color: grey;">Last update: November 3, 2025 16:09 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/9cbb45cb6676797715378c0af18f1298e03ab7cb">9cbb45cb6</a>)</p>
+    <p style="font-size: small; color: grey;">Last update: October 2, 2026 17:48 UTC (<a href="https://git.nwtime.org/websites/ntpwww/commit/056bbf6ee45b230ba4092262dbe1af10899c10f7">056bbf6ee</a>)</p>
 	<pre><code>Workgroup:		Internet Engineering Task Force
 Internet-Draft:		draft-stenn-ntp-i-do-06
 Published:    		11 July 2019 
@@ -179,28 +179,50 @@ Author:			H. Stenn
 </ul>
 <hr>
 <h4 id="1-introduction">1. Introduction</h4>
-<p>The first implementation of NTPv4 was released in 2003, and was defined by <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>. It contains an optional and now obsolete public-key security protocol, Autokey, which is defined by <a href="https://www.ntp.org/reflib/rfc/rfc5906.txt">RFC 5906</a>. Until very recently, Autokey has been the only implemented use of NTP packet Extension Fields. New proposals for extension fields are being written and there is currently no convenient way to learn if a remote instance of NTP supports any extension fields or not. This proposal contains a method to tell a remote instance of NTP what we (are willing to admit we) support, and ask what they (are willing to admit they) support.</p>
+<p>The first implementation of NTPv4 was released in 2003, and was defined by <a href="https://www.ntp.org/reflib/rfc/rfc5905.txt">RFC 5905</a>. It contains an optional 
+and now obsolete public-key security protocol, Autokey, which is defined by <a href="https://www.ntp.org/reflib/rfc/rfc5906.txt">RFC 5906</a>. Until very recently, 
+Autokey has been the only implemented use of NTP packet Extension Fields. New proposals for extension fields are being written and there is currently no convenient way to learn if a remote instance of NTP supports any extension fields or not. This proposal contains a method to tell a remote instance of NTP what we (are willing to admit we) support, and ask what they (are willing to admit they) support.</p>
 <hr>
 <h4 id="11-requirements-language">1.1. Requirements Language</h4>
-<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
+<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this
+document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
 <hr>
 <h4 id="2-the-i-do-extension-field">2. The I-Do Extension Field</h4>
 <h5 id="21-overview">2.1. Overview</h5>
 <p>The purpose of the I-DO EF is to provide information to the remote side about our capabilities.</p>
-<p>If an incoming packet contains an unrecognized extension field, one of several things will happen. While that unrecognized extension field SHOULD be ignored, an implementation MAY choose to drop the entire packet.</p>
-<p>If any extension field is present there ordinarily SHOULD be a MAC following the extension field. However, an older conforming NTP implementation will require that any EF MUST be followed by a MAC.</p>
-<p>Some extension fields are unable to be &ldquo;signed&rdquo; by a MAC, regardless of whether or not that MAC is a traditional MAC or an extension field MAC.</p>
-<p>In the previous two cases, a conforming legacy system that receives these types of packets will interpret the unrecognized EF as a missing or legacy MAC, and return a crypto-NAK.</p>
-<p>If the remote system replies with a crypto-NAK, that is a good indication that it is running older software that does not recognize EFs and thinks we have sent an invalid MAC. In this case, we SHOULD NOT send that system newer EFs.</p>
-<p>If the remote system replies without including an I-DO-RESPONSE EF, we at least know they can handle EFs, but they either don&rsquo;t understand I-DO or are not willing to tell us anything. In this case, we SHOULD NOT send any newer EFs.</p>
-<p>If the remote system replies with a packet that includes an I-DO-RESPONSE EF, then we SHOULD remember what they told us, and use that information appropriately. In other words, we can exchange packets containing any new EFs that we agree on, and we should not exchange packets containing any new EFs that we have not agreed on.</p>
-<p>In client/server mode, it makes sense for the client to send an I-DO to the server, and notice how the server responds. While the server SHOULD respond with an I-DO-RESPONSE EF, it likely does not make sense for the server to send an I-DO EF in response to a client request.</p>
+<p>If an incoming packet contains an unrecognized extension field, one of several things will happen. While that unrecognized extension 
+field SHOULD be ignored, an implementation MAY choose to drop the entire packet.</p>
+<p>If any extension field is present there ordinarily SHOULD be a MAC following the extension field. However, an older conforming NTP 
+implementation will require that any EF MUST be followed by a MAC.</p>
+<p>Some extension fields are unable to be &ldquo;signed&rdquo; by a MAC, regardless of whether or not that MAC is a traditional MAC or an extension 
+field MAC.</p>
+<p>In the previous two cases, a conforming legacy system that receives these types of packets will interpret the unrecognized EF as a 
+missing or legacy MAC, and return a crypto-NAK.</p>
+<p>If the remote system replies with a crypto-NAK, that is a good indication that it is running older software that does not recognize EFs 
+and thinks we have sent an invalid MAC. In this case, we SHOULD NOT send that system newer EFs.</p>
+<p>If the remote system replies without including an I-DO-RESPONSE EF, we at least know they can handle EFs, but they either don&rsquo;t 
+understand I-DO or are not willing to tell us anything. In this case, we SHOULD NOT send any newer EFs.</p>
+<p>If the remote system replies with a packet that includes an I-DO-RESPONSE EF, then we SHOULD remember what they told us, and use that 
+information appropriately. In other words, we can exchange packets containing any new EFs that we agree on, and we should not exchange 
+packets containing any new EFs that we have not agreed on.</p>
+<p>In client/server mode, it makes sense for the client to send an I-DO to the server, and notice how the server responds. While the server
+SHOULD respond with an I-DO-RESPONSE EF, it likely does not make sense for the server to send an I-DO EF in response to a client request.</p>
 <p>In symmetric mode, either side may initiate sending an I-DO EF, and the receiving side SHOULD reply with an I-DO-RESPONSE EF.</p>
-<p>In broadcast mode, the broadcast server MAY send broadcast packets that include an I-DO EF, but note that if, counter to recommended practice, these packets are unauthenticated they MAY cause client machines to misinterpret the packet as having invalid authentication. In this situation, the broadcast server SHOULD alternate sending broadcast server packets with and without an I-DO EF, to insure that all clients receive time packets they will accept. Note that if, as recommended, broadcast packets are authenticated, a conforming client SHOULD have no difficulty in receiving a broadcast (mode 5) packet from a server that includes an I-DO EF.</p>
+<p>In broadcast mode, the broadcast server MAY send broadcast packets that include an I-DO EF, but note that if, counter to recommended 
+practice, these packets are unauthenticated they MAY cause client machines to misinterpret the packet as having invalid authentication. 
+In this situation, the broadcast server SHOULD alternate sending broadcast server packets with and without an I-DO EF, to insure that 
+all clients receive time packets they will accept. Note that if, as recommended, broadcast packets are authenticated, a conforming 
+client SHOULD have no difficulty in receiving a broadcast (mode 5) packet from a server that includes an I-DO EF.</p>
 <hr>
 <h4 id="22-i-do-packet-format">2.2. I-DO Packet Format</h4>
-<p>The content of the I-DO extension field is an ordinary four octet Extension Field header followed by a payload consisting of an appropriate number of two octet I-DO values that use nonzero values to indicate a supported feature. An I-DO value of zero is ignored. The payload section must end on a four-octet boundary.</p>
-<p>There are two types of nonzero I-DO values that may be used. They are both defined in the <a href="https://www.iana.org/assignments/ntp-parameters/ntp-parameters.xhtml#ntp-parameters-3">IANA NTP Extension Field Table (Section 4)</a>. These values are either Extension Field Types, where only the low-order values (0x01 thru 0xFE) are used, or I-DO Types, where all 16 bits are used and the bottom octet is currently always 0xFF. The examples below are built using information from the following Standards and proposals:</p>
+<p>The content of the I-DO extension field is an ordinary four octet Extension Field header followed by a payload consisting of an 
+appropriate number of two octet I-DO values that use nonzero values to indicate a supported feature. An I-DO value of zero is ignored. 
+The payload section must end on a four-octet boundary.</p>
+<p>There are two types of nonzero I-DO values that may be used. They are both defined in the 
+<a href="https://www.iana.org/assignments/ntp-parameters#ntp-parameters-3">IANA NTP Extension Field Table (Section 4)</a>. 
+These values are either Extension Field Types, where only the low-order values (0x01 thru 0xFE) are used, or I-DO Types, where all 16 
+bits are used and the bottom octet is currently always 0xFF. The examples below are built using information from the following Standards
+and proposals:</p>
 <p><a href="https://www.ntp.org/reflib/rfc/rfc5906.txt">RFC 5906</a></p>
 <p><a href="https://www.ntp.org/documentation/ietf/ntp-extension-fields/">NTP-EXTENSION-FIELDS</a></p>
 <p><a href="https://www.ntp.org/documentation/ietf/ntp-mac-last-ef/">MAC-LAST-EF</a></p>
@@ -220,9 +242,11 @@ Author:			H. Stenn
 <dt>Field Length:</dt>
 <dd>as needed</dd>
 <dt>Payload:</dt>
-<dd>An enumeration of the supported base Field Types, followed by any zero padding (0x0000) needed to fill the payload to the desired 32-bit boundary.</dd>
+<dd>An enumeration of the supported base Field Types, followed by any zero padding (0x0000) needed to fill the payload to the desired 
+32-bit boundary.</dd>
 </dl>
-<p>Example: A system that wants to advertise support for Autokey and I-DO, sending to a system that responds with support for I-DO, NTS, MAC-EF, and LAST-EF.</p>
+<p>Example: A system that wants to advertise support for Autokey and I-DO, sending to a system that responds with support for I-DO, NTS, 
+MAC-EF, and LAST-EF.</p>
 <pre><code> 0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +---------------+---------------+-------------------------------+
@@ -243,10 +267,16 @@ Author:			H. Stenn
 </code></pre><p><em>Figure 3: NTP Extension Field: I-Do Response - Example</em></p>
 <hr>
 <h5 id="23-behavior">2.3. Behavior</h5>
-<p>The sender of any I-Do extension field MUST send an extension field with a Field Type of 0x0007 (I-Do) and SHOULD include a payload with any 0x0000 padding values after enumerating the supported base Extension Field Types. If the responding system recognizes the I-Do extension field, its response MUST include an extension field with a Field Type of 0x8007 (I-Do Response), and SHOULD include a payload with any 0x0000 padding values after enumerating the supported base Extension Field Types.</p>
-<p>Any system that receives an I-Do extension field as either an &ldquo;offer&rdquo; or a &ldquo;response&rdquo; SHOULD scan the entire payload looking for nonzero values that specify the capabilities of the remote association.</p>
+<p>The sender of any I-Do extension field MUST send an extension field with a Field Type of 0x0007 (I-Do) and SHOULD include a payload 
+with any 0x0000 padding values after enumerating the supported base Extension Field Types. If the responding system recognizes the I-Do 
+extension field, its response MUST include an extension field with a Field Type of 0x8007 (I-Do Response), and SHOULD include a payload 
+with any 0x0000 padding values after enumerating the supported base Extension Field Types.</p>
+<p>Any system that receives an I-Do extension field as either an &ldquo;offer&rdquo; or a &ldquo;response&rdquo; SHOULD scan the entire payload looking for 
+nonzero values that specify the capabilities of the remote association.</p>
 <p>Any system that receives an I-Do &ldquo;offer&rdquo;, 0x0007, SHOULD reply with an I-Do &ldquo;response&rdquo;, 0x8007.</p>
-<p>Any system that sends an I-Do &ldquo;offer&rdquo; or &ldquo;response&rdquo; may send as few or as many of its supported Field Types as it chooses. At any subsequent time, either side may re-negotiate the list of supported field types it is prepared to accept from the other system by sending a new I-Do extension field.</p>
+<p>Any system that sends an I-Do &ldquo;offer&rdquo; or &ldquo;response&rdquo; may send as few or as many of its supported Field Types as it chooses. At any 
+subsequent time, either side may re-negotiate the list of supported field types it is prepared to accept from the other system by 
+sending a new I-Do extension field.</p>
 <p>The most-recently received I-Do list replaces any previous I-Do list.</p>
 <hr>
 <h4 id="3-acknowledgements">3. Acknowledgements</h4>
