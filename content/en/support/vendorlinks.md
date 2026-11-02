@@ -31,6 +31,11 @@ institutional membership, visit [Network Time Foundation](https://www.nwtime.org
 
 #### Non-Member Vendors
 
+* [Alvian Networks](https://www.alviannetworks.com/)
+  : A Canadian developer of precision GNSS-based network timing and timing integrity solutions for telecommunications, utilities, 
+  enterprise networks, and critical infrastructure. Alvian's Edge Node platform combines network time synchronization with GNSS 
+  integrity monitoring, anomaly detection, and infrastructure assurance capabilities.
+
 * [Arbiter Systems](https://www.arbiter.com/)
   : A manufacturer of precision GNSS synchronized timing products (NTP, PTP, IRIG-B, and more) and power measurement solutions (PMU, 
   synchrophasor, power, voltage, current, harmonics, and more).
