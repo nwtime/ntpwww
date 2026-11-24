@@ -2,6 +2,8 @@
 title: "Software"
 description: "Historical software archives for 1993-2002. Most of this software is for the deprecated NTPv3 and is for historical purposes only."
 type: archives
+noindex: true
+sitemap_exclude: true
 ---
 
 {{% pageinfo %}}
